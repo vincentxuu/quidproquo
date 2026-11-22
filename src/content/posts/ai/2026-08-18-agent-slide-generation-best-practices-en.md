@@ -10,7 +10,7 @@ description: "Best practices for AI agents generating presentations: a close rea
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-agent-slide-generation-best-practices)
+> :globe: [中文版](/posts/ai/2026-08-18-agent-slide-generation-best-practices)
 
 LLMs are good at producing text but cannot see how they laid it out. A deck is a visual document, and defects like overflowing text, overlapping elements, and insufficient contrast only exist after rendering — which is why early AI slides were all ugly in the same way. Every mature 2026 approach, whether Anthropic's and OpenAI's official skills, the Marp/Slidev code-first workflow, or products like Gamma and Manus, is solving one problem: **how to give the agent visual feedback.** This article covers the consensus architecture, the trade-offs between three output paths, and the anti-patterns to avoid.
 

@@ -13,7 +13,7 @@ description: "瓦拉澤（Varazze）抱石區介紹：岩質、各區規模與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-varazze-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-varazze-en)
 
 瓦拉澤（Varazze）是利古里亞（Liguria）西岸的海邊小城，在熱那亞（Genova）與菲納萊利古雷（Finale Ligure）之間。抱石區不在海邊，而在城後 Teiro 溪谷往 Alpicella、Faie 方向的山坡上，開車 15–20 分鐘。這裡有一顆在抱石圈很有名的石頭：Potala 區的 Gioia，2008 年 Christian Core 首攀，後來改成 8C+。
 

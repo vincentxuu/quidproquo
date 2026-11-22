@@ -11,7 +11,7 @@ series:
   order: 42
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-26-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The word popping up everywhere this week is Jev — the "silent" decision model 
 
 ## Trending Repos
 
-### nokia-applied-research/AnyJev ⭐ 662 (created 09-21, within 5 days, ~132/day average)
+### nokia-applied-research/AnyJev ★ 662 (created 09-21, within 5 days, ~132/day average)
 
 [GitHub](https://github.com/nokia-applied-research/AnyJev)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ The word popping up everywhere this week is Jev — the "silent" decision model 
 
 ---
 
-### mikehasa/golive-skill ⭐ 942 (created 09-23, within 3 days, ~314/day average)
+### mikehasa/golive-skill ★ 942 (created 09-23, within 3 days, ~314/day average)
 
 [GitHub](https://github.com/mikehasa/golive-skill)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ The word popping up everywhere this week is Jev — the "silent" decision model 
 
 ---
 
-### yetone/magpie ⭐ 791 (created 09-23, within 3 days, ~264/day average)
+### yetone/magpie ★ 791 (created 09-23, within 3 days, ~264/day average)
 
 [GitHub](https://github.com/yetone/magpie)　·　Go　·　MIT
 
@@ -52,7 +52,7 @@ The word popping up everywhere this week is Jev — the "silent" decision model 
 
 ---
 
-### sno-ai/sno-station ⭐ 212 (created 09-19, within 7 days, ~30/day average)
+### sno-ai/sno-station ★ 212 (created 09-19, within 7 days, ~30/day average)
 
 [GitHub](https://github.com/sno-ai/sno-station)　·　TypeScript　·　Apache-2.0
 
@@ -63,7 +63,7 @@ The word popping up everywhere this week is Jev — the "silent" decision model 
 
 ---
 
-### mitkox/esf ⭐ 148 (created 09-19, within 7 days, ~21/day average)
+### mitkox/esf ★ 148 (created 09-19, within 7 days, ~21/day average)
 
 [GitHub](https://github.com/mitkox/esf)　·　Go　·　MIT
 

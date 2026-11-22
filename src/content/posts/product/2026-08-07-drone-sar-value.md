@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/product/2026-08-07-drone-sar-value-en)
+> :globe: [English version](/posts/product/2026-08-07-drone-sar-value-en)
 
 [農噴那篇](/posts/product/2026-08-07-agri-drone-unit-economics)的結論是：農業是唯一算得清 ROI 的無人機應用，而「算得清」既是它能規模化的原因，也是它削價的原因。
 

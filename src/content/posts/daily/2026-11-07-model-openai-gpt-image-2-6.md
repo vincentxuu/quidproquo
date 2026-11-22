@@ -17,7 +17,7 @@ glossary:
     def: "前身為 Chatbot Arena，用大量使用者兩兩盲比投票算出 Elo 式分數的獨立模型評測平台，圖像生成與編輯各有獨立榜單"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-model-openai-gpt-image-2-6-en)
+> :globe: [English version](/posts/daily/2026-11-07-model-openai-gpt-image-2-6-en)
 
 ## 模型資訊
 
@@ -47,9 +47,9 @@ glossary:
 |---|---|---|---|
 | LMArena 文字生成圖片榜（Medium 品質，preliminary，2026-11-02 讀取） | Sunburst 1409±13（第 2 名，2,967 票）／Flare 1384±13（第 4 名，2,792 票） | 2.5 Sunburst 1427±5（第 1 名，54,913 票）／2.5 Flare 1399±5（第 3 名） | Nano Banana 2.1 1325±9（第 7 名） |
 | LMArena 單圖編輯榜（同上讀取日） | Sunburst 1476±10（第 3 名）／Flare 1462±10（第 5 名） | 2.5 Sunburst 1517±5（第 1 名）／2.5 Flare 1482±5（第 2 名） | MAI-Image-2.7-Preview 1469±7（第 4 名） |
-| Artificial Analysis 雙榜（2026-11-06 第三方轉述）⚠️ | 文字生成圖片與編輯雙榜雙雙拿下前兩名 | 原文稱「超越 2.5 代」，未附精確分差數字 | 原文未列出其他模型對照分數 |
+| Artificial Analysis 雙榜（2026-11-06 第三方轉述）:warning: | 文字生成圖片與編輯雙榜雙雙拿下前兩名 | 原文稱「超越 2.5 代」，未附精確分差數字 | 原文未列出其他模型對照分數 |
 
-⚠️ 三組數字來自不同獨立平台、不同品質設定（LMArena 用 Medium，OpenAI 官方未說明 Artificial Analysis 用哪個品質檔）、不同讀取時間點（11-02 對 11-06），且都不是 OpenAI 自測。LMArena 兩筆 2.6 資料的投票數（約 2,800～3,000 票）遠低於 2.5 代的 5 萬多票，區間寬度也是鄰近名次的兩倍以上，屬於統計上還不穩定的早期樣本；Artificial Analysis 這邊截至 11-05 甚至尚未收錄 2.6，11-06 才出現「拿下雙榜冠亞軍」的說法，但原始文章沒有附上分數，只能視為第三方轉述，無法逐一核對換算。
+:warning: 三組數字來自不同獨立平台、不同品質設定（LMArena 用 Medium，OpenAI 官方未說明 Artificial Analysis 用哪個品質檔）、不同讀取時間點（11-02 對 11-06），且都不是 OpenAI 自測。LMArena 兩筆 2.6 資料的投票數（約 2,800～3,000 票）遠低於 2.5 代的 5 萬多票，區間寬度也是鄰近名次的兩倍以上，屬於統計上還不穩定的早期樣本；Artificial Analysis 這邊截至 11-05 甚至尚未收錄 2.6，11-06 才出現「拿下雙榜冠亞軍」的說法，但原始文章沒有附上分數，只能視為第三方轉述，無法逐一核對換算。
 
 ```diagram
 title: GPT-Image-2.6 發布後四天的評測結論反轉

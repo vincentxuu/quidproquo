@@ -22,11 +22,11 @@ glossary:
     context: "題目特別推薦讓 ε 隨時間遞減。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-q-learning-ethics-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`、`p3src/`，due 2026-05-01）、[Section 10 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf)、2026 的 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) 與 [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) 投影片為準，全部於 2026-09-29 實際打開。投影片連結來自[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)講題儲存格（xlsx 匯出才看得到）。本課整體為 **A3**，但 4 月 23 日的 Embedded EthiCS 講課在課表上只寫「see recording」，沒有公開連結，也找不到 2026 的講義或模組頁，這一堂是 **A0**：本篇不推測它講了什麼。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/pdf/ipynb`、`p3src/`，due 2026-05-01）、[Section 10 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec10/sec10.pdf)、2026 的 [Lecture 22](https://drive.google.com/file/d/1b2X1RZAH9bFtww-JYwQvUWwEC-poI05C/view) 與 [Lecture 23](https://drive.google.com/file/d/1TWidw3N7kYmN5Zr6SvJXVDEcK3xYbWRi/view) 投影片為準，全部於 2026-09-29 實際打開。投影片連結來自[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)講題儲存格（xlsx 匯出才看得到）。本課整體為 **A3**，但 4 月 23 日的 Embedded EthiCS 講課在課表上只寫「see recording」，沒有公開連結，也找不到 2026 的講義或模組頁，這一堂是 **A0**：本篇不推測它講了什麼。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 14 篇。上一篇 [HW6（三）](/posts/tech/2026-09-29-harvard-cs181-hw6-mdp-planning)在已知轉移機率的 Gridworld 裡做規劃。這篇拿掉「已知」：agent 只能邊玩邊學。
 

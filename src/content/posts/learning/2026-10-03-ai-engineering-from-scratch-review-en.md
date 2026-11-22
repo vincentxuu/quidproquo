@@ -22,7 +22,7 @@ glossary:
     context: "Used here to describe how the most serious error claims were re-checked when the course was reviewed."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-03-ai-engineering-from-scratch-review)
+> :globe: [中文版](/posts/learning/2026-10-03-ai-engineering-from-scratch-review)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

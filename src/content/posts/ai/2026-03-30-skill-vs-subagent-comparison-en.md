@@ -10,7 +10,7 @@ description: "Comparing the design philosophy, use cases, and implementation dif
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-30-skill-vs-subagent-comparison)
+> :globe: [中文版](/posts/ai/2026-03-30-skill-vs-subagent-comparison)
 
 When doing AI development with Claude Code, you'll eventually hit a problem: a single agent can't handle everything. At that point, you have two paths -- Skills and Subagents. On the surface they look alike -- both extract capabilities out of the main agent -- but the design philosophy and use cases are completely different.
 

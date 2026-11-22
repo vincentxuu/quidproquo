@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-framework-composio-cli-0.6.0)
+> :globe: [中文版](/posts/daily/2026-11-03-framework-composio-cli-0.6.0)
 
 ## Release Info
 

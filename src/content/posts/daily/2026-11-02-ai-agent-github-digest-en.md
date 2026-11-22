@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, computer-use, agent-skills]
 lang: en
 description: "A local-first desktop agent team, a computer-use tool that drives the OS through its accessibility tree, and an Uncle Bob skill that hands code-quality judgment to deterministic tools — three different gaps in agent autonomy, closed from three different angles"
-tldr: "**Orkas** (⭐7.2k) is a local-first desktop AI team app: a Commander agent breaks your goal into to-dos and coordinates 16 built-in specialist agents, plus whatever CLI coding agents — Claude Code, Codex, and others — you already have installed, treated as local sessions under one roof. **vercel-labs/agent-desktop** (⭐6.5k) gives agents reliable computer use by reading the OS accessibility tree in Rust and returning a JSON snapshot with stable element refs instead of guessing from screenshots; it just picked up Linux support. **unclebob/ub-mode** (⭐6.2k) is an agent skill from Robert C. \"Uncle Bob\" Martin that hands the question of whether code is actually good to deterministic tools — crapper, dryer, mutator — instead of trusting the agent's own word for it. No major framework release today."
+tldr: "**Orkas** (★7.2k) is a local-first desktop AI team app: a Commander agent breaks your goal into to-dos and coordinates 16 built-in specialist agents, plus whatever CLI coding agents — Claude Code, Codex, and others — you already have installed, treated as local sessions under one roof. **vercel-labs/agent-desktop** (★6.5k) gives agents reliable computer use by reading the OS accessibility tree in Rust and returning a JSON snapshot with stable element refs instead of guessing from screenshots; it just picked up Linux support. **unclebob/ub-mode** (★6.2k) is an agent skill from Robert C. \"Uncle Bob\" Martin that hands the question of whether code is actually good to deterministic tools — crapper, dryer, mutator — instead of trusting the agent's own word for it. No major framework release today."
 series:
   name: "AI Agent GitHub Digest"
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-02-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-02-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The three entries on GitHub today each close a different gap in "agents doing mo
 
 ## Trending Repos
 
-### Orkas-AI/Orkas ⭐ 7.2k
+### Orkas-AI/Orkas ★ 7.2k
 
 [GitHub](https://github.com/Orkas-AI/Orkas) · JavaScript + TypeScript · MIT
 
@@ -30,7 +30,7 @@ The three entries on GitHub today each close a different gap in "agents doing mo
 
 ---
 
-### vercel-labs/agent-desktop ⭐ 6.5k
+### vercel-labs/agent-desktop ★ 6.5k
 
 [GitHub](https://github.com/vercel-labs/agent-desktop) · Rust · Apache-2.0
 
@@ -41,7 +41,7 @@ The three entries on GitHub today each close a different gap in "agents doing mo
 
 ---
 
-### unclebob/ub-mode ⭐ 6.2k
+### unclebob/ub-mode ★ 6.2k
 
 [GitHub](https://github.com/unclebob/ub-mode) · Markdown (skill file) · No license stated
 

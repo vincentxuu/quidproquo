@@ -22,11 +22,11 @@ glossary:
     context: "The linkage decides whether HAC grows long chained clusters or compact ones."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition and access**: Based on [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5) (`hw5_release.tex/.pdf/.ipynb` and `data/*.npy`), week 9 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 7](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07.pdf) (headed Spring 2026). There are no public recording links listed for the corresponding lectures. The lecture scribe notes are from **2024** (K-means is in [lec12, 2024-02-29](https://harvard-ml-courses.github.io/cs181-web/static/lec12/12-scribe-notes.pdf), PCA in [lec15, 2024-03-21](https://harvard-ml-courses.github.io/cs181-web/static/lec15/15-scribe-notes.pdf); lec13 is missing). Homework solutions are not public; Section 7 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
+> :warning: **Edition and access**: Based on [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5) (`hw5_release.tex/.pdf/.ipynb` and `data/*.npy`), week 9 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 7](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07.pdf) (headed Spring 2026). There are no public recording links listed for the corresponding lectures. The lecture scribe notes are from **2024** (K-means is in [lec12, 2024-02-29](https://harvard-ml-courses.github.io/cs181-web/static/lec12/12-scribe-notes.pdf), PCA in [lec15, 2024-03-21](https://harvard-ml-courses.github.io/cs181-web/static/lec15/15-scribe-notes.pdf); lec13 is missing). Homework solutions are not public; Section 7 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
 
 This is part 9 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW4 (Part 3): Decision Trees, Random Forests, and MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en). Next: [HW5 (Part 2): SimCLR Contrastive Learning and GANs](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en).
 

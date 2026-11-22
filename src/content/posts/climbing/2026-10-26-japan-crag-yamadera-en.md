@@ -13,7 +13,7 @@ description: "Yamadera climbing guide: seasons, public transport, parking, local
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-yamadera)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-yamadera)
 
 The climbing destination is the cliffs around Sennindo and Kushiraku-iwa, not Risshakuji’s temple staircase. Vertical and steeper lines coexist; identifying the right sector is more useful than navigating to the place name alone.
 

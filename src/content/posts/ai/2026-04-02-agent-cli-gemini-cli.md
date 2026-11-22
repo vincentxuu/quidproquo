@@ -48,12 +48,12 @@ Google 這條線現在的定位很尷尬，值得跟其他家對照著看：
 
 | | 免費入門 | 個人付費 | 綁既有訂閱 |
 |---|---|---|---|
-| **Google（Antigravity CLI）** | ❌ 已終止 | 依 Google AI 方案 | Google 帳號生態 |
-| Claude Code | ❌ | $20 / $100 / $200 | — |
+| **Google（Antigravity CLI）** | ✗ 已終止 | 依 Google AI 方案 | Google 帳號生態 |
+| Claude Code | ✗ | $20 / $100 / $200 | — |
 | Codex | 有限 | $8 / $20 / $100 / $200 | ChatGPT 訂閱 |
-| Copilot CLI | ✅ Free 方案含 | $10 / $39 / $100 | GitHub Copilot 授權 |
-| OpenCode | ✅ 開源自備 key | 依模型計費 | Copilot / ChatGPT 帳號 |
-| Amp | ❌ 已停新註冊 | $20 / $200 | ChatGPT、X Premium+ |
+| Copilot CLI | ✓ Free 方案含 | $10 / $39 / $100 | GitHub Copilot 授權 |
+| OpenCode | ✓ 開源自備 key | 依模型計費 | Copilot / ChatGPT 帳號 |
+| Amp | ✗ 已停新註冊 | $20 / $200 | ChatGPT、X Premium+ |
 
 Google 曾經是這張表裡免費那一欄唯一的強項，現在那格空了。要零成本起步，答案已經換成 OpenCode 這類自備 key 的開源路線，或 Copilot CLI 的 Free 方案。
 

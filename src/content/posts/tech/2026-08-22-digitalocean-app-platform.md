@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-digitalocean-app-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-digitalocean-app-platform-en)
 
 [DigitalOcean App Platform](https://docs.digitalocean.com/products/app-platform/) 是從 Git repository 或 container image build、deploy 與 scale 應用的 managed PaaS。它位在 Droplet 與 Kubernetes 之間：平台管理 OS、routing、TLS、deployment 和 container lifecycle，團隊仍管理 application、data、dependency 與容量政策。
 

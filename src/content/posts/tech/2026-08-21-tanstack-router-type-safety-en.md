@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-tanstack-router-type-safety)
+:globe: [中文版](/posts/tech/2026-08-21-tanstack-router-type-safety)
 
 The [first post in this series](/posts/tech/2026-08-19-react-stack-ai-era-en) proposed a criterion: in the AI era, pick libraries where a machine catches the agent's mistakes. TanStack Router is that criterion's most extreme instance — it moves an entire class of traditionally runtime routing errors (404s, missing params, typo'd query strings) to compile time. This post unpacks how, and at what cost.
 

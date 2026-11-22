@@ -12,7 +12,7 @@ series:
   order: 126
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-funding-firmly-en)
+> :globe: [English version](/posts/daily/2026-11-07-funding-firmly-en)
 
 ## 融資資訊
 

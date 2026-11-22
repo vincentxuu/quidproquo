@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-tool-anythingmcp)
+> :globe: [中文版](/posts/daily/2026-10-21-tool-anythingmcp)
 
 ## Tool Info
 
@@ -78,11 +78,11 @@ This is a response-mapping config: it tells a tool exactly which fields to retur
 
 | | AnythingMCP | A hand-written single-purpose MCP server | AI Agent Gateway ([previously covered](/posts/daily/2026-10-10-tool-ai-agent-gateway)) |
 |---|---|---|---|
-| Auto-generates tools from existing APIs/ERPs/DBs | ✅ | ❌ (every system is written by hand) | ❌ (assumes the tools are already MCP servers) |
-| 517 ready-made adapters | ✅ | ❌ | ❌ |
-| RBAC + SSO + audit logs | ✅ | Build it yourself | ✅ (this is its core function) |
-| Response-field filtering (keeps sensitive data out of context) | ✅ | Build it yourself | ❌ (doesn't touch tool response content) |
-| Self-hosted, open source | ✅ (AGPL-3.0) | Depends on the project | ✅ (Apache-2.0) |
+| Auto-generates tools from existing APIs/ERPs/DBs | ✓ | ✗ (every system is written by hand) | ✗ (assumes the tools are already MCP servers) |
+| 517 ready-made adapters | ✓ | ✗ | ✗ |
+| RBAC + SSO + audit logs | ✓ | Build it yourself | ✓ (this is its core function) |
+| Response-field filtering (keeps sensitive data out of context) | ✓ | Build it yourself | ✗ (doesn't touch tool response content) |
+| Self-hosted, open source | ✓ (AGPL-3.0) | Depends on the project | ✓ (Apache-2.0) |
 
 The two can actually be layered: AnythingMCP turns legacy systems into MCP tools, while AI Agent Gateway handles credential injection and auditing across multiple agents.
 

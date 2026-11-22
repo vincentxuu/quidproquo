@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
+> :globe: [English version](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
 
 ## 版本資訊
 

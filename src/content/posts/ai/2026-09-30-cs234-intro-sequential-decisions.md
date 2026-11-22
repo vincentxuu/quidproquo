@@ -25,7 +25,7 @@ glossary:
     context: "CS234 L1 把這兩件事分開，整門課反覆用這個區分。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-intro-sequential-decisions-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

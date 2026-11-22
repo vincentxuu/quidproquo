@@ -22,7 +22,7 @@ glossary:
     context: "Lab 2 Q9 does this before quantizing the whole model."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab2-quantization)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-lab2-quantization)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -21,7 +21,7 @@ glossary:
     context: "助教課投影片第 29 頁用 IMDb 驗證集第一筆展示。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

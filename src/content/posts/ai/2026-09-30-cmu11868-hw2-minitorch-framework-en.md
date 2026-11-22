@@ -24,7 +24,7 @@ glossary:
     context: "The Assignment 2 training script loads sst2 from nyu-mll/glue on Hugging Face."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

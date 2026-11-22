@@ -10,7 +10,7 @@ description: "Compares October 2026 stock-pledge loan rates, posted rates, margi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/investing/2026-10-17-0050-stock-pledge-loan-lenders)
+> :globe: [中文版](/posts/investing/2026-10-17-0050-stock-pledge-loan-lenders)
 
 Pledging 0050 for a loan, buying more 0050 with it, then pledging that too is the most-discussed leverage routine among Taiwanese ETF holders. The official name is 不限用途款項借貸 (unrestricted-purpose loans): you transfer stocks or ETFs into a collateral account at a broker or at the securities finance company [Yuanta Securities Finance](https://www.yuantafinance.com.tw/brief/) (元大證金), and borrow up to 60% of market value. The shares stay yours and cash dividends still arrive. It is not a bank credit loan: the limit depends on the collateral, and the risk depends on the maintenance ratio.
 

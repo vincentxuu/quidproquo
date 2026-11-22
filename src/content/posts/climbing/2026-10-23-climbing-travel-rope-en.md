@@ -30,7 +30,7 @@ glossary:
     context: "It does not become two ropes: on its own it still only rappels half its length when doubled."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-23-climbing-travel-rope)
+> :globe: [中文版](/posts/climbing/2026-10-23-climbing-travel-rope)
 
 In Taiwan, many climbers buy a 60 m rope first, and it covers both Long Dong and the gym. Abroad, that changes. The official Kalymnos climbing site treats 70 m as the minimum, and places with many long routes are more comfortable with 80 m. Over two weeks, the same rope gets lowered several times a day on limestone that is polished smooth in places and sharp in others. On a budget airline, the rope may be the heaviest thing in your bag.
 

@@ -12,7 +12,7 @@ series:
   order: 42
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-tool-gitlab-mcp-server)
+> :globe: [中文版](/posts/daily/2026-10-02-tool-gitlab-mcp-server)
 
 ## Tool Info
 

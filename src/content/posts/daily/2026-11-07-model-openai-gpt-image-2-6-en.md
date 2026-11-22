@@ -17,7 +17,7 @@ glossary:
     def: "Formerly Chatbot Arena — an independent evaluation platform that derives Elo-style scores from large-scale pairwise human votes, with separate leaderboards for image generation and image editing"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-model-openai-gpt-image-2-6)
+> :globe: [中文版](/posts/daily/2026-11-07-model-openai-gpt-image-2-6)
 
 ## Model Info
 
@@ -47,9 +47,9 @@ glossary:
 |---|---|---|---|
 | LMArena text-to-image board (Medium quality, preliminary, read 2026-11-02) | Sunburst 1409±13 (#2, 2,967 votes) / Flare 1384±13 (#4, 2,792 votes) | 2.5 Sunburst 1427±5 (#1, 54,913 votes) / 2.5 Flare 1399±5 (#3) | Nano Banana 2.1 1325±9 (#7) |
 | LMArena single-image-edit board (same read date) | Sunburst 1476±10 (#3) / Flare 1462±10 (#5) | 2.5 Sunburst 1517±5 (#1) / 2.5 Flare 1482±5 (#2) | MAI-Image-2.7-Preview 1469±7 (#4) |
-| Artificial Analysis, both boards (third-party report, 2026-11-06) ⚠️ | Took the top two spots on both text-to-image and editing boards | Described only as "surpassed the 2.5 generation," no precise score gap given | No comparison scores listed in the source article |
+| Artificial Analysis, both boards (third-party report, 2026-11-06) :warning: | Took the top two spots on both text-to-image and editing boards | Described only as "surpassed the 2.5 generation," no precise score gap given | No comparison scores listed in the source article |
 
-⚠️ These three data points come from different independent platforms, different quality settings (LMArena used Medium; OpenAI never stated which setting Artificial Analysis used), and different read dates (Nov 2 vs. Nov 6) — none of them are OpenAI's own self-reported numbers. The two LMArena entries for 2.6 carry only about 2,800–3,000 votes each, versus over 54,000 for the 2.5 generation, and their confidence intervals are more than twice as wide as neighboring entries — a classic sign of an early, statistically unstable sample. Artificial Analysis itself hadn't listed GPT-Image-2.6 at all as of November 5; the "took the top two spots" claim only surfaced on November 6, and the source article didn't publish the underlying scores, so it can only be treated as a secondhand report, not something that can be independently reconciled.
+:warning: These three data points come from different independent platforms, different quality settings (LMArena used Medium; OpenAI never stated which setting Artificial Analysis used), and different read dates (Nov 2 vs. Nov 6) — none of them are OpenAI's own self-reported numbers. The two LMArena entries for 2.6 carry only about 2,800–3,000 votes each, versus over 54,000 for the 2.5 generation, and their confidence intervals are more than twice as wide as neighboring entries — a classic sign of an early, statistically unstable sample. Artificial Analysis itself hadn't listed GPT-Image-2.6 at all as of November 5; the "took the top two spots" claim only surfaced on November 6, and the source article didn't publish the underlying scores, so it can only be treated as a secondhand report, not something that can be independently reconciled.
 
 ```diagram
 title: GPT-Image-2.6's benchmark story flipped within four days

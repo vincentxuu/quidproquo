@@ -13,11 +13,11 @@ description: "OpenCode installation, core features, dual agent modes, GitHub Act
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent)
+:globe: [中文版](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent)
 
 OpenCode is an open-source AI coding agent written in **TypeScript** (MIT licensed) that runs in your terminal. The application requires no subscription and supports multiple LLM providers. The repo has moved a few times and now lives at [anomalyco/opencode](https://github.com/anomalyco/opencode) (formerly `sst/opencode`).
 
-> **⚠️ Don't confuse it with the identically named Go project**: an earlier `opencode-ai/opencode` was written in Go with Bubble Tea and is not the same codebase. Most "OpenCode is written in Go" claims online trace back to that.
+> **:warning: Don't confuse it with the identically named Go project**: an earlier `opencode-ai/opencode` was written in Go with Bubble Tea and is not the same codebase. Most "OpenCode is written in Go" claims online trace back to that.
 
 ## Installation: distinguish V1 and V2
 

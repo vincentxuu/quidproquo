@@ -10,7 +10,7 @@ description: "從第一個 Tavily Search 呼叫開始，說明搜尋深度、top
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-tavily-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-tavily-search-api-guide-en)
 
 [Tavily](https://docs.tavily.com/documentation/about) 是給 AI agent 使用的雲端網路存取服務。`Search` 找來源並回傳相關片段，`Extract` 讀取已知 URL，`Map` 只找出網站內的網址，`Crawl` 則同時走訪網站與抽取內容。這四個端點放在一起，才是它和一般 SERP API 的主要差別。
 

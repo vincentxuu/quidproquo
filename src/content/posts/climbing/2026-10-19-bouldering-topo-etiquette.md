@@ -34,7 +34,7 @@ glossary:
     context: "和美式 V 級可以大致對照，例如 Mountain Project 的對照表把 V3 對到 6A。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-bouldering-topo-etiquette-en)
+> :globe: [English version](/posts/climbing/2026-10-19-bouldering-topo-etiquette-en)
 
 岩館的題目用顏色標好了：同一個顏色的點就是一條題目，起攀點貼著膠帶，最後一顆點寫著 TOP。到了戶外，石頭上什麼都沒有。你站在一顆三公尺高的石頭前，手機裡的照片畫著幾條線，旁邊寫著「V3 (sds)」，你還是不知道該從哪一顆點開始。
 

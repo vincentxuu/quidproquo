@@ -17,7 +17,7 @@ description: "2026 年 3D 模型製作工具的完整選型指南：比較 Meshy
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-27-3d-modeling-tools-landscape-en)
+> :globe: [English version](/posts/ai/2026-07-27-3d-modeling-tools-landscape-en)
 
 「我想做一個 3D 模型」在 2026 年已經不是一個問題，而是四個問題。輸入是文字、照片、實體物件，還是尺寸規格？輸出要進遊戲引擎、3D 印表機、電商網頁，還是 CNC？這兩個維度組合出四條完全不同的工具鏈，選錯的代價不是「效果差一點」，而是做到一半發現東西根本改不動。
 

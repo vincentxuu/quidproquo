@@ -13,7 +13,7 @@ description: "從自架常駐 agent 的角度拆解 Tailscale：WireGuard 資料
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents-en)
+:globe: [English version](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents-en)
 
 自架一個 24 小時跑著的 agent，等於在自己網路裡開了一個**必須從外面連得到、又絕不能開在公網上**的東西。你要能從手機叫它做事，它要能碰到內網的資料庫，而它同時是一個會被 prompt injection 影響、會自己發起網路連線的程式。
 

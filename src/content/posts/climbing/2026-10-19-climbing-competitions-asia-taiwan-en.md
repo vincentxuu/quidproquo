@@ -27,7 +27,7 @@ glossary:
     definition: "Athletes in a testing pool must file where they will be each day and name one 60-minute slot when testers can find them."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-competitions-asia-taiwan)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-competitions-asia-taiwan)
 
 The first four posts covered the competitions you see on a broadcast. This one asks a different question: if you are in Taiwan and want to compete yourself, what can you enter? If your child climbs well and works up from gym comps, what gates will they hit?
 

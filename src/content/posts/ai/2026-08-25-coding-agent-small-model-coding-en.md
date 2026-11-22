@@ -13,7 +13,7 @@ tldr: "Small models don't fail at reasoning first — they fail at format stabil
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-small-model-coding)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-small-model-coding)
 
 ## The Design Problem
 

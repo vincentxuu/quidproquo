@@ -15,7 +15,7 @@ glossary:
     def: "An open large language model family developed by Zhipu AI (international brand Z.ai)"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash)
+> :globe: [中文版](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash)
 
 ## Model Information
 
@@ -52,7 +52,7 @@ glossary:
 | HLE (Humanity's Last Exam) | 55.3 | — | — |
 | Artificial Analysis Intelligence Index v4.1.1 | 57 | — | 48.7 tokens/sec, 1.52s TTFT (measured on Z.ai's API) |
 
-⚠️ Terminal-Bench, DeepSWE, AutomationBench, Z.ai Code Bench, and HLE are all Z.ai's own internal benchmark results. The Artificial Analysis Intelligence Index is an independent third-party evaluation and carries more weight. Z.ai does not headline vision benchmarks (BabyVision, MVBench); third-party coverage reports it trails Gemini 3.7 Flash there.
+:warning: Terminal-Bench, DeepSWE, AutomationBench, Z.ai Code Bench, and HLE are all Z.ai's own internal benchmark results. The Artificial Analysis Intelligence Index is an independent third-party evaluation and carries more weight. Z.ai does not headline vision benchmarks (BabyVision, MVBench); third-party coverage reports it trails Gemini 3.7 Flash there.
 
 ## Comparison with Predecessor/Competitors
 

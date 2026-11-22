@@ -15,7 +15,7 @@ glossary:
     context: "Perplexity sets its fully local and Hybrid memory recommendations in terms of unified memory."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-23-perplexity-computer-local-mac)
+> :globe: [中文版](/posts/ai/2026-10-23-perplexity-computer-local-mac)
 
 The claim going around is "unplug the network and it still works, zero data uploaded." The direction is right, with two conditions: offline only applies to tasks that don't need the network, and the 36GB of memory Perplexity recommends is more than several new Macs can be configured with. This post helps you decide how fully local and Hybrid differ, which steps still go online, and whether your Mac should just try it or wait.
 

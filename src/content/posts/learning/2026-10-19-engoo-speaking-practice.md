@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-engoo-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-engoo-speaking-practice-en)
 
 你想固定說英文，卻不想每次上課都從「今天要聊什麼」開始。[Engoo 台灣](https://engoo.com.tw/)提供一堂 25 分鐘的一對一線上課，可以自己選老師，也可以帶著平台教材或新聞討論。對下班後只想留一小段時間練習的人，這種安排比較容易放進行事曆。
 

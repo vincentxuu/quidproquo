@@ -29,7 +29,7 @@ glossary:
     context: "DDP 論文寫明預設每桶 25 MB，可用 bucket_cap_mb 調整。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-data-parallel-training-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

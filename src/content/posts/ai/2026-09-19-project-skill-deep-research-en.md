@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-project-skill-deep-research)
+> :globe: [中文版](/posts/ai/2026-09-19-project-skill-deep-research)
 
 The previous 12 articles covered other people's research. This one covers **ours**.
 

@@ -38,7 +38,7 @@ glossary:
     context: "L04 shows the simplest matmul kernel reaches only 0.25 FLOP/B."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-gpu-programming-acceleration)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

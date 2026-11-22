@@ -26,7 +26,7 @@ glossary:
     context: "因為作用靠釋出甲醛，對甲醛過敏的人不能用。台灣食藥署資料用「六次甲基四胺」；「烏洛托品」是中國藥典的名稱，列在這裡只為了方便搜尋。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-skin-care-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-skin-care-en)
 
 週六在龍洞試 project 的第三趟，你在 crux 前的小邊上一拉，右手食指一陣刺痛：一片繭整片翻起來，底下是粉紅色的新皮。你的前臂還有力，腦袋也記得每一個動作，但這一天已經結束了。
 

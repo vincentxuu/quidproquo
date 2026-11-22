@@ -21,7 +21,7 @@ series:
   order: 6
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)
+> :globe: [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value)
 
 This is part 6 of "Bug Bounty from Zero". The [RCE chapter](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en) examined code execution on the server. This one comes back to two practical questions: once you find a bug, how do you write the report so it is not marked down? And is the whole thing worth your time?
 

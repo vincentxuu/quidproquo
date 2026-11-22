@@ -13,7 +13,7 @@ description: "Nyamuk climbing guide: free access and the 2026 approach, sun and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-nyamuk)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-nyamuk)
 
 Batu Caves is a karst cliff complex 13 km north of Kuala Lumpur, not a single wall. Nyamuk is its steepest and most technical group: close to the city and free to enter, but also the one most often mistaken for "managed". This guide helps you judge how many options match your grade, how to reach the base without a car, which sector loses the sun first, and what free access actually means.
 

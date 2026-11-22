@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-11-tool-dart-skills-cli-en)
+> :globe: [English version](/posts/daily/2026-09-11-tool-dart-skills-cli-en)
 
 ## 工具資訊
 
@@ -81,11 +81,11 @@ skills remove serverpod
 
 | | skills（Dart） | `npx skills`（skills.sh，Vercel Labs） | 手寫 CLAUDE.md／.cursorrules |
 |---|---|---|---|
-| 隨專案相依樹自動找 skill | ✅ | ❌（需逐一指定 GitHub repo） | ❌ |
-| 一行指令裝完所有依賴的 skill | ✅ `skills get` | 部分（需對每個來源跑一次 `add`） | ❌ |
-| 自動偵測並寫入對應 IDE 目錄 | ✅（7 種工具） | ✅ | 需自己找對目錄 |
-| 依賴移除後自動清掉對應 skill | ✅ `skills prune` | ❌ | 需手動刪 |
-| 支援跨語言的公開 skill 市集 | ❌（可接 GitHub registry，仍以 Dart 生態為主） | ✅（skills.sh 索引超過 7 萬份公開 skill） | ❌ |
+| 隨專案相依樹自動找 skill | ✓ | ✗（需逐一指定 GitHub repo） | ✗ |
+| 一行指令裝完所有依賴的 skill | ✓ `skills get` | 部分（需對每個來源跑一次 `add`） | ✗ |
+| 自動偵測並寫入對應 IDE 目錄 | ✓（7 種工具） | ✓ | 需自己找對目錄 |
+| 依賴移除後自動清掉對應 skill | ✓ `skills prune` | ✗ | 需手動刪 |
+| 支援跨語言的公開 skill 市集 | ✗（可接 GitHub registry，仍以 Dart 生態為主） | ✓（skills.sh 索引超過 7 萬份公開 skill） | ✗ |
 
 `npx skills` 走的是「npm 式套件管理」模式：skill 來源是任意 GitHub repo，要裝哪個得自己知道 repo 名稱去 `add`；`skills`（Dart）則是把 skill 綁進套件本身的相依關係——只要你的專案有裝這個套件，`skills get` 就會自動把它的 skill 一起帶進來，不需要另外記一份 skill 清單。
 

@@ -21,7 +21,7 @@ glossary:
     context: "The Chang Gung course page exists because of this arrangement, and the homework rubrics come from it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

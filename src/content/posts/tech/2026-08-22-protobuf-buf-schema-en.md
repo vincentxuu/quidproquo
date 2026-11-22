@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-protobuf-buf-schema)
+> :globe: [中文版](/posts/tech/2026-08-22-protobuf-buf-schema)
 
 [Protocol Buffers](https://protobuf.dev/programming-guides/proto3/) is a schema and binary serialization format. [Buf](https://buf.build/docs/) turns `.proto` workspaces, linting, dependencies, generation, registries, and breaking checks into a repeatable workflow. They are complementary: Protobuf defines the wire contract; Buf governs its lifecycle.
 

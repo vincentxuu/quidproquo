@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-koyeb-serverless-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-koyeb-serverless-platform-en)
 
 [Koyeb](https://www.koyeb.com/docs) 是把 Git repository 或 container image 部署到多個 region 的 PaaS。它同時提供 CPU/GPU Instances、edge routing、TLS、service mesh、autoscaling 與 scale-to-zero，定位介於 repository-first PaaS 和可選區域的 container platform。
 

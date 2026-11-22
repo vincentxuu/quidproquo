@@ -13,7 +13,7 @@ description: "A guide to 'Dissecting the Lobster,' the first lecture of NTU Hung
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-openclaw-anatomy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

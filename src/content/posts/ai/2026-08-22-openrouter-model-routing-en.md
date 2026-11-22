@@ -10,7 +10,7 @@ description: "A deep dive into OpenRouter's unified API, two-level model and pro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-openrouter-model-routing)
+> :globe: [中文版](/posts/ai/2026-08-22-openrouter-model-routing)
 
 [OpenRouter](https://openrouter.ai/) is a cloud routing layer between an application and model providers. Your code calls one API, then chooses among models from OpenAI, Anthropic, Google, and open-weight model hosts. When several providers serve the same model, routing can also account for price, speed, availability, and data policy.
 

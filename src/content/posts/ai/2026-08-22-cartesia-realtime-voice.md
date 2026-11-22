@@ -10,7 +10,7 @@ description: "拆解 Cartesia Sonic 的模型、WebSocket 串流、聲音複製�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cartesia-realtime-voice-en)
+> :globe: [English version](/posts/ai/2026-08-22-cartesia-realtime-voice-en)
 
 [Cartesia](https://www.cartesia.ai/) 最精確的定位，是為即時互動提供語音模型與推論平台：Sonic 做 text-to-speech（TTS），Ink 做 speech-to-text（STT），API 把音訊以串流方式送進 agent pipeline。截至 2026 年 8 月，Cartesia 也提供名為 Line 的 voice-agent 產品；但採用 Sonic API，不等於電話號碼、通話狀態、轉接、LLM 與工具 orchestration 都會自動完成。
 

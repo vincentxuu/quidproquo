@@ -13,7 +13,7 @@ description: "他曲攀岩基地指南：Green Climbers Home 的交通、簽證�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-thakhek-base-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-thakhek-base-en)
 
 他曲（Thakhek）在寮國中部甘蒙省，湄公河東岸，對面就是泰國的那空帕農。市區離 Pha Tam Kam 岩場約 12 公里，岩場下方的山谷裡是 Green Climbers Home（以下簡稱 GCH）：兩座營地、餐廳、裝備租借與課程都在這裡。多數人不是「住他曲再去爬」，而是直接住進岩場。
 

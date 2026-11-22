@@ -13,7 +13,7 @@ description: "A full pass over the Hermes Agent security model: the three approv
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-security)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-security)
 
 Post 9 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

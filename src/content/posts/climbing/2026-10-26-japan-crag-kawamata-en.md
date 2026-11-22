@@ -13,7 +13,7 @@ description: "Kawamata climbing guide: seasons, access, management rules, public
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-kawamata)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-kawamata)
 
 Kawamata is a limestone sport crag near Naguri in Hanno, with many5.10–5.12 routes and specific current collapse/tree hazards to avoid. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

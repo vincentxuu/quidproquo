@@ -22,7 +22,7 @@ glossary:
     context: "第 8 堂把它列為讓 agent 變快的最後一招，並提醒只適合能撤銷的動作。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片與課程筆記整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

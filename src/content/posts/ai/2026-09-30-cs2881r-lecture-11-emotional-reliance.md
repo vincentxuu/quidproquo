@@ -20,7 +20,7 @@ glossary:
     context: "Moore et al. 認為治療同盟需要人類特質；NEJM AI 的 Therabot 試驗則報告受試者評分與人類治療師相當。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

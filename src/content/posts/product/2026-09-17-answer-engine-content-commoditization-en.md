@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-answer-engine-content-commoditization)
+> :globe: [中文版](/posts/product/2026-09-17-answer-engine-content-commoditization)
 
 Imagine two restaurants. One rewrites public recipes onto attractive cards. The other has its own ingredients, kitchen, chef, and regulars. An answer engine can compress the first restaurant's recipe card into three steps. Reading a summary cannot eat the second restaurant's dinner for you.
 

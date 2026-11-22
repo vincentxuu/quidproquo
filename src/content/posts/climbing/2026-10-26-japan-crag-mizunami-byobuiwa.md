@@ -13,7 +13,7 @@ description: "瑞浪・屏風岩攀岩指南：季節、交通、管理規範、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa-en)
 
 花崗岩裂隙與摩擦面攀都集中的瑞浪屏風岩，適合想練手塞、寬裂隙與細腳點的人。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

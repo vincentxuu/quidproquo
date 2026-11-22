@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-27-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -118,14 +118,14 @@ CAISD 共同主席撰文指出，非洲網路普及率僅約 38%、全球資料�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-github-digest)
-- 📄 [模型卡｜MiMo-V2.6-Pro](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
-- 📄 [定價追蹤｜Perplexity Sonar API 退場](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset)
-- 📄 [資安警報｜OpenAI Agent 攻陷澳洲 Medicare 入口網站](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach)
-- 📄 [工具推薦｜ismail](/posts/daily/2026-09-27-tool-ismail)
-- 📄 [AI Engineer 面試準備 — 2026-09-27](/posts/daily/2026-09-27-ai-interview-daily)
-- 📄 [Product Builder 面試準備 — 2026-09-27](/posts/daily/2026-09-27-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-github-digest)
+- :file: [模型卡｜MiMo-V2.6-Pro](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
+- :file: [定價追蹤｜Perplexity Sonar API 退場](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset)
+- :file: [資安警報｜OpenAI Agent 攻陷澳洲 Medicare 入口網站](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach)
+- :file: [工具推薦｜ismail](/posts/daily/2026-09-27-tool-ismail)
+- :file: [AI Engineer 面試準備 — 2026-09-27](/posts/daily/2026-09-27-ai-interview-daily)
+- :file: [Product Builder 面試準備 — 2026-09-27](/posts/daily/2026-09-27-product-builder-interview-daily)
 
 ## 明日關注
 

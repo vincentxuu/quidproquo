@@ -128,12 +128,12 @@ Taiwan was checked today; no directly relevant AI-agent news with credible sourc
 
 ## Today's Digests
 
-- 📄 [Framework Update | Temporal v1.32.0](/posts/daily/2026-09-12-framework-temporal-1.32.0-en)
-- 📄 [Funding Alert | Mistral Series D €3B](/posts/daily/2026-09-12-funding-mistral-en)
-- 📄 [Model Card | DeepSeek-V4.1-Flash](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
-- 📄 [Tool Recommendation | mcp-bi — one set of tool calls to read Superset, Metabase, and Power BI dashboards](/posts/daily/2026-09-12-tool-mcp-bi-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-12: Paper Reading](/posts/daily/2026-09-12-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-12: Technical PM](/posts/daily/2026-09-12-product-builder-interview-daily-en)
+- :file: [Framework Update | Temporal v1.32.0](/posts/daily/2026-09-12-framework-temporal-1.32.0-en)
+- :file: [Funding Alert | Mistral Series D €3B](/posts/daily/2026-09-12-funding-mistral-en)
+- :file: [Model Card | DeepSeek-V4.1-Flash](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en)
+- :file: [Tool Recommendation | mcp-bi — one set of tool calls to read Superset, Metabase, and Power BI dashboards](/posts/daily/2026-09-12-tool-mcp-bi-en)
+- :file: [AI Engineer Interview Daily — 2026-09-12: Paper Reading](/posts/daily/2026-09-12-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-12: Technical PM](/posts/daily/2026-09-12-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

@@ -10,7 +10,7 @@ description: "整理 code review comment 的主流分類標準（Conventional Co
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-26-code-review-comment-classification-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-26-code-review-comment-classification-en)
 
 Code review 留 comment 最常見的問題：reviewer 覺得是 blocking issue，author 當成建議就跳過了。不是誰的錯，是 comment 本身沒帶分類資訊，雙方各自解讀。
 
@@ -88,9 +88,9 @@ SonarQube 10.3+ 開始轉向 Clean Code 屬性和軟體品質維度（Reliabilit
 
 | 標記 | 分類 | 說明 |
 |------|------|------|
-| 🔴 | Normal | 會影響 production 的 bug |
-| 🟡 | Nit | 小問題，值得修但不阻擋 |
-| 🟣 | Pre-existing | 不是這個 PR 引入的既有 bug |
+| :red-circle: | Normal | 會影響 production 的 bug |
+| :yellow-circle: | Nit | 小問題，值得修但不阻擋 |
+| :purple-circle: | Pre-existing | 不是這個 PR 引入的既有 bug |
 
 多個 agent 平行分析，驗證步驟過濾誤報，去重排序後才貼 comment。不管格式偏好，不管測試覆蓋率——除非你在 `REVIEW.md` 明確要求。每個發現附 extended reasoning 解釋為什麼被標記。
 
@@ -98,7 +98,7 @@ SonarQube 10.3+ 開始轉向 Clean Code 屬性和軟體品質維度（Reliabilit
 
 雙軸分類：類型 × 嚴重度。
 
-回饋類型三種：⚠️ Potential issue、🛠️ Refactor suggestion、🧹 Nitpick（僅 Assertive 模式）。
+回饋類型三種：:warning: Potential issue、:wrench: Refactor suggestion、 Nitpick（僅 Assertive 模式）。
 
 嚴重度四級（agent 層）：Critical → High → Medium → Low。
 
@@ -124,15 +124,15 @@ SonarQube 10.3+ 開始轉向 Clean Code 屬性和軟體品質維度（Reliabilit
 
 | 維度 | Claude | CodeRabbit | Copilot | Qodo | SonarQube | Greptile |
 |------|--------|-----------|---------|------|-----------|---------|
-| Bug / 正確性 | ✅ 核心 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 安全漏洞 | ✅ | ✅ | ⚠️ 弱 | ✅ | ✅ 最強 | ✅ |
-| 效能 | 可擴展 | ✅ | ✅ | ✅ | ✅ | ✅ |
-| 可維護性 | 可擴展 | ✅ | ✅ | ✅ | ✅ 核心 | ✅ |
-| 風格/格式 | 預設不管 | Assertive 模式 | ✅ | 可配置 | ✅ | 低優先 |
-| 測試覆蓋 | 預設不管 | ❌ | ✅ | ✅ | ✅ | ❌ |
-| 既有問題標記 | ✅ 🟣 | ❌ | ❌ | ❌ | ✅ | ❌ |
-| 正面回饋 | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Ticket 合規 | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Bug / 正確性 | ✓ 核心 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 安全漏洞 | ✓ | ✓ | :warning: 弱 | ✓ | ✓ 最強 | ✓ |
+| 效能 | 可擴展 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| 可維護性 | 可擴展 | ✓ | ✓ | ✓ | ✓ 核心 | ✓ |
+| 風格/格式 | 預設不管 | Assertive 模式 | ✓ | 可配置 | ✓ | 低優先 |
+| 測試覆蓋 | 預設不管 | ✗ | ✓ | ✓ | ✓ | ✗ |
+| 既有問題標記 | ✓ :purple-circle: | ✗ | ✗ | ✗ | ✓ | ✗ |
+| 正面回饋 | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Ticket 合規 | ✗ | ✓ | ✗ | ✓ | ✗ | ✗ |
 
 ## 設計哲學對照
 

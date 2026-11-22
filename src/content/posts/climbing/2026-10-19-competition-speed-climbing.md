@@ -25,7 +25,7 @@ glossary:
     context: "傳統的兩人對決叫 Speed 2。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-competition-speed-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-competition-speed-climbing-en)
 
 速度賽是最容易看懂的攀岩比賽：兩個人（2026 年起有時是四個人）並排站好，訊號一響，誰先拍到 15 公尺高的計時板誰贏。頂尖男子不到五秒就爬完，女子也在六秒上下。
 

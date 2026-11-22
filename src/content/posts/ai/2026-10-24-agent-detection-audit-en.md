@@ -13,7 +13,7 @@ description: "How agent detection and audit tools such as Uber ADR, Perplexity n
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-detection-audit)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-detection-audit)
 
 The first three kinds of tool act before or during an action. The fourth answers a different question: once something has happened, how do you know what the agent actually did?
 

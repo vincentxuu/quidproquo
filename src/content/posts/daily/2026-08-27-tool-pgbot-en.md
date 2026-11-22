@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-27-tool-pgbot)
+> :globe: [中文版](/posts/daily/2026-08-27-tool-pgbot)
 
 ## Tool Info
 
@@ -89,10 +89,10 @@ pgbot's own README is upfront about its positioning: it's a point-in-time diagno
 | | pgbot | pganalyze | pgwatch |
 |---|---|---|---|
 | Deployment | Single static binary, no service | SaaS, requires a collector agent | Self-hosted, requires a collector + time-series database |
-| Requires an external account | ❌ | ✅ (SaaS) | ❌ |
-| Long-term trends / dashboard / alerting | ❌ (only compares against a local baseline) | ✅ | ✅ |
-| Native MCP server | ✅ | ❌ | ❌ |
-| CI gate (exit code / SARIF) | ✅ | ❌ | ❌ |
+| Requires an external account | ✗ | ✓ (SaaS) | ✗ |
+| Long-term trends / dashboard / alerting | ✗ (only compares against a local baseline) | ✓ | ✓ |
+| Native MCP server | ✓ | ✗ | ✗ |
+| CI gate (exit code / SARIF) | ✓ | ✗ | ✗ |
 | License | Open source, Apache-2.0 | Commercial SaaS | Open source, Apache-2.0 |
 
 ## Caveats

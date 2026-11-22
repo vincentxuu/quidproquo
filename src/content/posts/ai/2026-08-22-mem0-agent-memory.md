@@ -13,7 +13,7 @@ description: "從記憶抽取、分區、搜尋與刪除，到開源版和代管
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mem0-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-08-22-mem0-agent-memory-en)
 
 [Mem0](https://docs.mem0.ai/platform/overview) 是 AI 應用程式的外接記憶層。它不替你執行 agent，也不是單純把完整對話塞進向量資料庫；它把互動轉成較短、可搜尋、可刪除的記憶，再於後續請求中取回相關項目。
 

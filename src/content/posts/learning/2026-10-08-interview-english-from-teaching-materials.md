@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)
+> :globe: [English version](/posts/learning/2026-10-08-interview-english-from-teaching-materials-en)
 
 前兩篇面試口說（[通用句型](/posts/learning/2026-10-07-interview-experience-english)和[我自己的故事](/posts/learning/2026-10-07-interview-agent-stories-english)）都是先想中文、再找字典確認句型。情境方面的依據只讀過一個商業求職網站。這次換做法：先讀面試相關的教材和指引，看它們涵蓋什麼，再對照我缺什麼。
 

@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 L23 投影片第 41–42 頁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

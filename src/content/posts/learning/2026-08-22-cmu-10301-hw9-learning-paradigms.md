@@ -10,7 +10,7 @@ tldr: "最後一份 written 作業把 ensemble、clustering、representation 與
 description: "CMU 10-301/601 Spring 2026 HW9 Learning Paradigms 的四主題整合與結業自評。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 9 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw9-learning-paradigms-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw9.zip) 完整題名是 **Homework 9: Learning Paradigms**，也是最後一份、純 written 作業。四個主要題組依序是 PCA、k-Means、Ensemble Methods 與 Recommender Systems。ZIP 提供 PDF、LaTeX template、題目圖與少量作圖資料檔；沒有 starter code、完整 dataset 或 reference answers。
 

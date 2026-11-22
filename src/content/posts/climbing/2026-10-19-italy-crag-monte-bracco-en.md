@@ -13,7 +13,7 @@ description: "A guide to Monte Bracco (Mombracco): the gneiss, styles and size, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-monte-bracco)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-monte-bracco)
 
 Monte Bracco, also called Mombracco locally, is a mountain in the province of Cuneo, Piedmont, at the mouth of Valle Po; Sanfront, the town at its foot, is 18 km up the valley from Saluzzo. Its south and east faces are covered in gneiss walls, and the woods above them are scattered with boulders.
 

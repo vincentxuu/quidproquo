@@ -12,7 +12,7 @@ series:
   order: 89
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -62,7 +62,7 @@ Hangrui Xu, Jiarui Wang, Yang Yang et al.（ByteDance）　·　arxiv: 2608.1852
 - CTB（關鍵拓撲斷點）：把學生的互動狀態投影到「成功可達區」，找出它第一次脫離的位置作為補課點
 - 訓練損失只計算在生成的 recovery 步驟上，正確前綴不吃破壞性梯度——這是「保護有效探索」的關鍵設計
 - 漸進式自蒸餾：學生每輪重新 rollout，CTB 會隨能力提升往後移，形成自動難度曲線（self-paced curriculum）
-- 在五個 benchmark、兩個模型規模上勝過蒸餾與 RL 基準，並減少冗餘工具呼叫 ⚠️（ByteDance 自測，需等外部複現）
+- 在五個 benchmark、兩個模型規模上勝過蒸餾與 RL 基準，並減少冗餘工具呼叫 :warning:（ByteDance 自測，需等外部複現）
 - 與現有 agent RL 框架（GRPO 類方法）相容——本質是換掉「怎麼算 loss」，不是換整套訓練管線
 
 ### Reviewer 一句話評
@@ -103,8 +103,8 @@ LLM agent 在自動修 bug 上已經很強，但有個結構性弱點：它們�
 
 ### 深入要點
 
-- SWE-bench Verified：Pass@1 絕對提升 +5.8%（DeepSeek-V3.2）、+5.6%（GPT-5-mini）⚠️（作者自測，需等外部複現）
-- SWE-bench Pro（更難版本）：+5.8%（DeepSeek-V3.2）、+4.1%（GPT-5-mini）⚠️（同上）
+- SWE-bench Verified：Pass@1 絕對提升 +5.8%（DeepSeek-V3.2）、+5.6%（GPT-5-mini）:warning:（作者自測，需等外部複現）
+- SWE-bench Pro（更難版本）：+5.8%（DeepSeek-V3.2）、+4.1%（GPT-5-mini）:warning:（同上）
 - 合成題來源：重新實作 repo 中「有測試覆蓋的核心功能」，因此生成的 issue 天然可執行、可驗證，不會產出假題
 - 雙層技能庫：global diagnostic skills（診斷）+ local intervention skills（介入），皆以「程式實體」為錨點做檢索
 - 開源模型和閉源模型上都有穩定增益，代表方法不綁定特定模型能力
@@ -150,8 +150,8 @@ Joy Jia Yin Lim, Xin Huang, Hao Peng et al.（Tsinghua University · Renmin Univ
 ### 深入要點
 
 - 分析規模：PostTrainBench 上 7 個 benchmark、4 個基礎模型、20 種 agent 配置的公開軌跡
-- 策略鎖定反映 agent 先驗而非任務：80.7% Claude Code 軌跡收斂到全參數 SFT，89.6% Codex CLI 收斂到 PEFT ⚠️（論文對公開軌跡的統計）
-- 介入一（補經驗）：實驗日誌 + 技能庫 + 評估 agent 的 scaffold 讓執行全面提升——GSM8K +12.6 分、HumanEval +40.8 分，但策略紋風不動 ⚠️（作者實驗）
+- 策略鎖定反映 agent 先驗而非任務：80.7% Claude Code 軌跡收斂到全參數 SFT，89.6% Codex CLI 收斂到 PEFT :warning:（論文對公開軌跡的統計）
+- 介入一（補經驗）：實驗日誌 + 技能庫 + 評估 agent 的 scaffold 讓執行全面提升——GSM8K +12.6 分、HumanEval +40.8 分，但策略紋風不動 :warning:（作者實驗）
 - 介入二（補人類指導）：人類在訓練前重寫策略確實有效，但訓練一開始 agent 就退回局部微調的迴圈
 - 介入三（補推理算力）：scaffold 版比自主基準多花 2–8 倍 inference tokens，簡單任務有回報，最難的任務幾乎零增益
 - 核心結論：缺的不是資源（經驗/指導/算力），而是「執行中自發重啟策略選擇」的機制——策略只在「第一次訓練開始前」的短窗口內可塑

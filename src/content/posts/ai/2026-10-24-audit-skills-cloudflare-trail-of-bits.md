@@ -13,7 +13,7 @@ description: "比較 Cloudflare security-audit skill 與 Trail of Bits skills �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits-en)
+> :globe: [English version](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits-en)
 
 從這一篇開始，你的目標換了。前四篇講怎麼保護你的開發環境；這一篇起講怎麼測試你自己做的東西。如果你只用 agent、不做產品，讀完[第 4 篇](/posts/ai/2026-10-24-agent-detection-audit)可以停。
 

@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-zettelkasten-evergreen-notes-moc)
+> :globe: [中文版](/posts/learning/2026-10-22-zettelkasten-evergreen-notes-moc)
 
 Look back over notes you've kept for a few years and most of them are summaries and highlights: what this book said, the main points of that article. You can find them, but they've never helped you think of anything new.
 

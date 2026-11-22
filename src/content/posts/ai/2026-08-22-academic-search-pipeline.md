@@ -13,7 +13,7 @@ description: "一套可維護的學術搜尋管線：五個資料源的責任邊
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-academic-search-pipeline-en)
+> :globe: [English version](/posts/ai/2026-08-22-academic-search-pipeline-en)
 
 一般網頁搜尋只要回答「哪個 URL 值得讀」，學術搜尋還要回答另一個更麻煩的問題：**眼前這五筆紀錄，究竟是五篇論文、同一篇論文的五個版本，還是一篇原文加上勘誤與撤稿通知？**
 

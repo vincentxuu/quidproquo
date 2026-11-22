@@ -14,7 +14,7 @@ series:
   order: 35
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-28-rag-multi-entity-query-processing)
 
 The user says: "I recently completed Baihu 5.11d, Lightning 5.12a, Looks Like I Can 5.11c, Bubblegum 5.11b, and Hsinchu Hakka 5.10d — recommend 3 routes I haven't climbed." The system sees Baihu and returns. The other four routes? Gone.
 

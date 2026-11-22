@@ -30,7 +30,7 @@ glossary:
     context: "At Long Dong the test is an 8 kN axial load held for 1 minute, repeated 5 times within 10 minutes."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-judging-bolts)
+> :globe: [中文版](/posts/climbing/2026-10-17-judging-bolts)
 
 In the summer of 2015, both bolts of the top anchor on a Long Dong Music Hall route called "Big Drum" broke at the same time, and a climber fell to the ground. He was close to the ground and only lightly injured. Afterwards it emerged that both bolts were 304 stainless steel made before 2010.
 

@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-funding-catalyst-en)
+> :globe: [English version](/posts/daily/2026-10-13-funding-catalyst-en)
 
 ## 融資資訊
 

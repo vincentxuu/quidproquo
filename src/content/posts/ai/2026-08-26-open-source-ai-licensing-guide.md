@@ -18,7 +18,7 @@ glossary:
     def: "Monthly Active Users，月活躍使用者數，Llama License 用 7 億 MAU 作為免費商用的門檻"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-open-source-ai-licensing-guide-en)
+> :globe: [English version](/posts/ai/2026-08-26-open-source-ai-licensing-guide-en)
 
 當一個 AI 模型說自己「開源」，它可能是 MIT 授權隨你用，也可能是「權重公開但超過 7 億使用者要另外談」。這兩者的差距，比「免費」跟「付費」還大。這篇整理 2026 年主流 AI 模型授權的實際差異，讓你在部署前知道自己踩在哪條線上。
 
@@ -86,11 +86,11 @@ Open Source Initiative（OSI）在 2024 年 10 月發布了 [OSAID 1.0](https://
 
 | 我能不能... | MIT | Apache 2.0 | Llama License | 自訂授權 |
 |---|---|---|---|---|
-| 商用產品嵌入 | ✅ | ✅ | ✅（<7 億 MAU） | ⚠️ 看條款 |
-| Fine-tune 後再發布 | ✅ | ✅ | ✅（要標 Llama） | ⚠️ 看條款 |
-| 用輸出訓練自己的模型 | ✅ | ✅ | ⚠️ 有爭議 | ❌ 常被禁 |
-| 公司內部自架 | ✅ | ✅ | ✅ | ✅（通常可以） |
-| 不標出處 | ❌ 要保留版權 | ❌ 要保留版權 | ❌ 要標 Built with Llama | ⚠️ 看條款 |
+| 商用產品嵌入 | ✓ | ✓ | ✓（<7 億 MAU） | :warning: 看條款 |
+| Fine-tune 後再發布 | ✓ | ✓ | ✓（要標 Llama） | :warning: 看條款 |
+| 用輸出訓練自己的模型 | ✓ | ✓ | :warning: 有爭議 | ✗ 常被禁 |
+| 公司內部自架 | ✓ | ✓ | ✓ | ✓（通常可以） |
+| 不標出處 | ✗ 要保留版權 | ✗ 要保留版權 | ✗ 要標 Built with Llama | :warning: 看條款 |
 
 ## 部署前的檢查清單
 

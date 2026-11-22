@@ -11,7 +11,7 @@ series:
   order: 68
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-22-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### morluto/rea ⭐ 356,198
+### morluto/rea ★ 356,198
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### microsoft/agent-governance-toolkit ⭐ 6,452
+### microsoft/agent-governance-toolkit ★ 6,452
 
 [GitHub](https://github.com/microsoft/agent-governance-toolkit)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### cloudflare/security-audit-skill ⭐ 35,563
+### cloudflare/security-audit-skill ★ 35,563
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### headroomlabs-ai/headroom ⭐ 77,145
+### headroomlabs-ai/headroom ★ 77,145
 
 [GitHub](https://github.com/headroomlabs-ai/headroom)　·　Python　·　Apache-2.0
 

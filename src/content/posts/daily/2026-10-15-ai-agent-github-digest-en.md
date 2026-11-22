@@ -11,7 +11,7 @@ series:
   order: 61
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-ai-agent-github-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Beyond REA and context-mode, which keep holding the top of trending, what climbe
 
 ## Trending Repos
 
-### ifixai-ai/iFixAi ⭐ 27,424 (+2,109)
+### ifixai-ai/iFixAi ★ 27,424 (+2,109)
 [GitHub](https://github.com/ifixai-ai/iFixAi)　·　Python　·　Apache-2.0
 
 - **What it is**: An agent auditing tool that checks not latency or token use but whether the agent does its job according to business KPIs and organizational rules, with results in under 120 seconds by its own claim.
@@ -29,7 +29,7 @@ Beyond REA and context-mode, which keep holding the top of trending, what climbe
 
 ---
 
-### heygen-com/hyperframes ⭐ 63,713 (+1,089)
+### heygen-com/hyperframes ★ 63,713 (+1,089)
 [GitHub](https://github.com/heygen-com/hyperframes)　·　TypeScript　·　Apache-2.0
 
 - **What it is**: An open-source framework that renders HTML, CSS, media and seekable animations into deterministic MP4s, built for coding agents.
@@ -39,7 +39,7 @@ Beyond REA and context-mode, which keep holding the top of trending, what climbe
 
 ---
 
-### apify/apify-mcp-server ⭐ 11,251 (+233)
+### apify/apify-mcp-server ★ 11,251 (+233)
 [GitHub](https://github.com/apify/apify-mcp-server)　·　TypeScript　·　MIT
 
 - **What it is**: An MCP server that lets agents call any Actor (scraper or automation) in the Apify Store as an MCP tool, with a hosted version at mcp.apify.com.
@@ -49,7 +49,7 @@ Beyond REA and context-mode, which keep holding the top of trending, what climbe
 
 ---
 
-### MakazhanAlpamys/Soup ⭐ 9,034 (+247)
+### MakazhanAlpamys/Soup ★ 9,034 (+247)
 [GitHub](https://github.com/MakazhanAlpamys/Soup)　·　Python　·　Apache-2.0
 
 - **What it is**: A CLI that fine-tunes and post-trains LLMs from one YAML file and one command.

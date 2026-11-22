@@ -18,7 +18,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-28-obscura-rust-headless-browser)
+> :globe: [中文版](/posts/ai/2026-09-28-obscura-rust-headless-browser)
 
 The usual way to put an agent on the web is to start headless Chrome and drive it with [Puppeteer](https://pptr.dev/) or [Playwright](https://playwright.dev/). It works, but each Chrome process easily takes 200 MB of memory, so a hundred concurrent agents need a machine of their own. [Obscura](https://github.com/h4ckf0r0day/obscura) takes a different route: instead of wrapping Chrome, it is a browser engine written from scratch in Rust. It embeds V8 to run JavaScript and exposes the Chrome DevTools Protocol (CDP), so existing Puppeteer and Playwright scripts connect by changing one endpoint.
 

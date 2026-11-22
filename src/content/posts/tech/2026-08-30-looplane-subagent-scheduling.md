@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-subagent-scheduling-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-subagent-scheduling-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-skills-hooks-plugins)拆開 repository-local 擴充的三種權限。當工作可以拆成幾條獨立調查線時，[Looplane](https://github.com/vincentxuu/looplane)還能 dispatch subagents；這裡的核心不是「多開幾個 agent」，而是誰擁有 workspace 與修改權。
 

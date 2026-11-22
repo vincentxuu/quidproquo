@@ -12,14 +12,14 @@ series:
 additionalSeries:
   - name: "Reading Stanford's Main-Line CS Courses"
     order: 16
-tldr: "CS329Z is Stanford's course on engineering AI agents: you first build RAG, tool use and the agent loop by hand without frameworks, then see what frameworks like DSPy abstract away; the two assignments are building an agent harness and designing an agent evaluation. The syllabus, the assigned readings, the first eleven slide decks, and the starter code, data and public tests for Assignment 1 are available; Stanford Online is publishing the recordings publicly on YouTube (Lectures 1–4 are up, more to follow)."
+tldr: "CS329Z is Stanford's course on engineering AI agents: you first build RAG, tool use and the agent loop by hand without frameworks, then see what frameworks like DSPy abstract away; the two assignments are building an agent harness and designing an agent evaluation. The syllabus, the assigned readings, the first eleven slide decks, and the starter code, data and public tests for Assignment 1 are available; Stanford Online is publishing the recordings publicly on YouTube (Lectures 1–10 are up, more to follow)."
 description: "A self-study route through Stanford CS329Z: RAG, tools, context, memory, multi-agent coordination, and optimization, with eleven official slide decks (including the Terminal-Bench guest lecture and agent data) and the HW1 starter."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)
 
-**Video status: Videos included (representative Lecture 1 video).** [Source details](#course-video-sources). Stanford Online is publishing the recordings publicly on YouTube — Lectures 1–4 are up; each lecture guide embeds its recording, and Lecture 1 runs about 70 minutes.
+**Video status: Videos included (representative Lecture 1 video).** [Source details](#course-video-sources). Stanford Online is publishing the recordings publicly on YouTube — Lectures 1–10 are up; each lecture guide embeds its recording, and Lecture 1 runs about 70 minutes.
 
 ```youtube
 url: https://www.youtube.com/watch?v=DGI4vucR71w
@@ -30,7 +30,7 @@ title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1
 
 The frame the course site opens with is "compound AI systems": systems assembled from LLMs, retrievers, tools and optimizers that interact with each other. The site calls this a fundamental shift in how AI applications get built. The three threads that run through the quarter are named in the very first session description — decomposition, data, evaluation.
 
-For self-study, follow the path from building a working system to making it reliable: retrieval and tools first, then context, memory and coordination, followed by data-driven optimization and evaluation. This overview maps the entry points. The series now has one post per lecture: Lectures 1–11 walk through the released decks page by page, and Lecture 12 onward are previews from the schedule and readings. Stanford Online is publishing the recordings publicly on YouTube: Lectures 1–4 are up, and the rest will follow.
+For self-study, follow the path from building a working system to making it reliable: retrieval and tools first, then context, memory and coordination, followed by data-driven optimization and evaluation. This overview maps the entry points. The series now has one post per lecture: Lectures 1–11 walk through the released decks page by page, and Lecture 12 onward are previews from the schedule and readings. Stanford Online is publishing the recordings publicly on YouTube: Lectures 1–10 are up, and the rest will follow.
 
 ## Read the series as a connected engineering exercise
 
@@ -46,7 +46,7 @@ A missing source suggests retrieval or indexing work; a distorted handoff sugges
 
 ### Read the source status before treating a guide as a lecture
 
-As of October 29, 2026, the official site links Lectures 01–11 (through the October 28 Data for Agentic Systems lecture). Lecture 12 onward is still preparation based on the schedule and assigned readings; they are not accounts of classes that have not occurred. Their reading Digests are separated from the central explanation. Public slides and papers are available to self-learners, and [the recordings are being published publicly on YouTube](https://www.youtube.com/playlist?list=PLPRcF5HR02_U) (Lectures 1–4 up, more to follow).
+As of October 29, 2026, the official site links Lectures 01–11 (through the October 28 Data for Agentic Systems lecture). Lecture 12 onward is still preparation based on the schedule and assigned readings; they are not accounts of classes that have not occurred. Their reading Digests are separated from the central explanation. Public slides and papers are available to self-learners, and [the recordings are being published publicly on YouTube](https://www.youtube.com/playlist?list=PLPRcF5HR02_U) (Lectures 1–10 up, more to follow).
 
 **Check:** an assistant finds the right email, writes a plausible explanation, and says it sent the message. What remains unproven? **Answer criteria:** the explanation must preserve source uncertainty, and sending requires actual tool evidence plus the relevant authorization. A completion sentence alone establishes neither.
 
@@ -150,7 +150,7 @@ The [ExploreCourses description still says `three fully applied homework assignm
 
 ## What a self-learner can actually get
 
-The conclusion first: **you get the syllabus, the reading list, and slides posted lecture by lecture; the Assignment 1 starter code and tests are public; and Stanford Online is publishing the recordings publicly on YouTube, with Lectures 1–4 up.**
+The conclusion first: **you get the syllabus, the reading list, and slides posted lecture by lecture; the Assignment 1 starter code and tests are public; and Stanford Online is publishing the recordings publicly on YouTube, with Lectures 1–10 up.**
 
 **Available: the first eleven lecture decks, no login needed.** As of October 29, the [official schedule](https://cs329z.stanford.edu/) links through the October 28 Data for Agentic Systems lecture.
 
@@ -187,11 +187,11 @@ This is the article's suggested reading route. Lecture 12 onward has no slides y
 
 **Available: the course website's source and revision history.** The syllabus changes in the previous section were read straight out of it.
 
-**Available (rolling release): recordings.** Stanford Online has opened a [course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U) on YouTube, uploading Lectures 1–4 between November 9 and 12, 2026; several videos in the playlist are still private. The first lecture's slide promise — "Lecture slides and videos will be posted online" — is being kept, with the remaining lectures to follow.
+**Available (rolling release): recordings.** Stanford Online has opened a [course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U) on YouTube, uploading Lectures 1–10 roughly one a day between November 9 and 18, 2026 (Lecture 10 is the Terminal-Bench guest lecture); two more videos in the playlist are still private. The first lecture's slide promise — "Lecture slides and videos will be posted online" — is being kept, with the remaining lectures to follow.
 
 **Available: the HW1 starter, datasets, and public tests.** The course logistics page now links to the [official starter repository](https://github.com/cs329z/assignment1-harness). It includes the assignment handout, a compressed corporate email archive, Cardinal Energy documents, adapter stubs, deterministic and live tests, and simulated-user evaluation. Cardinal Energy is fictional; the handout describes the email archive separately as real corporate mail. The public tests are enough to start self-study, but the starter is not a completed solution. HW2 was released on October 26, but the deadline table links no public files and the cs329z GitHub organization has no HW2 repository yet (checked October 29, 2026).
 
-**Available: the October 26 Terminal-Bench guest slides.** The [official schedule](https://cs329z.stanford.edu/) names Ryan Marten and Alex Shaw; the [slides](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf), project site, and paper are all public. The other guest session on November 16 remains TBA. Anything said beyond the slides still requires the Canvas recording.
+**Available: the October 26 Terminal-Bench guest slides.** The [official schedule](https://cs329z.stanford.edu/) names Ryan Marten and Alex Shaw; the [slides](https://web.stanford.edu/class/cs329z/slides/lecture10.pdf), project site, and paper are all public. The other guest session on November 16 remains TBA. The recording of this guest lecture also went up publicly on 2026-11-18.
 
 One more thing, unrelated to materials but worth reading: this course's integrity policy spends a full paragraph on how to use AI tools, in a tone quite unlike most academic bans.
 
@@ -234,7 +234,7 @@ The course joins component construction, agent-system design, data, and evaluati
 | Dimension | Judgment |
 | --- | --- |
 | Authority | Primary source for current teaching scope and published deadlines |
-| Access | Public materials are available, while recordings require Canvas access |
+| Access | Public materials are available, and Stanford Online is publishing the recordings publicly on a rolling basis |
 | Boundary | The schedule is tentative; unreleased slides are not evidence of delivered content |
 
 ### Domain background
@@ -250,7 +250,7 @@ The schedule is also a release map: it links slides as they become available. A 
 ### Deeper points
 
 - Assignment scope and lecture scope differ: a framework can be discussed in class while being prohibited in an implementation assignment.
-- Recording access and public document access are separate; a visible course page does not establish public video rights.
+- Documents and recordings are released on separate schedules; a visible course page does not mean that lecture's video is up yet.
 
 ### Reviewer’s one-line verdict
 
@@ -303,8 +303,8 @@ Before implementation, write the task, baseline, acceptance measure, and one com
 ## Course video sources
 
 - Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U) (Stanford Online channel)
-- Lectures 1–4 went up publicly between 2026-11-09 and 11-12; the remaining videos in the playlist are still private. Each lecture guide embeds its recording; this overview embeds Lecture 1 (about 70 minutes) in the introduction.
-- Checked: 2026-11-13. The earlier statement that recordings require an enrolled Canvas login no longer applies.
+- Lectures 1–10 went up publicly between 2026-11-09 and 11-18; two more videos in the playlist are still private. Each lecture guide embeds its recording; this overview embeds Lecture 1 (about 70 minutes) in the introduction.
+- Checked: 2026-11-19. The earlier statement that recordings require an enrolled Canvas login no longer applies.
 
 Course and recording entries:
 
@@ -313,6 +313,7 @@ Course and recording entries:
 
 ## Update Log
 
+- 2026-11-19: Stanford Online published Lectures 5–10 between 2026-11-13 and 11-18; updated the published range, the Terminal-Bench guest recording access, and the check date.
 - 2026-11-13: Stanford Online began publishing the course recordings publicly on YouTube (Lectures 1–4); embedded the representative Lecture 1 video, rewrote the video status and sources section, and updated the tldr and self-study material list.
 - 2026-10-29: The series moved from one post per week to one post per lecture (Lectures 1–19, with the Lecture 16 guest session still to be announced); the reading-route table now runs through Lecture 19, and old weekly URLs redirect to the matching lecture.
 - 2026-10-29: Extended the slide map through Lecture 11 (Terminal-Bench guest lecture, Data for Agentic Systems), rewrote the reading route and guest-session passages that called the lecture upcoming, noted that HW2 files are not yet public, and rechecked recording access.

@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-06-15-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-15-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -65,7 +65,7 @@ ALE lets people compare different agents on the same "real workplace tasks" for 
 ### Key Details
 
 - **Three difficulty tiers**: near-term (close to practical deployment), full-spectrum (full range), last-exam (hardest — tasks humans can do but agents almost can't)
-- **Key numbers**: Best configuration Codex (GPT-5.5) overall pass rate ~26%; last-exam tier all frontier agents average **2.6%**; Claude Fable 5 and other top models score **0%** on the hardest tier ⚠️ (numbers from public leaderboard snapshot, may change with updates)
+- **Key numbers**: Best configuration Codex (GPT-5.5) overall pass rate ~26%; last-exam tier all frontier agents average **2.6%**; Claude Fable 5 and other top models score **0%** on the hardest tier :warning: (numbers from public leaderboard snapshot, may change with updates)
 - **Comparison**: The same agent scores 82% on Terminal-Bench and 59.1% on SWE-bench-Pro — suggesting traditional benchmarks may seriously overestimate deployment readiness
 - **Scoring**: Fully automated deterministic scoring, 0–1 range, complete trace logs preserved, avoiding hallucination scoring from LLM judges
 - **Open ecosystem**: Website [agents-last-exam.org](http://agents-last-exam.org) has a public leaderboard; GitHub repo (rdi-berkeley/agents-last-exam) opens the harness code for self-integration
@@ -172,7 +172,7 @@ This framework helps agent platform operators focus limited human resources on "
 ### Key Details
 
 - **3×3 monitoring matrix**: 9 monitoring facets, each with different signal interpretation; the cross-run layer is what traditional monitoring most easily misses
-- **CV demonstration**: within-run CV=0.02 (deterministic defect) vs cross-run CV=1.25 (stochastic integration issue) vs structural CV=0.00 (perfectly consistent integration gap) — three failure types distinguished with a single metric ⚠️ (from 220 synthetic test runs, not real production data)
+- **CV demonstration**: within-run CV=0.02 (deterministic defect) vs cross-run CV=1.25 (stochastic integration issue) vs structural CV=0.00 (perfectly consistent integration gap) — three failure types distinguished with a single metric :warning: (from 220 synthetic test runs, not real production data)
 - **FMEA severity classification**: L2 and above routed to human intervention, reducing alert fatigue
 - **Three maturity stages**: characterization (new deployment) → error detection (stabilizing) → reliability tracking (mature operation); each corresponds to different monitoring strategy priorities
 - **Framework relevance**: LangGraph / AutoGen etc. have no built-in structural-level monitoring; this framework can serve as a design reference for an observability layer on top

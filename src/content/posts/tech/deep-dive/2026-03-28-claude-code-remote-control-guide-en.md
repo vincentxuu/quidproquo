@@ -13,7 +13,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide)
 
 ## You Walked Away, but the Task Is Still Running
 

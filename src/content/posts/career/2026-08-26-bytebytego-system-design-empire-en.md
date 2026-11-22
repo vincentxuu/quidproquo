@@ -13,7 +13,7 @@ description: "The complete growth story of Alex Xu and ByteByteGo: from self-pub
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-bytebytego-system-design-empire)
+> :globe: [中文版](/posts/career/2026-08-26-bytebytego-system-design-empire)
 
 Alex Xu used a single self-published book to bootstrap a $3.5M technical education company. No venture capital, no media background, no team — just a Silicon Valley engineer who thought the available system design resources weren't good enough.
 

@@ -13,7 +13,7 @@ description: "A guide to the Bosco Scorace bouldering area: the sandstone, secto
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-bosco-scorace)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-bosco-scorace)
 
 Bosco Scorace lies inland in Trapani province in western Sicily, between the small villages of Ummari and Buseto Palizzolo. Most Sicilian climbing is limestone sport by the sea; this is a wood of eucalyptus, oak and cork oak scattered with sandstone boulders. [UKC's Sicily guide](https://www.ukclimbing.com/articles/destinations/sicily-14498) says, "If you are a boulderer, the best place is Bosco Scorace."
 

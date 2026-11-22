@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-product-builder-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-10-30-product-builder-interview-daily-en)
 
 ## 今日主題
 
@@ -54,10 +54,10 @@ step: 習慣強度變強,下一次的觸發更可能是內部的,不靠推播
 ---
 <svg viewBox="0 0 440 392">
   <path class="dg-line" d="M280 56.3A152 152 0 0 1 368.8 165.1" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M369.4 224A152 152 0 0 1 282.7 334.4" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M160 335.7A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M369.4 224A152 152 0 0 1 292.5 329.6" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M150 330.9A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
   <path class="dg-line" d="M70.6 168A152 152 0 0 1 157.3 57.6" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--dashed" d="M128 196H168" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line dg-line--dashed" d="M128 196H156" marker-end="url(#arrow)" data-step="4"/>
   <path class="dg-line dg-line--dashed" d="M220 168V72" marker-end="url(#arrow)" data-step="5"/>
 
   <g data-step="1 5">
@@ -73,7 +73,7 @@ step: 習慣強度變強,下一次的觸發更可能是內部的,不靠推播
   </g>
 
   <g data-step="3">
-    <rect class="dg-box" x="160" y="320" width="120" height="56" rx="6"/>
+    <rect class="dg-box" x="150" y="320" width="140" height="56" rx="6"/>
     <text class="dg-label" x="220" y="339" text-anchor="middle" dominant-baseline="central">Variable Reward</text>
     <text class="dg-sub" x="220" y="359" text-anchor="middle" dominant-baseline="central">變動獎勵</text>
   </g>
@@ -84,11 +84,11 @@ step: 習慣強度變強,下一次的觸發更可能是內部的,不靠推播
     <text class="dg-sub" x="68" y="207" text-anchor="middle" dominant-baseline="central">投入</text>
   </g>
 
-  <rect class="dg-box dg-box--store" x="168" y="168" width="104" height="56" rx="6"/>
+  <rect class="dg-box dg-box--store" x="156" y="168" width="128" height="56" rx="6"/>
   <text class="dg-label" x="220" y="187" text-anchor="middle" dominant-baseline="central">習慣強度</text>
   <text class="dg-sub" x="220" y="207" text-anchor="middle" dominant-baseline="central">每圈都變強</text>
 
-  <text class="dg-edge" x="148" y="182" text-anchor="end" dominant-baseline="central" data-step="4">寫入</text>
+  <text class="dg-edge" x="142" y="156" text-anchor="middle" dominant-baseline="central" data-step="4">寫入</text>
   <text class="dg-edge" x="230" y="120" text-anchor="start" dominant-baseline="central" data-step="5">讀出</text>
 </svg>
 ```

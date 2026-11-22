@@ -13,7 +13,7 @@ description: "依官方投影片整理圖、有向圖、獨立集、頂點覆蓋
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-10-graphs-1-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-10-graphs-1-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

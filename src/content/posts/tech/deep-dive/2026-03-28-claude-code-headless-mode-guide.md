@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide-en)
 
 [系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)講過，Claude Code 的本質是一個 agentic loop。平常你在終端機跟它一來一往，loop 由你手動推進；但很多時候你不想坐在終端機前——你想讓它跑完一批 lint 修正、在 CI 裡審查每個 PR、把 build log 餵給它換一份人話解釋。這些場景用的是同一套工具和 loop，只是拿掉了互動介面：加一個 `-p` 旗標，Claude Code 就從對話工具變成 Unix 管線裡的一個元件。
 

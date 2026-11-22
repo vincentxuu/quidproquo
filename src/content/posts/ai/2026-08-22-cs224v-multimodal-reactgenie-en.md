@@ -12,7 +12,7 @@ tldr: "ReactGenie annotates React components to expose data, actions, and views,
 description: "CS224V Multimodal Applications: command composition, API exposure, simultaneous input/output, ReactGenie architecture, runtime, and evaluation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-multimodal-reactgenie)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

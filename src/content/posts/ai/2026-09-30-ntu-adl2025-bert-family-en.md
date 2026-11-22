@@ -25,7 +25,7 @@ glossary:
     context: "The ADL slides say BERT masks 15% of tokens: too few makes training expensive, too many leaves too little context."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-bert-family)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-bert-family)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

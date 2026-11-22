@@ -10,7 +10,7 @@ description: "React Hook Form paired with Zod is the modern best practice for Re
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-react-hook-form-zod-validation)
+:globe: [中文版](/posts/tech/2026-03-27-react-hook-form-zod-validation)
 
 Forms are one of the most common frontend requirements — and one of the easiest parts of a codebase to let get messy. Controlled components, a `useState` call per field, hand-rolled validation logic — it works, but at scale it becomes a maintenance nightmare.
 

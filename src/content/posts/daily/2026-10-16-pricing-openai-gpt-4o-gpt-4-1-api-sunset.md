@@ -12,7 +12,7 @@ series:
   order: 23
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
+> :globe: [English version](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
 
 ## 變更摘要
 
@@ -77,7 +77,7 @@ GPT-6 Luna 跟 Claude Haiku 5.5 打成平手，兩家最便宜的生產級模型
 
 ## 時效提醒
 
-⚠️ **停用日期**：2027-01-14。GPT-4o（`gpt-4o-2024-08-06`、`gpt-4o-2024-11-20`）、GPT-4o mini（`gpt-4o-mini-2024-07-18`）、GPT-4.1（`gpt-4.1-2025-04-14`）、GPT-4.1 mini（`gpt-4.1-mini-2025-04-14`）及其所有 fine-tune 版本將從 API 全面下架，過期請求會直接失敗。遷移指南：[OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations)。
+:warning: **停用日期**：2027-01-14。GPT-4o（`gpt-4o-2024-08-06`、`gpt-4o-2024-11-20`）、GPT-4o mini（`gpt-4o-mini-2024-07-18`）、GPT-4.1（`gpt-4.1-2025-04-14`）、GPT-4.1 mini（`gpt-4.1-mini-2025-04-14`）及其所有 fine-tune 版本將從 API 全面下架，過期請求會直接失敗。遷移指南：[OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations)。
 
 ## 今日收穫
 

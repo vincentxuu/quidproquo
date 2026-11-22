@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy)
 
 Cloudflare caching is often reduced to "turn on the CDN." In a real product, the hard question is more specific: which responses can enter shared cache, which must remain dynamic, whether TTL should come from the origin or the platform, and whether a purge can precisely remove the cached object.
 

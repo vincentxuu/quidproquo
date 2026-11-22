@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-server-sent-events)
+> :globe: [中文版](/posts/tech/2026-08-22-server-sent-events)
 
 [Server-Sent Events](https://html.spec.whatwg.org/multipage/server-sent-events.html) lets a server push UTF-8 events through a long-running HTTP response. Browser `EventSource` handles parsing and reconnecting, fitting notifications, job progress, LLM token streams, and dashboard updates. Client commands continue over ordinary HTTP.
 

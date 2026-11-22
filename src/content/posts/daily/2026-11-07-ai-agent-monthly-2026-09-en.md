@@ -12,7 +12,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-ai-agent-monthly-2026-09)
+> :globe: [中文版](/posts/daily/2026-11-07-ai-agent-monthly-2026-09)
 
 We wrote this retrospective in November. There was no monthly report in September. We picked these three threads knowing how October turned out, so the selection carries hindsight. For what came next, see the [October issue](/posts/daily/2026-11-07-ai-agent-monthly-2026-10-en).
 

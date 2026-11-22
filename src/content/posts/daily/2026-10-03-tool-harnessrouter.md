@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-tool-harnessrouter-en)
+> :globe: [English version](/posts/daily/2026-10-03-tool-harnessrouter-en)
 
 ## 工具資訊
 
@@ -93,11 +93,11 @@ curl --fail-with-body -sS "$HARNESSROUTER_BASE_URL/v1/responses" \
 
 | | HarnessRouter CE | 自己寫 glue code 接各 harness | 直接用單一 harness 的原生 SDK/CLI |
 |---|---|---|---|
-| 多 harness 切換 | ✅ 改一個欄位即可 | 需自行實作每套整合 | ❌ 綁定單一 harness |
-| session／串流／檔案／取消統一介面 | ✅ 內建、OpenAI Responses 相容 | 需自行實作 | 依該 harness 自己的介面 |
-| 開放協定、不綁單一廠商 | ✅（UHP 公開規格＋conformance suite） | — | ❌ |
-| 自架、資料留在自己機器 | ✅（CE） | ✅ | 視該 harness 架構 |
-| credential 隔離（每個 session 獨立 OS 使用者） | ✅ 內建 | 需自行實作 | 視該 harness 架構 |
+| 多 harness 切換 | ✓ 改一個欄位即可 | 需自行實作每套整合 | ✗ 綁定單一 harness |
+| session／串流／檔案／取消統一介面 | ✓ 內建、OpenAI Responses 相容 | 需自行實作 | 依該 harness 自己的介面 |
+| 開放協定、不綁單一廠商 | ✓（UHP 公開規格＋conformance suite） | — | ✗ |
+| 自架、資料留在自己機器 | ✓（CE） | ✓ | 視該 harness 架構 |
+| credential 隔離（每個 session 獨立 OS 使用者） | ✓ 內建 | 需自行實作 | 視該 harness 架構 |
 | 需要 provider API key 自己管 | 是 | 是 | 是 |
 
 ## 注意事項

@@ -20,7 +20,7 @@ glossary:
     context: "Chandar 在 Q&A 用它推測 AI 之後就業可能往哪裡移，Boaz 的部落格文也用它解釋為何電腦沒讓 GDP 成長率跳升。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-09-economic-impacts-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -22,7 +22,7 @@ glossary:
     context: "L6 p.33 直接寫明「In CS234 HW2 we ask you to prove」，就是作業二 Q3 (d)。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

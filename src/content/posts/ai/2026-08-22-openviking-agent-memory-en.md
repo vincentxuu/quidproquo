@@ -21,7 +21,7 @@ glossary:
     definition_en: "A benchmark that tests whether agents can complete tasks across multi-turn interactions in simulated customer service scenarios (retail, airline)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-openviking-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-22-openviking-agent-memory)
 
 The most common failure mode in AI agents: misremembering facts, pulling in stale context, forgetting what matters. The root cause isn't model capability — it's that the memory infrastructure is too crude. Vector databases return whatever they return, and you can't even see what the agent has actually stored.
 

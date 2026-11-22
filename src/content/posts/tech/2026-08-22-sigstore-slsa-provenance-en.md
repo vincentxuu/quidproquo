@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-sigstore-slsa-provenance)
+> :globe: [中文版](/posts/tech/2026-08-22-sigstore-slsa-provenance)
 
 [Sigstore](https://docs.sigstore.dev/) and [SLSA](https://slsa.dev/) solve adjacent problems. Sigstore and Cosign sign and verify artifacts and attestations. SLSA defines what provenance should establish and how trustworthy a build platform is. A signature proves an identity signed a digest, not that source, workflows, or dependencies are safe.
 

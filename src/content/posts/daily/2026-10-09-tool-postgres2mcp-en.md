@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-tool-postgres2mcp)
+> :globe: [中文版](/posts/daily/2026-10-09-tool-postgres2mcp)
 
 ## Tool info
 
@@ -90,11 +90,11 @@ psql -c "ALTER ROLE mcp SET statement_timeout = '15s';"
 
 | | postgres2mcp | A manual read-only Postgres role | A generic mcp-postgres wrapper |
 |---|---|---|---|
-| Per-API-key tool scoping | ✅ | ❌ (roles live at the database level, not per client) | ❌ usually one shared tool set for every client |
-| Custom tools from parametrized SQL | ✅ dashboard or MCP | ❌ | Needs custom code |
-| Built-in audit log and usage analytics | ✅ | ❌ query `pg_stat_statements` yourself | Depends on the implementation, usually absent |
-| Self-hosted in under 10 minutes, HTTPS included | ✅ one install script | — | Depends on the project |
-| Open source, deliberately kept small to audit | ✅ MIT | — | Depends on the project |
+| Per-API-key tool scoping | ✓ | ✗ (roles live at the database level, not per client) | ✗ usually one shared tool set for every client |
+| Custom tools from parametrized SQL | ✓ dashboard or MCP | ✗ | Needs custom code |
+| Built-in audit log and usage analytics | ✓ | ✗ query `pg_stat_statements` yourself | Depends on the implementation, usually absent |
+| Self-hosted in under 10 minutes, HTTPS included | ✓ one install script | — | Depends on the project |
+| Open source, deliberately kept small to audit | ✓ MIT | — | Depends on the project |
 
 ## Things to watch
 

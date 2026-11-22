@@ -1,0 +1,15 @@
+sh_act.md https://docs.stagehand.dev/v4/basics/act.md
+sh_observe.md https://docs.stagehand.dev/v4/basics/observe.md
+sh_extract.md https://docs.stagehand.dev/v4/basics/extract.md
+sh_ai-rules.md https://docs.stagehand.dev/v4/first-steps/ai-rules.md
+sh_cost.md https://docs.stagehand.dev/v4/best-practices/cost-optimization.md
+sh_models.md https://docs.stagehand.dev/v4/configuration/models.md
+sh_webmcp.md https://docs.stagehand.dev/v4/basics/webmcp.md
+sh_mig-browser-use.md https://docs.stagehand.dev/v4/migrations/browser-use.md
+sh_mig-pw.md https://docs.stagehand.dev/v4/migrations/playwright.md
+sh_mig-v3.md https://docs.stagehand.dev/v4/migrations/v3.md
+sh_caching.md https://docs.stagehand.dev/v4/best-practices/caching.md
+sh_v3_deterministic.md https://docs.stagehand.dev/v3/best-practices/deterministic-agent.md
+cf_stagehand.md https://developers.cloudflare.com/browser-run/stagehand/index.md
+cf_index.md https://developers.cloudflare.com/browser-run/index.md
+cf_llms.txt https://developers.cloudflare.com/browser-run/llms.txt

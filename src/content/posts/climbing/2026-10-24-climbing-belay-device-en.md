@@ -38,7 +38,7 @@ glossary:
     context: "The GRIGRI+ and Pinch have it. Hard Is Easy found the Pinch's anti-panic engaged often when lowering, and he had to pull the lever further to keep going."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-belay-device)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-belay-device)
 
 The shop has two ropes, 9.8 mm and 8.9 mm, at about the same price. Thinner is lighter, you think, so the thin one. The staff ask: "What belay device will you use with it?" You don't know.
 

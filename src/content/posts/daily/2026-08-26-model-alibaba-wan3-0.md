@@ -15,7 +15,7 @@ glossary:
     def: "阿里雲通義萬相（Tongyi Wan）開發的影片生成模型家族"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
+> :globe: [English version](/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | 1080P 定價（每秒） | $0.20 | 未列每秒價（按次計費） | $0.40 |
 | 文件／網頁輸入 | 支援（doc/xls/ppt/pdf/md/網頁） | 不支援 | 不支援 |
 
-⚠️ 以上生成長度、一致性、口型同步等品質相關描述均為 Alibaba 官方展示案例，尚未有第三方獨立測試或標準化 benchmark 分數；定價欄位為官方公告數字。
+:warning: 以上生成長度、一致性、口型同步等品質相關描述均為 Alibaba 官方展示案例，尚未有第三方獨立測試或標準化 benchmark 分數；定價欄位為官方公告數字。
 
 ## 與前代/競品比較
 

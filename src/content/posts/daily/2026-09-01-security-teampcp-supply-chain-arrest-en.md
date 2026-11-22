@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest)
+> :globe: [中文版](/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest)
 
 ## Incident Overview
 

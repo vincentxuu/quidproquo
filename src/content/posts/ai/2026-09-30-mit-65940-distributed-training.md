@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 L20 投影片第 26–52 頁，出自 Lin et al., ICLR 2018。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-distributed-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-distributed-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

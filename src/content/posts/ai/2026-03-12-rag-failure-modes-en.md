@@ -13,7 +13,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-failure-modes)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-failure-modes)
 
 RAG system problems are usually not random — they cluster around a few identifiable failure modes. Once you diagnose which mode you're dealing with, the solution becomes clear.
 

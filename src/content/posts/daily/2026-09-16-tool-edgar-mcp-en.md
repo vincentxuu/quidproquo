@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-16-tool-edgar-mcp)
+> :globe: [中文版](/posts/daily/2026-09-16-tool-edgar-mcp)
 
 ## Tool Info
 
@@ -91,10 +91,10 @@ The author chose to report `recall_at_1` at only 38.5% honestly rather than hide
 
 | | edgar-mcp | Calling the official EDGAR API directly | Generic web scraping of filing HTML |
 |---|---|---|---|
-| Returns a single section instead of the whole document | ✅ | ❌ (returns the full JSON/document) | ❌ (you split sections yourself) |
-| No API key | ✅ (only a User-Agent header) | ✅ | ✅ |
-| Merges XBRL financial concepts across tag renames | ✅ (14 concepts auto-mapped to multiple tags) | ❌ (you need to know every tag name) | ❌ |
-| Ships with an eval suite verifying accuracy | ✅ | — | — |
+| Returns a single section instead of the whole document | ✓ | ✗ (returns the full JSON/document) | ✗ (you split sections yourself) |
+| No API key | ✓ (only a User-Agent header) | ✓ | ✓ |
+| Merges XBRL financial concepts across tag renames | ✓ (14 concepts auto-mapped to multiple tags) | ✗ (you need to know every tag name) | ✗ |
+| Ships with an eval suite verifying accuracy | ✓ | — | — |
 | Section extraction accuracy | Heuristic based on text length, not 100% | Not applicable (no section splitting) | Depends on site structure; breaks whenever the layout changes |
 
 ## Caveats

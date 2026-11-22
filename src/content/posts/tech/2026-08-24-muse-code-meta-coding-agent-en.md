@@ -13,7 +13,7 @@ description: "Meta Muse Code technical architecture: Muse Spark 1.2 model co-tra
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-muse-code-meta-coding-agent)
+> :globe: [中文版](/posts/tech/2026-08-24-muse-code-meta-coding-agent)
 
 On August 5, 2026, Meta Superintelligence Labs released [Muse Code](https://musecodes.io) in early beta — Meta's first terminal-native coding agent. The team is led by Alexandr Wang (Meta's Chief AI Officer, former Scale AI founder).
 

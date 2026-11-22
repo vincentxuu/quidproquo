@@ -11,7 +11,7 @@ series:
   order: 62
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-16-ai-agent-github-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-16-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today, trending repos and new releases are saying the same thing: how to make ag
 
 ## Trending Repos
 
-### JuliusBrussee/caveman ⭐ 112,360 (+530)
+### JuliusBrussee/caveman ★ 112,360 (+530)
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 
 - **What it is**: A skill-plus-proxy combo that makes coding agents "talk like a caveman" and compresses logs, JSON and test output before the agent reads them, without touching the code itself.
@@ -29,7 +29,7 @@ Today, trending repos and new releases are saying the same thing: how to make ag
 
 ---
 
-### debpalash/VoiceStudio ⭐ 68,575 (+3,027)
+### debpalash/VoiceStudio ★ 68,575 (+3,027)
 [GitHub](https://github.com/debpalash/VoiceStudio)　·　Python　·　Open source
 
 - **What it is**: An open-source, fully local ElevenLabs alternative covering voice cloning, voice design, video dubbing, dictation, transcription and audiobook creation, in 646 languages.
@@ -39,7 +39,7 @@ Today, trending repos and new releases are saying the same thing: how to make ag
 
 ---
 
-### xerj-org/xerj ⭐ 5,432 (+725)
+### xerj-org/xerj ★ 5,432 (+725)
 [GitHub](https://github.com/xerj-org/xerj)　·　Rust　·　Apache-2.0
 
 - **What it is**: A local AI search index written in Rust. One command indexes an entire folder — code, docs, logs, PDFs — so agents search instead of reading files line by line; its interface is Elasticsearch-compatible, so existing clients work unchanged.
@@ -49,7 +49,7 @@ Today, trending repos and new releases are saying the same thing: how to make ag
 
 ---
 
-### lightseekorg/tokenspeed ⭐ 2,405 (+25)
+### lightseekorg/tokenspeed ★ 2,405 (+25)
 [GitHub](https://github.com/lightseekorg/tokenspeed)　·　Python　·　Apache-2.0
 
 - **What it is**: An LLM inference engine maintained by the non-profit LightSeek Foundation, with hardware and engineering support credited to NVIDIA and AMD, built for agentic workloads.

@@ -17,7 +17,7 @@ glossary:
     def: "測試題目洩漏進模型訓練資料，導致模型「背答案」而非真正理解"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-evaluation-sources-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-evaluation-sources-en)
 
 模型廠商發新模型時都會貼一堆 benchmark 數字，但哪些能信、哪些在灌水？這篇把 2026 年主要的評測來源拆開來看——每個來源測什麼、怎麼解讀、有什麼偏差。
 
@@ -337,7 +337,7 @@ Benchmark 告訴你模型「能力」如何，市場熱度告訴你「多少人�
 每個模型發佈時，廠商會在官方 blog 貼公告，附上 benchmark 數字、架構說明、定價。這些是最一手的資料，但也最需要警惕。
 
 **怎麼讀**：
-- **自測 vs 獨立複現**：廠商自己跑的 benchmark 要標注 ⚠️。同一個 benchmark，不同的提示模板、溫度設定、few-shot 數量都會影響分數。只有獨立團隊（如 SWE-bench 官方、Artificial Analysis）用統一流程跑的結果才能直接比較
+- **自測 vs 獨立複現**：廠商自己跑的 benchmark 要標注 :warning:。同一個 benchmark，不同的提示模板、溫度設定、few-shot 數量都會影響分數。只有獨立團隊（如 SWE-bench 官方、Artificial Analysis）用統一流程跑的結果才能直接比較
 - **選擇性報告**：廠商只會貼表現好的 benchmark。如果一個模型的公告裡沒提 SWE-bench，很可能是因為分數不好看
 - **「首次突破」的措辭**：注意「在 X benchmark 上達到 Y%」跟「在 X benchmark 上超越所有模型」是不同的。前者可能只比前代好，後者才是真的第一
 - **定價要抓定價頁**：Blog 裡的定價可能是首發優惠價。去 pricing page 看有沒有分標準/batch/cached 價格

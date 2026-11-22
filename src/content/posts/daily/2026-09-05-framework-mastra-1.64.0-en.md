@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-framework-mastra-1.64.0)
+> :globe: [中文版](/posts/daily/2026-09-05-framework-mastra-1.64.0)
 
 ## Version Info
 

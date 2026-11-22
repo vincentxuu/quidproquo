@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-11-13-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -53,11 +53,11 @@ caption: 日期為各篇報導的發表或回應日期，詳見下方參考資�
   <g>
     <line class="dg-rule" x1="60" y1="76" x2="60" y2="118"/>
     <circle class="dg-dot" cx="60" cy="124" r="4"/>
-    <text class="dg-label" x="60" y="40" text-anchor="middle" dominant-baseline="central">Apiiro 揭露外洩</text>
-    <text class="dg-sub" x="60" y="62" text-anchor="middle" dominant-baseline="central">2,539 組機密，63 個組織</text>
+    <text class="dg-label" x="48" y="40" dominant-baseline="central">Apiiro 揭露外洩</text>
+    <text class="dg-sub" x="48" y="62" dominant-baseline="central">2,539 組機密，63 個組織</text>
   </g>
   <g>
-    <line class="dg-rule" x1="420" y1="130" x2="420" y2="172"/>
+    <line class="dg-rule" x1="420" y1="156" x2="420" y2="172"/>
     <circle class="dg-dot" cx="420" cy="124" r="4"/>
     <text class="dg-label" x="420" y="186" text-anchor="middle" dominant-baseline="central">電信商入侵曝光</text>
     <text class="dg-sub" x="420" y="208" text-anchor="middle" dominant-baseline="central">越獄 agent 自主入侵兩週</text>
@@ -69,10 +69,10 @@ caption: 日期為各篇報導的發表或回應日期，詳見下方參考資�
     <text class="dg-sub" x="510" y="62" text-anchor="middle" dominant-baseline="central">撈到正式環境 AWS 密鑰</text>
   </g>
   <g>
-    <line class="dg-rule" x1="690" y1="130" x2="690" y2="172"/>
+    <line class="dg-rule" x1="690" y1="156" x2="690" y2="172"/>
     <circle class="dg-dot dg-dot--accent" cx="690" cy="124" r="6"/>
-    <text class="dg-label" x="690" y="186" text-anchor="middle" dominant-baseline="central">AWS 回應</text>
-    <text class="dg-sub" x="690" y="208" text-anchor="middle" dominant-baseline="central">服務未破，問題在客戶設定</text>
+    <text class="dg-label" x="740" y="186" text-anchor="end" dominant-baseline="central">AWS 回應</text>
+    <text class="dg-sub" x="740" y="208" text-anchor="end" dominant-baseline="central">服務未破，問題在客戶設定</text>
   </g>
 </svg>
 ```
@@ -105,13 +105,13 @@ caption: 日期為各篇報導的發表或回應日期，詳見下方參考資�
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週出現頻率最高的公司（Microsoft、OpenAI、Anthropic、Google、Amazon、Nvidia、Meta、Alibaba-Qwen、LangChain、IBM）皆已在 watchlist 中，無新增候選。
+✓ 本週出現頻率最高的公司（Microsoft、OpenAI、Anthropic、Google、Amazon、Nvidia、Meta、Alibaba-Qwen、LangChain、IBM）皆已在 watchlist 中，無新增候選。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

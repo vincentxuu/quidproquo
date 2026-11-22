@@ -14,7 +14,7 @@ glossary:
     context: "This article turns every LLM call, tool call, and reasoning step into an OTel span."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-agent-observability-failure-detection)
+> :globe: [中文版](/posts/ai/2026-06-04-agent-observability-failure-detection)
 
 When an agent breaks in production, all you typically see is "the answer is wrong" or "the bill exploded" — you can't see what it was thinking in between, which tools it called, or why it went in circles. This article surveys the industry's converging answer to "seeing an agent's reasoning process" — **using OpenTelemetry GenAI semantic conventions to turn every LLM call / tool call / reasoning step into a span** — and on top of those traces, the spectrum of methods for detecting three major failure modes: hallucination, tool misuse, and infinite loops.
 

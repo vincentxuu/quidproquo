@@ -10,7 +10,7 @@ description: "A practical breakdown of Amazon Bedrock, from the Converse API, IA
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-amazon-bedrock-llm-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-amazon-bedrock-llm-platform)
 
 [Amazon Bedrock](https://aws.amazon.com/bedrock/) is AWS's managed generative AI platform. Applications can invoke Amazon Nova, Anthropic Claude, Meta Llama, Mistral, and other models through one AWS account without deploying GPUs. AWS's latest decision guide describes it as a serverless platform for building and operating AI applications and agents through APIs, distinct from SageMaker AI's deeper control over training, containers, and compute.
 

@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression)
 
 **Video status: Videos included.** This article is written from the English captions of the Spring 2026 Lecture 3 recording published by Stanford Online, with notation matched to Section 1.3 of Chapter 1 and Chapter 2 of the 2026 main notes. I did not see the board work or the slides, so the way formulas are written follows the notes.
 

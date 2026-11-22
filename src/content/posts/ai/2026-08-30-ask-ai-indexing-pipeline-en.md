@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-indexing-pipeline)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-indexing-pipeline)
 
 > **Optional companion reading:** Beginners can read this article directly. For background concepts, pair it with [Chunking Strategies: How You Split Text Determines Whether RAG Can Find the Answer](/posts/ai/2026-03-12-chunking-strategies-en) and [Vector Database Selection: How to Choose Between Pinecone, Weaviate, Qdrant, and Vectorize](/posts/ai/2026-03-12-vector-database-comparison-en).
 

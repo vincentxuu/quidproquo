@@ -25,7 +25,7 @@ glossary:
     context: "L12 demonstrates it with one photo: original, then Canny edges, then a new image generated with ControlNet."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

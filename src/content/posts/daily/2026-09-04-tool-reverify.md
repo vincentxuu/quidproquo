@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-tool-reverify-en)
+> :globe: [English version](/posts/daily/2026-09-04-tool-reverify-en)
 
 ## 工具資訊
 
@@ -80,11 +80,11 @@ MCP 模式下多兩個工具：`re_verify_claim` 把驗證迴圈開放給 agent 
 
 | | reverify | 直接問 AI（沒有驗證層） | Ghidra/IDA 手動分析 | 一般「AI 反組譯」wrapper |
 |---|---|---|---|---|
-| 主張經過確定性位元組驗證 | ✅ | ❌ | ✅（靠人工核對） | ❌ |
-| 免裝 Ghidra 也能跑基本功能 | ✅（純 Python 核心） | — | ❌ | 視實作而定 |
-| 有 MCP server，agent 原生可呼叫 | ✅ | — | ❌ | 部分 |
-| context 被壓縮/清空後狀態不丟 | ✅（ledger 落地磁碟） | ❌ | ✅（人腦記得） | ❌ |
-| 需要人工逐步操作 | ❌（可在 reconstruct 迴圈裡自動跑多輪） | — | ✅ | ❌ |
+| 主張經過確定性位元組驗證 | ✓ | ✗ | ✓（靠人工核對） | ✗ |
+| 免裝 Ghidra 也能跑基本功能 | ✓（純 Python 核心） | — | ✗ | 視實作而定 |
+| 有 MCP server，agent 原生可呼叫 | ✓ | — | ✗ | 部分 |
+| context 被壓縮/清空後狀態不丟 | ✓（ledger 落地磁碟） | ✗ | ✓（人腦記得） | ✗ |
+| 需要人工逐步操作 | ✗（可在 reconstruct 迴圈裡自動跑多輪） | — | ✓ | ✗ |
 
 ## 注意事項
 

@@ -13,7 +13,7 @@ description: "The OpenClaw exec tool: how execution host resolves, the unit trap
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-exec-thinking)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-tools-exec-thinking)
 
 `exec` has the largest blast radius of any tool here, so this article covers it and the controls around it.
 

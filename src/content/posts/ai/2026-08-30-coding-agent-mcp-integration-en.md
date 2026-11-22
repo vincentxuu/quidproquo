@@ -13,7 +13,7 @@ description: "Comparing MCP lifecycle, dynamic registration, and approvals acros
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-mcp-integration)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-mcp-integration)
 
 The [previous post](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing-en) covered OS-level sandboxing. This post first dissects MCP design, then checks looplane's current native-client baseline.
 

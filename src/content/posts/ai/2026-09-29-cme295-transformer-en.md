@@ -30,7 +30,7 @@ glossary:
     context: "The original Transformer paper used it to improve translation BLEU scores."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-transformer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -15,7 +15,7 @@ glossary:
     def: "The open-model team under Kanzhun Limited, parent company of the Chinese job-search app BOSS直聘; previously focused on 3B-class models, with Nanbeige4.3-33B as its first 30B-class flagship"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b)
+> :globe: [中文版](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b)
 
 ## Model Info
 
@@ -69,14 +69,14 @@ caption: Source: Nanbeige's official self-reported scores on its Hugging Face mo
     <rect class="dg-bar" x="234" y="143" width="44" height="157"/>
     <rect class="dg-bar" x="374" y="155" width="44" height="145"/>
     <rect class="dg-bar" x="514" y="192" width="44" height="108"/>
-    <text class="dg-text--series" x="116" y="44" text-anchor="middle" dominant-baseline="central">Nanbeige4.3-33B</text>
+    <text class="dg-text--series" x="330" y="24" text-anchor="start" dominant-baseline="central">Nanbeige4.3-33B</text>
   </g>
   <g class="dg-c-s1">
     <rect class="dg-bar" x="150" y="125" width="44" height="175"/>
     <rect class="dg-bar" x="290" y="198" width="44" height="102"/>
     <rect class="dg-bar" x="430" y="152" width="44" height="148"/>
     <rect class="dg-bar" x="570" y="217" width="44" height="83"/>
-    <text class="dg-text--series" x="172" y="44" text-anchor="middle" dominant-baseline="central">Qwen3.8-27B</text>
+    <text class="dg-text--series" x="480" y="24" text-anchor="start" dominant-baseline="central">Qwen3.8-27B</text>
   </g>
 
   <text class="dg-sub" x="116" y="96" text-anchor="middle" dominant-baseline="central">80.9</text>
@@ -95,7 +95,7 @@ caption: Source: Nanbeige's official self-reported scores on its Hugging Face mo
 </svg>
 ```
 
-⚠️ All scores above are Nanbeige's own self-reported results. The model card's footnotes note that some benchmarks used GPT-6 Sol or Claude Code as judge/harness; none have been independently reproduced yet.
+:warning: All scores above are Nanbeige's own self-reported results. The model card's footnotes note that some benchmarks used GPT-6 Sol or Claude Code as judge/harness; none have been independently reproduced yet.
 
 ## Comparison with Prior Gen / Competitors
 

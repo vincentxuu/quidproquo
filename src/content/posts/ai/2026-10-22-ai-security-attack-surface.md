@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-attack-surface-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-attack-surface-en)
 
 你拿到一個客服工單助理，準備讓 AI 幫忙測試。第一個問題往往是「從哪裡開始？」如果直接問模型「找出所有漏洞」，它很容易列出 SQL Injection、XSS、越權，卻說不清楚哪一條路徑真的存在。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-sandbox-product-landscape-en)
+> :globe: [English version](/posts/tech/2026-08-30-sandbox-product-landscape-en)
 
 ## 本文定位
 

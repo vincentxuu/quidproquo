@@ -15,7 +15,7 @@ glossary:
     definition: "站內使用的隱匿式網頁擷取工具；與 Groundlane 的差異在於：無結構化 selector 擷取、無確定性來源證據欄位（engine/backend）。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-3-en)
+> :globe: [English version](/posts/tech/2026-08-23-groundlane-series-3-en)
 
 這篇的目的不是說「Groundlane 比傳統方案好」，而是把差異放在可驗證的維度上：確定性（結果是否可逐行解釋）、可替換性（更換來源時需要改多少程式碼）、身份邊界（認證與資源限制在誰的邊界內）、維運成本（每次執行需要管理什麼）。所有比較均以 `v0.1.0` 可驗證功能為基準，不引入假設的未來改進。
 

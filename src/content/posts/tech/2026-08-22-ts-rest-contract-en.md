@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-ts-rest-contract)
+> :globe: [中文版](/posts/tech/2026-08-22-ts-rest-contract)
 
 [ts-rest](https://ts-rest.com/) offers an RPC-like client over ordinary REST. A shared TypeScript contract defines method, path, query, body, headers, response statuses, and schemas. Server adapters implement it and clients consume it without a separate generation step or proprietary wire protocol.
 

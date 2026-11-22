@@ -13,7 +13,7 @@ description: "華富里 Khao Jeen Lae 攀岩指南：Temple Area 與 Secret Gard
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-lopburi-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-lopburi-en)
 
 華富里（Lopburi，又寫 Khao Chin Lae、Khao Jeen Lae）是曼谷以北 160 公里的一座石灰岩塔，高約 200 公尺，距離華富里市區東北東 14 公里。theCrag 在 2026 年 10 月 21 日收錄 127 條路線，級數 3a 到 8a。
 

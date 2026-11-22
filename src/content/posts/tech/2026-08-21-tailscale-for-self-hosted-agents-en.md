@@ -13,7 +13,7 @@ description: "Tailscale from the angle of a self-hosted always-on agent: how the
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents)
+:globe: [中文版](/posts/tech/2026-08-21-tailscale-for-self-hosted-agents)
 
 Self-hosting an agent that runs 24/7 means opening something on your own network that **must be reachable from outside and must never sit on the public internet**. You want to poke it from your phone. It wants to reach the database on your LAN. And it is, at the same time, a program that can be steered by prompt injection and that initiates network connections on its own.
 

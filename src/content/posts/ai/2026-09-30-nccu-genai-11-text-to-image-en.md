@@ -25,7 +25,7 @@ glossary:
     context: "GenAI11 slides 17–40; Euler a, DPM++ 2M Karras, UniPC and DDIM are all schedulers."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-11-text-to-image)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

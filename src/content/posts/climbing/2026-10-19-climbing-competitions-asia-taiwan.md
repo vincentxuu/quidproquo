@@ -27,7 +27,7 @@ glossary:
     definition: "被列入檢測名單的選手，要事先登記每天的所在地，並指定一個 60 分鐘的時段讓檢測人員可以找到人。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-competitions-asia-taiwan-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-competitions-asia-taiwan-en)
 
 前四篇講的都是轉播上的比賽。這一篇換個問題：如果你在台灣，想自己去比賽，可以報什麼？如果你家小孩爬得很好，從岩館賽一路往上，會遇到哪些關卡？
 

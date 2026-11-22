@@ -25,7 +25,7 @@ glossary:
     context: "這段要帶真的客人，所以是多數外國人卡關的地方。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-taiwan-path-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-taiwan-path-en)
 
 這個系列前面十篇講了 IFMGA 是什麼、怎麼雇、學什麼，以及各國怎麼訓練。這篇回答台灣讀者最後會問的問題：**我是台灣人，想拿 IFMGA，要怎麼走？**
 

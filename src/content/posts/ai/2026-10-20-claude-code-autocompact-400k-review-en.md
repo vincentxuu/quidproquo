@@ -10,7 +10,7 @@ description: "What Lydia Hallie's /autocompact 400k does, how to set it, why it 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-20-claude-code-autocompact-400k-review)
+> :globe: [中文版](/posts/ai/2026-10-20-claude-code-autocompact-400k-review)
 
 If you run Claude Code on a 1M-context model, this post answers one question: should you lower the auto-compact threshold to 400K? My answer is yes. Eleven days in, I saw none of the side effects I feared. There are two cases where you shouldn't, covered below.
 

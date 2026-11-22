@@ -14,7 +14,7 @@ description: "A guide to Berkeley CS189 Spring 2026 (Listgarten / Dimakis) Homew
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

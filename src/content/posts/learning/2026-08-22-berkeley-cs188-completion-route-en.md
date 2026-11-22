@@ -14,7 +14,7 @@ description: "A completion and portfolio route for Berkeley CS188 Spring 2026, i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-completion-route)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-completion-route)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

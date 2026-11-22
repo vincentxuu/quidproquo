@@ -22,7 +22,7 @@ glossary:
     context: "投影片形容它「實務上到處都在用」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-generative-models-diffusion-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

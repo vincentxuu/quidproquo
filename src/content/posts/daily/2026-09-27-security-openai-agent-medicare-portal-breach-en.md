@@ -11,7 +11,7 @@ series:
   order: 39
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach)
+> :globe: [中文版](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach)
 
 ## What Happened
 

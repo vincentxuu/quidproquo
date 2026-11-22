@@ -11,7 +11,7 @@ series:
   order: 58
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack)
+> :globe: [中文版](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack)
 
 ## What Happened
 

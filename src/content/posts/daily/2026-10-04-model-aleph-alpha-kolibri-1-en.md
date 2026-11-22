@@ -15,7 +15,7 @@ glossary:
     def: "A German-English bilingual MoE reasoning model family from Aleph Alpha, built around European 'sovereign AI' and deployment in regulated industries"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1)
+> :globe: [中文版](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | BrowseComp | 29.4% | 4.4% | Nemotron 3 Super 29.1% |
 | SWE-Bench Verified | 69.2% | Not tested | Qwen3.6-35B-A3B 73.8% |
 
-⚠️ All figures are Aleph Alpha's own self-reported benchmarks, with no independent third-party reproduction yet. SWE-Bench Verified is one of the few benchmarks where Kolibri trails — coding wasn't the focus of this training run.
+:warning: All figures are Aleph Alpha's own self-reported benchmarks, with no independent third-party reproduction yet. SWE-Bench Verified is one of the few benchmarks where Kolibri trails — coding wasn't the focus of this training run.
 
 ## Versus Predecessor / Competitors
 

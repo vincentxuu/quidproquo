@@ -14,7 +14,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+> :globe: [English version](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
 
 標準 RAG 是單次搜尋：查詢 → 檢索 → 生成。這個流程對大多數問題夠用，但碰到需要多跳推理的複雜問題就不行了。近年多篇系統性調查（[Singh et al. 2025](https://arxiv.org/abs/2501.09136)、[Liang et al. 2025](https://arxiv.org/abs/2506.10408)、[Mishra et al. 2026](https://arxiv.org/abs/2603.07379)）把這類「讓 LLM 主導檢索決策」的做法歸納為 **Agentic RAG**——一個從單次檢索走向多輪推理檢索的架構範式。
 

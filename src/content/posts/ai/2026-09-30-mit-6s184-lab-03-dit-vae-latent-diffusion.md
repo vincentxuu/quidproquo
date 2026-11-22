@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.S184 Lab 3 Question 3.2、3.4。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lab-03-dit-vae-latent-diffusion-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

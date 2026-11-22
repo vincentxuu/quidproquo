@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-teleport-infrastructure-access-en)
+> :globe: [English version](/posts/tech/2026-08-22-teleport-infrastructure-access-en)
 
 [Teleport](https://goteleport.com/docs/core-concepts/) 不是一般 VPN，而是理解 SSH、Kubernetes、database、web app、Windows desktop 與 cloud API 的 infrastructure access platform。它把 long-lived static credentials 換成由 identity、role 與 resource label 限制的短效 certificates，並集中 audit events 與 session recordings。
 

@@ -22,7 +22,7 @@ glossary:
     context: "HW4 要求 FID 與 PDR 同時過門檻才算通過 baseline。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

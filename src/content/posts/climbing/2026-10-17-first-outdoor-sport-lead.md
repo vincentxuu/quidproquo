@@ -26,7 +26,7 @@ glossary:
     context: "REI 建議選路線時就先找出不可墜落區。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en)
+> :globe: [English version](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en)
 
 你在岩館已經先鋒得很穩，有一天朋友約你去龍洞。到了岩壁下，你發現牆上只有一排 bolt（掛片），沒有預掛的快扣。地上不是軟墊，是斜的碎石坡。路線也沒有顏色膠帶，只有指南書上的一行字。
 

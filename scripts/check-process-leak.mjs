@@ -57,6 +57,17 @@ const HEDGE_PATTERNS = [
   /\bthe (page|source) (does not|doesn't) (say|explain|define|state)\b/gi,
 ];
 
+// 書籍導讀（tags 含 reading-guide）：規劃表用語與每篇都一樣的固定標籤 H2 不進正文、description、tldr。
+// 規則：.agents/skills/post/references/book-guide-contract.md「不進正文的東西」。2026-11-20 Mackay 篇被說「沒頭沒尾看不懂」，
+// 正文與 H2 滿是 L1、order 1、解釋鏈、台灣回扣。只套 reading-guide：別的文章的 L1 正則化、「限制」H2 是正常用法。
+const JARGON_PATTERNS = [
+  /\bL[0-5](?![0-9])(?! ?(?:regulari|norm|cache|loss|距離|正則|範數|快取))/g,
+  /\border \d+\b/gi,
+  /解釋鏈|回扣|敘事模板|模板四件套|系列的發動機/g,
+  /\bexplanatory chain\b|\bchain of explanations?\b|\bexplanation chain\b|\bTaiwan hook\b|\btemplate in four moves\b/gi,
+];
+const JARGON_H2 = /^## (台灣回扣|限制|.*解釋鏈.*|Back to Taiwan|The Taiwan (hook|question|connection)|Limits|Limitations|.*(explanatory chain|chain of explanations|explanation chain|in the chain).*)[ \t]*$/gim;
+
 const TIME_SENSITIVE = /票價|價格|匯率|時刻表|班次|\b(fares?|prices?|exchange rates?|timetables?|schedules?)\b/i;
 
 const SENTENCE_LIMIT = 2; // 正文超過這個數就失敗
@@ -97,7 +108,7 @@ function isSpeakingExample(frontmatter, body, match) {
 }
 
 export function analyze(text) {
-  if (/<!--\s*process-leak:\s*topic\s*-->/.test(text)) return { exempt: true, sentences: [], processH2: [], auditH2: [], hedges: [] };
+  if (/<!--\s*process-leak:\s*topic\s*-->/.test(text)) return { exempt: true, sentences: [], processH2: [], auditH2: [], hedges: [], jargon: [], jargonH2: [] };
   const { frontmatter, body } = bodyOf(text);
   const hedges = HEDGE_PATTERNS.flatMap((re) => [...body.matchAll(re)].filter(m => !isSpeakingExample(frontmatter, body, m)).map((m) => m[0]));
   const sentences = [];
@@ -112,7 +123,11 @@ export function analyze(text) {
   const processH2 = [...body.matchAll(PROCESS_H2)].map((m) => m[0]);
   const isOverview = /\n {2}order: 0\b/.test(`\n${frontmatter}`) && /ai-course|course/.test(frontmatter);
   const auditH2 = isOverview ? [...body.matchAll(AUDIT_H2)].map((m) => m[0]) : [];
-  return { exempt: false, sentences, processH2, auditH2, hedges };
+  const isBookGuide = /^tags:.*\breading-guide\b/m.test(frontmatter);
+  const meta = (frontmatter.match(/^(description|tldr):.*$/gm) ?? []).join('\n');
+  const jargon = isBookGuide ? JARGON_PATTERNS.flatMap((re) => [...`${meta}\n${body}`.matchAll(re)].map((m) => m[0])) : [];
+  const jargonH2 = isBookGuide ? [...body.matchAll(JARGON_H2)].map((m) => m[0]) : [];
+  return { exempt: false, sentences, processH2, auditH2, hedges, jargon, jargonH2 };
 }
 
 export function problems(r) {
@@ -121,6 +136,8 @@ export function problems(r) {
   if (r.sentences.length > SENTENCE_LIMIT) out.push(`正文有 ${r.sentences.length} 處查證過程句型（上限 ${SENTENCE_LIMIT}）：${[...new Set(r.sentences)].slice(0, 6).join('、')}`);
   if (r.processH2.length > 0) out.push(`整節在講查證過程：${r.processH2.join('、')}`);
   if (r.hedges.length > HEDGE_LIMIT) out.push(`正文有 ${r.hedges.length} 處歸因但書（上限 ${HEDGE_LIMIT}）：${[...new Set(r.hedges)].slice(0, 6).join('、')}`);
+  if (r.jargon?.length) out.push(`書籍導讀出現規劃用語（description／tldr／正文都不行）：${[...new Set(r.jargon)].slice(0, 6).join('、')}`);
+  if (r.jargonH2?.length) out.push(`書籍導讀用了固定標籤當 H2，改寫成這段的內容：${r.jargonH2.join('、')}`);
   if (r.auditH2.length > AUDIT_H2_LIMIT) out.push(`課程總覽有 ${r.auditH2.length} 個查課型 H2（上限 ${AUDIT_H2_LIMIT}）：${r.auditH2.join('、')}`);
   return out;
 }
@@ -165,6 +182,12 @@ function selfTest() {
 
   assert(problems(analyze(fm + lesson)).length === 1, '非口說文章不套用教材例句辨識');
   assert(problems(analyze(speaking + '## 仍待核對\n\n- a')).length === 1, '口說文章仍擋查證待辦章節');
+
+  const book = '---\ntags: [series, reading-guide]\ndescription: "閱讀地圖 order 1：導讀"\n---\n';
+  assert(problems(analyze(`${book}## 台灣回扣\n\nMackay 是 L1 層的起點，在解釋鏈上。`)).length === 2, '書籍導讀的規劃用語與固定標籤 H2 會擋');
+  assert(problems(analyze(`---\ntags: [series, reading-guide]\n---\n## 台灣的投資新聞也在用這套說法\n\n正文。`)).length === 0, '寫內容的 H2 可以');
+  assert(problems(analyze(`${fm}## 限制\n\nL1 正則化與 order 2 近似。`)).length === 0, '非書籍導讀不套規劃用語檢查');
+  assert(problems(analyze(`---\ntags: [reading-guide]\n---\nL1 regularization and an L2 norm.`)).length === 0, 'L1 regularization 不算規劃用語');
 
   assert(problems(analyze(`${fm}We checked it on 2026-09-30. The page returns 404. We could not verify it. Still unverified.`)).length === 1, '英文句型會擋');
 }

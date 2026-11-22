@@ -13,7 +13,7 @@ description: "品味修煉系列第一篇。為什麼品味在 AI 時代反而�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-20-taste-as-amplifier-en)
+> :globe: [English version](/posts/learning/2026-08-20-taste-as-amplifier-en)
 
 工具把執行成本壓到極低之後，差距不是縮小了，是放大了。
 

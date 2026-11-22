@@ -13,7 +13,7 @@ description: "Stanford CS336 Spring 2026 Lecture 12 導讀：perplexity、exam/c
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs336-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs336-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

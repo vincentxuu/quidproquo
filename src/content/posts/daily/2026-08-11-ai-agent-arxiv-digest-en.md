@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-11-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-11-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Agent memory has nearly converged on a single paradigm: store experiences as tex
 ### Deep Dive
 
 - 90 retained scenarios, 5 user profiles; dedicated Agents won 32 out of 36 triggered cases (88.9%)
-- Personalization gain +2.05, precision cost only −0.28 (1-4 scale) ⚠️ (self-evaluated by authors, awaiting external replication)
+- Personalization gain +2.05, precision cost only −0.28 (1-4 scale) :warning: (self-evaluated by authors, awaiting external replication)
 - Two-stage trigger matching prevents false activations: semantic matching first, then contextual verification
 - The separation of "behavioral patterns" from "task patterns" is the key design decision — not all conversation history is suitable for compilation
 - Deployment barrier: requires sufficient conversation history to mine patterns; cold-start period still needs traditional retrieval
@@ -104,7 +104,7 @@ Current multi-agent systems mainly use prompts for role assignment: "you are the
 ### Deep Dive
 
 - Improvements on code generation benchmarks across three backbones (different-sized LLMs)
-- Trained specialization transfers to unseen task categories and domains ⚠️ (self-evaluated by authors, cross-domain transfer magnitude awaiting external verification)
+- Trained specialization transfers to unseen task categories and domains :warning: (self-evaluated by authors, cross-domain transfer magnitude awaiting external verification)
 - Prototype semantic router uses prototype vectors of subtask embeddings for matching, requiring no additional classifier training
 - The core of Hierarchical GRPO is "two-level credit assignment": outer level evaluates routing decision quality, inner level evaluates expert output quality
 - Deployment barrier: requires LoRA training infrastructure and subtask annotation data
@@ -151,7 +151,7 @@ When multi-agent systems fail, three questions need answering: which Agent faile
 
 - Faulty Agent detection: micro-accuracy improvement 5.83%+
 - Faulty step detection: micro-accuracy improvement 10.63%+
-- Fault mode detection: Macro-F1 improvement 14.73%+ ⚠️ (self-evaluated by authors, baseline selection and datasets awaiting external verification)
+- Fault mode detection: Macro-F1 improvement 14.73%+ :warning: (self-evaluated by authors, baseline selection and datasets awaiting external verification)
 - Enhances LLM-based attribution methods in cross-domain (out-of-domain) scenarios as well
 - Key to direction-aware design: in an execution graph, A→B influence differs fundamentally from B→A influence; asymmetric modeling matters
 - Deployment barrier: requires execution trace data annotated with fault types for training

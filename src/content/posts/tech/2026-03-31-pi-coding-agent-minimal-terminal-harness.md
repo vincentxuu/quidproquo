@@ -13,7 +13,7 @@ description: "Pi Coding Agent 的設計哲學、架構、核心功能、擴充�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en)
+:globe: [English version](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en)
 
 Pi 是由 Mario Zechner（GitHub: badlogic）打造的開源 coding agent，核心理念是「極簡但可擴充」：只附帶 4 個工具和一份極短的 system prompt——剩下的都讓使用者自己決定。官網 [pi.dev](https://pi.dev/)，repo 在 [earendil-works/pi](https://github.com/earendil-works/pi)，MIT 授權，約 93K stars。
 
@@ -138,10 +138,10 @@ Pi 可以跑在非常小的模型上：
 | 語言 | TypeScript | TypeScript | Rust | TypeScript |
 | 核心工具 | 4 個 | 多個 | 多個 | 多個 |
 | 設計哲學 | 極簡可擴充 | 功能完整 | OpenAI 生態整合 | 模型自由度 |
-| 內建 sub-agents | ❌（Extension 可加） | ✅ | ✅ | ✅ |
-| 內建 MCP | ❌（Extension 可加） | ✅ | ✅ | ❌ |
+| 內建 sub-agents | ✗（Extension 可加） | ✓ | ✓ | ✓ |
+| 內建 MCP | ✗（Extension 可加） | ✓ | ✓ | ✗ |
 | 最小可用模型 | 1.7B | 需大型模型 | 需 OpenAI 模型 | 彈性 |
-| 內建 plan mode | ❌ | ✅ | ✅ | ✅（plan agent）|
+| 內建 plan mode | ✗ | ✓ | ✓ | ✓（plan agent）|
 
 ## 典型使用場景
 

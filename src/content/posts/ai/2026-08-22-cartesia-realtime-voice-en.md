@@ -10,7 +10,7 @@ description: "A practical guide to Cartesia Sonic models, WebSocket streaming, v
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cartesia-realtime-voice)
+> :globe: [中文版](/posts/ai/2026-08-22-cartesia-realtime-voice)
 
 [Cartesia](https://www.cartesia.ai/) is most precisely a voice-model and inference platform for real-time interaction: Sonic provides text-to-speech (TTS), Ink provides speech-to-text (STT), and its APIs stream audio into an agent pipeline. As of August 2026, Cartesia also offers a voice-agent product called Line. Using the Sonic API, however, does not automatically provide phone numbers, call state, transfers, an LLM, and tool orchestration.
 

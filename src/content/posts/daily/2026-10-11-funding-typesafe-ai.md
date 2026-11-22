@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-11-funding-typesafe-ai-en)
+> :globe: [English version](/posts/daily/2026-10-11-funding-typesafe-ai-en)
 
 ## 融資資訊
 

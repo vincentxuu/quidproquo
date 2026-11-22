@@ -15,7 +15,7 @@ glossary:
     definition: "Groundlane 的 RAG 召回品質驗證工具：給定 query 和預期 source ID 清單，回報 recall、每個命中的 rank 和 score、以及漏掉的 source。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-11-groundlane-series-7-en)
+> :globe: [English version](/posts/tech/2026-09-11-groundlane-series-7-en)
 
 前五篇建立了 Groundlane 的操作基線——三個核心工具的合約、與傳統方案的差異、站內應用、踩坑清單。這篇的焦點不在「怎麼用」，而在「怎麼確保取到的資料是對的」：selector 壞了能不能自救、corpus 的召回品質能不能在建 pipeline 前就驗證、文件解析和搜尋的品質能不能用數字衡量。
 

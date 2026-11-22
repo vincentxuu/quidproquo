@@ -28,7 +28,7 @@ glossary:
     context: "L10 and L11 treat it as the alternative to supervised fine-tuning and compare the two."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

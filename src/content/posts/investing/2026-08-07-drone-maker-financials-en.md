@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/investing/2026-08-07-drone-maker-financials)
+> :globe: [中文版](/posts/investing/2026-08-07-drone-maker-financials)
 
 **Three boundaries first.**
 

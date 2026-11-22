@@ -140,11 +140,11 @@ Taiwan was checked today; beyond reposts of the global AI-deceleration story, no
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-github-digest) (zh-TW only today)
-- 📄 [Model Card｜Edge0-35B-A3B](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-14: ML Fundamentals](/posts/daily/2026-09-14-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-14: Product Sense](/posts/daily/2026-09-14-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-github-digest) (zh-TW only today)
+- :file: [Model Card｜Edge0-35B-A3B](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
+- :file: [AI Engineer Interview Daily — 2026-09-14: ML Fundamentals](/posts/daily/2026-09-14-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-14: Product Sense](/posts/daily/2026-09-14-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

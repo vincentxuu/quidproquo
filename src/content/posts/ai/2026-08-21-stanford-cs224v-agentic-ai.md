@@ -16,7 +16,7 @@ description: "Stanford CS224V: Agentic AI 完整導讀，讀完課程官網、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

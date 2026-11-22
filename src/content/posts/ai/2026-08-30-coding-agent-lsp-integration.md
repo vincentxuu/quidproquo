@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 LSP 診斷注入，並檢視 looplan
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-lsp-integration-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-lsp-integration-en)
 
 上一篇談[model catalog 與路由](/posts/ai/2026-08-30-coding-agent-model-catalog-routing)，這篇換一個感官層面的問題：agent 怎麼「看見」程式碼壞掉？
 

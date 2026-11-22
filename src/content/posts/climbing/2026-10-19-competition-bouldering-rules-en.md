@@ -25,7 +25,7 @@ glossary:
     context: "Under the 2026 rules it is 5 minutes per boulder."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-competition-bouldering-rules)
+> :globe: [中文版](/posts/climbing/2026-10-19-competition-bouldering-rules)
 
 A boulder final on stream often goes like this: an athlete throws for the top hold on the fifth attempt and finally sticks it. The scoreboard jumps from 10.0 to 24.6, the commentator shouts, and the athlete climbs three places in one go. One extra attempt costs only 0.1 points, but a top is worth 15 more than the Zone. That is bouldering after the 2025 rule change.
 

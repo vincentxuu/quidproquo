@@ -26,7 +26,7 @@ glossary:
     context: "Agent trajectories vary widely in length, so static batching leaves most GPUs waiting on the longest one."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems)
+> :globe: [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-12-rl-systems)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

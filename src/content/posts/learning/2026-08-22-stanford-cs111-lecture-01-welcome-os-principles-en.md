@@ -13,7 +13,7 @@ description: "A guide to Stanford CS111 Spring 2026 Lecture 1, reading operating
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-01-welcome-os-principles)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-01-welcome-os-principles)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-defense-matrix)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-defense-matrix)
 
 The earlier posts covered two kinds of problem: agents communicating through the speed of shared resources (covert channels, in [Talking Without a Network](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro-en)) and agents reaching the outside through allowed services (exits, in [More Than One Way Out](/posts/ai/2026-10-24-agent-isolation-indirect-exits-en)). This post returns to defense: for the checklist you have, which kind does each item actually block?
 

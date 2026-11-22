@@ -10,7 +10,7 @@ tldr: "WorkOS 的優勢不是只有登入 UI，而是讓 B2B SaaS 沿同一個 o
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-workos-enterprise-auth-en)
+> :globe: [English version](/posts/tech/2026-08-22-workos-enterprise-auth-en)
 
 很多 B2B SaaS 一開始只需要 email login，第一張 enterprise deal 卻會一次帶來 SAML、SCIM、強制 MFA、離職停權與 audit log。若每一項各找一個元件，真正棘手的不是協定，而是同一個人如何在 user、SSO profile、directory user 與 organization membership 之間保持一致。
 

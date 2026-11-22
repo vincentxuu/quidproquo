@@ -10,7 +10,7 @@ description: "A practical Meilisearch guide covering installation, indexes, docu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-meilisearch-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-meilisearch-complete-guide)
 
 [Meilisearch](https://www.meilisearch.com/docs/learn/getting_started/what_is_meilisearch) is a full-text search engine designed for application search. Once products, articles, documents, or support knowledge are synchronized into an index, it provides prefix search, typo tolerance, filters, sorting, and facets without scanning the primary database on every query.
 

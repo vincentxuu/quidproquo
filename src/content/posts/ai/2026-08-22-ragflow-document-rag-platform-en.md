@@ -10,7 +10,7 @@ description: "A document-lifecycle guide to RAGFlow datasets, parsing templates,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-ragflow-document-rag-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-ragflow-document-rag-platform)
 
 [RAGFlow](https://github.com/infiniflow/ragflow) is an open-source, full-stack RAG platform. Its focus is not merely vector search. It keeps document upload, parsing, chunking, human review, retrieval testing, answers, and citations in one operational interface. For layout-heavy PDFs, tables, and scanned documents, that visibility can matter more than another retriever class.
 

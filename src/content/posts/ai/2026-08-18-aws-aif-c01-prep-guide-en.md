@@ -13,7 +13,7 @@ description: "AWS Certified AI Practitioner (AIF-C01) preparation guide built on
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-aws-aif-c01-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-aws-aif-c01-prep-guide)
 >
 > This is a preparation path built from official material and real candidate experiences, not an exam-day account. Every "what it tests" points back to the [official exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html); "how to prepare" integrates official AWS training and field-tested advice from candidates who passed. Verified 2026-08-18 against exam guide **v1.1**.
 

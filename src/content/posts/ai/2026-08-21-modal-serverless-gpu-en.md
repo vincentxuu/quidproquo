@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-modal-serverless-gpu)
+:globe: [中文版](/posts/ai/2026-08-21-modal-serverless-gpu)
 
 This site has covered how to pick an inference engine — [vLLM's internals](/posts/ai/2026-03-14-vllm-inference-engine-en), [when self-hosting is worth it](/posts/ai/2026-08-21-vllm-self-host-decision-en) — but never the layer underneath: the machines the engine actually runs on. This post fills that gap, through the company currently making the most noise in that layer.
 

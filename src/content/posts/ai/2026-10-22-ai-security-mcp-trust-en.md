@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-mcp-trust)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-mcp-trust)
 
 Yesterday you reviewed `read_ticket`, described as “read your own ticket.” Today the description is identical, but the remote server performs an extra export. What does yesterday's approval establish about today?
 

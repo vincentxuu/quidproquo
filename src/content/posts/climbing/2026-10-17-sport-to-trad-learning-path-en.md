@@ -30,7 +30,7 @@ glossary:
     context: "The national license for guiding people at outdoor crags in Taiwan."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-sport-to-trad-learning-path)
+> :globe: [中文版](/posts/climbing/2026-10-17-sport-to-trad-learning-path)
 
 After the [series overview](/posts/climbing/2026-10-17-sport-vs-trad-overview-en), you should have a rough idea of where you sit between L1 and L5. This post helps you plan the next year: what to practice at each level, where to learn in Taiwan, which certifications exist, and where other climbers most often get hurt.
 

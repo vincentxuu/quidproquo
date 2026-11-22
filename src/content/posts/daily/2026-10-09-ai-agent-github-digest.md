@@ -11,7 +11,7 @@ series:
   order: 55
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-09-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### trueforge ⭐ 6,083
+### trueforge ★ 6,083
 
 [GitHub](https://github.com/truefoundry/trueforge)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### agent-device ⭐ 4,937
+### agent-device ★ 4,937
 
 [GitHub](https://github.com/callstack/agent-device)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### pi-pocket ⭐ 274（上線 4 天）
+### pi-pocket ★ 274（上線 4 天）
 
 [GitHub](https://github.com/TannerMidd/pi-pocket)　·　TypeScript　·　MIT
 

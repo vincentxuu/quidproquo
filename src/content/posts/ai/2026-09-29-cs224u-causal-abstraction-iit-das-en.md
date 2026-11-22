@@ -25,7 +25,7 @@ glossary:
     context: "CS224U uses it to give a graded score for how well an alignment hypothesis holds."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

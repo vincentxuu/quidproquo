@@ -14,7 +14,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-mmr-diversity-reranking)
+> :globe: [中文版](/posts/ai/2026-03-12-mmr-diversity-reranking)
 
 After Cross-Encoder reranking, the top 5 results might all describe the same route — just pulled from different sources, each mentioning some 5.11a at Longdong in slightly different words. Every one of those documents is relevant to the query, but feeding them all into an LLM is wasteful: redundant information doesn't improve the answer, it just burns context window.
 

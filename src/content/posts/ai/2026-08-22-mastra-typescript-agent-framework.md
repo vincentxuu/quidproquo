@@ -10,7 +10,7 @@ description: "介紹 Mastra 的 Agent、Tools、Workflows、Memory、Studio 與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mastra-typescript-agent-framework-en)
+> :globe: [English version](/posts/ai/2026-08-22-mastra-typescript-agent-framework-en)
 
 [Mastra](https://mastra.ai/docs) 是面向 TypeScript／Node.js 團隊的開放原始碼 agent 框架。它不只包一層模型 SDK，而是把 Agent、Tools、MCP、Workflows、Memory、tracing、scorers 與本機 Studio 放在同一個開發面。
 

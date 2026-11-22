@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-twingate-zero-trust-access-en)
+> :globe: [English version](/posts/tech/2026-08-22-twingate-zero-trust-access-en)
 
 [Twingate](https://www.twingate.com/docs/how-twingate-works/) 是 managed Zero Trust Network Access。管理者定義 FQDN、IP、CIDR 與 port 範圍的 Resource，再把 group 與 security policy 授權給它；未明確允許的流量預設拒絕。這比傳統 VPN 把使用者放進整段 subnet 更容易落實 least privilege。
 

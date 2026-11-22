@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-django-web-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-django-web-framework)
 
 [Django](https://docs.djangoproject.com/en/5.2/) is a batteries-included Python web framework. It combines URL routing, views, ORM, migrations, authentication, sessions, admin, forms, templates, caching, and security mechanisms into one evolution model. For products centered on relational data, operational workflows, and permissions, that integration often matters more than a single benchmark.
 

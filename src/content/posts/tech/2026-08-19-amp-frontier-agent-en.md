@@ -13,7 +13,7 @@ description: "Amp's design philosophy, the four-position Dial, orbs for remote e
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-amp-frontier-agent)
+:globe: [中文版](/posts/tech/2026-08-19-amp-frontier-agent)
 
 Most changelogs are about what got added. Half of Amp's is about what got **removed**.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-render-cloud-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-render-cloud-platform)
 
 [Render](https://render.com/docs/service-types) is a general-purpose PaaS deploying Static Sites, Web Services, Private Services, Background Workers, Cron and Workflows from Git or images. It also provides Postgres, Key Value, private networking, TLS, previews, health checks, and Blueprint IaC.
 

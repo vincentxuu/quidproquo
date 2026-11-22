@@ -11,7 +11,7 @@ draft: false
 ---
 
 
-> 🌏 [中文版](/posts/tech/2026-08-21-zh-tw-terminology-linters-tested)
+> :globe: [中文版](/posts/tech/2026-08-21-zh-tw-terminology-linters-tested)
 
 LLM training data skews heavily toward Mainland Chinese content, so the "Traditional Chinese" these models write is often **correct in glyphs but wrong in vocabulary**: 軟件 for 軟體, 視頻 for 影片, 用戶 for 使用者.
 

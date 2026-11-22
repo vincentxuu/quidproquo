@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-azure-container-apps-sandboxes-en)
+> :globe: [English version](/posts/ai/2026-08-30-azure-container-apps-sandboxes-en)
 
 ## 本文定位
 

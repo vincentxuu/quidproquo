@@ -12,7 +12,7 @@ series:
   order: 123
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-funding-traversal-en)
+> :globe: [English version](/posts/daily/2026-11-05-funding-traversal-en)
 
 ## 融資資訊
 
@@ -51,34 +51,34 @@ step: Production World Model + Causal Search Engine 從眾多異常裡找出真�
 step: Traversal Workers 主動調查，產出修復與預防建議
 step: Traversal MCP 把生產環境證據餵給 coding agent，用在下一次寫程式碼時
 ---
-<svg viewBox="0 0 440 392">
-  <path class="dg-line" d="M280 56.3A152 152 0 0 1 368.8 165.1" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M369.4 224A152 152 0 0 1 282.7 334.4" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M160 335.7A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line" d="M70.6 168A152 152 0 0 1 157.3 57.6" marker-end="url(#arrow)" data-step="1"/>
+<svg viewBox="0 0 536 392">
+  <path class="dg-line" d="M328 56.3A152 152 0 0 1 416.8 165.1" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M417.4 224A152 152 0 0 1 330.7 334.4" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M208 335.7A152 152 0 0 1 119.2 226.9" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M118.6 168A152 152 0 0 1 205.3 57.6" marker-end="url(#arrow)" data-step="1"/>
 
   <g data-step="1">
-    <rect class="dg-box" x="160" y="16" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="35" text-anchor="middle" dominant-baseline="central">生產事故</text>
-    <text class="dg-sub" x="220" y="55" text-anchor="middle" dominant-baseline="central">異常訊號出現</text>
+    <rect class="dg-box" x="208" y="16" width="120" height="56" rx="6"/>
+    <text class="dg-label" x="268" y="32" text-anchor="middle" dominant-baseline="central">生產事故</text>
+    <text class="dg-sub" x="268" y="56" text-anchor="middle" dominant-baseline="central">異常訊號出現</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box dg-box--accent" x="312" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="372" y="187" text-anchor="middle" dominant-baseline="central">因果搜尋</text>
-    <text class="dg-sub" x="372" y="207" text-anchor="middle" dominant-baseline="central">找出真正根因</text>
+    <rect class="dg-box dg-box--accent" x="360" y="168" width="160" height="56" rx="6"/>
+    <text class="dg-label" x="440" y="184" text-anchor="middle" dominant-baseline="central">因果搜尋</text>
+    <text class="dg-sub" x="440" y="208" text-anchor="middle" dominant-baseline="central">找出真正根因</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box" x="160" y="320" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="339" text-anchor="middle" dominant-baseline="central">主動調查</text>
-    <text class="dg-sub" x="220" y="359" text-anchor="middle" dominant-baseline="central">Traversal Workers</text>
+    <rect class="dg-box" x="208" y="320" width="120" height="56" rx="6"/>
+    <text class="dg-label" x="268" y="336" text-anchor="middle" dominant-baseline="central">主動調查</text>
+    <text class="dg-sub" x="268" y="360" text-anchor="middle" dominant-baseline="central">Traversal Workers</text>
   </g>
 
   <g data-step="4">
-    <rect class="dg-box" x="8" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="68" y="187" text-anchor="middle" dominant-baseline="central">回饋給 coding agent</text>
-    <text class="dg-sub" x="68" y="207" text-anchor="middle" dominant-baseline="central">Traversal MCP</text>
+    <rect class="dg-box" x="16" y="168" width="160" height="56" rx="6"/>
+    <text class="dg-label" x="96" y="184" text-anchor="middle" dominant-baseline="central">回饋給 coding agent</text>
+    <text class="dg-sub" x="96" y="208" text-anchor="middle" dominant-baseline="central">Traversal MCP</text>
   </g>
 </svg>
 ```

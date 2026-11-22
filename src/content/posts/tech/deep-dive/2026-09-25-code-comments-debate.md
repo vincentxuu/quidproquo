@@ -19,7 +19,7 @@ glossary:
     context: "Ousterhout 認為沒有介面註解就做不到真正的抽象，這是他跟 Uncle Bob 分歧最大的地方。"
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-09-25-code-comments-debate-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-09-25-code-comments-debate-en)
 
 「好的程式碼不需要註解」和「沒註解的程式碼沒人看得懂」，工程師大概都聽過這兩種說法。它們常被說成兩個流派，但把代表人物的原文找來讀，會發現沒有人主張完全不寫。真正的分歧是**預設值**：註解該是例外，還是設計的一部分？
 

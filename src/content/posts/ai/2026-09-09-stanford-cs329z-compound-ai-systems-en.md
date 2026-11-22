@@ -14,7 +14,7 @@ description: "A page-linked guide to all 71 CS329Z opening slides, from agent hi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
+> :globe: [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
 
 **Video status: Recordings require the course Canvas login.** [Official access information](https://cs329z.stanford.edu/logistics.html). This guide uses public slides and original readings, without classroom speech or timestamps.
 

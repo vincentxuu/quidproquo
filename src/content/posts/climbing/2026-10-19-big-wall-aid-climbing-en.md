@@ -33,7 +33,7 @@ glossary:
     context: "Big wall routes list it alongside the free and aid grades."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-big-wall-aid-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-big-wall-aid-climbing)
 
 The El Capitan that Alex Honnold climbed without a rope in the documentary *Free Solo* is mostly climbed on Grade VI routes, which take an average team two or more days. Those teams haul 3–4 liters of water per person per day up the wall, sleep in portaledges hanging in space, and carry their waste down in tubes.
 

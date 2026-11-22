@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-03-empirical-risk)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-03-empirical-risk)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
+> :globe: [English version](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
 
 ## 變更摘要
 
@@ -58,7 +58,7 @@ xAI 在自家 API 定價文件的 Tools Pricing 區塊加了一條警告：2026-
 
 ## 時效提醒
 
-⏰ **生效日期**：2026-09-21 12:00 PT。之後 `x_search` 一律照新計價（每千則貼文 $5、每千個 profile $10）結算，`web_search`、`code_execution` 等其他工具價格不變。
+:clock: **生效日期**：2026-09-21 12:00 PT。之後 `x_search` 一律照新計價（每千則貼文 $5、每千個 profile $10）結算，`web_search`、`code_execution` 等其他工具價格不變。
 
 ## 今日收穫
 

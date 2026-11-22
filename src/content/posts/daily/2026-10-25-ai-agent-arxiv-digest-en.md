@@ -11,7 +11,7 @@ series:
   order: 154
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-25-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -121,7 +121,7 @@ Past work on agent memory mostly focused on whether the agent remembers facts �
 
 - Preference Selection Accuracy (PSA) for the three retrieval-based memory systems (Mem0 v2.0.2, MemOS v2.0.15, simple RAG) is 50.0%, 50.0%, and 49.9% respectively; No Memory is 49.6%, and random selection is 45.2%
 - File memory raises PSA by 9.6 points (95% CI [+3.9, +15.6]), but Context Sensitivity (whether the same preference is correctly tracked separately for work vs. personal contexts) drops from 21.8% under No Memory to 14.4% — it remembers the preference but applies it in the wrong context
-- Even under the Oracle condition (placing the correct setting exactly where retrieved memory should surface it), the agent's delivered behavior matched the setting correctly in only 60% of cases for the 5 hardest settings, versus 95% for the other 25 ⚠️ (Oracle is the paper's own idealized upper bound, not evidence any real memory system can reach it)
+- Even under the Oracle condition (placing the correct setting exactly where retrieved memory should surface it), the agent's delivered behavior matched the setting correctly in only 60% of cases for the 5 hardest settings, versus 95% for the other 25 :warning: (Oracle is the paper's own idealized upper bound, not evidence any real memory system can reach it)
 - Practical threshold: treat "a user's interaction habits" as a memory dimension as important as factual memory in both evaluation and system design — don't assume high retrieval accuracy will solve this automatically
 - Relation to mainstream frameworks: Mem0, MemOS, and RAG are all memory backends already common in production; the paper tests these existing architectures directly, not self-built strawman baselines
 - Limitation: the simulated users, though built on rich personas, are still not real people — whether the diversity of their preference expression matches real users remains to be validated
@@ -181,7 +181,7 @@ Past efforts to improve agent long-term memory mostly focused on making the cont
 
 - All six providers show a significant negative effect on the frozen-proxy full-cohort score, averaging -27.55 points (ranging from -18.47 for Grok 4.3 to -31.88 for Gemini 3 Flash); restoring the known-correct state recovers an average of +27.51 points
 - An independently drawn 298-triplet native-style subsample (238 distinct cases) confirms the same direction: LongMemEval binary correctness drops 40.54 points (95% CI [30.32, 50.71]), Memora's FAMA score drops 30.60 points (95% CI [23.31, 37.69])
-- Of the four fault types, "stale" causes the largest damage across every provider (-32.19 to -58.40 points), still outpacing "missing" faults by 12.25–13.68 points even after controlling for shared base cases ⚠️ (this is the frozen-proxy proxy score the authors repeatedly flag in the text as not a validated semantic-correctness measure — the absolute numbers shouldn't be extrapolated directly to real-world usage loss)
+- Of the four fault types, "stale" causes the largest damage across every provider (-32.19 to -58.40 points), still outpacing "missing" faults by 12.25–13.68 points even after controlling for shared base cases :warning: (this is the frozen-proxy proxy score the authors repeatedly flag in the text as not a validated semantic-correctness measure — the absolute numbers shouldn't be extrapolated directly to real-world usage loss)
 - Recovery after enforcement isn't a perfect return to baseline: Memora's post-enforcement residual is -4.35 points (95% CI excludes 0), showing that even with the governance state fixed, model behavior doesn't snap back 100%
 - Practical threshold: system design needs to explicitly separate "memory content" from "memory governance state (deletion/expiration/permissions)" as two distinct fields, and run fault-injection tests specifically on the governance state — retrieval-accuracy evaluation alone won't cover it
 - Limitation: all 380 deletion-event cases among the 731 come from Memora alone, so event type (deletion/stale/update) and data source are fully confounded and can't be separated

@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-05-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-05-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Most existing tool planning methods build "tool-level" dependency graphs — nod
 ### Deep Dive
 
 - ID benchmarks (HuggingFace / Multimedia): 1.37–1.50 points above the strongest baseline (Llama-3.1-8B)
-- OOD benchmarks (DailyLifeAPIs / Seal-Tools / ToolAlpaca): 3.22–4.90 points above the strongest baseline ⚠️ (self-reported by authors; awaiting independent replication)
+- OOD benchmarks (DailyLifeAPIs / Seal-Tools / ToolAlpaca): 3.22–4.90 points above the strongest baseline :warning: (self-reported by authors; awaiting independent replication)
 - Largest gains on "rare tools" (bottom 20% by training frequency) — FWG enables cross-tool experience sharing
 - Validated on two backbone models: Qwen2.5-7B and Llama-3.1-8B
 - Adoption threshold: requires historical tool-call trajectories to build the FWG; cold-start scenarios need data accumulation first
@@ -104,7 +104,7 @@ Existing tool-graph methods only record "Tool A's output can be used by Tool B" 
 ### Deep Dive
 
 - GPT-4o backbone: Test-N TGC 63.1% (ReAct 48.8%), Test-C TGC 35.7% (ReAct 30.2%)
-- Compared with RL-trained methods: highest among NFT methods, approaching LOOP(token)'s 71.3% ⚠️ (LOOP uses fine-tuned Qwen-2.5-32B; not directly comparable)
+- Compared with RL-trained methods: highest among NFT methods, approaching LOOP(token)'s 71.3% :warning: (LOOP uses fine-tuned Qwen-2.5-32B; not directly comparable)
 - Tool context graph recall: at equal budget (20 tools), gold tool recall significantly higher than semantic top-K and In-N-Out
 - Both token consumption and API call count lower than ReAct
 - Adoption threshold: requires schema annotation for the toolset (the In-N-Out dataset provides templates; new toolsets need fresh annotation)
@@ -150,7 +150,7 @@ Performance degradation of multilingual agents has been documented by multiple s
 ### Deep Dive
 
 - GAIA-MAPS (11 languages × 165 tasks): GPT-5-mini + OWL + TART averages 5.6-point improvement
-- MULTITAT (10 languages): 1.9-point average improvement ⚠️ (self-reported by Fujitsu / Cohere)
+- MULTITAT (10 languages): 1.9-point average improvement :warning: (self-reported by Fujitsu / Cohere)
 - Low-resource languages (Igbo, Yoruba) show the highest proportion of planning grounding failures among all failures
 - Consistent effectiveness across three LLM backbones (GPT-5-mini, Mistral-Large-3, Qwen3-VL-235B)
 - Adoption threshold: TART requires only one LLM call for semantic parsing — minimal added latency and cost

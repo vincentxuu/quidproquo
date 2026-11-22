@@ -22,7 +22,7 @@ glossary:
     context: "CS231N L7 把這條不中斷的梯度路徑比作 ResNet 的捷徑。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

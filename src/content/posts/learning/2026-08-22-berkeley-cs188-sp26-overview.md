@@ -14,7 +14,7 @@ description: "Berkeley CS188 Spring 2026 完整自學總覽：公開資源、先
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-sp26-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

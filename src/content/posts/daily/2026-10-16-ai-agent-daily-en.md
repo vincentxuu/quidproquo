@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-16-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-16-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -122,14 +122,14 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily-en)
-- 📄 [Framework Update｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
-- 📄 [Funding Brief｜Confido Health Series A reaches $22.5M](/posts/daily/2026-10-16-funding-confido-health-en)
-- 📄 [Pricing Tracker｜OpenAI retires GPT-4o/GPT-4.1 from the API on January 14](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
-- 📄 [Tool of the Day｜Boundscope](/posts/daily/2026-10-16-tool-boundscope-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily-en)
+- :file: [Framework Update｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
+- :file: [Funding Brief｜Confido Health Series A reaches $22.5M](/posts/daily/2026-10-16-funding-confido-health-en)
+- :file: [Pricing Tracker｜OpenAI retires GPT-4o/GPT-4.1 from the API on January 14](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
+- :file: [Tool of the Day｜Boundscope](/posts/daily/2026-10-16-tool-boundscope-en)
 
 ## Watching Tomorrow
 

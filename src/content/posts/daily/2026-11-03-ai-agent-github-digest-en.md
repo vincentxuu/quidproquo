@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-memory, mcp, model-serving]
 lang: en
 description: "Memory layer expands to almost every coding agent, parallel worktrees stop tangling, Unreal Editor becomes an MCP toolset, and a 290B model squeezes onto a gaming GPU — today's four repos each patch a different layer of agent infrastructure"
-tldr: "thedotmack/claude-mem (⭐110k) is a persistent memory-compression system for agents; today's update is less a feature than reach — it now supports Grok Bot, T3 Code, Antigravity CLI, OMP, Pi, and DeepSeek Harness, covering nearly every coding agent you can name. max-sixty/worktrunk (⭐9.9k) is a Rust CLI that collapses git worktree management into three commands, fixing the friction of typing a branch name three times just to spin up a new workspace for a parallel agent. db-lyon/ue-mcp (⭐466) exposes the entire Unreal Editor as MCP tools — of its 2,114+ actions, 830 call Epic's own native AI Toolset directly. FlashML-org/FreeToken (⭐16k) is an edge-native MoE inference engine aiming to run 290B+ frontier open-weight models at interactive speed on an ordinary gaming PC. No major framework release today."
+tldr: "thedotmack/claude-mem (★110k) is a persistent memory-compression system for agents; today's update is less a feature than reach — it now supports Grok Bot, T3 Code, Antigravity CLI, OMP, Pi, and DeepSeek Harness, covering nearly every coding agent you can name. max-sixty/worktrunk (★9.9k) is a Rust CLI that collapses git worktree management into three commands, fixing the friction of typing a branch name three times just to spin up a new workspace for a parallel agent. db-lyon/ue-mcp (★466) exposes the entire Unreal Editor as MCP tools — of its 2,114+ actions, 830 call Epic's own native AI Toolset directly. FlashML-org/FreeToken (★16k) is an edge-native MoE inference engine aiming to run 290B+ frontier open-weight models at interactive speed on an ordinary gaming PC. No major framework release today."
 series:
   name: "AI Agent GitHub Digest"
   order: 80
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-03-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's four repos happen to cover four different layers of agent infrastructure
 
 ## Trending Repos
 
-### thedotmack/claude-mem ⭐ 110k
+### thedotmack/claude-mem ★ 110k
 
 [GitHub](https://github.com/thedotmack/claude-mem)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Today's four repos happen to cover four different layers of agent infrastructure
 
 ---
 
-### max-sixty/worktrunk ⭐ 9.9k
+### max-sixty/worktrunk ★ 9.9k
 
 [GitHub](https://github.com/max-sixty/worktrunk)　·　Rust　·　MIT OR Apache-2.0
 
@@ -41,7 +41,7 @@ Today's four repos happen to cover four different layers of agent infrastructure
 
 ---
 
-### db-lyon/ue-mcp ⭐ 466
+### db-lyon/ue-mcp ★ 466
 
 [GitHub](https://github.com/db-lyon/ue-mcp)　·　C++ + TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ Today's four repos happen to cover four different layers of agent infrastructure
 
 ---
 
-### FlashML-org/FreeToken ⭐ 16k
+### FlashML-org/FreeToken ★ 16k
 
 [GitHub](https://github.com/FlashML-org/FreeToken)　·　Python　·　Apache-2.0
 

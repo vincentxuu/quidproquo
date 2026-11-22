@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-15-bug-bounty-how-it-works)
+> :globe: [繁體中文版](/posts/tech/2026-10-15-bug-bounty-how-it-works)
 
 This is the reading entry point for `Bug Bounty from Zero`. The series has 15 posts (parts 0–14) arranged along one arc: **start by reading program rules and reward tables, set up a reproducible workbench, move from web bugs (XSS, IDOR) to RCE, then down to memory bugs, buffer overflows, VM/hypervisor escapes, Hyper-V escape, TEE, AI product bounty payouts, payout-map fact-checking, and finish with certifications and a learning map.**
 

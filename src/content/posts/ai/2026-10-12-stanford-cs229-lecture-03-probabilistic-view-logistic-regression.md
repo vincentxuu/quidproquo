@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-03-probabilistic-view-logistic-regression-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 3 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 1 章 1.3 節與第 2 章；我沒看到板書與投影片畫面，所以公式的寫法以講義為準。
 

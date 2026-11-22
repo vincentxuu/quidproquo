@@ -13,7 +13,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
+> :globe: [English version](/posts/tech/2026-08-08-px4-vs-ardupilot-en)
 
 這個系列到目前二十三篇，PX4 出現在其中六篇、ArduPilot 出現在三篇——[產業地圖](/posts/tech/2026-08-06-drone-industry-map)、[職缺地圖](/posts/career/2026-08-06-drone-industry-job-map)、[軟體轉職那篇](/posts/career/2026-08-06-software-to-drone-transition)、[教育路徑](/posts/education/2026-08-06-taiwan-drone-education-paths)、[炸機解剖](/posts/tech/2026-08-07-drone-crash-anatomy)、[救災那篇](/posts/product/2026-08-07-drone-sar-value)都提過（ArduPilot 那三篇也在這六篇裡面）。**提了六篇，沒有一篇說過它們差在哪、該選哪個。**
 

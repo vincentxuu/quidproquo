@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-10-19-ai-interview-daily)
 
 ## Today's Focus
 

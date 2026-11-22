@@ -10,7 +10,7 @@ tldr: "HW4 joins probabilistic interpretation, cross-entropy gradients, and impl
 description: "Derivation, implementation, and local validation for CMU 10-301/601 Spring 2026 HW4 Logistic Regression."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 4 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression)
 
 The [official handout inside the ZIP](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw4.zip) is titled **Homework 4: Logistic Regression** and contains written plus programming work. Written sections cover linear regression, logistic-regression warm-up/analysis/adversarial attack, vectorization and pseudocode, word embeddings and gender biases, and empirical questions. Programming first uses `feature.py` to average GloVe vectors for Yelp sentiment text, then `lr.py` trains logistic regression. The ZIP provides both starters and `glove_embeddings.txt`; course data and selected references are not inside this public ZIP.
 

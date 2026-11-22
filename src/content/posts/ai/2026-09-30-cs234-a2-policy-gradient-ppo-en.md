@@ -21,7 +21,7 @@ glossary:
     context: "L6 p.33 states outright that \"In CS234 HW2 we ask you to prove\" it; it is A2 Q3 (d)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-a2-policy-gradient-ppo)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -26,7 +26,7 @@ glossary:
     context: "Black Diamond says it is intended to reduce rotational forces that can cause concussions; that is the manufacturer's claim."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-helmet)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-helmet)
 
 Nobody wears a helmet in the gym. The first time you go to an outdoor crag with friends, you notice everyone has one on, including the person belaying at the bottom. You ask which one to buy: someone says the white Petzl, someone else says lighter is better, and the shop has them from under 1,000 to nearly 6,000 Taiwan dollars.
 

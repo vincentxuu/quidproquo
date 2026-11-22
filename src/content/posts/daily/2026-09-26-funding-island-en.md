@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-funding-island)
+> :globe: [中文版](/posts/daily/2026-09-26-funding-island)
 
 ## Funding Details
 

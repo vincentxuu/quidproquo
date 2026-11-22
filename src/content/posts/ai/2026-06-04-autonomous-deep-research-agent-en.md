@@ -10,7 +10,7 @@ description: "Dissecting the architectural differences between OpenAI Deep Resea
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-autonomous-deep-research-agent)
+> :globe: [中文版](/posts/ai/2026-06-04-autonomous-deep-research-agent)
 
 "Deep research" products emerged collectively in 2025: OpenAI Deep Research, Anthropic's Research feature, Perplexity Deep Research, plus open-source GPT Researcher and NVIDIA AI-Q. They all tackle the same problem: **letting an agent autonomously plan multi-turn searches, synthesize heterogeneous and potentially contradictory sources, and produce conclusions where every sentence is verifiable**. This article breaks the problem into four controllable stages, compares two industry approaches, and concludes with a practical reference architecture.
 

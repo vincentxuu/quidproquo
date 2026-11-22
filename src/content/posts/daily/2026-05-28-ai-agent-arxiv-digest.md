@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 4
 ---
-> 🌏 [English version](/posts/daily/2026-05-28-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-28-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ AgentFugue 加了一個「共享推理 hub」（Shared Reasoning Hub），像一
 
 - **架構**：Hub 以 plug-in 形式接入，不需改動個別 agent 的內部邏輯，理論上可疊加在現有 framework（如 LangGraph、AutoGen）之上
 - **訓練**：Hub 的讀寫行為用 SFT 先暖身，再用 end-to-end RL 微調，讓 hub 內容對整體任務完成率有正向影響
-- **結果**：在多個長任務 benchmark 上超越「同等算力的單一 agent」及「無共享的平行 agent」兩種 baseline；具體改善數字未出現在摘要，需查全文 **⚠️**
+- **結果**：在多個長任務 benchmark 上超越「同等算力的單一 agent」及「無共享的平行 agent」兩種 baseline；具體改善數字未出現在摘要，需查全文 **:warning:**
 - **與 LangGraph 關聯**：LangGraph 的 checkpoint/state 機制目前是 per-thread，不支援跨 agent 共享；AgentFugue 的 hub 概念可視為跨 thread 的共享 context store
 - **落地門檻**：Hub 需要獨立訓練，不是 zero-shot 即插即用；小型團隊難以負擔 fine-tuning 成本
 - **Limitation**：論文聚焦同質 peer agent，異質 agent（專業分工）的效益尚未驗證；hub 寫入品質高度依賴訓練資料
@@ -131,7 +131,7 @@ Agent benchmark（如 WebArena、SWE-bench）通常用「outcome check（結果�
 - **三種標籤**：Evidence Pass = 有足夠 artifact 確認成功；Evidence Fail = artifact 顯示失敗；Unknown = artifact 不足以判斷
 - **結果多樣性**：evidence-supported score 可能低於原本（揭露假陽性）、相同（原本就有足夠佐證）、或「模糊化」（部分 case 無法確認）
 - **影響範圍**：直接影響任何使用 interactive benchmark 評估 agent 的場景，尤其是 WebArena、τ-bench 這類用 GUI 或 API 做複雜操作的 benchmark
-- **Limitation**：locked checklist 本身需人工撰寫，不是全自動；Unknown 比例高時分數區間可能很寬而失去參考意義 **⚠️**
+- **Limitation**：locked checklist 本身需人工撰寫，不是全自動；Unknown 比例高時分數區間可能很寬而失去參考意義 **:warning:**
 - **主流 framework 關聯**：評測 LangGraph / AutoGen agent 時，若使用現成 benchmark，建議搭配本篇的 evidence layer 設計原則重新審視 outcome check 的完整性
 - **發表**：雪梨大學，2 位作者，2026-05-11 提交
 
@@ -187,7 +187,7 @@ VibeServe 是一個雙層 agentic loop：
 
 - **實驗設定**：測試了 6 個特殊場景：predicted-output decoding、hybrid prompt caching、streaming ASR、constrained JSON decoding、multimodal inference、Apple Silicon（MLX）部署
 - **標準場景結果**：Llama-3.1-8B-Instruct on H100，VibeServe 與 vLLM、SGLang 性能幾乎持平（near-parity）
-- **特殊場景結果**：在 6 個非標準場景中取得顯著優勢；具體效能倍數未出現在摘要，需查全文 **⚠️**
+- **特殊場景結果**：在 6 個非標準場景中取得顯著優勢；具體效能倍數未出現在摘要，需查全文 **:warning:**
 - **持久化狀態設計**：Outer loop 維護 issues list + memory + git history，讓 agent 不會「amnesia（失憶）」，能從失敗中學習
 - **Correctness gate**：Inner loop 先跑正確性測試才量效能，避免優化方向錯誤
 - **與 LangGraph/AutoGen 關聯**：雙層 loop 架構可視為具體的「reflection + execution」pattern，與 LangGraph 的 supervisor-worker 模式相似但帶持久化狀態

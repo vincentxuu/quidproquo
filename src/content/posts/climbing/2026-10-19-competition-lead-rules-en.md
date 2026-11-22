@@ -24,7 +24,7 @@ glossary:
     definition: "A rulebook term. The position where an athlete controls a marked Safety Hold whose quickdraw hasn't been clipped yet, or a hold beyond which the judges consider further progress unsafe. Any climbing movement past it ends the attempt."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-competition-lead-rules)
+> :globe: [中文版](/posts/climbing/2026-10-19-competition-lead-rules)
 
 Lead finals have a brutal kind of moment. Near the top of the route, the athlete's arms are gone. They hold one hold, throw for the next, brush it with their fingertips and fall. The scoreboard shows "41+". Another athlete falls from the same hold without moving for the next one and gets "41". One plus sign apart, and different places.
 

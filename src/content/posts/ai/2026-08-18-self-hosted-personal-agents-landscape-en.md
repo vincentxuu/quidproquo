@@ -10,7 +10,7 @@ description: "A side-by-side reading of OpenClaw, Hermes Agent, NanoClaw, PicoCl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-self-hosted-personal-agents-landscape)
+> :globe: [中文版](/posts/ai/2026-08-18-self-hosted-personal-agents-landscape)
 
 One line in OpenClaw's README is the key to understanding the last six months of agent tooling:
 

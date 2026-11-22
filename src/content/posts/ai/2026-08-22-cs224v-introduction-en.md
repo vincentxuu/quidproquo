@@ -12,7 +12,7 @@ tldr: "Fall 2025 opens with computational thinking: reliability comes from decom
 description: "A lecture-by-lecture guide to Stanford CS224V Fall 2025 Introduction: hallucination, computational thinking, the two research stages, semantic parsing, and the course map."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-introduction)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-introduction)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-openapi-typescript-fetch-en)
+> :globe: [English version](/posts/tech/2026-08-22-openapi-typescript-fetch-en)
 
 [openapi-typescript](https://openapi-ts.dev/introduction) 把 OpenAPI 3.0／3.1 的 paths、components、request 與 response 轉成 `.d.ts`。產物只有型別，沒有 runtime class、HTTP client 或額外 dependency。需要真正發 request 時，再搭配同專案的 [openapi-fetch](https://openapi-ts.dev/openapi-fetch/)。
 

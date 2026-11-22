@@ -11,7 +11,7 @@ series:
   order: 51
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft)
+> :globe: [中文版](/posts/daily/2026-10-12-security-aws-bedrock-agentcore-imds-credential-theft)
 
 ## What happened
 

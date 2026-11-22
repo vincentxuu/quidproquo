@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 12
 ---
-> 🌏 [中文版](/posts/daily/2026-06-05-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-05-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -69,11 +69,11 @@ APB lets you precisely pinpoint an agent's planning weaknesses for the first tim
 
 - 4,209 multimodal test questions across 22 domains — one of the largest agent planning benchmarks to date
 - Five settings cover both "proactive planning" and "reactive adaptation"; Broken Tools and Unsolvable Tasks directly target the most commonly overlooked edge cases in production
-- Testing 12 MLLMs revealed four systematic weaknesses: long-horizon planning, tool-noise robustness, calibrated refusal, and inference-time refinement ⚠️ (specific model rankings and scores require the original paper)
-- Cross-benchmark validation: APB-guided refinement consistently improved metrics on ToolSandbox and τ²-bench ⚠️ (exact improvement figures not available from the abstract)
+- Testing 12 MLLMs revealed four systematic weaknesses: long-horizon planning, tool-noise robustness, calibrated refusal, and inference-time refinement :warning: (specific model rankings and scores require the original paper)
+- Cross-benchmark validation: APB-guided refinement consistently improved metrics on ToolSandbox and τ²-bench :warning: (exact improvement figures not available from the abstract)
 - Strong institutional lineup: Tongji, Shanghai AI Lab, HIT, Fudan, SJTU, CUHK, UCSC, Skywork AI — solid cross-institution collaboration
 - LangGraph/AutoGen relevance: APB's five settings can serve directly as a blueprint for regression test suites in agent systems, independent of specific runtimes
-- Limitation: the multimodal setting requires agents that can process image inputs; text-only agent architectures can only run a subset of the test suite; open-source status unconfirmed ⚠️
+- Limitation: the multimodal setting requires agents that can process image inputs; text-only agent architectures can only run a subset of the test suite; open-source status unconfirmed :warning:
 
 ### Reviewer's One-Liner
 
@@ -122,13 +122,13 @@ The Decide mechanism addresses tool overuse (saving tokens and latency); the For
 
 ### Deep Dive
 
-- The four-stage judge-retrieve-adapt-forge-recycle closed loop is unified into a single orchestration policy — a conceptual integration innovation ⚠️ (detailed architecture and experimental numbers require the PDF, which was not accessible during this review)
+- The four-stage judge-retrieve-adapt-forge-recycle closed loop is unified into a single orchestration policy — a conceptual integration innovation :warning: (detailed architecture and experimental numbers require the PDF, which was not accessible during this review)
 - The Decide mechanism solves tool overuse, offering direct economic benefits in production environments with API token costs
 - Forge + Recycle transforms the tool library from a "static asset" into a "dynamic knowledge base" — a philosophical shift in agent system design
 - LangGraph relevance: Decide resembles a conditional edge; Forge resembles dynamic node expansion — but MetaForge triggers automatically rather than by manual design
 - AutoGen relevance: Forge-generated new tools resemble AutoGen's code generation capability, but Recycle persists skills for future reuse — a key differentiator
-- **Core production concern**: How is the quality and security of Forge-generated tools guaranteed? Production environments need robust sandboxing and security auditing — how the paper handles this requires reading the original ⚠️
-- Paper submission date: 2026-06-01; detailed author affiliations pending confirmation ⚠️
+- **Core production concern**: How is the quality and security of Forge-generated tools guaranteed? Production environments need robust sandboxing and security auditing — how the paper handles this requires reading the original :warning:
+- Paper submission date: 2026-06-01; detailed author affiliations pending confirmation :warning:
 
 ### Reviewer's One-Liner
 
@@ -179,7 +179,7 @@ RUBAS's four-dimension rubric is itself an actionable agent safety checklist —
 
 - Author Zhexin Zhang (Tsinghua CoAI Lab) has multiple well-known works in LLM safety (CValues, SafetyBench); the institutional background and research lineage are credible
 - RL training on complete execution trajectories captures long-term patterns in multi-step agent safety decisions better than step-level RLHF
-- Experiments across multiple agent safety benchmarks and models: RUBAS outperforms standard alignment baselines and reduces tool-grounded hallucination (the agent claims to have called a tool but didn't, or called the wrong one) ⚠️ (specific numbers require the PDF)
+- Experiments across multiple agent safety benchmarks and models: RUBAS outperforms standard alignment baselines and reduces tool-grounded hallucination (the agent claims to have called a tool but didn't, or called the wrong one) :warning: (specific numbers require the PDF)
 - The four-dimension rubric can be integrated into any agent framework's evaluation harness, independent of specific LLMs or runtimes
 - **Limitation 1**: Rubrics require manual design; differences across deployment scenarios (customer service vs code execution vs data analysis) can be large, making a universal rubric difficult
 - **Limitation 2**: RL training costs are high; small and mid-sized teams may lack resources to reproduce the full training pipeline

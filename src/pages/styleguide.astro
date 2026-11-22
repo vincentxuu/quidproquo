@@ -1,0 +1,23 @@
+---
+// src/pages/styleguide.astro
+// Internal style guide: every article-body component on one page, rendered by the
+// real post template (same remark/rehype pipeline, PostLayout, scoped post CSS and
+// client scripts) so CSS changes can be checked in light, dark and phone width at once.
+// Fixture: src/content/styleguide/styleguide.md (its own collection, never a post).
+export const prerender = true;
+
+import { getEntry, type CollectionEntry } from 'astro:content';
+import PostPage from './posts/[...slug].astro';
+
+const fixture = await getEntry('styleguide', 'styleguide');
+if (!fixture) throw new Error('styleguide: src/content/styleguide/styleguide.md is missing');
+
+// Same schema as posts; only the collection name differs, which the template never reads.
+// allPosts is empty so related posts, series and translation pairing stay blank.
+const props = {
+  post: fixture as unknown as CollectionEntry<'posts'>,
+  allPosts: [] as CollectionEntry<'posts'>[],
+  noindex: true,
+};
+---
+<PostPage {...props} />

@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge)
+> :globe: [中文版](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge)
 
 Open your bookmarks, your read-later list, or that "to read" database in Notion. When did you last take something out of it and use it? An MIT research team built List-it, a note-taking tool that lives in a browser sidebar, and analyzed the 60,000-plus notes left by 420 of its users. Only about a fifth were ever retrieved through search ([Van Kleek et al. 2011](https://doi.org/10.1145/1978942.1979374)). That figure counts only search, not notes people simply saw in the sidebar, so it doesn't mean the rest were useless. But it is a reminder that most of what we save never gets deliberately looked up again.
 

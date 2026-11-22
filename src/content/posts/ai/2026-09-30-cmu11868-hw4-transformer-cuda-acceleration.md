@@ -22,7 +22,7 @@ glossary:
     context: "HW4 的 softmax 反向與 LayerNorm 的 gamma／beta 梯度 kernel 都用到它。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw4-transformer-cuda-acceleration-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

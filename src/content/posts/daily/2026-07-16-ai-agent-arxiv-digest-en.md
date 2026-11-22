@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 53
 ---
-> 🌏 [中文版](/posts/daily/2026-07-16-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-16-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ For platform engineers: significant improvements in complex task success rates w
 - **Core data structure**: A DAG sequence representing task decomposition, where each node is an "atomic subtask" and edges represent I/O dependencies; the entire evolution is traceable
 - **Parallel execution**: Independent nodes can invoke the LLM simultaneously, reducing total completion time (paper does not report specific timing numbers)
 - **Partial failure recovery**: Failures mark only the affected subgraph; unaffected downstream intermediate results are preserved for reuse
-- **Key numbers**: Using Mistral-7B as backbone and PoG as strongest baseline, ATG outperforms by **32.01 points** on ALFWorld and **38.57 points** on WebShop ⚠️ (numbers are self-reported against their chosen baseline; baseline version and experimental setup should be verified)
+- **Key numbers**: Using Mistral-7B as backbone and PoG as strongest baseline, ATG outperforms by **32.01 points** on ALFWorld and **38.57 points** on WebShop :warning: (numbers are self-reported against their chosen baseline; baseline version and experimental setup should be verified)
 - Also tested on ScienceWorld with reported improvements; detailed numbers not found in search results
 - **Backbone range**: 7B–8B parameter models, no dependence on very large models
 - **Limitation**: DAG decomposition quality depends on LLM planning ability; static DAGs may break down in dynamic tasks (mid-execution environment changes)
@@ -126,7 +126,7 @@ This paper reveals a design principle: the clearer a tool's "execution boundary,
 
 - **Core innovation**: Device Tools abstraction layer, wrapping camera, phone, calendar, contacts, and other OS features into functions with explicit arguments and structured results
 - **Open-source framework**, with session/memory/skills/tools/agent loop all running locally on-device
-- **Key numbers**: Compared to strongest baseline, task success rate improves by **11.5%** (relative), completion time drops by **94.9%** ⚠️ (the specific "strongest baseline" system is not identified in search results; fairness should be verified in the original paper)
+- **Key numbers**: Compared to strongest baseline, task success rate improves by **11.5%** (relative), completion time drops by **94.9%** :warning: (the specific "strongest baseline" system is not identified in search results; fairness should be verified in the original paper)
 - Paper provides execution trace examples showing how clear tool call boundaries make traces more readable
 - Predecessor work ClawMobile (2602.22942) is the related foundation; PalmClaw extends it
 - **Limitation**: Only tested on Android; Device Tools require manual wrapping for each OS API, scaling cost is non-trivial; privacy and permission design not deeply discussed
@@ -184,7 +184,7 @@ This paper represents the "next layer" of the agent deployment map: from API-ove
 - **Digital twin integration**: Virtual models synced with physical devices; agents can simulate in virtual environments before driving physical execution
 - **Formal framework**: Hylomorphic DP separates "workflow planning" from "physical control" into two modeling layers, theoretically optimizable independently before coupling
 - **Demonstrated use case**: Smart building HVAC coordination — multi-sensor input + multi-actuator coordination
-- ⚠️ **No experimental results**: This is a position paper; all architecture claims are conceptual
+- :warning: **No experimental results**: This is a position paper; all architecture claims are conceptual
 - **Research challenges (self-listed)**: Reliable planning, cross-layer control, security, trust, privacy, low latency, adversarial robustness
 - **Limitation**: No benchmarks, no implementation validation; claims require follow-up work; Hylomorphic DP offers limited engineering guidance
 - **Gap with existing frameworks**: LangGraph/AutoGen assume cloud LLM calls, don't support edge inference or physical actuator control

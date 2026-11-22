@@ -10,7 +10,7 @@ description: "拆解 Helicone 的 Gateway、非同步紀錄、request／session�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-helicone-llm-observability-en)
+> :globe: [English version](/posts/ai/2026-08-22-helicone-llm-observability-en)
 
 [Helicone](https://github.com/Helicone/helicone) 是開放原始碼的 LLM Gateway 與觀測平台。它位在應用程式與模型供應商之間，轉送請求的同時記錄模型、延遲、token、成本、錯誤與應用自訂欄位，讓工程團隊可以從一次失敗回答一路追到實際 API 呼叫。
 

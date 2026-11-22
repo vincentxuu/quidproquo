@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide-en)
 
 系列寫到[Skills](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)和[Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide)，都是一次處理一種擴充。但當你想把一組 skill 加上配對的 hook、再綁一個 MCP server，一起交給團隊或社群使用時，逐檔複製就變成災難。Plugin 就是為這一步設計的。
 

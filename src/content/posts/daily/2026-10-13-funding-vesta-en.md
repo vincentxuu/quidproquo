@@ -12,7 +12,7 @@ series:
   order: 85
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-13-funding-vesta)
+> :globe: [中文版](/posts/daily/2026-10-13-funding-vesta)
 
 ## Deal Terms
 

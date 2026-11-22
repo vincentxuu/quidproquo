@@ -11,7 +11,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape-en)
+> :globe: [English version](/posts/daily/2026-11-08-security-workos-artex-sandbox-escape-en)
 
 ## 事件概述
 

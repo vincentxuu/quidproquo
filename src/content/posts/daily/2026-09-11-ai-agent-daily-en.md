@@ -108,7 +108,7 @@ Gnani AI announced it's extending its sovereign AI platform Gnani Artha to India
 
 **Middle East**
 
-Abu Dhabi announced a $1B commitment alongside Mistral and Loft Orbital at the Paris international space summit to build the largest AI-agent-equipped satellite constellation, with the signing witnessed by President Macron. ⚠️(not yet cross-verified by other outlets) ([Source](https://france.news-pravda.com/france/2026/09/09/260090.html))
+Abu Dhabi announced a $1B commitment alongside Mistral and Loft Orbital at the Paris international space summit to build the largest AI-agent-equipped satellite constellation, with the signing witnessed by President Macron. :warning:(not yet cross-verified by other outlets) ([Source](https://france.news-pravda.com/france/2026/09/09/260090.html))
 
 **Oceania**
 
@@ -129,12 +129,12 @@ Japan/Korea, Africa, and Latin America were checked today; no directly relevant 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-11](/posts/daily/2026-09-11-ai-agent-arxiv-digest-en)
-- 💰 [Funding Alert | Clay Series D $115M](/posts/daily/2026-09-11-funding-clay-en)
-- 💰 [Funding Alert | Euno Series A $23M](/posts/daily/2026-09-11-funding-euno-en)
-- 🚨 [Security Alert | PaperCut Flaws Mass-Exploited by Hundreds of AI Agents](/posts/daily/2026-09-11-security-papercut-ai-agent-mass-exploit-en)
-- 🛠️ [Tool Recommendation | skills — Dart/Flutter Agent Skill CLI](/posts/daily/2026-09-11-tool-dart-skills-cli-en)
-- 🎯 [AI Engineer Interview Daily — 2026-09-11: Coding](/posts/daily/2026-09-11-ai-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-11](/posts/daily/2026-09-11-ai-agent-arxiv-digest-en)
+- :coin: [Funding Alert | Clay Series D $115M](/posts/daily/2026-09-11-funding-clay-en)
+- :coin: [Funding Alert | Euno Series A $23M](/posts/daily/2026-09-11-funding-euno-en)
+- :warning: [Security Alert | PaperCut Flaws Mass-Exploited by Hundreds of AI Agents](/posts/daily/2026-09-11-security-papercut-ai-agent-mass-exploit-en)
+- :wrench: [Tool Recommendation | skills — Dart/Flutter Agent Skill CLI](/posts/daily/2026-09-11-tool-dart-skills-cli-en)
+- :target: [AI Engineer Interview Daily — 2026-09-11: Coding](/posts/daily/2026-09-11-ai-interview-daily-en)
 
 ## Watching Tomorrow
 

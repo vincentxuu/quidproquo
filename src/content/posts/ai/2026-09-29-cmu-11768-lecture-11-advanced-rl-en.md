@@ -30,7 +30,7 @@ glossary:
     context: "The last section of the lecture: it gives the student dense guidance exactly where it tends to go wrong."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-11-advanced-rl)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

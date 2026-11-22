@@ -22,7 +22,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-mit-67960-l24-inference-methods)
+> :globe: [中文版](/posts/tech/2026-10-13-mit-67960-l24-inference-methods)
 
 **Video status: Videos included.** [Video source and notes](#lecture-video-source)
 

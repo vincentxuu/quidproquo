@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-10-02-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -59,13 +59,13 @@ Cloudflare 宣布今年首次確認過半網路流量不是人類產生，過去
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
-✅ 本週 signals 中出現頻率最高的公司（OpenAI、Anthropic、Meta、Amazon、Cloudflare、Google、Microsoft、NVIDIA 等）均已在 watchlist 內，無新增候選（以「本週 signals 中不在 watchlist 且出現 ≥ 3 次」為門檻檢核；本週各家新創的融資訊號多來自獨立的融資速報文章，未達 signals 內重複曝光的門檻，已在下方「本週新創雷達」中列出）
+✓ 本週 signals 中出現頻率最高的公司（OpenAI、Anthropic、Meta、Amazon、Cloudflare、Google、Microsoft、NVIDIA 等）均已在 watchlist 內，無新增候選（以「本週 signals 中不在 watchlist 且出現 ≥ 3 次」為門檻檢核；本週各家新創的融資訊號多來自獨立的融資速報文章，未達 signals 內重複曝光的門檻，已在下方「本週新創雷達」中列出）
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

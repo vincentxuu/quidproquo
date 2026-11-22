@@ -13,7 +13,7 @@ description: "A deck-aligned CS103 guide to decidable does not mean feasible, ef
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-27-complexity-theory)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-27-complexity-theory)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

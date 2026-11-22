@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-permissions)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-permissions)
 
 A sales colleague asks the AI assistant, "How big are this year's raises?" The AI answers with the figure from an internal HR meeting note. The note sits in a shared folder that someone shared with "everyone in the company" three years ago, and nobody remembers. The AI didn't break any permission; it followed the rules and read a file this colleague could already open.
 

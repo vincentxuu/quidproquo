@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-composio-agent-tool-integration-en)
+:globe: [English version](/posts/ai/2026-08-21-composio-agent-tool-integration-en)
 
 這個站把 MCP 這條線寫得算齊。[協定本身](/posts/ai/2026-03-22-mcp-model-context-protocol)、[Playwright](/posts/tech/2026-06-20-playwright-mcp) 與 [Chrome DevTools](/posts/tech/2026-06-20-chrome-devtools-mcp) 兩支瀏覽器 server、[把自己的爬蟲包成 MCP server](/posts/tech/2026-03-20-mcp-server-job-scraper)、[Claude Code 怎麼掛](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)、[協定層之間怎麼分工](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)，都有專文。
 

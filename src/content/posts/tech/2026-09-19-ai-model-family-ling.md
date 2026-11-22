@@ -21,7 +21,7 @@ glossary:
     def: "Kimi Delta Attention，從 Lightning Attention 升級的線性注意力變體，引入細粒度對角門控於 Delta Rule 狀態更新，精確保留長序列關鍵資訊"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-ling-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-ling-en)
 
 2025 年 3 月，螞蟻集團在非 A100/H100 的異構計算平台上驗證了 MoE 大模型的工程可行性——這是百靈家族的起點。十五個月後，它交出了一個涵蓋 7.9B 到 1T 參數、橫跨文本、推理與全模態的開源矩陣。2026 年 9 月 9 日外灘大會上，家族再添一名成員：Ling-3.0-flash-Fin，首個金融增強模型。
 

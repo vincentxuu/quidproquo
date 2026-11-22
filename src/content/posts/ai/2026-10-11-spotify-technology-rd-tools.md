@@ -10,7 +10,7 @@ description: "整理 Spotify Technology 四條產品線各自做什麼、怎麼�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-spotify-technology-rd-tools-en)
+> :globe: [English version](/posts/ai/2026-10-11-spotify-technology-rd-tools-en)
 
 如果你的團隊正在評估「要不要買一套東西，讓多個 coding agent 共用公司的架構知識」，Spotify 剛好端出一套。2026 年 10 月 7 日，Spotify SVP Tyson Singer 在[工程部落格](https://engineering.atspotify.com/2026/10/introducing-spotify-technology-proven-at-spotify-now-yours)宣布 [Spotify Technology](https://technology.spotify.com/)，把原本零散銷售的內部工具放到同一個品牌下。這篇讀完你能判斷：這四個產品各解決什麼、哪些現在就能試、哪些說法只是賣方的主張。
 

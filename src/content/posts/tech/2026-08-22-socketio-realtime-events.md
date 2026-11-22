@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-socketio-realtime-events-en)
+> :globe: [English version](/posts/tech/2026-08-22-socketio-realtime-events-en)
 
 [Socket.IO](https://socket.io/docs/v4/) 在 Engine.IO transport 上提供具名稱的 events、automatic reconnection、acknowledgements、rooms、namespaces 與 adapters。它通常使用 WebSocket，也能從 HTTP long-polling upgrade；Socket.IO client 不能直接連原生 WebSocket server，wire protocol 不相同。
 

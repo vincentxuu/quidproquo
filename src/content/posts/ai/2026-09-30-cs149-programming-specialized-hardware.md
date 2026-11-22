@@ -26,7 +26,7 @@ glossary:
     context: "L11 第 17 頁的表格，說明各類型要減少的是哪種資料的重新載入或搬移。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-programming-specialized-hardware-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -83,7 +83,7 @@ glossary:
 - **Tensor Core**：專做 MMA 的計算單元。投影片補了兩個名詞：warpgroup 是 128 條連續的執行緒；PTX 是 NVIDIA 的虛擬指令集架構。
 - **TMA**：專用的區塊資料搬移單元。第 28 頁對比 A100 的 LDGSTS 與 H100 的 TMA，TMA 可以繞過 L1。第 29 頁說它省掉數千道指令與記憶體定址的額外成本，也省掉資料經過 L1 與暫存器的不必要搬移。
 
-第 30 頁把 GPU 放回理想特徵表（同上一篇）：分塊 tensor、非同步計算、非同步記憶體都 ✅，運算單元之間直接傳資料是 ❓。
+第 30 頁把 GPU 放回理想特徵表（同上一篇）：分塊 tensor、非同步計算、非同步記憶體都 ✓，運算單元之間直接傳資料是 :question:。
 
 ### 程式設計師要做什麼
 

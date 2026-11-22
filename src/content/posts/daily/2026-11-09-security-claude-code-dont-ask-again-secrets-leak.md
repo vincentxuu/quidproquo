@@ -11,7 +11,7 @@ series:
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
+> :globe: [English version](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
 
 ## 事件概述
 
@@ -54,7 +54,7 @@ step: 外洩之後，連歷史版本和 fork 都還留著，刪除現在的檔�
   <path class="dg-line" d="M320 312V344" marker-end="url(#arrow)" data-step="5"/>
   <path class="dg-line" d="M460 388H540" marker-end="url(#arrow)" data-step="6"/>
   <path class="dg-line dg-line--warn" d="M320 432V464" marker-end="url(#arrow-warn)" data-step="6"/>
-  <path class="dg-line dg-line--warn" d="M616 412V484Q616 492 608 492H460" marker-end="url(#arrow-warn)" data-step="7"/>
+  <path class="dg-line dg-line--warn" d="M616 416V484Q616 492 608 492H460" marker-end="url(#arrow-warn)" data-step="7"/>
   <path class="dg-line dg-line--warn" d="M320 520V552" marker-end="url(#arrow-warn)" data-step="8"/>
 
   <circle class="dg-dot" cx="320" cy="28" r="6" data-step="1"/>
@@ -87,8 +87,8 @@ step: 外洩之後，連歷史版本和 fork 都還留著，刪除現在的檔�
   </g>
 
   <g data-step="6">
-    <rect class="dg-box" x="540" y="364" width="152" height="48" rx="6"/>
-    <text class="dg-label" x="616" y="382" text-anchor="middle" dominant-baseline="central">本機暫時安全</text>
+    <rect class="dg-box" x="540" y="360" width="152" height="56" rx="6"/>
+    <text class="dg-label" x="616" y="376" text-anchor="middle" dominant-baseline="central">本機暫時安全</text>
     <text class="dg-sub" x="616" y="400" text-anchor="middle" dominant-baseline="central">排除清單生效中</text>
   </g>
 

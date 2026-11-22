@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-03-work-english-speaking-tips-en)
+> :globe: [English version](/posts/learning/2026-09-03-work-english-speaking-tips-en)
 
 多數台灣上班族的英文能力分布很不均勻：讀文件沒問題，寫 email 查一下也行，但一到開會要即時發言，腦袋就開始跑中翻英、組句子、猶豫文法，等想好怎麼說，話題已經換了。問題不在單字量，而是口說反應速度和臨場句型的儲備不夠。
 

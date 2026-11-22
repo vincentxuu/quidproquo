@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-zizmor-github-actions-security)
+> :globe: [中文版](/posts/tech/2026-08-22-zizmor-github-actions-security)
 
 [zizmor](https://docs.zizmor.sh/) is a static analyzer for GitHub Actions workflows and composite actions. CI YAML is simultaneously code, a permission declaration, and a supply-chain entry point. Generic YAML lint sees syntax; zizmor understands expressions, events, job permissions, `uses:` references, persisted credentials, and artifact flow.
 

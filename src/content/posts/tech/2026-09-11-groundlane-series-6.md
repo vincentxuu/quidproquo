@@ -20,7 +20,7 @@ glossary:
     definition: "embedding 模型把多個結構化欄位（名稱、難度、地點）壓進同一個向量，導致搜尋時無法區分使用者關注哪個屬性的問題。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-11-groundlane-series-6-en)
+> :globe: [English version](/posts/tech/2026-09-11-groundlane-series-6-en)
 
 前五篇把 Groundlane 的 Web 工具從概念走到踩坑清單（[篇 1：為什麼需要受控存取層](/posts/tech/2026-08-23-groundlane-series-1)、[篇 2：三個工具的參數與回傳](/posts/tech/2026-08-23-groundlane-series-2)、[篇 3：與傳統方案對比](/posts/tech/2026-08-23-groundlane-series-3)、[篇 4：站內應用](/posts/tech/2026-08-23-groundlane-series-4)、[篇 5：踩坑與最佳實踐](/posts/tech/2026-08-23-groundlane-series-5)）。這篇進入 Document 工具——Groundlane 從 `v0.1.0` 之後擴展到 55 個工具，其中文件解析相關佔了超過 20 個。這篇聚焦三個設計決策：`effort` 參數、field-aware chunking、confidence routing。
 

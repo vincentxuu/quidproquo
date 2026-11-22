@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-aws-fargate-containers-en)
+> :globe: [English version](/posts/tech/2026-08-22-aws-fargate-containers-en)
 
 [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-tasks-services.html) 是 ECS 與 EKS 可用的 serverless container compute。以 ECS 為例，你不必建 EC2 cluster、patch host 或配置 bin packing；但還是要定義 image、CPU/memory、port、health check、IAM、network、desired count 與 deployment policy。
 

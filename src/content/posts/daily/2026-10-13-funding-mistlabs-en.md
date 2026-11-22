@@ -12,7 +12,7 @@ series:
   order: 87
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-13-funding-mistlabs)
+> :globe: [中文版](/posts/daily/2026-10-13-funding-mistlabs)
 
 ## Deal Terms
 

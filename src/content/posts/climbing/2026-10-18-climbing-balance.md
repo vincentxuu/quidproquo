@@ -26,7 +26,7 @@ glossary:
     context: "Hooper's Beta 用這個詞說明：移動時太貼牆，反而會被甩開。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-balance-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-balance-en)
 
 在岩館爬了幾個月，腳也開始會看著踩了，但爬到一半手還是很快就酸。旁邊的人提醒你「三點不動一點動」「屁股貼牆」「手打直」，三句話你都照做，有些動作反而更難。
 

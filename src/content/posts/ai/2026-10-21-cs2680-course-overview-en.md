@@ -19,7 +19,7 @@ glossary:
 ---
 
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-course-overview)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-course-overview)
 
 **Video status: The course is not recorded.** This post is based on the public slides and course website. [Source notes](#course-video-sources)
 

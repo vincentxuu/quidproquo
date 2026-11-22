@@ -14,7 +14,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-26-reinforcement-learning)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

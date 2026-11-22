@@ -16,7 +16,7 @@ description: "Stanford CS221: Artificial Intelligence: Principles and Techniques
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs221-ai-principles-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

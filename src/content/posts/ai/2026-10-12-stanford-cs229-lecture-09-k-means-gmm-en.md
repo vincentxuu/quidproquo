@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 9 recording published by Stanford Online, with notation checked against Chapter 10 and the first half of Chapter 11 of the 2026 main notes. I did not see the board, so the lecturer's hand-drawn figures are reconstructed from what he says about them.
 

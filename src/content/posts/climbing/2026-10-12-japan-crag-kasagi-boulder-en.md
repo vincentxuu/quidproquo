@@ -13,7 +13,7 @@ description: "A guide to Kasagi Boulders in Kasagi, Kyoto: size and grade spread
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-kasagi-boulder)
 
 Kasagi Boulders (笠置ボルダー) is a field of granite blocks on the Kizu River riverbed in Kasagi, Soraku District, Kyoto Prefecture. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E7%AC%A0%E7%BD%AE%E3%83%9C%E3%83%AB%E3%83%80%E3%83%BC/) opens its entry by calling it one of the few crags you can reach by train ("電車による利用が可能な数少ない岩場のひとつ"): it is a few minutes on foot from JR Kasagi Station.
 

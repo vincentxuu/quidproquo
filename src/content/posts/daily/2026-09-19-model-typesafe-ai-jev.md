@@ -17,7 +17,7 @@ glossary:
     def: "Reinforcement Learning for Calibrated Decisions，TypeSafe AI 自創的訓練方法，優化目標是「答案的機率是否誠實反映實際正確率」，而非 RLHF 的人類偏好或 RLVR 的可驗證獎勵"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-model-typesafe-ai-jev-en)
+> :globe: [English version](/posts/daily/2026-09-19-model-typesafe-ai-jev-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ Jev 沒有比照傳統 MMLU／SWE-bench 等通用基準測試，TypeSafe 自建�
 | 首頁展示工作流 | 0.114 秒完成 | LLM 工作流：8.566 秒（193.6 倍慢、444.6 倍貴） |
 | 型別／格式錯誤率 | 0%（結構保證） | LLM 結構化輸出（依 OpenRouter 資料）：非零 |
 
-⚠️ 以上均為 TypeSafe AI 自行設計與發佈的測試，尚無獨立第三方覆現。官方自己在公告中揭露：參考答案取 GPT-6 Astra 與 Fable 5.1 均值，本身偏向 OpenAI／Anthropic 的作答風格，可能低估 Jev 與 DeepSeek 模型的真實相對表現；工作流內容由 TypeSafe 自家「model capabilities team」設計，官方也承認可能存在選樣偏誤。
+:warning: 以上均為 TypeSafe AI 自行設計與發佈的測試，尚無獨立第三方覆現。官方自己在公告中揭露：參考答案取 GPT-6 Astra 與 Fable 5.1 均值，本身偏向 OpenAI／Anthropic 的作答風格，可能低估 Jev 與 DeepSeek 模型的真實相對表現；工作流內容由 TypeSafe 自家「model capabilities team」設計，官方也承認可能存在選樣偏誤。
 
 ## 與前代/競品比較
 

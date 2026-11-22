@@ -14,7 +14,7 @@ series:
 
 <!-- [skip-harness] -->
 
-> 🌏 [中文版](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
+> :globe: [中文版](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
 
 ## Incident Overview
 

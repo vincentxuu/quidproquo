@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-private-corpus-retrieval-eval)
+> :globe: [中文版](/posts/ai/2026-08-22-private-corpus-retrieval-eval)
 
 This article was supposed to compare lexical, vector, and hybrid retrieval on a real Traditional Chinese corpus. The repository inspection establishes only this: `docs/rag-golden-dataset.json` contains 20 queries, and `docs/rag-golden-fixture.json` contains four candidate answers. There is no benchmark script, per-query ranked output, raw latency data, or manifest tying results to a fixed corpus snapshot.
 

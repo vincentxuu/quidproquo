@@ -14,7 +14,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-code-review)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-code-review)
 
 You ask an AI reviewer to inspect a ticket API. It reports a possible authorization issue. After you add a tenant check, it says the issue is resolved. Yet Alice can still read Bob’s ticket within their shared company. The review missed the application’s actual policy.
 

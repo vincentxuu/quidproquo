@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 68
 ---
-> 🌏 [English version](/posts/daily/2026-07-31-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-31-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,7 +73,7 @@ Surge AI 建了 5 個行業的虛擬公司環境（財務、醫療帳務、保�
 - 評分標準：824 條程式化規則，全判定式評分（無 LLM judge），結果完全可重現
 - 共評測 30 種配置、20 個模型、11 家廠商（截至 2026 年 7 月）
 - 三大失敗模式：①把環境內的請求凌駕於政策之上 ②略過必要的驗證步驟 ③回報「已合規」但實際上沒執行
-- **⚠️** 各模型詳細分數差異未在公開摘要列出，36.2% 為最佳配置，不代表特定商業模型的公開宣傳數字
+- **:warning:** 各模型詳細分數差異未在公開摘要列出，36.2% 為最佳配置，不代表特定商業模型的公開宣傳數字
 - Limitation：65 道題偏少，尚未覆蓋複雜多輪協商場景
 - 與 LangGraph / AutoGen 的關聯：測試環境已用 MCP，框架層可在 graph nodes 裡加入 policy enforcement layer 作為護欄
 
@@ -100,7 +100,7 @@ Surge AI 建了 5 個行業的虛擬公司環境（財務、醫療帳務、保�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對已在用 LangGraph 的工程師是實用速查手冊；評估是否導入 LangGraph 的 PM 直接看「決策表」段落即可，10 分鐘有結論。
 
 ### 領域背景
@@ -133,7 +133,7 @@ LangGraph 是 LangChain 推出的有狀態 Agent 編排框架（orchestration fr
 - **Interrupt + Checkpoint**：interrupt 在圖中某節點暫停，checkpoint（可用 SQLite 或 Redis）保存整個 state，Agent 可暫停數天再繼續
 - **Traces**：內建 LangSmith 整合，每個步驟都有完整 log，生產環境 debug 的必備基礎設施
 - 決策梯度：ReAct loop < Schema-first tools < LangGraph，越往右功能越強但複雜度也越高，不要為了用 LangGraph 而用
-- **⚠️** 論文未做任何模型比較或定量 performance benchmark，三個 recipes 是設計示意而非實證研究，結論是工程判斷
+- **:warning:** 論文未做任何模型比較或定量 performance benchmark，三個 recipes 是設計示意而非實證研究，結論是工程判斷
 - Limitation：recipes 屬於示意性案例，實際落地還需根據業務場景調整 error handling
 - 與 MCP 的關聯：LangGraph 的 tool nodes 可以直接接 MCP server，結合 [HANDBOOK.md](http://HANDBOOK.md) 的需求，可在 graph 的節點裡加 policy check
 
@@ -160,7 +160,7 @@ LangGraph 是 LangChain 推出的有狀態 Agent 編排框架（orchestration fr
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 做多模態 Agent 或想讓 Agent 操控 GUI（電腦操作、手機自動化）的工程師必讀；純文字 Agent 平台可快速掃一眼了解這個方向的現實難度。
 
 ### 領域背景
@@ -189,7 +189,7 @@ LangGraph 是 LangChain 推出的有狀態 Agent 編排框架（orchestration fr
 - 自動化場景生成 pipeline 大幅降低建 benchmark 成本，方法論本身可被其他研究複用
 - 50 個 UI 變體場景特別針對 interactive UI 應用，與 Claude Computer Use / OpenAI Operator 等趨勢直接對應
 - 人工核驗 258 個標準場景確保品質，是少數做到人工驗證的多模態 benchmark
-- **⚠️** 12 個模型的個別分數未在公開搜尋結果中揭露，「最強 < 50%」是論文摘要的概括性描述，具體模型排名請看原文
+- **:warning:** 12 個模型的個別分數未在公開搜尋結果中揭露，「最強 < 50%」是論文摘要的概括性描述，具體模型排名請看原文
 - Limitation：16 個領域的選取仍有覆蓋偏差；靜態截圖 benchmark 無法反映真實 App 隨版本更新的 UI 變化
 - 與主流框架關聯：LangGraph / AutoGen 的 computer use 整合（如 Claude Computer Use API）正面對的正是這類「看圖叫工具」問題，這個 benchmark 可作為整合層的驗收工具
 

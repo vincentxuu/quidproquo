@@ -10,7 +10,7 @@ description: "整理哈佛 King 與 Worthington 的 AI 審稿預印本：實驗�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-ai-pre-submission-review-king-worthington-en)
+> :globe: [English version](/posts/ai/2026-10-24-ai-pre-submission-review-king-worthington-en)
 
 投稿前想找人把稿子從頭到尾審一遍，而手邊沒有願意認真讀完全文的同行，可以考慮請 AI 來。哈佛的 Gary King 與 Steven Worthington 在 2026 年 10 月 22 日公開預印本，拿一批品質很高的人類預審來對照 AI 審查，結果 AI 在每個面向都勝出。這篇整理實驗的做法、值得拿來用的提示詞，以及這個結論能用到哪裡為止。
 

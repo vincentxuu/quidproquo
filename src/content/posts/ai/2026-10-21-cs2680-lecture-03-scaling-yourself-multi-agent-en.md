@@ -26,7 +26,7 @@ glossary:
     context: "In Lecture 3, Caveman uses one to compress tool output before the model reads it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-03-scaling-yourself-multi-agent)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

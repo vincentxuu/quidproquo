@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 12
 ---
-> 🌏 [English version](/posts/daily/2026-06-05-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-05-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,11 +69,11 @@ APB 讓你第一次能精確定位 Agent 的規劃弱點。五種設定直接對
 
 - 4,209 道 multimodal 測試題，22 個領域，是目前 Agent 規劃 benchmark 中規模最大的之一
 - 五種設定涵蓋「主動規劃」和「被動應變」，尤其 Broken Tools 和 Unsolvable Tasks 直接對應生產環境最常被忽略的邊界條件
-- 測試 12 個 MLLMs，揭示四大系統性弱點：長距規劃（long-horizon planning）、工具雜訊容忍（tool-noise robustness）、校準式拒絕（calibrated refusal）、推理時精修（inference-time refinement）⚠️（具體模型排名與分數需查原始論文）
-- 跨 benchmark 驗證：APB 引導的精修在 ToolSandbox 和 τ²-bench 上均一致改善指標 ⚠️（改善幅度數字未見於摘要）
+- 測試 12 個 MLLMs，揭示四大系統性弱點：長距規劃（long-horizon planning）、工具雜訊容忍（tool-noise robustness）、校準式拒絕（calibrated refusal）、推理時精修（inference-time refinement）:warning:（具體模型排名與分數需查原始論文）
+- 跨 benchmark 驗證：APB 引導的精修在 ToolSandbox 和 τ²-bench 上均一致改善指標 :warning:（改善幅度數字未見於摘要）
 - 機構陣容：同濟、上海 AI Lab、哈工大、復旦、上交大、CUHK、UCSC、Skywork AI——跨機構合作背景紮實
 - 與 LangGraph/AutoGen 的關聯：APB 的五種設定可直接作為 agent 系統的回歸測試套件設計藍圖，不依賴特定 runtime
-- Limitation：multimodal 設定需要 agent 能處理圖像輸入，純文字 agent 架構只能跑部分測試集；論文開源狀態未確認 ⚠️
+- Limitation：multimodal 設定需要 agent 能處理圖像輸入，純文字 agent 架構只能跑部分測試集；論文開源狀態未確認 :warning:
 
 ### Reviewer 一句話評
 
@@ -122,13 +122,13 @@ Decide 機制解決工具濫用（節省 token 和延遲），Forge + Recycle �
 
 ### 深入要點
 
-- 四階段 judge-retrieve-adapt-forge-recycle 閉迴路整合成統一的 orchestration policy，是概念上的整合創新 ⚠️（詳細架構和實驗數字需查 PDF，本次搜尋無法取得）
+- 四階段 judge-retrieve-adapt-forge-recycle 閉迴路整合成統一的 orchestration policy，是概念上的整合創新 :warning:（詳細架構和實驗數字需查 PDF，本次搜尋無法取得）
 - Decide 機制的引入解決工具濫用問題，在有 API token 費用的生產環境直接有經濟效益
 - Forge + Recycle 讓工具庫從「靜態資產」變成「動態知識庫」，是 agent 系統設計哲學上的轉變
 - 與 LangGraph 的關聯：Decide 類似 conditional edge；Forge 類似動態 node 擴充——但 MetaForge 是自動觸發而非人工設計
 - 與 AutoGen 的關聯：Forge 生成的新工具類似 AutoGen 的 code generation 能力，但 Recycle 讓技能持久化供日後複用，這是關鍵差異
-- **核心落地疑慮**：Forge 出來的新工具品質和安全性如何保證？生產環境中需要完善的沙箱隔離和安全審計機制——論文如何處理這個問題需看原文 ⚠️
-- 論文提交日期：2026-06-01；作者機構詳細資訊待確認 ⚠️
+- **核心落地疑慮**：Forge 出來的新工具品質和安全性如何保證？生產環境中需要完善的沙箱隔離和安全審計機制——論文如何處理這個問題需看原文 :warning:
+- 論文提交日期：2026-06-01；作者機構詳細資訊待確認 :warning:
 
 ### Reviewer 一句話評
 
@@ -179,7 +179,7 @@ RUBAS 的四維度 Rubric 本身就是一個可操作的 agent safety checklist�
 
 - 作者 Zhexin Zhang（清華 CoAI 實驗室）在 LLM safety 領域有多篇知名工作（CValues、SafetyBench），本文機構背景和研究傳承均可信
 - RL 訓練在完整執行軌跡（complete trajectory）上進行，比 step-level RLHF 更能捕捉 agent 多步安全決策的長期模式
-- 跨多個 agent safety benchmark 和模型的實驗：RUBAS 優於標準對齊 baseline，並減少 tool-grounded hallucination（工具呼叫幻覺：agent 宣稱呼叫了工具但實際沒有，或呼叫了錯的工具）⚠️（具體數字需查 PDF）
+- 跨多個 agent safety benchmark 和模型的實驗：RUBAS 優於標準對齊 baseline，並減少 tool-grounded hallucination（工具呼叫幻覺：agent 宣稱呼叫了工具但實際沒有，或呼叫了錯的工具）:warning:（具體數字需查 PDF）
 - 四維度 Rubric 可整合到任何 agent framework 的 evaluation harness，不依賴特定 LLM 或 runtime
 - **Limitation 1**：Rubric 需人工設計，不同部署場景（客服 vs 程式執行 vs 資料分析）的 Rubric 差異可能很大，難以一套通用
 - **Limitation 2**：RL 訓練成本較高，中小型團隊可能資源不足以直接複現完整訓練流程

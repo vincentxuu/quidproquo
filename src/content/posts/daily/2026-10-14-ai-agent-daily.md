@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-14-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -152,17 +152,17 @@ SBI Holdings、SBI EVERSPIN 與 KB 國民卡簽署合作備忘錄，共同開發
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-github-digest)
-- 📄 [模型卡｜Liquid AI LFM2.5-24B-A2B](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b)
-- 📄 [Benchmark 異動｜Arena Agent 排行榜 GPT-6 Sol 首進前三](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol)
-- 📄 [框架更新｜DSPy 3.4.1](/posts/daily/2026-10-14-framework-dspy-3.4.1)
-- 📄 [框架更新｜Mastra @mastra/core@1.76.0](/posts/daily/2026-10-14-framework-mastra-1.76.0)
-- 📄 [融資速報｜Clueso Series A $10M](/posts/daily/2026-10-14-funding-clueso)
-- 📄 [定價追蹤｜Claude Sonnet 4 今天在 Bedrock 正式下架](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol)
-- 📄 [工具推薦｜mcptui](/posts/daily/2026-10-14-tool-mcptui)
-- 📄 [AI Engineer 面試日練 — 2026-10-14](/posts/daily/2026-10-14-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-14](/posts/daily/2026-10-14-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-github-digest)
+- :file: [模型卡｜Liquid AI LFM2.5-24B-A2B](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b)
+- :file: [Benchmark 異動｜Arena Agent 排行榜 GPT-6 Sol 首進前三](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol)
+- :file: [框架更新｜DSPy 3.4.1](/posts/daily/2026-10-14-framework-dspy-3.4.1)
+- :file: [框架更新｜Mastra @mastra/core@1.76.0](/posts/daily/2026-10-14-framework-mastra-1.76.0)
+- :file: [融資速報｜Clueso Series A $10M](/posts/daily/2026-10-14-funding-clueso)
+- :file: [定價追蹤｜Claude Sonnet 4 今天在 Bedrock 正式下架](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol)
+- :file: [工具推薦｜mcptui](/posts/daily/2026-10-14-tool-mcptui)
+- :file: [AI Engineer 面試日練 — 2026-10-14](/posts/daily/2026-10-14-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-14](/posts/daily/2026-10-14-product-builder-interview-daily)
 
 ## 明日關注
 

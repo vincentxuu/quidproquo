@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 8
 ---
-> 🌏 [English version](/posts/daily/2026-06-01-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-01-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -123,7 +123,7 @@ GroupMemBench 設計三類評估維度：**Group Dynamics**（群組動態）—
 ### 深入要點
 
 - 核心數據：最強記憶系統整體 46.0%；知識更新（knowledge update）27.1%；詞彙歧義（term ambiguity）37.7%——三個向度全線偏低（來源：論文實驗結果）
-- BM25 baseline 在多項子任務上「匹敵或超過」大多數 agent 記憶系統 **⚠️**（可能反映 benchmark 部分子任務偏向 retrieval 精確匹配，而非需要深度語意推理；建議讀論文確認各子任務設計）
+- BM25 baseline 在多項子任務上「匹敵或超過」大多數 agent 記憶系統 **:warning:**（可能反映 benchmark 部分子任務偏向 retrieval 精確匹配，而非需要深度語意推理；建議讀論文確認各子任務設計）
 - LangGraph / AutoGen 關聯：兩者的 memory 模組預設單使用者，要加 speaker identity 追蹤需要手動擴展 memory schema
 - MCP 關聯：目前 MCP memory server 規格沒有 speaker-attributed memory slot 的標準定義，GroupMemBench 可作為未來規格設計的需求文件
 - Limitation：benchmark 的對話規模、語言覆蓋度、真實 vs 合成對話比例從現有資料未能確認，需直接讀論文；BM25 超越語意系統的情況是否普遍或特定於 benchmark 設計，需要更多驗證
@@ -177,7 +177,7 @@ AgentFloor 設計了 **30 個確定性任務**，組成六層能力梯架（six-
 ### 深入要點
 
 - Benchmark 設計：30 個任務、6 tiers、16 個開源模型（0.27B-32B）+ GPT-5、16,542 scored runs；全確定性評分，無 LLM-as-judge（來源：論文實驗設計）
-- 關鍵發現：小至中型開源模型可處理 agent pipeline 中「短程、結構化 tool use」佔大宗的工作；最強開源模型整體匹敵 GPT-5（各 tier 分解數字需讀論文確認 **⚠️**）
+- 關鍵發現：小至中型開源模型可處理 agent pipeline 中「短程、結構化 tool use」佔大宗的工作；最強開源模型整體匹敵 GPT-5（各 tier 分解數字需讀論文確認 **:warning:**）
 - 「6 tiers」邊界定義是這篇最有工程價值的部分：tier 1（instruction following）→ tier 2（tool use）→ tier 3（multi-step coordination）→ tier 4-6（長程規劃、持久約束、複合推理）
 - LangGraph / AutoGen 關聯：6 tier 分層邏輯可作為 model routing middleware 的設計藍本，根據 task tier 動態選模型大小
 - MCP 關聯：AgentFloor 的 six-tier 框架可用來評估不同 MCP server 工具對模型能力的需求等級，協助平台決定 server 搭配哪個模型

@@ -13,7 +13,7 @@ description: "coding agent 設計系列總覽：為什麼自己寫 looplane、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)
 
 過去半年我在寫一個自己的 coding agent，叫 **looplane**。卡關的次數遠比想像多：agent loop 要怎麼收尾、審批要做到多細、session 斷線怎麼續、小模型亂吐 diff 怎麼擋。每次憑空設計，兩週後就會發現某個開源專案早就踩過同樣的坑。
 

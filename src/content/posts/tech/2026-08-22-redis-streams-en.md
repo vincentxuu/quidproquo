@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-redis-streams)
+> :globe: [中文版](/posts/tech/2026-08-22-redis-streams)
 
 [Redis Streams](https://redis.io/docs/latest/develop/data-types/streams/) is an append-only log inside Redis. `XADD` stores entries with IDs, `XRANGE` reads history, and `XREAD` waits for new data. Consumer groups divide work and retain unacknowledged state. Streams solve the Redis Pub/Sub problem of losing messages while subscribers are offline, but remain bounded by Redis persistence, memory, and clustering.
 

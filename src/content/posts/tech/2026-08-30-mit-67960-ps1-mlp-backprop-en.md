@@ -13,7 +13,7 @@ description: "Complete walkthrough of MIT 6.7960 Fall 2024 OCW Homework 1. Imple
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

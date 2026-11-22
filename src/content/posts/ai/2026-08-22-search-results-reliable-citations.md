@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-search-results-reliable-citations-en)
+> :globe: [English version](/posts/ai/2026-08-22-search-results-reliable-citations-en)
 
 搜尋 API 回傳十條 URL，不代表你有十個來源。同一篇新聞可能帶著不同追蹤參數出現三次，又被入口網站與內容農場轉載四次；最後七個網址都在重複同一份稿。更麻煩的是，網址即使真的不同，也不表示它支持答案旁邊那句話。
 

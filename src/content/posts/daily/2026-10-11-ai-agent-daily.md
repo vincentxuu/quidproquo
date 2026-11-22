@@ -12,7 +12,7 @@ series:
   order: 57
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-11-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-11-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -160,15 +160,15 @@ OpenAI 與巴西媒體集團 Folha、UOL 簽下在巴西的首份新聞授權協
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-github-digest)
-- 📄 [框架更新｜Pydantic AI 2.55.0](/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0)
-- 📄 [融資速報｜TypeSafe AI Series A $870M](/posts/daily/2026-10-11-funding-typesafe-ai)
-- 📄 [融資速報｜Ghost 完成 $11M 種子輪](/posts/daily/2026-10-11-funding-ghost)
-- 📄 [融資速報｜Meticulous Series A $15M](/posts/daily/2026-10-11-funding-meticulous)
-- 📄 [工具推薦｜Opengeni](/posts/daily/2026-10-11-tool-opengeni)
-- 📄 [AI Engineer 面試日練 — 2026-10-11：本週回顧與行為面試](/posts/daily/2026-10-11-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-11：Behavioral & Weekly Review](/posts/daily/2026-10-11-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-github-digest)
+- :file: [框架更新｜Pydantic AI 2.55.0](/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0)
+- :file: [融資速報｜TypeSafe AI Series A $870M](/posts/daily/2026-10-11-funding-typesafe-ai)
+- :file: [融資速報｜Ghost 完成 $11M 種子輪](/posts/daily/2026-10-11-funding-ghost)
+- :file: [融資速報｜Meticulous Series A $15M](/posts/daily/2026-10-11-funding-meticulous)
+- :file: [工具推薦｜Opengeni](/posts/daily/2026-10-11-tool-opengeni)
+- :file: [AI Engineer 面試日練 — 2026-10-11：本週回顧與行為面試](/posts/daily/2026-10-11-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-11：Behavioral & Weekly Review](/posts/daily/2026-10-11-product-builder-interview-daily)
 
 ## 明日關注
 

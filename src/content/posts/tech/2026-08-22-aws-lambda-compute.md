@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-aws-lambda-compute-en)
+> :globe: [English version](/posts/tech/2026-08-22-aws-lambda-compute-en)
 
 [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html) 是事件驅動的函式運算服務。你部署程式與設定，AWS 依請求建立 execution environment；團隊不用維護主機，卻必須設計 invocation、並行度與失敗語意。
 

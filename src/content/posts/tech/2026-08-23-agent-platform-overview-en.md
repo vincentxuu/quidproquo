@@ -8,7 +8,7 @@ lang: en
 description: "Agent Platform is a local-first AI agent workflow control platform that can be deployed to Cloudflare. This first article in the series examines its product positioning, system layers, core abstractions, and design philosophy."
 tldr: "Agent Platform turns AI agents from a blank chat window into a structured workflow platform whose behavior can be defined, versioned, observed, verified, and improved. Its built-in Deep Research seed flow demonstrates the complete feedback loop."
 ---
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-overview)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-overview)
 
 tags: ["ai-agent", "workflow", "control-plane", "cloudflare", "agent-platform", "system-architecture"]
 ## TL;DR

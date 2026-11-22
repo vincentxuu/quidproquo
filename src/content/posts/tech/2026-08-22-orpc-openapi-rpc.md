@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-orpc-openapi-rpc-en)
+> :globe: [English version](/posts/tech/2026-08-22-orpc-openapi-rpc-en)
 
 [oRPC](https://orpc.dev/) 想解掉 TypeScript API 常見的二選一：內部開發想要像 function call 的 end-to-end type safety，對外又想保留標準 HTTP path、OpenAPI 文件與跨語言 client。它讓同一組 procedure 可走 RPCHandler，也可走 OpenAPIHandler。
 

@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-23-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-23-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -115,13 +115,13 @@ Omnigent 的三個嚴重 CVE 詳見今天的[資安警報文章](/posts/daily/20
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
-- 📄 [定價追蹤｜OpenAI GPT-5.6 Sol 官方標準價砍 20-33%](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
-- 📄 [資安警報｜Omnigent Agent Bundle 上傳漏洞](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce)
-- 📄 [工具推薦｜mcp-anything](/posts/daily/2026-08-23-tool-mcp-anything)
-- 📄 [AI Agent 面試準備 — 2026-08-23](/posts/daily/2026-08-23-ai-interview-daily)
-- 📄 [Product Builder 面試準備 — 2026-08-23](/posts/daily/2026-08-23-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
+- :file: [定價追蹤｜OpenAI GPT-5.6 Sol 官方標準價砍 20-33%](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
+- :file: [資安警報｜Omnigent Agent Bundle 上傳漏洞](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce)
+- :file: [工具推薦｜mcp-anything](/posts/daily/2026-08-23-tool-mcp-anything)
+- :file: [AI Agent 面試準備 — 2026-08-23](/posts/daily/2026-08-23-ai-interview-daily)
+- :file: [Product Builder 面試準備 — 2026-08-23](/posts/daily/2026-08-23-product-builder-interview-daily)
 
 ## 明日關注
 

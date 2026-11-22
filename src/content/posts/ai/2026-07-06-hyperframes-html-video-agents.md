@@ -23,7 +23,7 @@ glossary:
     context_en: "Enables CI/CD regression testing and reproducible bug reports for video rendering."
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-06-hyperframes-html-video-agents-en)
+> :globe: [English version](/posts/ai/2026-07-06-hyperframes-html-video-agents-en)
 
 [HyperFrames](https://github.com/heygen-com/hyperframes) 是 HeyGen 在 2026 年 4 月開源的影片渲染框架，核心命題只有一句話：**影片就是 HTML 頁面**。用 `data-*` 屬性定義時間軸，用瀏覽器動畫做特效，交給 headless Chrome 逐幀截圖再由 FFmpeg 編碼成 MP4。不需要 React，不需要 build step，AI agent 直接寫 HTML 就能產出影片。
 

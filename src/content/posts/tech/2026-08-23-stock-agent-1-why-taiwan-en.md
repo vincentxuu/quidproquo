@@ -17,7 +17,7 @@ glossary:
     definition: "A benchmark set with correct answers labeled at fixed historical cutoffs, used to measure agent output quality."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 
 > **Building a Taiwan Stock Research Agent (Part 1 of 9):** The beginning of the series ｜ [Next: LangGraph Parallel Architecture—Five Analysts Working at Once](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture-en) ｜ The complete table of contents appears below
 

@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-vs-fine-tuning)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-vs-fine-tuning)
 
 "Should I use RAG or Fine-tuning?" is one of the most common questions in LLM application development. The answer is: **these are solutions to two different problems, and you usually need both.**
 

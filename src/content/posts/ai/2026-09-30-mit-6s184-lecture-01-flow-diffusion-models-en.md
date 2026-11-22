@@ -21,7 +21,7 @@ glossary:
     context: "It drives the random part of an SDE."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

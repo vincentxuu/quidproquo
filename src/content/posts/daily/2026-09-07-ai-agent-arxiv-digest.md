@@ -11,7 +11,7 @@ series:
   order: 106
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-07-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-07-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -75,7 +75,7 @@ Marc Millstone, Tyler Akidau, Johannes Brüderl et al.（Redpanda Data）　·�
 - 3,621 次試驗：加裝 OBPE 後 trace failure 率從 57.6% 降到 0.2%，cluster-weighted 減少 41.2 個百分點 [95% CI: 27.7, 54.9]
 - 只靠 prompt 規則：exact disclosure 從 27.5% 降到 3.7%，但 context exposure 幾乎沒變（55.1% → 52.1%）——答案更含蓄，資料卻早就進了 context
 - 20 個回應自適應紅隊任務：prompt-only 有 74.9% 觸發 trace failure，OBPE 只有 0.9%
-- 仍有 4 個最終答案重建出從未進入 context 的精確值 ⚠️（Redpanda Data 自測，未見外部複現）——作者誠實列為未解的洩漏管道
+- 仍有 4 個最終答案重建出從未進入 context 的精確值 :warning:（Redpanda Data 自測，未見外部複現）——作者誠實列為未解的洩漏管道
 - 落地門檻：需先把後端操作對應成型別化的 Cedar policy schema，適合已有 API gateway/proxy 層的企業環境
 
 ### Reviewer 一句話評
@@ -193,7 +193,7 @@ Prompt optimization（用 TextGrad、DSPy、GEPA 這類工具自動改寫、迭�
 - 審稿任務 Jaccard 分數：naive 0.0%（協定全毀）、schema-only 26.8%、完整版 38.0%；消融顯示「每個範例的回饋訊號」才是拉高分數的主因，schema 分離主要負責穩定性
 - 3 個模型家族穩健性測試（OpenAI/Anthropic/Google）：naive TextGrad 三家都是 0% 穩定性，本方法三家都維持 100%
 - Prompt 編輯分析：naive optimizer 有 16.6% 的編輯行數觸碰協定相關字詞，本方法只有 4.2%，且多半只是巧合字詞重疊
-- Limitation：作者明確寫出「協定有效的 pipeline 仍可能產出錯誤或低品質結果」——協定穩定不等於答案正確 ⚠️（作者自陳邊界）
+- Limitation：作者明確寫出「協定有效的 pipeline 仍可能產出錯誤或低品質結果」——協定穩定不等於答案正確 :warning:（作者自陳邊界）
 
 ### Reviewer 一句話評
 

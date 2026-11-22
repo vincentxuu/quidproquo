@@ -10,7 +10,7 @@ description: "A practical guide to Typesense's indexing, querying and ranking mo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-typesense-site-search)
+> :globe: [中文版](/posts/tech/2026-08-22-typesense-site-search)
 
 [Typesense](https://typesense.org/docs/overview/) is an open-source search server built for instant, typo-tolerant search. It is not a Google-like crawler: you extract records from a CMS, database or build artifact, push them into Typesense for indexing, and then call its Search API from your site. That boundary matters because your application still owns what becomes searchable and when the index is synchronized.
 

@@ -75,7 +75,7 @@ Xuan He, Sining Zhoubian, Ruozhen Yang et al.（University of Illinois Urbana-Ch
 - LongMemEval 相對檢索友善，PersonaMem-v2 和 MINT-Eval 涉及更複雜的聚合與多重干擾推理需求，記憶系統在後兩者的表現落差更明顯
 - 落地門檻：導入記憶系統前，先拿同一套 benchmark 跑過 RAG(1rd)/(2rd) 基準線，否則很難判斷新系統是真的有幫助還是只是看起來複雜
 - 與主流框架的關聯：A-Mem、MemOS、HippoRAG2、MemoryOS 等被評測系統本身就是開源社群常用的記憶方案，這篇結果可以直接拿來重新檢視現有技術選型
-- Limitation：benchmark 偏靜態、離線、英文，PersonaMem-v2、MINT-Eval 因算力與 API 成本僅評測 10–20% 子集，未納入比 GPT-5.6 Luna 更強的前沿模型 ⚠️（作者自陳限制，尚待更大規模複現）
+- Limitation：benchmark 偏靜態、離線、英文，PersonaMem-v2、MINT-Eval 因算力與 API 成本僅評測 10–20% 子集，未納入比 GPT-5.6 Luna 更強的前沿模型 :warning:（作者自陳限制，尚待更大規模複現）
 
 ### Reviewer 一句話評
 
@@ -135,7 +135,7 @@ Oleeviya Babu Poikarayil, Tony Basil Babu, Abdulrahman Nahhas et al.　·　arxi
 - 32K 歷史的重複驗證方向一致：BM25-64 的準確率（69%）優於 BM25-512（58%）
 - 落地門檻：記憶系統需要主動機制區分「仍有效」與「已被取代」的事實，而不是只靠語意相似度排序把兩者都放進證據裡
 - 與主流框架的關聯：目前多數向量檢索式記憶（RAG、HippoRAG 類系統）沒有內建「版本/有效性」標記，這篇結果是對這類設計的直接警示
-- Limitation：僅測 2 個開源 Qwen 模型、決定性解碼、1 個合成 benchmark、單跳最多兩段的事實鏈，且未排除「過時值恰好更符合模型的世界常識」這個混淆因子 ⚠️（作者自陳不建立機制性因果主張）
+- Limitation：僅測 2 個開源 Qwen 模型、決定性解碼、1 個合成 benchmark、單跳最多兩段的事實鏈，且未排除「過時值恰好更符合模型的世界常識」這個混淆因子 :warning:（作者自陳不建立機制性因果主張）
 
 ### Reviewer 一句話評
 
@@ -191,7 +191,7 @@ Anouar Imel, Imad Charradi, Abderrahman Sghir, Khalil El Khammar　·　arxiv: 2
 ### 深入要點
 
 - 完美的相關性過濾器在經典隱藏檔案設定下，仍比「留最稀有」策略輸 23 到 31 個百分點，因為誘餌本身就跟主題相關
-- 移除歸因標籤或把歸因隨機打亂（保持陳述順序不變），讓經典設定下的準確率提升 13 到 24 個百分點 ⚠️（作者自建的 CrossProfile 合成 benchmark，尚待外部場景複現）
+- 移除歸因標籤或把歸因隨機打亂（保持陳述順序不變），讓經典設定下的準確率提升 13 到 24 個百分點 :warning:（作者自建的 CrossProfile 合成 benchmark，尚待外部場景複現）
 - 在自然討論條件（真實多輪訊息往返，而非腳本化陳述）下，完整逐字稿的準確率反而低於完全不留筆記——證據在記憶介入之前就已經流失或被扭曲
 - 一個提示修改（要求 agent 先陳述證據再給建議）只對 Llama 有效，讓其 REF 準確率提升 25.1–30.8 個百分點，對 Qwen 沒有偵測到變化，顯示修法效果因模型而異
 - 落地門檻：多 agent 辯論或審議系統在設計記憶策展規則前，應先檢查決策模型是否把「多來源附議」當成獨立證據的代理指標，而不是分析它背後的證據平衡

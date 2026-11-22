@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-28-ai-common-failures-overview)
+> :globe: [中文版](/posts/ai/2026-10-28-ai-common-failures-overview)
 
 ## One TL;DR, rejected three times
 

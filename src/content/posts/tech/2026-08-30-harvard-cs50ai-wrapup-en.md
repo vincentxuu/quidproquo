@@ -13,11 +13,11 @@ description: "Retrospective and next steps for the Harvard CS50 AI series: a one
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-harvard-cs50ai-wrapup)
+> :globe: [中文版](/posts/tech/2026-08-30-harvard-cs50ai-wrapup)
 
 **Video status: Official entry or recording index only.** This post is a course retrospective written by this site, not any week's lecture, and there is no official video for it; each week's lecture recording and time links are in the weekly guides. [Source details](#course-video-sources)
 
-> ⚠️ **Version note**: Of the lecture recordings in this series, Weeks 0–5 are titled **2020** and Week 6 is titled **2023**; project specs follow the 2026 course site.
+> :warning: **Version note**: Of the lecture recordings in this series, Weeks 0–5 are titled **2020** and Week 6 is titled **2023**; project specs follow the 2026 course site.
 
 ## TL;DR
 

@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps-en)
 
 [Cloudflare Queues](/posts/tech/2026-08-22-cloudflare-queues) 把慢工作搬出 request path，但它處理的是「收到一件事，晚點處理」。當工作變成一串流程，問題就不一樣了：先讀 R2 檔案、產生 embedding、寫入 Vectorize、寄信、等人工審核、隔天再同步外部 API。你需要知道哪一步完成了、哪一步該重試、等人回來時要從哪裡繼續。
 

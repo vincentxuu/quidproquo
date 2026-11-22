@@ -14,7 +14,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-security-regression)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-security-regression)
 
 After a defense change, the assistant says, “I cannot disclose someone else's ticket.” That is encouraging, but it cannot close a finding if the backend still returns S-1 or an export has already occurred.
 

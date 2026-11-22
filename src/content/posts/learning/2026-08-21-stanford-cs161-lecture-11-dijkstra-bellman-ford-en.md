@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-11-dijkstra-bellman-ford)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-11-dijkstra-bellman-ford)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

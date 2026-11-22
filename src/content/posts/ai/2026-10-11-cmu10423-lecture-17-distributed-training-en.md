@@ -12,7 +12,7 @@ draft: false
 description: "A complete worked example and answered variations for Distributed Training: Splitting Data, Models, and Optimizer State."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-17-distributed-training)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

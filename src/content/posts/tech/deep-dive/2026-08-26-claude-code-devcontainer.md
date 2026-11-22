@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer-en)
 
 這是「[Claude Code 深入介紹](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)」系列的一篇。上一篇講 Claude Code 怎麼運作，這篇講更實際的問題：**五個人用 Claude Code，五台機器的 Node 版本、套件快取、shell 設定都不一樣，AI 改壞了東西，誰也複製不了別人的結果。**
 

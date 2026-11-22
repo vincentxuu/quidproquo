@@ -13,7 +13,7 @@ description: "逐段讀 CS224N Winter 2026 Lecture 9：DPO 收尾、prompting、
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-efficient-adaptation-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-efficient-adaptation-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

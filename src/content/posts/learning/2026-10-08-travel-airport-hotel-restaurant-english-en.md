@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english)
+> :globe: [中文版](/posts/learning/2026-10-08-travel-airport-hotel-restaurant-english)
 
 The travel scenario in my speaking practice area had nine sentences, all of them about what is nearby and how to get somewhere. For earlier batches I wrote the Chinese first and then checked a dictionary for the pattern. This time I went the other way: I read English teaching materials first to see what they teach for travel, then looked at what I was missing.
 

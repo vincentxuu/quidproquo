@@ -13,11 +13,11 @@ description: "The second cross-week review in the Harvard CS50 AI series: a comp
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-harvard-cs50ai-synthesis-2)
+> :globe: [中文版](/posts/tech/2026-08-30-harvard-cs50ai-synthesis-2)
 
 **Video status: Official entry or recording index only.** This post is this site's cross-week review, not any week's lecture, and there is no official video for it; the weekly lecture recordings do not introduce the projects, whose specs and implementations are in the second half of each weekly guide. [Source details](#course-video-sources)
 
-> ⚠️ **Version note**: Project specs, distribution code, and check50 slugs follow the 2026 course site; the Week 6 projects are Parser and Attention.
+> :warning: **Version note**: Project specs, distribution code, and check50 slugs follow the 2026 course site; the Week 6 projects are Parser and Attention.
 
 ## TL;DR
 

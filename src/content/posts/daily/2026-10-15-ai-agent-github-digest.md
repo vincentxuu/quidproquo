@@ -11,7 +11,7 @@ series:
   order: 61
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-15-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### ifixai-ai/iFixAi ⭐ 27,424 (+2,109)
+### ifixai-ai/iFixAi ★ 27,424 (+2,109)
 [GitHub](https://github.com/ifixai-ai/iFixAi)　·　Python　·　Apache-2.0
 
 - **是什麼**：一套 agent 稽核工具，檢查的不是延遲或 token 用量，而是 agent 有沒有照業務 KPI 和組織規則做事，號稱 120 秒內出結果。
@@ -29,7 +29,7 @@ series:
 
 ---
 
-### heygen-com/hyperframes ⭐ 63,713 (+1,089)
+### heygen-com/hyperframes ★ 63,713 (+1,089)
 [GitHub](https://github.com/heygen-com/hyperframes)　·　TypeScript　·　Apache-2.0
 
 - **是什麼**：把 HTML、CSS、媒體與可 seek 的動畫渲染成可重現 MP4 的開源框架，主打給 coding agent 用。
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### apify/apify-mcp-server ⭐ 11,251 (+233)
+### apify/apify-mcp-server ★ 11,251 (+233)
 [GitHub](https://github.com/apify/apify-mcp-server)　·　TypeScript　·　MIT
 
 - **是什麼**：讓 agent 把 Apify Store 裡任何一個 Actor（爬蟲或自動化）當成 MCP 工具呼叫的 server，官方也提供託管版 mcp.apify.com。
@@ -49,7 +49,7 @@ series:
 
 ---
 
-### MakazhanAlpamys/Soup ⭐ 9,034 (+247)
+### MakazhanAlpamys/Soup ★ 9,034 (+247)
 [GitHub](https://github.com/MakazhanAlpamys/Soup)　·　Python　·　Apache-2.0
 
 - **是什麼**：一份 YAML、一個指令就能微調與 post-train LLM 的 CLI。

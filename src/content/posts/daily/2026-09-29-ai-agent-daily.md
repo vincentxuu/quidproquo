@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-29-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-29-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -134,12 +134,12 @@ Invest Qatar 與矽谷應用 AI 公司 Brain Co 宣布合作,協助卡達建立�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-github-digest)
-- 📄 [資安警報｜MCP Python SDK OAuth 帳號劫持——「檢查沒跑」比「檢查寫錯」更難抓](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover)
-- 📄 [工具推薦｜Titration — 讓 Coding Agent 用跨供應商評審迭代 Prompt,直到真的修好為止](/posts/daily/2026-09-29-tool-titration)
-- 📄 [AI Engineer 面試日練 — 2026-09-29:Deep Learning & NLP](/posts/daily/2026-09-29-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-29:Metrics & Analytics](/posts/daily/2026-09-29-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-github-digest)
+- :file: [資安警報｜MCP Python SDK OAuth 帳號劫持——「檢查沒跑」比「檢查寫錯」更難抓](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover)
+- :file: [工具推薦｜Titration — 讓 Coding Agent 用跨供應商評審迭代 Prompt,直到真的修好為止](/posts/daily/2026-09-29-tool-titration)
+- :file: [AI Engineer 面試日練 — 2026-09-29:Deep Learning & NLP](/posts/daily/2026-09-29-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-29:Metrics & Analytics](/posts/daily/2026-09-29-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-07-binary-search-red-black-trees)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-07-binary-search-red-black-trees)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

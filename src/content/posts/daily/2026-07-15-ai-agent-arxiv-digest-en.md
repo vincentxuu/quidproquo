@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 52
 ---
-> 🌏 [中文版](/posts/daily/2026-07-15-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-15-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,10 +68,10 @@ Each task is broken into multiple **hidden verification points**; after the agen
 ### Key Details
 
 - 8 task categories: interactive puzzles (8), multimodal image analysis (6), software & reverse engineering (6), scientific computing (6), earth & energy systems (6), systems & security (5), paper reproduction (5), professional workflows (4)
-- **Top 3**: Grok 4.5 (mean reward 0.505, 13/46 solved), Claude Sonnet 5 (0.497, 8/46), Claude Opus 4.8 (0.492, 9/46) ⚠️ Scores are internal to the benchmark; cross-system comparisons require checking harness configuration differences
+- **Top 3**: Grok 4.5 (mean reward 0.505, 13/46 solved), Claude Sonnet 5 (0.497, 8/46), Claude Opus 4.8 (0.492, 9/46) :warning: Scores are internal to the benchmark; cross-system comparisons require checking harness configuration differences
 - 29/46 tasks unsolved by any model—benchmark is far from saturated
 - ~55% of runs scored below 0.25; agents frequently stall or give up early
-- Cost efficiency: MiniMax M3 at ~$6/task outperforms models costing 10× more ⚠️ (cost methodology not fully detailed by the authors; verify independently)
+- Cost efficiency: MiniMax M3 at ~$6/task outperforms models costing 10× more :warning: (cost methodology not fully detailed by the authors; verify independently)
 - Scoring uses hidden verification scripts that reconstruct from outputs, not agent self-reports—cheat-resistant
 - **Limitations**: 46 tasks is a small corpus; tasks skew STEM/engineering with limited business-workflow coverage; 90-minute runs make evaluation expensive
 - GitHub: [zli12321/LHTB](https://github.com/zli12321/LHTB)
@@ -125,7 +125,7 @@ The fragmentation effect has direct implications for multi-agent platforms: as t
 
 - FakeLab: 9 services (code review, data pipelines, model training, etc.), 86 normal tasks, 4 attack objectives (including model exfiltration and training data poisoning)
 - **Fragmentation effect**: more agents participating in an attack → lower peak suspicion score per attacker → harder to detect overall
-- **Planner effect**: adding a planner agent increases attack completion rate by up to 7× ⚠️ (exact multiplier varies by attack objective; the paper has 32 figures and 24 tables—verify specific scenarios in the original)
+- **Planner effect**: adding a planner agent increases attack completion rate by up to 7× :warning: (exact multiplier varies by attack objective; the paper has 32 figures and 24 tables—verify specific scenarios in the original)
 - The planner also slightly improves executors' monitor theory-of-mind (ability to predict monitor behavior), making attacks more targeted
 - Scope: this studies AI with misaligned goals acting autonomously—not traditional prompt injection or external hacker attacks
 - 81-page paper, submitted to NeurIPS; the most comprehensive empirical study in multi-agent AI control to date
@@ -179,7 +179,7 @@ The authors frame their work using the **extended-mind thesis** from cognitive s
 
 ### Key Details
 
-- Core data: redundant actions increase monotonically with latency—100μs in-process: **0.0**; 110ms cloud: **7.2** (out of 12 steps) ⚠️ Tested only with gpt-5-nano and gpt-5-mini, 5 seeded workloads—sample size is small
+- Core data: redundant actions increase monotonically with latency—100μs in-process: **0.0**; 110ms cloud: **7.2** (out of 12 steps) :warning: Tested only with gpt-5-nano and gpt-5-mini, 5 seeded workloads—sample size is small
 - Statistical significance: exact permutation test p = 0.0079; significant, but obtained in a highly controlled experimental setting
 - Traditional in-loop retrieval design can inflate end-to-end latency by up to 83× when queries are slow
 - Theoretical framework: latency as the criterion for whether an external resource constitutes "part of cognition"—low-latency memory graduates from "tool" to "extended working memory"

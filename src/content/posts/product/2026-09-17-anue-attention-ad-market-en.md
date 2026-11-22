@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-anue-attention-ad-market)
+> :globe: [中文版](/posts/product/2026-09-17-anue-attention-ad-market)
 
 Imagine someone handing out a free financial magazine outside a metro station. Readers pay nothing, but reporting, editing, and distribution still cost money. The bill usually goes to banks, brokers, fund managers, and other brands that want to reach investors.
 

@@ -10,7 +10,7 @@ description: "A practical deep dive into pgvector data modeling, transactions, i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-pgvector-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-pgvector-guide)
 
 [pgvector](https://github.com/pgvector/pgvector) is a PostgreSQL extension, not a separate vector database. After installing it, you still connect to PostgreSQL, create ordinary tables, and write SQL. The extension adds vector data types, distance operators, and two approximate nearest-neighbor indexes: HNSW and IVFFlat.
 

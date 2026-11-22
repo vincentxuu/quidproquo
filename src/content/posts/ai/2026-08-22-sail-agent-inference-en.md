@@ -10,7 +10,7 @@ description: "A technical guide to Sail Research completion windows, OpenAI and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-sail-agent-inference)
+> :globe: [中文版](/posts/ai/2026-08-22-sail-agent-inference)
 
 [Sail Research](https://www.sailresearch.com/) is an AI infrastructure company founded by Neil Movva and Samir Menon. Its formal products cover open-model inference APIs, persistent Linux VMs called Sailboxes, and agent telemetry called Voyages. This is not the Stanford AI Lab or one of several papers named SAIL; the founders, investors, documentation, and `sailresearch.com` and `sail.industries` domains all identify the same company.
 

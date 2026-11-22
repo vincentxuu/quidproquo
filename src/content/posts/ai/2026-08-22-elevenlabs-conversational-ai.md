@@ -10,7 +10,7 @@ description: "拆解 ElevenLabs ElevenAgents 的即時 STT/TTS、turn-taking、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-elevenlabs-conversational-ai-en)
+> :globe: [English version](/posts/ai/2026-08-22-elevenlabs-conversational-ai-en)
 
 [ElevenAgents](https://elevenlabs.io/docs/eleven-agents/overview/) 是 ElevenLabs 目前的全託管語音 agent 平台，前身叫 Conversational AI。它把即時 speech-to-text（STT）、LLM、text-to-speech（TTS）與 turn-taking 接成一條管線。工具、知識庫、測試與部署也在同一控制面，agent 可放到網頁、行動裝置或電話。
 

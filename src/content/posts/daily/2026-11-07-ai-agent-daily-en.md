@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-07-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-07-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -37,27 +37,28 @@ title: Agent governance supply and attack-surface expansion are accelerating in 
 desc: The top two rows are this week's new governance supply (Google Cloud's three-part stack, a security vendor reportedly acquiring an agent-identity startup) versus attack-surface evidence (four new attack techniques, client-side bugs in MCP Inspector and AgentScope); the bottom row is the real-world gap shown by a Japanese enterprise survey, where adoption is racing far ahead of oversight.
 caption: Figures in order: Google Cloud's Agent Gateway/Registry/Identity announcement, Palo Alto Networks' reported ~$500M acquisition of Clutch Security, The Hacker News' disclosure of four agent attack techniques, and KnowBe4's Japan survey (79% adoption vs. 34% oversight).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">Supply</text>
-  <text class="dg-label" x="192" y="52" dominant-baseline="central">Governance &amp; identity infra</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Google Cloud ships 3-part governance stack</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Security vendor reportedly buys identity startup, ~$500M</text>
+<svg viewBox="0 0 640 404">
+  <rect class="dg-box" x="72" y="24" width="552" height="92" rx="6"/>
+  <text class="dg-tag" x="92" y="48" dominant-baseline="central">Supply</text>
+  <text class="dg-label" x="192" y="48" dominant-baseline="central">Governance &amp; identity infra</text>
+  <text class="dg-sub" x="192" y="74" dominant-baseline="central">Google Cloud ships 3-part governance stack</text>
+  <text class="dg-sub" x="192" y="96" dominant-baseline="central">Security vendor reportedly buys identity startup, ~$500M</text>
 
-  <rect class="dg-box dg-box--warn" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">Attack</text>
-  <text class="dg-label" x="192" y="140" dominant-baseline="central">Attack surface expands in step</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">4 new agent attack techniques disclosed same week</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Client-side bugs in MCP Inspector, AgentScope</text>
+  <rect class="dg-box dg-box--warn" x="72" y="124" width="552" height="92" rx="6"/>
+  <text class="dg-tag" x="92" y="148" dominant-baseline="central">Attack</text>
+  <text class="dg-label" x="192" y="148" dominant-baseline="central">Attack surface expands in step</text>
+  <text class="dg-sub" x="192" y="174" dominant-baseline="central">4 new agent attack techniques disclosed same week</text>
+  <text class="dg-sub" x="192" y="196" dominant-baseline="central">Client-side bugs in MCP Inspector, AgentScope</text>
 
-  <rect class="dg-box dg-box--accent" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">Gap</text>
-  <text class="dg-label" x="192" y="228" dominant-baseline="central">Real-world evidence: Japan survey</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">79% AI agent adoption, world's highest</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Only 34% under limited oversight, ~2x global average</text>
+  <rect class="dg-box dg-box--accent" x="72" y="224" width="552" height="92" rx="6"/>
+  <text class="dg-tag" x="92" y="248" dominant-baseline="central">Gap</text>
+  <text class="dg-label" x="192" y="248" dominant-baseline="central">Real-world evidence: Japan survey</text>
+  <text class="dg-sub" x="192" y="274" dominant-baseline="central">79% AI agent adoption, world's highest</text>
+  <text class="dg-sub" x="192" y="296" dominant-baseline="central">Only 34% under limited oversight, ~2x global average</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: governance infra is just starting to integrate; attack techniques already hit across clouds and frameworks at once</text>
+  <line class="dg-rule" x1="72" y1="336" x2="624" y2="336"/>
+  <text class="dg-sub" x="72" y="360" dominant-baseline="central">Residual risk: governance infra is just starting to integrate;</text>
+  <text class="dg-sub" x="72" y="382" dominant-baseline="central">attack techniques already hit across clouds and frameworks at once</text>
 </svg>
 ```
 
@@ -156,15 +157,15 @@ Today's GitHub Digest shows agent computer control stretching in two directions 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-07: Paper Reading](/posts/daily/2026-11-07-ai-interview-daily-en)
-- 📄 [Framework Update｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0-en)
-- 📄 [Funding Brief｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly-en)
-- 📄 [Funding Brief｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai-en)
-- 📄 [Product Builder Interview Daily — 2026-11-07: Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily-en)
-- 📄 [Security Alert｜Official MCP Inspector Client Vulnerabilities](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
-- 📄 [Tool Pick｜web-forager](/posts/daily/2026-11-07-tool-web-forager-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-11-07: Paper Reading](/posts/daily/2026-11-07-ai-interview-daily-en)
+- :file: [Framework Update｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0-en)
+- :file: [Funding Brief｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly-en)
+- :file: [Funding Brief｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai-en)
+- :file: [Product Builder Interview Daily — 2026-11-07: Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily-en)
+- :file: [Security Alert｜Official MCP Inspector Client Vulnerabilities](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
+- :file: [Tool Pick｜web-forager](/posts/daily/2026-11-07-tool-web-forager-en)
 
 ## Watch Tomorrow
 

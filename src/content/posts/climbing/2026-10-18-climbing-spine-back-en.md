@@ -26,7 +26,7 @@ glossary:
     context: "Förster 2009 found a larger standing thoracic kyphosis angle in high-level male climbers than in recreational climbers."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-spine-back)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-spine-back)
 
 Your back and neck can run into three completely different problems in climbing. The first is the rarest and the most serious: on a rope, you aren't caught, you hit the ground, and you injure your spine. The second is common and mostly mild: an aching lower back. The third every belayer knows: an afternoon of looking up, and a stiff neck.
 

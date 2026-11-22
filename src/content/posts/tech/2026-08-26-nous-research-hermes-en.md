@@ -18,7 +18,7 @@ glossary:
     def: "A benchmark measuring how often models refuse reasonable requests — higher scores mean fewer unnecessary refusals"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-nous-research-hermes)
+> :globe: [中文版](/posts/tech/2026-08-26-nous-research-hermes)
 
 Nous Research didn't start in someone's garage — it started as a loose collective of open-source LLM researchers who decided to form a company. Founded in 2023 by Jeffrey Quesnelle, Karan Malhotra, Shivani Mitra, and the researcher known as Teknium, they went from informal collaboration to a funded startup. Their position is clear: AI shouldn't have excessive safety guardrails, and users should decide what models can answer. This philosophy earned them a loyal following in the open-source community — and made them a lightning rod for controversy.
 

@@ -13,7 +13,7 @@ description: "Why Tavily and Exa can't be self-hosted, what a SearXNG + Crawl4AI
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-self-hosted-search-stack)
+> :globe: [中文版](/posts/ai/2026-08-21-self-hosted-search-stack)
 
 [The previous post in this series](/posts/ai/2026-05-07-ai-search-mcp-tools-en) compared the search MCP servers an agent can plug into, but it carried an unstated premise: every one of them is a cloud API, so every query travels through someone else's servers and is billed per request. This post handles the other half — if you would rather not pay, or your data cannot leave your network, can you run your own?
 
@@ -23,10 +23,10 @@ Short answer: **neither Tavily nor Exa has a self-hosted version**, but roughly 
 
 | What you want | Feasible on your own hardware? |
 |---|---|
-| Tavily's "query in, clean results out" API surface | ✅ Easy — one `docker compose` |
-| Semantic ranking instead of a pile of SEO spam | ✅ Easy — a small local model suffices |
-| Exa-style owned index with neural retrieval | ⚠️ Open-source analogues exist, orders of magnitude smaller |
-| Full-web coverage with continuous recrawling | ❌ Not reproducible |
+| Tavily's "query in, clean results out" API surface | ✓ Easy — one `docker compose` |
+| Semantic ranking instead of a pile of SEO spam | ✓ Easy — a small local model suffices |
+| Exa-style owned index with neural retrieval | :warning: Open-source analogues exist, orders of magnitude smaller |
+| Full-web coverage with continuous recrawling | ✗ Not reproducible |
 
 ## There really is no on-premises option
 

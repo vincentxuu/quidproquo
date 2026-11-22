@@ -27,7 +27,7 @@ glossary:
     context: "MoCo uses it to encode keys; DINO uses it as the teacher."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-self-supervised-learning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI 對高風險能力模型採用的審核式存取機制，申請者需通過使命審查、治理與存取控管評估才能取得模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-01-model-openai-gpt-6-rosalind-en)
+> :globe: [English version](/posts/daily/2026-11-01-model-openai-gpt-6-rosalind-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | Biorisk 知識測試（拒答調整後） | 85.0%（拒答率 9.4%） | 未公開 | 90.0%（拒答率 29.2%） |
 | 敏感生物資安測試通過安全 grader | 79.0% | 未公開 | 99.8% |
 
-⚠️ 以上皆為 OpenAI 官方 system card addendum 自測結果，獨立機構尚未重現；GeneBench Pro 使用「與正式環境不同的評測專用設定」。拒答調整後的 biorisk 分數會把拒答視為「答對」來估計模型被安全訓練隱藏的真實能力，用途是風險評估，不是一般能力排名。
+:warning: 以上皆為 OpenAI 官方 system card addendum 自測結果，獨立機構尚未重現；GeneBench Pro 使用「與正式環境不同的評測專用設定」。拒答調整後的 biorisk 分數會把拒答視為「答對」來估計模型被安全訓練隱藏的真實能力，用途是風險評估，不是一般能力排名。
 
 ## 與前代/競品比較
 

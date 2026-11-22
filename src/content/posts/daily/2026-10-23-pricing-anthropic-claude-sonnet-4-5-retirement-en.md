@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement)
+> :globe: [中文版](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement)
 
 ## What Changed
 
@@ -75,7 +75,7 @@ Sonnet 5.5's landing spot sits exactly on top of GPT-6 Sol's $2/$10 tier — thi
 
 ## Time-Sensitive Notice
 
-⚠️ **Retirement date**: 2026-11-30. `claude-sonnet-4-5-20250929` (and its alias `claude-sonnet-4-5`) stops responding on the Claude API, Claude Platform on AWS, and Microsoft Foundry, with no grace period. Amazon Bedrock and Google Cloud run their own schedules — check their model tables separately. Migration guide: [Claude Sonnet 5.5 Migration Guide](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide).
+:warning: **Retirement date**: 2026-11-30. `claude-sonnet-4-5-20250929` (and its alias `claude-sonnet-4-5`) stops responding on the Claude API, Claude Platform on AWS, and Microsoft Foundry, with no grace period. Amazon Bedrock and Google Cloud run their own schedules — check their model tables separately. Migration guide: [Claude Sonnet 5.5 Migration Guide](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide).
 
 ## Takeaway
 

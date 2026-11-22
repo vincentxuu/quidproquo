@@ -25,7 +25,7 @@ glossary:
     context: "L17 notes that expert parallelism needs fast all-to-all, whose latency grows linearly with the number of devices."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-model-parallel-moe)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

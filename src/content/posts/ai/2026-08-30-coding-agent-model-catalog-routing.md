@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 model catalog 與 per-role 路由，
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-model-catalog-routing-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-model-catalog-routing-en)
 
 系列第二部進行到一半，這篇講一個聽起來像配置問題、實際上是架構問題的能力：model catalog 怎麼管、「什麼任務用哪顆模型」怎麼決定。取證範圍照舊：pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88）。所有 `file#symbol` 引用都是我在本地 clone 實際 grep 過的。
 

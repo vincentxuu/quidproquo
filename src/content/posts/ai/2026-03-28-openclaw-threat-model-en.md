@@ -13,7 +13,7 @@ description: "OpenClaw's threat model: the scope and limits of the personal-assi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-threat-model)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-threat-model)
 
 Most security documentation tells you what it defends. OpenClaw's security page gives the most prominent position to the opposite — **what it explicitly does not protect**. That choice is worth reading on its own.
 

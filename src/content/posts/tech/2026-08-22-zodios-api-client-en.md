@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-zodios-api-client)
+> :globe: [中文版](/posts/tech/2026-08-22-zodios-api-client)
 
 [Zodios](https://www.zodios.org/docs/intro) is a REST toolbox centered on Zod and Axios. A central definition describes methods, paths, parameters, responses, errors, and aliases. It drives a typed client and can also feed an Express adapter and OpenAPI generator.
 

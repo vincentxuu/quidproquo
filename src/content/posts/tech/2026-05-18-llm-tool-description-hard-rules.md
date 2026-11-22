@@ -10,7 +10,7 @@ description: "記錄修 AI agent attachment 工具的三個 bug：binary format 
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-05-18-llm-tool-description-hard-rules-en)
+:globe: [English version](/posts/tech/2026-05-18-llm-tool-description-hard-rules-en)
 
 ## TL;DR
 

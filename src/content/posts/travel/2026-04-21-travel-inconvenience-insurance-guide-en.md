@@ -19,7 +19,7 @@ glossary:
         url: "/search?q=%E6%97%85%E9%81%8A%E4%B8%8D%E4%BE%BF%E9%9A%AA&mode=rag"
 ---
 
-🌏 [中文版](/posts/travel/2026-04-21-travel-inconvenience-insurance-guide)
+:globe: [中文版](/posts/travel/2026-04-21-travel-inconvenience-insurance-guide)
 
 I did my homework on travel inconvenience insurance before an upcoming trip and quickly realized it's more complicated than it looks — especially with new regulations taking effect in April 2026. Here's a complete breakdown.
 

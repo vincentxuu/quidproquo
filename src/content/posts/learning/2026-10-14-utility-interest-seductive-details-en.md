@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-utility-interest-seductive-details)
+> :globe: [中文版](/posts/learning/2026-10-14-utility-interest-seductive-details)
 
 This is part 14 of the series "Writing Articles That Teach," in its third section, "what readers bring with them." The first two sections covered what goes on the page ([text](/posts/learning/2026-10-13-teaching-text-evidence-en), [diagrams](/posts/learning/2026-10-13-diagrams-in-teaching-articles-en), [code](/posts/learning/2026-10-14-code-in-teaching-articles-en), [notation and terminology](/posts/learning/2026-10-14-notation-jargon-terminology-en), [video](/posts/learning/2026-10-13-instructional-video-in-articles-en), [laying out video and text](/posts/learning/2026-10-13-video-beside-text-layout-en), [interactivity](/posts/learning/2026-10-14-interactive-figures-in-teaching-articles-en)) and what to ask readers to do ([the evidence for learning by doing](/posts/learning/2026-10-14-active-learning-evidence-en), [questions and feedback](/posts/learning/2026-10-13-teaching-text-questions-feedback-en)). This post is about the reader's motivation: when an author says "here is what this is good for," lets readers pick the example they want, or adds a fun story, does any of it help, and for whom? Readers' prior knowledge and the wrong things they already believe were covered in earlier posts: [writing for readers at different levels](/posts/learning/2026-10-14-prior-knowledge-reader-level-en) and [writing the "common misconceptions" part](/posts/learning/2026-10-14-misconceptions-in-teaching-articles-en).
 

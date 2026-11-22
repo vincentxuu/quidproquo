@@ -14,7 +14,7 @@ description: "Guide to CMU 07-380 Fall 2026 HW3: point values and pitfalls for p
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-hw3-optimization-pca-map)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

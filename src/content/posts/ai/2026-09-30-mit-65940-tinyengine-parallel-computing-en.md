@@ -25,7 +25,7 @@ glossary:
     context: "MIT 6.5940 Lecture 11 slides, pages 59–64."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-tinyengine-parallel-computing)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

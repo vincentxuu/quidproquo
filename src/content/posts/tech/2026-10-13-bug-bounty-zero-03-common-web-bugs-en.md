@@ -19,7 +19,7 @@ series:
   order: 4
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)
 
 This is part 4 of "Bug Bounty from Zero". The groundwork in [How Websites Work](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en), covered HTTP, cookies and the same-origin policy. Here we use that groundwork on the two most common web bugs, XSS and IDOR. Part 13, [Fact-Checking Bug Bounty's Top Payouts](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en), leaned on [Google's reward table](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules); this time we find where these two bugs sit in it.
 

@@ -12,7 +12,7 @@ series:
   order: 68
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-tool-cedr)
+> :globe: [中文版](/posts/daily/2026-10-30-tool-cedr)
 
 ## Tool Info
 
@@ -141,10 +141,10 @@ Route and Council don't have a direct counterpart yet — multi-agent scheduling
 
 | | cedr (Guard) | mcp-warden | No tool, managed by hand |
 |---|---|---|---|
-| Pins MCP tools/descriptions/hosts, detects drift in CI | ✅ `cedr.lock` | ✅ signed `warden.lock`; CLI 2.0+ also locks annotations and output schemas | ❌ relies on remembering what it looked like last time |
-| Blocks poisoned tool results at runtime (secret echo, ANSI escapes) | ❌ | ✅ `guard` proxy (stdio only) | ❌ |
-| Zero-config scan of MCP configs already on the machine | ❌ | ✅ `mcp-warden doctor` (scans Claude Code/Desktop, Cursor, VS Code, Windsurf, Codex) | ❌ |
-| Also handles multi-agent routing and multi-vendor review merge | ✅ | ❌ (MCP supply chain only) | ❌ |
+| Pins MCP tools/descriptions/hosts, detects drift in CI | ✓ `cedr.lock` | ✓ signed `warden.lock`; CLI 2.0+ also locks annotations and output schemas | ✗ relies on remembering what it looked like last time |
+| Blocks poisoned tool results at runtime (secret echo, ANSI escapes) | ✗ | ✓ `guard` proxy (stdio only) | ✗ |
+| Zero-config scan of MCP configs already on the machine | ✗ | ✓ `mcp-warden doctor` (scans Claude Code/Desktop, Cursor, VS Code, Windsurf, Codex) | ✗ |
+| Also handles multi-agent routing and multi-vendor review merge | ✓ | ✗ (MCP supply chain only) | ✗ |
 | License | Apache-2.0 | MIT | — |
 
 mcp-warden's own docs are explicit about the limit: it verifies the surface declared by `tools/list`/`resources/list`/`prompts/list`, it's not a full agent firewall, and it doesn't defend against behavioral attacks — the same caveat applies to cedr's Guard. Both can only tell you "this list changed since you approved it," not whether the new list is actually dangerous or whether you should re-approve it; that call still falls to a human. If the MCP supply chain is your only concern, mcp-warden's `guard` proxy adds runtime interception on top; if you also want multi-agent routing and multi-vendor review merged into the same CLI, cedr covers that extra ground.

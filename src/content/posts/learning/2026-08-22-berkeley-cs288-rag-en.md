@@ -12,7 +12,7 @@ draft: false
 series: { name: "Reading Berkeley CS288", order: 4 }
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-rag)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-rag)
 
 [Units 13–14](https://cal-cs288.github.io/sp26/) move from model internals to system boundaries: knowledge sources, segmentation and indexing, evidence delivery to a generator, and architectural trade-offs. The useful reading strategy is not memorizing a RAG diagram, but following Assignment 3's failure decomposition.
 

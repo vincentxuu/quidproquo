@@ -11,7 +11,7 @@ series:
   order: 155
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -125,7 +125,7 @@ Zhengye Bao, Shengtao Zhang, Haokai Zhang et al.（Xi'an Jiaotong University）�
 
 - Raw-RAG 在 LoCoMo 領先 0.65–0.95 分、LongMemEval 領先 0.13 分、GPT-4o-mini 版 MEME 領先 2.24 分、MemoryAgentBench 領先 4.48–5.53 分；唯一輸的設定是 DeepSeek-V4-Flash 版 MEME，被 MemMachine 領先 1.52 分
 - 追加三種記憶管理操作全部讓 MemoryAgentBench 總分下降：事實抽取 -19.62 分、摘要增強 -5.81 分、圖擴展 -5.78 分，其中事實抽取讓「測試時學習」能力從 47.68% 掉到 15.37%
-- 效率差距巨大：在 MEME 子集上 Raw-RAG 完成 add+search 只要 305.91 秒，比次快系統快 5.1 倍、比 EverMemOS 快 30.4 倍；在接近百萬 token 的 BEAM-1M 串流測試中，Raw-RAG 累計寫入僅 0.33 小時，次快的 MemOS 要 3.25 小時，Memora 要 26.95 小時 ⚠️（這些效率數字為作者自測，尚待外部複現）
+- 效率差距巨大：在 MEME 子集上 Raw-RAG 完成 add+search 只要 305.91 秒，比次快系統快 5.1 倍、比 EverMemOS 快 30.4 倍；在接近百萬 token 的 BEAM-1M 串流測試中，Raw-RAG 累計寫入僅 0.33 小時，次快的 MemOS 要 3.25 小時，Memora 要 26.95 小時 :warning:（這些效率數字為作者自測，尚待外部複現）
 - Raw-RAG 在 MEME 追蹤/連鎖任務上的「路徑覆蓋率」（連同推導所需的依賴關係一起拿到）達 62.34%，是所有對照系統最高，MemU 只有 9.62%
 - 落地門檻：先用 dense retrieval + rerank 的基準線量化現有記憶系統的真實增益，再決定要不要投資複雜記憶管理，不要預設複雜一定更好
 - Limitation：證據僅限離線對話任務，未測試互動式、多模態場景，也未評估隱私與刪除限制下的行為
@@ -184,7 +184,7 @@ NeurIPS 2026 接受的 MemPlan 把 LLM 限定成觀察解析與動作接地的�
 ### 深入要點
 
 - ALFWorld（134 episode）：MemPlan 的互動步數比 GPT-5.1 ReAct 與兩個 PDDLEGO+ 變體都短，線上 token 用量也更低；但 LLM-DP 的線上 token 成本仍是最低
-- TextWorld 記憶代理比較（7 個任務實例）：MemPlan 在 Full History、Summary、RAG、Reflexion、Simulacra、AriGraph 六種記憶代理基線中拿到最高的標準化分數 ⚠️（樣本僅 7 個任務實例，作者明確註明應視為該設定下的證據而非廣泛宣稱）
+- TextWorld 記憶代理比較（7 個任務實例）：MemPlan 在 Full History、Summary、RAG、Reflexion、Simulacra、AriGraph 六種記憶代理基線中拿到最高的標準化分數 :warning:（樣本僅 7 個任務實例，作者明確註明應視為該設定下的證據而非廣泛宣稱）
 - Robotouille 同步/異步任務：MemPlan 對 ReAct 與 LLM-DP 的領先幅度在異步設定（動作效果延遲出現）比同步設定更明顯，符合「記憶編碼的排除約束在觀察容易過時時更有價值」的直覺
 - TextWorld 的 PDDL domain 由 GPT-5.1 離線草擬，5/7（71.4%）一次就有效，剩下 2 個經一輪離線修補後可用——domain 生成全程不接觸測試實例的地圖、物件配置或標準答案
 - 落地門檻：需要先有（或能離線產生）涵蓋完整的 PDDL 領域描述，且負記憶的硬性排除機制在回饋含糊或解析錯誤時可能誤傷正確候選，需要額外的穩健性設計
@@ -245,7 +245,7 @@ Muffin 讓多個 agent 透過一個異步共享記憶緩衝交換精簡的中間
 
 - 四個模型（gemma-4-E4B-it、gemma-4-31B-it、Qwen3.8-27B、Qwen3.5-4B）在 Chess Move Validity、MMLU-Pro、GPQA-Diamond、OlymMATH 四個 benchmark 共 20 組設定中，Muffin 拿到 17 次最佳、3 次次佳
 - 在 OlymMATH-Easy 上，Muffin 比最強多 agent 辯論基線多 19.2 個準確率百分點，同時少用 77.4% 的 token；summarizer 彙整步驟讓最終準確率從 44.9% 跳到 59.2%
-- Agent 數量消融：2→3 個 agent 讓準確率從 50.6% 提升到 59.3%，但再加到 4 個或 5 個只剩 59.7%／58.7%，token 用量卻持續增加 ⚠️（這是收益遞減、而非線性擴展的訊號，團隊規模不該無限加碼）
+- Agent 數量消融：2→3 個 agent 讓準確率從 50.6% 提升到 59.3%，但再加到 4 個或 5 個只剩 59.7%／58.7%，token 用量卻持續增加 :warning:（這是收益遞減、而非線性擴展的訊號，團隊規模不該無限加碼）
 - 跟完整軌跡分享的對照：最終步驟，完整軌跡把準確率從 85.0% 推到 87.3%，但要多用 73.9% 的 token（160.6K vs 41.9K），顯示大部分的分享收益用精簡筆記就能拿到
 - 共享筆記數量不是越多越好：對小模型（gemma-4-E4B-it）而言 k=10 比 k=5 多拿 5.0 個百分點，但再加更多反而掉分；大模型（gemma-4-31B-it）對這個參數的敏感度低很多（僅 ±2.0 個百分點）
 - 落地門檻：先確認你的任務是否真的需要多步協作（orchestrator 分流這一步能先篩掉不需要協作的簡單問題），再決定 agent 數量與共享筆記預算，別預設「agent 越多、分享越完整」就一定更好

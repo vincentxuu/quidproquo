@@ -23,7 +23,7 @@ glossary:
     context: "Its preprint appeared in December 2023 and became a landmark challenge to the Transformer attention monopoly."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2023-topics)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2023-topics)
 
 Something rare happened at the top AI conferences of 2023: a single product—ChatGPT—reordered an entire field's research agenda within a year. ChatGPT launched in November 2022, and 2023 was the first full calendar year of its influence on academia. Look through the year's award-winning papers and submission keywords, and the landscape is entirely different from 2022. LLM alignment jumped from a niche topic into the mainstream. Hallucination went from a marginal term to a major track at nearly every conference. Agents and tool use moved from concepts toward working implementations. At the same time, the volume of papers on traditional task-specific NLP pipelines began a clear decline.
 

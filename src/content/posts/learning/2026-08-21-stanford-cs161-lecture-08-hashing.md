@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

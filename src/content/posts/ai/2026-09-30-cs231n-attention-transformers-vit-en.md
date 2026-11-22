@@ -24,7 +24,7 @@ glossary:
     context: "CS231N Lecture 8 uses a 224×224×3 image with 16×16 patches as the example."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-attention-transformers-vit)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

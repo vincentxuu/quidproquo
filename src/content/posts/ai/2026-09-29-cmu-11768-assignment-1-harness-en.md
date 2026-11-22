@@ -28,7 +28,7 @@ glossary:
     context: "In A1 Part 3, run_python lets a chess search make hundreds of simulate_move calls in one step."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -32,7 +32,7 @@ glossary:
     context: "Bowen Baker 在 L10 用這個定義區分「資訊不在 CoT 裡」與「資訊在但監控器讀不懂」兩種失敗。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

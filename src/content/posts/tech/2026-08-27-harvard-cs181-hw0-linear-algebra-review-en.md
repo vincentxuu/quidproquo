@@ -13,11 +13,11 @@ description: "A weekly guide to Harvard CS1810 Spring 2026 HW0 (due 2026-02-02, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)
+> :globe: [中文版](/posts/tech/2026-08-27-harvard-cs181-hw0-linear-algebra-review)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition**: This guide tracks [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0) (`hw0.tex`, due 2026-02-02) with [Spring 2025 HW0](https://github.com/harvard-ml-courses/cs181-s25-homeworks/tree/main/hw0) as fallback. Prerequisites and grading are from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [CS181 2025 site](https://harvard-ml-courses.github.io/cs181-web-2025/).
+> :warning: **Edition**: This guide tracks [CS1810 Spring 2026 HW0](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw0) (`hw0.tex`, due 2026-02-02) with [Spring 2025 HW0](https://github.com/harvard-ml-courses/cs181-s25-homeworks/tree/main/hw0) as fallback. Prerequisites and grading are from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [CS181 2025 site](https://harvard-ml-courses.github.io/cs181-web-2025/).
 
 ## TL;DR
 

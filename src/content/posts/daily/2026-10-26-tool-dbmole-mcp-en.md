@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-tool-dbmole-mcp)
+> :globe: [中文版](/posts/daily/2026-10-26-tool-dbmole-mcp)
 
 ## Tool Info
 
@@ -45,65 +45,65 @@ step: Wrap the call in BEGIN READ ONLY / SET SESSION TRANSACTION READ ONLY, then
 step: Success returns the result; failure returns an error — either way the session gets reset
 ---
 <svg viewBox="0 0 640 576">
-  <path class="dg-line" d="M280 34V56" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M280 112V144" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M376 192H428" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M280 236V268" data-step="3"/>
-  <path class="dg-line" d="M520 216V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M280 272V292" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M280 348V372" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line dg-line--accent" d="M376 416H428" marker-end="url(#arrow-accent)" data-step="5"/>
-  <path class="dg-line dg-line--warn" d="M280 460V492" marker-end="url(#arrow-warn)" data-step="5"/>
+  <path class="dg-line" d="M240 34V56" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M240 112V144" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M400 192H436" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M240 236V268" data-step="3"/>
+  <path class="dg-line" d="M528 220V260Q528 268 520 268H248" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M240 272V292" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M240 348V372" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line dg-line--accent" d="M400 416H436" marker-end="url(#arrow-accent)" data-step="5"/>
+  <path class="dg-line dg-line--warn" d="M240 460V492" marker-end="url(#arrow-warn)" data-step="5"/>
 
-  <circle class="dg-dot" cx="280" cy="28" r="6" data-step="1"/>
+  <circle class="dg-dot" cx="240" cy="28" r="6" data-step="1"/>
 
   <g data-step="1">
-    <rect class="dg-box" x="196" y="60" width="168" height="52" rx="6"/>
-    <text class="dg-label" x="280" y="80" text-anchor="middle" dominant-baseline="central">Call execute_sql</text>
-    <text class="dg-sub" x="280" y="98" text-anchor="middle" dominant-baseline="central">connection name + SQL</text>
+    <rect class="dg-box" x="156" y="60" width="168" height="52" rx="6"/>
+    <text class="dg-label" x="240" y="75" text-anchor="middle" dominant-baseline="central">Call execute_sql</text>
+    <text class="dg-sub" x="240" y="99" text-anchor="middle" dominant-baseline="central">connection name + SQL</text>
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M280 148L376 192L280 236L184 192Z"/>
-    <text class="dg-label" x="280" y="182" text-anchor="middle" dominant-baseline="central">Is it readonly?</text>
-    <text class="dg-sub" x="280" y="204" text-anchor="middle" dominant-baseline="central">this connection</text>
+    <path class="dg-box" d="M240 148L400 192L240 236L80 192Z"/>
+    <text class="dg-label" x="240" y="182" text-anchor="middle" dominant-baseline="central">Is it readonly?</text>
+    <text class="dg-sub" x="240" y="204" text-anchor="middle" dominant-baseline="central">this connection</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="432" y="168" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="188" text-anchor="middle" dominant-baseline="central">Wrap in READ ONLY</text>
-    <text class="dg-sub" x="520" y="206" text-anchor="middle" dominant-baseline="central">enforced at session level</text>
+    <rect class="dg-box" x="440" y="164" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="528" y="180" text-anchor="middle" dominant-baseline="central">Wrap in READ ONLY</text>
+    <text class="dg-sub" x="528" y="204" text-anchor="middle" dominant-baseline="central">enforced at session level</text>
   </g>
 
-  <circle class="dg-dot" cx="280" cy="270" r="4" data-step="2 3"/>
+  <circle class="dg-dot" cx="240" cy="270" r="4" data-step="2 3"/>
 
   <g data-step="4">
-    <rect class="dg-box" x="192" y="292" width="176" height="56" rx="6"/>
-    <text class="dg-label" x="280" y="312" text-anchor="middle" dominant-baseline="central">Execute the statement</text>
-    <text class="dg-sub" x="280" y="332" text-anchor="middle" dominant-baseline="central">capped by rowLimit / 40KB</text>
+    <rect class="dg-box" x="152" y="292" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="240" y="312" text-anchor="middle" dominant-baseline="central">Execute the statement</text>
+    <text class="dg-sub" x="240" y="332" text-anchor="middle" dominant-baseline="central">capped by rowLimit / 40KB</text>
   </g>
 
   <g data-step="5">
-    <path class="dg-box" d="M280 372L376 416L280 460L184 416Z"/>
-    <text class="dg-label" x="280" y="406" text-anchor="middle" dominant-baseline="central">Did it succeed?</text>
-    <text class="dg-sub" x="280" y="428" text-anchor="middle" dominant-baseline="central">execute_sql reports</text>
+    <path class="dg-box" d="M240 372L400 416L240 460L80 416Z"/>
+    <text class="dg-label" x="240" y="406" text-anchor="middle" dominant-baseline="central">Did it succeed?</text>
+    <text class="dg-sub" x="240" y="428" text-anchor="middle" dominant-baseline="central">execute_sql reports</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box dg-box--accent" x="432" y="392" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="416" text-anchor="middle" dominant-baseline="central">Return the result</text>
+    <rect class="dg-box dg-box--accent" x="440" y="392" width="176" height="48" rx="6"/>
+    <text class="dg-label" x="528" y="416" text-anchor="middle" dominant-baseline="central">Return the result</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box dg-box--warn" x="192" y="492" width="176" height="56" rx="6"/>
-    <text class="dg-label" x="280" y="512" text-anchor="middle" dominant-baseline="central">Return an error</text>
-    <text class="dg-sub" x="280" y="532" text-anchor="middle" dominant-baseline="central">session resets either way</text>
+    <rect class="dg-box dg-box--warn" x="152" y="492" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="240" y="512" text-anchor="middle" dominant-baseline="central">Return an error</text>
+    <text class="dg-sub" x="240" y="532" text-anchor="middle" dominant-baseline="central">session resets either way</text>
   </g>
 
-  <text class="dg-edge" x="402" y="180" text-anchor="middle" dominant-baseline="central" data-step="2">yes</text>
-  <text class="dg-edge" x="290" y="256" text-anchor="start" dominant-baseline="central" data-step="3">no</text>
-  <text class="dg-edge dg-text--accent" x="402" y="404" text-anchor="middle" dominant-baseline="central" data-step="5">yes</text>
-  <text class="dg-edge dg-text--warn" x="290" y="480" text-anchor="start" dominant-baseline="central" data-step="5">no</text>
+  <text class="dg-edge" x="420" y="180" text-anchor="middle" dominant-baseline="central" data-step="2">yes</text>
+  <text class="dg-edge" x="250" y="256" text-anchor="start" dominant-baseline="central" data-step="3">no</text>
+  <text class="dg-edge dg-text--accent" x="420" y="404" text-anchor="middle" dominant-baseline="central" data-step="5">yes</text>
+  <text class="dg-edge dg-text--warn" x="250" y="480" text-anchor="start" dominant-baseline="central" data-step="5">no</text>
 </svg>
 ```
 
@@ -165,13 +165,13 @@ ssh-keyscan -p 22 bastion.example.com 2>/dev/null | ssh-keygen -lf -
 
 | | dbmole-mcp | DBHub | Postgres MCP Pro | mcp-server-mysql | MCP Toolbox |
 |---|---|---|---|---|---|
-| PostgreSQL | ✅ | ✅ | ✅ | ❌ | ✅ |
-| MySQL | ✅ | ✅ | ❌ | ✅ | ✅ |
-| Other databases | ❌ | ✅ | ❌ | ❌ | ✅ |
-| Built-in SSH tunnel | ✅ | ✅ | — | ✅ | ❌ |
-| Agent adds/edits connections via tools | ✅ | ❌ (maintainer has said it's not planned) | ❌ | ❌ | ❌ |
-| Index tuning | ❌ | — | ✅ | — | — |
-| Health checks | ❌ | ✅ | ✅ | — | ✅ (prebuilt PostgreSQL tools) |
+| PostgreSQL | ✓ | ✓ | ✓ | ✗ | ✓ |
+| MySQL | ✓ | ✓ | ✗ | ✓ | ✓ |
+| Other databases | ✗ | ✓ | ✗ | ✗ | ✓ |
+| Built-in SSH tunnel | ✓ | ✓ | — | ✓ | ✗ |
+| Agent adds/edits connections via tools | ✓ | ✗ (maintainer has said it's not planned) | ✗ | ✗ | ✗ |
+| Index tuning | ✗ | — | ✓ | — | — |
+| Health checks | ✗ | ✓ | ✓ | — | ✓ (prebuilt PostgreSQL tools) |
 
 (Table adapted from dbmole-mcp's own README comparison, checked October 2026; other projects may have shipped updates since — check their own docs.)
 

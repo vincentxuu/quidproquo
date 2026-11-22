@@ -30,7 +30,7 @@ glossary:
     context: "物理治療師把它列為次發性夾擠的風險因子之一。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-shoulder-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-shoulder-en)
 
 你最近在練外傾牆，交叉手、大跨步的題目越爬越多。某天把手伸過頭拿岩點時，肩膀外側一陣刺痛；晚上側睡壓到那一邊，也會痛醒。岩友說：「肩膀夾到了啦，練一下肩胛。」
 

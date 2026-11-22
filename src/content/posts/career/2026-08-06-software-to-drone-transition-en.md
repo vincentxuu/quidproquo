@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-06-software-to-drone-transition)
+> :globe: [中文版](/posts/career/2026-08-06-software-to-drone-transition)
 
 [The job map](/posts/career/2026-08-06-drone-industry-job-map-en) placed the software entry point at Layer 3 of the supply chain but didn't answer "what's the first step." This piece takes that down to specific modules and parameters.
 

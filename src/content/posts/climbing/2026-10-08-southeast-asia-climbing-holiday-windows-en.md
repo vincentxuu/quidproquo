@@ -27,7 +27,7 @@ glossary:
     context: "Chiang Mai and northern Laos are not recommended for the 228 window because it falls in the burning season."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-08-southeast-asia-climbing-holiday-windows)
+> :globe: [中文版](/posts/climbing/2026-10-08-southeast-asia-climbing-holiday-windows)
 
 Taiwan has three long weekends between late 2026 and early March 2027 that can be stretched into a climbing trip abroad: Constitution Day running into New Year, Lunar New Year, and the 228 Peace Memorial holiday. Most Southeast Asian limestone is in its dry season then, but the five countries differ a lot in rainfall, fares, and local holidays, and the same crag can cost twice as much to reach in a different window. This post works out which country fits which window, comparing season, airfare, entry rules, and bolt condition in Thailand, Vietnam, Malaysia, Laos, and the Philippines.
 

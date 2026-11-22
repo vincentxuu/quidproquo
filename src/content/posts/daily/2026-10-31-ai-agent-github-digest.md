@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-governance, rust, agent-platform]
 lang: zh-TW
 description: "Claude Code 把寫入範圍的邊界做進每一種權限模式的同一天，CopilotKit/OpenBot 用沙箱電腦加審批閘門重新定義『可信任的 agent』，HKUDS/nanobot 跟 0xPlaygrounds/rig 則示範另一條把核心做小的路線"
-tldr: "**CopilotKit/OpenBot**（⭐ 8,639）把每個 AI 同事配一台自己的沙箱電腦，瀏覽器／檔案／MCP 操作都先過 CEL 政策閘門、寫進稽核紀錄才執行，還能透過 AG-UI 協定直接接 LangGraph、Mastra、CrewAI 等現成 agent；**HKUDS/nanobot**（⭐ 49,682）把個人 agent 做成讀得完的極簡核心，內建長期記憶跟十幾個聊天管道整合；**0xPlaygrounds/rig**（⭐ 9,027）把 Rust LLM library 跟一套可外接 Zed 等編輯器的 coding agent harness 做進同一個 crate。release 這邊 **Claude Code v2.1.314** 新增 `permissions.blockWritesOutsideWorkingDirectories`，讓寫入範圍的邊界在每種權限模式下都強制生效，外加閒置對話自動壓縮等多項修正。"
+tldr: "**CopilotKit/OpenBot**（★ 8,639）把每個 AI 同事配一台自己的沙箱電腦，瀏覽器／檔案／MCP 操作都先過 CEL 政策閘門、寫進稽核紀錄才執行，還能透過 AG-UI 協定直接接 LangGraph、Mastra、CrewAI 等現成 agent；**HKUDS/nanobot**（★ 49,682）把個人 agent 做成讀得完的極簡核心，內建長期記憶跟十幾個聊天管道整合；**0xPlaygrounds/rig**（★ 9,027）把 Rust LLM library 跟一套可外接 Zed 等編輯器的 coding agent harness 做進同一個 crate。release 這邊 **Claude Code v2.1.314** 新增 `permissions.blockWritesOutsideWorkingDirectories`，讓寫入範圍的邊界在每種權限模式下都強制生效，外加閒置對話自動壓縮等多項修正。"
 series:
   name: "AI Agent GitHub Digest"
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-31-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ Claude Code v2.1.314 新增 `permissions.blockWritesOutsideWorkingDirectories`�
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 8,639
+### CopilotKit/OpenBot ★ 8,639
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -33,51 +33,51 @@ title: CopilotKit/OpenBot 的治理閘道
 desc: 使用者的話經 Server 送給 Bot，Bot 想呼叫工具時都要先過 Gateway 的 CEL 政策判斷，決策寫進 PostgreSQL 稽核紀錄，允許才送進該 Bot 專屬的沙箱電腦執行。
 caption: 簡化示意：只畫出「允許並執行」這條路徑；政策判斷為拒絕時，Gateway 會附上規則名稱回報給 Bot，不會把動作送進沙箱電腦。
 ---
-<svg viewBox="0 0 800 400">
-  <path class="dg-line" d="M132 216 H168" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 216 H332" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M448 216 H484" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M636 216 H664" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--dashed" d="M560 268 V320" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M232 252 V292 Q232 300 240 300 H322 Q330 300 330 308 V320" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 800 252">
+  <path class="dg-line" d="M100 72 H132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M252 72 H284" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M396 72 H476" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M612 72 H688" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--dashed" d="M544 124 V176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M192 108 V148 Q192 156 200 156 H292 Q300 156 300 164 V176" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="20" y="188" width="112" height="56" rx="6"/>
-  <text class="dg-label" x="76" y="216" text-anchor="middle" dominant-baseline="central">使用者</text>
+  <rect class="dg-box" x="20" y="44" width="80" height="56" rx="6"/>
+  <text class="dg-label" x="60" y="72" text-anchor="middle" dominant-baseline="central">使用者</text>
 
-  <rect class="dg-box" x="168" y="180" width="128" height="72" rx="6"/>
-  <text class="dg-label" x="232" y="206" text-anchor="middle" dominant-baseline="central">Server</text>
-  <text class="dg-sub" x="232" y="228" text-anchor="middle" dominant-baseline="central">送出這輪對話</text>
+  <rect class="dg-box" x="132" y="36" width="120" height="72" rx="6"/>
+  <text class="dg-label" x="192" y="62" text-anchor="middle" dominant-baseline="central">Server</text>
+  <text class="dg-sub" x="192" y="84" text-anchor="middle" dominant-baseline="central">送出這輪對話</text>
 
-  <rect class="dg-box" x="332" y="180" width="116" height="72" rx="6"/>
-  <text class="dg-label" x="390" y="206" text-anchor="middle" dominant-baseline="central">Bot</text>
-  <text class="dg-sub" x="390" y="228" text-anchor="middle" dominant-baseline="central">AG-UI 端點</text>
+  <rect class="dg-box" x="284" y="36" width="112" height="72" rx="6"/>
+  <text class="dg-label" x="340" y="62" text-anchor="middle" dominant-baseline="central">Bot</text>
+  <text class="dg-sub" x="340" y="84" text-anchor="middle" dominant-baseline="central">AG-UI 端點</text>
 
-  <rect class="dg-box dg-box--accent" x="484" y="164" width="152" height="104" rx="6"/>
-  <text class="dg-label" x="560" y="204" text-anchor="middle" dominant-baseline="central">Gateway</text>
-  <text class="dg-sub" x="560" y="226" text-anchor="middle" dominant-baseline="central">CEL 政策引擎</text>
+  <rect class="dg-box dg-box--accent" x="476" y="20" width="136" height="104" rx="6"/>
+  <text class="dg-label" x="544" y="60" text-anchor="middle" dominant-baseline="central">Gateway</text>
+  <text class="dg-sub" x="544" y="82" text-anchor="middle" dominant-baseline="central">CEL 政策引擎</text>
 
-  <rect class="dg-box" x="664" y="180" width="124" height="72" rx="6"/>
-  <text class="dg-label" x="726" y="206" text-anchor="middle" dominant-baseline="central">沙箱電腦</text>
-  <text class="dg-sub" x="726" y="228" text-anchor="middle" dominant-baseline="central">瀏覽器／檔案</text>
+  <rect class="dg-box" x="688" y="36" width="104" height="72" rx="6"/>
+  <text class="dg-label" x="740" y="62" text-anchor="middle" dominant-baseline="central">沙箱電腦</text>
+  <text class="dg-sub" x="740" y="84" text-anchor="middle" dominant-baseline="central">瀏覽器／檔案</text>
 
-  <rect class="dg-box dg-box--store" x="480" y="320" width="160" height="56" rx="6"/>
-  <text class="dg-label" x="560" y="340" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
-  <text class="dg-sub" x="560" y="358" text-anchor="middle" dominant-baseline="central">稽核紀錄＋決策</text>
+  <rect class="dg-box dg-box--store" x="454" y="176" width="180" height="56" rx="6"/>
+  <text class="dg-label" x="544" y="190" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
+  <text class="dg-sub" x="544" y="214" text-anchor="middle" dominant-baseline="central">稽核紀錄＋決策</text>
 
-  <rect class="dg-box dg-box--store" x="212" y="320" width="236" height="56" rx="6"/>
-  <text class="dg-label" x="330" y="340" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
-  <text class="dg-sub" x="330" y="358" text-anchor="middle" dominant-baseline="central">thread／長期記憶</text>
+  <rect class="dg-box dg-box--store" x="172" y="176" width="256" height="56" rx="6"/>
+  <text class="dg-label" x="300" y="190" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
+  <text class="dg-sub" x="300" y="214" text-anchor="middle" dominant-baseline="central">thread／長期記憶</text>
 
-  <text class="dg-edge" x="466" y="204" text-anchor="middle" dominant-baseline="central">工具呼叫</text>
-  <text class="dg-edge" x="650" y="204" text-anchor="middle" dominant-baseline="central">允許時執行</text>
-  <text class="dg-edge" x="570" y="294" dominant-baseline="central">寫入稽核</text>
-  <text class="dg-edge" x="281" y="288" text-anchor="middle" dominant-baseline="central">thread／記憶</text>
+  <text class="dg-edge" x="436" y="56" text-anchor="middle" dominant-baseline="central">工具呼叫</text>
+  <text class="dg-edge" x="650" y="56" text-anchor="middle" dominant-baseline="central">允許時執行</text>
+  <text class="dg-edge" x="554" y="150" dominant-baseline="central">寫入稽核</text>
+  <text class="dg-edge" x="204" y="132" text-anchor="start" dominant-baseline="central">thread／記憶</text>
 </svg>
 ```
 
 ---
 
-### HKUDS/nanobot ⭐ 49,682
+### HKUDS/nanobot ★ 49,682
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -88,7 +88,7 @@ caption: 簡化示意：只畫出「允許並執行」這條路徑；政策判�
 
 ---
 
-### 0xPlaygrounds/rig ⭐ 9,027
+### 0xPlaygrounds/rig ★ 9,027
 
 [GitHub](https://github.com/0xPlaygrounds/rig)　·　Rust　·　MIT
 

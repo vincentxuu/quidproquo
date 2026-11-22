@@ -13,7 +13,7 @@ description: "An introduction to embeddings: from one-hot to dense vectors, how 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-embedding)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-embedding)
 
 In the previous article, we learned that models break text into tokens. But tokens are just a way of slicing — once the model has a sequence of tokens, how does it "understand" them?
 

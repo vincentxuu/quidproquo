@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS224W: Machine Learning with Graph
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

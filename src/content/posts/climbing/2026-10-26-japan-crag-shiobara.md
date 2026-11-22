@@ -13,7 +13,7 @@ description: "鹽原抱石群攀岩指南：季節、大眾運輸、停車、在
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-shiobara-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-shiobara-en)
 
 鹽原箒川的巨石以洞穴、仰角和高難度課題聞名，也有可以逐級熟悉的容易線。凝灰岩抓點與落地都需要現場判斷，尤其不要把國際名線的完攀影片當成水位與河床狀況的即時資訊。
 

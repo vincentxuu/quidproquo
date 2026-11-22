@@ -37,7 +37,7 @@ glossary:
     context: "The last part of the lecture; it lets a single smaller GPU finetune a large model."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-training)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-llm-training)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

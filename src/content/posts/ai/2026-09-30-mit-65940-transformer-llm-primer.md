@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.5940 L12 投影片第 73 頁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

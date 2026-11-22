@@ -10,7 +10,7 @@ description: "拆解 assistant-ui 的 Thread、Message、Composer primitives、R
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-assistant-ui-runtime-en)
+> :globe: [English version](/posts/tech/2026-08-22-assistant-ui-runtime-en)
 
 [assistant-ui](https://www.assistant-ui.com/docs) 是給 React Agent Chat 使用的元件與狀態層。它把介面拆成 Thread、Message、Composer、ActionBar 等 primitives，再用 Runtime 把這些元件接到 AI SDK、LangGraph、AG-UI、A2A 或自訂後端。
 

@@ -13,7 +13,7 @@ description: "A guide to the second and third parts of the AI Agent unit in NTU 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

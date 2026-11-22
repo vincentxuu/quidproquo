@@ -24,7 +24,7 @@ glossary:
     definition: "華為的自研 AI 加速器，GLM-5 完全在此硬體上訓練，未使用任何 NVIDIA GPU"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-glm-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-glm-en)
 
 2026 年 8 月，智譜 AI 發布了 **GLM-5.3**——同一個底座，純靠後訓練（post-training）把 coding 能力拉高 50%，並在資安基準 CyberGym 上以 84.5% 超過了 Anthropic 的 Mythos 5（83.8%）與 OpenAI 的 GPT-5.6 Sol（83.6%）。這個家族源自清華大學的實驗室，從 2022 年的 GLM-130B 走到今天的 744B 開源旗艦，並且是**目前唯一完全在華為昇騰晶片上訓練出的前沿開源模型**。這篇追蹤 GLM 從學術原型到開源前沿的完整演化，以及它在 2026 年的定位。
 

@@ -13,7 +13,7 @@ description: "A guided reading of Stanford CS107 Winter 2026 Lecture 23: coalesc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

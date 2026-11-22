@@ -22,7 +22,7 @@ glossary:
     context: "CS224R HW1 Problem 3 用它改善 hard 模式下的回歸式 BC。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

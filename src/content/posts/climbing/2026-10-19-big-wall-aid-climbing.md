@@ -34,7 +34,7 @@ glossary:
     context: "大岩壁路線常和自由難度、人工難度並列。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-big-wall-aid-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-big-wall-aid-climbing-en)
 
 紀錄片《赤手登峰》（Free Solo）裡 Honnold 不帶繩爬上的酋長岩，上面的路線多是 VI 級，一般繩隊要花兩天以上才爬得完。這些繩隊把每人每天 3–4 公升的水拖上岩壁，晚上掛在半空的吊帳裡睡覺，排泄物裝進管子帶下山。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-terraform-infrastructure-as-code)
+> :globe: [中文版](/posts/tech/2026-08-22-terraform-infrastructure-as-code)
 
 [Terraform](https://developer.hashicorp.com/terraform/intro) is declarative infrastructure as code. HCL configuration describes resources and dependencies, providers translate them into APIs such as AWS, Google Cloud, Cloudflare, or GitHub, and state maps Terraform addresses to real objects.
 

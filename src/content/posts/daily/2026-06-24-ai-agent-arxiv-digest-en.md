@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 31
 ---
-> 🌏 [中文版](/posts/daily/2026-06-24-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-24-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,7 +68,7 @@ Results show GPT-5.4 achieves 51.90% success without blocking, dropping to 11.36
 
 - **Scale**: 327 retail tasks, 1665 tools — among the largest tool counts in any benchmark of this kind. Tools are organized in three tiers: base tools, noisy tools, blocking tools
 - **Three blocking levels**: Mild (returns incomplete info) → Medium (returns misleading info) → Severe (original solution path completely blocked, requiring a longer alternative). Each level guarantees at least one solvable path exists
-- **GPT-5.4 results**: No blocking 51.90% → Harshest blocking 11.36% (~78% drop) ⚠️ These numbers are from retail domain only; other domains may differ
+- **GPT-5.4 results**: No blocking 51.90% → Harshest blocking 11.36% (~78% drop) :warning: These numbers are from retail domain only; other domains may differ
 - **Agent's biggest weakness**: Performance is worst when tools fail silently (no error, just no response); the longer the recovery path, the harder it is for agents to maintain state consistency
 - **Models tested**: 10 mainstream LLMs including GPT series, Gemini, Qwen3, Llama3, DeepSeek; see the paper for per-model numbers
 - **LangGraph / AutoGen relevance**: Current frameworks' retry logic typically uses fixed retry counts, lacking the ability to "detect a dead-end and proactively explore alternative paths." PlanBench-XL can serve directly as an eval baseline for improving this
@@ -153,7 +153,7 @@ AMD proposes Arbor: using tree search as shared working memory for multi-agent s
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 The architecture design is interesting — "recording failures in a shared search tree" is worth borrowing. But it's only validated in LLM inference optimization so far, generalizability unknown. Skim for the design concepts.
 
 ### Background
@@ -180,7 +180,7 @@ For agent platform developers, Arbor introduces an adoptable architectural primi
 - **Three-tier agent architecture**: Orchestrator (manages search strategy) + Domain Specialist (executes measurements) + Critic (performs stability checks). The division of labor keeps search both broad and stable
 - **Core concept**: The search tree serves simultaneously as "working memory" and "communication interface" — different agents read/write the same tree rather than passing messages to each other. Conceptually similar to MCTS (Monte Carlo Tree Search) but applied in agentic scenarios
 - **Failure as signal**: Traditional agents typically handle failure with "retry then give up." Arbor preserves failed paths on the tree, letting subsequent agents query "which directions have been tried and failed" and reallocate exploration budget accordingly
-- **Application domain**: Validated on full-stack LLM inference optimization (application → framework → compiler → kernel → hardware layers). AMD is a direct stakeholder in this domain ⚠️ Independent third-party validation recommended
+- **Application domain**: Validated on full-stack LLM inference optimization (application → framework → compiler → kernel → hardware layers). AMD is a direct stakeholder in this domain :warning: Independent third-party validation recommended
 - **Quantitative results**: Specific speedup ratios or performance numbers were not found in current search results; consult the original paper for details
 - **Difference from mainstream frameworks**: LangGraph / AutoGen use DAGs to describe workflows, emphasizing "execution." Arbor's tree structure emphasizes "search" — a different design philosophy. The two may be complementary rather than competing
 - **Adoption barrier**: How the node scoring mechanism (defining what makes a hypothesis good or bad) transfers across task domains is not addressed in the paper — currently the biggest open question

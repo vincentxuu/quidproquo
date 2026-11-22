@@ -10,7 +10,7 @@ description: "從家裡外連回 Mac 的 2026 完整方案：Cloudflare Tunnel �
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026-en)
+:globe: [English version](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026-en)
 
 ## TL;DR
 
@@ -160,11 +160,11 @@ WireGuard / OpenVPN 自架。問題是**需要公網 IP**——CGNAT 環境下�
 
 | 工具 | 個人免費 | 備註 |
 |---|---|---|
-| **Chrome Remote Desktop** | ✅ | Google 帳號，最無腦 |
-| **AnyDesk** | ✅ | 體驗好，商用要付費 |
-| **Parsec** | ✅ | 原本給遊戲用，畫質最好、延遲最低 |
-| **TeamViewer** | ✅ | 商業偵測嚴格容易誤判 |
-| **Apple Back to My Mac** | ❌ 已停服（2019） | 別找了 |
+| **Chrome Remote Desktop** | ✓ | Google 帳號，最無腦 |
+| **AnyDesk** | ✓ | 體驗好，商用要付費 |
+| **Parsec** | ✓ | 原本給遊戲用，畫質最好、延遲最低 |
+| **TeamViewer** | ✓ | 商業偵測嚴格容易誤判 |
+| **Apple Back to My Mac** | ✗ 已停服（2019） | 別找了 |
 
 ## 怎麼選：給個人使用者的決策樹
 

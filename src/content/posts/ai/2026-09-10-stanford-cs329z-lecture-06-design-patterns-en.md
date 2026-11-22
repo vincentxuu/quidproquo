@@ -14,13 +14,18 @@ description: "A page-linked guide to the CS329Z Lecture 06 Agent Design Patterns
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 77 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 
 Imagine asking an assistant to look something up. Either it answers from memory without checking, or it clicks link after link without ever saying what it is looking for. When the first is wrong you cannot debug it; when the second goes off course you cannot tell where it is heading. Lecture 6 (Oct 12, Agent Design Patterns & Scaffolds) addresses that dilemma: what should be a fixed workflow, what should be left to the agent's own next-step decisions, and how to manage context over long tasks.
 
 The assigned readings are Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629), Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents), and LangChain's Context Engineering, with Reflexion and CodeAct as additional readings. This post digests the first two: ReAct interleaves Thought and Action and checks each Observation, while Anthropic urges you to decide what is worth building as an agent at all. HW1 is midway at this point, and the shape of the loop has to be settled before the harness can grow. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=JC_pLC5EX_w
+title: AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan
+```
 
 ## Lecture 06 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Yao et al.'s [ReAct](https://arxiv.org/abs/2210.03629)
 
 ### Pages 1–12: Adapt patterns to the task
 
+[Recording 00:00–06:41](https://www.youtube.com/watch?v=JC_pLC5EX_w)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=1" data-slide-page="1">Slides 1–12</a>
 
 Patterns need adaptation to their environment. The lecture distinguishes workflows and agents by where control flow lives: program logic can classify, retrieve, and draft in a fixed sequence; a model can investigate and choose steps from feedback. Real systems combine both.
@@ -39,6 +46,8 @@ Patterns need adaptation to their environment. The lecture distinguishes workflo
 Map a support flow and label each branch as a business rule or model decision. If all branches are known in advance, a reproducible workflow provides a useful baseline.
 
 ### Pages 13–30: Compose the five workflow patterns
+
+[Recording 06:41–33:36](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=401s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=13" data-slide-page="13">Slides 13–30</a>
 
@@ -48,6 +57,8 @@ Map your own research flow onto these patterns, then identify the slowest and mo
 
 ### Pages 31–42: ReAct and Reflexion use feedback differently
 
+[Recording 33:36–45:29](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=2016s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=31" data-slide-page="31">Slides 31–42</a>
 
 ReAct interleaves reasoning, action, and observation. Reflexion additionally turns evaluations and failure reflections into text for a later attempt. The lecture cautions that unsupported self-evaluation can repeat an error; CRITIC adds tools to the verifier. The figures report particular research settings rather than a universal benefit from reflection.
@@ -55,6 +66,8 @@ ReAct interleaves reasoning, action, and observation. Reflexion additionally tur
 Separate noticing a failed tool call from changing strategy because of it. The ReAct digest below examines the paper’s QA and interactive-environment experiments.
 
 ### Pages 43–54: Code actions, plans, and dependency-aware execution
+
+[Recording 45:29–55:35](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=2729s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=43" data-slide-page="43">Slides 43–54</a>
 
@@ -64,6 +77,8 @@ An original failure test can disable one price API. Identify independent work an
 
 ### Pages 55–75: Separate the complete event record from current context
 
+[Recording 55:35–72:07](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=3335s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=55" data-slide-page="55">Slides 55–75</a>
 
 The principles are focus and continuity: retain information needed now while preserving goals, constraints, and progress. OpenHands preserves original events and reconstructs model input. Offloading moves knowledge outside the window; compaction summarizes; observation masking hides older tool output; isolation limits subtask context. Progressive disclosure loads details when needed.
@@ -71,6 +86,8 @@ The principles are focus and continuity: retain information needed now while pre
 These methods can coexist. After removing lengthy test output, preserve the command, exit code, conclusion, and source path. A summary that drops “do not send yet” fails even if it saves many tokens.
 
 ### Pages 76–86: Pi shows the decisions inside a minimal harness
+
+[Recording 72:07–76:51](https://www.youtube.com/watch?v=JC_pLC5EX_w&t=4327s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture06.pdf#page=76" data-slide-page="76">Slides 76–86</a>
 
@@ -209,10 +226,15 @@ Lecture 6 fixes the shape of the loop; [Lecture 7](/posts/ai/2026-09-10-stanford
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan](https://www.youtube.com/watch?v=JC_pLC5EX_w) (Stanford Online channel, uploaded 2026-11-14, about 77 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording's captions.
+- Content check: verified against the video transcript (2026-11-19): section start times were checked against the YouTube uploaded captions, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-19: Stanford Online published this lecture's recording on 2026-11-14; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-19: Checked section start times against the recording's captions and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 6 (Mon Oct 12), previously part of the "Week 4: reason while acting, then remember" guide; earlier entries below predate the split.
 - 2026-10-29: Rechecked every section's page range against the Lecture 06/07 PDFs; the Pi case now lists the features the slides say it deliberately omits and its permission model (L06 pp. 78, 82).
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.

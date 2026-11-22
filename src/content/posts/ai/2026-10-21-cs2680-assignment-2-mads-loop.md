@@ -21,7 +21,7 @@ glossary:
     context: "作業 2 的 10 題與 hidden tasks 都來自這份題庫。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-assignment-2-mads-loop-en)
 
 **影片狀態：課程不錄影。** 本文依公開作業頁面與 starter 檔整理，程式片段為本站補充，不是官方解答。[來源說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ description: "A preparation guide for the GitHub Copilot certification (GH-300),
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-08-github-gh-300-prep-guide)
+> :globe: [中文版](/posts/ai/2026-10-08-github-gh-300-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account. I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300), and every "how to prepare" points to official training. No leaked questions. Verified 2026-10-08 against "Skills measured as of **August 7, 2026**".
 

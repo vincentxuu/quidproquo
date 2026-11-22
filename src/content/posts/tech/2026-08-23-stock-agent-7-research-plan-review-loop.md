@@ -17,7 +17,7 @@ glossary:
     definition: "把惡意指令藏在被餵給 LLM 的文字裡、讓模型聽它的而不是聽你的攻擊手法。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en)
+> :globe: [English version](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop-en)
 
 > **台股研究 Agent 實戰系列（篇 7 / 9）**：[上一篇：讓 LLM 報告的每個數字都可稽核](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations) ｜ [下一篇：研究到模擬單的邊界：content-addressed 執行合約](/posts/tech/2026-08-23-stock-agent-8-execution-contracts) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 

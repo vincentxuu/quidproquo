@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-06-tool-cc-readback)
+> :globe: [中文版](/posts/daily/2026-09-06-tool-cc-readback)
 
 ## Tool Info
 
@@ -94,11 +94,11 @@ cc-readback uninstall all
 
 | | cc-readback | Manually scrolling terminal history | Pasting entire session contents into a new chat | Claude Code's built-in --resume |
 |---|---|---|---|---|
-| Query history without leaving Claude Desktop | ✅ | ❌ | Partial (manual copy first) | ❌ |
-| Automatically redacts common credentials | ✅ | — | ❌ | — |
-| Read-only — can't write, delete, or run shell commands | ✅ | — | — | ❌ (resume keeps executing) |
-| Instantly toggleable, with an audit trail | ✅ | — | — | — |
-| Supports keyword search across sessions | ✅ | ❌ | ❌ | ❌ |
+| Query history without leaving Claude Desktop | ✓ | ✗ | Partial (manual copy first) | ✗ |
+| Automatically redacts common credentials | ✓ | — | ✗ | — |
+| Read-only — can't write, delete, or run shell commands | ✓ | — | — | ✗ (resume keeps executing) |
+| Instantly toggleable, with an audit trail | ✓ | — | — | — |
+| Supports keyword search across sessions | ✓ | ✗ | ✗ | ✗ |
 
 ## Things to Watch Out For
 

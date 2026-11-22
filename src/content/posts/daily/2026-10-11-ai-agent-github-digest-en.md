@@ -11,7 +11,7 @@ series:
   order: 57
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-11-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-11-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Three of today's four repos are infrastructure-layer moves: Appwrite repositione
 
 ## Trending Repos
 
-### appwrite/appwrite ⭐ 57,624
+### appwrite/appwrite ★ 57,624
 
 [GitHub](https://github.com/appwrite/appwrite) · TypeScript · BSD-3-Clause
 
@@ -30,7 +30,7 @@ Three of today's four repos are infrastructure-layer moves: Appwrite repositione
 
 ---
 
-### DeusData/codebase-memory-mcp ⭐ 46,293
+### DeusData/codebase-memory-mcp ★ 46,293
 
 [GitHub](https://github.com/DeusData/codebase-memory-mcp) · C · MIT
 
@@ -41,7 +41,7 @@ Three of today's four repos are infrastructure-layer moves: Appwrite repositione
 
 ---
 
-### Yeachan-Heo/oh-my-claudecode ⭐ 39,768
+### Yeachan-Heo/oh-my-claudecode ★ 39,768
 
 [GitHub](https://github.com/Yeachan-Heo/oh-my-claudecode) · TypeScript · MIT
 
@@ -52,7 +52,7 @@ Three of today's four repos are infrastructure-layer moves: Appwrite repositione
 
 ---
 
-### sgl-project/sglang ⭐ 36,965
+### sgl-project/sglang ★ 36,965
 
 [GitHub](https://github.com/sgl-project/sglang) · Python · Apache-2.0
 

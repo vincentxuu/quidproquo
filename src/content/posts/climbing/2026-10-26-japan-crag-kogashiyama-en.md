@@ -13,7 +13,7 @@ description: "Kogashiyama climbing guide: seasons, public transport, parking, lo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-kogashiyama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-kogashiyama)
 
 Kogashiyama concentrates short roped climbs around Fudo Falls. Homes, shrines and hiking paths share the area, making parking and unobstructed access part of the climbing plan.
 

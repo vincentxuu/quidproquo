@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-framework-haystack-3.3.0)
+> :globe: [中文版](/posts/daily/2026-10-02-framework-haystack-3.3.0)
 
 ## Release Info
 

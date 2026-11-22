@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 14
 ---
-> 🌏 [English version](/posts/daily/2026-06-07-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-07-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -67,13 +67,13 @@ LangGraph、AutoGen、CrewAI、OpenAI Agents SDK……ADK 框架在 2025-2026 �
 
 ### 深入要點
 
-- 最佳框架在單一 benchmark 上達到 **80% 任務完成率**，但中位數框架只有 **32%**——框架間差距超過 2.5x，比一般工程師預期大得多 ⚠️（具體哪個框架在哪個 benchmark 第一需查論文）
-- **Developer 模型重要性 > Backbone 模型**：用 Opus 撰寫 agent 程式碼的版本，解決任務數約為 GPT 版本的 2 倍，在相同框架、相同執行模型的條件下 ⚠️
+- 最佳框架在單一 benchmark 上達到 **80% 任務完成率**，但中位數框架只有 **32%**——框架間差距超過 2.5x，比一般工程師預期大得多 :warning:（具體哪個框架在哪個 benchmark 第一需查論文）
+- **Developer 模型重要性 > Backbone 模型**：用 Opus 撰寫 agent 程式碼的版本，解決任務數約為 GPT 版本的 2 倍，在相同框架、相同執行模型的條件下 :warning:
 - **API 複雜度直接反映成本**：各框架的 per-agent 開發成本從 **$0.6 到 $3.4**，主要差異來自 API 設計品質；LangGraph 和 OpenAI Agents SDK 是 API 最易於使用（成本最低）的框架之一
-- **框架特色分析**：LangGraph — 最低成本（約 $0.08/task）、最低延遲；CrewAI — time-to-production 最快；AutoGen — open-ended reasoning 任務最強，但成本為 LangGraph 的 5-6 倍 ⚠️（數字來自論文結果摘要，不同 benchmark 排名可能不同）
+- **框架特色分析**：LangGraph — 最低成本（約 $0.08/task）、最低延遲；CrewAI — time-to-production 最快；AutoGen — open-ended reasoning 任務最強，但成本為 LangGraph 的 5-6 倍 :warning:（數字來自論文結果摘要，不同 benchmark 排名可能不同）
 - **MCP-Atlas 是今日最值得關注的 benchmark**：直接測試 ADK 對 MCP 生態系的整合能力，反映 2026 年 agent 工具整合的實際落地挑戰，也是各框架 MCP 支援成熟度的客觀比較
 - 最佳 ADK agent 在部分任務上甚至超越通用前沿 coding agent（如 Claude 直接解題），且成本更低——暗示「針對特定任務優化的框架 agent」可以是成本效益最高的方案
-- **Limitation 1**：評測框架版本是截至 2026 年 6 月提交時，快速迭代的框架版本差異可能影響結論 ⚠️
+- **Limitation 1**：評測框架版本是截至 2026 年 6 月提交時，快速迭代的框架版本差異可能影響結論 :warning:
 - **Limitation 2**：LLM 自動生成的 agent 程式碼品質可能仍低於框架「最佳實踐」水準，測出的是「API 易用性 + 性能」的組合，而非框架的能力天花板
 
 ### Reviewer 一句話評
@@ -124,12 +124,12 @@ LLM agent 的 context window 有上限，但真正有用的 agent 需要跨 sess
 ### 深入要點
 
 - **4 axes taxonomy** 是論文的核心貢獻：Construction / Storage / Retrieval / Mutability，可作為任何記憶方案的通用評估框架，不限於論文測試的 10 個系統
-- 四類記憶設計的系統特性差異顯著：**flat retrieval**（向量庫）低延遲但擴展性隨 corpus 增大而下降；**LLM-mediated extraction** 延遲高但壓縮率高、精確查詢能力強；**consolidating fact stores** 適合高頻讀取、低頻更新；**agentic control flows**（讓 agent 自己管記憶）最靈活但 overhead 最大 ⚠️（具體延遲數字需查論文）
+- 四類記憶設計的系統特性差異顯著：**flat retrieval**（向量庫）低延遲但擴展性隨 corpus 增大而下降；**LLM-mediated extraction** 延遲高但壓縮率高、精確查詢能力強；**consolidating fact stores** 適合高頻讀取、低頻更新；**agentic control flows**（讓 agent 自己管記憶）最靈活但 overhead 最大 :warning:（具體延遲數字需查論文）
 - **Mutability 是最被低估的 axis**：可更新的記憶系統在長程任務中更可靠（因為現實世界的事實會改變），但 infrastructure 複雜度顯著提升，需要版本控制和衝突解決機制
-- 「第一篇系統性 agent 記憶特性分析」的定位有先行優勢，但也意味著量測方法和 workload 設計都還是早期探索，需等社群後續驗證 ⚠️
+- 「第一篇系統性 agent 記憶特性分析」的定位有先行優勢，但也意味著量測方法和 workload 設計都還是早期探索，需等社群後續驗證 :warning:
 - 與 LangGraph/AutoGen 的關聯：4 axes 可直接映射到現有框架的 memory 模組選擇——LangGraph 的 Store API、AutoGen 的 memory component、Mem0 等第三方方案都可用這套 taxonomy 做系統評估
 - Alex Pentland（MIT）+ Tsachy Weissman（Stanford）+ Marian Verhelst（KU Leuven）跨機構組合，系統研究背景讓這篇比純 NLP 視角的記憶研究更接近工程現實
-- **Limitation 1**：workload 基於研究團隊設計的場景，與真實生產 workload 的差距未量化 ⚠️
+- **Limitation 1**：workload 基於研究團隊設計的場景，與真實生產 workload 的差距未量化 :warning:
 - **Limitation 2**：10 個系統的選擇標準未完整說明，可能未涵蓋最新商業記憶方案（如 Zep、Letta 等）
 
 ### Reviewer 一句話評
@@ -155,7 +155,7 @@ Deep research agent 在評測時會搜尋網路，而 benchmark 答案也在網�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對正在跑 deep research agent 評測的團隊是重要警訊；如果你不做 deep research agent，了解問題存在即可，不需深讀方法細節。
 
 ### 領域背景
@@ -179,14 +179,14 @@ STC 最多讓分數虛高 4%，在頂尖 agent 競爭激烈的今天，4% 的差
 
 ### 深入要點
 
-- **3 種 STC 類型（嚴重度遞增）**：Benchmark Metadata Leakage → Question-Context Leakage → Explicit Answer Leakage；三種類型在不同 benchmark 的發生頻率不同 ⚠️（具體比例需查論文）
-- 在 6 個 public benchmark 上測試現代 deep research agents，STC 廣泛存在，性能膨脹最多 **4%**——看起來不大，但頂尖模型間差距通常只有 1-3%，4% 已具決定性影響 ⚠️（具體哪些 benchmarks 和 agents 受影響程度需查原文）
+- **3 種 STC 類型（嚴重度遞增）**：Benchmark Metadata Leakage → Question-Context Leakage → Explicit Answer Leakage；三種類型在不同 benchmark 的發生頻率不同 :warning:（具體比例需查論文）
+- 在 6 個 public benchmark 上測試現代 deep research agents，STC 廣泛存在，性能膨脹最多 **4%**——看起來不大，但頂尖模型間差距通常只有 1-3%，4% 已具決定性影響 :warning:（具體哪些 benchmarks 和 agents 受影響程度需查原文）
 - 偵測方法是分析 agent 的**搜尋軌跡**：當 agent 搜尋關鍵詞包含 benchmark 名稱、題目編號、或幾乎等於 ground truth 時，觸發汙染警告
 - STC 問題的根本原因在於 benchmark 公開後被搜尋引擎索引。解法：定期輪替題目（成本高）或改用完全不在網路上的 private benchmark（規模受限）
 - **對 agent 平台決策的影響**：用 public benchmark 決定上線哪個 deep research agent 版本時，STC 可能讓你高估真實推理能力的提升；需要搭配 private evaluation set 或 held-out benchmark 做雙重驗證
 - 與 DeepResearch Bench 等評測框架的關聯：未來的 deep research agent 評測工具應內建 STC 偵測，作為評測可信度的基本品質指標
 - Alibaba 團隊有 deep research agent 的實際部署背景（Tongyi Lab），讓問題設定貼近生產環境需求
-- **Limitation 1**：4% 上界來自特定 benchmark 和 agent 組合，不同設定下實際影響可能更小 ⚠️
+- **Limitation 1**：4% 上界來自特定 benchmark 和 agent 組合，不同設定下實際影響可能更小 :warning:
 - **Limitation 2**：偵測演算法基於關鍵詞匹配，可能低估更隱性的汙染（agent 讀到相關頁面但未明顯搜索 benchmark 名稱）
 
 ### Reviewer 一句話評

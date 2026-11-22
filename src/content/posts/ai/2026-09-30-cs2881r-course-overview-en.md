@@ -22,7 +22,7 @@ glossary:
         url: "https://arxiv.org/abs/2506.11613"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 **Video status: Videos included.** The intro embeds the Lecture 1 recording (2 h 26 min); each lecture's recording is in its own post. [Source details](#course-video-sources)
 

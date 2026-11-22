@@ -23,7 +23,7 @@ glossary:
     context: "Used here to explain why one temporary error propagates through the rest of a long-horizon task."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

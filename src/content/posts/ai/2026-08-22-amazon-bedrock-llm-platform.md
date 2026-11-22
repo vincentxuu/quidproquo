@@ -10,7 +10,7 @@ description: "從 Converse API、IAM 與跨區推論，到 Knowledge Bases、Gua
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-amazon-bedrock-llm-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-amazon-bedrock-llm-platform-en)
 
 [Amazon Bedrock](https://aws.amazon.com/bedrock/) 是 AWS 的託管式生成式 AI 平台。應用程式可以透過同一個 AWS 帳號呼叫 Amazon Nova、Anthropic Claude、Meta Llama、Mistral 等模型，不必自行部署 GPU；AWS 的最新選型指南把它定位成「以 API 建構與營運 AI 應用及 agent 的無伺服器平台」，和提供更深訓練、容器與運算控制的 SageMaker AI 分工。
 

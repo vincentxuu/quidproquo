@@ -15,7 +15,7 @@ glossary:
     def: "Bria AI's image model family built on structured JSON prompts (VGL); first released in 2025"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-model-bria-fibo-2-0-dev)
+> :globe: [中文版](/posts/daily/2026-10-24-model-bria-fibo-2-0-dev)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | Text-to-image — human anatomy accuracy | #18 | - | - |
 | Text-to-image — text rendering / layout | #19–21 range | Bria calls this one of the biggest gains this generation | Leading models (e.g., the Gemini 2.5 Flash Image line) remain clearly ahead |
 
-⚠️ These Elo scores and rankings are cited from Bria's own model card, which in turn cites Artificial Analysis (an independent third-party evaluator) — they are not Bria's self-reported benchmarks. But third-party outlet ArtRealmAI checked the public leaderboard around launch and found Fibo 2.0 hadn't been listed yet; Qwen-Image-2.1 still showed 1083±13 Elo at the top. Bria's claimed lead is only about 4 Elo points, within the confidence interval — meaning the "#1/#2" claim is a self-reported figure made ahead of the leaderboard's formal update, pending independent reproduction.
+:warning: These Elo scores and rankings are cited from Bria's own model card, which in turn cites Artificial Analysis (an independent third-party evaluator) — they are not Bria's self-reported benchmarks. But third-party outlet ArtRealmAI checked the public leaderboard around launch and found Fibo 2.0 hadn't been listed yet; Qwen-Image-2.1 still showed 1083±13 Elo at the top. Bria's claimed lead is only about 4 Elo points, within the confidence interval — meaning the "#1/#2" claim is a self-reported figure made ahead of the leaderboard's formal update, pending independent reproduction.
 
 ## Comparison with Predecessors/Competitors
 

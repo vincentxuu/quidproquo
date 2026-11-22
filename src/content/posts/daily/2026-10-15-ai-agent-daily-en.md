@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -164,18 +164,18 @@ Workato partnered with Australian company Gulanga to offer Australian government
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-github-digest-en)
-- 📄 [Security Alert | One Trailing Dot Let Copilot in Visual Studio and SSMS Rewrite Its Own Settings](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce-en)
-- 📄 [Benchmark Shift | Arena Agent: Claude Fable 5.1 Back in Third](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1-en)
-- 📄 [Framework Update: Mastra @mastra/core@1.77.0](/posts/daily/2026-10-15-framework-mastra-1.77.0-en)
-- 📄 [Framework Update: Pydantic AI v2.56.0](/posts/daily/2026-10-15-framework-pydantic-ai-v2.56.0-en)
-- 📄 [Funding Brief | Modal Series D $750M](/posts/daily/2026-10-15-funding-modal-en)
-- 📄 [Funding Brief | Fragment Series A $12M](/posts/daily/2026-10-15-funding-fragment-en)
-- 📄 [Funding Brief | Zenzap Series A $33M](/posts/daily/2026-10-15-funding-zenzap-en)
-- 📄 [Tool of the Day | AgentConfig Doctor](/posts/daily/2026-10-15-tool-agentconfig-doctor-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-15](/posts/daily/2026-10-15-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-10-15](/posts/daily/2026-10-15-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-15](/posts/daily/2026-10-15-ai-agent-github-digest-en)
+- :file: [Security Alert | One Trailing Dot Let Copilot in Visual Studio and SSMS Rewrite Its Own Settings](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce-en)
+- :file: [Benchmark Shift | Arena Agent: Claude Fable 5.1 Back in Third](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1-en)
+- :file: [Framework Update: Mastra @mastra/core@1.77.0](/posts/daily/2026-10-15-framework-mastra-1.77.0-en)
+- :file: [Framework Update: Pydantic AI v2.56.0](/posts/daily/2026-10-15-framework-pydantic-ai-v2.56.0-en)
+- :file: [Funding Brief | Modal Series D $750M](/posts/daily/2026-10-15-funding-modal-en)
+- :file: [Funding Brief | Fragment Series A $12M](/posts/daily/2026-10-15-funding-fragment-en)
+- :file: [Funding Brief | Zenzap Series A $33M](/posts/daily/2026-10-15-funding-zenzap-en)
+- :file: [Tool of the Day | AgentConfig Doctor](/posts/daily/2026-10-15-tool-agentconfig-doctor-en)
+- :file: [AI Engineer Interview Daily — 2026-10-15](/posts/daily/2026-10-15-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-10-15](/posts/daily/2026-10-15-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

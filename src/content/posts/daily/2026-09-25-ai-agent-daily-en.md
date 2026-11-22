@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-25-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -150,17 +150,17 @@ On GitHub Trending today, google/ax, strands-agents/harness-sdk, HKUDS/CLI-Anyth
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-25: Coding](/posts/daily/2026-09-25-ai-interview-daily-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.69.0](/posts/daily/2026-09-25-framework-mastra-1.69.0-en)
-- 📄 [Funding Report | Chamelio Series A $26M](/posts/daily/2026-09-25-funding-chamelio-en)
-- 📄 [Funding Report | Ema Series B $77M](/posts/daily/2026-09-25-funding-ema-en)
-- 📄 [Funding Report | Firecrawl Series B $75M](/posts/daily/2026-09-25-funding-firecrawl-en)
-- 📄 [Model Card | Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
-- 📄 [Product Builder Interview Prep — 2026-09-25: Growth & Experimentation](/posts/daily/2026-09-25-product-builder-interview-daily-en)
-- 📄 [Security Alert | MemOS Supply-Chain Attack](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en)
-- 📄 [Tool Pick | petit-poucet](/posts/daily/2026-09-25-tool-petit-poucet-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-09-25: Coding](/posts/daily/2026-09-25-ai-interview-daily-en)
+- :file: [Framework Update | Mastra @mastra/core@1.69.0](/posts/daily/2026-09-25-framework-mastra-1.69.0-en)
+- :file: [Funding Report | Chamelio Series A $26M](/posts/daily/2026-09-25-funding-chamelio-en)
+- :file: [Funding Report | Ema Series B $77M](/posts/daily/2026-09-25-funding-ema-en)
+- :file: [Funding Report | Firecrawl Series B $75M](/posts/daily/2026-09-25-funding-firecrawl-en)
+- :file: [Model Card | Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)
+- :file: [Product Builder Interview Prep — 2026-09-25: Growth & Experimentation](/posts/daily/2026-09-25-product-builder-interview-daily-en)
+- :file: [Security Alert | MemOS Supply-Chain Attack](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain-en)
+- :file: [Tool Pick | petit-poucet](/posts/daily/2026-09-25-tool-petit-poucet-en)
 
 ## Watch Tomorrow
 

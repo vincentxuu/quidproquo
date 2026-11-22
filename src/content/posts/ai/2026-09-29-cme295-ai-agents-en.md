@@ -34,7 +34,7 @@ glossary:
         url: "https://www.trychroma.com/research/context-rot"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

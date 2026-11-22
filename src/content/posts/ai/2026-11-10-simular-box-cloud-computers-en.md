@@ -10,7 +10,7 @@ description: "Compares Simular box with Orgo, Runloop, E2B, Windows 365 for Agen
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-10-simular-box-cloud-computers)
+> :globe: [中文版](/posts/ai/2026-11-10-simular-box-cloud-computers)
 
 [Simular box](https://box.simular.ai/) is a cloud Ubuntu desktop with Chrome and a shell. Add it as a remote MCP server to Claude, ChatGPT, Claude Code, Codex or Cursor and your AI can open a browser, click, type, read the screen and run commands, without your own computer staying on. The official pricing line is "the box itself is free; its model calls use your account's daily credits."
 
@@ -37,9 +37,9 @@ caption: Simplified: prices, quotas and limits are covered below.
 ---
 <svg viewBox="0 0 640 556">
   <path class="dg-line" d="M200 30V58" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M320 108H356" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M320 244H356" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M320 380H356" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M328 108H356" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M328 244H356" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M328 380H356" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M200 156V194" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M200 292V330" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M200 428V466" marker-end="url(#arrow)"/>
@@ -47,7 +47,7 @@ caption: Simplified: prices, quotas and limits are covered below.
   <circle class="dg-dot" cx="200" cy="24" r="6"/>
 
   <g>
-    <path class="dg-box" d="M200 60L320 108L200 156L80 108Z"/>
+    <path class="dg-box" d="M200 60L328 108L200 156L72 108Z"/>
     <text class="dg-label" x="200" y="98" text-anchor="middle" dominant-baseline="central">Web pages only?</text>
     <text class="dg-sub" x="200" y="120" text-anchor="middle" dominant-baseline="central">no desktop, no shell</text>
   </g>
@@ -58,7 +58,7 @@ caption: Simplified: prices, quotas and limits are covered below.
   </g>
 
   <g>
-    <path class="dg-box" d="M200 196L320 244L200 292L80 244Z"/>
+    <path class="dg-box" d="M200 196L328 244L200 292L72 244Z"/>
     <text class="dg-label" x="200" y="234" text-anchor="middle" dominant-baseline="central">Commands enough?</text>
     <text class="dg-sub" x="200" y="256" text-anchor="middle" dominant-baseline="central">no screen needed</text>
   </g>
@@ -69,9 +69,9 @@ caption: Simplified: prices, quotas and limits are covered below.
   </g>
 
   <g>
-    <path class="dg-box" d="M200 332L320 380L200 428L80 380Z"/>
-    <text class="dg-label" x="200" y="370" text-anchor="middle" dominant-baseline="central">Need Windows?</text>
-    <text class="dg-sub" x="200" y="392" text-anchor="middle" dominant-baseline="central">or enterprise IT control</text>
+    <path class="dg-box" d="M200 332L328 380L200 428L72 380Z"/>
+    <text class="dg-label" x="200" y="366" text-anchor="middle" dominant-baseline="central">Need Windows?</text>
+    <text class="dg-sub" x="200" y="388" text-anchor="middle" dominant-baseline="central">or enterprise IT control</text>
   </g>
   <g>
     <rect class="dg-box" x="360" y="352" width="240" height="56" rx="6"/>
@@ -85,9 +85,9 @@ caption: Simplified: prices, quotas and limits are covered below.
     <text class="dg-sub" x="200" y="514" text-anchor="middle" dominant-baseline="central">Free Linux desktop; scale-up: Orgo, Runloop</text>
   </g>
 
-  <text class="dg-edge" x="338" y="96" text-anchor="middle" dominant-baseline="central">Yes</text>
-  <text class="dg-edge" x="338" y="232" text-anchor="middle" dominant-baseline="central">Yes</text>
-  <text class="dg-edge" x="338" y="368" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <text class="dg-edge" x="342" y="96" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <text class="dg-edge" x="342" y="232" text-anchor="middle" dominant-baseline="central">Yes</text>
+  <text class="dg-edge" x="342" y="368" text-anchor="middle" dominant-baseline="central">Yes</text>
   <text class="dg-edge" x="210" y="175" text-anchor="start" dominant-baseline="central">No</text>
   <text class="dg-edge" x="210" y="311" text-anchor="start" dominant-baseline="central">No</text>
   <text class="dg-edge" x="210" y="447" text-anchor="start" dominant-baseline="central">No</text>

@@ -22,7 +22,7 @@ glossary:
     context: "L4's shared-address-space grid solver uses barriers to separate red-cell and black-cell updates."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-parallelizing-thought-process)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

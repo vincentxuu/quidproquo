@@ -13,7 +13,7 @@ description: "甲府幕岩攀岩指南：季節、交通、管理規範、公開
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa-en)
 
 甲府幕岩是林間凝灰岩運攀區，從較低級數到長期計畫線都有，林道路況常比距離更影響行程。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

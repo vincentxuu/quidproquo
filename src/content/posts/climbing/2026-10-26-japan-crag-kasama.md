@@ -13,7 +13,7 @@ description: "笠間抱石群攀岩指南：季節、大眾運輸、停車、在
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-kasama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-kasama-en)
 
 笠間的佐白山花崗岩抱石分布在林間，課題從容易的立面到陡角都有。找路、看落地和分清禁入的岩塊，比把觀光公園當成一整片自由攀登區更重要。
 

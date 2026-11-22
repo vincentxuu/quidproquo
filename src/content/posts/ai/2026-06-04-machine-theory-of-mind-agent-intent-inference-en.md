@@ -22,7 +22,7 @@ glossary:
     context: "本文用 BDI 作為符號路線的標準詞彙，NegotiationToM 等資料集直接用它標註對手心智。"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-machine-theory-of-mind-agent-intent-inference)
+> :globe: [中文版](/posts/ai/2026-06-04-machine-theory-of-mind-agent-intent-inference)
 
 When multiple agents need to collaborate, negotiate, or even deceive each other, "mind reading" suddenly transforms from a philosophical question into an engineering requirement: one agent must infer another's **invisible beliefs, goals, and intentions** from **observable behavior**. In academia, this goes by a formal name — **Machine Theory of Mind (Machine ToM)**. This article breaks it down into three technical lineages (symbolic planning, Bayesian inference, deep learning), then walks you through the most divisive debate of the LLM era: are models' high scores on mental-state tests genuine reasoning, or Clever Hans-style statistical shortcuts? One key number up front: on ACL 2024's ToMBench, even GPT-4 trails humans by more than 10 percentage points.
 

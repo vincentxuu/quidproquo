@@ -23,7 +23,7 @@ glossary:
     context: "Lecture 6 illustrates it with students queuing at a professor's office hours; the fixes are replicating the resource or staggering access."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-locality-communication)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-locality-communication)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

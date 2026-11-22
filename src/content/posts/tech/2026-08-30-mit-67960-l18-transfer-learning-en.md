@@ -22,7 +22,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l18-transfer-learning)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l18-transfer-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

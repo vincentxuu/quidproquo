@@ -84,7 +84,7 @@ Gateway 會擋掉看起來像意外覆寫的寫入，除非那次寫入明確允
 openclaw onboard        # 完整引導
 openclaw configure      # 設定精靈
 openclaw config get agents.defaults.workspace
-openclaw config set agents.defaults.heartbeat.every "2h"
+openclaw config set agents.defaults.timeoutSeconds 3600
 openclaw config unset plugins.entries.brave.config.webSearch.apiKey
 ```
 
@@ -102,6 +102,7 @@ Control UI 的 **Config** 分頁會**從實際的設定 schema 動態產生表�
 
 ## 更新紀錄
 
+- 2026-11-20：`config set` 範例原本設 `agents.defaults.heartbeat.every`，這組設定已隨 heartbeat 遷移成排程工作而移除，改用 `agents.defaults.timeoutSeconds` 示範。
 - 2026-08-18：對照官方文件現況大改。新增：**嚴格驗證會讓 Gateway 拒絕啟動**（未知鍵／型別錯誤／無效值，唯一根層例外是 `$schema`）與驗證失敗時僅存的四個診斷指令、last-known-good **不會**在啟動或熱重載時自動還原（只有 `doctor --fix` 會）、被拒絕的寫入另存 `.rejected.<時間戳>`、含遮蔽佔位符的候選不會被晉升、防誤覆寫的三個形狀（掉 `gateway.mode`／失去 `meta`／檔案縮水過半）、設定路徑必須是一般檔案與符號連結會被整個取代的原子寫入行為、`gateway.mode=local` 的啟動守門、hybrid 熱重載的快照原子替換、設定的兩桶規則，以及 Control UI 由 schema 動態產生表單與 `uiHints` 的常用／進階分層。
 
 ## 參考資料

@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 5: the distributional h
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp)
 
 This is Week 5 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en), and the turning point of the course. In the previous three weeks people designed the representations: the features in Week 3 were hand-picked and the vectors in Week 4 were counted directly. From this week on, the data learns the representation.
 

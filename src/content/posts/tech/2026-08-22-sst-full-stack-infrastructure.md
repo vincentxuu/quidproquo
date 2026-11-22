@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-sst-full-stack-infrastructure-en)
+> :globe: [English version](/posts/tech/2026-08-22-sst-full-stack-infrastructure-en)
 
 [SST](https://sst.dev/docs) 是 application-first infrastructure framework。整個 app 在 `sst.config.ts` 定義 frontend、API、Function、container Service、database、bucket、queue、domain 和第三方 provider resources，實際資源建立在團隊自己的 AWS、Cloudflare 等帳號。
 

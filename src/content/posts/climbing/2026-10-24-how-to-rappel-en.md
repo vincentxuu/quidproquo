@@ -42,7 +42,7 @@ glossary:
     context: "The SAC points out that a fireman's belay can't save someone whose device is rigged wrong, so it doesn't replace their own backup."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-how-to-rappel)
+> :globe: [中文版](/posts/climbing/2026-10-24-how-to-rappel)
 
 Rappelling looks simple: run the rope through the anchor, put it in your device, slide down. The danger is in the details. Miss one strand in the device, skip the end knots, or let the friction hitch ride up into the device, and any one of those can drop you to the ground.
 

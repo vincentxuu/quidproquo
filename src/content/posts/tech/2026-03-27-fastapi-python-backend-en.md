@@ -10,7 +10,7 @@ description: "An introduction to FastAPI: why it outshines Flask and Django for 
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-fastapi-python-backend)
+:globe: [中文版](/posts/tech/2026-03-27-fastapi-python-backend)
 
 The Python backend ecosystem has long had a familiar problem: Flask is too bare-bones, Django is too heavy. FastAPI arrived in 2018 to fill that gap — lightweight, type-safe, async-first, and with automatic documentation baked in. For AI/ML services in particular, it has become the de facto standard.
 

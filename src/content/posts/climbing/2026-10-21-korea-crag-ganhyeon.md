@@ -13,7 +13,7 @@ description: "艮峴攀岩指南：原州與西原州交通、園區車輛規則
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-ganhyeon-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-ganhyeon-en)
 
 如果你想把一天留給攀登，而不是漫長上山，原州的艮峴是值得研究的選項。岩壁就在河畔觀光區裡，容易線與洞穴挑戰線放在同一個場景；但中間的難度並沒有平均分布。這篇幫你判斷自己是否有足夠目標線、怎麼搭車到入口，以及哪些長度不能直接拿來配繩。
 

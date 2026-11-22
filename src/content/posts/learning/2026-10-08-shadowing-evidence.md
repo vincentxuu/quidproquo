@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-08-shadowing-evidence-en)
+> :globe: [English version](/posts/learning/2026-10-08-shadowing-evidence-en)
 
 我九月寫[上班族英文口說怎麼練](/posts/learning/2026-09-03-work-english-speaking-tips)時，把跟讀法（shadowing）排在第一個方法，依據是兩篇英語學習平台的文章。這兩天為了做自己的口說練習區，回頭讀了研究，發現當時的寫法比證據能支持的強。這篇補上研究怎麼說，也說明跟讀適合拿來練什麼、哪些事它練不到。
 

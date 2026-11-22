@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-modal-sandboxes-en)
+> :globe: [English version](/posts/ai/2026-08-30-modal-sandboxes-en)
 
 ## 本文定位
 
@@ -122,11 +122,11 @@ Modal 採用 **wall-clock 計費**，但 **無 idle 計費** —— 沙箱暫停
 
 | 供應商 | GPU 支援 | 隔離技術 | 冷啟動 | 定價模式 | 最適合 |
 |--------|----------|----------|--------|----------|--------|
-| Modal | ✅ (A100/H100) | gVisor / microVM | sub-second | wall-clock (無 idle) | GPU 工作負載、大規模併發 |
-| E2B | ❌ | Firecracker microVM | ~150 ms | wall-clock | Coding agent、長任務 |
-| Daytona | ❌ | Docker / Kata | ~90 ms | wall-clock | 平行評測、快照分支 |
-| Vercel | ❌ | Firecracker microVM | ~1.8 s | active-CPU | Vercel 生態整合 |
-| Cloudflare | ❌ | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare 生態 |
+| Modal | ✓ (A100/H100) | gVisor / microVM | sub-second | wall-clock (無 idle) | GPU 工作負載、大規模併發 |
+| E2B | ✗ | Firecracker microVM | ~150 ms | wall-clock | Coding agent、長任務 |
+| Daytona | ✗ | Docker / Kata | ~90 ms | wall-clock | 平行評測、快照分支 |
+| Vercel | ✗ | Firecracker microVM | ~1.8 s | active-CPU | Vercel 生態整合 |
+| Cloudflare | ✗ | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare 生態 |
 
 **選擇 Modal 的條件**：需要 GPU、需要大規模併發、需要無 idle 計費、已在 Modal 生態上。
 

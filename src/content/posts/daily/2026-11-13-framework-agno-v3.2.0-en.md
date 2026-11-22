@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-framework-agno-v3.2.0)
+> :globe: [中文版](/posts/daily/2026-11-13-framework-agno-v3.2.0)
 
 ## Release Info
 
@@ -35,36 +35,36 @@ title: Agno v3.2.0: before and after on three breaking changes
 desc: OS Manager defaults, the A2A protocol version, and Slack approval permissions all shift at once — worth checking each one before upgrading.
 caption: Simplified: full scope and compatibility-layer details for each item are in "Breaking Changes" below.
 ---
-<svg viewBox="0 0 640 400">
-  <rect class="dg-box" x="20" y="20" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="42" text-anchor="middle" dominant-baseline="central">OS Manager defaults (before)</text>
-  <text class="dg-sub" x="145" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=8 / num_history_runs=7</text>
+<svg viewBox="0 0 696 400">
+  <rect class="dg-box" x="20" y="20" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="42" text-anchor="middle" dominant-baseline="central">OS Manager defaults (before)</text>
+  <text class="dg-sub" x="170" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=8 / num_history_runs=7</text>
 
-  <path class="dg-line" d="M270 56H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 56H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="20" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="42" text-anchor="middle" dominant-baseline="central">OS Manager defaults (after)</text>
-  <text class="dg-sub" x="495" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=24 / num_history_runs=5</text>
+  <rect class="dg-box dg-box--accent" x="376" y="20" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="42" text-anchor="middle" dominant-baseline="central">OS Manager defaults (after)</text>
+  <text class="dg-sub" x="526" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=24 / num_history_runs=5</text>
 
-  <rect class="dg-box" x="20" y="160" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="182" text-anchor="middle" dominant-baseline="central">A2A protocol (before)</text>
-  <text class="dg-sub" x="145" y="206" text-anchor="middle" dominant-baseline="central">/v1/message:* and /v1/tasks:* routes</text>
+  <rect class="dg-box" x="20" y="160" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="182" text-anchor="middle" dominant-baseline="central">A2A protocol (before)</text>
+  <text class="dg-sub" x="170" y="206" text-anchor="middle" dominant-baseline="central">/v1/message:* and /v1/tasks:* routes</text>
 
-  <path class="dg-line" d="M270 196H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 196H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="160" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="182" text-anchor="middle" dominant-baseline="central">A2A protocol (after, v1.0)</text>
-  <text class="dg-sub" x="495" y="206" text-anchor="middle" dominant-baseline="central">official a2a-sdk 1.x, per-entity A2A endpoint</text>
+  <rect class="dg-box dg-box--accent" x="376" y="160" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="182" text-anchor="middle" dominant-baseline="central">A2A protocol (after, v1.0)</text>
+  <text class="dg-sub" x="526" y="206" text-anchor="middle" dominant-baseline="central">official a2a-sdk 1.x, per-entity A2A endpoint</text>
 
-  <rect class="dg-box" x="20" y="300" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="322" text-anchor="middle" dominant-baseline="central">Slack approvals (before)</text>
-  <text class="dg-sub" x="145" y="346" text-anchor="middle" dominant-baseline="central">anyone could Approve/Deny</text>
+  <rect class="dg-box" x="20" y="300" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="322" text-anchor="middle" dominant-baseline="central">Slack approvals (before)</text>
+  <text class="dg-sub" x="170" y="346" text-anchor="middle" dominant-baseline="central">anyone could Approve/Deny</text>
 
-  <path class="dg-line" d="M270 336H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 336H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="300" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="322" text-anchor="middle" dominant-baseline="central">Slack approvals (after)</text>
-  <text class="dg-sub" x="495" y="346" text-anchor="middle" dominant-baseline="central">only the starter, unless listed in approvers</text>
+  <rect class="dg-box dg-box--accent" x="376" y="300" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="322" text-anchor="middle" dominant-baseline="central">Slack approvals (after)</text>
+  <text class="dg-sub" x="526" y="346" text-anchor="middle" dominant-baseline="central">only the starter, unless listed in approvers</text>
 </svg>
 ```
 

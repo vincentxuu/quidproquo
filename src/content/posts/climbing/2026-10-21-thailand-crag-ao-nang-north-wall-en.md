@@ -13,7 +13,7 @@ description: "An Ao Nang North Wall climbing guide: six sectors and 103 routes, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-ao-nang-north-wall)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-ao-nang-north-wall)
 
 If you want one Thai crag where you do not have to think much, North Wall is the most direct answer: it is in Ao Nang town, five minutes' walk from the beach, then a one-minute walk from the car park to the wall. All titanium bolts, toilets, gear for rent, transparent fees.
 

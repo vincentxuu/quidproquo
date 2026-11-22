@@ -13,7 +13,7 @@ description: "A guide to Sperlonga: what the name covers, route counts from each
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-sperlonga)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-sperlonga)
 
 Sperlonga is a seaside town on the southern coast of Lazio, roughly halfway between Rome and Naples. When climbers say "Sperlonga" they don't mean the town. They mean the long band of limestone behind Sant'Agostino beach, on the road towards Gaeta. [Climbing Spot Factory](https://climbingspotfactory.com/index.php/en/climbadvisor/sperlonga/info_about) says so in its first paragraph: the walls actually lie in the municipalities of Itri and Gaeta, on the south side of Monte Vannellamare (257 m), and they close off the western end of Sant'Agostino beach.
 

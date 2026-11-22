@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-ai-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-10-04-ai-interview-daily-en)
 
 ## 本週行為面試練習
 

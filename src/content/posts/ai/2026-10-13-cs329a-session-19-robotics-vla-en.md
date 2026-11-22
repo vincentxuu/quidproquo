@@ -13,7 +13,7 @@ tldr: "A VLA adds an action module to a vision-language model; letting that modu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla)
+> :globe: [中文版](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla)
 
 A software agent's actions are text: a piece of code, a tool call. A robot's actions are joint commands issued dozens of times per second, and a mistake cannot be rerun. Session 19 of [CS329A](https://cs329a.stanford.edu/) Autumn 2025 was a guest lecture by Danny Driess of [Physical Intelligence](https://www.physicalintelligence.company/), titled "Multimodal AI Agents in Robotics." After reading this guide you should be able to explain how a vision-language-action (VLA) model grows an action output out of a language model, what goes wrong in training, and how to read a data ablation table. Prerequisites: a vision-language model (VLM) can answer questions about images, and gradients flow backward through a network.
 

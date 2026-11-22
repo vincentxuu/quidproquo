@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-21-drizzle-orm-sql-first-en)
+> :globe: [English version](/posts/tech/2026-08-21-drizzle-orm-sql-first-en)
 
 這個系列反覆出現一個判準：**資料存取層的選型看可審查性**。agent 會幫你寫查詢，但你得能在 diff 裡讀懂它寫了什麼、審得動它改了什麼。Drizzle ORM 的核心賣點就壓在這條線上——它的 query builder 長得像 SQL，不是另一種 DSL。
 

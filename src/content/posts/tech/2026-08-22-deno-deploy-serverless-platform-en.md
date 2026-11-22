@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-deno-deploy-serverless-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-deno-deploy-serverless-platform)
 
 [Deno Deploy](https://docs.deno.com/deploy/) is a serverless platform for JavaScript, TypeScript, and WebAssembly. “New Deploy” matters: Deno rebuilt it around a Deno 2 execution environment, `console.deno.com`, and a new control plane. Deploy Classic and subhosting v1 shut down on July 20, 2026.
 

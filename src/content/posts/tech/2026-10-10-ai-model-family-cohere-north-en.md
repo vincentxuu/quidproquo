@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-cohere-north)
+> :globe: [中文版](/posts/tech/2026-10-10-ai-model-family-cohere-north)
 
 [Cohere](https://cohere.com/)'s **North** series, launched in 2026, adds a model line focused on **Agentic Coding**. **North Mini Code** is the family's first public model: a 30B total / 3B active parameter sparse MoE designed for code generation, testing, and automated development. It is available for free on OpenRouter as `cohere/north-mini-code:free`, giving developers direct access to Cohere's coding agent capabilities.
 

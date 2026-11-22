@@ -1,10 +1,28 @@
+import assert from 'node:assert/strict';
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execSync } from 'node:child_process';
 import { findRepoDevServers } from './dev.mjs';
+import { findPullCollisions, formatList, parseStatus } from './lib/git-status.mjs';
 
 const ROOT = resolve('.');
 const PROGRESS_PATH = resolve(ROOT, 'progress.txt');
+
+if (process.argv.includes('--self-test')) {
+  const parsed = parseStatus(' M src/a.md\n?? .work/b.md\nR  old.md -> new.md\n');
+  assert.deepEqual(parsed.tracked, ['src/a.md', 'new.md']);
+  assert.deepEqual(parsed.untracked, ['.work/b.md']);
+  const collisions = findPullCollisions(parsed, {
+    changedByRemote: new Set(['src/a.md', 'other.md']),
+    trackedByRemote: new Set(['.work/b.md', '.work/c.md']),
+  });
+  assert.deepEqual(collisions.tracked, ['src/a.md']);
+  assert.deepEqual(collisions.untracked, ['.work/b.md']);
+  assert.equal(formatList(['a']), '  a');
+  assert.match(formatList(Array.from({ length: 12 }, (_, i) => `f${i}`), 10), /還有 2 個/);
+  console.log('session-start --self-test: ok');
+  process.exit(0);
+}
 
 function printSection(title, body) {
   process.stdout.write(`\n=== ${title} ===\n`);
@@ -62,6 +80,38 @@ try {
   if (notes.length) printSection('git sync', notes.join('\n'));
 } catch {
   printSection('git sync', '（無法 fetch origin，略過同步檢查）');
+}
+
+// 未 commit 的改動若與 origin/main 重疊，pull 就是衝突或被拒絕 checkout
+// （2026-11-13：46 篇 11-09 重查放了 4 天，3 個未追蹤 .work 檔案擋住 rebase）。
+try {
+  const { tracked, untracked } = parseStatus(execSync('git status --porcelain', { cwd: ROOT, encoding: 'utf8' }));
+  if (tracked.length > 0 || untracked.length > 0) {
+    const changedByRemote = new Set(
+      execSync('git diff --name-only HEAD origin/main', { cwd: ROOT, encoding: 'utf8' })
+        .trim().split('\n').filter(Boolean),
+    );
+    const trackedByRemote = new Set(
+      execSync('git ls-tree -r --name-only origin/main', { cwd: ROOT, encoding: 'utf8' })
+        .trim().split('\n').filter(Boolean),
+    );
+    const collisions = findPullCollisions({ tracked, untracked }, { changedByRemote, trackedByRemote });
+    const lines = [`未 commit 的改動 ${tracked.length} 個、未追蹤檔案 ${untracked.length} 個。`];
+    if (collisions.tracked.length > 0) {
+      lines.push('這些檔案 origin/main 也改過，現在 pull 會衝突：', formatList(collisions.tracked));
+    }
+    if (collisions.untracked.length > 0) {
+      lines.push('這些未追蹤檔案 origin/main 已納入版控，現在 pull 會被擋：', formatList(collisions.untracked));
+    }
+    lines.push(
+      collisions.tracked.length > 0 || collisions.untracked.length > 0
+        ? '先 commit 或 stash，再 git pull --rebase origin main。'
+        : '收工前 commit 或 stash，不要跨 session 留著。',
+    );
+    printSection('working tree', lines.join('\n'));
+  }
+} catch {
+  printSection('working tree', '（無法讀取 git 狀態，略過 dirty 檢查）');
 }
 
 const verifyOk = runCommand('pnpm verify', 'pnpm verify');

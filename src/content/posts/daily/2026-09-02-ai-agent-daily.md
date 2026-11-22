@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-02-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -117,7 +117,7 @@ GitHub Trending 今天聚焦「個人 Agent 生態擴張 + 供應鏈安全掃描
 
 **大洋洲**
 
-澳洲國防部長形容 AI 是二戰以來最大的主權轉折點，正赴美推動一項約 210 億美元、讓澳洲成為 Anthropic 前沿模型第二基地的建置案，版權與資料存取細節仍待談判。⚠️ 此消息目前僅單一來源、未經交叉驗證。（[來源](https://aspicts.substack.com/p/early-edition-australia-makes-its)）同一時間，在澳洲央行檢討支付系統規範之際，Commonwealth Bank、Westpac、ANZ 等銀行主張應立即規範 agentic AI 支付，NAB、Visa、Amex、Apple 等則認為現在規範言之過早，雙方立場在提交件中正面交鋒。（[來源](https://www.capitalbrief.com/article/battlelines-drawn-as-big-banks-and-big-tech-square-off-over-agentic-ai-regulation-be11f1f9-20a3-4a7c-b8b0-706e965b8aad)）
+澳洲國防部長形容 AI 是二戰以來最大的主權轉折點，正赴美推動一項約 210 億美元、讓澳洲成為 Anthropic 前沿模型第二基地的建置案，版權與資料存取細節仍待談判。:warning: 此消息目前僅單一來源、未經交叉驗證。（[來源](https://aspicts.substack.com/p/early-edition-australia-makes-its)）同一時間，在澳洲央行檢討支付系統規範之際，Commonwealth Bank、Westpac、ANZ 等銀行主張應立即規範 agentic AI 支付，NAB、Visa、Amex、Apple 等則認為現在規範言之過早，雙方立場在提交件中正面交鋒。（[來源](https://www.capitalbrief.com/article/battlelines-drawn-as-big-banks-and-big-tech-square-off-over-agentic-ai-regulation-be11f1f9-20a3-4a7c-b8b0-706e965b8aad)）
 
 ### 商業案例 / 融資
 
@@ -137,16 +137,16 @@ GitHub Trending 今天聚焦「個人 Agent 生態擴張 + 供應鏈安全掃描
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-github-digest)
-- 📄 [Benchmark 異動｜CursorBench](/posts/daily/2026-09-02-benchmark-cursorbench)
-- 📄 [框架更新｜Agno 3.0.5](/posts/daily/2026-09-02-framework-agno-3.0.5)
-- 📄 [融資速報｜AIR Security](/posts/daily/2026-09-02-funding-air-security)
-- 📄 [融資速報｜Tripo AI](/posts/daily/2026-09-02-funding-tripo-ai)
-- 📄 [模型卡｜Gemini Omni 1.1 Flash](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash)
-- 📄 [Product Builder Interview Prep — 2026-09-02](/posts/daily/2026-09-02-product-builder-interview-daily)
-- 📄 [資安警報｜METR API 金鑰遭竊](/posts/daily/2026-09-02-security-metr-api-key-theft)
-- 📄 [工具推薦｜mcp-spend-guard](/posts/daily/2026-09-02-tool-mcp-spend-guard)
+- :file: [AI Agent Arxiv Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-02](/posts/daily/2026-09-02-ai-agent-github-digest)
+- :file: [Benchmark 異動｜CursorBench](/posts/daily/2026-09-02-benchmark-cursorbench)
+- :file: [框架更新｜Agno 3.0.5](/posts/daily/2026-09-02-framework-agno-3.0.5)
+- :file: [融資速報｜AIR Security](/posts/daily/2026-09-02-funding-air-security)
+- :file: [融資速報｜Tripo AI](/posts/daily/2026-09-02-funding-tripo-ai)
+- :file: [模型卡｜Gemini Omni 1.1 Flash](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash)
+- :file: [Product Builder Interview Prep — 2026-09-02](/posts/daily/2026-09-02-product-builder-interview-daily)
+- :file: [資安警報｜METR API 金鑰遭竊](/posts/daily/2026-09-02-security-metr-api-key-theft)
+- :file: [工具推薦｜mcp-spend-guard](/posts/daily/2026-09-02-tool-mcp-spend-guard)
 
 ## 明日關注
 

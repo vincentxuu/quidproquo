@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-akamai-linode-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-akamai-linode-cloud)
 
 Linode is now the compute platform within [Akamai Cloud Computing](https://techdocs.akamai.com/cloud-computing/docs/welcome), while resource names remain familiar: Linode VMs, Linode Kubernetes Engine (LKE), NodeBalancers, Block and Object Storage, Backups, Cloud Firewalls, VPCs, and Managed Databases.
 

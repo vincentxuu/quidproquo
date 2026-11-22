@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L8 用它從人類的軌跡偏好學出獎勵函數；LLM 的 reward model 也用同一個目標。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-reward-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-reward-learning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

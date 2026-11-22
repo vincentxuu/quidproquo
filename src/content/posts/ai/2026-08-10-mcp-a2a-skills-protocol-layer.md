@@ -13,7 +13,7 @@ description: "從 function calling 到 MCP 的完整演進與代價、MCP 的五
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
+> :globe: [English version](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en)
 
 [第一篇](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)把 MCP 定位成「LLM 怎麼用工具的標準介面」，但沒展開。這一篇處理協定層——包括它解決了什麼、代價是什麼，以及 Skills 為什麼不是 MCP 的競品。
 

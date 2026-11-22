@@ -17,7 +17,7 @@ None of today's four fastest-growing projects is a new framework — all four ar
 
 ## Trending Repos
 
-### browser-use/video-use ⭐ 25,702 (+155)
+### browser-use/video-use ★ 25,702 (+155)
 
 [GitHub](https://github.com/browser-use/video-use)　·　Python　·　MIT
 
@@ -28,7 +28,7 @@ None of today's four fastest-growing projects is a new framework — all four ar
 
 ---
 
-### dream-num/univer ⭐ 15,214
+### dream-num/univer ★ 15,214
 
 [GitHub](https://github.com/dream-num/univer)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Today's #1 on GitHub's TypeScript trending page.
 
 ---
 
-### superdesigndev/treg ⭐ 2,113 (+197)
+### superdesigndev/treg ★ 2,113 (+197)
 
 [GitHub](https://github.com/superdesigndev/treg)　·　Python　·　Custom (source-available)
 
@@ -52,7 +52,7 @@ Today's #1 on GitHub's TypeScript trending page.
 
 ---
 
-### davila7/claude-code-templates ⭐ 31,028 (+113)
+### davila7/claude-code-templates ★ 31,028 (+113)
 
 [GitHub](https://github.com/davila7/claude-code-templates)　·　Python　·　MIT
 

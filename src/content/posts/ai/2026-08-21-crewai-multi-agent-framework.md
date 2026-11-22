@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-crewai-multi-agent-framework-en)
+> :globe: [English version](/posts/ai/2026-08-21-crewai-multi-agent-framework-en)
 
 多 agent 框架的選型，核心問題不是「哪個功能多」，而是「你用什麼心智模型組織 agent 之間的關係」。[LangGraph](/posts/ai/2026-03-27-langgraph-agent-orchestration) 要你畫圖——節點是執行單元、邊是轉移條件；[Microsoft Agent Framework](/posts/ai/2026-08-21-microsoft-agent-framework) 要你定義工作流——sequential、concurrent、handoff 都是流程控制結構。[CrewAI](https://github.com/crewAIInc/crewAI) 要你做的事不一樣：**描述一個團隊**。
 

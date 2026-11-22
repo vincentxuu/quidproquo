@@ -21,7 +21,7 @@ glossary:
     context: "Lattice 建議在家練 lock-off 時停在手肘約 90 度與 125 度，避開完全拉到頂的位置。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-home-training-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-home-training-en)
 
 週三晚上加班到九點，岩館去不成。你看著門框想：要不要裝一支單槓、再買一塊指力板，在家也能練？
 

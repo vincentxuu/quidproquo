@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut)
+> :globe: [中文版](/posts/daily/2026-09-28-pricing-openai-gpt-6-sol-luna-price-cut)
 
 ## Summary of Changes
 
@@ -74,7 +74,7 @@ After the cut, GPT-6 Sol ties Claude Sonnet 5 on both input and output, so the t
 
 ## Expiration Notice
 
-⏰ **Promo expiration reminder**: GPT-5.6 Sol's promotional pricing is guaranteed by OpenAI only through **2026-11-21**, after which it may revert to a higher rate or change. If you're still on `gpt-5.6-sol` and haven't evaluated migration, get compatibility testing for GPT-6 Sol done before that date.
+:clock: **Promo expiration reminder**: GPT-5.6 Sol's promotional pricing is guaranteed by OpenAI only through **2026-11-21**, after which it may revert to a higher rate or change. If you're still on `gpt-5.6-sol` and haven't evaluated migration, get compatibility testing for GPT-6 Sol done before that date.
 
 ## Takeaway
 

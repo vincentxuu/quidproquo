@@ -10,7 +10,7 @@ description: "An analysis of how digital ecosystems work — from LINE's super-a
 draft: false
 ---
 
-🌏 [中文版](/posts/product/2026-04-02-digital-ecosystem-cresclab-research)
+:globe: [中文版](/posts/product/2026-04-02-digital-ecosystem-cresclab-research)
 
 BCG has noted that seven of the world's ten most valuable companies use the "digital ecosystem" as the core of their business model. A [digital ecosystem](https://tmrmds.co/article-business/17769/) is a digital platform composed of companies, people, and objects (IoT) that are mutually dependent and collectively deliver integrated products and services.
 
@@ -110,7 +110,7 @@ For brands operating across multiple channels, ERP systems become the cross-plat
 | [TMS ERP](https://www.tmserp.com.tw/) | Shopee, 91APP, momo, SHOPLINE, Shopify, CYBERBIZ, and others |
 | [WEB ERP (JunHe)](https://weberp.com.tw/) | Shopee, Yahoo, momo, SHOPLINE |
 
-> ⚠️ API integration security is an important consideration — there have been cases of customer data breaches due to insufficient API encryption. When selecting a system vendor, verify that their API integration methods are compliant.
+> :warning: API integration security is an important consideration — there have been cases of customer data breaches due to insufficient API encryption. When selecting a system vendor, verify that their API integration methods are compliant.
 
 ---
 
@@ -235,25 +235,25 @@ Using Crescendo Lab as a case study, here is a coverage assessment against the [
 
 | Domain | Coverage | Assessment |
 |--------|----------|-----------|
-| **Ad Tech** | Audience list export to Meta/Google/LINE Ads, but no direct ad platform integration | 🟡 Partial |
-| **Content & Experience** | AI copywriting, Rich Menu personalization, no CMS integration | 🟡 Partial |
-| **Social & Relationships** | LINE + Meta + CAAC customer service + Zendesk | 🟢 Strong |
-| **Commerce & Sales** | Five major store-building platforms, cart abandonment, product recommendations | 🟢 Strong |
-| **Data & Analytics** | GA4, BigQuery, 9 CDP/CRM partners | 🟢 Strongest |
-| **Management** | Zapier provides indirect coverage; no direct ERP integration | 🔴 Gap |
+| **Ad Tech** | Audience list export to Meta/Google/LINE Ads, but no direct ad platform integration | :yellow-circle: Partial |
+| **Content & Experience** | AI copywriting, Rich Menu personalization, no CMS integration | :yellow-circle: Partial |
+| **Social & Relationships** | LINE + Meta + CAAC customer service + Zendesk | :green-circle: Strong |
+| **Commerce & Sales** | Five major store-building platforms, cart abandonment, product recommendations | :green-circle: Strong |
+| **Data & Analytics** | GA4, BigQuery, 9 CDP/CRM partners | :green-circle: Strongest |
+| **Management** | Zapier provides indirect coverage; no direct ERP integration | :red-circle: Gap |
 
 ### Key Gaps and Available Taiwan Tools
 
 | Gap | Assessment | Taiwan Tools | Notes |
 |-----|------------|--------------|-------|
-| Email marketing | 🟡 Strategic choice | [Newsleopard](https://newsleopard.com/), [Mailchimp](https://mailchimp.com/), [Brevo](https://www.brevo.com/) | LINE + SMS serve real-time conversations; Email is a different paradigm, but still needed for cross-border e-commerce |
-| Ad automation | 🔴 **Real opportunity** | [Insider](https://useinsider.com/), [Emarsys](https://emarsys.com/) already have native ad integrations | Currently only CSV export; no closed loop of "segment → run ads → measure results" |
-| Social listening | 🔴 **Real opportunity** | [QSearch](https://zh-tw.qsearch.cc/), [OpView](https://www.opview.com.tw/), [i-Buzz](https://www.ibuzz.com.tw/), [Brandwatch](https://www.brandwatch.com/) | Looking only at LINE data is the tip of the iceberg; brands need the full voice-of-customer picture |
-| Payments/logistics | 🟢 Intentionally excluded | [ECPay](https://www.ecpay.com.tw/), [Newebpay](https://www.newebpay.com/), [LINE Pay](https://pay.line.me/) | This is the store-building platform's territory; entering it would create channel conflict with partners |
-| CMS | 🟡 Low priority | [WordPress](https://wordpress.org/), [Strapi](https://strapi.io/) | Zapier can cover this indirectly |
-| ERP | 🟡 Strategic choice | [Digiwin](https://www.digiwin.com/), [SAP](https://www.sap.com/), [Oracle NetSuite](https://www.netsuite.com/) | BigQuery + Zapier covers most scenarios |
+| Email marketing | :yellow-circle: Strategic choice | [Newsleopard](https://newsleopard.com/), [Mailchimp](https://mailchimp.com/), [Brevo](https://www.brevo.com/) | LINE + SMS serve real-time conversations; Email is a different paradigm, but still needed for cross-border e-commerce |
+| Ad automation | :red-circle: **Real opportunity** | [Insider](https://useinsider.com/), [Emarsys](https://emarsys.com/) already have native ad integrations | Currently only CSV export; no closed loop of "segment → run ads → measure results" |
+| Social listening | :red-circle: **Real opportunity** | [QSearch](https://zh-tw.qsearch.cc/), [OpView](https://www.opview.com.tw/), [i-Buzz](https://www.ibuzz.com.tw/), [Brandwatch](https://www.brandwatch.com/) | Looking only at LINE data is the tip of the iceberg; brands need the full voice-of-customer picture |
+| Payments/logistics | :green-circle: Intentionally excluded | [ECPay](https://www.ecpay.com.tw/), [Newebpay](https://www.newebpay.com/), [LINE Pay](https://pay.line.me/) | This is the store-building platform's territory; entering it would create channel conflict with partners |
+| CMS | :yellow-circle: Low priority | [WordPress](https://wordpress.org/), [Strapi](https://strapi.io/) | Zapier can cover this indirectly |
+| ERP | :yellow-circle: Strategic choice | [Digiwin](https://www.digiwin.com/), [SAP](https://www.sap.com/), [Oracle NetSuite](https://www.netsuite.com/) | BigQuery + Zapier covers most scenarios |
 
-> 💡 Every MarTech company has gaps. The key question is not "is it covered?" but whether the gap is a **strategic choice** or a **growth opportunity**. For Crescendo Lab, the ad automation loop and social listening fall into the latter category.
+> :bulb: Every MarTech company has gaps. The key question is not "is it covered?" but whether the gap is a **strategic choice** or a **growth opportunity**. For Crescendo Lab, the ad automation loop and social listening fall into the latter category.
 
 ---
 
@@ -292,7 +292,7 @@ Crescendo Lab's pricing is customized, but the [official pricing page](https://w
 
 20+ add-on modules are available, including 24/7 AI Agent, notification messages, gamified follower growth, and appointment booking. Detailed pricing requires contacting sales.
 
-> 💡 By comparison, Omnichat and Super 8 entry plans typically start in the NT$2,000–5,000/month range, but the feature scope differs. When choosing, prioritize "number of systems to integrate" and "whether you need the BigQuery data layer" over price comparison alone.
+> :bulb: By comparison, Omnichat and Super 8 entry plans typically start in the NT$2,000–5,000/month range, but the feature scope differs. When choosing, prioritize "number of systems to integrate" and "whether you need the BigQuery data layer" over price comparison alone.
 
 ---
 

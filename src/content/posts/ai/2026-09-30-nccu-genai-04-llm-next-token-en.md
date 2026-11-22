@@ -22,7 +22,7 @@ glossary:
     context: "L04 uses it to stop very unlikely words from being sampled; it comes from Holtzman et al., ICLR 2020."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

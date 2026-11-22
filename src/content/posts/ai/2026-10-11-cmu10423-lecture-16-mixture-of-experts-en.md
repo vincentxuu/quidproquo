@@ -12,7 +12,7 @@ draft: false
 description: "A complete worked example and answered variations for Mixture of Experts: Separating Capacity from Active Computation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-16-mixture-of-experts)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

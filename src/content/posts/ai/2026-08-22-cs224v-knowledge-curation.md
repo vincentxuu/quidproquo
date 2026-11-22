@@ -12,7 +12,7 @@ tldr: "STORM 用觀點引導的提問、模擬訪談與大綱建立改善研究�
 description: "拆解 CS224V Knowledge Curation 講義的完整路線：RAG、STORM 前期研究、評估、Co-STORM 協作協定與 DataSTORM 作業。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-knowledge-curation-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-knowledge-curation-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

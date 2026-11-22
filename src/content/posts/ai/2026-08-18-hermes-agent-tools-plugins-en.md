@@ -13,7 +13,7 @@ description: "The Hermes Agent tool layer: toolset grouping, the three tiers of 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-tools-plugins)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-tools-plugins)
 
 Post 7 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

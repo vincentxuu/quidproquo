@@ -20,7 +20,7 @@ glossary:
     context: "L14 uses it to show what cross-attention weights are good for."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-cross-attention-dit-qformer)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

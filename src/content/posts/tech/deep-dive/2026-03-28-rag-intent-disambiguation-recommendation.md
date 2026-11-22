@@ -14,7 +14,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation-en)
 
 做攀岩路線推薦的 RAG 系統時踩了一個坑：使用者說「推薦下一條路線」和「推薦類似路線」，表面上都是在要推薦，但背後的意圖完全不同。系統卻用同一個 keyword matching 函式處理兩者，結果就是推薦品質很差。
 

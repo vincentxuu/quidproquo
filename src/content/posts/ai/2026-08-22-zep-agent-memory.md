@@ -10,7 +10,7 @@ description: "完整說明 Zep 與 Graphiti 的關係、雙時間時序圖、epi
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-zep-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-08-22-zep-agent-memory-en)
 
 [Zep](https://help.getzep.com/graphiti/getting-started/overview) 是以時序知識圖為核心的 agent memory 服務。它在意的不只是「Kendra 喜歡 Adidas」，還包括這個事實何時成立、何時被新資訊推翻，以及它來自哪一次互動。
 

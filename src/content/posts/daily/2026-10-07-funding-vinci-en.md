@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-funding-vinci)
+> :globe: [中文版](/posts/daily/2026-10-07-funding-vinci)
 
 ## Deal Terms
 

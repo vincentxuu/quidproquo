@@ -12,7 +12,7 @@ series:
   order: 87
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-10-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-11-10-ai-agent-daily)
 
 ## One-line Take
 

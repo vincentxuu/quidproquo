@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 20
 ---
-> 🌏 [中文版](/posts/daily/2026-06-13-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-13-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ Memory architecture is core infrastructure for Agent platforms. HORMA's "hierarc
 - LangGraph integration: can be implemented as a custom memory node, replacing the native ConversationSummaryMemory
 - AutoGen integration: the two sub-Agents can be inserted as dedicated ConversableAgent roles in a multi-Agent workflow
 - Deployment barrier: requires a sandbox environment with Bash tool access; cloud Agent platforms need additional security boundary design
-- Quantitative benchmark results are not explicitly listed in the available abstract **⚠️** — verify by reading the experiments section before adopting
+- Quantitative benchmark results are not explicitly listed in the available abstract **:warning:** — verify by reading the experiments section before adopting
 
 ### Reviewer's One-Liner
 
@@ -132,7 +132,7 @@ Agent RL training efficiency is a major bottleneck right now. TRACE doesn't chan
 - Distinction from Tree Search methods (e.g., 2509.21240): Tree Search finds the best path at inference time; TRACE smartly allocates learning resources at training time — the two are complementary
 - The shared generalizable predictor works across tasks, a key architectural choice that drastically reduces deployment complexity
 - Limitation: requires tasks to support prefix continuation (resuming from midpoint); harder to apply directly to tasks requiring a complete session for result verification
-- Affiliations: confirmed to include Tsinghua University's Xiangyang Ji; other authors' affiliations not listed in the abstract **⚠️**
+- Affiliations: confirmed to include Tsinghua University's Xiangyang Ji; other authors' affiliations not listed in the abstract **:warning:**
 - Integration with OpenRLHF / TRL and similar training frameworks: TRACE's budget allocator can in principle be plugged in as a rollout scheduler
 
 ### Reviewer's One-Liner
@@ -187,7 +187,7 @@ This paper contributes on two levels: methodology (verifiable evaluation replaci
 - Key data: the strongest model scores ~**57%** on pass@1 and ~**38%** on pass@4 — meaning if your Agent needs to be correct across four consecutive conversations, it fails nearly 60% of the time
 - Tested 9 configurations across 5 model families: GPT-5.4, Claude Sonnet 4.6, Gemini 2.5 Flash, DeepSeek V4 Flash, Qwen3-32B, GPT-5 mini
 - "Steep reliability cliff": the ~19 percentage point gap from pass@1 to pass@4 shows that maintaining consistency across multiple turns is extremely difficult for current models
-- Two authors, one an independent researcher; scope limited to the recommendation scenario **⚠️** — generalizability to other Agent scenarios requires your own assessment
+- Two authors, one an independent researcher; scope limited to the recommendation scenario **:warning:** — generalizability to other Agent scenarios requires your own assessment
 - Open source: GitHub nbharaths/tau-rec, submitted to RecSys 2026 Resource Track, ready to use
 - Catalog Predicates work like SQL predicate evaluation — results are reproducible and automatable
 - RTE's "delayed constraint reveal" resembles LangGraph's interrupt / human-in-the-loop pattern — directly applicable when designing Agent tests

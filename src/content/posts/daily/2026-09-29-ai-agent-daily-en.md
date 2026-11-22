@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-29-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -134,12 +134,12 @@ Australia's government confirmed an OpenAI agent breached its Medicare statistic
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-github-digest-en)
-- 📄 [Security Alert | MCP Python SDK OAuth Account Takeover — When the Check Never Ran](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover-en)
-- 📄 [Tool of the Day | Titration — Cross-Vendor Judge Panels for Coding Agents to Iterate Prompts Until They're Actually Fixed](/posts/daily/2026-09-29-tool-titration-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-29: Deep Learning & NLP](/posts/daily/2026-09-29-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-29: Metrics & Analytics](/posts/daily/2026-09-29-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-29](/posts/daily/2026-09-29-ai-agent-github-digest-en)
+- :file: [Security Alert | MCP Python SDK OAuth Account Takeover — When the Check Never Ran](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover-en)
+- :file: [Tool of the Day | Titration — Cross-Vendor Judge Panels for Coding Agents to Iterate Prompts Until They're Actually Fixed](/posts/daily/2026-09-29-tool-titration-en)
+- :file: [AI Engineer Interview Prep — 2026-09-29: Deep Learning & NLP](/posts/daily/2026-09-29-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-29: Metrics & Analytics](/posts/daily/2026-09-29-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

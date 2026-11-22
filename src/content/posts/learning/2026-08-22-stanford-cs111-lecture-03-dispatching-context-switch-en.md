@@ -13,7 +13,7 @@ description: "A guide to Stanford CS111 Spring 2026 Lecture 3, connecting thread
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-03-dispatching-context-switch)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

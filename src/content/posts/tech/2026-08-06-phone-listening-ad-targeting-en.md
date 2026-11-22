@@ -10,7 +10,7 @@ description: "Dismantling the phone-eavesdropping myth: the Panoptispy study, th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-06-phone-listening-ad-targeting)
+> :globe: [中文版](/posts/tech/2026-08-06-phone-listening-ad-targeting)
 
 You have never searched for rock climbing. You just talked about it face to face with a friend, phone sitting nearby. A few hours later Instagram starts pushing climbing content.
 

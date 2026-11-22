@@ -14,7 +14,7 @@ description: "依實體頁碼帶讀 CS329Z Lecture 04 Tool Use & Function Callin
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 79 分鐘；本文依公開投影片與指定讀物整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 

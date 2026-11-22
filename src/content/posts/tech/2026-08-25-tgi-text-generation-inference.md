@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-tgi-text-generation-inference-en)
+> :globe: [English version](/posts/tech/2026-08-25-tgi-text-generation-inference-en)
 
 Text Generation Inference（TGI）是 HuggingFace 開發的 LLM 推論伺服器。2023 年開源時，它是第一個把 continuous batching、Flash Attention 和 token streaming 打包成「Docker 啟動就能用」的生產級方案，HuggingChat 和 OpenAssistant 都用它跑推論。
 

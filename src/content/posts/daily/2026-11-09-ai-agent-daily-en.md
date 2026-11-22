@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-11-09-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -33,32 +33,32 @@ title: Default-blocked boundaries vs. after-the-fact cleanup
 desc: The left column bakes isolation into architecture by default (MAF 1.25.0, devvm, Airlock); the right column relies on users or scanning tools to catch leaks after the fact (Claude Code's "don't ask again", traditional secret scanners)
 caption: Compiled from today's Apiiro research, the Microsoft Agent Framework 1.25.0 release notes, the devvm README, and the Airlock paper in the AI Agent Arxiv Digest.
 ---
-<svg viewBox="0 0 640 288">
-  <rect class="dg-zone dg-zone--solid" x="16" y="16" width="288" height="256" rx="8"/>
-  <rect class="dg-zone" x="336" y="16" width="288" height="256" rx="8"/>
+<svg viewBox="0 0 656 288">
+  <rect class="dg-zone dg-zone--solid" x="16" y="16" width="304" height="256" rx="8"/>
+  <rect class="dg-zone" x="336" y="16" width="304" height="256" rx="8"/>
 
   <text class="dg-tag dg-text--accent" x="32" y="44" dominant-baseline="central">Blocked by default</text>
   <text class="dg-tag dg-text--warn" x="352" y="44" dominant-baseline="central">After-the-fact cleanup</text>
 
-  <rect class="dg-box" x="36" y="64" width="248" height="56" rx="6"/>
-  <text class="dg-label" x="160" y="84" text-anchor="middle" dominant-baseline="central">MAF 1.25.0</text>
-  <text class="dg-sub" x="160" y="104" text-anchor="middle" dominant-baseline="central">Workflow scope bound by default</text>
+  <rect class="dg-box" x="32" y="64" width="272" height="56" rx="6"/>
+  <text class="dg-label" x="168" y="84" text-anchor="middle" dominant-baseline="central">MAF 1.25.0</text>
+  <text class="dg-sub" x="168" y="104" text-anchor="middle" dominant-baseline="central">Workflow scope bound by default</text>
 
-  <rect class="dg-box" x="36" y="132" width="248" height="56" rx="6"/>
-  <text class="dg-label" x="160" y="152" text-anchor="middle" dominant-baseline="central">devvm</text>
-  <text class="dg-sub" x="160" y="172" text-anchor="middle" dominant-baseline="central">Secrets stay on host, VM never sees them</text>
+  <rect class="dg-box" x="32" y="132" width="272" height="56" rx="6"/>
+  <text class="dg-label" x="168" y="152" text-anchor="middle" dominant-baseline="central">devvm</text>
+  <text class="dg-sub" x="168" y="172" text-anchor="middle" dominant-baseline="central">Secrets stay on host, VM never sees them</text>
 
-  <rect class="dg-box" x="36" y="200" width="248" height="56" rx="6"/>
-  <text class="dg-label" x="160" y="220" text-anchor="middle" dominant-baseline="central">Airlock</text>
-  <text class="dg-sub" x="160" y="240" text-anchor="middle" dominant-baseline="central">Architectural containment, 100% retention</text>
+  <rect class="dg-box" x="32" y="200" width="272" height="56" rx="6"/>
+  <text class="dg-label" x="168" y="220" text-anchor="middle" dominant-baseline="central">Airlock</text>
+  <text class="dg-sub" x="168" y="240" text-anchor="middle" dominant-baseline="central">Architectural containment, 100% retention</text>
 
-  <rect class="dg-box dg-box--warn" x="356" y="64" width="248" height="68" rx="6"/>
-  <text class="dg-label" x="480" y="86" text-anchor="middle" dominant-baseline="central">Claude Code "don't ask again"</text>
-  <text class="dg-sub" x="480" y="106" text-anchor="middle" dominant-baseline="central">Follows only the local exclude list</text>
+  <rect class="dg-box dg-box--warn" x="352" y="64" width="272" height="68" rx="6"/>
+  <text class="dg-label" x="488" y="86" text-anchor="middle" dominant-baseline="central">Claude Code "don't ask again"</text>
+  <text class="dg-sub" x="488" y="106" text-anchor="middle" dominant-baseline="central">Follows only the local exclude list</text>
 
-  <rect class="dg-box dg-box--warn" x="356" y="148" width="248" height="68" rx="6"/>
-  <text class="dg-label" x="480" y="170" text-anchor="middle" dominant-baseline="central">Traditional secret scanners</text>
-  <text class="dg-sub" x="480" y="190" text-anchor="middle" dominant-baseline="central">Even gitleaks misses this class</text>
+  <rect class="dg-box dg-box--warn" x="352" y="148" width="272" height="68" rx="6"/>
+  <text class="dg-label" x="488" y="170" text-anchor="middle" dominant-baseline="central">Traditional secret scanners</text>
+  <text class="dg-sub" x="488" y="190" text-anchor="middle" dominant-baseline="central">Even gitleaks misses this class</text>
 </svg>
 ```
 
@@ -157,16 +157,16 @@ Claude Opus 4.8's fast mode is being removed on 11/30, with Anthropic pointing u
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
-- 📄 [Funding Brief｜OpenAI's New $11B Tranche](/posts/daily/2026-11-09-funding-openai-en)
-- 📄 [Model Card｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
-- 📄 [Pricing Tracker｜Claude Opus 4.8 Fast Mode Sunset](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
-- 📄 [Security Alert｜Claude Code "Don't Ask Again" Secrets Leak](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
-- 📄 [Tool Pick｜devvm](/posts/daily/2026-11-09-tool-devvm-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-09: ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-11-09: Human Delta Framework](/posts/daily/2026-11-09-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest-en)
+- :file: [Framework Update｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0-en)
+- :file: [Funding Brief｜OpenAI's New $11B Tranche](/posts/daily/2026-11-09-funding-openai-en)
+- :file: [Model Card｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base-en)
+- :file: [Pricing Tracker｜Claude Opus 4.8 Fast Mode Sunset](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en)
+- :file: [Security Alert｜Claude Code "Don't Ask Again" Secrets Leak](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak-en)
+- :file: [Tool Pick｜devvm](/posts/daily/2026-11-09-tool-devvm-en)
+- :file: [AI Engineer Interview Prep — 2026-11-09: ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-11-09: Human Delta Framework](/posts/daily/2026-11-09-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

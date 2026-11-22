@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-dots-studio-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-dots-studio-en)
 
 Dots3-Note Preview 是 Dots 3 家族的一個 MoE 模型。本文以 [OpenRouter 的模型頁](https://openrouter.ai/dots-studio/dots-3-note-preview:free)為可核對的存取入口，整理它的長上下文、多模態與工具呼叫能力，以及把它接進文件工作流時需要自己補上的部分。
 

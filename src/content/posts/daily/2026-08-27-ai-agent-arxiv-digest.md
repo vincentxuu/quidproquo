@@ -12,7 +12,7 @@ series:
   order: 95
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Zhi Rui Tam, Chieh-Yen Lin, Yun-Nung Chen et al.（Appier AI Research / 國立�
 
 ### 深入要點
 
-- 4B Qwen3 用 SMITH 訓練後,在 13 項 Reasoning-Gym 程序推理任務的 held-out 測試拿下 79.8% 巨集平均準確率,是所有評測方法中最高分,超越沒訓練過的 30B-A3B 工具寫手 ⚠️(作者自測,待外部複現)
+- 4B Qwen3 用 SMITH 訓練後,在 13 項 Reasoning-Gym 程序推理任務的 held-out 測試拿下 79.8% 巨集平均準確率,是所有評測方法中最高分,超越沒訓練過的 30B-A3B 工具寫手 :warning:(作者自測,待外部複現)
 - 零樣本遷移到 TabMWP-Hard 拿下 40.4 分、GQA 視覺問答拿下 42.6 分(比同骨幹最佳 inference-time 基準線高 +7.6 分),訓練過程完全沒看過表格或視覺資料
 - 4B policy 寫出來的工具,能讓一個凍結的 350M 小模型(LFM-2.5-350M)追上 30B 工具寫手的水準
 - 訓練演算法用 DAPO(GRPO 的 clip-higher 變體),用來穩定熵值、避免 reward collapse
@@ -103,7 +103,7 @@ Zhi-Kai Chen, Xu-Xiang Zhong, Song-Yan Li et al.（南京大學 Nanjing Universi
 
 ### 深入要點
 
-- 核心發現:邏輯規劃能力強的 agent,不代表物理排程也安全或有效率——兩者是可以脫鉤的兩種能力 ⚠️(作者自測,待外部複現)
+- 核心發現:邏輯規劃能力強的 agent,不代表物理排程也安全或有效率——兩者是可以脫鉤的兩種能力 :warning:(作者自測,待外部複現)
 - 把資源資訊主動暴露給 agent(而不是讓它盲目平行呼叫),可以減少可避免的資源過載並提升資源使用率
 - Benchmark 建構流程:用 MCP 工具生成可執行的多工具查詢 → 在 sandbox 裡實測記錄每一步的資源使用量 → 用執行順序擾動反推出真正的前置/並行結構
 - 落地門檻:需要能取得工具的資源使用量(記憶體、API 額度、GPU 用量等)才能套用這套評測,對黑箱第三方 API 較難量化
@@ -148,7 +148,7 @@ Rongfeng Guo, Yinxuan Huang, Yusen Wu et al.（華中科技大學 Huazhong Unive
 
 ### 深入要點
 
-- 在 Qwen3 0.6B / 1.7B / 4B / 8B / 14B 五個模型規模上,Specialized OODA 比 Direct-LoRA 基準線的任務成功率分別提升 6.86 / 6.79 / 6.99 / 5.94 / 4.48 分,模型越小改善幅度越明顯 ⚠️(作者自測,待外部複現)
+- 在 Qwen3 0.6B / 1.7B / 4B / 8B / 14B 五個模型規模上,Specialized OODA 比 Direct-LoRA 基準線的任務成功率分別提升 6.86 / 6.79 / 6.99 / 5.94 / 4.48 分,模型越小改善幅度越明顯 :warning:(作者自測,待外部複現)
 - 改善幅度在困難題與分佈外(OOD)任務上更大,在簡單題或高度平行呼叫的任務上改善較小
 - 測試場景:ToolDial 加上另外三個 benchmark,涵蓋多輪、多工具、資訊不完整三種情境
 - 代價:四階段的分階段生成比一次到位的 Direct-LoRA 多耗推理成本,若場景重視單次呼叫的延遲,Direct-LoRA 仍是更便宜的選擇

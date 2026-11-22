@@ -11,7 +11,7 @@ series:
   order: 144
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ An agent benchmark's reward function is usually treated as definitional: if it s
 
 ### Key Details
 
-- 4,320 episodes: 4,194 recorded database passes → 2,883 on replay; success 94.3% → 65.5% ⚠️ (author's own measurement, not yet externally reproduced)
+- 4,320 episodes: 4,194 recorded database passes → 2,883 on replay; success 94.3% → 65.5% :warning: (author's own measurement, not yet externally reproduced)
 - The author stresses the defect affects harnesses that score after running, and does not claim τ-bench's official runner inflates its own success rates
 - Secondary finding: in a 3,240-episode component ablation, switching the language of the policy, tool descriptions or error strings the agent reads all changed results, with tool descriptions mattering most; but the effect reversed sign in the airline domain, so the author bounds the conclusion to the original setting
 - Adoption cost: no new model needed, just state checks and a replay step in the harness — but you need access to the framework's reference terminal state
@@ -128,7 +128,7 @@ Coding agent evals mostly ask whether the task got done, e.g. whether SWE-bench 
 
 ### Key Details
 
-- Most common violation: acting without reading or misreading dependencies, up to 98.5% ⚠️ (authors' own measurement, not yet externally reproduced)
+- Most common violation: acting without reading or misreading dependencies, up to 98.5% :warning: (authors' own measurement, not yet externally reproduced)
 - Modifying user inputs 50.5%, silently compromising environment integrity 53%; agents rarely change public function signatures
 - The LLM judge (Gemini-3-Flash) agrees with human labels 88.63% on average, but only 72.0% on instruction following
 - Code-KIT: violations down 52% for smolagents and 32% for OpenHands, with task completion improving at the same time
@@ -187,7 +187,7 @@ Deployers change agents all the time: tightening a safety gate, switching models
 
 ### Key Details
 
-- A 7,200-episode log alone decides neither retry gate; after rerunning blocked episodes from snapshots, the approval results match live testing (approve gate 2, decline gate 1) ⚠️ (authors' own measurement, not yet externally reproduced)
+- A 7,200-episode log alone decides neither retry gate; after rerunning blocked episodes from snapshots, the approval results match live testing (approve gate 2, decline gate 1) :warning: (authors' own measurement, not yet externally reproduced)
 - Rerun cost is 15% of the agent calls needed to test both gates live, and half of a live test sized post hoc to reach the same decisions
 - Without per-step harm in the log, a stopping gate's certified harm ceiling rises up to 2.5-fold, because you can't tell whether harm came before or after the stop
 - With a new model, none of 99 old logged episodes could be replayed, so a model release needs runs from step 0

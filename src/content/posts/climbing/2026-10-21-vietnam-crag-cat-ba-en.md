@@ -13,7 +13,7 @@ description: "A Cat Ba Island climbing guide: the style, permits, approaches, bo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-vietnam-crag-cat-ba)
+> :globe: [中文版](/posts/climbing/2026-10-21-vietnam-crag-cat-ba)
 
 Cat Ba Island is the closest thing Vietnam has to an island holiday for climbing: jungle on top of the limestone cliffs, beaches and jetties down below. But everything here works differently from other crags — **climbing on the island is "tolerated rather than permitted"**: you buy a permit, you pay the landowner, bolt condition changes from sector to sector, and even the question of whether you are allowed to climb has been taken up by the government before.
 

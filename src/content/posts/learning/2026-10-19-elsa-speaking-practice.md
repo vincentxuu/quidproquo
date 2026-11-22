@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-elsa-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-elsa-speaking-practice-en)
 
 你知道想說什麼，對方卻常問「你剛才說哪個字？」這時，[ELSA Speak](https://tw.elsaspeak.com/elsa-premium/)這類會指出發音問題的 App，可能比再背一份單字表更貼近需要。它以 AI 分析說話，提供發音練習、回饋與情境對話，讓你在下班後自己反覆練。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-architecture-map-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-architecture-map-en)
 
 [Looplane](https://github.com/vincentxuu/looplane) 是一個 Python-first coding-agent harness。光把模型接上 shell，還稱不上 harness；Looplane 進一步把「模型可以看什麼、能做什麼、失敗後留下什麼」拆成可檢查的程式邊界。這個系列會沿著一次任務的實際路徑讀原始碼。路線從 TUI 收到需求開始，經過 workspace、prompt、runtime 與 tools，最後走到本機整合和 Cloudflare 遠端執行。
 

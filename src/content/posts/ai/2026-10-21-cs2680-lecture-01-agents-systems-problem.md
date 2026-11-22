@@ -23,7 +23,7 @@ glossary:
     context: "CS2680 用它取代每秒 token 數，當作 agent 要最佳化的成本指標。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

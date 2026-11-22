@@ -18,7 +18,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce-en)
 
 [上一篇](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs)的 XSS 和 IDOR，漏洞出在「網站替你做了不該做的事」。這一篇往下一層走：網站背後那台機器，有沒有可能被外人叫去做事？這就是 RCE。讀完你應該能在程式碼裡認出「把使用者輸入拼進 shell 指令」這個寫法，說出它為什麼危險，並改成安全版本。
 

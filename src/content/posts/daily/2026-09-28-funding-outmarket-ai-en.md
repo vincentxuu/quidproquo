@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-funding-outmarket-ai)
+> :globe: [中文版](/posts/daily/2026-09-28-funding-outmarket-ai)
 
 ## Funding Details
 

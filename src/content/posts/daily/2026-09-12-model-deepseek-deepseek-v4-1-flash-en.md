@@ -15,7 +15,7 @@ glossary:
     def: "A new model architecture family DeepSeek introduced in September 2026; the first release, Flash, replaces the predecessor's MoE decoder with a Causal Encoder-Decoder, optimized for a smaller KV cache and stronger agentic performance"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
+> :globe: [中文版](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | GPQA Diamond (base model, no tools) | 90.9 | N/A | GPT-5.6 Sol: 94.1 |
 | SimpleQA-Verified (base model, factual recall) | 42.3 | N/A | Own flagship V4-Pro: 55.2 |
 
-⚠️ All figures above are DeepSeek's own self-reported results under its strongest agent scaffold (mini-SWE); none have been independently reproduced yet. GPQA Diamond and SimpleQA-Verified are base-model (not instruct/agent) scores; V4-Flash-0731 has no published figure for either, hence "N/A".
+:warning: All figures above are DeepSeek's own self-reported results under its strongest agent scaffold (mini-SWE); none have been independently reproduced yet. GPQA Diamond and SimpleQA-Verified are base-model (not instruct/agent) scores; V4-Flash-0731 has no published figure for either, hence "N/A".
 
 ## Comparison with Predecessor/Competitors
 

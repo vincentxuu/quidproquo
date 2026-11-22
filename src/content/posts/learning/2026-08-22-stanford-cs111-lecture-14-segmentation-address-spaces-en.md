@@ -13,7 +13,7 @@ description: "A reading of Stanford CS111 Spring 2026 Lecture 14 on its duplicat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-14-segmentation-address-spaces)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-14-segmentation-address-spaces)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

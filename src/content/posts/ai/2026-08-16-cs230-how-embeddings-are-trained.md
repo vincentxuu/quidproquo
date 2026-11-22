@@ -13,7 +13,7 @@ description: "Stanford CS230（2025 秋季）Lecture 2 完整導讀：模型＝�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

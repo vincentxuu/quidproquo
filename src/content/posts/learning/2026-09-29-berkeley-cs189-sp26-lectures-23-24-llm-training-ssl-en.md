@@ -23,7 +23,7 @@ glossary:
     context: "Lec 23 uses it to explain why SFT uses a smaller learning rate and why LoRA helps."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-23-24-llm-training-ssl)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

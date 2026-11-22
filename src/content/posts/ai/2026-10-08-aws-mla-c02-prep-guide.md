@@ -13,7 +13,7 @@ description: "AWS Certified Machine Learning Engineer – Associate（MLA-C02）
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-08-aws-mla-c02-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-10-08-aws-mla-c02-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄，作者沒有報考這張考試。所有「考什麼」都指回 [AWS 官方 exam guide](https://docs.aws.amazon.com/aws-certification/latest/machine-learning-engineer-associate-02/machine-learning-engineer-associate-02.html)，不含考古題。查證日期：2026-10-08。
 

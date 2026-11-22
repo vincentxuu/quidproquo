@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-devcontainer)
 
 This is part of the [Claude Code Deep Dives](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) series. The previous piece covered how Claude Code works; this one tackles a more practical problem: **five people run Claude Code on five machines with different Node versions, package caches, and shell configs. When the AI breaks something, nobody can reproduce anyone else's result.**
 

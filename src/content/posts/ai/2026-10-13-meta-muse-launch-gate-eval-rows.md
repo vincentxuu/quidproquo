@@ -10,7 +10,7 @@ description: "整理 Founders podcast 的 Alexandr Wang 訪談：Muse 從受 Ope
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows-en)
+> :globe: [English version](/posts/ai/2026-10-13-meta-muse-launch-gate-eval-rows-en)
 
 2026 年 9 月 8 日，Meta [推出個人 AI Agent Muse](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/)，兩週內登上美國 App Store 免費榜首，[超越 ChatGPT](https://www.foxbusiness.com/technology/metas-muse-becomes-app-stores-hottest-download)。Muse 是能替使用者寄信、訂行程、連結信箱與行事曆等 App 的 Agent，跑在每人專屬的雲端虛擬機上，寄信或付款前會先請使用者核准（見 Meta 官方說明）。主導這件事的 Meta 首席 AI 官 Alexandr Wang，在 David Senra 的 [Founders podcast](https://www.davidsenra.com/episode/alexandr-wang) 講了很多事，其中最能直接拿來用的一段是：他們怎麼判斷 Agent 產品「可以上線了」。
 

@@ -10,13 +10,13 @@ description: "An introduction to Open Design (nexu-io): comparison with Claude D
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-19-open-design-the-eleven-day-fork)
+> :globe: [中文版](/posts/ai/2026-05-19-open-design-the-eleven-day-fork)
 
 On 2026-04-17, Anthropic shipped Claude Design: powered by Opus 4.7, you prompt it and get prototypes / decks / one-pagers out, available as a research preview for Claude Pro subscribers and above. Eleven days later (2026-04-28), the nexu-io team pushed `open-design` to GitHub -- same artifact-first loop, Apache-2.0, local-first, running on the 16 coding-agent CLIs you already have. In two weeks it went from v0.1.0 to v0.7.0, racking up 40,000+ stars (per TechTimes 2026-05-17), making it one of the fastest-moving developer tools this year.
 
 This post breaks down its design trade-offs, how it differs from Claude Design, and what structurally happened to the "AI design tools" category in those 11 days.
 
-> ⚠️ Naming disambiguation up front: this article covers **nexu-io/open-design** (domain: opendesigner.io). Do not confuse it with `opendesign.dev` (Avocode/Ceros's design file parsing SaaS, sunset on 2023-10-01), `opendesigndev/open-design-engine` (the C++ rendering engine left behind by the former Avocode), or the Open Design Alliance (a CAD interoperability consortium).
+> :warning: Naming disambiguation up front: this article covers **nexu-io/open-design** (domain: opendesigner.io). Do not confuse it with `opendesign.dev` (Avocode/Ceros's design file parsing SaaS, sunset on 2023-10-01), `opendesigndev/open-design-engine` (the C++ rendering engine left behind by the former Avocode), or the Open Design Alliance (a CAD interoperability consortium).
 
 ## The Problem It Solves
 
@@ -86,8 +86,8 @@ Based on the WotAI 2026-04-29 evaluation:
 | Export | PDF / URL / PPTX / Canva | HTML / PDF / PPTX / MP4 / ZIP |
 
 Two structural differences:
-1. **Claude Design**: automatically absorbs design style from your codebase ✅; **OD**: relies on prebuilt design systems as a starting point ⚠️
-2. **OD**: swappable models, files stay local, can pipe into other agents via MCP ✅; **Claude Design**: hosted simplicity but no swapping ❌
+1. **Claude Design**: automatically absorbs design style from your codebase ✓; **OD**: relies on prebuilt design systems as a starting point :warning:
+2. **OD**: swappable models, files stay local, can pipe into other agents via MCP ✓; **Claude Design**: hosted simplicity but no swapping ✗
 
 ## Who It's For (and Who It Isn't)
 

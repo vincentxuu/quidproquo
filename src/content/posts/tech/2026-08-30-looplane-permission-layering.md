@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-permission-layering-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-permission-layering-en)
 
 [tool executor 專篇](/posts/tech/2026-08-30-looplane-tool-isolation)回答 path、argv、env 與 timeout 怎麼被機械限制。這是 coding-agent security boundary 的其中一層；本篇換一個問題：當呼叫本身符合 tool schema，誰有權決定它可以執行？
 

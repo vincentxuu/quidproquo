@@ -13,7 +13,7 @@ description: "達奧內谷（Valle di Daone）抱石區介紹：花崗岩與子�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-daone-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-daone-en)
 
 達奧內谷（Valle di Daone）在特倫提諾（Trentino）西部，是 Valle del Chiese 往阿達梅洛（Adamello）山塊伸進去的側谷。谷底散落著幾千年前從兩側山坡滾下來的花崗岩巨石，現在是北義大利最受歡迎的抱石區之一。離[阿爾科](/posts/climbing/2026-10-18-italy-crag-arco)約 70 公里，很多人把它和阿爾科排在同一趟。
 

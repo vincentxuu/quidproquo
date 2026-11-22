@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-27-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -156,12 +156,12 @@ APRA 警告 AI 讓駭客攻擊規模與速度暴增，威脅澳洲 4.8 兆澳幣
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-github-digest)
-- 📄 [融資速報｜Nous 完成 $17M 新一輪融資 — 2026-10-27](/posts/daily/2026-10-27-funding-nous)
-- 📄 [資安警報｜INC／Gentlemen 勒索軟體曝光 AI 共同操作全紀錄 — 2026-10-27](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
-- 📄 [AI Engineer 面試日練 — 2026-10-27：Deep Learning & NLP](/posts/daily/2026-10-27-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-27：Metrics & Analytics](/posts/daily/2026-10-27-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-github-digest)
+- :file: [融資速報｜Nous 完成 $17M 新一輪融資 — 2026-10-27](/posts/daily/2026-10-27-funding-nous)
+- :file: [資安警報｜INC／Gentlemen 勒索軟體曝光 AI 共同操作全紀錄 — 2026-10-27](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
+- :file: [AI Engineer 面試日練 — 2026-10-27：Deep Learning & NLP](/posts/daily/2026-10-27-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-27：Metrics & Analytics](/posts/daily/2026-10-27-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -14,7 +14,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-incident-timeline)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-incident-timeline)
 
 The assistant says, “I exported all customer tickets.” The API audit contains one successful Alice/S-1 read. If an AI summary becomes “complete customer-data breach,” fluent writing has expanded the incident beyond its evidence.
 

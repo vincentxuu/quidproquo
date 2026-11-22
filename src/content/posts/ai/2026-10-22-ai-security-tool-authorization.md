@@ -14,7 +14,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-tool-authorization-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-tool-authorization-en)
 
 工單助理已經有 `export_ticket` 工具。Alice 點過一次「允許」，模型接下來把目的地改掉，或把 N-1 換成 Bob 的 N-2。畫面看起來仍是同一個工具，執行的卻是另一件事。
 

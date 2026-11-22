@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-images-pipeline)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-images-pipeline)
 
 Once a site has many images, maintenance work appears quickly: thumbnails, crops, WebP/AVIF, retina sizes, social previews, user uploads, cache invalidation, and original-image access. You can prebuild every size at build time, or put images in S3/R2 and maintain a transformation service. [Cloudflare Images](https://developers.cloudflare.com/images/) offers a third path: dynamic transformation, optimization, and caching at the Cloudflare edge, with optional image storage handled by Cloudflare too.
 

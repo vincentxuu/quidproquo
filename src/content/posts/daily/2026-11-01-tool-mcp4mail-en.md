@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-01-tool-mcp4mail)
+> :globe: [中文版](/posts/daily/2026-11-01-tool-mcp4mail)
 
 ## Tool info
 
@@ -156,12 +156,12 @@ docker compose run --rm --no-deps app bin/rails db:encryption:init
 
 | | mcp4mail | Writing your own Gmail API integration | Handing the agent your IMAP password / a mailbox export |
 |---|---|---|---|
-| Works with any standard IMAP provider, not just Gmail/Outlook | ✅ | ❌ Gmail only | ✅ but with zero access control |
-| Write actions off by default, enabled per-action | ✅ | You build it yourself | ❌ full access from the start |
-| Password can stay entirely on your own machine | ✅ (self-hosted) | Depends how you store the token | Sort of, but no encryption or auditing |
-| Sending mail requires human approval | ✅ | You build it yourself | ❌ |
-| Built-in call audit log (who, which tool, how many rows) | ✅ | You build it yourself | ❌ |
-| Works directly with multiple AI clients (Claude, ChatGPT, Cursor, VS Code) | ✅ standard MCP + OAuth 2.1 | Separate integration per client | — |
+| Works with any standard IMAP provider, not just Gmail/Outlook | ✓ | ✗ Gmail only | ✓ but with zero access control |
+| Write actions off by default, enabled per-action | ✓ | You build it yourself | ✗ full access from the start |
+| Password can stay entirely on your own machine | ✓ (self-hosted) | Depends how you store the token | Sort of, but no encryption or auditing |
+| Sending mail requires human approval | ✓ | You build it yourself | ✗ |
+| Built-in call audit log (who, which tool, how many rows) | ✓ | You build it yourself | ✗ |
+| Works directly with multiple AI clients (Claude, ChatGPT, Cursor, VS Code) | ✓ standard MCP + OAuth 2.1 | Separate integration per client | — |
 
 ## Things to watch out for
 

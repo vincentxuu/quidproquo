@@ -14,7 +14,7 @@ series:
   order: 39
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-observability-tracing)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-observability-tracing)
 
 After a RAG system goes live, a user reports "this answer is wrong" — how do you investigate?
 

@@ -26,7 +26,7 @@ glossary:
     context: "Page 74 of L2 separates the two with FLOPS = FLOPs / second."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

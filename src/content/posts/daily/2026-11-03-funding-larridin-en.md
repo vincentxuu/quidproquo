@@ -12,7 +12,7 @@ series:
   order: 120
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-funding-larridin)
+> :globe: [中文版](/posts/daily/2026-11-03-funding-larridin)
 
 ## Funding Details
 

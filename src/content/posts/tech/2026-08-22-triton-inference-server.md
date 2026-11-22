@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-triton-inference-server-en)
+> :globe: [English version](/posts/tech/2026-08-22-triton-inference-server-en)
 
 [NVIDIA Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/) 是一套開放原始碼模型伺服器。它用一致的 HTTP／REST 與 gRPC 介面承接 TensorRT、ONNX Runtime、PyTorch、Python 等 backend，並把模型載入、版本、批次、實例配置、pipeline 與監控集中在服務層。
 

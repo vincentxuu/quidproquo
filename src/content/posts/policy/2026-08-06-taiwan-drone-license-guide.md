@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
+> :globe: [English version](/posts/policy/2026-08-06-taiwan-drone-license-guide-en)
 
 [上一篇](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)講了誰需要操作證。這篇講**怎麼考**：分幾級、要多久、花多少錢。
 

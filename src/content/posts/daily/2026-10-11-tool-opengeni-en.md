@@ -12,7 +12,7 @@ series:
   order: 51
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-11-tool-opengeni)
+> :globe: [中文版](/posts/daily/2026-10-11-tool-opengeni)
 
 ## Tool Info
 
@@ -90,11 +90,11 @@ Once installed, the agent connects to your organization over MCP (sign in once i
 
 | | Opengeni | Assembling your own Temporal + Postgres stack | A plain agent-logic framework (LangGraph / CrewAI) |
 |---|---|---|---|
-| Persistent sessions with replayable event history | ✅ Built in | Design your own schema and replay logic | ❌ Usually single-shot execution only |
-| Human approval gates that resume precisely after an interrupt | ✅ Built in | Build it yourself | ❌ Needs to be added |
-| Cross-machine execution (Connected Machine holds no credentials) | ✅ Built in | Design your own dial-out and credential isolation | ❌ |
-| Zero-deployment trial | ✅ app.opengeni.ai | ❌ | Depends on the framework |
-| Open source, self-hostable | ✅ Apache-2.0 | — | ✅ Most are open source |
+| Persistent sessions with replayable event history | ✓ Built in | Design your own schema and replay logic | ✗ Usually single-shot execution only |
+| Human approval gates that resume precisely after an interrupt | ✓ Built in | Build it yourself | ✗ Needs to be added |
+| Cross-machine execution (Connected Machine holds no credentials) | ✓ Built in | Design your own dial-out and credential isolation | ✗ |
+| Zero-deployment trial | ✓ app.opengeni.ai | ✗ | Depends on the framework |
+| Open source, self-hostable | ✓ Apache-2.0 | — | ✓ Most are open source |
 
 ## Things to watch out for
 

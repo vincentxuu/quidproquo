@@ -21,7 +21,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-mit-67960-l06-generalization-theory-en)
+> :globe: [English version](/posts/tech/2026-10-13-mit-67960-l06-generalization-theory-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

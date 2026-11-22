@@ -13,7 +13,7 @@ description: "A cross-product analysis of word retrieval and sentence formation 
 draft: true
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-26-speaking-word-retrieval)
+> :globe: [中文版](/posts/learning/2026-10-26-speaking-word-retrieval)
 
 Talking with colleagues about a cold, home cooking or an interview experience, the meaning can be clear in Chinese while the English does not arrive. Sometimes one word is missing. Sometimes I know several words but cannot assemble the sentence I want.
 

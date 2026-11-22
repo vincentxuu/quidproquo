@@ -11,7 +11,7 @@ series:
   order: 67
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-21-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -19,7 +19,7 @@ Today's three trending repos pull the agent ecosystem in two directions at once:
 
 ## Trending Repos
 
-### MoonshotAI/kimi-code ⭐ 7,900
+### MoonshotAI/kimi-code ★ 7,900
 
 [GitHub](https://github.com/MoonshotAI/kimi-code)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ Today's three trending repos pull the agent ecosystem in two directions at once:
 
 ---
 
-### open-multi-agent/open-multi-agent ⭐ 7,000
+### open-multi-agent/open-multi-agent ★ 7,000
 
 [GitHub](https://github.com/open-multi-agent/open-multi-agent)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ Today's three trending repos pull the agent ecosystem in two directions at once:
 
 ---
 
-### vibheksoni/stealth-browser-mcp ⭐ 3,200
+### vibheksoni/stealth-browser-mcp ★ 3,200
 
 [GitHub](https://github.com/vibheksoni/stealth-browser-mcp)　·　Python　·　MIT
 

@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits)
+> :globe: [中文版](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits)
 
 ## Summary
 
@@ -68,7 +68,7 @@ Anthropic is currently the only vendor that has formally merged the "subscriber"
 
 ## Timing Note (API Sunset)
 
-⚠️ **Old program retired**: The Agent SDK monthly credit program launched in June 2026 is confirmed by Anthropic's own FAQ as "no longer available." The current Claude API credit (covering the Claude API, Managed Agents, Agent SDK, and Playground) is its replacement — the two programs don't stack or coexist.
+:warning: **Old program retired**: The Agent SDK monthly credit program launched in June 2026 is confirmed by Anthropic's own FAQ as "no longer available." The current Claude API credit (covering the Claude API, Managed Agents, Agent SDK, and Playground) is its replacement — the two programs don't stack or coexist.
 
 ## Takeaway
 

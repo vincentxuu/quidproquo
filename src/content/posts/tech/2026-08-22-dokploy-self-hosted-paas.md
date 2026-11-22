@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-dokploy-self-hosted-paas-en)
+> :globe: [English version](/posts/tech/2026-08-22-dokploy-self-hosted-paas-en)
 
 [Dokploy](https://docs.dokploy.com/docs/core) 是以 Docker 與 Traefik 提供 Git-to-deploy、domain、TLS、log、monitoring、database、backup 與 preview 的自架平台。選它之前，先決定 workload 是單一 **Application**、多 service **Docker Compose**，還是需要 Swarm 的 **Stack**。
 

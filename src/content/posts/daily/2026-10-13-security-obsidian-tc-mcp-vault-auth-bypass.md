@@ -11,7 +11,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass-en)
+> :globe: [English version](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass-en)
 
 ## 事件概述
 

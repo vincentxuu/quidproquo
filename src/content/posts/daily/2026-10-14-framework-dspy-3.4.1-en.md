@@ -12,7 +12,7 @@ series:
   order: 39
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-framework-dspy-3.4.1)
+> :globe: [中文版](/posts/daily/2026-10-14-framework-dspy-3.4.1)
 
 ## Release Info
 

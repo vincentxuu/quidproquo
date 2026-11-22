@@ -14,7 +14,7 @@ description: "Guide to Berkeley CS189 Spring 2026 Homework 2: the structure and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

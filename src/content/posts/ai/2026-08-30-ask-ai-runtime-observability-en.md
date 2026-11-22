@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-runtime-observability)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-runtime-observability)
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [RAG Streaming](/posts/ai/2026-03-12-rag-streaming-sse-en), [RAG Observability](/posts/ai/2026-03-12-rag-observability-tracing-en), and [Semantic Caching](/posts/ai/2026-03-12-semantic-caching-en).
 

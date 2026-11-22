@@ -13,7 +13,7 @@ description: "Spring 2026 公開課程材料教學：因果注意力：從 Q、K
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-02-causal-attention-en)
 
 **影片狀態：錄影需登入或課程授權。** 本文依公開投影片與作業整理，數值例子為本站補充，不是課堂逐字稿。
 

@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Terra 是鎖定電腦操作與視覺推理、強調性價比的中階分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra-en)
+> :globe: [English version](/posts/daily/2026-10-26-model-openai-gpt-6-1-terra-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | 內部事實錯誤率（max effort，越低越好） | 4.3% | 22.3%（官方稱「降 18 個百分點」反推） | 與 GPT-6 Astra、GPT-6.1 Sol 相近 |
 | Terminal-Bench-Science 0.1（max effort） | 優於 GPT-6.1 Sol，成本更低；距 Claude Opus 5.5 僅差 5 分 | 未在本次公告提供 | 落後 Claude Opus 5.5 約 5 分，但成本不到其 1/5 |
 
-⚠️ 以上均為 OpenAI 官方自測與自選比較基準（各自設定的 reasoning effort），尚待第三方獨立複現；多數為官方公佈的「相對差距」而非雙方絕對分數，GPT-5.6 Terra 與競品的部分具體數字官方未在本次公告完整列出。
+:warning: 以上均為 OpenAI 官方自測與自選比較基準（各自設定的 reasoning effort），尚待第三方獨立複現；多數為官方公佈的「相對差距」而非雙方絕對分數，GPT-5.6 Terra 與競品的部分具體數字官方未在本次公告完整列出。
 
 ```diagram
 title: GPT-6.1 Terra 內部事實錯誤率：前後代對照
@@ -64,8 +64,8 @@ caption: 資料來源：OpenAI 官方公告自測結果（2026-10-26）。max ef
   <text class="dg-small" x="64" y="220" text-anchor="end" dominant-baseline="central">20</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="172" y="52" text-anchor="middle" dominant-baseline="central">GPT-5.6 Terra</text>
-  <text class="dg-text--series dg-text--accent" x="244" y="52" text-anchor="middle" dominant-baseline="central">GPT-6.1 Terra</text>
+  <text class="dg-text--series dg-c-s1" x="360" y="32" dominant-baseline="central">GPT-5.6 Terra</text>
+  <text class="dg-text--series dg-c-accent" x="488" y="32" dominant-baseline="central">GPT-6.1 Terra</text>
 
   <rect class="dg-bar dg-c-s1" x="140" y="86" width="64" height="214"/>
   <rect class="dg-bar dg-c-accent" x="212" y="233" width="64" height="67"/>

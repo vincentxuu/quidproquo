@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-google-kubernetes-engine)
+> :globe: [中文版](/posts/tech/2026-08-22-google-kubernetes-engine)
 
 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) is managed Kubernetes. Google operates the control plane; you compose a platform from Deployments, Services, Jobs, Gateways, policies, and controllers. The first choice is not machine type but Autopilot versus Standard.
 

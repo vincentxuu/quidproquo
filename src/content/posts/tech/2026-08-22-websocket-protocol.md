@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-websocket-protocol-en)
+> :globe: [English version](/posts/tech/2026-08-22-websocket-protocol-en)
 
 [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) 透過 HTTP Upgrade 建立長期、全雙工的 message connection，之後可傳 text、binary、ping/pong 與 close frames。瀏覽器 API 很小，這表示 application 必須自己定義 message envelope、version、error、ack、authorization、reconnect 與 replay。
 

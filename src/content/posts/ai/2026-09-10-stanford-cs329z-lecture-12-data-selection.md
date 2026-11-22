@@ -14,7 +14,7 @@ description: "依課表與指定閱讀預習 Stanford CS329Z 第 12 堂 Data Sel
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

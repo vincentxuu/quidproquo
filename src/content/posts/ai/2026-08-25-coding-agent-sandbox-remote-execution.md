@@ -16,7 +16,7 @@ tldr: "本地沙箱管的是『agent 在你的機器上爆炸半徑多大』，�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution-en)
 
 ## 設計問題
 

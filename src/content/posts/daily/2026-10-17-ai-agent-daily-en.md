@@ -12,7 +12,7 @@ series:
   order: 63
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-17-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-17-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -123,16 +123,16 @@ Also today: NVIDIA open-sourced a 2.8-trillion-token Indic pretraining data pipe
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Agno v3.1.4](/posts/daily/2026-10-17-framework-agno-3.1.4-en)
-- 📄 [Framework Update｜Mastra @mastra/core@1.78.0](/posts/daily/2026-10-17-framework-mastra-1.78.0-en)
-- 📄 [Framework Update｜Pydantic AI v2.57.0](/posts/daily/2026-10-17-framework-pydantic-ai-v2.57.0-en)
-- 📄 [Funding Alert｜RapidCanvas Series B $29M](/posts/daily/2026-10-17-funding-rapidcanvas-en)
-- 📄 [Pricing Watch｜Google fills in the Gemini 4 Argon promo deadline](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline-en)
-- 📄 [Tool Pick｜Co-op Anything](/posts/daily/2026-10-17-tool-coop-anything-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-17: Paper Reading](/posts/daily/2026-10-17-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-17: Technical PM](/posts/daily/2026-10-17-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-github-digest-en)
+- :file: [Framework Update｜Agno v3.1.4](/posts/daily/2026-10-17-framework-agno-3.1.4-en)
+- :file: [Framework Update｜Mastra @mastra/core@1.78.0](/posts/daily/2026-10-17-framework-mastra-1.78.0-en)
+- :file: [Framework Update｜Pydantic AI v2.57.0](/posts/daily/2026-10-17-framework-pydantic-ai-v2.57.0-en)
+- :file: [Funding Alert｜RapidCanvas Series B $29M](/posts/daily/2026-10-17-funding-rapidcanvas-en)
+- :file: [Pricing Watch｜Google fills in the Gemini 4 Argon promo deadline](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline-en)
+- :file: [Tool Pick｜Co-op Anything](/posts/daily/2026-10-17-tool-coop-anything-en)
+- :file: [AI Engineer Interview Daily — 2026-10-17: Paper Reading](/posts/daily/2026-10-17-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-17: Technical PM](/posts/daily/2026-10-17-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

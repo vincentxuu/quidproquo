@@ -11,7 +11,7 @@ series:
   order: 47
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-01-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-01-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### dots ⭐ 1,932
+### dots ★ 1,932
 
 [GitHub](https://github.com/feder-cr/dots)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### context-mode ⭐ 24,478
+### context-mode ★ 24,478
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　Elastic License 2.0（source-available，非典型 OSS 授權）
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### openrig ⭐ 2,996
+### openrig ★ 2,996
 
 [GitHub](https://github.com/mvschwarz/openrig)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### dbx ⭐ 23,153
+### dbx ★ 23,153
 
 [GitHub](https://github.com/t8y2/dbx)　·　Rust　·　Apache-2.0
 
@@ -63,7 +63,7 @@ series:
 
 ---
 
-### universal-modder ⭐ 790
+### universal-modder ★ 790
 
 [GitHub](https://github.com/rehan-remade/universal-modder)　·　Python　·　MIT
 
@@ -89,7 +89,7 @@ series:
 [Release Notes](https://github.com/deepset-ai/haystack/releases/tag/v3.3.0-rc1)
 
 - **重要變更**：修補 anyio 的 [CVE-2026-63374](https://github.com/advisories/GHSA-82r6-8w77-94w6)（透過 httpx／openai 間接安裝進來，要求升到 4.14.2 以上）；`InMemoryDocumentStore` 用 BM25L／BM25Plus 時，完全不含查詢詞的文件不再被灌分數湊滿 `top_k`；`SentenceWindowRetriever` 改成每次查詢只打一次 Document Store，而非每篇檢索到的文件各打一次，直接降低延遲。
-- **Breaking Changes**：官方列在「⬆️ Upgrade Notes」而非明講 breaking，但屬於會改變既有檢索結果分數與筆數的行為變更——用固定分數門檻過濾結果的人要重新檢查閾值。
+- **Breaking Changes**：官方列在「↑ Upgrade Notes」而非明講 breaking，但屬於會改變既有檢索結果分數與筆數的行為變更——用固定分數門檻過濾結果的人要重新檢查閾值。
 - **對你的影響**：用 Haystack 內建 BM25 retriever 且設了固定分數門檻的人，升級後可能篩出比之前更少的文件，需要重新校正；anyio 的 CVE 修補則是所有人都該跟進。
 
 ## 今日收穫

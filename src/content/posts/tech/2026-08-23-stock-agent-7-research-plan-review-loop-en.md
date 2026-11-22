@@ -17,7 +17,7 @@ glossary:
     definition: "An attack that hides malicious instructions in text supplied to an LLM, trying to make the model follow those instructions instead of yours."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop)
 
 > **Building a Taiwan Stock Research Agent (Part 7 of 9)**: [Previous: Making Every Number in an LLM Report Auditable](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations-en) ｜ [Next: The Boundary Between Research and Paper Orders—Content-Addressed Execution Contracts](/posts/tech/2026-08-23-stock-agent-8-execution-contracts-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

@@ -13,7 +13,7 @@ description: "A guide to Andonno: the limestone and how grades spread across its
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-andonno)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-andonno)
 
 Andonno is a small village in the municipality of Valdieri, Piedmont, at the mouth of Valle Gesso about 13 km from Cuneo. The grey limestone of Monte Cros above the village is the best-known sport crag around Cuneo: in 1993 Severino Scassa climbed Noia here, a route later climbers remember as Italy's first 8c+.
 

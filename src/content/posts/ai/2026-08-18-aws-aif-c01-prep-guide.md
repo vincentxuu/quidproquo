@@ -13,7 +13,7 @@ description: "AWS Certified AI Practitioner（AIF-C01）備考指南，依官方
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en)
 >
 > 本文是從官方資料與考生實戰心得建出來的備考路徑，不是應考實錄。所有「考什麼」都指回[官方 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-practitioner-01/ai-practitioner-01.html)，「怎麼準備」整合 AWS 官方訓練資源與多位考生分享。查證日期：2026-08-18，對照的是 exam guide **v1.1**。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-liveblocks-collaboration-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-liveblocks-collaboration-platform-en)
 
 [Liveblocks](https://liveblocks.io/docs/concepts) 是 managed collaboration backend。Room 通常對應 document、whiteboard、workflow 或其他 artifact，內含 Presence、Broadcast、Storage、Threads、Feeds 等 primitives，另提供 editor/Yjs integrations、comments UI、mentions 與 notifications。
 

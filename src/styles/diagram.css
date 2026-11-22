@@ -11,26 +11,27 @@
   --dg-accent-tint: color-mix(in srgb, var(--brand-500) 12%, transparent);
   --dg-link: var(--info-border);
   --dg-link-tint: color-mix(in srgb, var(--info-border) 10%, transparent);
-  --dg-warn: var(--danger);
-  --dg-warn-tint: color-mix(in srgb, var(--danger) 10%, transparent);
+  --dg-warn: var(--diagram-warn);
+  --dg-warn-tint: color-mix(in srgb, var(--diagram-warn) 10%, transparent);
   --dg-active: var(--brand-500);
   --flow-active: var(--dg-active);
-  margin: 1.5rem 0;
-  padding: 1rem 1rem .75rem;
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-4) var(--space-3);
   border: 1px solid var(--border);
-  border-radius: .75rem;
+  border-radius: var(--corner-lg);
   background: var(--bg-card);
 }
-[data-theme="dark"] .dg { --dg-warn: #f97066; }
-.content .dg__title { margin: 0 0 .5rem; font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
-.content .dg__caption { margin: .5rem 0 0; font-size: .8rem; color: var(--text-muted); }
+.content .dg__title { margin: 0 0 var(--space-2); font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
+.content .dg__caption { margin: var(--space-2) 0 0; font-size: .8rem; color: var(--text-muted); }
 .dg__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
 .dg__scroll:focus-visible { outline: 2px solid var(--dg-accent); outline-offset: 2px; }
 .dg-svg { display: block; width: 100%; height: auto; max-height: 85vh; margin-inline: auto; overflow: visible; }
-/* Never shrink text below 75%: wide diagrams scroll sideways inside the figure instead. */
-.dg--s .dg-svg { max-width: 560px; }
-.dg--m .dg-svg { max-width: 720px; min-width: 480px; }
-.dg--l .dg-svg { max-width: 840px; min-width: 600px; }
+/* Never shrink text below 75%: wide diagrams scroll sideways inside the figure instead.
+   Never enlarge past the drawn size either (--dg-w = viewBox width): a 340-wide diagram used to stretch to 560px,
+   blowing 15px labels up to ~25px (2026-11-19, series overview map). */
+.dg--s .dg-svg { max-width: min(560px, var(--dg-w, 560px)); }
+.dg--m .dg-svg { max-width: min(720px, var(--dg-w, 720px)); min-width: min(480px, var(--dg-w, 480px)); }
+.dg--l .dg-svg { max-width: min(840px, var(--dg-w, 840px)); min-width: min(600px, var(--dg-w, 600px)); }
 
 /* Shapes */
 .dg-box { fill: var(--dg-paper); stroke: var(--dg-muted); stroke-width: 1.2; }
@@ -109,8 +110,7 @@
 
 /* Data charts. A mark takes its colour from --dg-c: set it with one colour class (dg-c-accent, dg-c-s1…s5, …).
  * Series colours are muted on purpose — accent stays the single focal series. Palette from diagram-design (MIT). */
-.dg { --dg-s1: #5e7a9b; --dg-s2: #b8915a; --dg-s3: #9c6b50; --dg-s4: #6e6479; --dg-s5: #7c8f6f; }
-[data-theme="dark"] .dg { --dg-s1: #82a0c0; --dg-s2: #d3ad7a; --dg-s3: #b88670; --dg-s4: #8d8298; --dg-s5: #9caf8f; }
+.dg { --dg-s1: var(--diagram-s1); --dg-s2: var(--diagram-s2); --dg-s3: var(--diagram-s3); --dg-s4: var(--diagram-s4); --dg-s5: var(--diagram-s5); }
 .dg-c-accent { --dg-c: var(--dg-accent); }
 .dg-c-warn { --dg-c: var(--dg-warn); }
 .dg-c-link { --dg-c: var(--dg-link); }
@@ -156,5 +156,4 @@
 .dg-outline--accent { fill: none; stroke: var(--dg-accent); stroke-width: 2.2; }
 .dg-bubble { fill: color-mix(in srgb, var(--dg-c, var(--dg-muted)) 24%, var(--dg-paper)); stroke: var(--dg-c, var(--dg-muted)); stroke-width: 1.4; }
 .dg-text--ink { fill: var(--dg-ink); }
-/* Dark green text reads on dg-heat-4/5 in both themes (≥4.2:1). */
-.dg-text--on-heat { fill: #10261a; font-weight: 600; }
+.dg-text--on-heat { fill: var(--diagram-on-heat); font-weight: 600; }

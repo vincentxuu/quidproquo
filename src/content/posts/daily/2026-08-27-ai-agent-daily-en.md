@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-27-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-27-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -81,15 +81,15 @@ Runable closed a $21M Series A, welding "build a website/app" and "take over day
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-github-digest-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only)
-- 📄 [Funding Brief | Runable Series A $21M](/posts/daily/2026-08-27-funding-runable-en)
-- 📄 [Pricing Watch | Google Gemini Enterprise Flexible Billing](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
-- 📄 [Security Alert | LangGraph Checkpointer Post-Injection RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
-- 📄 [Tool Pick | pgbot](/posts/daily/2026-08-27-tool-pgbot) (zh-TW only)
-- 📄 [AI Engineer Interview Daily — LLM & Agent Engineering](/posts/daily/2026-08-27-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — AI Product Design](/posts/daily/2026-08-27-product-builder-interview-daily) (zh-TW only)
+- :file: [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-github-digest-en)
+- :file: [Framework Update | Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0) (zh-TW only)
+- :file: [Funding Brief | Runable Series A $21M](/posts/daily/2026-08-27-funding-runable-en)
+- :file: [Pricing Watch | Google Gemini Enterprise Flexible Billing](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing-en)
+- :file: [Security Alert | LangGraph Checkpointer Post-Injection RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce-en)
+- :file: [Tool Pick | pgbot](/posts/daily/2026-08-27-tool-pgbot) (zh-TW only)
+- :file: [AI Engineer Interview Daily — LLM & Agent Engineering](/posts/daily/2026-08-27-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — AI Product Design](/posts/daily/2026-08-27-product-builder-interview-daily) (zh-TW only)
 
 ## Tomorrow's Watch
 

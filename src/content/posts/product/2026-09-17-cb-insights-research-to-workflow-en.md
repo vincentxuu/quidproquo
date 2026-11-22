@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-cb-insights-research-to-workflow)
+> :globe: [中文版](/posts/product/2026-09-17-cb-insights-research-to-workflow)
 
 Imagine a supermarket offering free samples at the entrance. The samples tell passersby whether the kitchen can cook. What keeps restaurants paying, however, is the central kitchen behind the counter: ingredients are selected, washed, portioned, labeled, and delivered directly to each restaurant's refrigerator.
 

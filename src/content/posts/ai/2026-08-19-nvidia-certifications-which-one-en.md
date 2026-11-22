@@ -13,7 +13,7 @@ description: "A guide to choosing among NVIDIA's four generative AI certificatio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-19-nvidia-certifications-which-one)
+> :globe: [中文版](/posts/ai/2026-08-19-nvidia-certifications-which-one)
 >
 > This is a selection guide built from official material, not an exam-day account — I have not sat any of these exams. Every "what it tests" points back to the [NVIDIA certification pages](https://www.nvidia.com/en-us/learn/certification/) and each exam's official Exam Study Guide. No leaked questions. Verified 2026-08-19.
 

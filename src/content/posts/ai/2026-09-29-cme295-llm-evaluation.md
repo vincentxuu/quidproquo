@@ -30,7 +30,7 @@ glossary:
     context: "投影片列了 canary 字串、工具 blocklist、換新版測試三種預防做法。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

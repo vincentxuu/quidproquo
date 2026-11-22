@@ -13,7 +13,7 @@ description: "An overview of Thai climbing: the style, grades, seasons and trans
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crags-overview)
 
 Most people who think of Southeast Asian limestone climbing think of Krabi. But Thailand holds more than that — island crags, northern inland walls and central valleys, and every one of them has its own **access rule**. Krabi means a boat ride. Chiang Mai's main crag was closed and then never formally reopened. Lopburi means walking through a temple that caps the day at 20 climbers. Lampang is on military land and only works with a guide. Nam Pha Pa Yai's best wall is shut.
 

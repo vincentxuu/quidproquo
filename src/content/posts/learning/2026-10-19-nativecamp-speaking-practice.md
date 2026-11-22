@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-nativecamp-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-nativecamp-speaking-practice-en)
 
 下班後想找人練英文，卻很難每週固定同一個時間上課，[NativeCamp](https://nativecamp.net/zh-tw) 的免預約課程就值得考慮。它是一對一真人英語平台：有空時選一位待機講師，進教室就能練，不必把每次練習都排成一個完整行程。
 

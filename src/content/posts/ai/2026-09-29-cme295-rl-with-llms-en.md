@@ -30,7 +30,7 @@ glossary:
     context: "Thinking Machines' on-policy distillation uses the per-token reverse KL as a negative advantage."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-rl-with-llms)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
 **Video status: The original lecture recording is now available, but this article has not yet been updated against it; only related supplementary videos are included for now.** [Source details](#course-video-sources)
 

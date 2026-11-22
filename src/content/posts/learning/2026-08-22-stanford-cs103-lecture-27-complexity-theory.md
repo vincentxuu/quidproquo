@@ -13,7 +13,7 @@ description: "依官方投影片逐步整理「decidable 不等於 feasible」�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-27-complexity-theory-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-27-complexity-theory-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

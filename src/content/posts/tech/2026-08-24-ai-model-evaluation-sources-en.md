@@ -17,7 +17,7 @@ glossary:
     def: "Test questions leaking into training data, letting a model memorize answers instead of demonstrating understanding."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-evaluation-sources)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-evaluation-sources)
 
 Model launches arrive with a wall of benchmark numbers. Which are credible, and which are inflated? This guide breaks down the main evaluation sources in 2026: what each measures, how to interpret it, and where its biases lie.
 

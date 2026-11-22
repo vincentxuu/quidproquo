@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing)
+> :globe: [中文版](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing)
 
 ## What changed
 

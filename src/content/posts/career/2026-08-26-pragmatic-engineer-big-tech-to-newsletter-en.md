@@ -13,7 +13,7 @@ description: "The complete growth story of Gergely Orosz and The Pragmatic Engin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-pragmatic-engineer-big-tech-to-newsletter)
+> :globe: [中文版](/posts/career/2026-08-26-pragmatic-engineer-big-tech-to-newsletter)
 
 In August 2021, Gergely Orosz hit "publish" on Substack from his home in Amsterdam. Six weeks later, he had 1,000 paying subscribers. Four months later, The Pragmatic Engineer was the #1 technology newsletter on the platform.
 

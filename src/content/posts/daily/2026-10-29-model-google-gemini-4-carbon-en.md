@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind's large language model family; Carbon is the flagship model in the Gemini 4.x branch that follows Argon"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-29-model-google-gemini-4-carbon)
+> :globe: [中文版](/posts/daily/2026-10-29-model-google-gemini-4-carbon)
 
 ## Model Info
 
@@ -51,7 +51,7 @@ glossary:
 | Artificial Analysis Coding Agent Index | 59 | Not ranked | Claude Opus 5.5 (max) 62 (#1) |
 | Gray Swan IPI Benchmark (prompt injection attack success rate, lower is better) | 0.0% | 0.7% | Not reported |
 
-⚠️ SEC-bench Pro, ExploitGym, CWE-bench, WebDev Arena, Terminal-Bench 4.0, and the Gray Swan IPI benchmark are all Google's own tests or results from partners (Gray Swan, Wiz) — none have been independently reproduced yet. The Artificial Analysis Intelligence Index and Coding Agent Index are independently measured by a third-party platform, not self-reported by Google. Only CWE-bench and the Intelligence Index can be directly compared with Argon; Google hasn't published Argon's numbers on the other security benchmarks, so progress on those can't be measured.
+:warning: SEC-bench Pro, ExploitGym, CWE-bench, WebDev Arena, Terminal-Bench 4.0, and the Gray Swan IPI benchmark are all Google's own tests or results from partners (Gray Swan, Wiz) — none have been independently reproduced yet. The Artificial Analysis Intelligence Index and Coding Agent Index are independently measured by a third-party platform, not self-reported by Google. Only CWE-bench and the Intelligence Index can be directly compared with Argon; Google hasn't published Argon's numbers on the other security benchmarks, so progress on those can't be measured.
 
 ```diagram
 title: Gemini 4 Carbon tops Intelligence Index v5.0, but only by a point or two

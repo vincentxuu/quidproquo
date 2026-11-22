@@ -13,7 +13,7 @@ description: "薩倫托（Salento）Ciolo 與 Mannute 岩場介紹：岩質、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-salento-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-salento-en)
 
 薩倫托（Salento）是義大利「鞋跟」最尖的那一段，屬普利亞大區（Puglia）的萊切省（Lecce）。攀岩集中在最南端的 Santa Maria di Leuca 一帶，沿 SP358 海岸公路往北幾公里：一處是穿過 Ponte Ciolo 橋下的 Ciolo 峽灣，一處是往南約 3 公里、掛在海崖半腰的 Mannute 洞穴。外海的石灰岩海崖則是深水獨攀（Deep Water Solo，DWS）的場地。
 

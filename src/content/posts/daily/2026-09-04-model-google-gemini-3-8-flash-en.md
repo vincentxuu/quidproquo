@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind's large language model family; Flash is the branch optimized for speed and cost efficiency"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-model-google-gemini-3-8-flash)
+> :globe: [中文版](/posts/daily/2026-09-04-model-google-gemini-3-8-flash)
 
 ## Model Information
 
@@ -51,7 +51,7 @@ glossary:
 | Humanity's Last Exam | 45.4% | 45.7% | — |
 | CWE-Bench (Cyber variant, patching pass@1) | 47.2% | — (predecessor Cyber model was 3.5 Flash Cyber; no comparable figure published) | Leading frontier model 47.8% |
 
-⚠️ All figures above are Google's own internal evaluation results (some benchmarked against other vendors' models), not third-party reproductions. CWE-Bench is an external benchmark run by Collinear; the other Cyber-related figures (CyberGym, the 20-language real-world vulnerability benchmark) are currently Google self-reported only and await independent verification. This site's earlier Gemini 3.7 Flash model card recorded a Terminal-Bench 2.1 score of 85.8%, which differs from the 81.6% shown in Google's own comparison table at the 3.8 Flash launch — likely a change in evaluation methodology or agent harness version (DeepMind disclosed that Terminal-Bench 2.1 results are now uniformly measured with the Terminus 2 harness). This article uses the figures from Google's official comparison table published at the 3.8 Flash launch.
+:warning: All figures above are Google's own internal evaluation results (some benchmarked against other vendors' models), not third-party reproductions. CWE-Bench is an external benchmark run by Collinear; the other Cyber-related figures (CyberGym, the 20-language real-world vulnerability benchmark) are currently Google self-reported only and await independent verification. This site's earlier Gemini 3.7 Flash model card recorded a Terminal-Bench 2.1 score of 85.8%, which differs from the 81.6% shown in Google's own comparison table at the 3.8 Flash launch — likely a change in evaluation methodology or agent harness version (DeepMind disclosed that Terminal-Bench 2.1 results are now uniformly measured with the Terminus 2 harness). This article uses the figures from Google's official comparison table published at the 3.8 Flash launch.
 
 ## Comparison with Predecessor/Competitors
 

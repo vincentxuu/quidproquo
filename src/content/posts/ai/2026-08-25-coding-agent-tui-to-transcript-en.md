@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-tui-to-transcript)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-tui-to-transcript)
 
 ## The Design Problem: What Should an Agent Conversation Look Like in a Terminal?
 

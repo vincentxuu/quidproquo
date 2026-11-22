@@ -22,7 +22,7 @@ glossary:
     definition: "Two athletes start at the same time on two identical lead routes side by side, and the first to the top wins. One of Rock Master's signature events."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-competitions-beyond-world-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-competitions-beyond-world-climbing)
 
 In October 2026, in the Rock Master final in Arco, Italy, Adam Ondra and Filip Schenk set off at the same moment on two identical lead routes, racing to clip the top. Schenk won in 1:07.3, 1.5 seconds ahead of Ondra ([8a.nu](https://8a.nu/news/filip-schenk-and-jessica-pilz-win-rock-master-lead-duel-fd4p6)). You won't see two climbers racing up a lead route side by side in the World Climbing Series.
 

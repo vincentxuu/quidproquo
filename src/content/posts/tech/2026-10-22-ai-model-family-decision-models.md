@@ -1,30 +1,34 @@
 ---
-title: "決策模型怎麼選：Jev、Decider、d1-ultra、mammoth-1 與其他十幾家"
+title: "決策模型怎麼選：Gemini Decision 1、d1.2-ultra、Drex、Decider 與其他二十家"
 date: 2026-10-22
 category: tech
 type: deep-dive
 tags: [decision-model, model-selection, agent-evaluation, open-weights]
 lang: zh-TW
-tldr: "決策模型把一般 LLM 的「生成一段文字、你再自己解析」換成「你先把選項列好，模型直接回每個選項的機率」。TypeSafe 在 2026-09-15 提出 System One 之後，一個多月裡這類模型從一家變成十幾家：Jev 1.14、OpenAI Decisions API、Perplexity Decider v1.2、Microsoft-Decision-1、Liquid d1-ultra、Base Labs mammoth-1、vLLM d3、StartLux、Fastino GLiDE、Celeris-1 Decision、Inception Mercury Decide、Cloudflare Clef。兩張榜單給的答案幾乎相反——社群 Jev Decision Index 0.4.1 冠軍是 GLiDE V1.2（71.5），獨立 Artificial Analysis Decision Index 冠軍是 d1-ultra（65.2）、Jev 1.14 只有 57.1。決策模型贏在分類與工具選擇，輸在知識與推理，而且普遍過度自信。"
-description: "決策模型（decision model）選型指南：十幾家模型的版本矩陣、Jev Decision Index 與 Artificial Analysis Decision Index 兩張榜單的差異、成本與延遲、授權與自架門檻，以及接進 Agent 後真正會出事的三個地方——包括 prompt injection 與過度自信的門檻設定。"
+tldr: "決策模型把一般 LLM 的「生成一段文字、你再自己解析」換成「你先把選項列好，模型直接回每個選項的機率」。TypeSafe 在 2026-09-15 提出 System One 之後，兩個月內這類模型擴到二十家以上，Google 也在 11-11 推出 Gemini Decision 1。Artificial Analysis 在 11 月把榜單改成 v2，改用同時看對錯與信心的 Decision Score；2026-11-20 的 v2.1 榜上決策模型第一是 Liquid d1.2-ultra（74.8），Gemini Decision 1 是 66.0，但讓語言模型也回機率之後，Claude Haiku 5.5 (Max) 拿到 76.5，高過所有決策模型，代價是每百萬題貴 47 倍、慢 150 倍。決策模型贏在速度、成本與工具選擇，輸在知識與推理。"
+description: "決策模型（decision model）選型指南：二十幾家模型的版本矩陣、Artificial Analysis Decision Index v2.1 與社群 Jev Decision Index 兩張榜單的差異、成本與延遲、授權與自架門檻，以及接進 Agent 後真正會出事的三個地方——包括 prompt injection 與過度自信的門檻設定。"
 draft: false
 series:
   name: "AI 模型家族"
   order: 33
 glossary:
   - term: "決策模型（decision model）"
-    definition: "吃一個狀態與一組型別化問題，回傳每個合法選項的機率，而不是生成文字。2026 年 9 月 TypeSafe 把它命名為 System One 模型類別，接著一個多月就變成獨立品類。"
+    definition: "吃一個狀態與一組型別化問題，回傳每個合法選項的機率，而不是生成文字。2026 年 9 月 TypeSafe 把它命名為 System One 模型類別，接著兩個月就變成獨立品類。"
   - term: "System One API"
     definition: "決策模型的事實標準請求格式：POST /v1/systemone，body 是 state 加上 questions，每題用 type 指定 choice、noul 或 score，答案是每個選項的機率。各家另有自己的 confidence 欄位，定義並不一致。"
   - term: "校準（calibration）"
     definition: "模型給的機率與它實際答對的比率是否一致。決策模型拿來設自動放行門檻，所以校準比平均準確率更關鍵；常見指標是 ECE（期望校準誤差）與 Brier score。"
+  - term: "Decision Score"
+    definition: "Artificial Analysis Decision Index v2 的主指標：每題得分 50 ×（1 + c −（p − c）²），p 是模型給選中答案的機率，c 是答對與否。答對在 50 到 100 之間、答錯在 0 到 50 之間，越有把握的錯誤扣越多；整體等於 50 ×（1 + 準確率 − Brier score）。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-22-ai-model-family-decision-models-en)
+> :globe: [English version](/posts/tech/2026-10-22-ai-model-family-decision-models-en)
 
-決策模型（decision model）把一般 LLM 的「生成一段文字，你再自己寫 parser」換成「你先把選項列好，模型直接回每個選項的機率」。TypeSafe 在 2026 年 9 月 15 日提出 System One 之後，到 10 月 21 日，這個類別已經從一家變成十幾家：[Jev 1.14](https://docs.typesafe.ai/models)、[OpenAI 的 Decisions API](https://developers.openai.com/api/docs/guides/decisions)、[Perplexity Decider v1.2](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)、[Microsoft-Decision-1](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/)、[Liquid d1-ultra](https://www.liquid.ai/blog/d1-ultra)、[Base Labs 的 mammoth-1](https://huggingface.co/baselabs/mammoth-1)、[vLLM 的 d3](https://huggingface.co/vllm-sr/d3)、[StartLux-Decision](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)、[Fastino GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model)、[Celeris-1 Decision](https://celeris.ai/pricing)、[Inception Mercury Decide](https://docs.inceptionlabs.ai/get-started/models)、[Cloudflare Clef](https://blog.cloudflare.com/clef-decision-models)。
+決策模型（decision model）把一般 LLM 的「生成一段文字，你再自己寫 parser」換成「你先把選項列好，模型直接回每個選項的機率」。TypeSafe 在 2026 年 9 月 15 日提出 System One 之後，到 11 月 20 日，這個類別已經從一家變成二十家以上：[Jev 1.14](https://docs.typesafe.ai/models)、[Google Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)、[OpenAI 的 Decisions API](https://developers.openai.com/api/docs/guides/decisions)、[Perplexity Decider v1.3](https://docs.perplexity.ai/docs/decisions/quickstart)、[Microsoft-Decision-1.1](https://commandline.microsoft.com/microsoft-decision-model-ga/)、[Liquid d1.2-ultra](https://www.liquid.ai/blog/d1-2)、[Nace.AI Drex](https://www.nace.ai/drex/decision-index)、[Subquadratic SubQ Snap](https://docs.subq.ai/using-the-api/models/)、[Base Labs 的 mammoth-1](https://huggingface.co/baselabs/mammoth-1)、[vLLM 的 d3](https://huggingface.co/vllm-sr/d3)、[StartLux-Decision](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)、[Fastino GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model)、[Celeris-1.1 Decision](https://celeris.ai/pricing)、[Inception Mercury Decide](https://docs.inceptionlabs.ai/get-started/models)、[Cloudflare Clef](https://blog.cloudflare.com/clef-decision-models)。
 
 如果你做的是「有限選項的判斷」——工單派給哪一隊、這段文字是不是垃圾、這個工具呼叫能不能放行——這批模型值得看；如果你要的是知識與推理，榜單數字會直接告訴你別用。這篇給的是版本矩陣、兩張不能混著看的榜單各在量什麼、以及接進去之後真正會出事的三個地方。
+
+本文首版寫於 10-22；11-20 這一版把版本矩陣、榜單與成本換成 11 月的資料，10 月的舊數字與為什麼換掉，寫在文末更新紀錄。
 
 ## 決策模型是什麼：把「生成文字」換成「回傳機率」
 
@@ -73,21 +77,23 @@ glossary:
 
 為什麼是現在？[Microsoft 的說法最直白](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/)：一條流程裡有二十個連續判斷，每個多 100 毫秒就是多兩秒。這種「小決定」以前只能用前沿 LLM 做，等於每次都花生成一整段文字的錢去換一個是非題。決策模型把這段成本砍掉，換來的代價是——它只會在有限選項裡選，不會寫理由，也不會自己推理。
 
-## 十幾家決策模型，長什麼樣
+## 二十幾家決策模型，長什麼樣
 
-分成兩類看會比一張大表有用：**有權重可以自己養的**，跟**只能走託管 API 的**。後者的成本是固定的服務費，前者的成本是 GPU。
+分成兩類看會比一張大表有用：**有權重可以自己養的**，跟**只能走託管 API 的**。後者的成本是固定的服務費，前者的成本是 GPU。不少廠商兩邊都有：權重開放、同時提供託管 API，下表依「能不能自架」分。價格是 2026-11-20 讀各家官方頁面的每百萬 input token 牌價，output 一律不計價。
 
 **開源權重、可自架**
 
-| 模型 | 底盤與參數 | 模態 | 授權 | input 價 | 關鍵差異 |
+| 模型 | 底盤與參數 | 模態 | 授權 | 託管 input 價 | 關鍵差異 |
 |---|---|---|---|---|---|
-| [Decider v1.2 (27B)](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) | Qwen3.8-27B | 文字＋圖片（≤1.6MP） | Apache-2.0 | $0.02/1M | 支援 joint request：一段序列問完所有題，每題在 marker token 讀出；模型卡自曝有拿官方 benchmark 的 training split 訓練（已與 test 去污染） |
-| [Decider Flash v1.2 (4B)](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.2) | Qwen3.5-4B | 文字＋圖片 | Apache-2.0 | $0.01/1M | 從 27B 蒸餾，學的是完整機率分佈；決策模型裡 input 單價最低的一檔 |
-| [d3（Decision 3.0）](https://huggingface.co/vllm-sr/d3) | Qwen3.8-27B，含 0.46B vision | 文字／JSON＋圖片＋影片 | Apache-2.0 | 自架 | 讀影片（2 fps、全片最多 32 幀、每幀 ≤0.2MP）；vLLM v0.32.0（10-18）已內建 `/v1/systemone` 且預設開啟，官方點名跑的是 clef-omni、d1-3B、DiffusionGemma；d3 自己那筆合併（10-14 進 main）不在 v0.32.0 這條線上，跑 d3 仍要 nightly |
+| [Decider v1.3 (27B)](https://docs.perplexity.ai/docs/decisions/quickstart) | Qwen3.8-27B | 文字＋圖片 | Apache-2.0 | $0.02/1M | 11-09 上架，新增 `locate` 題型（從 state 找出符合描述的片段）；context 256K；`pplx-decider-latest` 已指向 1.3 |
+| [Decider Flash v1.3 (4B)](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3) | 4B | 文字＋圖片 | Apache-2.0 | $0.01/1M | 決策模型裡 input 單價最低的一檔；1.2 版官方說一題一送比較準，1.3 改成可以併題 |
+| [d3（Decision 3.0）](https://huggingface.co/vllm-sr/d3) | Qwen3.8-27B，含 0.46B vision | 文字／JSON＋圖片＋影片 | Apache-2.0 | 自架 | 讀影片（2 fps、全片最多 32 幀、每幀 ≤0.2MP）；vLLM v0.32.0 起內建 `/v1/systemone` 端點；同系列另有 d3-ultra、turbo、flash、mini 等尺寸 |
+| [GLiDE 27B](https://huggingface.co/fastino/GLiDE-27B) | Qwen 系底盤全參數微調 | 文字＋JSON | fastino-community（自訂） | Fastino API | 會思考的決策模型：不確定時才多算；10 月時權重還沒放出來，10-19 起上架 HuggingFace |
+| [Drex v2.0](https://huggingface.co/nace-ai/drex-v2.0) | Qwen3.6-35B-A3B | 文字 | Nace.AI Open RAIL-M（自訂，附使用限制） | $0.03/1M | 同家另有 Drex Max v1 權重 repo；目前的 Drex Max v1.1 走託管，見下表 |
 | [StartLux-Decision v1.1](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) | 0.8B–27B，Instant 與 AutoThink 兩種 | 文字（可＋圖） | **CC BY-NC 4.0**（商用要另外談） | 自架 | AutoThink 會在沒把握時先寫一段思考再重新評分；單次讀取最多 26 個選項 |
-| [mammoth-1 (27B)](https://huggingface.co/baselabs/mammoth-1) | Qwen3.5-27B 全參數微調 | 文字 | 模型卡標 MIT（但 repo 內沒有 LICENSE 檔） | Baseten 託管試用一週 | 訓練目標含 Brier 校正項，並且真的教會模型回答「我不知道」；訓練資料未公開 |
-| [elephant-1 (9B)](https://huggingface.co/baselabs/elephant-1) | Qwen3.5-9B 全參數微調 | 文字 | 模型卡標 MIT（同樣沒有 LICENSE 檔） | Baseten 託管試用一週 | 9B 級；作者自陳訓練用了 Decision Index 的 train split |
-| [d1-3B](https://huggingface.co/LiquidAI/d1-3B) | LFM2.5-VL-3B | 文字＋圖片 | LFM Open License | 自架 | 邊緣單題 16 毫秒（Jetson AGX Thor）、GPU 單題 8 毫秒（RTX 4090）；模型卡語言欄列了 16 種、含中文 |
+| [mammoth-1 (27B)](https://huggingface.co/baselabs/mammoth-1) | Qwen3.5-27B 全參數微調 | 文字 | 模型卡標 MIT（但 repo 內沒有 LICENSE 檔） | Baseten 託管 | 訓練目標含 Brier 校正項，並且真的教會模型回答「我不知道」；訓練資料未公開 |
+| [elephant-1 (9B)](https://huggingface.co/baselabs/elephant-1) | Qwen3.5-9B 全參數微調 | 文字 | 模型卡標 MIT（同樣沒有 LICENSE 檔） | Baseten 託管 | 9B 級；作者自陳訓練用了 Decision Index 的 train split |
+| [d1-2B／d1-Omni-2B](https://huggingface.co/LiquidAI/d1-2B) | LFM3-1.7B 骨幹 | 文字＋圖片（Omni 另加音訊） | LFM Open License（年營收 1,000 萬美元以上商用要另談） | 自架 | 10-24 隨 LFM3 釋出，取代較早的 d1-3B；細節見 [Liquid AI 家族文](/posts/tech/2026-10-10-ai-model-family-liquid-ai) |
 | [Strands Decider 2B](https://huggingface.co/StrandsAgents/strands-decider-2B-hobson-v21) | Qwen3.5-2B + LoRA + 讀出頭 | 文字（視覺是選用套件） | Apache-2.0 | 自架 | 訓練配方、資料清單與評測都開在 GitHub，適合當改模型的起點；本機約 115 毫秒 |
 | [Clef 家族](https://blog.cloudflare.com/clef-decision-models) | 27B／9B／30B-A3B | 文字／JSON＋圖片＋影片＋音訊 | Apache-2.0 | $0.24／$0.038／$0.15 | Workers AI 託管同時開源；細節見[另篇](/posts/tech/2026-10-22-ai-model-family-cloudflare) |
 
@@ -95,131 +101,153 @@ glossary:
 
 | 模型 | 廠商 | 模態 | input 價 | 關鍵差異 |
 |---|---|---|---|---|
-| [Jev 1.14](https://docs.typesafe.ai/models) | TypeSafe | 文字 | $0.042/1M | 每請求 64k、每題 32k；開 long-context header 兩者都到 262k，但官方說更慢也更不準；英文是主要訓練語言，CJK 可用但不等好 |
-| [gpt-6-luna (Decisions API)](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | 文字＋圖片 | $0.10/1M | 10-06 開放 public beta，目前只有這顆模型；無 output 與 cache 費用；支援 ZDR 與 HIPAA，資料落地美國與歐洲（EEA 與瑞士） |
-| [Microsoft-Decision-1](https://commandline.microsoft.com/microsoft-decision-1-model-foundry/) | Microsoft | 文字 | $0.042/1M | 後訓練 Qwen3.5-9B；OpenRouter 上的 id 是 `microsoft/microsoft-decision-1`，走 alpha decisions 端點而非一般 chat API；官方自報 36 個基準、近 15 萬題盲測最高分、量測中最快，並說未來會 rebase 到 MAI 與 OpenAI 的模型 |
-| [d1-ultra](https://www.liquid.ai/blog/d1-ultra) | Liquid | 文字＋圖片 | $0.042/1M | 基於較大的開放權重底盤加客製；每題各自計價（圖片按 32×32 patch 算 1.5 token，1024×1024 是 1536 token）；只有 API |
-| [GLiDE](https://fastino.ai/blog/introducing-glide-the-first-thinking-decision-model) | Fastino | 文字＋JSON | $0.15/1M | 會思考的決策模型：不確定時才多算；context 40k，超長直接拒絕不截斷；底盤未公開、權重也還沒放出來 |
-| [Celeris-1 Decision](https://celeris.ai/pricing) | Celeris | 文字＋結構化＋圖片 | $0.04/1M | 明說可以附一句話解釋（要另外指定才有） |
-| [Mercury Decide](https://docs.inceptionlabs.ai/get-started/models) | Inception | 文字／JSON／圖片 | $0.02/1M（牌價 $0.04） | 端點是 Inception 自己的 `POST /v1/decisions`、model `mercury-decide`，比 System One 多一種 `extract` 題型（抽原文片段）；OpenRouter 頁面寫「每秒最多 14 個決策」、2026-09-30 上線、66K context |
+| [Gemini Decision 1](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) | Google | 文字＋圖片＋音訊＋影片＋PDF | $0.10/1M | 11-11 上線；一次請求最多 1,000 題、共用輸入只計一次費、輸入上限 256K；AI Studio 有免費層；請求欄位叫 `input` 不是 `state` |
+| [d1.2-ultra／d1.2](https://docs.liquid.ai/lfm/models/d1) | Liquid | 文字＋圖片＋音訊 | $0.042／$0.02 | 11-16 上線，多了讀值、找段落、框物件、估數字、複選五種新題型；d1-ultra、d1.1、d1 已標停用 |
+| [Drex Max v1.1](https://www.nace.ai/drex/decision-index) | Nace.AI | 文字 | $0.03/1M | Artificial Analysis 註明它的成本是限時上市價，恢復原價後約加倍 |
+| [SubQ Snap 1.2](https://docs.subq.ai/using-the-api/models/) | Subquadratic | 文字＋圖片 | $0.04/1M | context 384K，主打長 context 決策；1.1 版已在 11-11 關閉 |
+| [Microsoft-Decision-1.1](https://commandline.microsoft.com/microsoft-decision-model-ga/) | Microsoft | 文字＋圖片 | $0.042/1M（Global） | 11-17 GA，比 1.0 快兩倍以上、新增圖片輸入；US／EU／APAC 資料區價格較高；也在 OpenRouter 與 Vercel |
+| [Jev 1.14](https://docs.typesafe.ai/models) | TypeSafe | 文字＋圖片 | $0.042/1M | 每請求 64k、每題 32k，開 long-context header 兩者都到 262k 但更慢也更不準；1.14 新增 `box` 題型；英文是主要訓練語言 |
+| [gpt-6-luna (Decisions API)](https://developers.openai.com/api/docs/guides/decisions) | OpenAI | 文字＋圖片 | $0.10/1M | 10-06 開放 public beta；無 output 與 cache 費用；支援 ZDR 與 HIPAA，資料落地美國與歐洲 |
+| [Celeris-1.1 Decision](https://docs.celeris.ai/pricing) | Celeris | 文字＋結構化＋圖片 | $0.004/1M | 牌價最低的託管決策模型；可免費附一句話解釋 |
+| [Mercury Decide](https://docs.inceptionlabs.ai/get-started/models) | Inception | 文字／JSON／圖片 | $0.02/1M（牌價 $0.04） | 端點是 Inception 自己的 `POST /v1/decisions`，比 System One 多一種 `extract` 題型 |
+| [GLiDE（託管）](https://docs.fastino.ai/concepts/glide) | Fastino | 文字＋JSON | $0.15/1M | context 40k，超長直接拒絕不截斷 |
 
-價格單位都是每百萬 input token、output 不計價，這是整個類別共同的定價結構：**你買的是輸入的 token，不是模型寫出來的字**。[Perplexity 的模型卡](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)另外寫了一句值得記在選型表裡的話：他們把官方 benchmark 的 training split 一起訓練進去（已與 test set 去污染），理由是「不這樣做的模型在榜單上會被不公平地比下去」。這是廠商自己寫的，你該知道它在比什麼。
+價格單位都是每百萬 input token、output 不計價，這是整個類別共同的定價結構：**你買的是輸入的 token，不是模型寫出來的字**。但牌價不等於每題成本：題目怎麼併、圖片怎麼算 token、有沒有長 context 加價，各家不同，下面成本那節用 Artificial Analysis 的「每百萬題」比較。
 
-## 兩套榜單，答案幾乎相反
+[Perplexity 的模型卡](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)另外寫了一句值得記在選型表裡的話：他們把官方 benchmark 的 training split 一起訓練進去（已與 test set 去污染），理由是「不這樣做的模型在榜單上會被不公平地比下去」。這是廠商自己寫的，你該知道它在比什麼。
 
-現在有兩個東西都叫「決策模型榜單」，量的東西不同、跑出來的名次也幾乎相反。**它們的分數不能互換、不能加總、不能拿來說「誰比較強」。**
+## 兩套榜單，量的東西不一樣
 
-**社群 Jev Decision Index 0.4.1**——[Hugging Face 上由社群維護的 Space](https://huggingface.co/spaces/multimodalart/jev-decision-index)，追的是「TypeSafe 的 Jev 被各路開源重現成什麼樣子」。2026-10-22 05:40 UTC 的資料快照：226 列模型（其中 224 列是第三方重現，Jev 1.13 與 1.14 是原廠對照列）、42 個基準（其中 37 個進公開面板）、五個領域、11 萬次請求（10 萬 9,759 次可計分），全部跑在一張 RTX PRO 6000 上。頭條的 Full score 是 60% 私有同技能測試加 40% 私有新領域任務，再映射回公開尺度；公開基準照跑但不計分，私有測試從不公開。這是社群維護的 Space，**不是 TypeSafe 官方，也不是 Jev 的正式榜單**。
+現在有兩個東西都叫「決策模型榜單」，量的東西不同、名次也對不上。**它們的分數不能互換、不能加總、不能拿來說「誰比較強」。**
 
-榜單的名次用 0.9 分的同分帶，所以並列會共用一個名次（站上顯示成 `=3`、`=10`）：
+**Artificial Analysis Decision Index v2.1**——[獨立第三方](https://artificialanalysis.ai/evaluations/artificial-analysis-decision-index)，每個模型都由 Artificial Analysis 自己跑。10-13 上線的 v1.0 只有四個評測；[11-08 的 v2](https://artificialanalysis.ai/articles/decision-index-v2) 整個改版，私有資料集從 25% 提高到 45%，用來防刷榜：
 
-| 榜單名次 | 模型 | Full score | 公開子集 |
-|---|---|---|---|
-| 1 | Fastino GLiDE V1.2 | 71.52 | 71.99 |
-| 2 | Jeffan-31b-1710 | 69.75 | 73.13 |
-| =3 | baselabs mammoth-1 (27B) | 68.44 | 75.34 |
-| =3 | Perplexity Decider v1.2 (27B) | 67.98 | 67.74 |
-| =3 | AutoTrust-JEV-27B v1.1 | 67.95 | 67.32 |
-| =3 | StartLux-Decision v1.1 27B | 67.92 | 72.88 |
-| =4 | vLLM-SR d3-turbo v1.1 (27B) | 67.31 | 71.62 |
-| =4 | vLLM-SR d3 (27B) | 67.15 | 65.45 |
-| =10 | baselabs elephant-1 (9B) | 60.26 | 72.24 |
-| =10 | Jev 1.14（榜單參照） | 60.24 | 60.70 |
-| =15 | Cloudflare clef | 54.92 | 61.71 |
-| =43 | Strands Decider 2B | 20.72 | 25.41 |
+| 評測 | 量什麼 | 權重 |
+|---|---|---|
+| AA-Paperclip（私有） | 1,500 份履歷、收據發票、論文，每份 5 個決策＋10 個抽取，15 題全對才算對 | 30% |
+| EvalSafe-O*NET-AA | 職場文件的判斷 | 15% |
+| When2Call | 該不該呼叫工具 | 10% |
+| AA-Omniscience-Decision v1.1（私有） | 知識與幻覺，「我不知道」有十種措辭 | 15% |
+| HLE-MultiChoice v1.1 | 推理，可以選擇不答 | 15% |
+| AA-Symmetry v1.1 | 選項換順序、換措辭、問題改成否定句之後，答案與機率還穩不穩 | 15% |
 
-這張表的兩個重點。第一，**開源重現的整體水準已經高過原始的 Jev**——226 列裡有 40 列的分數比 Jev 1.14 高，而榜單上排第一的 GLiDE V1.2 是 27.8B 全參數微調、底盤未公開、權重也還沒放出來（模型庫是私有的，實驗室是用作者分享的權重跑的）。第二，**公開子集和 Full score 的名次幾乎不一樣**：mammoth-1 的公開子集 75.34 排第一，Full score 卻掉到 =3。廠商模型卡上寫的「Decision Index 0.3 公開子集 72.83／68.09」這類數字，跟 0.4.1 的 Full score 根本不是同一個東西——[d3 的卡](https://huggingface.co/vllm-sr/d3)說自己在 0.3.2 版「66.3、官方文字榜第一」，那是 10-12 的快照，榜單版本一換就沒有意義了。
+主指標也換了：v2 用 **Decision Score**，每題 50 ×（1 + c −（p − c）²），答對落在 50 到 100、答錯落在 0 到 50，越有把握的錯誤扣越多。等於把「準確率」與「校準」合成一個數字，直接對應決策模型的用法——信心過門檻就放行，沒過就轉人工。v2 也拿掉已經飽和的 WildGuardTest，並讓語言模型也對每個選項回機率，兩類模型第一次可以在同一個分數上比。
 
-**Artificial Analysis Decision Index v1.0**——[獨立第三方](https://artificialanalysis.ai/articles/artificial-analysis-decision-index)，10-13 上線，四個評測各佔 25%：知識與幻覺（AA-Omniscience-Decision，正確率與不亂猜率各佔一半）、推理（HLE-MultiChoice）、工具選擇（When2Call）、安全分類（WildGuardTest）。它的母體跟社群榜不同：榜上有託管-only 的模型（gpt-6-luna、d1-ultra、Microsoft-Decision-1、Mercury Decide、Celeris-1 Decision），也有 Baseten 託管的 Elephant 9B；但沒有 StartLux、d3、mammoth-1。
+2026-11-20 從榜單頁讀到的 18 個現役決策模型與 4 個語言模型對照（各子項是 Decision Score，AA-Symmetry 是 Symmetry Score）：
 
-| 模型 | DI | 知識 | 不亂猜 | 推理 | 工具 | 分類 |
-|---|---|---|---|---|---|---|
-| d1-ultra | 65.2 | 31.6 | 84.5 | 15.0 | 92.6 | 95.4 |
-| Elephant 9B | 64.7 | 11.6 | 93.2 | 18.3 | 94.8 | 93.3 |
-| Jev 1.13 | 57.5 | 34.6 | 35.2 | 20.9 | 80.7 | 93.6 |
-| Jev 1.14 | 57.1 | 33.8 | 37.2 | 18.9 | 80.8 | 93.1 |
-| Decider v1.2 | 56.2 | 39.4 | 16.5 | 14.6 | 87.7 | 94.4 |
-| Decider v1.1 27B | 53.1 | 39.8 | 13.3 | 15.4 | 76.5 | 93.8 |
-| GLiDE | 53.9 | 36.4 | 16.4 | 10.5 | 83.7 | 95.1 |
-| Microsoft-Decision-1 | 53.8 | 28.2 | 39.8 | 10.9 | 81.9 | 88.2 |
-| Mercury Decide | 52.7 | 35.0 | 32.0 | 10.1 | 79.3 | 88.0 |
-| Celeris-1 Decision | 52.3 | 37.8 | 0.0 | 13.3 | 83.7 | 93.3 |
-| d1 | 50.3 | 41.0 | 1.7 | 11.5 | 77.4 | 90.9 |
-| Decider Flash v1.2 | 50.2 | 35.2 | 6.5 | 12.1 | 74.4 | 93.3 |
-| Clef | 48.6 | 39.0 | 4.3 | 11.1 | 71.0 | 90.7 |
-| gpt-6-luna (Decisions) | 48.5 | 40.6 | 10.1 | 11.7 | 74.1 | 82.8 |
-| Clef-Flash | 45.8 | 32.6 | 2.7 | 10.3 | 64.4 | 90.9 |
-| Clef-Omni | 44.3 | 36.0 | 1.6 | 9.0 | 62.1 | 87.2 |
-| Claude Opus 5.5 (Max) | 79.0 | 93.4 | 30.3 | 70.2 | 90.5 | 93.5 |
-| Claude Haiku 5.5 (Low) | 60.6 | 52.4 | 54.6 | 23.6 | 72.6 | 92.6 |
-| GPT-6 Luna (Low) | 55.2 | 66.0 | 0.0 | 22.2 | 77.0 | 88.5 |
+| 模型 | 廠商 | DI | Paperclip | O*NET | When2Call | 知識 | 推理 | Symmetry |
+|---|---|---|---|---|---|---|---|---|
+| d1.2-ultra | Liquid | **74.8** | **75.8** | 89.5 | **96.5** | 60.8 | 46.4 | 86.3 |
+| Drex Max v1.1 | Nace.AI | 72.6 | 72.8 | 88.3 | 95.3 | 60.3 | 46.6 | 79.8 |
+| SubQ Snap 1.2 | Subquadratic | 72.6 | 71.6 | 88.6 | 96.1 | 61.0 | 45.6 | 81.4 |
+| GLiDE v1.2 | Fastino | 72.5 | 71.4 | 89.7 | 95.1 | 60.9 | 44.6 | 82.1 |
+| Mammoth 27B | Base Labs | 71.4 | 64.2 | 88.8 | 95.8 | 58.9 | 47.4 | **88.2** |
+| Decider v1.3 | Perplexity | 70.4 | 68.7 | 89.1 | 94.6 | 58.9 | 42.9 | 77.9 |
+| d1.2 | Liquid | 68.7 | 62.6 | 86.6 | 96.1 | 60.9 | 44.7 | 76.5 |
+| Microsoft-Decision-1.1 | Microsoft | 67.8 | 58.7 | 88.8 | 95.1 | 60.5 | 46.1 | 75.7 |
+| Elephant 9B | Base Labs | 66.4 | 52.4 | 87.4 | 95.5 | 56.0 | 45.8 | 84.9 |
+| Jev 1.14 | TypeSafe | 66.2 | 57.5 | **91.1** | 84.4 | 60.1 | 44.5 | 74.5 |
+| Gemini Decision 1 | Google | 66.0 | 56.8 | 87.1 | 80.5 | **66.3** | **48.7** | 70.5 |
+| Decider Flash v1.3 | Perplexity | 64.1 | 53.2 | 84.1 | 90.1 | 55.4 | 40.7 | 80.4 |
+| Mercury Decide | Inception | 62.1 | 56.9 | 86.6 | 81.4 | 56.7 | 34.8 | 67.6 |
+| Celeris-1.1 Decision | Celeris | 62.0 | 54.5 | 84.6 | 88.7 | 57.6 | 40.3 | 62.5 |
+| Drex 2.0 | Nace.AI | 61.6 | 51.9 | 81.9 | 88.7 | 60.5 | 47.1 | 58.1 |
+| Clef | Cloudflare | 60.3 | 54.4 | 85.7 | 77.2 | 57.1 | 42.6 | 56.6 |
+| gpt-6-luna (Decisions) | OpenAI | 60.2 | 52.9 | 85.2 | 79.5 | 60.2 | 42.6 | 54.9 |
+| Clef-Omni | Cloudflare | 57.8 | 50.6 | 81.0 | 70.7 | 56.8 | 42.4 | 56.4 |
+| Claude Haiku 5.5 (Max) | Anthropic | 76.5 | 82.7 | — | 84.3 | 74.4 | 54.9 | 68.5 |
+| GPT-6 Luna (Max) | OpenAI | 75.7 | 86.9 | — | 82.5 | 66.4 | 44.7 | 72.3 |
+| GPT-6 Luna (Low) | OpenAI | 68.8 | 72.9 | — | 81.2 | 67.9 | 34.5 | 69.5 |
+| Claude Haiku 5.5 (Low) | Anthropic | 67.2 | 68.7 | — | 76.6 | 68.3 | 46.7 | 63.7 |
 
-（知識與不亂猜是百分比，其餘是準確率或 F1；決策模型 16 列、語言模型 15 列，分數取自 2026-10-22 的榜單頁面，榜單會動。）
+（語言模型的 O*NET 欄本文沒有讀到數字，以「—」表示。榜單會動，Drex Max v1.1 與 SubQ Snap 1.2 四捨五入後同為 72.6，未四捨五入前 Drex 略高。）
 
-兩張榜單的落差，來自它們問的問題不同：社群榜問「重現 Jev 這種模型能做到多好」，Artificial Analysis 問「拿去做分類、工具選擇、知識問答、安全判斷各是什麼水準」。第三個數字是廠商自報，而它最容易過期：[Base Labs 在 10-21 的部落格](https://www.baseten.co/blog/the-best-decision-models-in-the-world-mammoth-1-and-elephant-1/)說 mammoth-1 在 Jev Decision Index 0.4 是 208 個模型中的第一（71.24 分），在 Artificial Analysis Decision Index 上是 65.9、elephant-1 是 65.2 並與 d1-ultra 並列第一。10-22 的兩個榜單頁面對不上：社群榜 0.4.1 已經有 226 列、冠軍換成 GLiDE V1.2，mammoth-1 掉到 =3；Artificial Analysis 榜上根本沒有 mammoth-1 那一列，Elephant 9B 是 64.69、d1-ultra 是 65.25，也不是並列。**同一顆模型換一個評測就換一個名次，所以能帶走的結論只有一個：用哪個評測，決定你看到什麼。**
+這張表的三個重點：
 
-## 能力邊界：分類贏、知識輸、而且普遍過度自信
+- **語言模型在 v2 反而排在最前面。** 讓 Claude Haiku 5.5 與 GPT-6 Luna 也回機率之後，開到最高推理強度的兩者分數高過所有決策模型，主要贏在文件題 Paperclip（82.7、86.9 對 d1.2-ultra 的 75.8）與知識題。決策模型的賣點不是「比較準」，是下一節的速度與成本。
+- **Google 的新模型不在前段。** Gemini Decision 1 的知識（66.3）與推理（48.7）是決策模型裡最高，但工具選擇（80.5）與 Symmetry（70.5）拖低總分，排第 11。Google 官方部落格說它在自家選的評測套件「全面領先、校準誤差最低」，跟獨立榜單的結論不一致。
+- **Symmetry 分數高可能只是常說「不知道」。** [Artificial Analysis 自己指出](https://artificialanalysis.ai/articles/decision-index-v2)，Base Labs 兩顆模型 Symmetry 領先，主要因為它們常以高信心回「我不知道」，換措辭也照樣回「不知道」，自然很一致。
 
-把 Artificial Analysis 的四個子評測分開看，輪廓很清楚。
+**社群 Jev Decision Index 0.4.1**——[Hugging Face 上由社群維護的 Space](https://huggingface.co/spaces/multimodalart/jev-decision-index)，追的是「TypeSafe 的 Jev 被各路開源重現成什麼樣子」，**不是 TypeSafe 官方，也不是 Jev 的正式榜單**。頭條的 Full score 是 60% 私有同技能測試加 40% 私有新領域任務，公開基準照跑但不計分，全部跑在一張 RTX PRO 6000 上。2026-11-19 的資料快照有 326 列可計分模型，其中 70 列的分數高於 Jev 1.14 的 60.24；榜首是 karpo-decision-31B（73.86），GLiDE 27B（73.37）緊追。
 
-**分類與工具選擇，決策模型贏。** 安全分類（WildGuardTest）上，d1-ultra 95.4、GLiDE 95.1、Decider v1.2 94.4，都高於 Claude Haiku 5.5 (Low) 的 92.6 與 GPT-6 Luna (Low) 的 88.5。工具選擇（When2Call）差距更大：Elephant 9B 94.8、d1-ultra 92.6、Decider v1.2 87.7，而 Haiku (Low) 只有 72.6、Luna (Low) 77.0。這兩件事正是決策模型被設計出來的地方。
+| 模型 | Full score | 公開子集 |
+|---|---|---|
+| karpo-decision-31B | 73.86 | 75.05 |
+| GLiDE 27B | 73.37 | 72.49 |
+| vLLM-SR d3-ultra (27B) | 70.18 | 71.57 |
+| baselabs mammoth-1 (27B) | 68.44 | 75.34 |
+| Perplexity Decider v1.2 (27B) | 67.98 | 67.74 |
+| StartLux-Decision v1.1 27B | 67.92 | 72.88 |
+| Perplexity Decider v1.3 (27B) | 67.67 | 69.72 |
+| baselabs elephant-1 (9B) | 60.26 | 72.24 |
+| Jev 1.14（榜單參照） | 60.24 | 60.70 |
+| Cloudflare clef | 54.92 | 61.71 |
+| Strands Decider 2B | 20.72 | 25.41 |
 
-**知識與推理，決策模型輸。** 知識題（AA-Omniscience-Decision）上決策模型落在 11.6 到 41.0 之間，Claude Haiku 5.5 (Low) 是 52.4、GPT-6 Luna (Low) 66.0、Claude Opus 5.5 (Max) 93.4。推理題（HLE-MultiChoice）上最好的決策模型是 Jev 1.13 的 20.9，Haiku (Low) 23.6、Luna (Low) 22.2、Opus (Max) 70.2。**要知識、要推理，就用 LLM。**
+兩個觀察：這個榜只收能拿到權重或重現的模型，所以 Gemini、d1.2-ultra、Drex Max 這些託管模型不在上面；而在這個榜上，Decider v1.3 的 Full score 還略低於 v1.2，跟 Artificial Analysis 上 v1.3 比 v1.2 高的方向相反。**同一顆模型換一個評測就換一個名次，所以能帶走的結論只有一個：用哪個評測，決定你看到什麼。** 廠商公告裡引用的榜單分數也最容易過期，引用前要對回榜單本身的日期與版本。
 
-**而且它們普遍過度自信。** 這是 [Artificial Analysis 自己的結論](https://artificialanalysis.ai/articles/artificial-analysis-decision-index)：幾乎所有決策模型給的機率都高於它實際的正確率，而且集中在知識與推理兩項；工具選擇與安全分類兩項相對校準得好。廠商自己也知道：[Perplexity 的模型卡](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)說他們用 1.382 的溫度在保留資料上校正過，開發集上 ECE 0.014、Brier 0.134，但換到沒見過的決策資料上 ECE 大約 0.05——「對我們量過的每一個模型都一樣」。[StartLux 的卡](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)講得更直接：用來挑選或路由的信心值會高估準確率，所以門檻要設在自己政策回傳的答案上，不是設在模型的自信上。
+## 能力邊界：工具選擇贏、文件與知識輸、而且會自信答錯
 
-**「我不知道」是這個類別最近最重要的進展，但要先搞懂那一欄是什麼。** AA 的定義是：「hallucination rate 是答錯的題目裡、被用錯答案回答（而不是回『我不知道』）的比例」，所以「不亂猜」講的是**在它答錯的題目裡，有多少比例是坦白說不知道**。把這一欄跟「知識」欄換算成絕對比例，你會得到三個桶：答對、回「我不知道」、以及**自信答錯**——這是本文的換算，AA 沒有公布這個欄位：
+**工具選擇，決策模型贏。** When2Call 的 Decision Score，前段決策模型都在 94 到 96.5，語言模型對照組只有 76.6 到 84.3。這是決策模型最穩的強項。
+
+**文件、知識與推理，最好的語言模型仍然贏。** Paperclip 要求一份文件 15 題全對，[Artificial Analysis 的說明](https://artificialanalysis.ai/articles/decision-index-v2)指出 Drex Max v1.1 單題答對 97%，跟 Claude Haiku 5.5 (Max) 的 99% 很近，但整份全對只有 63%、Haiku 是 92%；決策模型多半輸在決策題，不是抽取題。知識題的 Decision Score，決策模型最高是 Gemini Decision 1 的 66.3，Claude Haiku 5.5 (Max) 是 74.4。**要知識、要長文件的完整正確，就用 LLM 或在決策模型前面接檢索。**
+
+**「我不知道」是這個類別最重要的變數，但要先搞懂那一欄是什麼。** Artificial Analysis 的「不亂猜率」（non-hallucination rate）定義是：在答錯的題目裡，有多少比例是回「我不知道」而不是給錯答案。把它跟知識題正確率換算成絕對比例，就得到三個桶：答對、回「我不知道」、**自信答錯**——這是本文的換算，榜單沒有公布這個欄位：
 
 | 模型 | 知識答對 | 回「我不知道」 | 自信答錯 |
 |---|---|---|---|
-| d1-ultra | 31.6 | 57.8 | 10.6 |
-| Elephant 9B | 11.6 | 82.4 | 6.0 |
-| Jev 1.14 | 33.8 | 24.6 | 41.6 |
-| Decider v1.2 | 39.4 | 10.0 | 50.6 |
-| Celeris-1 Decision | 37.8 | 0.0 | 62.2 |
-| d1（Liquid） | 41.0 | 1.0 | 58.0 |
-| Claude Haiku 5.5 (Low) | 52.4 | 26.0 | 21.6 |
-| GPT-6 Luna (Low) | 66.0 | 0.0 | 34.0 |
+| Gemini Decision 1 | 44.8 | 27.4 | 27.8 |
+| Decider v1.3 | 40.6 | 4.0 | 55.4 |
+| Microsoft-Decision-1.1 | 33.2 | 33.0 | 33.8 |
+| Jev 1.14 | 31.6 | 32.6 | 35.8 |
+| d1.2-ultra | 23.6 | 64.0 | 12.4 |
+| SubQ Snap 1.2 | 20.6 | 71.0 | 8.4 |
+| Mammoth 27B | 15.4 | 81.4 | 3.2 |
+| Elephant 9B | 13.2 | 74.6 | 12.2 |
+| Clef-Omni | 37.0 | 1.2 | 61.8 |
+| Claude Haiku 5.5 (Max) | 57.2 | 27.4 | 15.4 |
+| GPT-6 Luna (Max) | 41.2 | 50.2 | 8.6 |
 
-幾個結論直接從這張表出來。**Elephant 9B 的高「不亂猜」不是本事，是它有 82.4% 的知識題直接放棄回答**——正確率只有 11.6，是全表最低。**Celeris-1 Decision 的 0.0 意思是它答錯時從不回「我不知道」**，等於 62.2% 的知識題是自信答錯；d1 也一樣，58% 自信答錯。**而語言模型也會說不知道**：Claude Haiku 5.5 (Low) 有 26% 的題目回「我不知道」，但正確率 52.4；GPT-6 Luna (Low) 從不回，卻有 66% 正確率。
+幾個結論直接從這張表出來。**Mammoth 27B 與 Elephant 9B 很少自信答錯，是因為七到八成的知識題直接放棄**，正確率只有 15.4 與 13.2。**Decider v1.3 與 Clef-Omni 幾乎從不說不知道**，所以超過一半的知識題是自信答錯。榜首 d1.2-ultra 介在中間：答對率不高，但錯的時候多半會承認。
 
-10-13 上線當天，榜單寫的是「除了 Microsoft-Decision-1 的 40%、Jev 1.13 的 35%、Mercury Decide 的 32%，其他決策模型都不到 17%」。但 10-14 的 Jev 1.14（37.2）、10-15 的 d1-ultra（84.5）、10-21 的 Elephant 9B（93.2）上榜後，這句話就不成立了。真正的原因是**有模型開始把「不知道」放進訓練目標**。[Base Labs 的訓練配方](https://huggingface.co/baselabs/mammoth-1)裡寫得很直接：把「回答不知道」放進訓練目標，cross-entropy 之外加 Brier 校正項。
+**而且多數決策模型仍然過度自信。** 這是 Artificial Analysis v1.0 上線時的結論：模型給的機率普遍高於實際正確率，集中在知識與推理兩項。v2.1 的校準資料也看得到，例如 Gemini Decision 1 的整體校準圖，在 0.4 到 0.8 的每個信心區間，實際正確率都比它給的機率低 1 到 9 個百分點。廠商也知道：[Perplexity 的模型卡](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)說他們用溫度校正過，開發集上 ECE 0.014，但換到沒見過的決策資料上 ECE 大約 0.05——「對我們量過的每一個模型都一樣」。[StartLux 的卡](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant)講得更直接：用來挑選或路由的信心值會高估準確率，門檻要設在自己政策回傳的答案上。
 
-對你來說這是選型的硬條件：**如果你要用信心值設自動放行門檻，「會說不知道」的模型比「什麼都敢答」的安全一個數量級。** 但要挑的是「願意承認不知道又還答得對」的那個，不是「什麼都說不知道」的那個。
+對你來說這是選型的硬條件：**如果你要用信心值設自動放行門檻，挑「願意承認不知道又還答得對」的模型，不是「什麼都敢答」或「什麼都說不知道」的那個。**
 
 ## 成本與延遲：省下的是哪一段
 
-Artificial Analysis 用「跑完自己那套評測的平均每題成本」換算成每百萬題多少美元，這不是你自己工作流的成本，但橫向比較同一張表內的模型是有效的。
+Artificial Analysis 用「跑完 Decision Index 的平均每題成本」換算成每百萬題多少美元，並列出每題中位延遲。這不是你自己工作流的成本，但同一張表內橫向比較有效。v2 換了題目（多了整份文件），所以每題成本跟 v1.0 的數字不能比。
 
-| 模型 | 每百萬題 | 每題中位時間 |
-|---|---|---|
-| Decider Flash v1.2 | $8 | 110 ms |
-| Elephant 9B | $8 | 165 ms |
-| Decider v1.2 | $15 | 206 ms |
-| d1 | $15 | 299 ms |
-| Mercury Decide | $15 | 500 ms |
-| Decider v1.1 27B | $17 | 170 ms |
-| Microsoft-Decision-1 | $31 | 207 ms |
-| Celeris-1 Decision | $32 | 63 ms |
-| d1-ultra | $32 | 93 ms |
-| Clef-Flash | $32 | 298 ms |
-| Jev 1.13 | $42 | 127 ms |
-| Jev 1.14 | $42 | 78 ms |
-| gpt-6-luna (Decisions) | $79 | 168 ms |
-| GLiDE | $119 | 217 ms |
-| Clef-Omni | $123 | 172 ms |
-| Clef | $199 | 309 ms |
-| GPT-6 Luna (Non-reasoning) | $88 | 1136 ms |
-| GPT-6 Luna (Low) | $131 | 1500 ms |
-| Claude Haiku 5.5 (Low) | $184 | 1434 ms |
-| Gemma 4 31B (Reasoning) | $624 | 14388 ms |
-| Claude Opus 5.5 (Max) | $51,295 | 3571 ms |
+| 模型 | DI | 每百萬題 | 每題中位時間 |
+|---|---|---|---|
+| Celeris-1.1 Decision | 62.0 | $14 | 61 ms |
+| Decider Flash v1.3 | 64.1 | $34 | 178 ms |
+| d1.2 | 68.7 | $63 | 150 ms |
+| Decider v1.3 | 70.4 | $68 | 289 ms |
+| Mercury Decide | 62.1 | $70 | 245 ms |
+| Elephant 9B | 66.4 | $92 | 79 ms |
+| Drex Max v1.1 | 72.6 | $103（限時上市價） | 283 ms |
+| d1.2-ultra | 74.8 | $133 | 218 ms |
+| SubQ Snap 1.2 | 72.6 | $137 | 162 ms |
+| Microsoft-Decision-1.1 | 67.8 | $140 | 123 ms |
+| Jev 1.14 | 66.2 | $156 | 92 ms |
+| Drex 2.0 | 61.6 | $200 | 255 ms |
+| Mammoth 27B | 71.4 | $264 | 106 ms |
+| gpt-6-luna (Decisions) | 60.2 | $339 | 206 ms |
+| Gemini Decision 1 | 66.0 | $345 | 211 ms |
+| Clef-Omni | 57.8 | $529 | 192 ms |
+| GLiDE v1.2 | 72.5 | $780 | 284 ms |
+| Clef | 60.3 | $863 | 354 ms |
+| GPT-6 Luna (Low) | 68.8 | $485 | 4,445 ms |
+| Claude Haiku 5.5 (Low) | 67.2 | $861 | 3,013 ms |
+| GPT-6 Luna (Max) | 75.7 | $1,548 | 11,360 ms |
+| Claude Haiku 5.5 (Max) | 76.5 | $6,218 | 32,323 ms |
 
-三個可以直接拿去用的結論。**一是量級差**：最便宜的決策模型（Decider Flash v1.2 與 Elephant 9B，各 $8）比最便宜的語言模型對照（GPT-6 Luna Non-reasoning，$88）便宜 11 倍，比 Opus (Max) 便宜六千多倍。**二是「決策模型一定比較便宜」不成立**：最貴的決策模型 Clef 每百萬題 $199，比 Claude Haiku 5.5 (Low) 的 $184 還貴，也比 GPT-6 Luna (Low) 的 $131 貴；貴的原因是牌價——Clef 的 input 單價 $0.24/1M 就是全表最貴那一檔，而 Decider Flash 的 $0.01/1M 讓它落在最便宜的位置。**三是延遲是全面獲勝**：決策模型 63–500 ms，語言模型 1,136–14,388 ms。
+三個可以直接拿去用的結論。**一是量級差**：分數最高的決策模型 d1.2-ultra（74.8）跟分數最高的語言模型 Claude Haiku 5.5 (Max)（76.5）只差 1.7 分，但每百萬題便宜 47 倍、每題快約 150 倍。如果能接受這 1.7 分，決策模型就是正確選擇。**二是牌價不等於每題成本**：Gemini Decision 1 與 gpt-6-luna 的 input 單價 $0.10 是 Decider 的五倍，每百萬題也貴五倍；GLiDE 與 Clef 的牌價本來就高（$0.15、$0.24），每百萬題比語言模型 GPT-6 Luna (Low) 還貴。**三是延遲全面獲勝**：決策模型 61–354 ms，語言模型 3,013–32,323 ms。
 
-但這兩欄不是同一個基準，AA 自己寫了：「Decision models are billed for input tokens only, and language models for input and output tokens」——語言模型那欄把輸出文字的錢算進去了，所以它比「做同一個決策」要貴。
+但這兩組不是完全同一個計費基準，Artificial Analysis 自己寫了：決策模型只按 input token 計費，語言模型的成本包含 output token。另外 Drex Max v1.1 的 $103 標明是限時上市價，第三方分析估計恢復原價後約 $206，預算不要釘在現在的數字上。
 
-自架的錢算在別的欄位。[d3 的卡](https://huggingface.co/vllm-sr/d3)寫著單一副本在 MI325X 上吃 65.4 GiB 顯存；[StartLux](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) 的 27B BF16 要一張 H200，但 4-bit MLX 版能在 64 GB 的 M5 Pro 上跑——代價是同樣 1,024 token 的提示，H200 上 vLLM BF16 是 98 毫秒，M5 Pro 上 MLX 4-bit 是 3,308 毫秒（約 34 倍），而 MLX 的 BF16 在 64 GB 根本放不下；[d1-3B](https://huggingface.co/LiquidAI/d1-3B) 在 Jetson AGX Thor 上單題 16 毫秒、三題 20 毫秒，RTX 4090 上單題 8 毫秒。如果你的量是「每分鐘幾百次」，託管 API 的帳單通常還是比一張 GPU 便宜；如果是「每秒幾百次」或資料不能離開機器，自架才划算。
+自架的錢算在別的欄位。[d3 的卡](https://huggingface.co/vllm-sr/d3)寫著單一副本在 MI325X 上吃 65.4 GiB 顯存；[StartLux](https://huggingface.co/startlux-models/StartLux-Decision-v1.1-27B-Instant) 的 27B BF16 要一張 H200，4-bit MLX 版能在 64 GB 的 M5 Pro 上跑，但同樣 1,024 token 的提示，H200 上 vLLM BF16 是 98 毫秒，M5 Pro 上 MLX 4-bit 是 3,308 毫秒（約 34 倍）。如果你的量是「每分鐘幾百次」，託管 API 的帳單通常還是比一張 GPU 便宜；如果是「每秒幾百次」或資料不能離開機器，自架才划算。
 
 ## 接進 Agent：三個實作重點
 
@@ -289,7 +317,7 @@ step: 兩邊都留下可稽核的決策紀錄
 </svg>
 ```
 
-**一、一次呼叫問完所有題，但不要把互相競爭的選項塞在一起——而且這是 27B 的專長，不是通則。** [Perplexity 27B 的 joint request](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) 是這批模型裡最有工程價值的一個設計：所有問題共用一段序列，每題在一個 marker token 上讀出，所以問三題跟問一題差不多貴，問題之間還可以互相看見。官方文件給了什麼時候該合併的判準：同一個決策的不同面向要合併（官方量到的 SATA-Bench +11.3、ACOS +7.8、PhishNChips +5.1），互相競爭的候選要分開送（BFCL −1.1、BRIGHT −2.9、ToolRet −4.8）。同一段 request 裡放「這張單要退多少錢」跟「這張單該退還是不退」，模型會互相影響。**但 4B 的 Flash 正好相反**：官方說它「more accurate with one question per request」，公開分數也是一題一送 60.05 高於 joint 的 58.88，而且 Flash 多題併送會讓 state 重複計費（10,000 token 的 state 問三題會算成約 30,000 input token）。Flash 就照一題一送送。
+**一、一次呼叫問完所有題，但不要把互相競爭的選項塞在一起——而且這是 27B 的專長，不是通則。** [Perplexity 27B 的 joint request](https://huggingface.co/perplexity-ai/pplx-decider-v1.2) 是這批模型裡最有工程價值的一個設計：所有問題共用一段序列，每題在一個 marker token 上讀出，所以問三題跟問一題差不多貴，問題之間還可以互相看見。官方文件給了什麼時候該合併的判準：同一個決策的不同面向要合併（官方量到的 SATA-Bench +11.3、ACOS +7.8、PhishNChips +5.1），互相競爭的候選要分開送（BFCL −1.1、BRIGHT −2.9、ToolRet −4.8）。同一段 request 裡放「這張單要退多少錢」跟「這張單該退還是不退」，模型會互相影響。**但 4B 的 Flash v1.2 正好相反**：官方說它「more accurate with one question per request」，公開分數也是一題一送 60.05 高於 joint 的 58.88，而且 Flash v1.2 多題併送會讓 state 重複計費（10,000 token 的 state 問三題會算成約 30,000 input token）。[Perplexity 的 Decisions API 文件](https://docs.perplexity.ai/docs/decisions/quickstart)把「各題分開回答」標為 Flash v1.2 才有的行為，1.3 版的 Flash 可以併題；還在用 Flash v1.2 的就照一題一送。Google 的 Gemini Decision 1 則走另一個方向：一次最多 1,000 題，共用輸入只計一次費，每題各自評分、彼此看不到答案。
 
 **二、門檻與人工複核是你的政策，不是模型的。** 決策模型只給分數，「多少分才自動放行」是應用端決定的。[Baseten 的文件](https://docs.baseten.co/inference/model-apis/decision-models)直接給了範例：選項機率 ≥ 0.9 就派工，否則丟人工複核。
 
@@ -311,9 +339,9 @@ curl -s https://inference.baseten.co/v1/systemone -H 'content-type: application/
 
 這段程式碼是 Baseten 文件的改寫（我改用中文工單內容與託管端點），本站沒有實際部署這個請求。
 
-還有一個版本陷阱：[Jev 的 `jev-latest` 目前指向 1.13.0，`jev-preview` 才是 1.14.0](https://docs.typesafe.ai/models)，而官方明講「An alias moves when a new release ships, so its answers can change without any change to your code」——如果你照著某個版本調過門檻，就把版本 ID 寫死，不要用 alias。
+還有一個版本陷阱：alias 會跟著新版本移動。[Jev 的 `jev-latest` 在 10 月指向 1.13.0，現在已經指向 1.14.0](https://docs.typesafe.ai/models)；Perplexity 的 `pplx-decider-latest` 也已從 1.2 換成 1.3，[官方文件](https://docs.perplexity.ai/docs/decisions/quickstart)提醒新版本對同一個請求可能回不同的機率。如果你照著某個版本調過門檻，就把版本 ID 寫死，不要用 alias。
 
-**三、換廠商的成本很低，但 OpenAI 是例外。** 因為大多數廠商都吃 System One 這套 schema（`state` 加 `questions`，`type` 用 `choice`／`noul`／`score`），換模型通常只改 `model` 欄位。例外是 OpenAI：它叫 `predicate`、端點是 `/v1/decisions`、`questions` 是陣列而且每題要有 `name`、狀態欄位叫 `input`、選項是 `choices` 陣列（`{value, description}`）而不是 `criteria` map、有 `refusal` 這種回應型別。要在同一個 codebase 裡放多家，包一層 adapter 是最省事的做法。
+**三、換廠商的成本很低，但 OpenAI、Google 與 Inception 是例外。** 因為大多數廠商都吃 System One 這套 schema（`state` 加 `questions`，`type` 用 `choice`／`noul`／`score`），換模型通常只改 `model` 欄位。例外有三個：OpenAI 叫 `predicate`、端點是 `/v1/decisions`、`questions` 是陣列而且每題要有 `name`、狀態欄位叫 `input`、選項是 `choices` 陣列（`{value, description}`）而不是 `criteria` map、有 `refusal` 這種回應型別；[Google 的 Decisions API](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/) 題型與 `criteria` 寫法接近 System One，但狀態欄位叫 `input`、內容用 Gemini 的 `Content` 區塊格式；Inception 用自己的 `/v1/decisions` 並多一種 `extract` 題型。另外各家新增的題型互不相通：Jev 1.14 的 `box`、Decider v1.3 的 `locate`、d1.2 的讀值與框物件。要在同一個 codebase 裡放多家，包一層 adapter 是最省事的做法。
 
 另外三個容量限制記一下：StartLux 單次讀取最多 26 個選項，超過會分組；Perplexity 允許 255 個；[Jev 每請求 64k、每題 32k](https://docs.typesafe.ai/models)，而 [Perplexity 的位置上限是 262,144](https://huggingface.co/perplexity-ai/pplx-decider-v1.2)但只訓練到約 32k，超過上限的請求會被拆成一組一組、每組重算一次 state 的 token（單一題目塞不進去就直接回 400），官方要你自己驗證更長的輸入。
 
@@ -332,7 +360,7 @@ curl -s https://inference.baseten.co/v1/systemone -H 'content-type: application/
 ## 什麼時候不要用決策模型
 
 - **需要知識或推理的判斷。** 榜單在這兩項上是 LLM 贏，差一截到十幾分。
-- **需要文字理由。** 決策模型不產文字（[Celeris-1 Decision](https://celeris.ai/pricing) 明說可以附一句話解釋，但那是它一家），要在稽核軌跡上留下「為什麼這樣決定」，得自己把題目、選項、門檻跟答案一起存起來。
+- **需要文字理由。** 決策模型不產文字（[Celeris-1.1 Decision](https://celeris.ai/pricing) 可以免費附一句話解釋，但那是少數），要在稽核軌跡上留下「為什麼這樣決定」，得自己把題目、選項、門檻跟答案一起存起來。
 - **中文內容。** [Jev 的官方文件](https://docs.typesafe.ai/models)說得很清楚：英文是主要訓練語言，CJK 可用但不等好，要在自己的內容上測。StartLux 與 mammoth-1 的模型卡語言欄都只寫 `en`；d1-3B 的模型卡列了 16 種語言、含中文，但那張卡寫的是底盤的語言支援，不是決策品質的量測。英文流量跟中文流量的決策模型不是同一個問題。
 - **高風險動作直接自動執行。** Check Point 與 HiddenLayer 的結果擺在這裡；把決策模型的輸出直接接到「扣款」「放行」「刪資料」上，等於把一個 59% 可被說服的模型接到鉸鏈上。
 - **選項會爆炸。** 超過 26 個選項，StartLux 的讀取就得分組；超過 255 個，Perplexity 的接口本身不收。
@@ -341,18 +369,39 @@ curl -s https://inference.baseten.co/v1/systemone -H 'content-type: application/
 
 | 你的狀況 | 先看哪幾個 |
 |---|---|
-| 量大、要最便宜、可以自架 | Decider Flash v1.2（$0.01/1M，每百萬題 $8）、d1-3B（邊緣單題 16 毫秒） |
-| 想今天就上線、不想養 GPU | gpt-6-luna Decisions、Jev 1.14、Microsoft-Decision-1、Celeris-1 Decision（$0.04）、Decider v1.2（$0.02） |
-| 輸入有圖或影片 | d3（圖＋影片）、Decider v1.2 與 d1-ultra（圖）、clef-omni（圖＋影片＋音訊） |
-| 判斷本身很難、要先算再答 | GLiDE（會思考，$119 是同類第二貴）、StartLux AutoThink、mammoth-1（Base Labs 說它偏知識、elephant 偏快推） |
-| 要用信心值設自動放行門檻 | 先看「自信答錯」那一欄：Celeris-1 Decision 62.2%、d1 58.0% 都不會說不知道；d1-ultra 10.6%、Elephant 9B 6.0% 會，但 Elephant 的知識正確率只有 11.6 |
-| 商用授權要 Apache 或 MIT | d3、Decider v1.2／Flash、Strands Decider 2B；**StartLux 是 CC BY-NC，商用要另外談**；mammoth-1／elephant-1 的模型卡標 MIT，但 repo 裡沒有 LICENSE 檔，授權要自己向廠商確認 |
-| 已經在用某家的 System One | 換 `model` 欄位就能換；OpenAI 的命名不同，包一層 adapter；Jev 用 alias 會被新版本換掉，寫死版本 ID |
+| 量大、要最便宜 | Celeris-1.1 Decision（$0.004/1M，每百萬題 $14）、Decider Flash v1.3（$0.01/1M，$34）、d1.2（$0.02/1M，$63） |
+| 要分數最高、仍要便宜快速 | d1.2-ultra（DI 74.8、每百萬題 $133）、Drex Max v1.1（72.6，注意限時價）、SubQ Snap 1.2（72.6，長 context 384K） |
+| 想今天就上線、不想養 GPU | 上面幾家加 Gemini Decision 1、gpt-6-luna Decisions、Microsoft-Decision-1.1、Jev 1.14 |
+| 輸入有圖、影片或音訊 | Gemini Decision 1（文字／圖片／音訊／影片／PDF）、d1.2 系列（圖片＋音訊）、d3（圖＋影片）、clef-omni（圖＋影片＋音訊） |
+| 判斷本身很難、要知識 | Gemini Decision 1 的知識與推理是決策模型最高，但仍低於 Claude Haiku 5.5 (Max)；真的要知識就接檢索或用 LLM |
+| 要用信心值設自動放行門檻 | 先看「自信答錯」那一欄：Decider v1.3 55.4%、Clef-Omni 61.8% 幾乎不說不知道；d1.2-ultra 12.4%、SubQ Snap 1.2 8.4% 會，但答對率也較低 |
+| 商用授權要 Apache 或 MIT | Decider v1.3／Flash v1.3、d3、Strands Decider 2B、Clef；**StartLux 是 CC BY-NC**；GLiDE 與 Drex 的開放權重是自訂授權；mammoth-1／elephant-1 的模型卡標 MIT 但 repo 沒有 LICENSE 檔；d1-2B 系列是 LFM Open License |
+| 已經在用某家的 System One | 換 `model` 欄位就能換；OpenAI、Google、Inception 的欄位命名不同，包一層 adapter；alias 會被新版本換掉，寫死版本 ID |
 
-三件上線前一定要做的事：**在自己的資料上量一次 ECE 與不亂猜率**（榜單分數是別人的流量）；**門檻用自己量到的曲線設，不要用 0.9 這個通用值**，而且掛在 `probabilities[choice]` 不是 `confidence`；以及**高風險路徑保留人工複核**，因為你手上有的是一個會被說服的模型。
+三件上線前一定要做的事：**在自己的資料上量一次校準與不亂猜率**（榜單分數是別人的流量）；**門檻用自己量到的曲線設，不要用 0.9 這個通用值**，而且掛在 `probabilities[choice]` 不是 `confidence`；以及**高風險路徑保留人工複核**，因為你手上有的是一個會被說服的模型。
+
+## 更新紀錄
+
+- **2026-11-20**：版本矩陣、榜單、能力邊界、成本與選型改為 11 月資料（各家官方定價與模型頁、Google Gemini Decisions API 公告、Artificial Analysis Decision Index v2 公告與 v2.1 榜單頁資料、社群 Jev Decision Index 11-19 資料快照，2026-11-20 讀取）。新增 Gemini Decision 1、Liquid d1.2／d1.2-ultra、Nace.AI Drex、Subquadratic SubQ Snap、Perplexity Decider v1.3、Microsoft-Decision-1.1、Celeris-1.1 Decision 與 Liquid d1-2B 系列；Liquid d1-ultra、d1.1、d1 已停用，d1-3B 改由 d1-2B 系列接替。Artificial Analysis 榜單從 v1.0（四個評測、看準確率）換成 v2.1（六個評測、看 Decision Score），v1.0 的分數表、成本表與「三個桶」換算全部移除，改用 v2.1 數字重算；v1.0 的榜首 d1-ultra（65.2）與 Jev 1.14（57.1）等數字在 v2 已無法對應。修正：Jev 1.14 原寫只收文字，官方文件現列文字與圖片；`jev-latest` 原寫指向 1.13，現已指向 1.14；GLiDE 原寫權重未公開，10-19 起已上架 HuggingFace；Decider Flash「一題一送」的建議只適用 v1.2。
+- 2026-10-22：初版。
 
 ## 參考資料
 
+- [Google：Gemini Decisions API（2026-11-11）](https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/)
+- [Artificial Analysis：Introducing the Decision Index v2（2026-11-08）](https://artificialanalysis.ai/articles/decision-index-v2)
+- [Perplexity Docs：Decisions API（Decider v1.3、價格、locate 題型）](https://docs.perplexity.ai/docs/decisions/quickstart)
+- [Liquid AI：d1.2（2026-11-16）](https://www.liquid.ai/blog/d1-2)
+- [Liquid AI Docs：d1.2](https://docs.liquid.ai/lfm/models/d1)
+- [Microsoft：Microsoft-Decision-1.1 GA（2026-11-17）](https://commandline.microsoft.com/microsoft-decision-model-ga/)
+- [Nace.AI：Drex Max on the Decision Index](https://www.nace.ai/drex/decision-index)
+- [Hugging Face：nace-ai/drex-v2.0](https://huggingface.co/nace-ai/drex-v2.0)
+- [Subquadratic Docs：Models（SubQ Snap 1.2）](https://docs.subq.ai/using-the-api/models/)
+- [Celeris Docs：Pricing（Celeris-1.1 Decision）](https://docs.celeris.ai/pricing)
+- [Hugging Face：fastino/GLiDE-27B](https://huggingface.co/fastino/GLiDE-27B)
+- [Hugging Face：LiquidAI/d1-2B](https://huggingface.co/LiquidAI/d1-2B)
+- [Hugging Face：pplx-decider-flash-v1.3](https://huggingface.co/perplexity-ai/pplx-decider-flash-v1.3)
+- 本站：[模型卡｜Gemini Decision 1](/posts/daily/2026-11-13-model-google-gemini-decision-1)
+- 本站：[Liquid AI 模型家族](/posts/tech/2026-10-10-ai-model-family-liquid-ai)
 - [TypeSafe：Introducing System One Models & Jev（2026-09-15）](https://typesafe.ai/blog/introducing-system-one-models-and-jev)
 - [TypeSafe Docs：Models（Jev 1.14、context、長上下文標頭、alias、語言支援）](https://docs.typesafe.ai/models)
 - [TypeSafe Docs：Confidence（各題型的 confidence 定義）](https://docs.typesafe.ai/confidence)

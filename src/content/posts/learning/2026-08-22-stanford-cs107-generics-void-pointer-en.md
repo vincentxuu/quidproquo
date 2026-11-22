@@ -13,7 +13,7 @@ description: "A close reading of Stanford CS107 Winter 2026 Lecture 11: heap own
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-generics-void-pointer)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs107-generics-void-pointer)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

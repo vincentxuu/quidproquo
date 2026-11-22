@@ -21,7 +21,7 @@ glossary:
     context: "BERT uses it to keep its vocabulary under 30,000 items."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

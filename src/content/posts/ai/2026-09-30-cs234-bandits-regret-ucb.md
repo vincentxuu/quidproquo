@@ -26,7 +26,7 @@ glossary:
     context: "UCB 背後的原則，L12 會把它搬到 MDP 上（MBIE-EB）。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-bandits-regret-ucb-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

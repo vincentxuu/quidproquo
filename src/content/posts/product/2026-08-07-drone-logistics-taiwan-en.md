@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-07-drone-logistics-taiwan)
+> :globe: [中文版](/posts/product/2026-08-07-drone-logistics-taiwan)
 
 At the end of [the inspection piece](/posts/product/2026-08-07-drone-inspection-taiwan-en) I offered a guess: logistics was probably "no real commercial case in Taiwan, and the reason is that BVLOS door."
 

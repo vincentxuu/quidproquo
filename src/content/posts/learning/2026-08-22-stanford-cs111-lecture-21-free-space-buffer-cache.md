@@ -13,7 +13,7 @@ description: "聚焦導讀 Stanford CS111 Spring 2026 Lecture 21：block cache�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

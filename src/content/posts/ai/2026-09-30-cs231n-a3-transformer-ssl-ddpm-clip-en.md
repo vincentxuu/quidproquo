@@ -25,7 +25,7 @@ glossary:
     context: "A3 Q4 implements `clip_zero_shot_classifier` on top of pretrained CLIP."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-a3-transformer-ssl-ddpm-clip)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

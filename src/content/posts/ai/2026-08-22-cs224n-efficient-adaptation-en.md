@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 9: DPO 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

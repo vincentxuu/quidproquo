@@ -13,7 +13,7 @@ description: "三倉岳 攀岩指南：岩質與風格、季節、交通與停�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-mikuradake-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-mikuradake-en)
 
 想在日本爬花崗岩裂隙，行程不只小川山與瑞牆。廣島的三倉岳把裂隙、摩擦面攀與多繩距放在同一座山裡；選對岩壁，和只挑一個舒服的級數同樣重要。
 

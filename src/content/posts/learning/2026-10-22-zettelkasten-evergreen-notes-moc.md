@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-zettelkasten-evergreen-notes-moc-en)
+> :globe: [English version](/posts/learning/2026-10-22-zettelkasten-evergreen-notes-moc-en)
 
 存了幾年的筆記，回頭看大多是摘要和劃線：這本書講了什麼、那篇文章的重點。它們找得到，但從來沒有幫你想出新東西。
 

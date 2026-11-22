@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-30-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -144,16 +144,16 @@ Meta 的消費級 AI agent Muse 正式進入新加坡，是 Meta 在東南亞的
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-github-digest)
-- 📄 [Benchmark 異動｜Arena Agent 排行榜](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon)
-- 📄 [資安警報｜PHP2Shell 串 Fragnesia 攻破 PAN-OS](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach)
-- 📄 [工具推薦｜cedr](/posts/daily/2026-10-30-tool-cedr)
-- 📄 [融資速報｜Cohere Series E](/posts/daily/2026-10-30-funding-cohere)
-- 📄 [融資速報｜Serval Series C $150M](/posts/daily/2026-10-30-funding-serval)
-- 📄 [融資速報｜Wabi $55M](/posts/daily/2026-10-30-funding-wabi)
-- 📄 [AI Engineer 面試日練 — 2026-10-30](/posts/daily/2026-10-30-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-30](/posts/daily/2026-10-30-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-github-digest)
+- :file: [Benchmark 異動｜Arena Agent 排行榜](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon)
+- :file: [資安警報｜PHP2Shell 串 Fragnesia 攻破 PAN-OS](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach)
+- :file: [工具推薦｜cedr](/posts/daily/2026-10-30-tool-cedr)
+- :file: [融資速報｜Cohere Series E](/posts/daily/2026-10-30-funding-cohere)
+- :file: [融資速報｜Serval Series C $150M](/posts/daily/2026-10-30-funding-serval)
+- :file: [融資速報｜Wabi $55M](/posts/daily/2026-10-30-funding-wabi)
+- :file: [AI Engineer 面試日練 — 2026-10-30](/posts/daily/2026-10-30-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-30](/posts/daily/2026-10-30-product-builder-interview-daily)
 
 ## 明日關注
 

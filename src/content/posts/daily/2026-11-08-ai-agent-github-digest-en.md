@@ -11,7 +11,7 @@ series:
   order: 85
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-08-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-08-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -52,7 +52,7 @@ caption: Illustrative only — this is a simplified layering this article uses t
 
 ## Trending Repos
 
-### paperclipai/paperclip ⭐ ~112k
+### paperclipai/paperclip ★ ~112k
 
 [GitHub](https://github.com/paperclipai/paperclip)　·　TypeScript　·　MIT
 
@@ -63,7 +63,7 @@ caption: Illustrative only — this is a simplified layering this article uses t
 
 ---
 
-### D4Vinci/Scrapling ⭐ ~99k (+1,655 on 11/6)
+### D4Vinci/Scrapling ★ ~99k (+1,655 on 11/6)
 
 [GitHub](https://github.com/D4Vinci/Scrapling)　·　Python　·　BSD-3-Clause
 
@@ -74,7 +74,7 @@ caption: Illustrative only — this is a simplified layering this article uses t
 
 ---
 
-### NousResearch/hermes-agent ⭐ ~261k
+### NousResearch/hermes-agent ★ ~261k
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 

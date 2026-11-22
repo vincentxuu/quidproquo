@@ -13,7 +13,7 @@ description: "A guide to the Camaiore crags: rock, scale and seasons at Candalla
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-camaiore)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-camaiore)
 
 Camaiore is a small town on the northern Tuscan coast, between Viareggio and Lucca. The valley north of town is lined with limestone sport crags, with the marble peaks of the Alpi Apuane behind. [Climb Europe](https://www.climb-europe.com/pages/rock-climbing-italy-tuscany) calls it "without doubt the best sport climbing area in Tuscany".
 

@@ -13,7 +13,7 @@ tldr: "多個程式候選仍需需求反例來挑選；先通過正確性檢查�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings-en)
+> :globe: [English version](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings-en)
 
 程式碼能跑，還不代表解對問題；跑得比較快，也可能只是漏做工作。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 13 堂把 issue 修復與 GPU 程式最佳化放在一起，讓你學會分開驗證「正確」與「快」。本文依指定論文重寫，沒有還原授課口述。先備是會讀測試結果，知道 GPU kernel 是在 GPU 執行的運算程式；不需要先會手寫 kernel。
 

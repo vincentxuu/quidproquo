@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-28-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's biggest theme is agent "memory/context" infrastructure filling gaps — 
 
 ## Trending Repos
 
-### thedotmack/claude-mem ⭐ 92,171
+### thedotmack/claude-mem ★ 92,171
 
 [GitHub](https://github.com/thedotmack/claude-mem) · TypeScript · Apache-2.0
 
@@ -31,7 +31,7 @@ Today's biggest theme is agent "memory/context" infrastructure filling gaps — 
 
 ---
 
-### volcengine/OpenViking ⭐ 33,902 (+3,078 this week)
+### volcengine/OpenViking ★ 33,902 (+3,078 this week)
 
 [GitHub](https://github.com/volcengine/OpenViking) · Go + Rust + TypeScript · AGPL-3.0
 
@@ -42,7 +42,7 @@ Today's biggest theme is agent "memory/context" infrastructure filling gaps — 
 
 ---
 
-### apache/maka ⭐ 2,552 (steady growth since entering Apache Incubator)
+### apache/maka ★ 2,552 (steady growth since entering Apache Incubator)
 
 [GitHub](https://github.com/apache/maka) · TypeScript + Rust · Apache-2.0
 
@@ -53,7 +53,7 @@ Today's biggest theme is agent "memory/context" infrastructure filling gaps — 
 
 ---
 
-### K-Dense-AI/scientific-agent-skills ⭐ 34,790 (+498 today)
+### K-Dense-AI/scientific-agent-skills ★ 34,790 (+498 today)
 
 [GitHub](https://github.com/K-Dense-AI/scientific-agent-skills) · Python · MIT
 

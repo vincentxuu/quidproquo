@@ -26,7 +26,7 @@ glossary:
     context: "The DistServe deck contrasts chatbots, which need a fast TTFT, with summarization, where a slow TTFT is acceptable."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

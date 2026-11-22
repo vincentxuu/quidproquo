@@ -13,7 +13,7 @@ description: "Series opener for Hermes Agent: the architecture, what the self-im
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-intro)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-intro)
 
 Hermes Agent is [Nous Research](https://nousresearch.com/)'s open-source (MIT) agent framework. The official one-liner positions it as the only agent with a built-in learning loop:
 

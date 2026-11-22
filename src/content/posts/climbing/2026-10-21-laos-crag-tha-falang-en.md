@@ -13,7 +13,7 @@ description: "A guide to Tha Falang: the walk from Green Climbers Home, sector c
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-tha-falang)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-tha-falang)
 
 Tha Falang is the nearest independent crag to Green Climbers Home: less than 2 km downstream, about a 20–30 minute walk. Most visitors spend their time at Pha Tam Kam, so Tha Falang stays quiet and the routes feel more raw. The Crag Journal's 2023 author counted "over 30 routes"; theCrag listed 33 on 21 October 2026.
 

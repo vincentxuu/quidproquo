@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-apache-pulsar-messaging)
+> :globe: [中文版](/posts/tech/2026-08-22-apache-pulsar-messaging)
 
 [Apache Pulsar](https://pulsar.apache.org/docs/4.0.x/concepts-architecture-overview/) offers queue-like consumption and replayable streams, but its largest difference from Kafka is storage architecture. Brokers handle producer and consumer connections and dispatch, while Apache BookKeeper stores durable messages and subscription cursors. Brokers scale with serving load; bookies scale storage independently.
 

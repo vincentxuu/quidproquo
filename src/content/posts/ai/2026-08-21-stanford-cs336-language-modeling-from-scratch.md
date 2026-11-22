@@ -16,7 +16,7 @@ description: "Stanford CS336: Language Modeling from Scratch 深度導讀，讀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

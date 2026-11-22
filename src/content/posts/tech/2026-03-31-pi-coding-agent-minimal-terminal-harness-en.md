@@ -13,7 +13,7 @@ description: "An overview of Pi Coding Agent's design philosophy, architecture, 
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)
+:globe: [中文版](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)
 
 Pi is an open-source coding agent built by Mario Zechner (GitHub: badlogic), centered on a single principle: minimal but extensible. It ships with just 4 tools and a very short system prompt — and leaves everything else up to you. Site: [pi.dev](https://pi.dev/); repo: [earendil-works/pi](https://github.com/earendil-works/pi), MIT licensed, around 93K stars.
 
@@ -123,8 +123,8 @@ Specific model IDs turn over every quarter, so this table talks in tiers. The po
 | Language | TypeScript | TypeScript | Rust | TypeScript |
 | Core tools | 4 | Multiple | Multiple | Multiple |
 | Design philosophy | Minimal + extensible | Feature-complete | OpenAI ecosystem integration | Model flexibility |
-| Built-in sub-agents | ❌ (via Extension) | ✅ | ✅ | ✅ |
-| Built-in MCP | ❌ (via Extension) | ✅ | ✅ | ❌ |
+| Built-in sub-agents | ✗ (via Extension) | ✓ | ✓ | ✓ |
+| Built-in MCP | ✗ (via Extension) | ✓ | ✓ | ✗ |
 | Minimum viable model | 1.7B | Requires large model | Requires OpenAI model | Flexible |
 
 ## Typical Use Cases

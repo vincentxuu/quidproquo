@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps)
 
 [Cloudflare Queues](/posts/tech/2026-08-22-cloudflare-queues-en) moves slow work out of the request path, but it is built around "receive one thing, process it later." Once the work becomes a process, the problem changes: read an R2 file, generate embeddings, write to Vectorize, send email, wait for human approval, then sync an external API tomorrow. The system needs to know which step finished, which step should retry, and where to resume after a callback arrives.
 

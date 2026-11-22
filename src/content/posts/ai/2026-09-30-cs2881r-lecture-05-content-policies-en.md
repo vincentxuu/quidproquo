@@ -20,7 +20,7 @@ glossary:
     context: "The Lecture 5 in-class experiment used OR-Bench to compare how system prompts and safety training affect refusal rates."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-05-content-policies)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ tldr: "Agent 要能根據可信回饋修正行動；同一次任務做得更好�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap-en)
 
 **影片狀態：已附影片。** 本文依 [Stanford CS329A Autumn 2025 官方課表](https://cs329a.stanford.edu/) 第 1 堂與 [Stanford Online 的 Course Overview 錄影](https://www.youtube.com/watch?v=6YnLB0XbTnI)全文字幕導讀。字幕的人工／自動來源尚未確認，未核對原音與投影片；本文不是完整逐字稿或親聽筆記。
 

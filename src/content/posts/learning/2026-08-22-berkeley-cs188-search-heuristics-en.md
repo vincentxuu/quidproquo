@@ -14,7 +14,7 @@ description: "A project-centered guide to search algorithms, state representatio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

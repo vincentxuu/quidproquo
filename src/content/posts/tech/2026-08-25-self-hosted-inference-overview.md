@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-self-hosted-inference-overview-en)
+> :globe: [English version](/posts/tech/2026-08-25-self-hosted-inference-overview-en)
 
 這個系列介紹七套自架推論工具。但在選工具之前，先回答一個更根本的問題：**你真的需要自己跑模型嗎？**
 

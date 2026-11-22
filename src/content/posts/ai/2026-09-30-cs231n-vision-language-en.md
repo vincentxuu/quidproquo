@@ -20,7 +20,7 @@ glossary:
     context: "The slides mention benchmarks such as Winoground, CREPE, and ARO."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-vision-language)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-vision-language)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

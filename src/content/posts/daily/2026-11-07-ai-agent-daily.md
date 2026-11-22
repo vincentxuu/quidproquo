@@ -12,7 +12,7 @@ series:
   order: 84
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-07-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -156,15 +156,15 @@ caption: 數字依序來自 Google Cloud Agent Gateway/Registry/Identity 公告�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-11-07：Paper Reading](/posts/daily/2026-11-07-ai-interview-daily)
-- 📄 [框架更新｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0)
-- 📄 [融資速報｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly)
-- 📄 [融資速報｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai)
-- 📄 [Product Builder 面試日練 — 2026-11-07：Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily)
-- 📄 [資安警報｜官方 MCP Inspector 三個用戶端漏洞曝光](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities)
-- 📄 [工具推薦｜web-forager](/posts/daily/2026-11-07-tool-web-forager)
+- :file: [AI Agent Arxiv Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-07](/posts/daily/2026-11-07-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-11-07：Paper Reading](/posts/daily/2026-11-07-ai-interview-daily)
+- :file: [框架更新｜AG2 v1.3.0](/posts/daily/2026-11-07-framework-ag2-v1.3.0)
+- :file: [融資速報｜firmly Series A $15M](/posts/daily/2026-11-07-funding-firmly)
+- :file: [融資速報｜Sand.ai Series A+ $200M](/posts/daily/2026-11-07-funding-sand-ai)
+- :file: [Product Builder 面試日練 — 2026-11-07：Technical PM](/posts/daily/2026-11-07-product-builder-interview-daily)
+- :file: [資安警報｜官方 MCP Inspector 三個用戶端漏洞曝光](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities)
+- :file: [工具推薦｜web-forager](/posts/daily/2026-11-07-tool-web-forager)
 
 ## 明日關注
 

@@ -19,7 +19,7 @@ description: "Stanford CS146S Fall 2026 Week 3, 'Agent Skills and CLI': SKILL.md
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-skills)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-agent-skills)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

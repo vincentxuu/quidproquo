@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-mysql-relational-database-en)
+> :globe: [English version](/posts/tech/2026-08-22-mysql-relational-database-en)
 
 [MySQL](https://dev.mysql.com/doc/refman/8.4/en/) 是成熟的 client-server 關聯式資料庫。多數一般部署以 InnoDB 儲存資料，取得 ACID transactions、row-level locking、crash recovery、foreign keys 與 clustered primary key。它不是因為「傳統」就只適合舊系統；大量 SaaS、電商與內容系統真正需要的，正是穩定 SQL、廣泛 driver/ORM 支援與容易找到維運經驗。
 

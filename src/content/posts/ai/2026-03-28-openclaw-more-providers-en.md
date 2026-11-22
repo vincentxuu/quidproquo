@@ -13,7 +13,7 @@ description: "A category map of OpenClaw's 60 model providers, plus the auth rul
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-more-providers)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-more-providers)
 
 The previous article covered the layering. This one looks at the ecosystem itself. The official provider directory now lists **60 entries** — but walking through each one is pointless, since the setup details live in their own pages and keep moving. So this article does two things: **give a category map**, then **spell out the local-model rules that will actually block you**.
 

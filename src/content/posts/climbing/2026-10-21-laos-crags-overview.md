@@ -13,7 +13,7 @@ description: "寮國岩場總覽：他曲 Pha Tam Kam、Tha Falang、萬榮 Slee
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crags-overview-en)
 
 想到東南亞的石灰岩運攀，大家先想到泰國喀比或越南吉婆島。寮國比較少被放進同一張清單，但這裡的喀斯特地形從北到南都是岩塔，[Green Climbers Home（GCH）](https://greenclimbershome.com/climbing)說全國已有 600 多條路線，大部分在他曲與萬榮。路線長度 12 到 40 公尺，級數從 4 到 8c，風格從摩擦板、垂直面到掛滿鐘乳石的屋簷都有。
 

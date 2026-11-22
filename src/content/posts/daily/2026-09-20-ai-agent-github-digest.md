@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### affaan-m/ECC ⭐ 262,767
+### affaan-m/ECC ★ 262,767
 
 [GitHub](https://github.com/affaan-m/ECC)　·　JavaScript　·　MIT
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### cactus-compute/needle ⭐ 11,533
+### cactus-compute/needle ★ 11,533
 
 [GitHub](https://github.com/cactus-compute/needle)　·　Python　·　Apache-2.0
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### Graphify-Labs/graphify ⭐ 119,589
+### Graphify-Labs/graphify ★ 119,589
 
 [GitHub](https://github.com/Graphify-Labs/graphify)　·　Python　·　Apache-2.0
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### tinyhumansai/openhuman ⭐ 39,887
+### tinyhumansai/openhuman ★ 39,887
 
 [GitHub](https://github.com/tinyhumansai/openhuman)　·　Rust　·　GPL-3.0
 
@@ -61,7 +61,7 @@ series:
 
 ---
 
-### IvanMurzak/Godot-MCP ⭐ 247
+### IvanMurzak/Godot-MCP ★ 247
 
 [GitHub](https://github.com/IvanMurzak/Godot-MCP)　·　C#　·　Apache-2.0
 

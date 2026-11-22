@@ -13,7 +13,7 @@ description: "Dissecting the security risks of agent memory systems through thre
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-attack-surface)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-attack-surface)
 
 You spent two weeks building an agent memory system — automatic fact extraction from conversations, cross-session persistence, injection into future contexts. On day one in production, a user hides an instruction inside a conversation. From that point on, your agent appends an external URL to every response, and your dashboard shows nothing unusual.
 

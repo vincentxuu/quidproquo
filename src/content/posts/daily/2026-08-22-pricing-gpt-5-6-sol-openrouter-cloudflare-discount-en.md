@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
+> :globe: [中文版](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
 
 ## Change Summary
 
@@ -69,7 +69,7 @@ The promo creates a rare pricing anomaly: mid-tier GPT-5.6 Terra ($12.00) is bar
 
 ## Expiration Notice
 
-⏰ **Promo expires**: 2026-09-18. After expiration, GPT-5.6 Sol rates on OpenRouter/Cloudflare are expected to revert to standard pricing (Input $5.00, Output $30.00, Flex $2.50/$15.00). OpenAI's own API rates were never changed.
+:clock: **Promo expires**: 2026-09-18. After expiration, GPT-5.6 Sol rates on OpenRouter/Cloudflare are expected to revert to standard pricing (Input $5.00, Output $30.00, Flex $2.50/$15.00). OpenAI's own API rates were never changed.
 
 ## Takeaway
 

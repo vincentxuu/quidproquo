@@ -13,7 +13,7 @@ description: "Deep dive into pi-agent-core and pi-coding-agent Compaction System
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-compaction)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-compaction)
 
 ## TL;DR
 

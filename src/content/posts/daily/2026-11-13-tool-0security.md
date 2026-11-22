@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-tool-0security-en)
+> :globe: [English version](/posts/daily/2026-11-13-tool-0security-en)
 
 ## 工具資訊
 
@@ -129,7 +129,7 @@ export PATH="$HOME/.0/bin:$PATH"
 | 語言 | TypeScript | Python | TypeScript | Python |
 | 介面 | Web console／CLI／MCP | CLI／本機 web viewer／agent skills | CLI／CI actions | CLI／REPL，支援 MCP |
 | 涵蓋目標 | Web／LLM／MCP／原始碼／套件／二進位／核心層 | 程式碼／網頁應用／API | 網頁應用與 API（需要原始碼） | 泛用攻防自動化 |
-| 二進位逆向工程 | ✅ 0verse（Ghidra／angr／AFL++） | 官方未說明 | 官方未說明 | 官方未說明 |
+| 二進位逆向工程 | ✓ 0verse（Ghidra／angr／AFL++） | 官方未說明 | 官方未說明 | 官方未說明 |
 | 狀態 | Research preview | Active | Active | 2026-08-28 已封存 |
 
 Strix 跟 Shannon 的 star 數遠高於 0，但目前只有 0 公開說明自己涵蓋二進位逆向工程與 Linux 核心層這塊——這是它跟兩個更熱門同類工具最明顯的差異。

@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/career/2026-08-06-software-to-drone-transition-en)
+> :globe: [English version](/posts/career/2026-08-06-software-to-drone-transition-en)
 
 [職業地圖](/posts/career/2026-08-06-drone-industry-job-map)標出軟體背景的入口在產業鏈第 3 層，但沒回答「第一步要做什麼」。這篇把答案拆到具體的模組與參數。
 

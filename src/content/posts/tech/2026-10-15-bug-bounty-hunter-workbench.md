@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en)
+> :globe: [English version](/posts/tech/2026-10-15-bug-bounty-hunter-workbench-en)
 
 ## 從一個請求開始
 

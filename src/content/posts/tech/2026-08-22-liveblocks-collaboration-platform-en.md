@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-liveblocks-collaboration-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-liveblocks-collaboration-platform)
 
 [Liveblocks](https://liveblocks.io/docs/concepts) is a managed collaboration backend. Rooms commonly represent documents, whiteboards, workflows, or other artifacts and expose Presence, Broadcast, Storage, Threads, and Feeds, plus editor and Yjs integrations, comments UI, mentions, and notifications.
 

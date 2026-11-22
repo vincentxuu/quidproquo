@@ -13,7 +13,7 @@ description: "Comparing hooks, skills, and plugins across five agents, then chec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins)
 
 ## The capability gap: an agent you can't customize is a toy
 

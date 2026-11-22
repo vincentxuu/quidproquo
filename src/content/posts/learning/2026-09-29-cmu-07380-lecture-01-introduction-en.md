@@ -14,7 +14,7 @@ description: "Guide to CMU 07-380 AI & ML II Fall 2026 Lecture 1: Pat Virtue's d
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-01-introduction)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

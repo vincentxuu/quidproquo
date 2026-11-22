@@ -10,7 +10,7 @@ description: "A lifecycle guide to n8n triggers, AI Agents, tools, memory, human
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-n8n-agent-automation)
+> :globe: [中文版](/posts/ai/2026-08-22-n8n-agent-automation)
 
 [n8n](https://github.com/n8n-io/n8n) is a low-code workflow automation platform. AI has become an important capability, but it is not the product's starting point. A typical workflow receives a webhook, schedule, or SaaS event, normalizes the data, invokes an AI Agent when judgment is useful, updates external systems, and records the execution.
 

@@ -30,7 +30,7 @@ glossary:
     context: "L15 的結論是沒有 data race 的程式在非 SC 系統上也會得到 SC 的結果。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

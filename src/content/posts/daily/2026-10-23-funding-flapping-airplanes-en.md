@@ -12,7 +12,7 @@ series:
   order: 102
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-funding-flapping-airplanes)
+> :globe: [中文版](/posts/daily/2026-10-23-funding-flapping-airplanes)
 
 ## Funding Details
 

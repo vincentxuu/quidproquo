@@ -15,7 +15,7 @@ glossary:
     def: "Anthropic's large language model family; Fable/Mythos is its newest flagship tier above Opus"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1)
+> :globe: [中文版](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1)
 
 ## Model Information
 
@@ -49,7 +49,7 @@ glossary:
 | AutomationBench (enterprise workflow automation) | 31.4% | 17.1% | GPT-5.6 Sol: 19.6% |
 | Humanity's Last Exam (with tools) | 65.0% | 63.8% | GPT-6 Astra: 57.2% (OpenAI self-reported) |
 
-⚠️ Aside from the Artificial Analysis Intelligence Index, which is an independent third-party evaluation, all other figures are vendor self-reported (Anthropic or OpenAI). The GPT-6 Astra scores for Terminal-Bench-Science and Humanity's Last Exam are quoted from OpenAI's own announcement and use a different methodology from Anthropic's hand-picked benchmarks — treat them as reference points only.
+:warning: Aside from the Artificial Analysis Intelligence Index, which is an independent third-party evaluation, all other figures are vendor self-reported (Anthropic or OpenAI). The GPT-6 Astra scores for Terminal-Bench-Science and Humanity's Last Exam are quoted from OpenAI's own announcement and use a different methodology from Anthropic's hand-picked benchmarks — treat them as reference points only.
 
 ## Comparison with Predecessor/Competitors
 

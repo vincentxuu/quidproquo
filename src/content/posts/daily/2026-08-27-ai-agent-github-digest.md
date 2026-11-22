@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-27-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-27-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### deepseek-ai/deepseek-harness ⭐ 197.7k
+### deepseek-ai/deepseek-harness ★ 197.7k
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### PrimeIntellect-ai/prime-agent ⭐ 18.6k
+### PrimeIntellect-ai/prime-agent ★ 18.6k
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　TypeScript + Python　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### liqiwa/mcp-radar ⭐ 1
+### liqiwa/mcp-radar ★ 1
 
 [GitHub](https://github.com/liqiwa/mcp-radar)　·　Python　·　MIT
 

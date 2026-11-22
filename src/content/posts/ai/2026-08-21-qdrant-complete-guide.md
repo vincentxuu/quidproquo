@@ -10,7 +10,7 @@ description: "從安裝、Collection 與 payload schema，到 dense+sparse hybri
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-qdrant-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-qdrant-complete-guide-en)
 
 如果還沒決定該用 Qdrant、Pinecone、Weaviate 還是 pgvector，先看[向量資料庫選型比較](/posts/ai/2026-03-12-vector-database-comparison)。這篇假設你已經選 Qdrant，要把它從「能存 embedding」推進到可上線的檢索服務。
 

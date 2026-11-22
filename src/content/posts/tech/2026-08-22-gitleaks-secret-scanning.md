@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-gitleaks-secret-scanning-en)
+> :globe: [English version](/posts/tech/2026-08-22-gitleaks-secret-scanning-en)
 
 [gitleaks](https://github.com/gitleaks/gitleaks) 是開源 secret scanner。`gitleaks git` 透過 `git log -p` 掃 commits/patches，`dir` 掃目前 files，`stdin` 接 pipeline input。Default rules 依 token prefix、regex、keyword 與 entropy 找 API keys、passwords 等；`.gitleaks.toml` 可擴充 internal credential format。
 

@@ -10,7 +10,7 @@ description: "Open Agents' architecture design, trade-offs versus off-the-shelf 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-17-vercel-open-agents-intro)
+> :globe: [中文版](/posts/ai/2026-04-17-vercel-open-agents-intro)
 
 After products like Claude Code and Cursor Background Agent took off, the question for many teams shifted from "should we adopt a coding agent" to "the off-the-shelf agent is painful to run in our monorepo." Vercel Labs recently open-sourced **Open Agents**, a reference implementation that teams can fork and customize to fit their own workflow. This post covers its architecture, tech stack, and real-world cost considerations.
 

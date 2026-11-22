@@ -30,7 +30,7 @@ glossary:
     context: "高抱石和無繩獨攀的界線在哪，攀登圈仍有爭論。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-free-solo-rope-solo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-free-solo-rope-solo-en)
 
 2026 年 1 月 25 日早上 9 點，Alex Honnold 開始不帶繩爬台北 101，1 小時 31 分後站上塔尖。Netflix 全球直播，畫面延遲 10 秒，萬一他掉下來，可以在觀眾看到之前切掉（[維基百科 Skyscraper Live 條目](https://en.wikipedia.org/wiki/Skyscraper_Live_(2026))）。
 

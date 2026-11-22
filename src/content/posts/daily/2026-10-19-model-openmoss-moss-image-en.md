@@ -17,7 +17,7 @@ glossary:
     def: "An open AI research group spanning MOSI.AI, the Shanghai Innovation Institute (SII), Fudan University, and Shanghai Jiao Tong University, known earlier for the MOSS Chinese dialogue model"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-model-openmoss-moss-image)
+> :globe: [中文版](/posts/daily/2026-10-19-model-openmoss-moss-image)
 
 ## Model Info
 
@@ -51,7 +51,7 @@ glossary:
 | RLA end-to-end system Elo (9 systems, full pipeline) | 1698.70 (ranked 2nd) | First release, no predecessor | GPT Image 2: 1844.35 (ranked 1st) |
 | RLA shared-prompt backbone Elo (9 generators) | 1807.34 (ranked 1st) | First release, no predecessor | ERNIE Image: 1748.51 |
 
-⚠️ LLTB, 7Bench, and RLA are all constructed and evaluated entirely in-house by OpenMOSS (the paper states: "all results on 7Bench, LLTB, and RLA are obtained through our own evaluation"). None of these numbers has an independent third-party reproduction yet, so the scores should be read with some caution. The one benchmark drawing on externally published results is LongTextBench, which OpenMOSS itself describes as near-saturated (most models cluster between 96.05 and 98.85), which is why LLTB was built as the primary evaluation instead.
+:warning: LLTB, 7Bench, and RLA are all constructed and evaluated entirely in-house by OpenMOSS (the paper states: "all results on 7Bench, LLTB, and RLA are obtained through our own evaluation"). None of these numbers has an independent third-party reproduction yet, so the scores should be read with some caution. The one benchmark drawing on externally published results is LongTextBench, which OpenMOSS itself describes as near-saturated (most models cluster between 96.05 and 98.85), which is why LLTB was built as the primary evaluation instead.
 
 ## Compared to Predecessors and Competitors
 

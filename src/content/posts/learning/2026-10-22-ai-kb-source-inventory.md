@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-source-inventory-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-source-inventory-en)
 
 人資的共用資料夾裡有三份〈差旅辦法〉：「差旅辦法_2023.docx」「差旅辦法_2025_定稿.docx」，還有一份「差旅辦法_2025_定稿(1).docx」，內容跟定稿只差一個數字。團隊把整個資料夾匯進 AI 知識庫，有人問「國內出差住宿上限多少」，AI 回了兩個數字，說「依版本而定」。
 

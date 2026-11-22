@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)
+:globe: [English version](/posts/tech/2026-03-27-cloudflare-kv-key-value-store-en)
 
 KV 是 Cloudflare Workers 的全球 key-value store。如果你需要一個 serverless 的快取層，不想管 Redis，KV 是最直接的選擇。
 

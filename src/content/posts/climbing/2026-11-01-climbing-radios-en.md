@@ -30,7 +30,7 @@ glossary:
     context: "Wait a moment after pressing before you speak, so your first word isn't clipped."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-11-01-climbing-radios)
+> :globe: [中文版](/posts/climbing/2026-11-01-climbing-radios)
 
 You're halfway up a multi-pitch, the wind is howling, and your partner is round the corner. You shout "Off belay" and they may hear only wind; you tug the rope three times and they can't tell a signal from a snag. A radio means you don't have to shout: hold the side button to talk, let go to listen. It's a tool for talking to your partner, not for calling for help; for that, see [Satellite messengers and personal locator beacons](/posts/climbing/2026-11-01-satellite-messengers-plb-en).
 

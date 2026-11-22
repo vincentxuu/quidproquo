@@ -29,7 +29,7 @@ glossary:
     definition: "義大利各大區的嚮導登錄名冊。只有登錄在 albo 上的人，才能合法收費帶客。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-austria-germany-italy-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-austria-germany-italy-en)
 
 奧地利、德國、義大利放在同一篇，是因為三國的嚮導執照都不是全國一套法律管到底。奧地利 9 個邦各有嚮導法；德國只有巴伐利亞邦管收費帶客；義大利有國家法，但訓練和考試交給各大區。要報名前，先確認你要去的是哪一個邦、哪一個大區。
 

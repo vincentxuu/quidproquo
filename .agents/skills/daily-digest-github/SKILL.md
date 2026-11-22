@@ -191,7 +191,7 @@ series:
 
 ## Trending Repos
 
-### {repo-name} ⭐ {total_stars} (+{daily_gain})
+### {repo-name} ★ {total_stars} (+{daily_gain})
 
 [GitHub]({repo_url})　·　{language}　·　{license}
 
@@ -247,7 +247,7 @@ series:
 
 ## Trending Repos
 
-### mcp-notion-server ⭐ 1,240 (+380)
+### mcp-notion-server ★ 1,240 (+380)
 
 [GitHub](https://github.com/example/mcp-notion-server)　·　TypeScript　·　MIT
 
@@ -258,7 +258,7 @@ series:
 
 ---
 
-### agent-sandbox ⭐ 2,130 (+520)
+### agent-sandbox ★ 2,130 (+520)
 
 [GitHub](https://github.com/example/agent-sandbox)　·　Rust + Python　·　Apache-2.0
 
@@ -269,7 +269,7 @@ series:
 
 ---
 
-### crewai-flows ⭐ 890 (+210)
+### crewai-flows ★ 890 (+210)
 
 [GitHub](https://github.com/example/crewai-flows)　·　Python　·　MIT
 

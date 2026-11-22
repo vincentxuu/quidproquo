@@ -30,7 +30,7 @@ glossary:
     context: "L18 walks through a lazy-optimistic HTM, including per-line R/W bits and a two-phase commit."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-transactional-memory-w4)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-transactional-memory-w4)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

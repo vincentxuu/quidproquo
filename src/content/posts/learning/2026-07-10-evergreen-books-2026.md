@@ -26,7 +26,7 @@ glossary:
     context: "2026 年「及時行樂 vs 存錢紀律」辯論的核心詞彙。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-07-10-evergreen-books-2026-en)
+> :globe: [English version](/posts/learning/2026-07-10-evergreen-books-2026-en)
 
 書單文很多，但大多數是「曾經暢銷」的清單。這份研究換一個問法：**哪些長青書在 2026 年還有人主動發文討論？**
 

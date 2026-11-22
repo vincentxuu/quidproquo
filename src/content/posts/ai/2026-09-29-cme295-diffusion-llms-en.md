@@ -30,7 +30,7 @@ glossary:
     context: "It lets a diffusion LLM produce variable-length output and reuse a KV cache for completed blocks."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-diffusion-llms)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-diffusion-llms)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

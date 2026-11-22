@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-zod-universal-contract-en)
+:globe: [English version](/posts/tech/2026-08-21-zod-universal-contract-en)
 
 [選型總覽](/posts/tech/2026-08-19-react-stack-ai-era)裡有個數字很突兀：Zod 週下載 224M，是清單裡第二名 Vite 的 1.5 倍以上。一個「驗證庫」憑什麼？答案是它早就不只是驗證庫——它成了 TypeScript 生態裡「資料跨越信任邊界時」的通用合約格式。這篇拆解這個地位是怎麼來的。
 

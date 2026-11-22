@@ -10,7 +10,7 @@ description: "A deep dive into Chroma's data model, write and query paths, HNSW 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-chroma-vector-database)
+> :globe: [中文版](/posts/ai/2026-08-22-chroma-vector-database)
 
 [Chroma](https://github.com/chroma-core/chroma) is an open-source database built for AI retrieval. It keeps vectors, source documents, metadata, and an embedding function in a collection, letting a RAG application ingest and search data with a small Python API instead of assembling a database framework first.
 

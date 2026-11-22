@@ -11,7 +11,7 @@ series:
   order: 156
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-27-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -127,7 +127,7 @@ Agent 評測大多檢查「模型給出的答案是否正確」，卻很少反�
 - 警告式範圍缺陷（scope）：工具搜尋一份文件前 100 萬字元，超過範圍就沒搜到，卻只在搜到時才標注限制，搜不到時說「已搜尋完整文字」
 - 警告式完整度缺陷（completeness）：某年份實際有 4,772 份文件，工具只抓前 20 份就回報「找到 20 份」，字字為真卻讓人誤以為是全部
 - Warped 版下 agent 過度宣稱率：範圍 100%、完整度 62%、不確定性 100%、來源標示 94%；clear 版降到 8%、0%、20%、94%（來源標示這一類光靠文字修正救不回來，需要靠型別或驗證機制）
-- Fixed-answer 測量下，三個 verifier 對同一批 30 個虛假答案的判決，warped 版 30/30 全部接受，clear 版 30/30 全部拒絕，三類總計 90/90 次翻盤 ⚠️（這個因果對照測的是「文字本身造成的差異」，不是「agent 真的答錯了多少次」的發生率估計）
+- Fixed-answer 測量下，三個 verifier 對同一批 30 個虛假答案的判決，warped 版 30/30 全部接受，clear 版 30/30 全部拒絕，三類總計 90/90 次翻盤 :warning:（這個因果對照測的是「文字本身造成的差異」，不是「agent 真的答錯了多少次」的發生率估計）
 - 作者把同一套 audit prompt 餵給 Codex 與 Claude Code 去審查自己系統的原始碼，重新發現了仍存在的缺陷並多揪出 12 個未編目的新案例；餵給開源系統 OpenClaw 與 Hermes 時，各找到一個真實的 warped formatter，OpenClaw 那個修復 PR 已被維護者合併（openclaw/openclaw#131702）
 - 落地門檻：不需要重寫整個驗證系統，先檢查自己工具輸出的措辭是否講清楚「搜了多少」「總共有多少」「這是估計值還是確定值」「這個編號屬於哪個命名空間」，文中附完整 audit prompt 可直接套用
 

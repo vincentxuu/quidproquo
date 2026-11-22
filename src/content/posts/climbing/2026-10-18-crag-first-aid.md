@@ -26,7 +26,7 @@ glossary:
     context: "野外急救和都市急救的差別在送醫時間：都市約在一小時內，野外可能要一兩小時以上。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-crag-first-aid-en)
+> :globe: [English version](/posts/climbing/2026-10-18-crag-first-aid-en)
 
 2026 年 5 月，龍洞兩週內發生兩起攀岩墜落。第一起，消防人員在報案後約 40 分鐘到場，但因為要下降到谷底，[報案一小時後才接觸到患者](https://www.cna.com.tw/news/asoc/202605020099.aspx)。最後由空勤總隊直升機吊掛送醫。第二起，傷者由[消防人員在岩石間人力接駁搬運](https://www.mirrordaily.news/story/61392)，送往衛福部基隆醫院。
 

@@ -22,7 +22,7 @@ glossary:
     definition: "A change, most often to a prompt, quietly breaks cases that used to work, with no error and no alert."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-prompt-context-harness)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-prompt-context-harness)
 
 Interviews for LLM application roles tend to chain the same questions together: why prompt engineering matters, how context engineering differs, what harness engineering is, what happens without evaluation, and how a team should wire LLM development into CI/CD. They look scattered, but they ask one thing: **when the model gets it wrong, do you know which layer to fix?**
 

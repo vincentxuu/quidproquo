@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions-en)
 
 [系列上一篇](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)講了 headless mode：用 `-p` 旗標讓 Claude Code 不進互動介面、跑完就退出。CI 整合就是把這個能力接上觸發器：GitHub Actions 和 GitLab CI/CD 是官方文件明確支援的兩條路。這篇講怎麼裝、怎麼觸發、企業環境怎麼換雲端後端。
 

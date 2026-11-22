@@ -13,7 +13,7 @@ description: "A guide to the Bitchu crags in Takahashi, Okayama: limestone rock,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-bitchu)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-bitchu)
 
 Bitchu (備中, びっちゅう) is not one cliff but a group of limestone crags scattered across the Takahashi River basin around Takahashi City, Okayama Prefecture. The local climbers' group TCNet (高梁川流域クライミング交流会) says in its [area guide](https://takahashigawa-climb.net/area/bitchu/) (in Japanese) that "大小25のクライミングエリアが点在" (25 climbing areas, large and small) between the Hayama area in Nariwa-cho and the Shirataki crag in Yoshii-cho, Ibara City, with the densest cluster around the Yuze Climbing Park (用瀬クライミング広場) in Bitchu-cho.
 

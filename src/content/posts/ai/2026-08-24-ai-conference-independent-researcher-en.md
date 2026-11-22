@@ -20,9 +20,9 @@ glossary:
     context: "Both WSDM 2017's randomized controlled experiment and research on ICLR's switch from single- to double-blind review found statistical evidence of prestige bias."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-independent-researcher)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-independent-researcher)
 
-> 🌏 Part 5 of the [AI Top Conference Guide](/en/tags/ai-conference) series
+> :globe: Part 5 of the [AI Top Conference Guide](/en/tags/ai-conference) series
 
 "Can I submit to a top conference without an institution, an advisor, or compute resources?" The question appears repeatedly on Reddit's r/MachineLearning and across ML communities. The answer is that nothing prohibits it. None of the major AI conferences—NeurIPS, ICML, ICLR, or ACL—requires an institutional affiliation. Anyone can create an OpenReview account, and a submission system will not reject a paper merely because its author enters "Independent Researcher."
 

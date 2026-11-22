@@ -10,7 +10,7 @@ description: "解析小型元大台灣50ETF期貨（SRF）的契約規格、保�
 draft: false
 ---
 
-> 🌏 [English version](/posts/investing/2026-07-01-srf-0050-etf-futures-en)
+> :globe: [English version](/posts/investing/2026-07-01-srf-0050-etf-futures-en)
 
 Threads 上有人貼出一張下單截圖：商品代碼 SRF1，名稱寫著「小台灣50 期07」，成交價 109.85，保證金只要 7,900 元，貼文寫「好像很多人都不認識他」。
 

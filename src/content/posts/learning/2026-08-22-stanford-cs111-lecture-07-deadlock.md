@@ -13,7 +13,7 @@ description: "逐講導讀 Stanford CS111 Spring 2026 Lecture 7：多鎖動機�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-07-deadlock-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

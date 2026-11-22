@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-claude-code-global-skills-not-found)
+:globe: [中文版](/posts/tech/2026-03-27-claude-code-global-skills-not-found)
 
 You set up global skills, they show up in the CLI with `/`, but when you open a new session or switch to the Desktop App and ask Claude "what skills do you have?", it only lists the system defaults. Every time you have to manually remind it to "check the home directory."
 

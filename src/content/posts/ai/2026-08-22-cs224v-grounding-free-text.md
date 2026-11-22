@@ -12,7 +12,7 @@ tldr: "WikiChat 不把檢索結果直接交給一次生成，而是形成查詢�
 description: "拆解 CS224V Grounding Conversational Agents on Free Text：RAG 基線、WikiChat 七階段 pipeline、claim verification 與動態評估。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-grounding-free-text-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-grounding-free-text-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -15,7 +15,7 @@ glossary:
     def: "Meta's multimodal AI model family, spanning Spark (text/multimodal LLM), Glimmer (local agentic model), and Voice (audio perception model) product lines"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe)
+> :globe: [中文版](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | Diarization average error rate (AMI-IHM/AMI-SDM/VoxConverse average) | 17.5% | — | Rival systems 21.1%–28.6% (Meta's own evaluation) |
 | API pricing (per 1,000 audio-minutes) | $3.00 | — | Cartesia Ink-2 $4.00; ElevenLabs Scribe v2 Realtime $6.50 |
 
-⚠️ The streaming WER and delay figures come from a third party, Artificial Analysis' AA-WER Streaming benchmark; the diarization error figures are Meta's own self-reported evaluation and await independent third-party reproduction.
+:warning: The streaming WER and delay figures come from a third party, Artificial Analysis' AA-WER Streaming benchmark; the diarization error figures are Meta's own self-reported evaluation and await independent third-party reproduction.
 
 ## vs. Predecessor / Competitors
 

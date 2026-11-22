@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-engoo-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-engoo-speaking-practice)
 
 You want regular English conversation without having to invent a topic every time. [Engoo Taiwan](https://engoo.com.tw/) offers 25-minute private online lessons: choose a tutor and bring platform materials or a news topic. A short session can be easier to fit into an evening after work.
 

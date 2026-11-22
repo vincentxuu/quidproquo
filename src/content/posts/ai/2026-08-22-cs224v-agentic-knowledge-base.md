@@ -12,7 +12,7 @@ tldr: "SPINACH 不一次猜完整 SPARQL，而是搜尋 entity/property、查看
 description: "CS224V Agentic AI for Knowledge Base Queries：Wikidata/SPARQL 難題、semantic parsing 基線、SPINACH actions、迴圈控制、資料集與評估。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -10,7 +10,7 @@ description: "介紹 Tamagui UI framework：design token、theme、跨平台樣�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-03-27-tamagui-react-native-ui-en)
+> :globe: [English version](/posts/tech/2026-03-27-tamagui-react-native-ui-en)
 
 React Native 的樣式系統和 web CSS 相差很大——沒有 cascade，沒有 `em`/`rem`，flexbox 是預設佈局，字型大小要在每個平台分別測試。這讓「把 web 的 UI 套件帶進 React Native」比看起來難。
 

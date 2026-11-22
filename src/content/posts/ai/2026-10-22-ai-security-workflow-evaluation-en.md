@@ -14,7 +14,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-workflow-evaluation)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-workflow-evaluation)
 
 You introduce an AI assistant and average incident-closure time falls. Analysts may be skipping verification, or finding evidence faster. A speed metric alone makes those very different outcomes look alike.
 

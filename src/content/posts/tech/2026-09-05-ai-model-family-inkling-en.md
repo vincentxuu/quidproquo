@@ -20,7 +20,7 @@ glossary:
     definition: "Thinking Machines Lab's fine-tuning API platform—submit jobs run on first-party clusters, supporting open families including Inkling, Qwen, and Nemotron"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-05-ai-model-family-inkling)
+> :globe: [中文版](/posts/tech/2026-09-05-ai-model-family-inkling)
 
 In February 2025, former OpenAI CTO Mira Murati founded Thinking Machines Lab in San Francisco with roughly 30 researchers and engineers from OpenAI, Meta, and Mistral. That July, with no product shipped, the company closed a $2B seed round at a $12B valuation led by a16z—a Silicon Valley early-stage record. A year later, its first answer was not a closed API but an Apache 2.0 open model, Inkling (975B total parameters), plus Tinker, a platform that sells fine-tuning as a service. This is the nineteenth family deep-dive in the "AI Model Families" series, tracing the company's path from Tinker to Inkling to Inkling-Small, and its bet that customizability—not the strongest model—wins.
 
@@ -96,7 +96,7 @@ Inkling's position reads as "leading US open weights, front of the global open s
 | HLE (with tools) | 46.0% | 47.8% | 37.4% | 54.0% | 54.7% | 55.0% | 64.5% |
 | FORTRESS (adversarial) | 78.0% | 71.6% | 77.6% | 65.6% | 71.3% | 82.4% | 96.0% |
 
-⚠️ All figures above are TML's official self-reported results, not yet independently reproduced.
+:warning: All figures above are TML's official self-reported results, not yet independently reproduced.
 
 Three readings: first, it wins the US open-weights civil war against Nemotron 3 Ultra (76.0 vs 44.7 on MCP Atlas is a blowout); second, against Chinese open weights (GLM-5.2, Kimi K2.6, DeepSeek V4 Pro) it's win-some-lose-some, with GLM-5.2's 82.7% on Terminal Bench still an untouched ceiling; third, closed frontier models (Claude Fable 5, GPT-5.6 Sol) lead everywhere—95.0% vs 77.6% on SWE-Bench says different leagues. Safety is the bright spot: 78.0% adversarial on FORTRESS is the highest among listed open models, without over-refusal (95.9% benign).
 

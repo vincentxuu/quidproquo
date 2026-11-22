@@ -17,7 +17,7 @@ glossary:
     def: "一個記憶框架，在 Hy-Memory-30B-A3B 的評測中被刻意保留在訓練資料之外，用來驗證模型學到的寫入策略能否轉移到沒見過的框架"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-model-tencent-hy-memory-30b-a3b-en)
+> :globe: [English version](/posts/daily/2026-10-16-model-tencent-hy-memory-30b-a3b-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | MemOS harness | 50.51 | 49.05 | 50.50 |
 | EverMemOS harness（held-out，訓練時完全沒見過） | **56.89** | 50.98 | 54.04 |
 
-⚠️ 以上均為 Tencent 官方自測，且只在固定 20% 的 benchmark 子樣本上評測，目前尚無第三方獨立複現。Mem0／Hy-Memory／MemOS 三個訓練內框架贏 Claude Opus 5 的差距都在 0.6 分以內，接近統計噪訊；四框架平均領先的 0.87 分裡，有 2.85 分差距（約八成）全部來自唯一保留在訓練外的 EverMemOS 框架。
+:warning: 以上均為 Tencent 官方自測，且只在固定 20% 的 benchmark 子樣本上評測，目前尚無第三方獨立複現。Mem0／Hy-Memory／MemOS 三個訓練內框架贏 Claude Opus 5 的差距都在 0.6 分以內，接近統計噪訊；四框架平均領先的 0.87 分裡，有 2.85 分差距（約八成）全部來自唯一保留在訓練外的 EverMemOS 框架。
 
 ## 與前代/競品比較
 

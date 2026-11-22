@@ -13,7 +13,7 @@ description: "A reading of CMU 07-280 Spring 2026 Lecture 14: convolution shapes
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-14-computer-vision-cnns)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

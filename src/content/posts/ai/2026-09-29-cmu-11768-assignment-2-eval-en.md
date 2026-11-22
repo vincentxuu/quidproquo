@@ -24,7 +24,7 @@ glossary:
     context: "A2 Part 3 requires packaging the student's own visualization tasks as Harbor tasks."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

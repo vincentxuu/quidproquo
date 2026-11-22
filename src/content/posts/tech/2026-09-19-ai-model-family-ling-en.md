@@ -21,7 +21,7 @@ glossary:
     def: "Kimi Delta Attention, an evolution of Lightning Attention with fine-grained diagonal gating in Delta Rule state updates for precise long-sequence memory retention"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-19-ai-model-family-ling)
+> :globe: [中文版](/posts/tech/2026-09-19-ai-model-family-ling)
 
 In March 2025, Ant Group validated the engineering feasibility of MoE large language models on non-A100/H100 heterogeneous computing platforms — this was the starting point of the Ling family. Fifteen months later, it delivered a matrix spanning 7.9B to 1T parameters across text, reasoning, and multimodal domains. On September 9, 2026 at the Bund Conference, the family gained a new member: Ling-3.0-flash-Fin, the first finance-enhanced model.
 

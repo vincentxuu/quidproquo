@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-04-internal-ai-coding-agents)
+> :globe: [中文版](/posts/ai/2026-04-04-internal-ai-coding-agents)
 
 In early 2026, a pattern began to emerge: elite engineering teams across Silicon Valley were independently building their own AI coding agents. Not Copilot-style autocomplete, but genuine end-to-end automation — from a single Slack message to a production-ready PR, with no human touching the keyboard.
 

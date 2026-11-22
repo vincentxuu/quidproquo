@@ -13,7 +13,7 @@ tldr: "Candidate search selects solutions; retrieval fills knowledge gaps. Both 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research)
+> :globe: [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research)
 
 **Video status: Videos included.** Lecture text is available; caption type, listening checks, and the shadowing player still require verification.
 

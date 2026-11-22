@@ -14,7 +14,7 @@ description: "A guided reading of the Stanford CS329Z Week 3 anchors: the MCP sp
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

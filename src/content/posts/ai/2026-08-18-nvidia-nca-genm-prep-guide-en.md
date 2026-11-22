@@ -13,7 +13,7 @@ description: "A preparation guide for NVIDIA NCA-GENM (Generative AI Multimodal 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official certification page](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/) and the official Exam Study Guide. No leaked questions. Verified 2026-08-18.
 

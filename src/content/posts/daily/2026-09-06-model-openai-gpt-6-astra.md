@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Astra 是目前最新一代旗艦模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
+> :globe: [English version](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | Humanity's Last Exam（含工具） | 57.2% | 未公開 | Claude Fable 5.1 65.0% |
 | Terminal-Bench Science 0.1 | 64.6% | 22.4% | Claude Fable 5.1 52.6% |
 
-⚠️ 以上多為 OpenAI 官方公佈的自測結果（ARC-AGI-3 官方 harness 分數 99.9% 未列入表格，改用 ARC Prize 獨立重跑的標準化分數）。Artificial Analysis Intelligence Index 為第三方中立評測，方法論與 OpenAI 自選 benchmark 不同，兩者結論明顯分歧。
+:warning: 以上多為 OpenAI 官方公佈的自測結果（ARC-AGI-3 官方 harness 分數 99.9% 未列入表格，改用 ARC Prize 獨立重跑的標準化分數）。Artificial Analysis Intelligence Index 為第三方中立評測，方法論與 OpenAI 自選 benchmark 不同，兩者結論明顯分歧。
 
 ## 與前代/競品比較
 

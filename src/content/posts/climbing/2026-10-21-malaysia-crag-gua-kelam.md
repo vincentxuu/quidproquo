@@ -13,7 +13,7 @@ description: "Gua Kelam 攀岩指南：洞穴岩場的岩質與五個分區規�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-gua-kelam-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-gua-kelam-en)
 
 玻璃州（[Perlis](https://www.thecrag.com/en/climbing/malaysia/area/422129439)）北部、加央北方約 33 公里的 Gua Kelam（Kelam Cave），是馬來西亞少數幾個「洞穴本身就是岩場」的地點。36 條路線、純石灰岩、涵蓋 5c 到 6b 最密的級距；代價是它是一個公有公園，要買票入場，週末與公眾假期會擠。
 

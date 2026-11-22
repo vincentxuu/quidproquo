@@ -13,7 +13,7 @@ description: "A guide to Erto: rock and scale in the Big and No Big sectors, how
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-erto)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-erto)
 
 Erto is at the western end of Friuli Venezia Giulia. The wall sits right by the road next to the Vajont dam, with the village of Casso above it. The scree slope at its foot is debris from the Vajont landslide of 9 October 1963 ([Up-Climbing](https://www.up-climbing.com/bimestrale/storia-di-copertina/i-ragazzi-dello-zoo-di-erto/)). People started opening routes on the overhang in 1978 ([Dolomiti Friulane nature park](https://www.parcodolomitifriulane.it/en/i-paesi-del-parco/erto-e-casso/)), and it is now one of Italy's best-known hard crags.
 

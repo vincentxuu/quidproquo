@@ -21,7 +21,7 @@ glossary:
     context: "講義第 3 節的主題，也是本系列的主線。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-tgi-text-generation-inference)
+> :globe: [中文版](/posts/tech/2026-08-25-tgi-text-generation-inference)
 
 Text Generation Inference (TGI) is the LLM inference server built by HuggingFace. When it was open-sourced in 2023, it was the first production-grade solution to package continuous batching, Flash Attention, and token streaming into a "start with Docker and go" experience. HuggingChat and OpenAssistant both ran on it.
 

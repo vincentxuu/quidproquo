@@ -10,7 +10,7 @@ tldr: "HW6 把 generalization、MLE/MAP、probabilistic learning、公平指標�
 description: "導讀 CMU 10-301/601 Spring 2026 HW6 的理論、估計與公平性分析。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 6 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw6-theory-ethics-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw6-theory-ethics-en)
 
 [官方 HW6 ZIP](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip) 內 PDF 的完整題名是 **Homework 6: Learning Theory, MLE/MAP, Fairness Metrics, and Societal Impact**；[coursework 索引](https://www.cs.cmu.edu/~mgormley/courses/10601/coursework.html) 使用較短名稱 Learning Theory and Ethics。它是純 written 作業，題組包括 learning theory、MLE/MAP、probabilistic learning、fairness metrics、societal impacts/unintended consequences 與 society, ethics, and ML。ZIP 提供 PDF、LaTeX template、fairness CSV 與題目圖檔，沒有 starter code 或 reference answers。
 

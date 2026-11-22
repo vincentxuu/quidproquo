@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-sst-full-stack-infrastructure)
+> :globe: [中文版](/posts/tech/2026-08-22-sst-full-stack-infrastructure)
 
 [SST](https://sst.dev/docs) is an application-first infrastructure framework. One `sst.config.ts` defines frontends, APIs, Functions, container Services, databases, buckets, queues, domains, and third-party provider resources in the team's AWS, Cloudflare, or other accounts.
 

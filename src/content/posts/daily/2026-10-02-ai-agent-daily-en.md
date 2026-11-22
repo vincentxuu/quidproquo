@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-02-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -128,18 +128,18 @@ Several other vertical-agent startups also closed funding today: property-manage
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-02: Coding](/posts/daily/2026-10-02-ai-interview-daily-en)
-- 📄 [Framework Update: Agno v3.1.0](/posts/daily/2026-10-02-framework-agno-3.1.0-en)
-- 📄 [Framework Update: Haystack v3.3.0](/posts/daily/2026-10-02-framework-haystack-3.3.0-en)
-- 📄 [Funding Brief｜Armadin Series B $255.5M](/posts/daily/2026-10-02-funding-armadin-en)
-- 📄 [Funding Brief｜enso Series A $15M](/posts/daily/2026-10-02-funding-enso-en)
-- 📄 [Funding Brief｜Flow Engineering Series B $50M](/posts/daily/2026-10-02-funding-flow-engineering-en)
-- 📄 [Model Card: IQuest-Q1](/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
-- 📄 [Pricing Watch | OpenAI Adds a 6x Ultrafast Speed Tier](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
-- 📄 [Product Builder Interview Drill — 2026-10-02: Growth & Experimentation](/posts/daily/2026-10-02-product-builder-interview-daily-en)
-- 📄 [Tool Pick｜gitlab-mcp-server](/posts/daily/2026-10-02-tool-gitlab-mcp-server-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-10-02: Coding](/posts/daily/2026-10-02-ai-interview-daily-en)
+- :file: [Framework Update: Agno v3.1.0](/posts/daily/2026-10-02-framework-agno-3.1.0-en)
+- :file: [Framework Update: Haystack v3.3.0](/posts/daily/2026-10-02-framework-haystack-3.3.0-en)
+- :file: [Funding Brief｜Armadin Series B $255.5M](/posts/daily/2026-10-02-funding-armadin-en)
+- :file: [Funding Brief｜enso Series A $15M](/posts/daily/2026-10-02-funding-enso-en)
+- :file: [Funding Brief｜Flow Engineering Series B $50M](/posts/daily/2026-10-02-funding-flow-engineering-en)
+- :file: [Model Card: IQuest-Q1](/posts/daily/2026-10-02-model-iquestlab-iquest-q1-en)
+- :file: [Pricing Watch | OpenAI Adds a 6x Ultrafast Speed Tier](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
+- :file: [Product Builder Interview Drill — 2026-10-02: Growth & Experimentation](/posts/daily/2026-10-02-product-builder-interview-daily-en)
+- :file: [Tool Pick｜gitlab-mcp-server](/posts/daily/2026-10-02-tool-gitlab-mcp-server-en)
 
 ## Watching Tomorrow
 

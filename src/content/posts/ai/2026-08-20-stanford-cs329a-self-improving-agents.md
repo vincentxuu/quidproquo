@@ -16,7 +16,7 @@ description: "Stanford CS329A Autumn 2025 課程總覽：串起九個公開錄�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
+> :globe: [English version](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

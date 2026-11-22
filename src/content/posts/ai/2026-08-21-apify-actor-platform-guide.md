@@ -10,7 +10,7 @@ description: "從實作角度介紹 Apify 的 Actor、Task、Schedule、Dataset�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-apify-actor-platform-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-apify-actor-platform-guide-en)
 
 [Apify](https://docs.apify.com/actors) 不是一套新的 CSS selector，也不是只有雲端版 crawler。它是一個爬取與自動化執行平台：程式被包成 Actor，常用輸入存成 Task，Schedule 負責定時執行，結果則進入 Dataset 或其他內建儲存空間。
 

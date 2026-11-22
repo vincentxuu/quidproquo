@@ -11,7 +11,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover)
+> :globe: [中文版](/posts/daily/2026-09-29-security-mcp-oauth-account-takeover)
 
 ## What happened
 

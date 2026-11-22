@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-funding-zenzap)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-funding-zenzap)
 
 ## Funding Details
 

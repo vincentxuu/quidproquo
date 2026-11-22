@@ -12,7 +12,7 @@ series:
   order: 69
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-23-ai-agent-daily)
 
 ## Today's Take
 
@@ -134,16 +134,16 @@ AgenticAdvertising.org launched an Australian chapter to advance open standards 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-github-digest-en)
-- 📄 [Framework Update: Mastra @mastra/core@1.79.0](/posts/daily/2026-10-23-framework-mastra-1.79.0-en)
-- 📄 [Funding Brief: DeepSeek closes $15B round](/posts/daily/2026-10-23-funding-deepseek-en)
-- 📄 [Funding Brief: Flapping Airplanes Series A $1B](/posts/daily/2026-10-23-funding-flapping-airplanes-en)
-- 📄 [Funding Brief: Mave closes $34M](/posts/daily/2026-10-23-funding-mave-en)
-- 📄 [Pricing Watch: Claude Sonnet 4.5 retires 11/30](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement-en)
-- 📄 [Tool of the Day: landmine](/posts/daily/2026-10-23-tool-landmine-en)
-- 📄 [AI Engineer Interview Drill — 2026-10-23: Coding](/posts/daily/2026-10-23-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-10-23: Growth & Experimentation](/posts/daily/2026-10-23-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-23](/posts/daily/2026-10-23-ai-agent-github-digest-en)
+- :file: [Framework Update: Mastra @mastra/core@1.79.0](/posts/daily/2026-10-23-framework-mastra-1.79.0-en)
+- :file: [Funding Brief: DeepSeek closes $15B round](/posts/daily/2026-10-23-funding-deepseek-en)
+- :file: [Funding Brief: Flapping Airplanes Series A $1B](/posts/daily/2026-10-23-funding-flapping-airplanes-en)
+- :file: [Funding Brief: Mave closes $34M](/posts/daily/2026-10-23-funding-mave-en)
+- :file: [Pricing Watch: Claude Sonnet 4.5 retires 11/30](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement-en)
+- :file: [Tool of the Day: landmine](/posts/daily/2026-10-23-tool-landmine-en)
+- :file: [AI Engineer Interview Drill — 2026-10-23: Coding](/posts/daily/2026-10-23-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-10-23: Growth & Experimentation](/posts/daily/2026-10-23-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

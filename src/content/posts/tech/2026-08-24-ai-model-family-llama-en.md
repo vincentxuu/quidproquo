@@ -23,7 +23,7 @@ glossary:
     definition: "One of the most popular local inference frameworks, community-maintained, allowing Llama weights to run on laptops, phones, even Raspberry Pi—core to Llama's ecosystem"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-llama)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-llama)
 
 In February 2023, Meta released Llama 1—an open LLM family at 7B/13B/33B/65B. That decision changed the industry: open models went from "academic toy" to "enterprise infrastructure." By April 2026, Llama 4 Scout arrived with a 10M-token window and Maverick with a 128-expert MoE, both open multimodal benchmarks. But the same year Meta launched closed-source Muse Spark, and Llama 4 is likely the last major open Llama. This is the fifth family deep-dive in the "AI Model Families" series, tracing Llama's complete evolution from Llama 1 to Llama 4 and its changed position in 2026.
 

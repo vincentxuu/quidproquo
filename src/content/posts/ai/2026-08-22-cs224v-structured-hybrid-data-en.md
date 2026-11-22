@@ -12,7 +12,7 @@ tldr: "Reliable database agents map language to executable queries, resolve sche
 description: "CS224V Structured and Hybrid Data: NL-to-SQL, schemas, enumerated values, execution evaluation, and retrieval across text, tables, and knowledge graphs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-structured-hybrid-data)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-structured-hybrid-data)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

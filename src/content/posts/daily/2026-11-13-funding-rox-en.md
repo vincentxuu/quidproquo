@@ -12,7 +12,7 @@ series:
   order: 132
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-funding-rox)
+> :globe: [中文版](/posts/daily/2026-11-13-funding-rox)
 
 ## Funding Details
 

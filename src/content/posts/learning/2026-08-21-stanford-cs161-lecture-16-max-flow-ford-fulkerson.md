@@ -13,7 +13,7 @@ description: "完整導讀 Stanford CS161 Winter 2026 Lecture 16：flow、cut、
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

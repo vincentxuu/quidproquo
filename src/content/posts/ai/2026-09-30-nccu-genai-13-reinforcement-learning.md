@@ -25,7 +25,7 @@ glossary:
     context: "L13 用它解決「Q 函數一開始還很爛，電腦要照什麼規則玩」的問題。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

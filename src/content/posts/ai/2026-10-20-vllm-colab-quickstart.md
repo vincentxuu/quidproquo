@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-🌏 [English version](/posts/ai/2026-10-20-vllm-colab-quickstart-en)
+:globe: [English version](/posts/ai/2026-10-20-vllm-colab-quickstart-en)
 
 vLLM 是目前自架 LLM 服務最常見的推論引擎，但它主要為 NVIDIA GPU 而寫，筆電（尤其 Mac）幾乎沒辦法體驗。這篇用 Google Colab 免費借到的 T4 GPU，從 `pip install` 到同時打 8 個請求，十五分鐘內把 vLLM 跑起來，親眼看它「把模型變成 API」和「同時服務很多人」這兩件事。
 

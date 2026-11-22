@@ -13,7 +13,7 @@ description: "整合 CMU 07-280 Spring 2026 的 MDP、reinforcement learning、d
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

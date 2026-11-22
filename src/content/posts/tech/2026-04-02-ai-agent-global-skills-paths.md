@@ -10,7 +10,7 @@ tldr: "Skill 路徑通常是 runtime-specific，跨 agent 真正穩的是 AGENTS
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-04-02-ai-agent-global-skills-paths-en)
+:globe: [English version](/posts/tech/2026-04-02-ai-agent-global-skills-paths-en)
 
 ## TL;DR
 

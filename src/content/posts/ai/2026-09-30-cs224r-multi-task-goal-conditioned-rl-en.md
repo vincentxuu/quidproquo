@@ -23,7 +23,7 @@ glossary:
     context: "A trick CS224R L12 borrows from multi-task supervised learning; the RL version keeps a replay buffer per task."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

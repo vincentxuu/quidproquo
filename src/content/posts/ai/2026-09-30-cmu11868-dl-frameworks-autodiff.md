@@ -26,7 +26,7 @@ glossary:
     context: "前向計算照拓撲順序走，反向傳播照反拓撲順序走；作業二的第一個函式就是 topological_sort。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-dl-frameworks-autodiff-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-dl-frameworks-autodiff-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

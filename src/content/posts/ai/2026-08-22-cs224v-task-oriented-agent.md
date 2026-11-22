@@ -12,7 +12,7 @@ tldr: "Genie Worksheets 把任務能力宣告成表單式規格，讓 contextual
 description: "逐段拆解 CS224V Building a Task-Oriented Agent：對話狀態、Worksheet 語言、semantic parser、runtime、組合與評估。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-task-oriented-agent-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-task-oriented-agent-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

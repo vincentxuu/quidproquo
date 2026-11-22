@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-forums-comments-community-learning)
+> :globe: [中文版](/posts/learning/2026-10-14-forums-comments-community-learning)
 
 This is Part 21 of the series "Writing Articles That Teach," and the second post in its fifth section, "who you learn with, and who can't read this." [The previous post](/posts/learning/2026-10-14-learning-alone-vs-together-en) covered the evidence and conditions for learning together, and what a person reading an article alone is missing. This post steps back and looks at what is most often offered to fill that gap: comment sections, discussion forums, study groups, and communities such as Discord. It asks one question: **when people who take part in a community learn more, is it the community that makes them learn more, or are the people who would learn more anyway the ones who join?**
 

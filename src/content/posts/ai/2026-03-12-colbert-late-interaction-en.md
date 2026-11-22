@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-colbert-late-interaction)
+> :globe: [中文版](/posts/ai/2026-03-12-colbert-late-interaction)
 
 Vector search architectures fall into three broad categories. Understanding the trade-offs between them is the key to picking the right tool.
 
@@ -47,8 +47,8 @@ This design preserves fine-grained, token-level comparison (close to a Cross-Enc
 |---|-----------|---------|--------------|
 | Query vectors | 1 | N_q (per token) | N/A |
 | Document vectors | 1 | N_d (per token) | N/A (joint computation) |
-| Precomputable doc vectors | ✅ | ✅ | ❌ |
-| Token interaction | ❌ | Partial (MaxSim) | ✅ (full attention) |
+| Precomputable doc vectors | ✓ | ✓ | ✗ |
+| Token interaction | ✗ | Partial (MaxSim) | ✓ (full attention) |
 | Index size | Small | Large (N_d × bigger) | N/A |
 | Search speed | Fast | Medium | Slow |
 | Precision | Low | Medium–High | High |

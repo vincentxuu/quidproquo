@@ -10,7 +10,7 @@ description: "An introduction to Pydantic AI's typed Agent, RunContext, tools, s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-pydantic-ai-typed-agents)
+> :globe: [中文版](/posts/ai/2026-08-22-pydantic-ai-typed-agents)
 
 [Pydantic AI](https://pydantic.dev/docs/ai/) is a Python agent framework from the Pydantic team. Its defining feature is the type boundary: dependencies and outputs are generic types, while tool inputs and model results are validated with Pydantic schemas.
 

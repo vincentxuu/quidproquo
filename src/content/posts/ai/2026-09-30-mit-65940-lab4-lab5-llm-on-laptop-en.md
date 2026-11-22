@@ -25,7 +25,7 @@ glossary:
     context: "Lab 5's evaluate.sh reports each implementation's performance in GOPs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

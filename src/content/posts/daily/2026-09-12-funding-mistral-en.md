@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-12-funding-mistral)
+> :globe: [中文版](/posts/daily/2026-09-12-funding-mistral)
 
 ## Funding Details
 

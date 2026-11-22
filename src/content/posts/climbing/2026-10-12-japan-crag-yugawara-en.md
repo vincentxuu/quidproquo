@@ -13,7 +13,7 @@ description: "A guide to Yugawara Makuiwa in Kanagawa: rock type, route count an
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-yugawara)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-yugawara)
 
 Yugawara Makuiwa (湯河原幕岩, ゆがわらまくいわ) sits inside Makuyama Park in Kajiya, Yugawara-machi, Ashigarashimo-gun, Kanagawa, with its boulders and walls scattered across the slope above a plum grove. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%B9%95%E5%B2%A9/) (in Japanese) describes it as sunny and warm — "関東クライマーの冬の定番" (a winter staple for Kanto climbers) — and says popular routes have queues on clear winter weekends.
 

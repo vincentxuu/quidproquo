@@ -15,7 +15,7 @@ glossary:
     def: "Baidu's open-source long-document OCR model family, aiming to parse documents of any length — from a few pages to hundreds — in one pass, without chunking and stitching"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2)
+> :globe: [中文版](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | Tables (MarathonDocBench sub-score) | 74.8 | Sub-score not disclosed | Not disclosed |
 | Heading hierarchy (MarathonDocBench sub-score, the model's weakest category) | 48.2 | Sub-score not disclosed | Not disclosed |
 
-⚠️ All figures are Baidu's own self-reported results, published only as a leaderboard chart image on the model card (transcribed here by third-party coverage, not a data table). MarathonDocBench is a benchmark Baidu built itself; the dataset isn't publicly released, and no other team has independently reproduced these numbers yet.
+:warning: All figures are Baidu's own self-reported results, published only as a leaderboard chart image on the model card (transcribed here by third-party coverage, not a data table). MarathonDocBench is a benchmark Baidu built itself; the dataset isn't publicly released, and no other team has independently reproduced these numbers yet.
 
 ```diagram
 title: Unlimited OCR 2 shrinks the score gap on long-document benchmarks
@@ -65,8 +65,8 @@ caption: Source: Baidu's official leaderboard chart (2026-10-27, all self-report
   <text class="dg-small" x="64" y="204" text-anchor="end" dominant-baseline="central">40</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="136" y="52" text-anchor="middle" dominant-baseline="central">MPDoc</text>
-  <text class="dg-text--series dg-text--accent" x="188" y="52" text-anchor="middle" dominant-baseline="central">Marathon</text>
+  <g class="dg-c-s1"><text class="dg-text--series" x="440" y="32" text-anchor="start" dominant-baseline="central">MPDoc</text></g>
+  <g class="dg-c-accent"><text class="dg-text--series" x="520" y="32" text-anchor="start" dominant-baseline="central">Marathon</text></g>
 
   <rect class="dg-bar dg-c-s1" x="114" y="97" width="44" height="203"/>
   <rect class="dg-bar dg-c-accent" x="166" y="115" width="44" height="185"/>

@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5)
+> :globe: [中文版](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5)
 
 ## What changed
 
@@ -24,11 +24,11 @@ Arena's (formerly LMSYS Chatbot Arena) latest official Agent-category publish (2
 
 | Rank | Model | Score | 09-30 Score | Change |
 |---|---|---|---|---|
-| 🥇 | Claude Fable 5.1 (Max) | 14.31% | 14.55% | ↓0.24pp |
-| 🥈 | Claude Opus 5.5 (High) | 13.82% | 13.78% | — |
-| 🥉 | Claude Sonnet 5.5 (Max) | 12.52% | new entry | 🆕 |
-| 4 | GPT-6 Astra (Max) | 12.27% | 12.18% (🥉) | ↓1 |
-| 5 | GPT-6.1 Sol (Max) | 11.23% | new entry | 🆕 |
+| 1 | Claude Fable 5.1 (Max) | 14.31% | 14.55% | ↓0.24pp |
+| 2 | Claude Opus 5.5 (High) | 13.82% | 13.78% | — |
+| 3 | Claude Sonnet 5.5 (Max) | 12.52% | new entry | NEW|
+| 4 | GPT-6 Astra (Max) | 12.27% | 12.18% (3) | ↓1 |
+| 5 | GPT-6.1 Sol (Max) | 11.23% | new entry | NEW|
 
 Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) (`agent` subset, `full` split, `category=overall`) · Official publish date: 2026-10-02 · Retrieved: 2026-10-04
 
@@ -42,7 +42,7 @@ Claude Sonnet 5.5 launched on 2026-09-29 (see our [pricing coverage](/posts/dail
 
 ### The methodology angle
 
-⚠️ Same caveat as last time: this is Arena's own relative win-rate score, not a traditional Elo rating. You can't compute a precise day-over-day percentage-point delta for the same model — only read the rank order and the rough score magnitude.
+:warning: Same caveat as last time: this is Arena's own relative win-rate score, not a traditional Elo rating. You can't compute a precise day-over-day percentage-point delta for the same model — only read the rank order and the rough score magnitude.
 
 What's new this time is the confidence intervals. Sonnet 5.5 (Max)'s 95% CI is `[9.43%, 15.61%]` — almost fully overlapping with #1 Fable 5.1's `[12.42%, 16.21%]`, #2 Opus 5.5's `[11.65%, 15.99%]`, and #4 GPT-6 Astra's `[10.04%, 14.50%]`. All four intervals overlap each other, which means a single snapshot can't actually settle the true ranking — these four models currently sit in a statistical dead heat. Sonnet 5.5 also has the smallest sample of the group (483,211 observations, 5,219 sessions), typical for a model that just launched. Expect the rank to keep shifting as more data comes in — Opus 5.5 swung between 11.84% and 13.78% during its first week on the board (see our [previous piece](/posts/daily/2026-10-02-benchmark-arena-agent-en)). Sonnet 5.5 will likely do the same.
 

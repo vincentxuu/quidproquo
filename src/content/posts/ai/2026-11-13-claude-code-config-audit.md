@@ -10,7 +10,7 @@ description: "一次 Claude Code 個人設定稽核的完整過程：依官方�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-13-claude-code-config-audit-en)
+> :globe: [English version](/posts/ai/2026-11-13-claude-code-config-audit-en)
 
 ## TL;DR
 

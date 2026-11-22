@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
+> :globe: [English version](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
 
 ## 變更摘要
 
@@ -68,7 +68,7 @@ Sonar API 的設計是「你選一個深度等級，Perplexity 幫你把模型�
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-09-27（今天）。Sonar Chat Completions 的 `messages`／`choices` 格式全面停止支援，改用 Agent API 的 `input`／`output` 格式。遷移指南：[Migrate from Sonar to the Agent API](https://docs.perplexity.ai/docs/agent-api/migrate-from-sonar/overview)。
+:warning: **停用日期**：2026-09-27（今天）。Sonar Chat Completions 的 `messages`／`choices` 格式全面停止支援，改用 Agent API 的 `input`／`output` 格式。遷移指南：[Migrate from Sonar to the Agent API](https://docs.perplexity.ai/docs/agent-api/migrate-from-sonar/overview)。
 
 ## 今日收穫
 

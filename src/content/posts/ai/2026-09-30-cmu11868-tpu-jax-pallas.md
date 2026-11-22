@@ -29,7 +29,7 @@ glossary:
     context: "L12 與 L13 所有效能分析都圍繞著 HBM 與 VMEM 之間的搬運。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

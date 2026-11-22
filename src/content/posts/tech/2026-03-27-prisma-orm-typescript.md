@@ -10,7 +10,7 @@ description: "介紹 Prisma ORM：schema 定義、migration 流程、型別安�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-prisma-orm-typescript-en)
+:globe: [English version](/posts/tech/2026-03-27-prisma-orm-typescript-en)
 
 「不用 ORM，直接寫 SQL」這個論點有道理，但有前提：你願意手動維護 migration、手動寫型別、手動處理關聯查詢。Prisma 把這些全部解決，代價是你要接受它的抽象層。對島島（DaoDao）這種 TypeScript 專案，這個換法是值得的。
 

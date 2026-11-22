@@ -20,7 +20,7 @@ glossary:
     def: "Cached Key and Value vectors for each token during inference, avoiding redundant computation — the longer the conversation, the more VRAM it consumes"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-quantization)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-quantization)
 
 You want to run Llama 3 70B on your laptop. You check the specs: 70 billion parameters, each stored in FP16 (16-bit floating point), requiring **140GB of VRAM**. Your GPU has 8GB.
 

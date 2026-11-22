@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS161 Winter 2026 after reading all
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-algorithms)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-algorithms)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -105,7 +105,7 @@ Hard-coded cap（修改需 PR review）：
 | `scope:M` | 800,000 tokens（spec PR + code PR 共用） |
 | `scope:L` | 1,500,000 tokens |
 
-handler 每次 LLM call 後 accumulator += response_tokens；超 cap 立刻 abort + comment「⚠️ Token budget exceeded」+ 加 `human-coding` label。token usage 持久化到 `state-store.json:token_usage_by_issue`，給 weekly evals 看 p99。
+handler 每次 LLM call 後 accumulator += response_tokens；超 cap 立刻 abort + comment「:warning: Token budget exceeded」+ 加 `human-coding` label。token usage 持久化到 `state-store.json:token_usage_by_issue`，給 weekly evals 看 p99。
 
 **防什麼**：agent loop 失控是真實風險。一個 prompt 拼錯方向、agent 在錯誤路徑上 retry 10 次，token cost 一夜爆掉。每張 issue 一個硬上限，超過就停下交人。
 
@@ -256,7 +256,7 @@ writer 寫 → reviewer 看 →
 **沒覆蓋的「unknown unknowns」**：
 
 - **Test pollution**：worker 跑 acceptance test 時對 production GitHub repo 真打了 API（留下 2 條測試 comment）。Plan 沒列這條 risk，是 post-mortem 才看到的。下次 plan 階段把「test 涉及 production write 動作」當獨立 risk。
-- **UI 隱藏設定**：Claude Code Console 的 environment variables 設定藏在「hover 才出現的 ⚙️ icon」後面。沒查文件不會找到。下次 plan 階段把「環境變數注入路徑」當 risk 寫進去。
+- **UI 隱藏設定**：Claude Code Console 的 environment variables 設定藏在「hover 才出現的 :settings: icon」後面。沒查文件不會找到。下次 plan 階段把「環境變數注入路徑」當 risk 寫進去。
 - **Worker hallucination**：team mode 下 worker 在多輪 wake/sleep 後可能把別人的 task 算成自己做的。Lead 的對策是「不信任口頭交付，只信 git + TaskList」。
 
 **最該記住的判斷準則**：當你想「這條 wall 看起來太麻煩、省了吧」時，問自己「這個 wall 防的失敗模式發生過嗎？」。Stripe Minions 那 5 層 pipeline 是踩過 production 大坑後加的，不是 paper design。GitGuardian 報告 28.6M secret 公開洩漏不是嚇人數字，是真實事件累計。如果你的 wall 想省，至少要找到一條「這個失敗模式絕不會發生」的具體理由——找不到就老實上 wall。

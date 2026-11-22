@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-container-gvisor-microvm-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-container-gvisor-microvm-en)
 
 Agent 沙盒通常是三種做法之一：一般容器、[gVisor](https://gvisor.dev/)，或 microVM（Kata Containers、Firecracker 這類）。它們都叫「隔離」，但隔開的位置不同。這篇回答兩個問題：agent 的程式要跨過幾道核心邊界才碰到 host？三種做法跨過去之後，還共用什麼？
 

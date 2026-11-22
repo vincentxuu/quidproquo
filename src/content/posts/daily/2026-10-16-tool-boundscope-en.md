@@ -12,7 +12,7 @@ series:
   order: 56
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-tool-boundscope)
+> :globe: [中文版](/posts/daily/2026-10-16-tool-boundscope)
 
 ## Tool Info
 
@@ -90,11 +90,11 @@ Once connected, you can just ask the agent: "Use Boundscope to check buffer-demo
 
 | | Boundscope | Manual `clang -fsanitize=address` | Valgrind |
 |---|---|---|---|
-| Agent-callable (MCP) | ✅ | ❌ | ❌ |
-| Automatic before/after comparison (retest links to the original report) | ✅ | Manual bookkeeping | Manual bookkeeping |
-| Saves reproducible inputs and source snapshots | ✅ | ❌ | ❌ |
+| Agent-callable (MCP) | ✓ | ✗ | ✗ |
+| Automatic before/after comparison (retest links to the original report) | ✓ | Manual bookkeeping | Manual bookkeeping |
+| Saves reproducible inputs and source snapshots | ✓ | ✗ | ✗ |
 | Requires recompiling the target | Yes (sanitizers are compile-time instrumentation) | Yes | No (runs the existing binary) |
-| Detects undefined behavior beyond memory | ✅ (UBSan) | Need to add the flag yourself | ❌ |
+| Detects undefined behavior beyond memory | ✓ (UBSan) | Need to add the flag yourself | ✗ |
 
 ## Caveats
 

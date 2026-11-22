@@ -13,7 +13,7 @@ description: "Antigravity CLI replacing Gemini CLI: Go rewrite, multi-agent orch
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google)
+> :globe: [中文版](/posts/tech/2026-08-24-antigravity-cli-gemini-replacement-google)
 
 Gemini CLI was Google's open-source coding agent, launched in 2025 under Apache 2.0. It accumulated over 100,000 stars and 6,000+ merged community PRs. On May 19, 2026, Google I/O announced its replacement: [Antigravity CLI](https://antigravity.google) (binary name `agy`), a closed-source Go binary.
 

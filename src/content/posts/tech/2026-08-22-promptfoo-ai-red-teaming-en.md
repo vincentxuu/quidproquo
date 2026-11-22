@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-promptfoo-ai-red-teaming)
+> :globe: [中文版](/posts/tech/2026-08-22-promptfoo-ai-red-teaming)
 
 [Promptfoo red teaming](https://www.promptfoo.dev/docs/red-team/quickstart/) divides generative-AI attack testing into plugins that define weaknesses, strategies that package and refine payloads, targets that execute models or applications, and graders that judge policy violations. This article focuses on security; the existing general Promptfoo evaluation article covers broader prompt and model comparison.
 

@@ -38,7 +38,7 @@ glossary:
     context: "備份結是最後一道，不能取代第二個器材。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-rope-solo-how-to-en)
+> :globe: [English version](/posts/climbing/2026-10-24-rope-solo-how-to-en)
 
 TAKEMOVIE 在 2026 年 3 月上傳了一支影片：一個人爬日本伊豆城山的五段路線〈スター☆トレック〉（5.8）。他在片中說，因為這次是用 solo 系統一個人爬，爬完第一段要先下到地面拿背包，再沿著繩子爬回來（[影片 5:43 起](https://www.youtube.com/watch?v=l68_-amCZl4&t=343s)）。
 

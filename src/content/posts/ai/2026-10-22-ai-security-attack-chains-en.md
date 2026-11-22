@@ -14,7 +14,7 @@ series:
   order: 9
 ---
 
-> 🌏 [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-chains)
+> :globe: [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-chains)
 
 Obtaining data in one authorization test and completing an attack chain are different tasks. A single exploit demonstrates a failed boundary. A chain must connect one stage’s output to the next stage’s preconditions, with evidence at every transition.
 

@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut-en)
+> :globe: [English version](/posts/daily/2026-11-13-pricing-anthropic-claude-fable-5-2-price-cut-en)
 
 ## 變更摘要
 

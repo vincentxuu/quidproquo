@@ -25,7 +25,7 @@ glossary:
         url: "https://arxiv.org/abs/2112.10752"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 7
 ---
-> 🌏 [中文版](/posts/daily/2026-05-31-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-31-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -126,11 +126,11 @@ This is distilled from actual production (a multi-tenant enterprise supply chain
 ### Deep Dive
 
 - Architecture source: multi-tenant enterprise supply chain management SaaS platform with actual production deployment background, not a lab design
-- Risk-Adaptive Tiering claims Pareto optimality (safety and efficiency both improve), but the paper provides no quantitative data **⚠️**
+- Risk-Adaptive Tiering claims Pareto optimality (safety and efficiency both improve), but the paper provides no quantitative data **:warning:**
 - Separation of Powers with four roles and physical boundary isolation can by design prevent prompt injection from crossing role boundaries
 - Verifier-Recovery differs from a retry loop: the Verifier has independent acceptance criteria, Recovery has fallback policies — it's not infinite retry
 - LangGraph relevance: conditional edges + human-in-the-loop can directly implement Separation of Powers; Risk Tier can map to subgraph selection logic
-- Limitation: reads more like a system design document, lacks controlled experiments comparing against naive agent architectures, and has almost no quantified safety benefit numbers **⚠️**
+- Limitation: reads more like a system design document, lacks controlled experiments comparing against naive agent architectures, and has almost no quantified safety benefit numbers **:warning:**
 - Adoption barrier: concepts are directly usable, but physical isolation in multi-tenant environments requires containerization / sandbox infrastructure
 
 ### Reviewer's One-liner
@@ -156,7 +156,7 @@ Brings actuarial science into agent runtime: every agent action is "priced" firs
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Novel concept worth knowing about, but the path to production is unclear. Best for architects interested in agent safety / governance; difficult to implement directly in the short term.
 
 ### Domain Background

@@ -10,7 +10,7 @@ description: "canary、Stagehand、Shortest、Magnitude 與 Playwright 官方 AI
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-06-07-ai-e2e-testing-en)
+:globe: [English version](/posts/tech/2026-06-07-ai-e2e-testing-en)
 
 E2E 測試長期卡在兩個極端：讓 AI agent 跑測試，每次結果不同、每次燒 token、失敗時看不出原因；自己寫 Playwright script，selector 跟著 UI 一起壞，維護成本比功能開發還高。2024-2025 年出現一批工具試圖打破這個二選一，各自的解法差很多。
 
@@ -109,11 +109,11 @@ Playwright 官方在 2025-2026 年加入三個方向的 AI 支援：
 
 | 工具 | Stars | 設計哲學 | 產出 script | 適合情境 |
 |---|---|---|---|---|
-| [canary](https://github.com/wizenheimer/canary) | 新興 | AI 跑完給 script，replay 不燒 token | ✅ Playwright script | Claude Code 整合、需要完整 trace 記錄 |
-| [Stagehand](https://github.com/browserbase/stagehand) | 22k+ | Playwright + AI 語言層，自動 self-heal | ❌（automation SDK，不是測試框架） | 生產環境瀏覽器 automation |
-| [Shortest](https://github.com/antiwork/shortest) | 5.6k+ | 一句自然語言 = 一個測試 | ❌ | 快速 acceptance test，低頻跑 |
-| [Magnitude](https://github.com/magnitudedev/browser-agent) | 新興 | 純視覺 VLM，Planner + Executor 分工 | ❌（計畫可存，但不是 code） | 複雜 UI、dynamic class 環境 |
-| [Playwright Agents](https://playwright.dev/) | 官方 | framework 端整合，plan/generate/heal | ✅（Generator Agent） | 已用 Playwright 的團隊 |
+| [canary](https://github.com/wizenheimer/canary) | 新興 | AI 跑完給 script，replay 不燒 token | ✓ Playwright script | Claude Code 整合、需要完整 trace 記錄 |
+| [Stagehand](https://github.com/browserbase/stagehand) | 22k+ | Playwright + AI 語言層，自動 self-heal | ✗（automation SDK，不是測試框架） | 生產環境瀏覽器 automation |
+| [Shortest](https://github.com/antiwork/shortest) | 5.6k+ | 一句自然語言 = 一個測試 | ✗ | 快速 acceptance test，低頻跑 |
+| [Magnitude](https://github.com/magnitudedev/browser-agent) | 新興 | 純視覺 VLM，Planner + Executor 分工 | ✗（計畫可存，但不是 code） | 複雜 UI、dynamic class 環境 |
+| [Playwright Agents](https://playwright.dev/) | 官方 | framework 端整合，plan/generate/heal | ✓（Generator Agent） | 已用 Playwright 的團隊 |
 
 ## 整體來說
 

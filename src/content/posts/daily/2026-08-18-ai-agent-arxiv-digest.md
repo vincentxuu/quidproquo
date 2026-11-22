@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-18-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-18-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 

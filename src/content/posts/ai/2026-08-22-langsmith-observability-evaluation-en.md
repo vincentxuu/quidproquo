@@ -10,7 +10,7 @@ description: "A guide to LangSmith's trace model, Python instrumentation, feedba
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-langsmith-observability-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-langsmith-observability-evaluation)
 
 [LangSmith](https://docs.langchain.com/langsmith/observability-concepts) is an LLM application observability and evaluation platform from the LangChain team. It captures more than individual model requests: models, retrieval, tool calls, code steps, and their nested relationships can form one operation, making it particularly useful for debugging RAG and agent workflows.
 

@@ -14,7 +14,7 @@ glossary:
     context: "Used in this article to demonstrate the first layer of Traditional Chinese RAG retrieval failure: embedding granularity defects."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-zh-tw-embedding-rag-failures)
+> :globe: [中文版](/posts/ai/2026-06-04-zh-tw-embedding-rag-failures)
 
 When Traditional Chinese RAG retrieval goes wrong, the most common reaction is "switch to a bigger, more expensive embedding model." But the evidence says this almost never works: CapRetrieval (arXiv:2506.08592) tested the BGE and GTE families **from 0.1B to 7B** -- all top-tier models on the MTEB Chinese leaderboard -- and found that for simple queries like "fried chicken" or "purple flowers," they still rank less relevant passages above more relevant ones. The paper states plainly that this phenomenon is "universal regardless of training sources and model sizes."
 

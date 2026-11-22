@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 28
 ---
-> 🌏 [中文版](/posts/daily/2026-06-21-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-21-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,14 +72,14 @@ For PMs and product architects: this paper provides quantitative decision-making
 - Per-query dissatisfaction rate: agent **1.3%** vs. conversational assistant **2.9%** (agent satisfaction ~55% higher)
 - Agents attract higher cognitive complexity queries: **71% are abstract/non-routine tasks**, vs. only 53% for conversational assistants
 - Follow-up queries shift to higher-level work: verification, extension — rather than repeating basic Q&A
-- Agent adoption grew **84x** during the study period ⚠️ (rapid growth may be influenced by product promotion; interpret cautiously)
+- Agent adoption grew **84x** during the study period :warning: (rapid growth may be influenced by product promotion; interpret cautiously)
 - Cost-structure analysis: "high fixed cost, low marginal cost" gives agents scale advantages on long, multi-step tasks; short queries remain chatbot territory
 - LangGraph / AutoGen relevance: the paper implies agent orchestration frameworks should add task complexity assessment as a condition for entering the agent pipeline in their routing logic, rather than routing all requests through agents
 - Limitation: Perplexity's user base and task distribution are specific; conclusions may not directly generalize to enterprise internal tools or other scenarios
 
 ### Reviewer's One-Liner
 
-Production data is the biggest strength — numbers like 87% completion time reduction are convincing; but the selection bias risk in Perplexity's self-study is real ⚠️ — they have incentive to present Computer's positive results. The directional conclusion is credible; keep some skepticism about the exact numbers.
+Production data is the biggest strength — numbers like 87% completion time reduction are convincing; but the selection bias risk in Perplexity's self-study is real :warning: — they have incentive to present Computer's positive results. The directional conclusion is credible; keep some skepticism about the exact numbers.
 
 ### Your Take-Away
 
@@ -132,7 +132,7 @@ This loop shifts agent scaffolding improvement from "manual cycles (weeks/months
 - **MiniMax M2.5**: 40.5% → 61.9% (relative improvement **53%**)
 - **Qwen3.5-35B-A3B**: 23.8% → 38.1% (relative improvement **60%**)
 - **GLM-5**: 42.9% → 57.1% (relative improvement **33%**)
-- Highest single failure pattern fix yielded up to **138%** relative improvement ⚠️ (a local number for a specific failure pattern, not representative of uniform improvement across the full task set)
+- Highest single failure pattern fix yielded up to **138%** relative improvement :warning: (a local number for a specific failure pattern, not representative of uniform improvement across the full task set)
 - Core design principle: every modification is linked to its corresponding failure pattern (traceable), not "blindly tweaking prompts and checking results"
 - Focuses on the scaffolding layer, no fine-tuning: all changes happen at the harness level; the model itself stays untouched
 - Deployment prerequisite: requires **structured execution trace logging**; if the agent doesn't have complete records of task processes, Weakness Mining has no input data
@@ -141,7 +141,7 @@ This loop shifts agent scaffolding improvement from "manual cycles (weeks/months
 
 ### Reviewer's One-Liner
 
-The three-stage loop design is clean, and results across three models are convincing; but evaluation is limited to Terminal-Bench-2.0 (command-line tasks) ⚠️, and generalization to open-ended or business scenarios remains unknown — this is high-feasibility scaffolding automation research, but don't extrapolate command-line numbers directly to your own task types.
+The three-stage loop design is clean, and results across three models are convincing; but evaluation is limited to Terminal-Bench-2.0 (command-line tasks) :warning:, and generalization to open-ended or business scenarios remains unknown — this is high-feasibility scaffolding automation research, but don't extrapolate command-line numbers directly to your own task types.
 
 ### Your Take-Away
 
@@ -189,15 +189,15 @@ If your multi-agent system decides trustworthiness based solely on "whether fina
 - Evaluation setting: **MedQA-USMLE** (U.S. medical licensing exam questions) and **MedThink-Bench** (requiring multi-step medical reasoning)
 - Core finding: debate reduces the number of **detectable contradictions** between agents while simultaneously **reducing reasoning chain semantic similarity** — surface consensus ≠ reasoning alignment
 - CARA metric family: measures semantic similarity of reasoning chains among agents that agreed on the answer; automatically computable, no human evaluation needed
-- GDP intervention effect: requiring agents to cite named medical facts and state positions can mitigate the consistency illusion, but the paper does not provide complete quantitative effect numbers ⚠️
+- GDP intervention effect: requiring agents to cite named medical facts and state positions can mitigate the consistency illusion, but the paper does not provide complete quantitative effect numbers :warning:
 - Framework relevance: LangGraph and AutoGen's current multi-agent debate patterns default to "output agreement = trustworthy"; a CARA-type reasoning alignment measurement needs to be added at the verification node to detect this problem
 - Deployment requirement: must collect each agent's full chain-of-thought trace, not just the final answer; if your system currently only logs final outputs, CARA cannot be computed
-- Research limitation: validated only in the medical Q&A domain so far; the degree of consistency illusion in different task types (e.g., code review, legal analysis, content moderation) has not been studied ⚠️
+- Research limitation: validated only in the medical Q&A domain so far; the degree of consistency illusion in different task types (e.g., code review, legal analysis, content moderation) has not been studied :warning:
 - Both authors are from Drexel University, with research focusing on medical AI applications
 
 ### Reviewer's One-Liner
 
-The problem definition is crisp and the CARA metric design is convincing; but validation is limited to medical Q&A ⚠️, and GDP's correction effect lacks complete quantification — the paper's greatest value is "exposing the problem + providing a measurement tool," not "providing a complete solution." Given that medical scenarios demand rigorous reasoning, this problem may manifest more mildly or differently in general agent scenarios.
+The problem definition is crisp and the CARA metric design is convincing; but validation is limited to medical Q&A :warning:, and GDP's correction effect lacks complete quantification — the paper's greatest value is "exposing the problem + providing a measurement tool," not "providing a complete solution." Given that medical scenarios demand rigorous reasoning, this problem may manifest more mildly or differently in general agent scenarios.
 
 ### Your Take-Away
 

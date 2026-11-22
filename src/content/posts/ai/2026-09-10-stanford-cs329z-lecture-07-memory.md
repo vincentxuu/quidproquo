@@ -14,13 +14,18 @@ description: "依實體頁碼帶讀 CS329Z Lecture 07 Agent Memory Architectures
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 79 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。
 
 第 7 堂（10/14，Agent Memory Architectures）問的是：context 有上限，跨 session 又會清空，agent 要怎麼記住真正有用的狀態？投影片把記憶分成四類，比較四種架構模式，最後談記憶評測，以及遺忘、隱私與過度個人化這些尚未解決的問題。
 
 指定讀物是 Sumers 等人的 CoALA、Packer 等人的 [MemGPT](https://arxiv.org/abs/2310.08560) 與 Park 等人的 [Generative Agents](https://arxiv.org/abs/2304.03442)。本文深讀 MemGPT 與 Generative Agents，另讀 Letta 與 Mem0 兩個實作。MemGPT 把作業系統的分層記憶體搬進 LLM，用 function call 在有限視窗與外部儲存之間分頁。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=qh5tP6PBZ6U
+title: How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan
+```
 
 ## Lecture 07 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–13 頁：記憶要保存限制、程序與進度
 
+[錄影 00:00–06:44](https://www.youtube.com/watch?v=qh5tP6PBZ6U)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=1" data-slide-page="1">投影片第 1–13 頁</a>
 
 課堂開頭的收件匣例子刻意保留「只提建議，等我說再動作」的限制。沒有記憶的長任務可能忘記程序、使用者知識與前面進度；記憶則支持個人化、從經驗學習，以及跨對話接續工作。這些好處各有不同驗收方式，不能只用「記住名字」代表全部。
@@ -39,6 +46,8 @@ draft: false
 自測題可以沿用同一條查信任務：下一個 session 是否知道哪些信已讀、哪些動作尚未獲准，以及使用者要的是建議還是執行？下面原創報價例子會把這個限制保留問題展開。
 
 ### 第 14–22 頁：記憶類型與儲存位置是兩個維度
+
+[錄影 06:44–21:08](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=404s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=14" data-slide-page="14">投影片第 14–22 頁</a>
 
@@ -48,6 +57,8 @@ Working memory 是當前工作 context，episodic memory 是過往軌跡，seman
 
 ### 第 23–29 頁：先問 what、when、how
 
+[錄影 21:08–30:56](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=1268s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=23" data-slide-page="23">投影片第 23–29 頁</a>
 
 What 決定要存與取哪些事實、程序和進度；when 決定工具按需、事件觸發或背景執行；how 才選 filesystem、database 或 knowledge graph。檔案可直接用層級與 grep 管理，資料庫可依向量或 metadata 查詢，圖則表達實體關係。它們可以組合。
@@ -55,6 +66,8 @@ What 決定要存與取哪些事實、程序和進度；when 決定工具按需�
 對一份「下次回來繼續」的工作記憶，先寫來源、時間、未完成事項與限制，再決定檢索方式。只保存一段結論，後來發現結論過期時，系統就難以回到原始證據重判。這是本文延伸的資料設計檢查。
 
 ### 第 30–41 頁：從成功軌跡整理可重用程序
+
+[錄影 30:56–44:08](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=1856s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=30" data-slide-page="30">投影片第 30–41 頁</a>
 
@@ -64,6 +77,8 @@ Voyager 的 skill library 保存可再利用的技能，AWM 從軌跡歸納 work
 
 ### 第 42–49 頁：分層記憶讓模型管理有限工作區
 
+[錄影 44:08–54:27](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=2648s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=42" data-slide-page="42">投影片第 42–49 頁</a>
 
 MemGPT 讓模型用工具寫入、替換與搜尋不同記憶區。Working context 已在視窗裡，不需再次搜尋；recall 與 archival 則在外部，必須透過對應介面取回。MemoryOS 再展示短期、中期與長期 persona 的分層。這些設計管理的是可見資訊，不是把模型 context window 變成物理上無限。
@@ -71,6 +86,8 @@ MemGPT 讓模型用工具寫入、替換與搜尋不同記憶區。Working conte
 下方 MemGPT 原論文導讀保留控制流與實驗。讀架構圖時先追一件具體資訊：使用者更新偏好後，舊版本在哪裡，新版本何時會進 context，兩者衝突時由誰處理？
 
 ### 第 50–66 頁：反思整合與背景維護
+
+[錄影 54:27–67:06](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=3267s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=50" data-slide-page="50">投影片第 50–66 頁</a>
 
@@ -80,6 +97,8 @@ Reflexion 與 Generative Agents 展示從事件形成較高層反思的路徑；
 
 ### 第 67–94 頁：從答對記憶題到完成有約束的任務
 
+[錄影 67:06–74:40](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=4026s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=67" data-slide-page="67">投影片第 67–94 頁</a>
 
 課堂的標準是 realistic、long-context、challenging、verifiable。LoCoMo 偏長對話，PersonaMem 加入偏好變化，LongMemEval-v2 以 agent 軌跡查細節，MemoryArena 進一步看多階段任務完成。每張結果圖都要連同資料來源、題型與基礎模型讀。投影片特別註記，一項 filesystem 與 retrieval 比較也有模型差異，不能只歸因儲存架構。
@@ -87,6 +106,8 @@ Reflexion 與 Generative Agents 展示從事件形成較高層反思的路徑；
 能找到正確記憶，仍可能用錯。多步任務失敗也可能來自工具與規劃。自測可分別保留「取回是否正確」與「最後行動是否合規」兩個分數，另測新偏好覆蓋舊偏好的情況。
 
 ### 第 95–103 頁：忘記、信任與過度個人化
+
+[錄影 74:40–78:54](https://www.youtube.com/watch?v=qh5tP6PBZ6U&t=4480s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture07.pdf#page=95" data-slide-page="95">投影片第 95–103 頁</a>
 
@@ -310,10 +331,15 @@ Lecture 07 要求評測兼具真實性、長 context、挑戰性與可驗證性�
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan](https://www.youtube.com/watch?v=qh5tP6PBZ6U)（Stanford Online 頻道，2026-11-15 上架，全片約 79 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 自動字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-15 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 7（10/14 週三）的內容，原屬「第 4 週：先學會邊想邊做，再學會記住」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：對照 Lecture 06／07 投影片重核各節頁碼；Pi 案例補上投影片列出的刻意缺席功能與權限說明（L06 第 78、82 頁）。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。

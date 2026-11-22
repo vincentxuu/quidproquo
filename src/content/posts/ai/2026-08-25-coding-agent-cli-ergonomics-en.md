@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-cli-ergonomics)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-cli-ergonomics)
 
 ## The Design Problem: Muscle Memory Is the Biggest Existing Asset
 

@@ -14,7 +14,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-splade-sparse-vectors)
+> :globe: [中文版](/posts/ai/2026-03-12-splade-sparse-vectors)
 
 Vector search (Dense) captures semantics, BM25 (Sparse) captures keywords, and Hybrid Search uses both. But BM25 has a fundamental limitation: it only recognizes words that **actually appear** in the query.
 

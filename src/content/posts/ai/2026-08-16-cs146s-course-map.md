@@ -22,7 +22,7 @@ description: "對照 Stanford CS146S: The Modern Software Developer 的 Fall 202
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs146s-course-map-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs146s-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

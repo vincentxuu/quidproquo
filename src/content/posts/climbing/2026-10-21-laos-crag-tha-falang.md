@@ -13,7 +13,7 @@ description: "Tha Falang 岩場指南：從 Green Climbers Home 出發的步行�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-tha-falang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-tha-falang-en)
 
 Tha Falang 是 GCH 之外最近的一塊獨立岩場：從營地下游走不到 2 公里，約 20 到 30 分鐘。多數人把時間留給 Pha Tam Kam，Tha Falang 因此很少人，路線也比較原始。The Crag Journal 2023 年的作者說這裡「超過 30 條」，theCrag 在 2026-10-21 列出 33 條。
 

@@ -13,7 +13,7 @@ description: "自架搜尋後端的實作步驟：用官方 compose 範本跑 Se
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-searxng-crawl4ai-setup-en)
+> :globe: [English version](/posts/ai/2026-08-21-searxng-crawl4ai-setup-en)
 
 [系列前一篇](/posts/ai/2026-08-21-self-hosted-search-stack)說明了為什麼 Tavily 和 Exa 沒有地端版，以及自己組一套要付出什麼。這篇是實作：怎麼真的把它跑起來。
 

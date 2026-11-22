@@ -1,0 +1,620 @@
+{
+  "date": "2026-11-20",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "arXiv list/cs.AI/new + list/cs.MA/new + list/cs.CL/new, announcement batch shown as 'Thursday, 19 November 2026' (82 cs.AI new submissions, first 53 reviewed; 25 cs.MA entries, all reviewed; 100+ cs.CL new submissions, first 53 reviewed) -- Groundlane web_fetch read in full; Q1-Q3 Groundlane web_search supplementary queries skipped this round due to candidate volume already sufficient from direct listing review (toolDegradation: scope reduction, not tool failure)",
+    "layerB": [
+      "HuggingFace Daily Papers api (date=2026-11-19), top 6 reviewed by upvotes",
+      "Semantic Scholar API attempted for background signals but persistently 429 rate-limited across all queries this round (toolDegradation: semantic-scholar-rate-limited, fell back to citationCount=0/preprint-venue inference, which is accurate for same-day preprints)"
+    ],
+    "layerC": "lookback from 2026-11-06 to 2026-11-19, 105 unique watch/rejected candidates re-entered per decay rules; none scored high enough on todayImportance + decay to beat today's fresh pool, so none re-selected this round"
+  },
+  "generatedAt": "2026-11-20T00:00:00+08:00",
+  "candidates": [
+    {
+      "arxivId": "2611.23068",
+      "title": "The Resolution Hypothesis: Agent Evolution's Key Is Identifying Improvements",
+      "source": [
+        "layerB"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (submitted 17 Nov 2026; project page released; reproducible materials promised upon acceptance)",
+      "citationCount": 0,
+      "citationVelocity": "發布 3 天，Semantic Scholar API 429 rate limit 無法查得引用數；preprint 剛發布，實際引用數幾乎必為 0",
+      "institution": "ShanghaiTech University + ByteDance + BIGAI + SUSTech",
+      "communitySignals": [
+        "HuggingFace Daily Papers 2026-11-19：33 upvotes，2 條留言"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 3-4: formal variance decomposition (sigma=within-artifact noise, tau=run-to-run true-quality variance), 1,030 independent evolution runs, 2.1M test trajectories, 10M LLM calls, 7 methods x 6 models x 4+9 benchmarks",
+        "Sec 4.1 Table/Fig 2: single-run method ranking only picks the true-best of 4 text-artifact methods 33% of the time on Terminal-Bench (vs 25% random)",
+        "Sec 4.2 Fig 3: largest reported literature gains (median 17.6pp) collapse to median 0.8pp after repairing evaluation shortcuts; one audited sentence reproduces 90% of the original gain",
+        "Sec 5.2 Table 1: execution-based selectors and LLM judges all statistically indistinguishable from 50% coin-flip at picking the better of two candidate artifacts; regressions are 30.5% of pool but 62.1% of accepted candidates",
+        "Sec 5.3: in-loop validation gains (6.9-9.0pp) vanish under independent re-evaluation (+0.4 to -3.2pp)"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "largest reproducibility study of agent evolution to date per the authors' own claim, with explicit statistical power analysis and null-model controls (equal-quality null, empirical-Bayes posterior); core finding replicated across method-level and candidate-level analyses independently",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "project page live (https://lineshogan.github.io/resolution-hypothesis/); authors state full trajectory data/code released only upon paper acceptance, not yet public"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "claim is narrow and precisely scoped (evaluation resolution, not 'agent evolution is useless'), and every quantitative claim traces to a described experiment with variance estimates",
+      "primaryLimitation": "code/trajectory data not yet publicly released (pending acceptance), so the headline numbers cannot yet be independently re-run by a third party",
+      "hiddenAssumption": "the paper's own selection-failure diagnosis assumes its audited benchmarks (Terminal-Bench, SpreadsheetBench, OfficeQA, ALFWorld) are themselves representative of the evaluation regimes used across the wider agent-evolution literature",
+      "hiddenAssumptionImpact": "if atypical, the 33%/49.7% chance-level numbers would be benchmark-specific rather than a general property of agent-evolution evaluation; however the method-level finding (margins smaller than single-run noise) is replicated across 4 very different benchmarks and 7 methods, so the core claim would likely survive even a narrower reading",
+      "presentation": "clear",
+      "presentationReason": "unusually explicit about what is established vs hypothesis, defines resolution formally, separates sigma/tau variance sources before making any claim",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "largest-scale, most rigorously controlled evidence this round for a theme that recurs across three independent papers today: current agent evaluation practice cannot reliably tell real improvement from noise"
+    },
+    {
+      "arxivId": "2611.24039",
+      "title": "A Capability Framework for Evaluating Agentic AI Platforms in Regulated Enterprises",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "Proceedings of the 10th MLSys Conference, 2027 (accepted, peer-reviewed systems venue)",
+      "citationCount": 0,
+      "citationVelocity": "發布 2 天，尚無引用資料（Semantic Scholar API 429 rate limit；preprint/剛接受論文時間太短，引用數幾乎必為 0）",
+      "institution": "Citigroup Inc. + Ernst & Young LLP + NVIDIA Corporation (all London)",
+      "communitySignals": [
+        "未見於 HF Daily Papers / Papers with Code"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 4-6: nine-dimension capability taxonomy scored by cross-functional panel across 10 real agentic AI platforms (H2O.ai, Google, Microsoft, Writer, Letta, Glean, CrewAI, UiPath, Portia AI, Squid AI) on 3 financial-services scenarios",
+        "Sec 6.3: Cronbach's alpha=0.98 across 9 nominally distinct dimensions, rank correlation >=0.93 with total for 8 of 9 dimensions -- a quantified halo-effect test, not an assertion",
+        "Sec 6.4: tier structure checked for robustness under two alternative weighting profiles (governance-first, developer-first); tiers unchanged, only within-tier order shifts",
+        "Sec 7 Table 4: explicit Threats-to-Validity table covering presentation confound, halo effect, unequal panel size, ordinal-as-interval scoring, no ground truth for CCR scenario, vendor self-selection, single-institution scope, construct/temporal validity, vendor-reported cost/latency, absence of adversarial/safety testing"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "real industrial multi-vendor bakeoff with quantified reliability diagnostics, but explicitly scoped as demonstration-based (assisted vendor conditions) rather than hands-on controlled benchmarking",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "scoring methodology, taxonomy and raw aggregate score table (Table 3) published; per-rater raw scores were not retained by the Lab, so inter-rater reliability cannot be independently recomputed (acknowledged by the authors)"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "the halo-effect claim is a direct statistical test (alpha, rank correlations) on the paper's own data, not an inference stretched beyond what was measured",
+      "primaryLimitation": "single institution, vendor-assisted demonstrations (not blind hands-on evaluation), and D8 cost/latency figures are vendor-reported rather than independently measured",
+      "hiddenAssumption": "the nine capability dimensions are assumed to be conceptually independent constructs that a panel can score separately from a single demonstration; the paper's own alpha=0.98 result falsifies this assumption for the panel-based protocol as administered",
+      "hiddenAssumptionImpact": "this is the paper's central finding rather than an unexamined premise -- it explicitly shows the assumption fails and proposes how to fix the protocol, which strengthens rather than weakens the credibility case",
+      "presentation": "clear",
+      "presentationReason": "formal protocol, explicit [established]/[documented]/[observed]/[proposed]/[hypothesis] tagging throughout the paper, full threats-to-validity table",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "the only candidate today documenting how buyers (not benchmark authors) actually evaluate agent platforms, and the only one with a real peer-reviewed venue (MLSys 2027); its halo-effect finding generalizes the Resolution Hypothesis's point from automated self-improvement loops to human procurement panels"
+    },
+    {
+      "arxivId": "2611.23678",
+      "title": "Evaluating Governed LLM-Driven ML Experimentation: Lifecycle, Provenance, and Failure Metrics",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 2,
+      "topicGate": "pass",
+      "venue": "KDD 2026 Workshop on Evaluation and Trustworthiness of Agentic AI (ETAAI), Jeju, Korea -- workshop presentation, non-archival",
+      "citationCount": 0,
+      "citationVelocity": "發布 2 天，尚無引用資料（Semantic Scholar API 429 rate limit；workshop 剛發布，引用數幾乎必為 0）",
+      "institution": "Karlsruhe Institute of Technology (KIT), Germany",
+      "communitySignals": [
+        "未見於 HF Daily Papers / Papers with Code（但程式碼與全部 1,445 筆 trial ledger 已於 GitHub + Zenodo 公開，DOI 已發放）"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 5.1-5.2: 1,445 trials across 6 ML tasks (synthetic logistic regression, 2 OpenML tabular tasks, MLAgentBench vectorization, ResNet scientific trigger, GPT pretraining), 100% ledger provenance completeness on every node including a 120-trial total-failure arm",
+        "Sec 5.3 Table 9: matched governed-vs-ungoverned counterfactual on 2 nodes -- 43 of 50 ungoverned trials leave no record vs 0 of 50 governed, with 95% bootstrap CIs (10,000 resamples)",
+        "Sec 5.4-5.5: memory-ablation diagnostic explicitly self-flagged as non-independent in one replicate ('rep2 is therefore not an independent replicate') and explicitly labelled 'descriptive counts, not a significance test'",
+        "Sec 5.6: reports its own anomaly (summary-arm seed s2 total worker failure) as an unresolved observed failure rather than suppressing it"
+      ],
+      "evidenceMaturity": "substantial",
+      "evidenceMaturityReason": "the core governance claim (ledger beats silent-failure baseline) is demonstrated with a real matched counterfactual and bootstrap CIs; the secondary memory-effect claim is explicitly and repeatedly flagged by the author as weaker/descriptive evidence",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "code and all 1,445 trial ledgers released on GitHub with a registered Zenodo DOI; governance metrics explicitly stated to be recomputable from the ledgers without re-running training"
+      ],
+      "editorialConfidence": "high",
+      "editorialConfidenceReason": "author repeatedly narrows claim strength to match evidence (e.g. disqualifying rep2, noting the 43/50 figure 'describes these campaigns, not a typical loss rate') -- a rare degree of self-discipline for a single-author paper",
+      "primaryLimitation": "single author, task set still research-scale (no production enterprise deployment), and the memory-ablation finding does not reproduce cleanly across replicates",
+      "hiddenAssumption": "the 'ungoverned counterfactual' (disabling the pending-trial guard and failure-record appends) is assumed to fairly model what a typical ungoverned agent-experimentation loop actually does in practice",
+      "hiddenAssumptionImpact": "if real ungoverned harnesses fail less silently than this matched counterfactual (e.g. because they still log stack traces elsewhere), the 43/50 figure overstates typical information loss; the qualitative point -- that task score alone hides process failures -- would still hold",
+      "presentation": "clear",
+      "presentationReason": "explicit separation of established result vs diagnostic probe vs descriptive observation throughout Results section",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "high",
+      "practicalLink": "clear",
+      "decision": "selected",
+      "reason": "the clearest fully-reproducible (full ledger release) demonstration today that task-score-only evaluation of ML/coding agents hides failures that governance infrastructure, not better models, is needed to surface -- a concrete mitigation angle versus the other two selected papers' purely diagnostic framing"
+    },
+    {
+      "arxivId": "2611.23613",
+      "title": "MANGO Arena: Same Seeds, Different Chains Evaluating LLM Agents in a Disrupted Supply Chain",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 3,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 3 天，尚無引用資料",
+      "institution": "Bowling Green State University",
+      "communitySignals": [
+        "未見於 HF Daily Papers / Papers with Code"
+      ],
+      "credibility": "conditional",
+      "credibilityEvidence": [
+        "full text read: Sec 6 documents rerun with identical seeds/no failed calls changing bullwhip ratio by up to 17x (Table 4); self-reported as a single-author pilot (3 models, 3 seeds, 12 periods)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "author explicitly labels this a pilot with acknowledged noisy 12-period bullwhip estimates and only 3 seeds",
+      "reproducibility": "full-artifacts",
+      "reproducibilityEvidence": [
+        "code, prompts and every logged decision archived on Zenodo under MIT license"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "narrow pilot-scale claim, honestly scoped",
+      "primaryLimitation": "3 seeds, 3 small models, single author, 12-period games",
+      "hiddenAssumption": "assumes 3 demand seeds are enough to characterize a model's typical response to a supply disruption",
+      "hiddenAssumptionImpact": "paper itself shows this assumption fails (same seeds, different rounds, 17x swing), which is the point of the paper",
+      "presentation": "clear",
+      "presentationReason": "transparent about its own infrastructure failures and limitations",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "makes the same rerun-instability point as 2611.23068 but at pilot scale (3 seeds, 1 author, 1 toy economic game) versus Resolution Hypothesis's 1,030 runs / 10M LLM calls / 7 methods across 6 models; kept on watch since its human-comparison follow-up (IRB-approved classroom study) could add a distinct angle later"
+    },
+    {
+      "arxivId": "2611.23476",
+      "title": "GUARD: Stabilizing Recursive Self-Improvement with Regret Guidance",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed from listing (multiple-author, affiliations not confirmed)",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only; full method/experiment section not read this round due to candidate volume"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "abstract reports benchmark gains across memory/skill/continual-task/domain-reasoning settings but no method-section verification performed",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "insufficient reading depth this round",
+      "primaryLimitation": "not independently verified beyond abstract",
+      "hiddenAssumption": "Soft-HURT gate's grader-free fitness criterion assumes self-checks can substitute for external grading when deciding which harness edits to keep",
+      "hiddenAssumptionImpact": "if self-checks are as unreliable as 2611.23068 finds standard selectors to be, GUARD's non-regression guarantee would be weaker than claimed",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "directly exemplifies the exact class of self-improvement loop that 2611.23068 shows is routinely fooled by noisy self-grading; without a method-section read this round it cannot be verified whether GUARD's grader-free design addresses or falls into that failure mode, so it is weaker evidence than the three selected papers for today's theme"
+    },
+    {
+      "arxivId": "2611.23855",
+      "title": "RoboBuilder: Agentic Robot Co-Design with Real-world Video Feedback in the Loop",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "MIT (Faez Ahmed group, per author list)",
+      "communitySignals": [
+        "未見於 HF Daily Papers at time of check"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "abstract reports 135 physical robots actually built and tested (16,427 simulations, 12,774 distinct simulated robots), sim-to-real gap explicitly quantified (0/15 initial sim-passing designs crossed the real course under public part data)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "strong real-world grounding but single benchmark/course, no external replication",
+      "reproducibility": "partial-artifacts",
+      "reproducibilityEvidence": [
+        "project page listed; code/hardware spec availability not confirmed this round"
+      ],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "real physical validation is rare and valuable but scope is narrow (one obstacle course)",
+      "primaryLimitation": "single benchmark course; real-world testing required ~240 engineer-hours, limiting scale",
+      "hiddenAssumption": "assumes the physical obstacle course used for validation is representative of general real-world robot design transfer difficulty",
+      "hiddenAssumptionImpact": "if the course is unusually forgiving or unusually hard, the 66% sim-to-real pass rate at hardest difficulty would not generalize",
+      "presentation": "clear",
+      "presentationReason": "quantifies sim-to-real gap explicitly rather than only reporting simulation numbers",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "stronger-competitor",
+      "reason": "genuinely novel real-world-grounded agent benchmark, but today's strongest editorial thread is agent-evaluation reliability, and RoboBuilder's contribution (sim-to-real benchmark) is a different direction than the three selected papers; good candidate for a future robotics-focused digest"
+    },
+    {
+      "arxivId": "2611.24839",
+      "title": "Kaer: Security-Aware Replanning for Multi-Agent Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "Northeastern University (Oprea, Nita-Rotaru groups, per author list)",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "abstract reports benchmark (Cintra) with task-completion and vulnerability metrics compared against Magentic-One (undefended) and ControlValve (SOTA defense)"
+      ],
+      "evidenceMaturity": "preliminary",
+      "evidenceMaturityReason": "single benchmark, comparison limited to two baselines",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "medium",
+      "editorialConfidenceReason": "abstract-level only",
+      "primaryLimitation": "not independently verified beyond abstract this round",
+      "hiddenAssumption": "assumes adversarial feedback injection via replanning is the dominant real-world attack surface for orchestrator-based MAS, which the Cintra benchmark is built to represent",
+      "hiddenAssumptionImpact": "if real deployments face different injection vectors, robustness gains may not transfer",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "solid security contribution but orthogonal to today's evaluation-reliability thread; weaker fit than the three selected papers for a coherent single-theme digest, and not independently read beyond abstract this round"
+    },
+    {
+      "arxivId": "2611.23362",
+      "title": "TRACE-MAS: Diagnosing and Repairing Collaboration Failures in Multi-Agent Systems",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cross-listed cs.LG/cs.MA)",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed from listing",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "abstract reports 60.2% root-cause localization improvement across five MAS benchmarks but not independently verified",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "insufficient reading depth this round",
+      "primaryLimitation": "not independently verified beyond abstract this round",
+      "hiddenAssumption": "assumes 'normal collaborative execution patterns' learned from benign trajectories generalize across task distributions without drift",
+      "hiddenAssumptionImpact": "if benign-trajectory patterns drift with task type, anomaly detection false-positive rate could be understated",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "relevant MAS-failure-diagnosis tool but not read beyond abstract this round; weaker evidentiary documentation this round than the three selected papers"
+    },
+    {
+      "arxivId": "2611.23588",
+      "title": "ARISE: Practical Self-Evolving Memory for Accurate and Cost-Efficient Enterprise Agents",
+      "source": [
+        "layerA",
+        "layerA_cross_MA"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cross-listed cs.AI/cs.MA)",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed from listing (large author list, enterprise affiliations implied)",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract reports gains across 14 enterprise-workflow domains (SOP-Bench, tau2-bench), compared against GEPA; not independently verified"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "abstract-only review this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "insufficient reading depth this round",
+      "primaryLimitation": "not independently verified beyond abstract this round",
+      "hiddenAssumption": "memory-rule acceptance gate ('accepts a rule update only if held-out accuracy rises') assumes held-out evaluation itself has enough resolution to detect the accuracy change reliably",
+      "hiddenAssumptionImpact": "per 2611.23068's finding, held-out score-gated acceptance is exactly the kind of selector shown to operate near chance for small true improvements; if ARISE's gains are themselves small relative to task noise, some of the reported 10.9pp/5.8pp gains could partly reflect the same selection-noise effect",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "a strong enterprise-memory result, but today's selected papers already cover the evaluation-reliability angle with harder evidence, and ARISE's own gate-acceptance criterion is exactly the mechanism 2611.23068 calls into question, making it a better candidate once that interaction is directly checked rather than today"
+    },
+    {
+      "arxivId": "2611.23751",
+      "title": "Thinking Fast, Anywhere: One System-1 for the Decision Points of Any Agent Workflow (AnyS1)",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed from listing",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "abstract reports 75-91% cost reduction across three unseen benchmarks; not independently verified",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "insufficient reading depth this round",
+      "primaryLimitation": "not independently verified beyond abstract this round",
+      "hiddenAssumption": "assumes decision points mined from human-authored skill instructions are an unbiased/complete sample of the routine decisions a deployed agent actually faces",
+      "hiddenAssumptionImpact": "if skill-authored decision points under-sample rare-but-consequential branches, the calibrated confidence threshold could mis-estimate real-world System-2 fallback rate",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "interesting efficiency architecture but off today's evaluation-reliability thread and not independently read beyond abstract this round"
+    },
+    {
+      "arxivId": "2611.23365",
+      "title": "Training Language Models for Introspective Oversight",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "not assessed",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not independently verified beyond abstract",
+      "hiddenAssumption": "AUROC comparison across five held-out oversight evals assumes those evals themselves have ground truth free of the same evaluator bias being studied",
+      "hiddenAssumptionImpact": "if the oversight evals share systematic blind spots with the behaviors being monitored, the reported AUROC gains would overstate real-world oversight reliability",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "indirect",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "general LM oversight/interpretability result, only indirectly about agent architecture; weaker topical fit and not independently verified this round"
+    },
+    {
+      "arxivId": "2611.23509",
+      "title": "GRAFT: Execution-Guided Genetic Recombination for Agent Design",
+      "source": [
+        "layerA",
+        "layerA_CL"
+      ],
+      "sourceCount": 2,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract reports 82.0% mean test accuracy, +9.8pp over strongest baseline across six settings; not independently verified"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "not assessed this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not independently verified beyond abstract",
+      "hiddenAssumption": "evolutionary selection step (aggregate fitness) is assumed capable of reliably ranking candidate agent architectures, the exact step 2611.23068 shows commonly fails",
+      "hiddenAssumptionImpact": "if GRAFT's selection suffers the same near-chance discrimination problem, reported gains could partly reflect favorable noise rather than genuine architecture improvement",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "another agent-design-evolution method with the exact selection-reliability exposure that 2611.23068 documents at scale; weaker and narrower evidence than the selected papers for today's theme"
+    },
+    {
+      "arxivId": "2611.23817",
+      "title": "Metrics-in-the-Loop: Complexity Feedback Reshapes Agent-Written Code",
+      "source": [
+        "layerA"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "Agent Evaluation Science Symposium, Fall 2026, New York City (workshop/symposium)",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "ServiceNow Research + Allen Institute for AI (per author affiliations: Chapados, Gagné, Dziri)",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only; reports reduced code 'erosion' across three long-horizon benchmarks and four models without affecting held-out correctness"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "not assessed this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not independently verified beyond abstract",
+      "hiddenAssumption": "assumes cyclomatic-complexity and test-coverage feedback are good proxies for the maintainability problems that matter in million-line agent-written codebases",
+      "hiddenAssumptionImpact": "if the proxy metrics diverge from real maintainability at scale, the intervention could reduce the measured metric without reducing the underlying problem",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "medium",
+      "practicalLink": "clear",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "practical coding-agent intervention from a credible venue, but orthogonal to today's evaluation-reliability thread and not independently read beyond abstract this round"
+    },
+    {
+      "arxivId": "2611.24475",
+      "title": "Nothing to Declare: Steering a single neuron increases concealment in AI teams",
+      "source": [
+        "layerA_CL"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "not-assessed",
+      "credibilityEvidence": [
+        "abstract-level only"
+      ],
+      "evidenceMaturity": "not-assessed",
+      "evidenceMaturityReason": "not assessed this round",
+      "reproducibility": "not-assessed",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "not-assessed",
+      "editorialConfidenceReason": "not assessed",
+      "primaryLimitation": "not independently verified beyond abstract",
+      "hiddenAssumption": "assumes a single steerable neuron's activation is a meaningful causal lever for 'concealment' rather than a correlate of some other confound",
+      "hiddenAssumptionImpact": "if confounded, the mechanistic claim about concealment would not hold even if the behavioral effect (more concealment under steering) is real",
+      "presentation": "not-assessed",
+      "presentationReason": "not assessed",
+      "relevance": "direct",
+      "novelty": "substantive",
+      "todayImportance": "low",
+      "practicalLink": "speculative",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "intriguing multi-agent deception/mech-interp result but title-only review this round gives too little evidence to weigh against the selected papers"
+    },
+    {
+      "arxivId": "2611.23990",
+      "title": "SCAFFOLD: Toward Warrant-Preserving Evidence Transport for Reusable LLM-Agent Skills",
+      "source": [
+        "layerA_MA_cross"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 1,
+      "topicGate": "pass",
+      "venue": "arXiv preprint (cross-listed cs.AI/cs.MA/cs.SE)",
+      "citationCount": 0,
+      "citationVelocity": "發布 1 天，尚無引用資料",
+      "institution": "not fully assessed",
+      "communitySignals": [
+        "未見於 HF Daily Papers"
+      ],
+      "credibility": "reject",
+      "credibilityEvidence": [
+        "paper explicitly states it 'contributes a formalized problem statement, testable design obligations, and reporting protocol, not an implemented verifier, empirical superiority result, or proof of universal agent safety' -- no empirical evidence by the authors' own description"
+      ],
+      "evidenceMaturity": "proof-of-concept",
+      "evidenceMaturityReason": "position/framework paper with no implementation or experiment per its own abstract",
+      "reproducibility": "not-provided",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "low",
+      "editorialConfidenceReason": "no empirical claim to support",
+      "primaryLimitation": "no implementation, no experiment, by the authors' own statement",
+      "hiddenAssumption": "not-assessed",
+      "hiddenAssumptionImpact": "not-assessed",
+      "presentation": "clear",
+      "presentationReason": "unusually explicit about being a position paper only",
+      "relevance": "direct",
+      "novelty": "adaptation",
+      "todayImportance": "low",
+      "practicalLink": "none",
+      "decision": "rejected",
+      "rejectionCategory": "evidence-insufficient",
+      "reason": "self-declared position paper with no implemented verifier or empirical result; fails the credibility gate outright regardless of today's competing candidates"
+    }
+  ]
+}

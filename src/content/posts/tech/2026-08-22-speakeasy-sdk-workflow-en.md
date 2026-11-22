@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-speakeasy-sdk-workflow)
+> :globe: [中文版](/posts/tech/2026-08-22-speakeasy-sdk-workflow)
 
 [Speakeasy](https://www.speakeasy.com/docs/sdks/create-client-sdks) generates TypeScript, Python, Go, Java, C#, and other SDKs from OpenAPI, as well as MCP servers, docs, CLIs, and Terraform providers. Its core unit is a repeatable repository workflow, not a one-time Generate button.
 

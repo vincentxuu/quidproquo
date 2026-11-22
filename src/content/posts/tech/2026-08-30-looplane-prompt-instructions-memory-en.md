@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-prompt-instructions-memory)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-prompt-instructions-memory)
 
 The [previous article](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle-en) separated the source repository, disposable workspace, and run artifacts. Before a model can work inside that workspace, Looplane must decide which rules, runtime facts, and prior explicit memories belong in the request. It does this through a bounded context pipeline rather than an unstructured prompt concatenation.
 

@@ -21,7 +21,6 @@ const { work } = Astro.props;
 
 const typeLabels = { anime: '動漫', film: '電影', drama: '戲劇' } as const;
 const tierLabels = { favorite: '真愛', loved: '很喜歡', watched: '看過' } as const;
-const badgeType = { anime: 'work-badge--anime', film: 'work-badge--film', drama: 'work-badge--drama' } as const;
 ---
 
 <PostLayout
@@ -42,11 +41,11 @@ const badgeType = { anime: 'work-badge--anime', film: 'work-badge--film', drama:
           <h1>{work.title}</h1>
           {work.originalTitle !== work.title && <p class="work-hero-original">{work.originalTitle}</p>}
           <div class="work-badges">
-            <span class:list={['work-badge', badgeType[work.type]]}>{typeLabels[work.type]}</span>
+            <span class="work-badge">{typeLabels[work.type]}</span>
             <span class="work-badge">{work.year}</span>
             <span class="work-badge">{getStatusLabel(work.status, 'zh-TW')}</span>
-            <span class:list={['work-badge', work.tier === 'favorite' && 'work-badge--tier-favorite']}>{tierLabels[work.tier]}</span>
-            {work.rating > 0 && <span class="work-badge work-badge--rating">★ {work.rating} / 10</span>}
+            <span class="work-badge">{tierLabels[work.tier]}</span>
+            {work.rating > 0 && <span class="work-badge">★ {work.rating} / 10</span>}
           </div>
           <div class="work-badges">
             {work.genres.map((g) => <span class="work-badge">{g}</span>)}

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice)
 
 Taking time off to study English in Britain means planning what happens each day, who you will speak with after class, and the cost of the whole trip. [Wimbledon School of English (WSE)](https://wimbledon-school.ac.uk/english-courses/general-english-courses/general-english), in southwest London, offers general, business and exam English, with accommodation options. This article focuses on adult General English group courses.
 

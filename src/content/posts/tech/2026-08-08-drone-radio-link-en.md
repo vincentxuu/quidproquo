@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-drone-radio-link)
+> :globe: [中文版](/posts/tech/2026-08-08-drone-radio-link)
 
 The [spec-sheet piece](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) unpacked how Taiwan's *Remotely Piloted Aircraft Cybersecurity Testing Specification* defines a product series — **identical flight-control, communications and satellite-positioning chip modules**. Of those three, flight control got taken apart in the [previous post](/posts/tech/2026-08-08-px4-vs-ardupilot-en). This one takes the second: communications.
 

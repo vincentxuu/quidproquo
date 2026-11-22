@@ -18,7 +18,7 @@ glossary:
     context: "CS224R HW2 Problem 3 比較 UTD=1 與 UTD=5 的學習速度。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

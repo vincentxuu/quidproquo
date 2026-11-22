@@ -26,7 +26,7 @@ glossary:
     context: "在美國戶外帶客人攀岩，常見的要求是 SPI 以上。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-coach-certification-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-coach-certification-en)
 
 在岩館上課，教練的背心或名牌上常寫著「C 級教練」。這四個字代表他考過什麼？跟你自己手上的確保證差在哪？反過來說，如果你爬了幾年，想開始帶朋友、甚至在岩館兼課，要先拿哪一張證？
 

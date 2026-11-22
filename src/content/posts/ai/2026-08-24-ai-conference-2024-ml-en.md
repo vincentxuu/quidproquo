@@ -20,7 +20,7 @@ glossary:
     context: "One ICML 2024 Best Paper studied how rectified flow scales."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2024-ml)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2024-ml)
 
 > Part of the [AI Conference Review series](/tags/ai-conference). See [What Is a Top AI Conference?](/posts/ai/2026-08-23-what-is-ai-top-conference) (zh-TW only) for the overview.
 

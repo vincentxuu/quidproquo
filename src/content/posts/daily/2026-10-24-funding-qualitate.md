@@ -12,7 +12,7 @@ series:
   order: 105
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-funding-qualitate-en)
+> :globe: [English version](/posts/daily/2026-10-24-funding-qualitate-en)
 
 ## 融資資訊
 

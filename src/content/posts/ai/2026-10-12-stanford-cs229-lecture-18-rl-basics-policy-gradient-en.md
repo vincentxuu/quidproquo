@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 18 recording published by Stanford Online, with notation checked against Chapters 19 and 21 of the 2026 main lecture notes. I did not see the board, so the equations written on it are reconstructed from the surrounding transcript and the notes. The topic in the YouTube title (GMM (EM), PCA) does not match the content: this video actually covers reinforcement learning basics and policy gradient, and what follows goes by the actual content.
 

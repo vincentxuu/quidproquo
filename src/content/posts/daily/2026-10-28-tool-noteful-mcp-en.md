@@ -12,7 +12,7 @@ series:
   order: 66
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-tool-noteful-mcp)
+> :globe: [中文版](/posts/daily/2026-10-28-tool-noteful-mcp)
 
 ## Tool Info
 

@@ -13,7 +13,7 @@ description: "Basalt style, shade, flash flooding, transport and named northern 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-musucheon)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-musucheon)
 
 Musucheon offers short, physical sport climbing on Jeju basalt. It is not the coastal cliff at Oedolgae, nor a name for all the island's bouldering. Different stretches of the same stream have different routes and entrances.
 

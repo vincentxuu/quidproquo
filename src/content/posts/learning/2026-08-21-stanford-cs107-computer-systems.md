@@ -16,7 +16,7 @@ description: "讀完 Stanford CS107 官網七份作業說明、七份 lab 講義
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs107-computer-systems-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -23,6 +23,9 @@
     "check:tw": "node scripts/check-tw-terms.mjs",
     "check:chat-style": "node scripts/check-chat-style.mjs",
     "check:diagram-geometry": "node scripts/check-diagram-geometry.mjs",
+    "check:diagram-text": "tsx scripts/check-diagram-text.mjs",
+    "check:no-emoji": "tsx scripts/check-no-emoji.ts",
+    "emoji:fix": "tsx scripts/convert-emoji-to-source.ts --write",
     "check:series-order": "node scripts/check-series-order.mjs",
     "check:lang-parity": "node scripts/check-lang-parity.mjs",
     "check:course-videos": "node scripts/check-course-videos.mjs",
@@ -141,7 +144,8 @@
     "wrangler": "4.131.2"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm verify:staged"
+    "pre-commit": "pnpm verify:staged",
+    "pre-push": "node scripts/check-push.mjs"
   },
   "pnpm": {
     "overrides": {

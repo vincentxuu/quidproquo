@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-07-drone-sar-value)
+> :globe: [中文版](/posts/product/2026-08-07-drone-sar-value)
 
 [The agricultural spraying piece](/posts/product/2026-08-07-agri-drone-unit-economics-en) concluded that agriculture is the only drone application with computable ROI, and that being computable is both why it scaled and why its prices collapsed.
 

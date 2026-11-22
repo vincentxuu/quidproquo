@@ -13,7 +13,7 @@ description: "A Horai climbing guide covering Ganko-iwa and Oni-iwa route choice
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-horai)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-horai)
 
 Steep climbing is Horai's draw: pockets and features in the tuff lead into the sustained terrain of Oni-iwa and Haikara-iwa. A first visit does not have to start on the hardest walls, though. Ganko-iwa also has lower-grade options.
 

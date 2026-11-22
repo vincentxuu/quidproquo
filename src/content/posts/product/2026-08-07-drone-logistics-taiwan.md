@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/product/2026-08-07-drone-logistics-taiwan-en)
+> :globe: [English version](/posts/product/2026-08-07-drone-logistics-taiwan-en)
 
 [巡檢那篇](/posts/product/2026-08-07-drone-inspection-taiwan)的結尾，我留了一個推測：物流大概是「台灣沒有真正的商業案例，而原因就是那道 BVLOS 的門」。
 

@@ -22,7 +22,7 @@ glossary:
     context: "作業二提供一份預建的 ColBERT 索引，讓學生不必自己建檢索系統。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

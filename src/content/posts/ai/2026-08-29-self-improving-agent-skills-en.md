@@ -10,7 +10,7 @@ description: "A practical reading of Anthropic and Warp's public writing on self
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-29-self-improving-agent-skills)
+> :globe: [中文版](/posts/ai/2026-08-29-self-improving-agent-skills)
 
 [Anthropic's August 26, 2026 Warp case study](https://claude.com/blog/how-warp-builds-self-improving-agents-on-claude) is framed as a story about self-improving agents. The useful part is more specific: Warp does not treat learning as an ever-growing prompt, and it does not dump every human correction into memory. It turns team judgment into a reviewable, reversible file change.
 

@@ -13,7 +13,7 @@ description: "A step-by-step reading of Stanford CS161 Winter 2026 Lecture 1: th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-01-why-algorithm-analysis)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

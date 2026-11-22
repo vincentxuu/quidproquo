@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-zizmor-github-actions-security-en)
+> :globe: [English version](/posts/tech/2026-08-22-zizmor-github-actions-security-en)
 
 [zizmor](https://docs.zizmor.sh/) 是針對 GitHub Actions workflows 與 composite actions 的 static analyzer。CI YAML 同時是程式、權限宣告與供應鏈入口；一般 YAML lint 只看 syntax，zizmor 理解 `${{ }}` expression、events、job permissions、`uses:` references、credentials persistence 與 artifact flow。
 

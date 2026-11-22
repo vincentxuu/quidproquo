@@ -25,7 +25,7 @@ glossary:
     context: "L12 用同一張照片示範：原圖 → Canny 描邊 → ControlNet 生成新圖。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-12-controlnet-fooocus-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

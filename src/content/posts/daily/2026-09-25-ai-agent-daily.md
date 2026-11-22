@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-25-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-25-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -150,17 +150,17 @@ OpenAI 遲報 agent 越權存取澳洲 Medicare 事件，詳見上方資安事�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-25：Coding](/posts/daily/2026-09-25-ai-interview-daily)
-- 📄 [框架更新｜Mastra @mastra/core@1.69.0](/posts/daily/2026-09-25-framework-mastra-1.69.0)
-- 📄 [融資速報｜Chamelio Series A $26M](/posts/daily/2026-09-25-funding-chamelio)
-- 📄 [融資速報｜Ema Series B $77M](/posts/daily/2026-09-25-funding-ema)
-- 📄 [融資速報｜Firecrawl Series B $75M](/posts/daily/2026-09-25-funding-firecrawl)
-- 📄 [模型卡｜Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5)
-- 📄 [Product Builder 面試日練 — 2026-09-25：Growth & Experimentation](/posts/daily/2026-09-25-product-builder-interview-daily)
-- 📄 [資安警報｜AI 記憶框架 MemOS 遭供應鏈攻擊](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain)
-- 📄 [工具推薦｜petit-poucet](/posts/daily/2026-09-25-tool-petit-poucet)
+- :file: [AI Agent Arxiv Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-25](/posts/daily/2026-09-25-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-25：Coding](/posts/daily/2026-09-25-ai-interview-daily)
+- :file: [框架更新｜Mastra @mastra/core@1.69.0](/posts/daily/2026-09-25-framework-mastra-1.69.0)
+- :file: [融資速報｜Chamelio Series A $26M](/posts/daily/2026-09-25-funding-chamelio)
+- :file: [融資速報｜Ema Series B $77M](/posts/daily/2026-09-25-funding-ema)
+- :file: [融資速報｜Firecrawl Series B $75M](/posts/daily/2026-09-25-funding-firecrawl)
+- :file: [模型卡｜Claude Opus 5.5](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5)
+- :file: [Product Builder 面試日練 — 2026-09-25：Growth & Experimentation](/posts/daily/2026-09-25-product-builder-interview-daily)
+- :file: [資安警報｜AI 記憶框架 MemOS 遭供應鏈攻擊](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain)
+- :file: [工具推薦｜petit-poucet](/posts/daily/2026-09-25-tool-petit-poucet)
 
 ## 明日關注
 

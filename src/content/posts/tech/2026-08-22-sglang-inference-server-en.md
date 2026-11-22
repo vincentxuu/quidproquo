@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-sglang-inference-server)
+> :globe: [中文版](/posts/tech/2026-08-22-sglang-inference-server)
 
 [SGLang](https://docs.sglang.io/) is an inference framework for large language and multimodal generative models. It combines a model execution engine, an OpenAI-compatible HTTP API, parallelism, and cache management so applications can point an existing client at a GPU endpoint they operate.
 

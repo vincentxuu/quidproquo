@@ -10,7 +10,7 @@ description: "介紹 Pydantic AI 的 typed Agent、RunContext、tools、structur
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-pydantic-ai-typed-agents-en)
+> :globe: [English version](/posts/ai/2026-08-22-pydantic-ai-typed-agents-en)
 
 [Pydantic AI](https://pydantic.dev/docs/ai/) 是 Pydantic 團隊建立的 Python agent 框架。它的辨識度不在多 agent 圖，而在型別邊界：Agent 的 dependency 與 output 都是 generic type，工具參數和模型輸出再由 Pydantic schema 驗證。
 

@@ -21,7 +21,7 @@ glossary:
     context: "Every course notebook starts with %matplotlib inline."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

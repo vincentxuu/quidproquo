@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
+> :globe: [English version](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
 
 ## 變更摘要
 
@@ -84,7 +84,7 @@ Fable 5.1 的基礎牌價仍是所有主流模型裡最貴的一檔,cache 降價
 
 ## 時效提醒
 
-⏰ **Gemini 3.8 Flash 促銷到期日**：2026-12-31。2027-01-01 起 input／output 各漲一倍，回到 $1.50/$7.50（每百萬 tokens）。
+:clock: **Gemini 3.8 Flash 促銷到期日**：2026-12-31。2027-01-01 起 input／output 各漲一倍，回到 $1.50/$7.50（每百萬 tokens）。
 
 ## 今日收穫
 

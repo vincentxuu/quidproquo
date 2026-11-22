@@ -13,7 +13,7 @@ description: "山寺攀岩指南：季節、大眾運輸、停車、在地出入
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-yamadera-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-yamadera-en)
 
 山寺的攀岩目標是仙人堂、苦四樂岩等岩壁，不是把立石寺的參拜步道當成岩場接近。岩面與較陡的線都找得到，先挑對子區，比只看山寺兩個字有用。
 

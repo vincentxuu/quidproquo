@@ -10,7 +10,7 @@ description: "從 MemGPT 論文到現行 Letta，說明 memory blocks、conversa
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-letta-memgpt-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-08-22-letta-memgpt-agent-memory-en)
 
 [Letta](https://docs.letta.com/) 是建置 stateful agent 的 runtime；MemGPT 則是它的研究起點與舊名稱。核心類比是把有限 context window 當成 RAM，讓 agent 主動決定哪些資訊常駐、哪些移到外部記憶，以及何時搜尋回來。
 

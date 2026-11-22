@@ -13,7 +13,7 @@ description: "A Lopburi climbing guide: named routes and grades across the Templ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-lopburi)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-lopburi)
 
 Lopburi (also written Khao Chin Lae, or Khao Jeen Lae) is a limestone tower about 200 metres high, 160 km north of Bangkok and 14 km east-northeast of Lopburi town. theCrag logged 127 routes there on 21 October 2026, graded 3a to 8a.
 

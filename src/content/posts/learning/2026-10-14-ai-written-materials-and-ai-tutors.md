@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors-en)
+> :globe: [English version](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors-en)
 
 這是「教學文章怎麼寫」系列的第 28 篇，屬於第六部分「怎麼知道有效，怎麼做出來」。前面的篇談作者手上的訊號、平台的大規模實驗，以及把別人的課重新講一次值不值得。這篇談一個越來越常見的做法：用 AI 寫教材，或在教材旁邊放一個 AI 家教。
 

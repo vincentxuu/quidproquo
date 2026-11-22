@@ -13,7 +13,7 @@ description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 15 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

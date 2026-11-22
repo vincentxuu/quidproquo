@@ -13,7 +13,7 @@ description: "Gushichan climbing guide: seasons, transport, local access rules, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-gushichan)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-gushichan)
 
 A visit to Gushichan requires choosing both a climbing sector and a workable local approach. This guide helps you assess the style, season and access checks needed for a first visit.
 

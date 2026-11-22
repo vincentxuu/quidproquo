@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-tanstack-router-type-safety-en)
+:globe: [English version](/posts/tech/2026-08-21-tanstack-router-type-safety-en)
 
 [系列第一篇](/posts/tech/2026-08-19-react-stack-ai-era)提出過一個判準：AI 時代選套件，要選「agent 寫錯時機器抓得到」的。TanStack Router 是這個判準最極端的實例——它把傳統上屬於執行期的路由錯誤（404、漏參數、拼錯 query string）整批搬到編譯期。這篇拆解它是怎麼做到的，以及代價是什麼。
 

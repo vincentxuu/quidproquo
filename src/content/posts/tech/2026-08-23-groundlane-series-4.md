@@ -15,7 +15,7 @@ glossary:
     definition: "站內 groundlane 技能的判斷流程：檢查 tool provenance → 確認三工具存在 → 直接呼叫；若不存在則使用環境實際工具，永遠不使用已淘汰的 stealth_fetch。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-4-en)
+> :globe: [English version](/posts/tech/2026-08-23-groundlane-series-4-en)
 
 這篇不假設站內有任何「尚未實作」的新功能。所有應用場景均以現有 `.claude/skills/groundlane` 技能（`mcp__groundlane__*` 工具路由）與其 `usage-modes.md` 判斷流程為事實依據，並明確遵守該流程的關鍵限制：永遠不使用已淘汰的 `stealth_fetch` 或 `web-fetch/fetch_page`；若 Groundlane 工具不存在，使用環境實際提供的工具（Tavily、Exa、Firecrawl、Jina、GitHub、論文或平台原生工具），並標示為 fallback，而非假裝已使用 Groundlane。
 

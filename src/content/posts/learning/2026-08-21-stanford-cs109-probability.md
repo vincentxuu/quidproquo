@@ -16,7 +16,7 @@ description: "Stanford CS109: Probability for Computer Scientists 深度導讀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs109-probability-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs109-probability-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

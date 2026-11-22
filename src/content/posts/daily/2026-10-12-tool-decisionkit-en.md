@@ -12,7 +12,7 @@ series:
   order: 52
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-12-tool-decisionkit)
+> :globe: [中文版](/posts/daily/2026-10-12-tool-decisionkit)
 
 ## Tool Info
 
@@ -77,11 +77,11 @@ Run `decisionkit` with no arguments and it's also an MCP server, installable int
 
 | | decisionkit | Asking an LLM directly (full reasoning) | Hand-written keyword/regex classifier |
 |---|---|---|---|
-| Returns a probability score | ✅ | Needs explicit formatting, often unreliable | ❌ |
-| Speed and cost | ✅ 135ms–1.8s, $0.0018–0.0045 per 100 calls | ❌ Noticeably slower and pricier | ✅ Fastest |
-| Handles semantically ambiguous cases | ✅ | ✅ | ❌ |
-| Needs rules maintained by hand | ❌ | ❌ | ✅ |
-| Native CLI / MCP / Claude Code plugin | ✅ | — | — |
+| Returns a probability score | ✓ | Needs explicit formatting, often unreliable | ✗ |
+| Speed and cost | ✓ 135ms–1.8s, $0.0018–0.0045 per 100 calls | ✗ Noticeably slower and pricier | ✓ Fastest |
+| Handles semantically ambiguous cases | ✓ | ✓ | ✗ |
+| Needs rules maintained by hand | ✗ | ✗ | ✓ |
+| Native CLI / MCP / Claude Code plugin | ✓ | — | — |
 
 (Speed and cost figures are from the project's own 100-task benchmark — see references below.)
 

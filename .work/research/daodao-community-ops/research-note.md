@@ -1,13 +1,13 @@
 # 研究筆記：島島阿學怎麼經營（daodao-community-ops）
 
-> **這是重建版，不是原始筆記。**
+> **這是重建版，不是原始筆記。2026-10-29 的原件已於 2026-11-13 找回並收進 repo。**
 >
-> - 原始研究筆記（連同 `cases.md` 案例、`frameworks.md` 理論與實證）在 2026-10-29 規劃時寫成，但從未 commit，產生它的 session 容器已回收，全機搜尋找不到副本（見治理紀錄 Q-053）。
-> - 本檔於 2026-11-12 重建，依據只有兩項：(a) 已 commit 的規劃表 `.work/series-plans/daodao-community-ops.md`；(b) 已發布的兩篇文章（zh + en）實際引用的來源：`src/content/posts/product/2026-10-29-daodao-why-help-facilitators{,-en}.md`、`src/content/posts/product/2026-10-29-daodao-living-community{,-en}.md`。中英版引用的 URL 完全相同（各 9 個、5 個，共 14 個）。
-> - 下表每個來源都在 2026-11-12 重新開啟，記錄的是**這次實際讀到的內容**，不是原筆記的記載。
-> - **`cases.md` 與 `frameworks.md` 沒有重建。** 規劃表裡指向 `cases §x`、`frameworks §x` 的引用目前沒有對應檔案；order 2–12 的研究基礎要在動筆前重做（見最後兩節）。
+> - 重建原因：2026-11-12 結案 Q-053 時，雲端 session 只看得到自己的容器，原筆記不在 git 裡，因此判斷「從未 commit、副本已遺失」。
+> - 2026-11-13 清理使用者本機工作區時，找到完整原件（未 commit）：`cases.md`、`frameworks.md`、`research-note-original-2026-10-29.md`，以及兩份 2026-10-30 審稿紀錄（見 `docs/governance/escalation-queue.md` Q-053 結案）。
+> - 本檔保留 2026-11-12 的重建內容，作為獨立重讀結果：下表每個來源都在當天重新開啟，記錄的是**這次實際讀到的內容**，不是原筆記的記載。與原件互補，不取代它。
+> - 原件補齊後，規劃表指向的 `cases §x`、`frameworks §x` 已有對應檔案；order 2–12 的研究基礎不用重做，動筆前先比對原件與本檔的差異。
 
-最後更新：2026-11-12（重建）
+最後更新：2026-11-13（補註原件已找回）
 
 ## 母群定義
 

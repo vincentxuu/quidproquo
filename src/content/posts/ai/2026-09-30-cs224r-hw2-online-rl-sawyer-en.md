@@ -18,7 +18,7 @@ glossary:
     context: "CS224R HW2 Problem 3 compares learning speed at UTD=1 and UTD=5."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-hw2-online-rl-sawyer)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

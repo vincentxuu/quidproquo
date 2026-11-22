@@ -34,7 +34,7 @@ glossary:
     context: "Petzl lists it as one of the common belay anchors on bolted multi-pitch routes."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-building-anchors)
+> :globe: [中文版](/posts/climbing/2026-10-17-building-anchors)
 
 May 16, 2019, route #313 Canaleta in Long Dong's Auditorium area. According to the [Long Dong chronicle kept by TOCC (臺灣戶外攀岩協會, a Taiwanese outdoor climbing association)](https://www.tocc-climbing.org/chronicle-of-events), a party of three was climbing the route. The leader topped out, built an anchor with trad gear and belayed the second up. When the second reached the belay and both climbers weighted the anchor, all three pieces popped out for reasons that remain unknown. The two fell about 20 meters to the ground, and one was left with a permanent disability. TOCC records it as the first serious multiple-casualty accident at Long Dong.
 

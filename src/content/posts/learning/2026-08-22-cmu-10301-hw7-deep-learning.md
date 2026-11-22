@@ -10,7 +10,7 @@ tldr: "HW7 在 HW5 的 backpropagation 地基上加入深度模型的架構與�
 description: "CMU 10-301/601 Spring 2026 HW7 Deep Learning 的銜接方式、實作邊界與自評。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 7 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw7-deep-learning-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw7-deep-learning-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw7.zip) 完整題名是 **Homework 7: Deep Learning**，屬於 written＋programming。Written 題組包括 CNN、RNN、Transformers and AutoDiff 與 empirical questions；程式則在 TinyStories 子集上實作 RNN cell、self-attention、hybrid language model、validation 與 generation。ZIP 提供 `rnn.py` starter、公開 unit tests/test data、tokenizer、tiny train/validation stories、loss/metrics reference、Colab notebook 與 environment file。
 

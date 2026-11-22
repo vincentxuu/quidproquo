@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-jina-reader-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-jina-reader-guide-en)
 
 [Jina Reader](https://jina.ai/reader/) 是一個把網頁 URL 轉成 LLM-friendly 文字的 API。最簡單的用法，是把原始網址接在 `https://r.jina.ai/` 後面；服務會抓取頁面、辨識正文，再回傳 Markdown。它解決的是 retrieval pipeline 中「URL 已經找到了，怎麼把內容餵給模型」這一步。
 

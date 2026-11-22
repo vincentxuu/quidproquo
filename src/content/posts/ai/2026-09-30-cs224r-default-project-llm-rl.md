@@ -26,7 +26,7 @@ glossary:
     context: "CS224R default project 用它當唯一任務，好在同一個問題上比較 SFT、偏好最佳化和線上 RL。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-default-project-llm-rl-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

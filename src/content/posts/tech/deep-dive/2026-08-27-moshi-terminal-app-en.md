@@ -10,7 +10,7 @@ description: "A look at Moshi, a local-first terminal app — mobile and a free 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-27-moshi-terminal-app)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-27-moshi-terminal-app)
 
 There are now at least three ways to check on a coding agent from your phone: Anthropic's own Claude Code Remote Control, open-source relay clients like Happy, and apps like [Moshi](https://getmoshi.app/) that take a different tack entirely — just give you a real terminal. Moshi is an iOS/iPadOS/Android/macOS app that launched in early 2026. Its pitch isn't a chat UI; it's a direct SSH, Mosh, or ET connection into a machine you already control, opening the same shell you'd get sitting at your desk.
 
@@ -70,10 +70,10 @@ Pro ($7.99/mo, $69.99/yr, or a one-time $199 lifetime license — verified 2026-
 
 | Feature | Free | Pro |
 |---|---|---|
-| Mosh transport (survives weak networks, network switches, lock screen) | ❌ | ✅ |
-| Deep tmux/Zellij/Herdr integration | ❌ | ✅ |
-| Diff viewer, browser preview | ❌ | ✅ |
-| Image paste | ❌ | ✅ |
+| Mosh transport (survives weak networks, network switches, lock screen) | ✗ | ✓ |
+| Deep tmux/Zellij/Herdr integration | ✗ | ✓ |
+| Diff viewer, browser preview | ✗ | ✓ |
+| Image paste | ✗ | ✓ |
 | Inbox actions | 5-action trial | Unlimited |
 | Cloud dictation quota | 3 min/month | 60 min/month |
 

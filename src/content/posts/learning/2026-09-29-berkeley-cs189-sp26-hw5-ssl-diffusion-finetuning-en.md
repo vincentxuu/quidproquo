@@ -23,7 +23,7 @@ glossary:
     context: "HW5's diffusion theory problem asks you to show that the density of the noising process and its associated vector field satisfy it, which is what makes flow matching work."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw5-ssl-diffusion-finetuning)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

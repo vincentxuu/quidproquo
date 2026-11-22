@@ -34,7 +34,7 @@ glossary:
     context: "Petzl 把它列為有 bolt 的多繩距常用確保站之一。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-building-anchors-en)
+> :globe: [English version](/posts/climbing/2026-10-17-building-anchors-en)
 
 2019 年 5 月 16 日，龍洞大禮堂的 #313 通道。依[臺灣戶外攀岩協會（TOCC）的龍洞大事紀](https://www.tocc-climbing.org/chronicle-of-events)，三人繩隊的先鋒完攀後，用傳攀器材架了一個固定點，把跟攀者確保上來。跟攀者到了確保站，兩人把體重轉移到固定點上的那一刻，三個保護點因不明原因全數脫出。兩人墜落約 20 公尺撞擊地面，其中一人留下永久性傷害。TOCC 記為龍洞第一起多傷患的重大意外。
 

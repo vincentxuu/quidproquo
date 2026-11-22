@@ -13,7 +13,7 @@ description: "A guide to climbing on Elba: rock, scale and seasons at San Bartol
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-elba)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-elba)
 
 Elba (Isola d'Elba) is the large island off the coast of Tuscany and part of the Tuscan Archipelago National Park. Almost every crag in central Italy is limestone, but the western half of Elba is granite, with crags scattered along the shore and the hillsides, and many people combine climbing with an island holiday.
 

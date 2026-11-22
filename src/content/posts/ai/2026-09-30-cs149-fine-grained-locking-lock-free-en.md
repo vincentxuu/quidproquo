@@ -27,7 +27,7 @@ glossary:
     context: "Marked as an advanced topic in L16, used to stop a lock-free stack's pop from reading freed memory."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-fine-grained-locking-lock-free)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

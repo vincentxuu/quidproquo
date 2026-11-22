@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-funding-firecrawl)
+> :globe: [中文版](/posts/daily/2026-09-25-funding-firecrawl)
 
 ## Funding Details
 

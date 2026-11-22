@@ -17,7 +17,7 @@ additionalSeries:
     order: 22
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-sandbox-credentials-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-sandbox-credentials-en)
 
 工單工具的參數政策寫得再好，若它執行的 Python 程式可以讀整個家目錄、連任意網址，甚至繼承部署管理金鑰，一個工具漏洞就可能越過原本的工單邊界。
 

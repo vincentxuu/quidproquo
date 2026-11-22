@@ -13,7 +13,7 @@ description: "Capo d'Uomo（Monte Argentario）岩場介紹：單段區與多段
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-capo-duomo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-capo-duomo-en)
 
 Capo d'Uomo 在托斯卡尼（Toscana）最南端的阿根塔里歐半島（Monte Argentario），夾在 Porto Santo Stefano 和 Porto Ercole 兩個港口之間。岩壁是一面從海面升起的三角形石灰岩，最上面是一座中世紀瞭望塔的殘跡。[Planetmountain](https://www.planetmountain.com/it/falesie/capo-d-uomo.html) 稱它是「una delle più belle falesie affacciate sul mare d'Italia」（義大利最美的海景岩場之一）。
 

@@ -25,7 +25,7 @@ glossary:
     context: "L7 uses a block's resource requirements (thread count, shared memory) to explain the GPU's block scheduler."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-gpu-architecture-cuda)
 
 **Video status: The supplementary recording cannot be embedded; use the original YouTube link. Playback on YouTube has not been verified.** [Source details](#course-video-sources)
 

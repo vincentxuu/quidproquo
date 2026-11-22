@@ -19,7 +19,7 @@ glossary:
     context: "Cloudflare 的 dynamic agents 就是用 facet 實作。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-28-cloudflare-agents-sdk-entry-points-en)
+> :globe: [English version](/posts/ai/2026-10-28-cloudflare-agents-sdk-entry-points-en)
 
 打開 [cloudflare/agents](https://github.com/cloudflare/agents) 的 README，第一個範例是 `Agent` class 加 `@callable()`。打開[官方文件首頁](https://developers.cloudflare.com/agents/)，第一句卻是 "Start with the Pi harness"，Get started 段也寫「Build your agent with the Pi harness」。兩個都對，但它們講的不是同一層。
 

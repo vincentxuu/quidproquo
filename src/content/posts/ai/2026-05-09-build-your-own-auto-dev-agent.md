@@ -357,9 +357,9 @@ safe_run "gh issue list --repo <org>/<test-repo>"  # → 通過
 
 這步是隱藏設計，文件只大概帶過：
 
-1. routine 編輯頁 → Instructions 框下方 → 點 ☁️ Default 列
+1. routine 編輯頁 → Instructions 框下方 → 點 Default 列
 2. **Hover** 在 Default 那一行（不點，先停留）
-3. 右邊出現 ⚙️ icon → 點
+3. 右邊出現 :settings: icon → 點
 4. 「Update cloud environment」對話框出現
 5. **Environment variables** 區塊用 `.env` 格式：
 
@@ -437,7 +437,7 @@ done
 到 Notion 建一張**測試卡**（建議用最低風險組合）：
 
 - Status: `Ready for Dev`
-- Sync to GitHub: ✅
+- Sync to GitHub: ✓
 - Auto Mode: `plan-only`
 - Scope: `XS`
 - Target Repo: 你最不重要的 sub-repo（如 docs-only）
@@ -483,7 +483,7 @@ done
 
 1. 改測試卡 Target Repo = storage / infra
 2. 設 Auto Mode = auto-pr（故意「誤勾」）
-3. 等 Routine B 跑 → 期望規則 0 觸發、issue 拿到 audit comment「🛡️ Auto-PR refused」
+3. 等 Routine B 跑 → 期望規則 0 觸發、issue 拿到 audit comment「:shield: Auto-PR refused」
 4. 沒有 code PR 開出（因為被擋下）
 
 ---
@@ -492,13 +492,13 @@ done
 
 12 步走完之後你有什麼：
 
-1. ✅ Notion 卡 → GitHub issue 自動同步（每小時）
-2. ✅ Issue → spec PR 或 code PR 自動 dispatch（每 2 小時）
-3. ✅ 8 sub-repo 統一 label catalogue
-4. ✅ scope risk-tier 閘門 + high-risk repo 兩層 defense-in-depth
-5. ✅ 4 種人工介入路徑（manual / human-driving / stop-after-plan / 反向手動）
-6. ✅ 4 粒度 kill switch
-7. ✅ Tool allowlist + write-path blocklist + verification loop + token budget
+1. ✓ Notion 卡 → GitHub issue 自動同步（每小時）
+2. ✓ Issue → spec PR 或 code PR 自動 dispatch（每 2 小時）
+3. ✓ 8 sub-repo 統一 label catalogue
+4. ✓ scope risk-tier 閘門 + high-risk repo 兩層 defense-in-depth
+5. ✓ 4 種人工介入路徑（manual / human-driving / stop-after-plan / 反向手動）
+6. ✓ 4 粒度 kill switch
+7. ✓ Tool allowlist + write-path blocklist + verification loop + token budget
 
 剩下的 Tier 2/3（observability evals dashboard、Discord trigger、sub-agent council、runtime isolation）等 staging 跑滿一週、有真實 evals 資料後再決定優先序。
 

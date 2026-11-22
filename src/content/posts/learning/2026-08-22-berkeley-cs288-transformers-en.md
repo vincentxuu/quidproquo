@@ -12,7 +12,7 @@ draft: false
 series: { name: "Reading Berkeley CS288", order: 2 }
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-transformers)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-transformers)
 
 The through-line of [units 05–07](https://cal-cs288.github.io/sp26/) is information flow across positions. A sequence model updates state; seq2seq separates encoder and decoder; attention lets the decoder select source positions directly; a Transformer replaces the recurrent path with parallel attention blocks.
 

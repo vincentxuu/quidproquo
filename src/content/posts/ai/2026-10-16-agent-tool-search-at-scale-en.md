@@ -10,7 +10,7 @@ description: "When an agent connects to many MCP servers or connectors, problems
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-16-agent-tool-search-at-scale)
+> :globe: [中文版](/posts/ai/2026-10-16-agent-tool-search-at-scale)
 
 When an agent gets a lot of tools, the obvious move is to send every tool definition to the model. That costs you twice, and [Claude's tool search docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool) state both plainly: Claude's ability to pick the right tool degrades once more than 30–50 tools are available, and a typical setup with GitHub, Slack, Sentry, Grafana, and Splunk spends about 55k tokens on tool definitions alone.
 

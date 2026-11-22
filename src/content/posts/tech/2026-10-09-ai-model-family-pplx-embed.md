@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-09-ai-model-family-pplx-embed-en)
+> :globe: [English version](/posts/tech/2026-10-09-ai-model-family-pplx-embed-en)
 
 2026 年 10 月 7 日，Perplexity 釋出 [pplx-embed-v2-late](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector)，一週前才剛放出 [pplx-embed-v2-context-9b-preview](https://www.perplexity.ai/hub/blog/contextual-embedding-beyond-the-gold-passage)，而最早的 [pplx-embed-v1](https://www.perplexity.ai/hub/blog/pplx-embed-state-of-the-art-embedding-models-for-web-scale-retrieval) 是 2 月的事。八個月內出了三批、七個型號，名字都叫 pplx-embed，但「v2」不是「v1」的升級版。這篇是「AI 模型家族」系列的第二十五篇，把這個家族拆成三條線，回答一個問題：你的文件該用哪一條。
 

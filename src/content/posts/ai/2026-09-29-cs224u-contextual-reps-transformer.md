@@ -22,7 +22,7 @@ glossary:
     context: "BERT 用它把詞彙表壓在 3 萬個以內。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-transformer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

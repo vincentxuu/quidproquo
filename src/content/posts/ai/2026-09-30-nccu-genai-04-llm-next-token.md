@@ -22,7 +22,7 @@ glossary:
     context: "L04 用它處理「機率很低的怪字還是可能被抽到」的問題，出自 Holtzman 等人 ICLR 2020 的論文。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-04-llm-next-token-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

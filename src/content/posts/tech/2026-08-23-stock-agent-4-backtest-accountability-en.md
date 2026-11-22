@@ -19,7 +19,7 @@ glossary:
     definition: "Average True Range, a technical indicator of recent volatility used here to set stop-loss distance."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability)
 
 > **Building a Taiwan Stock Research Agent (Part 4 of 9)**: [Previous: Tiered LLMs and the Fallback Chain](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback-en) ｜ [Next: Evaluation Methodology—Walk-Forward, Run Cards, and an Honest 50% Baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

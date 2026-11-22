@@ -13,7 +13,7 @@ description: "Otaru Akaiwa climbing guide: seasons, public transport, parking, l
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa)
 
 Akaiwa overlooks the sea outside Otaru, with face climbs, cracks and multi-pitch terrain. This is Otaru Akaiwa, not Akaiwa Seigankyo near Shimukappu; search with Otaru attached.
 

@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-01-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -110,16 +110,16 @@ Southeast Asia, Latin America, Africa and the Middle East were searched, but no 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-github-digest-en)
-- 📄 [Model Card: Naive-N0.5-Flash](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
-- 📄 [Framework Update: Pydantic AI v2.52.0](/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0-en)
-- 📄 [Tool Pick｜mcp-lint](/posts/daily/2026-10-01-tool-mcp-lint-en)
-- 📄 [Security Alert: Storm-3168 (JADEPUFFER)](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction-en)
-- 📄 [Funding Brief｜Restate $20M Series A](/posts/daily/2026-10-01-funding-restate-en)
-- 📄 [Funding Brief｜Comp AI $34M Series A](/posts/daily/2026-10-01-funding-comp-ai-en)
-- 📄 [AI Engineer Interview Daily — LLM & Agent Engineering](/posts/daily/2026-10-01-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — AI Product Design](/posts/daily/2026-10-01-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-github-digest-en)
+- :file: [Model Card: Naive-N0.5-Flash](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
+- :file: [Framework Update: Pydantic AI v2.52.0](/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0-en)
+- :file: [Tool Pick｜mcp-lint](/posts/daily/2026-10-01-tool-mcp-lint-en)
+- :file: [Security Alert: Storm-3168 (JADEPUFFER)](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction-en)
+- :file: [Funding Brief｜Restate $20M Series A](/posts/daily/2026-10-01-funding-restate-en)
+- :file: [Funding Brief｜Comp AI $34M Series A](/posts/daily/2026-10-01-funding-comp-ai-en)
+- :file: [AI Engineer Interview Daily — LLM & Agent Engineering](/posts/daily/2026-10-01-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — AI Product Design](/posts/daily/2026-10-01-product-builder-interview-daily-en)
 
 ## What to Watch Tomorrow
 

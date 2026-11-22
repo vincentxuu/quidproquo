@@ -14,7 +14,7 @@ description: "Berkeley CS189 Spring 2026（Listgarten／Dimakis）Homework 1 導
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
+> :globe: [English version](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw1-math-refresher-fashion-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

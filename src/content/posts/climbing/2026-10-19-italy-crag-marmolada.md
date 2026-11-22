@@ -13,7 +13,7 @@ description: "Marmolada 南壁介紹：岩壁規模與風格、季節與午後�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-marmolada-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-marmolada-en)
 
 Marmolada 是多洛米蒂（Dolomiti）最高的山，主峰 Punta Penia 超過 3,300 公尺，位在威尼托（Veneto）與特倫提諾（Trentino）交界。北面是冰河和滑雪場，南面是一整片石灰岩大岩壁，義大利人叫它「Parete d'argento」（銀色岩壁）。[Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/la-sud-della-marmolada-arrampicare-sulla-parete-d-argento-della-regina-delle-dolomiti.html) 的介紹寫：「1000 metri d'altezza per tre chilometri di favoloso calcare」，而且離 Malga Ciapela 停車場只要一小時左右。
 

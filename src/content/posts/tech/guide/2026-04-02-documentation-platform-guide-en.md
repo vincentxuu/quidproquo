@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [中文版](/posts/tech/guide/2026-04-02-documentation-platform-guide)
+:globe: [中文版](/posts/tech/guide/2026-04-02-documentation-platform-guide)
 
 Choosing a documentation platform is like choosing a framework — there's no best option, only the most suitable one for your situation. This guide covers nine mainstream options, starting from "what's your context," to help you narrow down quickly.
 

@@ -28,7 +28,7 @@ glossary:
     context: "Assignment 1 Q4 uses a modified 6-state version with three current strengths."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

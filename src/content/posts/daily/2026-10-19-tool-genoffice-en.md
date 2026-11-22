@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-tool-genoffice)
+> :globe: [中文版](/posts/daily/2026-10-19-tool-genoffice)
 
 ## Tool Info
 
@@ -76,11 +76,11 @@ genoffice slides render deck/solar-system.pptx --out shots/   # one PNG per slid
 
 | | GenOffice MCP | LLM outputs Markdown, converted after | python-docx / openpyxl scripts |
 |---|---|---|---|
-| Preserves formatting of untouched parts of the file | ✅ (narrow patch) | ❌ (conversion usually loses styling) | Must handle it yourself |
-| Excel formulas stay live | ✅ | ❌ (usually becomes dead numbers) | ✅, but you write it |
-| Agent calls it directly, no scripting needed | ✅ (MCP tools / CLI) | Partial | ❌ requires writing Python |
-| Built-in per-page layout checking | ✅ (`slides_audit`) | ❌ | Must build it yourself |
-| Runs locally, files stay on-device | ✅ (only the AI call itself leaves the machine) | Depends on the tool | ✅ |
+| Preserves formatting of untouched parts of the file | ✓ (narrow patch) | ✗ (conversion usually loses styling) | Must handle it yourself |
+| Excel formulas stay live | ✓ | ✗ (usually becomes dead numbers) | ✓, but you write it |
+| Agent calls it directly, no scripting needed | ✓ (MCP tools / CLI) | Partial | ✗ requires writing Python |
+| Built-in per-page layout checking | ✓ (`slides_audit`) | ✗ | Must build it yourself |
+| Runs locally, files stay on-device | ✓ (only the AI call itself leaves the machine) | Depends on the tool | ✓ |
 
 ## Caveats
 

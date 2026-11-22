@@ -13,7 +13,7 @@ description: "介紹北海道占冠村的赤岩青巌峡：岩質、路線規模
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo-en)
 
 赤岩青巌峡（あかいわせいがんきょう，Akaiwa Seigankyo）位在北海道勇払郡占冠村（しむかっぷ），是鵡川（むかわ）河谷裡一片紅色燧石（チャート）巨岩群。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E8%B5%A4%E5%B2%A9%E9%9D%92%E5%B7%8C%E5%B3%A1/) 開頭就說它是「北海道を代表するエリア」，又寫「特に5.12台、5.13台がこれほど充実したエリアは他に類を見ない」。岩壁幾乎貼著道路，接近步道很短。
 

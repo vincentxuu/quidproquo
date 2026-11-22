@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-taiwan-creator-platform-choice)
+> :globe: [中文版](/posts/product/2026-09-17-taiwan-creator-platform-choice)
 
 Imagine starting a dessert business. A night-market stall opens quickly and sits near existing foot traffic, but the venue controls the rules and crowd. A department-store counter adds checkout, membership, and promotion in exchange for revenue share and tighter requirements. Your own storefront preserves the sign, customer list, and layout—and makes you responsible for utilities, security, payments, and bringing people to the door.
 

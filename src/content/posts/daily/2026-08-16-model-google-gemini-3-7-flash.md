@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-16-model-google-gemini-3-7-flash-en)
+> :globe: [English version](/posts/daily/2026-08-16-model-google-gemini-3-7-flash-en)
 
 ## 模型資訊
 
@@ -47,7 +47,7 @@ series:
 | GDM-MRCR v2（128k 長上下文） | 97.0% | 91.8% | GPT-5.6 Terra 93.5% |
 | HLE-Verified（跨領域專家推理） | 53.6% | 51.2% | GPT-5.6 Terra 51.1% |
 
-⚠️ 以上為 Google 官方公佈的內部評測結果（含跨廠商模型比較），非各廠商自行公佈的第三方複現數據，實際表現可能因評測環境而異。
+:warning: 以上為 Google 官方公佈的內部評測結果（含跨廠商模型比較），非各廠商自行公佈的第三方複現數據，實際表現可能因評測環境而異。
 
 ## 與前代/競品比較
 

@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-22-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-22-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -90,14 +90,14 @@ Beyond the Stripe-OpenRouter acquisition, Broadcom chip financing, Fractile valu
 
 ## Today's Digest Index
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
-- 📄 [Framework Update | CrewAI 1.15.17](/posts/daily/2026-08-22-framework-crewai-1.15.17)
-- 📄 [Pricing Tracker | GPT-5.6 Sol 50% Off on Two Platforms](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
-- 📄 [Security Alert | Grok Cryptographic Prompt Injection](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
-- 📄 [Tool Pick | Cairn Incident Analysis Copilot](/posts/daily/2026-08-22-tool-cairn-incident)
-- 📄 [AI Engineer Interview Prep — 2026-08-22: Paper Reading](/posts/daily/2026-08-22-ai-interview-daily)
-- 📄 [Product Builder Interview Prep — 2026-08-22: Technical PM](/posts/daily/2026-08-22-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
+- :file: [Framework Update | CrewAI 1.15.17](/posts/daily/2026-08-22-framework-crewai-1.15.17)
+- :file: [Pricing Tracker | GPT-5.6 Sol 50% Off on Two Platforms](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
+- :file: [Security Alert | Grok Cryptographic Prompt Injection](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
+- :file: [Tool Pick | Cairn Incident Analysis Copilot](/posts/daily/2026-08-22-tool-cairn-incident)
+- :file: [AI Engineer Interview Prep — 2026-08-22: Paper Reading](/posts/daily/2026-08-22-ai-interview-daily)
+- :file: [Product Builder Interview Prep — 2026-08-22: Technical PM](/posts/daily/2026-08-22-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

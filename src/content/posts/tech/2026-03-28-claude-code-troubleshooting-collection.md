@@ -13,7 +13,7 @@ series:
   order: 36
 ---
 
-🌏 [English version](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
+:globe: [English version](/posts/tech/2026-03-28-claude-code-troubleshooting-collection-en)
 
 原本這一頁預計收錄 Claude Code 的所有疑難排解情境，寫作時發現三類問題的排查路徑差太多——裝不起來要看安裝日誌、跑到一半掛掉要看網路與 API 錯誤、設定了沒生效要比對各層設定檔——硬塞在同一頁只會互相干擾。所以這組 troubleshooting 被拆成系列第 33-35 篇，每篇各自展開症狀、診斷工具與修法：
 

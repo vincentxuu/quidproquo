@@ -12,7 +12,7 @@ tldr: "SLIDERS 不讓模型直接吞完所有長文件，而是從問題誘導 s
 description: "CS224V Long-Document QA：訓練與切塊路線、SLIDERS schematization、semantic chunking、contextualized extraction、reconciliation 與初步評估。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-long-document-qa-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-long-document-qa-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

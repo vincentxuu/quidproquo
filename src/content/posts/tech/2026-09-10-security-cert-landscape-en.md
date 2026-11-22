@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-10-security-cert-landscape)
+> :globe: [中文版](/posts/tech/2026-09-10-security-cert-landscape)
 
 You build AI Agent platforms, wire up LLM APIs, and manage AWS IAM policies — but you've never held a security certification. When a client asks "what security credentials does your team have?", you don't have an answer.
 
@@ -87,28 +87,28 @@ All costs are USD exam fees; training and materials are extra.
 
 | Certification | Cost | Difficulty | Experience req. | Validity | AI/SaaS relevance |
 |---|---|---|---|---|---|
-| ISC2 CC | $199 | ⭐ | None | 3 years | Low |
-| Security+ | $439 | ⭐⭐ | None | 3 years | Medium |
-| SecAI+ | $298 | ⭐⭐ | 2 years cybersec recommended | 3 years | High |
-| SC-500 (replaces AZ-500) | $165 | ⭐⭐ | None | See Microsoft | Medium |
-| GCP Cloud Security Engineer | $200 | ⭐⭐⭐ | None (3 years recommended) | See Google | Medium |
-| AWS Security | $300 | ⭐⭐⭐ | 5 years IT recommended | 3 years | Highest |
-| CAISP | $1,099 | ⭐⭐⭐ | None | Lifetime | Highest |
-| CSSLP | $599 | ⭐⭐⭐ | 4 years | 3 years | High |
-| CEH v13 | $950+ | ⭐⭐⭐ | 2 years or official training | 3 years | Low |
-| GAIPS | $999 | ⭐⭐⭐⭐ | None | 4 years | Highest |
-| GASAE | $999 | ⭐⭐⭐⭐ | None | 4 years | High |
-| GOAA | $999 | ⭐⭐⭐ | None | 4 years | Low |
-| COASP | Course from $1,699 | ⭐⭐⭐ | None | See EC-Council | High |
-| HTB COAE | Subscription | ⭐⭐⭐⭐⭐ | Must complete the AI Red Teamer path | See HTB | High |
-| OSAI+ | $1,749 | ⭐⭐⭐⭐⭐ | None (solid security background recommended) | OSAI lifetime / OSAI+ 3 years | High |
-| CISM | $575+ | ⭐⭐⭐⭐ | 5 years management | 3 years | Medium |
-| CRISC | $575+ | ⭐⭐⭐⭐ | 3 years | 3 years | Low |
-| AAISM | $459+ | ⭐⭐⭐ | Requires CISM/CISSP | 3 years | High |
-| AAIR | $459+ | ⭐⭐⭐ | Requires CRISC or another listed cert | See ISACA | Medium |
-| CISSP | $749 | ⭐⭐⭐⭐⭐ | 5 years | 3 years | High |
-| CCSP | $599 | ⭐⭐⭐⭐ | 5 years (3 in security) | 3 years | Medium |
-| OSCP | $1,749 | ⭐⭐⭐⭐⭐ | 2 years recommended | Lifetime | Medium |
+| ISC2 CC | $199 | ★ | None | 3 years | Low |
+| Security+ | $439 | ★★ | None | 3 years | Medium |
+| SecAI+ | $298 | ★★ | 2 years cybersec recommended | 3 years | High |
+| SC-500 (replaces AZ-500) | $165 | ★★ | None | See Microsoft | Medium |
+| GCP Cloud Security Engineer | $200 | ★★★ | None (3 years recommended) | See Google | Medium |
+| AWS Security | $300 | ★★★ | 5 years IT recommended | 3 years | Highest |
+| CAISP | $1,099 | ★★★ | None | Lifetime | Highest |
+| CSSLP | $599 | ★★★ | 4 years | 3 years | High |
+| CEH v13 | $950+ | ★★★ | 2 years or official training | 3 years | Low |
+| GAIPS | $999 | ★★★★ | None | 4 years | Highest |
+| GASAE | $999 | ★★★★ | None | 4 years | High |
+| GOAA | $999 | ★★★ | None | 4 years | Low |
+| COASP | Course from $1,699 | ★★★ | None | See EC-Council | High |
+| HTB COAE | Subscription | ★★★★★ | Must complete the AI Red Teamer path | See HTB | High |
+| OSAI+ | $1,749 | ★★★★★ | None (solid security background recommended) | OSAI lifetime / OSAI+ 3 years | High |
+| CISM | $575+ | ★★★★ | 5 years management | 3 years | Medium |
+| CRISC | $575+ | ★★★★ | 3 years | 3 years | Low |
+| AAISM | $459+ | ★★★ | Requires CISM/CISSP | 3 years | High |
+| AAIR | $459+ | ★★★ | Requires CRISC or another listed cert | See ISACA | Medium |
+| CISSP | $749 | ★★★★★ | 5 years | 3 years | High |
+| CCSP | $599 | ★★★★ | 5 years (3 in security) | 3 years | Medium |
+| OSCP | $1,749 | ★★★★★ | 2 years recommended | Lifetime | Medium |
 
 ## Taiwan regulatory context
 

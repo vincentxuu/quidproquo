@@ -16,7 +16,7 @@ additionalSeries:
     order: 20
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control-en)
+> :globe: [English version](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control-en)
 
 你把第一個 [Workers AI](https://developers.cloudflare.com/workers-ai/) demo 跑起來後，下一個問題通常會從「模型會不會回」變成「這些 LLM 呼叫出了事要怎麼查、爆量要怎麼擋、成本要怎麼看、換 provider 時程式要不要大改」。[Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) 就放在這裡：它是 AI app 的模型呼叫控制層，幫你把 logs、analytics、cache、rate limit、retry/fallback、provider key 與 billing 放到同一個入口。
 

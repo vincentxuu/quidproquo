@@ -13,7 +13,7 @@ description: "A guide to Finale Ligure: the scale of its limestone sport and mul
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-finale-ligure)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-finale-ligure)
 
 Finale Ligure is on the coast of Liguria in northwest Italy, between Genova and the French border. Behind the town, the edges of a series of limestone plateaus are lined with cliffs, from the sea all the way into the inland valleys. The local promotion body, [Finale Outdoor Region](https://finaleoutdoor.com/en/stories/climbing-in-the-finale-area-all-you-need-to-know), puts it this way: "Finale Ligure, with its almost 4000 routes, is one of the main climbing spots not only in Italy but in Europe".
 

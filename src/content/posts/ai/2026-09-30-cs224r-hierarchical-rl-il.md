@@ -22,7 +22,7 @@ glossary:
     context: "CS224R L15 用 Yell At Your Robot（RSS 2024）示範。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-hierarchical-rl-il-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

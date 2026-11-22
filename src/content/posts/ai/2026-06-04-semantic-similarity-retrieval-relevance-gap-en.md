@@ -17,7 +17,7 @@ glossary:
     context: "This article uses it to illustrate the granularity dilemma: overall passage semantics match, but details get averaged out."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-semantic-similarity-retrieval-relevance-gap)
+> :globe: [中文版](/posts/ai/2026-06-04-semantic-similarity-retrieval-relevance-gap)
 
 The default assumption in dense retrieval is "more semantically similar = more relevant." But **similarity is the model's geometric approximation of overall passage semantics, while relevance is defined by the user's current task as "right or wrong"** -- the two align for most ordinary queries, yet systematically diverge across an entire class of scenarios. Worse, this is not entirely a matter of model quality: part of it is **a theoretical ceiling of the single-vector paradigm**, and switching to a larger embedding model or a different provider will not help. This article surveys the root mechanisms behind the gap, the ten scenarios most likely to cause problems, how to detect failures without ground truth, and a recommended remedy sequence from cheapest to most thorough.
 

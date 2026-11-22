@@ -13,7 +13,7 @@ description: "A guide to Ferentillo: the three areas and sector sizes, how aspec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-ferentillo)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-ferentillo)
 
 Ferentillo is a small town in the Valnerina valley in Terni province, southern Umbria. [Umbriatourism's town page](https://www.umbriatourism.it/en/w/ferentillo-en) says the Nera river splits it into two districts, Precetto and Matterella, and the crags sit right beside the town. Umbria's official tourism site, [Umbriatourism](https://www.umbriatourism.it/en/w/rock-climbing-in-ferentillo), calls it "one of the most popular Italian destinations for rock climbing".
 

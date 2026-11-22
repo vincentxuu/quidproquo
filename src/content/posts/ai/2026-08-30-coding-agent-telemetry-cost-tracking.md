@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 telemetry 與成本追蹤，並檢�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-telemetry-cost-tracking-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-telemetry-cost-tracking-en)
 
 系列第二部的第 34 篇。前一篇講 session 錄製與 replay，這篇講一個看起來很瑣碎、但跑長任務時會突然變成大問題的能力：telemetry 與成本追蹤。
 

@@ -29,7 +29,7 @@ glossary:
     context: "The slides list it as one of the differences between Llama-2 and InstructGPT, used to speed up inference."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

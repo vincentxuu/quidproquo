@@ -13,11 +13,11 @@ description: "Harvard CS50 AI 系列的跨週整理第二篇：十二個專案�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-harvard-cs50ai-synthesis-2-en)
+> :globe: [English version](/posts/tech/2026-08-30-harvard-cs50ai-synthesis-2-en)
 
 **影片狀態：僅附官方入口或錄影清單。** 這一篇是本站的跨週整理，不是課程某一週的講課，官方沒有對應的影片；各週的講課錄影沒有介紹專案，專案的規格與實作在各週導讀的後半。[影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本提醒**：專案規格、distribution code、check50 slug 均以 2026 年課程官網為準；第 6 週的專案是 Parser 與 Attention。
+> :warning: **版本提醒**：專案規格、distribution code、check50 slug 均以 2026 年課程官網為準；第 6 週的專案是 Parser 與 Attention。
 
 ## TL;DR
 

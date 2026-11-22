@@ -25,7 +25,7 @@ glossary:
     context: "HW4's pretrained DiT originally drives adaLN with 10 class embeddings; the assignment replaces them with per-layer vectors from the Q-Former."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

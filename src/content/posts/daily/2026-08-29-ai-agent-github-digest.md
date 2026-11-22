@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-29-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-29-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### calesthio/OpenMontage ⭐ 50,000+（本週 +1,000）
+### calesthio/OpenMontage ★ 50,000+（本週 +1,000）
 
 [GitHub](https://github.com/calesthio/OpenMontage)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### anthropics/claude-plugins-official ⭐ 55+ 外掛（今日 +292）
+### anthropics/claude-plugins-official ★ 55+ 外掛（今日 +292）
 
 [GitHub](https://github.com/anthropics/claude-plugins-official)　·　JSON/Markdown　·　N/A
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### rohitg00/agentmemory ⭐ 快速成長中（TypeScript 趨勢榜上榜）
+### rohitg00/agentmemory ★ 快速成長中（TypeScript 趨勢榜上榜）
 
 [GitHub](https://github.com/rohitg00/agentmemory)　·　TypeScript　·　N/A
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### sodiumsun/agenttrail ⭐ 194（8/21 建立，成長中）
+### sodiumsun/agenttrail ★ 194（8/21 建立，成長中）
 
 [GitHub](https://github.com/sodiumsun/agenttrail)　·　Node.js　·　MIT
 

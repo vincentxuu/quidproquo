@@ -26,7 +26,7 @@ glossary:
     context: "antmaze-umaze-v0 and antmaze-medium-diverse-v0 in CS224R HW3 both come from D4RL."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

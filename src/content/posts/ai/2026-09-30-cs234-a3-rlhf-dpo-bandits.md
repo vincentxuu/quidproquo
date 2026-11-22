@@ -26,7 +26,7 @@ glossary:
     context: "作業三 Q4 要你算出「每隻手臂拉 n_e 次再選平均最高者」需要多少總樣本。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

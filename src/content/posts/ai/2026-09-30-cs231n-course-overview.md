@@ -20,7 +20,7 @@ glossary:
     context: "CS231N Spring 2026 被評為 A3，但錄影年份與 2026 教材不同。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -17,7 +17,7 @@ glossary:
     def: "第三方評測機構 Artificial Analysis 綜合多項 benchmark 算出的模型智能分數，常用於跨廠商模型的橫向比較"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-21-model-stepfun-step-5-preview-en)
+> :globe: [English version](/posts/daily/2026-09-21-model-stepfun-step-5-preview-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | FrontierFinance | 66.4% | 無直接前代 | Claude Opus 5 69.7% |
 | DRACO | 83.3% | 無直接前代 | Claude Opus 5 87.6% |
 
-⚠️ 表中 Step 5 Preview 除 Artificial Analysis Intelligence Index 外均為 StepFun 自測（跑於 `high` 推理強度，而 Claude Opus 5／GPT-6 Astra 跑於各自 `max` 強度，非同一設定的直接比較），尚待第三方覆現。Artificial Analysis Intelligence Index 為第三方獨立評測，已實測 API 輸出速度約 99.8 tokens/秒。
+:warning: 表中 Step 5 Preview 除 Artificial Analysis Intelligence Index 外均為 StepFun 自測（跑於 `high` 推理強度，而 Claude Opus 5／GPT-6 Astra 跑於各自 `max` 強度，非同一設定的直接比較），尚待第三方覆現。Artificial Analysis Intelligence Index 為第三方獨立評測，已實測 API 輸出速度約 99.8 tokens/秒。
 
 ## 與前代/競品比較
 

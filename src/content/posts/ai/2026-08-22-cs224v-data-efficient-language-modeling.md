@@ -12,7 +12,7 @@ tldr: "最後一講不是完整 LLM 訓練教學，而是資料效率研究：�
 description: "CS224V Training LLMs／Data-Efficient Language Modeling：資料瓶頸、有限資料下的 pretraining、ensemble/self-training、synthetic continued pretraining 與限制。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-data-efficient-language-modeling-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

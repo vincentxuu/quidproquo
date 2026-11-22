@@ -20,7 +20,7 @@ glossary:
     definition: "Nex-N2.5's thinking control: none answers directly, medium (default) thinks adaptively, high always thinks."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-19-ai-model-family-nex)
+> :globe: [中文版](/posts/tech/2026-09-19-ai-model-family-nex)
 
 On September 8, 2026, [Nex AGI](https://nex-agi.com/) released [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini) — an open agentic model family spanning 35B to 1.6T, all under Apache-2.0. The eye-catcher is not the biggest one but the middle child: Pro scores 87.4 on [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) computer-use grounding, ahead of [Claude Opus 5](https://www.anthropic.com/) at 76.8, while the Max tops the entire official table on BrowseComp with 92.6. This is the twenty-second family deep-dive in the "AI Model Families" series, tracing Nex from Nex-N2 to N2.5.
 

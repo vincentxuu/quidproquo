@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-para-johnny-decimal-folders-en)
+> :globe: [English version](/posts/learning/2026-10-22-para-johnny-decimal-folders-en)
 
 筆記越存越多，遲早會遇到這個問題：要不要建資料夾？一派說分類是浪費時間，反正搜尋什麼都找得到；另一派說沒有分類的東西等於沒存。兩派都拿得出研究，因為研究看的東西不一樣。
 

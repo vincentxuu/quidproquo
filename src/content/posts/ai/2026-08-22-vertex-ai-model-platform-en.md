@@ -10,7 +10,7 @@ description: "A deep dive into Google Cloud Vertex AI: its product boundary, Mod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-vertex-ai-model-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-vertex-ai-model-platform)
 
 [Vertex AI](https://cloud.google.com/vertex-ai) is Google Cloud's managed AI and machine-learning platform. It is not merely another endpoint for Gemini. The same control plane covers a model catalog, training, tuning, evaluation, online inference, pipelines, a registry, feature management, and agent tooling. Its real proposition is not “one more chat-model API,” but a path from experiment to production that uses Google Cloud IAM, projects, billing, networking, and audit controls.
 

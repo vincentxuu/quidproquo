@@ -26,7 +26,7 @@ glossary:
     context: "ADL 第 12 堂用它說明為什麼可以提早砍掉走歪的推理路徑。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-reasoning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ description: "Stanford CS224W Fall 2025 Lecture 19 on anchor-model ranking, task
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-19-conclusion)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-19-conclusion)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -11,7 +11,7 @@ series:
   order: 153
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-24-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-24-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -191,7 +191,7 @@ The "individually legal facts combine into something classified" mosaic effect �
 
 - Under benign queries (designed to be answerable from a single document), simulated GPT still leaks the forbidden composite in 7.08% of answers (95% CI 3.75–10.67%); the two live open-source harnesses come in at 12.50% (Pi) and 8.75% (Hermes)
 - With both classification headers and aggregation rules enabled, overall simulated leak rate drops from roughly 69% to 32.37% (95% CI 28.33–36.19%) — a 36.26-point reduction, but not to zero
-- Leak behavior varies sharply by model: simulated GPT leaks least (27.75%), while Claude (63.17%) and Qwen (67.11%) leak far more — but their refusal rates diverge just as much (37.56% / 59.75% / 11.08%) ⚠️ (all three models were compared under the same prompts; the gap may partly reflect each provider's own safety-training tendencies, which the paper doesn't decompose)
+- Leak behavior varies sharply by model: simulated GPT leaks least (27.75%), while Claude (63.17%) and Qwen (67.11%) leak far more — but their refusal rates diverge just as much (37.56% / 59.75% / 11.08%) :warning: (all three models were compared under the same prompts; the gap may partly reflect each provider's own safety-training tendencies, which the paper doesn't decompose)
 - With both defenses on, 404 of Claude's 410 leak-labeled answers were also labeled as refusals — it declines to answer, then states the forbidden conclusion while explaining why it's declining
 - Adoption cost: a company already running RAG agents over classified documents can use this paper's "cross-configuration" grid (headers on/off × rules on/off × query intent) as a self-audit checklist without waiting for a formal tool
 - Limitation: 30 synthetic cases, one fixed adversarial suffix, at most one distractor — not yet representative of the document diversity or attack techniques found in a real classified system
@@ -251,7 +251,7 @@ Most recent improvements to long-lived agent memory focus on making the memory i
 
 - On ToolSandbox, relative to a static verification policy given the same inputs, AMV-Guard lowers mean verification cost by 33.9% while keeping 100% safe-proceed recall and 0% Gate harmful
 - Proceed coverage (direct pass-through) rises from 38.83% to 44.17% — meaning a good share of the saved checks come from correctly deciding "this one doesn't need a check," not simply from checking less
-- Transferring to AppWorld (carrying over only the stopping/VOI core, not the full structured pipeline) lowers verification cost by 21.3%, but safe-proceed recall and task success both dip slightly ⚠️ (the authors themselves label this a "gate-core transfer," not a transfer of the full method)
+- Transferring to AppWorld (carrying over only the stopping/VOI core, not the full structured pipeline) lowers verification cost by 21.3%, but safe-proceed recall and task success both dip slightly :warning: (the authors themselves label this a "gate-core transfer," not a transfer of the full method)
 - The paper includes a proposition with proof: when the verifier is perfectly reliable, verification remains worthwhile at arbitrarily high consequence as long as its cost stays below (1−p)×the abstention cost; with an imperfect verifier, past a certain consequence level the rational move is to decline outright without even verifying
 - Adoption cost: requires first decomposing an action into "premises" and building an error-probability estimate for each — easier for agents with a structured tool-calling interface, harder for purely natural-language planners, which would need an extra premise-extraction layer
 - Limitation: the method performs best on ToolSandbox's full structured pipeline; transferring to AppWorld's different structure, keeping only the core logic, costs some performance — the authors explicitly flag full cross-environment transfer as still unvalidated

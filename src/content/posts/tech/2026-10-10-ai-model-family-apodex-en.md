@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-apodex)
+> :globe: [中文版](/posts/tech/2026-10-10-ai-model-family-apodex)
 
 [Apodex](https://apodex.ai/) is a **reasoning-first** model family developed by the **Apodex** team. The official model card positions Apodex for **long-horizon research, forecasting, and verifiable reasoning** — the official agent service emphasizes verifiable deliverables; reproducibility still depends on the tools, data, and execution records.
 
@@ -51,7 +51,7 @@ This article focuses on Apodex 1.1 Mini and distinguishes the core API from the 
 | **Input modalities** | Text, including code and data represented as text; core API file content parts are not supported |
 | **Output modalities** | Text, reasoning content, tool-call requests; artifacts are produced by the runtime |
 
-> ⚠️ The model and the hosted agent service are separate layers. AgentOS and Agent Team provide the execution workflow; a raw model API requires tool schemas and a host loop to execute calls. Mini can also be deployed locally.
+> :warning: The model and the hosted agent service are separate layers. AgentOS and Agent Team provide the execution workflow; a raw model API requires tool schemas and a host loop to execute calls. Mini can also be deployed locally.
 
 ## Evaluation and alternatives
 

@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-07-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-07-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ When LLM agents use tools, most existing methods build "tool-level graphs" from 
 ### Key Details
 
 - Consistently outperforms SOTA baselines on 2 in-distribution and 3 OOD benchmarks
-- OOD generalization is the core selling point: agents correctly plan on never-before-seen toolsets ⚠️ (author-evaluated; awaiting external replication)
+- OOD generalization is the core selling point: agents correctly plan on never-before-seen toolsets :warning: (author-evaluated; awaiting external replication)
 - Decoupled design: workflow planning is guided by FWG's global structure; tool selection uses local matching
 - RL reward design introduces source-gated and skill-specific signals to prevent incorrect data passing between tools
 - Adoption threshold: requires a batch of existing tool-use trajectories as seed data
@@ -104,7 +104,7 @@ Must-read — if your agent system has any quality-gating mechanism (auto-select
 ### Key Details
 
 - 681 cases, 50 tasks, 11 domains — all real agent trajectories (not synthetic)
-- JudgeSkill evolution yields +14.8pp accuracy ⚠️ (author-evaluated; awaiting external replication)
+- JudgeSkill evolution yields +14.8pp accuracy :warning: (author-evaluated; awaiting external replication)
 - Offline rollout-pool selection: 1 rollout → 22.9% success rate; 10 rollouts + JudgeSkill → 45.5%
 - The "active checking" capability of Agent-as-a-Judge is key — it can inspect files, run commands, and query the environment
 - Adoption threshold: requires writing or evolving JudgeSkills for each task domain — non-trivial upfront investment

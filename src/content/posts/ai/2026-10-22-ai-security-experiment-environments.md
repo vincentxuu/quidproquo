@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-experiment-environments-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-experiment-environments-en)
 
 你已經在自己的電腦上測過工單權限。下一步想讓 AI 幫你找漏洞，該搬到雲端、挑一道 CTF，還是直接測公司允許的系統？
 

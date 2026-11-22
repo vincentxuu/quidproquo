@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 10
 ---
-> 🌏 [English version](/posts/daily/2026-06-03-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-03-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -74,9 +74,9 @@ memoryware 定義一套 JSON-Schema 2020-12 電線格式，包含：
 ### 深入要點
 
 - 核心理念：只規範「電線格式」，不規定後端實作——類似 REST 規範 HTTP verbs 但不管 server 怎麼存資料
-- 關鍵數據：100 個事實、50 條查詢（42 條有標記答案）的小型基準測試；recall@5 = 1.000；ingest p50 = 37.8 ms；recall p50 = 40.6 ms **⚠️**（規模極小，無法代表生產場景）
+- 關鍵數據：100 個事實、50 條查詢（42 條有標記答案）的小型基準測試；recall@5 = 1.000；ingest p50 = 37.8 ms；recall p50 = 40.6 ms **:warning:**（規模極小，無法代表生產場景）
 - HITL 治理通道是少見有 governance 考量的記憶框架設計，適合有合規需求的 enterprise agent
-- 4 種記憶類型中，「emotional（情緒）」在 agent 系統的實際用途論文未給出明確應用例子 **⚠️**
+- 4 種記憶類型中，「emotional（情緒）」在 agent 系統的實際用途論文未給出明確應用例子 **:warning:**
 - 限制：單一獨立研究者提案，尚無社群採納；fan-out router 在高寫入量場景的效能未評估
 - 與 LangGraph/AutoGen 的關係：可作為這些框架的記憶層補充，目前主流 orchestration 框架對記憶後端的抽象程度很低
 - 落地門檻：需各記憶框架維護者接受並實作同一套 interface，標準化難度高；短期最實際的用法是借鑑操作詞彙設計自己的記憶 API
@@ -135,10 +135,10 @@ ExpWeaver 的核心轉換：**不把經驗存成文字，而是存成 LLM 自己
 
 - SOTA 12/13 tasks，在強基準（Reflexion、ExpeL 等）上再提升 6.8%
 - 零樣本跨域遷移 +16.32%、少樣本遷移 +15.21%，說明 latent experience 比 text experience 泛化更好
-- 架構隱患：experience 編碼成特定 LLM 版本的 hidden states，底層模型升級時 experience database 可能需要全部重新 encode——backward compatibility 問題論文未討論 **⚠️**
+- 架構隱患：experience 編碼成特定 LLM 版本的 hidden states，底層模型升級時 experience database 可能需要全部重新 encode——backward compatibility 問題論文未討論 **:warning:**
 - Cross-attention 整合讓 experience retrieval 和 token generation 緊耦合，需要 fine-tune 才能使用，**無法直接套用 closed-source LLM API**
 - 對比 text-based RAG 的優勢：不佔 context window、retrieval 隱式整合而非顯式拼接文字
-- SOTA 所測試的具體 benchmark 名稱在摘要層未完整列出 **⚠️**
+- SOTA 所測試的具體 benchmark 名稱在摘要層未完整列出 **:warning:**
 - 限制：訓練成本未量化；需要 model weight access，GPT-4o/Claude API 使用者暫時無法使用
 - 與 LangGraph/AutoGen 的關係：屬於 model 層面的修改，不是 framework 外掛——需要有自訓練能力的團隊才能落地
 
@@ -195,8 +195,8 @@ BAGEN 把「預算感知」形式化為**漸進區間估計（progressive interv
 
 - 核心發現：r=0.35 的弱相關說明「任務成功率高」的模型，預算感知不見得強——兩個維度需要獨立評估和訓練
 - 一致的過度樂觀偏誤：5 個 frontier 模型在 4 個環境下都表現系統性過度樂觀（繼續執行注定失敗的任務），而非保守
-- 5 個測試模型的具體名稱（GPT-4o、Claude、Gemini 等）在摘要層未確認，見原論文 **⚠️**
-- 4 個測試環境的具體 benchmark 名稱在摘要層未詳述 **⚠️**
+- 5 個測試模型的具體名稱（GPT-4o、Claude、Gemini 等）在摘要層未確認，見原論文 **:warning:**
+- 4 個測試環境的具體 benchmark 名稱在摘要層未詳述 **:warning:**
 - 純診斷型論文：精確描述問題，不提出修復方案——fix 留給後續工作
 - Rollout-replay 協議本身是可複用的評估工具：可以直接拿來評估你自己 agent 系統的 budget-awareness
 - 與 ContextBudget（2604.01664）等工作的差異：BAGEN 聚焦在「測量感知能力」而非提出具體 budget control 機制

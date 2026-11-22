@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-16-attention-variants-in-context-learning-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-16-attention-variants-in-context-learning-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 [第 16 堂錄影](https://www.youtube.com/watch?v=hHC-SF3utxg)的英文字幕寫成，公式記號對照 2026 主講義第 17 章；沒看到板書畫面。YouTube 標題的主題文字（Basic Concept in RL, Policy Gradient）與內容不符：這支影片完全沒有講強化學習，以下依實際內容整理。
 

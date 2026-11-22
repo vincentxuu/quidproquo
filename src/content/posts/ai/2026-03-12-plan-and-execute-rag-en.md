@@ -14,7 +14,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-plan-and-execute-rag)
+> :globe: [中文版](/posts/ai/2026-03-12-plan-and-execute-rag)
 
 The ReAct loop in Agentic RAG is a "think-as-you-go" approach — take a step, evaluate the result, decide what's next. It's flexible, but for highly complex problems, each decision is made without a full picture, which can lead to roundabout paths.
 

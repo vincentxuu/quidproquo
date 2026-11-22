@@ -26,7 +26,7 @@ glossary:
     context: "The table in CS149 L12 maps it to expert parallelism."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-ai-datacenter-mapping)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

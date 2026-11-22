@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-19-funding-trajectory-en)
+> :globe: [English version](/posts/daily/2026-08-19-funding-trajectory-en)
 
 ## 融資資訊
 

@@ -24,7 +24,7 @@ glossary:
         url: "https://www.gradio.app/"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-06-llm-applications-ethics)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

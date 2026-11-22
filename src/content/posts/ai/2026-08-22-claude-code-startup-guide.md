@@ -10,7 +10,7 @@ description: "導讀 Anthropic 官方部落格《The Claude Code Guide For Start
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-claude-code-startup-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-claude-code-startup-guide-en)
 
 Anthropic 在 2026 年 8 月 20 日發佈了一篇長文 [The Claude Code Guide For Startups](https://claude.com/blog/claude-code-guide-for-startups)，訪談了十五間快速成長的新創公司——ClickHouse、Clay、Omni、Artemis Security、Harvey、Cognition、Commure、Heidi、Crosby、Zingage、Emergent、Translucent、Higgsfield、Parahelp、Cainex——歸納出它們用 Claude Code 達到「以小搏大」的五條操作原則。
 

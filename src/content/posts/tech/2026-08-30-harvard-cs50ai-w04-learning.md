@@ -13,11 +13,11 @@ description: "Harvard CS50 AI 第 4 週 Learning 導讀：依 2020 年講課錄�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-harvard-cs50ai-w04-learning-en)
+> :globe: [English version](/posts/tech/2026-08-30-harvard-cs50ai-w04-learning-en)
 
 **影片狀態：已附影片。** 全片 1:45:48。本文的「講課導讀」依這支錄影的英文字幕逐段寫成，每一節開頭有時間連結，點了頁面上的播放器會跳到那一段。講課用 Nim 示範 Q-learning，但沒有介紹本週的兩個專案作業，專案部分依課程官網與官方 distribution code 寫成。[跳到播放器](#課程影片與時間軸)｜[影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年課程官網最新版為準（`ai50/projects/2024/x/...`）。
+> :warning: **版本提醒**：本週講課影片為 **2020 年春季錄製**；專案規格、distribution code、check50 slug 均以 2026 年課程官網最新版為準（`ai50/projects/2024/x/...`）。
 
 ## TL;DR
 
@@ -631,7 +631,7 @@ style50 shopping.py
 <details>
 <summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
 
-> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
+> :warning: 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
 
 ```python
 def load_data(filename):
@@ -887,7 +887,7 @@ style50 nim.py
 <details>
 <summary>完整參考實作（先自己寫完並繳交，再打開）</summary>
 
-> ⚠️ 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
+> :warning: 如果你正在修這門課、或打算申請 CS50 的證書：課程的[學術誠信政策](https://cs50.harvard.edu/ai/honesty/)規定，繳交自己的作業之前不能看別人的解答。請先完成並繳交，再用這一段對照。這份實作只在本站列出的環境實跑過，沒有經過 check50。
 
 ```python
     def get_q_value(self, state, action):

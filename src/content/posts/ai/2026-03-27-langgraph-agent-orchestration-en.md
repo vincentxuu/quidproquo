@@ -10,7 +10,7 @@ description: "What LangGraph is, why it is more practical than plain pipelines, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-27-langgraph-agent-orchestration)
+> :globe: [中文版](/posts/ai/2026-03-27-langgraph-agent-orchestration)
 
 Most RAG tutorials are linear: query → embed → retrieve → generate. But real-world systems quickly run into problems: "The answer quality isn't good enough — we need to re-retrieve," "This query needs to be broken into subtasks first and then merged," "Simple questions should go straight to the LLM without running the full pipeline."
 

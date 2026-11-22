@@ -21,7 +21,7 @@ glossary:
     context: "CS224R HW1 Problem 3 uses it to improve regression BC in hard mode."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

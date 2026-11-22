@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-cohere-north-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-cohere-north-en)
 
 [Cohere](https://cohere.com/) 在 2026 年推出的 **North 系列**加入了專注 **Agentic Coding** 的模型產品線。**North Mini Code** 是該系列的首款公開模型：30B 總參數、3B 活躍參數的 sparse MoE，專為程式碼生成、測試、自動化開發設計。它在 OpenRouter 以 `cohere/north-mini-code:free` 提供免費存取，讓開發者能直接體驗 Cohere 的編碼代理能力。
 

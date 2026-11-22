@@ -10,7 +10,7 @@ description: "A practical guide to LiteLLM's Python SDK and proxy gateway, routi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-litellm-gateway)
+> :globe: [中文版](/posts/ai/2026-08-22-litellm-gateway)
 
 [LiteLLM](https://github.com/BerriAI/litellm) is not another model provider selling tokens. It is an open-source interface between applications and model APIs: a small project can import it as a Python package, while a team can deploy the same set of capabilities as a centralized AI gateway. The project currently claims support for [more than 100 LLM providers](https://docs.litellm.ai/) and normalizes requests, responses, and exceptions around OpenAI-compatible formats.
 

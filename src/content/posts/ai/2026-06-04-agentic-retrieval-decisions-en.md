@@ -10,7 +10,7 @@ description: "A walkthrough of Agentic RAG's three decision layers and agent loo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-agentic-retrieval-decisions)
+> :globe: [中文版](/posts/ai/2026-06-04-agentic-retrieval-decisions)
 
 Traditional RAG is a **fixed pipeline** of "retrieve then read": regardless of question difficulty or whether the model already knows the answer, it always pulls from the knowledge base first. Agentic RAG turns retrieval into **a series of agent decisions** -- at every step it asks three questions: **(1) Do I need to retrieve right now? (2) What should I query, and where? (3) How do I fuse the multi-source results into one usable context?** -- and wraps these decisions into a plan-retrieve-reflect loop that only generates an answer when "enough is enough."
 

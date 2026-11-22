@@ -13,11 +13,11 @@ description: "Final checkpoint for Harvard CS1810 Spring 2026: the final checkli
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
+> :warning: **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
 
 ## TL;DR
 

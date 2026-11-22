@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-free-tools-seo-compounding)
+> :globe: [中文版](/posts/product/2026-09-17-free-tools-seo-compounding)
 
 An article is like a recipe. You may read it from beginning to end the first time, then return only to check the water ratio. A free calculator is like a kitchen scale: every change in ingredients or serving size creates another reason to use it. The recipe explains; the scale completes a recurring job.
 

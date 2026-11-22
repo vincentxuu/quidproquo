@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 61
 ---
-> 🌏 [English version](/posts/daily/2026-07-24-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-24-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ GitHub star 數會騙人；這篇用四年真實數據告訴你，哪些開源 A
 - LangChain 扮演「共享基礎建設」角色：跨框架貢獻者中有 82.5% 同時也在 LangChain 生態活動，是整個 Agent 開源圈的核心
 - 貢獻者留存率在加入後的前 30 天降幅最大，在 90 天左右趨於穩定——幾乎所有框架都呈現這個模式
 - 評估框架健康度更好的指標：貢獻者密度、跨生態參與比例、90 天後留存率，而非 star 總數
-- 論文未公開每個框架的完整排名；商業採用率、文件品質等面向也未納入 **⚠️**
+- 論文未公開每個框架的完整排名；商業採用率、文件品質等面向也未納入 **:warning:**
 
 ### Reviewer 一句話評
 
@@ -126,7 +126,7 @@ GitHub star 數會騙人；這篇用四年真實數據告訴你，哪些開源 A
 - **失敗類別三：長鏈退化（long-horizon degradation）** — 隨著步驟增加，上下文越積越多，Agent 表現逐步變差，超過一定步數後幾乎必然失敗
 - **失敗類別四：多智能體協調失敗** — 多個 Agent 協作時，溝通格式不一致、責任邊界模糊、循環等待等問題頻繁出現
 - **失敗類別五：安全與安全性失敗** — 包括提示注入（prompt injection，讓 Agent 被外部惡意輸入控制）和有害行動執行
-- **失敗類別六：評測有效性問題** — 許多 benchmark 存在資料污染（測試題出現在訓練資料中）、過度依賴靜態答案的問題，導致分數虛高 **⚠️**
+- **失敗類別六：評測有效性問題** — 許多 benchmark 存在資料污染（測試題出現在訓練資料中）、過度依賴靜態答案的問題，導致分數虛高 **:warning:**
 - 這篇是 meta-synthesis（文獻整合），不是實驗論文，沒有提出新的解決方案，也無新量化數據
 
 ### Reviewer 一句話評
@@ -180,7 +180,7 @@ GitHub star 數會騙人；這篇用四年真實數據告訴你，哪些開源 A
 - 移除「profile expansion」（跨實體掃描機制）後，MemHop 效能下降 22.6 個百分點（pp），確認這是多跳記憶的核心機制
 - 「compression residuals」主要提升非多跳類型的查詢（精確日期、數字），和 profile expansion 功能互補
 - 在 PersonaMem-v2、LongMemEval、LoCoMo 三個 benchmark 上均有測試，顯示跨任務泛化能力
-- 限制：單一作者論文，benchmark 和方法出自同一人，缺乏外部複現；社交網路情境以外（技術文件、流程型記憶）的適用性待確認 **⚠️**
+- 限制：單一作者論文，benchmark 和方法出自同一人，缺乏外部複現；社交網路情境以外（技術文件、流程型記憶）的適用性待確認 **:warning:**
 - 與 LangGraph、MemGPT 等主流框架的整合方式未討論，落地需要自行設計 profile 存儲層
 
 ### Reviewer 一句話評

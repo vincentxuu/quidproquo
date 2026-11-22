@@ -13,7 +13,7 @@ description: "鳳來（Horai）攀岩指南：ガンコ岩與鬼岩的選線、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-horai-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-horai-en)
 
 鳳來的吸引力是大傾斜：沿著凝灰岩的洞與凹凸往上爬，進到鬼岩、ハイカラ岩，路線會把耐力與連續動作一起拉長。但第一次來，不必把目標直接放在最難的壁。ガンコ岩也有較低難度的選擇。
 

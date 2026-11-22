@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-funding-instinct)
+> :globe: [中文版](/posts/daily/2026-08-28-funding-instinct)
 
 ## Funding Details
 

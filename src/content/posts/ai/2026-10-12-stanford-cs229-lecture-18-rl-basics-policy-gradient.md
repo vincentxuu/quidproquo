@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-18-rl-basics-policy-gradient-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 18 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 19 章與第 21 章；我沒看到板書畫面，板書上的式子是靠字幕前後文與講義還原的。YouTube 標題的主題文字（GMM (EM), PCA）與內容不符，這支影片實際講的是強化學習基礎與 policy gradient，以下依實際內容。
 

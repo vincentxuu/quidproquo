@@ -13,7 +13,7 @@ description: "跨證照的多 agent 系統架構考點整理：比對微軟 AI-5
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en)
+> :globe: [English version](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en)
 >
 > 本文是從官方資料建出來的備考材料，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各家官方 exam guide 或 study guide，來源逐條列在文末。查證日期：2026-08-18。
 

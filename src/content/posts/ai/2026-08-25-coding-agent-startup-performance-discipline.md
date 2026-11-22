@@ -13,7 +13,7 @@ description: "對照 codex、claude-code、opencode、pi、omp 五家的啟動�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-startup-performance-discipline-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-startup-performance-discipline-en)
 
 上一篇談 [runtime 抽象與 capability handshake](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake)。這篇換一個不起眼但每天都在付的成本：啟動。
 

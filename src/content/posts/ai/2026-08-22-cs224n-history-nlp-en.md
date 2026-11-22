@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS224N Winter 2026 Lectur
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-history-nlp)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-history-nlp)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

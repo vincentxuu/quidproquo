@@ -10,7 +10,7 @@ description: "How tool results and skill instructions get lost at the write, cle
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-16-agent-token-cost-tool-results)
+> :globe: [中文版](/posts/ai/2026-10-16-agent-token-cost-tool-results)
 
 Every turn, an agent resends the whole history to the model, and the biggest share of that history is usually tool results: file contents, search results, API responses. The most direct way to save tokens is to cut old tool results: truncate them when writing history, clear them as the conversation grows, and shorten them again before sending.
 

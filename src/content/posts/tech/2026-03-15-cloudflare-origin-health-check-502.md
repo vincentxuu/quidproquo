@@ -10,7 +10,7 @@ description: "nginx 重啟導致 Cloudflare 標記 origin 不健康，所有請�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-15-cloudflare-origin-health-check-502-en)
+:globe: [English version](/posts/tech/2026-03-15-cloudflare-origin-health-check-502-en)
 
 ## TL;DR
 

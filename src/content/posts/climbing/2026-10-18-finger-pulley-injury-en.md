@@ -26,7 +26,7 @@ glossary:
     context: "A study of injured fingers shows it reduces bowstringing; there is no evidence supporting it for prevention."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-finger-pulley-injury)
+> :globe: [中文版](/posts/climbing/2026-10-18-finger-pulley-injury)
 
 You are on a tiny crimp at the gym, a foot slips, and there is a pop at the base of your finger. It may hurt right away, or you may finish the problem and only notice the swelling at home.
 

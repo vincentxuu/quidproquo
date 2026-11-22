@@ -10,7 +10,7 @@ description: "An introduction to Prisma ORM: schema definitions, the migration w
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-prisma-orm-typescript)
+:globe: [中文版](/posts/tech/2026-03-27-prisma-orm-typescript)
 
 "Skip the ORM, just write SQL" is a valid argument — but it comes with a caveat: you have to maintain migrations by hand, write types by hand, and handle relation queries by hand. Prisma takes care of all of that, at the cost of buying into its abstraction layer. For a TypeScript project like DaoDao, that's a trade worth making.
 

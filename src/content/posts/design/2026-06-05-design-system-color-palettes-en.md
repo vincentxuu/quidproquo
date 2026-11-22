@@ -10,7 +10,7 @@ description: "Compare the color systems behind Tailwind, Radix, Material 3, Carb
 draft: false
 ---
 
-> 🌏 [中文版](/posts/design/2026-06-05-design-system-color-palettes)
+> :globe: [中文版](/posts/design/2026-06-05-design-system-color-palettes)
 
 The hard part of choosing website colors is not finding one attractive color. It is everything that follows: deriving hover and disabled states, deciding how many neutral steps you need, meeting WCAG text contrast, and rebuilding the palette for dark mode. Major design systems have already solved these problems in different ways. This guide compares seven of their color architectures and the common patterns they have converged on, so a new site can borrow proven decisions instead of inventing a system from scratch.
 

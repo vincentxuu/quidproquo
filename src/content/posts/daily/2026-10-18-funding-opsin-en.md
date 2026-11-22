@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-18-funding-opsin)
+> :globe: [中文版](/posts/daily/2026-10-18-funding-opsin)
 
 ## Funding Details
 

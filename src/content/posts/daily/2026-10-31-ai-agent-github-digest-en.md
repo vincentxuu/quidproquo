@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-governance, rust, agent-platform]
 lang: en
 description: "The same day Claude Code hard-codes write-path boundaries into every permission mode, CopilotKit/OpenBot redefines what a 'trustworthy agent' looks like with sandboxed computers and approval gates, while HKUDS/nanobot and 0xPlaygrounds/rig show the opposite move: shrinking the core instead"
-tldr: "**CopilotKit/OpenBot** (⭐ 8,639) gives each AI coworker its own sandboxed computer — every browser, file, or MCP action has to clear a CEL policy gate and get logged to an audit trail before it runs, and any AG-UI agent (LangGraph, Mastra, CrewAI, and more) can plug straight in. **HKUDS/nanobot** (⭐ 49,682) packs a personal agent into a core small enough to actually read end to end, with built-in long-term memory and a dozen chat-channel integrations. **0xPlaygrounds/rig** (⭐ 9,027) bundles a Rust LLM library and a full coding-agent harness that plugs into editors like Zed into the same crate. On the release side, **Claude Code v2.1.314** adds `permissions.blockWritesOutsideWorkingDirectories`, enforcing write-path boundaries across every permission mode, plus idle conversation compaction and a batch of fixes."
+tldr: "**CopilotKit/OpenBot** (★ 8,639) gives each AI coworker its own sandboxed computer — every browser, file, or MCP action has to clear a CEL policy gate and get logged to an audit trail before it runs, and any AG-UI agent (LangGraph, Mastra, CrewAI, and more) can plug straight in. **HKUDS/nanobot** (★ 49,682) packs a personal agent into a core small enough to actually read end to end, with built-in long-term memory and a dozen chat-channel integrations. **0xPlaygrounds/rig** (★ 9,027) bundles a Rust LLM library and a full coding-agent harness that plugs into editors like Zed into the same crate. On the release side, **Claude Code v2.1.314** adds `permissions.blockWritesOutsideWorkingDirectories`, enforcing write-path boundaries across every permission mode, plus idle conversation compaction and a batch of fixes."
 series:
   name: "AI Agent GitHub Digest"
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-31-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Claude Code v2.1.314 adds `permissions.blockWritesOutsideWorkingDirectories`, tu
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 8,639
+### CopilotKit/OpenBot ★ 8,639
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -33,51 +33,51 @@ title: CopilotKit/OpenBot's governance gateway
 desc: A user's message goes through the Server to a Bot; any tool call the Bot wants to make has to clear the Gateway's CEL policy check first, the decision gets written to a PostgreSQL audit log, and only an allowed action reaches that Bot's own sandboxed computer.
 caption: Simplified: only the "allowed and executed" path is drawn. When the policy denies an action, the Gateway reports the rule name back to the Bot instead and never sends the action to the sandboxed computer.
 ---
-<svg viewBox="0 0 800 400">
-  <path class="dg-line" d="M132 216 H168" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M296 216 H332" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M448 216 H484" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M636 216 H664" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--dashed" d="M560 268 V320" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M232 252 V292 Q232 300 240 300 H322 Q330 300 330 308 V320" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 800 252">
+  <path class="dg-line" d="M100 72 H132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M252 72 H284" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M396 72 H476" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M612 72 H688" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--dashed" d="M544 124 V176" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M192 108 V148 Q192 156 200 156 H292 Q300 156 300 164 V176" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="20" y="188" width="112" height="56" rx="6"/>
-  <text class="dg-label" x="76" y="216" text-anchor="middle" dominant-baseline="central">User</text>
+  <rect class="dg-box" x="20" y="44" width="80" height="56" rx="6"/>
+  <text class="dg-label" x="60" y="72" text-anchor="middle" dominant-baseline="central">User</text>
 
-  <rect class="dg-box" x="168" y="180" width="128" height="72" rx="6"/>
-  <text class="dg-label" x="232" y="206" text-anchor="middle" dominant-baseline="central">Server</text>
-  <text class="dg-sub" x="232" y="228" text-anchor="middle" dominant-baseline="central">sends this turn</text>
+  <rect class="dg-box" x="132" y="36" width="120" height="72" rx="6"/>
+  <text class="dg-label" x="192" y="62" text-anchor="middle" dominant-baseline="central">Server</text>
+  <text class="dg-sub" x="192" y="84" text-anchor="middle" dominant-baseline="central">sends this turn</text>
 
-  <rect class="dg-box" x="332" y="180" width="116" height="72" rx="6"/>
-  <text class="dg-label" x="390" y="206" text-anchor="middle" dominant-baseline="central">Bot</text>
-  <text class="dg-sub" x="390" y="228" text-anchor="middle" dominant-baseline="central">AG-UI endpoint</text>
+  <rect class="dg-box" x="284" y="36" width="112" height="72" rx="6"/>
+  <text class="dg-label" x="340" y="62" text-anchor="middle" dominant-baseline="central">Bot</text>
+  <text class="dg-sub" x="340" y="84" text-anchor="middle" dominant-baseline="central">AG-UI endpoint</text>
 
-  <rect class="dg-box dg-box--accent" x="484" y="164" width="152" height="104" rx="6"/>
-  <text class="dg-label" x="560" y="204" text-anchor="middle" dominant-baseline="central">Gateway</text>
-  <text class="dg-sub" x="560" y="226" text-anchor="middle" dominant-baseline="central">CEL policy engine</text>
+  <rect class="dg-box dg-box--accent" x="476" y="20" width="136" height="104" rx="6"/>
+  <text class="dg-label" x="544" y="60" text-anchor="middle" dominant-baseline="central">Gateway</text>
+  <text class="dg-sub" x="544" y="82" text-anchor="middle" dominant-baseline="central">CEL policy engine</text>
 
-  <rect class="dg-box" x="664" y="180" width="124" height="72" rx="6"/>
-  <text class="dg-label" x="726" y="206" text-anchor="middle" dominant-baseline="central">Sandbox</text>
-  <text class="dg-sub" x="726" y="228" text-anchor="middle" dominant-baseline="central">browser / files</text>
+  <rect class="dg-box" x="688" y="36" width="104" height="72" rx="6"/>
+  <text class="dg-label" x="740" y="62" text-anchor="middle" dominant-baseline="central">Sandbox</text>
+  <text class="dg-sub" x="740" y="84" text-anchor="middle" dominant-baseline="central">browser / files</text>
 
-  <rect class="dg-box dg-box--store" x="480" y="320" width="160" height="56" rx="6"/>
-  <text class="dg-label" x="560" y="340" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
-  <text class="dg-sub" x="560" y="358" text-anchor="middle" dominant-baseline="central">audit log + decisions</text>
+  <rect class="dg-box dg-box--store" x="454" y="176" width="180" height="56" rx="6"/>
+  <text class="dg-label" x="544" y="190" text-anchor="middle" dominant-baseline="central">PostgreSQL</text>
+  <text class="dg-sub" x="544" y="214" text-anchor="middle" dominant-baseline="central">audit log + decisions</text>
 
-  <rect class="dg-box dg-box--store" x="212" y="320" width="236" height="56" rx="6"/>
-  <text class="dg-label" x="330" y="340" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
-  <text class="dg-sub" x="330" y="358" text-anchor="middle" dominant-baseline="central">threads / long-term memory</text>
+  <rect class="dg-box dg-box--store" x="172" y="176" width="256" height="56" rx="6"/>
+  <text class="dg-label" x="300" y="190" text-anchor="middle" dominant-baseline="central">CopilotKit Intelligence</text>
+  <text class="dg-sub" x="300" y="214" text-anchor="middle" dominant-baseline="central">threads / long-term memory</text>
 
-  <text class="dg-edge" x="466" y="204" text-anchor="middle" dominant-baseline="central">tool call</text>
-  <text class="dg-edge" x="650" y="204" text-anchor="middle" dominant-baseline="central">if allowed</text>
-  <text class="dg-edge" x="570" y="294" dominant-baseline="central">audit write</text>
-  <text class="dg-edge" x="281" y="288" text-anchor="middle" dominant-baseline="central">threads / memory</text>
+  <text class="dg-edge" x="436" y="56" text-anchor="middle" dominant-baseline="central">tool call</text>
+  <text class="dg-edge" x="650" y="56" text-anchor="middle" dominant-baseline="central">if allowed</text>
+  <text class="dg-edge" x="554" y="150" dominant-baseline="central">audit write</text>
+  <text class="dg-edge" x="204" y="132" text-anchor="start" dominant-baseline="central">threads / memory</text>
 </svg>
 ```
 
 ---
 
-### HKUDS/nanobot ⭐ 49,682
+### HKUDS/nanobot ★ 49,682
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -88,7 +88,7 @@ caption: Simplified: only the "allowed and executed" path is drawn. When the pol
 
 ---
 
-### 0xPlaygrounds/rig ⭐ 9,027
+### 0xPlaygrounds/rig ★ 9,027
 
 [GitHub](https://github.com/0xPlaygrounds/rig)　·　Rust　·　MIT
 

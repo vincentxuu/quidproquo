@@ -12,7 +12,7 @@ draft: false
 series: { name: "Reading Berkeley CS288", order: 5 }
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-agents)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-agents)
 
 [Units 15–18](https://cal-cs288.github.io/sp26/) place language models in a longer decision loop: Embodied Perception, Inference-time Compute, Agent Reasoning, and Embodied Agents. Inputs may include visual or environmental state; outputs may be tool calls or actions rather than text.
 

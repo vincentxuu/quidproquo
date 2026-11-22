@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-28-ai-contrast-framing-en)
+> :globe: [English version](/posts/ai/2026-10-28-ai-contrast-framing-en)
 
 ## 這是什麼句型
 

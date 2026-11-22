@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-self-hosted-inference-server-guide-en)
+> :globe: [English version](/posts/tech/2026-08-24-self-hosted-inference-server-guide-en)
 
 本站已經寫了 [vLLM](/posts/ai/2026-03-14-vllm-inference-engine)、[SGLang](/posts/tech/2026-08-22-sglang-inference-server)、[Triton Inference Server](/posts/tech/2026-08-22-triton-inference-server)、[Ray Serve](/posts/tech/2026-08-22-ray-serve-inference)、[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide)、[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) 等推論工具的單篇深入介紹。這篇不重複各工具細節，而是把它們放進同一張架構圖，讓你在選型時快速定位：你的問題出在哪一層，就該從哪一層開始挑。
 

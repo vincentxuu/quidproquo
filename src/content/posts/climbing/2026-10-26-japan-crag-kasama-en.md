@@ -13,7 +13,7 @@ description: "Kasama climbing guide: seasons, public transport, parking, local r
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-kasama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-kasama)
 
 Kasama’s granite boulders are scattered through the wooded slopes of Sashiro-yama. Finding the right rock, inspecting landings and identifying restricted boulders matter as much as the grade.
 

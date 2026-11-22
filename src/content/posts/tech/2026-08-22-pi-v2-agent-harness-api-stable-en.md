@@ -13,7 +13,7 @@ description: "Pi v2's AgentHarness v2 API, lane-based v4 Session, CBOR protocol,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-pi-v2-agent-harness-api-stable)
+> :globe: [中文版](/posts/tech/2026-08-22-pi-v2-agent-harness-api-stable)
 
 The [March article](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en) concluded that Pi was a deliberately small harness — 4 tools, an ultra-short system prompt, explicit refusal to build MCP or sub-agents. Five months later, Pi reached v0.84.0. On the surface, it's still the same Pi. Under the hood, the engine has been replaced.
 

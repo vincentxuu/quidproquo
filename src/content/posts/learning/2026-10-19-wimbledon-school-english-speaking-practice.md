@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice-en)
 
 想請一段假去英國練英文，真正需要安排的是每天怎麼上課、下課和誰說話，以及整趟花多少。[Wimbledon School of English（WSE）](https://wimbledon-school.ac.uk/english-courses/general-english-courses/general-english)位於倫敦西南的 Wimbledon，提供一般英語、商務與考試等課程，也能安排住宿。本文聚焦成人一般英語團班。
 

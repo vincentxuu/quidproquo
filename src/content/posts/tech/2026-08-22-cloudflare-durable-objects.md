@@ -18,7 +18,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-cloudflare-durable-objects-en)
+> :globe: [English version](/posts/tech/2026-08-22-cloudflare-durable-objects-en)
 
 [Cloudflare Workers](https://developers.cloudflare.com/workers/) 很適合處理 stateless request：驗證、轉發、渲染、API handler、輕量資料轉換。問題出在下一步：聊天室要廣播、多人文件要協調、booking 不能重複扣位、agent run 要保證同一個 session 的 budget 不被並發扣錯。這些情境需要一個「同一個 key 的操作可以排隊決定」的地方。[Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/)（DO）就是 Cloudflare 在 serverless 裡補上的狀態與協調原語。
 

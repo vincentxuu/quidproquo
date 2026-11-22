@@ -45,7 +45,7 @@ Claude Code 是 Anthropic 推出的終端機原生 AI coding agent。和其他�
 
 想嚴格控制在訂閱額度內，就在跳出 API credit 選項時拒絕；要完全避免被問，用 `claude login` 只以訂閱身分認證即可。
 
-> ⚠️ **常見陷阱**：如果系統裡設了 `ANTHROPIC_API_KEY` 環境變數，Claude Code 會拿它去做認證，**而不是用你的訂閱**——結果是照 API 計費，訂閱額度完全沒動到。付了 Max 還收到 API 帳單，多半是這個原因。
+> :warning: **常見陷阱**：如果系統裡設了 `ANTHROPIC_API_KEY` 環境變數，Claude Code 會拿它去做認證，**而不是用你的訂閱**——結果是照 API 計費，訂閱額度完全沒動到。付了 Max 還收到 API 帳單，多半是這個原因。
 
 ## API Token 定價
 

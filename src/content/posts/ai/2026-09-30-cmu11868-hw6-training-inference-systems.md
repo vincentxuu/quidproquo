@@ -22,7 +22,7 @@ glossary:
     context: "HW6 Problem 2 列出它和 dp_size、batch size 等，作為可以探索的加速參數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

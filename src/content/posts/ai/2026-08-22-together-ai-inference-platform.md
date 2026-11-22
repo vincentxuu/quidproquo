@@ -10,7 +10,7 @@ description: "深入介紹 Together AI 的 Serverless 與 Dedicated Endpoints、
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-together-ai-inference-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-together-ai-inference-platform-en)
 
 [Together AI](https://www.together.ai/) 是一個以開放權重模型為核心的 AI 雲端平台。它不是只賣一組模型 API。同一個帳號可以先用 Serverless 端點測 Llama、Qwen、DeepSeek、FLUX 等模型，再把確定要用的模型搬到保留硬體的 Dedicated Endpoint，也能訓練與部署自己的微調版本。
 

@@ -10,7 +10,7 @@ description: "A teardown of the anthropics/financial-services repo's dual-deploy
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-claude-for-financial-services)
+> :globe: [中文版](/posts/ai/2026-05-09-claude-for-financial-services)
 
 Anthropic released [`anthropics/financial-services`](https://github.com/anthropics/financial-services) in early 2026: a collection of Agent reference implementations purpose-built for investment banking, research, private equity, wealth management, and fund administration. 17K stars, 12 Named Agents, 11 data-vendor MCP connectors, all documentation in markdown/YAML with no build step.
 

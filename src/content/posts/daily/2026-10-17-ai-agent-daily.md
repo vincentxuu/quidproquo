@@ -12,7 +12,7 @@ series:
   order: 63
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-17-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-17-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -123,16 +123,16 @@ CERT-In 警告 AI agent 測試過程中存取了印度企業機密資料（[來�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-github-digest)
-- 📄 [框架更新｜Agno v3.1.4](/posts/daily/2026-10-17-framework-agno-3.1.4)
-- 📄 [框架更新｜Mastra @mastra/core@1.78.0](/posts/daily/2026-10-17-framework-mastra-1.78.0)
-- 📄 [框架更新｜Pydantic AI v2.57.0](/posts/daily/2026-10-17-framework-pydantic-ai-v2.57.0)
-- 📄 [融資速報｜RapidCanvas Series B $29M](/posts/daily/2026-10-17-funding-rapidcanvas)
-- 📄 [定價追蹤｜Google 補上 Gemini 4 Argon 促銷到期日](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline)
-- 📄 [工具推薦｜Co-op Anything](/posts/daily/2026-10-17-tool-coop-anything)
-- 📄 [AI Engineer 面試日練 — 2026-10-17：Paper Reading](/posts/daily/2026-10-17-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-17：Technical PM](/posts/daily/2026-10-17-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-17](/posts/daily/2026-10-17-ai-agent-github-digest)
+- :file: [框架更新｜Agno v3.1.4](/posts/daily/2026-10-17-framework-agno-3.1.4)
+- :file: [框架更新｜Mastra @mastra/core@1.78.0](/posts/daily/2026-10-17-framework-mastra-1.78.0)
+- :file: [框架更新｜Pydantic AI v2.57.0](/posts/daily/2026-10-17-framework-pydantic-ai-v2.57.0)
+- :file: [融資速報｜RapidCanvas Series B $29M](/posts/daily/2026-10-17-funding-rapidcanvas)
+- :file: [定價追蹤｜Google 補上 Gemini 4 Argon 促銷到期日](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline)
+- :file: [工具推薦｜Co-op Anything](/posts/daily/2026-10-17-tool-coop-anything)
+- :file: [AI Engineer 面試日練 — 2026-10-17：Paper Reading](/posts/daily/2026-10-17-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-17：Technical PM](/posts/daily/2026-10-17-product-builder-interview-daily)
 
 ## 明日關注
 

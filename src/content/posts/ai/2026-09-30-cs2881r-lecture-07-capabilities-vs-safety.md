@@ -25,7 +25,7 @@ glossary:
     context: "OpenAI Preparedness Framework 分 High 與 Critical，Anthropic RSP 用 ASL 等級對應；兩者都為「AI 自我改進」設了門檻。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -14,7 +14,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-ab-testing)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-ab-testing)
 
 Every change to a RAG system should be validated through A/B testing. Without a control group, you can't tell whether an improvement came from the change itself or from natural shifts in query distribution.
 

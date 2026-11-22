@@ -20,7 +20,7 @@ glossary:
         url: "https://www.amga.com/programs/climbing-instructor-programs/single-pitch-instructor-program"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-hire-a-guide)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-hire-a-guide)
 
 This post is for anyone planning to hire a guide abroad. You have found someone in Chamonix, Zermatt or Japan who calls themselves a "mountain guide". How do you check they are IFMGA, what does a day cost, which costs are missing from the quote, and should you tip at the end?
 

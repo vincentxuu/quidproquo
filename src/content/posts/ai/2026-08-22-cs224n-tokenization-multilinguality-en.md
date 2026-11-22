@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Julie Kallini's CS224N Winter 2026
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-tokenization-multilinguality)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

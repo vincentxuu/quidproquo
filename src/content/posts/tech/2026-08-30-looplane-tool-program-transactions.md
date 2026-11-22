@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-tool-program-transactions-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-tool-program-transactions-en)
 
 單一 tool call 已經通過 path、permission 與 [OS sandbox](/posts/tech/2026-08-30-looplane-local-os-sandbox)，不代表多個 call 可以任意同時跑。Looplane 把組合方式拆成三種：可安全 batching 的唯讀呼叫、有界的 read-only program，以及需要檔案回復能力的 transaction。
 

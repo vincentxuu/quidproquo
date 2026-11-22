@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-funding-opsin-en)
+> :globe: [English version](/posts/daily/2026-10-18-funding-opsin-en)
 
 ## 融資資訊
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-azure-app-service-en)
+> :globe: [English version](/posts/tech/2026-08-22-azure-app-service-en)
 
 [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) 是託管 Web app、REST API 與 mobile backend 的 PaaS，支援 .NET、Java、Node.js、Python、PHP，以及 Windows/Linux custom container。它的抽象是「網站平台」，不是通用 container orchestrator。
 

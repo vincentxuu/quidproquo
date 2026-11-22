@@ -13,7 +13,7 @@ description: "Okura Boulders climbing guide: seasons, public transport, parking,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-okura-boulders)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-okura-boulders)
 
 Okura’s boulders line the river near Sendai, including Shiru-iwa, Table Rock and Rindo-iwa. Water level changes both landings and available problems; inspect the way back as well as the rock.
 

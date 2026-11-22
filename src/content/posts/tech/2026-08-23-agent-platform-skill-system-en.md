@@ -8,7 +8,7 @@ lang: en
 description: "A deep dive into Agent Platform's Skill System: its dual-file skill.yaml + SKILL.md architecture, four-layer progressive disclosure, explicit FlowStep binding with @version, complete invocation tracking, four built-in Deep Research skills, and a closed Learning Loop from signals to proposals and eval gates."
 tldr: "A Skill is a versioned, installable, and auditable capability package. Its dual-file architecture separates metadata from instructions, explicit binding replaces model-driven routing, and every invocation is recorded. The Learning Loop turns run signals into proposals, sandbox evaluations, human review, and publication while enforcing the principle: agents propose, humans review, and evals serve as the gate."
 ---
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-skill-system)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-skill-system)
 
 tags: ["ai-agent", "skill-system", "learning-loop", "agent-platform", "evaluation", "versioning", "skill-package", "progressive-disclosure"]
 ## TL;DR

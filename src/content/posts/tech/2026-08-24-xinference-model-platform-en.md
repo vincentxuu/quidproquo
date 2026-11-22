@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-xinference-model-platform)
+> :globe: [中文版](/posts/tech/2026-08-24-xinference-model-platform)
 
 [Xinference](https://inference.readthedocs.io/) (Xorbits Inference) is an open-source model inference management platform with [roughly 9,500 stars on GitHub](https://github.com/xorbitsai/inference), under the Apache-2.0 license. Its role isn't to replace vLLM or SGLang — it wraps them alongside Transformers, llama.cpp, and MLX under a single management layer, using a Web UI, CLI, and OpenAI-compatible API to manage LLMs, embedding, rerank, speech, image, and other model types.
 

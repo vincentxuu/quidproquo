@@ -10,7 +10,7 @@ description: "A verified comparison of recurring quotas, rate limits, one-time t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-free-search-scraping-tools)
+> :globe: [中文版](/posts/ai/2026-08-21-free-search-scraping-tools)
 
 Pricing pages for search, scraping, and browser agents all like the word “Free.” Underneath, however, a plan may reset daily or monthly, restore a balance to a ceiling, impose only an RPM limit, grant credits once at signup, or simply let you download the software. Those models have completely different long-term costs.
 

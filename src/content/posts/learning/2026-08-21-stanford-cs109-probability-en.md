@@ -16,7 +16,7 @@ description: "A deep read of Stanford CS109: Probability for Computer Scientists
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs109-probability)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs109-probability)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

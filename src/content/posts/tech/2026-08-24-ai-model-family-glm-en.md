@@ -24,7 +24,7 @@ glossary:
     definition: "Huawei's self-developed AI accelerators; GLM-5 was trained entirely on Ascend chips, with zero NVIDIA GPUs"
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-24-ai-model-family-glm)
+> :globe: [繁體中文版](/posts/tech/2026-08-24-ai-model-family-glm)
 
 In August 2026, Zhipu AI released **GLM-5.3** — same base model, but pure post-training lifted coding ability by 50% and pushed CyberGym to 84.5%, beating Anthropic's Mythos 5 (83.8%) and OpenAI's GPT-5.6 Sol (83.6%). This family traces back to a Tsinghua University lab: from the 2022 GLM-130B to today's 744B open-source flagship, it is **the only frontier open-source model trained entirely on Huawei Ascend accelerators**. This post traces GLM's full evolution from academic prototype to open-source frontier, and where it stands in 2026.
 

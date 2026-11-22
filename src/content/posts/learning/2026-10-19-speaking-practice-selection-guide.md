@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speaking-practice-selection-guide-en)
+> :globe: [English version](/posts/learning/2026-10-19-speaking-practice-selection-guide-en)
 
 看完幾家英文平台，常常每家都有想試的地方：有人強調不限堂數，有人讓你挑老師，也有人提供實體環境或密集遊學。真正要決定的，是哪個安排能讓你持續處理自己的口說問題。
 

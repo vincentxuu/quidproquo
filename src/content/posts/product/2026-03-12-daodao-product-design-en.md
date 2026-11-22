@@ -10,7 +10,7 @@ description: "How DaoDao uses behavioral design, co-learning mechanisms, and ine
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-03-12-daodao-product-design)
+> :globe: [中文版](/posts/product/2026-03-12-daodao-product-design)
 
 Most learning platforms are solving the wrong problem.
 

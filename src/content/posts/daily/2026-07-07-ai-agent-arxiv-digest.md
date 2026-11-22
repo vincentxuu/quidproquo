@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 44
 ---
-> 🌏 [English version](/posts/daily/2026-07-07-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-07-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -177,7 +177,7 @@ UA-ChatDev 在每個 agent 交棒前計算這次輸出的「不確定性分數�
 
 - 不確定性估算基於 token-level log probability，屬 white-box 方法，需要 LLM API 開放 logprobs 參數（OpenAI、Anthropic API 均支援，但部分本地部署模型不開放）
 - Phase-aware threshold calibration：不同開發階段用不同閾值，需求階段門檻更嚴（早期錯誤代價更高），實作階段較寬鬆
-- 在 SRDD（Software Requirements-Driven Development）benchmark 上，completeness、executability、consistency、overall quality 四項指標均優於現有框架 **⚠️**（具體改善幅度請查原文表格，公開資訊未提供確切數字）
+- 在 SRDD（Software Requirements-Driven Development）benchmark 上，completeness、executability、consistency、overall quality 四項指標均優於現有框架 **:warning:**（具體改善幅度請查原文表格，公開資訊未提供確切數字）
 - Retrieval-based verification 的「去哪找資料」在公開摘要中未說清楚，是方法說明的一個模糊點
 - Limitation：依賴 logprobs API，對不開放此參數的模型無法套用；SRDD benchmark 規模較小，缺乏在 SWE-bench 等主流 benchmark 上的驗證；本質上是 ChatDev 的改良版，非框架性突破
 

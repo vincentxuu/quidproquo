@@ -16,7 +16,7 @@ description: "Stanford CS124: From Languages to Information 系列總覽：這�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

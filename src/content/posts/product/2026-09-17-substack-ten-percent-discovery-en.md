@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-substack-ten-percent-discovery)
+> :globe: [中文版](/posts/product/2026-09-17-substack-ten-percent-discovery)
 
 Imagine a market that brings customers to its vendors. Instead of fixed rent, it takes 10% from every bowl of noodles—including sales to regulars the vendor brought from home. The market's foot traffic, membership card, and saved payment details can make buying easier. Whether the fee is worthwhile still depends on how many additional customers stay, not on how crowded the stall looks today.
 

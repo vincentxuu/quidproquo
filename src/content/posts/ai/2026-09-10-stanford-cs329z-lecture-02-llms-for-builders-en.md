@@ -14,7 +14,7 @@ description: "A page-linked guide to the 176 slides of CS329Z Lecture 02, LLMs f
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 78 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 

@@ -29,7 +29,7 @@ glossary:
     context: "The DDP paper states the default bucket size is 25 MB, adjustable with bucket_cap_mb."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-data-parallel-training)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-data-parallel-training)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

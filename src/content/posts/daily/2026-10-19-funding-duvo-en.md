@@ -12,7 +12,7 @@ series:
   order: 95
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-funding-duvo)
+> :globe: [中文版](/posts/daily/2026-10-19-funding-duvo)
 
 ## Funding Details
 

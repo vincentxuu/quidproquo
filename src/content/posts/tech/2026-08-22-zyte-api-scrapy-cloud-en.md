@@ -10,7 +10,7 @@ description: "A Scrapy-project lifecycle tour of Zyte API, Automatic Extraction,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-zyte-api-scrapy-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-zyte-api-scrapy-cloud)
 
 [Scrapy](https://docs.scrapy.org/en/latest/) is an open-source Python crawling framework. [Zyte API](https://docs.zyte.com/zyte-api/usage/) and [Scrapy Cloud](https://docs.zyte.com/scrapy-cloud/) are commercial Zyte services. Treating all three as one product creates unnecessary confusion. Scrapy can be entirely self-hosted, Zyte API can be called from other HTTP clients, and Scrapy Cloud runs workloads without deciding which pages your crawler should visit.
 

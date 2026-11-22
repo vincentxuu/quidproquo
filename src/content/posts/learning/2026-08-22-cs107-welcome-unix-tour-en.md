@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS107 Winter 2026 Lecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-cs107-welcome-unix-tour)
+> :globe: [中文版](/posts/learning/2026-08-22-cs107-welcome-unix-tour)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

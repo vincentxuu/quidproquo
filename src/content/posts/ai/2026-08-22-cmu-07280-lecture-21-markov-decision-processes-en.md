@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-21-markov-decision-processes)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

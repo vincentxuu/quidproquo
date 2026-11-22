@@ -13,7 +13,7 @@ description: "A guide to Mizugakiyama: rock type and route counts, best months a
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-mizugakiyama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-mizugakiyama)
 
 Mizugakiyama (瑞牆山, みずがきやま) sits in Sutama-cho Ōmi, Hokuto City, Yamanashi, in the Okuchichibu range. It is a granite area built around crack climbing and multi-pitch, with a large field of boulders in the forest below. Two questions decide whether it suits you: can you place your own gear on cracks, and will the forest road be open when you go?
 

@@ -30,7 +30,7 @@ glossary:
     context: "L2 以 Intel Hyper-threading（每核 2 個執行緒）為例。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-multicore-simd-multithreading-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

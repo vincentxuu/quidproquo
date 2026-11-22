@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-security-agenticseek-unauthenticated-rce)
+> :globe: [中文版](/posts/daily/2026-08-16-security-agenticseek-unauthenticated-rce)
 
 ## Incident Overview
 

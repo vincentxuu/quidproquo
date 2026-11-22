@@ -14,7 +14,7 @@ description: "A guide to Bayes nets, HMMs, exact inference, particle filtering, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-plugins-marketplaces-guide)
 
 The previous posts in this series covered [Skills](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide) and [Hooks](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide) — one extension type at a time. But when you want to hand a set of skills plus their matching hooks plus an MCP server to your team or community, copying files one by one becomes a disaster. Plugins exist for exactly this step.
 

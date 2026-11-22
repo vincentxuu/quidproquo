@@ -13,7 +13,7 @@ description: "A Lampang climbing guide: named routes and grades at the Veteran W
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-lampang)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-lampang)
 
 Lampang is northern Thailand's old capital, north of Chiang Mai, and its airport platform is the most beautiful in the country — a leftover of the opium and teak trade. **Thirty minutes outside town, in a valley, is northern Thailand's newest crag**: developed by CMRCA (the Thai Climbing Development Association), with 25 routes logged on theCrag on 21 October 2026, graded 5b to 6c+.
 

@@ -25,11 +25,11 @@ Hermes 的供應商清單長到失去意義——官方表格光是第一方供�
 
 | 路徑 | 能不能用 | 扣什麼 | 常見意外 |
 |---|---|---|---|
-| Anthropic — Claude Max + OAuth | ✅ 需要 Max **且**已加購 extra usage credits | 只扣你加購的 extra／overage 額度 | **Max 方案內含的額度完全不會被用到**，所有 Hermes 用量都算加購額度 |
-| Anthropic — Claude Pro | ❌ 不行 | — | Pro 看起來該能用，但走不通；替代方案是 `ANTHROPIC_API_KEY` 按 token 計費 |
-| OpenAI Codex — ChatGPT OAuth | ✅ 裝置碼登入 | 文件未載明 | 官方只寫認證與 token refresh，方案配額語意沒寫 |
-| xAI — SuperGrok / X Premium+ OAuth | ✅ 瀏覽器登入 | 訂閱配額（X Search 明載「用訂閱配額而非 API 花費」） | 登入成功卻 `HTTP 403`——xAI 把 OAuth API 限縮在特定 SuperGrok 層級，不是 token 過期 |
-| Google Gemini 消費者方案 | ❌ 無此路徑 | API key 配額 | 免費層 key 撐不了幾輪，因為 agent 一個回合可能打好幾次模型 |
+| Anthropic — Claude Max + OAuth | ✓ 需要 Max **且**已加購 extra usage credits | 只扣你加購的 extra／overage 額度 | **Max 方案內含的額度完全不會被用到**，所有 Hermes 用量都算加購額度 |
+| Anthropic — Claude Pro | ✗ 不行 | — | Pro 看起來該能用，但走不通；替代方案是 `ANTHROPIC_API_KEY` 按 token 計費 |
+| OpenAI Codex — ChatGPT OAuth | ✓ 裝置碼登入 | 文件未載明 | 官方只寫認證與 token refresh，方案配額語意沒寫 |
+| xAI — SuperGrok / X Premium+ OAuth | ✓ 瀏覽器登入 | 訂閱配額（X Search 明載「用訂閱配額而非 API 花費」） | 登入成功卻 `HTTP 403`——xAI 把 OAuth API 限縮在特定 SuperGrok 層級，不是 token 過期 |
+| Google Gemini 消費者方案 | ✗ 無此路徑 | API key 配額 | 免費層 key 撐不了幾輪，因為 agent 一個回合可能打好幾次模型 |
 
 最後那一行值得放大：**agent 的一個「使用者回合」不等於一次模型呼叫**。工具迴圈、壓縮、視覺分析都各自是請求，這是所有「照 chatbot 用量估算 agent 成本」都會低估的原因。
 

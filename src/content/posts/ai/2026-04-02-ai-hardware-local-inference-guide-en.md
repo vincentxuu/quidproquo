@@ -10,7 +10,7 @@ description: "Running LLMs locally in 2026 is no longer a dream. From $3,000 to 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)
+> :globe: [中文版](/posts/ai/2026-04-02-ai-hardware-local-inference-guide)
 
 In 2026, local AI inference has gone mainstream. Whether it's for data privacy, offline use, or simply avoiding API costs, desktop hardware can now run models with 70B or even 200B parameters. Here's an overview of the most noteworthy products on the market today.
 

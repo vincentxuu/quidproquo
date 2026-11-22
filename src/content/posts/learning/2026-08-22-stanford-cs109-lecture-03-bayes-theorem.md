@@ -13,7 +13,7 @@ description: "逐講導讀 Stanford CS109 Summer 2026 Lecture 3：反轉條件�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-03-bayes-theorem-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

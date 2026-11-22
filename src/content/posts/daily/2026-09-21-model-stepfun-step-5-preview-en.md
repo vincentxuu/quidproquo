@@ -17,7 +17,7 @@ glossary:
     def: "A composite intelligence score computed by the independent evaluator Artificial Analysis across multiple benchmarks, commonly used to compare models across vendors"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-21-model-stepfun-step-5-preview)
+> :globe: [中文版](/posts/daily/2026-09-21-model-stepfun-step-5-preview)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | FrontierFinance | 66.4% | No direct predecessor | Claude Opus 5 69.7% |
 | DRACO | 83.3% | No direct predecessor | Claude Opus 5 87.6% |
 
-⚠️ Except for the Artificial Analysis Intelligence Index, every Step 5 Preview figure above is self-reported by StepFun, run at `high` reasoning effort while Claude Opus 5 / GPT-6 Astra ran at their respective `max` effort — not a strictly apples-to-apples comparison — and independent reproduction is still pending. The Artificial Analysis Intelligence Index is an independent third-party evaluation that also measured API output speed at about 99.8 tokens/second.
+:warning: Except for the Artificial Analysis Intelligence Index, every Step 5 Preview figure above is self-reported by StepFun, run at `high` reasoning effort while Claude Opus 5 / GPT-6 Astra ran at their respective `max` effort — not a strictly apples-to-apples comparison — and independent reproduction is still pending. The Artificial Analysis Intelligence Index is an independent third-party evaluation that also measured API output speed at about 99.8 tokens/second.
 
 ## Versus Predecessor / Competitors
 

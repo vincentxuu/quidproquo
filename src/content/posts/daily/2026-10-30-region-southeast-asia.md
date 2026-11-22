@@ -51,20 +51,20 @@ step: 10/27 新加坡 SWITCH 2026：Champions of AI、MARVEL-AI、SME workshops 
 
   <g data-step="1">
     <circle class="dg-dot" cx="70" cy="100" r="6"/>
-    <text class="dg-label" x="70" y="128" text-anchor="middle" dominant-baseline="central">10/7 MAS 準則定案</text>
-    <text class="dg-sub" x="70" y="146" text-anchor="middle" dominant-baseline="central">金融業 Agent 治理兩年倒數</text>
+    <text class="dg-label" x="58" y="144" dominant-baseline="central">10/7 MAS 準則定案</text>
+    <text class="dg-sub" x="58" y="168" dominant-baseline="central">金融業 Agent 治理兩年倒數</text>
   </g>
   <g data-step="2">
     <path class="dg-line" d="M76 100H297" marker-end="url(#arrow)"/>
     <circle class="dg-dot" cx="303" cy="100" r="6"/>
-    <text class="dg-label" x="303" y="128" text-anchor="middle" dominant-baseline="central">10/14–15 Grab／Sea 加碼</text>
-    <text class="dg-sub" x="303" y="146" text-anchor="middle" dominant-baseline="central">泰國培訓、Google 第二階段</text>
+    <text class="dg-label" x="303" y="40" text-anchor="middle" dominant-baseline="central">10/14–15 Grab／Sea 加碼</text>
+    <text class="dg-sub" x="303" y="62" text-anchor="middle" dominant-baseline="central">泰國培訓、Google 第二階段</text>
   </g>
   <g data-step="3">
     <path class="dg-line dg-line--accent" d="M309 100H684" marker-end="url(#arrow-accent)"/>
     <circle class="dg-dot dg-dot--accent" cx="690" cy="100" r="6"/>
-    <text class="dg-label dg-text--accent" x="690" y="128" text-anchor="middle" dominant-baseline="central">10/27 SWITCH 2026 三箭並發</text>
-    <text class="dg-sub" x="690" y="146" text-anchor="middle" dominant-baseline="central">Champions of AI／MARVEL-AI／SME</text>
+    <text class="dg-label dg-text--accent" x="702" y="144" text-anchor="end" dominant-baseline="central">10/27 SWITCH 2026 三箭並發</text>
+    <text class="dg-sub" x="702" y="168" text-anchor="end" dominant-baseline="central">Champions of AI／MARVEL-AI／SME</text>
   </g>
 </svg>
 ```

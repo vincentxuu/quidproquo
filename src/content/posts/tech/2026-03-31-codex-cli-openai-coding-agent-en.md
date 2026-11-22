@@ -13,7 +13,7 @@ description: "Installing OpenAI Codex CLI, its core features, how its models evo
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-31-codex-cli-openai-coding-agent)
+:globe: [中文版](/posts/tech/2026-03-31-codex-cli-openai-coding-agent)
 
 Codex CLI is OpenAI's open-source coding agent that runs directly in your terminal. It can read, modify, and execute code on your machine. Written in Rust, it starts fast and performs well.
 
@@ -64,7 +64,7 @@ For model and billing detail, see [OpenAI Codex: A Complete Plan Analysis](/post
 |---|---|---|
 | Interface | Terminal | Desktop app (macOS / Windows) |
 | Highlights | Lightweight, scriptable | Multi-agent management, parallel tasks, long-running collaboration |
-| Open Source | ✅ | ❌ |
+| Open Source | ✓ | ✗ |
 
 The Codex App added Windows support in March 2026, offering a more visual interface for managing multiple agents.
 

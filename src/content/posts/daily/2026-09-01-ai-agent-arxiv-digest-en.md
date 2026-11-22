@@ -12,7 +12,7 @@ series:
   order: 100
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-01-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-01-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -122,7 +122,7 @@ Prior MAS self-reflection methods (e.g., COPPER) assume that when a task fails, 
 - An additional experiment shows the "diagnose-then-correct" paradigm improves an existing prompt-based method (Reflexion) when grafted onto it — it isn't locked to DoCtOR's own architecture
 - In low-resource settings, giving the reflector only the reasoning steps after the decisive error step achieves comparable reflection quality to giving it the full failure trajectory — meaning substantial context savings are possible
 - Deployment bar: the action module runs on frozen GPT-4o-mini while the reflection module is a fine-tunable Llama-3.1-8B-Instruct — a "large model executes, small model reflects" split that's friendly to teams with limited compute
-- ⚠️ Self-reported by the authors, not yet externally replicated: the diagnosis module needs a labeled decisive-error dataset for training, and whether its diagnostic accuracy holds up when transferred to new tasks or new failure modes remains to be tested
+- :warning: Self-reported by the authors, not yet externally replicated: the diagnosis module needs a labeled decisive-error dataset for training, and whether its diagnostic accuracy holds up when transferred to new tasks or new failure modes remains to be tested
 
 ### Reviewer's One-Liner
 
@@ -174,7 +174,7 @@ Generative-agent systems (like the Generative Agents virtual town) are typically
 - The authors candidly document a debugging episode: the Chinese-language command parser initially misrouted the trigger word for "arrive" into unrelated compounds meaning "receive" or "visit"; after the fix, the six affected runs were rerun to get the reported 14/14 routing result — the paper explicitly labels this a post-fix regression check, not a general claim about routing capability
 - The mean pairwise Jensen-Shannon divergence of final agent-location distributions across four repeated scenario pairs is only 0.011, suggesting fairly consistent outcomes on rerun — but the authors themselves note that four repeats "do not establish deterministic behavior"
 - Deployment bar: requires connecting your own language-model endpoint (DashScope's Qwen-Plus in the example); the platform is local-first, and API keys, logs, and replay databases are never bundled into a shared pack
-- ⚠️ Conditional pass, self-reported: only one model configuration was tested, and the denominators come from the same 22 fictional profiles reused across scenarios rather than independent samples; no operator-usability study was conducted
+- :warning: Conditional pass, self-reported: only one model configuration was tested, and the denominators come from the same 22 fictional profiles reused across scenarios rather than independent samples; no operator-usability study was conducted
 
 ### Reviewer's One-Liner
 

@@ -12,7 +12,7 @@ draft: false
 description: "推導 DPO loss 並重算數值例子，再追 latent diffusion 的形狀與條件路徑"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

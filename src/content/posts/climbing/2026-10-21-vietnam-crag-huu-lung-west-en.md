@@ -13,7 +13,7 @@ description: "A climbing guide to the east side of Hữu Lũng and the new areas
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west)
+> :globe: [中文版](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west)
 
 The nine walls of the main valley are covered in the [previous article](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-en). This one takes the other half of the same valley: **the WoofStuck area below Duc Bungalow, Papaya Wall north of the village, The Arch south of the village, and the new walls that went up between 2023 and 2025**. 12 sub-areas, 120 routes in all.
 

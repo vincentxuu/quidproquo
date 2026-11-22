@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-better-auth-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-better-auth-framework)
 
 [Better Auth](https://better-auth.com/docs/introduction) is a TypeScript authentication framework with email/password, social providers, sessions, database adapters, and plugins. It fits teams that neither want to outsource login entirely to SaaS nor assemble cookies, OAuth callbacks, and account linking themselves.
 

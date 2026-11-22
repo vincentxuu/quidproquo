@@ -13,7 +13,7 @@ description: "惠那笠置山抱石指南：春秋條件、入山受付、指定
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama-en)
 
 想把日本抱石旅行安排在森林裡，惠那笠置山值得留出完整攀登日。這裡的選擇多，但岩區散布在山上；先選目標，再決定停哪個停車場，比到了才背著墊子找岩石有效率。這篇幫你判斷適合的季節、程度與交通方式。
 

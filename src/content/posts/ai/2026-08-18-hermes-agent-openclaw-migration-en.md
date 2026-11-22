@@ -13,7 +13,7 @@ description: "A complete mapping of the OpenClaw to Hermes Agent migration: conf
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-openclaw-migration)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-openclaw-migration)
 
 Post 10, the last in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

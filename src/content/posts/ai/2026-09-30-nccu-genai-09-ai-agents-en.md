@@ -24,7 +24,7 @@ glossary:
         url: "https://github.com/andrewyng/aisuite"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-09-ai-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

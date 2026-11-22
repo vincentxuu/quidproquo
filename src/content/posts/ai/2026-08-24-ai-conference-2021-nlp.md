@@ -23,7 +23,7 @@ glossary:
     context: "EMNLP 2021 的 Findings 接受了 419 篇論文。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2021-nlp-en)
+> :globe: [English version](/posts/ai/2026-08-24-ai-conference-2021-nlp-en)
 
 2021 年的 NLP 頂會有一個不那麼顯眼、但影響極深遠的共同主題：**不要再 fine-tune 整個模型了**。這一年同時出現了 Prefix-Tuning、LoRA、Prompt Tuning 三種 parameter-efficient 方法，每一種都在後來成為業界標準做法的一部分。同一年，ACL Rolling Review 正式啟動，開始改變 NLP 論文的投稿與審稿方式。
 

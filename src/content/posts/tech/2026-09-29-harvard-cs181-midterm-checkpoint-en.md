@@ -13,11 +13,11 @@ description: "A self-study checkpoint for the Harvard CS1810 Spring 2026 midterm
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: The exam date and weight come from the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) and the [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus). The exam resources under the course site's `static/` directory come from mixed years: **the midterm practice and midterm review are labeled 2025**, the notation glossary is dated March 2, 2025, and the midterm checklist and concept checks **carry no year**. You can open these PDFs by URL, but the site's navigation does not link them. The 2026 midterm and its solutions are not public.
+> :warning: **Version and access**: The exam date and weight come from the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) and the [2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus). The exam resources under the course site's `static/` directory come from mixed years: **the midterm practice and midterm review are labeled 2025**, the notation glossary is dated March 2, 2025, and the midterm checklist and concept checks **carry no year**. You can open these PDFs by URL, but the site's navigation does not link them. The 2026 midterm and its solutions are not public.
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) holds its midterm on Tuesday of week 7, March 10, 2026, in class. Per the syllabus, it is worth 15% of the grade. It is closed-book, but you may bring one 8.5×11 sheet of notes, front and back.
 

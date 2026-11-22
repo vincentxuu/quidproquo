@@ -10,7 +10,7 @@ description: "A practical guide to Haystack Components, Pipelines, Document Stor
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-haystack-pipeline-framework)
+> :globe: [中文版](/posts/ai/2026-08-22-haystack-pipeline-framework)
 
 [Haystack](https://docs.haystack.deepset.ai/) is an open-source Python AI orchestration framework for RAG, search, agents, and multimodal applications. Its center remains two abstractions: Components that perform one job and Pipelines that connect those Components into a data flow. It behaves like an engineering framework inside your application, not a RAG platform with an administrative UI.
 

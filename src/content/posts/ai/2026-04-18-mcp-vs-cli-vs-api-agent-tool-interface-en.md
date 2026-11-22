@@ -10,7 +10,7 @@ description: "Breaking down the five ways agents interact with tools — CLI, co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)
+> :globe: [中文版](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)
 
 "MCP will fade away as lightweight CLI interfaces rise" has been a recurring topic lately. Claude Code, Codex CLI, and Gemini CLI all treat bash as a first-class citizen and get along just fine without MCP. At the same time, others argue that MCP is the USB-C of the agent ecosystem — you can't live without it. This post breaks the proposition apart, lays out the five ways agents interact with tools, identifies MCP's real competitor in each dimension, and pinpoints the one position where it truly holds ground.
 
@@ -83,18 +83,18 @@ Note: **only the last two rows are scenarios where MCP / Actions truly excel** �
 
 | Approach | Schema source | Who holds secrets | Training coverage | Cross-agent sharing | Representative |
 |---|---|---|---|---|---|
-| Code generation | None (reads docs) | env / prompt | ⭐⭐⭐ | ❌ | Claude Code, Code Interpreter |
-| Generic HTTP tool | None (LLM fills) | prompt | ⭐⭐⭐ | ❌ | `http_request(url, ...)` tool |
-| OpenAPI tools | API provider | prompt / proxy | ⭐ | Difficult | Early ChatGPT Plugins |
-| Platform Actions | API + platform | Platform-managed | ⭐ | ❌ (platform-locked) | ChatGPT Actions |
-| MCP server | Server author | Server-managed | ⭐ | ✅ | Anthropic MCP ecosystem |
-| CLI | Tool author | env / keychain | ⭐⭐⭐ (popular) | ❌ | `gh`, `wrangler`, `psql` |
+| Code generation | None (reads docs) | env / prompt | ★★★ | ✗ | Claude Code, Code Interpreter |
+| Generic HTTP tool | None (LLM fills) | prompt | ★★★ | ✗ | `http_request(url, ...)` tool |
+| OpenAPI tools | API provider | prompt / proxy | ★ | Difficult | Early ChatGPT Plugins |
+| Platform Actions | API + platform | Platform-managed | ★ | ✗ (platform-locked) | ChatGPT Actions |
+| MCP server | Server author | Server-managed | ★ | ✓ | Anthropic MCP ecosystem |
+| CLI | Tool author | env / keychain | ★★★ (popular) | ✗ | `gh`, `wrangler`, `psql` |
 
 Reading this table in reverse reveals that each of MCP's three claimed selling points has a competitor:
 
 - **Structured schema**: OpenAPI has had this for ages, and API vendors are already writing them
 - **Server-managed secrets**: Platform Actions can do this too (the difference is "user's local server" vs "platform-managed")
-- **Cross-agent sharing**: ✅ This is MCP's true exclusive — a single MCP server can be used simultaneously by Claude Desktop, Cursor, VS Code agents, etc. OpenAPI / Actions / CLI cannot do this
+- **Cross-agent sharing**: ✓ This is MCP's true exclusive — a single MCP server can be used simultaneously by Claude Desktop, Cursor, VS Code agents, etc. OpenAPI / Actions / CLI cannot do this
 
 ## MCP's True Moat Is Only "Cross-Platform Sharing"
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-state-first-event-journaling-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-state-first-event-journaling-en)
 
 [Order 11](/posts/tech/2026-08-30-looplane-tool-program-transactions)先把多個 tool call 組成有界 program 與可 rollback transaction。這一篇沿著 run 結束、crash、resume、replay 到 fork，追完整條 state lifecycle。核心仍是兩份語意不同的檔案：append-only 的 `events.jsonl` 與原子替換的 `session.json` manifest。同時維護兩份寫入路徑不是冗餘，是因為**單靠任何一份都無法正確判定 process 停在哪一步，也無法同時支撐控制與歷史重建**。
 

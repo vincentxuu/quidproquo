@@ -20,7 +20,7 @@ glossary:
     context: "CVPR 2024 出現多篇用 world model 做自動駕駛規劃的論文（Drive-WM、GenAD、DriveWorld）。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-cv-en)
+> :globe: [English version](/posts/ai/2026-08-24-ai-conference-2024-cv-en)
 
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的電腦視覺 2024 年度篇。
 

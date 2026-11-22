@@ -13,7 +13,7 @@ description: "Breaking down the agent memory API design, capabilities, and prici
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-cloud-platform-memory-apis)
+> :globe: [中文版](/posts/ai/2026-09-19-cloud-platform-memory-apis)
 
 You want to add memory to your agent without building the plumbing from scratch. All five major cloud platforms shipped memory-related APIs between 2025 and 2026, but "memory" looks different in each one — some give you a filesystem for the agent to read and write, some auto-extract facts into vector stores, and some hand you a session object and leave the rest to you.
 

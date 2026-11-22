@@ -13,7 +13,7 @@ description: "梅洛谷（Val di Mello）岩場介紹：抱石、運動與多段
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-val-di-mello-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-val-di-mello-en)
 
 梅洛谷（Val di Mello）在倫巴底大區松德里奧省（Sondrio），是 Val Masino 盡頭往東分出去的支谷。[27crags](https://27crags.com/areas/val-di-mello) 寫 Val di Mello 和 Val Masino 海拔 800–1,100 公尺，是「the birthplace of bouldering in Italy」；倫巴底大區的觀光網站 [in-Lombardia](https://www.in-lombardia.it/en/tourism-in-lombardy/tourism-sondrio/val-di-mello) 說它常被拿來和優勝美地比。保護區官網稱它是「sassismo」的「Tempio」（聖殿），世界各地的攀岩者和抱石者都來這裡挑戰歷史路線和谷裡的漂石（[Riserva Naturale Val di Mello](https://riservanaturalevaldimello.org/vivere-la-riserva/)）。
 

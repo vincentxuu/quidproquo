@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-knowledge-base-test-questions-first-en)
 
 團隊把 wiki 接上 AI 助理。有人問：「超過三天的假要誰核准？」〈請假與休假政策〉寫得清清楚楚：部門主管。AI 卻回答「直屬主管核准即可」。這頁文件沒有寫錯，人看了也不會答錯，問題出在 AI 讀到的不是這一頁，而是這一頁被切開後的其中一段。
 

@@ -26,7 +26,7 @@ glossary:
     context: "CS234 L13 用它說明為什麼需要抽樣版的 MCTS。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-mcts-alphazero-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-mcts-alphazero-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

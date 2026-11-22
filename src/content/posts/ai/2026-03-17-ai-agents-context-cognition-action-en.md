@@ -10,7 +10,7 @@ description: "A deep dive into the three core pillars of AI agents: Context (sit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-17-ai-agents-context-cognition-action)
+> :globe: [中文版](/posts/ai/2026-03-17-ai-agents-context-cognition-action)
 
 From ChatGPT to Claude, from GitHub Copilot to automated workflows, the term "AI agent" has become ubiquitous. But most people's understanding stops at "an AI that can do things for me," with little insight into how it actually works.
 

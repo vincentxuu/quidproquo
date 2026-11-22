@@ -13,7 +13,7 @@ description: "A bilingual study note for MIT 6.S191 2026 Lecture 3: core ideas, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-mit-6s191-l03-computer-vision)
+> :globe: [中文版](/posts/ai/2026-08-22-mit-6s191-l03-computer-vision)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

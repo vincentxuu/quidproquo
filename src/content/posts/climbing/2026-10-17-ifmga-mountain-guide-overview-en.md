@@ -27,7 +27,7 @@ glossary:
         url: "https://ifmga.net/member-associations/member-associations"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-mountain-guide-overview)
 
 In Alpine huts and on New Zealand guiding company websites you keep running into "IFMGA Mountain Guide" or "UIAGM", usually next to a round badge. This post answers three questions: what these guides do, who certifies them, and whether it is the same thing as Taiwan's "mountain guide" (山域嚮導) license.
 

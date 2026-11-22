@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-tool-verdict-en)
+> :globe: [English version](/posts/daily/2026-11-04-tool-verdict-en)
 
 ## 工具資訊
 
@@ -37,51 +37,51 @@ title: Verdict 怎麼把一次工具呼叫分類成 4 種結果
 desc: 指令、exit code、stdout、stderr 四個輸入一起餵進 197 KB 的本地分類器，吐出 success、failure、blocked、unknown 四個標籤之一；這裡示範的 pytest 範例因為沒有測試被收集，分類器判定為 unknown，不是 success。
 caption: 簡化示意：省略雜湊特徵抽取與機率輸出細節。
 ---
-<svg viewBox="0 0 560 280">
-  <path class="dg-line" d="M170 44H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 108H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 172H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 236H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 44H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 108H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 172H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 236H370" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 560 312">
+  <path class="dg-line" d="M170 48H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 120H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 192H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 264H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 48H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 120H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 192H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 264H370" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="20" y="20" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="38" text-anchor="middle" dominant-baseline="central">指令</text>
-  <text class="dg-sub" x="95" y="56" text-anchor="middle" dominant-baseline="central">pytest tests/</text>
+  <rect class="dg-box" x="20" y="20" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="36" text-anchor="middle" dominant-baseline="central">指令</text>
+  <text class="dg-sub" x="95" y="60" text-anchor="middle" dominant-baseline="central">pytest tests/</text>
 
-  <rect class="dg-box" x="20" y="84" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="102" text-anchor="middle" dominant-baseline="central">Exit code</text>
-  <text class="dg-sub" x="95" y="120" text-anchor="middle" dominant-baseline="central">0</text>
+  <rect class="dg-box" x="20" y="92" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="108" text-anchor="middle" dominant-baseline="central">Exit code</text>
+  <text class="dg-sub" x="95" y="132" text-anchor="middle" dominant-baseline="central">0</text>
 
-  <rect class="dg-box" x="20" y="148" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="166" text-anchor="middle" dominant-baseline="central">stdout</text>
-  <text class="dg-sub" x="95" y="184" text-anchor="middle" dominant-baseline="central">no tests ran</text>
+  <rect class="dg-box" x="20" y="164" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="180" text-anchor="middle" dominant-baseline="central">stdout</text>
+  <text class="dg-sub" x="95" y="204" text-anchor="middle" dominant-baseline="central">no tests ran</text>
 
-  <rect class="dg-box" x="20" y="212" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="230" text-anchor="middle" dominant-baseline="central">stderr</text>
-  <text class="dg-sub" x="95" y="248" text-anchor="middle" dominant-baseline="central">（空）</text>
+  <rect class="dg-box" x="20" y="236" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="252" text-anchor="middle" dominant-baseline="central">stderr</text>
+  <text class="dg-sub" x="95" y="276" text-anchor="middle" dominant-baseline="central">（空）</text>
 
-  <rect class="dg-box dg-box--accent" x="190" y="20" width="160" height="240" rx="6"/>
-  <text class="dg-label" x="270" y="131" text-anchor="middle" dominant-baseline="central">Verdict 分類器</text>
-  <text class="dg-sub" x="270" y="151" text-anchor="middle" dominant-baseline="central">197 KB・CPU・&lt;1ms</text>
+  <rect class="dg-box dg-box--accent" x="190" y="20" width="160" height="272" rx="6"/>
+  <text class="dg-label" x="270" y="144" text-anchor="middle" dominant-baseline="central">Verdict 分類器</text>
+  <text class="dg-sub" x="270" y="168" text-anchor="middle" dominant-baseline="central">197 KB・CPU・&lt;1ms</text>
 
-  <rect class="dg-box" x="370" y="20" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="38" text-anchor="middle" dominant-baseline="central">success</text>
-  <text class="dg-sub" x="445" y="56" text-anchor="middle" dominant-baseline="central">有正面完成證據</text>
+  <rect class="dg-box" x="370" y="20" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="36" text-anchor="middle" dominant-baseline="central">success</text>
+  <text class="dg-sub" x="445" y="60" text-anchor="middle" dominant-baseline="central">有正面完成證據</text>
 
-  <rect class="dg-box" x="370" y="84" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="102" text-anchor="middle" dominant-baseline="central">failure</text>
-  <text class="dg-sub" x="445" y="120" text-anchor="middle" dominant-baseline="central">回報具體失敗</text>
+  <rect class="dg-box" x="370" y="92" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="108" text-anchor="middle" dominant-baseline="central">failure</text>
+  <text class="dg-sub" x="445" y="132" text-anchor="middle" dominant-baseline="central">回報具體失敗</text>
 
-  <rect class="dg-box" x="370" y="148" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="166" text-anchor="middle" dominant-baseline="central">blocked</text>
-  <text class="dg-sub" x="445" y="184" text-anchor="middle" dominant-baseline="central">被環境擋住</text>
+  <rect class="dg-box" x="370" y="164" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="180" text-anchor="middle" dominant-baseline="central">blocked</text>
+  <text class="dg-sub" x="445" y="204" text-anchor="middle" dominant-baseline="central">被環境擋住</text>
 
-  <rect class="dg-box dg-box--accent" x="370" y="212" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="230" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="445" y="248" text-anchor="middle" dominant-baseline="central">證據不足</text>
+  <rect class="dg-box dg-box--accent" x="370" y="236" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="252" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="445" y="276" text-anchor="middle" dominant-baseline="central">證據不足</text>
 </svg>
 ```
 
@@ -150,8 +150,8 @@ pytest -q
 |---|---|---|---|
 | 推論成本 | 197 KB、CPU、中位數 0.54ms，零 API 呼叫 | 幾乎零成本，但資訊量只有一個 bit | 每次判斷都要多打一次 LLM API，有延遲也有費用 |
 | 準確率（48 個訓練時沒見過的 CLI 家族） | 93.2% | 47.9% | 沒有在同一個 benchmark 上比較過，依所用模型與 prompt 而定 |
-| 離線、零遙測 | ✅ 不打網路 | ✅ | ❌ 依賴外部 API |
-| 訓練語料與腳本可重現 | ✅ 公開（CC0），`python training/train.py` 重跑一遍 | — | 多數為黑箱，無法自行重現 |
+| 離線、零遙測 | ✓ 不打網路 | ✓ | ✗ 依賴外部 API |
+| 訓練語料與腳本可重現 | ✓ 公開（CC0），`python training/train.py` 重跑一遍 | — | 多數為黑箱，無法自行重現 |
 | 輸出標籤 | 4 類：success／failure／blocked／unknown，附機率 | 2 類：0／非 0 | 依 prompt 自訂，沒有標準化的輸出契約 |
 
 ## 注意事項

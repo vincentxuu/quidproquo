@@ -20,7 +20,7 @@ glossary:
     definition: "把前輪助手的推理內容保留在對話歷史裡再繼續跑，Laguna 在 agent 場景建議的用法，中斷保留會讓後續步驟不再生推理。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-laguna-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-laguna-en)
 
 2026 年 7 月 21 日，[Poolside](https://www.poolside.ai/models) 發佈 [Laguna S 2.1](https://poolside.ai/blog/introducing-laguna-s-2-1)——一個 118B 總參數、每 token 只啟動 8B 的 MoE，context 開到 1M，在 [Terminal-Bench 2.1](https://trajectories.poolside.ai/) 拿下 70.2%、[DeepSWE](https://trajectories.poolside.ai/?benchmark=deep-swe) 拿下 40.4%。從開始訓練到發文不到九週，而且預訓練資料和兩個月前的小模型完全同一份。這是「AI 模型家族」系列的第二十一篇，追蹤 Laguna 從 [M.1 / XS.2](https://poolside.ai/blog/introducing-laguna-s-2-1) 雙發到 XS 2.1 再到 S 2.1 的完整路徑。
 

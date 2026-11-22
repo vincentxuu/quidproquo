@@ -13,7 +13,7 @@ tldr: "Program candidates need requirement-based counterexamples; speed matters 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings)
+> :globe: [中文版](/posts/ai/2026-10-11-cs329a-session-13-software-engineering-readings)
 
 Executable code may solve the wrong problem; faster code may simply skip required work. [CS329A](https://cs329a.stanford.edu/) Autumn 2025 session 13 pairs issue resolution with GPU optimization to separate correctness from performance. This is an explanation based on assigned papers, not a reconstruction of the spoken lecture. You should understand test results and know that a GPU kernel performs computation on a GPU; writing kernels is not a prerequisite.
 

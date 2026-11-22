@@ -13,7 +13,7 @@ description: "Overview of the coding agent design series: why I'm building loopl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-design-series-overview)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-design-series-overview)
 
 For the past six months I've been writing my own coding agent called **looplane**. I got stuck far more often than expected: how should the agent loop terminate, how fine-grained should approvals be, how do you resume a session after a crash, how do you stop a small model from emitting garbage diffs? Every time I designed something from scratch, two weeks later I'd discover some open-source project had already stepped on the same landmine.
 

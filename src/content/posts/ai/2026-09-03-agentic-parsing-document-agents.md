@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
+> :globe: [English version](/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
 
 文件解析的前幾篇聊了[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)、[文字抽取](/posts/ai/2026-08-06-pdf-text-extraction-libraries)、[模型推斷結構](/posts/ai/2026-08-06-document-parsing-layout-ocr)。結論都指向同一件事：沒有一條固定 pipeline 能通吃所有文件。這篇要介紹的 Agentic Parsing，就是把「選哪條路」的決策交給 agent。
 
@@ -89,7 +89,7 @@ Agentic Parsing 走另一條路：保留文字，但讓 agent 選最佳解析方
 | 面向 | ColPali / Visual RAG | Agentic Parsing |
 |---|---|---|
 | 表格保留 | 100%（圖片就是原始結構） | 依 parser 品質，需後處理 |
-| 文字可搜尋 | ❌（BM25 不可用） | ✅ |
+| 文字可搜尋 | ✗（BM25 不可用） | ✓ |
 | 儲存成本 | ~100× | 正常 |
 | 需要 GPU | 是 | 部分方法不需要 |
 | 適合場景 | 表格密集、版面複雜 | 混合文件、需要文字語意 |

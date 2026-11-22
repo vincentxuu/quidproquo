@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-tool-shipstores)
+> :globe: [中文版](/posts/daily/2026-10-04-tool-shipstores)
 
 ## Tool Info
 
@@ -76,11 +76,11 @@ claude mcp add shipstores -e SHIPSTORES_TOOLSETS=apple,eas -- uvx shipstores
 
 | | shipstores | app-publish-mcp / mobile-release-mcp | Working both consoles by hand |
 |---|---|---|---|
-| Public-API steps (uploads, versions, subscriptions) | ✅ | ✅ | Manual clicking |
-| Privacy label / App content forms (no API) | ✅ (console automation) | ❌ | Manual clicking |
-| Reading and replying to App Review rejections (with video) | ✅ | ❌ | Manual recording and upload |
-| Expo/EAS build integration | ✅ | Depends on the project | Switch tools yourself |
-| Confirms before publishing or submitting | ✅ (stated in tool descriptions) | Depends on the implementation | — |
+| Public-API steps (uploads, versions, subscriptions) | ✓ | ✓ | Manual clicking |
+| Privacy label / App content forms (no API) | ✓ (console automation) | ✗ | Manual clicking |
+| Reading and replying to App Review rejections (with video) | ✓ | ✗ | Manual recording and upload |
+| Expo/EAS build integration | ✓ | Depends on the project | Switch tools yourself |
+| Confirms before publishing or submitting | ✓ (stated in tool descriptions) | Depends on the implementation | — |
 
 ## Things to Watch
 

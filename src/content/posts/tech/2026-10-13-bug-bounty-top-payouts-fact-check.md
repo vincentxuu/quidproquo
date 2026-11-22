@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en)
 
 學過 Web、記憶體、虛擬機與 TEE 之後，現在可以回頭讀那些「最高幾十萬、幾百萬美元」的標題。這篇把五個計畫的代表類別放在一起，重點是看懂金額旁邊的條件，再判斷它跟你能做的研究有沒有關係。以下依 2026-10-15 可讀到的官方規則整理，金額皆為美元。
 

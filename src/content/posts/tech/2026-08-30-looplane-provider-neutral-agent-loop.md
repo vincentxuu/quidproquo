@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop-en)
 
 Orders 1–3 已建立使用者介面、disposable workspace，以及 [prompt／instructions／explicit memory](/posts/tech/2026-08-30-looplane-prompt-instructions-memory)。這篇進入 native lane：Looplane 自己持有的 `AgentRunner` 如何把一次 model request 變成 tool execution，再走到 verified success 或明確失敗。
 

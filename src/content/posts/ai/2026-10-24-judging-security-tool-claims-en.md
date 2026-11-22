@@ -13,7 +13,7 @@ description: "Using the OWASP Agentic Top 10 and LLM Top 10 2026 as shared vocab
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-judging-security-tool-claims)
+> :globe: [中文版](/posts/ai/2026-10-24-judging-security-tool-claims)
 
 This is the last post in the series and introduces no new defensive tool. Every kind of tool in the first seven posts came with numbers and claims; this one turns the questions for taking them apart into a checklist, after setting out the vocabulary they share. Where the first seven posts' examples run out, it adds a few new cases, each described in one sentence on first appearance.
 

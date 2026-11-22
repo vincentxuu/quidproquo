@@ -37,7 +37,7 @@ glossary:
     context: "本講的最後一段，讓單張較小的 GPU 也能微調大模型。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-training-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -10,7 +10,7 @@ tldr: "HW2 moves from hand-calculated entropy and mutual information to an end-t
 description: "The design and independent testing strategy for CMU 10-301/601 Spring 2026 HW2 Decision Trees."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 2 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw2.zip) is titled **Homework 2: Decision Trees** and contains written plus programming work. Written sections cover function approximation, tree calculations, pseudocode, and empirical questions. Programming has an `inspection.py` entropy/majority-error tool and a `decision_tree.py` learner, predictor, evaluator, and tree printer. The ZIP supplies a `decision_tree.py` starter, heart/purchase/small datasets, and small depth-3 reference labels, metrics, and inspection output.
 

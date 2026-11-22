@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L11 在 sampling-based planning 的第一個附註裡提到。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-model-based-rl-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-model-based-rl-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

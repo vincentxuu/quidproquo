@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
+:globe: [English version](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en)
 
 Cloudflare Workers 常被拿來跟 AWS Lambda 比，但兩者的底層架構完全不同。Lambda 是容器，Workers 是 V8 Isolate——這個差異決定了一切。
 

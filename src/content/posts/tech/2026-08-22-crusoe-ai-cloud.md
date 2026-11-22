@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-crusoe-ai-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-crusoe-ai-cloud-en)
 
 [Crusoe Cloud](https://docs.crusoecloud.com/) 把產品分成 Infrastructure Cloud 與 Managed AI。前者提供 GPU VM、Crusoe Managed Kubernetes（CMK）、Slurm、network 與 storage，讓團隊管理 training/serving；後者提供 serverless inference、dedicated deployment 與 fine-tuning 等較高階服務。
 

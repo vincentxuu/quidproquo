@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-apache-pulsar-messaging-en)
+> :globe: [English version](/posts/tech/2026-08-22-apache-pulsar-messaging-en)
 
 [Apache Pulsar](https://pulsar.apache.org/docs/4.0.x/concepts-architecture-overview/) 同時提供 queue-like consumption 與 replayable stream，但它和 Kafka 最大的差異不在 API，而是儲存架構。Pulsar broker 主要處理 producer／consumer 連線與 dispatch，持久訊息和 subscription cursor 交給 Apache BookKeeper。broker 可以相對無狀態地擴縮，storage 則以 bookie 獨立擴充。
 

@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0)
+> :globe: [中文版](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0)
 
 ## Release Info
 
@@ -42,7 +42,7 @@ The last release added an approval layer for deciding whether a tool call should
 
 ## Breaking Changes
 
-Two items are listed under "⚠️ Compatibility Notes," and the two security fixes effectively force a behavior change too:
+Two items are listed under ":warning: Compatibility Notes," and the two security fixes effectively force a behavior change too:
 
 - DBOS workflows using `Planning` with an `event_stream_handler`: existing in-flight workflows may fail to recover correctly after upgrading
   - Affects: projects running long agent flows on DBOS with an `event_stream_handler`. Let in-flight workflows finish first, or deploy a new DBOS application version before cutting over.

@@ -30,7 +30,7 @@ glossary:
     context: "CS231N 第 9 講用它解決 CAM 只能用在最後一個卷積層的限制。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-detection-segmentation-visualization-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

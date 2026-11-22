@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-code-review)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-code-review)
 
 Among all the automations [Claude Code](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) enables, code review has the most reliable return on investment: fixed input (a diff), verifiable output (findings you can check against the code), and a need on every single PR. This post covers its two review paths — Code Review, the managed service attached to GitHub pull requests, and the `/code-review` command that runs in your own session plus its deeper cloud version, `/code-review ultra` (ultrareview). Both are in research preview as of this writing; everything below follows the official docs.
 
@@ -45,11 +45,11 @@ Findings come in three severity levels:
 
 | Marker | Severity | Meaning |
 |--------|----------|---------|
-| 🔴 | Important | A bug that should be fixed before merging |
-| 🟡 | Nit | A minor issue worth fixing but not blocking |
-| 🟣 | Pre-existing | A bug already in the codebase, not introduced by this PR |
+| :red-circle: | Important | A bug that should be fixed before merging |
+| :yellow-circle: | Nit | A minor issue worth fixing but not blocking |
+| :purple-circle: | Pre-existing | A bug already in the codebase, not introduced by this PR |
 
-Each finding includes a collapsible extended-reasoning section explaining why it was flagged and how Claude verified the problem exists. Every comment ships with 👍👎 pre-attached; Anthropic collects reactions after merge and uses them to tune the reviewer.
+Each finding includes a collapsible extended-reasoning section explaining why it was flagged and how Claude verified the problem exists. Every comment ships with pre-attached; Anthropic collects reactions after merge and uses them to tune the reviewer.
 
 One common misunderstanding: it **does not block merges**. The check run always completes with a neutral conclusion, so branch protection rules are never tripped. If you want your own CI to gate on severity counts, the official docs show how to parse the check run output with `gh` and jq.
 

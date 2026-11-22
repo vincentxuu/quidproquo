@@ -25,7 +25,7 @@ glossary:
     context: "ADL 影片 13.6／13.7 的第一個主題。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

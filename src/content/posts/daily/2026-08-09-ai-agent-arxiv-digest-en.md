@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-09-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-09-ai-agent-arxiv-digest)
 
 ## Overview
 
@@ -57,7 +57,7 @@ Long-horizon agents face three interacting failure modes: goal drift (forgetting
 
 ### Deep Dive
 
-- AgentIF-OneDay, 104 tasks, GLM-5.2 backend: overall score 0.821, leading across all task types, domains, and scoring dimensions ⚠️ (self-evaluated by ZJU + Zhipu; awaiting independent replication)
+- AgentIF-OneDay, 104 tasks, GLM-5.2 backend: overall score 0.821, leading across all task types, domains, and scoring dimensions :warning: (self-evaluated by ZJU + Zhipu; awaiting independent replication)
 - Previous best: Codex (GPT-5.5 medium) at 0.799
 - Five backend models from three model families; harness requires zero backend-specific tuning
 - Ablation shows all three capabilities contribute independently; removing the verify-and-fix module causes the largest drop
@@ -147,7 +147,7 @@ Agent benchmarks have always measured a model's ability to solve tasks, but the 
 ### Deep Dive
 
 - GPT-5.6 Sol: Overall +16.6 (Search +32.8, Office +3.2, General +11.0)
-- Claude Opus 4.8: Overall +16.1 (Search +34.8, Office +1.3, General +7.9); highest Search score of 46.5 across all models ⚠️ (self-evaluated by RUC/BOSS Zhipin; awaiting independent replication)
+- Claude Opus 4.8: Overall +16.1 (Search +34.8, Office +1.3, General +7.9); highest Search score of 46.5 across all models :warning: (self-evaluated by RUC/BOSS Zhipin; awaiting independent replication)
 - Artificial Harness baseline (hand-crafted): Overall 47.5; GPT-5.6 Sol's 46.3 is approaching parity
 - Key findings: (1) early saturation — models find high-quality structures in the first few rounds; further modifications are counterproductive; (2) evolved harnesses are highly transferable reasoning structures — a harness evolved by model A can directly boost model B; (3) Office task gains approach zero
 - Open-source 27B model Qwen3.6-27B ranks 6th, Overall 39.4 (+9.7), outperforming several frontier models

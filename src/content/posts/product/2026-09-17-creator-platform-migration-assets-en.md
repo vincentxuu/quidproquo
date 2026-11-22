@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-creator-platform-migration-assets)
+> :globe: [中文版](/posts/product/2026-09-17-creator-platform-migration-assets)
 
 Imagine moving from a night-market stall into your own shop. Tables can go into a truck, and perhaps you can copy a regular-customer contact list. The old location, foot traffic, neighboring referrals, and customers' saved payment arrangements do not automatically follow.
 

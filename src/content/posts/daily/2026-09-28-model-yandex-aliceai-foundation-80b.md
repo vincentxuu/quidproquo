@@ -15,7 +15,7 @@ glossary:
     def: "Yandex 的 AI 助理產品，AliceAI-Foundation 是支撐其未來統一推理模型的實驗性 base model"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
+> :globe: [English version](/posts/daily/2026-09-28-model-yandex-aliceai-foundation-80b-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | LiveCodeBench v5-6 CoT 1-shot pass@1 | 50.5 | N/A | Qwen3.5-35B-A3B-Base 50.4 |
 | CodeForces CPP pass@8 | 68.9 | N/A | Qwen3.5-35B-A3B-Base 73.7（全場最高） |
 
-⚠️ 以上皆為 Yandex 官方在自建測試環境（vLLM，t=0 或 t=1）自測數據，尚待第三方復現。WikiWebFacts、HardMultiQA、CultCat、EduBench 系列為 Yandex 自建並同步公開的俄語基準，附完整評測協定供他人重現。
+:warning: 以上皆為 Yandex 官方在自建測試環境（vLLM，t=0 或 t=1）自測數據，尚待第三方復現。WikiWebFacts、HardMultiQA、CultCat、EduBench 系列為 Yandex 自建並同步公開的俄語基準，附完整評測協定供他人重現。
 
 ## 與前代/競品比較
 

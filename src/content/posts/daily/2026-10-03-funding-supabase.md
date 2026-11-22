@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-funding-supabase-en)
+> :globe: [English version](/posts/daily/2026-10-03-funding-supabase-en)
 
 ## 融資資訊
 

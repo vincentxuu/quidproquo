@@ -13,7 +13,7 @@ description: "A guide to Stanford CS111 Spring 2026 Lecture 4, using Too Much Mi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-04-concurrency-atomicity)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

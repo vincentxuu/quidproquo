@@ -13,7 +13,7 @@ description: "Deep dive into pi-coding-agent tool system: complete chain from de
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system)
 
 ## TL;DR
 
@@ -114,9 +114,9 @@ export interface AgentTool<TArgs = unknown, TResult = unknown> {
 | Feature | ToolDefinition | AgentTool |
 |---|---|---|
 | Purpose | LLM knows how to call | Actual execution logic |
-| execute | ❌ | ✅ |
-| prepareArguments | ❌ | ✅ |
-| executionMode | ❌ | ✅ |
+| execute | ✗ | ✓ |
+| prepareArguments | ✗ | ✓ |
+| executionMode | ✗ | ✓ |
 | Param Validation | LLM-side (Schema) | Re-validated before execution |
 
 ---

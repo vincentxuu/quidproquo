@@ -13,7 +13,7 @@ tldr: "候選搜尋解決選擇問題，文件檢索補知識缺口；兩者都�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-08-search-deep-research-en)
 
 **影片狀態：已附影片。** 官方錄影文字轉錄已取得；字幕類型、原音回聽與跟讀播放器尚待核對。
 

@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-webshaper-s1-deepresearch-data)
+> :globe: [中文版](/posts/ai/2026-09-19-webshaper-s1-deepresearch-data)
 
 Previous articles covered how to train agents: from scratch (order 2), long-horizon memory (order 3), planning optimization (order 4), and complete pipelines (order 5).
 

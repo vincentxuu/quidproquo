@@ -20,7 +20,7 @@ glossary:
     def: "吃一個 state 與一組欄位定義，回傳值、原文 span 與不確定性區間；Clairic 屬此類。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-22-ai-model-family-cloudflare-en)
+> :globe: [English version](/posts/tech/2026-10-22-ai-model-family-cloudflare-en)
 
 Cloudflare 的第一批自研模型分成兩類：**Clef 家族**（clef、clef-flash、clef-omni）輸出每個選項的機率，**Clairic** 輸出型別化的值與區間。四者都託管在 Workers AI、只對 input token 計費，但模態、context 與開源狀態各不相同。如果你要在 agent 裡放一層分類、路由或抽值，這篇給的是選型與驗證方式。價格與版本以 2026-10-22 查核的官方文件為準。
 

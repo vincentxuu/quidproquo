@@ -14,7 +14,7 @@ description: "A guide to Berkeley CS189 Spring 2026 Lectures 1–3 and Discussio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-01-03-framing-data-mechanics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

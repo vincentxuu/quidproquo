@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-chunking-indexing-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-chunking-indexing-en)
 
 客服同事問 AI：「型號 A-3021 的保固是幾年？」產品手冊裡寫得清清楚楚，AI 卻說找不到。原因有兩個：手冊被每 500 字切一段，「A-3021」在一段的結尾，保固年限在下一段的開頭；而且系統只用向量搜尋，「A-3021」這種編號，在向量裡跟「A-3012」幾乎分不出來。
 

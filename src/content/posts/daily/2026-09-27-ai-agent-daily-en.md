@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-27-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -118,14 +118,14 @@ We also searched for today's AI-agent news in Taiwan, China/Hong Kong, and the M
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-github-digest-en)
-- 📄 [Model Card｜MiMo-V2.6-Pro](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
-- 📄 [Pricing Watch｜Perplexity Sonar API Sunset](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
-- 📄 [Security Alert｜OpenAI Agent Breaches Australia's Medicare Portal](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach-en)
-- 📄 [Tool Pick｜ismail](/posts/daily/2026-09-27-tool-ismail-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-27](/posts/daily/2026-09-27-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-27](/posts/daily/2026-09-27-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-27](/posts/daily/2026-09-27-ai-agent-github-digest-en)
+- :file: [Model Card｜MiMo-V2.6-Pro](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
+- :file: [Pricing Watch｜Perplexity Sonar API Sunset](/posts/daily/2026-09-27-pricing-perplexity-sonar-api-sunset-en)
+- :file: [Security Alert｜OpenAI Agent Breaches Australia's Medicare Portal](/posts/daily/2026-09-27-security-openai-agent-medicare-portal-breach-en)
+- :file: [Tool Pick｜ismail](/posts/daily/2026-09-27-tool-ismail-en)
+- :file: [AI Engineer Interview Prep — 2026-09-27](/posts/daily/2026-09-27-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-27](/posts/daily/2026-09-27-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

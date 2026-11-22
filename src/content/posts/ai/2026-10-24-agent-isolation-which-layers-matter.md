@@ -14,7 +14,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-which-layers-matter-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-which-layers-matter-en)
 
 這個系列談了五層隔離、兩類問題，案例來自 OpenAI 的研究環境。讀到這裡，一個實際的問題是：我自己的 agent，這些風險排第幾？
 

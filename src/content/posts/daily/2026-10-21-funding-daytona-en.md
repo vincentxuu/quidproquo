@@ -12,7 +12,7 @@ series:
   order: 97
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-funding-daytona)
+> :globe: [中文版](/posts/daily/2026-10-21-funding-daytona)
 
 ## Funding Details
 

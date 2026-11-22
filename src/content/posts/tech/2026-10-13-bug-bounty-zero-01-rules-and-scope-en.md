@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope)
 
 ## TL;DR
 

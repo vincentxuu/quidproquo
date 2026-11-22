@@ -28,7 +28,7 @@ glossary:
         url: "https://risingsunguides.com/ast-1/"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en)
+> :globe: [English version](/posts/climbing/2026-10-18-ifmga-pre-entry-prep-en)
 
 你在[龍洞](/posts/climbing/2026-10-17-taiwan-crags-rock-type)能先鋒，爬過幾座百岳，冬天上過雪訓。[上一篇](/posts/climbing/2026-10-17-ifmga-taiwan-path)講台灣人要出國受訓；這篇問更早的事：**報名前，你手上的經驗還缺哪幾塊？每一塊要去哪裡補？**
 
@@ -52,19 +52,19 @@ IFMGA 規定報名要交至少 55 條路線，分布在至少三年。每條都�
 
 ## 一張表：每項能力在哪裡練得到
 
-✅ 練得到　△ 部分練得到　❌ 練不到　— 沒有公開資料
+✓ 練得到　△ 部分練得到　✗ 練不到　— 沒有公開資料
 
 | 入學要求 | 台灣 | 日本 | 韓國 | 紐西蘭 | 阿爾卑斯 |
 |---|---|---|---|---|---|
-| 攀岩鞋 6b onsight | ✅ [龍洞](/posts/climbing/2026-10-17-taiwan-crags-rock-type) | ✅ [小川山](/posts/climbing/2026-10-12-japan-crag-ogawayama) | ✅ [仁壽峰](https://ukclimbing.com/logbook/crags/insubong-27109) | ✅ | ✅ |
-| 300 m 以上、自放保護的岩線 | ❌ | △ [瑞牆](/posts/climbing/2026-10-12-japan-crag-mizugakiyama)多繩距 | ✅ [雪嶽山](https://www.mountainproject.com/area/115392007/seoraksan-national-park-sokcho) | ✅ | ✅ |
-| 50–60° 冰坡、冰爪技術 | △ 看當年雪況 | ✅ 八岳、北阿爾卑斯 | — | ✅ | ✅ |
-| WI4 冰瀑 | ❌ | ✅ 八岳 | ✅ 판대、구곡폭포 | △ 只有 7–8 月 | ✅ |
-| 揹背包在各種雪況滑雪 | ❌ | ✅ 白馬、二世谷 | — | ✅ | ✅ |
-| 滑雪登山 | ❌ | △ 立山春季 | ❌ | ✅ | ✅ |
-| 冰河行進、冰河上的滑雪登山 | ❌ | ❌ | ❌ | ✅ | ✅ |
-| D+、800 m 級高山路線 | ❌ | △ 規模較小 | ❌ | ✅ | ✅ |
-| 雪崩課 | ❌ | ✅ JAN、英語 AST1 | — | ✅ ASC1、ASC2 | ✅ |
+| 攀岩鞋 6b onsight | ✓ [龍洞](/posts/climbing/2026-10-17-taiwan-crags-rock-type) | ✓ [小川山](/posts/climbing/2026-10-12-japan-crag-ogawayama) | ✓ [仁壽峰](https://ukclimbing.com/logbook/crags/insubong-27109) | ✓ | ✓ |
+| 300 m 以上、自放保護的岩線 | ✗ | △ [瑞牆](/posts/climbing/2026-10-12-japan-crag-mizugakiyama)多繩距 | ✓ [雪嶽山](https://www.mountainproject.com/area/115392007/seoraksan-national-park-sokcho) | ✓ | ✓ |
+| 50–60° 冰坡、冰爪技術 | △ 看當年雪況 | ✓ 八岳、北阿爾卑斯 | — | ✓ | ✓ |
+| WI4 冰瀑 | ✗ | ✓ 八岳 | ✓ 판대、구곡폭포 | △ 只有 7–8 月 | ✓ |
+| 揹背包在各種雪況滑雪 | ✗ | ✓ 白馬、二世谷 | — | ✓ | ✓ |
+| 滑雪登山 | ✗ | △ 立山春季 | ✗ | ✓ | ✓ |
+| 冰河行進、冰河上的滑雪登山 | ✗ | ✗ | ✗ | ✓ | ✓ |
+| D+、800 m 級高山路線 | ✗ | △ 規模較小 | ✗ | ✓ | ✓ |
+| 雪崩課 | ✗ | ✓ JAN、英語 AST1 | — | ✓ ASC1、ASC2 | ✓ |
 
 表內每一格的依據寫在下面各節。
 

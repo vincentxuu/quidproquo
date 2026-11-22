@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-redpanda-kafka-compatible)
+> :globe: [中文版](/posts/tech/2026-08-22-redpanda-kafka-compatible)
 
 [Redpanda](https://docs.redpanda.com/streaming/current/get-started/architecture/) is a distributed event log that implements the Kafka API, not a wrapper around Apache Kafka. Its C++ and Seastar broker uses a thread-per-core, shared-memory architecture. Kafka producers, consumers, and many ecosystem tools can remain while the JVM and a separate metadata service disappear.
 

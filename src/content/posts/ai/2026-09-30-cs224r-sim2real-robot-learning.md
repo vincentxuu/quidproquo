@@ -22,7 +22,7 @@ glossary:
     context: "CS224R L16 的 learning to adapt 通用流程。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

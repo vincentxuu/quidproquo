@@ -13,7 +13,7 @@ description: "Stanford CS336 Spring 2026 Lecture 13 導讀：web crawl、walled 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs336-data-sources-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs336-data-sources-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

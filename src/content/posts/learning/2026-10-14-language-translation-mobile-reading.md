@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-language-translation-mobile-reading-en)
+> :globe: [English version](/posts/learning/2026-10-14-language-translation-mobile-reading-en)
 
 這是「教學文章怎麼寫」系列的第 24 篇，第五部分「跟誰學，誰讀不到」的最後一篇。前面的篇談了一起學與一個人讀、留言區與社群、寫給別人看，以及無障礙。這篇處理讀者端另外三個作者看不到的條件：讀者讀的不是母語、讀的是翻譯版、用手機讀。
 

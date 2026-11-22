@@ -13,7 +13,7 @@ description: "A guide to Stanford CS336 Spring 2026 Lecture 7: the GPU network h
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
+> :globe: [中文版](/posts/ai/2026-08-22-cs336-parallelism-mechanics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

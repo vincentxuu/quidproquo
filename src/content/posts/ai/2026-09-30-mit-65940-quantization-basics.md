@@ -22,7 +22,7 @@ glossary:
     context: "6.5940 第 5 講把它和 FP32、FP16 並排，說明 exponent 位元決定範圍、fraction 位元決定精度。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-quantization-basics-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-quantization-basics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset)
+> :globe: [中文版](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset)
 
 ## Summary
 
@@ -74,7 +74,7 @@ This retirement pushes Google's own entry-tier floor from $0.10/$0.40 (2.5 Flash
 
 ## Sunset Notice
 
-⚠️ **Shutdown date**: 2026-10-20 (today). `gemini-2.5-pro`, `gemini-2.5-flash`, and `gemini-2.5-flash-lite` are fully retired on Vertex AI / Gemini Enterprise Agent Platform; requests after this point fail outright. Google states the timeline "may be extended, but won't be moved to an earlier date." Migration guide: [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions).
+:warning: **Shutdown date**: 2026-10-20 (today). `gemini-2.5-pro`, `gemini-2.5-flash`, and `gemini-2.5-flash-lite` are fully retired on Vertex AI / Gemini Enterprise Agent Platform; requests after this point fail outright. Google states the timeline "may be extended, but won't be moved to an earlier date." Migration guide: [Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions).
 
 ## Today's Takeaway
 

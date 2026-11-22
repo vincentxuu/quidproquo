@@ -13,7 +13,7 @@ description: "A comprehensive comparison of the core mechanisms behind major Age
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-01-agent-cli-guidelines)
+> :globe: [中文版](/posts/ai/2026-04-01-agent-cli-guidelines)
 
 Before 2025, AI coding assistants were mostly used for autocomplete (Copilot) or Q&A (ChatGPT). You typed, it responded, you copied and pasted, and you decided whether to use it or not.
 

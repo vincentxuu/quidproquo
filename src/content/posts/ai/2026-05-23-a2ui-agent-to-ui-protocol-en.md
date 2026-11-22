@@ -10,7 +10,7 @@ description: "Breaking down Google's A2UI protocol: the 'UI as data' design phil
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-23-a2ui-agent-to-ui-protocol)
+> :globe: [中文版](/posts/ai/2026-05-23-a2ui-agent-to-ui-protocol)
 
 When an AI agent encounters a structured task like "book me a table," plain-text chat degenerates into tedious back-and-forth Q&A. A better experience is for the agent to directly generate a form with a date picker, a time dropdown, and a submit button. The problem is: in the era of multi-agent collaboration, the agent actually doing the work is often remote, cross-organization, and has no access to your DOM — so how does it safely deliver an "interface" to your frontend? That is exactly what Google set out to solve with **A2UI (Agent-to-User Interface)**, open-sourced on 2025-12-15. This post breaks down its design philosophy, message format, and how it relates to MCP Apps, AG-UI, and ChatKit.
 

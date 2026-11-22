@@ -13,7 +13,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install-en)
 
 這是「Claude Code 深入介紹」系列的 troubleshooting 第一篇。裝不起來或登不進去的時候，錯誤訊息通常只告訴你「失敗」，沒告訴你是哪一層失敗：shell 找不到執行檔、網路被擋、安裝指令用錯 shell，或認證來源蓋掉了你以為正在用的登入。這篇按官方 [troubleshoot-install](https://code.claude.com/docs/en/troubleshoot-install) 文件的診斷順序，把每一層的檢查指令、預期輸出和修法列出來。已經能跑、但執行期出狀況的，去看[第二篇：執行期問題](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime)。
 

@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-funding-onyx-security)
+> :globe: [中文版](/posts/daily/2026-08-29-funding-onyx-security)
 
 ## Funding Details
 

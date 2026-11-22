@@ -10,7 +10,7 @@ description: "Learn Scrapling installation, fetcher selection, CSS/XPath and ada
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-scrapling-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-scrapling-complete-guide)
 
 [Scrapling](https://github.com/D4Vinci/Scrapling) is a Python web-scraping framework. Its API covers plain HTTP fetchers, Playwright-driven browsers, a CSS/XPath parser, and a Spider that schedules multiple requests. Its distinctive feature is the adaptive selector: save an element's properties, then relocate that element by similarity after a site redesign.
 

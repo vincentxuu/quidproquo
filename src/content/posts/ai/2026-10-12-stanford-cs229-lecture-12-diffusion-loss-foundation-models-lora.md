@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-12-diffusion-loss-foundation-models-lora-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-12-diffusion-loss-foundation-models-lora-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 12 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 14 章後段與第 15 章；沒看到板書畫面，板書上的式子是用講義還原的。
 

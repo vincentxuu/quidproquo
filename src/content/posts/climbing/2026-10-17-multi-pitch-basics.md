@@ -38,7 +38,7 @@ glossary:
     context: "Petzl 要求方向點必須非常牢靠，因為先鋒墜落時它受力最大。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-multi-pitch-basics-en)
+> :globe: [English version](/posts/climbing/2026-10-17-multi-pitch-basics-en)
 
 單繩距傳攀爬了一陣子，你會開始看那些一段爬不完的路線：爬到一個平台，架站，把夥伴拉上來，再往上。多繩距沒有新的「大招」，它是把[傳攀保護](/posts/climbing/2026-10-17-trad-protection-nuts-cams)、[建立固定點](/posts/climbing/2026-10-17-building-anchors)、[下放與垂降](/posts/climbing/2026-10-17-lower-or-rappel)這些已經會的事，在離地幾十公尺的地方連續做好幾次。難的是每次都要做對，而且做得夠快。
 

@@ -25,7 +25,7 @@ glossary:
     context: "The slides say it outperforms Sentence-BERT on semantic similarity tasks."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

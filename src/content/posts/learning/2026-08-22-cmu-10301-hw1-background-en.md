@@ -10,7 +10,7 @@ tldr: "HW1 is written and programming work: mathematical and CS foundations foll
 description: "A guide to the goals, public assets, and independent checks for CMU 10-301/601 Spring 2026 HW1."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 1 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw1-background)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw1-background)
 
 The [official handout inside the ZIP](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw1.zip) is titled **Homework 1: Background** and contains written plus programming work. Written sections cover course policies, probability and statistics, linear algebra, calculus, geometry, and CS foundations. The programming component is a majority-vote classifier that reads TSV files and writes train/test labels and error metrics. The ZIP supplies heart and education splits, a LaTeX template, and reference outputs, but no `majority_vote.py` starter; hidden grading remains on Gradescope.
 

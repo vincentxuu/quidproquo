@@ -23,7 +23,7 @@ glossary:
     context: "校外（off campus）學生沒有 tutorials，改用另一套評分。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

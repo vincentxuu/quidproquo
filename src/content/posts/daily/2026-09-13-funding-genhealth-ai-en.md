@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-funding-genhealth-ai)
+> :globe: [中文版](/posts/daily/2026-09-13-funding-genhealth-ai)
 
 ## Funding Details
 

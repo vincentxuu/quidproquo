@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-source-inventory)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-source-inventory)
 
 HR's shared folder holds three copies of the travel policy: "Travel_policy_2023.docx", "Travel_policy_2025_final.docx", and "Travel_policy_2025_final(1).docx", which differs from the final by a single number. The team imports the whole folder into an AI knowledge base. Someone asks, "What's the hotel limit for domestic travel?" The AI gives two numbers and says "it depends on the version."
 

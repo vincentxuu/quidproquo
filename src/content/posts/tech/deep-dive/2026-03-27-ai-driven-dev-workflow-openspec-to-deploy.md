@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy-en)
 
 六個子專案，前端、後端、AI 服務、資料庫、基礎設施、背景任務，一個人要全部顧到。不是不可能，但如果每一步都手動做——寫 code、跑 lint、寫 commit message、review diff、產生 PR description——一天的時間有一半會花在「不是寫 code」的事情上。
 
@@ -124,7 +124,7 @@ Push 之後開 PR，GitHub Actions 自動觸發四件事：
 
 四道平行跑，2-5 分鐘內完成。
 
-兩個不同的 AI reviewer 用不同模型從不同角度看 code，疊加起來的覆蓋率比單一 reviewer 高。AI Code Review 的 comment 會標嚴重度：🔴 High（必須修）、🟡 Medium（建議修）、🟢 Low（可忽略）。
+兩個不同的 AI reviewer 用不同模型從不同角度看 code，疊加起來的覆蓋率比單一 reviewer 高。AI Code Review 的 comment 會標嚴重度：:red-circle: High（必須修）、:yellow-circle: Medium（建議修）、:green-circle: Low（可忽略）。
 
 跑完之後用 `collect-pr-feedback` skill 一次收集所有回饋——CI 狀態、三個 reviewer 的 comment——分類整理，問你「要修哪些？」。不用手動一條一條看十幾個 comment。
 

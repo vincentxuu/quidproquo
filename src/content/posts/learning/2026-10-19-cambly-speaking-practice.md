@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-cambly-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-cambly-speaking-practice-en)
 
 想找真人練英文，卻怕每堂都在重複自我介紹，[Cambly](https://www.cambly.com/english?lang=zh_TW) 值得仔細看它的課型。你可以把它用成自由聊天，也可以找有明確目標的教學；這兩種需要，選老師與買方案的方式不同。
 

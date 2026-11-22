@@ -26,7 +26,7 @@ glossary:
     context: "The ankle sprain guideline recommends using these rules first to rule out a fracture."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-bouldering-falls-ankle)
+> :globe: [中文版](/posts/climbing/2026-10-18-bouldering-falls-ankle)
 
 The mats in the bouldering area are thick and soft, so letting go from the top feels harmless. Ask people in an emergency department where their bouldering injury is, though, and the answer is usually the ankle.
 

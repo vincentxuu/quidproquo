@@ -10,7 +10,7 @@ description: "A full personal audit of a Claude Code setup: writing preferences 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-13-claude-code-config-audit)
+> :globe: [中文版](/posts/ai/2026-11-13-claude-code-config-audit)
 
 ## TL;DR
 

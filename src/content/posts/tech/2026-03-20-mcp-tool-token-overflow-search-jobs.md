@@ -10,7 +10,7 @@ description: "記錄一次 MCP search tool 超出 token 上限的除錯過程，
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs-en)
+:globe: [English version](/posts/tech/2026-03-20-mcp-tool-token-overflow-search-jobs-en)
 
 ## TL;DR
 

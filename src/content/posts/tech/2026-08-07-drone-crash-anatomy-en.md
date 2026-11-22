@@ -13,7 +13,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-07-drone-crash-anatomy)
+> :globe: [中文版](/posts/tech/2026-08-07-drone-crash-anatomy)
 
 **Boundary first: I have never crashed a drone. Every crash here is someone else's.**
 

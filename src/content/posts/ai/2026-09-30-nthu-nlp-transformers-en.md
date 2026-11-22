@@ -22,7 +22,7 @@ glossary:
     context: "Slides 55–56 illustrate it with a model that predicts 'the' where the answer is 'a'."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-transformers)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-transformers)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

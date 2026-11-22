@@ -13,7 +13,7 @@ description: "以 2025–2026 官方課程網站、課表與教材入口為依�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

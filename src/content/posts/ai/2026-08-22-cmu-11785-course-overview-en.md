@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-course-overview)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

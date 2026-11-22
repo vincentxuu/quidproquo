@@ -12,7 +12,7 @@ series:
   order: 103
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-funding-mave-en)
+> :globe: [English version](/posts/daily/2026-10-23-funding-mave-en)
 
 ## 融資資訊
 

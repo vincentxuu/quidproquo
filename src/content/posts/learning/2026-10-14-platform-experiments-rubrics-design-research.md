@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-platform-experiments-rubrics-design-research-en)
+> :globe: [English version](/posts/learning/2026-10-14-platform-experiments-rubrics-design-research-en)
 
 這是「教學文章怎麼寫」系列的第 26 篇，屬於最後一部分「怎麼知道有效，怎麼做出來」。前一篇談沒有考試的作者，手上那些訊號（讀者說寫得好、讀了多久）各自量到什麼。這篇往上走一層：如果有考試、有大量學習者、能把人隨機分組，實驗能告訴寫教材的人什麼；做不到實驗的時候，常見的兩種替代做法有多少依據。
 

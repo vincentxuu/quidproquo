@@ -11,7 +11,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-02-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's four rising repos are selling a smarter agent — they're all pa
 
 ## Trending Repos
 
-### PageIndex ⭐ 38,397 (+1,097)
+### PageIndex ★ 38,397 (+1,097)
 
 [GitHub](https://github.com/VectifyAI/PageIndex)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ None of today's four rising repos are selling a smarter agent — they're all pa
 
 ---
 
-### iFixAi ⭐ 18,280 (+340)
+### iFixAi ★ 18,280 (+340)
 
 [GitHub](https://github.com/ifixai-ai/iFixAi)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ None of today's four rising repos are selling a smarter agent — they're all pa
 
 ---
 
-### Octop ⭐ 6,215 (+285)
+### Octop ★ 6,215 (+285)
 
 [GitHub](https://github.com/TencentCloud/Octop)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ None of today's four rising repos are selling a smarter agent — they're all pa
 
 ---
 
-### BMAD-METHOD ⭐ 53,704 (+40)
+### BMAD-METHOD ★ 53,704 (+40)
 
 [GitHub](https://github.com/bmad-code-org/BMAD-METHOD)　·　Python　·　Other (custom license, not standard MIT/Apache — check the terms before use)
 

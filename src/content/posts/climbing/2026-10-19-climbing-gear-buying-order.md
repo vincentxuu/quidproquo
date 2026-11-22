@@ -26,7 +26,7 @@ glossary:
     context: "裝備上的 CE 標示通常會和 EN 編號一起出現。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-gear-buying-order-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-gear-buying-order-en)
 
 第一次去岩館，你租了一雙鞋，櫃台順手給你一個粉袋。爬了幾個月，你開始想：是不是該買自己的鞋了？吊帶要不要也買？朋友說他有一條用了幾年的繩子可以便宜賣你，要嗎？
 

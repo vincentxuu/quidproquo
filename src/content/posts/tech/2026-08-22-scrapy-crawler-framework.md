@@ -10,7 +10,7 @@ description: "拆解 Scrapy 的 Engine、Scheduler、Downloader、Spider、Item 
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-scrapy-crawler-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-scrapy-crawler-framework-en)
 
 [Scrapy](https://docs.scrapy.org/en/latest/) 是 Python 的網站爬取與結構化資料擷取框架。它不是「送一個 HTTP request，再解析一頁 HTML」的薄包裝，而是一條非同步處理管線：排程、下載、解析、清理與儲存各自有明確邊界。當工作從單頁腳本成長到定期跑、會失敗、要限速、要續跑的 crawler，這個拆分才是 Scrapy 的價值。
 

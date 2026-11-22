@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset)
+> :globe: [中文版](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset)
 
 ## Summary
 
@@ -83,7 +83,7 @@ Wherever the clock lands, 2.5 Pro users who get passively rerouted end up with a
 
 ## Time-Sensitive Notice
 
-⚠️ **Shutdown date**: 2026-12-01. From this date, API requests to `gemini-2.5-pro` and `gemini-2.5-flash` will automatically reroute to `gemini-3.8-flash` and `gemini-3.5-flash-lite` respectively and bill at the new rates. Migration guide: [Gemini 3.8 Flash migration guide](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8#migrate-to-gemini-3-8-flash).
+:warning: **Shutdown date**: 2026-12-01. From this date, API requests to `gemini-2.5-pro` and `gemini-2.5-flash` will automatically reroute to `gemini-3.8-flash` and `gemini-3.5-flash-lite` respectively and bill at the new rates. Migration guide: [Gemini 3.8 Flash migration guide](https://ai.google.dev/gemini-api/docs/whats-new-gemini-3.8#migrate-to-gemini-3-8-flash).
 
 ## Today's Takeaway
 

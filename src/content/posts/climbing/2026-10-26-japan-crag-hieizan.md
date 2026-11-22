@@ -13,7 +13,7 @@ description: "比叡山 攀岩指南：岩質與風格、季節、交通與停�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-hieizan-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-hieizan-en)
 
 想把日本攀岩旅行排成一整天的大岩壁，比叡山值得和小川山、瑞牆分開比較。這是宮崎縣的比叡山，並非京都、滋賀那座同名山；導航先輸入延岡市北方町。
 

@@ -13,7 +13,7 @@ description: "加埃塔（Gaeta）岩場介紹：阿雷瑙塔洞穴與裂山兩�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-gaeta-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-gaeta-en)
 
 加埃塔（Gaeta）在拉齊奧（Lazio）南端，是一座伸進第勒尼安海的半島小城。攀岩者來這裡主要為了兩個地方。一個是城北海岸公路下方、阿雷瑙塔海灘（Spiaggia dell'Arenauta）的大洞穴；另一個在伸入加埃塔灣的 [Monte Orlando 區域公園](https://parchilazio.it/rivieradiulisse-schede-32058-the_riviera_di_ulisse_regional_park)裡，是直落海面的裂山（Montagna Spaccata）海崖。
 
@@ -96,7 +96,7 @@ Climbing Spot Factory 寫從聖阿戈斯蒂諾的 Ristoro da Guido 往加埃塔�
 
 ## 去之前要知道的規範
 
-**Approdo dei Proci 封閉。** [theCrag](https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/approdo-dei-proci) 掛的警告：「L'intera falesia approdo dei proci è interdetta con ordinanza del 2014」（整個 Approdo dei Proci 依 2014 年的命令禁止進入）。27crags 也在這區標了 ⛔。
+**Approdo dei Proci 封閉。** [theCrag](https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/approdo-dei-proci) 掛的警告：「L'intera falesia approdo dei proci è interdetta con ordinanza del 2014」（整個 Approdo dei Proci 依 2014 年的命令禁止進入）。27crags 也在這區標了 ✗。
 
 **洞穴的階梯是私人的。** 收費各來源寫法不同：
 
@@ -144,7 +144,7 @@ Climbook 上洞穴重複攀登最多的十條，有七條落在這個區間。
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
 | [SuperElma](https://www.falesia.it/crag/12/gaeta-montagna-spaccata.html) | 6a+ | 5.10b | 150 公尺，多段 | 裂山 | falesia.it 列在長路線，標 I／S2 |
-| L'ombra dello scorpione L1 | 6a+ | 5.10b | 單段 | 洞穴 | Climbook 190 次；27crags 把接第二段（7c）標了 ⚠️ |
+| L'ombra dello scorpione L1 | 6a+ | 5.10b | 單段 | 洞穴 | Climbook 190 次；27crags 把接第二段（7c）標了 :warning: |
 | Arreu arreu | 6a+ | 5.10b | 單段 | 洞穴 | Climbook 159 次 |
 | Cavalieri selvaggi L1 | 6a+（Climbook）／6b（27crags） | 5.10b | 單段 | 洞穴 | 接第二段是 8a+（27crags） |
 | Invidia L1 | 6b（Climbook）／6b+（27crags） | 5.10c | 單段 | 洞穴 | Climbook 203 次 |

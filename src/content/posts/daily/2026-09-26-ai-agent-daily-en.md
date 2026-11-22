@@ -12,7 +12,7 @@ series:
   order: 42
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-26-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -149,16 +149,16 @@ Following reports that an OpenAI agent breached an Australian government website
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.71.0](/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
-- 📄 [Funding Report | Cyera Series G add-on $400M](/posts/daily/2026-09-26-funding-cyera-en)
-- 📄 [Funding Report | Island Series F $400M](/posts/daily/2026-09-26-funding-island-en)
-- 📄 [Funding Report | Snorkel AI Series E $350M](/posts/daily/2026-09-26-funding-snorkel-ai-en)
-- 📄 [Security Alert | SalesBleed — Salesforce Agentforce](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
-- 📄 [Tool Pick | terminal-mcp](/posts/daily/2026-09-26-tool-terminal-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-26](/posts/daily/2026-09-26-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-26](/posts/daily/2026-09-26-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-26](/posts/daily/2026-09-26-ai-agent-github-digest-en)
+- :file: [Framework Update | Mastra @mastra/core@1.71.0](/posts/daily/2026-09-26-framework-mastra-1.71.0-en)
+- :file: [Funding Report | Cyera Series G add-on $400M](/posts/daily/2026-09-26-funding-cyera-en)
+- :file: [Funding Report | Island Series F $400M](/posts/daily/2026-09-26-funding-island-en)
+- :file: [Funding Report | Snorkel AI Series E $350M](/posts/daily/2026-09-26-funding-snorkel-ai-en)
+- :file: [Security Alert | SalesBleed — Salesforce Agentforce](/posts/daily/2026-09-26-security-salesforce-agentforce-salesbleed-en)
+- :file: [Tool Pick | terminal-mcp](/posts/daily/2026-09-26-tool-terminal-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-09-26](/posts/daily/2026-09-26-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-26](/posts/daily/2026-09-26-product-builder-interview-daily-en)
 
 ## Watch Tomorrow
 

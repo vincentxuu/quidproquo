@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-english-speaking-practice-overview)
+> :globe: [中文版](/posts/learning/2026-10-19-english-speaking-practice-overview)
 
 To speak English more smoothly, start with something familiar: give a work update, ask for help while travelling, or answer an interviewer’s follow-up question. Choose the task, then consider the practice, materials and feedback it needs.
 

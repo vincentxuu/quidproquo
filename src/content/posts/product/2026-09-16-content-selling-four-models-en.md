@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-content-selling-four-models)
+> :globe: [中文版](/posts/product/2026-09-16-content-selling-four-models)
 
 Think of the content business as a market. One vendor sells research to corporate procurement teams, while another earns repeat visits through a trusted personal voice. A platform builds stalls, checkout, and membership systems for creators. Free content acts like a map that directs people to a nearby tool or service.
 

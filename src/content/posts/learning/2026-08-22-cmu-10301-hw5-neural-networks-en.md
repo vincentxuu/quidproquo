@@ -10,7 +10,7 @@ tldr: "HW5 avoids automatic differentiation so learners must track forward shape
 description: "Reading computation graphs and checking gradients in CMU 10-301/601 Spring 2026 HW5 Neural Networks."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 5 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw5-neural-networks)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw5.zip) is titled **Homework 5: Neural Networks** and contains written plus programming work. Written work uses a feed-forward/backpropagation calculation and empirical questions. Programming builds a one-hidden-layer sigmoid/softmax OCR letter classifier. The ZIP supplies `neuralnet.py`, small train/validation CSV files, `tests.py`, unit-test data, an incorrect-output finder, and a visualizer; medium/large data and the official reference solution are absent.
 

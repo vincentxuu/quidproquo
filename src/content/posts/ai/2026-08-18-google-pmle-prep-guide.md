@@ -13,7 +13,7 @@ description: "Google Professional Machine Learning Engineer（PMLE）的備考�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-google-pmle-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-google-pmle-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回 [官方 exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)，所有「怎麼準備」都指回官方學習路徑或 Google Cloud 文件，不含考古題。查證日期：2026-08-18。
 

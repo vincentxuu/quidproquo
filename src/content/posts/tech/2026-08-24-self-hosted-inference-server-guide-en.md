@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-self-hosted-inference-server-guide)
+> :globe: [中文版](/posts/tech/2026-08-24-self-hosted-inference-server-guide)
 
 This site already has dedicated deep-dives on [vLLM](/posts/ai/2026-03-14-vllm-inference-engine), [SGLang](/posts/tech/2026-08-22-sglang-inference-server), [Triton Inference Server](/posts/tech/2026-08-22-triton-inference-server), [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference), [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide), and [llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference). This article doesn't repeat tool-specific details. Instead, it places them on a single architecture diagram so you can locate which layer your problem lives in — and pick accordingly.
 

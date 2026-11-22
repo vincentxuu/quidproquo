@@ -17,7 +17,7 @@ glossary:
     context: "Used here to keep /poteto-mode on for a whole chat."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-16-pstack-cursor-agent-skills-guide)
+> :globe: [中文版](/posts/ai/2026-10-16-pstack-cursor-agent-skills-guide)
 
 If you use Cursor and want to know what pstack adds once installed, which command to start with, and whether the extra tokens are worth it, this guide follows the order you would use it: the entry point, playbooks, standalone skills, principles, model roles, then cost and limits.
 

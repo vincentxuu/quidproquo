@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-obsidian-notion-tool-choice-en)
+> :globe: [English version](/posts/learning/2026-10-22-obsidian-notion-tool-choice-en)
 
 [order 1](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge) 提過兩個稍後閱讀服務關站的例子：Omnivore 從宣布到不能匯出只有約一個月，Pocket 約半年。筆記工具也一樣，你今天用得很順的軟體，十年後不一定還在。2019 年 Ink & Switch 研究室的一篇文章講得很直接：服務一關，軟體就停止運作，用它建立的資料也跟著沒了（[Kleppmann et al. 2019](https://www.inkandswitch.com/local-first/)）。
 

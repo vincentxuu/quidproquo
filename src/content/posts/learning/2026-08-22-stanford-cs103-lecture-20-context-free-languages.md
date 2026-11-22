@@ -13,7 +13,7 @@ description: "依官方投影片逐步整理「從有限狀態限制轉向遞迴
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-20-context-free-languages-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-20-context-free-languages-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

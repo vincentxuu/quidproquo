@@ -12,7 +12,7 @@ series:
   order: 89
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-12-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-11-12-ai-agent-daily)
 
 ## The One-Line Verdict
 

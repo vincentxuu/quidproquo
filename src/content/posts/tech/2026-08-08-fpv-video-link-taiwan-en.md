@@ -13,7 +13,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-fpv-video-link-taiwan)
+> :globe: [中文版](/posts/tech/2026-08-08-fpv-video-link-taiwan)
 
 [The RC-link post](/posts/tech/2026-08-08-drone-radio-link-en) ended with a debt written in plain sight:
 

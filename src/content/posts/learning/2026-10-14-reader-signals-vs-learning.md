@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-reader-signals-vs-learning-en)
+> :globe: [English version](/posts/learning/2026-10-14-reader-signals-vs-learning-en)
 
 這是「教學文章怎麼寫」系列的第 25 篇，第六部分「怎麼知道有效，怎麼做出來」的第一篇。[第 15 篇](/posts/learning/2026-10-14-metacomprehension-in-teaching-articles)從讀者那一側談過：讀者分辨自己哪篇懂、哪篇不懂的能力很弱，沒有任何介入時，判斷和成績的個人內相關平均只有 0.18 左右；判斷前先作答、讀完全部再寫關鍵詞，能讓判斷準一點。這篇換到作者那一側。讀者的判斷不準，那麼讀者告訴作者的話、讀者留下的行為紀錄，又能告訴作者多少？
 

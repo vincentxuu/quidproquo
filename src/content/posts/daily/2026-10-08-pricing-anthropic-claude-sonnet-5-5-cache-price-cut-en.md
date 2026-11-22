@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut)
+> :globe: [中文版](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut)
 
 ## Summary
 

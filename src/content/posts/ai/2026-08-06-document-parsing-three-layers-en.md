@@ -22,7 +22,7 @@ glossary:
     context: "This is the fundamental difference between the parsing layer and the two below it — the lower layers read existing structure, the parsing layer infers structure that isn't there."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-document-parsing-three-layers)
+> :globe: [中文版](/posts/ai/2026-08-06-document-parsing-three-layers)
 
 "Turn documents into something an LLM can read" looks like one problem. It is actually three. I have watched too many teams compare MarkItDown's star count against MinerU's and pick the higher one — which is like asking whether a screwdriver beats a drill.
 

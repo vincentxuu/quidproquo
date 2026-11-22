@@ -13,11 +13,11 @@ description: "A four-year comparison of Harvard CS1810 (2026/2025/2024/2023): in
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-overview)
+> :globe: [中文版](/posts/tech/2026-08-27-harvard-cs181-overview)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
+> :warning: **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
 
 ## TL;DR
 

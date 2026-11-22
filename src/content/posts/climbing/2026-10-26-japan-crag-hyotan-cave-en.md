@@ -13,7 +13,7 @@ description: "Hyotan Cave climbing guide: seasons, public transport, parking, lo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-hyotan-cave)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-hyotan-cave)
 
 Hyotan Cave in Iwaizumi is known for steep limestone, while Modern and Wakaba sectors also offer easier lines. A mixed-level team should identify its sectors rather than assuming every climb is a roof.
 

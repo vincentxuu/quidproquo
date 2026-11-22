@@ -32,7 +32,7 @@ glossary:
     context: "Shane Gu's slides use its variational lower bound on p.14 to frame three levels of prediction."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-guest-world-models)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-guest-world-models)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

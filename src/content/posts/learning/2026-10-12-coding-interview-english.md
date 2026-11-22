@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-12-coding-interview-english-en)
+> :globe: [English version](/posts/learning/2026-10-12-coding-interview-english-en)
 
 前三篇面試口說（[通用句型](/posts/learning/2026-10-07-interview-experience-english)、[我自己的故事](/posts/learning/2026-10-07-interview-agent-stories-english)、[教材教了什麼](/posts/learning/2026-10-08-interview-english-from-teaching-materials)）處理的都是行為面試：自我介紹、講專案、反問。工程師面試還有一大段是當場寫程式，這一段我一句都沒練過。
 

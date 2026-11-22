@@ -13,7 +13,7 @@ description: "A guide to Nabari / Kaochidani trad climbing: spring and autumn se
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-nabari)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-nabari)
 
 For a Japan crack-climbing trip through Osaka, Nabari deserves its own place on the itinerary. Columnar rock beside the Shorenji River creates straight, sustained cracks. A route named Nabari Nyumon—“Introduction to Nabari”—still expects you to jam and place protection.
 

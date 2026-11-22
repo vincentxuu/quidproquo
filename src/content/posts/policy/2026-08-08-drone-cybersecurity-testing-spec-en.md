@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)
+> :globe: [中文版](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)
 
 This series has cited the *Remotely Piloted Aircraft Cybersecurity Testing Specification* four times — the [spec-sheet post](/posts/tech/2026-08-07-drone-spec-sheet-reading-en) used its "product series" definition, the [flight control post](/posts/tech/2026-08-08-px4-vs-ardupilot-en) asked whether changing firmware creates a new series, and the [RF link post](/posts/tech/2026-08-08-drone-radio-link-en) and [GNSS post](/posts/tech/2026-08-08-gps-jamming-flight-controller-en) each took apart one of the modules it names.
 

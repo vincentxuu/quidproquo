@@ -18,7 +18,7 @@ glossary:
     def: "Running multiple sets of Q/K/V in parallel to capture different types of relationships (syntactic, semantic, coreference, etc.)"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-transformer)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-transformer)
 
 ## The Scene: What Does "It" Refer To?
 

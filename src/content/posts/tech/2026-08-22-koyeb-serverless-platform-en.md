@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-koyeb-serverless-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-koyeb-serverless-platform)
 
 [Koyeb](https://www.koyeb.com/docs) deploys Git repositories or container images across selectable regions. CPU and GPU Instances, edge routing, TLS, a service mesh, autoscaling, and scale-to-zero place it between repository-first PaaS and regional container platforms.
 

@@ -28,7 +28,7 @@ glossary:
     context: "One of the IR metrics in the slides; MS MARCO results are commonly reported as MRR@10."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-information-retrieval)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-information-retrieval)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

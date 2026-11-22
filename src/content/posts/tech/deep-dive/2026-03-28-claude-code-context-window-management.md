@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management-en)
 
 上一篇[拆解了 agentic loop](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)：harness 的三件事是提供工具、管理 context、維持執行環境。這篇深入第二件——context window 是這個 loop 的記憶體，裝滿了行為就開始走樣：skill 該觸發沒觸發、先前的指示被淡忘。要管好它，先知道它到底裝了什麼。
 

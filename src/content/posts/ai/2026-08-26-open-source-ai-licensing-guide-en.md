@@ -18,7 +18,7 @@ glossary:
     def: "Monthly Active Users — the Llama License uses 700M MAU as the threshold for free commercial use"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-open-source-ai-licensing-guide)
+> :globe: [中文版](/posts/ai/2026-08-26-open-source-ai-licensing-guide)
 
 When an AI model calls itself "open-source," it might mean MIT-licensed do-whatever-you-want, or it might mean "weights are public but you need a separate deal above 700 million users." The gap between those two is bigger than "free" versus "paid." This guide maps the actual differences across major 2026 AI model licenses so you know where you stand before deploying.
 
@@ -86,11 +86,11 @@ The only family approaching the OSI definition is **OLMo** (Allen AI) — traini
 
 | Can I... | MIT | Apache 2.0 | Llama License | Custom |
 |---|---|---|---|---|
-| Embed in commercial product | ✅ | ✅ | ✅ (<700M MAU) | ⚠️ Check terms |
-| Fine-tune and redistribute | ✅ | ✅ | ✅ (must brand as Llama) | ⚠️ Check terms |
-| Use outputs to train my own model | ✅ | ✅ | ⚠️ Disputed | ❌ Often prohibited |
-| Self-host for my company | ✅ | ✅ | ✅ | ✅ (usually) |
-| Skip attribution | ❌ Keep copyright | ❌ Keep copyright | ❌ Must show "Built with Llama" | ⚠️ Check terms |
+| Embed in commercial product | ✓ | ✓ | ✓ (<700M MAU) | :warning: Check terms |
+| Fine-tune and redistribute | ✓ | ✓ | ✓ (must brand as Llama) | :warning: Check terms |
+| Use outputs to train my own model | ✓ | ✓ | :warning: Disputed | ✗ Often prohibited |
+| Self-host for my company | ✓ | ✓ | ✓ | ✓ (usually) |
+| Skip attribution | ✗ Keep copyright | ✗ Keep copyright | ✗ Must show "Built with Llama" | :warning: Check terms |
 
 ## Pre-Deployment Checklist
 

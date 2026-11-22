@@ -29,7 +29,7 @@ glossary:
     context: "FlashAttention 要減少的就是對 HBM 的讀寫。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-flashattention-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-flashattention-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

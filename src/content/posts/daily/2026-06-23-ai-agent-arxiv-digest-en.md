@@ -11,10 +11,10 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 30
 ---
-> 🌏 [中文版](/posts/daily/2026-06-23-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-23-ai-agent-arxiv-digest)
 
 [!blue_background]
-📌 **Today's Overview**
+:pin: **Today's Overview**
 Today's three papers tackle core engineering challenges in agent platforms from different angles: **H-RePlan** proposes "hierarchical fault recovery for cross-device agents," addressing the long-standing problem of overly coarse failure handling when agents operate across multiple devices; **Multi-Agent Transactive Memory** extends RAG from human text to agent trajectories, enabling an entire agent population to accumulate and share execution knowledge; **LLM+RL Hierarchical Control** validates the feasibility of a hybrid division of labor — LLM for high-level strategy selection, RL for low-level execution — in multi-agent environments. Together, the three papers outline three core questions in 2026 agent platform design: how to gracefully handle cross-device execution failures, how to turn agents' past behavior into reusable collective assets, and how to divide responsibilities between the brain (planning) and the hands (execution).
 
 ## Terms to Know Before Reading
@@ -37,18 +37,18 @@ Today's three papers tackle core engineering challenges in agent platforms from 
 **Authors**: Shu Yao, Yuhua Luo, Qian Long et al.　·　**arxiv**: 2606.20487
 **Links**: [arxiv](https://arxiv.org/abs/2606.20487) · [alphaxiv](https://www.alphaxiv.org/abs/2606.20487)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 When an agent fails across multiple devices, don't rush to redo everything — let the device try an alternative approach first (API → CLI → GUI), and only escalate to the orchestrator if that doesn't work.
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
 Must-read
 Most directly relevant for engineers building computer-use agents or multi-device automation — this paper clearly articulates the most common production pain point: "what to do when execution fails."
 [!gray_background]
-🧭 
+:compass: 
 ### Domain Background
 
 Today's computer-use agents (e.g., controlling both a phone and a computer to book a ticket and save it to a calendar) need to coordinate across multiple devices. Existing systems break large tasks into subtasks assigned to different devices, but when a device fails, they typically have only three options: retry, switch devices, or global replanning. All three are too coarse — they often burn massive token budgets when simply switching the execution method on the device (e.g., from GUI clicks to an API call) would have worked.
@@ -78,12 +78,11 @@ This design cleanly separates "failures the device can handle on its own" from "
 - Connection to MCP (Model Context Protocol): MCP tool calls are essentially API interfaces; H-RePlan's "strategy switching" concept can extend to fallback mechanisms for MCP tools
 - **Limitation**: HeraBench is a self-built benchmark with artificially injected failures — real-world failure modes are more complex; currently validated only on Linux + Android, with unknown generalizability to Windows or pure web scenarios
 [!purple_background]
-🧐 
 ### Reviewer's One-Line Take
 
 Problem definition is clear, baseline comparisons are solid, and HeraBench itself is a contribution; however, the 36.78% perfect-pass rate shows that even with hierarchical recovery, complex multi-device tasks remain far from solved, and HeraBench is author-built — independent community replication is needed for confirmation.
 [!orange_background]
-🎬 
+:film: 
 ### Your Take-Away
 
 - When designing agent orchestration architectures, "device-level self-recovery" and "global replanning" should be two independent error-handling paths — don't let every failure bubble up to the top-level Orchestrator
@@ -97,18 +96,18 @@ Problem definition is clear, baseline comparisons are solid, and HeraBench itsel
 **Authors**: To Eun Kim, Xuhong He, Dishank Jain, Ambuj Agrawal, Negar Arabzadeh, Fernando Diaz　(Carnegie Mellon University · UC Berkeley)　·　**arxiv**: 2606.19911
 **Links**: [arxiv](https://arxiv.org/abs/2606.19911) · [alphaxiv](https://www.alphaxiv.org/abs/2606.19911)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 Have agents store their complete execution trajectories (the step-by-step record of how they completed a task) in a shared library, so other agents can retrieve and reference them later — instead of figuring everything out from scratch each time they encounter a similar task.
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
 Must-read
 For anyone designing multi-agent platform memory architectures, this paper proposes a practical "collective knowledge sharing" framework, validated on two mainstream benchmarks (ALFWorld + WebArena) — high credibility.
 [!gray_background]
-🧭 
+:compass: 
 ### Domain Background
 
 Traditional RAG lets agents retrieve knowledge from human-written documents. But an agent's "trajectory" — the actual steps it took, what tools it called, how it handled errors — is a fundamentally different document type: long, temporally structured, and full of tool-call records. Existing systems discard these trajectories after use, or keep them only for the agent that generated them; every new agent starts from zero.
@@ -131,19 +130,18 @@ This extends RAG's scope from "human documents" to "agent behavior records," ena
 ### Deep Dive
 
 - Evaluated on **ALFWorld** (text-based indoor navigation tasks) and **WebArena** (real web operation tasks), two of the most widely used agent benchmarks
-- Results show MATM with learned reranking improves consumer agent task completion rates and reduces interaction steps (specific percentage figures are in the paper, but the complete comparison table was not available in search results) ⚠️
+- Results show MATM with learned reranking improves consumer agent task completion rates and reduces interaction steps (specific percentage figures are in the paper, but the complete comparison table was not available in search results) :warning:
 - **Pure vector similarity search (BM25/embedding retrieval) significantly underperforms learned reranking**, confirming that trajectory-type documents indeed require specialized handling
 - No coordination or joint training needed between producer and consumer agents — purely retrieval-based, minimally invasive to existing systems
 - "Transactive memory" borrows from social psychology (Wegner, 1987): a group doesn't have everyone memorize everything, but instead tracks "who knows what." MATM is the first to systematically apply this concept to multi-agent systems
 - Key difference from existing agent memory tools like MemGPT and Zep: those tools manage a single agent's cross-session memory; MATM manages cross-agent collective memory
 - **Limitation**: effectiveness depends on producer trajectory quality; the shared library starts empty and requires warm-up; where the reranker's training data comes from is the key deployment challenge — the paper doesn't elaborate
 [!purple_background]
-🧐 
 ### Reviewer's One-Line Take
 
 Concept is clear with 40 years of psychology research backing it; the CMU+Berkeley combination is credible. However, the information found so far lacks a complete numerical comparison table — the claim of "significant improvement" should be verified against the original paper; cite specific numbers with caution.
 [!orange_background]
-🎬 
+:film: 
 ### Your Take-Away
 
 - If your platform runs many agents on repetitive tasks of the same type (customer service, data scraping, form filling), it's worth designing a trajectory storage and retrieval layer now — agents' "problem-solving processes" should be platform assets, not disposable intermediates
@@ -157,18 +155,18 @@ Concept is clear with 40 years of psychology research backing it; the CMU+Berkel
 **Authors**: Jannik Hösch, Alessandro Sestini, Florian Fuchs, Amir Baghi, Joakim Bergdahl, Konrad Tollmar, Jean-Philippe Barrette-LaPierre, Linus Gisslén　(Industry-academia collaboration)　·　**arxiv**: 2606.20014
 **Links**: [arxiv](https://arxiv.org/abs/2606.20014) · [alphaxiv](https://www.alphaxiv.org/abs/2606.20014)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 Use an LLM as the commander of a multi-agent team to decide strategic direction, then let RL-trained low-level agents handle actual action execution — each plays to its strengths, more flexible than pure RL or hand-crafted rules.
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 The experimental environment is a video game (2v2 king of the hill), not directly applicable to general agent platforms, but the "LLM for high-level strategy, RL for low-level execution" division of labor is a design pattern worth knowing.
 [!gray_background]
-🧭 
+:compass: 
 ### Domain Background
 
 Training multiple agents to cooperate in complex adversarial environments using RL has always been difficult: sparse rewards (hard to tell which step was right), state space explosion (combinatorics of two agents plus opponents), and coordination challenges (two agents tend to act independently). But LLMs are too slow and expensive for these real-time environments — you can't query the LLM at every timestep.
@@ -191,19 +189,18 @@ The LLM plays to its strength (common-sense strategic reasoning), RL plays to it
 ### Deep Dive
 
 - Evaluation environment: a custom **2v2 King of the Hill** arena game — a relatively closed test scenario
-- Win rate results: LLM+RL hybrid architecture **46.4%** vs hand-designed Behavior Tree (BT) **51.5%** vs pure Flat RL significantly lower; LLM+RL vs BT shows no statistically significant difference (p=0.103) ⚠️ (these numbers are from a specific game scenario; generalize with caution)
+- Win rate results: LLM+RL hybrid architecture **46.4%** vs hand-designed Behavior Tree (BT) **51.5%** vs pure Flat RL significantly lower; LLM+RL vs BT shows no statistically significant difference (p=0.103) :warning: (these numbers are from a specific game scenario; generalize with caution)
 - Core implication: without engineers hand-designing behavior tree rules, LLM+RL automatically matches hand-designed performance — saving substantial rule engineering effort
 - LLM invocation frequency is "once every N timesteps," not every step, drastically reducing inference costs
 - RL skill policies are pre-trained modules; the LLM only needs to select from existing skills, not learn from scratch
 - Implications for LangGraph/AutoGen: the LLM orchestrator node can be designed as "periodically triggered, high-level decisions" rather than "full reasoning on every tool call"
 - **Limitation**: tested in a single game environment only, not validated in other scenarios; LLM can only select from a predefined skill set — new skills still require retraining RL; the real-time reaction demands of games fundamentally differ from the asynchronous tool calls of real-world agents
 [!purple_background]
-🧐 
 ### Reviewer's One-Line Take
 
 The architectural idea is clear, and hybrid LLM+RL is an interesting direction; however, testing in only one game environment limits persuasiveness, the 46.4% vs 51.5% gap — while not statistically significant — is non-trivial in absolute terms, and the paper insufficiently discusses the gap between game RL and real-world agent tool-use.
 [!orange_background]
-🎬 
+:film: 
 ### Your Take-Away
 
 - When designing multi-agent orchestration, consider "LLM only makes high-level strategy node decisions, low-level execution goes to lighter modules" — not every tool call needs full LLM reasoning

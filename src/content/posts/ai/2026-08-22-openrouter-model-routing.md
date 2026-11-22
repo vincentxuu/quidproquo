@@ -10,7 +10,7 @@ description: "深入介紹 OpenRouter 的統一 API、模型與供應商雙層�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-openrouter-model-routing-en)
+> :globe: [English version](/posts/ai/2026-08-22-openrouter-model-routing-en)
 
 [OpenRouter](https://openrouter.ai/) 是介於應用程式與模型供應商之間的雲端路由層。你的程式只接一個 API，背後可以選 OpenAI、Anthropic、Google，以及不同推論業者提供的開放權重模型；同一個模型若有多家供應商，也能依價格、速度、可用性與資料政策挑端點。
 

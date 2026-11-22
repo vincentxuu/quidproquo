@@ -10,7 +10,7 @@ draft: false
 type: deep-dive
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture)
 
 DaoDao is a learning platform where users set goals, track daily practice, and build study communities. Its technical architecture is more complex than most products at a similar scale: the frontend is a Turborepo monorepo managing three apps, the backend is split into Node.js and Python services, and the data layer spans four different databases. This post breaks down the design rationale behind each layer and the trade-offs involved.
 

@@ -10,7 +10,7 @@ description: "A practical guide to Brave's independent index, search endpoints a
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-brave-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-brave-search-api-guide)
 
 [Brave Search API](https://brave.com/search/api/) gives applications programmatic access to the Web index behind Brave Search. It does not scrape Google or Bing result pages and repackage them as JSON; Brave says its ordinary Web results use its own index and ranking models. An agent can therefore query a distinct search ranking rather than another wrapper around Google SERPs.
 

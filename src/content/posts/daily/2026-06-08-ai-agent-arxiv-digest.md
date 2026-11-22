@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 15
 ---
-> 🌏 [English version](/posts/daily/2026-06-08-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-08-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,11 +72,11 @@ Agentic RL 是讓 agent 真正有能力的關鍵訓練方式，但現在幾乎�
 - **多任務 Cocktail Training**：不同任務隔離在不同 Client 實例執行，一個任務的環境崩潰不影響其他任務，也防止任務間資料污染
 - **Fault-Tolerant（容錯執行）**：Client 崩潰時，Server 側的訓練狀態保留，可無縫重啟 Client 並繼續訓練——對長期訓練 run 影響重大
 - **Live Code Iteration**：可在訓練進行中替換 Swarm Client 節點（即更新 agent 程式碼邏輯），不需停止整個訓練 run
-- **Context Timeline Merging**：multi-turn / multi-agent 對話中相同 token 被重複傳遞多次；AgentJet 識別並合併這些冗餘 context，訓練加速 **1.5x～10x**（具體倍數取決於任務的 multi-turn 深度）⚠️（數字來自論文，不同任務差異可能顯著）
+- **Context Timeline Merging**：multi-turn / multi-agent 對話中相同 token 被重複傳遞多次；AgentJet 識別並合併這些冗餘 context，訓練加速 **1.5x～10x**（具體倍數取決於任務的 multi-turn 深度）:warning:（數字來自論文，不同任務差異可能顯著）
 - **與 veRL / OpenRLHF 的關係**：AgentJet 不是要替換 server-side 的 RL optimizer，而是在 agent execution layer 做去耦合；可理解為「在現有 RL optimizer 之上多一層 agent execution orchestration」
 - **落地門檻**：需要多台機器組網（Server-Client 分離），對只有單機 GPU 的小團隊有一定 infra 門檻；但 Client 可以跑在 CPU 機器上，初期成本可接受
 - **GitHub**: [github.com/modelscope/AgentJet（完全開源）](http://github.com/modelscope/AgentJet（完全開源）)
-- **Limitation 1**：論文的 benchmark 主要是 ModelScope 內部任務，外部任務的 speedup 數字需要獨立驗證 ⚠️
+- **Limitation 1**：論文的 benchmark 主要是 ModelScope 內部任務，外部任務的 speedup 數字需要獨立驗證 :warning:
 - **Limitation 2**：Swarm topology 管理（多 Server 如何協調梯度更新）的複雜度在大規模部署時尚未充分評估
 
 ### Reviewer 一句話評
@@ -126,13 +126,13 @@ LLM agent 的規劃能力在標準 benchmark 上已有不錯成績，但這些 b
 
 ### 深入要點
 
-- **307 個家務任務 × 自動生成雙重限制**：constraint pipeline 可擴充，但基礎任務多為家務場景，與企業/技術 agent 場景的可遷移性未驗證 ⚠️
-- **最佳 LLM 只達 67.75%**，而且這是在只有一組雙重限制的設置下——限制數量增加時，所有模型準確率顯著下降 ⚠️（具體下降幅度需查原文）
-- **User Constraints 比 World Constraints 難**：推測原因是「使用者偏好缺乏物理上的因果邏輯」，模型更難在 re-planning 時記住並正確應用；但論文的錯誤分析深度有限 ⚠️
+- **307 個家務任務 × 自動生成雙重限制**：constraint pipeline 可擴充，但基礎任務多為家務場景，與企業/技術 agent 場景的可遷移性未驗證 :warning:
+- **最佳 LLM 只達 67.75%**，而且這是在只有一組雙重限制的設置下——限制數量增加時，所有模型準確率顯著下降 :warning:（具體下降幅度需查原文）
+- **User Constraints 比 World Constraints 難**：推測原因是「使用者偏好缺乏物理上的因果邏輯」，模型更難在 re-planning 時記住並正確應用；但論文的錯誤分析深度有限 :warning:
 - **主要失敗原因**：「對環境的物理接地不足（weak physical grounding）」和「累積限制追蹤失誤（失去對之前揭露限制的記憶）」——後者直接指向 agent 的 in-context memory 設計問題
 - **與 LangGraph/AutoGen 的關聯**：Dual-constraint adaptive planning 可以用 LangGraph 的 conditional edge 設計成「違規 → 重新規劃」的 loop；但「限制追蹤失憶」問題需要在 state management 層面解決，不是換框架就能修的
 - **可作為 agent 產品的壓力測試設計參考**：multi-turn 違規反饋協議可用於你自己的 red-teaming 或 eval pipeline
-- **Limitation 1**：multi-turn 協議假設「違規時告知具體違反了哪項限制」，比真實環境寬鬆許多——現實中環境反饋往往模糊或無結構 ⚠️
+- **Limitation 1**：multi-turn 協議假設「違規時告知具體違反了哪項限制」，比真實環境寬鬆許多——現實中環境反饋往往模糊或無結構 :warning:
 - **Limitation 2**：基礎任務來自 ALFRED（模擬室內環境），跟真實物理世界的 gap 沒有評估
 
 ### Reviewer 一句話評
@@ -158,7 +158,7 @@ Multi-agent 系統裡 agents 之間傳文字很貴又有資訊損失，這篇 su
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 Latent communication 目前還在研究早期、工程可行性有限，但如果你在做 multi-agent 系統且有成本/延遲壓力，這篇的分類框架和 GitHub awesome list 是快速掌握這條技術路線現狀的最佳入口。
 
 ### 領域背景
@@ -187,8 +187,8 @@ Token-based communication 的成本問題在大規模 multi-agent 部署時會�
 - **技術成熟度（TRL）估計：2-3 / 10**——大多數研究在受控實驗室設定下展示可行性，跨模型協定、標準化介面都尚未存在
 - **與 MCP / function calling 的關係**：MCP 和 function calling 是 agent 與工具的溝通協定（文字層）；latent communication 嘗試改變的是 agent 與 agent 之間的溝通層，兩者不衝突但也不是替代關係
 - **Companion GitHub**：[github.com/enochliu98/Awesome-Latent-Communication，收錄當前重要論文，是追蹤這條研究線最省力的入口](http://github.com/enochliu98/Awesome-Latent-Communication，收錄當前重要論文，是追蹤這條研究線最省力的入口)
-- **單一作者 survey**：Yingzhuo Liu 獨立整理，社群認可度和覆蓋面需要時間驗證 ⚠️
-- **Limitation 1**：論文選取標準和覆蓋面由單一作者決定，可能有遺漏 ⚠️
+- **單一作者 survey**：Yingzhuo Liu 獨立整理，社群認可度和覆蓋面需要時間驗證 :warning:
+- **Limitation 1**：論文選取標準和覆蓋面由單一作者決定，可能有遺漏 :warning:
 - **Limitation 2**：分類框架的實用性（是否幫助工程師做選擇）需要更多社群反饋
 
 ### Reviewer 一句話評

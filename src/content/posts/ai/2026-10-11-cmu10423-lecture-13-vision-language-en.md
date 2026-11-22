@@ -12,7 +12,7 @@ draft: false
 description: "A complete worked example and answered variations for Vision-Language Models: Turning Images into Language-Model Inputs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-13-vision-language)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

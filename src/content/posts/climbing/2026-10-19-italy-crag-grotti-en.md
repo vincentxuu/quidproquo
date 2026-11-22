@@ -13,7 +13,7 @@ description: "A guide to Grotti: rock and scale at Grotti Alta, Deposito, Canile
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-grotti)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-grotti)
 
 Grotti is a small village in the municipality of Cittaducale, in the province of Rieti in northern Lazio, at the mouth of the Valle del Salto southeast of Rieti. The wall above the village is one of central Italy's best-known hard sport crags: [Planetmountain](https://www.planetmountain.com/en/crags/grotti.html) captions it "The great crag in central Italy", and [Oliunid](https://oliunid.com/blog/climbing-grotti-historic-routes-arrampicaroma-nord) quotes guidebook author Riccardo Innocenti calling Grotti one of Lazio's strongholds of high difficulty.
 

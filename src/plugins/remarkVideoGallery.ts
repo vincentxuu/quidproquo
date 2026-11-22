@@ -1,6 +1,7 @@
 // src/plugins/remarkVideoGallery.ts
 import type { Root } from 'mdast';
 import { videoGalleries, type GalleryVideo } from '../data/climbing-videos';
+import { stripEmojiText } from './rehypeNoEmoji';
 
 /**
  * Remark plugin: turns a ```video-gallery fence into one player plus a sideways
@@ -64,8 +65,9 @@ function cardLabels(video: GalleryVideo, lang: GalleryLang) {
   return {
     route: escapeHtml(lang === 'en' ? video.routeEn : video.route),
     note: escapeHtml(lang === 'en' ? video.noteEn : video.note),
-    channel: escapeHtml(video.channel),
-    title: escapeHtml(video.title),
+    // 影片標題與頻道名照 YouTube 原文存；站上不顯示 emoji，輸出前清掉（屬性裡的 title 不經過 rehypeNoEmoji）。
+    channel: escapeHtml(stripEmojiText(video.channel)),
+    title: escapeHtml(stripEmojiText(video.title)),
   };
 }
 
@@ -79,14 +81,14 @@ export function renderVideoGallery({ lang, videos, layout }: VideoGallerySpec): 
   const nextLabel = lang === 'en' ? 'Next videos' : '下一組影片';
 
   const caption = first
-    ? `${playlist ? '' : `${escapeHtml(lang === 'en' ? first.routeEn : first.route)} · `}${escapeHtml(lang === 'en' ? first.noteEn : first.note)} · ${escapeHtml(first.channel)}`
+    ? `${playlist ? '' : `${escapeHtml(lang === 'en' ? first.routeEn : first.route)} · `}${escapeHtml(lang === 'en' ? first.noteEn : first.note)} · ${escapeHtml(stripEmojiText(first.channel))}`
     : '';
 
   const player = first
     ? [
         '<div class="video-gallery__player">',
         '<div class="video-gallery__frame">',
-        `<iframe data-video-gallery-player src="${escapeHtml(embedSrc(first.id))}" title="${escapeHtml(first.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
+        `<iframe data-video-gallery-player src="${escapeHtml(embedSrc(first.id))}" title="${escapeHtml(stripEmojiText(first.title))}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
         '</div>',
         `<p class="video-gallery__now" data-video-gallery-now aria-live="polite">${caption}</p>`,
         '</div>',

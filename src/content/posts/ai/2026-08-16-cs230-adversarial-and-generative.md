@@ -13,7 +13,7 @@ description: "Stanford CS230（2025 秋季）Lecture 4 完整導讀：對抗攻�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs230-adversarial-and-generative-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

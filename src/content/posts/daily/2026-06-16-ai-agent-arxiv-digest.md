@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 23
 ---
-> 🌏 [English version](/posts/daily/2026-06-16-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-16-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -74,7 +74,7 @@ Agent 在與環境互動後需要「反思」——判斷「我剛才做對了�
 - **衍生應用一**：Self-improvement with pseudo-rewards（不需 outcome 監督訊號）
 - **衍生應用二**：Test-time selective prediction（過濾掉 reflection 說答錯的 rollout）
 - **落地門檻**：需要 RL fine-tuning 基礎設施；無法直接套用到 inference-only 的生產 agent
-- **Limitation**：只在 text-to-SQL 上驗證；task accuracy 提升幅度偏小（1.4pp）；44.4% 的 baseline underconfidence rate ⚠️（不確定是否為特定模型特性，還是普遍現象）
+- **Limitation**：只在 text-to-SQL 上驗證；task accuracy 提升幅度偏小（1.4pp）；44.4% 的 baseline underconfidence rate :warning:（不確定是否為特定模型特性，還是普遍現象）
 
 ### Reviewer 一句話評
 
@@ -156,7 +156,7 @@ P1/P2 分類清晰，liteshell + MCP 並列有實務說服力，解決了真實�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 EurekAgent 的環境工程架構思維對 agent 平台設計很有啟發，但應用場景偏向科研自動化，數字需存疑，快速掌握架構模式即可。
 
 ### 領域背景
@@ -186,17 +186,17 @@ EurekAgent 的核心是「問題定義介面 + 容器隔離」：
 - **雙容器隔離**：Agent container（Claude Code + workspace）↔ Grader container（私有 [evaluate.py](http://evaluate.py)），原理與 RL 裡的 reward model 隔離相同，防止 agent 「偷看答案」
 - **End-to-end research loop**：proposal → implementation → evaluation → refinement 四步循環，支援 resumable 長時間運行
 - **關鍵數據**：
-- 數學最佳化（circle packing 等）：宣稱 SOTA ⚠️（內部定義 benchmark，比較對象需自行核查）
-- Kernel engineering（TriMul 矩陣乘法）：2247.78 μs → 2005.03 μs（降約 10.8%）⚠️（單一 micro-benchmark）
-- ML（MLE-Bench subset）：85.71% vs. 71.43% 先前最佳（+14.28pp）⚠️（subset，非完整 MLE-Bench 全集）
+- 數學最佳化（circle packing 等）：宣稱 SOTA :warning:（內部定義 benchmark，比較對象需自行核查）
+- Kernel engineering（TriMul 矩陣乘法）：2247.78 μs → 2005.03 μs（降約 10.8%）:warning:（單一 micro-benchmark）
+- ML（MLE-Bench subset）：85.71% vs. 71.43% 先前最佳（+14.28pp）:warning:（subset，非完整 MLE-Bench 全集）
 - **成本**：數學最佳化每次執行 API cost 低於 **$17**
 - **tech stack**：Python 3.12 + Claude Code + Docker，未用傳統 orchestration 框架
 - **Reward hacking 防制**：Grader container 隔離是核心；評分邏輯完全不暴露給 agent
-- **Limitation**：評測任務為精心挑選的場景；⚠️ 數字均來自 subset 或 micro-benchmark；$17/run 在規模化使用時成本顯著；泛化到「環境未事先為 agent 設計的任務」尚無驗證
+- **Limitation**：評測任務為精心挑選的場景；:warning: 數字均來自 subset 或 micro-benchmark；$17/run 在規模化使用時成本顯著；泛化到「環境未事先為 agent 設計的任務」尚無驗證
 
 ### Reviewer 一句話評
 
-「環境工程比流程工程更重要」有說服力，容器隔離防 reward hacking 設計實務。但數據比較對象均為 subset 或內部 benchmark，⚠️ 有選擇性報告嫌疑，全集測試表現未知。整體是「架構思維值得學，數字先存疑」。
+「環境工程比流程工程更重要」有說服力，容器隔離防 reward hacking 設計實務。但數據比較對象均為 subset 或內部 benchmark，:warning: 有選擇性報告嫌疑，全集測試表現未知。整體是「架構思維值得學，數字先存疑」。
 
 ### 給你的 take-away
 

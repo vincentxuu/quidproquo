@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 2: mod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-how-embeddings-are-trained)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

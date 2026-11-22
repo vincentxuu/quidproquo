@@ -13,7 +13,7 @@ description: "An introduction to South Korea’s outdoor climbing: representativ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-korea-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-21-korea-crags-overview)
 
 Korean climbing often brings Insubong to mind first: granite slabs and cracks above Seoul, with the city unfolding behind you as you gain height. But if your ideal trip means clipping bolts and working moves on short routes, Gochang’s limestone may be a better match. Bouldering opens up another map altogether.
 

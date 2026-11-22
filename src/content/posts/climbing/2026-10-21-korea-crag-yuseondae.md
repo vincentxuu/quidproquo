@@ -13,7 +13,7 @@ description: "遊仙臺攀岩指南：比較路線級數與走法版本、束草
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-yuseondae-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-yuseondae-en)
 
 遊仙臺（유선대，Yuseondae，也拼 Yoosun-Dae、Youseon-dae）在飛仙臺上方，和將軍峰一帶共享進山方向。它最值得先問的問題是：你想沿稜線看整片外雪嶽，還是想把時間花在裂隙和岩板上？
 

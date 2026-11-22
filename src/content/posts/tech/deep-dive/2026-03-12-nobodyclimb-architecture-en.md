@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-12-nobodyclimb-architecture)
 
 NobodyClimb is a community platform for climbers — a place to log ascents, write stories, share one-liner reflections, and ask an AI climbing-related questions. The entire stack, from frontend to backend to AI, runs on Cloudflare infrastructure. No EC2, no RDS, no standalone inference server. This post walks through the reasoning behind those architecture decisions.
 

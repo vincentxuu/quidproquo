@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-composio-agent-tool-integration)
+:globe: [中文版](/posts/ai/2026-08-21-composio-agent-tool-integration)
 
 This site's MCP coverage is fairly complete: [the protocol itself](/posts/ai/2026-03-22-mcp-model-context-protocol-en), the [Playwright](/posts/tech/2026-06-20-playwright-mcp-en) and [Chrome DevTools](/posts/tech/2026-06-20-chrome-devtools-mcp-en) browser servers, [wrapping your own scraper as an MCP server](/posts/tech/2026-03-20-mcp-server-job-scraper-en), [how to mount them in Claude Code](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en), and [how the protocol layers divide the work](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en).
 

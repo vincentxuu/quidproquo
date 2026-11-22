@@ -14,7 +14,7 @@ description: "Page-grounded guides to CS329Z Lectures 02 and 03, followed by det
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

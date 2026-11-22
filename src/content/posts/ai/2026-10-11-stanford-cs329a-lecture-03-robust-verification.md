@@ -13,7 +13,7 @@ tldr: "最後答案正確不代表推導成立；步驟回饋能定位錯誤，�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-03-robust-verification-en)
 
 **影片狀態：已附影片。** 本文依 [Stanford CS329A Autumn 2025 官方課表](https://cs329a.stanford.edu/) 第 3 堂，結合 Stanford Online 錄影字幕與指定閱讀導讀。字幕由字幕服務取得，人工或自動來源尚未確認；本文不是完整逐字稿或親聽筆記。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-vllm-self-host-decision-en)
+:globe: [English version](/posts/ai/2026-08-21-vllm-self-host-decision-en)
 
 這個系列到目前為止談的都是應用層：路由、驗證、文件格式。這篇往下鑽一層，到自架推論服務——這一層直接決定你自己跑模型的成本與延遲，而且是少數「選錯會在帳單上看到」的決定。
 

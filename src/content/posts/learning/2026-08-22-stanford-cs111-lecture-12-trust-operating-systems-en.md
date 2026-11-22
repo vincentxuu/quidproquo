@@ -13,7 +13,7 @@ description: "A slide-by-slide reading of Stanford CS111 Spring 2026 Lecture 12 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-12-trust-operating-systems)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

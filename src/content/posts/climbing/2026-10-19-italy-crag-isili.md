@@ -13,7 +13,7 @@ description: "伊西利（Isili）攀岩介紹：大外傾石灰岩的風格與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-isili-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-isili-en)
 
 伊西利（Isili）是薩丁尼亞島中部的小鎮，在首府卡利亞里（Cagliari）北方。義大利官方觀光網站 [italia.it](https://www.italia.it/en/sardinia/things-to-do/free-climbing-sardinia) 把它和[卡拉戈諾內](/posts/climbing/2026-10-18-italy-crag-cala-gonone)、[耶爾祖](/posts/climbing/2026-10-19-italy-crag-ulassai)、蘇普拉蒙特、[伊格雷西恩特](/posts/climbing/2026-10-19-italy-crag-domusnovas)並列為薩丁尼亞不能錯過的岩場，並說這裡「attract the best climbers in Europe」。
 

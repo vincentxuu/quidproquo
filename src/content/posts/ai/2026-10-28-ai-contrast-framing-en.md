@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-28-ai-contrast-framing)
+> :globe: [中文版](/posts/ai/2026-10-28-ai-contrast-framing)
 
 ## What the construction is
 

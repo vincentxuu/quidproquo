@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-ngrok-ingress-tunnel)
+> :globe: [中文版](/posts/tech/2026-08-22-ngrok-ingress-tunnel)
 
 [ngrok](https://ngrok.com/docs/what-is-ngrok) is a global reverse-proxy and ingress platform. A local agent establishes an outbound persistent TLS connection to ngrok's cloud; an external client reaches a public endpoint, and the cloud forwards traffic through that tunnel to the upstream. No inbound firewall port is necessary, but the service has gained a public entrance. Those facts are not equivalent to private access.
 

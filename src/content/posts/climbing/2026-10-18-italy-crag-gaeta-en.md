@@ -13,7 +13,7 @@ description: "A guide to the Gaeta crags: rock, scale and seasons at Grotta dell
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-gaeta)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-gaeta)
 
 Gaeta is a small town on a peninsula at the southern end of Lazio, poking out into the Tyrrhenian Sea. Climbers come for two places: the big cave on Arenauta beach (Spiaggia dell'Arenauta), below the coast road north of town, and the sea cliffs of Montagna Spaccata, which drop straight into the water inside the [Monte Orlando regional park](https://parchilazio.it/rivieradiulisse-schede-32058-the_riviera_di_ulisse_regional_park) on the Gulf of Gaeta.
 
@@ -96,7 +96,7 @@ From the parking, walk into the sanctuary, turn left and then right through a tu
 
 ## Rules to know before you go
 
-**Approdo dei Proci is closed.** The warning on [theCrag](https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/approdo-dei-proci) reads: "L'intera falesia approdo dei proci è interdetta con ordinanza del 2014" (the whole of Approdo dei Proci has been off-limits under an order since 2014). 27crags also marks it with ⛔.
+**Approdo dei Proci is closed.** The warning on [theCrag](https://www.thecrag.com/en/climbing/italy/spiaggia-dellareonauta/approdo-dei-proci) reads: "L'intera falesia approdo dei proci è interdetta con ordinanza del 2014" (the whole of Approdo dei Proci has been off-limits under an order since 2014). 27crags also marks it with ✗.
 
 **The stairs to the cave are private.** Sources give different fees:
 
@@ -144,7 +144,7 @@ Seven of the ten most-repeated cave routes on Climbook fall in this band.
 | Route | Grade | YDS | Length / pitches | Sector | Notes |
 |---|---|---|---|---|---|
 | [SuperElma](https://www.falesia.it/crag/12/gaeta-montagna-spaccata.html) | 6a+ | 5.10b | 150 m, multi-pitch | Montagna Spaccata | Listed by falesia.it as a long route, I / S2 |
-| L'ombra dello scorpione L1 | 6a+ | 5.10b | single pitch | Grotta | 190 ascents on Climbook; 27crags flags the extension (7c) with ⚠️ |
+| L'ombra dello scorpione L1 | 6a+ | 5.10b | single pitch | Grotta | 190 ascents on Climbook; 27crags flags the extension (7c) with :warning: |
 | Arreu arreu | 6a+ | 5.10b | single pitch | Grotta | 159 ascents on Climbook |
 | Cavalieri selvaggi L1 | 6a+ (Climbook) / 6b (27crags) | 5.10b | single pitch | Grotta | The extension to the second anchor is 8a+ (27crags) |
 | Invidia L1 | 6b (Climbook) / 6b+ (27crags) | 5.10c | single pitch | Grotta | 203 ascents on Climbook |

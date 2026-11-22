@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-10-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-10-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Agent 的表現越來越取決於鷹架而非模型本身。之前的做法是�
 ### 深入要點
 
 - GPT-5.6 Sol 整體 46.3 分（+16.6），Claude Opus 4.8 緊追 45.8（+16.1）
-- 人工精調的 Artificial Harness 為 47.5 分——頂級模型已接近但尚未超越 ⚠️（作者自測，外部複現待定）
+- 人工精調的 Artificial Harness 為 47.5 分——頂級模型已接近但尚未超越 :warning:（作者自測，外部複現待定）
 - Search 任務增益巨大（+32.8），General 任務中等（+11.0），Office 任務幾乎不動（+3.2）
 - 開源模型 Qwen3.6-27b 排第六，整體 39.4（+9.7），證明不一定要頂級閉源模型
 - 發現「早期飽和」現象：多數模型在前 3-5 輪就不再進步
@@ -105,7 +105,7 @@ Jung Hwan Lee, Kyu Ho Lee, Gwang Hoon Yoo　·　arxiv: 2608.10504
 
 - Wisdom Graph 用 PCR 三元組表示知識，比純向量檢索多出「橋接推理」能力
 - Layer 3 的歸因機制用受控實驗消除數據方差，避免「以為改了 A 導致進步但其實是 B」
-- 技術報告 29 頁，架構清楚但目前無公開基準測試數據 ⚠️（尚未與 DSPy/AFlow/TextGrad 對比）
+- 技術報告 29 頁，架構清楚但目前無公開基準測試數據 :warning:（尚未與 DSPy/AFlow/TextGrad 對比）
 - 對 Agent 平台而言，核心創新在於「元級自我進化」——不只是 Agent 變好，而是讓 Agent 變好的方法也在變好
 - Limitation：全為理論架構與內部實驗，缺少開源實作和社群複現
 
@@ -147,7 +147,7 @@ Wanying Qu, Qinghua Mao, Yu Li et al.（Shanghai AI Lab / Fudan / SJTU / HKUST�
 
 ### 深入要點
 
-- Agent-SafetyBench 上 ASR 從 seed 的約 23% 降到 evolved 的約 7%，降幅 3.1× ⚠️（作者自測）
+- Agent-SafetyBench 上 ASR 從 seed 的約 23% 降到 evolved 的約 7%，降幅 3.1× :warning:（作者自測）
 - 同時 benign utility 有提升，不是靠過度拒絕換來的安全
 - 遷移到 AgentHarm 基準（held-out，未參與演化）：ASR 從 37.4% 降到 9.8%（-10.0 百分點 vs seed）
 - 換模型測試：GPT-5.5、DeepSeek-V3.2、GLM-5.2 都能受益於同一套進化後的鷹架

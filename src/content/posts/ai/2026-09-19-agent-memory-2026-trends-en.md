@@ -13,7 +13,7 @@ description: "Five trends shaping agent memory systems in 2026 — from the desi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-2026-trends)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-2026-trends)
 
 This is the tenth post (order 9) in the [AI Agent Memory Engineering series](/posts/ai/2026-09-19-agent-memory-engineering-series-intro), and its finale. The previous nine posts dissected [short-term context management](/posts/ai/2026-08-21-context-full-seven-answers-en), coding-agent and cloud-platform memory designs, open-source framework selection, deep dives into [Mem0](/posts/ai/2026-08-22-mem0-agent-memory-en) and [OpenViking](/posts/ai/2026-08-22-openviking-agent-memory-en), and the attack surface. This post introduces no new systems. Instead, it steps back to survey the field: what is actually happening in 2026, and where should you place your bets.
 

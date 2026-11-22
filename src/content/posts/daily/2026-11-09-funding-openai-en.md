@@ -12,7 +12,7 @@ series:
   order: 129
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-funding-openai)
+> :globe: [中文版](/posts/daily/2026-11-09-funding-openai)
 
 ## Funding Details
 
@@ -50,7 +50,7 @@ step: September 2026: target floated
 step: November 6, 2026: first tranche closes
 step: Expected within weeks: full round closes
 ---
-<svg viewBox="0 0 520 160">
+<svg viewBox="0 0 552 160">
   <rect class="dg-box" x="8" y="52" width="150" height="64" rx="6" data-step="1"/>
   <text class="dg-label" x="83" y="76" text-anchor="middle" dominant-baseline="central" data-step="1">Target: $30B</text>
   <text class="dg-sub" x="83" y="96" text-anchor="middle" dominant-baseline="central" data-step="1">Valuation $1.4T</text>
@@ -63,9 +63,9 @@ step: Expected within weeks: full round closes
 
   <path class="dg-line" d="M340 84H372" marker-end="url(#arrow)" data-step="3"/>
 
-  <rect class="dg-box" x="372" y="52" width="140" height="64" rx="6" data-step="3"/>
-  <text class="dg-label" x="442" y="76" text-anchor="middle" dominant-baseline="central" data-step="3">Full close: up to $20B</text>
-  <text class="dg-sub" x="442" y="96" text-anchor="middle" dominant-baseline="central" data-step="3">Valuation TBD</text>
+  <rect class="dg-box" x="372" y="52" width="172" height="64" rx="6" data-step="3"/>
+  <text class="dg-label" x="458" y="76" text-anchor="middle" dominant-baseline="central" data-step="3">Full close: up to $20B</text>
+  <text class="dg-sub" x="458" y="96" text-anchor="middle" dominant-baseline="central" data-step="3">Valuation TBD</text>
 </svg>
 ```
 

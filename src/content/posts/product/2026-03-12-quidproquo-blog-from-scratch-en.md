@@ -10,7 +10,7 @@ description: "Why I built quidproquo.cc, how I chose the tech stack, and how the
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-03-12-quidproquo-blog-from-scratch)
+> :globe: [中文版](/posts/product/2026-03-12-quidproquo-blog-from-scratch)
 
 ## Why Build This
 

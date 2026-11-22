@@ -21,7 +21,7 @@ glossary:
     context: "GPT-2 notebook 手動把 padding 位置的標籤換成 −100；T5 由 DataCollatorForSeq2Seq 代勞。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-gpt2-t5-summarization-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

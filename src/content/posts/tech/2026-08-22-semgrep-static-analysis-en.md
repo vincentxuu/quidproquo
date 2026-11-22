@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-semgrep-static-analysis)
+> :globe: [中文版](/posts/tech/2026-08-22-semgrep-static-analysis)
 
 [Semgrep](https://semgrep.dev/docs/) makes static-analysis rules resemble target-language source. Simple patterns ban dangerous APIs, missing arguments, or organization-specific usage. Metavariables and semantic matching tolerate naming and some syntax differences. Taint mode describes untrusted sources flowing through propagators to dangerous sinks, optionally through sanitizers.
 

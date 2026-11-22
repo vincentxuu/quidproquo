@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ts-rest-contract-en)
+> :globe: [English version](/posts/tech/2026-08-22-ts-rest-contract-en)
 
 [ts-rest](https://ts-rest.com/) 的定位是「RPC-like client，普通 REST wire」。你先用共享 TypeScript contract 寫出 method、path、query、body、headers、response status 與 schema，再讓 server adapter 實作、client 依同一份 contract 呼叫。沒有獨立 code-generation step，也不要求把 endpoint 改成自訂 RPC protocol。
 

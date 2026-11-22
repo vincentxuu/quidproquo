@@ -10,11 +10,11 @@ tldr: "browse.sh, launched by Browserbase in May 2026, is two things: a browser 
 description: "A breakdown of Browserbase's browse.sh: the browser skill catalog, the Browse CLI, how Autobrowse trains skills, its relationship to the AgentSkills standard, and what 'open source and free' actually means here."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 6
+  name: "AI Browser Automation"
+  order: 7
 ---
 
-🌏 [中文版](/posts/ai/2026-05-23-browse-sh-browser-skills)
+:globe: [中文版](/posts/ai/2026-05-23-browse-sh-browser-skills)
 
 If your first reaction to "browse.sh" is "oh, that terminal text browser" — pause. **That's a different thing entirely.** This post is about the browse.sh launched by Browserbase in May 2026: a browser skill catalog and CLI designed to stop AI agents from re-discovering the same website from scratch every single time. The one-line pitch is direct: the bottleneck for browser agents has never been intelligence. It's amnesia.
 

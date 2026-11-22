@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### cloudflare/security-audit-skill ⭐ 6,504（+1,249 今日）
+### cloudflare/security-audit-skill ★ 6,504（+1,249 今日）
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### vercel/eve ⭐ 5,191
+### vercel/eve ★ 5,191
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### volcengine/OpenViking ⭐ 37,736
+### volcengine/OpenViking ★ 37,736
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Python　·　AGPL-3.0
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### anthropics/knowledge-work-plugins ⭐ 24,221
+### anthropics/knowledge-work-plugins ★ 24,221
 
 [GitHub](https://github.com/anthropics/knowledge-work-plugins)　·　Python　·　Apache-2.0
 
@@ -61,7 +61,7 @@ series:
 
 ---
 
-### Panniantong/Agent-Reach ⭐ 82,445
+### Panniantong/Agent-Reach ★ 82,445
 
 [GitHub](https://github.com/Panniantong/Agent-Reach)　·　Python　·　MIT
 

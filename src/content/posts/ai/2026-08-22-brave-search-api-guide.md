@@ -10,7 +10,7 @@ description: "從獨立索引、搜尋端點與回應格式，到 freshness、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-brave-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-brave-search-api-guide-en)
 
 [Brave Search API](https://brave.com/search/api/) 是把 Brave Search 的網頁索引開放給程式使用的搜尋服務。它不是把 Google 或 Bing 的結果頁抓回來再轉成 JSON；Brave 的說法是，一般網頁結果來自自有索引與排名模型。這讓 Agent 可以取得另一套搜尋排序，而不只是替 Google SERP 換一層 API 包裝。
 

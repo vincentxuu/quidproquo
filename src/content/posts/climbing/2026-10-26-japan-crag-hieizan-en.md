@@ -13,7 +13,7 @@ description: "Hieizan climbing guide: seasons, transport, local access rules, ro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-hieizan)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-hieizan)
 
 For a full-day Japanese big-wall outing, Hieizan offers a different comparison from Ogawayama or Mizugaki. This is Hieizan in Miyazaki, not the similarly named mountain near Kyoto and Shiga; navigate to Kitakata in Nobeoka.
 

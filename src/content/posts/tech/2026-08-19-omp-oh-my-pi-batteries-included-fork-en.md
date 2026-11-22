@@ -13,7 +13,7 @@ description: "How omp (Oh My Pi) actually diverges from upstream Pi: tool count,
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)
+:globe: [中文版](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)
 
 [Pi is a coding harness kept deliberately small](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness-en) — four tools handed to the model, with MCP, sub-agents, plan mode, and permission popups all explicitly declined. omp (Oh My Pi) is its fork, and it runs in the opposite direction: 31 built-in tools, 14 LSP operations, 28 DAP operations, 60+ model providers, and roughly 80,000 lines of Rust.
 

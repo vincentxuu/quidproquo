@@ -14,7 +14,7 @@ description: "仁壽峰 Insubong 攀岩指南：春秋季節、北漢山牛耳�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-insubong-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-insubong-en)
 
 從仁壽峰上方的繩距回頭看，首爾會從樹梢後面慢慢展開。這座位於北漢山國立公園的花崗岩岩峰，讓城市旅行和多繩距（多段）攀登可以排在同一趟；但地鐵到得了山腳，不代表岩壁適合第一次戶外先鋒。
 

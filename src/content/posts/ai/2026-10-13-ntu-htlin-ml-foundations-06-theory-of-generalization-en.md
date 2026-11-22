@@ -33,7 +33,7 @@ glossary:
     context: "The first step of the VC bound proof."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization)
+> :globe: [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-06-theory-of-generalization)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [06_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/06_handout.pdf) and transcripts of this lecture's four official videos, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/27 to 27/27), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

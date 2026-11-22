@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-external-coding-runner)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-external-coding-runner)
 
 In the complete series plan, orders 4–6 cover Looplane's native lane, from the loop and provider contract through routing and fallback. This article switches to the second runtime lane: the same task may be delegated to Codex CLI, Claude Code CLI, OpenCode, Pi, or OMP, each of which already owns its own loop. Looplane handles the handoff: it sends a task and bounded workspace, receives a patch, and audits that patch itself.
 

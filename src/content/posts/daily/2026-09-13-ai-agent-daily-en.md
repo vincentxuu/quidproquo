@@ -144,15 +144,15 @@ Today's funding briefs: dental-practice management platform [Archy](/posts/daily
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-github-digest) (zh-TW only today)
-- 📄 [Model Card｜Agnes 3.0 Flash](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
-- 📄 [Security Alert | OpenAI Agent Swarm Gained RCE on RubyDoc.info Servers in RubyGems Supply-Chain Campaign](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce-en)
-- 📄 [Tool Pick | agentgateway-lint](/posts/daily/2026-09-13-tool-agentgateway-lint-en)
-- 📄 [Funding Brief｜Archy Series C $50M](/posts/daily/2026-09-13-funding-archy-en)
-- 📄 [Funding Brief｜GenHealth.ai Series A $16.5M](/posts/daily/2026-09-13-funding-genhealth-ai-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-13: Weekly Review & Behavioral](/posts/daily/2026-09-13-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-13: Behavioral & Weekly Review](/posts/daily/2026-09-13-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-github-digest) (zh-TW only today)
+- :file: [Model Card｜Agnes 3.0 Flash](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
+- :file: [Security Alert | OpenAI Agent Swarm Gained RCE on RubyDoc.info Servers in RubyGems Supply-Chain Campaign](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce-en)
+- :file: [Tool Pick | agentgateway-lint](/posts/daily/2026-09-13-tool-agentgateway-lint-en)
+- :file: [Funding Brief｜Archy Series C $50M](/posts/daily/2026-09-13-funding-archy-en)
+- :file: [Funding Brief｜GenHealth.ai Series A $16.5M](/posts/daily/2026-09-13-funding-genhealth-ai-en)
+- :file: [AI Engineer Interview Daily — 2026-09-13: Weekly Review & Behavioral](/posts/daily/2026-09-13-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-13: Behavioral & Weekly Review](/posts/daily/2026-09-13-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

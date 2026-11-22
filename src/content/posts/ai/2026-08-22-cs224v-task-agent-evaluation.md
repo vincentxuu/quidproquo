@@ -12,7 +12,7 @@ tldr: "CS224V 把任務型 agent 評估拆成狀態更新與完整互動：先�
 description: "CS224V Evaluation of Task-Oriented Agents：架構比較、Worksheet 與狀態機差異、兩段式評估、STARv2 與真人測試。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-task-agent-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-task-agent-evaluation-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

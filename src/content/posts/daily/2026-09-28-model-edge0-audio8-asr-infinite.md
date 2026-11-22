@@ -15,7 +15,7 @@ glossary:
     def: "Edge0 開發的串流語音辨識（ASR）模型系列，Audio8 ASR Infinite 是首個公開釋出的版本"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite-en)
+> :globe: [English version](/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | LibriSpeech test-other（英文，WER） | 6.81% | **5.55%** | 7.14%＠560ms |
 | 平均錯誤率 | **3.62%** | 10.25%（僅 2 組） | 9.52% |
 
-⚠️ 以上為 Edge0 官方在 80ms 音訊時鐘、480ms 轉錄延遲設定下的自測數據（greedy decode，EOS 抑制）。GitHub Issue #1 有第三方獨立復現，數字與官方表格一致。
+:warning: 以上為 Edge0 官方在 80ms 音訊時鐘、480ms 轉錄延遲設定下的自測數據（greedy decode，EOS 抑制）。GitHub Issue #1 有第三方獨立復現，數字與官方表格一致。
 
 ## 與前代/競品比較
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-partykit-realtime-rooms)
+> :globe: [中文版](/posts/tech/2026-08-22-partykit-realtime-rooms)
 
 [PartyKit](https://docs.partykit.io/) is a JavaScript platform for multiplayer and realtime applications. Its core model routes a room ID to one `Party.Server` instance that accepts WebSocket connections, keeps room-local coordination state, broadcasts, and optionally writes storage. This resembles an actor more than a fleet of stateless WebSocket servers plus global pub/sub.
 

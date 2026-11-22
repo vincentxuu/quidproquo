@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-trpc-typesafe-api-en)
+> :globe: [English version](/posts/tech/2026-08-22-trpc-typesafe-api-en)
 
 [tRPC](https://trpc.io/docs/) 的核心很直接：server 匯出 `AppRouter` 型別，client 用同一個型別取得 procedure 路徑、input、output 與 error 的自動完成。合約不是另一份 IDL，也不需要 code generation；TypeScript inference 本身就是連接兩端的橋。
 

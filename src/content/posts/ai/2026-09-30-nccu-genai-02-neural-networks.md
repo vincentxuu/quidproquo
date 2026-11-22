@@ -25,7 +25,7 @@ glossary:
     context: "GenAI02 第 52 頁用它說明神經網路為什麼是「近乎全能的黑暗函數學習法」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-02-neural-networks-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-weekly-review)
+> :globe: [中文版](/posts/daily/2026-10-02-weekly-review)
 
 ## The 5 things that mattered most this week
 
@@ -59,13 +59,13 @@ The implication for Taiwanese companies and startups: the EliseAI/Atomic path fi
 
 ## Watchlist update recommendations
 
-### 🆕 Suggested additions
+### Suggested additions
 
-✅ The most frequently mentioned companies in this week's signals (OpenAI, Anthropic, Meta, Amazon, Cloudflare, Google, Microsoft, NVIDIA, etc.) are all already on the watchlist — no new additions (checked against the threshold of "appears in signals ≥3 times and isn't already on the watchlist"; this week's startup funding signals mostly came from standalone funding-roundup posts rather than repeated signal exposure, so they're listed below under "Startup radar" instead)
+✓ The most frequently mentioned companies in this week's signals (OpenAI, Anthropic, Meta, Amazon, Cloudflare, Google, Microsoft, NVIDIA, etc.) are all already on the watchlist — no new additions (checked against the threshold of "appears in signals ≥3 times and isn't already on the watchlist"; this week's startup funding signals mostly came from standalone funding-roundup posts rather than repeated signal exposure, so they're listed below under "Startup radar" instead)
 
-### ⚠️ Considered for removal
+### :warning: Considered for removal
 
-✅ No companies met the removal criteria this week
+✓ No companies met the removal criteria this week
 
 ## This week's startup radar
 

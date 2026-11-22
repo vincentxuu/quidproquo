@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-server-sent-events-en)
+> :globe: [English version](/posts/tech/2026-08-22-server-sent-events-en)
 
 [Server-Sent Events](https://html.spec.whatwg.org/multipage/server-sent-events.html)（SSE）讓 server 透過長時間 HTTP response 單向推送 UTF-8 events。Browser `EventSource` 會處理 parsing 與 reconnect，適合通知、job progress、LLM token stream、dashboard update；client-to-server command 繼續走一般 HTTP。
 

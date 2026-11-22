@@ -10,11 +10,11 @@ tldr: "@playwright/mcp defaults to an accessibility tree (browser_snapshot) inst
 description: "A deep-dive into @playwright/mcp: installation, tool groups and the --caps switch, the token advantages of accessibility tree mode, profile and session management, and when to switch to screenshot mode or to the Playwright CLI instead."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 1
+  name: "AI Browser Automation"
+  order: 2
 ---
 
-> 🌏 [中文版](/posts/tech/2026-06-20-playwright-mcp)
+> :globe: [中文版](/posts/tech/2026-06-20-playwright-mcp)
 
 [@playwright/mcp](https://github.com/microsoft/playwright-mcp) is the official Playwright MCP server maintained by Microsoft, letting AI agents control a browser through the [Model Context Protocol](https://modelcontextprotocol.io/). Its defining design choice: **no screenshots by default**. Instead it returns an ARIA accessibility tree to describe page state, dramatically cutting token consumption.
 

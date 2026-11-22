@@ -20,7 +20,7 @@ glossary:
     def: "A set of FFN parameters in MoE. Each expert is a specialized sub-network; the model selectively activates a few of them based on input"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-moe-architecture-why-it-wins)
+> :globe: [中文版](/posts/ai/2026-08-26-moe-architecture-why-it-wins)
 
 Frontier open-source models in 2026 share one thing in common: nearly all of them are MoE. [Ornith 1.5-35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) activates 3B parameters to beat 31B dense models. [MiniMax M3](/posts/tech/2026-08-26-minimax-model-family) has 456B total but activates only 45.9B. DeepSeek V4 Pro is 1.6T total with 49B active. Qwen3.8's largest variant is 2.4T total with 95B active. According to [DeepInfra's analysis](https://deepinfra.com/blog/mixture-of-experts-llm-economics-price-drop), MoE has "transitioned from a research curiosity to the dominant architecture for frontier models." This post uses real case studies to explain why MoE wins and when it doesn't.
 

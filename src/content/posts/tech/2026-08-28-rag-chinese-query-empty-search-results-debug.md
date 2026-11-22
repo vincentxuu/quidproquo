@@ -14,7 +14,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug-en)
+> :globe: [English version](/posts/tech/2026-08-28-rag-chinese-query-empty-search-results-debug-en)
 
 > **搭配閱讀（選讀）**：零基礎可以直接讀本文。想先補概念，可搭配 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 與 [RAG 常見失敗模式](/posts/ai/2026-03-12-rag-failure-modes)。
 

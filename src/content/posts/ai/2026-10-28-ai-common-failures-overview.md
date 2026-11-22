@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-28-ai-common-failures-overview-en)
+> :globe: [English version](/posts/ai/2026-10-28-ai-common-failures-overview-en)
 
 ## 一則被退三次的 tldr
 

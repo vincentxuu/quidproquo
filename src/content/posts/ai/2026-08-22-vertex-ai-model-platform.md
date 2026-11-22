@@ -10,7 +10,7 @@ description: "深入介紹 Google Cloud Vertex AI 的產品邊界、Model Garden
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-vertex-ai-model-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-vertex-ai-model-platform-en)
 
 [Vertex AI](https://cloud.google.com/vertex-ai) 是 Google Cloud 的託管式 AI／ML 平台。它不只是一個呼叫 Gemini 的 API：同一個控制面裡還有模型目錄、訓練、微調、評估、線上推論、pipeline、registry、特徵管理與 agent 工具。真正的賣點不是「多一個聊天模型入口」，而是讓模型從實驗走到正式環境時，沿用 Google Cloud 的 IAM、專案、帳務、網路與稽核機制。
 

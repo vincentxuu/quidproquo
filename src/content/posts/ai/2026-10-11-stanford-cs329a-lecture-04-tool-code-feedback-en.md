@@ -13,7 +13,7 @@ tldr: "Observations, tests, and principle-based critique supply different signal
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback)
+> :globe: [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-04-tool-code-feedback)
 
 **Video status: Videos included.** This guide follows Lecture 4 of the [official Stanford CS329A Autumn 2025 schedule](https://cs329a.stanford.edu/), using the Stanford Online recording transcript and the assigned reading. The transcript was retrieved through a subtitle service; automatic versus manual provenance is unverified. This is not a complete transcript or a listening report.
 

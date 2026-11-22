@@ -13,7 +13,7 @@ description: "A deck-aligned CS103 guide to the dfa definition connects the firs
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-16-finite-automata-2)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-16-finite-automata-2)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

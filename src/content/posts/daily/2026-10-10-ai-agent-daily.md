@@ -12,7 +12,7 @@ series:
   order: 56
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-10-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-10-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -144,15 +144,15 @@ Bengaluru 新創 Soket AI（獲 IndiaAI Mission 認定）推出開源 agent harn
 
 ## 今日 Digest 一覽
 
-- 📄 [Benchmark 異動｜Arena Agent 排行榜：Claude Opus 5.5 登頂](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5)
-- 📄 [框架更新｜Agno v3.1.2](/posts/daily/2026-10-10-framework-agno-3.1.2)
-- 📄 [融資速報｜Arena Series B $200M](/posts/daily/2026-10-10-funding-arena)
-- 📄 [融資速報｜Gallatin AI Series A $50M](/posts/daily/2026-10-10-funding-gallatin)
-- 📄 [定價追蹤｜Mistral Large 4 促銷五折開賣](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale)
-- 📄 [資安警報｜Tensorlake npm 供應鏈攻擊](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain)
-- 📄 [工具推薦｜AI Agent Gateway](/posts/daily/2026-10-10-tool-ai-agent-gateway)
-- 📄 [AI Engineer 面試日練 — 2026-10-10：Paper Reading](/posts/daily/2026-10-10-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-10：Technical PM](/posts/daily/2026-10-10-product-builder-interview-daily)
+- :file: [Benchmark 異動｜Arena Agent 排行榜：Claude Opus 5.5 登頂](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5)
+- :file: [框架更新｜Agno v3.1.2](/posts/daily/2026-10-10-framework-agno-3.1.2)
+- :file: [融資速報｜Arena Series B $200M](/posts/daily/2026-10-10-funding-arena)
+- :file: [融資速報｜Gallatin AI Series A $50M](/posts/daily/2026-10-10-funding-gallatin)
+- :file: [定價追蹤｜Mistral Large 4 促銷五折開賣](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale)
+- :file: [資安警報｜Tensorlake npm 供應鏈攻擊](/posts/daily/2026-10-10-security-tensorlake-npm-shai-hulud-supply-chain)
+- :file: [工具推薦｜AI Agent Gateway](/posts/daily/2026-10-10-tool-ai-agent-gateway)
+- :file: [AI Engineer 面試日練 — 2026-10-10：Paper Reading](/posts/daily/2026-10-10-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-10：Technical PM](/posts/daily/2026-10-10-product-builder-interview-daily)
 
 ## 明日關注
 

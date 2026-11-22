@@ -13,7 +13,7 @@ tldr: "A chat model is rewarded for a single response people prefer; an agent ha
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents)
+> :globe: [中文版](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents)
 
 A pretrained model can continue text, but it does not automatically become a useful assistant, let alone an agent that operates tools over many steps. The work in between is called post-training. Session 9 of [CS329A](https://cs329a.stanford.edu/) Autumn 2025 was a guest lecture by Melvin Johnson of Google DeepMind, titled "Evolution of Post-training from Chatbots to Agents." After reading this guide you should be able to say which signal serves as the reward in chat-era and agent-era post-training, and decide which one a given task needs. Prerequisite: the difference between supervised fine-tuning and reinforcement learning (RL).
 

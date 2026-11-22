@@ -13,7 +13,7 @@ tldr: "NVIDIA NIM 間歇 500 暴露了 looplane 早期只有錯誤分類、沒�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-provider-retry-policy-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-provider-retry-policy-en)
 
 ## 設計問題
 

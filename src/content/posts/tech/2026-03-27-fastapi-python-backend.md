@@ -10,7 +10,7 @@ description: "介紹 FastAPI：為什麼它在 AI 服務場景裡比 Flask 和 D
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-fastapi-python-backend-en)
+:globe: [English version](/posts/tech/2026-03-27-fastapi-python-backend-en)
 
 Python 後端框架的老問題：Flask 太簡陋、Django 太重。FastAPI 在 2018 年出現，補上了這個空缺——輕量、type-safe、async-first、自動文件。特別是在 AI/ML 服務這個場景，它幾乎已經是事實標準。
 

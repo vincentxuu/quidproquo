@@ -20,11 +20,11 @@ glossary:
     context: "Section 6's rule of thumb is m≈√d for classification and m≈d/3 for regression."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: Based on `hw4_release.tex` from [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) and §3 of the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, with no public recording links listed for the corresponding lectures and no homework solutions. I did not get the Week 7 Non-parametric Models / Decision Trees lecture slides. Problem 3 is pen-and-paper only, with no notebook code; its header gives no total, and the marked sub-parts add up to 35 points.
+> :warning: **Version and access**: Based on `hw4_release.tex` from [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) and §3 of the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), opened on 2026-09-29. The course is **A3** overall, with no public recording links listed for the corresponding lectures and no homework solutions. I did not get the Week 7 Non-parametric Models / Decision Trees lecture slides. Problem 3 is pen-and-paper only, with no notebook code; its header gives no total, and the marked sub-parts add up to 35 points.
 
 This is post 8 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en) and the last problem in HW4. The previous two posts covered [Transformers](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en) and [autoencoders to VAEs](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en).
 

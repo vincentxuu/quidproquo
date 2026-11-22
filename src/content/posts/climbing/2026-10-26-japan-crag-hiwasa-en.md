@@ -13,7 +13,7 @@ description: "Hiwasa climbing guide: seasons, transport, local access rules, rou
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-hiwasa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-hiwasa)
 
 A visit to Hiwasa requires choosing both a climbing sector and a workable local approach. This guide helps you assess the style, season and access checks needed for a first visit.
 

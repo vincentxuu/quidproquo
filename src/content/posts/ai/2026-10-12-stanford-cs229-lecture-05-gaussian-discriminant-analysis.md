@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 5 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 4 章〈Generative learning algorithms〉；我沒有看到板書與投影片畫面，講者指著畫面說的內容只寫前後文還原得出來的部分。
 

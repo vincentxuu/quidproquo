@@ -10,7 +10,7 @@ description: "A complete debugging walkthrough of a silent RAG failure: from use
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-retriever-silent-failure)
+> :globe: [中文版](/posts/ai/2026-09-19-retriever-silent-failure)
 
 ## TL;DR
 

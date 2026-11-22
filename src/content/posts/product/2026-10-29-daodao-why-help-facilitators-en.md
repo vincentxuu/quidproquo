@@ -13,7 +13,7 @@ description: "How the Taiwanese self-directed learning community DaoDao moved fr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-10-29-daodao-why-help-facilitators)
+> :globe: [中文版](/posts/product/2026-10-29-daodao-why-help-facilitators)
 
 Someone on DaoDao sets up a themed practice: "finish one book in 30 days". They check in on day one, day two and day three. In three days nobody reacts and nobody comments. On day four they stop opening the app.
 

@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-10-ai-security-cert-showdown-en)
+> :globe: [English version](/posts/tech/2026-09-10-ai-security-cert-showdown-en)
 
 2025 年 8 月 ISACA 推出 AAISM，2026 年 2 月 CompTIA 上線 SecAI+，4 月 GIAC 開賣 GASAE，7 月再加 GAIPS——18 個月內四大認證機構各自押寶 AI 安全。依 [Practical DevSecOps 的市場分析](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison)引用的 Cisco AI Workforce Consortium 數據，2025/10 至 2026/3 之間有 28.5% 的資安職缺要求 AI 技能，前一年同期是 14.2%。需求在那裡，但哪張證照真的教你東西？
 
@@ -202,12 +202,12 @@ ISACA 在 2025/8 推出的 AI 安全**管理**認證——注意是「管理」�
 | OWASP 風險 | SecAI+ | CAISP | GAIPS | AAISM |
 |---|---|---|---|---|
 | LLM01 Prompt Injection | 概念 + PBQ | **深度 lab** | **CyberLive** | 概念 |
-| LLM02 Sensitive Info Disclosure | ✅ | ✅ | ✅ | 概念 |
-| LLM03 Supply Chain | ✅ | **實作** | **實作** | ✅ 治理 |
-| LLM04 Data & Model Poisoning | ✅ 概念 | **TextAttack lab** | ✅ | 概念 |
-| LLM05 Improper Output Handling | ✅ | ✅ | ✅ | — |
-| LLM06 Excessive Agency | 概念 | ✅ | **✅ agentic** | ✅ 治理 |
-| LLM07 System Prompt Leakage | ✅ | ✅ | 部分 | — |
+| LLM02 Sensitive Info Disclosure | ✓ | ✓ | ✓ | 概念 |
+| LLM03 Supply Chain | ✓ | **實作** | **實作** | ✓ 治理 |
+| LLM04 Data & Model Poisoning | ✓ 概念 | **TextAttack lab** | ✓ | 概念 |
+| LLM05 Improper Output Handling | ✓ | ✓ | ✓ | — |
+| LLM06 Excessive Agency | 概念 | ✓ | **✓ agentic** | ✓ 治理 |
+| LLM07 System Prompt Leakage | ✓ | ✓ | 部分 | — |
 | LLM08 Vector & Embedding | 部分 | **RAG lab** | **RAG lab** | — |
 | LLM09 Misinformation | 概念 | 部分 | 部分 | 概念 |
 | LLM10 Unbounded Consumption | 部分 | 部分 | 部分 | — |

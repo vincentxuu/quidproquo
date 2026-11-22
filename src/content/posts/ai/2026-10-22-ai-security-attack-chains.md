@@ -14,7 +14,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-attack-chains-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-attack-chains-en)
 
 一次越權測試得到資料，和完成一整條攻擊鏈，是兩個不同的工作。前者只要證明某個邊界失效；後者還要讓上一段的產物成為下一段的條件，且每一段都能回到證據。
 

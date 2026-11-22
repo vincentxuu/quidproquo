@@ -22,11 +22,11 @@ glossary:
     context: "HW5 Problem 2 asks you to show that with an optimal discriminator the GAN objective is a constant plus a JS divergence term."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition and access**: Based on [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5) (`hw5_release.tex/.pdf/.ipynb`), week 10 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf) (headed Spring 2026). The week 10 lectures (SSL, contrastive learning, GANs, EBMs) are new in 2026, **the 2024 scribe notes have nothing matching them**, and there are no public recording links listed for the corresponding lectures. So everything here about lecture content comes from Section 8 and the assignment itself. Homework solutions are not public; Section 8 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
+> :warning: **Edition and access**: Based on [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5) (`hw5_release.tex/.pdf/.ipynb`), week 10 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf) (headed Spring 2026). The week 10 lectures (SSL, contrastive learning, GANs, EBMs) are new in 2026, **the 2024 scribe notes have nothing matching them**, and there are no public recording links listed for the corresponding lectures. So everything here about lecture content comes from Section 8 and the assignment itself. Homework solutions are not public; Section 8 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
 
 This is part 10 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW5 (Part 1): K-means, HAC, and PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en). Next: [HW6 (Part 1): Decoding, KV Cache, and Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en).
 

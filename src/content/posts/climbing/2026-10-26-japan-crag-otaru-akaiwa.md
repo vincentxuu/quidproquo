@@ -13,7 +13,7 @@ description: "小樽赤岩攀岩指南：季節、大眾運輸、停車、在地
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa-en)
 
 小樽海岸的赤岩把裂隙、岩面和多段攀登放在同一片海景裡。這裡是小樽的赤岩，不是占冠村的赤岩青巖峽；搜尋只打「赤岩」，很容易找到另一個目的地。
 

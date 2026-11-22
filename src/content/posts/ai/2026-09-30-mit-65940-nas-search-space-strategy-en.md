@@ -22,7 +22,7 @@ glossary:
     context: "Lecture 7 stresses that the search space design itself caps what NAS can find."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

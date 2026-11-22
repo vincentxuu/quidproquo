@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-hono-web-framework)
+:globe: [中文版](/posts/tech/2026-03-27-hono-web-framework)
 
 Express has dominated Node.js for over a decade, but running Express on Cloudflare Workers was a mistake from the start. Workers execute inside V8 Isolates, not a Node.js environment — Express's heavy reliance on Node.js APIs simply won't run. Hono was built to solve exactly this problem.
 

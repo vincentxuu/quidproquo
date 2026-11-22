@@ -26,7 +26,7 @@ glossary:
     context: "From 2025, World Cup boulder: zone 10 points, top 25 points."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-competition-mindset)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-competition-mindset)
 
 You've entered your first regional competition. You climb well at the gym, but on comp day you first wait over an hour in a room where you can't see the wall. When you're called out, you get a few minutes to look at the route, then you climb it once in front of a crowd. When you're done, you're done. There's no second go.
 

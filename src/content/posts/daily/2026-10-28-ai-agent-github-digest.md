@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, mcp-server, agent-platform, reverse-engineering]
 lang: zh-TW
 description: "今天的主線是「一個人同時管多個 agent」——Orca 和 Cindy 都在搶「多裝置、多 agent、手機也能插手」這個位置，而 wigolo 想用本地模型把搜尋 API 的帳單歸零"
-tldr: "**stablyai/orca**（⭐ 107,899）讓多個 coding agent 各自在獨立 git worktree 平行跑，手機 app 可以遠端監看；**makecindy/cindy**（⭐ 7,342）把 Claude Code／Codex 包進同一個多裝置介面；**KnockOutEZ/wigolo**（⭐ 5,507）是零 API key、本地跑的搜尋／爬蟲 MCP server；**morluto/rea**（⭐ 396,382）讓 agent 不用原始碼就能逆向拆解一個 app 功能。pydantic-ai v2.62.0 帶了好幾條會動到既有程式的相容性變更。"
+tldr: "**stablyai/orca**（★ 107,899）讓多個 coding agent 各自在獨立 git worktree 平行跑，手機 app 可以遠端監看；**makecindy/cindy**（★ 7,342）把 Claude Code／Codex 包進同一個多裝置介面；**KnockOutEZ/wigolo**（★ 5,507）是零 API key、本地跑的搜尋／爬蟲 MCP server；**morluto/rea**（★ 396,382）讓 agent 不用原始碼就能逆向拆解一個 app 功能。pydantic-ai v2.62.0 帶了好幾條會動到既有程式的相容性變更。"
 series:
   name: "AI Agent GitHub Digest"
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-28-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-28-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### stablyai/orca ⭐ 107,899
+### stablyai/orca ★ 107,899
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### makecindy/cindy ⭐ 7,342
+### makecindy/cindy ★ 7,342
 
 [GitHub](https://github.com/makecindy/cindy)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### KnockOutEZ/wigolo ⭐ 5,507
+### KnockOutEZ/wigolo ★ 5,507
 
 [GitHub](https://github.com/KnockOutEZ/wigolo)　·　TypeScript　·　AGPL-3.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### morluto/rea ⭐ 396,382
+### morluto/rea ★ 396,382
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 

@@ -11,7 +11,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-06-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-06-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### replica-skill ⭐ 469（上線 3 天）
+### replica-skill ★ 469（上線 3 天）
 
 [GitHub](https://github.com/Jakeschincariol/replica-skill)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### qiaomu-codex-imagegen ⭐ 91（上線 2 天）
+### qiaomu-codex-imagegen ★ 91（上線 2 天）
 
 [GitHub](https://github.com/joeseesun/qiaomu-codex-imagegen)　·　JavaScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### mesh-avatar-studio ⭐ 228（上線 2 天）
+### mesh-avatar-studio ★ 228（上線 2 天）
 
 [GitHub](https://github.com/shinshin86/mesh-avatar-studio)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### easyread ⭐ 803（上線 5 天）
+### easyread ★ 803（上線 5 天）
 
 [GitHub](https://github.com/Edwardxlai/easyread)　·　Python　·　MIT
 

@@ -17,7 +17,7 @@ glossary:
     def: "A memory framework deliberately held out of Hy-Memory-30B-A3B's training data, used to test whether the model's learned write policy transfers to a framework it has never seen"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-model-tencent-hy-memory-30b-a3b)
+> :globe: [中文版](/posts/daily/2026-10-16-model-tencent-hy-memory-30b-a3b)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | MemOS harness | 50.51 | 49.05 | 50.50 |
 | EverMemOS harness (held out — never seen during training) | **56.89** | 50.98 | 54.04 |
 
-⚠️ All figures above are Tencent's own, measured on a fixed 20% subsample of each benchmark; there is no independent third-party reproduction yet. The margins over Claude Opus 5 on Mem0, Hy-Memory, and MemOS are all under 0.6 points — close to statistical noise. Of the 0.87-point overall lead in the macro average, roughly 80% (2.85 of the total 3.47-point sum of gaps) comes entirely from the single held-out EverMemOS harness.
+:warning: All figures above are Tencent's own, measured on a fixed 20% subsample of each benchmark; there is no independent third-party reproduction yet. The margins over Claude Opus 5 on Mem0, Hy-Memory, and MemOS are all under 0.6 points — close to statistical noise. Of the 0.87-point overall lead in the macro average, roughly 80% (2.85 of the total 3.47-point sum of gaps) comes entirely from the single held-out EverMemOS harness.
 
 ## Compared to the Predecessor / Competitors
 

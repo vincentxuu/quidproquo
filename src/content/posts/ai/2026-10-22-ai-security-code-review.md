@@ -14,7 +14,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-code-review-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-code-review-en)
 
 你把工單 API 丟給 AI 審查，收到一句：「這裡可能有越權。」接著補上租戶判斷，AI 回覆「問題已解決」。如果 Alice 還能讀到同公司的 Bob 的工單，這次審查就漏掉了真正的產品政策。
 

@@ -10,8 +10,8 @@ tldr: "An MIT-licensed open-source UI automation framework from ByteDance. UI ac
 description: "A deep dive into Midscene.js: design trade-offs of pure-vision UI automation, three API categories and two automation styles, multi-model strategy, caching mechanism, the shift from MCP to Skills, and how it compares to Stagehand and browser-use."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 5
+  name: "AI Browser Automation"
+  order: 10
 glossary:
   - term: "VLM"
     aliases: ["Vision-Language Model"]
@@ -23,7 +23,7 @@ glossary:
     context: "In this article, it refers to the VLM's ability to map 'click the login button' to specific screenshot coordinates."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-23-midscene-vision-ui-automation)
+> :globe: [中文版](/posts/ai/2026-05-23-midscene-vision-ui-automation)
 
 [Midscene.js](https://midscenejs.com/) is an MIT-licensed UI automation framework open-sourced by ByteDance's Web Infra team. Its bet is straightforward: **UI actions rely solely on screenshots, with no DOM parsing** -- you describe your goal in natural language, and a vision-language model (VLM) looks at the screen to decide where to click. This article breaks down its core trade-offs, API design, model strategy, ecosystem tools, and how it differs from DOM-oriented alternatives like Stagehand and browser-use, to help you decide when to use it.
 

@@ -17,7 +17,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en)
 
 **影片狀態：已附影片。** 這篇是整門課的總覽，下方嵌入的是 Spring 2026 第 1 堂（課程介紹）；每一堂的錄影放在各堂導讀的開頭。
 

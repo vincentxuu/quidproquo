@@ -13,7 +13,7 @@ description: "神居岩攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-kamuiiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-kamuiiwa-en)
 
 神居岩是石狩川旁的繩攀岩壁，與神居古潭的抱石群分開安排。它曾是北海道高難度路線的重要舞台；今天選線，先要把崩落前的歷史名線和仍能確認的路線分開。
 

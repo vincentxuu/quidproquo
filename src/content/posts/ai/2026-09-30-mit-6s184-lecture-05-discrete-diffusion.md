@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.S184 講義 Example 35；雜訊設成 [mask] 時就是 masked diffusion language model（Example 39）。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

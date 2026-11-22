@@ -25,7 +25,7 @@ glossary:
     definition: "Mistral's region-selectable inference endpoints—customers choose EU or US, with processing staying within the chosen region, satisfying GDPR/data-sovereignty requirements"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-mistral)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-mistral)
 
 In April 2023, three engineers who left Meta and Google DeepMind founded Mistral AI in Paris—Arthur Mensch, Guillaume Lample, and Timothée Lacroix. Valued over $2B within a year as Europe's AI unicorn, their bet was clear: not the largest models, but the most efficient—fewer parameters at near-frontier quality, then European data-sovereignty positioning for enterprise. By 2026, Mistral Medium 3.5 is Europe's strongest open-class multimodal model, Small 4 the 24B efficiency king. This is the sixth family deep-dive in the "AI Model Families" series, tracing Mistral from Mistral 7B to Medium 3.5 and its August 2026 "European sovereign infrastructure" play.
 

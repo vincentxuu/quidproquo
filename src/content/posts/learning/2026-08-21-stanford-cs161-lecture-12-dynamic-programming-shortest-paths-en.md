@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-12-dynamic-programming-shortest-paths)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

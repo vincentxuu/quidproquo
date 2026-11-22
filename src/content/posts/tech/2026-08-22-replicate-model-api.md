@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-replicate-model-api-en)
+> :globe: [English version](/posts/tech/2026-08-22-replicate-model-api-en)
 
 [Replicate](https://replicate.com/docs/reference/how-does-replicate-work) 的核心資源不是 VM，而是 model version 與 prediction。你可以呼叫公開模型，也能用 [Cog](https://replicate.com/docs/get-started/deploy-a-custom-model) 把自己的 weights、dependency 與 `predict()` 打包，再讓平台提供 API 與 GPU scaling。
 

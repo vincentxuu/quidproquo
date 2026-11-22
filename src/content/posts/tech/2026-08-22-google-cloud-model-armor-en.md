@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-google-cloud-model-armor)
+> :globe: [中文版](/posts/tech/2026-08-22-google-cloud-model-armor)
 
 [Google Cloud Model Armor](https://docs.cloud.google.com/model-armor/overview) is a runtime screening service in generative-AI request and response paths. Templates enable prompt-injection and jailbreak detection, harmful-content filters, malicious URI and malware checks, and Sensitive Data Protection, with confidence thresholds and inspect-only or inspect-and-block enforcement.
 

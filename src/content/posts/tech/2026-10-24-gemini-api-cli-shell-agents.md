@@ -10,7 +10,7 @@ description: "Gemini API CLI 在 Gemini 開發堆疊的位置、與 Antigravity 
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-24-gemini-api-cli-shell-agents-en)
+> :globe: [English version](/posts/tech/2026-10-24-gemini-api-cli-shell-agents-en)
 
 Gemini API CLI（指令名稱 `gemini-api`）是 Google 在 2026 年 10 月 19 日發布的[實驗性預覽](https://aistudio.google.com/learn/introducing-the-gemini-api-cli)，目前是 v0.4.x。它是一顆用 Go 寫的單一執行檔，把 Gemini 的文字模型、圖片／語音／音樂／影片生成、檔案分析和 managed agents 都變成 shell 指令。
 
@@ -45,16 +45,16 @@ caption: 簡化自官方的三層說法。Antigravity 也屬於「Coding agent�
   <path class="dg-line" d="M290 216V284" marker-end="url(#arrow)"/>
 
   <rect class="dg-box" x="16" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="80" y="46" text-anchor="middle" dominant-baseline="central">應用後端</text>
-  <text class="dg-sub" x="80" y="64" text-anchor="middle" dominant-baseline="central">網站、API 服務</text>
+  <text class="dg-label" x="80" y="40" text-anchor="middle" dominant-baseline="central">應用後端</text>
+  <text class="dg-sub" x="80" y="66" text-anchor="middle" dominant-baseline="central">網站、API 服務</text>
 
   <rect class="dg-box" x="156" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="46" text-anchor="middle" dominant-baseline="central">本機工具</text>
-  <text class="dg-sub" x="220" y="64" text-anchor="middle" dominant-baseline="central">外掛、腳本、CI</text>
+  <text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">本機工具</text>
+  <text class="dg-sub" x="220" y="66" text-anchor="middle" dominant-baseline="central">外掛、腳本、CI</text>
 
   <rect class="dg-box" x="296" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="360" y="46" text-anchor="middle" dominant-baseline="central">Coding agent</text>
-  <text class="dg-sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">Claude Code 等</text>
+  <text class="dg-label" x="360" y="40" text-anchor="middle" dominant-baseline="central">Coding agent</text>
+  <text class="dg-sub" x="360" y="66" text-anchor="middle" dominant-baseline="central">Claude Code 等</text>
 
   <rect class="dg-box" x="16" y="152" width="128" height="64" rx="6"/>
   <text class="dg-label" x="80" y="176" text-anchor="middle" dominant-baseline="central">Gen AI SDK</text>

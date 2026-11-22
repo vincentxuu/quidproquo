@@ -11,7 +11,7 @@ series:
   order: 67
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-21-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### MoonshotAI/kimi-code ⭐ 7,900
+### MoonshotAI/kimi-code ★ 7,900
 
 [GitHub](https://github.com/MoonshotAI/kimi-code)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### open-multi-agent/open-multi-agent ⭐ 7,000
+### open-multi-agent/open-multi-agent ★ 7,000
 
 [GitHub](https://github.com/open-multi-agent/open-multi-agent)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### vibheksoni/stealth-browser-mcp ⭐ 3,200
+### vibheksoni/stealth-browser-mcp ★ 3,200
 
 [GitHub](https://github.com/vibheksoni/stealth-browser-mcp)　·　Python　·　MIT
 

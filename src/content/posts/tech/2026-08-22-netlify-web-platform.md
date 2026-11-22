@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-netlify-web-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-netlify-web-platform-en)
 
 [Netlify](https://docs.netlify.com/) 從 static/Jamstack hosting 發展成 Web platform：Git build、global delivery、Functions、Deno-based Edge Functions、Background/Scheduled Functions、Blobs、Database、Forms 與 Image CDN 都和同一個 site/deploy workflow 整合。
 

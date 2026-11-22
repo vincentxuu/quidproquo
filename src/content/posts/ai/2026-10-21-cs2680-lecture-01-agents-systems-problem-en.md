@@ -23,7 +23,7 @@ glossary:
     context: "CS2680 uses it in place of tokens per second as the cost metric an agent should optimize."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-01-agents-systems-problem)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-updates-deletion)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-updates-deletion)
 
 In September HR withdrew the old remote-work policy and published a new one. In October a colleague asks the AI, "How many days a week can I work remotely?" The AI answers "three", which was the old rule. The new version says two and is in the knowledge base too; but the old version's chunks are still in the vector store, and nobody cleaned them up.
 

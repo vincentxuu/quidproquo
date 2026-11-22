@@ -30,7 +30,7 @@ glossary:
     context: "L18 以 lazy-optimistic 的 HTM 為例，說明 cache line 上的 R/W 位元與兩階段 commit。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-transactional-memory-w4-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

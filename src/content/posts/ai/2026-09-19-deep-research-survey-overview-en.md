@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-deep-research-survey-overview)
+> :globe: [中文版](/posts/ai/2026-09-19-deep-research-survey-overview)
 
 In 2025, "Deep Research" went from lab concept to product category. OpenAI, Google, Perplexity, and Anthropic all shipped official features; on the open-source side, from GPT-Researcher to Search-R1, 80+ implementations emerged in half a year. But these systems look different on the surface — what actually distinguishes them?
 

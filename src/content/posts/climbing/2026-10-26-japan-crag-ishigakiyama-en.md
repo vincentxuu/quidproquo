@@ -13,7 +13,7 @@ description: "Ishigakiyama climbing guide: seasons, public transport, parking, l
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-ishigakiyama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-ishigakiyama)
 
 Ishigakiyama in Aibetsu combines columnar rock, cracks and face climbing. Include Aibetsu in searches to avoid namesakes elsewhere. Crack objectives require a protection plan beyond an ordinary sport rack.
 

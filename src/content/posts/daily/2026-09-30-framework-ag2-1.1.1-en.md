@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-framework-ag2-1.1.1)
+> :globe: [中文版](/posts/daily/2026-09-30-framework-ag2-1.1.1)
 
 ## Release Info
 

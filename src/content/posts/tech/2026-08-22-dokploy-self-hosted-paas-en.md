@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-dokploy-self-hosted-paas)
+> :globe: [中文版](/posts/tech/2026-08-22-dokploy-self-hosted-paas)
 
 [Dokploy](https://docs.dokploy.com/docs/core) is a self-hosted Docker and Traefik platform for Git deployments, domains, TLS, logs, monitoring, databases, backups, and previews. First decide whether a workload is a single **Application**, multi-service **Docker Compose**, or a Swarm **Stack**.
 

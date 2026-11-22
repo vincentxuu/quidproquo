@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-07-climbing-trip-english)
+> :globe: [中文版](/posts/learning/2026-10-07-climbing-trip-english)
 
 The "climbing" scenario in my English speaking practice area only had two sentences. I have two climbing trips coming up, one to the limestone coast of Southeast Asia and one around Seoul and Tokyo. On both I am bringing a rope and quickdraws, mostly for sport climbing and multi-pitch. This post adds fifteen sentences for situations those trips will actually involve.
 

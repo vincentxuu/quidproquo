@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-29-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -136,15 +136,15 @@ Google's Agent Development Kit (ADK) for Python released v2.8.0: adds native tas
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-08-29](/posts/daily/2026-08-29-ai-agent-github-digest-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.63.0](/posts/daily/2026-08-29-framework-mastra-1.63.0) (zh-TW only)
-- 📄 [Funding Brief | Onyx Security Series B $113M](/posts/daily/2026-08-29-funding-onyx-security-en)
-- 📄 [Funding Brief | Zenity Series C $125M](/posts/daily/2026-08-29-funding-zenity-en)
-- 📄 [Model Card | Tencent Hy4 Preview](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
-- 📄 [Security Alert | llms.txt Supply-Chain Gap](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
-- 📄 [Tool Pick | localagents](/posts/daily/2026-08-29-tool-localagents-mcp-en)
-- 📄 [AI Engineer Interview Daily — 2026-08-29: Paper Reading](/posts/daily/2026-08-29-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-08-29: Technical PM](/posts/daily/2026-08-29-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-08-29](/posts/daily/2026-08-29-ai-agent-github-digest-en)
+- :file: [Framework Update | Mastra @mastra/core@1.63.0](/posts/daily/2026-08-29-framework-mastra-1.63.0) (zh-TW only)
+- :file: [Funding Brief | Onyx Security Series B $113M](/posts/daily/2026-08-29-funding-onyx-security-en)
+- :file: [Funding Brief | Zenity Series C $125M](/posts/daily/2026-08-29-funding-zenity-en)
+- :file: [Model Card | Tencent Hy4 Preview](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
+- :file: [Security Alert | llms.txt Supply-Chain Gap](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
+- :file: [Tool Pick | localagents](/posts/daily/2026-08-29-tool-localagents-mcp-en)
+- :file: [AI Engineer Interview Daily — 2026-08-29: Paper Reading](/posts/daily/2026-08-29-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-08-29: Technical PM](/posts/daily/2026-08-29-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

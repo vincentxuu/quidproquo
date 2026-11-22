@@ -12,7 +12,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
+> :globe: [English version](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
 
 ## 版本資訊
 

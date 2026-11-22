@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-funding-twin1-ai)
+> :globe: [中文版](/posts/daily/2026-08-21-funding-twin1-ai)
 
 ## Funding Details
 

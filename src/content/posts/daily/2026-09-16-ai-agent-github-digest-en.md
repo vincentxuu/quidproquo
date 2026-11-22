@@ -17,7 +17,7 @@ Today's trending projects share a shift in focus, from "how smart is the agent" 
 
 ## Trending Repos
 
-### alibaba/open-code-review ⭐ 28,008 (#1 on today's GitHub Trending)
+### alibaba/open-code-review ★ 28,008 (#1 on today's GitHub Trending)
 
 [GitHub](https://github.com/alibaba/open-code-review)　·　Go　·　Apache-2.0
 
@@ -28,7 +28,7 @@ Today's trending projects share a shift in focus, from "how smart is the agent" 
 
 ---
 
-### pacifio/atlas ⭐ 4,545
+### pacifio/atlas ★ 4,545
 
 [GitHub](https://github.com/pacifio/atlas)　·　Rust　·　MIT
 
@@ -39,7 +39,7 @@ Today's trending projects share a shift in focus, from "how smart is the agent" 
 
 ---
 
-### alphaXiv/OpenResearch ⭐ 3,168
+### alphaXiv/OpenResearch ★ 3,168
 
 [GitHub](https://github.com/alphaXiv/OpenResearch)　·　Rust　·　MIT
 
@@ -50,7 +50,7 @@ Today's trending projects share a shift in focus, from "how smart is the agent" 
 
 ---
 
-### melgarafael/DeskcommCRM ⭐ 2,714
+### melgarafael/DeskcommCRM ★ 2,714
 
 [GitHub](https://github.com/melgarafael/DeskcommCRM)　·　TypeScript　·　MIT
 
@@ -61,7 +61,7 @@ Today's trending projects share a shift in focus, from "how smart is the agent" 
 
 ---
 
-### JustVugg/colibri ⭐ 33,463
+### JustVugg/colibri ★ 33,463
 
 [GitHub](https://github.com/JustVugg/colibri)　·　C　·　Apache-2.0
 

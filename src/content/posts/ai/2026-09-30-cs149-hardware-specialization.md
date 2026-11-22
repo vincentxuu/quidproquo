@@ -34,7 +34,7 @@ glossary:
     context: "L10 以 Plasticine（ISCA 2017）說明，L11 以 SambaNova SN40L 說明怎麼為它寫程式。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-hardware-specialization-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-hardware-specialization-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
@@ -150,7 +150,7 @@ thread block cluster 最多 16 個 thread block，保證每個在不同的 SM �
 
 ### GPU 離理想多遠
 
-第 47 頁把 GPU 放回理想特徵表：分塊 tensor ✅；非同步計算 ✅（`mma_async`）；非同步記憶體存取 ✅（TMA + TMEM）；運算單元之間直接傳資料是 ❓，只有 thread block cluster 部分做到。
+第 47 頁把 GPU 放回理想特徵表：分塊 tensor ✓；非同步計算 ✓（`mma_async`）；非同步記憶體存取 ✓（TMA + TMEM）；運算單元之間直接傳資料是 :question:，只有 thread block cluster 部分做到。
 
 ## Google TPU 與脈動陣列
 

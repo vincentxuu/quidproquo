@@ -17,7 +17,7 @@ description: "227 篇文章、49 個斷連結、19 個 RAG 設計問題、4 個 
 draft: false
 ---
 
-> 🌏 [English version](/posts/product/2026-04-18-quidproquo-improvement-roadmap-en)
+> :globe: [English version](/posts/product/2026-04-18-quidproquo-improvement-roadmap-en)
 
 把自己寫的 RAG、Agent、Context Engineering、Harness Engineering 文章拿來檢視部落格本身，發現自己寫了「Intelligence without infrastructure is just a demo」，但平台本身缺的正是 infrastructure。這篇整理一份不分階段、按優先級排列的完整行動清單，涵蓋內容品質、網站技術、RAG 設計修正、Harness 基礎建設、AI Agent 應用五個面向。
 
@@ -146,7 +146,7 @@ draft: false
 
 **Critic 失敗降級策略**
 - Stripe 設計：「LLM 兩次修不好就標記人工處理，第三次也修不好——只是在燒 token」
-- 重試 2 次仍低於門檻 → 標註「⚠️ 此回答可能不完整，建議直接閱讀相關文章」
+- 重試 2 次仍低於門檻 → 標註「:warning: 此回答可能不完整，建議直接閱讀相關文章」
 - 不要再呼叫 LLM
 
 **Prompt 改用「描述終態」風格**

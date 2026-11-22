@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-funding-factory)
+> :globe: [中文版](/posts/daily/2026-09-17-funding-factory)
 
 ## Funding Details
 

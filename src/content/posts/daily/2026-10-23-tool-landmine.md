@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-tool-landmine-en)
+> :globe: [English version](/posts/daily/2026-10-23-tool-landmine-en)
 
 ## 工具資訊
 
@@ -144,9 +144,9 @@ landmine 作者自己跑的 benchmark（21 個從訓練截止日之後才開的 
 
 | | landmine | Context7（文件 MCP） | GitHub 官方 MCP 搜 issue |
 |---|---|---|---|
-| 讀你的 lockfile 比對精確版本 | ✅ | ❌ | ❌（需手動搜） |
-| 把已知 bug 主動塞進 context（不用 agent 想到要查） | ✅（rules 模式） | ❌ | ❌ |
-| 在 agent 寫出撞雷程式碼時攔一次 | ✅（hook 模式） | ❌ | ❌ |
+| 讀你的 lockfile 比對精確版本 | ✓ | ✗ | ✗（需手動搜） |
+| 把已知 bug 主動塞進 context（不用 agent 想到要查） | ✓（rules 模式） | ✗ | ✗ |
+| 在 agent 寫出撞雷程式碼時攔一次 | ✓（hook 模式） | ✗ | ✗ |
 | 涵蓋範圍 | 只有鎖定版本的 open issue | 官方文件（不含 bug 討論） | 依賴 agent 主動搜尋 |
 
 ## 注意事項

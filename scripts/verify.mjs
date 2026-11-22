@@ -21,7 +21,17 @@ const ROOT = resolve('.');
 const results = [];
 const execAsync = promisify(exec);
 
+// 會開瀏覽器的步驟（diagram-preview）一次最多跑 3 個：一次暫存幾十篇有圖的文章時，全部平行開瀏覽器會
+// 把機器塞滿、page.goto 逾時，紅燈其實不是圖壞了（2026-11-19 一次修 162 篇時 57 項全是逾時）。
+const BROWSER_SLOTS = 3;
+let browserBusy = 0;
+const browserQueue = [];
+const acquireBrowser = () => (browserBusy < BROWSER_SLOTS ? (browserBusy++, Promise.resolve()) : new Promise((r) => browserQueue.push(r)));
+const releaseBrowser = () => { const next = browserQueue.shift(); if (next) next(); else browserBusy--; };
+
 async function runStep(name, command) {
+  const usesBrowser = /diagram-preview/.test(command);
+  if (usesBrowser) await acquireBrowser();
   try {
     const { stdout } = await execAsync(command, {
       cwd: ROOT,
@@ -33,6 +43,8 @@ async function runStep(name, command) {
   } catch (error) {
     const out = [error.stdout, error.stderr].map((s) => s?.toString().trim()).filter(Boolean).join('\n');
     return { name, ok: false, detail: out || error.message };
+  } finally {
+    if (usesBrowser) releaseBrowser();
   }
 }
 
@@ -153,6 +165,7 @@ const FULL_STEPS = [
   ['check:references', 'pnpm check:references'],
   ['check:post-quality', 'pnpm check:post-quality'],
   ['check:tw (台灣用語 A 級)', 'pnpm check:tw'],
+  ['chat-style regression tests', 'node scripts/check-chat-style.mjs --self-test'],
   ['check:chat-style', 'pnpm check:chat-style'],
   ['check:glossary', 'pnpm check:glossary'],
   ['check:series-order', 'pnpm check:series-order'],
@@ -162,6 +175,8 @@ const FULL_STEPS = [
   ['course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'],
   ['process-leak regression tests', 'node scripts/check-process-leak.mjs --self-test'],
   ['dev wrapper regression tests', 'node scripts/dev.mjs --self-test'],
+  // session-start 的 dirty 預警：pull 前要指出哪些未 commit 檔案會和 origin/main 撞（2026-11-13 事故）。
+  ['session-start git status regression tests', 'node scripts/session-start.mjs --self-test'],
   // 全站只計數（既有文章回填中）；被暫存的文章在 --staged 逐篇阻擋，含退回完整 verify 的情況。
   ['process-leak (全站計數)', 'node scripts/check-process-leak.mjs'],
   ['series-plan regression tests', 'node scripts/check-series-plan.mjs --self-test'],
@@ -182,6 +197,12 @@ const FULL_STEPS = [
   // diagram-preview 只看文字，不看線；純 Node、全站不到 1 秒，所以全站與 --staged 都跑。
   ['diagram geometry regression tests', 'node scripts/check-diagram-geometry.mjs --self-test'],
   ['check:diagram-geometry', 'pnpm check:diagram-geometry'],
+  // 文字版面的靜態檢查：雲端排程沒有瀏覽器時 diagram-preview 會跳過，這支是那時唯一擋得住字疊字的檢查。
+  ['diagram text regression tests', 'node scripts/check-diagram-text.mjs --self-test'],
+  ['check:diagram-text', 'pnpm check:diagram-text'],
+  // 原始稿不放 emoji（網站用 koboyo 圖示；寫 :globe: 這類 shortcode 或 ✓ ✗ ★）。code 區塊裡的不算。修法：pnpm emoji:fix <檔案>。
+  ['no-emoji regression tests', 'pnpm exec tsx scripts/check-no-emoji.ts --self-test'],
+  ['check:no-emoji', 'pnpm check:no-emoji'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
@@ -248,7 +269,8 @@ function stagedPlan() {
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
-      'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry'), courseVideosStep);
+      'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry', 'check:diagram-text'), courseVideosStep);
+    steps.push(['check:no-emoji (staged)', `pnpm exec tsx scripts/check-no-emoji.ts ${quote(posts)}`]);
   }
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));

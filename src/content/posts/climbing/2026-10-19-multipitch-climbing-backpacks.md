@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en)
+> :globe: [English version](/posts/climbing/2026-10-19-multipitch-climbing-backpacks-en)
 
 [上一篇的岩場包](/posts/climbing/2026-10-19-climbing-crag-packs)走到岩壁下就放在地上。多繩距的包會跟著你爬上去，在岩壁上待一整天。走路時好背的包，爬起來可能處處礙事。抬頭看下一段，頭盔撞到包頂；伸手拿快扣，腰帶壓住裝備環；在懸吊確保站打開拉鍊，外套差點掉下去。
 

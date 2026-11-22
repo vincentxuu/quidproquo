@@ -13,7 +13,7 @@ description: "Standing orders in OpenClaw: the four required fields (scope, trig
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-automation-standing-orders)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-automation-standing-orders)
 
 The previous article covered **when** work runs. This one covers **what the agent is authorized to do.**
 

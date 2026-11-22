@@ -10,7 +10,7 @@ description: "記錄一次手機 Chrome 登入 loop 的排查：從後端 auth l
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-05-24-chrome-cookie-https-en)
+:globe: [English version](/posts/tech/2026-05-24-chrome-cookie-https-en)
 
 ## TL;DR
 

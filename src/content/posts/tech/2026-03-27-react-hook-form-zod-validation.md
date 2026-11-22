@@ -10,7 +10,7 @@ description: "React Hook Form 與 Zod 的組合是現代 React 表單開發的�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-react-hook-form-zod-validation-en)
+:globe: [English version](/posts/tech/2026-03-27-react-hook-form-zod-validation-en)
 
 表單是前端最常見的需求之一，也是最容易寫爛的部分。受控元件（controlled components）、`useState` 管每個欄位、手寫驗證邏輯——這樣寫不是不行，但規模一大就變成維護噩夢。
 

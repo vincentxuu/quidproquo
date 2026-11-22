@@ -13,7 +13,7 @@ description: "The full growth story of Morning Brew founders Alex Lieberman and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-morning-brew-dorm-to-media-empire)
+> :globe: [中文版](/posts/career/2026-08-26-morning-brew-dorm-to-media-empire)
 
 In 2015, two University of Michigan students decided the Wall Street Journal was too boring. Their fix wasn't deeper analysis — it was rewriting business news the way people actually talk about it. Five years later, their free "five minutes to catch up on business" newsletter sold to Insider Inc. for $75M, and annual revenue eventually crossed $70M.
 

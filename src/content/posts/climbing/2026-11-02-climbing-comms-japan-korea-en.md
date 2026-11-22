@@ -30,7 +30,7 @@ glossary:
     context: "Analog units are allowed only until 2026-12-31; from 2027 only digital units remain."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-11-02-climbing-comms-japan-korea)
+> :globe: [中文版](/posts/climbing/2026-11-02-climbing-comms-japan-korea)
 
 The pair of radios that works fine at Long Dong cannot be keyed up in Japan or South Korea. Taiwan's license-free FRS uses 467 MHz. Japan's license-free radios must carry the giteki mark, and Korea's are KC-certified personal radios on 424/448 MHz. A Taiwanese radio meets neither. The Hokkaido Bureau of Telecommunications even names "Taiwan-standard FRS" in its Taiwanese-language notice as prohibited.
 

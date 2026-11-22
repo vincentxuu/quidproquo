@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-funding-parakeet-health-en)
+> :globe: [English version](/posts/daily/2026-10-04-funding-parakeet-health-en)
 
 ## 融資資訊
 

@@ -30,7 +30,7 @@ glossary:
     context: "它讓 diffusion LLM 可以生成不定長度的輸出，也能對已完成的區塊使用 KV cache。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

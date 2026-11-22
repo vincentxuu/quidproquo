@@ -13,7 +13,7 @@ description: "CS224N Winter 2026 Lecture 15 的材料缺口紀錄與官方閱讀
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-interpretability-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-interpretability-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -11,7 +11,7 @@ series:
   order: 43
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction)
+> :globe: [中文版](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction)
 
 ## Incident Overview
 

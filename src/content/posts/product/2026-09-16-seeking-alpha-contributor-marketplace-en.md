@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace)
+> :globe: [中文版](/posts/product/2026-09-16-seeking-alpha-contributor-marketplace)
 
 Picture an investing night market. It is not a restaurant employing a hundred chefs. It gives independent stallholders space to sell their specialties: one studies semiconductors, another follows dividend stocks, and a third hunts for companies ignored by Wall Street. The market operator does not prepare every dish, but it sets the rules, checks the signs, and brings in the crowd.
 

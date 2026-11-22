@@ -748,7 +748,7 @@
 - 已單獨跑過 `node scripts/check-post-references.mjs`／`pnpm check:lang-parity`／`pnpm check:tw`／`pnpm check:series-order` 全部通過（皆 0 blocking／exit 0）；`diagram-preview` 因環境無瀏覽器被預設 skip（`/opt/pw-browsers` 缺 `chromium_headless_shell-1208`），比照既有做法用 `chromium.launch({ executablePath: '/opt/pw-browsers/chromium' })` 臨時 patch `scripts/diagram-preview.ts` 跑完中英兩版驗證（皆 0 issue，淺色／深色／手機三張截圖已用 Read 工具目視確認；手機版因 viewBox 超過 375px 被 `.flow-diagram__scroll` 容器水平捲動裁切，屬站內既有設計非 bug）後 `git checkout -- scripts/diagram-preview.ts` 還原，未留在 repo。`pnpm verify:staged` 實際執行時 `diagram-preview (staged)` 兩項皆顯示 ✅（pre-commit hook 本身的瀏覽器設定與本次臨時 patch 無關），紅燈僅 `series-plan (staged)` 一項，與本次內容無關。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-ai-interview-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-ai-interview.md`，皆已 `git add` 留在暫存區未 commit，等 Q-051 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
 
-## Q-053 `daodao-community-ops` 系列規劃表的新缺口（research-note.md／審稿紀錄）再次擋住全站 commit
+## Q-053 ✅ 已解決（2026-11-12；2026-11-13 補登原件）：`daodao-community-ops` 系列規劃表的新缺口（research-note.md／審稿紀錄）再次擋住全站 commit
 
 - 登錄：2026-11-12（來源：daily-digest-github routine 執行 `pnpm verify:staged` 時發現；本次工作目錄起始乾淨，與 Q-051 原因不同，另開新編號。登錄時發現另一個 session 已先用掉 Q-052（LongCat-2.5 模型卡，見上方條目），故改編號為 Q-053 避免撞號）
 - 做什麼：本次 routine 寫完 `AI Agent GitHub Digest — 2026-11-12`（中英雙版 + daily-log，series order 89），`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 檢查噴紅，但錯誤內容跟 Q-051 原始根因（規劃表整個不存在）不同——這次規劃表 `.work/series-plans/daodao-community-ops.md` 本身已經在 repo 裡（Q-051 已於 2026-11-11 把它 commit 進去），但它引用的研究筆記 `.work/research/daodao-community-ops/research-note.md` 不存在；另外還有兩篇已發佈的島島文章（`src/content/posts/product/2026-10-29-daodao-living-community{,-en}.md`、`2026-10-29-daodao-why-help-facilitators{,-en}.md`）缺審稿紀錄 `.work/reviews/2026-10-29-daodao-living-community.md`（需含 post-verify＋post-review＋post-polish）。同一次 `pnpm verify:staged` 另外也噴了 `check:lang-parity`（22 處「更新紀錄筆數不一致」，分佈在 Stanford 課程系列等完全不相關的既有文章，非本次新增），但這條是全站長期累積的既有債務，不是本次新引入，暫不在此條另開子任務，只記錄供後續排查。
@@ -817,3 +817,15 @@
 - 為什麼現在不能做：`research-note.md` 與審稿紀錄仍需要真正做過 `daodao-community-ops` 系列研究／`post-verify`／`post-review`／`post-polish` 的實質產出，不是 daily-digest-report 這類 routine 能代寫的內容；本條目性質與上方相同，不重複論證。
 - 接手第一步：同上方 Q-053 原始條目（補 research-note.md、補兩篇島島文章審稿紀錄）。另外建議：Q-053 解除後，各 daily-digest routine 不應假設「已暫存＝安全」，必須在同一次 session 內完成 commit＋push，否則遺失風險等同沒做；若 verify 紅燈可能跨 session 才解除，應考慮改成每次 routine 執行完就嘗試 push（即使預期會被擋），或至少把暫存內容額外寫一份到 `.work/daily-log/` 全文備份，而不是只寄望 `git add` 留在工作目錄。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-12-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-12/daily-digest-report.md`，已 `git add` 留在暫存區未 commit；鑑於上述遺失模式，此次直接在 commit message 草稿與本條目留下完整檔案清單供日後比對，但同樣無法保證在 Q-053 解除前不會隨容器回收遺失。
+
+### Q-053 ✅ 結案（2026-11-13）：原件沒有遺失，已從使用者本機補回
+
+- 2026-11-12 的重建版與兩份補做審稿（commit `970b0331d`）已解除紅燈：`research-note.md` 與兩篇審稿紀錄都存在，`check:series-plan` 不再擋 commit。
+- 2026-11-13 清理本機未 commit 檔案時，在使用者本機找到當時以為遺失的完整原件。它們一直躺在工作區、只是從未 commit，雲端 session 的容器看不到：
+  - `.work/research/daodao-community-ops/cases.md`（2026-10-29 原件，直接補進版控）
+  - `.work/research/daodao-community-ops/frameworks.md`（2026-10-29 原件，直接補進版控）
+  - `.work/research/daodao-community-ops/research-note-original-2026-10-29.md`（原 `research-note.md`，改名保留，避免覆蓋重建版）
+  - `.work/reviews/2026-10-29-daodao-living-community-original-2026-10-30.md`
+  - `.work/reviews/2026-10-29-daodao-why-help-facilitators-original-2026-10-30.md`
+- 兩份 2026-10-30 原件都含完整的 post-verify／post-review／post-polish，不是只有 post-verify；重建版開頭「當時沒有留下紀錄」與「`cases.md`／`frameworks.md` 沒有對應檔案」的敘述已在同日更正，重建版保留作為 2026-11-12 的獨立重讀結果。
+- 教訓：這不是檔案遺失，是「本機未 commit ＋ 雲端 session 看不到使用者磁碟」造成的誤判。往後判斷「檔案不存在」前，先確認搜尋範圍是自己的容器還是使用者本機；做完的工作當天 commit＋push，不要依賴「之後再補」。

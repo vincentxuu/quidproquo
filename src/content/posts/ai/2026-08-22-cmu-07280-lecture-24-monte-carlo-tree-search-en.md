@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-24-monte-carlo-tree-search)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-24-monte-carlo-tree-search)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-skills-hooks-plugins)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-skills-hooks-plugins)
 
 The [previous article](/posts/tech/2026-08-30-looplane-native-mcp-authorization-en) brought external MCP capabilities into `ToolExecutor`. Repository-local extension introduces another cluster of terms: skill, hook, and plugin. Looplane loads them together, but they do not share the same authority.
 

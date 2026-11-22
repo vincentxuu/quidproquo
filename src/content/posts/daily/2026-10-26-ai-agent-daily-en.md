@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-26-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-26-ai-agent-daily)
 
 ## Today's Call
 
@@ -33,50 +33,51 @@ title: Coordination mechanism decides whether multi-agent scale pays off
 desc: Same "multiple agents," but the scaling effect flips entirely depending on the coordination mechanism — synchronous central coordination turns scale into cost, while asynchronous decentralized coordination turns scale into real quality.
 caption: Simplified illustration: three of today's signals each represent one coordination mechanism; the winner (highlighted box) depends on the coordination mechanism, not agent count.
 ---
-<svg viewBox="0 0 640 420">
-  <rect class="dg-box" x="14" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="112" y="50" text-anchor="middle" dominant-baseline="central">Central synchronous</text>
+<svg viewBox="0 0 760 428">
+  <rect class="dg-box" x="14" y="30" width="236" height="40" rx="6"/>
+  <text class="dg-tag" x="132" y="50" text-anchor="middle" dominant-baseline="central">Central synchronous</text>
 
-  <rect class="dg-box" x="222" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="320" y="50" text-anchor="middle" dominant-baseline="central">Decentralized self-organizing</text>
+  <rect class="dg-box" x="262" y="30" width="236" height="40" rx="6"/>
+  <text class="dg-tag" x="380" y="50" text-anchor="middle" dominant-baseline="central">Decentralized self-organizing</text>
 
-  <rect class="dg-box" x="430" y="30" width="196" height="40" rx="6"/>
-  <text class="dg-tag" x="528" y="50" text-anchor="middle" dominant-baseline="central">Async lightweight sharing</text>
+  <rect class="dg-box" x="510" y="30" width="236" height="40" rx="6"/>
+  <text class="dg-tag" x="628" y="50" text-anchor="middle" dominant-baseline="central">Async lightweight sharing</text>
 
-  <rect class="dg-box dg-box--link" x="14" y="85" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="112" y="117" text-anchor="middle" dominant-baseline="central">Debate / Swarm coordination</text>
-  <text class="dg-sub" x="112" y="139" text-anchor="middle" dominant-baseline="central">Full-trajectory sync sharing</text>
-  <text class="dg-sub" x="112" y="157" text-anchor="middle" dominant-baseline="central">Vals research control group</text>
+  <rect class="dg-box dg-box--link" x="14" y="85" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="132" y="117" text-anchor="middle" dominant-baseline="central">Debate / Swarm coordination</text>
+  <text class="dg-sub" x="132" y="139" text-anchor="middle" dominant-baseline="central">Full-trajectory sync sharing</text>
+  <text class="dg-sub" x="132" y="157" text-anchor="middle" dominant-baseline="central">Vals research control group</text>
 
-  <rect class="dg-box dg-box--link" x="222" y="85" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="320" y="117" text-anchor="middle" dominant-baseline="central">Agensh</text>
-  <text class="dg-sub" x="320" y="139" text-anchor="middle" dominant-baseline="central">No central coordinator</text>
-  <text class="dg-sub" x="320" y="157" text-anchor="middle" dominant-baseline="central">Self-organized subtask claiming</text>
+  <rect class="dg-box dg-box--link" x="262" y="85" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="380" y="117" text-anchor="middle" dominant-baseline="central">Agensh</text>
+  <text class="dg-sub" x="380" y="139" text-anchor="middle" dominant-baseline="central">No central coordinator</text>
+  <text class="dg-sub" x="380" y="157" text-anchor="middle" dominant-baseline="central">Self-organized subtask claiming</text>
 
-  <rect class="dg-box dg-box--link" x="430" y="85" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="528" y="117" text-anchor="middle" dominant-baseline="central">Muffin</text>
-  <text class="dg-sub" x="528" y="139" text-anchor="middle" dominant-baseline="central">Asynchronous shared buffer</text>
-  <text class="dg-sub" x="528" y="157" text-anchor="middle" dominant-baseline="central">Only shares concise findings</text>
+  <rect class="dg-box dg-box--link" x="510" y="85" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="628" y="117" text-anchor="middle" dominant-baseline="central">Muffin</text>
+  <text class="dg-sub" x="628" y="139" text-anchor="middle" dominant-baseline="central">Asynchronous shared buffer</text>
+  <text class="dg-sub" x="628" y="157" text-anchor="middle" dominant-baseline="central">Only shares concise findings</text>
 
-  <rect class="dg-box dg-box--warn" x="14" y="195" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="112" y="227" text-anchor="middle" dominant-baseline="central">Quality flat (loses)</text>
-  <text class="dg-sub" x="112" y="249" text-anchor="middle" dominant-baseline="central">10→100 agents, no gain</text>
-  <text class="dg-sub" x="112" y="267" text-anchor="middle" dominant-baseline="central">Cost keeps piling up</text>
+  <rect class="dg-box dg-box--warn" x="14" y="195" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="132" y="227" text-anchor="middle" dominant-baseline="central">Quality flat (loses)</text>
+  <text class="dg-sub" x="132" y="249" text-anchor="middle" dominant-baseline="central">10→100 agents, no gain</text>
+  <text class="dg-sub" x="132" y="267" text-anchor="middle" dominant-baseline="central">Cost keeps piling up</text>
 
-  <rect class="dg-box dg-box--accent" x="222" y="195" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="320" y="227" text-anchor="middle" dominant-baseline="central">+49% pass rate (wins)</text>
-  <text class="dg-sub" x="320" y="249" text-anchor="middle" dominant-baseline="central">19.31%→28.78%</text>
-  <text class="dg-sub" x="320" y="267" text-anchor="middle" dominant-baseline="central">128 agents, same model</text>
+  <rect class="dg-box dg-box--accent" x="262" y="195" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="380" y="227" text-anchor="middle" dominant-baseline="central">+49% pass rate (wins)</text>
+  <text class="dg-sub" x="380" y="249" text-anchor="middle" dominant-baseline="central">19.31%→28.78%</text>
+  <text class="dg-sub" x="380" y="267" text-anchor="middle" dominant-baseline="central">128 agents, same model</text>
 
-  <rect class="dg-box dg-box--accent" x="430" y="195" width="196" height="95" rx="6"/>
-  <text class="dg-label" x="528" y="227" text-anchor="middle" dominant-baseline="central">Saves 77.4% tokens (wins)</text>
-  <text class="dg-sub" x="528" y="249" text-anchor="middle" dominant-baseline="central">Still beats full-trajectory debate</text>
-  <text class="dg-sub" x="528" y="267" text-anchor="middle" dominant-baseline="central">Value concentrated early on</text>
+  <rect class="dg-box dg-box--accent" x="510" y="195" width="236" height="95" rx="6"/>
+  <text class="dg-label" x="628" y="227" text-anchor="middle" dominant-baseline="central">Saves 77.4% tokens (wins)</text>
+  <text class="dg-sub" x="628" y="249" text-anchor="middle" dominant-baseline="central">Still beats full-trajectory debate</text>
+  <text class="dg-sub" x="628" y="267" text-anchor="middle" dominant-baseline="central">Value concentrated early on</text>
 
-  <line class="dg-rule" x1="14" y1="310" x2="626" y2="310"/>
+  <line class="dg-rule" x1="14" y1="310" x2="746" y2="310"/>
   <text class="dg-tag" x="14" y="334" dominant-baseline="central">Legend</text>
-  <text class="dg-small" x="14" y="358" dominant-baseline="central">Highlighted box = the actual outcome scale produced under that coordination mechanism; the winner depends on coordination, not agent count</text>
-  <text class="dg-small" x="14" y="380" dominant-baseline="central">Agensh/Muffin figures: see today's GitHub/Arxiv Digest; Vals figures: see the source cited in the deep dive</text>
+  <text class="dg-small" x="14" y="358" dominant-baseline="central">Highlighted box = the actual outcome scale produced under that coordination mechanism;</text>
+  <text class="dg-small" x="14" y="380" dominant-baseline="central">the winner depends on coordination, not agent count</text>
+  <text class="dg-small" x="14" y="402" dominant-baseline="central">Agensh/Muffin figures: see today's GitHub/Arxiv Digest; Vals figures: see the source cited in the deep dive</text>
 </svg>
 ```
 
@@ -110,7 +111,7 @@ What this means for practitioners: if your multi-agent system gets worse as it s
 
 ### Coding Agent Race
 
-**Cursor**: Launched Computer Use, letting its coding agent control any desktop app with mouse and keyboard, not just browsers — the demo showed an agent building an iOS feature, opening the Simulator, clicking to verify, then fixing its own code. ([source](https://aiweekly.co/ai-news-today)) Today's GitHub Digest's PrimeIntellect-ai/prime-agent (⭐ 22,325) takes a different path: treating subagents as function calls and self-improvement as a rollback-safe harness — see today's [GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest-en) for details.
+**Cursor**: Launched Computer Use, letting its coding agent control any desktop app with mouse and keyboard, not just browsers — the demo showed an agent building an iOS feature, opening the Simulator, clicking to verify, then fixing its own code. ([source](https://aiweekly.co/ai-news-today)) Today's GitHub Digest's PrimeIntellect-ai/prime-agent (★ 22,325) takes a different path: treating subagents as function calls and self-improvement as a rollback-safe harness — see today's [GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest-en) for details.
 
 ### Tools and Ecosystem
 
@@ -200,13 +201,13 @@ A dedicated post today also covers [Azoma's $11.2M Series A](/posts/daily/2026-1
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest-en)
-- 📄 [Funding Alert | Azoma closes $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma-en)
-- 📄 [Security Alert | LiteLLM supply-chain attack root-cause update — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause-en)
-- 📄 [Tool Spotlight | dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-26: ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-26: Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest-en)
+- :file: [Funding Alert | Azoma closes $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma-en)
+- :file: [Security Alert | LiteLLM supply-chain attack root-cause update — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause-en)
+- :file: [Tool Spotlight | dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-26: ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-26: Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

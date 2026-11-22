@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-travel-luggage-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-travel-luggage-en)
 
 [上一篇](/posts/climbing/2026-10-19-climbing-travel-packing-examples)整理了 45 個攀岩者的打包實例，最常見的分法是繩子和快扣托運，鞋、吊帶、頭盔帶上機。這篇接著回答用什麼袋子裝：托運的主袋選大型裝備袋、大容量背包，還是旅行背包？登機包能不能直接用岩場包？
 

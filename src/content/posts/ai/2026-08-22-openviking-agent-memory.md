@@ -21,7 +21,7 @@ glossary:
     definition_en: "A benchmark that tests whether agents can complete tasks across multi-turn interactions in simulated customer service scenarios (retail, airline)."
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-openviking-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-08-22-openviking-agent-memory-en)
 
 AI agent 最常見的毛病：記錯事實、把過時上下文拿出來用、該記的忘了。根源不在模型笨，而是記憶管理的基礎設施太粗糙——向量資料庫查出什麼就只能接受什麼，你連它到底記了哪些東西都看不見。
 

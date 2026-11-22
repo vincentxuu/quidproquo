@@ -13,7 +13,7 @@ description: "從設計哲學光譜、寫入權歸屬、遺忘機制、benchmark
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-agent-memory-2026-trends-en)
+> :globe: [English version](/posts/ai/2026-09-19-agent-memory-2026-trends-en)
 
 這是[「AI Agent 記憶工程」系列](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)的第十篇（order 9），也是收尾。前面九篇分別拆解了[短期 context 管理](/posts/ai/2026-08-21-context-full-seven-answers)、coding agent 和雲端平台的記憶設計、開源框架選型、[Mem0](/posts/ai/2026-08-22-mem0-agent-memory) 與 [OpenViking](/posts/ai/2026-08-22-openviking-agent-memory) 深潛、以及攻擊面。這篇不再介紹新系統，而是拉高一層看走勢：2026 年這個領域正在發生什麼，以及如果你現在要下注，該把籌碼放在哪裡。
 

@@ -26,7 +26,7 @@ glossary:
     context: "本站〈頂繩架設〉講戶外雙 bolt 頂端的架法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-highball-bouldering-risk-en)
+> :globe: [English version](/posts/climbing/2026-10-19-highball-bouldering-risk-en)
 
 [Mountain Project 的麗陽抱石頁](https://www.mountainproject.com/area/200287087/li-yang-bouldering)寫了兩件事：這裡的河床落地多半不錯，很適合新手入門，題目多在 V0 到 V5；同一個區域還有一顆 8 到 9 公尺高的 highball，主線還是一條 V8／9 的 project。
 

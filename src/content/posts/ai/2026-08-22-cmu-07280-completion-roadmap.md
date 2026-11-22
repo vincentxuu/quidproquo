@@ -13,7 +13,7 @@ description: "總結 CMU 07-280 Spring 2026 的能力邊界、校外自學驗收
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-completion-roadmap-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

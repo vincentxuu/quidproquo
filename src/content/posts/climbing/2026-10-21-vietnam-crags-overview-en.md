@@ -13,7 +13,7 @@ description: "An overview of Vietnamese climbing: the style, grades, seasons, tr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-vietnam-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-21-vietnam-crags-overview)
 
 Thinking about climbing in Vietnam, what comes to mind first is often the karst island group of Ha Long Bay: sixteen hundred limestone islands on the sea, cliffs rising straight out of the water. But climbing in Ha Long Bay itself is illegal, and the harbor police regularly turn climbers away. The three places you can actually plan around are all further north: **Hữu Lũng** in the Lạng Sơn valley, the island of **Cat Ba**, and **Vịnh Lan Hạ** Bay.
 

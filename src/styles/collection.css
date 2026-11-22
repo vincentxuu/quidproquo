@@ -1,6 +1,6 @@
 /* Collection 頁樣式 —— 暗色放映廳基調（body.is-collection，不受站上主題切換影響）。
-   色板一律從 src/styles/tokens.css 衍生：底色與文字取 dark 主題的既定值（釘住），
-   強調色用品牌綠 --brand-500 的 dark 值，類型色沿用 --cat-*。不准引入站上沒有的新色系。 */
+   色板刻意不使用站上 token：這裡是獨立的「房間」，深淺模式下視覺一致，對照 initiald.fan。
+   顏色來源依 site 設計：底色是 room 系統色，強調色與 badge 系統以品牌 accent（--brand-500）為主。 */
 
 body.is-collection {
   --coll-bg: #0f1419;      /* = tokens dark --bg-page */
@@ -9,7 +9,7 @@ body.is-collection {
   --coll-text: #d1d5db;    /* = tokens dark --text-primary */
   --coll-soft: #a9b2ba;    /* 介於 text/muted 的中間層 */
   --coll-muted: #8b929e;   /* = tokens dark --text-muted */
-  --coll-accent: #5cb87a;  /* = tokens dark --brand-500（品牌綠） */
+  --coll-accent: var(--brand-500);
 
   max-width: none;
 }
@@ -395,12 +395,16 @@ body.is-collection #main-content {
   border: 1px solid var(--coll-border);
 }
 
-/* 類型 badge：文字以 --cat-* 提亮（color-mix 混白）確保暗底對比，色源仍是站上 token */
-.work-badge--anime { color: color-mix(in srgb, var(--cat-anime) 70%, #fff); border-color: color-mix(in srgb, var(--cat-anime) 45%, transparent); }
-.work-badge--film { color: var(--coll-soft); border-color: color-mix(in srgb, var(--cat-film) 60%, transparent); }
-.work-badge--drama { color: color-mix(in srgb, var(--cat-drama) 70%, #fff); border-color: color-mix(in srgb, var(--cat-drama) 45%, transparent); }
-.work-badge--tier-favorite { color: var(--coll-accent); border-color: color-mix(in srgb, var(--coll-accent) 45%, transparent); }
-.work-badge--rating { color: var(--coll-accent); border-color: color-mix(in srgb, var(--coll-accent) 45%, transparent); font-weight: 700; }
+/* 徽章：沿用 site 設計——分類不靠色區分，全部以品牌 accent 加腔強調 */
+.work-badge {
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  padding: 0.26rem 0.65rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--coll-accent) 12%, transparent);
+  color: var(--coll-accent);
+  border: 1px solid color-mix(in srgb, var(--coll-accent) 45%, transparent);
+}
 
 .work-oneliner {
   font-size: 1.08rem;

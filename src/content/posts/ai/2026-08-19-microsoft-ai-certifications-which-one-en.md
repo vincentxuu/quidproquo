@@ -13,7 +13,7 @@ description: "A selection guide for Microsoft's AI-103, AI-500, AB-620, and AB-1
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one)
+> :globe: [中文版](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one)
 >
 > This is a selection guide built from official sources, not an exam report — the author has not sat these exams. Every "what's tested" points back to the official study guides, every spec points back to Microsoft's own pages, and there are no leaked questions. Verified 2026-08-19.
 
@@ -110,10 +110,10 @@ The gap in material readiness will affect this month's progress more than the ga
 
 | | Official learning paths | Instructor-led course | Practice test |
 |---|---|---|---|
-| **AI-103** | ✅ all four live (the same material as course AI-103T00-A) | yes | moved to AI Skills Navigator; **free or not is not stated** |
-| **AI-500** | ❌ the exam page lists four, but **all four public URLs return 404**; the certification page itself says "Learning paths or modules are not yet available for this certification" | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) (four days); the availability notice is gone | ❌ not yet available |
-| **AB-620** | ✅ three live (8 hours 29 minutes of listed content) | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) (three days); the availability notice is gone | ❌ not yet available ("usually available within 8 weeks of the exam being out of beta and generally available") |
-| **AB-100** | ✅ [Architect agentic AI business solutions](https://learn.microsoft.com/en-us/training/paths/architect-agentic-ai-business-solutions/) | yes, but self-described as not a test-prep course | ✅ **yes, and free** |
+| **AI-103** | ✓ all four live (the same material as course AI-103T00-A) | yes | moved to AI Skills Navigator; **free or not is not stated** |
+| **AI-500** | ✗ the exam page lists four, but **all four public URLs return 404**; the certification page itself says "Learning paths or modules are not yet available for this certification" | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00) (four days); the availability notice is gone | ✗ not yet available |
+| **AB-620** | ✓ three live (8 hours 29 minutes of listed content) | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00) (three days); the availability notice is gone | ✗ not yet available ("usually available within 8 weeks of the exam being out of beta and generally available") |
+| **AB-100** | ✓ [Architect agentic AI business solutions](https://learn.microsoft.com/en-us/training/paths/architect-agentic-ai-business-solutions/) | yes, but self-described as not a test-prep course | ✓ **yes, and free** |
 
 **Three actionable conclusions:**
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-xinference-model-platform-en)
+> :globe: [English version](/posts/tech/2026-08-24-xinference-model-platform-en)
 
 [Xinference](https://inference.readthedocs.io/)（Xorbits Inference）是開源的模型推論管理平台，[GitHub 上約 9,500 stars](https://github.com/xorbitsai/inference)，Apache-2.0 授權。它的定位不是取代 vLLM 或 SGLang——而是把它們和 Transformers、llama.cpp、MLX 一起包在同一個管理層裡，用 Web UI、CLI 和 OpenAI 相容 API 統一管理 LLM、embedding、rerank、語音、圖像等不同類型的模型。
 

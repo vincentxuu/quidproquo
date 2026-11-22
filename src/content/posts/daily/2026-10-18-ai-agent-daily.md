@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-18-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -120,14 +120,14 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-github-digest)
-- 📄 [模型卡｜Reflection Beam 1.0](/posts/daily/2026-10-18-model-reflection-beam-1-0)
-- 📄 [Benchmark 異動｜Arena Agent 排行榜](/posts/daily/2026-10-18-benchmark-arena-agent-astra)
-- 📄 [融資速報｜Opsin $21M 新一輪](/posts/daily/2026-10-18-funding-opsin)
-- 📄 [工具推薦｜AI Slop Meter](/posts/daily/2026-10-18-tool-aislopmeter)
-- 📄 [AI Engineer 面試日練 — 2026-10-18](/posts/daily/2026-10-18-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-18](/posts/daily/2026-10-18-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-github-digest)
+- :file: [模型卡｜Reflection Beam 1.0](/posts/daily/2026-10-18-model-reflection-beam-1-0)
+- :file: [Benchmark 異動｜Arena Agent 排行榜](/posts/daily/2026-10-18-benchmark-arena-agent-astra)
+- :file: [融資速報｜Opsin $21M 新一輪](/posts/daily/2026-10-18-funding-opsin)
+- :file: [工具推薦｜AI Slop Meter](/posts/daily/2026-10-18-tool-aislopmeter)
+- :file: [AI Engineer 面試日練 — 2026-10-18](/posts/daily/2026-10-18-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-18](/posts/daily/2026-10-18-product-builder-interview-daily)
 
 ## 明日關注
 

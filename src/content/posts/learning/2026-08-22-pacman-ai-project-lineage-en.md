@@ -10,7 +10,7 @@ description: "An official-assignment-based comparison of the Pacman AI project's
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-pacman-ai-project-lineage)
+> :globe: [中文版](/posts/learning/2026-08-22-pacman-ai-project-lineage)
 
 Berkeley CS188 and CMU 15-281 both ask Pacman to search mazes, avoid ghosts, and eat food, but “the schools happened to use similar games” is not the most precise account. CMU's [Search and Games assignment](https://www.cs.cmu.edu/~15281/assignments/programming/search_and_games/) explicitly says that it is based on the Pacman AI projects developed at UC Berkeley. The lineage is documented. The public specifications do not say why CMU chose each modification or who decided to merge particular tasks, so this article does not infer those motives.
 

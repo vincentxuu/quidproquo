@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-tool-shipstores-en)
+> :globe: [English version](/posts/daily/2026-10-04-tool-shipstores-en)
 
 ## 工具資訊
 
@@ -76,11 +76,11 @@ claude mcp add shipstores -e SHIPSTORES_TOOLSETS=apple,eas -- uvx shipstores
 
 | | shipstores | app-publish-mcp / mobile-release-mcp | 手動操作兩個後台 |
 |---|---|---|---|
-| 公開 API 的部分（上傳、版本、訂閱） | ✅ | ✅ | 需自己點 |
-| 隱私標籤／App content 無 API 表單 | ✅（console 自動化） | ❌ | 需自己點 |
-| 讀取並回覆 App Review 退件（含影片附件） | ✅ | ❌ | 需自己錄影上傳 |
-| Expo/EAS build 整合 | ✅ | 視專案而定 | 需自己切換工具 |
-| 會寫入／送審的操作先詢問使用者 | ✅（description 標明） | 視實作 | — |
+| 公開 API 的部分（上傳、版本、訂閱） | ✓ | ✓ | 需自己點 |
+| 隱私標籤／App content 無 API 表單 | ✓（console 自動化） | ✗ | 需自己點 |
+| 讀取並回覆 App Review 退件（含影片附件） | ✓ | ✗ | 需自己錄影上傳 |
+| Expo/EAS build 整合 | ✓ | 視專案而定 | 需自己切換工具 |
+| 會寫入／送審的操作先詢問使用者 | ✓（description 標明） | 視實作 | — |
 
 ## 注意事項
 

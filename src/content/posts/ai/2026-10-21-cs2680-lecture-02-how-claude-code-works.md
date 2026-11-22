@@ -21,7 +21,7 @@ glossary:
     context: "第 2 堂用它和 skill 對照：skill 是可用的知識，hook 是保證會發生的動作。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

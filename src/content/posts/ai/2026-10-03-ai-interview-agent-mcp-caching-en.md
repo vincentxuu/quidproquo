@@ -40,7 +40,7 @@ glossary:
     definition: "A JSON document in A2A that describes an agent's capabilities, endpoint and authentication, so other agents can discover it before collaborating. Cards can be signed from v1.0."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-agent-mcp-caching)
 
 When an interviewer asks about agents, they rarely want framework names. They want to see whether you can walk the whole chain: how a model says "I want to call a tool", how its output is guaranteed to be machine-readable, what to do when there are too many tools for the prompt, where memory lives, and how to keep cost down. This is part 13 of the "AI Engineer Interview Prep" series, and it ties those questions into one thread: the agent loop first, then Structured Output and Function Calling, then tool scale and memory, and finally MCP, A2A and Prompt Caching.
 

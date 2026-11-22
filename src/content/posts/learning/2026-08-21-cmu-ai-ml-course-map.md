@@ -13,7 +13,7 @@ description: "以 CMU 官方 BSAI 要求、2026 課號改制、實際開課與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-cmu-ai-ml-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

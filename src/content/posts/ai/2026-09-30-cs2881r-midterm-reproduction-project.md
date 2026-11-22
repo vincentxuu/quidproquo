@@ -21,7 +21,7 @@ glossary:
     context: "期中候選論文裡的 GCG 與剪枝／低秩兩篇都以 ASR 當主要指標。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

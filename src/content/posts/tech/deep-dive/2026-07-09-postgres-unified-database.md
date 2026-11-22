@@ -10,7 +10,7 @@ description: "「Just Use Postgres」運動的實戰評估：逐一分析 Postgr
 draft: false
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-07-09-postgres-unified-database-en)
+:globe: [English version](/posts/tech/deep-dive/2026-07-09-postgres-unified-database-en)
 
 「Just Use Postgres」這個口號最近在技術社群很流行。論點很簡單：你的快取不需要 Redis，佇列不需要 RabbitMQ，搜尋不需要 Elasticsearch，向量不需要 Pinecone——PostgreSQL 一個就能扛。
 

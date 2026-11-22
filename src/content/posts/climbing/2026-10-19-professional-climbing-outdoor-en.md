@@ -24,7 +24,7 @@ glossary:
     definition: "Climbing a route from bottom to top without falling or resting on the gear, after having practised it. Almost all hard outdoor routes are done this way."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-professional-climbing-outdoor)
+> :globe: [中文版](/posts/climbing/2026-10-19-professional-climbing-outdoor)
 
 On the afternoon of 10 October 2026, Jakob Schubert clipped the chains of a route called DNA in France's Verdon Gorge while about 180,000 people watched his YouTube livestream ([Climbing.com](https://www.climbing.com/news/dna-repeat/)). No judges, no medals, no prize money. But that ascent made DNA the world's first confirmed 9c.
 

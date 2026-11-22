@@ -10,7 +10,7 @@ description: "A practical guide to Turborepo and pnpm workspaces — covering pi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-03-27-turborepo-monorepo-build)
+> :globe: [中文版](/posts/tech/2026-03-27-turborepo-monorepo-build)
 
 The problem with monorepos isn't "putting multiple projects in one place" — it's that once you do, builds get slow and dependencies become a mess. Turborepo solves build efficiency; pnpm workspaces solves dependency management. Together they are the standard answer for JS/TS monorepos today.
 

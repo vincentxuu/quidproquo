@@ -34,7 +34,7 @@ glossary:
     context: "There is no settled Chinese term in Taiwan; the Chinese version of this post coins 擰身."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-turning-twisting)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-turning-twisting)
 
 You are climbing vertical walls fine, but as soon as the wall goes past vertical it falls apart. Every reach is a hard pull and your body keeps swinging off. A coach glances over and says "turn sideways". You turn, but you don't know which way, or what your feet should do.
 

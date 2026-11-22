@@ -13,7 +13,7 @@ description: "A Vang Vieng climbing guide: the style, grades, approaches, motorb
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-vang-vieng)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-vang-vieng)
 
 Vang Vieng sits about 150 km north of Vientiane and is Laos' second climbing area. theCrag listed 154 routes on 21 October 2026, spread across several karst towers outside town. Unlike Thakhek, there is no "camp plus walk to the crag" base here: the crags are strung along Route 13, and most people stay in town and ride out each day.
 

@@ -14,7 +14,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-prompt-engineering-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-prompt-engineering-en)
 
 RAG 的搜尋做好了，context 準確了，但 LLM 的回答還是差強人意。這時候問題通常在 Prompt 設計——怎麼把 context 和指令組合在一起，讓 LLM 知道怎麼回答。
 

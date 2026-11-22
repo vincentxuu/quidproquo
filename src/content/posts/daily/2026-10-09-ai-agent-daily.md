@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-09-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -158,16 +158,16 @@ Cisco／Omdia 2026 AI Readiness Index 調查顯示，東非地區僅 39% 的組�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-github-digest)
-- 📄 [融資速報｜Manus 首輪獨立募資 $500M+](/posts/daily/2026-10-09-funding-manus)
-- 📄 [融資速報｜Nous Research Series B $90M](/posts/daily/2026-10-09-funding-nous-research)
-- 📄 [融資速報｜Rein Security Series A $25M](/posts/daily/2026-10-09-funding-rein-security)
-- 📄 [模型卡｜Claude Haiku 5.5](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5)
-- 📄 [定價追蹤｜Claude Max／Team 訂閱戶每月免費拿 API 額度](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits)
-- 📄 [工具推薦｜postgres2mcp](/posts/daily/2026-10-09-tool-postgres2mcp)
-- 📄 [AI Engineer 面試日練 — 2026-10-09：Coding](/posts/daily/2026-10-09-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-09：Growth & Experimentation](/posts/daily/2026-10-09-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-github-digest)
+- :file: [融資速報｜Manus 首輪獨立募資 $500M+](/posts/daily/2026-10-09-funding-manus)
+- :file: [融資速報｜Nous Research Series B $90M](/posts/daily/2026-10-09-funding-nous-research)
+- :file: [融資速報｜Rein Security Series A $25M](/posts/daily/2026-10-09-funding-rein-security)
+- :file: [模型卡｜Claude Haiku 5.5](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5)
+- :file: [定價追蹤｜Claude Max／Team 訂閱戶每月免費拿 API 額度](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits)
+- :file: [工具推薦｜postgres2mcp](/posts/daily/2026-10-09-tool-postgres2mcp)
+- :file: [AI Engineer 面試日練 — 2026-10-09：Coding](/posts/daily/2026-10-09-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-09：Growth & Experimentation](/posts/daily/2026-10-09-product-builder-interview-daily)
 
 ## 明日關注
 

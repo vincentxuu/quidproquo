@@ -10,7 +10,7 @@ description: "深入介紹 Fireworks AI 的 Serverless、On-demand 專用部署�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-fireworks-ai-inference-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-fireworks-ai-inference-platform-en)
 
 [Fireworks AI](https://fireworks.ai/) 是替開放權重模型提供訓練與推論的平台。它不是另一個只轉送請求的模型聚合器：同一個模型可以先走共享的 Serverless API 驗證需求，再搬到專用 GPU，最後接上微調或自行上傳的權重。應用程式仍使用近似相同的呼叫方式，改變的是背後的容量、計費與控制權。
 

@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-11-funding-typesafe-ai)
+> :globe: [中文版](/posts/daily/2026-10-11-funding-typesafe-ai)
 
 ## Deal Terms
 

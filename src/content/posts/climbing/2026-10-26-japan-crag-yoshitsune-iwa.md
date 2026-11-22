@@ -13,7 +13,7 @@ description: "義經岩攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa-en)
 
 義經岩位於洞爺湖一帶，集中而有傾角的凝灰岩讓一天的攀登很好安排。真正會改變行程的是近期出入規範：2025 年的自肅曾存在，之後也有正式解除通知，兩件事都要看日期。
 

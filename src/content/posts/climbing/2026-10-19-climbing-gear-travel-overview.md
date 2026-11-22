@@ -12,7 +12,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-gear-travel-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-gear-travel-overview-en)
 
 在台灣去龍洞或岩館，裝備丟進車裡就出發。帶出國就不一樣了：繩子要多長得看當地路線，快扣能不能帶上飛機要看安檢人員，托運行李有重量上限，到了岩場還得換一個包背上去。
 

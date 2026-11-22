@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speak-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-speak-speaking-practice-en)
 
 你可能知道英文怎麼寫，卻在會議輪到自己時說不出來。直接找老師練習又很緊張，希望先在沒人看的地方，把同一段話說熟一點。[Speak](https://www.speak.com/tw/)提供的正是這種手機上的 AI 口說練習：先學表達，再開口回答，接著進入模擬情境。
 

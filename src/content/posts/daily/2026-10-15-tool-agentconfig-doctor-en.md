@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-tool-agentconfig-doctor)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-tool-agentconfig-doctor)
 
 ## Tool Info
 
@@ -71,11 +71,11 @@ The README also includes a GitHub Actions example that needs only `contents: rea
 
 | | AgentConfig Doctor | Generic secret scanners (gitleaks etc.) | Manual code review |
 |---|---|---|---|
-| Finds leaked keys | ✅ | ✅ | Depends on the reviewer |
-| Understands MCP/agent config structure (servers, hooks, allow rules) | ✅ | ❌ | Depends on the reviewer |
-| Flags risky combinations (e.g. auto-enabling all project MCP servers) | ✅ | ❌ | Easy to miss |
-| Compares permissions against a baseline | ✅ | ❌ | ❌ |
-| Never executes scanned content, safe on fork PRs | ✅ | ✅ | — |
+| Finds leaked keys | ✓ | ✓ | Depends on the reviewer |
+| Understands MCP/agent config structure (servers, hooks, allow rules) | ✓ | ✗ | Depends on the reviewer |
+| Flags risky combinations (e.g. auto-enabling all project MCP servers) | ✓ | ✗ | Easy to miss |
+| Compares permissions against a baseline | ✓ | ✗ | ✗ |
+| Never executes scanned content, safe on fork PRs | ✓ | ✓ | — |
 
 ## Caveats
 

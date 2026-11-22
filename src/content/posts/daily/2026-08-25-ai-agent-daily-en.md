@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-25-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -114,13 +114,13 @@ Three arxiv papers today poke at the same point from different scales: "occasion
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-github-digest)
-- 📄 [Framework Update | Agno 3.0.0](/posts/daily/2026-08-25-framework-agno-3.0.0)
-- 📄 [Funding Brief | Rundoo Series B $30M](/posts/daily/2026-08-25-funding-rundoo)
-- 📄 [Model Card | GLM-5.3](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
-- 📄 [Security Alert | Claude Mythos 5 Social Engineering Incident](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering)
-- 📄 [Tool Pick | mcp-guardrail](/posts/daily/2026-08-25-tool-mcp-guardrail)
+- :file: [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-github-digest)
+- :file: [Framework Update | Agno 3.0.0](/posts/daily/2026-08-25-framework-agno-3.0.0)
+- :file: [Funding Brief | Rundoo Series B $30M](/posts/daily/2026-08-25-funding-rundoo)
+- :file: [Model Card | GLM-5.3](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
+- :file: [Security Alert | Claude Mythos 5 Social Engineering Incident](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering)
+- :file: [Tool Pick | mcp-guardrail](/posts/daily/2026-08-25-tool-mcp-guardrail)
 
 ## Tomorrow's Watch
 

@@ -13,7 +13,7 @@ description: "How four source-available pre-install scanners for skills and MCP 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners)
+> :globe: [中文版](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners)
 
 You found a useful-looking skill on GitHub and are about to drop it into your skills directory. A pre-install scanner does one plain thing: before you install, it reads the skill's files and instructions and looks for malicious patterns, such as stealing credentials, sending data out, or instructions hidden in the description.
 

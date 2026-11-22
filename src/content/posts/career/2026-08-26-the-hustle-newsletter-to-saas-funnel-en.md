@@ -13,7 +13,7 @@ description: "The complete story of The Hustle founder Sam Parr: from a hot dog 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel)
+> :globe: [中文版](/posts/career/2026-08-26-the-hustle-newsletter-to-saas-funnel)
 
 Sam Parr's story isn't "engineer writes tech content" or "ex-VP shares career wisdom." He's a guy who sold hot dogs on a Nashville sidewalk and, through raw copywriting instinct and a shameless willingness to go big, turned a free newsletter into a media asset that a SaaS giant paid eight figures to acquire.
 

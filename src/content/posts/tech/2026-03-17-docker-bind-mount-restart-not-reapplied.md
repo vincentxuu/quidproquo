@@ -10,7 +10,7 @@ description: "記錄一次 Docker bind mount 失效的完整排查過程：容�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied-en)
+:globe: [English version](/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied-en)
 
 ## TL;DR
 

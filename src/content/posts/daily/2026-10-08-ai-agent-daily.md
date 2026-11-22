@@ -12,7 +12,7 @@ series:
   order: 54
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-08-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-08-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -158,14 +158,14 @@ IBM 台灣與 MDBS 百商數位科技舉辦金融 AI Agent 研討會，點出理
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.75.0](/posts/daily/2026-10-08-framework-mastra-1.75.0)
-- 📄 [融資速報｜Ampersand Series A $15M](/posts/daily/2026-10-08-funding-ampersand)
-- 📄 [融資速報｜Melius $25M](/posts/daily/2026-10-08-funding-melius)
-- 📄 [融資速報｜Vocca Series A $20M](/posts/daily/2026-10-08-funding-vocca)
-- 📄 [定價追蹤｜Claude Sonnet 5.5 快取命中價砍半](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut)
-- 📄 [工具推薦｜mcpgawk](/posts/daily/2026-10-08-tool-mcpgawk)
+- :file: [AI Agent Arxiv Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.75.0](/posts/daily/2026-10-08-framework-mastra-1.75.0)
+- :file: [融資速報｜Ampersand Series A $15M](/posts/daily/2026-10-08-funding-ampersand)
+- :file: [融資速報｜Melius $25M](/posts/daily/2026-10-08-funding-melius)
+- :file: [融資速報｜Vocca Series A $20M](/posts/daily/2026-10-08-funding-vocca)
+- :file: [定價追蹤｜Claude Sonnet 5.5 快取命中價砍半](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut)
+- :file: [工具推薦｜mcpgawk](/posts/daily/2026-10-08-tool-mcpgawk)
 
 ## 明日關注
 

@@ -18,7 +18,7 @@ glossary:
     context: "Lab 2 Part 4。它不要求來源分佈是高斯，所以能在任意兩個分佈之間做 flow matching，但沒有條件分數的封閉解。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

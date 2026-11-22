@@ -17,7 +17,7 @@ glossary:
     def: "An OpenAI API parameter that controls reasoning depth (none/low/medium/high/xhigh/max) — higher effort usually means more latency and cost"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna)
+> :globe: [中文版](/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | OSWorld 2.0 (computer use, xhigh effort) | GPT-6 Sol | 60.5% | Undisclosed | Claude Opus 5 60.3% (medium effort; Sol at ~80% lower cost) |
 | Internal simulated deployment misalignment flags (severity-3+ count, lower is better) | GPT-6 Sol | 42 | GPT-5.6 Sol: 66 | - |
 
-⚠️ Except where OSWorld 2.0's public version number is cited, all figures above are OpenAI's own self-reported numbers, each vendor's model run at its own highest effort setting, and not yet independently reproduced; the misalignment-flag counts come from OpenAI's internal simulated deployment, not a public benchmark.
+:warning: Except where OSWorld 2.0's public version number is cited, all figures above are OpenAI's own self-reported numbers, each vendor's model run at its own highest effort setting, and not yet independently reproduced; the misalignment-flag counts come from OpenAI's internal simulated deployment, not a public benchmark.
 
 ## Versus Prior Model and Competitors
 

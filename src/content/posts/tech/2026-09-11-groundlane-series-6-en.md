@@ -20,7 +20,7 @@ glossary:
     definition: "When a dense embedding model compresses multiple structured fields (name, grade, location) into one vector, making it impossible to distinguish which attribute the user cares about during retrieval."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-09-11-groundlane-series-6)
+> :globe: [繁體中文版](/posts/tech/2026-09-11-groundlane-series-6)
 
 The first five parts walked Groundlane's Web tools from concept to operational checklists ([Part 1: Why agents need a controlled web access layer](/posts/tech/2026-08-23-groundlane-series-1-en), [Part 2: Tool parameters and responses](/posts/tech/2026-08-23-groundlane-series-2-en), [Part 3: Comparison with traditional approaches](/posts/tech/2026-08-23-groundlane-series-3-en), [Part 4: In-site application](/posts/tech/2026-08-23-groundlane-series-4-en), [Part 5: Pitfalls and best practices](/posts/tech/2026-08-23-groundlane-series-5-en)). This part enters the Document toolkit — Groundlane has expanded to 55 tools since `v0.1.0`, with over 20 related to document parsing. This article focuses on three design decisions: the `effort` parameter, field-aware chunking, and confidence routing.
 

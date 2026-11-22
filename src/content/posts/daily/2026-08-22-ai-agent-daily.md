@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-22-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-22-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -90,14 +90,14 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
-- 📄 [框架更新｜CrewAI 1.15.17](/posts/daily/2026-08-22-framework-crewai-1.15.17)
-- 📄 [定價追蹤｜GPT-5.6 Sol 雙平台打對折](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
-- 📄 [資安警報｜Grok 遭加密提示注入攻擊](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
-- 📄 [工具推薦｜Cairn 事故分析 Copilot](/posts/daily/2026-08-22-tool-cairn-incident)
-- 📄 [AI Engineer 面試日練 — 2026-08-22：Paper Reading（論文精讀）](/posts/daily/2026-08-22-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-22：Technical PM](/posts/daily/2026-08-22-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-22](/posts/daily/2026-08-22-ai-agent-github-digest)
+- :file: [框架更新｜CrewAI 1.15.17](/posts/daily/2026-08-22-framework-crewai-1.15.17)
+- :file: [定價追蹤｜GPT-5.6 Sol 雙平台打對折](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount)
+- :file: [資安警報｜Grok 遭加密提示注入攻擊](/posts/daily/2026-08-22-security-grok-cryptographic-context-injection)
+- :file: [工具推薦｜Cairn 事故分析 Copilot](/posts/daily/2026-08-22-tool-cairn-incident)
+- :file: [AI Engineer 面試日練 — 2026-08-22：Paper Reading（論文精讀）](/posts/daily/2026-08-22-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-22：Technical PM](/posts/daily/2026-08-22-product-builder-interview-daily)
 
 ## 明日關注
 

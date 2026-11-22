@@ -15,7 +15,7 @@ glossary:
     def: "Moonshot AI's conversational and agentic model family; K3.1 Pro is a post-trained flagship built on K3"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-model-moonshot-ai-kimi-k3-1-pro)
+> :globe: [中文版](/posts/daily/2026-10-30-model-moonshot-ai-kimi-k3-1-pro)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | GDPval-AA (Elo, Artificial Analysis, independent) | 1,846 (3rd) | 1,534 | Claude Opus 5.5 1,866 |
 | BenchCAD with tools (Moonshot self-report) | 92.7% | Not reported | Claude Opus 5.5 96.2%, GPT-6 Astra 95.9% |
 
-⚠️ Terminal-Bench 4.0 (Moonshot's own run), BenchCAD, OfficeQA Pro v2, and xdev-bench-hard are all Moonshot self-reported figures with no independent reproduction yet. Terminal-Bench 4.0 (independent run), the Intelligence Index, and GDPval-AA come from Artificial Analysis, a third-party evaluator. The two parties scored the same Terminal-Bench 4.0 test differently (67% vs. 65.7%) using different harnesses and settings, so the numbers shouldn't be added together or treated as directly comparable.
+:warning: Terminal-Bench 4.0 (Moonshot's own run), BenchCAD, OfficeQA Pro v2, and xdev-bench-hard are all Moonshot self-reported figures with no independent reproduction yet. Terminal-Bench 4.0 (independent run), the Intelligence Index, and GDPval-AA come from Artificial Analysis, a third-party evaluator. The two parties scored the same Terminal-Bench 4.0 test differently (67% vs. 65.7%) using different harnesses and settings, so the numbers shouldn't be added together or treated as directly comparable.
 
 ```diagram
 title: Kimi K3.1 Pro closes to within 2.5 points of Claude Opus 5.5 on the Intelligence Index

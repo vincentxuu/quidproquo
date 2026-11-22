@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-pocketbase-single-binary-backend)
+> :globe: [中文版](/posts/tech/2026-08-22-pocketbase-single-binary-backend)
 
 [PocketBase](https://pocketbase.io/docs/) is a small Go executable containing SQLite, a REST-ish API, Auth, file storage, SSE realtime, and an admin dashboard. It can also be extended as a Go framework or with JavaScript hooks. A product backend collapses into one process and `pb_data`, which is excellent for prototypes and single-host services.
 

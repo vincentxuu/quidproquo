@@ -13,7 +13,7 @@ description: "A teaching guide based on public Spring 2026 materials: Modern Tra
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-modern-transformer-rope-gqa)
 
 **Video status: recordings require sign-in or course authorization.** This guide uses public slides and assignments; numerical examples are site-authored, not a lecture transcript.
 

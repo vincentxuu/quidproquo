@@ -16,7 +16,7 @@ description: "讀完 Stanford CS111 Spring 2026 官網的九份作業說明、28
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs111-operating-systems-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

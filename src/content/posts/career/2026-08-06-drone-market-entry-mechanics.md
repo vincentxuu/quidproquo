@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
+> :globe: [English version](/posts/career/2026-08-06-drone-market-entry-mechanics-en)
 
 **先說清楚這篇的邊界。**
 

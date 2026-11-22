@@ -12,7 +12,7 @@ series:
   order: 85
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-funding-vesta-en)
+> :globe: [English version](/posts/daily/2026-10-13-funding-vesta-en)
 
 ## 融資資訊
 

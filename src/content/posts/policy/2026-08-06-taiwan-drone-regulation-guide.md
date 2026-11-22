@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
+> :globe: [English version](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en)
 
 台灣無人機法規的懶人包很多，問題是**它們混用了三種東西**：現行有效的條文、已經被修正掉的舊規定，以及還沒生效的修正草案。三者混在一起，讀者沒辦法判斷哪句話現在能用。
 

@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-tool-mcpspan)
+> :globe: [中文版](/posts/daily/2026-10-05-tool-mcpspan)
 
 ## Tool Info
 
@@ -86,11 +86,11 @@ You can also set `OTEL_EXPORTER_OTLP_ENDPOINT` to have mcpspan forward every cal
 
 | | mcpspan | Rolling your own logging | General-purpose APM (via OTel) |
 |---|---|---|---|
-| Understands MCP semantics (tool/resource/prompt) | ✅ | ❌ you parse it yourself | ❌ no tool name or client type |
-| Tells apart "tool reported an error" vs. "handler threw" | ✅ | You build it yourself | ❌ |
-| Parameter values ever leave the process | ❌ never | Depends on your log design | Depends on your instrumentation |
-| One behavior contract across 8 languages | ✅ | — | Depends on each vendor's SDK |
-| Exports to OTel with zero extra setup | ✅ | ❌ | (it already is one) |
+| Understands MCP semantics (tool/resource/prompt) | ✓ | ✗ you parse it yourself | ✗ no tool name or client type |
+| Tells apart "tool reported an error" vs. "handler threw" | ✓ | You build it yourself | ✗ |
+| Parameter values ever leave the process | ✗ never | Depends on your log design | Depends on your instrumentation |
+| One behavior contract across 8 languages | ✓ | — | Depends on each vendor's SDK |
+| Exports to OTel with zero extra setup | ✓ | ✗ | (it already is one) |
 
 ## Things to Watch Out For
 

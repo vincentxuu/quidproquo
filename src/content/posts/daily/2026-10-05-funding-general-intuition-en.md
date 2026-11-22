@@ -12,7 +12,7 @@ series:
   order: 68
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-funding-general-intuition)
+> :globe: [中文版](/posts/daily/2026-10-05-funding-general-intuition)
 
 ## Deal Terms
 
