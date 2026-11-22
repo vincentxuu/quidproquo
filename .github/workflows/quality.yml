@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
       - name: Test UI scope detection
         run: node --test scripts/ui-change-scope.test.mjs
       - id: scope
@@ -35,7 +35,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Verify (lint + references + skills-sync + progress)
@@ -52,7 +52,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22.22.0
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm --dir evals/rag install --frozen-lockfile
@@ -81,8 +81,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          # 22.23.4 的 V8 在 dev server 送大模組時偶發崩潰（exit 132，2026-11-12/13 兩次），換 24 驗證是否消失。
-          node-version: 24
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium
@@ -111,8 +110,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          # 22.23.4 的 V8 在 dev server 送大模組時偶發崩潰（exit 132，2026-11-12/13 兩次），換 24 驗證是否消失。
-          node-version: 24
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium
