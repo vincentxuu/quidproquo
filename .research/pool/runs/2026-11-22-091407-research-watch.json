@@ -1,0 +1,3573 @@
+{
+  "version": 1,
+  "batch": {
+    "version": 1,
+    "batch_id": "2026-11-22-research-watch-batch",
+    "date": "2026-11-22",
+    "max_requests": 32,
+    "rotation_week": 2967,
+    "rotation_offset": 3,
+    "sorted_watch_ids": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique",
+      "learning-methods"
+    ],
+    "execution_order": [
+      "learning-methods",
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "enabled_watch_count": 4,
+    "planned_requests": 24,
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "learning-methods",
+        "title": "學習／學習方法研究追蹤",
+        "category": "learning",
+        "topic": "methods",
+        "run_id": "2026-11-22-learning-methods-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "learning-methods/plan.json",
+        "summary_path": "learning-methods/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-22-climbing-crags-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-22-climbing-gear-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 4,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-22-climbing-technique-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      }
+    ]
+  },
+  "summary": {
+    "version": 1,
+    "batch_id": "2026-11-22-research-watch-batch",
+    "date": "2026-11-22",
+    "max_requests": 32,
+    "planned_requests": 24,
+    "execution_order": [
+      "learning-methods",
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "complete": false,
+    "status_counts": {
+      "complete": 3,
+      "incomplete": 1,
+      "failed": 0,
+      "pending": 0,
+      "deferred": 0
+    },
+    "completed_watches": 3,
+    "new_sources": 20,
+    "known_sources": 23,
+    "new_source_ids": [
+      "src_262bafb9f06c73624106",
+      "src_466b3ff6c366a49fd75b",
+      "src_499348feac65f4621b12",
+      "src_5e0ca7e7403119556e31",
+      "src_63386f4d4bba391f70e5",
+      "src_7c03556f7cfcdded782f",
+      "src_7d5c8c06f75bb53bb147",
+      "src_824e36334eb970f107ce",
+      "src_830a8240b1448d1e92a6",
+      "src_8e6e0b104b7904cbd0c1",
+      "src_b141f4290122e4090aca",
+      "src_b774235756071b50481a",
+      "src_bf1ee55c075666b33f98",
+      "src_c0beac2c617aa01244c9",
+      "src_c24c88cd302326629311",
+      "src_c4242b6e77f695caddb2",
+      "src_deb9a238625e2d8b6df3",
+      "src_e780b1da7bb8902cb134",
+      "src_f1897d7a0b08ba51da58",
+      "src_fee95a607bb18f324b57"
+    ],
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "learning-methods",
+        "title": "學習／學習方法研究追蹤",
+        "category": "learning",
+        "topic": "methods",
+        "run_id": "2026-11-22-learning-methods-watch",
+        "request_count": 6,
+        "status": "incomplete",
+        "plan_path": "learning-methods/plan.json",
+        "summary_path": "learning-methods/summary.json",
+        "deferred_reason": null,
+        "reason": "Per-watch evidence reports failures or unexecuted requests; coverage remains incomplete.",
+        "completed_requests": 5,
+        "failed_requests": 1,
+        "missing_requests": [],
+        "new_sources": 8,
+        "known_sources": 3
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-22-climbing-crags-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 5,
+        "known_sources": 6
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-22-climbing-gear-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 2,
+        "known_sources": 8
+      },
+      {
+        "order": 4,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-22-climbing-technique-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 5,
+        "known_sources": 6
+      }
+    ]
+  },
+  "watches": [
+    {
+      "watch_id": "learning-methods",
+      "status": "incomplete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "learning-methods",
+          "title": "學習／學習方法研究追蹤",
+          "category": "learning",
+          "topic": "methods",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "學習 學習方法"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "學習 學習方法 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about learning methods."
+            }
+          ]
+        },
+        "date": "2026-11-22",
+        "run_id": "2026-11-22-learning-methods-watch",
+        "rotation_week": 2967,
+        "known_source_count": 130,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 0,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_5360c6c4672bf888cfae",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_5360c6c4672bf888cfae",
+            "url": "https://line-tw-official.weblog.to/archives/17062125.html",
+            "query": "學習 學習方法 LINE 台灣官方部落格：訊息查證數據",
+            "title": "LINE 台灣官方部落格：訊息查證數據"
+          },
+          {
+            "id": "source-src_567a31d8568e8018561b",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_567a31d8568e8018561b",
+            "url": "https://philomedium.com/event/81138",
+            "query": "學習 學習方法 《後真相》讀書會活動頁（哲學新媒体）",
+            "title": "《後真相》讀書會活動頁（哲學新媒体）"
+          },
+          {
+            "id": "source-src_568f7503ed6b714750d5",
+            "kind": "source",
+            "source_type": "paper",
+            "source_id": "src_568f7503ed6b714750d5",
+            "url": "https://www.nature.com/articles/s41586-024-07417-w",
+            "query": "學習 學習方法 Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶",
+            "title": "Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶"
+          },
+          {
+            "id": "source-src_57912ec6daf6f3770a6a",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_57912ec6daf6f3770a6a",
+            "url": "https://www.thebulwark.com/the-limits-of-liberal-science",
+            "query": "學習 學習方法 The Limits of Liberal Science（Laura K. Field, The Bulwark）",
+            "title": "The Limits of Liberal Science（Laura K. Field, The Bulwark）"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "學習 學習方法 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about learning methods."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-22-learning-methods-watch",
+        "date": "2026-11-22",
+        "planned_requests": 6,
+        "completed_requests": 5,
+        "failed_requests": 1,
+        "missing_requests": [],
+        "complete": false,
+        "new_sources": 8,
+        "known_sources": 3,
+        "candidates": [
+          {
+            "id": "src_262bafb9f06c73624106",
+            "url": "https://extension.harvard.edu/blog/learning-strategies-that-work",
+            "title": "Learning Strategies That Work | Harvard Extension School",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only"
+            ],
+            "reasons": [
+              "University blog summary; secondary."
+            ],
+            "aliases": [],
+            "published_at": "2022-01-26"
+          },
+          {
+            "id": "src_499348feac65f4621b12",
+            "url": "https://www.deansforimpact.org/files/assets/thescienceoflearning2ndedspreads.pdf",
+            "title": "The Science of Learning II",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "Education nonprofit summary of learning research."
+            ],
+            "aliases": [],
+            "published_at": "2026-08-31"
+          },
+          {
+            "id": "src_5e0ca7e7403119556e31",
+            "url": "https://mcgraw.princeton.edu/undergraduates/resources/resource-library/how-people-learn",
+            "title": "How People Learn: Common Beliefs Vs. Research",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "University teaching-center page."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_63386f4d4bba391f70e5",
+            "url": "https://www.edresearch.edu.au/research/research-reports/how-students-learn-best-overview-evidence",
+            "title": "How students learn best: An overview of the evidence",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "Government-funded research body overview."
+            ],
+            "aliases": [],
+            "published_at": "2023-09-18"
+          },
+          {
+            "id": "src_8e6e0b104b7904cbd0c1",
+            "url": "https://www.nature.com/articles/npjscilearn201613",
+            "title": "Learning strategies: a synthesis and conceptual model | npj Science of Learning",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only"
+            ],
+            "reasons": [
+              "Synthesis of learning strategies."
+            ],
+            "aliases": [],
+            "published_at": "2016-08-10"
+          },
+          {
+            "id": "src_b774235756071b50481a",
+            "url": "https://link.springer.com/article/10.1186/s41235-017-0087-y",
+            "title": "Teaching the science of learning | Cognitive Research: Principles and Implications",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only"
+            ],
+            "reasons": [
+              "Peer-reviewed learning-science paper."
+            ],
+            "aliases": [],
+            "published_at": "2018-01-24"
+          },
+          {
+            "id": "src_c24c88cd302326629311",
+            "url": "https://www.nature.com/articles/s44159-022-00089-1",
+            "title": "The science of effective learning with spacing and retrieval practice | Nature Reviews Psychology",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only"
+            ],
+            "reasons": [
+              "Core review on spacing and retrieval practice."
+            ],
+            "aliases": [],
+            "published_at": "2022-08-02"
+          },
+          {
+            "id": "src_fee95a607bb18f324b57",
+            "url": "https://psychology.ucsd.edu/undergraduate-program/undergraduate-resources/academic-writing-resources/effective-studying/index.html",
+            "title": "How to Effectively Study",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "University study guide."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_5360c6c4672bf888cfae",
+            "url": "https://line-tw-official.weblog.to/archives/17062125.html",
+            "title": "LINE 台灣官方部落格：訊息查證數據",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_5360c6c4672bf888cfae"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: full page body read (not truncated); 2026-06-23 post with LINE fact-check stats through Mar 2026"
+            ],
+            "reasons": [
+              "Company self-reported statistics, 332k reports as of 2026-03; vendor claims need independent check."
+            ],
+            "aliases": [],
+            "published_at": "2026-06-23"
+          },
+          {
+            "id": "src_568f7503ed6b714750d5",
+            "url": "https://www.nature.com/articles/s41586-024-07417-w",
+            "title": "Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶",
+            "source_type": "paper",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_568f7503ed6b714750d5"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: abstract plus start of reference list read, truncated; full text not read"
+            ],
+            "reasons": [
+              "Nature review; abstract says exposure is low and concentrated; metadata author field unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_57912ec6daf6f3770a6a",
+            "url": "https://www.thebulwark.com/the-limits-of-liberal-science",
+            "title": "The Limits of Liberal Science（Laura K. Field, The Bulwark）",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_57912ec6daf6f3770a6a"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (2021 book review of Rauch Constitution of Knowledge)"
+            ],
+            "reasons": [
+              "Opinion review; critique of a book, not primary evidence."
+            ],
+            "aliases": [],
+            "published_at": "2021-11-04"
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_5360c6c4672bf888cfae",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: full page body read (not truncated); 2026-06-23 post with LINE fact-check stats through Mar 2026",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_567a31d8568e8018561b",
+            "status": "failed",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: no content retrieved",
+            "count": 0,
+            "error": "Groundlane UPSTREAM_ERROR stage=browser-challenge: target access challenge could not be resolved (retryable). Exa unavailable this session; no other fallback attempted."
+          },
+          {
+            "request_id": "source-src_568f7503ed6b714750d5",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: abstract plus start of reference list read, truncated; full text not read",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_57912ec6daf6f3770a6a",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (2021 book review of Rauch Constitution of Knowledge)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+            "count": 4,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+            "count": 4,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://extension.harvard.edu/blog/learning-strategies-that-work",
+          "title": "Learning Strategies That Work | Harvard Extension School",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "University blog summary; secondary.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2022-01-26"
+          }
+        },
+        {
+          "url": "https://www.deansforimpact.org/files/assets/thescienceoflearning2ndedspreads.pdf",
+          "title": "The Science of Learning II",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Education nonprofit summary of learning research.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-08-31"
+          }
+        },
+        {
+          "url": "https://mcgraw.princeton.edu/undergraduates/resources/resource-library/how-people-learn",
+          "title": "How People Learn: Common Beliefs Vs. Research",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "University teaching-center page.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.edresearch.edu.au/research/research-reports/how-students-learn-best-overview-evidence",
+          "title": "How students learn best: An overview of the evidence",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Government-funded research body overview.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2023-09-18"
+          }
+        },
+        {
+          "url": "https://www.nature.com/articles/npjscilearn201613",
+          "title": "Learning strategies: a synthesis and conceptual model | npj Science of Learning",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Synthesis of learning strategies.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2016-08-10"
+          }
+        },
+        {
+          "url": "https://link.springer.com/article/10.1186/s41235-017-0087-y",
+          "title": "Teaching the science of learning | Cognitive Research: Principles and Implications",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Peer-reviewed learning-science paper.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2018-01-24"
+          }
+        },
+        {
+          "url": "https://www.nature.com/articles/s44159-022-00089-1",
+          "title": "The science of effective learning with spacing and retrieval practice | Nature Reviews Psychology",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Core review on spacing and retrieval practice.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2022-08-02"
+          }
+        },
+        {
+          "url": "https://psychology.ucsd.edu/undergraduate-program/undergraduate-resources/academic-writing-resources/effective-studying/index.html",
+          "title": "How to Effectively Study",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "University study guide.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://line-tw-official.weblog.to/archives/17062125.html",
+          "title": "LINE 台灣官方部落格：訊息查證數據",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: full page body read (not truncated); 2026-06-23 post with LINE fact-check stats through Mar 2026",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Company self-reported statistics, 332k reports as of 2026-03; vendor claims need independent check.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-06-23"
+          }
+        },
+        {
+          "url": "https://www.nature.com/articles/s41586-024-07417-w",
+          "title": "Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: abstract plus start of reference list read, truncated; full text not read",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Nature review; abstract says exposure is low and concentrated; metadata author field unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thebulwark.com/the-limits-of-liberal-science",
+          "title": "The Limits of Liberal Science（Laura K. Field, The Bulwark）",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "learning"
+          ],
+          "topics": [
+            "methods"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (2021 book review of Rauch Constitution of Knowledge)",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Opinion review; critique of a book, not primary evidence.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "learning-methods",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2021-11-04"
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "學習 學習方法 LINE 台灣官方部落格：訊息查證數據",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: full page body read (not truncated); 2026-06-23 post with LINE fact-check stats through Mar 2026",
+          "result_urls": [
+            "https://line-tw-official.weblog.to/archives/17062125.html"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "學習 學習方法 《後真相》讀書會活動頁（哲學新媒体）",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: no content retrieved",
+          "result_urls": [],
+          "gap": "Failed: Groundlane UPSTREAM_ERROR stage=browser-challenge: target access challenge could not be resolved (retryable). Exa unavailable this session; no other fallback attempted."
+        },
+        {
+          "query": "學習 學習方法 Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: abstract plus start of reference list read, truncated; full text not read",
+          "result_urls": [
+            "https://www.nature.com/articles/s41586-024-07417-w"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "學習 學習方法 The Limits of Liberal Science（Laura K. Field, The Bulwark）",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (2021 book review of Rauch Constitution of Knowledge)",
+          "result_urls": [
+            "https://www.thebulwark.com/the-limits-of-liberal-science"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "學習 學習方法 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only",
+          "result_urls": [
+            "https://link.springer.com/article/10.1186/s41235-017-0087-y",
+            "https://www.nature.com/articles/npjscilearn201613",
+            "https://www.nature.com/articles/s44159-022-00089-1",
+            "https://extension.harvard.edu/blog/learning-strategies-that-work"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about learning methods.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; only browserbase succeeded; 4 results, titles only",
+          "result_urls": [
+            "https://psychology.ucsd.edu/undergraduate-program/undergraduate-resources/academic-writing-resources/effective-studying/index.html",
+            "https://www.deansforimpact.org/files/assets/thescienceoflearning2ndedspreads.pdf",
+            "https://mcgraw.princeton.edu/undergraduates/resources/resource-library/how-people-learn",
+            "https://www.edresearch.edu.au/research/research-reports/how-students-learn-best-overview-evidence"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 學習／學習方法研究追蹤候選報告\n\n日期：2026-11-22；run：2026-11-22-learning-methods-watch\n\n範圍：6/6 次已嘗試，失敗 1 次，未執行 0 次。覆蓋不完整，不得解讀為沒有新來源。\n新增 8 個來源；已知 3 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [Learning Strategies That Work \\| Harvard Extension School](<https://extension.harvard.edu/blog/learning-strategies-that-work>) | 新候選 | University blog summary; secondary. |\n| 1 | [The Science of Learning II](<https://www.deansforimpact.org/files/assets/thescienceoflearning2ndedspreads.pdf>) | 新候選 | Education nonprofit summary of learning research. |\n| 1 | [How People Learn: Common Beliefs Vs. Research](<https://mcgraw.princeton.edu/undergraduates/resources/resource-library/how-people-learn>) | 新候選 | University teaching-center page. |\n| 1 | [How students learn best: An overview of the evidence](<https://www.edresearch.edu.au/research/research-reports/how-students-learn-best-overview-evidence>) | 新候選 | Government-funded research body overview. |\n| 1 | [Learning strategies: a synthesis and conceptual model \\| npj Science of Learning](<https://www.nature.com/articles/npjscilearn201613>) | 新候選 | Synthesis of learning strategies. |\n| 1 | [Teaching the science of learning \\| Cognitive Research: Principles and Implications](<https://link.springer.com/article/10.1186/s41235-017-0087-y>) | 新候選 | Peer-reviewed learning-science paper. |\n| 1 | [The science of effective learning with spacing and retrieval practice \\| Nature Reviews Psychology](<https://www.nature.com/articles/s44159-022-00089-1>) | 新候選 | Core review on spacing and retrieval practice. |\n| 1 | [How to Effectively Study](<https://psychology.ucsd.edu/undergraduate-program/undergraduate-resources/academic-writing-resources/effective-studying/index.html>) | 新候選 | University study guide. |\n| 3 | [LINE 台灣官方部落格：訊息查證數據](<https://line-tw-official.weblog.to/archives/17062125.html>) | 已知／selected | Company self-reported statistics, 332k reports as of 2026-03; vendor claims need independent check. |\n| 3 | [Nyhan et al. 2024（Nature）：misinformation 曝露低且集中於邊緣用戶](<https://www.nature.com/articles/s41586-024-07417-w>) | 已知／selected | Nature review; abstract says exposure is low and concentrated; metadata author field unverified. |\n| 3 | [The Limits of Liberal Science（Laura K. Field, The Bulwark）](<https://www.thebulwark.com/the-limits-of-liberal-science>) | 已知／selected | Opinion review; critique of a book, not primary evidence. |\n\n## 搜尋覆蓋\n\n- source-src\\_5360c6c4672bf888cfae：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: full page body read (not truncated); 2026-06-23 post with LINE fact-check stats through Mar 2026；1 筆\n- source-src\\_567a31d8568e8018561b：failed；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: no content retrieved；0 筆；Groundlane UPSTREAM\\_ERROR stage=browser-challenge: target access challenge could not be resolved (retryable). Exa unavailable this session; no other fallback attempted.\n- source-src\\_568f7503ed6b714750d5：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: abstract plus start of reference list read, truncated; full text not read；1 筆\n- source-src\\_57912ec6daf6f3770a6a：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars read, truncated (2021 book review of Rauch Constitution of Knowledge)；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; only browserbase succeeded (brave unavailable); 4 results, titles only；4 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; only browserbase succeeded; 4 results, titles only；4 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-crags",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-crags",
+          "title": "攀岩／岩場與路線研究追蹤",
+          "category": "climbing",
+          "topic": "crags",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 岩場與路線"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing crags."
+            }
+          ]
+        },
+        "date": "2026-11-22",
+        "run_id": "2026-11-22-climbing-crags-watch",
+        "rotation_week": 2967,
+        "known_source_count": 1440,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 61,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_3cfd9b8716c2cada8738",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_3cfd9b8716c2cada8738",
+            "url": "https://www.youtube.com/watch?v=J8lpDYedN2A",
+            "query": "攀岩 岩場與路線 塩原   負けるな",
+            "title": "塩原   負けるな"
+          },
+          {
+            "id": "source-src_3d3d0f43cf9cf39b5bf3",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_3d3d0f43cf9cf39b5bf3",
+            "url": "https://www.youtube.com/watch?v=bEjb2Ljyq58",
+            "query": "攀岩 岩場與路線 道端岩カンテ右４Ｑ　笠間",
+            "title": "道端岩カンテ右４Ｑ　笠間"
+          },
+          {
+            "id": "source-src_3d4b56671c38a6c8226d",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_3d4b56671c38a6c8226d",
+            "url": "https://www.youtube.com/watch?v=YWHXC2D-jxU",
+            "query": "攀岩 岩場與路線 モンビラージュ@城山ライオンボトム(5.11c)",
+            "title": "モンビラージュ@城山ライオンボトム(5.11c)"
+          },
+          {
+            "id": "source-src_3d9829a12dda6c56cb11",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_3d9829a12dda6c56cb11",
+            "url": "https://www.youtube.com/watch?v=GrQtFsO3W2o",
+            "query": "攀岩 岩場與路線 【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画",
+            "title": "【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing crags."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-22-climbing-crags-watch",
+        "date": "2026-11-22",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 5,
+        "known_sources": 6,
+        "candidates": [
+          {
+            "id": "src_7d5c8c06f75bb53bb147",
+            "url": "https://parks.tas.gov.au/things-to-do/rock-climbing-and-abseiling",
+            "title": "Rock climbing and abseiling | Parks & Wildlife Service Tasmania",
+            "source_type": "organization",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)"
+            ],
+            "reasons": [
+              "Land-manager access rules; primary source for access."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_824e36334eb970f107ce",
+            "url": "https://nav.eyosc.com/sites/5668.html",
+            "title": "Mountain Project官网 (Eyosc Nav listing)",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only"
+            ],
+            "reasons": [
+              "Directory page describing Mountain Project; go to the primary site rather than rely on this aggregator."
+            ],
+            "aliases": [],
+            "published_at": "2026-06-12"
+          },
+          {
+            "id": "src_bf1ee55c075666b33f98",
+            "url": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1214029/full",
+            "title": "Climbing crags recommender system in Arco, Italy: a comparative study",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)"
+            ],
+            "reasons": [
+              "Peer-reviewed study on crag recommendation; relevant to crag research."
+            ],
+            "aliases": [],
+            "published_at": "2023-10-11"
+          },
+          {
+            "id": "src_deb9a238625e2d8b6df3",
+            "url": "https://thebmc.co.uk/guidance-for-new-outdoor-climbers",
+            "title": "Top tips for new outdoor climbers - The British Mountaineering Council",
+            "source_type": "organization",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)"
+            ],
+            "reasons": [
+              "Official national body guidance."
+            ],
+            "aliases": [],
+            "published_at": "2026-07-04"
+          },
+          {
+            "id": "src_e780b1da7bb8902cb134",
+            "url": "https://osmaps.com/discover/guides/best-climbing-crags-in-britain/",
+            "title": "Top trad and sport climbing spots near you | OS GetOutside",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)"
+            ],
+            "reasons": [
+              "Mapping-vendor crag guide for Britain; check authorship."
+            ],
+            "aliases": [],
+            "published_at": "2022-09-13"
+          },
+          {
+            "id": "src_115b996a236a142d9b01",
+            "url": "https://www.faqs.tw/c/climbing",
+            "title": "攀岩抱石相關問題整理｜faqs.tw",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only"
+            ],
+            "reasons": [
+              "Aggregated FAQ; secondary source, needs provenance check."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_3cfd9b8716c2cada8738",
+            "url": "https://www.youtube.com/watch?v=J8lpDYedN2A",
+            "title": "塩原   負けるな",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_3cfd9b8716c2cada8738"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description notes 2018 record, climbing now prohibited"
+            ],
+            "reasons": [
+              "Metadata says climbing is now prohibited at this site; confirm access status from an official source before any use."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_3d3d0f43cf9cf39b5bf3",
+            "url": "https://www.youtube.com/watch?v=bEjb2Ljyq58",
+            "title": "道端岩カンテ右４Ｑ　笠間",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_3d3d0f43cf9cf39b5bf3"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched"
+            ],
+            "reasons": [
+              "Title metadata only; route details unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_3d4b56671c38a6c8226d",
+            "url": "https://www.youtube.com/watch?v=YWHXC2D-jxU",
+            "title": "モンビラージュ@城山ライオンボトム(5.11c)",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_3d4b56671c38a6c8226d"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description (Jan 2022) mentions moss cleaning and pocket sequence"
+            ],
+            "reasons": [
+              "Route-beta metadata only; grade and conditions unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_3d9829a12dda6c56cb11",
+            "url": "https://www.youtube.com/watch?v=GrQtFsO3W2o",
+            "title": "【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_3d9829a12dda6c56cb11"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched"
+            ],
+            "reasons": [
+              "Title metadata only; worth checking for crag access context."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_9b95751ad24c21e18afa",
+            "url": "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook",
+            "title": "攀岩也要用功讀書：Guidebook",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only"
+            ],
+            "reasons": [
+              "Chinese-language guidebook reading notes (Yosemite); check the guidebook basis."
+            ],
+            "aliases": [],
+            "published_at": "2024-10-16"
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_3cfd9b8716c2cada8738",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description notes 2018 record, climbing now prohibited",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_3d3d0f43cf9cf39b5bf3",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_3d4b56671c38a6c8226d",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description (Jan 2022) mentions moss cleaning and pocket sequence",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_3d9829a12dda6c56cb11",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only",
+            "count": 3,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+            "count": 4,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://parks.tas.gov.au/things-to-do/rock-climbing-and-abseiling",
+          "title": "Rock climbing and abseiling | Parks & Wildlife Service Tasmania",
+          "source_type": "organization",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Land-manager access rules; primary source for access.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://nav.eyosc.com/sites/5668.html",
+          "title": "Mountain Project官网 (Eyosc Nav listing)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Directory page describing Mountain Project; go to the primary site rather than rely on this aggregator.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-06-12"
+          }
+        },
+        {
+          "url": "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1214029/full",
+          "title": "Climbing crags recommender system in Arco, Italy: a comparative study",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Peer-reviewed study on crag recommendation; relevant to crag research.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2023-10-11"
+          }
+        },
+        {
+          "url": "https://thebmc.co.uk/guidance-for-new-outdoor-climbers",
+          "title": "Top tips for new outdoor climbers - The British Mountaineering Council",
+          "source_type": "organization",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Official national body guidance.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-07-04"
+          }
+        },
+        {
+          "url": "https://osmaps.com/discover/guides/best-climbing-crags-in-britain/",
+          "title": "Top trad and sport climbing spots near you | OS GetOutside",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Mapping-vendor crag guide for Britain; check authorship.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2022-09-13"
+          }
+        },
+        {
+          "url": "https://www.faqs.tw/c/climbing",
+          "title": "攀岩抱石相關問題整理｜faqs.tw",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Aggregated FAQ; secondary source, needs provenance check.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=J8lpDYedN2A",
+          "title": "塩原   負けるな",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description notes 2018 record, climbing now prohibited",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Metadata says climbing is now prohibited at this site; confirm access status from an official source before any use.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=bEjb2Ljyq58",
+          "title": "道端岩カンテ右４Ｑ　笠間",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Title metadata only; route details unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=YWHXC2D-jxU",
+          "title": "モンビラージュ@城山ライオンボトム(5.11c)",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description (Jan 2022) mentions moss cleaning and pocket sequence",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Route-beta metadata only; grade and conditions unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=GrQtFsO3W2o",
+          "title": "【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Title metadata only; worth checking for crag access context.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook",
+          "title": "攀岩也要用功讀書：Guidebook",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Chinese-language guidebook reading notes (Yosemite); check the guidebook basis.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2024-10-16"
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 岩場與路線 塩原   負けるな",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description notes 2018 record, climbing now prohibited",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=J8lpDYedN2A"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 道端岩カンテ右４Ｑ　笠間",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=bEjb2Ljyq58"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 モンビラージュ@城山ライオンボトム(5.11c)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description (Jan 2022) mentions moss cleaning and pocket sequence",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=YWHXC2D-jxU"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=GrQtFsO3W2o"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only",
+          "result_urls": [
+            "https://nav.eyosc.com/sites/5668.html",
+            "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook",
+            "https://www.faqs.tw/c/climbing"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing crags.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)",
+          "result_urls": [
+            "https://osmaps.com/discover/guides/best-climbing-crags-in-britain/",
+            "https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1214029/full",
+            "https://thebmc.co.uk/guidance-for-new-outdoor-climbers",
+            "https://parks.tas.gov.au/things-to-do/rock-climbing-and-abseiling"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／岩場與路線研究追蹤候選報告\n\n日期：2026-11-22；run：2026-11-22-climbing-crags-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 5 個來源；已知 6 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [Rock climbing and abseiling \\| Parks & Wildlife Service Tasmania](<https://parks.tas.gov.au/things-to-do/rock-climbing-and-abseiling>) | 新候選 | Land-manager access rules; primary source for access. |\n| 1 | [Mountain Project官网 (Eyosc Nav listing)](<https://nav.eyosc.com/sites/5668.html>) | 新候選 | Directory page describing Mountain Project; go to the primary site rather than rely on this aggregator. |\n| 1 | [Climbing crags recommender system in Arco, Italy: a comparative study](<https://www.frontiersin.org/journals/big-data/articles/10.3389/fdata.2023.1214029/full>) | 新候選 | Peer-reviewed study on crag recommendation; relevant to crag research. |\n| 1 | [Top tips for new outdoor climbers - The British Mountaineering Council](<https://thebmc.co.uk/guidance-for-new-outdoor-climbers>) | 新候選 | Official national body guidance. |\n| 1 | [Top trad and sport climbing spots near you \\| OS GetOutside](<https://osmaps.com/discover/guides/best-climbing-crags-in-britain/>) | 新候選 | Mapping-vendor crag guide for Britain; check authorship. |\n| 3 | [攀岩抱石相關問題整理｜faqs.tw](<https://www.faqs.tw/c/climbing>) | 已知／candidate | Aggregated FAQ; secondary source, needs provenance check. |\n| 3 | [塩原   負けるな](<https://www.youtube.com/watch?v=J8lpDYedN2A>) | 已知／selected | Metadata says climbing is now prohibited at this site; confirm access status from an official source before any use. |\n| 3 | [道端岩カンテ右４Ｑ　笠間](<https://www.youtube.com/watch?v=bEjb2Ljyq58>) | 已知／selected | Title metadata only; route details unverified. |\n| 3 | [モンビラージュ@城山ライオンボトム(5.11c)](<https://www.youtube.com/watch?v=YWHXC2D-jxU>) | 已知／candidate | Route-beta metadata only; grade and conditions unverified. |\n| 3 | [【リードクライミング】鳳来ガンコ岩　講習会ルート　完登動画](<https://www.youtube.com/watch?v=GrQtFsO3W2o>) | 已知／selected | Title metadata only; worth checking for crag access context. |\n| 3 | [攀岩也要用功讀書：Guidebook](<https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook>) | 已知／candidate | Chinese-language guidebook reading notes (Yosemite); check the guidebook basis. |\n\n## 搜尋覆蓋\n\n- source-src\\_3cfd9b8716c2cada8738：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description notes 2018 record, climbing now prohibited；1 筆\n- source-src\\_3d3d0f43cf9cf39b5bf3：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched；1 筆\n- source-src\\_3d4b56671c38a6c8226d：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description (Jan 2022) mentions moss cleaning and pocket sequence；1 筆\n- source-src\\_3d9829a12dda6c56cb11：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4, auto provider; only brave succeeded (tavily/exa/you unavailable); 3 results returned, snippets only；3 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4, auto provider; keenable+browserbase succeeded; 4 results, titles/URLs only (empty snippets)；4 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-gear",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-gear",
+          "title": "攀岩／裝備研究追蹤",
+          "category": "climbing",
+          "topic": "gear",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 裝備"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing gear."
+            }
+          ]
+        },
+        "date": "2026-11-22",
+        "run_id": "2026-11-22-climbing-gear-watch",
+        "rotation_week": 2967,
+        "known_source_count": 97,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 0,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_4d294dc5cd7d7ed85de6",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_4d294dc5cd7d7ed85de6",
+            "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+            "query": "攀岩 裝備 BMC equipment guides - The British Mountaineering Council",
+            "title": "BMC equipment guides - The British Mountaineering Council"
+          },
+          {
+            "id": "source-src_50b3e4e128ab40aaae83",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_50b3e4e128ab40aaae83",
+            "url": "https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops",
+            "query": "攀岩 裝備 QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+            "title": "QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)"
+          },
+          {
+            "id": "source-src_50b9cf423075d41f43e0",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_50b9cf423075d41f43e0",
+            "url": "https://www.metoliusclimbing.com/products/haul-bag",
+            "query": "攀岩 裝備 Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)",
+            "title": "Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)"
+          },
+          {
+            "id": "source-src_51cddfe3c754e74232a8",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_51cddfe3c754e74232a8",
+            "url": "http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html",
+            "query": "攀岩 裝備 How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+            "title": "How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing gear."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-22-climbing-gear-watch",
+        "date": "2026-11-22",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 2,
+        "known_sources": 8,
+        "candidates": [
+          {
+            "id": "src_466b3ff6c366a49fd75b",
+            "url": "https://www.climbing.com/",
+            "title": "Climbing Magazine",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only"
+            ],
+            "reasons": [
+              "Homepage of a major magazine; too general to cite."
+            ],
+            "aliases": [],
+            "published_at": "2026-10-15"
+          },
+          {
+            "id": "src_c0beac2c617aa01244c9",
+            "url": "https://m.gelonghui.com/p/1794135",
+            "title": "运动攀岩装备行业深度分析与十五五规划前瞻2025版",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only"
+            ],
+            "reasons": [
+              "Industry report page; market rather than safety focus, low priority."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_383a91483e150b130ec3",
+            "url": "https://www.climbing.com/collection/gear-guides/",
+            "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only"
+            ],
+            "reasons": [
+              "Magazine gear test index; check methodology and affiliate disclosure."
+            ],
+            "aliases": [],
+            "published_at": "2026-09-10"
+          },
+          {
+            "id": "src_4d294dc5cd7d7ed85de6",
+            "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+            "title": "BMC equipment guides - The British Mountaineering Council",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_4d294dc5cd7d7ed85de6",
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_fetch",
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page title and intro paragraph only (extraction removed most of the page); booklet list not read",
+              "Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only"
+            ],
+            "reasons": [
+              "Official BMC gear advice index; booklet contents not read.",
+              "Already-known source rediscovered by search."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_50b3e4e128ab40aaae83",
+            "url": "https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops",
+            "title": "QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_50b3e4e128ab40aaae83"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of article read, truncated (CE minimum breaking strengths and haul-loop argument)"
+            ],
+            "reasons": [
+              "Manufacturer article; vendor viewpoint, verify numbers against EN standards."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_50b9cf423075d41f43e0",
+            "url": "https://www.metoliusclimbing.com/products/haul-bag",
+            "title": "Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_50b9cf423075d41f43e0"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of product page read, truncated (models, price, specs)"
+            ],
+            "reasons": [
+              "Manufacturer product page; marketing claims, price is time-variable."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_51cddfe3c754e74232a8",
+            "url": "http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html",
+            "title": "How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_51cddfe3c754e74232a8"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (haul rope guidance; page contains affiliate links)"
+            ],
+            "reasons": [
+              "Experienced-author guide with disclosed affiliate links."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_6145f9e65d611ea6ea3c",
+            "url": "https://learn.100mountain.com/?p=3866",
+            "title": "攀岩入門看這篇--攀岩器材基礎介紹",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only"
+            ],
+            "reasons": [
+              "Chinese beginner gear overview mentioning UIAA standards; retailer-affiliated, verify standards claims."
+            ],
+            "aliases": [],
+            "published_at": "2020-11-16"
+          },
+          {
+            "id": "src_887dc764c52c37f689a4",
+            "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+            "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only"
+            ],
+            "reasons": [
+              "Taiwan-focused article on gear certification; check against UIAA/CE texts."
+            ],
+            "aliases": [],
+            "published_at": "2025-10-27"
+          },
+          {
+            "id": "src_bf88ea3af8b773d8d7e8",
+            "url": "https://adviseist.com/climbing-gear-2026",
+            "title": "2026 攀岩裝備完整選購指南",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only"
+            ],
+            "reasons": [
+              "Personal buying guide; possible affiliate content."
+            ],
+            "aliases": [],
+            "published_at": "2026-05-23"
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_4d294dc5cd7d7ed85de6",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page title and intro paragraph only (extraction removed most of the page); booklet list not read",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_50b3e4e128ab40aaae83",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of article read, truncated (CE minimum breaking strengths and haul-loop argument)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_50b9cf423075d41f43e0",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of product page read, truncated (models, price, specs)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_51cddfe3c754e74232a8",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (haul rope guidance; page contains affiliate links)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+            "count": 4,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.climbing.com/",
+          "title": "Climbing Magazine",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Homepage of a major magazine; too general to cite.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-10-15"
+          }
+        },
+        {
+          "url": "https://m.gelonghui.com/p/1794135",
+          "title": "运动攀岩装备行业深度分析与十五五规划前瞻2025版",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Industry report page; market rather than safety focus, low priority.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.climbing.com/collection/gear-guides/",
+          "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Magazine gear test index; check methodology and affiliate disclosure.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-09-10"
+          }
+        },
+        {
+          "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+          "title": "BMC equipment guides - The British Mountaineering Council",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page title and intro paragraph only (extraction removed most of the page); booklet list not read | Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only",
+          "tool": "Groundlane web_fetch + Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Official BMC gear advice index; booklet contents not read. | Already-known source rediscovered by search.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops",
+          "title": "QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of article read, truncated (CE minimum breaking strengths and haul-loop argument)",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Manufacturer article; vendor viewpoint, verify numbers against EN standards.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.metoliusclimbing.com/products/haul-bag",
+          "title": "Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of product page read, truncated (models, price, specs)",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Manufacturer product page; marketing claims, price is time-variable.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html",
+          "title": "How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (haul rope guidance; page contains affiliate links)",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Experienced-author guide with disclosed affiliate links.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://learn.100mountain.com/?p=3866",
+          "title": "攀岩入門看這篇--攀岩器材基礎介紹",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Chinese beginner gear overview mentioning UIAA standards; retailer-affiliated, verify standards claims.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2020-11-16"
+          }
+        },
+        {
+          "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+          "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Taiwan-focused article on gear certification; check against UIAA/CE texts.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2025-10-27"
+          }
+        },
+        {
+          "url": "https://adviseist.com/climbing-gear-2026",
+          "title": "2026 攀岩裝備完整選購指南",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Personal buying guide; possible affiliate content.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-05-23"
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 裝備 BMC equipment guides - The British Mountaineering Council",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page title and intro paragraph only (extraction removed most of the page); booklet list not read",
+          "result_urls": [
+            "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of article read, truncated (CE minimum breaking strengths and haul-loop argument)",
+          "result_urls": [
+            "https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars of product page read, truncated (models, price, specs)",
+          "result_urls": [
+            "https://www.metoliusclimbing.com/products/haul-bag"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (haul rope guidance; page contains affiliate links)",
+          "result_urls": [
+            "http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; only brave succeeded; 4 results, snippets only",
+          "result_urls": [
+            "https://learn.100mountain.com/?p=3866",
+            "https://adviseist.com/climbing-gear-2026",
+            "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+            "https://m.gelonghui.com/p/1794135"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing gear.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; only brave succeeded; 3 results, snippets only",
+          "result_urls": [
+            "https://www.climbing.com/",
+            "https://www.climbing.com/collection/gear-guides/",
+            "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／裝備研究追蹤候選報告\n\n日期：2026-11-22；run：2026-11-22-climbing-gear-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 2 個來源；已知 8 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [Climbing Magazine](<https://www.climbing.com/>) | 新候選 | Homepage of a major magazine; too general to cite. |\n| 1 | [运动攀岩装备行业深度分析与十五五规划前瞻2025版](<https://m.gelonghui.com/p/1794135>) | 新候選 | Industry report page; market rather than safety focus, low priority. |\n| 3 | [Climbing Gear Guides: Shoes, Ropes, Packs, and More](<https://www.climbing.com/collection/gear-guides/>) | 已知／candidate | Magazine gear test index; check methodology and affiliate disclosure. |\n| 3 | [BMC equipment guides - The British Mountaineering Council](<https://www.thebmc.co.uk/en/bmc-technical-advice-booklets>) | 已知／candidate | Official BMC gear advice index; booklet contents not read.；Already-known source rediscovered by search. |\n| 3 | [QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)](<https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops>) | 已知／selected | Manufacturer article; vendor viewpoint, verify numbers against EN standards. |\n| 3 | [Haul Bag - Sentinel/Quarter Dome/Half Dome/El Cap (Metolius)](<https://www.metoliusclimbing.com/products/haul-bag>) | 已知／candidate | Manufacturer product page; marketing claims, price is time-variable. |\n| 3 | [How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)](<http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html>) | 已知／selected | Experienced-author guide with disclosed affiliate links. |\n| 3 | [攀岩入門看這篇--攀岩器材基礎介紹](<https://learn.100mountain.com/?p=3866>) | 已知／candidate | Chinese beginner gear overview mentioning UIAA standards; retailer-affiliated, verify standards claims. |\n| 3 | [攀岩新手必學 - 裝備的安全認證 \\| 艾格探險](<https://www.adventuretaiwan.com/climbing-gears-safety-standards/>) | 已知／candidate | Taiwan-focused article on gear certification; check against UIAA/CE texts. |\n| 3 | [2026 攀岩裝備完整選購指南](<https://adviseist.com/climbing-gear-2026>) | 已知／candidate | Personal buying guide; possible affiliate content. |\n\n## 搜尋覆蓋\n\n- source-src\\_4d294dc5cd7d7ed85de6：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page title and intro paragraph only (extraction removed most of the page); booklet list not read；1 筆\n- source-src\\_50b3e4e128ab40aaae83：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars of article read, truncated (CE minimum breaking strengths and haul-loop argument)；1 筆\n- source-src\\_50b9cf423075d41f43e0：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars of product page read, truncated (models, price, specs)；1 筆\n- source-src\\_51cddfe3c754e74232a8：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars read, truncated (haul rope guidance; page contains affiliate links)；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; only brave succeeded; 4 results, snippets only；4 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; only brave succeeded; 3 results, snippets only；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-technique",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-technique",
+          "title": "攀岩／技巧與安全研究追蹤",
+          "category": "climbing",
+          "topic": "technique",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 技巧與安全"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing technique."
+            }
+          ]
+        },
+        "date": "2026-11-22",
+        "run_id": "2026-11-22-climbing-technique-watch",
+        "rotation_week": 2967,
+        "known_source_count": 131,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 2,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_9f0078bf8b4cdcd9a4ee",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_9f0078bf8b4cdcd9a4ee",
+            "url": "https://andy-kirkpatrick.com/blog/view/hauling_hauling_hauling",
+            "query": "攀岩 技巧與安全 Hauling, hauling, hauling (Andy Kirkpatrick blog)",
+            "title": "Hauling, hauling, hauling (Andy Kirkpatrick blog)"
+          },
+          {
+            "id": "source-src_9f198620ebae713d807f",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_9f198620ebae713d807f",
+            "url": "https://alpinesavvy.com/blog/hauling-directly-from-a-micro-traxion",
+            "query": "攀岩 技巧與安全 Hauling directly from a Traxion pulley (Alpinesavvy, 2019)",
+            "title": "Hauling directly from a Traxion pulley (Alpinesavvy, 2019)"
+          },
+          {
+            "id": "source-src_a5e736ccdb0f390bd0d3",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_a5e736ccdb0f390bd0d3",
+            "url": "https://www.youtube.com/watch?v=EcyJj_b0maQ",
+            "query": "攀岩 技巧與安全 DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5",
+            "title": "DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5"
+          },
+          {
+            "id": "source-src_a66ca31ad4f76b032a56",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_a66ca31ad4f76b032a56",
+            "url": "https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained",
+            "query": "攀岩 技巧與安全 The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)",
+            "title": "The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing technique."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-22-climbing-technique-watch",
+        "date": "2026-11-22",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 5,
+        "known_sources": 6,
+        "candidates": [
+          {
+            "id": "src_7c03556f7cfcdded782f",
+            "url": "https://hkcmcu.org.hk/images/536/L1SCT_handout_20250109.pdf",
+            "title": "L1SCT Handout",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results"
+            ],
+            "reasons": [
+              "Hong Kong course handout; check scope."
+            ],
+            "aliases": [],
+            "published_at": "2025-01-09"
+          },
+          {
+            "id": "src_830a8240b1448d1e92a6",
+            "url": "https://www.sport.gov.cn/dszx/n5414/c30018668/part/30033418.pdf",
+            "title": "2025 年中国攀岩运动事故报告",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results"
+            ],
+            "reasons": [
+              "Official accident report PDF for 2025; high value for safety research but unread."
+            ],
+            "aliases": [],
+            "published_at": "2026-09-11"
+          },
+          {
+            "id": "src_b141f4290122e4090aca",
+            "url": "https://www.mountaineers.org/locations-lodges/seattle-branch/committees/seattle-climbing-committee/course-templates/alpine-climbing-courses/intense-basic-alpine-climbing-course/course-materials/standard-techniques",
+            "title": "Standard Techniques — The Mountaineers",
+            "source_type": "course",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "Club course materials on standard techniques."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c4242b6e77f695caddb2",
+            "url": "https://www.rei.com/learn/expert-advice/climbing-techniques.html",
+            "title": "Rock Climbing Techniques & Moves | REI Expert Advice",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "Retailer beginner guide; commercial context."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_f1897d7a0b08ba51da58",
+            "url": "https://www.theuiaa.org/alpine-handbook",
+            "title": "Alpine Summer Skills Handbook - UIAA",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "International federation handbook; primary safety source."
+            ],
+            "aliases": [],
+            "published_at": "2023-09-13"
+          },
+          {
+            "id": "src_6c9a6b1aea514c998662",
+            "url": "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+            "title": "国家体育总局登山运动管理中心",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results"
+            ],
+            "reasons": [
+              "Chinese national mountaineering authority page; read to see what it is."
+            ],
+            "aliases": [],
+            "published_at": "2026-09-23"
+          },
+          {
+            "id": "src_8d354ecf0b9bc1b779dc",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+            "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC",
+            "source_type": "paper",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only"
+            ],
+            "reasons": [
+              "Recent review on climbing technique biomechanics."
+            ],
+            "aliases": [],
+            "published_at": "2026-02-28"
+          },
+          {
+            "id": "src_9f0078bf8b4cdcd9a4ee",
+            "url": "https://andy-kirkpatrick.com/blog/view/hauling_hauling_hauling",
+            "title": "Hauling, hauling, hauling (Andy Kirkpatrick blog)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_9f0078bf8b4cdcd9a4ee"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: full post body read (short blog entry, not truncated); it is a 2011 Troll Wall diary and mentions hauling only in passing"
+            ],
+            "reasons": [
+              "Diary entry with little technique detail despite the title; low value for technique research."
+            ],
+            "aliases": [],
+            "published_at": "2011-09-25"
+          },
+          {
+            "id": "src_9f198620ebae713d807f",
+            "url": "https://alpinesavvy.com/blog/hauling-directly-from-a-micro-traxion",
+            "title": "Hauling directly from a Traxion pulley (Alpinesavvy, 2019)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_9f198620ebae713d807f"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (rigging steps for hauling via a progress-capturing pulley)"
+            ],
+            "reasons": [
+              "Practical rigging article; safety-critical, verify against manufacturer manual."
+            ],
+            "aliases": [],
+            "published_at": "2019-02-25"
+          },
+          {
+            "id": "src_a5e736ccdb0f390bd0d3",
+            "url": "https://www.youtube.com/watch?v=EcyJj_b0maQ",
+            "title": "DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "rejected",
+            "decision": "rejected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_a5e736ccdb0f390bd0d3"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description is mostly vanlife promotion links"
+            ],
+            "reasons": [
+              "Entertainment vlog; metadata shows no technique content."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_a66ca31ad4f76b032a56",
+            "url": "https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained",
+            "title": "The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_a66ca31ad4f76b032a56"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (credits, safety framing, 2:1 haul rationale)"
+            ],
+            "reasons": [
+              "Explains 2:1 haul with cited book sources; rigging steps not read."
+            ],
+            "aliases": [],
+            "published_at": "2018-12-17"
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_9f0078bf8b4cdcd9a4ee",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: full post body read (short blog entry, not truncated); it is a 2011 Troll Wall diary and mentions hauling only in passing",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_9f198620ebae713d807f",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (rigging steps for hauling via a progress-capturing pulley)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_a5e736ccdb0f390bd0d3",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description is mostly vanlife promotion links",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_a66ca31ad4f76b032a56",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (credits, safety framing, 2:1 haul rationale)",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results",
+            "count": 3,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+            "count": 4,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://hkcmcu.org.hk/images/536/L1SCT_handout_20250109.pdf",
+          "title": "L1SCT Handout",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Hong Kong course handout; check scope.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2025-01-09"
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/dszx/n5414/c30018668/part/30033418.pdf",
+          "title": "2025 年中国攀岩运动事故报告",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Official accident report PDF for 2025; high value for safety research but unread.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-09-11"
+          }
+        },
+        {
+          "url": "https://www.mountaineers.org/locations-lodges/seattle-branch/committees/seattle-climbing-committee/course-templates/alpine-climbing-courses/intense-basic-alpine-climbing-course/course-materials/standard-techniques",
+          "title": "Standard Techniques — The Mountaineers",
+          "source_type": "course",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Club course materials on standard techniques.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.rei.com/learn/expert-advice/climbing-techniques.html",
+          "title": "Rock Climbing Techniques & Moves | REI Expert Advice",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Retailer beginner guide; commercial context.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.theuiaa.org/alpine-handbook",
+          "title": "Alpine Summer Skills Handbook - UIAA",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "International federation handbook; primary safety source.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2023-09-13"
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+          "title": "国家体育总局登山运动管理中心",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Chinese national mountaineering authority page; read to see what it is.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-09-23"
+          }
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Recent review on climbing technique biomechanics.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-02-28"
+          }
+        },
+        {
+          "url": "https://andy-kirkpatrick.com/blog/view/hauling_hauling_hauling",
+          "title": "Hauling, hauling, hauling (Andy Kirkpatrick blog)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: full post body read (short blog entry, not truncated); it is a 2011 Troll Wall diary and mentions hauling only in passing",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Diary entry with little technique detail despite the title; low value for technique research.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2011-09-25"
+          }
+        },
+        {
+          "url": "https://alpinesavvy.com/blog/hauling-directly-from-a-micro-traxion",
+          "title": "Hauling directly from a Traxion pulley (Alpinesavvy, 2019)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (rigging steps for hauling via a progress-capturing pulley)",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Practical rigging article; safety-critical, verify against manufacturer manual.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2019-02-25"
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=EcyJj_b0maQ",
+          "title": "DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description is mostly vanlife promotion links",
+          "tool": "Groundlane web_fetch",
+          "decision": "rejected",
+          "reason": "Previously saved (rejected); discovery does not supersede earlier reading or decisions. Entertainment vlog; metadata shows no technique content.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained",
+          "title": "The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-22",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (credits, safety framing, 2:1 haul rationale)",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Explains 2:1 haul with cited book sources; rigging steps not read.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-22-091407-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2018-12-17"
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 技巧與安全 Hauling, hauling, hauling (Andy Kirkpatrick blog)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: full post body read (short blog entry, not truncated); it is a 2011 Troll Wall diary and mentions hauling only in passing",
+          "result_urls": [
+            "https://andy-kirkpatrick.com/blog/view/hauling_hauling_hauling"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 Hauling directly from a Traxion pulley (Alpinesavvy, 2019)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (rigging steps for hauling via a progress-capturing pulley)",
+          "result_urls": [
+            "https://alpinesavvy.com/blog/hauling-directly-from-a-micro-traxion"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description is mostly vanlife promotion links",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=EcyJj_b0maQ"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_fetch maxOutputChars=3000: first ~3000 chars read, truncated (credits, safety framing, 2:1 haul rationale)",
+          "result_urls": [
+            "https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; brave+browserbase succeeded; 3 results",
+          "result_urls": [
+            "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+            "https://www.sport.gov.cn/dszx/n5414/c30018668/part/30033418.pdf",
+            "https://hkcmcu.org.hk/images/536/L1SCT_handout_20250109.pdf"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing technique.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-22",
+          "scope": "Groundlane web_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only",
+          "result_urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+            "https://www.rei.com/learn/expert-advice/climbing-techniques.html",
+            "https://www.mountaineers.org/locations-lodges/seattle-branch/committees/seattle-climbing-committee/course-templates/alpine-climbing-courses/intense-basic-alpine-climbing-course/course-materials/standard-techniques",
+            "https://www.theuiaa.org/alpine-handbook"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／技巧與安全研究追蹤候選報告\n\n日期：2026-11-22；run：2026-11-22-climbing-technique-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 5 個來源；已知 6 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [L1SCT Handout](<https://hkcmcu.org.hk/images/536/L1SCT_handout_20250109.pdf>) | 新候選 | Hong Kong course handout; check scope. |\n| 1 | [2025 年中国攀岩运动事故报告](<https://www.sport.gov.cn/dszx/n5414/c30018668/part/30033418.pdf>) | 新候選 | Official accident report PDF for 2025; high value for safety research but unread. |\n| 1 | [Standard Techniques — The Mountaineers](<https://www.mountaineers.org/locations-lodges/seattle-branch/committees/seattle-climbing-committee/course-templates/alpine-climbing-courses/intense-basic-alpine-climbing-course/course-materials/standard-techniques>) | 新候選 | Club course materials on standard techniques. |\n| 1 | [Rock Climbing Techniques & Moves \\| REI Expert Advice](<https://www.rei.com/learn/expert-advice/climbing-techniques.html>) | 新候選 | Retailer beginner guide; commercial context. |\n| 1 | [Alpine Summer Skills Handbook - UIAA](<https://www.theuiaa.org/alpine-handbook>) | 新候選 | International federation handbook; primary safety source. |\n| 3 | [国家体育总局登山运动管理中心](<https://www.sport.gov.cn/dszx/n5414/c30067085/content.html>) | 已知／candidate | Chinese national mountaineering authority page; read to see what it is. |\n| 3 | [Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC](<https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/>) | 已知／candidate | Recent review on climbing technique biomechanics. |\n| 3 | [Hauling, hauling, hauling (Andy Kirkpatrick blog)](<https://andy-kirkpatrick.com/blog/view/hauling_hauling_hauling>) | 已知／candidate | Diary entry with little technique detail despite the title; low value for technique research. |\n| 3 | [Hauling directly from a Traxion pulley (Alpinesavvy, 2019)](<https://alpinesavvy.com/blog/hauling-directly-from-a-micro-traxion>) | 已知／candidate | Practical rigging article; safety-critical, verify against manufacturer manual. |\n| 3 | [DRAMA ON A BIG WALL 😂  - LEANING TOWER FREE 1/5](<https://www.youtube.com/watch?v=EcyJj_b0maQ>) | 已知／rejected | Entertainment vlog; metadata shows no technique content. |\n| 3 | [The 2 to 1 \"Z pull\" haul, explained (Alpinesavvy)](<https://alpinesavvy.com/blog/the-2-to-1-z-pull-haul-explained>) | 已知／selected | Explains 2:1 haul with cited book sources; rigging steps not read. |\n\n## 搜尋覆蓋\n\n- source-src\\_9f0078bf8b4cdcd9a4ee：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: full post body read (short blog entry, not truncated); it is a 2011 Troll Wall diary and mentions hauling only in passing；1 筆\n- source-src\\_9f198620ebae713d807f：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars read, truncated (rigging steps for hauling via a progress-capturing pulley)；1 筆\n- source-src\\_a5e736ccdb0f390bd0d3：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: page HTML returned only title/description metadata; page chrome only, no transcript or video watched; description is mostly vanlife promotion links；1 筆\n- source-src\\_a66ca31ad4f76b032a56：ok；Groundlane web\\_fetch；Groundlane web\\_fetch maxOutputChars=3000: first ~3000 chars read, truncated (credits, safety framing, 2:1 haul rationale)；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; brave+browserbase succeeded; 3 results；3 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search maxResults=4; keenable+browserbase succeeded; 4 results, titles only；4 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    }
+  ]
+}

@@ -1,0 +1,2244 @@
+{
+  "version": 1,
+  "batch": {
+    "version": 1,
+    "batch_id": "2026-11-01-research-watch-batch",
+    "date": "2026-11-01",
+    "max_requests": 32,
+    "rotation_week": 2964,
+    "rotation_offset": 0,
+    "sorted_watch_ids": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "execution_order": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "enabled_watch_count": 3,
+    "planned_requests": 18,
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-01-climbing-crags-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-01-climbing-gear-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-01-climbing-technique-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      }
+    ]
+  },
+  "summary": {
+    "version": 1,
+    "batch_id": "2026-11-01-research-watch-batch",
+    "date": "2026-11-01",
+    "max_requests": 32,
+    "planned_requests": 18,
+    "execution_order": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "complete": false,
+    "status_counts": {
+      "complete": 2,
+      "incomplete": 1,
+      "failed": 0,
+      "pending": 0,
+      "deferred": 0
+    },
+    "completed_watches": 2,
+    "new_sources": 7,
+    "known_sources": 18,
+    "new_source_ids": [
+      "src_115b996a236a142d9b01",
+      "src_383a91483e150b130ec3",
+      "src_589f7cca1785aa9e87a8",
+      "src_887dc764c52c37f689a4",
+      "src_8d20403715afe3d1759c",
+      "src_c36251952c4734b32d43",
+      "src_dc6cd8b4dd7cb87a9da1"
+    ],
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-01-climbing-crags-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 2,
+        "known_sources": 7
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-01-climbing-gear-watch",
+        "request_count": 6,
+        "status": "incomplete",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": "Per-watch evidence reports failures or unexecuted requests; coverage remains incomplete.",
+        "completed_requests": 5,
+        "failed_requests": 1,
+        "missing_requests": [],
+        "new_sources": 2,
+        "known_sources": 5
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-01-climbing-technique-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 3,
+        "known_sources": 6
+      }
+    ]
+  },
+  "watches": [
+    {
+      "watch_id": "climbing-crags",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-crags",
+          "title": "攀岩／岩場與路線研究追蹤",
+          "category": "climbing",
+          "topic": "crags",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 岩場與路線"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing crags."
+            }
+          ]
+        },
+        "date": "2026-11-01",
+        "run_id": "2026-11-01-climbing-crags-watch",
+        "rotation_week": 2964,
+        "known_source_count": 1434,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 61,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_445ae1c16d8e697c8edf",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_445ae1c16d8e697c8edf",
+            "url": "https://www.rocktopo.net/areas/7/routes",
+            "query": "攀岩 岩場與路線 ROCKTOPO inventory",
+            "title": "ROCKTOPO inventory"
+          },
+          {
+            "id": "source-src_4465b091020532104ff8",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_4465b091020532104ff8",
+            "url": "https://www.youtube.com/watch?v=1BCnu58qhWg",
+            "query": "攀岩 岩場與路線 Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段",
+            "title": "Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段"
+          },
+          {
+            "id": "source-src_449923fd0ab157983cc3",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_449923fd0ab157983cc3",
+            "url": "https://www.youtube.com/watch?v=c0rpiTxlBIw",
+            "query": "攀岩 岩場與路線 恵那笠置山 『 シュクラン 』1級",
+            "title": "恵那笠置山 『 シュクラン 』1級"
+          },
+          {
+            "id": "source-src_44cbc2b6d2ce46c74e55",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_44cbc2b6d2ce46c74e55",
+            "url": "https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama",
+            "query": "攀岩 岩場與路線 Fujikyu hiking",
+            "title": "Fujikyu hiking"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing crags."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-01-climbing-crags-watch",
+        "date": "2026-11-01",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 2,
+        "known_sources": 7,
+        "candidates": [
+          {
+            "id": "src_115b996a236a142d9b01",
+            "url": "https://www.faqs.tw/c/climbing",
+            "title": "攀岩抱石相關問題整理｜faqs.tw",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Zh-TW climbing FAQ aggregator; secondary source, check against primaries."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_589f7cca1785aa9e87a8",
+            "url": "https://www.thecrag.com/en/climbing/world/guidebooks",
+            "title": "Publications: Publications linked in World | theCrag",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Guidebook index; useful to locate print guides per area."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_00d1cff239ca52075ba9",
+            "url": "https://campusguides.lib.utah.edu/climbing/training",
+            "title": "How to / Training - Rock Climbing - University of Utah Research Guides",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Library guide pointing to Access Fund crag-ethics material and instructional books."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_06740b4b9a4407be3112",
+            "url": "https://www.thecrag.com/en/home",
+            "title": "theCrag: the largest collaborative rock climbing & bouldering platform",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Collaborative crag/guidebook database; candidate for area coverage checks."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_445ae1c16d8e697c8edf",
+            "url": "https://www.rocktopo.net/areas/7/routes",
+            "title": "ROCKTOPO inventory",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_445ae1c16d8e697c8edf"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane web_fetch failed: browser-challenge UPSTREAM_ERROR, retryable)"
+            ],
+            "coverages": [
+              "Public page extract capped at 3000 chars via Exa after one bounded Groundlane failure: heading and first ~30 rows of the 71-route table (太刀岡山); remainder unread. Fallback is not Groundlane verification."
+            ],
+            "reasons": [
+              "Known route inventory for 太刀岡山 re-observed (71 routes listed); route data not independently checked."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_4465b091020532104ff8",
+            "url": "https://www.youtube.com/watch?v=1BCnu58qhWg",
+            "title": "Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_4465b091020532104ff8"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed."
+            ],
+            "reasons": [
+              "Known video re-observed by title/description metadata only; not watched."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_449923fd0ab157983cc3",
+            "url": "https://www.youtube.com/watch?v=c0rpiTxlBIw",
+            "title": "恵那笠置山 『 シュクラン 』1級",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_449923fd0ab157983cc3"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed."
+            ],
+            "reasons": [
+              "Known video re-observed by title/description metadata only; not watched."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_44cbc2b6d2ce46c74e55",
+            "url": "https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama",
+            "title": "Fujikyu hiking",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_44cbc2b6d2ce46c74e55"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Page fetched with maxOutputChars 3000, truncated; Mitsutoge-yama hiking intro and bus timetable text only; extraction removed most page chrome."
+            ],
+            "reasons": [
+              "Known access/transport page for 三ツ峠 (mentions it as a rock-climbing mecca) re-observed; timetable not verified as current."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_eaaa6677032987dcb4ff",
+            "url": "https://longdong.climbio.org/",
+            "title": "龍洞攀岩資料庫 - Climbio",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Taiwan Longdong crag database; check coverage and maintainer before use."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_445ae1c16d8e697c8edf",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane web_fetch failed: browser-challenge UPSTREAM_ERROR, retryable)",
+            "coverage": "Public page extract capped at 3000 chars via Exa after one bounded Groundlane failure: heading and first ~30 rows of the 71-route table (太刀岡山); remainder unread. Fallback is not Groundlane verification.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_4465b091020532104ff8",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_449923fd0ab157983cc3",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_44cbc2b6d2ce46c74e55",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Page fetched with maxOutputChars 3000, truncated; Mitsutoge-yama hiking intro and bus timetable text only; extraction removed most page chrome.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+            "count": 2,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.faqs.tw/c/climbing",
+          "title": "攀岩抱石相關問題整理｜faqs.tw",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Zh-TW climbing FAQ aggregator; secondary source, check against primaries.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thecrag.com/en/climbing/world/guidebooks",
+          "title": "Publications: Publications linked in World | theCrag",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Guidebook index; useful to locate print guides per area.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://campusguides.lib.utah.edu/climbing/training",
+          "title": "How to / Training - Rock Climbing - University of Utah Research Guides",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Library guide pointing to Access Fund crag-ethics material and instructional books.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thecrag.com/en/home",
+          "title": "theCrag: the largest collaborative rock climbing & bouldering platform",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Collaborative crag/guidebook database; candidate for area coverage checks.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.rocktopo.net/areas/7/routes",
+          "title": "ROCKTOPO inventory",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Public page extract capped at 3000 chars via Exa after one bounded Groundlane failure: heading and first ~30 rows of the 71-route table (太刀岡山); remainder unread. Fallback is not Groundlane verification.",
+          "tool": "Exa web_fetch_exa (Groundlane web_fetch failed: browser-challenge UPSTREAM_ERROR, retryable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known route inventory for 太刀岡山 re-observed (71 routes listed); route data not independently checked.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=1BCnu58qhWg",
+          "title": "Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known video re-observed by title/description metadata only; not watched.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=c0rpiTxlBIw",
+          "title": "恵那笠置山 『 シュクラン 』1級",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known video re-observed by title/description metadata only; not watched.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama",
+          "title": "Fujikyu hiking",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Page fetched with maxOutputChars 3000, truncated; Mitsutoge-yama hiking intro and bus timetable text only; extraction removed most page chrome.",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known access/transport page for 三ツ峠 (mentions it as a rock-climbing mecca) re-observed; timetable not verified as current.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://longdong.climbio.org/",
+          "title": "龍洞攀岩資料庫 - Climbio",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Taiwan Longdong crag database; check coverage and maintainer before use.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 岩場與路線 ROCKTOPO inventory",
+          "tool": "Exa web_fetch_exa (Groundlane web_fetch failed: browser-challenge UPSTREAM_ERROR, retryable)",
+          "searched_at": "2026-11-01",
+          "scope": "Public page extract capped at 3000 chars via Exa after one bounded Groundlane failure: heading and first ~30 rows of the 71-route table (太刀岡山); remainder unread. Fallback is not Groundlane verification.",
+          "result_urls": [
+            "https://www.rocktopo.net/areas/7/routes"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=1BCnu58qhWg"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 恵那笠置山 『 シュクラン 』1級",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=c0rpiTxlBIw"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 Fujikyu hiking",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Page fetched with maxOutputChars 3000, truncated; Mitsutoge-yama hiking intro and bus timetable text only; extraction removed most page chrome.",
+          "result_urls": [
+            "https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "result_urls": [
+            "https://longdong.climbio.org/",
+            "https://www.faqs.tw/c/climbing"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing crags.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "result_urls": [
+            "https://campusguides.lib.utah.edu/climbing/training",
+            "https://www.thecrag.com/en/home",
+            "https://www.thecrag.com/en/climbing/world/guidebooks"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／岩場與路線研究追蹤候選報告\n\n日期：2026-11-01；run：2026-11-01-climbing-crags-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 2 個來源；已知 7 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [攀岩抱石相關問題整理｜faqs.tw](<https://www.faqs.tw/c/climbing>) | 新候選 | Zh-TW climbing FAQ aggregator; secondary source, check against primaries. |\n| 1 | [Publications: Publications linked in World \\| theCrag](<https://www.thecrag.com/en/climbing/world/guidebooks>) | 新候選 | Guidebook index; useful to locate print guides per area. |\n| 3 | [How to / Training - Rock Climbing - University of Utah Research Guides](<https://campusguides.lib.utah.edu/climbing/training>) | 已知／candidate | Library guide pointing to Access Fund crag-ethics material and instructional books. |\n| 3 | [theCrag: the largest collaborative rock climbing & bouldering platform](<https://www.thecrag.com/en/home>) | 已知／candidate | Collaborative crag/guidebook database; candidate for area coverage checks. |\n| 3 | [ROCKTOPO inventory](<https://www.rocktopo.net/areas/7/routes>) | 已知／selected | Known route inventory for 太刀岡山 re-observed (71 routes listed); route data not independently checked. |\n| 3 | [Team E Rock Trip Vol.1  @笠間ボルダー　シンプルファイター 1級、サムライ返し 初段、樹海 初段](<https://www.youtube.com/watch?v=1BCnu58qhWg>) | 已知／selected | Known video re-observed by title/description metadata only; not watched. |\n| 3 | [恵那笠置山 『 シュクラン 』1級](<https://www.youtube.com/watch?v=c0rpiTxlBIw>) | 已知／selected | Known video re-observed by title/description metadata only; not watched. |\n| 3 | [Fujikyu hiking](<https://www.fujikyubus.co.jp/hiking-bus/fujikyu-hiking/mitsutogeyama>) | 已知／candidate | Known access/transport page for 三ツ峠 (mentions it as a rock-climbing mecca) re-observed; timetable not verified as current. |\n| 3 | [龍洞攀岩資料庫 - Climbio](<https://longdong.climbio.org/>) | 已知／candidate | Taiwan Longdong crag database; check coverage and maintainer before use. |\n\n## 搜尋覆蓋\n\n- source-src\\_445ae1c16d8e697c8edf：ok；Exa web\\_fetch\\_exa (Groundlane web\\_fetch failed: browser-challenge UPSTREAM\\_ERROR, retryable)；Public page extract capped at 3000 chars via Exa after one bounded Groundlane failure: heading and first ~30 rows of the 71-route table (太刀岡山); remainder unread. Fallback is not Groundlane verification.；1 筆\n- source-src\\_4465b091020532104ff8：ok；Groundlane web\\_fetch；YouTube watch page via Groundlane web\\_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.；1 筆\n- source-src\\_449923fd0ab157983cc3：ok；Groundlane web\\_fetch；YouTube watch page via Groundlane web\\_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.；1 筆\n- source-src\\_44cbc2b6d2ce46c74e55：ok；Groundlane web\\_fetch；Page fetched with maxOutputChars 3000, truncated; Mitsutoge-yama hiking intro and bus timetable text only; extraction removed most page chrome.；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.；2 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-gear",
+      "status": "incomplete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-gear",
+          "title": "攀岩／裝備研究追蹤",
+          "category": "climbing",
+          "topic": "gear",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 裝備"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing gear."
+            }
+          ]
+        },
+        "date": "2026-11-01",
+        "run_id": "2026-11-01-climbing-gear-watch",
+        "rotation_week": 2964,
+        "known_source_count": 95,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 0,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_c73d9b1a4988244b6129",
+            "kind": "source",
+            "source_type": "documentation",
+            "source_id": "src_c73d9b1a4988244b6129",
+            "url": "https://www.petzl.com/US/en/Sport/Belaying-the-second-with-a-MICRO-TRAXION--beware-of-any-fall?ActivityName=multi-pitch-climbing",
+            "query": "攀岩 裝備 Belaying the second with a MICRO TRAXION or NANO TRAXION: beware of any fall (Petzl)",
+            "title": "Belaying the second with a MICRO TRAXION or NANO TRAXION: beware of any fall (Petzl)"
+          },
+          {
+            "id": "source-src_c78753d57259ef7432ad",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c78753d57259ef7432ad",
+            "url": "https://sterlingrope.com/6-mm-trc",
+            "query": "攀岩 裝備 6 mm TRC (Sterling)",
+            "title": "6 mm TRC (Sterling)"
+          },
+          {
+            "id": "source-src_c9397d523f2e9d782ffe",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c9397d523f2e9d782ffe",
+            "url": "https://rockempire.com/bags/cargo-2",
+            "query": "攀岩 裝備 Cargo 55l (Rock Empire)",
+            "title": "Cargo 55l (Rock Empire)"
+          },
+          {
+            "id": "source-src_c9f9e7c95055c1c88c67",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c9f9e7c95055c1c88c67",
+            "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+            "query": "攀岩 裝備 MICRO SWIVEL (Petzl Tactical)",
+            "title": "MICRO SWIVEL (Petzl Tactical)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing gear."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-01-climbing-gear-watch",
+        "date": "2026-11-01",
+        "planned_requests": 6,
+        "completed_requests": 5,
+        "failed_requests": 1,
+        "missing_requests": [],
+        "complete": false,
+        "new_sources": 2,
+        "known_sources": 5,
+        "candidates": [
+          {
+            "id": "src_383a91483e150b130ec3",
+            "url": "https://www.climbing.com/collection/gear-guides/",
+            "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Magazine gear-test collection; secondary/editorial, check bias."
+            ],
+            "aliases": [],
+            "published_at": "2025-06-26"
+          },
+          {
+            "id": "src_887dc764c52c37f689a4",
+            "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+            "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Zh-TW explainer of climbing gear safety certification; verify against UIAA/CE standards."
+            ],
+            "aliases": [],
+            "published_at": "2025-10-27"
+          },
+          {
+            "id": "src_0bc3df0981c220395a4c",
+            "url": "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+            "title": "UIAA Advice: Ten things to consider when buying climbing gear - UIAA",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Standards-body advice, updated Feb 2026 per snippet; strong primary candidate for gear-buying claims."
+            ],
+            "aliases": [],
+            "published_at": "2026-02-25"
+          },
+          {
+            "id": "src_4721edcbce515695829d",
+            "url": "https://www.tocc-climbing.org/post/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%A5%97%E5%82%B3%E6%94%80%E8%A3%9D%E5%82%99",
+            "title": "如何打造第一套傳攀裝備",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Zh-TW trad gear starter guide by a climbing club; practitioner source to cross-check."
+            ],
+            "aliases": [],
+            "published_at": "2024-10-16"
+          },
+          {
+            "id": "src_c78753d57259ef7432ad",
+            "url": "https://sterlingrope.com/6-mm-trc",
+            "title": "6 mm TRC (Sterling)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c78753d57259ef7432ad"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Product page fetched (3000-char cap, not truncated): description, 6.0 mm Technora/nylon cord, MBS 15.5 kN, 27.6 g/m. Listed price not recorded."
+            ],
+            "reasons": [
+              "Known manufacturer spec page re-observed; specs are manufacturer claims."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c9397d523f2e9d782ffe",
+            "url": "https://rockempire.com/bags/cargo-2",
+            "title": "Cargo 55l (Rock Empire)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c9397d523f2e9d782ffe"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Product page fetched, truncated at 3000 chars: description, 55 L, 960 g, made in EU; rest of page unread."
+            ],
+            "reasons": [
+              "Known haul-bag product page re-observed; manufacturer claims only."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c9f9e7c95055c1c88c67",
+            "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+            "title": "MICRO SWIVEL (Petzl Tactical)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c9f9e7c95055c1c88c67"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Product page fetched (3000-char cap, not truncated): description, 75 g, 23 kN, CE/UKCA/EAC certifications listed by Petzl."
+            ],
+            "reasons": [
+              "Known manufacturer spec page re-observed; specs are manufacturer claims."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_c73d9b1a4988244b6129",
+            "status": "failed",
+            "tool": "Groundlane web_fetch",
+            "coverage": "HTTP 404 'Page not found' returned by Petzl; no product/technique content read.",
+            "count": 0,
+            "error": "HTTP 404: Petzl page not found (URL likely moved or removed)"
+          },
+          {
+            "request_id": "source-src_c78753d57259ef7432ad",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Product page fetched (3000-char cap, not truncated): description, 6.0 mm Technora/nylon cord, MBS 15.5 kN, 27.6 g/m. Listed price not recorded.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_c9397d523f2e9d782ffe",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Product page fetched, truncated at 3000 chars: description, 55 L, 960 g, made in EU; rest of page unread.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_c9f9e7c95055c1c88c67",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Product page fetched (3000-char cap, not truncated): description, 75 g, 23 kN, CE/UKCA/EAC certifications listed by Petzl.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+            "count": 2,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+            "count": 2,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.climbing.com/collection/gear-guides/",
+          "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Magazine gear-test collection; secondary/editorial, check bias.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2025-06-26"
+          }
+        },
+        {
+          "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+          "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Zh-TW explainer of climbing gear safety certification; verify against UIAA/CE standards.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2025-10-27"
+          }
+        },
+        {
+          "url": "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+          "title": "UIAA Advice: Ten things to consider when buying climbing gear - UIAA",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Standards-body advice, updated Feb 2026 per snippet; strong primary candidate for gear-buying claims.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-02-25"
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/post/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%A5%97%E5%82%B3%E6%94%80%E8%A3%9D%E5%82%99",
+          "title": "如何打造第一套傳攀裝備",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Zh-TW trad gear starter guide by a climbing club; practitioner source to cross-check.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2024-10-16"
+          }
+        },
+        {
+          "url": "https://sterlingrope.com/6-mm-trc",
+          "title": "6 mm TRC (Sterling)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Product page fetched (3000-char cap, not truncated): description, 6.0 mm Technora/nylon cord, MBS 15.5 kN, 27.6 g/m. Listed price not recorded.",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known manufacturer spec page re-observed; specs are manufacturer claims.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://rockempire.com/bags/cargo-2",
+          "title": "Cargo 55l (Rock Empire)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Product page fetched, truncated at 3000 chars: description, 55 L, 960 g, made in EU; rest of page unread.",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known haul-bag product page re-observed; manufacturer claims only.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+          "title": "MICRO SWIVEL (Petzl Tactical)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Product page fetched (3000-char cap, not truncated): description, 75 g, 23 kN, CE/UKCA/EAC certifications listed by Petzl.",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known manufacturer spec page re-observed; specs are manufacturer claims.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 裝備 Belaying the second with a MICRO TRAXION or NANO TRAXION: beware of any fall (Petzl)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "HTTP 404 'Page not found' returned by Petzl; no product/technique content read.",
+          "result_urls": [],
+          "gap": "Failed: HTTP 404: Petzl page not found (URL likely moved or removed)"
+        },
+        {
+          "query": "攀岩 裝備 6 mm TRC (Sterling)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Product page fetched (3000-char cap, not truncated): description, 6.0 mm Technora/nylon cord, MBS 15.5 kN, 27.6 g/m. Listed price not recorded.",
+          "result_urls": [
+            "https://sterlingrope.com/6-mm-trc"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 Cargo 55l (Rock Empire)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Product page fetched, truncated at 3000 chars: description, 55 L, 960 g, made in EU; rest of page unread.",
+          "result_urls": [
+            "https://rockempire.com/bags/cargo-2"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 MICRO SWIVEL (Petzl Tactical)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Product page fetched (3000-char cap, not truncated): description, 75 g, 23 kN, CE/UKCA/EAC certifications listed by Petzl.",
+          "result_urls": [
+            "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "result_urls": [
+            "https://www.tocc-climbing.org/post/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%A5%97%E5%82%B3%E6%94%80%E8%A3%9D%E5%82%99",
+            "https://www.adventuretaiwan.com/climbing-gears-safety-standards/"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing gear.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "result_urls": [
+            "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+            "https://www.climbing.com/collection/gear-guides/"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／裝備研究追蹤候選報告\n\n日期：2026-11-01；run：2026-11-01-climbing-gear-watch\n\n範圍：6/6 次已嘗試，失敗 1 次，未執行 0 次。覆蓋不完整，不得解讀為沒有新來源。\n新增 2 個來源；已知 5 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [Climbing Gear Guides: Shoes, Ropes, Packs, and More](<https://www.climbing.com/collection/gear-guides/>) | 新候選 | Magazine gear-test collection; secondary/editorial, check bias. |\n| 1 | [攀岩新手必學 - 裝備的安全認證 \\| 艾格探險](<https://www.adventuretaiwan.com/climbing-gears-safety-standards/>) | 新候選 | Zh-TW explainer of climbing gear safety certification; verify against UIAA/CE standards. |\n| 3 | [UIAA Advice: Ten things to consider when buying climbing gear - UIAA](<https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/>) | 已知／candidate | Standards-body advice, updated Feb 2026 per snippet; strong primary candidate for gear-buying claims. |\n| 3 | [如何打造第一套傳攀裝備](<https://www.tocc-climbing.org/post/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%A5%97%E5%82%B3%E6%94%80%E8%A3%9D%E5%82%99>) | 已知／candidate | Zh-TW trad gear starter guide by a climbing club; practitioner source to cross-check. |\n| 3 | [6 mm TRC (Sterling)](<https://sterlingrope.com/6-mm-trc>) | 已知／selected | Known manufacturer spec page re-observed; specs are manufacturer claims. |\n| 3 | [Cargo 55l (Rock Empire)](<https://rockempire.com/bags/cargo-2>) | 已知／candidate | Known haul-bag product page re-observed; manufacturer claims only. |\n| 3 | [MICRO SWIVEL (Petzl Tactical)](<https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html>) | 已知／candidate | Known manufacturer spec page re-observed; specs are manufacturer claims. |\n\n## 搜尋覆蓋\n\n- source-src\\_c73d9b1a4988244b6129：failed；Groundlane web\\_fetch；HTTP 404 'Page not found' returned by Petzl; no product/technique content read.；0 筆；HTTP 404: Petzl page not found (URL likely moved or removed)\n- source-src\\_c78753d57259ef7432ad：ok；Groundlane web\\_fetch；Product page fetched (3000-char cap, not truncated): description, 6.0 mm Technora/nylon cord, MBS 15.5 kN, 27.6 g/m. Listed price not recorded.；1 筆\n- source-src\\_c9397d523f2e9d782ffe：ok；Groundlane web\\_fetch；Product page fetched, truncated at 3000 chars: description, 55 L, 960 g, made in EU; rest of page unread.；1 筆\n- source-src\\_c9f9e7c95055c1c88c67：ok；Groundlane web\\_fetch；Product page fetched (3000-char cap, not truncated): description, 75 g, 23 kN, CE/UKCA/EAC certifications listed by Petzl.；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.；2 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.；2 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-technique",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-technique",
+          "title": "攀岩／技巧與安全研究追蹤",
+          "category": "climbing",
+          "topic": "technique",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 技巧與安全"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing technique."
+            }
+          ]
+        },
+        "date": "2026-11-01",
+        "run_id": "2026-11-01-climbing-technique-watch",
+        "rotation_week": 2964,
+        "known_source_count": 126,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 2,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_193c03c2daeb51524a14",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_193c03c2daeb51524a14",
+            "url": "https://www.youtube.com/watch?v=5aC2kmYg5_Y",
+            "query": "攀岩 技巧與安全 Hauling systems: 3:1 with prusik (AlpineSavvy short)",
+            "title": "Hauling systems: 3:1 with prusik (AlpineSavvy short)"
+          },
+          {
+            "id": "source-src_1a43f909a66aee7b29ef",
+            "kind": "source",
+            "source_type": "documentation",
+            "source_id": "src_1a43f909a66aee7b29ef",
+            "url": "https://blackdiamond-cms.zaneray.com/cms/media/92ef04c4-847c-44ef-91f2-ec78c4418012_M10798_C_ATC-Guide_IS-WEB.pdf",
+            "query": "攀岩 技巧與安全 ATC-Guide instructions M10798 C (Black Diamond)",
+            "title": "ATC-Guide instructions M10798 C (Black Diamond)"
+          },
+          {
+            "id": "source-src_1aae28933f1686334878",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_1aae28933f1686334878",
+            "url": "https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch",
+            "query": "攀岩 技巧與安全 Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)",
+            "title": "Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)"
+          },
+          {
+            "id": "source-src_1c4b517f33302f5f5900",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_1c4b517f33302f5f5900",
+            "url": "https://blackdiamondequipment.com/blogs/stories/the-yosemite-rack",
+            "query": "攀岩 技巧與安全 The Yosemite Rack (Black Diamond stories)",
+            "title": "The Yosemite Rack (Black Diamond stories)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing technique."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-01-climbing-technique-watch",
+        "date": "2026-11-01",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 3,
+        "known_sources": 6,
+        "candidates": [
+          {
+            "id": "src_8d20403715afe3d1759c",
+            "url": "https://www.mdpi.com/2411-5142/11/1/103",
+            "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Peer-reviewed technique systematization published 2026-02 per metadata; verify journal/DOI before citing."
+            ],
+            "aliases": [],
+            "published_at": "2026-02-28"
+          },
+          {
+            "id": "src_c36251952c4734b32d43",
+            "url": "https://hkcmcu.org.hk/hk/sports-events/rock-climbing/climbing-training-manual",
+            "title": "攀岩訓練手冊 - 中國香港攀山及攀登總會",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Federation-published training manual page (updated 2023-11 per snippet); candidate zh primary."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_dc6cd8b4dd7cb87a9da1",
+            "url": "https://library.americanalpineclub.org/climbinghowto",
+            "title": "Climbing How To · American Alpine Club Library",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Curated instructional book list (AMGA-backed titles); entry point to book sources."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_193c03c2daeb51524a14",
+            "url": "https://www.youtube.com/watch?v=5aC2kmYg5_Y",
+            "title": "Hauling systems: 3:1 with prusik (AlpineSavvy short)",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_193c03c2daeb51524a14"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed."
+            ],
+            "reasons": [
+              "Known video re-observed by title/description metadata only; not watched."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_1a43f909a66aee7b29ef",
+            "url": "https://blackdiamond-cms.zaneray.com/cms/media/92ef04c4-847c-44ef-91f2-ec78c4418012_M10798_C_ATC-Guide_IS-WEB.pdf",
+            "title": "ATC-Guide instructions M10798 C (Black Diamond)",
+            "source_type": "documentation",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_1a43f909a66aee7b29ef"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane document_parse failed: UPSTREAM_ERROR connect, retryable)"
+            ],
+            "coverages": [
+              "PDF text extract capped at 3000 chars via Exa after one bounded Groundlane failure: warnings and start of ATC-Guide instructions (HFM/RFM/Guide Mode); rest of PDF unread. Fallback is not Groundlane verification."
+            ],
+            "reasons": [
+              "Known manufacturer instructions re-observed (opening only); device details must be read in full before use in any article."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_1aae28933f1686334878",
+            "url": "https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch",
+            "title": "Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_1aae28933f1686334878"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Article fetched, truncated at 3000 chars: intro, 1:1 foot-haul rationale, progress-capture options (Garda hitch, Tibloc); rest unread."
+            ],
+            "reasons": [
+              "Known technique article re-observed; published 2025-08-14 per page metadata."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_1c4b517f33302f5f5900",
+            "url": "https://blackdiamondequipment.com/blogs/stories/the-yosemite-rack",
+            "title": "The Yosemite Rack (Black Diamond stories)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_1c4b517f33302f5f5900"
+            ],
+            "tools": [
+              "Groundlane web_fetch"
+            ],
+            "coverages": [
+              "Article fetched, truncated at 3000 chars: intro and start of 'long free routes' section; rest unread."
+            ],
+            "reasons": [
+              "Known brand-authored rack guide re-observed; commercial context."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_5eea49f720a7ff6d08f7",
+            "url": "https://www.mnd.gov.tw/File/41631",
+            "title": "平衡攀登訓練作法研議（國防部）",
+            "source_type": "paper",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Military training paper on balance climbing; niche, check relevance and date."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_fffdafcbf45bb38c2cf7",
+            "url": "https://campusguides.lib.utah.edu/climbing/research",
+            "title": "Research - Rock Climbing - University of Utah Research Guides",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Groundlane web_search"
+            ],
+            "coverages": [
+              "Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened."
+            ],
+            "reasons": [
+              "Library research guide to climbing science literature and databases."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_193c03c2daeb51524a14",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_1a43f909a66aee7b29ef",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane document_parse failed: UPSTREAM_ERROR connect, retryable)",
+            "coverage": "PDF text extract capped at 3000 chars via Exa after one bounded Groundlane failure: warnings and start of ATC-Guide instructions (HFM/RFM/Guide Mode); rest of PDF unread. Fallback is not Groundlane verification.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_1aae28933f1686334878",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Article fetched, truncated at 3000 chars: intro, 1:1 foot-haul rationale, progress-capture options (Garda hitch, Tibloc); rest unread.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_1c4b517f33302f5f5900",
+            "status": "ok",
+            "tool": "Groundlane web_fetch",
+            "coverage": "Article fetched, truncated at 3000 chars: intro and start of 'long free routes' section; rest unread.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+            "count": 2,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Groundlane web_search",
+            "coverage": "Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.mdpi.com/2411-5142/11/1/103",
+          "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Peer-reviewed technique systematization published 2026-02 per metadata; verify journal/DOI before citing.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-02-28"
+          }
+        },
+        {
+          "url": "https://hkcmcu.org.hk/hk/sports-events/rock-climbing/climbing-training-manual",
+          "title": "攀岩訓練手冊 - 中國香港攀山及攀登總會",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Federation-published training manual page (updated 2023-11 per snippet); candidate zh primary.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://library.americanalpineclub.org/climbinghowto",
+          "title": "Climbing How To · American Alpine Club Library",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Curated instructional book list (AMGA-backed titles); entry point to book sources.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=5aC2kmYg5_Y",
+          "title": "Hauling systems: 3:1 with prusik (AlpineSavvy short)",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known video re-observed by title/description metadata only; not watched.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://blackdiamond-cms.zaneray.com/cms/media/92ef04c4-847c-44ef-91f2-ec78c4418012_M10798_C_ATC-Guide_IS-WEB.pdf",
+          "title": "ATC-Guide instructions M10798 C (Black Diamond)",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. PDF text extract capped at 3000 chars via Exa after one bounded Groundlane failure: warnings and start of ATC-Guide instructions (HFM/RFM/Guide Mode); rest of PDF unread. Fallback is not Groundlane verification.",
+          "tool": "Exa web_fetch_exa (Groundlane document_parse failed: UPSTREAM_ERROR connect, retryable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known manufacturer instructions re-observed (opening only); device details must be read in full before use in any article.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch",
+          "title": "Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Article fetched, truncated at 3000 chars: intro, 1:1 foot-haul rationale, progress-capture options (Garda hitch, Tibloc); rest unread.",
+          "tool": "Groundlane web_fetch",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known technique article re-observed; published 2025-08-14 per page metadata.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://blackdiamondequipment.com/blogs/stories/the-yosemite-rack",
+          "title": "The Yosemite Rack (Black Diamond stories)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Article fetched, truncated at 3000 chars: intro and start of 'long free routes' section; rest unread.",
+          "tool": "Groundlane web_fetch",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known brand-authored rack guide re-observed; commercial context.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.mnd.gov.tw/File/41631",
+          "title": "平衡攀登訓練作法研議（國防部）",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Military training paper on balance climbing; niche, check relevance and date.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://campusguides.lib.utah.edu/climbing/research",
+          "title": "Research - Rock Climbing - University of Utah Research Guides",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-01",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.",
+          "tool": "Groundlane web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Library research guide to climbing science literature and databases.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-01-091619-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 技巧與安全 Hauling systems: 3:1 with prusik (AlpineSavvy short)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "YouTube watch page via Groundlane web_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=5aC2kmYg5_Y"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 ATC-Guide instructions M10798 C (Black Diamond)",
+          "tool": "Exa web_fetch_exa (Groundlane document_parse failed: UPSTREAM_ERROR connect, retryable)",
+          "searched_at": "2026-11-01",
+          "scope": "PDF text extract capped at 3000 chars via Exa after one bounded Groundlane failure: warnings and start of ATC-Guide instructions (HFM/RFM/Guide Mode); rest of PDF unread. Fallback is not Groundlane verification.",
+          "result_urls": [
+            "https://blackdiamond-cms.zaneray.com/cms/media/92ef04c4-847c-44ef-91f2-ec78c4418012_M10798_C_ATC-Guide_IS-WEB.pdf"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Article fetched, truncated at 3000 chars: intro, 1:1 foot-haul rationale, progress-capture options (Garda hitch, Tibloc); rest unread.",
+          "result_urls": [
+            "https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 The Yosemite Rack (Black Diamond stories)",
+          "tool": "Groundlane web_fetch",
+          "searched_at": "2026-11-01",
+          "scope": "Article fetched, truncated at 3000 chars: intro and start of 'long free routes' section; rest unread.",
+          "result_urls": [
+            "https://blackdiamondequipment.com/blogs/stories/the-yosemite-rack"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.",
+          "result_urls": [
+            "https://hkcmcu.org.hk/hk/sports-events/rock-climbing/climbing-training-manual",
+            "https://www.mnd.gov.tw/File/41631"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing technique.",
+          "tool": "Groundlane web_search",
+          "searched_at": "2026-11-01",
+          "scope": "Groundlane web_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.",
+          "result_urls": [
+            "https://www.mdpi.com/2411-5142/11/1/103",
+            "https://library.americanalpineclub.org/climbinghowto",
+            "https://campusguides.lib.utah.edu/climbing/research"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／技巧與安全研究追蹤候選報告\n\n日期：2026-11-01；run：2026-11-01-climbing-technique-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 3 個來源；已知 6 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)](<https://www.mdpi.com/2411-5142/11/1/103>) | 新候選 | Peer-reviewed technique systematization published 2026-02 per metadata; verify journal/DOI before citing. |\n| 1 | [攀岩訓練手冊 - 中國香港攀山及攀登總會](<https://hkcmcu.org.hk/hk/sports-events/rock-climbing/climbing-training-manual>) | 新候選 | Federation-published training manual page (updated 2023-11 per snippet); candidate zh primary. |\n| 1 | [Climbing How To · American Alpine Club Library](<https://library.americanalpineclub.org/climbinghowto>) | 新候選 | Curated instructional book list (AMGA-backed titles); entry point to book sources. |\n| 3 | [Hauling systems: 3:1 with prusik (AlpineSavvy short)](<https://www.youtube.com/watch?v=5aC2kmYg5_Y>) | 已知／candidate | Known video re-observed by title/description metadata only; not watched. |\n| 3 | [ATC-Guide instructions M10798 C (Black Diamond)](<https://blackdiamond-cms.zaneray.com/cms/media/92ef04c4-847c-44ef-91f2-ec78c4418012_M10798_C_ATC-Guide_IS-WEB.pdf>) | 已知／candidate | Known manufacturer instructions re-observed (opening only); device details must be read in full before use in any article. |\n| 3 | [Foot haul your pack on a multi-pitch (Alpinesavvy, 2025-08-14)](<https://alpinesavvy.com/blog/foot-haul-your-pack-on-a-multi-pitch>) | 已知／selected | Known technique article re-observed; published 2025-08-14 per page metadata. |\n| 3 | [The Yosemite Rack (Black Diamond stories)](<https://blackdiamondequipment.com/blogs/stories/the-yosemite-rack>) | 已知／candidate | Known brand-authored rack guide re-observed; commercial context. |\n| 3 | [平衡攀登訓練作法研議（國防部）](<https://www.mnd.gov.tw/File/41631>) | 已知／candidate | Military training paper on balance climbing; niche, check relevance and date. |\n| 3 | [Research - Rock Climbing - University of Utah Research Guides](<https://campusguides.lib.utah.edu/climbing/research>) | 已知／candidate | Library research guide to climbing science literature and databases. |\n\n## 搜尋覆蓋\n\n- source-src\\_193c03c2daeb51524a14：ok；Groundlane web\\_fetch；YouTube watch page via Groundlane web\\_fetch (3000-char cap): only title/description metadata returned; no transcript, audio or video viewed.；1 筆\n- source-src\\_1a43f909a66aee7b29ef：ok；Exa web\\_fetch\\_exa (Groundlane document\\_parse failed: UPSTREAM\\_ERROR connect, retryable)；PDF text extract capped at 3000 chars via Exa after one bounded Groundlane failure: warnings and start of ATC-Guide instructions (HFM/RFM/Guide Mode); rest of PDF unread. Fallback is not Groundlane verification.；1 筆\n- source-src\\_1aae28933f1686334878：ok；Groundlane web\\_fetch；Article fetched, truncated at 3000 chars: intro, 1:1 foot-haul rationale, progress-capture options (Garda hitch, Tibloc); rest unread.；1 筆\n- source-src\\_1c4b517f33302f5f5900：ok；Groundlane web\\_fetch；Article fetched, truncated at 3000 chars: intro and start of 'long free routes' section; rest unread.；1 筆\n- query-primary-zh：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; tavily/exa providers unavailable inside Groundlane, brave/you answered. Snippets only; no page opened.；2 筆\n- query-primary-en：ok；Groundlane web\\_search；Groundlane web\\_search balanced/fusion, maxResults 4; provider you only (tavily/exa/brave unavailable). Snippets only; no page opened.；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    }
+  ]
+}

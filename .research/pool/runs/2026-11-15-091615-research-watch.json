@@ -1,0 +1,1773 @@
+{
+  "version": 1,
+  "batch": {
+    "version": 1,
+    "batch_id": "2026-11-15-research-watch-batch",
+    "date": "2026-11-15",
+    "max_requests": 32,
+    "rotation_week": 2966,
+    "rotation_offset": 2,
+    "sorted_watch_ids": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "execution_order": [
+      "climbing-technique",
+      "climbing-crags",
+      "climbing-gear"
+    ],
+    "enabled_watch_count": 3,
+    "planned_requests": 18,
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-15-climbing-technique-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-15-climbing-crags-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-15-climbing-gear-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      }
+    ]
+  },
+  "summary": {
+    "version": 1,
+    "batch_id": "2026-11-15-research-watch-batch",
+    "date": "2026-11-15",
+    "max_requests": 32,
+    "planned_requests": 18,
+    "execution_order": [
+      "climbing-technique",
+      "climbing-crags",
+      "climbing-gear"
+    ],
+    "complete": true,
+    "status_counts": {
+      "complete": 3,
+      "incomplete": 0,
+      "failed": 0,
+      "pending": 0,
+      "deferred": 0
+    },
+    "completed_watches": 3,
+    "new_sources": 5,
+    "known_sources": 12,
+    "new_source_ids": [
+      "src_04b04e62e6e12200c606",
+      "src_0cdef0b278b04a7c78ce",
+      "src_50f06a925f69357cacef",
+      "src_9b95751ad24c21e18afa",
+      "src_a4818d0b9f4a5eaeb650"
+    ],
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-11-15-climbing-technique-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 1,
+        "known_sources": 5
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-11-15-climbing-crags-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 4,
+        "known_sources": 2
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-11-15-climbing-gear-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 0,
+        "known_sources": 5
+      }
+    ]
+  },
+  "watches": [
+    {
+      "watch_id": "climbing-technique",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-technique",
+          "title": "攀岩／技巧與安全研究追蹤",
+          "category": "climbing",
+          "topic": "technique",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 技巧與安全"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing technique."
+            }
+          ]
+        },
+        "date": "2026-11-15",
+        "run_id": "2026-11-15-climbing-technique-watch",
+        "rotation_week": 2966,
+        "known_source_count": 130,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 2,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_50b3e4e128ab40aaae83",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_50b3e4e128ab40aaae83",
+            "url": "https://blackdiamondequipment.com/blogs/stories/qc-lab-full-strength-haul-loops",
+            "query": "攀岩 技巧與安全 QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+            "title": "QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)"
+          },
+          {
+            "id": "source-src_51cddfe3c754e74232a8",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_51cddfe3c754e74232a8",
+            "url": "http://www.supertopo.com/a/How-To-Big-Wall-Climb-Hauling-and-Bivy-Gear/a10540n.html",
+            "query": "攀岩 技巧與安全 How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+            "title": "How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)"
+          },
+          {
+            "id": "source-src_56f211f3f7d5e2e1d72a",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_56f211f3f7d5e2e1d72a",
+            "url": "https://www.sport.gov.cn/n20001280/n20745751/c30022079/content.html",
+            "query": "攀岩 技巧與安全 以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布_国家体育总局",
+            "title": "以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布_国家体育总局"
+          },
+          {
+            "id": "source-src_5decf25ddf474021f19e",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_5decf25ddf474021f19e",
+            "url": "https://www.youtube.com/watch?v=2avTCEfwHL0",
+            "query": "攀岩 技巧與安全 #PetzlTips- Hauling a Second on a Multi-Pitch Climb.",
+            "title": "#PetzlTips- Hauling a Second on a Multi-Pitch Climb."
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing technique."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-15-climbing-technique-watch",
+        "date": "2026-11-15",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 1,
+        "known_sources": 5,
+        "candidates": [
+          {
+            "id": "src_04b04e62e6e12200c606",
+            "url": "https://www-ws.gov.taipei/001/Upload/354/relfile/31866/4915506/74281143753.pdf",
+            "title": "福和攀岩場攀岩活動相關資訊",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆；tavily/exa unavailable"
+            ],
+            "reasons": [
+              "台北市場館官方須知，可核對現行安全規定"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_251c473234bb5fbc155d",
+            "url": "https://hkcmcu.org.hk/images/handbook/RC_handbook_20202nd_Final.pdf",
+            "title": "攀岩訓練手冊（2020年第二版）中國香港攀山及攀登總會",
+            "source_type": "documentation",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆；tavily/exa unavailable"
+            ],
+            "reasons": [
+              "香港攀山及攀登總會訓練手冊PDF，待查內容與安全範圍"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_5eea49f720a7ff6d08f7",
+            "url": "https://www.mnd.gov.tw/File/41631",
+            "title": "平衡攀登訓練作法研議（國防部）",
+            "source_type": "paper",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆；tavily/exa unavailable"
+            ],
+            "reasons": [
+              "國防部軍事研究文件，涉及平衡攀登訓練，待查作者與時間"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_8d20403715afe3d1759c",
+            "url": "https://www.mdpi.com/2411-5142/11/1/103",
+            "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)",
+            "source_type": "paper",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆；其餘provider unavailable"
+            ],
+            "reasons": [
+              "攀登技術系統化的期刊論文，待讀全文確認結論"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_dc6cd8b4dd7cb87a9da1",
+            "url": "https://library.americanalpineclub.org/climbinghowto",
+            "title": "Climbing How To · American Alpine Club Library",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆；其餘provider unavailable"
+            ],
+            "reasons": [
+              "AAC圖書館教學書籍清單入口"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_fffdafcbf45bb38c2cf7",
+            "url": "https://campusguides.lib.utah.edu/climbing/research",
+            "title": "Research - Rock Climbing - University of Utah Research Guides",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆；其餘provider unavailable"
+            ],
+            "reasons": [
+              "大學圖書館攀岩研究資源入口，可找文獻"
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_50b3e4e128ab40aaae83",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "截斷正文約3000字元（bytes 886934，truncated）；已讀文章開頭，CE最小破斷強度與haul loop用途段落",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_51cddfe3c754e74232a8",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "截斷正文約3000字元（truncated）；讀到affiliate聲明與haul rope段落",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_56f211f3f7d5e2e1d72a",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "完整頁面（18654 bytes，未截斷）；官方新聞稿摘要，非報告全文",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_5decf25ddf474021f19e",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane federated(brave,you) 4筆；tavily/exa unavailable",
+            "count": 3,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane provider you 4筆；其餘provider unavailable",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www-ws.gov.taipei/001/Upload/354/relfile/31866/4915506/74281143753.pdf",
+          "title": "福和攀岩場攀岩活動相關資訊",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆；tavily/exa unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "台北市場館官方須知，可核對現行安全規定",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://hkcmcu.org.hk/images/handbook/RC_handbook_20202nd_Final.pdf",
+          "title": "攀岩訓練手冊（2020年第二版）中國香港攀山及攀登總會",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆；tavily/exa unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 香港攀山及攀登總會訓練手冊PDF，待查內容與安全範圍",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.mnd.gov.tw/File/41631",
+          "title": "平衡攀登訓練作法研議（國防部）",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆；tavily/exa unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 國防部軍事研究文件，涉及平衡攀登訓練，待查作者與時間",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.mdpi.com/2411-5142/11/1/103",
+          "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆；其餘provider unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 攀登技術系統化的期刊論文，待讀全文確認結論",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://library.americanalpineclub.org/climbinghowto",
+          "title": "Climbing How To · American Alpine Club Library",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆；其餘provider unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. AAC圖書館教學書籍清單入口",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://campusguides.lib.utah.edu/climbing/research",
+          "title": "Research - Rock Climbing - University of Utah Research Guides",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆；其餘provider unavailable",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 大學圖書館攀岩研究資源入口，可找文獻",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 技巧與安全 QC Lab: Full Strength Haul Loops (Black Diamond, 2016-09-07)",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "截斷正文約3000字元（bytes 886934，truncated）；已讀文章開頭，CE最小破斷強度與haul loop用途段落",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 技巧與安全 How To Big Wall Climb - Gear 3: Haulbags, Hauling and Bivy Gear (SuperTopo, McNamara, 2012)",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "截斷正文約3000字元（truncated）；讀到affiliate聲明與haul rope段落",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 技巧與安全 以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布_国家体育总局",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "完整頁面（18654 bytes，未截斷）；官方新聞稿摘要，非報告全文",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 技巧與安全 #PetzlTips- Hauling a Second on a Multi-Pitch Climb.",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane federated(brave,you) 4筆；tavily/exa unavailable",
+          "result_urls": [
+            "https://hkcmcu.org.hk/images/handbook/RC_handbook_20202nd_Final.pdf",
+            "https://www.mnd.gov.tw/File/41631",
+            "https://www-ws.gov.taipei/001/Upload/354/relfile/31866/4915506/74281143753.pdf"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing technique.",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane provider you 4筆；其餘provider unavailable",
+          "result_urls": [
+            "https://www.mdpi.com/2411-5142/11/1/103",
+            "https://campusguides.lib.utah.edu/climbing/research",
+            "https://library.americanalpineclub.org/climbinghowto"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／技巧與安全研究追蹤候選報告\n\n日期：2026-11-15；run：2026-11-15-climbing-technique-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 1 個來源；已知 5 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [福和攀岩場攀岩活動相關資訊](<https://www-ws.gov.taipei/001/Upload/354/relfile/31866/4915506/74281143753.pdf>) | 新候選 | 台北市場館官方須知，可核對現行安全規定 |\n| 3 | [攀岩訓練手冊（2020年第二版）中國香港攀山及攀登總會](<https://hkcmcu.org.hk/images/handbook/RC_handbook_20202nd_Final.pdf>) | 已知／candidate | 香港攀山及攀登總會訓練手冊PDF，待查內容與安全範圍 |\n| 3 | [平衡攀登訓練作法研議（國防部）](<https://www.mnd.gov.tw/File/41631>) | 已知／candidate | 國防部軍事研究文件，涉及平衡攀登訓練，待查作者與時間 |\n| 3 | [Biomechanical Principles and Techniques—A Systematization for Sport Climbing (MDPI)](<https://www.mdpi.com/2411-5142/11/1/103>) | 已知／candidate | 攀登技術系統化的期刊論文，待讀全文確認結論 |\n| 3 | [Climbing How To · American Alpine Club Library](<https://library.americanalpineclub.org/climbinghowto>) | 已知／candidate | AAC圖書館教學書籍清單入口 |\n| 3 | [Research - Rock Climbing - University of Utah Research Guides](<https://campusguides.lib.utah.edu/climbing/research>) | 已知／candidate | 大學圖書館攀岩研究資源入口，可找文獻 |\n\n## 搜尋覆蓋\n\n- source-src\\_50b3e4e128ab40aaae83：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；截斷正文約3000字元（bytes 886934，truncated）；已讀文章開頭，CE最小破斷強度與haul loop用途段落；0 筆\n- source-src\\_51cddfe3c754e74232a8：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；截斷正文約3000字元（truncated）；讀到affiliate聲明與haul rope段落；0 筆\n- source-src\\_56f211f3f7d5e2e1d72a：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；完整頁面（18654 bytes，未截斷）；官方新聞稿摘要，非報告全文；0 筆\n- source-src\\_5decf25ddf474021f19e：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；Groundlane web\\_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；0 筆\n- query-primary-zh：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane federated(brave,you) 4筆；tavily/exa unavailable；3 筆\n- query-primary-en：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane provider you 4筆；其餘provider unavailable；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-crags",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-crags",
+          "title": "攀岩／岩場與路線研究追蹤",
+          "category": "climbing",
+          "topic": "crags",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 岩場與路線"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing crags."
+            }
+          ]
+        },
+        "date": "2026-11-15",
+        "run_id": "2026-11-15-climbing-crags-watch",
+        "rotation_week": 2966,
+        "known_source_count": 1436,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 61,
+        "selected_channel_count": 1,
+        "requests": [
+          {
+            "id": "source-src_43266c7537628526fd39",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_43266c7537628526fd39",
+            "url": "https://www.youtube.com/watch?v=QExP04nmFJM",
+            "query": "攀岩 岩場與路線 ジュテ / 7a+【神居古潭ボルダー】",
+            "title": "ジュテ / 7a+【神居古潭ボルダー】"
+          },
+          {
+            "id": "source-src_4341a73f20be8be47420",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_4341a73f20be8be47420",
+            "url": "https://www.youtube.com/watch?v=OAb_5evKVzg",
+            "query": "攀岩 岩場與路線 フクベ 『 サンシャインパワー 』2段",
+            "title": "フクベ 『 サンシャインパワー 』2段"
+          },
+          {
+            "id": "source-src_43bbceb70a8dbb467592",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_43bbceb70a8dbb467592",
+            "url": "https://www.youtube.com/watch?v=o6GpsF6VOKY",
+            "query": "攀岩 岩場與路線 笠間　樹海 (初段/5.12a)",
+            "title": "笠間　樹海 (初段/5.12a)"
+          },
+          {
+            "id": "channel-src_43c806d32e571c29154c",
+            "kind": "channel",
+            "source_type": "channel",
+            "source_id": "src_43c806d32e571c29154c",
+            "url": "https://www.youtube.com/channel/UC4SCpKWjwfsj3_3TJxDTJ6Q",
+            "query": "攀岩 岩場與路線 naruto kintoki",
+            "title": "naruto kintoki"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing crags."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-15-climbing-crags-watch",
+        "date": "2026-11-15",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 4,
+        "known_sources": 2,
+        "candidates": [
+          {
+            "id": "src_0cdef0b278b04a7c78ce",
+            "url": "https://www.thecrag.com/",
+            "title": "theCrag",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆"
+            ],
+            "reasons": [
+              "全球岩場索引平台，待查資料授權與品質"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_50f06a925f69357cacef",
+            "url": "https://www.thecrag.com/en/article/beginners",
+            "title": "Introduction to Rock Climbing | theCrag",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆"
+            ],
+            "reasons": [
+              "入門介紹，連到岩場與裝備資源"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_9b95751ad24c21e18afa",
+            "url": "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook",
+            "title": "攀岩也要用功讀書：Guidebook",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆"
+            ],
+            "reasons": [
+              "guidebook識讀說明，與岩場資訊有關"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_a4818d0b9f4a5eaeb650",
+            "url": "https://www.climbing.org/",
+            "title": "台灣攀岩資料庫",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆"
+            ],
+            "reasons": [
+              "台灣攀岩論壇資料庫，待查活躍度"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_00d1cff239ca52075ba9",
+            "url": "https://campusguides.lib.utah.edu/climbing/training",
+            "title": "How to / Training - Rock Climbing - University of Utah Research Guides",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆"
+            ],
+            "reasons": [
+              "含Access Fund戶外攀登實務連結"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_eaaa6677032987dcb4ff",
+            "url": "https://longdong.climbio.org/",
+            "title": "龍洞攀岩資料庫 - Climbio",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane federated(brave,you) 4筆"
+            ],
+            "reasons": [
+              "龍洞岩場資料庫，待查維護者與內容"
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_43266c7537628526fd39",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_4341a73f20be8be47420",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；含作者簡短描述",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_43bbceb70a8dbb467592",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "channel-src_43c806d32e571c29154c",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "Groundlane web_fetch（browser fallback）僅回頻道名稱；未取得上傳清單，yt-dlp adapter未執行；頻道輪查不完整",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane federated(brave,you) 4筆",
+            "count": 3,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane provider you 4筆",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.thecrag.com/",
+          "title": "theCrag",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "全球岩場索引平台，待查資料授權與品質",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thecrag.com/en/article/beginners",
+          "title": "Introduction to Rock Climbing | theCrag",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "入門介紹，連到岩場與裝備資源",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook",
+          "title": "攀岩也要用功讀書：Guidebook",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "guidebook識讀說明，與岩場資訊有關",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.climbing.org/",
+          "title": "台灣攀岩資料庫",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "台灣攀岩論壇資料庫，待查活躍度",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://campusguides.lib.utah.edu/climbing/training",
+          "title": "How to / Training - Rock Climbing - University of Utah Research Guides",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 含Access Fund戶外攀登實務連結",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://longdong.climbio.org/",
+          "title": "龍洞攀岩資料庫 - Climbio",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane federated(brave,you) 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 龍洞岩場資料庫，待查維護者與內容",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 岩場與路線 ジュテ / 7a+【神居古潭ボルダー】",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 岩場與路線 フクベ 『 サンシャインパワー 』2段",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；含作者簡短描述",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 岩場與路線 笠間　樹海 (初段/5.12a)",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 岩場與路線 naruto kintoki",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch（browser fallback）僅回頻道名稱；未取得上傳清單，yt-dlp adapter未執行；頻道輪查不完整",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane federated(brave,you) 4筆",
+          "result_urls": [
+            "https://longdong.climbio.org/",
+            "https://www.climbing.org/",
+            "https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing crags.",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane provider you 4筆",
+          "result_urls": [
+            "https://www.thecrag.com/",
+            "https://www.thecrag.com/en/article/beginners",
+            "https://campusguides.lib.utah.edu/climbing/training"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／岩場與路線研究追蹤候選報告\n\n日期：2026-11-15；run：2026-11-15-climbing-crags-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 4 個來源；已知 2 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [theCrag](<https://www.thecrag.com/>) | 新候選 | 全球岩場索引平台，待查資料授權與品質 |\n| 1 | [Introduction to Rock Climbing \\| theCrag](<https://www.thecrag.com/en/article/beginners>) | 新候選 | 入門介紹，連到岩場與裝備資源 |\n| 1 | [攀岩也要用功讀書：Guidebook](<https://www.tocc-climbing.org/post/%E6%94%80%E5%B2%A9%E4%B9%9F%E8%A6%81%E7%94%A8%E5%8A%9F%E8%AE%80%E6%9B%B8%EF%BC%9Aguidebook>) | 新候選 | guidebook識讀說明，與岩場資訊有關 |\n| 1 | [台灣攀岩資料庫](<https://www.climbing.org/>) | 新候選 | 台灣攀岩論壇資料庫，待查活躍度 |\n| 3 | [How to / Training - Rock Climbing - University of Utah Research Guides](<https://campusguides.lib.utah.edu/climbing/training>) | 已知／candidate | 含Access Fund戶外攀登實務連結 |\n| 3 | [龍洞攀岩資料庫 - Climbio](<https://longdong.climbio.org/>) | 已知／candidate | 龍洞岩場資料庫，待查維護者與內容 |\n\n## 搜尋覆蓋\n\n- source-src\\_43266c7537628526fd39：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；Groundlane web\\_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；0 筆\n- source-src\\_4341a73f20be8be47420：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；Groundlane web\\_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；含作者簡短描述；0 筆\n- source-src\\_43bbceb70a8dbb467592：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；Groundlane web\\_fetch 讀到頁面標題與描述（YouTube頁面外框，無字幕、未看片）；僅metadata；0 筆\n- channel-src\\_43c806d32e571c29154c：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；Groundlane web\\_fetch（browser fallback）僅回頻道名稱；未取得上傳清單，yt-dlp adapter未執行；頻道輪查不完整；0 筆\n- query-primary-zh：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane federated(brave,you) 4筆；3 筆\n- query-primary-en：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane provider you 4筆；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-gear",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-gear",
+          "title": "攀岩／裝備研究追蹤",
+          "category": "climbing",
+          "topic": "gear",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 裝備"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing gear."
+            }
+          ]
+        },
+        "date": "2026-11-15",
+        "run_id": "2026-11-15-climbing-gear-watch",
+        "rotation_week": 2966,
+        "known_source_count": 97,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 0,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_4721edcbce515695829d",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_4721edcbce515695829d",
+            "url": "https://www.tocc-climbing.org/post/%E5%A6%82%E4%BD%95%E6%89%93%E9%80%A0%E7%AC%AC%E4%B8%80%E5%A5%97%E5%82%B3%E6%94%80%E8%A3%9D%E5%82%99",
+            "query": "攀岩 裝備 如何打造第一套傳攀裝備",
+            "title": "如何打造第一套傳攀裝備"
+          },
+          {
+            "id": "source-src_491343326764e7af9ff0",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_491343326764e7af9ff0",
+            "url": "https://blisterreview.com/gear-reviews/metolius-express-haul-pack",
+            "query": "攀岩 裝備 Metolius Express Haul Pack (Blister, Matt Zia, 2015-04-15)",
+            "title": "Metolius Express Haul Pack (Blister, Matt Zia, 2015-04-15)"
+          },
+          {
+            "id": "source-src_4a5250144fdaa728af6e",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_4a5250144fdaa728af6e",
+            "url": "https://www.petzltw.com/products/pro-traxion",
+            "query": "攀岩 裝備 PRO TRAXION (Petzl Taiwan)",
+            "title": "PRO TRAXION (Petzl Taiwan)"
+          },
+          {
+            "id": "source-src_4c037b77b9b98963a77d",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_4c037b77b9b98963a77d",
+            "url": "https://mtntools.com/cat/bigwall/haulbags/02haulbags.htm",
+            "query": "攀岩 裝備 Haulbags (Mountain Tools)",
+            "title": "Haulbags (Mountain Tools)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing gear."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-11-15-climbing-gear-watch",
+        "date": "2026-11-15",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 0,
+        "known_sources": 5,
+        "candidates": [
+          {
+            "id": "src_383a91483e150b130ec3",
+            "url": "https://www.climbing.com/collection/gear-guides/",
+            "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆"
+            ],
+            "reasons": [
+              "雜誌評測集合，編輯與商業關係待查"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_4d294dc5cd7d7ed85de6",
+            "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+            "title": "BMC equipment guides - The British Mountaineering Council",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane provider you 4筆"
+            ],
+            "reasons": [
+              "英國山岳協會裝備技術手冊，偏一手"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_6145f9e65d611ea6ea3c",
+            "url": "https://learn.100mountain.com/?p=3866",
+            "title": "攀岩入門看這篇--攀岩器材基礎介紹",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane brave 4筆"
+            ],
+            "reasons": [
+              "含UIAA標準說明，需回UIAA核對"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_887dc764c52c37f689a4",
+            "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+            "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane brave 4筆"
+            ],
+            "reasons": [
+              "裝備認證說明，需對照標準原文"
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_bf88ea3af8b773d8d7e8",
+            "url": "https://adviseist.com/climbing-gear-2026",
+            "title": "2026 攀岩裝備完整選購指南",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "mcp__Groundlane__web_search"
+            ],
+            "coverages": [
+              "Groundlane brave 4筆"
+            ],
+            "reasons": [
+              "個人評測，可能有商業關係，待查"
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_4721edcbce515695829d",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "截斷正文約3000字元（truncated）；作者聲明無利益往來，讀到主繩與活動岩楔段落",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_491343326764e7af9ff0",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "截斷正文約3000字元（truncated）；2015年評測，已讀規格與設計段落",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_4a5250144fdaa728af6e",
+            "status": "ok",
+            "tool": "mcp__Exa__web_fetch_exa",
+            "coverage": "Groundlane web_fetch兩次失敗（DEADLINE_EXCEEDED、MCP 60s timeout）後改Exa web_fetch，3000字元內完整產品頁；fallback不當Groundlane驗證",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "source-src_4c037b77b9b98963a77d",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_fetch",
+            "coverage": "完整頁面（36657 bytes，未截斷）；商品列表，多數標SOLD OUT，價格時效待查",
+            "count": 0,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane brave 4筆",
+            "count": 3,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "mcp__Groundlane__web_search",
+            "coverage": "Groundlane provider you 4筆",
+            "count": 2,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.climbing.com/collection/gear-guides/",
+          "title": "Climbing Gear Guides: Shoes, Ropes, Packs, and More",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 雜誌評測集合，編輯與商業關係待查",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+          "title": "BMC equipment guides - The British Mountaineering Council",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane provider you 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 英國山岳協會裝備技術手冊，偏一手",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://learn.100mountain.com/?p=3866",
+          "title": "攀岩入門看這篇--攀岩器材基礎介紹",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane brave 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 含UIAA標準說明，需回UIAA核對",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.adventuretaiwan.com/climbing-gears-safety-standards/",
+          "title": "攀岩新手必學 - 裝備的安全認證 | 艾格探險",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane brave 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 裝備認證說明，需對照標準原文",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://adviseist.com/climbing-gear-2026",
+          "title": "2026 攀岩裝備完整選購指南",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-11-15",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Groundlane brave 4筆",
+          "tool": "mcp__Groundlane__web_search",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. 個人評測，可能有商業關係，待查",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-11-15-091615-research-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "攀岩 裝備 如何打造第一套傳攀裝備",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "截斷正文約3000字元（truncated）；作者聲明無利益往來，讀到主繩與活動岩楔段落",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 裝備 Metolius Express Haul Pack (Blister, Matt Zia, 2015-04-15)",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "截斷正文約3000字元（truncated）；2015年評測，已讀規格與設計段落",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 裝備 PRO TRAXION (Petzl Taiwan)",
+          "tool": "mcp__Exa__web_fetch_exa",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane web_fetch兩次失敗（DEADLINE_EXCEEDED、MCP 60s timeout）後改Exa web_fetch，3000字元內完整產品頁；fallback不當Groundlane驗證",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 裝備 Haulbags (Mountain Tools)",
+          "tool": "mcp__Groundlane__web_fetch",
+          "searched_at": "2026-11-15",
+          "scope": "完整頁面（36657 bytes，未截斷）；商品列表，多數標SOLD OUT，價格時效待查",
+          "result_urls": [],
+          "gap": "No matching results in this bounded attempt; not evidence of absence."
+        },
+        {
+          "query": "攀岩 裝備 官方 一手資料 研究與實務更新",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane brave 4筆",
+          "result_urls": [
+            "https://adviseist.com/climbing-gear-2026",
+            "https://learn.100mountain.com/?p=3866",
+            "https://www.adventuretaiwan.com/climbing-gears-safety-standards/"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing gear.",
+          "tool": "mcp__Groundlane__web_search",
+          "searched_at": "2026-11-15",
+          "scope": "Groundlane provider you 4筆",
+          "result_urls": [
+            "https://www.climbing.com/collection/gear-guides/",
+            "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／裝備研究追蹤候選報告\n\n日期：2026-11-15；run：2026-11-15-climbing-gear-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 0 個來源；已知 5 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 3 | [Climbing Gear Guides: Shoes, Ropes, Packs, and More](<https://www.climbing.com/collection/gear-guides/>) | 已知／candidate | 雜誌評測集合，編輯與商業關係待查 |\n| 3 | [BMC equipment guides - The British Mountaineering Council](<https://www.thebmc.co.uk/en/bmc-technical-advice-booklets>) | 已知／candidate | 英國山岳協會裝備技術手冊，偏一手 |\n| 3 | [攀岩入門看這篇--攀岩器材基礎介紹](<https://learn.100mountain.com/?p=3866>) | 已知／candidate | 含UIAA標準說明，需回UIAA核對 |\n| 3 | [攀岩新手必學 - 裝備的安全認證 \\| 艾格探險](<https://www.adventuretaiwan.com/climbing-gears-safety-standards/>) | 已知／candidate | 裝備認證說明，需對照標準原文 |\n| 3 | [2026 攀岩裝備完整選購指南](<https://adviseist.com/climbing-gear-2026>) | 已知／candidate | 個人評測，可能有商業關係，待查 |\n\n## 搜尋覆蓋\n\n- source-src\\_4721edcbce515695829d：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；截斷正文約3000字元（truncated）；作者聲明無利益往來，讀到主繩與活動岩楔段落；0 筆\n- source-src\\_491343326764e7af9ff0：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；截斷正文約3000字元（truncated）；2015年評測，已讀規格與設計段落；0 筆\n- source-src\\_4a5250144fdaa728af6e：ok；mcp\\_\\_Exa\\_\\_web\\_fetch\\_exa；Groundlane web\\_fetch兩次失敗（DEADLINE\\_EXCEEDED、MCP 60s timeout）後改Exa web\\_fetch，3000字元內完整產品頁；fallback不當Groundlane驗證；0 筆\n- source-src\\_4c037b77b9b98963a77d：ok；mcp\\_\\_Groundlane\\_\\_web\\_fetch；完整頁面（36657 bytes，未截斷）；商品列表，多數標SOLD OUT，價格時效待查；0 筆\n- query-primary-zh：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane brave 4筆；3 筆\n- query-primary-en：ok；mcp\\_\\_Groundlane\\_\\_web\\_search；Groundlane provider you 4筆；2 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    }
+  ]
+}
