@@ -187,7 +187,9 @@ body.is-collection .mosaic-tile a:focus-visible {
   font-size: 0.78rem;
   font-weight: 700;
   line-height: 1.25;
+  /* light：海報亮，黑字加邊清晰；dark：保留原黑爛 */
   text-shadow: 0 0 2px var(--coll-poster-fg);
+  -webkit-text-stroke: 0.45px var(--coll-poster-fg);
 }
 
 [data-theme="dark"] body.is-collection .mosaic-tile b {
