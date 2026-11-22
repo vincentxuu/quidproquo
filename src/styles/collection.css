@@ -188,8 +188,7 @@ body.is-collection .mosaic-tile a:focus-visible {
   font-weight: 700;
   line-height: 1.25;
   /* light：海報亮，黑字加邊清晰；dark：保留原黑爛 */
-  text-shadow: 0 0 2px var(--coll-poster-fg);
-  -webkit-text-stroke: 0.45px var(--coll-poster-fg);
+  text-shadow: 0 0 3px rgb(255 255 255 / 0.6);
 }
 
 [data-theme="dark"] body.is-collection .mosaic-tile b {
@@ -379,7 +378,11 @@ body.is-collection .mosaic-tile a:focus-visible {
   z-index: 1;
   font-size: 0.95rem;
   line-height: 1.3;
-  text-shadow: 0 0 2px var(--coll-poster-fg);
+  text-shadow: 0 0 3px rgb(255 255 255 / 0.6);
+}
+
+[data-theme="dark"] body.is-collection .work-hero-poster b {
+  text-shadow: 0 1px 4px rgb(0 0 0 / 0.8);
 }
 
 .work-hero-poster img {
