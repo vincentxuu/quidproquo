@@ -380,7 +380,10 @@ cd llama.cpp
 cmake -B build    # Metal is enabled by default on macOS
 cmake --build build --config Release -j
 
-# Or use Homebrew
+# Or use the official install script (tracks the daily builds)
+curl -LsSf https://llama.app/install.sh | sh
+
+# Homebrew works too, but lags behind
 brew install llama.cpp
 
 # 2. Download a model
@@ -401,6 +404,8 @@ llama-server \
   --port 8080
 ```
 
+The Homebrew formula only follows tagged releases (v1.0.0 from November 13 as of 2026-11-22), while the daily builds are past b12600. For newly released architectures, such as Inkling 2 Mini, which needs b12600 or later, use the install script or the `macos-arm64` archive from [releases](https://github.com/ggml-org/llama.cpp/releases), and check `llama --version` first. Which build each of four popular open models needs on a 32 GB Mac is covered in [part 4 of the Running Models Locally series](/posts/ai/2026-11-22-run-open-models-on-32gb-mac-en).
+
 Recommendations for M3 Pro 36GB: Use Q6_K (~5.5 GB) for 8B models, Q4_K_M (~8.5 GB) for 14B, and Q4_K_M (~20 GB) for 32B. Reserve the remaining memory for KV cache and the system.
 
 ## The Big Picture
@@ -410,6 +415,10 @@ llama.cpp is the infrastructure layer of local LLM inference. Ollama, LM Studio,
 In 2026, llama.cpp is far more than "running LLaMA on a CPU." It's a mature multi-backend inference engine supporting 50+ model architectures with 100K+ GitHub stars. Development has accelerated since the ggml.ai team joined Hugging Face — MCP client support, Anthropic API compatibility, audio input, and autoparser structured output are all recent additions.
 
 If you're already using Ollama and satisfied with it, there's no need to switch. But if you want a deeper understanding of every aspect of local inference, or need features Ollama doesn't support (speculative decoding, grammar sampling, custom quantization), llama.cpp is the next step.
+
+## Update Log
+
+- 2026-11-22: Added the official install script to the Mac quick start, noted that Homebrew lags the daily builds, and linked to part 4 of the Running Models Locally series
 
 ## References
 
