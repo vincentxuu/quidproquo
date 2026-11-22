@@ -166,15 +166,16 @@ body.is-collection #main-content {
   transition: filter 0.25s ease;
 }
 
-.mosaic-tile a::after {
+/* light 下馬賽克 Tile：duotone 全亮，無製作暗色 scrim；dark 保留原爻子 */
+[data-theme="dark"] body.is-collection .mosaic-tile a::after {
   content: '';
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg, transparent 45%, rgb(0 0 0 / 0.78) 100%);
 }
 
-.mosaic-tile a:hover,
-.mosaic-tile a:focus-visible {
+body.is-collection .mosaic-tile a:hover,
+body.is-collection .mosaic-tile a:focus-visible {
   filter: saturate(1.1) brightness(1.05);
   outline: 2px solid var(--coll-accent);
   outline-offset: -2px;
