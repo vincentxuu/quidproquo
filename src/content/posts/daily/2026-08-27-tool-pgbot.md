@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-27-tool-pgbot-en)
+> :globe: [English version](/posts/daily/2026-08-27-tool-pgbot-en)
 
 ## 工具資訊
 
@@ -89,10 +89,10 @@ pgbot 自己在 README 裡把定位講得很清楚：它是「你主動跑一次
 | | pgbot | pganalyze | pgwatch |
 |---|---|---|---|
 | 部署方式 | 單一靜態 binary，免服務 | SaaS，需裝 collector agent | 自架，需部署 collector + 時序資料庫 |
-| 需要外部帳號 | ❌ | ✅（SaaS） | ❌ |
-| 長期趨勢 / dashboard / 告警 | ❌（只比對本機 baseline） | ✅ | ✅ |
-| 原生 MCP server | ✅ | ❌ | ❌ |
-| CI gate（exit code / SARIF） | ✅ | ❌ | ❌ |
+| 需要外部帳號 | ✗ | ✓（SaaS） | ✗ |
+| 長期趨勢 / dashboard / 告警 | ✗（只比對本機 baseline） | ✓ | ✓ |
+| 原生 MCP server | ✓ | ✗ | ✗ |
+| CI gate（exit code / SARIF） | ✓ | ✗ | ✗ |
 | 授權 | Apache-2.0 開源 | 商業 SaaS | Apache-2.0 開源 |
 
 ## 注意事項

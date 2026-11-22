@@ -22,7 +22,7 @@ glossary:
     context: "The Fall 2026 Logistics page says normal queue waits exceed 24 hours and deadlines will not be extended because of them."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

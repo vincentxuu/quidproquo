@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek's flagship LLM family, with Flash and Pro variants and an emphasis on multimodality and aggressive KV-cache compression."
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash)
+> :globe: [中文版](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash)
 
 ## Model information
 

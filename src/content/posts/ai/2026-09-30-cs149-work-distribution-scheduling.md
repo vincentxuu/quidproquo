@@ -25,7 +25,7 @@ glossary:
     context: "L5 投影片說實務上約 8 是不錯的比值：太少難平衡，太多則管理細粒度工作的成本上升。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-work-distribution-scheduling-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

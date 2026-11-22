@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 67
 ---
-> 🌏 [English version](/posts/daily/2026-07-30-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-30-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -99,7 +99,7 @@ TRACE-ROUTER 改變策略：任務開始時（admission，入場時）用 **cont
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你需要「通用性強的 Agent 評測框架」作為選型或迭代依據，值得細看它的分類體系；若對評測設計不感興趣可快速掃過結論數字。
 
 ### 領域背景
@@ -126,7 +126,7 @@ OmniaBench 從 app store 產品文件、行業資料、Web 資料+人工精修�
 - Taxonomy 覆蓋 **ToC（一般消費者）、ToB（企業業務）、ToE（工程技術）**，共 90 個 level-1 domain、354 個 level-2 domain
 - 四種任務生成路線：DAG、DAG-S、Solver、Program，涵蓋單輪與多輪任務
 - 總計 **1,431 題**；另有 **644 題 challenging subset** 設計用於降低評測成本並緩解資料污染問題
-- 評測結果（22 個模型）：Claude Sonnet-5 **58.54%**、GPT-5.6-Sol **57.14%**，均低於 60% **⚠️**（分數極低是否因難度校準偏高需獨立驗證，不宜直接解讀為「模型很弱」）
+- 評測結果（22 個模型）：Claude Sonnet-5 **58.54%**、GPT-5.6-Sol **57.14%**，均低於 60% **:warning:**（分數極低是否因難度校準偏高需獨立驗證，不宜直接解讀為「模型很弱」）
 - 10 維能力 taxonomy 涵蓋工具呼叫、規劃、記憶、長程推理等核心 Agent 能力
 - 8 個原子難度因子可拆解任務難度來源，幫助定位具體弱點
 - Limitation：任務由自動路線生成，真實使用者行為多樣性難以完全複製；ToE 偏工程場景，對純商業流程 Agent 代表性有限
@@ -155,7 +155,7 @@ LLM Agent 在開放環境中會隨時間漂移（預測越來越不準）；這�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 應用場景是邊緣運算資源分配，若你做通用 Agent 平台只需吸收「自我校準」概念即可；對邊緣運算不感興趣可快速掃過。
 
 ### 領域背景
@@ -182,7 +182,7 @@ LLM Agent 被設計為自主系統，但有個根本弱點：在沒有明確 gro
 - Agent 架構：LLM 核心 + ARIMA leaping 模組 + 自動校準觸發器三層結構
 - **ARIMA leaping**：改良版 ARIMA，比標準 ARIMA 快 **52%**，同時維持相同準確率
 - 應用場景：zero-knowledge workload（零知識工作負載，一種隱私計算任務）在邊緣運算網路的資源分配預測
-- 實驗結果：比「無校準基準 LLM Agent」準確率高 **91.7%** **⚠️**（對照組為未加任何自適應機制的 LLM agent，baseline 偏弱，需謹慎解讀）；預測速度比純統計 profiling 提升 **71.7%**
+- 實驗結果：比「無校準基準 LLM Agent」準確率高 **91.7%** **:warning:**（對照組為未加任何自適應機制的 LLM agent，baseline 偏弱，需謹慎解讀）；預測速度比純統計 profiling 提升 **71.7%**
 - 無需連續人工監督，符合 autonomous edge deployment 的實際需求
 - Limitation：ARIMA 假設時序數據有一定規律性；若 workload 具高度非平穩或突發特性，近似 ground truth 品質下滑，校準效果也跟著打折
 - 與主流框架關聯：LangGraph / AutoGen 目前無內建漂移偵測機制，需在 tool 或 orchestration 層自行加入類似邏輯

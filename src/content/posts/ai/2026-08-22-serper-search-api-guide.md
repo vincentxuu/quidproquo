@@ -10,7 +10,7 @@ description: "從 Serper Search API 的請求、結果結構、地區語言與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-serper-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-serper-search-api-guide-en)
 
 [Serper](https://serper.dev/) 是第三方 Google SERP API。你的程式把查詢送到 Serper，Serper 代為取得 Google 搜尋結果頁（Search Engine Results Page, SERP），再把頁面上的自然搜尋結果、知識圖譜與「其他人也問了」等區塊整理成 JSON。
 

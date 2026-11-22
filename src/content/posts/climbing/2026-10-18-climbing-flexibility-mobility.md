@@ -22,7 +22,7 @@ glossary:
     context: "Draper 等人 2021 年的 IRCRA 專項測驗組研究。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-flexibility-mobility-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-flexibility-mobility-en)
 
 在岩館爬到一條要高腳的抱石，你的腳就是抬不上去。旁邊的岩友說：「你太硬了，回家多拉筋，順便也比較不會受傷。」
 

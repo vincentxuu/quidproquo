@@ -13,7 +13,7 @@ description: "A guide to Sass Dlacia: rock and style, route counts and altitude 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-sass-dlacia)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-sass-dlacia)
 
 Sass Dlacia sits at the southern end of Val Badia in South Tyrol (Südtirol / Alto Adige), on the road from San Cassiano up to Passo Valparola, at the edge of the forest near Armentarola. In a piece on five summer crags in the eastern Dolomites, the Italian Alpine Club's *Lo Scarpone* writes: "Sass Dlacia rappresenta senza dubbio il non plus ultra per l'arrampicata in falesia" ([CAI Lo Scarpone](https://www.loscarpone.cai.it/dettaglio/fuga-dal-caldo-cinque-falesie-per-arrampicare-nelle-dolomiti-orientali/)), meaning the best single-pitch crag in Val Badia.
 

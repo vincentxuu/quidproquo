@@ -13,7 +13,7 @@ description: "DeepSeek Harness（dsh）的 Cordis plugin kernel 架構、四種 
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-deepseek-harness-dsh-plugin-kernel-en)
+> :globe: [English version](/posts/tech/2026-08-22-deepseek-harness-dsh-plugin-kernel-en)
 
 2026 年 8 月 13 日，DeepSeek 在宣布 V4-Pro 正式上線的同一天，開源了自己的 coding agent 框架——[DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness)（指令叫 `dsh`）。MIT 授權，TypeScript/Node.js，v0.1 開發者預覽版。
 

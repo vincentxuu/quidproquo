@@ -13,7 +13,7 @@ description: "瑞牆山岩場介紹：岩質與路線規模、適合季節與林
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en)
 
 瑞牆山（みずがきやま，Mizugakiyama）在山梨縣北杜市須玉町小尾，是奧秩父的花崗岩岩場。這裡的主力是裂隙與多段（multi-pitch），岩場下方的森林裡還散著大量抱石。要不要去，主要卡在兩件事：你能不能放 cam 爬裂隙，以及你去的時候林道開了沒。
 

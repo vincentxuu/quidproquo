@@ -20,7 +20,7 @@ glossary:
         url: "https://github.com/facebookresearch/faiss"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-08-rag)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-08-rag)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

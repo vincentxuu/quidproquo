@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-runpod-gpu-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-runpod-gpu-cloud-en)
 
 [RunPod](https://docs.runpod.io/api-reference/overview) 提供兩個主要抽象：Pod 是可 SSH、長時間存在的 GPU instance；Serverless endpoint 則依請求啟停 container worker。開發 notebook、training 或自管 daemon 選 Pod；有明確 request/job contract 的 inference 才選 Serverless。
 

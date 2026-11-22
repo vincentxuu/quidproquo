@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-15",
+  "date": "2026-11-22",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,24 +8,24 @@
     { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 30.35, "ci": "[26.42%, 34.28%]" },
-    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 19.52, "ci": "[17.49%, 21.54%]" },
-    { "rank": 3, "model": "Gemini 4 Carbon (High)", "score": 16.98, "ci": "[16.29%, 17.66%]" },
-    { "rank": 4, "model": "Claude Sonnet 5.5 (Max)", "score": 15.95, "ci": "[13.13%, 18.77%]" },
-    { "rank": 5, "model": "Claude Fable 5.1 (Max)", "score": 14.82, "ci": "[12.76%, 16.88%]" }
+    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 27.42, "ci": "[24.46%, 30.38%]" },
+    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 18.63, "ci": "[16.60%, 20.65%]" },
+    { "rank": 3, "model": "Gemini 4 Neon (High)", "score": 18.41, "ci": "[15.90%, 20.93%]" },
+    { "rank": 4, "model": "Gemini 4 Carbon (High)", "score": 16.10, "ci": "[15.41%, 16.79%]" },
+    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 15.56, "ci": "[12.66%, 18.46%]" }
   ],
   "aa_agentic_index_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
-    { "rank": 2, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59.1 },
-    { "rank": 3, "model": "Grok 4.6 (high)", "org": "xAI", "score": 58.7 }
+    { "rank": 1, "model": "Gemini 4 Neon (Antigravity CLI, xhigh)", "org": "Google", "score": 59 },
+    { "rank": 2, "model": "Claude Code + Fable 5.2 (xhigh) ／ Claude Code + Opus 5.5 (max)（並列）", "org": "Anthropic", "score": 58 },
+    { "rank": 3, "model": "Muse Code + Wonder Full (max)", "org": "Meta", "score": 54 }
   ],
   "cursorbench_top5": [
-    { "rank": 1, "model": "Gemini 4 Carbon High", "org": "Google", "score": 60.4, "costPerTask": 9.22, "tokensPerTask": 39960 },
-    { "rank": 2, "model": "Gemini 4 Carbon Medium", "org": "Google", "score": 60.1, "costPerTask": 8.49, "tokensPerTask": 37067 },
-    { "rank": 3, "model": "Fable 5.2 Max", "org": "Anthropic", "score": 60.0, "costPerTask": 32.79, "tokensPerTask": 352794 },
-    { "rank": 4, "model": "Gemini 4 Carbon Low", "org": "Google", "score": 58.6, "costPerTask": 11.89, "tokensPerTask": 42663 },
-    { "rank": 5, "model": "Opus 5.5 Max", "org": "Anthropic", "score": 57.8, "costPerTask": 13.43, "tokensPerTask": 218363 }
+    { "rank": 1, "model": "Gemini 4 Neon (Extra High)", "org": "Google", "score": 65.4, "version": "4.1" },
+    { "rank": 2, "model": "Gemini 4 Carbon (High)", "org": "Google", "score": 61.5, "version": "4.1" },
+    { "rank": 3, "model": "Gemini 4 Hydrogen (High)", "org": "Google", "score": 61.4, "version": "4.1" },
+    { "rank": 4, "model": "Claude Fable 5.2", "org": "Anthropic", "score": 61.3, "version": "4.1" },
+    { "rank": 5, "model": "Claude Opus 5.5", "org": "Anthropic", "score": 58.1, "version": "4.1" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-15：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-14 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20），leaderboard_publish_date 仍停在 11-11（未推進批次），前 5 名與 11-14 逐位元相同（Fable 5.2 30.35%／Opus 5.5 19.52%／Carbon High 16.98%／Sonnet 5.5 15.95%／Fable 5.1 14.82%），未異動。CursorBench 4.0 用 Groundlane web_search 交叉比對 benchlm.ai／AlphaSignal／Cursor 官方 X 貼文，前 3 名與 11-14 相同（Gemini 4 Carbon High 60.4%／Fable 5.2 Max 60.0%／Opus 5.5 Max 57.8%），未異動。皆未達第 4 條觸發門檻，今日無 Benchmark 異動。morphllm.com/leaderboard 持續回 404，無法存取；artificialanalysis.ai/agents/coding-agents 仍為前端 JS 渲染（改用 render:always 重試仍只拿到章節標題、無表格數值），aa_agentic_index_top3 延用上次確認值未重新驗證；第三方部落格 felloai.com 聲稱 AA 已將 Agentic Index／Coding Index 併入單一 Intelligence Index，但 AA 官網該頁仍獨立顯示 Coding Agent Index 的 Performance/Cost/Token Usage 區塊，與該說法矛盾，判定不可信、不採用；benchlm.ai 對 AA Agentic Index 給出的數字（Claude Fable 5.1 58.0%）與既有快照方法論不一致，同樣不採用。"
+  "notes": "2026-11-22：CursorBench 異動，已產出文章（2026-11-22-benchmark-cursorbench-4-1-neon）。BenchLM 11-20 把官方 current 版本從 4.0 切到 4.1（4.1 於 2026-11-18 發布，任務集改版、不可與 4.0 直接比較），Gemini 4 Neon（Extra High）以 65.4% 登頂、取代原 4.0 冠軍 Gemini 4 Carbon（4.1 版 61.5%，降為第二），Gemini 4 Hydrogen 躍升第三（61.4%）、Claude Fable 5.2 退至第四（61.3%）、Claude Opus 5.5 第五（58.1%）。這個 65.4% 數字 11-20 報導時僅為 Google 自測、未被 BenchLM 收錄，今天已轉為官方榜獨立認證結果，已用 Cursor 官方 X 公告、kingy.ai、TestingCatalog、AlphaSignal 四個獨立來源交叉確認。其餘三個常態追蹤榜單無異動：SWE-bench Verified（Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json，180 筆 Verified 結果，用 result['resolved']）前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與昨日逐位元相同；Arena Agent（Groundlane web_fetch 打 HF datasets-server，lmarena-ai/leaderboard-dataset，config=agent，latest split）leaderboard_publish_date 仍是 2026-11-18（未推進），top5 分數與排序逐位元相同；Artificial Analysis Coding Agent Index（官網 /agents/coding-agents 用 render=always 仍只回圖表標題無數值表格，Q-023 既有阻塞持續，改用 Groundlane web_search 交叉比對 orcarouter.ai／trendingtopics.eu／dev.to／Google 官方部落格四篇報導）維持 Neon 58.6~59 第一、Fable 5.2／Opus 5.5 並列 58 第二、Carbon 54~55 第三，與昨日快照同一順位、分差在四捨五入誤差內，非顯著變動。morphllm.com/leaderboard 持續回 404，無法存取，維持既有 Q-023 阻塞。"
 }

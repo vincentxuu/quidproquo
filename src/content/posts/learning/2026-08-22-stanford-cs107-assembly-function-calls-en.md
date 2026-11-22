@@ -13,7 +13,7 @@ description: "A guided reading of Stanford CS107 Winter 2026 Lecture 19: the sta
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-function-calls)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-function-calls)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

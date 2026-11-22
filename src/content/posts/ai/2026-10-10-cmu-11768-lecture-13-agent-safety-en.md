@@ -22,7 +22,7 @@ glossary:
     context: "The lecture separates it from the malicious user: here the user is innocent and the attacker supplies the content."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety)
+> :globe: [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-13-agent-safety)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

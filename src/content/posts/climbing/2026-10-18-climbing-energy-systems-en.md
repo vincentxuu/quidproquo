@@ -26,7 +26,7 @@ glossary:
     context: "Lattice lists it as the continuous-climbing method for the aerobic system."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-energy-systems)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-energy-systems)
 
 You may end every gym session the same way: pick a moderate route and lap it until your forearms are too hard to hold on, then lower off. You think of it as "endurance training."
 

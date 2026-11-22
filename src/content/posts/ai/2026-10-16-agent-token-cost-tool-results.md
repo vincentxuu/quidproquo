@@ -10,7 +10,7 @@ description: "整理 agent 降低 token 成本時，工具結果與技能指令�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-16-agent-token-cost-tool-results-en)
+> :globe: [English version](/posts/ai/2026-10-16-agent-token-cost-tool-results-en)
 
 Agent 每一輪都要把整段歷史重送給模型，而歷史裡佔最多空間的通常是工具結果：讀檔內容、搜尋結果、API 回應。要省 token，最直接的做法就是對舊的工具結果動刀，寫入歷史時截斷、對話變長時清掉、送出前再縮短一次。
 

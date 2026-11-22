@@ -24,7 +24,7 @@ glossary:
     context: "Combining reviewer bids with TPMS matching scores is now standard practice for reviewer assignment at major conferences."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-submission-to-publication)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-submission-to-publication)
 
 > This is Part 3 of the [AI Top Conference Guide](/posts/ai/2026-08-23-what-is-ai-top-conference-en) series. The previous article explained how a conference earns "top" status and introduced the major venues. This one follows a paper from the moment its authors press submit to final publication.
 

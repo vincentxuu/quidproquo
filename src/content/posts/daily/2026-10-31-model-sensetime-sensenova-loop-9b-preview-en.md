@@ -15,7 +15,7 @@ glossary:
     def: "An architecture that re-runs the same set of decoder weights multiple times, deepening the model's effective compute path without adding stored parameters"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview)
+> :globe: [中文版](/posts/daily/2026-10-31-model-sensetime-sensenova-loop-9b-preview)
 
 ## Model Info
 
@@ -57,8 +57,8 @@ caption: Figures from SenseTime's official launch chart, verified via screenshot
   <text class="dg-small" x="64" y="120" text-anchor="end" dominant-baseline="central">60</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="136" y="52" text-anchor="middle" dominant-baseline="central">Qwen3.5-27B</text>
-  <text class="dg-text--series dg-text--accent" x="188" y="52" text-anchor="middle" dominant-baseline="central">Loop-9B</text>
+  <g class="dg-c-s1"><text class="dg-text--series" x="400" y="32" text-anchor="start" dominant-baseline="central">Qwen3.5-27B</text></g>
+  <g class="dg-c-accent"><text class="dg-text--series" x="520" y="32" text-anchor="start" dominant-baseline="central">Loop-9B</text></g>
 
   <rect class="dg-bar dg-c-s1" x="114" y="118" width="44" height="182"/>
   <rect class="dg-bar dg-c-accent" x="166" y="99" width="44" height="201"/>
@@ -89,7 +89,7 @@ caption: Figures from SenseTime's official launch chart, verified via screenshot
 | GPQA Diamond (mHC ablation gain) | +4.42 pts | A variant without mHC | — |
 | TeamBench (mHC ablation gain) | +13.34 pts | A variant without mHC | — |
 
-⚠️ The three task scores above come from SenseTime's official launch chart, transcribed after verification by third-party X account TeksEdge — not an official transcript, and not yet independently reproduced. The official chart also lists BIRD-Dev, AIDABench, Terminal Bench 2.1, and T³-Banking; on the latter two, the chart shows Loop-9B trailing Qwen3.5-27B, but the exact scores have no published transcript, so they're excluded from the table.
+:warning: The three task scores above come from SenseTime's official launch chart, transcribed after verification by third-party X account TeksEdge — not an official transcript, and not yet independently reproduced. The official chart also lists BIRD-Dev, AIDABench, Terminal Bench 2.1, and T³-Banking; on the latter two, the chart shows Loop-9B trailing Qwen3.5-27B, but the exact scores have no published transcript, so they're excluded from the table.
 
 ## vs. Predecessor and Competitors
 

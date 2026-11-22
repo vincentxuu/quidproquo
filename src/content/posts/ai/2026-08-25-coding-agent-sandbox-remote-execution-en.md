@@ -16,7 +16,7 @@ tldr: "A local sandbox limits the blast radius of an agent on your machine; a cl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution)
 
 ## The Design Problem
 

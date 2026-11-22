@@ -13,7 +13,7 @@ description: "A synthesis of the AlexNet and GPT-2 pathways in CMU 07-280 Spring
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

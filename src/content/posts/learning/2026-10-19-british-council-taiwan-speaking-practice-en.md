@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-british-council-taiwan-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-british-council-taiwan-speaking-practice)
 
 For adults in Taiwan who want a classroom, a teacher and other people to speak with, [British Council adult courses](https://www.britishcouncil.org.tw/english-courses/adults) are one option to assess. The British Council is the UK's international organisation for cultural relations and educational opportunities. Its teaching services in Taiwan extend beyond exam preparation to everyday, social and workplace English.
 

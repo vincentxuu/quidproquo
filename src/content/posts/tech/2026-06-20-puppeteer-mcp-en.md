@@ -10,13 +10,13 @@ tldr: "server-puppeteer is the Puppeteer wrapper in the official MCP servers mon
 description: "The design of @modelcontextprotocol/server-puppeteer, the trade-offs of screenshot-driven page state, and where to migrate now that it has been archived."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 2
+  name: "AI Browser Automation"
+  order: 3
 ---
 
-> 🌏 [中文版](/posts/tech/2026-06-20-puppeteer-mcp)
+> :globe: [中文版](/posts/tech/2026-06-20-puppeteer-mcp)
 
-> ⚠️ **This server has been archived. Don't use it in new projects.**
+> :warning: **This server has been archived. Don't use it in new projects.**
 > `@modelcontextprotocol/server-puppeteer` was moved out of the official MCP servers monorepo into [`servers-archived`](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer); the last npm release is `2025.5.12` and there have been none since. The package still installs, but it receives no bug fixes and won't track changes to the MCP spec.
 >
 > Two migration targets: if you want Puppeteer under the hood plus screenshot and debugging capability, move to the Chrome team's [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp-en) — it is itself built on Puppeteer. For general web automation, move to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en).
@@ -132,11 +132,11 @@ Compared to [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp-en)'s access
 | Maintenance | **Archived; last release 2025.5.12** | Actively updated |
 | Page state delivery | Screenshot (base64) | Accessibility tree (default) |
 | Token cost | High | Low |
-| Auto-wait | ❌ | ✅ |
+| Auto-wait | ✗ | ✓ |
 | Tool count | 7 (fixed) | A core set, the rest behind `--caps` |
-| Multi-tab support | Limited | ✅ `browser_tabs` |
+| Multi-tab support | Limited | ✓ `browser_tabs` |
 | Browser support | Chromium only | Chromium / Firefox / WebKit |
-| Custom JS execution | ✅ evaluate | ✅ evaluate |
+| Custom JS execution | ✓ evaluate | ✓ evaluate |
 | Maintainer | Anthropic MCP official (archived) | Microsoft / Playwright official |
 
 Fewer tools doesn't mean less capable — `puppeteer_evaluate` is essentially a universal escape hatch. But for agents that need reliable interaction (waits, multi-tab, rich locators), Playwright MCP's tool set is more complete — and there is now a decisive difference on top of that: one of them is still shipping and the other isn't.

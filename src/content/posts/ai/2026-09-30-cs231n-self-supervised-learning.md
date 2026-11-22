@@ -29,7 +29,7 @@ glossary:
     context: "MoCo 用它編碼 key；DINO 用它當老師網路。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-self-supervised-learning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ description: "A guide to Ogawayama: rock and scale, the seasons each source give
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-ogawayama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-ogawayama)
 
 Ogawayama (小川山) is a spread of granite formations scattered through a valley in Kawakami Village, Minamisaku District, Nagano Prefecture. [ROCKTOPO](https://www.rocktopo.net/areas/4) lists 1,055 routes here and keeps the bouldering on a separate [Ogawayama Boulder](https://www.rocktopo.net/areas/240) page with 611 problems. Mountain Project titles its page "Japan's Yosemite that gave birth to free climbing in Japan" ([Mountain Project](https://www.mountainproject.com/area/107002294/ogawayama)), and the campground's own site says it is "『日本のヨセミテ』とも呼ばれる" — also called Japan's Yosemite ([Mawarime-daira campground](https://mawarime-daira.com/activity/)).
 

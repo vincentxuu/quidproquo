@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
+> :globe: [中文版](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
 
 ## Tool Info
 
@@ -46,7 +46,7 @@ caption: Simplified; the real flow also includes rendering and repeated part swa
   <path class="dg-line" d="M280 108V152" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M280 204V228" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--warn" d="M280 320V352" marker-end="url(#arrow-warn)"/>
-  <path class="dg-line dg-line--accent" d="M376 276H428" marker-end="url(#arrow-accent)"/>
+  <path class="dg-line dg-line--accent" d="M410 276H444" marker-end="url(#arrow-accent)"/>
   <path class="dg-line dg-line--warn dg-line--dashed" d="M170 382H98Q90 382 90 374V186Q90 178 98 178H166" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="280" cy="28" r="6"/>
@@ -64,7 +64,7 @@ caption: Simplified; the real flow also includes rendering and repeated part swa
   </g>
 
   <g>
-    <path class="dg-box" d="M280 232L376 276L280 320L184 276Z"/>
+    <path class="dg-box" d="M280 232L410 276L280 320L150 276Z"/>
     <text class="dg-label" x="280" y="266" text-anchor="middle" dominant-baseline="central">ERC/DRC clean?</text>
     <text class="dg-sub" x="280" y="288" text-anchor="middle" dominant-baseline="central">every change</text>
   </g>
@@ -75,13 +75,13 @@ caption: Simplified; the real flow also includes rendering and repeated part swa
   </g>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="432" y="252" width="220" height="52" rx="6"/>
-    <text class="dg-label" x="542" y="269" text-anchor="middle" dominant-baseline="central">Export fab files</text>
-    <text class="dg-sub" x="542" y="289" text-anchor="middle" dominant-baseline="central">Gerber/BOM/placement</text>
+    <rect class="dg-box dg-box--accent" x="444" y="252" width="220" height="52" rx="6"/>
+    <text class="dg-label" x="554" y="269" text-anchor="middle" dominant-baseline="central">Export fab files</text>
+    <text class="dg-sub" x="554" y="289" text-anchor="middle" dominant-baseline="central">Gerber/BOM/placement</text>
   </g>
 
   <text class="dg-edge dg-text--warn" x="290" y="336" text-anchor="start" dominant-baseline="central">no</text>
-  <text class="dg-edge" x="402" y="264" text-anchor="middle" dominant-baseline="central">yes</text>
+  <text class="dg-edge" x="427" y="264" text-anchor="middle" dominant-baseline="central">yes</text>
   <text class="dg-edge dg-text--warn" x="100" y="280" text-anchor="start" dominant-baseline="central">retry</text>
 </svg>
 ```
@@ -139,12 +139,12 @@ npx -y copper-kicad doctor
 
 | | Copper | KiCAD-MCP-Server (another community option) | tscircuit |
 |---|---|---|---|
-| Works natively on KiCad projects | ✅ | ✅ (mostly read/write, no auto-routing or part import) | ❌ (circuits defined as code, not native KiCad) |
-| Auto-search + import in-stock parts | ✅ (live LCSC/JLCPCB stock) | ❌ | Partial (parts looked up separately) |
-| Auto-routing (length match/diff pairs/pours) | ✅ | ❌ | Handled separately |
-| Reruns ERC/DRC on every change | ✅ | Depends on the implementation | — |
-| Exports factory-ready fab files (Gerber/BOM) | ✅ | Partial | ✅ (exports Circuit JSON/Gerber) |
-| Locked to a specific AI model | ❌ (uses whatever model your AI app already connects to) | Depends on the implementation | ❌ |
+| Works natively on KiCad projects | ✓ | ✓ (mostly read/write, no auto-routing or part import) | ✗ (circuits defined as code, not native KiCad) |
+| Auto-search + import in-stock parts | ✓ (live LCSC/JLCPCB stock) | ✗ | Partial (parts looked up separately) |
+| Auto-routing (length match/diff pairs/pours) | ✓ | ✗ | Handled separately |
+| Reruns ERC/DRC on every change | ✓ | Depends on the implementation | — |
+| Exports factory-ready fab files (Gerber/BOM) | ✓ | Partial | ✓ (exports Circuit JSON/Gerber) |
+| Locked to a specific AI model | ✗ (uses whatever model your AI app already connects to) | Depends on the implementation | ✗ |
 
 ## Caveats
 

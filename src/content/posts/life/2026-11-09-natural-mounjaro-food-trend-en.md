@@ -15,7 +15,7 @@ glossary:
     context: "Weight-loss drugs like Mounjaro mimic and amplify its effect; the foods in this article can only nudge your own GLP-1 release up slightly."
 ---
 
-> 🌏 [中文版](/posts/life/2026-11-09-natural-mounjaro-food-trend)
+> :globe: [中文版](/posts/life/2026-11-09-natural-mounjaro-food-trend)
 
 "Natural Mounjaro" (天然猛健樂) is a nickname that went viral on Threads in Taiwan in October 2026. It refers to a low-calorie meal of canned tuna in water, boiled egg, cucumber and plain yogurt, mixed together and wrapped in nori. People link it to the prescription weight-loss drug Mounjaro (active ingredient tirzepatide) because it keeps them full and off snacks. If a friend sent you the recipe and you are wondering whether to try it, here is the short version: the meal itself is fine, but the "Mounjaro" part has no pharmacological basis. It is a catchy name.
 

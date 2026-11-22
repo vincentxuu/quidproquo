@@ -25,7 +25,7 @@ glossary:
     context: "Lecture 7 splits it into four layers: training, eval time, environment, and benchmark overfitting."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-07-agent-evaluation)
 
 **Video status: The course is not recorded.** This post is based on the public slides and course notes; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

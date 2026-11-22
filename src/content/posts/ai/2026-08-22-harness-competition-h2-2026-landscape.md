@@ -13,7 +13,7 @@ description: "2026 下半年 coding agent 框架八路競爭態勢：全 Rust �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-harness-competition-h2-2026-landscape-en)
+> :globe: [English version](/posts/ai/2026-08-22-harness-competition-h2-2026-landscape-en)
 
 2026 年 8 月同時發生了太多事。
 

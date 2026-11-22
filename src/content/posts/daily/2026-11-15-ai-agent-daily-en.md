@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-15-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-15-ai-agent-daily)
 
 ## Today's Take
 
@@ -33,10 +33,10 @@ title: Two tracks after security accelerated — attackers scale tooling, defend
 desc: The left column shows attackers reusing the same open-source agentic tools across continents and victim types; the right column shows defenders focused on lowering the friction of disclosure and accountability rather than pure blocking.
 caption: Based on reporting from Amazon MadPot, Elastic Security Labs, The Register, the White House AI task force, and Hong Kong's HKMA Project SAGE.
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">Attackers: scale tooling</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">Defenders: lower friction</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
   <rect class="dg-box dg-box--accent" x="50" y="56" width="220" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">Attack tools spread</text>
@@ -57,7 +57,7 @@ caption: Based on reporting from Amazon MadPot, Elastic Security Labs, The Regis
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">Lower disclosure friction means the next incident surfaces faster</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">Lower disclosure friction means the next incident surfaces faster</text>
 </svg>
 ```
 
@@ -161,16 +161,16 @@ Other framework signals: Sierra released "Personal Agent Protocol" (Poppy) 1.0, 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest-en)
-- 📄 [Model Card｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5-en)
-- 📄 [Security Alert｜Official MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce-en)
-- 📄 [Funding Alert｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra-en)
-- 📄 [Funding Alert｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor-en)
-- 📄 [Pricing Watch｜Gemini 4 / GPT-5.6 Sol Promo Expiry](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes-en)
-- 📄 [Tool of the Day｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
-- 📄 [AI Engineer Interview Prep Daily](/posts/daily/2026-11-15-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep Daily](/posts/daily/2026-11-15-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest-en)
+- :file: [Model Card｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5-en)
+- :file: [Security Alert｜Official MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce-en)
+- :file: [Funding Alert｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra-en)
+- :file: [Funding Alert｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor-en)
+- :file: [Pricing Watch｜Gemini 4 / GPT-5.6 Sol Promo Expiry](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes-en)
+- :file: [Tool of the Day｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
+- :file: [AI Engineer Interview Prep Daily](/posts/daily/2026-11-15-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep Daily](/posts/daily/2026-11-15-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

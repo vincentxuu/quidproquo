@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-team-wiki-information-architecture-en)
+> :globe: [English version](/posts/learning/2026-10-22-team-wiki-information-architecture-en)
 
 新人想知道怎麼申請出差，打開公司 wiki，看到的頂層是「人資部」「財務部」「行政部」「工程部」。出差該找哪一個？申請表在財務部，規定在人資部，訂機票的流程在行政部。每個部門都把自己的部分寫好了，新人卻要點開三個地方才拼得出答案。
 

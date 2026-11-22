@@ -18,7 +18,7 @@ series:
   order: 5
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)
 
 In [the previous post](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en), XSS and IDOR were bugs where a website does something it should not do for you. This post goes one layer down: could someone make the machine behind the website do things for them? That is RCE. By the end you should be able to spot code that glues user input into a shell command, say why it is dangerous, and rewrite it safely.
 

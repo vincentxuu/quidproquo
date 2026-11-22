@@ -22,7 +22,7 @@ glossary:
     context: "The slides write it as C(t+1) ← F(C(t), I(t), O(t)) and hand F to the LLM."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

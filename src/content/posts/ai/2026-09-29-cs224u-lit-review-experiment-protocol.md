@@ -13,7 +13,7 @@ description: "Stanford CS224U（Spring 2023）期末專案前兩段交件的逐�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

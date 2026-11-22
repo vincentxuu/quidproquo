@@ -22,7 +22,7 @@ glossary:
     context: "HW2's Colab starter code is adapted from WecoAI's aideml project."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

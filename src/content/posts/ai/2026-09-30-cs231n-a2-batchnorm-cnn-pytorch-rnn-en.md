@@ -26,7 +26,7 @@ glossary:
     context: "CS231N A2 switches to autograd from Q4 on; in Q5 you only write the RNN forward pass."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2)
+> :globe: [中文版](/posts/daily/2026-11-13-benchmark-arena-cursorbench-fable-5-2)
 
 ## Summary
 
@@ -24,9 +24,9 @@ Two of the most-cited coding agent leaderboards updated this week, and they crow
 
 | Rank | Model | Score | 95% CI | 11-04 score (rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Fable 5.2 (Max) | 30.35% | [26.42%, 34.28%] | New entry | 🆕 |
-| 🥈 | Claude Opus 5.5 (Max) | 19.52% | [17.49%, 21.54%] | 20.14% (1) | ↓1 |
-| 🥉 | Gemini 4 Carbon (High) | 16.98% | [16.29%, 17.66%] | 16.72% (2) | ↓1 |
+| 1 | Claude Fable 5.2 (Max) | 30.35% | [26.42%, 34.28%] | New entry | NEW|
+| 2 | Claude Opus 5.5 (Max) | 19.52% | [17.49%, 21.54%] | 20.14% (1) | ↓1 |
+| 3 | Gemini 4 Carbon (High) | 16.98% | [16.29%, 17.66%] | 16.72% (2) | ↓1 |
 | 4 | Claude Sonnet 5.5 (Max) | 15.95% | [13.13%, 18.77%] | 15.42% (3) | ↓1 |
 | 5 | Claude Fable 5.1 (Max) | 14.82% | [12.76%, 16.88%] | 13.86% (5) | — |
 | 6 | GPT-6 Astra (Max) | 14.54% | [12.52%, 16.55%] | 14.70% (4) | ↓2 |
@@ -37,10 +37,10 @@ Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/l
 
 | Rank | Model | Score | Cost per task | Median output tokens | 11-08 score (rank) | Change |
 |---|---|---|---|---|---|---|
-| 🥇 | Gemini 4 Carbon (High) | 60.4% | $9.22 | 39,960 | New entry | 🆕 |
-| 🥈 | Gemini 4 Carbon (Medium) | 60.1% | $8.49 | 37,067 | New entry | 🆕 |
-| 🥉 | Claude Fable 5.2 (Max) | 60.0% | $32.79 | 352,794 | New entry | 🆕 |
-| 4 | Gemini 4 Carbon (Low) | 58.6% | $11.89 | 42,663 | New entry | 🆕 |
+| 1 | Gemini 4 Carbon (High) | 60.4% | $9.22 | 39,960 | New entry | NEW|
+| 2 | Gemini 4 Carbon (Medium) | 60.1% | $8.49 | 37,067 | New entry | NEW|
+| 3 | Claude Fable 5.2 (Max) | 60.0% | $32.79 | 352,794 | New entry | NEW|
+| 4 | Gemini 4 Carbon (Low) | 58.6% | $11.89 | 42,663 | New entry | NEW|
 | 5 | Claude Opus 5.5 (Max) | 57.8% | $13.43 | 218,363 | 57.8% (1) | ↓4 |
 
 Source: [CursorBench](https://cursor.com/cursorbench) · Retrieved: 2026-11-13 · 11-08 figures come from this routine's internal snapshot (the top five then were all Opus 5.5 / Sonnet 5.5 effort tiers; the changelog's last entry was still the 10-07 pricing update)
@@ -55,7 +55,7 @@ Both leaderboard shakeups trace back to the same wave of model launches: Anthrop
 
 ### The methodology angle
 
-The credibility of Arena Agent's numbers this round is worth spelling out: Fable 5.2's sample size (session_count 4,731) is actually the smallest among the current top six (Opus 5.5 has 14,549, Carbon has 60,568, Sonnet 5.5 has 8,750), which is also why its confidence interval is the widest of the six ([26.42%, 34.28%], a 7.86-point span). But even with the widest interval, its lower bound (26.42%) still sits well above #2 Opus 5.5's upper bound (21.54%) — no overlap at all. That's different from several earlier entries in this series, where the top five's confidence intervals piled on top of each other and the true order couldn't be settled; this time the #1 change actually holds up statistically. ⚠️ CursorBench tells a different story: it's Cursor's own in-house evaluation (though it does score models from every vendor, not just its own product), and Cursor hasn't published confidence intervals or run-to-run variance. The gap between #1 (60.4%) and #3 (60.0%) is just 0.4 points, and each model's task sample is only 67 to 218 runs. Industry coverage — [AlphaSignal](https://alphasignal.ai/news/google-s-gemini-4-carbon-tops-cursor-s-coding-benchmark-at-half-the-price) among them — makes the same point: that 0.4-point gap "does not establish a decisive accuracy advantage." In other words, the CursorBench "win" is a far weaker claim than the Arena Agent one.
+The credibility of Arena Agent's numbers this round is worth spelling out: Fable 5.2's sample size (session_count 4,731) is actually the smallest among the current top six (Opus 5.5 has 14,549, Carbon has 60,568, Sonnet 5.5 has 8,750), which is also why its confidence interval is the widest of the six ([26.42%, 34.28%], a 7.86-point span). But even with the widest interval, its lower bound (26.42%) still sits well above #2 Opus 5.5's upper bound (21.54%) — no overlap at all. That's different from several earlier entries in this series, where the top five's confidence intervals piled on top of each other and the true order couldn't be settled; this time the #1 change actually holds up statistically. :warning: CursorBench tells a different story: it's Cursor's own in-house evaluation (though it does score models from every vendor, not just its own product), and Cursor hasn't published confidence intervals or run-to-run variance. The gap between #1 (60.4%) and #3 (60.0%) is just 0.4 points, and each model's task sample is only 67 to 218 runs. Industry coverage — [AlphaSignal](https://alphasignal.ai/news/google-s-gemini-4-carbon-tops-cursor-s-coding-benchmark-at-half-the-price) among them — makes the same point: that 0.4-point gap "does not establish a decisive accuracy advantage." In other words, the CursorBench "win" is a far weaker claim than the Arena Agent one.
 
 ### The industry angle
 

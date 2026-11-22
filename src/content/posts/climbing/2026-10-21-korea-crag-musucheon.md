@@ -13,7 +13,7 @@ description: "濟州無水川北區運攀的玄武岩風格、溪谷季節與山
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-musucheon-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-musucheon-en)
 
 無水川的吸引力，是濟州玄武岩上短而有力量感的運攀。它不是海邊獨立岩，也不是島上所有抱石點的統稱；同一條溪流，不同位置的路線與進出方式就可能不同。
 

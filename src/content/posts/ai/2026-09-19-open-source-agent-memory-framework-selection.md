@@ -13,7 +13,7 @@ description: "比較 Mem0、Zep/Graphiti、Letta、LangGraph、LlamaIndex Memory
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection-en)
+> :globe: [English version](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection-en)
 
 你的 agent 需要跨 session 的長期記憶，但不想被某朵雲綁死。2026 年的開源選擇比兩年前多了很多——也亂了很多。這篇把七套主要框架按同一組判準拆開比較，最後依四種常見場景給選型建議。
 

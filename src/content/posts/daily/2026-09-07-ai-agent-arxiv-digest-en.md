@@ -11,7 +11,7 @@ series:
   order: 106
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-07-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-07-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ Give an agent a human's credential and it inherits everything that person can ac
 - Across 3,621 trials, OBPE cut trace-failure rate from 57.6% to 0.2%, a cluster-weighted reduction of 41.2 points [95% CI: 27.7, 54.9]
 - Prompt rules alone: exact disclosure fell from 27.5% to 3.7%, but context exposure barely moved (55.1% → 52.1%) — answers got more discreet while data had already entered context
 - On 20 response-adaptive red-team tasks: prompt-only triggered trace failure 74.9% of the time vs. 0.9% with OBPE
-- 4 final answers still reconstructed exact values that never entered agent context ⚠️ (Redpanda Data's own testing, not externally replicated) — the authors honestly flag this as an unresolved leak path
+- 4 final answers still reconstructed exact values that never entered agent context :warning: (Redpanda Data's own testing, not externally replicated) — the authors honestly flag this as an unresolved leak path
 - Deployment threshold: requires mapping backend operations into a typed Cedar policy schema — fits organizations that already have an API gateway/proxy layer
 
 ### Reviewer One-Liner
@@ -193,7 +193,7 @@ Prompt optimization (using tools like TextGrad, DSPy, or GEPA to automatically r
 - Review-task Jaccard: naive 0.0% (protocol fully broken), schema-only 26.8%, full method 38.0%; ablation shows per-example feedback signal — not schema separation — drives most of the quality gain, with schema mainly responsible for stability
 - 3-family LLM robustness test (OpenAI/Anthropic/Google): naive TextGrad hits 0% stability on all three, this method holds 100% on all three
 - Prompt-edit analysis: naive optimizer's edited lines touch control-relevant tokens 16.6% of the time vs. just 4.2% for this method, and most of that 4.2% is coincidental token overlap
-- Limitation: the authors explicitly state "a protocol-valid pipeline can still produce incorrect or low-quality outputs" ⚠️ (authors' own stated boundary) — protocol stability doesn't imply correctness
+- Limitation: the authors explicitly state "a protocol-valid pipeline can still produce incorrect or low-quality outputs" :warning: (authors' own stated boundary) — protocol stability doesn't imply correctness
 
 ### Reviewer One-Liner
 

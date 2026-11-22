@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-ntnu-extension-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-ntnu-extension-speaking-practice)
 
 If studying English keeps slipping off your evening schedule, a weekly appointment with the same classmates may help. The [English series at National Taiwan Normal University’s School of Continuing Education](https://www.sce.ntnu.edu.tw/home/course/list.php?series=G) offers adult classes with defined schedules and syllabuses.
 

@@ -13,7 +13,7 @@ description: "A comparison of the audit approach, verification design, cost and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits)
+> :globe: [中文版](/posts/ai/2026-10-24-audit-skills-cloudflare-trail-of-bits)
 
 From this post on, your goal changes. The first four posts covered protecting your development environment; from here on it is about testing what you build. If you only use agents and do not build products, you can stop after [post 4](/posts/ai/2026-10-24-agent-detection-audit-en).
 

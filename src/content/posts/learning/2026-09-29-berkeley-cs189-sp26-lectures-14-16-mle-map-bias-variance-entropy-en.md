@@ -14,7 +14,7 @@ description: "Guide to Berkeley CS189 Spring 2026 Lectures 14 and 16: MLE and MA
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-14-16-mle-map-bias-variance-entropy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

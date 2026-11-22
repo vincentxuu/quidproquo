@@ -20,7 +20,7 @@ glossary:
     context: "PaliGemma's image encoder."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-text-to-image-vlm)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

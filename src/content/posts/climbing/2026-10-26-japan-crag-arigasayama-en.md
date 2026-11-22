@@ -13,7 +13,7 @@ description: "Arigasayama climbing guide: seasons, access, management rules, pub
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-arigasayama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-arigasayama)
 
 Arigasayama is a rhyolite sport destination in Gunma known for steep walls, roofs and endurance, with east/west approaches to choose before the day. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

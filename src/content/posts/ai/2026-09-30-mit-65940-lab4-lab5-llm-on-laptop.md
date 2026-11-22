@@ -25,7 +25,7 @@ glossary:
     context: "Lab 5 的 evaluate.sh 用 GOPs 回報每個實作版本的效能。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-lab4-lab5-llm-on-laptop-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

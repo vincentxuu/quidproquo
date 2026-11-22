@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
+:globe: [中文版](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
 
 Cloudflare Workers is often compared to AWS Lambda, but the two have fundamentally different architectures. Lambda runs in containers; Workers runs in V8 Isolates. That single difference shapes everything.
 

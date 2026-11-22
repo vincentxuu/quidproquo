@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 35
 ---
-> 🌏 [English version](/posts/daily/2026-06-28-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-28-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -68,10 +68,10 @@ Agent 開發者面臨的最大挑戰之一是「知識太碎」：模型層、�
 ### 深入要點
 
 - **四類記憶系統**明確定義：in-context（當下對話）、外部（向量 DB 等）、episodic（過去完整經驗）、semantic（提取後的知識），每類都有不同讀寫成本和適用場景，對記憶架構設計有直接指導意義
-- **Multi-agent 拓撲三分法**：集中式（強可控、低規模）、去中心化（高並行、難協調）、層次式（適合複雜任務分解），指南有比較分析但偏描述性，缺乏實驗數據支撐選型建議 **⚠️**
+- **Multi-agent 拓撲三分法**：集中式（強可控、低規模）、去中心化（高並行、難協調）、層次式（適合複雜任務分解），指南有比較分析但偏描述性，缺乏實驗數據支撐選型建議 **:warning:**
 - MCP 和 A2A 協議都有完整章節，涵蓋設計原則、應用場景與實作要點，可對應 Claude/LangGraph 等框架的實際整合
 - Agent harness 設計原則討論 context management 策略，可直接對應 LangGraph/AutoGen 的工程選擇
-- 單一作者視角（IBM Research 的 Haggai Roitman）可能有選題偏差，某些最新研究方向的覆蓋可能不均衡 **⚠️**
+- 單一作者視角（IBM Research 的 Haggai Roitman）可能有選題偏差，某些最新研究方向的覆蓋可能不均衡 **:warning:**
 - 本質是綜述/教科書而非原創研究論文，沒有實驗數據，技術主張需交叉引用一手論文驗證
 - 書籍式 paper 篇幅長，建議針對需求挑選章節閱讀，不需線性讀完
 
@@ -124,7 +124,7 @@ SelfCompact 把「何時壓縮」的決策交還給 LLM 本身。兩個核心組
 
 - 6 個 benchmark（競程數學 + agentic search）× 7 個 LLM 模型，結果穩定一致，說明方法泛化性好，不只對特定模型有效
 - 相比無壓縮基線，數學任務最高提升 **18.1 分**，agentic search 任務提升 **5-9 分**
-- Token 成本比固定間隔壓縮方案低 **30-70%** **⚠️ 此數據是相對「高頻固定壓縮」基線，非相對所有基線**
+- Token 成本比固定間隔壓縮方案低 **30-70%** **:warning: 此數據是相對「高頻固定壓縮」基線，非相對所有基線**
 - 完全不需要微調，只需修改 system prompt 和加入 compaction tool 定義，整合門檻極低
 - Rubric 的「2 個觸發條件 + 2 個抑制條件」設計簡單，但效果超過更複雜方案，說明 meta-cognitive 引導對 LLM 確實有效
 - Limitation：rubric 是手工設計的，不同任務類型（如 coding agent vs 搜尋型 agent）可能需要調整規則；對 context 長度本身無解，仍需搭配足夠大的 context window
@@ -154,7 +154,7 @@ SelfCompact 把「何時壓縮」的決策交還給 LLM 本身。兩個核心組
 
 ### Read Priority
 
-📖 略讀（如果你在建 Agent 訓練 pipeline；其他讀者可跳過）
+:book: 略讀（如果你在建 Agent 訓練 pipeline；其他讀者可跳過）
 這是給正在用 RL（GRPO/PPO）訓練 Agent 模型的工程師看的。如果你不做模型訓練，這篇對日常工作的直接幫助有限。
 
 ### 領域背景
@@ -179,7 +179,7 @@ APPO 提出兩個核心創新：① Branching Score（分支分數）：對每�
 ### 深入要點
 
 - 13 個 benchmark 涵蓋 coding、tool use、reasoning 多種任務類型，一致提升約 4 分，改進穩健而非 task-specific
-- Branching Score 計算需要對候選分支點模擬後續生成，計算成本高於傳統 entropy-only 方法 **⚠️ 原文未詳細量化計算 overhead**
+- Branching Score 計算需要對候選分支點模擬後續生成，計算成本高於傳統 entropy-only 方法 **:warning: 原文未詳細量化計算 overhead**
 - APPO 定位為 GRPO/PPO 的上層改進，可在 verl、OpenRLHF 等現有訓練框架上疊加，不需重寫整個 pipeline
 - 訓練出的 Agent 維持高效工具呼叫（不增加多餘呼叫次數），且行為可解釋性提升（因為訓練訊號更精準）
 - 核心洞察「重要決策點廣泛分布而非集中在 tool call」是對 Agent RL 領域的重要修正，方向正確

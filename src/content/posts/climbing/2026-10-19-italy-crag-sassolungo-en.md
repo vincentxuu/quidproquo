@@ -13,7 +13,7 @@ description: "A guide to climbing on Sassolungo/Langkofel: rock, scale and who i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-sassolungo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-sassolungo)
 
 Sassolungo (Langkofel in German, Saslonch in Ladin, all meaning "long rock") is the landmark of Val Gardena, a long row of dolomite towers seen from Passo Sella. The [Val Gardena tourist board](https://www.valgardena.it/en/summer-holidays-dolomites/events-highlights/150-years-from-the-first-ascent-of-sassolungo/detail/the-valleys-symbol-val-gardenas-mountain/) places the group between Val Gardena and upper Val di Fassa, with the Sella massif to the east and the Alpe di Siusi to the west; the main summit is 3,181 m and was first climbed by Paul Grohmann on 13 August 1869.
 

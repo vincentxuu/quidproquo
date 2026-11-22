@@ -13,7 +13,7 @@ description: "用 McMillan 與 Chavis 的社群感四元素、Wenger-Trayner 的
 draft: false
 ---
 
-> 🌏 [English version](/posts/product/2026-10-29-daodao-living-community-en)
+> :globe: [English version](/posts/product/2026-10-29-daodao-living-community-en)
 
 兩個學習社群放在一起看。第一個是 500 人的 LINE 群，每天有幾十則訊息，大部分是群主轉貼的學習資源和「早安」貼圖。第二個是 20 人的讀書會，每週二四晚上一起讀書，結束時每個人打一張卡，通常不到一個小時就有兩三個人回應。
 

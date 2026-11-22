@@ -12,7 +12,7 @@ series:
   order: 115
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-funding-cohere)
+> :globe: [中文版](/posts/daily/2026-10-30-funding-cohere)
 
 ## Funding Details
 

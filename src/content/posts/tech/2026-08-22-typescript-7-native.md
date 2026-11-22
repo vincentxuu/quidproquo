@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-typescript-7-native-en)
+> :globe: [English version](/posts/tech/2026-08-22-typescript-7-native-en)
 
 [TypeScript 7](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) 不是把既有 compiler 的熱點改寫成 native addon，而是把 compiler、project system 與 language service 重新實作成 Go 程式。TypeScript 團隊公布的整體改善約在 10 倍級。Slack 提供的實例則是 CI type check 從 7.5 分鐘降到 1.25 分鐘。這些數字不能直接套到每個 repo，但它們說明這次改版處理的是架構瓶頸，不是小幅調校。
 

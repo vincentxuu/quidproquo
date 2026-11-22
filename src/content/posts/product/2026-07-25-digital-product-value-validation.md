@@ -32,7 +32,7 @@ glossary:
     context: "用於 PMF 量測時的分群，也用於定義目標市場與 roadmap 優先序。"
 ---
 
-> 🌏 [English version](/posts/product/2026-07-25-digital-product-value-validation-en)
+> :globe: [English version](/posts/product/2026-07-25-digital-product-value-validation-en)
 
 多數團隊講「我們驗證過了」的時候，講的其實是「我們訪了 20 個人，大家都說想要」。這句話的資訊量接近零，而且成本不低——依 Ronny Kohavi 在 Microsoft 累積的實驗資料，即使是通過了內部層層評估才被實作出來的想法，也只有約三分之一真的改善了它們原本設計要改善的指標。在 Bing 這種已高度優化的領域，成功率降到 10–20%。
 

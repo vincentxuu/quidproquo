@@ -20,7 +20,7 @@ glossary:
     context: "CS224U 作業三使用的資料集。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

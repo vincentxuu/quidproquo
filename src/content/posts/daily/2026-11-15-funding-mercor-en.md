@@ -12,7 +12,7 @@ series:
   order: 137
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-15-funding-mercor)
+> :globe: [中文版](/posts/daily/2026-11-15-funding-mercor)
 
 ## Funding Details
 
@@ -54,16 +54,16 @@ desc: From $10B at Series C to $20B at Series D — doubling in roughly a year.
 caption: Figures from Mercor's official blog (2026-11-10) and Tech Funding News reporting.
 ---
 <svg viewBox="0 0 640 220">
-  <text class="dg-small" x="160" y="24" dominant-baseline="central">Valuation ($B)</text>
-  <line class="dg-grid" x1="306" y1="40" x2="306" y2="192"/>
-  <text class="dg-small" x="306" y="206" text-anchor="middle">10</text>
+  <text class="dg-small" x="60" y="24" dominant-baseline="central">Valuation ($B)</text>
+  <line class="dg-grid" x1="206" y1="40" x2="206" y2="192"/>
+  <text class="dg-small" x="206" y="206" text-anchor="middle">10</text>
 
-  <rect class="dg-bar dg-bar--soft dg-c-muted" x="160" y="46" width="146" height="40"/>
-  <rect class="dg-bar dg-c-accent" x="160" y="118" width="292" height="40"/>
-  <line class="dg-axis" x1="160" y1="40" x2="160" y2="192"/>
+  <rect class="dg-bar dg-bar--soft dg-c-muted" x="60" y="46" width="146" height="40"/>
+  <rect class="dg-bar dg-c-accent" x="60" y="118" width="292" height="40"/>
+  <line class="dg-axis" x1="60" y1="40" x2="60" y2="192"/>
 
-  <text class="dg-sub" x="314" y="66" dominant-baseline="central">$10B (2025-10, Series C)</text>
-  <text class="dg-label dg-text--accent" x="460" y="138" dominant-baseline="central">$20B (2026-11, Series D)</text>
+  <text class="dg-sub" x="214" y="66" dominant-baseline="central">$10B (2025-10, Series C)</text>
+  <text class="dg-label dg-text--accent" x="360" y="138" dominant-baseline="central">$20B (2026-11, Series D)</text>
 </svg>
 ```
 

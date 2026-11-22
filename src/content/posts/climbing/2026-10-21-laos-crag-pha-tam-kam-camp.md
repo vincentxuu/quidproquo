@@ -13,7 +13,7 @@ description: "Pha Tam Kam 營地岩壁指南：Tree Lounge、Swiss Oldies、Elep
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-camp-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-camp-en)
 
 Pha Tam Kam 是 GCH 所在的山谷，岩壁圍著兩座營地。這一篇只收「從營地走 5 到 20 分鐘」的牆：Tree Lounge、Swiss Oldies、Elephant、Hilton、Schnecke、Schöffl Block、The Roof、Music Hall，以及 Botanical Gardens 與 Bayerischer Wald。山谷另一側的 Hangover、Partymeile、Open All Hours 與 Burnout 放在[山谷岩壁篇](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley)。
 

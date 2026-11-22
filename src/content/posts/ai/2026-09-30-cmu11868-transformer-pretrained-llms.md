@@ -20,7 +20,7 @@ glossary:
     context: "CMU 11-868 L07 講 LLaMA 架構改動時的第三項。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-transformer-pretrained-llms-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

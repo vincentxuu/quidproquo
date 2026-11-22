@@ -10,7 +10,7 @@ tldr: "HW2 要先用 entropy 與 mutual information 手算切分，再完成建�
 description: "CMU 10-301/601 Spring 2026 HW2 Decision Trees 的作業設計與校外測試方法。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 2 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw2-decision-trees-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw2.zip) 完整題名是 **Homework 2: Decision Trees**，屬於 written＋programming。Written 包含 function approximation、decision-tree calculations、pseudocode 與 empirical questions；程式分成 `inspection.py` 的 entropy／majority-error 檢查，以及 `decision_tree.py` 的建樹、預測、評估與文字樹輸出。ZIP 提供 `decision_tree.py` starter、heart／purchase／small datasets，以及 small depth-3 的 labels、metrics、inspection reference output。
 

@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-08-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-08-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Mohammad Asadolahi, Amir Amini, Samira Talebi et al.（University of Isfahan）�
 ### 深入要點
 
 - BIRD text-to-SQL 基準：LUCID 達 56.9%，自評記憶 Agent 54.0%，無記憶 Agent 52.4%
-- 膨脹在相似性檢索模式下同樣發生（不只是按分數排序時） ⚠️（作者自測，需外部複現）
+- 膨脹在相似性檢索模式下同樣發生（不只是按分數排序時） :warning:（作者自測，需外部複現）
 - Echo Gap 跨模型家族一致存在——不是特定模型的問題
 - 落地門檻低：LUCID 是後處理演算法，可以疊加到現有記憶系統上
 - 與 LangGraph / MemGPT 的記憶模組直接相關——任何 memory-augmented agent 都該檢查
@@ -105,7 +105,7 @@ Agent 記憶系統的主流做法是：每次互動存一條軌跡，用強化�
 - ALFWorld + LifelongAgentBench：整體平均分最高
 - Cold-Q 比率降 80%（從未被有效更新的記憶大幅減少）
 - 回饋密度提高約 6.0 倍
-- 維護的記憶大小減少 84.4% ⚠️（作者自測，需外部複現）
+- 維護的記憶大小減少 84.4% :warning:（作者自測，需外部複現）
 - LLM 呼叫減少 21.1%——記憶更精簡，檢索更高效
 - 落地門檻中等：需要定義語意座標的維度和更新規則
 - 與 Reflexion、MemGPT 的記憶模組可整合
@@ -150,7 +150,7 @@ Xiuhui You, Jiayi Luo, Zichao Shen et al.　·　arxiv: 2608.03468
 ### 深入要點
 
 - 兩個 ID 基準 + 三個 OOD 基準：一致超越 SOTA
-- OOD 遷移是核心賣點——訓練時沒見過的工具集也能規劃 ⚠️（作者自測，需外部複現）
+- OOD 遷移是核心賣點——訓練時沒見過的工具集也能規劃 :warning:（作者自測，需外部複現）
 - 功能抽象 + 工具選擇的解耦設計，架構清楚可復現
 - 落地門檻中等：需要定義功能類別的 taxonomy，且目前靠 LLM 做軌跡→功能的提升
 - 與 LangGraph / CrewAI 的工具編排層相容——可作為規劃模組插入

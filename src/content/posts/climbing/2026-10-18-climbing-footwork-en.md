@@ -32,7 +32,7 @@ glossary:
     context: "Many climbing shoes add rubber on top of the toes for this."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-footwork)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-footwork)
 
 The easiest way to tell who climbs well in a gym is to listen. Some people move up the wall with almost no sound from their feet. Others land every step with a thud, then scrub the shoe around on the hold before it settles.
 

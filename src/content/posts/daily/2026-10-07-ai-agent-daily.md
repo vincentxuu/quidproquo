@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -106,17 +106,17 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
-- 📄 [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
-- 📄 [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
-- 📄 [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
-- 📄 [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
-- 📄 [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
-- 📄 [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
-- 📄 [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
-- 📄 [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
+- :file: [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
+- :file: [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
+- :file: [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
+- :file: [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
+- :file: [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
+- :file: [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
+- :file: [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
+- :file: [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
 
 ## 明日關注
 

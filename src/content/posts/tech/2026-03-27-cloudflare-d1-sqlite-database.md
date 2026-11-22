@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database-en)
+:globe: [English version](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database-en)
 
 D1 是 Cloudflare 的 serverless 關聯式資料庫，底層是 SQLite。它和 Workers 共用 Cloudflare 平台、設定成本低，但**別誤會成「資料庫跟著 Worker 跑在每個邊緣節點」**：沒開 read replication 時，[D1 會把讀寫都導到世界上單一位置的 primary instance](https://developers.cloudflare.com/d1/best-practices/read-replication/)，延遲取決於使用者離那個 instance 多遠。如果你已經選 Cloudflare Workers，D1 是最自然的關聯式資料庫選項。
 

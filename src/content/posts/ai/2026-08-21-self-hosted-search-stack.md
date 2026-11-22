@@ -13,7 +13,7 @@ description: "為什麼 Tavily 和 Exa 不能自己架，以及 SearXNG + Crawl4
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-self-hosted-search-stack-en)
+> :globe: [English version](/posts/ai/2026-08-21-self-hosted-search-stack-en)
 
 [系列前一篇](/posts/ai/2026-05-07-ai-search-mcp-tools)把 agent 能接的搜尋 MCP 服務比了一輪，但整篇有個沒說破的前提：那些全部是雲端 API，你的每一次查詢都會經過別人的伺服器，而且按次計費。這篇處理另一半——如果不想付錢、或資料不能外流，能不能自己架一套？
 
@@ -23,10 +23,10 @@ draft: false
 
 | 你想要的 | 地端可行性 |
 |---|---|
-| Tavily 那種「查了就回乾淨結果」的 API 介面 | ✅ 容易，一個 `docker compose` |
-| 語意排序，不要一堆 SEO 垃圾 | ✅ 容易，本地小模型就夠 |
-| Exa 那種自建索引 + 神經檢索 | ⚠️ 有開源同構品，規模差幾個數量級 |
-| 全網覆蓋 + 持續重爬的新鮮度 | ❌ 複製不了 |
+| Tavily 那種「查了就回乾淨結果」的 API 介面 | ✓ 容易，一個 `docker compose` |
+| 語意排序，不要一堆 SEO 垃圾 | ✓ 容易，本地小模型就夠 |
+| Exa 那種自建索引 + 神經檢索 | :warning: 有開源同構品，規模差幾個數量級 |
+| 全網覆蓋 + 持續重爬的新鮮度 | ✗ 複製不了 |
 
 ## 官方確實沒有地端方案
 

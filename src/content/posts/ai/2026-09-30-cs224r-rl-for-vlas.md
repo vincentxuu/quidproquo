@@ -22,7 +22,7 @@ glossary:
     context: "CS224R L17 key theme #2 的版本 A。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-rl-for-vlas-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

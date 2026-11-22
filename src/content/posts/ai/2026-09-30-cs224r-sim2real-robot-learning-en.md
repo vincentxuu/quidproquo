@@ -20,7 +20,7 @@ glossary:
     context: "The general learning-to-adapt pipeline in CS224R L16."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-sim2real-robot-learning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -10,7 +10,7 @@ description: "拆解 Deepgram Voice Agent API 的 streaming STT、turn detection
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-deepgram-voice-agents-en)
+> :globe: [English version](/posts/ai/2026-08-22-deepgram-voice-agents-en)
 
 [Deepgram](https://developers.deepgram.com/reference/deepgram-api-overview) 原本以語音辨識基建起家，現在的產品已涵蓋 streaming STT、TTS、Audio Intelligence，以及把完整對話迴圈包起來的 Voice Agent API。它的主脊仍是 cascaded architecture：聲音先轉成文字，LLM 產生回覆，再合成聲音；差別是 STT、orchestration 與 TTS 可以在同一個雙向 WebSocket runtime 裡協調。
 

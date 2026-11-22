@@ -12,7 +12,7 @@ series:
   order: 104
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-funding-blacksmith-en)
+> :globe: [English version](/posts/daily/2026-10-24-funding-blacksmith-en)
 
 ## 融資資訊
 

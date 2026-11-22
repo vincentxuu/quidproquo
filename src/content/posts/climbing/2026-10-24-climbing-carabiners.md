@@ -26,7 +26,7 @@ glossary:
     context: "DMM Rhino、BD GridLock、Mammut Smart HMS、Petzl Attache 加 BAR 都屬於這類，各自跟不同確保器相容。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-carabiners-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-carabiners-en)
 
 確保器不會直接掛在吊帶上，中間隔著一顆有鎖鉤環。整個確保系統裡，這顆鉤環沒有備份：它打開或斷掉，確保器就跟你分開了。所以它要跟確保器一起買，也是最不能將就的一樣。
 

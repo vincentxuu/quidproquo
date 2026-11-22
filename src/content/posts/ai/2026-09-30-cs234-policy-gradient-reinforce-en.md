@@ -29,7 +29,7 @@ glossary:
     context: "With V as the baseline, the policy gradient can be written as ∇log π times the advantage."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-policy-gradient-reinforce)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

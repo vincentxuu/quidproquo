@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.S184 講義 eq. (63)–(64) 與 Algorithm 5。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

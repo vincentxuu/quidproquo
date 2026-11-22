@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-vercel-ai-elements)
+:globe: [中文版](/posts/tech/2026-08-19-vercel-ai-elements)
 
 Anyone who has built an AI chat interface knows the hard part isn't the input box — it's everything around it: Markdown that renders while streaming, collapsible reasoning traces, expandable source citations, tool calls with parameters and results, version switching after a regeneration. AI Elements is Vercel's React component library for exactly this: the standard equipment of a ChatGPT-style interface, shipped as ready-made components — and delivered shadcn-style, with the source copied into your project instead of installed as a black-box dependency.
 

@@ -14,7 +14,7 @@ description: "依課表與延伸閱讀預習 Stanford CS329Z 第 19 堂 Frontier
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-19-frontiers-demo-day-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-19-frontiers-demo-day-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

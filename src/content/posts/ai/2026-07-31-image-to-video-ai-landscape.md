@@ -17,7 +17,7 @@ description: "拆解 image-to-video 生成的技術管線：3D causal VAE 壓縮
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-31-image-to-video-ai-landscape-en)
+> :globe: [English version](/posts/ai/2026-07-31-image-to-video-ai-landscape-en)
 
 給一張圖、一句話，生出一段會動的影片——這件事在 2026 年已經不稀奇，但選型比兩年前更難，因為「畫質」不再是有效的區分軸。從 [Artificial Analysis 的 Image-to-Video 榜](https://benchmarklist.com/arenas/artificial_analysis_image_to_video)（2026-07-27 快照）看，前七名的 Elo 從 1200 到 1088，中間擠了七個模型，肉眼幾乎分不出高下。真正會影響決策的是別的東西：要不要原生音訊、能不能自架、控制面板夠不夠細、以及每秒實際多少錢。
 

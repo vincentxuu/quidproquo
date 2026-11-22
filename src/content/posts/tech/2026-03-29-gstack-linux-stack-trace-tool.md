@@ -10,7 +10,7 @@ description: "介紹 Garry Tan 的 gstack 開源專案：它的設計哲學、20
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-03-29-gstack-linux-stack-trace-tool-en)
+> :globe: [English version](/posts/tech/2026-03-29-gstack-linux-stack-trace-tool-en)
 
 Garry Tan（Y Combinator CEO）在全職管理 YC 的同時，聲稱用 Claude Code 一天產出 10,000–20,000 行程式碼。他把自己的整套 Claude Code 設定開源了，叫做 gstack。54,000+ stars，MIT license。
 

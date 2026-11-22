@@ -10,7 +10,7 @@ description: "An introduction to Portkey AI Gateway, its routing, observability,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-portkey-ai-gateway)
+> :globe: [中文版](/posts/ai/2026-08-22-portkey-ai-gateway)
 
 [Portkey](https://portkey.ai/docs/product/ai-gateway) is an AI gateway placed between an application and its model providers. It does not train models or sell another pool of inference tokens. It receives requests that would otherwise go directly to OpenAI, Anthropic, Google, or a private endpoint, then applies routing, retries, fallbacks, usage logging, budgets, and safety policies.
 

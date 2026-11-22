@@ -30,7 +30,7 @@ glossary:
     context: "Lowering wears the rope against the same spot every time, cutting a sharp groove into the carabiner."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement)
 
 The label on your harness says it was made five years ago. You look it up: Petzl says textiles last up to 10 years, so you relax. Five years left. Then you read that Black Diamond says a harness in normal use has a life expectancy of about three years. Who's right?
 

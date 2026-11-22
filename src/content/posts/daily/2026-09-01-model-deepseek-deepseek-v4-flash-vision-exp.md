@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek 開發的旗艦大型語言模型家族，分 Flash（輕量）與 Pro（旗艦）兩線，2026 年起加入實驗性多模態分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp-en)
+> :globe: [English version](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | Agents' Last Exam（多模態） | 27.3 | 25.2† | 25.7 |
 | ZeroBench (Pass@5，多模態) | 35.0 | – | 34.0 |
 
-⚠️ 以上皆為 DeepSeek 官方以自家 DeepSeek Harness（Minimal Mode，`temperature=1.0`、`top_p=0.95`）自測，屬發布當日數據，尚無獨立第三方複現。標 † 的兩項中，V4-Flash-0731 是純文字模型，測試時直接忽略題目裡的多模態元素，因此該欄分數僅供參考，不是「同一起跑點」的比較。
+:warning: 以上皆為 DeepSeek 官方以自家 DeepSeek Harness（Minimal Mode，`temperature=1.0`、`top_p=0.95`）自測，屬發布當日數據，尚無獨立第三方複現。標 † 的兩項中，V4-Flash-0731 是純文字模型，測試時直接忽略題目裡的多模態元素，因此該欄分數僅供參考，不是「同一起跑點」的比較。
 
 ## 與前代/競品比較
 

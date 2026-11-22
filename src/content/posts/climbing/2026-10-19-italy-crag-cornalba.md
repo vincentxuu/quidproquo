@@ -13,7 +13,7 @@ description: "科爾納爾巴（Cornalba）岩場介紹：Corna Bianca 的岩質
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-cornalba-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-cornalba-en)
 
 科爾納爾巴（Cornalba）是貝加莫（Bergamo）北邊 Val Serina 山谷裡的一個小村，村子上方那面白色石灰岩壁叫 Corna Bianca（白岩）。1980 年代起，這面牆是義大利高難度運攀的重鎮之一，2010 年 Adam Ondra 在這裡首攀了 9a+。現在來的人變少了，原因跟它的攀爬風格有關。
 

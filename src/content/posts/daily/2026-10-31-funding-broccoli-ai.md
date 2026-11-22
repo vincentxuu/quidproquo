@@ -12,7 +12,7 @@ series:
   order: 117
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-funding-broccoli-ai-en)
+> :globe: [English version](/posts/daily/2026-10-31-funding-broccoli-ai-en)
 
 ## 融資資訊
 

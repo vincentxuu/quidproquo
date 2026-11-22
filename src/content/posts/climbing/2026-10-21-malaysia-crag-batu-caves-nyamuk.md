@@ -13,7 +13,7 @@ description: "Nyamuk 攀岩指南：免費進入與 2026 年的接近路線、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-nyamuk-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-nyamuk-en)
 
 黑風洞（Batu Caves）在吉隆坡北邊 13 公里，是一整片喀斯特崖壁，不是單一面牆。Nyamuk 是其中最陡、最偏技術的一組：離市區近、進場免費，卻也最容易被誤會成「有人管理」。這篇幫你判斷自己的級數在這裡有多少選擇、沒車怎麼走到起攀點、哪個分區先被太陽曬到，以及免費進入到底代表什麼。
 

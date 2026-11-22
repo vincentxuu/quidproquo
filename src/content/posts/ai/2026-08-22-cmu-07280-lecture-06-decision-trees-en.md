@@ -13,7 +13,7 @@ description: "A complete reading of CMU 07-280 Spring 2026 Decision Trees: recur
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-06-decision-trees)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-06-decision-trees)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

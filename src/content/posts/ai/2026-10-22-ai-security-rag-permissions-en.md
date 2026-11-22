@@ -14,7 +14,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-rag-permissions)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-rag-permissions)
 
 Alice asks for a refund update. The assistant accurately summarizes Bob's N-2 refund. The answer is correct, but it violates our owner-only policy. Retrieval-augmented generation supplies evidence for answers; it does not automatically authorize access to that evidence.
 

@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-team-wiki-search-logs-agents-md-en)
+> :globe: [English version](/posts/learning/2026-10-22-team-wiki-search-logs-agents-md-en)
 
 人資在 wiki 上寫了一頁〈休假政策〉，內容完整，也有負責人。但新人在搜尋框打「請假」，什麼都沒找到，於是又跑去群組問。這不是沒寫，是寫了找不到。
 

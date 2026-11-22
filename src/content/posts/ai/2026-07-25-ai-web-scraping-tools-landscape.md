@@ -22,7 +22,7 @@ glossary:
     context: "curl_cffi 和 CloakBrowser 透過偽裝 TLS 指紋來繞過反爬蟲偵測。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en)
+> :globe: [English version](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en)
 
 「爬資料餵 AI」已經催生出一整個工具生態。從 [MarkItDown](https://github.com/microsoft/markitdown) 的 175k stars 到各種千星級的利基工具，GitHub 上至少有 34 個活躍專案在處理這件事。這篇把它們沿五條軸線分類——整站爬取、AI 瀏覽器代理、文件轉檔、智慧擷取、反偵測基建——幫你根據場景選對工具，不用再自己刻爬蟲。
 

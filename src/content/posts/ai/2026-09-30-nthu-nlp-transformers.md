@@ -22,7 +22,7 @@ glossary:
     context: "投影片第 55–56 頁用「預測成 the、答案是 a」的例子說明。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-transformers-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-transformers-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

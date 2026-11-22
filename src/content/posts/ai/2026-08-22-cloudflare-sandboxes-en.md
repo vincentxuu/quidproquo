@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cloudflare-sandboxes)
+> :globe: [中文版](/posts/ai/2026-08-22-cloudflare-sandboxes)
 
 [Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/) is an SDK for controlling isolated Linux environments from a Worker. It does not put a shell inside a Worker isolate, nor is it a separate VM API detached from Cloudflare. A Worker receives the request, a Durable Object maintains a stable identity and routes it, and a Container inside an isolated VM executes the untrusted code.
 

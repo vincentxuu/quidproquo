@@ -10,7 +10,7 @@ description: "Zustand is a minimalist React state management library with no boi
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-zustand-state-management)
+:globe: [中文版](/posts/tech/2026-03-27-zustand-state-management)
 
 React has no shortage of state management options: Redux, MobX, Recoil, Jotai, Zustand… they all work, but picking one is an opinionated decision. This post makes the case for Zustand and why it's the best choice for client state management in most projects.
 

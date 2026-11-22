@@ -13,7 +13,7 @@ tldr: "Laskin 的判斷是工程師八成時間在理解系統而不是寫程式
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems-en)
+> :globe: [English version](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems-en)
 
 前面幾堂談的是方法：怎麼多產生候選、怎麼驗證、怎麼把回饋寫回權重。真的拿這些方法去做產品的人，卡在哪裡？[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 18 堂由 [Reflection AI](https://reflection.ai/) 執行長 Misha Laskin 客座，題目是「Building Agentic Systems for Autonomy: Lessons & Open questions」。讀完本文，你應能說出他認為程式 Agent 缺的是哪一塊、為什麼他說這個領域受限於獎勵，並能判斷一個任務的獎勵訊號屬於哪一類。先備是知道強化學習用獎勵調整行為，以及 LLM-as-judge 是請模型當評審。
 

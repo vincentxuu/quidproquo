@@ -11,7 +11,7 @@ series:
   order: 71
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-security-langflow-mcp-unauthenticated-rce-en)
+> :globe: [English version](/posts/daily/2026-11-03-security-langflow-mcp-unauthenticated-rce-en)
 
 ## 事件概述
 

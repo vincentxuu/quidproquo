@@ -13,7 +13,7 @@ description: "韓國天然岩場的入門地圖：代表岩區、季節、交通
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crags-overview-en)
 
 想到韓國攀岩，很容易先想到首爾北邊的仁壽峰：花崗岩大岩壁、裂隙與摩擦板，爬高後身後就是城市。但如果你想每天拉快扣、在短路線上反覆試動作，高敞的仙雲山可能更接近你要的旅行。想抱石，又是另一張地圖。
 

@@ -17,7 +17,7 @@ description: "A breakdown of the image-to-video generation pipeline: 3D causal V
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-31-image-to-video-ai-landscape)
+> :globe: [中文版](/posts/ai/2026-07-31-image-to-video-ai-landscape)
 
 Feed a model one image and one sentence, get a moving clip back. That is unremarkable in 2026 — but choosing a model is harder than it was two years ago, because visual quality has stopped being a useful discriminator. On the [Artificial Analysis Image-to-Video leaderboard](https://benchmarklist.com/arenas/artificial_analysis_image_to_video) (snapshot of 2026-07-27), the top seven models span an Elo range from 1200 down to 1088, with seven entries crammed into that gap. What actually drives the decision is elsewhere: whether you need native audio, whether you can self-host, how fine-grained the control surface is, and what it really costs per second.
 

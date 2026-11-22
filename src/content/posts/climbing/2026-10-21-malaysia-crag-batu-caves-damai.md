@@ -13,7 +13,7 @@ description: "Damai Wall 攀岩指南：Gua Damai Extreme Park 的許可費、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-damai-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-damai-en)
 
 黑風洞裡有十個分區，但不是每一面都一樣。Damai Wall 是其中唯一一個有園方管理、要買許可、有廁所與照明的岩場；相對的代價是規則最多：頭盔、繩長、快扣數量都被寫在牆上。這篇幫你判斷這面牆值不值得付門票錢、幾點去最舒服、70 m 繩與 16 支快扣是不是真的必要，以及那些 1990 年代打上去的膨脹栓現在是什麼狀態。
 

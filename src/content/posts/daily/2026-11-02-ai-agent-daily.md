@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-02-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -114,13 +114,13 @@ Cornell Tech 與 Yale 的 crypto agent 實驗則示範了信任失效最根本�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-github-digest)
-- 📄 [定價追蹤｜OpenAI 因 SpaceX 收購切斷 Cursor 模型存取，11/12 生效](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff)
-- 📄 [資安警報｜區塊鏈分析公司 Chainalysis 遭「攻勢性 agentic 技術」入侵](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion)
-- 📄 [工具推薦｜Agent Cockpit — 讓 AI 研究 agent 的每個結論都能追回產生它的程式碼](/posts/daily/2026-11-02-tool-agent-cockpit)
-- 📄 [AI Engineer 面試日練 — 2026-11-02：ML Fundamentals](/posts/daily/2026-11-02-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-02：Product Sense](/posts/daily/2026-11-02-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-github-digest)
+- :file: [定價追蹤｜OpenAI 因 SpaceX 收購切斷 Cursor 模型存取，11/12 生效](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff)
+- :file: [資安警報｜區塊鏈分析公司 Chainalysis 遭「攻勢性 agentic 技術」入侵](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion)
+- :file: [工具推薦｜Agent Cockpit — 讓 AI 研究 agent 的每個結論都能追回產生它的程式碼](/posts/daily/2026-11-02-tool-agent-cockpit)
+- :file: [AI Engineer 面試日練 — 2026-11-02：ML Fundamentals](/posts/daily/2026-11-02-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-02：Product Sense](/posts/daily/2026-11-02-product-builder-interview-daily)
 
 ## 明日關注
 

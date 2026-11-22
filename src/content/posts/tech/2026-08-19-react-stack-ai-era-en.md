@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-react-stack-ai-era)
+:globe: [中文版](/posts/tech/2026-08-19-react-stack-ai-era)
 
 The three classic criteria for picking React libraries — feature coverage, ecosystem size, maintenance activity — now need a fourth: **how well your AI coding agent handles the library**. As more code is produced by agents, "will the agent write this correctly, and if not, will anything catch it" starts to materially affect velocity. This post maps the most consensual stack for pure SPAs today (TanStack Router + TanStack Query + Zustand at the core), lays out every layer's default pick and alternatives (all npm numbers hand-checked in August 2026), and closes with the selection criteria the AI era has added.
 
@@ -82,12 +82,12 @@ llms.txt is a convention for exposing a docs site as plain text that an LLM can 
 
 | Docs site | /llms.txt |
 |---|---|
-| tanstack.com | ✅ 200 |
-| ui.shadcn.com | ✅ 200 |
-| zustand.docs.pmnd.rs | ✅ 200 |
-| ai-sdk.dev | ✅ 200 |
-| nextjs.org | ✅ 200 |
-| reactrouter.com | ❌ 404 |
+| tanstack.com | ✓ 200 |
+| ui.shadcn.com | ✓ 200 |
+| zustand.docs.pmnd.rs | ✓ 200 |
+| ai-sdk.dev | ✓ 200 |
+| nextjs.org | ✓ 200 |
+| reactrouter.com | ✗ 404 |
 
 The table speaks for itself about each team's posture toward agent-driven development. When your agent needs the current form of an API, a docs site with llms.txt can be fed wholesale into context; without it, the agent scrapes HTML or leans on training-data memory — which is exactly where hallucinations come from.
 

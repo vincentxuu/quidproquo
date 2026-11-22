@@ -13,7 +13,7 @@ tldr: "五家在「訂閱認證」上分成三派：Codex 和 Claude Code 只為
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-subscription-boundaries-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-subscription-boundaries-en)
 
 ## 設計問題
 

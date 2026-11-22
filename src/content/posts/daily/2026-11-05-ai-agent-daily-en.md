@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-05-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-05-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -33,22 +33,22 @@ title: The Transaction Cost of Agent Autonomy Is Changing Layers
 desc: Deciding whether an agent can be trusted to act used to hinge mainly on whether the model's judgment was good enough. Today's three stories show the hinge is moving to whether the sandbox, the framework's check ordering, and the data-governance layer around it can actually be trusted.
 caption: Left: the old assumption. Right: the new reality pointed to by today's three stories (Docker Sandboxes CVE-2026-103916, Pydantic AI's 9 security advisories, Sentra's $150M data-governance round).
 ---
-<svg viewBox="0 0 640 300">
-  <rect class="dg-box" x="32" y="40" width="248" height="220" rx="8"/>
-  <text class="dg-tag" x="52" y="68" dominant-baseline="central">Old assumption</text>
-  <text class="dg-label" x="156" y="100" text-anchor="middle" dominant-baseline="central">Is the model smart enough</text>
-  <text class="dg-sub" x="156" y="130" text-anchor="middle" dominant-baseline="central">Sandbox installed = safe</text>
-  <text class="dg-sub" x="156" y="154" text-anchor="middle" dominant-baseline="central">Blocklist written = blocked</text>
-  <text class="dg-sub" x="156" y="178" text-anchor="middle" dominant-baseline="central">Trust cost tied to model skill</text>
+<svg viewBox="0 0 724 300">
+  <rect class="dg-box" x="20" y="40" width="320" height="220" rx="8"/>
+  <text class="dg-tag" x="40" y="68" dominant-baseline="central">Old assumption</text>
+  <text class="dg-label" x="180" y="100" text-anchor="middle" dominant-baseline="central">Is the model smart enough</text>
+  <text class="dg-sub" x="180" y="130" text-anchor="middle" dominant-baseline="central">Sandbox installed = safe</text>
+  <text class="dg-sub" x="180" y="154" text-anchor="middle" dominant-baseline="central">Blocklist written = blocked</text>
+  <text class="dg-sub" x="180" y="178" text-anchor="middle" dominant-baseline="central">Trust cost tied to model skill</text>
 
-  <path class="dg-line" d="M280 150H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M340 150H384" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="360" y="40" width="248" height="220" rx="8"/>
-  <text class="dg-tag" x="380" y="68" dominant-baseline="central">Today's reality</text>
-  <text class="dg-label" x="484" y="100" text-anchor="middle" dominant-baseline="central">Is the governance layer trustworthy</text>
-  <text class="dg-sub" x="484" y="130" text-anchor="middle" dominant-baseline="central">Docker Sandboxes symlink escape</text>
-  <text class="dg-sub" x="484" y="154" text-anchor="middle" dominant-baseline="central">Pydantic AI check-order bugs</text>
-  <text class="dg-sub" x="484" y="178" text-anchor="middle" dominant-baseline="central">Sentra: $150M bought for data governance alone</text>
+  <rect class="dg-box dg-box--accent" x="384" y="40" width="320" height="220" rx="8"/>
+  <text class="dg-tag" x="404" y="68" dominant-baseline="central">Today's reality</text>
+  <text class="dg-label" x="544" y="100" text-anchor="middle" dominant-baseline="central">Is the governance layer trustworthy</text>
+  <text class="dg-sub" x="544" y="130" text-anchor="middle" dominant-baseline="central">Docker Sandboxes symlink escape</text>
+  <text class="dg-sub" x="544" y="154" text-anchor="middle" dominant-baseline="central">Pydantic AI check-order bugs</text>
+  <text class="dg-sub" x="544" y="178" text-anchor="middle" dominant-baseline="central">Sentra: $150M bought for data governance alone</text>
 </svg>
 ```
 
@@ -141,16 +141,16 @@ Today's three trending open-source repos all demonstrate the same pattern: build
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily-en)
-- 📄 [Framework Update｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0-en)
-- 📄 [Funding Brief｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal-en)
-- 📄 [Funding Brief｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra-en)
-- 📄 [Funding Brief｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal-en)
-- 📄 [Product Builder Interview Prep — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily-en)
-- 📄 [Security Alert｜Docker Sandboxes Symlink Escape](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape-en)
-- 📄 [Tool Spotlight｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily-en)
+- :file: [Framework Update｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0-en)
+- :file: [Funding Brief｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal-en)
+- :file: [Funding Brief｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra-en)
+- :file: [Funding Brief｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal-en)
+- :file: [Product Builder Interview Prep — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily-en)
+- :file: [Security Alert｜Docker Sandboxes Symlink Escape](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape-en)
+- :file: [Tool Spotlight｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
 
 ## Tomorrow's Watch
 

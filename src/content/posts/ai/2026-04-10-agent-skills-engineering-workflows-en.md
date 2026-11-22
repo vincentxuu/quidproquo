@@ -10,7 +10,7 @@ description: "An introduction to Addy Osmani's Agent Skills open-source project 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-10-agent-skills-engineering-workflows)
+> :globe: [中文版](/posts/ai/2026-04-10-agent-skills-engineering-workflows)
 
 AI coding agents are powerful, but they share a common tendency: taking the shortest path. If it runs, that's good enough — tests can wait, error handling can be skipped. This is fine during prototyping, but it's a disaster in production.
 

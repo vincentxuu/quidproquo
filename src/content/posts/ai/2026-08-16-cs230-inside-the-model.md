@@ -13,7 +13,7 @@ description: "Stanford CS230（2025 秋季）Lecture 10 完整導讀：從一個
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs230-inside-the-model-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs230-inside-the-model-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -287,7 +287,7 @@ loss 上的突然跳動可能是某個 batch 被汙染；「**或者你在它上
 
 他引了 Epoch AI 的研究報告，說低品質文字資料、影音資料、高品質資料會依序在幾年內用完（他自己說忘了確切數字）。
 
-> **⚠️ 課堂的分期和論文對不上。** Epoch AI 的[〈Will we run out of data?〉](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data)（Villalobos 等人，2024）給的是**單一估計**，不是分模態的三個年份：**經品質與重複調整後的公開人類文字存量約 300 兆 token，照當前趨勢會在 2026 到 2032 年之間被完全用掉**，若過度訓練則更早（論文提到過度訓練 5 倍會在 2027 用完、100 倍則 2025）。課堂上「2025／2027／2030」那組數字**在這篇論文裡找不到對應**。
+> **:warning: 課堂的分期和論文對不上。** Epoch AI 的[〈Will we run out of data?〉](https://epoch.ai/publications/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data)（Villalobos 等人，2024）給的是**單一估計**，不是分模態的三個年份：**經品質與重複調整後的公開人類文字存量約 300 兆 token，照當前趨勢會在 2026 到 2032 年之間被完全用掉**，若過度訓練則更早（論文提到過度訓練 5 倍會在 2027 用完、100 倍則 2025）。課堂上「2025／2027／2030」那組數字**在這篇論文裡找不到對應**。
 
 **為什麼「產生的資料比用掉的多」不構成反駁**——這段論證很好：
 

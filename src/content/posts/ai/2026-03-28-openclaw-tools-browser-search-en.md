@@ -13,7 +13,7 @@ description: "Browser control and web search in OpenClaw: the differences betwee
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-browser-search)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-tools-browser-search)
 
 This article covers how the agent sees the outside world — the browser and search. They answer the same class of problem, and **their costs differ enormously**.
 

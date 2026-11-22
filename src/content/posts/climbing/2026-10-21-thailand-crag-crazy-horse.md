@@ -13,7 +13,7 @@ description: "Crazy Horse（หน้าผาม้าพยศ）清邁攀岩�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-crazy-horse-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-crazy-horse-en)
 
 從停車場抬頭，最先看到的是主區上方一塊像馬頭的石灰岩，Crazy Horse 的名字就從這裡來。岩栓密、步道有人維護、多數子區走幾分鐘就到，很容易讓人以為這是一個隨時可以去的成熟岩場；**真正要先確認的，是它現在到底開沒開。**
 

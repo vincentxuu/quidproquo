@@ -13,7 +13,7 @@ description: "Stanford CS224W Fall 2025 第 4 講完整 agenda 與自學筆記�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-04-general-gnn-perspective-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-04-general-gnn-perspective-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

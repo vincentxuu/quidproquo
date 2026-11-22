@@ -30,7 +30,7 @@ glossary:
     context: "Neil Gresham 建議用一條中等的線先把前臂爬到六到八成脹。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-onsight-flash-tactics-en)
+> :globe: [English version](/posts/climbing/2026-10-19-onsight-flash-tactics-en)
 
 你站在一條沒爬過的 5.10d 前面。旁邊的人看了半分鐘就上去了，你想多看一下，又怕看太久被說在拖。上去之後，第三支快扣前發現手序反了，換了兩次手，爬到一半就爆了。
 

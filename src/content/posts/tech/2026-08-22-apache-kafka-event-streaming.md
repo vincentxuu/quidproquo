@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-apache-kafka-event-streaming-en)
+> :globe: [English version](/posts/tech/2026-08-22-apache-kafka-event-streaming-en)
 
 [Apache Kafka](https://kafka.apache.org/42/design/design/) 常被放進「訊息佇列」清單，但它的核心資料結構不是一封信被拿走就消失的 queue，而是可保留、可重播的分散式 commit log。producer 把 record append 到 topic partition，consumer 保存自己讀到哪個 offset；資料是否刪除由 retention policy 決定，不由某個 consumer 是否讀過決定。
 

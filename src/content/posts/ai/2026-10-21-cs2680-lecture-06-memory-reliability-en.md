@@ -22,7 +22,7 @@ glossary:
     context: "Lecture 6 lists it next to valid time as the two fields every memory needs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

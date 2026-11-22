@@ -13,7 +13,7 @@ series:
   order: 36
 ---
 
-🌏 [中文版](/posts/tech/2026-03-28-claude-code-troubleshooting-collection)
+:globe: [中文版](/posts/tech/2026-03-28-claude-code-troubleshooting-collection)
 
 This page was originally planned as a single collection of every Claude Code troubleshooting scenario. While writing it became clear that the three problem classes have very different investigation paths — install failures mean reading setup logs, mid-run crashes mean network and API errors, and silent config misses mean diffing settings files across scopes. Cramming them together would only get in the way. So this troubleshooting group is now split into series orders 33-35, each expanding its symptoms, diagnostic tools, and fixes:
 

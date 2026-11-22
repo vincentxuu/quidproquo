@@ -11,7 +11,7 @@ series:
   order: 48
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-02-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### PageIndex ⭐ 38,397 (+1,097)
+### PageIndex ★ 38,397 (+1,097)
 
 [GitHub](https://github.com/VectifyAI/PageIndex)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### iFixAi ⭐ 18,280 (+340)
+### iFixAi ★ 18,280 (+340)
 
 [GitHub](https://github.com/ifixai-ai/iFixAi)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### Octop ⭐ 6,215 (+285)
+### Octop ★ 6,215 (+285)
 
 [GitHub](https://github.com/TencentCloud/Octop)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### BMAD-METHOD ⭐ 53,704 (+40)
+### BMAD-METHOD ★ 53,704 (+40)
 
 [GitHub](https://github.com/bmad-code-org/BMAD-METHOD)　·　Python　·　Other（repo 自訂授權條款，非標準 MIT/Apache，使用前建議先確認條款內容）
 

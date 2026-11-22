@@ -34,7 +34,7 @@ glossary:
     context: "各地定義不完全一致。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-ice-mixed-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-ice-mixed-climbing-en)
 
 高雄的林益帆 2011 年在班夫山岳影展看到一道冰瀑，四川雙橋溝的「翅膀」，難度 WI4+。[go4mosa 的訪談](https://www.go4mosa.net/blog/posts/iceclimbing)寫，那之後他攀岩、雪訓、爬山，都是為了冰攀。2018 年他第一次去四川爬冰，2025 年 1 月第二次去，完攀了翅膀。
 

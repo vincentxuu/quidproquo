@@ -13,7 +13,7 @@ description: "塔沃拉拉島（Tavolara）攀岩介紹：38 條海崖多段與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-tavolara-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-tavolara-en)
 
 塔沃拉拉島（Tavolara）在薩丁尼亞東北、奧爾比亞（Olbia）灣口外，是一座從海裡直直拔起的長條形山島，最高點 Punta Cannone 約 565 公尺。從本島渡輪進奧爾比亞港時，第一眼就會看到它。
 

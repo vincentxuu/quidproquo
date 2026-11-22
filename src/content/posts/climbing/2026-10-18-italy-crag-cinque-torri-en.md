@@ -13,7 +13,7 @@ description: "A guide to Cinque Torri: dolomite rock and scale, the seasons each
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-cinque-torri)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-cinque-torri)
 
 Cinque Torri ("five towers") is a group of dolomite towers on a grassy slope west of [Cortina d'Ampezzo](https://cortina.dolomiti.org/en/arrampicata-sportiva/cinque-torri-en) in Veneto, on the road to Passo Falzarego. The Cortina tourist board's crag page opens with: "Cinque Torri is without a doubt the best known and historically most important climbing area in Cortina". The local climbing club, the [Scoiattoli](https://www.guidedolomiti.com/en/climbing/cinque-torri-crag), trained here from its founding in 1939.
 

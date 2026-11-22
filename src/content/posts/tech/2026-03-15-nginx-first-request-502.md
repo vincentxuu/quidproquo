@@ -10,7 +10,7 @@ description: "nginx 動態 upstream DNS 快取過期導致第一個請求 502 �
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-15-nginx-first-request-502-en)
+:globe: [English version](/posts/tech/2026-03-15-nginx-first-request-502-en)
 
 ## TL;DR
 

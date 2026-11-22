@@ -10,7 +10,7 @@ description: "A config-to-CI examination of Promptfoo: test cases, assertions, p
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-promptfoo-llm-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-promptfoo-llm-evaluation)
 
 [Promptfoo](https://www.promptfoo.dev/docs/getting-started/) is an MIT-licensed LLM evaluation and red-team CLI and library. Prompts, model providers, test data, and scoring conditions live in `promptfooconfig.yaml`. A developer runs the matrix locally, compares results in a terminal or local UI, and moves the same command into CI. Compared with adopting a cloud observability platform first, this resembles conventional software testing: configuration and cases can be reviewed alongside code.
 

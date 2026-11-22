@@ -25,7 +25,7 @@ glossary:
     context: "BrowseComp-Plus deliberately adds such documents to its fixed corpus."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-10-deep-research-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 54
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-tool-mcptui)
+> :globe: [中文版](/posts/daily/2026-10-14-tool-mcptui)
 
 ## Tool Info
 
@@ -81,12 +81,12 @@ mcptui call convert_temperature '{"value": 100, "from_scale": "C", "to_scale": "
 
 | | mcptui | Official MCP Inspector | Testing manually through Claude Desktop / Cursor |
 |---|---|---|---|
-| Needs Node.js / a browser | ❌, terminal-only | ✅ needs both | ❌ |
-| Testing burns LLM tokens | ❌ | ❌ | ✅ every call goes through an agent |
-| Changing one tool means restarting the whole app | ❌ | ❌ | ✅ |
-| Auto-discovers existing agent configs (Claude Desktop / Cursor / `mcp.json`) | ✅ | ❌ | — |
-| Headless mode you can script into CI | ✅ (`mcptui call` / `mcptui list`) | has a CLI mode, but the main interface is still the web UI | ❌ |
-| Inspect raw JSON-RPC traffic live | ✅ | ✅ | ❌ |
+| Needs Node.js / a browser | ✗, terminal-only | ✓ needs both | ✗ |
+| Testing burns LLM tokens | ✗ | ✗ | ✓ every call goes through an agent |
+| Changing one tool means restarting the whole app | ✗ | ✗ | ✓ |
+| Auto-discovers existing agent configs (Claude Desktop / Cursor / `mcp.json`) | ✓ | ✗ | — |
+| Headless mode you can script into CI | ✓ (`mcptui call` / `mcptui list`) | has a CLI mode, but the main interface is still the web UI | ✗ |
+| Inspect raw JSON-RPC traffic live | ✓ | ✓ | ✗ |
 
 ## Things to watch out for
 

@@ -21,7 +21,7 @@ glossary:
     definition: "A SHA-256 fingerprint of the input table for a run. It can identify the same dataset but cannot reconstruct a historical version that a third-party data source has since changed."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval)
 
 > **Building a Taiwan Stock Research Agent (Part 5 of 9)**: [Previous: Backtest Accountability—Why Backtests Lie](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability-en) ｜ [Next: Making Every Number in an LLM Report Auditable](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

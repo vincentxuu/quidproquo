@@ -13,7 +13,7 @@ description: "A problem-by-problem guide to Stanford CS109 Summer 2026 Lecture 1
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-12-general-inference)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-12-general-inference)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

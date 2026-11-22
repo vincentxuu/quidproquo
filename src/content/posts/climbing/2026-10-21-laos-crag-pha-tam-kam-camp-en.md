@@ -13,7 +13,7 @@ description: "A guide to the Pha Tam Kam camp walls: the style, walk times, shad
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-camp)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-camp)
 
 Pha Tam Kam is the valley that holds Green Climbers Home, with crags wrapped around the two camps. This guide covers only the walls within a 5–20 minute walk: Tree Lounge, Swiss Oldies, Elephant, Hilton, Schnecke, Schöffl Block, The Roof, Music Hall, plus Botanical Gardens and Bayerischer Wald. Hangover, Partymeile, Open All Hours and Burnout, on the other side of the valley, are in the [valley walls guide](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley).
 

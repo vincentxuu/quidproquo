@@ -20,7 +20,7 @@ glossary:
     definition: "Keeping prior assistant reasoning blocks in message history for the next steps. The recommended way to run Laguna in agent settings; dropping them stops further reasoning."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-19-ai-model-family-laguna)
+> :globe: [中文版](/posts/tech/2026-09-19-ai-model-family-laguna)
 
 On July 21, 2026, [Poolside](https://www.poolside.ai/models) released [Laguna S 2.1](https://poolside.ai/blog/introducing-laguna-s-2-1) — a 118B-total, 8B-active MoE with 1M context, scoring 70.2% on [Terminal-Bench 2.1](https://trajectories.poolside.ai/) and 40.4% on [DeepSWE](https://trajectories.poolside.ai/?benchmark=deep-swe). It went from the start of training to the launch post in under nine weeks, on exactly the same pre-training data as the small model from two months earlier. This is the twenty-first family deep-dive in the "AI Model Families" series, tracing Laguna from the [M.1 / XS.2](https://poolside.ai/blog/introducing-laguna-s-2-1) dual release through XS 2.1 to S 2.1.
 

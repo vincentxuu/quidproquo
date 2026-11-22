@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-tool-landmine)
+> :globe: [中文版](/posts/daily/2026-10-23-tool-landmine)
 
 ## Tool Info
 
@@ -147,9 +147,9 @@ Across those same tasks, in the 84 runs where web search or Context7 was availab
 
 | | landmine | Context7 (docs MCP) | GitHub's official MCP issue search |
 |---|---|---|---|
-| Reads your lockfile and matches exact pinned versions | ✅ | ❌ | ❌ (manual search only) |
-| Proactively injects known bugs into context (no need for the agent to think to look) | ✅ (rules mode) | ❌ | ❌ |
-| Intercepts the agent once when it writes code that would trip the bug | ✅ (hook mode) | ❌ | ❌ |
+| Reads your lockfile and matches exact pinned versions | ✓ | ✗ | ✗ (manual search only) |
+| Proactively injects known bugs into context (no need for the agent to think to look) | ✓ (rules mode) | ✗ | ✗ |
+| Intercepts the agent once when it writes code that would trip the bug | ✓ (hook mode) | ✗ | ✗ |
 | Coverage | Open issues on pinned versions only | Official docs (no bug discussions) | Depends on the agent proactively searching |
 
 ## Things to Watch For

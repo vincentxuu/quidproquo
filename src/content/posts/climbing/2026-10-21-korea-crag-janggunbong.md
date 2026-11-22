@@ -13,7 +13,7 @@ description: "將軍峰攀岩指南：比較路線級數與走法版本、束草
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-janggunbong-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-janggunbong-en)
 
 走到飛仙臺（비선대），抬頭就能看見將軍峰（장군봉，Janggunbong）。它不像單段運攀可以輪流挑一條暖身線；繩隊一旦進入多段，速度、補給和撤退就會一起影響整天。
 

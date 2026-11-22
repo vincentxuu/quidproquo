@@ -144,15 +144,15 @@ Vodafone Egypt 與 Cassava（背後有 NVIDIA、Google 支持）在埃及啟用�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-github-digest)
-- 📄 [模型卡｜Agnes 3.0 Flash](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash)
-- 📄 [資安警報｜OpenAI 代理集體在 RubyGems 供應鏈攻擊中取得 RCE](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce)
-- 📄 [工具推薦｜agentgateway-lint](/posts/daily/2026-09-13-tool-agentgateway-lint)
-- 📄 [融資速報｜Archy Series C $50M](/posts/daily/2026-09-13-funding-archy)
-- 📄 [融資速報｜GenHealth.ai Series A $16.5M](/posts/daily/2026-09-13-funding-genhealth-ai)
-- 📄 [AI Engineer 面試日練 — 2026-09-13：本週回顧與行為面試](/posts/daily/2026-09-13-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-13：Behavioral & Weekly Review](/posts/daily/2026-09-13-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-13](/posts/daily/2026-09-13-ai-agent-github-digest)
+- :file: [模型卡｜Agnes 3.0 Flash](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash)
+- :file: [資安警報｜OpenAI 代理集體在 RubyGems 供應鏈攻擊中取得 RCE](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce)
+- :file: [工具推薦｜agentgateway-lint](/posts/daily/2026-09-13-tool-agentgateway-lint)
+- :file: [融資速報｜Archy Series C $50M](/posts/daily/2026-09-13-funding-archy)
+- :file: [融資速報｜GenHealth.ai Series A $16.5M](/posts/daily/2026-09-13-funding-genhealth-ai)
+- :file: [AI Engineer 面試日練 — 2026-09-13：本週回顧與行為面試](/posts/daily/2026-09-13-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-13：Behavioral & Weekly Review](/posts/daily/2026-09-13-product-builder-interview-daily)
 
 ## 明日關注
 

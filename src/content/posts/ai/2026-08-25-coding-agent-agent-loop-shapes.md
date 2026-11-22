@@ -13,7 +13,7 @@ description: "對照 pi、claude-code、codex 三家原始碼，拆解 agent loo
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes-en)
 
 上一篇[總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)說好了系列規則：每篇五段、證據給到 file#symbol。第一個正式主題就是地基——agent loop。
 

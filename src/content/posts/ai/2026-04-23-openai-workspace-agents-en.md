@@ -10,7 +10,7 @@ description: "The design philosophy, core capabilities, differences from Custom 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-23-openai-workspace-agents)
+> :globe: [中文版](/posts/ai/2026-04-23-openai-workspace-agents)
 
 On April 22, 2026, OpenAI pushed ChatGPT a major step beyond "chatbot" territory by launching **Workspace Agents** — an AI agent framework for enterprises and teams. Powered by Codex, these agents can autonomously execute tasks in the cloud over extended periods and plug directly into Slack, Salesforce, Google Drive, Microsoft 365, Notion, Atlassian, and more. OpenAI simultaneously announced that Custom GPTs will be **gradually deprecated** for enterprise plans — Business / Enterprise / Edu / Teachers users will eventually need to upgrade their existing GPTs to workspace agents.
 

@@ -22,7 +22,7 @@ glossary:
     context: "作業要比較 normal prompt 與 simple prompt 下的 alpha 與執行時間。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

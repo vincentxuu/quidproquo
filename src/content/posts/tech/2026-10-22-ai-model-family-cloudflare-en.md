@@ -20,7 +20,7 @@ glossary:
     def: "Takes a state plus a set of field definitions and returns values, source spans, and uncertainty intervals; Clairic belongs here."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-22-ai-model-family-cloudflare)
+> :globe: [中文版](/posts/tech/2026-10-22-ai-model-family-cloudflare)
 
 Cloudflare's first in-house models fall into two classes: the **Clef family** (clef, clef-flash, clef-omni) returns a probability for every allowed option, and **Clairic** returns typed values and intervals. All four run on Workers AI and bill input tokens only, but their modalities, context windows, and open-weight status differ. If you want to put a cheap classification, routing, or extraction layer inside an agent, this is the selection and validation guide. Prices and versions are as verified on 2026-10-22.
 

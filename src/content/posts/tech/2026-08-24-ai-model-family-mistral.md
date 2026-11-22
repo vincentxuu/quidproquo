@@ -25,7 +25,7 @@ glossary:
     definition: "Mistral 的區域推論端點，讓客戶選擇推理發生在歐洲或美國，符合 GDPR 與資料主權要求"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-mistral-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-mistral-en)
 
 2023 年 4 月，三個離開 Meta 和 Google DeepMind 的法國工程師創立了 Mistral AI——Arthur Mensch、Guillaume Lample 和 Timothée Lacroix。一年內估值破 20 億美元，成為歐洲 AI 新創的獨角獸。他們的策略很明確：不做最大的模型，做最有效率的模型——用更少的參數達到接近前沿的品質，然後用歐洲資料主權的定位打進企業市場。到 2026 年，Mistral Medium 3.5 是歐洲最強的開源級多模態模型，Small 4 則是 24B 級別的效率之王。這是「AI 模型家族」系列的第六篇家族深度介紹，追蹤 Mistral 從 Mistral 7B 到 Medium 3.5 的演化，以及它在 2026 年 8 月提出的「歐洲主權基礎設施」路線。
 

@@ -114,14 +114,14 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-github-digest)
-- 📄 [模型卡｜Claude Fable 5.1](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1)
-- 📄 [資安警報｜NVIDIA NemoClaw DNS Rebinding](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding)
-- 📄 [融資速報｜Atira Seed $17.5M](/posts/daily/2026-09-07-funding-atira)
-- 📄 [工具推薦｜okf-agent-memory](/posts/daily/2026-09-07-tool-okf-agent-memory)
-- 📄 [AI Engineer 面試日練 — 2026-09-07：ML Fundamentals](/posts/daily/2026-09-07-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-07：Product Sense](/posts/daily/2026-09-07-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-github-digest)
+- :file: [模型卡｜Claude Fable 5.1](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1)
+- :file: [資安警報｜NVIDIA NemoClaw DNS Rebinding](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding)
+- :file: [融資速報｜Atira Seed $17.5M](/posts/daily/2026-09-07-funding-atira)
+- :file: [工具推薦｜okf-agent-memory](/posts/daily/2026-09-07-tool-okf-agent-memory)
+- :file: [AI Engineer 面試日練 — 2026-09-07：ML Fundamentals](/posts/daily/2026-09-07-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-07：Product Sense](/posts/daily/2026-09-07-product-builder-interview-daily)
 
 ## 明日關注
 

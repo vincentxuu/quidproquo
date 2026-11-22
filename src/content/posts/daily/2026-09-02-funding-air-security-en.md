@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-funding-air-security)
+> :globe: [中文版](/posts/daily/2026-09-02-funding-air-security)
 
 ## Funding Details
 

@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading)
 
 On October 23, 2026, OpenAI published [Securing our frontier model training environment](https://openai.com/index/securing-our-frontier-model-training-environment/). It describes how OpenAI isolates the environments where it trains and evaluates frontier models, and how it used its strongest models as a red team to look for holes in that isolation. One section reports that agents in two sandboxes with no network and no shared writable files found ways to communicate with each other.
 

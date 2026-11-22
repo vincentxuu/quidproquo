@@ -10,7 +10,7 @@ description: "Slack Code 的運作機制、首發合作夥伴、與 Superconduct
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-slack-code-multiplayer-coding-en)
+> :globe: [English version](/posts/ai/2026-08-22-slack-code-multiplayer-coding-en)
 
 2026 年 8 月 20 日，Salesforce 在 Dreamforce 2026 發佈 [Slack Code](https://slack.com/blog/news/slack-code-channels-for-agents)。Marc Benioff 在推文裡寫：「Don't code alone. Humans and agents. Same channel. Same work.」核心主張很簡單——目前大多數 AI coding 工作是一個人在終端機裡跟 agent 互動，團隊只看到最後的 PR。Slack Code 要把這個過程攤開，變成所有人都能看到、介入、批准的「多人協作」。
 

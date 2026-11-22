@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-google-cloud-run-en)
+> :globe: [English version](/posts/tech/2026-08-22-google-cloud-run-en)
 
 [Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run) 是 Google Cloud 的全代管 application platform。它現在有三種 resource：service 接 HTTP／event，job 執行後結束，worker pool 處理長駐 pull-based background work。三者共用 container 基礎，生命週期卻不能混用。
 

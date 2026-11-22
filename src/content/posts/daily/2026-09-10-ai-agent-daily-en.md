@@ -121,14 +121,14 @@ North America is already fully covered above in Vendor Updates and the Coding Ag
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-github-digest-en)
-- 📄 [Framework Update | Mastra @mastra/core@1.65.0](/posts/daily/2026-09-10-framework-mastra-1.65.0-en)
-- 📄 [Framework Update | Pydantic AI v2.42.0](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en)
-- 📄 [Security Alert | Google GTIG Discloses: Autonomous Multi-Agent Framework Completes a Breach in Six Hours](/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft-en)
-- 📄 [Tool Recommendation | ToolHive](/posts/daily/2026-09-10-tool-toolhive-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-10: LLM & Agent Engineering](/posts/daily/2026-09-10-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-10: AI Product Design](/posts/daily/2026-09-10-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-github-digest-en)
+- :file: [Framework Update | Mastra @mastra/core@1.65.0](/posts/daily/2026-09-10-framework-mastra-1.65.0-en)
+- :file: [Framework Update | Pydantic AI v2.42.0](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0-en)
+- :file: [Security Alert | Google GTIG Discloses: Autonomous Multi-Agent Framework Completes a Breach in Six Hours](/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft-en)
+- :file: [Tool Recommendation | ToolHive](/posts/daily/2026-09-10-tool-toolhive-en)
+- :file: [AI Engineer Interview Daily — 2026-09-10: LLM & Agent Engineering](/posts/daily/2026-09-10-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-10: AI Product Design](/posts/daily/2026-09-10-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

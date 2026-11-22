@@ -13,7 +13,7 @@ description: "pi-mono 是 Mario Zechner 打造的極簡 coding agent monorepo（
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview-en)
+> :globe: [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview-en)
 
 ## TL;DR
 
@@ -126,23 +126,23 @@ session-backends/sqlite-node
 
 | Order | 標題 | 聚焦問題 | 狀態 | 預估長度 |
 |---|---|---|---|---|
-| 0 | **系列導覽與專案概覽** (本文) | 這個專案是什麼？系列怎麼讀？ | ✅ 發布 | — |
-| 1 | **從 CLI 使用者角度認識 pi** | 裝起來怎麼用？4 模式怎麼切？Session 怎麼存？ | 🔄 撰寫中 | ~2500 字 |
-| 2 | **Monorepo 架構與核心抽象層** | 7 套件怎麼分工？依賴怎麼單向？為什麼這樣切？ | ⏳ 待寫 | ~3000 字 |
-| 3 | **pi-ai：統一多供應商 LLM API** | 15+ providers 怎麼同一介面？Lazy loading？Streaming 怎麼統一？ | ⏳ 待寫 | ~3500 字 |
-| 4 | **Agent Loop：雙層循環與事件流** | 為什麼雙 while？Steering vs Follow-up？中斷怎麼處理？ | ⏳ 待寫 | ~4000 字 |
-| 5 | **Session Tree：Append-only、Branching、Compaction** | Tree 結構怎麼存？Branch 怎麼不改歷史？Compaction 觸發點？ | ⏳ 待寫 | ~3500 字 |
-| 6 | **Tool System：定義、執行、Parallel/Sequential、Hooks** | Tool 定義長什麼樣？Before/After hook 怎麼攔截？ | ⏳ 待寫 | ~3000 字 |
-| 7 | **Extension System：Hooks、Custom Tools、UI Components、Lifecycle** | Extension 能做什麼？怎麼載入？怎麼存取 TUI？ | ⏳ 待寫 | ~4000 字 |
-| 8 | **TUI 架構：Differential Rendering、Component Tree、Layout Engine** | 無閃爍怎麼做？Virtual DOM Diff？CSI 2026 是什麼？ | ⏳ 待寫 | ~3500 字 |
-| 9 | **Model Catalog、Provider Factory、OAuth 與 Credential Sync** | 模型資料怎麼產？Provider 怎麼懶載？OAuth 流程？ | ⏳ 待寫 | ~3000 字 |
-| 10 | **Remote Session：Client/Server、Protocol、RPC、WebSocket** | 遠端 session 怎麼同步？JSON-RPC 怎麼定義？Reconnection？ | ⏳ 待寫 | ~3000 字 |
-| 11 | **Telemetry：Vendor-neutral Contracts、Schema、Conformance** | 為什麼不直接用 OpenTelemetry？Schema 怎麼定義？ | ⏳ 待寫 | ~2500 字 |
-| 12 | **Compaction 深度：策略、Token Estimation、Branch Summary、Structured Compaction** | Token 怎麼估？Cut point 怎麼找？Extension 怎麼自訂？ | ⏳ 待寫 | ~3500 字 |
-| 13 | **Agent Harness、Skills、System Prompt 組裝** | System prompt 怎麼組？Skills 怎麼載入？Prompt template？ | ⏳ 待寫 | ~2500 字 |
-| 14 | **Testing、Quality Gates、Supply-chain Hardening** | Faux provider？Browser smoke？Pinned deps？Shrinkwrap？ | ⏳ 待寫 | ~3000 字 |
-| 15 | **Containerization、Sandbox、Permission Model** | Gondolin？Docker？OpenShell？為什麼不內建 permission？ | ⏳ 待寫 | ~2500 字 |
-| 16 | **Release 流程、Lockstep Versioning、Binary Build、Trusted Publishing** | 怎麼單一版本發佈？Binary 怎麼建？npm OIDC 流程？ | ⏳ 待寫 | ~3000 字 |
+| 0 | **系列導覽與專案概覽** (本文) | 這個專案是什麼？系列怎麼讀？ | ✓ 發布 | — |
+| 1 | **從 CLI 使用者角度認識 pi** | 裝起來怎麼用？4 模式怎麼切？Session 怎麼存？ | :refresh: 撰寫中 | ~2500 字 |
+| 2 | **Monorepo 架構與核心抽象層** | 7 套件怎麼分工？依賴怎麼單向？為什麼這樣切？ | :hourglass: 待寫 | ~3000 字 |
+| 3 | **pi-ai：統一多供應商 LLM API** | 15+ providers 怎麼同一介面？Lazy loading？Streaming 怎麼統一？ | :hourglass: 待寫 | ~3500 字 |
+| 4 | **Agent Loop：雙層循環與事件流** | 為什麼雙 while？Steering vs Follow-up？中斷怎麼處理？ | :hourglass: 待寫 | ~4000 字 |
+| 5 | **Session Tree：Append-only、Branching、Compaction** | Tree 結構怎麼存？Branch 怎麼不改歷史？Compaction 觸發點？ | :hourglass: 待寫 | ~3500 字 |
+| 6 | **Tool System：定義、執行、Parallel/Sequential、Hooks** | Tool 定義長什麼樣？Before/After hook 怎麼攔截？ | :hourglass: 待寫 | ~3000 字 |
+| 7 | **Extension System：Hooks、Custom Tools、UI Components、Lifecycle** | Extension 能做什麼？怎麼載入？怎麼存取 TUI？ | :hourglass: 待寫 | ~4000 字 |
+| 8 | **TUI 架構：Differential Rendering、Component Tree、Layout Engine** | 無閃爍怎麼做？Virtual DOM Diff？CSI 2026 是什麼？ | :hourglass: 待寫 | ~3500 字 |
+| 9 | **Model Catalog、Provider Factory、OAuth 與 Credential Sync** | 模型資料怎麼產？Provider 怎麼懶載？OAuth 流程？ | :hourglass: 待寫 | ~3000 字 |
+| 10 | **Remote Session：Client/Server、Protocol、RPC、WebSocket** | 遠端 session 怎麼同步？JSON-RPC 怎麼定義？Reconnection？ | :hourglass: 待寫 | ~3000 字 |
+| 11 | **Telemetry：Vendor-neutral Contracts、Schema、Conformance** | 為什麼不直接用 OpenTelemetry？Schema 怎麼定義？ | :hourglass: 待寫 | ~2500 字 |
+| 12 | **Compaction 深度：策略、Token Estimation、Branch Summary、Structured Compaction** | Token 怎麼估？Cut point 怎麼找？Extension 怎麼自訂？ | :hourglass: 待寫 | ~3500 字 |
+| 13 | **Agent Harness、Skills、System Prompt 組裝** | System prompt 怎麼組？Skills 怎麼載入？Prompt template？ | :hourglass: 待寫 | ~2500 字 |
+| 14 | **Testing、Quality Gates、Supply-chain Hardening** | Faux provider？Browser smoke？Pinned deps？Shrinkwrap？ | :hourglass: 待寫 | ~3000 字 |
+| 15 | **Containerization、Sandbox、Permission Model** | Gondolin？Docker？OpenShell？為什麼不內建 permission？ | :hourglass: 待寫 | ~2500 字 |
+| 16 | **Release 流程、Lockstep Versioning、Binary Build、Trusted Publishing** | 怎麼單一版本發佈？Binary 怎麼建？npm OIDC 流程？ | :hourglass: 待寫 | ~3000 字 |
 
 ### 閱讀順序建議
 

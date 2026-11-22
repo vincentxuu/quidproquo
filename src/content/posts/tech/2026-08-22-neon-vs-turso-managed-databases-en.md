@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-neon-vs-turso-managed-databases)
+> :globe: [中文版](/posts/tech/2026-08-22-neon-vs-turso-managed-databases)
 
 The label “managed Postgres (Neon/Turso)” remains inaccurate in August 2026. [Neon](https://neon.com/docs/introduction) is a PostgreSQL-compatible serverless platform. [Turso Cloud](https://docs.turso.tech/cloud) currently runs production-ready libSQL and is moving toward the ground-up, SQLite-compatible Turso Database. Turso has announced a PostgreSQL-compatible frontend, but explicitly describes the current work as a foundation rather than a finished production Postgres product.
 

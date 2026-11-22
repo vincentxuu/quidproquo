@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-bedrock-agentcore-opensandbox)
+> :globe: [中文版](/posts/ai/2026-08-30-bedrock-agentcore-opensandbox)
 
 ## What This Post Is
 
@@ -128,7 +128,7 @@ OpenSandbox supports BYOC (Bring Your Own Cloud), allowing enterprises to deploy
 | Isolation technology | Firecracker microVM | gVisor | Firecracker microVM | Docker / Kata | gVisor / microVM |
 | Multi-language SDK | Python/Node.js/Java | Python/Go/Java/Rust | Python/TypeScript | Multi-language | Python/TypeScript/Go |
 | BYOC | No | Yes | Yes (AWS/GCP/Azure) | No | No |
-| GPU support | Limited | Limited | No | Limited | ✅ (A100/H100) |
+| GPU support | Limited | Limited | No | Limited | ✓ (A100/H100) |
 | State retention | Session state | Process/file/network API | pause/resume | snapshot/fork | snapshot/pause/resume |
 
 ### Choose Cloud-Native Sandbox When

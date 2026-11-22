@@ -40,7 +40,7 @@ glossary:
         url: "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-training-and-exams-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-training-and-exams-en)
 
 這篇回答兩個問題：一位 IFMGA 嚮導上課時到底練了什麼，以及考試當天怎麼考、怎麼評分。如果你在考慮自己走這條路，看完會知道入學前要先爬到什麼程度，也知道考場上會被要求做哪些事。
 

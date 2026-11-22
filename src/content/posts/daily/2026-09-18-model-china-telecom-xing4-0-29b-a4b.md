@@ -15,7 +15,7 @@ glossary:
     def: "中國電信人工智慧科技有限公司開發的大型語言模型家族，前身為 TeleChat，Xing4.0 是最新一代"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b-en)
+> :globe: [English version](/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | DeepresearchBII | 60.80 | TeleChat3 未在同一評測集公開對應分數 | Qwen3.6-35B-A3B 59.70 |
 | AIME2026 | 90.00 | TeleChat3 未在同一評測集公開對應分數 | Qwen3.6-35B-A3B 92.70（此項落後） |
 
-⚠️ 以上均為 China Telecom 官方自測（GitHub／Hugging Face 模型卡公告），尚未見第三方獨立複現；各 benchmark 的取樣參數（temperature 0.8–1.0 不等）由官方分別設定，可能影響跨模型可比性。
+:warning: 以上均為 China Telecom 官方自測（GitHub／Hugging Face 模型卡公告），尚未見第三方獨立複現；各 benchmark 的取樣參數（temperature 0.8–1.0 不等）由官方分別設定，可能影響跨模型可比性。
 
 ## 與前代/競品比較
 

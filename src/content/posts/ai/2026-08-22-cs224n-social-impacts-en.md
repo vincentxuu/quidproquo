@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 16: hal
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-social-impacts)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-social-impacts)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

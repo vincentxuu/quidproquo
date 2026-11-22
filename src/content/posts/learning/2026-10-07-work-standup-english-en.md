@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-07-work-standup-english)
+> :globe: [中文版](/posts/learning/2026-10-07-work-standup-english)
 
 The "work" scenario in my English speaking practice area only had two sentences. This post adds ten, covering four things a software engineer keeps doing in stand-ups and day-to-day collaboration. These sentences were not adapted from one real conversation. I listed what I wanted to say in Chinese first, then looked for dictionary support one sentence at a time.
 

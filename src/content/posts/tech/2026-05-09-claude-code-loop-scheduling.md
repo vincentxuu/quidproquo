@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-🌏 [English version](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
+:globe: [English version](/posts/tech/2026-05-09-claude-code-loop-scheduling-en)
 
 > 這篇是 `/loop` 的實作篇，聚焦指令語法與實際用法。排程全景（Routines／Desktop scheduled tasks／`/loop` 三兄弟怎麼分工）與 goal mode 見主篇：[Claude Code Routines 全攻略](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)。
 

@@ -10,7 +10,7 @@ description: "An in-depth analysis of Andrej Karpathy's LLM Knowledge Bases fram
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-03-llm-knowledge-vault)
+> :globe: [中文版](/posts/ai/2026-04-03-llm-knowledge-vault)
 
 Andrej Karpathy recently shared his approach to building a personal knowledge base with LLMs on X, sparking widespread discussion. His core thesis: instead of spending tokens manipulating code, spend them manipulating knowledge. This post summarizes his framework, community extensions, and the different path quidproquo.cc has taken in the same direction.
 

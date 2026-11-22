@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-oxc-oxlint)
+> :globe: [中文版](/posts/tech/2026-08-22-oxc-oxlint)
 
 [Oxc](https://oxc.rs/) is not a single linter. It is a Rust implementation of JavaScript and TypeScript compiler primitives: a parser, AST, resolver, transformer, minifier, and semantic analysis. [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) is the linter built on that foundation. Its published benchmark places it 50–100 times ahead of ESLint, but the real selection question is whether it can carry the rule contract your repository currently expresses through ESLint.
 

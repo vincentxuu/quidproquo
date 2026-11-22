@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-ai-stack-overview)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-ai-stack-overview)
 
 When building an AI app, the model is only one piece. The surrounding infrastructure is where complexity shows up: provider keys, gateways, RAG, vector indexes, document sync, agent sessions, tool permissions, browsers, sandboxes, memory, observability, and cost control. You can connect a separate external service for each piece, or you can collapse many of them into Cloudflare.
 

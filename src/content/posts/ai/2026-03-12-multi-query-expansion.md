@@ -14,7 +14,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-multi-query-expansion-en)
+> :globe: [English version](/posts/ai/2026-03-12-multi-query-expansion-en)
 
 向量搜尋的結果受限於查詢本身的表達方式。同一個需求，不同措辭的 embedding 可能差距很大，導致遺漏相關文件。
 

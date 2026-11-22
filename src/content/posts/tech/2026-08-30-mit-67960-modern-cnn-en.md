@@ -19,7 +19,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-modern-cnn)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-modern-cnn)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### deepseek-harness (deepseek-ai) ⭐ 158,000+
+### deepseek-harness (deepseek-ai) ★ 158,000+
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### openfang (RightNow-AI) ⭐ 18,113
+### openfang (RightNow-AI) ★ 18,113
 
 [GitHub](https://github.com/rightnow-ai/openfang)　·　Rust　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### LobsterAI (netease-youdao) ⭐ 5,906
+### LobsterAI (netease-youdao) ★ 5,906
 
 [GitHub](https://github.com/netease-youdao/LobsterAI)　·　—　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### prime-agent (PrimeIntellect-ai) ⭐ 17,097
+### prime-agent (PrimeIntellect-ai) ★ 17,097
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　—　·　MIT
 

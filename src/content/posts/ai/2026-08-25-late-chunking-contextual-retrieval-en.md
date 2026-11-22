@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-late-chunking-contextual-retrieval)
+> :globe: [中文版](/posts/ai/2026-08-25-late-chunking-contextual-retrieval)
 
 Retrieval often fails not because the model is weak but because chunking threw away context. Phrases like "the clause mentioned above" or "that company in the previous section" become unresolvable once a chunk is cut, and no retriever can match what the vector never saw.
 

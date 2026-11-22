@@ -21,7 +21,7 @@ glossary:
     context: "Lattice suggests training lock-offs at home at roughly 90° and 125° of elbow flexion and avoiding the fully locked top position."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-home-training)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-home-training)
 
 It's Wednesday, you worked until nine, and the gym is out. You look at your doorframe and wonder: if I put up a pull-up bar and buy a hangboard, can I train at home?
 

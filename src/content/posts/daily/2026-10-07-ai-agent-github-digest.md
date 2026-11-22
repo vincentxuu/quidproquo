@@ -11,7 +11,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-07-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### Autoloom ⭐ 256（上線 7 天）
+### Autoloom ★ 256（上線 7 天）
 
 [GitHub](https://github.com/GanyuanRan/Autoloom)　·　JavaScript　·　Other（原始碼公開，非標準授權）
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### pi-pocket ⭐ 136（上線 3 天）
+### pi-pocket ★ 136（上線 3 天）
 
 [GitHub](https://github.com/TannerMidd/pi-pocket)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### brewery-ai ⭐ 193（上線 3 天，前身 Homebrew）
+### brewery-ai ★ 193（上線 3 天，前身 Homebrew）
 
 [GitHub](https://github.com/empero-org/brewery-ai)　·　Python　·　Brewery License（MIT 加商業營收門檻，月營收超過 200 萬美元才需要另外談授權）
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### jev-doc-search ⭐ 99（上線 7 天）
+### jev-doc-search ★ 99（上線 7 天）
 
 [GitHub](https://github.com/VectifyAI/jev-doc-search)　·　Python　·　Apache-2.0
 

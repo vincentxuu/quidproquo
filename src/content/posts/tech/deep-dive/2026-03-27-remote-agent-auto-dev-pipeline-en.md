@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline)
 
 The previous post covered the eight phases from OpenSpec to automated deployment. That workflow runs, but there's a problem: every single step requires a human to trigger it.
 

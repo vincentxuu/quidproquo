@@ -15,7 +15,7 @@ glossary:
     definition: "web_fetch render parameter (never / auto / always); controls whether browser rendering is invoked, directly affecting provenance fields (engine/backend) and determinism risk."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-5)
+> :globe: [繁體中文版](/posts/tech/2026-08-23-groundlane-series-5)
 
 This closing part converts the operational experience from the previous four parts into a reproducible checklist. Every item references an observable `v0.1.0` behavior — from the self-described contracts, the default security limits listed as safeguards rather than tunable parameters, the provenance fields (`finalUrl`, `engine`, `backend`), and the fixed dual-auth mechanism — rather than a speculative future improvement. Where a recommendation depends on an unimplemented feature, it is explicitly labeled as not executable today.
 

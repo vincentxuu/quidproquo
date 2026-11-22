@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-01-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-01-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -114,13 +114,13 @@ Huawei 在奈及利亞拉哥斯的 AI 雲端高峰會上，正式推出在地的
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-01：Deep Learning & NLP](/posts/daily/2026-09-01-ai-interview-daily)
-- 📄 [模型卡｜DeepSeek-V4-Flash-Vision-Exp](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp)
-- 📄 [Product Builder 面試日練 — 2026-09-01：Metrics & Analytics](/posts/daily/2026-09-01-product-builder-interview-daily)
-- 📄 [資安警報｜TeamPCP 供應鏈攻擊集團主嫌落網](/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest)
-- 📄 [工具推薦｜read4all — 讓 Agent 把 PDF、Office、截圖都讀成 Markdown](/posts/daily/2026-09-01-tool-read4all)
+- :file: [AI Agent Arxiv Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-01](/posts/daily/2026-09-01-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-01：Deep Learning & NLP](/posts/daily/2026-09-01-ai-interview-daily)
+- :file: [模型卡｜DeepSeek-V4-Flash-Vision-Exp](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp)
+- :file: [Product Builder 面試日練 — 2026-09-01：Metrics & Analytics](/posts/daily/2026-09-01-product-builder-interview-daily)
+- :file: [資安警報｜TeamPCP 供應鏈攻擊集團主嫌落網](/posts/daily/2026-09-01-security-teampcp-supply-chain-arrest)
+- :file: [工具推薦｜read4all — 讓 Agent 把 PDF、Office、截圖都讀成 Markdown](/posts/daily/2026-09-01-tool-read4all)
 
 ## 明日關注
 

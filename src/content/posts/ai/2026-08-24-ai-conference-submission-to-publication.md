@@ -24,7 +24,7 @@ glossary:
     context: "reviewer bidding 結合 TPMS 匹配分數是目前主流會議分配審稿人的標準方法。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-submission-to-publication-en)
+> :globe: [English version](/posts/ai/2026-08-24-ai-conference-submission-to-publication-en)
 
 > 本文是「[AI 頂會導讀](/posts/ai/2026-08-23-what-is-ai-top-conference)」系列的第三篇。前篇介紹了頂會怎麼被認定、代表會議有哪些；這篇拆解一篇論文從按下 submit 到最終見刊的完整流程。
 

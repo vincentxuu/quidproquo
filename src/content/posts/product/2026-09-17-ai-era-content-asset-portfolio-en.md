@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-ai-era-content-asset-portfolio)
+> :globe: [中文版](/posts/product/2026-09-17-ai-era-content-asset-portfolio)
 
 An orchard owner does not ask only which tree produces the most fruit today. Some trees fund this season, some become windbreaks, and some improve soil and irrigation so different crops remain possible later.
 

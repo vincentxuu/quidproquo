@@ -11,7 +11,7 @@ series:
   order: 112
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-13-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -73,7 +73,7 @@ AutoResearch agents -- agents that propose ideas, write code to run experiments,
 ### Key Findings
 
 - On MLE-Dojo (test)'s ten tasks, WMRL cuts real-execution GRPO's training compute by 3.1-3.4x while scores go up, not down (4B model: 15.2→16.4; 9B model: 18.8→21.6)
-- WMRL-trained 4B/9B models beat open-weight agents 10x+ larger (48B Kimi-48B-A3B, 120B Nemotron-120B-A12B) on both MLE-Dojo and DSBench ⚠️ (author-reported, no external replication yet)
+- WMRL-trained 4B/9B models beat open-weight agents 10x+ larger (48B Kimi-48B-A3B, 120B Nemotron-120B-A12B) on both MLE-Dojo and DSBench :warning: (author-reported, no external replication yet)
 - Ablations show that using the world model with no correction at all scores below real-environment training; Online Debiasing alone contributes 2.2-2.8 points, Inverse-Variance Denoising alone contributes 0.9-1.7 points, and together they contribute 2.9-4.8 points -- the two mechanisms are complementary, not redundant
 - The same correction mechanisms transfer to VLA (vision-language-action) robotic policy post-training, lifting overall success rate by 2.9 points, suggesting the method isn't tied specifically to AutoResearch
 - Adoption threshold: requires a model with capability comparable to the agent to serve as the world model, plus a well-designed "anchor" ratio to correct bias -- this isn't a free lunch that simply removes the environment

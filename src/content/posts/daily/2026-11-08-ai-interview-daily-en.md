@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-08-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-11-08-ai-interview-daily)
 
 ## This Week's Behavioral Interview Practice
 

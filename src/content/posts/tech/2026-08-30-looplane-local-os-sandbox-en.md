@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-local-os-sandbox)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-local-os-sandbox)
 
 The [permission layer](/posts/tech/2026-08-30-looplane-permission-layering-en) decides whether a command has authority to run. An authorized process may still inherit broad host access, so Looplane can wrap configured local command and verification paths in an operating-system sandbox.
 

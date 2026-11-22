@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-01-introduction)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-01-introduction)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

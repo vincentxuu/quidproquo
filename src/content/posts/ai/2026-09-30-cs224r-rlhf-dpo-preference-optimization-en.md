@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L9 names it as the core risk of RLHF and uses it to motivate verifiable rewards."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

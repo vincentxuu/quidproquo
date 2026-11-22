@@ -17,7 +17,7 @@ Today's trending projects span agent security scanning, context compression, and
 
 ## Trending Repos
 
-### NVIDIA/SkillSpector ⭐ 16,316
+### NVIDIA/SkillSpector ★ 16,316
 
 [GitHub](https://github.com/NVIDIA/SkillSpector)　·　Python　·　Apache-2.0
 
@@ -28,7 +28,7 @@ Today's trending projects span agent security scanning, context compression, and
 
 ---
 
-### mksglu/context-mode ⭐ 20,428
+### mksglu/context-mode ★ 20,428
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2
 
@@ -39,7 +39,7 @@ Today's trending projects span agent security scanning, context compression, and
 
 ---
 
-### debpalash/VoiceStudio ⭐ 19,130
+### debpalash/VoiceStudio ★ 19,130
 
 [GitHub](https://github.com/debpalash/VoiceStudio)　·　Python　·　AGPL-3.0
 
@@ -50,7 +50,7 @@ Today's trending projects span agent security scanning, context compression, and
 
 ---
 
-### ruvnet/ruflo ⭐ 70,745
+### ruvnet/ruflo ★ 70,745
 
 [GitHub](https://github.com/ruvnet/ruflo)　·　TypeScript　·　MIT
 

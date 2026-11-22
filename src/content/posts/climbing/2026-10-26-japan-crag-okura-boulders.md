@@ -13,7 +13,7 @@ description: "大倉抱石群攀岩指南：季節、大眾運輸、停車、在
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-okura-boulders-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-okura-boulders-en)
 
 仙台大倉川沿岸的抱石群，把汁岩、テーブル岩、林道岩等不同岩塊串成一日行程。水位會直接改變落地與可用課題；看得到岩塊，還要看得到安全的退出路。
 

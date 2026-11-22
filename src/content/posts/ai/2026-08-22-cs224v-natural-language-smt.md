@@ -12,7 +12,7 @@ tldr: "這堂把病人紀錄與試驗條件各自轉成 SMT，先以較弱的命
 description: "CS224V Natural Language Constraints with SMT：臨床試驗配對、SMT 表示、PL projection、候選檢索、solver matching 與限制。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-natural-language-smt-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-natural-language-smt-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

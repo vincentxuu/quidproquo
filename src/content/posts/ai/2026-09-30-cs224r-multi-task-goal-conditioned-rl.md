@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L12 從多任務監督學習借來的技巧，RL 版本是每個任務各自一個 replay buffer。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-multi-task-goal-conditioned-rl-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ tldr: "Intermittent NVIDIA NIM 500s exposed Looplane's early gap: classified err
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-provider-retry-policy)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-provider-retry-policy)
 
 ## The design problem
 

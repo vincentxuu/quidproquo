@@ -12,7 +12,7 @@ tldr: "STORM uses perspective-guided questions, simulated interviews, and outlin
 description: "The complete CS224V Knowledge Curation lecture: RAG, STORM pre-writing research and evaluation, Co-STORM discourse, and the DataSTORM assignment."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-knowledge-curation)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-knowledge-curation)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

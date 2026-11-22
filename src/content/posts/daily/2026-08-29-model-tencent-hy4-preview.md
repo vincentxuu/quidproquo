@@ -15,7 +15,7 @@ glossary:
     def: "騰訊開發的大型語言模型家族，Hy 系列（如 Hy3、Hy4）是其最新一代開源旗艦模型代號"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
+> :globe: [English version](/posts/daily/2026-08-29-model-tencent-hy4-preview-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | GPQA Diamond | 92.3% | — | Sakana Fugu-Ultra：95.5% |
 | HLE（Humanity's Last Exam） | 55.4% | — | Claude Opus 5：64.7% |
 
-⚠️ 上列分數出自 Tencent 官方 Hy4-preview 模型卡的 Benchmark Appendix，屬官方自測；「競品參考」欄與 BenchLM 綜合評分（79.2/100，Agentic 類第 9／140、94th percentile，Coding 類第 11／146、93rd percentile）為第三方聚合平台數據，尚待更多獨立複現。Hy3 preview 的官方自測另有 SWE-bench Verified 74.4%、BrowseComp 67.1%，但 Hy4 preview 官方公開的是 SWE-bench Pro／Multilingual 兩個不同子集，兩代之間除 Terminal-Bench 外多數指標無法直接對齊。
+:warning: 上列分數出自 Tencent 官方 Hy4-preview 模型卡的 Benchmark Appendix，屬官方自測；「競品參考」欄與 BenchLM 綜合評分（79.2/100，Agentic 類第 9／140、94th percentile，Coding 類第 11／146、93rd percentile）為第三方聚合平台數據，尚待更多獨立複現。Hy3 preview 的官方自測另有 SWE-bench Verified 74.4%、BrowseComp 67.1%，但 Hy4 preview 官方公開的是 SWE-bench Pro／Multilingual 兩個不同子集，兩代之間除 Terminal-Bench 外多數指標無法直接對齊。
 
 ## 與前代/競品比較
 

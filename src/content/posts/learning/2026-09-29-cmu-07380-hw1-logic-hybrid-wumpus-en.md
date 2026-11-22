@@ -14,7 +14,7 @@ description: "Guide to the CMU 07-380 Fall 2026 HW1 programming assignment, Logi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-hw1-logic-hybrid-wumpus)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

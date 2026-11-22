@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-drizzle-orm-sql-first)
+> :globe: [中文版](/posts/tech/2026-08-21-drizzle-orm-sql-first)
 
 This series keeps returning to one criterion: **when choosing a data access layer, optimize for auditability**. Agents will write queries for you, but you need to be able to read what they wrote in a diff and judge whether it's correct. Drizzle ORM's core value proposition sits squarely on this line — its query builder reads like SQL, not a separate DSL.
 

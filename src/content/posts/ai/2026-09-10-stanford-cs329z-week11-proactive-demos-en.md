@@ -14,7 +14,7 @@ description: "A guided reading of Stanford CS329Z Week 11 headliner General User
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

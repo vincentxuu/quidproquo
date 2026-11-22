@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-tandem-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-tandem-speaking-practice)
 
 You want someone to speak English with, without necessarily taking a lesson every time. If you are also willing to help that person practice Chinese, [Tandem](https://tandem.net/) can help you find a language-exchange partner. Each person offers a language they know in return for practice in another.
 

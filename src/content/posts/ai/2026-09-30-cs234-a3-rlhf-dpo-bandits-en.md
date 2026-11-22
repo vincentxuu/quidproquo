@@ -26,7 +26,7 @@ glossary:
     context: "Assignment 3 Q4 asks how many total samples 'pull each arm n_e times and pick the highest mean' needs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-a3-rlhf-dpo-bandits)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

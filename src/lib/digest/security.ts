@@ -138,7 +138,7 @@ series:
 function buildPrompt(incident: SecurityIncident): string {
   const sourceList = incident.sources.map((s, i) => `[${i + 1}] ${s.title}: ${s.url}`).join('\n')
   const singleSourceWarning = incident.singleSource
-    ? '\n⚠️ 這個事件只有單一來源，請在文中標注「⚠️ 單一來源，待驗證」。'
+    ? '\n注意：這個事件只有單一來源，請在文中標注「單一來源，待驗證」。'
     : ''
 
   return `你是 quidproquo.cc 的資安技術作者。請根據以下資安事件撰寫警報文章。

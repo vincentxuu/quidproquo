@@ -13,7 +13,7 @@ description: "名張 Nabari／香落溪傳攀指南：春秋季節、名張站�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-nabari-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-nabari-en)
 
 從台灣飛大阪，把目標放在日本裂隙傳攀，名張是值得單獨安排的目的地。青蓮寺川旁的柱狀節理，把一條條裂隙切得又直又長；「名張入門」雖然叫入門，仍會要求你把卡手、卡腳與放保護真正用上。
 

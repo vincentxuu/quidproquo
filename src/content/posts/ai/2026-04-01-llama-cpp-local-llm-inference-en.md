@@ -10,7 +10,7 @@ description: "A deep dive into llama.cpp's core architecture (GGML tensor librar
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)
+> :globe: [中文版](/posts/ai/2026-04-01-llama-cpp-local-llm-inference)
 
 Ollama lets you run a model with a single command, and the engine doing the actual work under the hood is llama.cpp. If you've used Ollama but found it too opaque — and want more control over quantization formats, GPU layer offloading, speculative decoding, or building directly against an OpenAI-compatible API — llama.cpp is the layer you need to dig into.
 

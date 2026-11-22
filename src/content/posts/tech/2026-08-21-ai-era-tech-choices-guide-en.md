@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-ai-era-tech-choices-guide)
+:globe: [中文版](/posts/tech/2026-08-21-ai-era-tech-choices-guide)
 
 Start with a concrete problem, because that is what this series grew out of.
 

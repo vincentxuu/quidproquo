@@ -26,7 +26,7 @@ glossary:
     context: "The table on slide 17 of L11 shows which data each type avoids reloading or moving."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-programming-specialized-hardware)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -83,7 +83,7 @@ Slides 28–29 summarize two specialized GPU units:
 - **Tensor Cores**: specialized MMA compute. The slide adds two terms: a warpgroup is 128 consecutive threads, and PTX is NVIDIA's virtual instruction set architecture.
 - **TMA**: a specialized block data-movement unit. Slide 28 contrasts the A100's LDGSTS with the H100's TMA, which can bypass L1. Slide 29 says it eliminates thousands of instructions and memory-addressing overhead, plus unnecessary data movement through L1 and registers.
 
-Slide 30 puts GPUs back into the ideal-features table (same as the previous post): tiled tensors, async compute, and async memory are ✅; compute-unit-to-compute-unit communication is ❓.
+Slide 30 puts GPUs back into the ideal-features table (same as the previous post): tiled tensors, async compute, and async memory are ✓; compute-unit-to-compute-unit communication is :question:.
 
 ### What the programmer has to do
 

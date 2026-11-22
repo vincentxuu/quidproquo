@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 37
 ---
-> 🌏 [English version](/posts/daily/2026-06-30-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-30-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -43,7 +43,7 @@ series:
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 除非你在開發 coding agent 或 code retrieval 系統，否則看摘要就夠了；如果有，這篇的方法論值得細讀。
 
 ### 領域背景
@@ -98,7 +98,7 @@ SWE-Explore 收集了 848 個 GitHub issue（203 個 repo、10 種程式語言�
 
 ### Read Priority
 
-⭐ 必讀
+★ 必讀
 任何在評估或選型 coding agent 框架的人，這篇改變你看 benchmark 數字的方式。
 
 ### 領域背景
@@ -123,7 +123,7 @@ Claw-SWE-Bench 設計了一個「adapter protocol（轉接協議）」：在不�
 ### 深入要點
 
 - Adapter protocol 標準化四件事：prompt 格式、執行時間預算、workspace 合約（環境隔離方式）、patch 提取邏輯 + 評分器
-- **⚠️ 19.1% vs 73.4% 是作者自設 minimal adapter 對比 full adapter**，minimal adapter 的設計選擇可能刻意選弱，這個戲劇性數字需要社群獨立複現才能完全信任
+- **:warning: 19.1% vs 73.4% 是作者自設 minimal adapter 對比 full adapter**，minimal adapter 的設計選擇可能刻意選弱，這個戲劇性數字需要社群獨立複現才能完全信任
 - Future-commit cleanup：排除 issue 建立後才 commit 的修改，避免「agent 偷看了答案」的 data leakage 問題
 - 成本感知 Lite subset：用 17 個校準指標選出 80 個最具代表性的 instance，讓快速驗證的成本降低 77%
 - 8 語言覆蓋讓非 Python 的 coding agent 也能公平評測
@@ -154,7 +154,7 @@ AI agent 越來越強，但評測系統一直是靜態的——這篇論文讓�
 
 ### Read Priority
 
-⭐ 必讀
+★ 必讀
 對 agent 平台架構師、做 eval infrastructure 的工程師，或對 AI 自我改進系統感興趣的任何人——這篇的概念層面是近期 agent 研究中少數真正有新鮮感的，思路值得深讀。
 
 ### 領域背景
@@ -182,7 +182,7 @@ Red Queen Gödel Machine（RQGM）的核心是 epoch 架構：(1) 每個 epoch �
 - Coding 結果：用 agent-as-a-judge 的 code review 訊號輔助 test pass，比 SOTA 少用 1.35x-1.72x 的 tokens 達到更高 test pass rate
 - Writing 結果：co-evolved writers 的 paper 在 agent judge panel 的接受率提升 1.78x-1.86x
 - Grading 結果：co-evolved graders 在 Olympiad 數學題的 ground-truth accuracy 提升 9%
-- **⚠️ Writing 的 1.78x-1.86x 是以 agent judge panel 評分，不是人類評審**——最亮眼的數字缺乏獨立的人類驗證，存疑
+- **:warning: Writing 的 1.78x-1.86x 是以 agent judge panel 評分，不是人類評審**——最亮眼的數字缺乏獨立的人類驗證，存疑
 - Epoch 理論保證的前提：within-epoch 的 evaluator 必須是正確的；如果 evaluator 本身有偏差，proof 不成立
 - 主要 limitation：如果 ground truth 本身有偏差，co-evolution 可能放大偏差；preprint，尚未 peer review；epoch 切換的觸發條件需要人工設定
 - 機構背景強大：Cambridge（Nicholas D. Lane 團隊）× NVIDIA × Flower Labs（聯邦學習公司）× MBZUAI × Inria，跨機構合作，資源充足

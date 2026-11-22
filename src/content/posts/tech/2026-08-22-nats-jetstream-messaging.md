@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-nats-jetstream-messaging-en)
+> :globe: [English version](/posts/tech/2026-08-22-nats-jetstream-messaging-en)
 
 [NATS](https://docs.nats.io/learn/core-nats/) 把通訊建立在 subject 與 interest graph 上。publisher 送到 `orders.created`，所有當下訂閱這個 subject 的 client 都能收到；wildcard、request-reply 與 queue group 都沿用同一套 addressing。server 不解讀 payload，Core NATS 也不保存訊息。
 

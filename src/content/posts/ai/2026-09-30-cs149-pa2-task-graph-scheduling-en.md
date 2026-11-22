@@ -20,7 +20,7 @@ glossary:
     context: "The foundation of PA2 from Part A Step 2 onward, used to remove the cost of creating threads on every run()."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-pa2-task-graph-scheduling)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

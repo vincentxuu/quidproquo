@@ -10,7 +10,7 @@ description: "完整說明 SearXNG 的查詢流程、Compose 安裝、settings.y
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-searxng-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-searxng-complete-guide-en)
 
 [SearXNG](https://docs.searxng.org/) 是把同一個問題送往多個搜尋服務，再合併結果的元搜尋引擎。它不建立自己的全網索引，也不負責打開結果頁、執行 JavaScript 或抽取全文。對 agent 來說，它解決的是「先找到 URL」，不是「把 URL 讀完」。
 

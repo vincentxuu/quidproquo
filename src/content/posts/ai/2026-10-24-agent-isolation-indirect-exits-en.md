@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-indirect-exits)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-indirect-exits)
 
 The earlier posts were about how agents communicate with each other. This one turns the other way: how an agent reaches the outside. The two need different defenses: a channel connects two sandboxes, while an exit connects a sandbox to the internet.
 

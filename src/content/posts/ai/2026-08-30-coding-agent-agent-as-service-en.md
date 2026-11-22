@@ -13,7 +13,7 @@ description: "Comparing server APIs across mature coding agents, including loopl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-agent-as-service)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-agent-as-service)
 
 The final post of the series. [The previous one](/posts/ai/2026-08-30-coding-agent-code-mode-en) covered code mode; this one closes out Part Two with the last missing capability: turning the agent from "a program in your terminal" into "a service other programs can call."
 

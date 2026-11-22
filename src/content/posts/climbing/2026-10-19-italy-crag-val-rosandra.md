@@ -13,7 +13,7 @@ description: "羅桑德拉谷（Val Rosandra）岩場介紹：喀斯特石灰岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-val-rosandra-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-val-rosandra-en)
 
 羅桑德拉谷（Val Rosandra，斯洛維尼亞文 Dolina Glinščice）在的里雅斯特（Trieste）東南郊、聖多爾利戈德拉瓦萊（San Dorligo della Valle – Dolina）市境內。這是一條被羅桑德拉溪切出來的喀斯特峽谷，上游就是斯洛維尼亞。[的里雅斯特市的觀光網站](https://discover-trieste.it/live/natural-wonders/rosandra-valley-reserve)稱它是「one of the most valued rock climbing areas in Europe」，也是 Emilio Comici「first learnt his craft」的地方。
 

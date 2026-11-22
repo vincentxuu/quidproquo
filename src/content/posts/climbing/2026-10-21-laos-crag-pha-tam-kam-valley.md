@@ -13,7 +13,7 @@ description: "Pha Tam Kam 山谷岩壁指南：Hangover、Partymeile、Open All 
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-pha-tam-kam-valley-en)
 
 如果營地周圍的牆是「每天出門先爬兩條」的日常，山谷另一側就是「排半天、帶足快扣與水」的行程。這一篇收 Hangover、Partymeile、Open All Hours、Burnout、Worldtrip、The Canyon 與 Communist Wall。它們沒有一個嚴格的地理界線，但共同點是步行時間較長、路線較長，或難度較集中。
 

@@ -13,7 +13,7 @@ description: "The hands-on steps for a self-hosted search backend: run SearXNG f
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-searxng-crawl4ai-setup)
+> :globe: [中文版](/posts/ai/2026-08-21-searxng-crawl4ai-setup)
 
 [The previous post in this series](/posts/ai/2026-08-21-self-hosted-search-stack-en) explained why Tavily and Exa have no self-hosted version and what assembling your own actually costs. This one is the build: how to get it running.
 

@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-10-tool-toolhive-en)
+> :globe: [English version](/posts/daily/2026-09-10-tool-toolhive-en)
 
 ## 工具資訊
 
@@ -87,11 +87,11 @@ thv run toolhive-doc-mcp-remote
 
 | | ToolHive | 手動 `npx`/`pip` 直接跑 | 自己寫 Docker Compose |
 |---|---|---|---|
-| 容器隔離＋最小權限檔（不帶本機憑證） | ✅ | ❌ | 部分（需自行設計） |
-| 內建 curated registry + 簽章/來源驗證 | ✅ | ❌ | ❌ |
-| 自動幫 client（VS Code/Cursor/Claude Code）寫設定 | ✅ | ❌ | ❌ |
-| Kubernetes Operator，企業規模部署 | ✅ | ❌ | 需自行實作 |
-| 身分/存取策略（OIDC/OAuth）+ 稽核紀錄 | ✅（需接 IdP） | ❌ | 需自行實作 |
+| 容器隔離＋最小權限檔（不帶本機憑證） | ✓ | ✗ | 部分（需自行設計） |
+| 內建 curated registry + 簽章/來源驗證 | ✓ | ✗ | ✗ |
+| 自動幫 client（VS Code/Cursor/Claude Code）寫設定 | ✓ | ✗ | ✗ |
+| Kubernetes Operator，企業規模部署 | ✓ | ✗ | 需自行實作 |
+| 身分/存取策略（OIDC/OAuth）+ 稽核紀錄 | ✓（需接 IdP） | ✗ | 需自行實作 |
 
 ## 注意事項
 

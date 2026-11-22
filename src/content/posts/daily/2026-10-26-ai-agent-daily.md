@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-26-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -110,7 +110,7 @@ caption: 簡化示意：三個今日訊號各自代表一種協調機制，贏�
 
 ### Coding Agent 賽道
 
-**Cursor**：推出 Computer Use 功能，讓 coding agent 能用滑鼠鍵盤操作任何桌面應用，不只侷限瀏覽器——示範案例是 agent 自己建 iOS 功能、開 Simulator、點擊驗證、再回頭修程式碼。（[來源](https://aiweekly.co/ai-news-today)）今日 GitHub Digest 的 PrimeIntellect-ai/prime-agent（⭐ 22,325）走另一條路：把子代理當函式呼叫、把自我改進做成可回滾的 harness，細節見[今日 GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest)。
+**Cursor**：推出 Computer Use 功能，讓 coding agent 能用滑鼠鍵盤操作任何桌面應用，不只侷限瀏覽器——示範案例是 agent 自己建 iOS 功能、開 Simulator、點擊驗證、再回頭修程式碼。（[來源](https://aiweekly.co/ai-news-today)）今日 GitHub Digest 的 PrimeIntellect-ai/prime-agent（★ 22,325）走另一條路：把子代理當函式呼叫、把自我改進做成可回滾的 harness，細節見[今日 GitHub Digest](/posts/daily/2026-10-26-ai-agent-github-digest)。
 
 ### 工具與生態
 
@@ -200,13 +200,13 @@ CEPAL 報告顯示智利、巴西、烏拉圭領跑拉美 AI 能力，85% 受評
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest)
-- 📄 [融資速報｜Azoma 完成 $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma)
-- 📄 [資安警報｜LiteLLM 供應鏈攻擊根因更新 — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause)
-- 📄 [工具推薦｜dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-10-26：ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-26：Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-26](/posts/daily/2026-10-26-ai-agent-github-digest)
+- :file: [融資速報｜Azoma 完成 $11.2M Series A — 2026-10-26](/posts/daily/2026-10-26-funding-azoma)
+- :file: [資安警報｜LiteLLM 供應鏈攻擊根因更新 — 2026-10-26](/posts/daily/2026-10-26-security-litellm-master-key-root-cause)
+- :file: [工具推薦｜dbmole-mcp — 2026-10-26](/posts/daily/2026-10-26-tool-dbmole-mcp)
+- :file: [AI Engineer 面試日練 — 2026-10-26：ML Fundamentals](/posts/daily/2026-10-26-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-26：Product Sense](/posts/daily/2026-10-26-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -11,7 +11,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-19-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-19-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ No flashy framework release today, but the three repos on this list all tackle t
 
 ## Trending Repos
 
-### stablyai/orca ⭐ 96,374
+### stablyai/orca ★ 96,374
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript (Electron)　·　MIT
 
@@ -30,7 +30,7 @@ No flashy framework release today, but the three repos on this list all tackle t
 
 ---
 
-### agentscope-ai/AgentTeams ⭐ 5,772
+### agentscope-ai/AgentTeams ★ 5,772
 
 [GitHub](https://github.com/agentscope-ai/AgentTeams)　·　Go (control plane) + Node.js/Python (worker runtimes)　·　Apache-2.0
 
@@ -41,7 +41,7 @@ No flashy framework release today, but the three repos on this list all tackle t
 
 ---
 
-### wheresryan22/anatomy ⭐ 15,866
+### wheresryan22/anatomy ★ 15,866
 
 [GitHub](https://github.com/wheresryan22/anatomy)　·　JavaScript (Node built-ins only)　·　MIT
 

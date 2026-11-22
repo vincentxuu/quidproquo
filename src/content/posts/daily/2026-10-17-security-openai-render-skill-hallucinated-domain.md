@@ -11,7 +11,7 @@ series:
   order: 56
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-17-security-openai-render-skill-hallucinated-domain-en)
+> :globe: [English version](/posts/daily/2026-10-17-security-openai-render-skill-hallucinated-domain-en)
 
 ## 事件概述
 

@@ -13,7 +13,7 @@ description: "逐頁導讀 Stanford CS111 Spring 2026 Lecture 15：pages/frames�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs111-lecture-15-paging-page-tables-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

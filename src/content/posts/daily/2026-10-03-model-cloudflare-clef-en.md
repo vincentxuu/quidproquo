@@ -15,7 +15,7 @@ glossary:
     def: "Cloudflare's open-source decision model family, post-trained on a Qwen backbone with a non-autoregressive architecture that scores probabilities for multiple typed questions in a single forward pass"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-03-model-cloudflare-clef)
+> :globe: [中文版](/posts/daily/2026-10-03-model-cloudflare-clef)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | ToolRet (nDCG@10) | **69.2** | 66.4 | 65.3 |
 | Median latency (ms, lower is better) | 209.3 | **38.8** | 524.1 |
 
-⚠️ All figures are from Cloudflare's own internal run of its Decision Index 0.2.1 suite; there's no independent third-party reproduction yet. On benchmarks that require deeper reasoning — GPQA Diamond, MMLU-Pro, BBH — Clef falls noticeably behind Jev (e.g. BBH: Clef 73.7% vs Jev 92.9%), suggesting Clef trades some general reasoning capability for classification speed and precision.
+:warning: All figures are from Cloudflare's own internal run of its Decision Index 0.2.1 suite; there's no independent third-party reproduction yet. On benchmarks that require deeper reasoning — GPQA Diamond, MMLU-Pro, BBH — Clef falls noticeably behind Jev (e.g. BBH: Clef 73.7% vs Jev 92.9%), suggesting Clef trades some general reasoning capability for classification speed and precision.
 
 ## Comparison to Prior / Competing Models
 

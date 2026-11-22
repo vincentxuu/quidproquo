@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-modal-serverless-gpu-en)
+:globe: [English version](/posts/ai/2026-08-21-modal-serverless-gpu-en)
 
 站上寫過怎麼挑推論引擎——[vLLM 的技術細節](/posts/ai/2026-03-14-vllm-inference-engine)、[什麼時候該自架](/posts/ai/2026-08-21-vllm-self-host-decision)——但「引擎要跑在哪台機器上」這一層，一篇專文都沒有。這篇補上，主角是這層現在聲量最大的一家。
 

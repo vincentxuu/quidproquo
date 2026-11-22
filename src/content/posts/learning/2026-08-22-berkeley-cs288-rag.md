@@ -12,7 +12,7 @@ draft: false
 series: { name: "Berkeley CS288 導讀", order: 4 }
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-rag-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs288-rag-en)
 
 [13–14 組教材](https://cal-cs288.github.io/sp26/)把焦點從模型內部移到系統邊界：知識從哪裡來、如何切分與索引，以及檢索結果如何交給 generator。架構選擇還會改變計算與品質。這段最好的讀法不是背 RAG 元件圖，而是跟著 Assignment 3 做 failure decomposition。
 

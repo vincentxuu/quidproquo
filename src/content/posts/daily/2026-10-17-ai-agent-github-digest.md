@@ -11,7 +11,7 @@ series:
   order: 63
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-17-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-17-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### anthropics/claude-plugins-official ⭐ 40,252 (+1,552)
+### anthropics/claude-plugins-official ★ 40,252 (+1,552)
 
 [GitHub](https://github.com/anthropics/claude-plugins-official)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### obra/superpowers ⭐ 300,542 (+973)
+### obra/superpowers ★ 300,542 (+973)
 
 [GitHub](https://github.com/obra/superpowers)　·　Shell　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### ruvnet/ruflo ⭐ 75,533 (+672)
+### ruvnet/ruflo ★ 75,533 (+672)
 
 [GitHub](https://github.com/ruvnet/ruflo)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### MadsLorentzen/ai-job-search ⭐ 48,176 (+879)
+### MadsLorentzen/ai-job-search ★ 48,176 (+879)
 
 [GitHub](https://github.com/MadsLorentzen/ai-job-search)　·　Python　·　MIT
 

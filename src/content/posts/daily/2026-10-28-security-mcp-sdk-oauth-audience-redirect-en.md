@@ -11,7 +11,7 @@ series:
   order: 66
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-security-mcp-sdk-oauth-audience-redirect)
+> :globe: [中文版](/posts/daily/2026-10-28-security-mcp-sdk-oauth-audience-redirect)
 
 ## What happened
 

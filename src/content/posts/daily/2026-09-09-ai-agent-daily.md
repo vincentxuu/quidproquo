@@ -110,12 +110,12 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-github-digest)
-- 📄 [融資速報｜Cognition Series E $2B+](/posts/daily/2026-09-09-funding-cognition)
-- 📄 [工具推薦｜BankMCP](/posts/daily/2026-09-09-tool-bankmcp)
-- 📄 [AI Engineer 面試日練 — 2026-09-09：ML System Design](/posts/daily/2026-09-09-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-09：Strategy & Execution](/posts/daily/2026-09-09-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-09](/posts/daily/2026-09-09-ai-agent-github-digest)
+- :file: [融資速報｜Cognition Series E $2B+](/posts/daily/2026-09-09-funding-cognition)
+- :file: [工具推薦｜BankMCP](/posts/daily/2026-09-09-tool-bankmcp)
+- :file: [AI Engineer 面試日練 — 2026-09-09：ML System Design](/posts/daily/2026-09-09-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-09：Strategy & Execution](/posts/daily/2026-09-09-product-builder-interview-daily)
 
 ## 明日關注
 

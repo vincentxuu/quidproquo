@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-06-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-06-ai-agent-daily-en)
 
 ## 一句話判斷
 

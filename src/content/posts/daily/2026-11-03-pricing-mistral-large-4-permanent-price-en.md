@@ -12,7 +12,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price)
+> :globe: [中文版](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price)
 
 ## Summary
 

@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L10 uses Minerva to show that it works, but that gains flatten out before 100 samples."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-rl-llm-reasoning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

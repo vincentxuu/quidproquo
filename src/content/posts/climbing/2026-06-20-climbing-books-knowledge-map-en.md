@@ -138,7 +138,7 @@ glossary:
     context: "The Strong Mind school described in this post uses exposure therapy as one of its core methods."
 ---
 
-🌏 [中文版](/posts/climbing/2026-06-20-climbing-books-knowledge-map)
+:globe: [中文版](/posts/climbing/2026-06-20-climbing-books-knowledge-map)
 
 There are plenty of climbing book lists out there — but most of them just stack titles next to each other without telling you how those books relate.
 
@@ -159,7 +159,7 @@ The consensus on Mountain Project forums: "Horst's books can get most people to 
 | Title | Year | Ebook | Chinese Edition |
 |-------|------|-------|-----------------|
 | Training for Climbing (3rd ed.) | 2016 | Kindle US$14.99 / Apple Books | None |
-| How to Climb 5.12 | — | Kindle / Google Play / Apple Books | ✅ Taiwan edition |
+| How to Climb 5.12 | — | Kindle / Google Play / Apple Books | ✓ Taiwan edition |
 | Maximum Climbing (mental training) | 2010 | Kindle | None |
 | Nutrition for Climbers | 2023 | Kindle | None |
 
@@ -183,7 +183,7 @@ In Reddit r/climbing statistics, *9 Out of 10 Climbers* is the most frequently r
 
 | Title | Year | Ebook | Chinese Edition |
 |-------|------|-------|-----------------|
-| 9 Out of 10 Climbers Make the Same Mistakes | 2009 | **❌ No ebook at all** (self-published, paperback only) | None |
+| 9 Out of 10 Climbers Make the Same Mistakes | 2009 | **✗ No ebook at all** (self-published, paperback only) | None |
 | Make or Break (injury prevention) | 2015 | Kindle | None |
 | Moving the Needle | 2024 | — | None |
 
@@ -211,10 +211,10 @@ If you're only going to buy one English training book published after 2020, this
 
 | Title | Author | What Makes It Notable | Ebook |
 |-------|--------|-----------------------|-------|
-| Performance Rock Climbing | Goddard & Neumann (1993) | The founding text of climbing movement science; everything after cites it | ❌ Out of print |
+| Performance Rock Climbing | Goddard & Neumann (1993) | The founding text of climbing movement science; everything after cites it | ✗ Out of print |
 | The Self-Coached Climber | Hague & Hunter (2006) | Movement analysis for self-coaching; includes DVD | Kindle |
 | Beastmaking | Ned Feehally (2021) | The bible of hangboard training by Beastmaker's founder | Kindle |
-| Gimme Kraft! | Matros et al. (2013) | 70+ strength exercises illustrated in German/English | ❌ |
+| Gimme Kraft! | Matros et al. (2013) | 70+ strength exercises illustrated in German/English | ✗ |
 | Science of Climbing | Dr. Kevin Cowell (2024) | IFSC lead physio breaks down climbing anatomy | Kindle |
 
 ### How to Choose — A Decision Tree
@@ -244,8 +244,8 @@ Chris Sharma and Tommy Caldwell have both endorsed this book. The UKClimbing for
 
 | Title | Year | Goodreads | Ebook |
 |-------|------|-----------|-------|
-| The Rock Warrior's Way | 2003 | ⭐ 4.28 (2,383) | Kindle US$9.99 / Apple Books US$9.99 |
-| Espresso Lessons (practice edition) | 2008 | ⭐ 3.9 | Kindle |
+| The Rock Warrior's Way | 2003 | ★ 4.28 (2,383) | Kindle US$9.99 / Apple Books US$9.99 |
+| Espresso Lessons (practice edition) | 2008 | ★ 3.9 | Kindle |
 
 ### School 2: Cognitive-Behavioral — McGrath & Elison
 
@@ -253,7 +253,7 @@ Written by two psychology professors. Uses cognitive psychology and neuroscience
 
 | Title | Year | Goodreads | Ebook |
 |-------|------|-----------|-------|
-| Vertical Mind | 2014 | ⭐ 4.0 | Kindle |
+| Vertical Mind | 2014 | ★ 4.0 | Kindle |
 
 ### School 3: Elite Experience — Jerry Moffatt
 
@@ -261,7 +261,7 @@ A mental training book written by one of the world's strongest climbers of the 1
 
 | Title | Year | Goodreads | Ebook |
 |-------|------|-----------|-------|
-| Mastermind | 2022 | ⭐ 3.9 | Kindle |
+| Mastermind | 2022 | ★ 3.9 | Kindle |
 
 ### School 4: ACT / Mindfulness Coaching — Hazel Findlay
 
@@ -290,7 +290,7 @@ Climbing literature isn't just a pile of biographies. It has a clear historical 
 
 The era of national expeditions racing to summit the eight-thousanders.
 
-| Title | Author | GR ⭐ | Chinese Ed. | Ebook |
+| Title | Author | GR ★ | Chinese Ed. | Ebook |
 |-------|--------|-------|-------------|-------|
 | Annapurna | Maurice Herzog (1951) | 4.09 | Simplified Chinese | Kindle |
 | The White Spider | Heinrich Harrer (1959) | 4.10 | Simplified Chinese | Kindle |
@@ -300,7 +300,7 @@ The era of national expeditions racing to summit the eight-thousanders.
 
 Camp 4, hippies, and big wall free climbing.
 
-| Title | Author | GR ⭐ | Chinese Ed. | Ebook |
+| Title | Author | GR ★ | Chinese Ed. | Ebook |
 |-------|--------|-------|-------------|-------|
 | Camp 4 | Steve Roper (1994) | ~4.2 | None | — |
 | The Mountains of My Life | Walter Bonatti (1994) | 4.11 | None | Kindle |
@@ -310,16 +310,16 @@ Camp 4, hippies, and big wall free climbing.
 
 Climbing shifts from adventure to pure athletic performance.
 
-| Title | Author | GR ⭐ | Chinese Ed. | Ebook |
+| Title | Author | GR ★ | Chinese Ed. | Ebook |
 |-------|--------|-------|-------------|-------|
 | Climbing Free | Lynn Hill (2002) | 4.17 | Simplified Chinese | Kindle |
 | Revelations | Jerry Moffatt (2009) | ~4.3 | None | Kindle |
 
 ### Modern Era (2010s+): The Free Solo Generation
 
-| Title | Author | GR ⭐ | Chinese Ed. | Ebook |
+| Title | Author | GR ★ | Chinese Ed. | Ebook |
 |-------|--------|-------|-------------|-------|
-| **The Push** | Tommy Caldwell (2017) | **4.46** | ✅ Traditional Chinese / Simplified Chinese (Douban 9.2) | Kindle US$12.99 / Google Play NT$263 |
+| **The Push** | Tommy Caldwell (2017) | **4.46** | ✓ Traditional Chinese / Simplified Chinese (Douban 9.2) | Kindle US$12.99 / Google Play NT$263 |
 | The Impossible Climb | Mark Synnott (2019) | 4.18 | Foreign-language edition available | Kindle |
 | Alone on the Wall | Alex Honnold (2015) | 3.88 | Simplified Chinese (Douban 8.1) | Kindle US$12.99 / Google Play NT$367 |
 | Beyond the Mountain | Steve House (2009) | 4.21 | None | Kindle |
@@ -329,16 +329,16 @@ Climbing shifts from adventure to pure athletic performance.
 
 The best-selling subgenre in climbing literature.
 
-| Title | Author | GR ⭐ | Chinese Ed. | Ebook |
+| Title | Author | GR ★ | Chinese Ed. | Ebook |
 |-------|--------|-------|-------------|-------|
-| **Into Thin Air** | Jon Krakauer (1997) | 4.26 (580K ratings) | ✅ Traditional Chinese / Simplified Chinese | Kindle US$8.99 / Apple Books on sale US$1.99 |
+| **Into Thin Air** | Jon Krakauer (1997) | 4.26 (580K ratings) | ✓ Traditional Chinese / Simplified Chinese | Kindle US$8.99 / Apple Books on sale US$1.99 |
 | Touching the Void | Joe Simpson (1988) | 4.23 | Simplified Chinese | Kindle US$8.69 |
 | Buried in the Sky | Peter Zuckerman (2012) | 4.22 | None | Kindle |
 | No Shortcuts to the Top | Ed Viesturs (2006) | 4.14 | Simplified Chinese | Kindle |
 
 ### Women's Climbing Literature
 
-| Title | Author | GR ⭐ | Ebook |
+| Title | Author | GR ★ | Ebook |
 |-------|--------|-------|-------|
 | In the Shadow of the Mountain | Silvia Vasquez-Lavado (2022) | 4.24 | Kindle |
 | Annapurna: A Woman's Place | Arlene Blum (1980) | 4.19 | Kindle |
@@ -368,7 +368,7 @@ The entire Traditional Chinese climbing publishing market is essentially **held 
 
 | Title | Original | Douban | Price |
 |-------|----------|--------|-------|
-| 攀岩技術教本 詳細圖解 | Azuma Hidesho (Japan) | ⭐ 9.5 (309 ratings) | NT$390 |
+| 攀岩技術教本 詳細圖解 | Azuma Hidesho (Japan) | ★ 9.5 (309 ratings) | NT$390 |
 | 攀岩抱石防傷與復健 | Jared Vagy (US) | — | NT$800 |
 | 獨行大岩壁 | Tommy Caldwell | — | — |
 
@@ -393,10 +393,10 @@ The Simplified Chinese market fares somewhat better. Particularly recommended:
 
 | Title | Original | Publisher | Douban |
 |-------|----------|-----------|--------|
-| 攀岩人生 | The Push (Tommy Caldwell) | CITIC Press | ⭐ 9.2 |
-| 攀岩技術全圖解 | Azuma Hidesho (Japan) | Beijing United | ⭐ 9.4 |
-| 岩之有道 | Liu Chang-Zhong (Taiwan coach) | — | ⭐ 9.0 |
-| 孤身絕壁 | Alone on the Wall | CITIC Press | ⭐ 8.1 |
+| 攀岩人生 | The Push (Tommy Caldwell) | CITIC Press | ★ 9.2 |
+| 攀岩技術全圖解 | Azuma Hidesho (Japan) | Beijing United | ★ 9.4 |
+| 岩之有道 | Liu Chang-Zhong (Taiwan coach) | — | ★ 9.0 |
+| 孤身絕壁 | Alone on the Wall | CITIC Press | ★ 8.1 |
 | 德國登山協會攀岩全攻略（5 vols.）| DAV (Germany) | — | — |
 
 The German Alpine Association's five-volume set is the most comprehensive systematic climbing curriculum available in Chinese, covering technique, safety, indoor walls, outdoor rock, and bouldering training. Can be ordered through Books.com.tw.
@@ -416,14 +416,14 @@ Japan's dominance in competitive climbing — especially bouldering — is not a
 
 ### Recommended Japanese Climbing Books
 
-| Title | Author | Amazon ⭐ | Kindle | Chinese Ed. |
+| Title | Author | Amazon ★ | Kindle | Chinese Ed. |
 |-------|--------|----------|--------|-------------|
-| スポーツクライミング教本 | Azuma Hidesho | 4.4 (248) | ✅ (KU eligible) | ✅ Traditional + Simplified Chinese |
-| チバトレ | Hiroshi Chiba | — | ✅ | ❌ |
-| クライマーズバイブル (2 vols.) | PUMP | — | ❌ Physical only | ❌ |
-| Jack中根のクライミング道場 | Nakazane Hodaka | 4.3 | ✅ | ❌ |
-| 野口啓代自伝 | Akiyo Noguchi | 4.5 (79) | ✅ | ❌ |
-| コアトレ | Akiyo Noguchi (supervisor) | 4.5 (40) | ✅ | ❌ |
+| スポーツクライミング教本 | Azuma Hidesho | 4.4 (248) | ✓ (KU eligible) | ✓ Traditional + Simplified Chinese |
+| チバトレ | Hiroshi Chiba | — | ✓ | ✗ |
+| クライマーズバイブル (2 vols.) | PUMP | — | ✗ Physical only | ✗ |
+| Jack中根のクライミング道場 | Nakazane Hodaka | 4.3 | ✓ | ✗ |
+| 野口啓代自伝 | Akiyo Noguchi | 4.5 (79) | ✓ | ✗ |
+| コアトレ | Akiyo Noguchi (supervisor) | 4.5 (40) | ✓ | ✗ |
 
 **The only Japanese climbing book with a Chinese translation** is Azuma Hidesho's *スポーツクライミング教本* (Traditional Chinese: 攀岩技術教本, Flag Publishing). Everything else has zero English or Chinese translation.
 

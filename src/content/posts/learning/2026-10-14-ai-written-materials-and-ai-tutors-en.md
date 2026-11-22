@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors)
+> :globe: [中文版](/posts/learning/2026-10-14-ai-written-materials-and-ai-tutors)
 
 This is Part 28 of the "Writing Articles That Teach" series, in its sixth section, "how to know it works, and how to make it". Earlier parts covered the signals in an author's hands, large-scale experiments on platforms, and whether re-explaining someone else's course is worth it. This part looks at a practice that keeps getting more common: using AI to write teaching materials, or putting an AI tutor next to them.
 

@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-sessions-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-sessions-guide-en)
 
 [系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)只花了一節講 session：「存在 `~/.claude/projects/`，resume 是同一個 ID 繼續附加，fork 是複製歷史」。這篇把整條生命週期展開——存到哪、怎麼回來、怎麼分岔、怎麼清理。桌面版、網頁版和 VS Code extension 各自維護自己的 session 歷史，這篇只講 CLI。
 

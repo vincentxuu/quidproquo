@@ -13,7 +13,7 @@ description: "Deep dive into pi-telemetry Vendor-neutral Telemetry Contracts: Sc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-telemetry)
 
 ## TL;DR
 

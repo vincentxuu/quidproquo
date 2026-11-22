@@ -26,7 +26,7 @@ glossary:
     context: "The main behavior measured in the Lecture 8 student experiment."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-08-scheming-deception)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

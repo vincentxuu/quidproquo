@@ -17,7 +17,7 @@ glossary:
     definition: "Capable of being reshaped; here, existing tools, processes, and working arrangements can change."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-10-agency-ai-shadowing)
+> :globe: [中文版](/posts/learning/2026-10-10-agency-ai-shadowing)
 
 You have tools that can turn an idea into a prototype, but you are still waiting for someone to tell you whether it belongs to your job. [Max Schoening’s conversation on Lenny’s Podcast](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more) raises a useful question: as skills become easier to access, what makes someone actually start?
 

@@ -10,7 +10,7 @@ description: "MCP's design philosophy, core architecture (Host/Client/Server), t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-22-mcp-model-context-protocol)
+> :globe: [中文版](/posts/ai/2026-03-22-mcp-model-context-protocol)
 
 You spent three days hooking your AI Agent up to the Notion API.
 

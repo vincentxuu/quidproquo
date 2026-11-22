@@ -13,7 +13,7 @@ description: "泰國岩場總覽：喀比 Tonsai 與 Railay、Ao Nang 本島 Nor
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crags-overview-en)
 
 想到東南亞的石灰岩攀岩，很多人先想到泰國喀比。但泰國不只有喀比——它把海島岩場、北泰的內陸岩壁和中部山谷一次收齊，而且每個地區的**進入規則**完全不同：喀比要搭船、清邁的岩場曾被封又沒公告重開、華富里要經過寺院而且一天只收 20 個人、南邦是軍方土地只能跟團、北標的主牆關閉。
 

@@ -10,7 +10,7 @@ description: "深入拆解 Chroma 的資料模型、寫入與查詢路徑、HNSW
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-chroma-vector-database-en)
+> :globe: [English version](/posts/ai/2026-08-22-chroma-vector-database-en)
 
 [Chroma](https://github.com/chroma-core/chroma) 是為 AI 檢索打造的開放原始碼資料庫。它把向量、原始文件、metadata 與 embedding function 收在同一個 collection。RAG 應用不必先組一套資料庫框架，幾行 Python 就能寫入並做語意搜尋。
 

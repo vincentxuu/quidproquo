@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-weekly-review)
+> :globe: [中文版](/posts/daily/2026-08-28-weekly-review)
 
 ## Top 5 Things This Week
 

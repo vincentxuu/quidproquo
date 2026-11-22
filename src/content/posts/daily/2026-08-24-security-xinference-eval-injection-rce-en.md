@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
+> :globe: [中文版](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
 
 ## Incident Overview
 

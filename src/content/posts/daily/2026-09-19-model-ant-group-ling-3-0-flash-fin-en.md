@@ -17,7 +17,7 @@ glossary:
     def: "A financial evaluation benchmark co-developed by Ant Group and CICC, designed by 50+ finance professionals, assessing answer accuracy and traceability across results, process, and evidence dimensions"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin)
+> :globe: [中文版](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin)
 
 ## Model Information
 
@@ -59,7 +59,7 @@ Ling-3.0-flash-Fin was evaluated across the following financial agent benchmarks
 | **SpreadsheetBench** | Spreadsheet operations and valuation modeling |
 | **τ³-Banking** | Banking workflow applications |
 
-⚠️ The only publicly quantified metric is the AA Intelligence Index v4.1.1 score of 41 (up from 38 in the general Ling-3.0-flash). Full benchmark score tables are not yet released by Ant Group.
+:warning: The only publicly quantified metric is the AA Intelligence Index v4.1.1 score of 41 (up from 38 in the general Ling-3.0-flash). Full benchmark score tables are not yet released by Ant Group.
 
 ## Comparison Within the Ling 3.0 Family
 

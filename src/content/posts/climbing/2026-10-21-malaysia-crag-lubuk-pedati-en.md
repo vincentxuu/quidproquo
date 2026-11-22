@@ -13,7 +13,7 @@ description: "Lubuk Pedati climbing guide: the full approach from Gua Jepun, the
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-lubuk-pedati)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-lubuk-pedati)
 
 Lubuk Pedati sits on the long Gunung Baling range in [Baling](https://www.thecrag.com/en/climbing/malaysia/area/7739183217), Kedah: 35 sport routes across four sectors named after animals, with 20 of them in the busiest sector. The price is the road. It needs your own vehicle, the last stretch is narrow mud, and the plants on both sides will scratch the car. This guide helps you judge whether the remoteness is worth a dedicated trip, how to get the final stretch right, and what the online record still leaves out.
 

@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 server API，並檢視 looplane 已�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-agent-as-service-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-agent-as-service-en)
 
 系列最後一篇。[上一篇](/posts/ai/2026-08-30-coding-agent-code-mode)談完 code mode，這篇處理第二部的收尾能力：把 agent 從「你終端機裡的一支程式」變成「別的程式可以呼叫的服務」。
 

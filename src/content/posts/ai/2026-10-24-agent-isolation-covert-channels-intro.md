@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro-en)
 
 上一篇最後留了一個問題：容器、gVisor、microVM 都隔開了核心，但同一台主機上的沙盒仍共用 CPU 快取、儲存和 CPU 時間。兩個互不連線、也沒有共用可寫檔案的程式，能不能只靠這些共用資源交換資料？
 

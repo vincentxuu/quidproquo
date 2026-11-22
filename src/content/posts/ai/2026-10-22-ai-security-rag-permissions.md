@@ -14,7 +14,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-rag-permissions-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-rag-permissions-en)
 
 Alice 問「退款進度如何？」助理答得很準，連 Bob 的 N-2 退款日期都整理好了。答案正確，系統卻違反了只有工單擁有者能讀的政策。檢索增強生成（RAG）解的是回答依據，沒有自動解決誰能看依據。
 

@@ -10,7 +10,7 @@ description: "A lifecycle guide to Baseten: Truss packaging, Model APIs versus d
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-baseten-model-inference)
+> :globe: [中文版](/posts/ai/2026-08-22-baseten-model-inference)
 
 [Baseten](https://docs.baseten.co/concepts/whybaseten) is a managed model-inference platform. You provide weights, Python code, system packages, GPU requirements, and a serving engine. The platform builds the image, allocates compute, exposes an API, autoscales, releases versions, and supplies observability.
 

@@ -17,7 +17,7 @@ glossary:
     def: "A model architecture that mixes short-convolution layers, sliding-window attention layers, and global attention layers, trading memory for near-full-attention capability"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-model-liquid-ai-lfm3-1-7b)
+> :globe: [中文版](/posts/daily/2026-10-28-model-liquid-ai-lfm3-1-7b)
 
 ## Model Information
 
@@ -52,7 +52,7 @@ glossary:
 | IFEval (instruction following) | 96.66 | 95.39 | 92.08 |
 | AA-LCR (long-context understanding) | 52.83 | 6.00 | **62.00** |
 
-⚠️ All figures above are Liquid AI's own benchmarks (vLLM, BF16, run at full context length); no independent third-party reproduction exists as of release. Multiple outlets (VentureBeat, TechTimes) also flag these as vendor-reported numbers.
+:warning: All figures above are Liquid AI's own benchmarks (vLLM, BF16, run at full context length); no independent third-party reproduction exists as of release. Multiple outlets (VentureBeat, TechTimes) also flag these as vendor-reported numbers.
 
 ## Comparison with Predecessor and Competitors
 

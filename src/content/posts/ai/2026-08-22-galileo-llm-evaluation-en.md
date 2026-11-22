@@ -10,7 +10,7 @@ description: "A practical guide to Galileo experiments, metrics, observability, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-galileo-llm-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-galileo-llm-evaluation)
 
 [Galileo](https://docs.galileo.ai/what-is-galileo) is the AI evaluation, observability, and production guardrail platform from Galileo Technologies, Inc. It connects a practical workflow: experiment on datasets, score with metrics, find failures in production traces, and promote mature checks into online guardrails.
 

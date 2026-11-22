@@ -14,7 +14,7 @@ description: "Berkeley CS188 Spring 2026 MDP、value iteration、Q-learning 與 
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

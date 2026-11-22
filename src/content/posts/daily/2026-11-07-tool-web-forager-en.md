@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-07-tool-web-forager)
+> :globe: [中文版](/posts/daily/2026-11-07-tool-web-forager)
 
 ## Tool Info
 
@@ -84,12 +84,12 @@ Run it again with the same `--session` later and it picks up where it left off, 
 
 | | web-forager | Search APIs (Exa, Tavily, etc.) | Hand-rolled requests + BeautifulSoup |
 |---|---|---|---|
-| Links or content | ✅ Both — plus unified Markdown/metadata | Mostly links and snippets | You write the parsing yourself |
-| robots.txt compliance built in | ✅ Checked on every request; unreachable = denied | Depends on the provider; not visible to you | ❌ You add it yourself |
-| Multi-format support (PDF/Office/RSS/sitemap) | ✅ Native | ❌ Usually web pages only | You wire up each format's library yourself |
-| Chinese social platforms (Bilibili, Zhihu, Xiaohongshu, etc.) | ✅ Dedicated adapters | Depends on the provider's index | You handle layout and anti-scraping yourself |
-| Needs an API key / paid plan | ❌ No | Usually yes | ❌ No |
-| Offline test coverage | ✅ 115 tests, run against a local fake HTTP server | — | Usually none |
+| Links or content | ✓ Both — plus unified Markdown/metadata | Mostly links and snippets | You write the parsing yourself |
+| robots.txt compliance built in | ✓ Checked on every request; unreachable = denied | Depends on the provider; not visible to you | ✗ You add it yourself |
+| Multi-format support (PDF/Office/RSS/sitemap) | ✓ Native | ✗ Usually web pages only | You wire up each format's library yourself |
+| Chinese social platforms (Bilibili, Zhihu, Xiaohongshu, etc.) | ✓ Dedicated adapters | Depends on the provider's index | You handle layout and anti-scraping yourself |
+| Needs an API key / paid plan | ✗ No | Usually yes | ✗ No |
+| Offline test coverage | ✓ 115 tests, run against a local fake HTTP server | — | Usually none |
 
 ## Things to watch out for
 

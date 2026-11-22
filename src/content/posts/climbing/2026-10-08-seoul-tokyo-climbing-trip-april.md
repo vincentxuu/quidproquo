@@ -27,7 +27,7 @@ glossary:
     context: "御岳、天王岩等東京西部岩場的岩質是燧石，不是花崗岩。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-08-seoul-tokyo-climbing-trip-april-en)
+> :globe: [English version](/posts/climbing/2026-10-08-seoul-tokyo-climbing-trip-april-en)
 
 2027 年的兒童節加清明連假是 4/3（六）到 4/6（二）四天。往前後各請幾天假，可以排出一趟 14 天的行程：前半在首爾爬北漢山的花崗岩多段，後半飛東京爬關東周邊的岩場，最後從東京回台北。這篇整理三件事：機票怎麼買最划算、4 月初哪些岩場真的能去、以及如果 9 月還想再去一次，兩趟怎麼合買。
 

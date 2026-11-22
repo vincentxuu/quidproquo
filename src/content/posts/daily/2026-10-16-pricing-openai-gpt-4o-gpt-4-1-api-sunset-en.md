@@ -12,7 +12,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset)
+> :globe: [中文版](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset)
 
 ## Summary
 
@@ -77,7 +77,7 @@ GPT-6 Luna and Claude Haiku 5.5 now sit at exactly the same price — the first 
 
 ## Sunset Notice
 
-⚠️ **Shutdown date**: 2027-01-14. GPT-4o (`gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`), GPT-4o mini (`gpt-4o-mini-2024-07-18`), GPT-4.1 (`gpt-4.1-2025-04-14`), GPT-4.1 mini (`gpt-4.1-mini-2025-04-14`), and all their fine-tunes leave the API entirely; requests after that date fail outright. Migration guide: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations).
+:warning: **Shutdown date**: 2027-01-14. GPT-4o (`gpt-4o-2024-08-06`, `gpt-4o-2024-11-20`), GPT-4o mini (`gpt-4o-mini-2024-07-18`), GPT-4.1 (`gpt-4.1-2025-04-14`), GPT-4.1 mini (`gpt-4.1-mini-2025-04-14`), and all their fine-tunes leave the API entirely; requests after that date fail outright. Migration guide: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations).
 
 ## Today's Takeaway
 

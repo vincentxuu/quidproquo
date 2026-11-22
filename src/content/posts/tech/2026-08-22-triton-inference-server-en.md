@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-triton-inference-server)
+> :globe: [中文版](/posts/tech/2026-08-22-triton-inference-server)
 
 [NVIDIA Triton Inference Server](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/) is an open-source model server. It exposes consistent HTTP/REST and gRPC interfaces over TensorRT, ONNX Runtime, PyTorch, Python, and other backends, centralizing model loading, versions, batching, instances, pipelines, and metrics.
 

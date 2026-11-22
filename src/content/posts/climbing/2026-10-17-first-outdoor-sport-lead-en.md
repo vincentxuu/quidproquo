@@ -25,7 +25,7 @@ glossary:
     context: "REI recommends identifying no-fall zones when choosing a route."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-first-outdoor-sport-lead)
+> :globe: [中文版](/posts/climbing/2026-10-17-first-outdoor-sport-lead)
 
 You lead comfortably at the gym, and one day a friend invites you to Long Dong. At the base of the wall you find only a line of bolts with hangers, no quickdraws already in place. The ground is not padded; it is a sloping scree bank. There is no colored tape on the route, just one line in the guidebook.
 

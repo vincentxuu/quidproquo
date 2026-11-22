@@ -32,7 +32,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-openai-plugin-extensions)
+> :globe: [中文版](/posts/ai/2026-09-30-openai-plugin-extensions)
 
 I've been watching OpenAI's plugins for a while, for a simple reason: if they take off, the way a lot of software gets used will change with them. [OpenAI DevDay 2026](https://openai.com/index/devday-2026-recap/) on September 29, 2026 had a plugin story again, and this time it's called **Plugin Extensions**.
 
@@ -114,11 +114,11 @@ Not every entrypoint works everywhere. From the spec's support table (checked 20
 
 | Feature | Desktop | Web | iOS | Android |
 |---|---|---|---|---|
-| Sidebar (global) | ✅ | ✅ | ✅ | ✅ |
-| Conversation panel (thread) | ✅ | ✅ | ✅ | ✅ |
-| File viewer (file) | ✅ | ❌ | ❌ | ❌ |
-| Composer @-mentions | ✅ | ❌ | ❌ | ❌ |
-| Rich forms | ✅ | ✅ | ❌ | ❌ |
+| Sidebar (global) | ✓ | ✓ | ✓ | ✓ |
+| Conversation panel (thread) | ✓ | ✓ | ✓ | ✓ |
+| File viewer (file) | ✓ | ✗ | ✗ | ✗ |
+| Composer @-mentions | ✓ | ✗ | ✗ | ✗ |
+| Rich forms | ✓ | ✓ | ✗ | ✗ |
 
 The recap says "Available to all plans," but the docs add that web support for Free and Go users is "coming soon." File viewers are desktop-only for now — the biggest caveat for any team planning one.
 

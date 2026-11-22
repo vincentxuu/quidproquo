@@ -30,7 +30,7 @@ glossary:
     context: "DMM Dragon 用 thumb press（拇指按壓平台）取代，Metolius Ultralight Master Cam 沒有。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-cams-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-cams-en)
 
 活動岩楔（cam）是傳攀 rack 上最貴的器材，常用尺寸一顆大約 US$70–160。它補的是岩楔做不到的地方：兩側平行、沒有內縮可以卡的裂隙。台灣岩友直接叫它 cam，有些店家會標成「岩楔」，買之前看清楚型號。
 

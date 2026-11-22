@@ -21,7 +21,7 @@ glossary:
     context: "CS231N L7 compares this uninterrupted gradient path to ResNet's shortcuts."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-recurrent-neural-networks)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

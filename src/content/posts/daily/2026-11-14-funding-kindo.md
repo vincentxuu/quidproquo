@@ -12,7 +12,7 @@ series:
   order: 134
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-funding-kindo-en)
+> :globe: [English version](/posts/daily/2026-11-14-funding-kindo-en)
 
 ## 融資資訊
 

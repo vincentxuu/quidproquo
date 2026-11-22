@@ -10,7 +10,7 @@ description: "深入介紹 Typesense 的索引、查詢與排序模型，示範�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-typesense-site-search-en)
+> :globe: [English version](/posts/tech/2026-08-22-typesense-site-search-en)
 
 [Typesense](https://typesense.org/docs/overview/) 是一套為即時、容錯搜尋設計的開放原始碼搜尋伺服器。它不是會自動爬遍網站的 Google：你要先從 CMS、資料庫或建置產物整理出文件，送進 Typesense 建立索引，再由網站呼叫 Search API。這個界線很重要，因為「內容何時同步、哪些欄位可搜」仍是應用程式的責任。
 

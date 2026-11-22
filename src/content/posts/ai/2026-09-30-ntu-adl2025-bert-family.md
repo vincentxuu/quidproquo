@@ -26,7 +26,7 @@ glossary:
     context: "ADL 講義寫 BERT 隨機遮 15% 的 token：太少訓練成本高，太多上下文不夠。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-bert-family-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

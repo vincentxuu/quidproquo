@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-e2b-agent-sandbox-en)
+> :globe: [English version](/posts/ai/2026-08-22-e2b-agent-sandbox-en)
 
 [E2B](https://github.com/e2b-dev/e2b) 是給 AI agent 使用的雲端 Linux 執行環境。模型負責決定下一步，E2B 則在隔離的 sandbox 裡執行 shell、讀寫檔案、操作 Git 或跑程式，避免模型直接碰到應用程式主機。
 

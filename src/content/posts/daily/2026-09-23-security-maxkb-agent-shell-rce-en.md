@@ -11,7 +11,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-23-security-maxkb-agent-shell-rce)
+> :globe: [中文版](/posts/daily/2026-09-23-security-maxkb-agent-shell-rce)
 
 ## Summary
 

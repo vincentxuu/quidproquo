@@ -15,7 +15,7 @@ glossary:
     def: "中國招聘平台 BOSS直聘母公司 Kanzhun Limited 旗下的開源大型語言模型團隊，先前以 3B 級小模型為主，Nanbeige4.3-33B 是其首款 30B 級旗艦模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b-en)
+> :globe: [English version](/posts/daily/2026-10-25-model-nanbeige-nanbeige4-3-33b-en)
 
 ## 模型資訊
 
@@ -69,14 +69,14 @@ caption: 資料來源：Nanbeige 官方 Hugging Face 模型卡自測，評審模
     <rect class="dg-bar" x="234" y="143" width="44" height="157"/>
     <rect class="dg-bar" x="374" y="155" width="44" height="145"/>
     <rect class="dg-bar" x="514" y="192" width="44" height="108"/>
-    <text class="dg-text--series" x="116" y="44" text-anchor="middle" dominant-baseline="central">Nanbeige4.3-33B</text>
+    <text class="dg-text--series" x="330" y="24" text-anchor="start" dominant-baseline="central">Nanbeige4.3-33B</text>
   </g>
   <g class="dg-c-s1">
     <rect class="dg-bar" x="150" y="125" width="44" height="175"/>
     <rect class="dg-bar" x="290" y="198" width="44" height="102"/>
     <rect class="dg-bar" x="430" y="152" width="44" height="148"/>
     <rect class="dg-bar" x="570" y="217" width="44" height="83"/>
-    <text class="dg-text--series" x="172" y="44" text-anchor="middle" dominant-baseline="central">Qwen3.8-27B</text>
+    <text class="dg-text--series" x="480" y="24" text-anchor="start" dominant-baseline="central">Qwen3.8-27B</text>
   </g>
 
   <text class="dg-sub" x="116" y="96" text-anchor="middle" dominant-baseline="central">80.9</text>
@@ -95,7 +95,7 @@ caption: 資料來源：Nanbeige 官方 Hugging Face 模型卡自測，評審模
 </svg>
 ```
 
-⚠️ 以上均為 Nanbeige 官方自測，模型卡的腳註說明部分基準使用 GPT-6 Sol 或 Claude Code 作為評審／執行工具，尚待外部獨立複現。
+:warning: 以上均為 Nanbeige 官方自測，模型卡的腳註說明部分基準使用 GPT-6 Sol 或 Claude Code 作為評審／執行工具，尚待外部獨立複現。
 
 ## 與前代/競品比較
 

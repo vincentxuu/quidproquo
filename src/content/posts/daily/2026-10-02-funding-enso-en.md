@@ -12,7 +12,7 @@ series:
   order: 63
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-funding-enso)
+> :globe: [中文版](/posts/daily/2026-10-02-funding-enso)
 
 ## Funding Details
 

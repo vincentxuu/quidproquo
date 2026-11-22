@@ -21,7 +21,7 @@ glossary:
     context: "Two of the midterm's candidate papers, GCG and the pruning/low-rank paper, use ASR as their main metric."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-midterm-reproduction-project)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

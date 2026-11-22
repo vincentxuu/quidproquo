@@ -13,7 +13,7 @@ description: "Comparing how pi, omp, opencode, codex, and claude-code grade tool
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-approval-grading)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-approval-grading)
 
 After the [series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en), the agent loop, and workspace isolation, this post covers the third foundation: which actions ask a human, how those decisions get recorded, and how far one "yes" extends.
 

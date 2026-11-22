@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-09-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-09-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -157,16 +157,16 @@ Claude Opus 4.8 的 fast mode 將於 11/30 下架,官方建議遷移至 Opus 5.5
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest)
-- 📄 [框架更新｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0)
-- 📄 [融資速報｜OpenAI 新一輪 $11B](/posts/daily/2026-11-09-funding-openai)
-- 📄 [模型卡｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base)
-- 📄 [定價追蹤｜Claude Opus 4.8 Fast Mode 下架](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset)
-- 📄 [資安警報｜Claude Code「不再詢問」密碼外洩](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak)
-- 📄 [工具推薦｜devvm](/posts/daily/2026-11-09-tool-devvm)
-- 📄 [AI Engineer 面試日練 — 2026-11-09：ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-11-09：Human Delta 框架](/posts/daily/2026-11-09-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-09](/posts/daily/2026-11-09-ai-agent-github-digest)
+- :file: [框架更新｜Microsoft Agent Framework python-1.25.0](/posts/daily/2026-11-09-framework-microsoft-agent-framework-python-1.25.0)
+- :file: [融資速報｜OpenAI 新一輪 $11B](/posts/daily/2026-11-09-funding-openai)
+- :file: [模型卡｜ERNIE 5.5 Flash Base](/posts/daily/2026-11-09-model-baidu-ernie-5-5-flash-base)
+- :file: [定價追蹤｜Claude Opus 4.8 Fast Mode 下架](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset)
+- :file: [資安警報｜Claude Code「不再詢問」密碼外洩](/posts/daily/2026-11-09-security-claude-code-dont-ask-again-secrets-leak)
+- :file: [工具推薦｜devvm](/posts/daily/2026-11-09-tool-devvm)
+- :file: [AI Engineer 面試日練 — 2026-11-09：ML Fundamentals](/posts/daily/2026-11-09-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-11-09：Human Delta 框架](/posts/daily/2026-11-09-product-builder-interview-daily)
 
 ## 明日關注
 

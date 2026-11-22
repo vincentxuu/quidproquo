@@ -11,7 +11,7 @@ series:
   order: 54
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-08-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-08-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### yomiyasu ⭐ 1,697（上線 7 天）
+### yomiyasu ★ 1,697（上線 7 天）
 
 [GitHub](https://github.com/nanaism/yomiyasu)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### showtime ⭐ 172（上線 9 天）
+### showtime ★ 172（上線 9 天）
 
 [GitHub](https://github.com/FavioVazquez/showtime)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### leviathan ⭐ 659（上線 2 天）
+### leviathan ★ 659（上線 2 天）
 
 [GitHub](https://github.com/elstongun/leviathan)　·　Rust　·　Apache-2.0
 

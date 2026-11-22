@@ -13,7 +13,7 @@ description: "A guide to the Odo Kaigan crag in Ashizuri-Uwakai National Park, O
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-odo-kaigan)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-odo-kaigan)
 
 White granite cliffs drop straight into the Pacific at Odo Kaigan, with cracks rising above the sea. The appeal is placing your own protection and following the rock’s natural lines; the responsibility includes anchors, tides, and getting back to the clifftop.
 

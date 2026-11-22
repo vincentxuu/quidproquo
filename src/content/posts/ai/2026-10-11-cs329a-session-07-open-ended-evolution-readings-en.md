@@ -13,7 +13,7 @@ tldr: "Open-ended evolution changes agent code and workflows; archives preserve 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings)
+> :globe: [中文版](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings)
 
 Once an agent can write code, can it change its own tools and problem-solving workflow rather than merely produce another answer? This guide reads the assigned papers for [CS329A](https://cs329a.stanford.edu/) Autumn 2025 session 7. You will distinguish answer search from system search and design a search loop that does not reward only the current winner. You need to know that agents call tools and tests return feedback; evolutionary algorithms are not a prerequisite.
 

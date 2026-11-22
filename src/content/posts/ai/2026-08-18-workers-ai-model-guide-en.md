@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-workers-ai-model-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-workers-ai-model-guide)
 
 The Workers AI catalog turns over fast. The last big sweep was on 2026-05-30, which marked 18 model IDs deprecated at once — the entire Llama 2 / 3 / 3.1 line, Mistral 7B, and Gemma 3 12B. Note that [the official wording](https://developers.cloudflare.com/workers-ai/changelog/) is *will be deprecated* rather than removed: the model pages and their prices are still up, so older tutorials did not necessarily break that day — but these models are on the way out and are not what you start a new project on. The date itself was already pushed back from 2026-05-10, and can move again.
 

@@ -31,7 +31,7 @@ glossary:
     definition: "一條路線或題目裡最難的那一段，可能是一個很遠的動作，也可能是一串小點。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-resting-route-reading-en)
+> :globe: [English version](/posts/climbing/2026-10-18-resting-route-reading-en)
 
 上一篇[抱石解題](/posts/climbing/2026-10-18-bouldering-problem-solving)講的是短題目：一次爬完，掉了就重來。換成繩攀的長路線，問題變了。前半段都很順，爬到一半前臂脹硬、手打不開，抓著一個大點不知道該停下來甩手，還是趕快往上衝。
 

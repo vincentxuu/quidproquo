@@ -10,7 +10,7 @@ description: "Design and implementation of three Agent Memory types: Procedural 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-19-agent-memory-systems)
+> :globe: [中文版](/posts/ai/2026-03-19-agent-memory-systems)
 
 Your AI Agent is smart, but it can't remember anything.
 

@@ -30,7 +30,7 @@ glossary:
     context: "REI 用它示範在雙 bolt 頂端架頂繩。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-top-rope-anchor-setup-en)
+> :globe: [English version](/posts/climbing/2026-10-17-top-rope-anchor-setup-en)
 
 在岩館，頂繩早就有人架好了。到了戶外，總有一天你要自己爬上去，在頂端兩顆 bolt 上架一組頂繩，讓朋友在下面一輪一輪爬。
 

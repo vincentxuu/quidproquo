@@ -13,7 +13,7 @@ description: "格蘭薩索（Gran Sasso）岩場介紹：小角峰、大角峰�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-gran-sasso-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-gran-sasso-en)
 
 格蘭薩索（Gran Sasso d'Italia）是阿布魯佐（Abruzzo）大區、L'Aquila 與 Teramo 兩省之間的石灰岩山塊，最高的大角峰（Corno Grande）2,912 公尺，是整條亞平寧山脈的最高點。[Guillaume Dargaud](http://www.gdargaud.net/Climbing/GranSasso.html) 寫，1573 年 Francesco De Marchi 登上大角峰，「The birth of Italian mountain climbing may be here」。整個山塊在 1991 年劃入格蘭薩索與拉加山國家公園。
 

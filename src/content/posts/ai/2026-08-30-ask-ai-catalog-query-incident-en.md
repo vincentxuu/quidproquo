@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-catalog-query-incident)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-catalog-query-incident)
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [Query Classification](/posts/ai/2026-03-12-query-classification-adaptive-routing-en) and [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en).
 

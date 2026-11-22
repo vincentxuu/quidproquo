@@ -18,7 +18,7 @@ glossary:
     context: "助教課用它把 NLI 分類結果固定成 {\"result\": \"NEUTRAL\"} 這種格式。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-llm-api-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-llm-api-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI 給授權滲透測試與 exploit 開發用的受限存取層，需要組織通過審核，GPT-6 Cyber 還要再加一層模型專屬審核才能呼叫"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-06-model-openai-gpt-6-cyber-en)
+> :globe: [English version](/posts/daily/2026-11-06-model-openai-gpt-6-cyber-en)
 
 ## 模型資訊
 
@@ -108,7 +108,7 @@ step: 不管走哪條分支，最後都回報結果；沒給安全提示詞時 9
 | ExploitGym Honeypot（無提示詞守界率） | 99.93% | GPT-5.6 Cyber 94.49% | — |
 | Irregular FrontierCyber（外部測試） | 90/288 | — | GPT-6 Astra 96/288 |
 
-⚠️ 前四項為 OpenAI 自測（system card 公開數字）；FrontierCyber 為第三方機構 Irregular 的獨立評測，OpenAI 在官方公告中如實引用，這項 GPT-6 Cyber 反而略輸 Astra，兩家模型都沒攻破最難的 15 題。Firefox（81 個高風險漏洞）、Linux kernel（948 個可用 exploit）的真實案例已由 Mozilla、Linux 社群分別確認／納入修補流程，不是自測分數。
+:warning: 前四項為 OpenAI 自測（system card 公開數字）；FrontierCyber 為第三方機構 Irregular 的獨立評測，OpenAI 在官方公告中如實引用，這項 GPT-6 Cyber 反而略輸 Astra，兩家模型都沒攻破最難的 15 題。Firefox（81 個高風險漏洞）、Linux kernel（948 個可用 exploit）的真實案例已由 Mozilla、Linux 社群分別確認／納入修補流程，不是自測分數。
 
 ## 與前代/競品比較
 

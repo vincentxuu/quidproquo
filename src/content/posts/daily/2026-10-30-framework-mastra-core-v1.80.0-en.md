@@ -12,7 +12,7 @@ series:
   order: 57
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-framework-mastra-core-v1.80.0)
+> :globe: [中文版](/posts/daily/2026-10-30-framework-mastra-core-v1.80.0)
 
 ## Release Info
 

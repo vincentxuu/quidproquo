@@ -13,7 +13,7 @@ description: "比較 Anthropic、Amp、Cursor、Factory、Atlassian、Cognition�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-context-full-seven-answers-en)
+> :globe: [English version](/posts/ai/2026-08-21-context-full-seven-answers-en)
 
 你用 Claude Code、Cursor 或 Codex 寫一個下午的程式，到了某個時刻，畫面會提示 context 快滿了，問你要不要壓縮。這個提示背後是一個沒被解決的工程問題。agent 每問一次，都要把整段對話重送一次給模型。它讀過的檔案、跑過的指令輸出、走過的冤枉路，全部都在裡面。
 

@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-tool-petit-poucet)
+> :globe: [中文版](/posts/daily/2026-09-25-tool-petit-poucet)
 
 ## Tool Info
 
@@ -86,12 +86,12 @@ Already keeping notes in `CLAUDE.md` or scattered `MEMORY.md` files? Ask the age
 
 | | petit-poucet | okf-agent-memory | Vector memory (Mem0 / Letta style) |
 |---|---|---|---|
-| Shared across agent tools | ✅ (Claude Code + Copilot CLI) | Needs manual MCP wiring; no official dual-tool integration | Depends on the framework |
+| Shared across agent tools | ✓ (Claude Code + Copilot CLI) | Needs manual MCP wiring; no official dual-tool integration | Depends on the framework |
 | Storage location | Standalone git repo (`~/agent-memory`) | `knowledge/` folder inside the project | External vector database / service |
-| Every change is a commit | ✅ | Depends on the project's own git habits | No (embeddings are a black box) |
-| Confirmation required to change a stated rule | ✅ (the `feedback` type forces a confirmation prompt) | No equivalent mechanism | Usually none |
+| Every change is a commit | ✓ | Depends on the project's own git habits | No (embeddings are a black box) |
+| Confirmation required to change a stated rule | ✓ (the `feedback` type forces a confirmation prompt) | No equivalent mechanism | Usually none |
 | Needs an external service or API key | No | No | Yes |
-| Browsable directly in Obsidian | ✅ | Yes (plain Markdown) | No |
+| Browsable directly in Obsidian | ✓ | Yes (plain Markdown) | No |
 
 ## Caveats
 

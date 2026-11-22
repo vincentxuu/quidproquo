@@ -18,7 +18,7 @@ series:
   order: 14
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
+> :globe: [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map)
 
 ## Decide what to practice before choosing an exam
 

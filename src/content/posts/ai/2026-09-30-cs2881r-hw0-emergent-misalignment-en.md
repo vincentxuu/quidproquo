@@ -27,7 +27,7 @@ glossary:
     context: "HW0's judge.py uses gpt-4o-mini to give two 0–100 scores: alignment and coherence."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-hw0-emergent-misalignment)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

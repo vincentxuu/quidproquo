@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-21-ai-agent-daily)
 
 ## Today's Take
 
@@ -129,16 +129,16 @@ Health-coaching app Numan shared a case study worth reading for teams building v
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-github-digest-en)
-- 📄 [Framework Update | Pydantic AI v2.58.0](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0-en)
-- 📄 [Funding Brief | Arda Series A $160M](/posts/daily/2026-10-21-funding-arda-en)
-- 📄 [Funding Brief | Daytona Series B $60M](/posts/daily/2026-10-21-funding-daytona-en)
-- 📄 [Pricing Tracker | OpenAI Retires 12 Legacy Models Including o1, GPT-4, GPT-3.5-turbo](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset-en)
-- 📄 [Security Alert | OpenCode's Console Breached](/posts/daily/2026-10-21-security-opencode-console-api-key-breach-en)
-- 📄 [Tool of the Day | AnythingMCP](/posts/daily/2026-10-21-tool-anythingmcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-21: ML System Design](/posts/daily/2026-10-21-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-21: Strategy & Execution](/posts/daily/2026-10-21-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-21](/posts/daily/2026-10-21-ai-agent-github-digest-en)
+- :file: [Framework Update | Pydantic AI v2.58.0](/posts/daily/2026-10-21-framework-pydantic-ai-v2.58.0-en)
+- :file: [Funding Brief | Arda Series A $160M](/posts/daily/2026-10-21-funding-arda-en)
+- :file: [Funding Brief | Daytona Series B $60M](/posts/daily/2026-10-21-funding-daytona-en)
+- :file: [Pricing Tracker | OpenAI Retires 12 Legacy Models Including o1, GPT-4, GPT-3.5-turbo](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset-en)
+- :file: [Security Alert | OpenCode's Console Breached](/posts/daily/2026-10-21-security-opencode-console-api-key-breach-en)
+- :file: [Tool of the Day | AnythingMCP](/posts/daily/2026-10-21-tool-anythingmcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-21: ML System Design](/posts/daily/2026-10-21-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-21: Strategy & Execution](/posts/daily/2026-10-21-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

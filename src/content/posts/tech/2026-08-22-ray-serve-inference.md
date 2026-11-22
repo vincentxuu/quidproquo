@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ray-serve-inference-en)
+> :globe: [English version](/posts/tech/2026-08-22-ray-serve-inference-en)
 
 [Ray Serve](https://docs.ray.io/en/latest/serve/) 是 Ray 分散式運算框架上的模型服務層。你用普通 Python 定義 HTTP ingress、前處理、模型 worker 與後處理，Serve 再把每個 deployment 轉成 replicas，交給 Ray 叢集配置 CPU、GPU 與節點。
 

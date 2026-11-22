@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-14-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -35,31 +35,31 @@ title: Agent 商務化的卡位戰：OpenAI 想當交易層，零售商選擇封
 desc: 左欄是 OpenAI 想建立的新交易路徑，右欄是零售商的防守反應；市場還沒決定誰是供應商、誰是買方。
 caption: 依 TechCrunch ChatGPT Wallet 報導與 Business Insider 零售商封鎖清單整理。
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">OpenAI 的攻勢</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">零售商的守勢</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
-  <rect class="dg-box dg-box--accent" x="76" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">ChatGPT Wallet</text>
   <text class="dg-sub" x="160" y="98" text-anchor="middle" dominant-baseline="central">agent 直接購物結帳，不抽成</text>
 
-  <rect class="dg-box dg-box--accent" x="76" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box dg-box--accent" x="12" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="160" y="162" text-anchor="middle" dominant-baseline="central">插入消費者與商家之間</text>
   <text class="dg-sub" x="160" y="182" text-anchor="middle" dominant-baseline="central">搶交易關係與資料</text>
 
-  <rect class="dg-box" x="396" y="56" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="56" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="78" text-anchor="middle" dominant-baseline="central">封鎖第三方 agent</text>
   <text class="dg-sub" x="480" y="98" text-anchor="middle" dominant-baseline="central">United／Amazon／Target</text>
 
-  <rect class="dg-box" x="396" y="140" width="168" height="56" rx="6"/>
+  <rect class="dg-box" x="332" y="140" width="296" height="56" rx="6"/>
   <text class="dg-label" x="480" y="162" text-anchor="middle" dominant-baseline="central">守住結帳頁與授權權</text>
   <text class="dg-sub" x="480" y="182" text-anchor="middle" dominant-baseline="central">不談分潤，直接擋</text>
 
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">誰先讓對方讓步，誰就定義 agent 商務規則</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">誰先讓對方讓步，誰就定義 agent 商務規則</text>
 </svg>
 ```
 
@@ -156,18 +156,18 @@ Mastra @mastra/core v1.83.0 讓每個 Agent 都能發可重連的 resumable stre
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest)
-- 📄 [模型卡｜Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
-- 📄 [資安警報｜prompt injection 串聯 GitHub Actions 漏洞](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
-- 📄 [框架更新｜Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0)
-- 📄 [融資速報｜Bay Series A $37M](/posts/daily/2026-11-14-funding-bay)
-- 📄 [融資速報｜Kindo $30M 成長輪](/posts/daily/2026-11-14-funding-kindo)
-- 📄 [融資速報｜Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly)
-- 📄 [定價追蹤｜Google 收掉 Jules 編碼 Agent](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
-- 📄 [工具推薦｜ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp)
-- 📄 [AI Engineer 面試準備日報](/posts/daily/2026-11-14-ai-interview-daily)
-- 📄 [Product Builder 面試準備日報](/posts/daily/2026-11-14-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-14](/posts/daily/2026-11-14-ai-agent-github-digest)
+- :file: [模型卡｜Claude Fable 5.2](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2)
+- :file: [資安警報｜prompt injection 串聯 GitHub Actions 漏洞](/posts/daily/2026-11-14-security-codex-npm-supply-chain-prompt-injection)
+- :file: [框架更新｜Mastra @mastra/core v1.83.0](/posts/daily/2026-11-14-framework-mastra-core-v1.83.0)
+- :file: [融資速報｜Bay Series A $37M](/posts/daily/2026-11-14-funding-bay)
+- :file: [融資速報｜Kindo $30M 成長輪](/posts/daily/2026-11-14-funding-kindo)
+- :file: [融資速報｜Nebuly Series A $21M](/posts/daily/2026-11-14-funding-nebuly)
+- :file: [定價追蹤｜Google 收掉 Jules 編碼 Agent](/posts/daily/2026-11-14-pricing-google-jules-coding-agent-shutdown)
+- :file: [工具推薦｜ha-mcp](/posts/daily/2026-11-14-tool-ha-mcp)
+- :file: [AI Engineer 面試準備日報](/posts/daily/2026-11-14-ai-interview-daily)
+- :file: [Product Builder 面試準備日報](/posts/daily/2026-11-14-product-builder-interview-daily)
 
 ## 明日關注
 

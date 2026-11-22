@@ -11,7 +11,7 @@ series:
   order: 45
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-29-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-29-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### ZCode ⭐ 7,031（上線 8 天）
+### ZCode ★ 7,031（上線 8 天）
 
 [GitHub](https://github.com/zai-org/ZCode)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### magpie ⭐ 1,571（上線 5 天）
+### magpie ★ 1,571（上線 5 天）
 
 [GitHub](https://github.com/yetone/magpie)　·　Go　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### jevgrep ⭐ 1,284（上線 3 天）
+### jevgrep ★ 1,284（上線 3 天）
 
 [GitHub](https://github.com/dzhng/jevgrep)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### golive-skill ⭐ 1,042（上線 5 天）
+### golive-skill ★ 1,042（上線 5 天）
 
 [GitHub](https://github.com/mikehasa/golive-skill)　·　TypeScript　·　MIT
 
@@ -63,7 +63,7 @@ series:
 
 ---
 
-### agent-console ⭐ 624（上線 8 天）
+### agent-console ★ 624（上線 8 天）
 
 [GitHub](https://github.com/LockedinLabs-AI/agent-console)　·　JavaScript　·　MIT
 

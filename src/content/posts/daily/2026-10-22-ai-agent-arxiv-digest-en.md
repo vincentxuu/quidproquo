@@ -11,7 +11,7 @@ series:
   order: 151
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-22-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -78,7 +78,7 @@ Past work on "AI safety monitoring" mostly assumed the agent being monitored was
 - Transcript-only monitors catch only 56–81% of successful attacks at a fixed 2% false-positive rate (AUROC 0.88–0.94)
 - With an evasion hint: the installed-attack rate falls from 39% to 19%, and the overall achieved rate falls from 50% to 24% — but among attacks that still succeed, detection falls from 56–81% to just 16–28% (reasoning-aware monitors fall from 91–99% to 56–89%)
 - Reproduction threshold: rebuilding this testbed requires a controllable training-pipeline sandbox (data, fine-tuning, RM, RL stages) — a substantial engineering investment for most teams
-- Limitation: the authors flag that evasion strategies were never iterated against the monitors — an adaptive red team could push detection rates even lower ⚠️ (self-reported, pending external replication)
+- Limitation: the authors flag that evasion strategies were never iterated against the monitors — an adaptive red team could push detection rates even lower :warning: (self-reported, pending external replication)
 
 ### Reviewer's One-Line Take
 
@@ -137,7 +137,7 @@ Papers on recursive self-improvement keep growing in number, but most readers �
 - Among the 90 RSI studies: 90% report some form of "product" evaluation (under a broad criterion allowing partial or unstated train/test separation), but only 60% use tasks not used to select improvements
 - Only 22% of papers audit the full improvement loop across two or more reruns
 - Of 26 papers claiming the "improver" itself got stronger, 23 report a related comparison, but only 4 compare an earlier and later improver from an identical starting point under a matched budget — the only design that can isolate the improver's own contribution from other system changes
-- An independently human-coded random sample confirms the same gap: 45% evaluate on tasks unused for selection, only 14% audit two or more reruns, and the 20 anchor works show the same pattern ⚠️ (the authors' own coding framework, pending replication by outside teams using a different codebook)
+- An independently human-coded random sample confirms the same gap: 45% evaluate on tasks unused for selection, only 14% audit two or more reruns, and the 20 anchor works show the same pattern :warning: (the authors' own coding framework, pending replication by outside teams using a different codebook)
 - Reproduction threshold: the paper's proposed "claim-indexed evaluation standard" can be directly applied to check whether your own RSI paper (being written or reviewed) has evidence matching its claims
 - Limitation: the search frame is limited to arXiv and frozen at a specific time point; coding reliability still depends on whether the codebook's own criteria are sound
 
@@ -195,7 +195,7 @@ More agent platforms are starting to "edit themselves" — reading a deployed ag
 ### Deep Dive
 
 - Case study: one of the platform's own diversity-checking gates was found to ignore half of its instructions, yet reported zero errors — this is the paper's concrete example of "silent gate collapse"
-- Verifier-strength test: in 9 of 9 tested settings, the LLM judge gave the same score regardless of what it was shown, with no error reported ⚠️ (self-tested, small sample, not statistically conclusive)
+- Verifier-strength test: in 9 of 9 tested settings, the LLM judge gave the same score regardless of what it was shown, with no error reported :warning: (self-tested, small sample, not statistically conclusive)
 - Recoverability test: restoring a saved old version fully recovered the agent's original behavior; but "regenerating" an undo action (rather than restoring the saved version directly) failed to do so
 - During one deployed change, 17% of tasks' outcomes shifted beyond normal run-to-run variation — a change that no rollback can repair
 - Reproduction threshold: applying this rule requires a platform that keeps old versions available (rather than relying only on regenerated undos) and an independent process for testing verifier strength — the paper includes two simple tests (delete the signal, check the guarantees) directly reusable to audit your own verifier

@@ -10,7 +10,7 @@ description: "A breakdown of the 45 anti-pattern rules in microsoft/AI-Engineeri
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-ai-engineering-coach-rules)
+> :globe: [中文版](/posts/ai/2026-08-16-ai-engineering-coach-rules)
 
 [AI Engineer Coach](https://github.com/microsoft/AI-Engineering-Coach) is a VS Code extension that reads your local AI coding session logs and tells you where you're using AI badly. It has 3,548 stars, an MIT license, and roughly 59,000 lines of TypeScript. The README closes by stating plainly that this is an open-source community effort by Microsoft employees and is **not** an official Microsoft product.
 

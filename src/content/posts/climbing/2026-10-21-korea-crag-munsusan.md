@@ -13,7 +13,7 @@ description: "蔚山文殊山攀岩指南：冬季日照、上下岩區、展望
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-munsusan-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-munsusan-en)
 
 韓國冬天不只有室內岩館。蔚山的文殊山把南向日照、短運攀與城市住宿放在同一張行程裡；但「冬季有人爬」不代表每個冷天都舒適。這篇幫你選子區、比較路線長度，也安排最後一段上山交通。
 

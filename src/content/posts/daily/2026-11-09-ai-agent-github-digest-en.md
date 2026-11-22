@@ -11,7 +11,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-09-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -22,32 +22,32 @@ title: Four infrastructure gaps today's repos are filling
 desc: Standardization, cost, multi-agent coordination, and test environments — four unrelated problems, matched by today's four trending repos
 caption: Illustrative: a simplified grouping used to frame these four repos, not an industry-standard taxonomy
 ---
-<svg viewBox="0 0 480 300">
+<svg viewBox="0 0 480 296">
   <rect class="dg-box dg-box--accent" x="16" y="16" width="448" height="60" rx="6"/>
   <text class="dg-tag" x="32" y="36" dominant-baseline="central">Standard</text>
   <text class="dg-label" x="128" y="36" dominant-baseline="central">Agent Skills format</text>
   <text class="dg-sub" x="128" y="58" dominant-baseline="central">anthropics/skills · spec not tied to Claude</text>
 
-  <rect class="dg-box" x="16" y="88" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="116" dominant-baseline="central">Cost</text>
-  <text class="dg-label" x="128" y="116" dominant-baseline="central">Context compression</text>
-  <text class="dg-sub" x="128" y="134" dominant-baseline="central">billion-context · claims 5x fewer tokens</text>
+  <rect class="dg-box" x="16" y="84" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="104" dominant-baseline="central">Cost</text>
+  <text class="dg-label" x="128" y="104" dominant-baseline="central">Context compression</text>
+  <text class="dg-sub" x="128" y="126" dominant-baseline="central">billion-context · claims 5x fewer tokens</text>
 
-  <rect class="dg-box" x="16" y="152" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="180" dominant-baseline="central">Multi-agent</text>
-  <text class="dg-label" x="128" y="180" dominant-baseline="central">Several agent personas</text>
-  <text class="dg-sub" x="128" y="198" dominant-baseline="central">OpenMausBot · managed from one chat UI</text>
+  <rect class="dg-box" x="16" y="152" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="172" dominant-baseline="central">Multi-agent</text>
+  <text class="dg-label" x="128" y="172" dominant-baseline="central">Several agent personas</text>
+  <text class="dg-sub" x="128" y="194" dominant-baseline="central">OpenMausBot · managed from one chat UI</text>
 
-  <rect class="dg-box" x="16" y="216" width="448" height="56" rx="6"/>
-  <text class="dg-tag" x="32" y="244" dominant-baseline="central">Test env</text>
-  <text class="dg-label" x="128" y="244" dominant-baseline="central">Throwaway machines</text>
+  <rect class="dg-box" x="16" y="220" width="448" height="60" rx="6"/>
+  <text class="dg-tag" x="32" y="240" dominant-baseline="central">Test env</text>
+  <text class="dg-label" x="128" y="240" dominant-baseline="central">Throwaway machines</text>
   <text class="dg-sub" x="128" y="262" dominant-baseline="central">sandbox-mcp · clean Windows Sandbox</text>
 </svg>
 ```
 
 ## Trending Repos
 
-### anthropics/skills ⭐ ~189k (+793 today, 11/9)
+### anthropics/skills ★ ~189k (+793 today, 11/9)
 
 [GitHub](https://github.com/anthropics/skills)　·　Python　·　mostly Apache-2.0
 
@@ -58,7 +58,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### ranxianglei/billion-context ⭐ ~5,027 (+460 today, 11/9)
+### ranxianglei/billion-context ★ ~5,027 (+460 today, 11/9)
 
 [GitHub](https://github.com/ranxianglei/billion-context)　·　TypeScript　·　MIT
 
@@ -69,7 +69,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### milind-soni/OpenMausBot ⭐ ~18k (+1,437 today, 11/9)
+### milind-soni/OpenMausBot ★ ~18k (+1,437 today, 11/9)
 
 [GitHub](https://github.com/milind-soni/OpenMausBot)　·　TypeScript　·　Apache-2.0
 
@@ -80,7 +80,7 @@ caption: Illustrative: a simplified grouping used to frame these four repos, not
 
 ---
 
-### shanselman/sandbox-mcp ⭐ 322 (3 days old)
+### shanselman/sandbox-mcp ★ 322 (3 days old)
 
 [GitHub](https://github.com/shanselman/sandbox-mcp)　·　JavaScript　·　MIT
 

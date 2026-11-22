@@ -13,7 +13,7 @@ description: "Bukit Keteri 攀岩指南：兩個資料庫對哪座山被開發�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-bukit-keteri-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-bukit-keteri-en)
 
 玻璃市（[Perlis](https://www.thecrag.com/en/climbing/malaysia/area/422129439)）的 Bukit Keteri 是馬來西亞最容易安排的第一站：區間車站走幾百公尺就會到岩壁，77 條運動攀登線從 4a 排到 8c+，進場不用許可、也沒有門票。同一個地方也把風險集中在一起——大部分岩栓是 2007 年從歐洲空運來的那批，材質與更換紀錄至今沒有公開資料；South 區的 Kasih Wall 因為發現古壁畫而限制進入。
 

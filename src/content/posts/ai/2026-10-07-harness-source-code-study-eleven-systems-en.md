@@ -23,7 +23,7 @@ glossary:
     context: "The paper counts 9 of 11 systems supporting it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-07-harness-source-code-study-eleven-systems)
+> :globe: [中文版](/posts/ai/2026-10-07-harness-source-code-study-eleven-systems)
 
 If you are picking a coding agent, or planning to build one, this paper offers something rare: not benchmark scores or vendor claims, but 11 production harnesses read side by side at the source level. This post summarizes its conclusions and what you can do with them.
 

@@ -13,7 +13,7 @@ description: "A teaching guide based on public Spring 2026 materials: CNNs and V
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-cnn-bert-vit)
 
 **Video status: recordings require sign-in or course authorization.** This guide uses public slides and assignments; numerical examples are site-authored, not a lecture transcript.
 

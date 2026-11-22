@@ -10,7 +10,7 @@ description: "A practical guide to Helicone's gateway, asynchronous logging, req
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-helicone-llm-observability)
+> :globe: [中文版](/posts/ai/2026-08-22-helicone-llm-observability)
 
 [Helicone](https://github.com/Helicone/helicone) is an open-source LLM gateway and observability platform. It sits between an application and model providers, forwarding requests while recording model, latency, tokens, cost, errors, and application-defined properties. Engineers can move from a failed answer to the API calls that produced it.
 

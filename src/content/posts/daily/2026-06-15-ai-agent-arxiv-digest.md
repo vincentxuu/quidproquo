@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 22
 ---
-> 🌏 [English version](/posts/daily/2026-06-15-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-15-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -68,7 +68,7 @@ ALE 第一次讓人能橫向比較不同 agent 在相同「真實職場任務」
 ### 深入要點
 
 - **三個難度層級**：near-term（接近現實可落地）、full-spectrum（全範圍）、last-exam（最難，代表現階段人類能做、agent 幾乎做不到的任務）
-- **關鍵數據**：最強配置 Codex（GPT-5.5）整體通過率約 26%；last-exam 層所有 frontier agent 平均通過率 **2.6%**；Claude Fable 5 等頂級模型在最難層為 **0%** ⚠️（數字來自公開 leaderboard 快照，可能隨更新變動）
+- **關鍵數據**：最強配置 Codex（GPT-5.5）整體通過率約 26%；last-exam 層所有 frontier agent 平均通過率 **2.6%**；Claude Fable 5 等頂級模型在最難層為 **0%** :warning:（數字來自公開 leaderboard 快照，可能隨更新變動）
 - **對比參照**：同一 agent 在 Terminal-Bench 得 82%、SWE-bench-Pro 得 59.1%——顯示傳統 benchmark 可能嚴重高估落地能力
 - **評分機制**：全自動確定性評分，0–1 分數範圍，trace log 完整保存，避免 LLM judge 帶來的幻覺評分問題
 - **開放生態**：網站 [agents-last-exam.org](http://agents-last-exam.org) 有公開 leaderboard，GitHub repo (rdi-berkeley/agents-last-exam) 開放 harness 代碼，可自行接入
@@ -179,7 +179,7 @@ agent 系統還不穩定就上線時，傳統任務層監控會失靈；這篇�
 ### 深入要點
 
 - **3×3 監控矩陣**：9 個監控切面，每個切面的訊號解讀方式不同；cross-run 層是傳統監控最容易遺漏的
-- **CV 示範**：within-run CV=0.02（確定性缺陷）vs cross-run CV=1.25（隨機整合問題）vs structural CV=0.00（完美一致的整合缺口）——三種故障用同一個 metric 就能區分模式 ⚠️（來自 220 次合成測試，非真實生產數據）
+- **CV 示範**：within-run CV=0.02（確定性缺陷）vs cross-run CV=1.25（隨機整合問題）vs structural CV=0.00（完美一致的整合缺口）——三種故障用同一個 metric 就能區分模式 :warning:（來自 220 次合成測試，非真實生產數據）
 - **FMEA 嚴重度分類**：L2 以上路由給人工介入，減少 alert fatigue
 - **成熟度三階段**：characterization（新部署期）→ error detection（逐漸穩定）→ reliability tracking（成熟運作）；對應不同的監控策略重點
 - **跟主流框架的關聯**：LangGraph / AutoGen 等都沒有內建 structural-level 監控，這個框架可作為其上層的 observability 層設計參考

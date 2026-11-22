@@ -13,7 +13,7 @@ description: "Standard RAG、Graph RAG、Agentic RAG 三者的機制與取捨，
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
+> :globe: [English version](/posts/ai/2026-08-10-rag-graph-agentic-variants-en)
 
 系列最後一篇回到檢索。[第一篇](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)給的判準是「答案在文件裡 → RAG；答案需要對其他系統動手 → Agent」，但 RAG 自己也已經分化成三種形態，而且第三種把 agent 的迴圈搬進了檢索裡。
 

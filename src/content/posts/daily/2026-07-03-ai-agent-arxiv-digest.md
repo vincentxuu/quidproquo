@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 40
 ---
-> 🌏 [English version](/posts/daily/2026-07-03-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-03-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -74,7 +74,7 @@ Tool-use agent（工具呼叫 agent）在 ToolBench 等靜態 benchmark 上表�
 
 - 四層架構 Perception → Interaction → Reasoning → Internalization 代表越來越深的偏移，修復成本也越高
 - SFT 模型對 Perception 層（工具格式改變）最脆弱；RL 模型在 Reasoning 層有些優勢，但 Internalization 層兩者都退化
-- 實驗涵蓋多個主流工具 agent 設定，具體量化數字需讀原文表格 **⚠️**
+- 實驗涵蓋多個主流工具 agent 設定，具體量化數字需讀原文表格 **:warning:**
 - ICML 2026 收錄，同期相關工作：ToolOmni (2604.13787)、ToolGym (2601.06328) 提供開放世界工具環境
 - **Limitation**：沙盒仍是合成環境，真實部署偏移的種類可能更多樣；目前只測工具呼叫任務，不涵蓋 computer-use 等類型
 - 對 LangGraph / AutoGen 使用者的啟示：框架本身不會抵抗 distributional shift，需在 workflow 設計層加入 fallback 機制和環境感知的 retry 策略
@@ -132,10 +132,10 @@ QPipe 展示了「multi-agent decomposition（多 agent 分解）」的威力：
 
 ### 深入要點
 
-- **評測數字**：20 個自然語言需求，程式碼編譯成功率 100%，執行並回傳結果成功率 96.7%；平均消耗 260.1 秒、1.89M tokens / 需求 **⚠️**（樣本量僅 20，泛化力需謹慎）
+- **評測數字**：20 個自然語言需求，程式碼編譯成功率 100%，執行並回傳結果成功率 96.7%；平均消耗 260.1 秒、1.89M tokens / 需求 **:warning:**（樣本量僅 20，泛化力需謹慎）
 - 生成的量子應用在成功執行的案例中，多數表現優於離線 genetic algorithm baseline
 - Ablation 結果明確：code-generation skill、task knowledge、review feedback 和 multi-agent decomposition 缺一不可
-- **Limitation**：僅評測 20 筆需求且均為量子測試最佳化問題；1.89M tokens / 需求的成本相當高昂 **⚠️**
+- **Limitation**：僅評測 20 筆需求且均為量子測試最佳化問題；1.89M tokens / 需求的成本相當高昂 **:warning:**
 - 對 LangGraph 的啟示：QPipe 的流水線架構可用 LangGraph graph-based workflow 實作，「6 個節點＋邊上的條件跳轉」就是這個架構的自然映射
 - 對 AutoGen 的啟示：QPipe 的 review agent 概念與 AutoGen 的 critic agent 模式類似，可互相借鑒
 
@@ -190,7 +190,7 @@ Agent 的個性要設計得多「鮮明」？設計成「很有個性的教練�
 ### 深入要點
 
 - **核心發現**：Expression Intensity 和 user evaluation 呈倒 U 型關係，medium 明顯優於 low 和 high
-- 跨三個使用情境（醫療資訊、健身、學習）都觀察到一致結果，但樣本規模未見揭露 **⚠️**
+- 跨三個使用情境（醫療資訊、健身、學習）都觀察到一致結果，但樣本規模未見揭露 **:warning:**
 - Persona 流動性（動態切換角色）不影響信任感和感知智慧，使用者對「情境適應」接受度高於預期
 - 這是 workshop / bridge paper，尚無大規模系統實作，也沒有和現有 LLM persona 工具的直接比較
 - **Limitation**：實驗情境受控，真實部署中 agent 如何「感知情境需求」再切換 persona 是尚未解決的技術問題

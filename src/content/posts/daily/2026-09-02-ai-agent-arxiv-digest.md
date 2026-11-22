@@ -12,7 +12,7 @@ series:
   order: 101
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-02-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -65,7 +65,7 @@ Haoxuan Jia, Yang Liu, Yingguang Yang et al.(跨機構合作:Fullive-AI、北京
 
 ### 深入要點
 
-- LoCoMo held-out 測試(975 題):本地 8B 策略達 77.5%,優於 API 教師模型 65.1%、budget-matched Mem0 69.7%、Mem0 官方 k=200 設定 74.7%(但只用 1/8 的 context tokens:2,480 vs 19,600) ⚠️(作者自測,同一鷹架下比較,跨系統比較為 system-level)
+- LoCoMo held-out 測試(975 題):本地 8B 策略達 77.5%,優於 API 教師模型 65.1%、budget-matched Mem0 69.7%、Mem0 官方 k=200 設定 74.7%(但只用 1/8 的 context tokens:2,480 vs 19,600) :warning:(作者自測,同一鷹架下比較,跨系統比較為 system-level)
 - 訊號階梯:outcome-only 63.4% → 加入觀察式歸因 70.2% → 加入介入校準分支 77.5%,顯示「介入式驗證」比「觀察式歸因」貢獻更大(+7.3 分 vs +6.8 分)
 - 2×2 消融:critic 與稽核訊號兩個元件的貢獻大致可加總(6.0 分 + 7.6 分,交互作用僅 +0.5),移除任一項各損失 6.5、8.1 分
 - critic 有效性驗證:刪除高分記憶損失 9.6 分,刪除隨機記憶僅損失 2.1 分,刪除低分記憶僅損失 0.8 分——確認 critic 分數與實際記憶價值因果相關,而非只是相關
@@ -120,7 +120,7 @@ Theo Rusu, Sourena Khanzadeh, Manar Alalfi(Toronto Metropolitan University)　·
 - LongMemEval 主結果:知識圖 token F1 為 0.417,扁平向量基準為 0.468,配對 bootstrap(500 題)給出 Δ = −0.050(95% CI [−0.085, −0.016])——差距在統計上顯著
 - 差距最大的題型:需要回憶特定歷史發言的問題,判定正確率從 0.911 掉到 0.607,作者推測是「把一輪拆成實體與關係後,原句的表面形式被丟掉了」
 - 遺忘模組表現較好:對一個持續累積到 27,021 節點的圖跑一次修剪,移除了 9.8% 節點、9.5% 儲存位元組,token F1 幾乎不變(+0.001,95% CI [−0.015, +0.016]),判定正確率只掉 1.6 分(95% CI 上界僅 3.8 分)
-- ⚠️ 作者自測、範圍刻意收窄:抽取器是單一小型模型,只在 LongMemEval 一個 benchmark 上測試,作者自己在摘要就聲明「這些結果描述的是這套抽取式管線,不是知識圖結構記憶的通則」
+- :warning: 作者自測、範圍刻意收窄:抽取器是單一小型模型,只在 LongMemEval 一個 benchmark 上測試,作者自己在摘要就聲明「這些結果描述的是這套抽取式管線,不是知識圖結構記憶的通則」
 - 落地門檻:如果你的 Agent 記憶系統已經上了知識圖架構,這篇提供了一個「拿掉圖、換成同預算扁平檢索」的對照實驗範本,可以直接套用在自己的場景重新驗證假設
 - 程式碼與流程完全公開(GitHub: skhanzad/Selective-Amnesia),適合直接拿來復現或改造成自己的評測
 
@@ -174,7 +174,7 @@ Ziqi Lin, Ye Wu, Mengying Yang et al.(大型電商公司內部 Agent 團隊,機�
 - 跨 agent backbone 與跨壓縮器架構遷移測試中,學到的策略仍能帶來正向省 token 效果,並在 5 個保留的 LOCA-bench 環境上減少 18–25% token 消耗
 - 介入式重播驗證:學到的逐工具信用分數與實際測得的單工具代價相關(結果模型對「工具會不會被重打」的預測 Spearman ρ = 0.72,成功率預測 Brier score 0.07)
 - 落地門檻:需要有能力記錄生產查詢的完整重播基準(keep-all 版本跑 5 次做為對照),對只有小規模生產流量的團隊可能成本偏高
-- ⚠️ 有條件通過、企業內部自測:保留測試集僅 40 題、單一企業單一 Agent 堆疊,機構與具體壓縮器實作細節部分未完整公開
+- :warning: 有條件通過、企業內部自測:保留測試集僅 40 題、單一企業單一 Agent 堆疊,機構與具體壓縮器實作細節部分未完整公開
 
 ### Reviewer 一句話評
 

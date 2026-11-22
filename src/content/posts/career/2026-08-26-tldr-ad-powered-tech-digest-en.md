@@ -13,7 +13,7 @@ description: "The complete story of TLDR founder Dan Ni: from Jane Street quant 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-tldr-ad-powered-tech-digest)
+> :globe: [中文版](/posts/career/2026-08-26-tldr-ad-powered-tech-digest)
 
 In August 2018, Dan Ni sat in his parents' basement in Missouri and spent $50 a day on Reddit and Quora ads for a newsletter that promised to summarize the day's tech news in five minutes. A thousand people subscribed in the first month.
 

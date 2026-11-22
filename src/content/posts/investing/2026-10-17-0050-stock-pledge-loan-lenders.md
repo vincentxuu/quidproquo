@@ -10,7 +10,7 @@ description: "整理元大證金與 16 家券商、9 家銀行的股票質押借
 draft: false
 ---
 
-> 🌏 [English version](/posts/investing/2026-10-17-0050-stock-pledge-loan-lenders-en)
+> :globe: [English version](/posts/investing/2026-10-17-0050-stock-pledge-loan-lenders-en)
 
 把 0050 質押借錢、再買 0050、再質押，是台灣存 ETF 的人最常談的槓桿做法。它的正式名稱是「不限用途款項借貸」：把股票或 ETF 匯撥到券商或證券金融公司[元大證金](https://www.yuantafinance.com.tw/brief/)的擔保品專戶，最高借市值的 6 成，股票仍是你的，現金股利照領。它不是銀行信貸：額度看擔保品，風險看維持率。
 

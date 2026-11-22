@@ -18,7 +18,7 @@ glossary:
     def: "An anonymous model battle platform maintained by LMSys where real humans vote blindly, producing Elo rankings — currently the most manipulation-resistant LLM evaluation method"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-evaluation)
 
 Every time a new model drops, you see the same thing: a table full of abbreviations in rows and columns, percentage numbers in every cell, and the best scores in bold. "We hit 90.2% on MMLU!" "95.1% on GSM8K!"
 

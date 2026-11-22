@@ -12,7 +12,7 @@ series:
   order: 98
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-30-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -69,7 +69,7 @@ Calibration usually asks whether a model's confidence matches answer accuracy. A
 - Real-rich and fabricated panels yield 37.6% and 36.8%; the -0.83-point difference has a 90% case-clustered interval of -4.51 to +2.66, inside the preregistered equivalence band
 - The authors explicitly limit the claim: the susceptible models come from one developer, so the pooled rate is not a universal frontier-model result
 - Fine-tuning a 3B model on 540 synthetic cases drives commitment to zero on the original cases, but a rigid reasoning-suppressing format drops answerable accuracy from 88.9%-98.6% to 50.9%-73.8%; one ablation seed commits on all 48 unknowable cases
-- ⚠️ Author-run evaluation, not externally replicated; weather is a weak instrument and hosted serving configurations are not fully controlled
+- :warning: Author-run evaluation, not externally replicated; weather is a weak instrument and hosted serving configurations are not fully controlled
 
 ### Reviewer's One-Liner
 
@@ -120,8 +120,8 @@ Indirect prompt injection is difficult because agents must consume external cont
 - GPT-4o-mini ASR falls from 15.79% to 0.06% and 16.07% to 0.17%; Gemini 2.5 Flash Lite falls from 33.28% to 0.62% and 30.91% to 0.63%
 - SARA is not the lowest-ASR method everywhere: CaMeL is lower in three settings, but SARA preserves substantially more benign utility
 - Across eight additional backbone-benchmark combinations, most residual ASRs are at or below 0.3%, while Llama 3.1 8B remains at 1.64% and 1.75%
-- ⚠️ This is not a formal guarantee. It covers tool-based IPI and assumes trusted users, tool schemas, runtimes, and executors; direct bypasses and pure data dependencies remain out of scope
-- ⚠️ Author-run evaluation, not externally replicated; cross-framework, enterprise toolchain, and long-running deployment behavior remains untested
+- :warning: This is not a formal guarantee. It covers tool-based IPI and assumes trusted users, tool schemas, runtimes, and executors; direct bypasses and pure data dependencies remain out of scope
+- :warning: Author-run evaluation, not externally replicated; cross-framework, enterprise toolchain, and long-running deployment behavior remains untested
 
 ### Reviewer's One-Liner
 
@@ -172,7 +172,7 @@ Many defenses inspect one trajectory or let risk scores cool down to avoid perma
 - In the retention test, no persistent state yields 95.5%-97.5% ASR. Geometric decay is at 0% after distance 1 but returns to 97% after distance 2; the latch stays at 0% across all waiting intervals
 - Ablations restore the intended failure modes as components are removed, making the responsible control gate easier to identify than a single aggregate score
 - The paper acknowledges an availability cost: without a reliable release or escalation path, the safety mechanism can lock the service indefinitely
-- ⚠️ Conditional pass and author-run evaluation: one frozen cohort, one execution seed, and fixed DeepSeek, GPT-4o-family, and Claude Sonnet 4.6 role assignments, with no multi-seed or cross-role replication
+- :warning: Conditional pass and author-run evaluation: one frozen cohort, one execution seed, and fixed DeepSeek, GPT-4o-family, and Claude Sonnet 4.6 role assignments, with no multi-seed or cross-role replication
 
 ### Reviewer's One-Liner
 

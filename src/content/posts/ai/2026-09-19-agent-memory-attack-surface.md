@@ -13,7 +13,7 @@ description: "從三起實證攻擊（SpAIware、MINJA、Bedrock 投毒）拆解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-agent-memory-attack-surface-en)
+> :globe: [English version](/posts/ai/2026-09-19-agent-memory-attack-surface-en)
 
 你花了兩週建好一套 agent 記憶系統——自動從對話抽取事實、跨 session 保留、下次回答時注入。上線第一天，一個使用者在對話裡藏了一條指令。從此，你的 agent 每次回答都會在結尾附上一個外部 URL，而你的 dashboard 看不到任何異常。
 

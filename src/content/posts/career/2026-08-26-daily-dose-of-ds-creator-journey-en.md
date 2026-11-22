@@ -13,7 +13,7 @@ description: "The complete growth story of Avi Chawla and Daily Dose of Data Sci
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-daily-dose-of-ds-creator-journey)
+> :globe: [中文版](/posts/career/2026-08-26-daily-dose-of-ds-creator-journey)
 
 Avi Chawla spent four years turning a solo Substack newsletter into a 200K+ subscriber AI learning platform. It didn't start with a grand plan — it started with a "what now?" after losing a graduate school admission.
 

@@ -21,7 +21,7 @@ glossary:
     context: "The subject of Section 3 of the notes and the spine of this series."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

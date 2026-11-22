@@ -10,7 +10,7 @@ description: "An implementation journal covering everything from the install scr
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-16-install-verify-superpowers-copilot-cli)
+:globe: [中文版](/posts/tech/2026-03-16-install-verify-superpowers-copilot-cli)
 
 ## Introduction
 

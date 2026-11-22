@@ -11,7 +11,7 @@ series:
   order: 64
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-18-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### microsoft/mxc ⭐ 2,891
+### microsoft/mxc ★ 2,891
 
 [GitHub](https://github.com/microsoft/mxc)　·　Rust　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### perplexityai/SPACE ⭐ 1,332
+### perplexityai/SPACE ★ 1,332
 
 [GitHub](https://github.com/perplexityai/SPACE)　·　Rust　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### Niko1221/Strata ⭐ 26,784
+### Niko1221/Strata ★ 26,784
 
 [GitHub](https://github.com/Niko1221/Strata)　·　C++　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### morluto/rea ⭐ 304,672
+### morluto/rea ★ 304,672
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -68,7 +68,7 @@ series:
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.57.0)
 
 - **重要變更**：`BackgroundTools` 的完成結果現在會附上帶命名空間的 `origin` 和 `tool_call_id` metadata；Gemini Live／GPT-Live 的 realtime history、usage、reply 等待邏輯改成從 session core 統一讀取；`Skills` 補上尊重 `disable-model-invocation`／`user-invocable` 這兩個欄位，也會跳過找不到的 skill library 路徑。
-- **Breaking Changes**：官方把這四項全部標成「⚠️ Compatibility Notes」——`BackgroundTools` 回傳結構多了欄位、realtime session 的狀態來源改變，都可能讓原本直接解析回傳格式或自己接管 realtime 狀態的程式碼行為跟著變。
+- **Breaking Changes**：官方把這四項全部標成「:warning: Compatibility Notes」——`BackgroundTools` 回傳結構多了欄位、realtime session 的狀態來源改變，都可能讓原本直接解析回傳格式或自己接管 realtime 狀態的程式碼行為跟著變。
 - **對你的影響**：如果專案有解析 `BackgroundTools` 完成結果的原始欄位，或自己手動管理 Gemini／GPT Live 的 realtime 狀態，升級前先看對應 PR（[#10196](https://github.com/pydantic/pydantic-ai/pull/10196)、[#10083](https://github.com/pydantic/pydantic-ai/pull/10083)、[#10082](https://github.com/pydantic/pydantic-ai/pull/10082)）確認不會跟自己的邏輯衝突；用 Skills 功能的話可以趁機檢查 `disable-model-invocation` 設定有沒有被正確套用。
 
 ## 今日收穫

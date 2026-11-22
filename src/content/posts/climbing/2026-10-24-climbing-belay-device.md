@@ -38,7 +38,7 @@ glossary:
     context: "GRIGRI+、Pinch 都有。Hard Is Easy 用 Pinch 下放時，防恐慌常常觸發，要再把把手拉過一段才會繼續放。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-belay-device-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-belay-device-en)
 
 你在店裡看到兩條繩子，一條 9.8 mm、一條 8.9 mm，價格差不多。你想：細的比較輕，就買細的吧。店員問：「你要掛什麼確保器？」你答不出來。
 

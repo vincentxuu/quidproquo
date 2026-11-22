@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cli-ide-sandbox-integration)
+> :globe: [中文版](/posts/tech/2026-08-30-cli-ide-sandbox-integration)
 
 ## What This Post Is
 

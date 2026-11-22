@@ -13,7 +13,7 @@ description: "A source-level comparison of five mature coding agents with Loopla
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy)
 
 The [previous post](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en) covered session persistence. This one steps back upstream: how many tools should you actually give the model?
 

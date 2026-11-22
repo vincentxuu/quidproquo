@@ -31,7 +31,7 @@ glossary:
     context: "技法第 7 堂由 uniform blending 的代數恆等式取 T 趨近無限得到；uniform blending 消掉的是 variance 那一項。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-blending-bagging-adaboost-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [207_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/207_handout.pdf) 與四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/23 到 23/23），寫「課堂上」的地方是轉述影片裡的說法。
 

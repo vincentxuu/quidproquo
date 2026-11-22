@@ -13,7 +13,7 @@ tldr: "Retrieval, trained KV representations, and cache reuse address different 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings)
+> :globe: [中文版](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings)
 
 Giving an agent “more memory” can mean retrieving past information, representing long documents with less memory, or processing previously seen documents faster. The three assigned papers for [CS329A](https://cs329a.stanford.edu/) Autumn 2025 session 14 address these different layers. You will learn to match a method to a bottleneck rather than compare everything labeled memory as interchangeable. Prerequisite: models have finite context windows. A KV cache stores key/value tensors produced while processing input, not a text summary.
 

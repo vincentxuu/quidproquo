@@ -13,7 +13,7 @@ tldr: "Design controlled comparisons, retain paired outcomes, and distinguish re
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-final-project)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-final-project)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

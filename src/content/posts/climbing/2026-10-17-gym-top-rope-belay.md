@@ -30,7 +30,7 @@ glossary:
     context: "DAV 建議使用這類確保器，但不改變制動手不離繩的原則。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-gym-top-rope-belay-en)
+> :globe: [English version](/posts/climbing/2026-10-17-gym-top-rope-belay-en)
 
 上了一次岩館的上攀體驗，教練幫你確保、你爬得很開心。下一次想自己帶朋友去，櫃檯會先問一句：「你有確保證嗎？」
 

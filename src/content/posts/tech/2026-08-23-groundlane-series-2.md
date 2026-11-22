@@ -15,7 +15,7 @@ glossary:
     definition: "CSS selector 結構，用於 web_extract 的確定性擷取；結果可逐節點解釋，無隱式模型推論。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-2-en)
+> :globe: [English version](/posts/tech/2026-08-23-groundlane-series-2-en)
 
 這篇不再重複篇 1 的架構說明（為什麼需要受控網路存取層、三工具責任分工），而是直接進入實戰層：每個工具在什麼參數組合下會回傳什麼結構、哪些欄位是確定性來源（可以逐行驗證）、哪些欄位是合成結果（需要理解其生成邏輯）。所有範例均以 Groundlane `v0.1.0` 自述與文件結構為依據，而非假設未來功能。
 

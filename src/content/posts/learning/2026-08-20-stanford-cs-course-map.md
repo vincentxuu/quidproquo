@@ -22,7 +22,7 @@ description: "以 Stanford 官方核心課程要求與 ExploreCourses 先修條�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-20-stanford-cs-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-20-stanford-cs-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-31-framework-agno-3.0.2)
+> :globe: [中文版](/posts/daily/2026-08-31-framework-agno-3.0.2)
 
 ## Version Info
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-ev-academy-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-ev-academy-speaking-practice-en)
 
 想把一段假期集中拿來練英文，又希望每天有老師讓你開口，菲律賓住宿型語言學校是一種選擇。[EV Academy](https://www.evenglish.net/)位在宿霧市，成人一般英語與口說課會把一對一和團體課組合起來，學習和生活都集中在同一段旅程裡。
 

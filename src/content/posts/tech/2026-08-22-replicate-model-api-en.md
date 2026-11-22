@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-replicate-model-api)
+> :globe: [中文版](/posts/tech/2026-08-22-replicate-model-api)
 
 [Replicate](https://replicate.com/docs/reference/how-does-replicate-work) centers on model versions and predictions rather than VMs. Call public models or use [Cog](https://replicate.com/docs/get-started/deploy-a-custom-model) to package weights, dependencies, and `predict()`, while the platform supplies APIs and GPU scaling.
 

@@ -19,7 +19,7 @@ glossary:
     context_en: "This article uses it to explain how sketchyicons turns Lucide's straight runs into hand-drawn-looking arcs."
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape-en)
 
 [Koboyo Icons](https://koboyo.com/icons) 掛著近 9 萬個免費手繪風 SVG 圖示，免費商用、免署名、不用註冊。這個量級在免費圖庫裡是離譜的——[Streamline](https://www.streamlinehq.com/) 號稱業界最大的手繪集 Freehand，單一 set 是 11,171 個，而且要錢。
 

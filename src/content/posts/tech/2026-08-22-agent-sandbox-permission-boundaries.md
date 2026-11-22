@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-agent-sandbox-permission-boundaries-en)
+> :globe: [English version](/posts/tech/2026-08-22-agent-sandbox-permission-boundaries-en)
 
 能執行 shell、Python、browser、MCP 或 cloud API 的 AI agent，必須被視為會處理 attacker-controlled instructions 的 untrusted workload。Prompt injection 不必先突破模型「人格」：只要 repository README、web page、email 或 tool output 能誘導 agent 呼叫高權限能力，就可能造成資料外洩或破壞。
 

@@ -10,7 +10,7 @@ description: "A walkthrough of Harvard's King and Worthington preprint on AI man
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-ai-pre-submission-review-king-worthington)
+> :globe: [中文版](/posts/ai/2026-10-24-ai-pre-submission-review-king-worthington)
 
 If you want your draft read closely before you submit it and you don't have a colleague with the time to read the whole thing, an AI reviewer is worth considering. On October 22, 2026, Harvard's Gary King and Steven Worthington released a preprint that pits unusually good human pre-reviews against AI reviews, and the AI won in every area they measured. This post covers how the experiment was run, which prompt is worth borrowing, and where the conclusion stops applying.
 

@@ -13,7 +13,7 @@ description: "安東諾（Andonno）岩場介紹：石灰岩與各岩區的難�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-andonno-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-andonno-en)
 
 安東諾（Andonno）是皮埃蒙特（Piemonte）大區 Valdieri 市的一個小村，位在 Valle Gesso 谷口，離庫內奧（Cuneo）約 13 公里。村子上方 Monte Cros 的灰色石灰岩壁，是庫內奧一帶最有名的運攀岩場：1993 年 Severino Scassa 在這裡完成 Noia，後來的攀登者把它記為義大利第一條 8c+。
 

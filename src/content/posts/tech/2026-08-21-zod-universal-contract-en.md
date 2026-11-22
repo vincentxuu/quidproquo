@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-zod-universal-contract)
+:globe: [中文版](/posts/tech/2026-08-21-zod-universal-contract)
 
 There's a jarring number in the [selection overview](/posts/tech/2026-08-19-react-stack-ai-era-en): Zod's weekly downloads are 224M — more than one and a half times the runner-up, Vite. What earns a "validation library" that? The answer is that it stopped being one long ago — it became the TypeScript ecosystem's universal contract format for data crossing trust boundaries. This post unpacks how that position was won.
 

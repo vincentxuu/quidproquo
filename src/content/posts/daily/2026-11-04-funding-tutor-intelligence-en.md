@@ -12,7 +12,7 @@ series:
   order: 122
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-04-funding-tutor-intelligence)
+> :globe: [中文版](/posts/daily/2026-11-04-funding-tutor-intelligence)
 
 ## The Round
 

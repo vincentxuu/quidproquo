@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-28-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,13 +58,13 @@ Most existing long-horizon agent memory schemes decide at write time what to kee
 
 ### Deep Dive
 
-- Main results (Qwen3.8-Max): LongMemEvalS 94.8%, BEAM10M 73.1% (5.1 points above the best published memory system), LOCA 128K 89.3% / 256K 86.7% (37.4 points above the 49.3% scored by the MiniMax M3 + ReAct baseline at 256K) ⚠️ (baselines are drawn from each system's best published results, not a controlled reproduction under one environment)
+- Main results (Qwen3.8-Max): LongMemEvalS 94.8%, BEAM10M 73.1% (5.1 points above the best published memory system), LOCA 128K 89.3% / 256K 86.7% (37.4 points above the 49.3% scored by the MiniMax M3 + ReAct baseline at 256K) :warning: (baselines are drawn from each system's best published results, not a controlled reproduction under one environment)
 - The most damaging ablation: replacing the Event Log with "summarize at write time and discard the original" drops the overall score from 73.1 to 19.9, with tasks requiring precise numbers, temporal reasoning, or fact updates falling to near zero
 - Removing the persistent kernel and replacing queries with ordinary tool calls costs 7.3 points — serialized tool results can no longer be re-filtered, merged, or aggregated inside the kernel
 - Counter-example: on tasks where "summarizing at write time" actually helps (dialogue summarization, preference tracking), Scroll loses to specialized memory systems — e.g., 70.5 on summarization tasks versus Exabase M-1's 91.9
 - The weaker the model, the smaller the benefit: a 35B open-source model still scores 88.8 on LongMemEvalS (only 6 points off the best), but on LOCA 256K the gap widens to 64 points (86.7 vs. 22.7) — showing Scroll's ceiling tracks the model's multi-step coding ability
 - Real-world signal: the open-source agent framework QwenPaw (part of AgentScope) has already merged a Scroll-like strategy into its production code, passing full code review including sandbox security and SQL-injection fixes — not just an academic concept
-- Limitation: every comparison against other memory systems uses "the best published result from the literature," not a controlled comparison under the same environment ⚠️
+- Limitation: every comparison against other memory systems uses "the best published result from the literature," not a controlled comparison under the same environment :warning:
 
 ### Reviewer's One-Liner
 
@@ -151,7 +151,7 @@ Most memory systems still force all memory data into a single storage paradigm (
 - Demo case: on a 48-session conversation from LongMemEval, PolyMemDB builds a memory graph of 229 entities and 221 relations, able to trace answers requiring long-range dependencies (e.g., "what discount does my favorite author's book have") with a full evidence chain
 - A second demo scenario: automatically extracting a "graduation trip" itinerary from a long conversation and visualizing it on a spatiotemporal map, filtering out irrelevant locations by time window (e.g., narrowing an entire trip down to 5 Italian cities)
 - Confidence calculation example: for "does Alice like running," a recent completed marathon contributes only 47.2% positive drive, but historical knee pain and heat-exhaustion events push "evidence conflict" up to 52.3%, yielding a net confidence of only about 0.22 — letting the LLM produce a nuanced answer like "committed but has struggled along the way" instead of a flat "yes" or "no"
-- Limitation: this is a system-demonstration (demo track) paper with no large-scale quantitative evaluation or baseline comparison — only three qualitative demo scenarios ⚠️
+- Limitation: this is a system-demonstration (demo track) paper with no large-scale quantitative evaluation or baseline comparison — only three qualitative demo scenarios :warning:
 - Deployment threshold: running Neo4j, ProvSQL, MobilityDB, ChromaDB, and object storage simultaneously is a non-trivial infrastructure cost for a small team
 - Source code available: [github.com/wangyu-1999/PolyMemDB](https://github.com/wangyu-1999/PolyMemDB)
 

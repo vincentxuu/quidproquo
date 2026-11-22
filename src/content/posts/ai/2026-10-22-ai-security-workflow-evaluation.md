@@ -14,7 +14,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-workflow-evaluation-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-workflow-evaluation-en)
 
 你替值班團隊接上 AI，平均結案時間變短了。大家可能少花時間查證，也可能更快找到證據。只看速度，兩種完全不同的結果會長得一樣。
 

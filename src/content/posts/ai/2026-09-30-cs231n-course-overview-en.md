@@ -20,7 +20,7 @@ glossary:
     context: "CS231N Spring 2026 is rated A3, although its public recordings come from a different year than its 2026 materials."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

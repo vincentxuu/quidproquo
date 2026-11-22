@@ -10,7 +10,7 @@ description: "A practical guide to Patronus AI evaluators, experiments, and prod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-patronus-ai-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-patronus-ai-evaluation)
 
 [Patronus AI](https://docs.patronus.ai/) is an AI evaluation platform. An evaluator turns one model output into a pass/fail result, score, and explanation; the same evaluators can then run against offline datasets, version comparisons, and production traces. Its central idea is not another dashboard, but making “does this answer meet the requirement?” a repeatable software unit.
 

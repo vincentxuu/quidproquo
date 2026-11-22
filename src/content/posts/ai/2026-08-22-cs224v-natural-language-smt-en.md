@@ -12,7 +12,7 @@ tldr: "The lecture parses patient records and trial criteria into SMT, retrieves
 description: "CS224V Natural Language Constraints with SMT: clinical-trial matching, SMT representation, propositional projection, candidate retrieval, solver matching, and limits."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-natural-language-smt)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-natural-language-smt)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

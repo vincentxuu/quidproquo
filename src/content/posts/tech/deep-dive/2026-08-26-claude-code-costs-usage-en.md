@@ -13,7 +13,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-costs-usage)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-costs-usage)
 
 Subscription users often misunderstand what drives usage: they assume it tracks how much they type. In reality Claude Code bills by API token consumption (per the [official docs](https://code.claude.com/docs/en/costs)), and the main variable in token consumption is **context size** — every request carries the full conversation history, so a session that has been open all day meters the entire conversation even if you end with a one-line question. This is the costs chapter of the series, following the posts on [context window management](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management) and [prompt caching](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching); here we turn those mechanisms into money and plan limits.
 

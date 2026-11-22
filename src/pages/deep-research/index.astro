@@ -1452,7 +1452,7 @@ Collect requirements and create a constrained implementation spec.
       resultLink.href = result.reportUrl;
       show(resultBox);
     } catch (error) {
-      errorBox.textContent = `⚠️ ${error?.message || '發生未預期錯誤'}`;
+      errorBox.textContent = `錯誤：${error?.message || '發生未預期錯誤'}`;
       show(errorBox);
     } finally {
       submitButton.disabled = false;

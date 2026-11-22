@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-deepresearch-bench-ii-benchmarks)
+> :globe: [中文版](/posts/ai/2026-09-19-deepresearch-bench-ii-benchmarks)
 
 The previous article covered the fundamental challenges of evaluation. This one looks at the most important benchmark: **DeepResearch Bench II**.
 

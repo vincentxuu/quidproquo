@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, multi-agent, security]
 lang: zh-TW
 description: "今天 GitHub trending 幾乎被教 coding agent『不要長得像 AI 做的』技能包佔滿，而 crewAI 悄悄補了三個資安漏洞"
-tldr: "**obra/superpowers**（⭐ 307,258，今日 +1,096）、**Nutlope/hallmark**（⭐ 40,442，今日 +2,109）同天衝上 GitHub trending，兩個都在教 coding agent「不要做出一眼就看出是 AI 做的東西」；**nightly-labs/openbot**（⭐ 3,097）用桌面 app 管一堆 agent，**expo/skills** 讓官方也下場發自己的技能包。release 這邊 pydantic-ai v2.63.0 丟出一批相容性變更，crewAI v1.15.31 修了 deserialization／SQL injection／path traversal 三個資安漏洞。"
+tldr: "**obra/superpowers**（★ 307,258，今日 +1,096）、**Nutlope/hallmark**（★ 40,442，今日 +2,109）同天衝上 GitHub trending，兩個都在教 coding agent「不要做出一眼就看出是 AI 做的東西」；**nightly-labs/openbot**（★ 3,097）用桌面 app 管一堆 agent，**expo/skills** 讓官方也下場發自己的技能包。release 這邊 pydantic-ai v2.63.0 丟出一批相容性變更，crewAI v1.15.31 修了 deserialization／SQL injection／path traversal 三個資安漏洞。"
 series:
   name: "AI Agent GitHub Digest"
   order: 75
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-29-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-29-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### obra/superpowers ⭐ 307,258 (+1,096)
+### obra/superpowers ★ 307,258 (+1,096)
 
 [GitHub](https://github.com/obra/superpowers)　·　Shell　·　MIT
 
@@ -30,18 +30,18 @@ series:
 
 ---
 
-### Nutlope/hallmark ⭐ 40,442 (+2,109)
+### Nutlope/hallmark ★ 40,442 (+2,109)
 
 [GitHub](https://github.com/Nutlope/hallmark)　·　CSS　·　MIT
 
 - **是什麼**：給 Claude Code、Codex、Cursor、OpenCode 用的設計技能，專門對付「一看就是 AI 生成」的網頁——標題上方那行小字、每個標題都追蹤大寫字母、headline 裡剛好一個字變色、只有照片沒有內容的英雄區——用真實瀏覽器把頁面跑過 50 種材質主題，再過一輪 lint 抓這些 AI 特徵，最後讓一個「沒看過上下文」的審查 agent 挑毛病。
-- **為什麼值得看**：跟同天衝榜的 pbakaus/impeccable（⭐ 92,240，今日 +1,471，走「設計詞彙＋審查用語」路線）比，hallmark 選的是更具體的做法——50 個材質主題各自綁真實截圖、755 張有授權照片、而且分三層關卡（Floor 絕對擋、Reflex 預設擋但可記錄理由覆寫、Finish 只是細節提醒不擋）。由 Together AI 做出來，一天漲 2,109 星，說明「讓 agent 的審美有個底線」正在變成剛性需求而不是錦上添花。
+- **為什麼值得看**：跟同天衝榜的 pbakaus/impeccable（★ 92,240，今日 +1,471，走「設計詞彙＋審查用語」路線）比，hallmark 選的是更具體的做法——50 個材質主題各自綁真實截圖、755 張有授權照片、而且分三層關卡（Floor 絕對擋、Reflex 預設擋但可記錄理由覆寫、Finish 只是細節提醒不擋）。由 Together AI 做出來，一天漲 2,109 星，說明「讓 agent 的審美有個底線」正在變成剛性需求而不是錦上添花。
 - **tech stack**：Claude/Codex/Cursor skill（SKILL.md + 參考檔）+ Node.js 腳本（`theme.mjs`、`sloplint.mjs`）做主題抽籤跟瀏覽器渲染檢查
 - **上手難度**：低——裝進 agent 後打 `/hallmark` 開始建頁，`/hallmark audit <path>` 可以只做稽核不動手改
 
 ---
 
-### nightly-labs/openbot ⭐ 3,097 (+1,053)
+### nightly-labs/openbot ★ 3,097 (+1,053)
 
 [GitHub](https://github.com/nightly-labs/openbot)　·　TypeScript　·　PolyForm Noncommercial 1.0.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### expo/skills ⭐ 3,482 (+212)
+### expo/skills ★ 3,482 (+212)
 
 [GitHub](https://github.com/expo/skills)　·　Shell　·　MIT
 

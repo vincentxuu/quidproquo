@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-funding-manus-en)
+> :globe: [English version](/posts/daily/2026-10-09-funding-manus-en)
 
 ## 融資資訊
 

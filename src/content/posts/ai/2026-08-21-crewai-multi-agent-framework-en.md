@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-crewai-multi-agent-framework)
+> :globe: [中文版](/posts/ai/2026-08-21-crewai-multi-agent-framework)
 
 When choosing a multi-agent framework, the real question isn't "which one has more features" — it's "what mental model do you use to organize relationships between agents." [LangGraph](/posts/ai/2026-03-27-langgraph-agent-orchestration) asks you to draw a graph — nodes are execution units, edges are transition conditions. [Microsoft Agent Framework](/posts/ai/2026-08-21-microsoft-agent-framework) asks you to define workflows — sequential, concurrent, and handoff are all flow control structures. [CrewAI](https://github.com/crewAIInc/crewAI) asks you to do something different: **describe a team**.
 

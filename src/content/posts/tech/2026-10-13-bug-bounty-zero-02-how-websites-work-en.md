@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)
 
 This is part 2. Part 1 covered program selection and scope. Here we answer what actually happens after you click a link. Understanding what the browser sends, what the server returns, and what a session cookie does prepares you to inspect requests in part 3.
 

@@ -15,7 +15,7 @@ description: "Carnegie Mellon 的 AI 學位體系完整拆解：BSAI 的數學�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-cmu-ai-degree-en)
+> :globe: [English version](/posts/learning/2026-08-21-cmu-ai-degree-en)
 
 大多數學校的「AI 課程」是掛在資工系底下的一組選修。Stanford 是這樣，MIT 是這樣，Berkeley 也是這樣——你修完 CS 學位，順便修了幾門 AI 課。
 

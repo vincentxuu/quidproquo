@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-temporal-durable-execution-en)
+:globe: [English version](/posts/tech/2026-08-21-temporal-durable-execution-en)
 
 站上已經有 [BullMQ](/posts/tech/2026-03-27-bullmq-job-queue-nodejs) 和 [Celery](/posts/tech/2026-03-27-celery-python-task-queue) 兩篇任務佇列專文，但中間漏了一整層。設想一段流程：呼叫 LLM、等人類批准三天、打第三方 API、寫回資料庫。把它塞進佇列，worker 在第三步崩掉時你不知道前兩步做過沒有。重試就是從頭再跑一次，那通 LLM 的錢和那封已經寄出的信都要再來一遍。
 

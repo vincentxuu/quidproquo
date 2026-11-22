@@ -14,7 +14,7 @@ description: "A preview of Stanford CS329Z Lecture 15, Agent Safety & Guardrails
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

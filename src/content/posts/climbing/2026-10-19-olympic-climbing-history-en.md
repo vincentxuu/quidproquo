@@ -24,7 +24,7 @@ glossary:
     definition: "World Climbing's competitions for athletes with physical or visual impairments, split into sport classes by impairment type and severity, and contested on top rope."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-olympic-climbing-history)
+> :globe: [中文版](/posts/climbing/2026-10-19-olympic-climbing-history)
 
 At the Tokyo Olympics in 2021, Poland's Aleksandra Mirosław set a women's speed world record in the final and still went home without a medal. Three years later in Paris, she won the first Olympic speed gold ever awarded. She hadn't changed that much. The format had.
 

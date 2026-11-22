@@ -14,7 +14,7 @@ description: "A guided reading of the Stanford CS329Z Week 7 anchors: the agenti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

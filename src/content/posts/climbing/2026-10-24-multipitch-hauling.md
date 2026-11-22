@@ -33,7 +33,7 @@ glossary:
     definition: "裝在拖繩和包之間、有軸承可以轉動的連接器，讓包旋轉時拖繩不會跟著絞。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-multipitch-hauling-en)
+> :globe: [English version](/posts/climbing/2026-10-24-multipitch-hauling-en)
 
 拖包（hauling）是多繩距裡一個很小、但很容易被忽略的技術：先鋒爬的時候，吊帶後面多拖一條細繩；到了確保站，用這條繩把背包拉上來，跟攀者就能空手爬。
 

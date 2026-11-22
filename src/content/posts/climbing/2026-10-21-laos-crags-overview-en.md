@@ -13,7 +13,7 @@ description: "An overview of Laos climbing: the style, grades, seasons and trans
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crags-overview)
 
 Southeast Asian limestone usually brings Thailand's Krabi or Vietnam's Cat Ba to mind. Laos rarely makes the same list, yet karst towers run the length of the country. [Green Climbers Home (GCH)](https://greenclimbershome.com/climbing) puts the national total at more than 600 routes, most of them in Thakhek and Vang Vieng. Routes run from 12 to 40 metres, grades from 4 to 8c, and the style ranges from friction slabs and vertical faces to roofs hung with stalactites.
 

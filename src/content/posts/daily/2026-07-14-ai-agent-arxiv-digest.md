@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 51
 ---
-> 🌏 [English version](/posts/daily/2026-07-14-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-14-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,7 +70,7 @@ AcMAS 的核心思路：**惡意行為在 LLM 執行時會在激活空間留下�
 - AcMAS 對每個 agent 各跑一個輕量偵測器，監控 LLM 推理時的中間層激活，屬於白盒監控架構
 - 評測了同步與非同步兩種 MAS 拓撲，後者更接近真實生產環境
 - 同步設定：F1 **0.94 vs 圖方法 0.72**（+0.22）
-- 非同步設定：F1 **0.93 vs 圖方法 0.38**（+0.55，差距極大）⚠️ 圖方法在非同步下幾乎完全失效
+- 非同步設定：F1 **0.93 vs 圖方法 0.38**（+0.55，差距極大）:warning: 圖方法在非同步下幾乎完全失效
 - 跨多種開源 LLM backbone 偵測準確率 >97%，方差小，泛化性強
 - 測試了「語義隱蔽攻擊」（stealthy attacks）：攻擊指令刻意偽裝成正常文字，AcMAS 仍能偵測
 - **限制**：需要能存取 LLM 激活（白盒），若用封閉 API（如 GPT-4o API）則無法直接套用；偵測器本身需用惡意樣本事先訓練
@@ -128,7 +128,7 @@ Repository-level code generation（倉庫級程式碼生成）指讓 AI 在理�
 ### 深入要點
 
 - 評測集 REPOCOD：真實 GitHub repos 的函式實作任務，聚焦在 cross-file 依賴，比 HumanEval 難度更高
-- 41.14% Pass@1（beats all retrieval-based baselines；⚠️ 論文未完整揭露具體 baseline 數字，建議讀原文確認）
+- 41.14% Pass@1（beats all retrieval-based baselines；:warning: 論文未完整揭露具體 baseline 數字，建議讀原文確認）
 - Step decomposition 由 LLM 執行，因此對目標函式的理解品質有依賴，複雜函式可能分解不準
 - Feedback loop 採「保守」策略（conservative）：只在 compiler / lint 有明確錯誤時才迭代，避免無限循環
 - 與 GitHub Copilot / Cursor 的差距：現有 IDE agent retrieval 仍以 cosine similarity 為主，程序相似性尚未見於商業產品
@@ -137,7 +137,7 @@ Repository-level code generation（倉庫級程式碼生成）指讓 AI 在理�
 
 ### Reviewer 一句話評
 
-概念清晰，程序相似性確實是 retrieval 的盲點。但 41.14% Pass@1 的背景值得追問——REPOCOD 的 baseline 難度、函式複雜度分布沒有詳細說明⚠️；論文若能做消融實驗（單獨程序 retrieval vs 單獨語義 retrieval vs 兩者合併）並量化各組件貢獻，說服力會更強。目前結果偏 promising，還不到紮實。
+概念清晰，程序相似性確實是 retrieval 的盲點。但 41.14% Pass@1 的背景值得追問——REPOCOD 的 baseline 難度、函式複雜度分布沒有詳細說明:warning:；論文若能做消融實驗（單獨程序 retrieval vs 單獨語義 retrieval vs 兩者合併）並量化各組件貢獻，說服力會更強。目前結果偏 promising，還不到紮實。
 
 ### 給你的 take-away
 
@@ -190,7 +190,7 @@ Agent harness 是包住 LLM 的外圍基礎設施：決定 agent 能看到哪些
 - 對 benchmark 設計的直接挑戰：論文呼籲發表 agent 實驗時應明確揭露 harness 設定（呼應 2605.23950 的觀點）
 - 目前未提供「如何設計 harness 才能最小化 belief divergence」的處方，偏診斷工具性質
 - 與 LangGraph / AutoGen 的關係：這些框架的 retry policy、tool visibility、error propagation 設計都是 belief-affecting factors
-- **限制**：實驗規模（任務數、harness 對比數）在論文中未詳細說明⚠️；belief-rollout 本身引入了額外 LLM 調用成本
+- **限制**：實驗規模（任務數、harness 對比數）在論文中未詳細說明:warning:；belief-rollout 本身引入了額外 LLM 調用成本
 
 ### Reviewer 一句話評
 

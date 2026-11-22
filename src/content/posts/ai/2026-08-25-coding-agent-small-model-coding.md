@@ -13,7 +13,7 @@ tldr: "小模型卡的不是『不會想』而是『格式不穩』：tool call 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-small-model-coding-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-small-model-coding-en)
 
 ## 設計問題
 

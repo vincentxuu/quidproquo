@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-pulumi-infrastructure-as-code)
+> :globe: [中文版](/posts/tech/2026-08-22-pulumi-infrastructure-as-code)
 
 [Pulumi](https://www.pulumi.com/docs/iac/concepts/) defines infrastructure with TypeScript or JavaScript, Python, Go, C#, Java, or YAML. A language host executes the program and registers resources, the deployment engine builds a dependency graph, and providers call cloud and SaaS APIs.
 

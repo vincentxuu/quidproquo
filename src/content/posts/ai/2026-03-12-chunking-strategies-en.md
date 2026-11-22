@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-chunking-strategies)
+> :globe: [中文版](/posts/ai/2026-03-12-chunking-strategies)
 
 When a RAG system fails to find the right answer, the culprit is often not the search algorithm — it's the chunking strategy chosen at the very beginning.
 

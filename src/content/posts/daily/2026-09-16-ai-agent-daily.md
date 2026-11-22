@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-16-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-16-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -136,13 +136,13 @@ GTIPA 全球 AI 政策報告中，阿根廷章節主打限制性監管政策、�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-16：ML System Design](/posts/daily/2026-09-16-ai-interview-daily)
-- 📄 [融資速報｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai)
-- 📄 [融資速報｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill)
-- 📄 [Product Builder 面試日練 — 2026-09-16：Strategy & Execution](/posts/daily/2026-09-16-product-builder-interview-daily)
-- 📄 [工具推薦｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp)
+- :file: [AI Agent Arxiv Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-16](/posts/daily/2026-09-16-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-16：ML System Design](/posts/daily/2026-09-16-ai-interview-daily)
+- :file: [融資速報｜AlphaPai Series B $50M](/posts/daily/2026-09-16-funding-alphapai)
+- :file: [融資速報｜Jack & Jill Series A $40M](/posts/daily/2026-09-16-funding-jack-and-jill)
+- :file: [Product Builder 面試日練 — 2026-09-16：Strategy & Execution](/posts/daily/2026-09-16-product-builder-interview-daily)
+- :file: [工具推薦｜edgar-mcp](/posts/daily/2026-09-16-tool-edgar-mcp)
 
 ## 明日關注
 

@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-04-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-04-ai-agent-daily)
 
 ## Take of the Day
 
@@ -33,25 +33,25 @@ title: Security capabilities get absorbed into one governance platform — the m
 desc: Top to bottom, three boxes show model choice, Fiddler AI's observability, and Dreadnode's red-teaming — originally independent; CrowdStrike's acquisition folds the latter two into Falcon Guardian at once, shipping an AI Kill Switch as a single lock-in point.
 caption: The one-point gap at the model layer is nearly ignorable; the switching cost at the security layer rises once it's consolidated into a single platform post-acquisition.
 ---
-<svg viewBox="0 0 440 330">
-  <rect class="dg-box dg-box--warn" x="56" y="18" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="46" dominant-baseline="central">Model choice</text>
-  <text class="dg-sub" x="76" y="70" dominant-baseline="central">Gap: Gemini 4 Carbon beats Opus 5.5 by 1 point only</text>
-  <text class="dg-sub" x="368" y="46" text-anchor="end" dominant-baseline="central">Looks like: pick the smartest model</text>
+<svg viewBox="0 0 480 352">
+  <rect class="dg-box dg-box--warn" x="20" y="16" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="36" dominant-baseline="central">Model choice</text>
+  <text class="dg-sub" x="40" y="60" dominant-baseline="central">Looks like: pick the smartest model</text>
+  <text class="dg-sub" x="40" y="80" dominant-baseline="central">Gap: Gemini 4 Carbon beats Opus 5.5 by 1 point only</text>
 
-  <rect class="dg-box dg-box--warn" x="56" y="100" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="128" dominant-baseline="central">Fiddler AI (observability)</text>
-  <text class="dg-sub" x="76" y="152" dominant-baseline="central">Gap: acquired by CrowdStrike, no longer independent</text>
-  <text class="dg-sub" x="368" y="128" text-anchor="end" dominant-baseline="central">Looks like: independent agent monitoring</text>
+  <rect class="dg-box dg-box--warn" x="20" y="106" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="126" dominant-baseline="central">Fiddler AI (observability)</text>
+  <text class="dg-sub" x="40" y="150" dominant-baseline="central">Looks like: independent agent monitoring</text>
+  <text class="dg-sub" x="40" y="170" dominant-baseline="central">Gap: acquired by CrowdStrike, no longer independent</text>
 
-  <rect class="dg-box dg-box--warn" x="56" y="182" width="328" height="72" rx="6"/>
-  <text class="dg-label" x="76" y="210" dominant-baseline="central">Dreadnode (red team)</text>
-  <text class="dg-sub" x="76" y="234" dominant-baseline="central">Gap: acquired same day, folded into one platform</text>
-  <text class="dg-sub" x="368" y="210" text-anchor="end" dominant-baseline="central">Looks like: independent agent security testing</text>
+  <rect class="dg-box dg-box--warn" x="20" y="196" width="440" height="80" rx="6"/>
+  <text class="dg-label" x="40" y="216" dominant-baseline="central">Dreadnode (red team)</text>
+  <text class="dg-sub" x="40" y="240" dominant-baseline="central">Looks like: independent agent security testing</text>
+  <text class="dg-sub" x="40" y="260" dominant-baseline="central">Gap: acquired same day, folded into one platform</text>
 
-  <rect class="dg-box dg-box--accent" x="56" y="264" width="328" height="56" rx="6"/>
-  <text class="dg-label dg-text--invert" x="76" y="292" dominant-baseline="central">Falcon Guardian + AI Kill Switch</text>
-  <text class="dg-sub dg-text--invert" x="368" y="292" text-anchor="end" dominant-baseline="central">What's bought: one-click shutdown</text>
+  <rect class="dg-box dg-box--accent" x="20" y="286" width="440" height="60" rx="6"/>
+  <text class="dg-label" x="40" y="304" dominant-baseline="central">Falcon Guardian + AI Kill Switch</text>
+  <text class="dg-sub" x="40" y="328" dominant-baseline="central">What's bought: one-click shutdown</text>
 </svg>
 ```
 
@@ -136,13 +136,13 @@ caption: The one-point gap at the model layer is nearly ignorable; the switching
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest-en)
-- 📄 [Framework Update: Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0-en)
-- 📄 [Funding Brief: Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
-- 📄 [Pricing Watch: Gemini 2.5 Pro/Flash Developer API Sunset Date Filled In](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
-- 📄 [Tool Pick: Verdict](/posts/daily/2026-11-04-tool-verdict-en)
-- 📄 [AI Engineer Interview Daily — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-11-04](/posts/daily/2026-11-04-ai-agent-github-digest-en)
+- :file: [Framework Update: Pydantic AI v2.65.0](/posts/daily/2026-11-04-framework-pydantic-ai-v2.65.0-en)
+- :file: [Funding Brief: Tutor Intelligence Series B $75M](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
+- :file: [Pricing Watch: Gemini 2.5 Pro/Flash Developer API Sunset Date Filled In](/posts/daily/2026-11-04-pricing-google-gemini-2-5-pro-flash-developer-api-sunset-en)
+- :file: [Tool Pick: Verdict](/posts/daily/2026-11-04-tool-verdict-en)
+- :file: [AI Engineer Interview Daily — 2026-11-04](/posts/daily/2026-11-04-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-11-04](/posts/daily/2026-11-04-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

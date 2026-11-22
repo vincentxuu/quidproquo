@@ -11,7 +11,7 @@ series:
   order: 42
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-26-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-26-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### nokia-applied-research/AnyJev ⭐ 662（09-21 建立，5 天內，均日約 +132）
+### nokia-applied-research/AnyJev ★ 662（09-21 建立，5 天內，均日約 +132）
 
 [GitHub](https://github.com/nokia-applied-research/AnyJev)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### mikehasa/golive-skill ⭐ 942（09-23 建立，3 天內，均日約 +314）
+### mikehasa/golive-skill ★ 942（09-23 建立，3 天內，均日約 +314）
 
 [GitHub](https://github.com/mikehasa/golive-skill)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### yetone/magpie ⭐ 791（09-23 建立，3 天內，均日約 +264）
+### yetone/magpie ★ 791（09-23 建立，3 天內，均日約 +264）
 
 [GitHub](https://github.com/yetone/magpie)　·　Go　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### sno-ai/sno-station ⭐ 212（09-19 建立，7 天內，均日約 +30）
+### sno-ai/sno-station ★ 212（09-19 建立，7 天內，均日約 +30）
 
 [GitHub](https://github.com/sno-ai/sno-station)　·　TypeScript　·　Apache-2.0
 
@@ -63,7 +63,7 @@ series:
 
 ---
 
-### mitkox/esf ⭐ 148（09-19 建立，7 天內，均日約 +21）
+### mitkox/esf ★ 148（09-19 建立，7 天內，均日約 +21）
 
 [GitHub](https://github.com/mitkox/esf)　·　Go　·　MIT
 

@@ -13,7 +13,7 @@ description: "A Railay East climbing guide: named routes and grades at Muay Thai
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-railay-east)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-railay-east)
 
 Railay is on the west side of the Phra-Nang peninsula, Tonsai on the east, with a narrow channel between. theCrag logged **314 routes** on 21 October 2026 and 19,094 ascents.
 

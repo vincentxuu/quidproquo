@@ -14,7 +14,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-15-speculative-rag)
+> :globe: [中文版](/posts/ai/2026-03-15-speculative-rag)
 
 The standard RAG pipeline is familiar to everyone: retrieve documents, assemble them into context, and send them to an LLM for generation. This pipeline is simple and effective, but it has a fundamental bottleneck: **all documents are stuffed into a single LLM call, the model must process all information in one generation pass, and the entire pipeline is sequential**.
 

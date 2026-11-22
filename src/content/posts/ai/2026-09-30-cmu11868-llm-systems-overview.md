@@ -22,7 +22,7 @@ glossary:
     context: "Fall 2026 Logistics 寫明一般排隊時間超過 24 小時，且不會因此延長截止日。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

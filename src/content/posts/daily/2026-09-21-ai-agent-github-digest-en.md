@@ -17,7 +17,7 @@ Today's trending list points to a fairly consistent division of labor: general-p
 
 ## Trending Repos
 
-### openclaw/openclaw ⭐ 390,153
+### openclaw/openclaw ★ 390,153
 
 [GitHub](https://github.com/openclaw/openclaw)　·　TypeScript　·　Custom license (not a standard OSS license — read the terms before commercial use)
 
@@ -28,7 +28,7 @@ Today's trending list points to a fairly consistent division of labor: general-p
 
 ---
 
-### volcengine/OpenViking ⭐ 38,184
+### volcengine/OpenViking ★ 38,184
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Python　·　AGPL-3.0
 
@@ -39,7 +39,7 @@ Today's trending list points to a fairly consistent division of labor: general-p
 
 ---
 
-### trycua/cua ⭐ 25,049
+### trycua/cua ★ 25,049
 
 [GitHub](https://github.com/trycua/cua)　·　Mostly driver code, multiple languages　·　MIT
 
@@ -50,7 +50,7 @@ Today's trending list points to a fairly consistent division of labor: general-p
 
 ---
 
-### INSANE0777/Awwards-mcp ⭐ 39
+### INSANE0777/Awwards-mcp ★ 39
 
 [GitHub](https://github.com/INSANE0777/Awwards-mcp)　·　TypeScript　·　MIT
 

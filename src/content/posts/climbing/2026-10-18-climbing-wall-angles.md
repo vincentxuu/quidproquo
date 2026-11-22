@@ -30,7 +30,7 @@ glossary:
     context: "翻過天花板邊緣或在外傾牆上休息時最常用。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-wall-angles-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-wall-angles-en)
 
 在垂直牆上爬得很順的題目，換到隔壁的外傾牆，同一個等級就上不去。反過來也一樣：外傾牆的常客，到了斜板上常常站不住。
 

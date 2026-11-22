@@ -22,7 +22,7 @@ glossary:
     context: "PA1 Program 3 Part 2 asks you to choose how many tasks to launch."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-pa1-w1-quad-core-performance)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

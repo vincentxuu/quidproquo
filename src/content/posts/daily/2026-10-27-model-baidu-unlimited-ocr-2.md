@@ -15,7 +15,7 @@ glossary:
     def: "Baidu 開源的長文件 OCR 模型家族，目標是讓任意長度的文件（從幾頁到上百頁）都能一次解析，不需要先切 chunk 再拼接"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2-en)
+> :globe: [English version](/posts/daily/2026-10-27-model-baidu-unlimited-ocr-2-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 表格（Table，MarathonDocBench 子項） | 74.8 | 官方未公開子項分數 | 官方未公開 |
 | 標題階層（Heading hierarchy，MarathonDocBench 子項，全模型最弱項） | 48.2 | 官方未公開子項分數 | 官方未公開 |
 
-⚠️ 以上均為 Baidu 官方自測，且只公開在模型卡的 leaderboard 圖表裡（非表格數據，由第三方媒體整理轉錄）。MarathonDocBench 是 Baidu 自建的新 benchmark，尚無公開發布的資料集，也還沒有其他團隊獨立複現。
+:warning: 以上均為 Baidu 官方自測，且只公開在模型卡的 leaderboard 圖表裡（非表格數據，由第三方媒體整理轉錄）。MarathonDocBench 是 Baidu 自建的新 benchmark，尚無公開發布的資料集，也還沒有其他團隊獨立複現。
 
 ```diagram
 title: Unlimited OCR 2 在長文件 benchmark 的分數落差明顯縮小
@@ -65,8 +65,8 @@ caption: 資料來源：Baidu 官方 leaderboard 圖表（2026-10-27，皆為自
   <text class="dg-small" x="64" y="204" text-anchor="end" dominant-baseline="central">40</text>
   <text class="dg-small" x="64" y="300" text-anchor="end" dominant-baseline="central">0</text>
 
-  <text class="dg-text--series" x="136" y="52" text-anchor="middle" dominant-baseline="central">MPDoc</text>
-  <text class="dg-text--series dg-text--accent" x="188" y="52" text-anchor="middle" dominant-baseline="central">Marathon</text>
+  <g class="dg-c-s1"><text class="dg-text--series" x="440" y="32" text-anchor="start" dominant-baseline="central">MPDoc</text></g>
+  <g class="dg-c-accent"><text class="dg-text--series" x="520" y="32" text-anchor="start" dominant-baseline="central">Marathon</text></g>
 
   <rect class="dg-bar dg-c-s1" x="114" y="97" width="44" height="203"/>
   <rect class="dg-bar dg-c-accent" x="166" y="115" width="44" height="185"/>

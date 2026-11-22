@@ -13,7 +13,7 @@ description: "A deck-aligned guide to propositional variables, seven logical sym
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-04-propositional-logic)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

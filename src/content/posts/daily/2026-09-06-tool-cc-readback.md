@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-06-tool-cc-readback-en)
+> :globe: [English version](/posts/daily/2026-09-06-tool-cc-readback-en)
 
 ## 工具資訊
 
@@ -93,11 +93,11 @@ cc-readback uninstall all
 
 | | cc-readback | 手動翻 terminal scrollback | 把 session 內容整段貼進新對話 | Claude Code 內建 --resume |
 |---|---|---|---|---|
-| 不用離開 Claude Desktop 就能查歷史 | ✅ | ❌ | 部分（要先手動複製） | ❌ |
-| 自動遮蔽常見憑證 | ✅ | — | ❌ | — |
-| 唯讀，無法寫入/刪除/執行 shell | ✅ | — | — | ❌（resume 會繼續執行） |
-| 可隨時關閉且有稽核紀錄 | ✅ | — | — | — |
-| 支援跨 session 關鍵字搜尋 | ✅ | ❌ | ❌ | ❌ |
+| 不用離開 Claude Desktop 就能查歷史 | ✓ | ✗ | 部分（要先手動複製） | ✗ |
+| 自動遮蔽常見憑證 | ✓ | — | ✗ | — |
+| 唯讀，無法寫入/刪除/執行 shell | ✓ | — | — | ✗（resume 會繼續執行） |
+| 可隨時關閉且有稽核紀錄 | ✓ | — | — | — |
+| 支援跨 session 關鍵字搜尋 | ✓ | ✗ | ✗ | ✗ |
 
 ## 注意事項
 

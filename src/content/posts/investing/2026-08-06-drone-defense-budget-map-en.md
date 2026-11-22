@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/investing/2026-08-06-drone-defense-budget-map)
+> :globe: [中文版](/posts/investing/2026-08-06-drone-defense-budget-map)
 
 **Up front**: this is budget-process and industry-structure analysis, not investment advice. No tickers, no timing.
 

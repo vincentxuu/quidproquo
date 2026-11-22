@@ -9,7 +9,7 @@ description: "A deep dive into Agent Platform's observability, evidence, and art
 tldr: "Observability is a first-class capability, not logging added after the fact: a structured trace connects FlowRun→StepRun→SkillInvocation→ProviderCall→ToolInvocation→GuardResult→EvidenceItem→ArtifactVersion. The Evidence Store traces every claim back to its source, excerpt, citation, confidence, and conflicts. Artifact versioning supports approve/reject/regenerate without deleting history. Context Snapshots allocate token budgets by category and record automatic compression when a block exceeds its budget. Procedural, episodic, and semantic memory can be written only through proposals reviewed by a human."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-observability)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-observability)
 
 ## TL;DR
 

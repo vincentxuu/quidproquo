@@ -13,7 +13,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-07-drone-crash-anatomy-en)
+> :globe: [English version](/posts/tech/2026-08-07-drone-crash-anatomy-en)
 
 **先講邊界：我沒有炸過機，這篇裡的每一次墜毀都是別人的。**
 

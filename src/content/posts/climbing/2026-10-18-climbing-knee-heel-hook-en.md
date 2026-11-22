@@ -26,7 +26,7 @@ glossary:
     context: "In a study of acute climbing knee injuries, the most common structural damage was a medial meniscus tear."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-knee-heel-hook)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-knee-heel-hook)
 
 Your heel hook on the steep wall feels solid. You pull down with the heel and your hips come in to the wall. A second later there is a "pop" at the back of your thigh and you cannot put the leg down.
 

@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 6: a s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-ai-project-strategy)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-ai-project-strategy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -57,9 +57,9 @@ Then:
 
 **How to do a literature search** (concrete enough to copy directly):
 
-❌ The wrong way: read paper one to 100%, then read paper two to 100%.
+✗ The wrong way: read paper one to 100%, then read paper two to 100%.
 
-✅ His way: a few searches to pull up a pile of resources → **skim all of them** → notice citations while skimming and follow them → find the one that actually matters (it might be the seventh) → **only then invest in reading it properly.**
+✓ His way: a few searches to pull up a pile of resources → **skim all of them** → notice citations while skimming and follow them → find the one that actually matters (it might be the seventh) → **only then invest in reading it properly.**
 
 > "The number of resources you actually finish is very small, but you spend a lot of time **bouncing around** building rough understanding of a wider set of papers."
 
@@ -124,7 +124,7 @@ Concretely here: TTS can generate an enormous training set, but the cost is — 
 
 **Sound adds** — add two waveforms directly and it sounds like the phrase spoken over that background noise. So: background noise (abundant online, **check the license terms**) + a few clean recordings of "Robert turn on" → add → a lot of positives.
 
-**⚠️ But there's a trap here, the most elegant insight in the lecture:**
+**:warning: But there's a trap here, the most elegant insight in the lecture:**
 
 > "If you do exactly what I just described, you **won't get a Robert-turn-on detector, you'll get a voice activity detector.** Because there's a lot of background noise, and the only time anyone speaks they're saying 'Robert turn on' — so the model only has to decide **whether someone is talking**, which is far easier than actually recognizing the phrase."
 

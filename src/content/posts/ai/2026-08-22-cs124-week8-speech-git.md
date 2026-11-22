@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 8 週導讀：語音學基礎（ARP
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week8-speech-git-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week8-speech-git-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 8 週。[上一週](/posts/ai/2026-08-22-cs124-week7-transformers-speech)講了語音辨識的任務和詞錯誤率，這一週講它怎麼做到：聲音是一串連續的氣壓變化，要經過哪些步驟才能交給 Transformer。
 

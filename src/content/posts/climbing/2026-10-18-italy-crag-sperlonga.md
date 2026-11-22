@@ -13,7 +13,7 @@ description: "斯佩隆加（Sperlonga）岩場介紹：名稱與範圍、各來
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-sperlonga-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-sperlonga-en)
 
 斯佩隆加（Sperlonga）是拉齊奧（Lazio）南部海岸、羅馬和拿坡里中間的海邊小鎮。攀岩者說的「Sperlonga」指的是鎮外往加埃塔（Gaeta）方向、聖阿戈斯蒂諾（Sant'Agostino）海灘後方那一整排石灰岩壁。[Climbing Spot Factory](https://climbingspotfactory.com/index.php/en/climbadvisor/sperlonga/info_about) 開頭就說明：這片岩壁其實落在 Itri 與 Gaeta 兩個市的範圍內，是 Monte Vannellamare（257 公尺）南面的石灰岩，西端收在聖阿戈斯蒂諾長灘。
 

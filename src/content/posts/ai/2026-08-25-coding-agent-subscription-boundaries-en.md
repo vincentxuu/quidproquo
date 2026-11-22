@@ -13,7 +13,7 @@ tldr: "The five reference projects split into three camps on subscription auth. 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-subscription-boundaries)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-subscription-boundaries)
 
 ## The design problem
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 23
 ---
-> 🌏 [中文版](/posts/daily/2026-06-16-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-16-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ Well-calibrated reflection enables three things: (1) agents become their own ver
 - **Derived application 1**: Self-improvement with pseudo-rewards (no outcome supervision signal needed)
 - **Derived application 2**: Test-time selective prediction (filtering out rollouts where reflection says incorrect)
 - **Deployment bar**: Requires RL fine-tuning infrastructure; not directly applicable to inference-only production agents
-- **Limitations**: Validated only on text-to-SQL; task accuracy improvement is modest (1.4pp); the 44.4% baseline underconfidence rate ⚠️ (unclear if this is model-specific or universal)
+- **Limitations**: Validated only on text-to-SQL; task accuracy improvement is modest (1.4pp); the 44.4% baseline underconfidence rate :warning: (unclear if this is model-specific or universal)
 
 ### Reviewer's One-Liner
 
@@ -186,17 +186,17 @@ The insight that "environment matters more than process" transfers to any agenti
 - **Dual-container isolation**: Agent container (Claude Code + workspace) ↔ Grader container (private [evaluate.py](http://evaluate.py)), same principle as reward model isolation in RL — prevents the agent from "peeking at the answers"
 - **End-to-end research loop**: proposal → implementation → evaluation → refinement four-step cycle, supports resumable long-running execution
 - **Key results**:
-  - Mathematical optimization (circle packing, etc.): Claims SOTA ⚠️ (internally defined benchmark; comparison baselines need independent verification)
-  - Kernel engineering (TriMul matrix multiplication): 2247.78 μs → 2005.03 μs (~10.8% reduction) ⚠️ (single micro-benchmark)
-  - ML (MLE-Bench subset): 85.71% vs. 71.43% previous best (+14.28pp) ⚠️ (subset, not full MLE-Bench)
+  - Mathematical optimization (circle packing, etc.): Claims SOTA :warning: (internally defined benchmark; comparison baselines need independent verification)
+  - Kernel engineering (TriMul matrix multiplication): 2247.78 μs → 2005.03 μs (~10.8% reduction) :warning: (single micro-benchmark)
+  - ML (MLE-Bench subset): 85.71% vs. 71.43% previous best (+14.28pp) :warning: (subset, not full MLE-Bench)
 - **Cost**: Mathematical optimization runs at under **$17** API cost per run
 - **Tech stack**: Python 3.12 + Claude Code + Docker, no traditional orchestration framework used
 - **Reward hacking prevention**: Grader container isolation is the core mechanism; scoring logic is never exposed to the agent
-- **Limitations**: Evaluation tasks are carefully selected scenarios; ⚠️ all numbers come from subsets or micro-benchmarks; $17/run is significant at scale; generalization to "tasks where the environment wasn't pre-designed for agents" remains unverified
+- **Limitations**: Evaluation tasks are carefully selected scenarios; :warning: all numbers come from subsets or micro-benchmarks; $17/run is significant at scale; generalization to "tasks where the environment wasn't pre-designed for agents" remains unverified
 
 ### Reviewer's One-Liner
 
-"Environment engineering matters more than process engineering" is convincing, and the container isolation for reward hacking prevention is practical. But comparison baselines are all subsets or internal benchmarks ⚠️ — selective reporting is a concern, and full-set performance is unknown. Overall: "architecture thinking worth learning, numbers to be taken with a grain of salt."
+"Environment engineering matters more than process engineering" is convincing, and the container isolation for reward hacking prevention is practical. But comparison baselines are all subsets or internal benchmarks :warning: — selective reporting is a concern, and full-set performance is unknown. Overall: "architecture thinking worth learning, numbers to be taken with a grain of salt."
 
 ### Your Take-Away
 

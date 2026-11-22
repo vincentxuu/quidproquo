@@ -13,7 +13,7 @@ description: "對照 codex 與 opencode 的 code mode，並檢視 looplane 已�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-code-mode-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-code-mode-en)
 
 系列第二部來到第 37 篇。這個主題比前幾篇新：五家參考專案裡只有兩家做了，而且都還在快速迭代。取證範圍照舊——pi（badlogic/pi-mono）、omp（can1357/oh-my-pi）、opencode（sst/opencode）、codex（openai/codex Rust workspace）、claude-code（社群反編譯 v2.1.88）。我在本地 clone 實際 grep 過 `code mode`、`codemode`、`code_mode`：pi、omp、claude-code 三家都沒有對應實作，所以這篇誠實寫短一點，只攤開有東西的兩家。
 

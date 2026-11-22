@@ -13,7 +13,7 @@ description: "A guide to the Jogasaki sea cliffs: rock type and route counts, be
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-jogasaki)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-jogasaki)
 
 Jogasaki is a lava sea cliff that runs for more than ten kilometres along the east coast of Izu. Most of the climbing is crack climbing on your own gear, with sport routes and bouldering as well. The cliffs sit inside a national park, right next to tourist paths, suspension bridges and private land. In some sectors you rappel down to the shore and climb back up an exit route at the end of the day.
 

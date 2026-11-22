@@ -11,7 +11,7 @@ series:
   order: 145
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,7 +71,7 @@ Ratnesh Pandey, Japneet Singh, Harsh Akshita et al.（Metano Labs、Purdue Unive
 
 ### 深入要點
 
-- 一半的上架項目有 shell 執行證據，檔案讀取 35%、檔案寫入與網路外連各 31%、憑證存取 13%，七成帶有至少一項特權級能力 ⚠️（Metano Labs 自建自營掃描器，未經第三方驗證）
+- 一半的上架項目有 shell 執行證據，檔案讀取 35%、檔案寫入與網路外連各 31%、憑證存取 13%，七成帶有至少一項特權級能力 :warning:（Metano Labs 自建自營掃描器，未經第三方驗證）
 - 6,061 筆可解析 frontmatter 中只有 770 筆填了 allowed-tools，且其詞彙「無法表達」憑證或環境存取
 - 填了宣告的項目中 59% 低報自己實際能做的事；ClawHub 宣告頻率約是 skillsmp 的兩倍，但低報比例是 88% 對 31%
 - 人工覆核樣本僅 410 筆（91 筆有標記、319 筆未標記），只來自其中一個市集，審查在量測時仍在進行中
@@ -192,7 +192,7 @@ Sajid Siraj, Maria Barbati（University of Leeds、Ca' Foscari University of Ven
 ### 深入要點
 
 - Pilot 測 15 個開源模型（0.6B–27B，來自 Qwen、Gemma、Llama、Ministral、GLM 五家）在兩種多步驟任務上的實測 GPU 耗能
-- 訂單任務：3 步到約 100 步時 Llama 3.2 3B 最省電，100 步後換成 Qwen3 8B；20 步時最省電的模型只用最大模型十分之一的電，但到 100 步時另一組模型反而要多耗四倍電 ⚠️（作者自測，15 次執行的 pilot 規模）
+- 訂單任務：3 步到約 100 步時 Llama 3.2 3B 最省電，100 步後換成 Qwen3 8B；20 步時最省電的模型只用最大模型十分之一的電，但到 100 步時另一組模型反而要多耗四倍電 :warning:（作者自測，15 次執行的 pilot 規模）
 - 工具操作任務：最省電的模型換手點更早（4 步、20 步、30 步、50–60 步），只有 6 個模型完成得了 50 步的任務
 - 預測交叉點跟實測交叉點大致吻合：88 組實際觀測到的交叉點中，72 組落在公式預測的 95% 信賴區間內
 - 落地門檻：要套用這套框架，團隊得先能量每一步的可靠度與耗能，而不是只看現成排行榜分數

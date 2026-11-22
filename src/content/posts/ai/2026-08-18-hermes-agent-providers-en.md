@@ -13,7 +13,7 @@ description: "The provider layer of Hermes Agent: subscription billing semantics
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-providers)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-providers)
 
 Post 3 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
@@ -27,11 +27,11 @@ The rows that change decisions:
 
 | Path | Usable? | What it consumes | Common surprise |
 |---|---|---|---|
-| Anthropic — Claude Max + OAuth | ✅ Requires Max **and** purchased extra usage credits | Only the extra/overage credits you added | **Your included Max allowance is never touched** — all Hermes usage bills as extra usage |
-| Anthropic — Claude Pro | ❌ No | — | Pro looks like it should work; it doesn't. Use `ANTHROPIC_API_KEY` (pay-per-token) instead |
-| OpenAI Codex — ChatGPT OAuth | ✅ Device-code login | Not currently documented | Docs cover auth and token refresh only; plan-quota semantics are unspecified |
-| xAI — SuperGrok / X Premium+ OAuth | ✅ Browser login | Subscription quota (explicit for X Search: "uses your subscription quota instead of API spend") | `HTTP 403` after a successful login — xAI restricts OAuth API access to certain SuperGrok tiers; not a stale token |
-| Google Gemini consumer plans | ❌ No documented path | Your API key's quota | Free-tier keys die in a handful of agent turns, because Hermes may make several model calls per user turn |
+| Anthropic — Claude Max + OAuth | ✓ Requires Max **and** purchased extra usage credits | Only the extra/overage credits you added | **Your included Max allowance is never touched** — all Hermes usage bills as extra usage |
+| Anthropic — Claude Pro | ✗ No | — | Pro looks like it should work; it doesn't. Use `ANTHROPIC_API_KEY` (pay-per-token) instead |
+| OpenAI Codex — ChatGPT OAuth | ✓ Device-code login | Not currently documented | Docs cover auth and token refresh only; plan-quota semantics are unspecified |
+| xAI — SuperGrok / X Premium+ OAuth | ✓ Browser login | Subscription quota (explicit for X Search: "uses your subscription quota instead of API spend") | `HTTP 403` after a successful login — xAI restricts OAuth API access to certain SuperGrok tiers; not a stale token |
+| Google Gemini consumer plans | ✗ No documented path | Your API key's quota | Free-tier keys die in a handful of agent turns, because Hermes may make several model calls per user turn |
 
 That last row deserves emphasis: **one "user turn" for an agent is not one model call.** The tool loop, compression, and vision analysis are each their own requests. This is why every cost estimate extrapolated from chatbot usage comes out low.
 

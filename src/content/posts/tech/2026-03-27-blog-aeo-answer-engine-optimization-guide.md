@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en)
+:globe: [English version](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide-en)
 
 2025 年開始，「搜尋」這件事正在改變。Google AI Overview 直接在搜尋結果頂部給答案，Perplexity 用 AI 整理多個來源寫出回答，ChatGPT 的搜尋功能讓使用者不用離開對話就能得到資訊。
 

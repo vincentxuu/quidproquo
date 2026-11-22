@@ -115,7 +115,7 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
   const { t } = useChatLocale()
   const fallbacks = useMemo<LinkFallbacks>(() => ({ source: t('chat.link.source'), post: t('chat.link.post') }), [t])
   const normalized = useMemo(() => normalizeMarkdownInput(content, fallbacks), [content, fallbacks])
-  const linkColor = role === 'user' ? 'var(--brand-100)' : 'var(--brand-500)'
+  const linkColor = role === 'user' ? 'var(--brand-700)' : 'var(--brand-500)'
 
   return (
     <ReactMarkdown
@@ -216,9 +216,9 @@ const styles: Record<string, CSSProperties> = {
     minWidth: 0,
     padding: '0.75rem 0.875rem',
     borderRadius: 8,
-    background: 'var(--brand-900)',
-    color: 'var(--bg-page)',
-    boxShadow: 'var(--shadow-card-hover)',
+    background: 'var(--bg-subtle)',
+    color: 'var(--text-primary)',
+    border: '1px solid var(--border)',
   },
   assistantPanel: {
     minWidth: 0,
@@ -301,8 +301,8 @@ const styles: Record<string, CSSProperties> = {
   inlineCode: {
     padding: '0.12rem 0.3rem',
     borderRadius: 4,
-    background: 'var(--brand-50)',
-    color: 'var(--brand-700)',
+    background: 'var(--bg-subtle)',
+    color: 'var(--text-primary)',
     fontSize: '0.9em',
     fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace',
   },
@@ -377,7 +377,7 @@ const styles: Record<string, CSSProperties> = {
   },
   linkTitle: {
     display: 'block',
-    color: 'var(--brand-900)',
+    color: 'var(--text-primary)',
     fontWeight: 700,
     lineHeight: 1.45,
   },

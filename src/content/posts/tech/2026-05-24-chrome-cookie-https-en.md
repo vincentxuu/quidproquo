@@ -10,7 +10,7 @@ description: "A walkthrough of debugging a mobile Chrome login loop: tracing bac
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-24-chrome-cookie-https)
+:globe: [中文版](/posts/tech/2026-05-24-chrome-cookie-https)
 
 ## TL;DR
 

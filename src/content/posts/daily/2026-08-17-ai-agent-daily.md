@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-17-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-17-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -129,13 +129,13 @@ Mistral 公布在地推理基礎設施、開源模型與新歐洲算力布局的
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
-- 📄 [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
-- 📄 [框架更新｜AG2 v1.0.2](/posts/daily/2026-08-17-framework-ag2-1.0.2)
-- 📄 [模型卡｜Muse Glimmer](/posts/daily/2026-08-17-model-meta-muse-glimmer)
-- 📄 [定價追蹤｜Claude Sonnet 5 漲價喊卡](/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze)
-- 📄 [資安警報｜CoreBreak](/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass)
-- 📄 [工具推薦｜mcp-memory](/posts/daily/2026-08-17-tool-mcp-memory)
+- :file: [AI Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+- :file: [AI GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
+- :file: [框架更新｜AG2 v1.0.2](/posts/daily/2026-08-17-framework-ag2-1.0.2)
+- :file: [模型卡｜Muse Glimmer](/posts/daily/2026-08-17-model-meta-muse-glimmer)
+- :file: [定價追蹤｜Claude Sonnet 5 漲價喊卡](/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze)
+- :file: [資安警報｜CoreBreak](/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass)
+- :file: [工具推薦｜mcp-memory](/posts/daily/2026-08-17-tool-mcp-memory)
 
 ## 明日關注
 

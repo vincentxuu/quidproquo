@@ -19,7 +19,7 @@ description: "拆解 Stanford CS146S Fall 2026 第四週「Customizing Your Agen
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-customization-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs146s-agent-customization-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -33,7 +33,7 @@ draft: false
 
 Fall 2025 對應的課堂是 Week 4「How to be an agent manager」，[投影片公開](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit)，Boris Cherny 也是那一堂的客座。它開場先畫了一條演進線：單一開發者管自己的產出 → lead 管多名開發者 → lead 管多名開發者（有 AI 輔助）→ **單一開發者管多個 agent 的產出**。課程對終點的描述是「every developer operates as a tech lead controlling their own army of agents」。
 
-然後它給了一張表，把一個軟體任務的七個步驟標上誰負責（🟩 人、🟦 agent）：
+然後它給了一張表，把一個軟體任務的七個步驟標上誰負責（:green-square: 人、:blue-square: agent）：
 
 ```
 Provide high level requirements          🟩

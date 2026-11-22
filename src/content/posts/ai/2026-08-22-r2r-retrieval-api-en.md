@@ -10,7 +10,7 @@ description: "An API-resource lifecycle guide to R2R document ingestion, collect
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-r2r-retrieval-api)
+> :globe: [中文版](/posts/ai/2026-08-22-r2r-retrieval-api)
 
 [R2R](https://github.com/SciPhi-AI/R2R) is an open-source AI retrieval system that places document processing, search, RAG, knowledge graphs, Agents, and management capabilities behind a REST API. It is neither a visual workflow platform for content operators nor a node library embedded in Python code. It is closer to a self-hosted retrieval backend.
 

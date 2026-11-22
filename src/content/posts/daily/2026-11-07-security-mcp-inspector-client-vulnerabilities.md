@@ -11,7 +11,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
+> :globe: [English version](/posts/daily/2026-11-07-security-mcp-inspector-client-vulnerabilities-en)
 
 ## 事件概述
 

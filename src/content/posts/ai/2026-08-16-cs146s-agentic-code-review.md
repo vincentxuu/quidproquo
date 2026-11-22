@@ -19,7 +19,7 @@ description: "拆解 Stanford CS146S Fall 2026 第六週「Agentic Code Review�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs146s-agentic-code-review-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs146s-agentic-code-review-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

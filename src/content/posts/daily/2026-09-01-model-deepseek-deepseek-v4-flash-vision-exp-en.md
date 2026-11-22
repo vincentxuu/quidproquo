@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek's flagship large language model family, split into Flash (lightweight) and Pro (flagship) tiers, with an experimental multimodal branch added in 2026"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp)
+> :globe: [中文版](/posts/daily/2026-09-01-model-deepseek-deepseek-v4-flash-vision-exp)
 
 ## Model Information
 
@@ -51,7 +51,7 @@ glossary:
 | Agents' Last Exam (multimodal) | 27.3 | 25.2† | 25.7 |
 | ZeroBench (Pass@5, multimodal) | 35.0 | – | 34.0 |
 
-⚠️ All figures above are DeepSeek's own first-party numbers, measured with its own DeepSeek Harness (Minimal Mode, `temperature=1.0`, `top_p=0.95`) on launch day, with no independent third-party reproduction yet. For the two rows marked †, V4-Flash-0731 is a text-only model that simply ignores the multimodal elements of the task during evaluation, so those scores aren't a like-for-like comparison.
+:warning: All figures above are DeepSeek's own first-party numbers, measured with its own DeepSeek Harness (Minimal Mode, `temperature=1.0`, `top_p=0.95`) on launch day, with no independent third-party reproduction yet. For the two rows marked †, V4-Flash-0731 is a text-only model that simply ignores the multimodal elements of the task during evaluation, so those scores aren't a like-for-like comparison.
 
 ## Comparison with Predecessor/Competitors
 

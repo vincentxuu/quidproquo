@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-cloudflare-queues)
+> :globe: [中文版](/posts/tech/2026-08-22-cloudflare-queues)
 
 After moving a site to [Cloudflare Workers](https://developers.cloudflare.com/workers/), the first real issue is often not whether a request can return. It is that the request starts doing too much: writing logs, sending email, generating thumbnails, synchronizing with third-party APIs, writing events to a database, saving AI chat traces, or producing embeddings.
 

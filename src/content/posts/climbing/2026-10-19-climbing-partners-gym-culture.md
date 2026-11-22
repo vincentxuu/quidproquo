@@ -26,7 +26,7 @@ glossary:
     context: "多數禮儀整理都建議要給 beta 前先問對方要不要。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-partners-gym-culture-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-partners-gym-culture-en)
 
 岩館裡最常聽到的一句話，大概是「有人可以幫我確保嗎？」抱石一個人就能爬，上攀卻需要另一個人握著繩子。你把命交給對方，對方也把命交給你，所以「跟誰爬」不只是找人作伴，也是一個安全決定。
 

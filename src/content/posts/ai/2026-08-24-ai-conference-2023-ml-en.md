@@ -23,7 +23,7 @@ glossary:
     context: "Mamba appeared as an arXiv preprint in December 2023 and generated extensive discussion at NeurIPS 2023."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2023-ml)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2023-ml)
 
 GPT-4 was released, LLaMA became open source, and ChatGPT swept across the world in 2023. LLMs went from a research topic to industry infrastructure, and that shift showed up directly in submission counts and the distribution of conference topics. NeurIPS received more than 12,000 submissions for the first time, while ICML and ICLR also set records. The award slate changed just as clearly: diffusion models and scaling laws had shared the spotlight in 2022, but nearly every major theme in 2023 revolved around large language models—how to align them, evaluate them, fine-tune them efficiently, and protect privacy.
 

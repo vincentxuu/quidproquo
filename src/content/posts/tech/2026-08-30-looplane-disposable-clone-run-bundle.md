@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle-en)
 
 使用者從 TUI 送出任務後，Looplane 不會直接把 agent 放進目前開著的 repo。`AgentRunner.run()` 先固定 base commit，再交給 `LocalGitWorkspace.prepare()` 建立一次性的 workspace。這篇追兩件事：程式碼實際在哪裡被改，以及 run 結束後有哪些檔案可供檢查。
 

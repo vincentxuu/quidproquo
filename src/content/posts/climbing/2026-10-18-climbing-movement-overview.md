@@ -26,7 +26,7 @@ glossary:
     context: "方格子的術語介紹說，台灣岩館少數常聽到的英文術語就是 beta。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-movement-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-movement-overview-en)
 
 在岩館爬了三個月，你可能卡在同一個級數。看著隔壁的人用同一組點輕鬆上去，你的前臂卻已經爆了。第一個念頭通常是「我要練力氣」，去吊指力板、做引體向上。
 

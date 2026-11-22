@@ -13,7 +13,7 @@ description: "深入 pi-coding-agent SessionManager：樹狀會話結構的持�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree-en)
+> :globe: [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-session-tree-en)
 
 ## TL;DR
 
@@ -30,11 +30,11 @@ draft: false
 
 | 需求 | 傳統線性歷史 | Append-only Tree |
 |---|---|---|
-| 回溯修改 | ❌ 只能刪除尾部 | ✅ 跳回任意節點續接 |
-| 實驗性嘗試 | ❌ 污染主線 | ✅ `/branch` 建立平行時間線 |
-| Compaction | ❌ 丟失細節 | ✅ 保留摘要 + 關鍵片段 |
-| Fork 到新專案 | ❌ 複製整個檔 | ✅ 只複製需要的路徑 |
-| 書籤/標籤 | ❌ 外掛 | ✅ `label` entry 內建 |
+| 回溯修改 | ✗ 只能刪除尾部 | ✓ 跳回任意節點續接 |
+| 實驗性嘗試 | ✗ 污染主線 | ✓ `/branch` 建立平行時間線 |
+| Compaction | ✗ 丟失細節 | ✓ 保留摘要 + 關鍵片段 |
+| Fork 到新專案 | ✗ 複製整個檔 | ✓ 只複製需要的路徑 |
+| 書籤/標籤 | ✗ 外掛 | ✓ `label` entry 內建 |
 
 ---
 

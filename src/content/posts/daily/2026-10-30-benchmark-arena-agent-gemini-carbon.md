@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon-en)
+> :globe: [English version](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon-en)
 
 
 ## 異動摘要
@@ -25,9 +25,9 @@ Arena Agent 排行榜官方發布日期從 2026-10-23 推進到 2026-10-28——
 
 | 排名 | 模型 | 分數 | 95% CI | 10-23 分數（名次） | 變化 |
 |---|---|---|---|---|---|
-| 🥇 | Claude Opus 5.5（Max） | 20.94% | [18.79%, 23.09%] | 20.77%（1） | — |
-| 🥈 | Gemini 4 Carbon（High） | 16.04% | [15.04%, 17.04%] | 新上榜 | 🆕 |
-| 🥉 | Claude Sonnet 5.5（Max） | 13.84% | [11.19%, 16.49%] | 13.99%（2） | ↓1 |
+| 1 | Claude Opus 5.5（Max） | 20.94% | [18.79%, 23.09%] | 20.77%（1） | — |
+| 2 | Gemini 4 Carbon（High） | 16.04% | [15.04%, 17.04%] | 新上榜 | NEW|
+| 3 | Claude Sonnet 5.5（Max） | 13.84% | [11.19%, 16.49%] | 13.99%（2） | ↓1 |
 | 4 | Claude Fable 5.1（Max） | 13.35% | [11.46%, 15.25%] | 13.94%（4） | — |
 | 5 | GPT-6 Astra（Max） | 12.96% | [10.94%, 14.98%] | 13.96%（3） | ↓2 |
 | 6 | GPT-6.1 Sol（Max） | 12.47% | [11.39%, 13.54%] | 13.64%（5） | ↓1 |
@@ -45,7 +45,7 @@ Gemini 4 Carbon 是 Google DeepMind 10-28 當天才[正式發布](https://blog.g
 
 ### 方法論面
 
-⚠️ 這次的分數是 Arena 自己的 IPS（inverse propensity score）盲測投票結果，不是 Google 自己的 benchmark,可信度高於廠商自測。但 Carbon 目前[還沒有對外開放](https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/)——只開放給 Google「Fairwind Program」裡的少數 cyber defender 測試者,開發者、企業、一般消費者都還拿不到。也就是說這 2.65 萬次 session 的使用者,不是一般公開使用者,樣本的組成可能跟後續公開之後的使用情境不同。信賴區間方面,Carbon 的 95% CI 下界（15.04%）仍高於 Sonnet 5.5 的點估計（13.84%）,兩者 CI 雖有重疊,但 Carbon 偏向這批次裡少數站得住腳的名次差；相對地,Sonnet 5.5、Fable 5.1、Astra 三者的 CI 幾乎完全疊在一起,第 3 到第 5 名的真實順序統計上分不出來。
+:warning: 這次的分數是 Arena 自己的 IPS（inverse propensity score）盲測投票結果，不是 Google 自己的 benchmark,可信度高於廠商自測。但 Carbon 目前[還沒有對外開放](https://arstechnica.com/ai/2026/10/google-announces-gemini-4-carbon-its-latest-frontier-ai-model-that-you-cant-use/)——只開放給 Google「Fairwind Program」裡的少數 cyber defender 測試者,開發者、企業、一般消費者都還拿不到。也就是說這 2.65 萬次 session 的使用者,不是一般公開使用者,樣本的組成可能跟後續公開之後的使用情境不同。信賴區間方面,Carbon 的 95% CI 下界（15.04%）仍高於 Sonnet 5.5 的點估計（13.84%）,兩者 CI 雖有重疊,但 Carbon 偏向這批次裡少數站得住腳的名次差；相對地,Sonnet 5.5、Fable 5.1、Astra 三者的 CI 幾乎完全疊在一起,第 3 到第 5 名的真實順序統計上分不出來。
 
 ### 產業面
 

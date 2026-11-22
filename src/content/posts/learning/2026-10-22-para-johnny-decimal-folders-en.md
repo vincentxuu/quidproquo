@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-para-johnny-decimal-folders)
+> :globe: [中文版](/posts/learning/2026-10-22-para-johnny-decimal-folders)
 
 Once your notes pile up, the question arrives sooner or later: should you make folders? One camp says categorizing is a waste of time because search finds everything; the other says anything uncategorized might as well not exist. Both can point to research, because the research looks at different things.
 

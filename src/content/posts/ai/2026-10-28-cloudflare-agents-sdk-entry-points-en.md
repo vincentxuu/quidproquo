@@ -19,7 +19,7 @@ glossary:
     context: "Cloudflare's dynamic agents are built on facets."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-28-cloudflare-agents-sdk-entry-points)
+> :globe: [中文版](/posts/ai/2026-10-28-cloudflare-agents-sdk-entry-points)
 
 Open the [cloudflare/agents](https://github.com/cloudflare/agents) README and the first example is an `Agent` class with `@callable()`. Open the [official docs home page](https://developers.cloudflare.com/agents/) and the opening line says "Start with the Pi harness"; its Get started section adds "Build your agent with the Pi harness." Both are correct. They are not talking about the same layer.
 

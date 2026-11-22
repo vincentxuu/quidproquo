@@ -23,7 +23,7 @@ glossary:
     context: "Outside readers can do PA1 on their own multi-core CPU, but the numbers are not directly comparable to the official reference."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ tldr: "SPINACH does not guess complete SPARQL in one shot. It searches entities 
 description: "CS224V Agentic AI for Knowledge Base Queries: Wikidata and SPARQL challenges, parsing baselines, SPINACH actions, loop control, datasets, and evaluation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-agentic-knowledge-base)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

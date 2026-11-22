@@ -13,7 +13,7 @@ description: "agent 失敗的三個機制：context rot 與 lost in the middle �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-agent-context-memory-failure-en)
+> :globe: [English version](/posts/ai/2026-08-10-agent-context-memory-failure-en)
 
 [上一篇](/posts/ai/2026-08-10-model-component-harness-system)的結論是「可靠性來自模型周圍的工程」。這一篇處理那個「周圍」裡最大的一塊：模型每一輪實際看到什麼。
 

@@ -20,7 +20,7 @@ description: "15 walls for building your own auto-dev agent — a concrete imple
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-auto-dev-agent-15-walls)
+> :globe: [中文版](/posts/ai/2026-05-09-auto-dev-agent-15-walls)
 
 ## TL;DR
 
@@ -107,7 +107,7 @@ Hard-coded caps (changes require PR review):
 | `scope:M` | 800,000 tokens (shared between spec PR + code PR) |
 | `scope:L` | 1,500,000 tokens |
 
-After each LLM call, the handler increments accumulator += response_tokens. When the cap is exceeded, it immediately aborts + comments "⚠️ Token budget exceeded" + adds the `human-coding` label. Token usage is persisted to `state-store.json:token_usage_by_issue` for weekly evals to track p99.
+After each LLM call, the handler increments accumulator += response_tokens. When the cap is exceeded, it immediately aborts + comments ":warning: Token budget exceeded" + adds the `human-coding` label. Token usage is persisted to `state-store.json:token_usage_by_issue` for weekly evals to track p99.
 
 **What it prevents**: Agent loop runaway is a real risk. One prompt goes in the wrong direction, the agent retries on the wrong path 10 times, and token costs explode overnight. A hard cap per issue means it stops and hands off to a human when exceeded.
 

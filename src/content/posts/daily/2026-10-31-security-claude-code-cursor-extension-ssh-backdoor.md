@@ -11,7 +11,7 @@ series:
   order: 68
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor-en)
+> :globe: [English version](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor-en)
 
 ## 事件概述
 

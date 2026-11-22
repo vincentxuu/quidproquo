@@ -13,7 +13,7 @@ description: "Nodake climbing guide: seasons, transport, local access rules, rou
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-nodake)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-nodake)
 
 A visit to Nodake requires choosing both a climbing sector and a workable local approach. This guide helps you assess the style, season and access checks needed for a first visit.
 

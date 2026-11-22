@@ -26,7 +26,7 @@ glossary:
     context: "觀測（observation）通常不滿足這個性質，所以 policy 需要記憶。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-intro-mdps-behavior-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

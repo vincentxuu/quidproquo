@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 51
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-11-tool-opengeni-en)
+> :globe: [English version](/posts/daily/2026-10-11-tool-opengeni-en)
 
 ## 工具資訊
 
@@ -90,11 +90,11 @@ claude plugin install opengeni@opengeni --scope user
 
 | | Opengeni | 自己拼 Temporal + Postgres | 純 agent 邏輯框架（LangGraph／CrewAI） |
 |---|---|---|---|
-| Session 持久化＋可重播事件紀錄 | ✅ 內建 | 需自己設計 schema 與重播邏輯 | ❌ 通常只處理單次執行 |
-| 人工審批關卡，可在中斷後精準恢復 | ✅ 內建 | 需自己寫 | ❌ 需自己加 |
-| 跨機器執行（Connected Machine，機器不持有憑證） | ✅ 內建 | 需自己設計撥號與憑證隔離 | ❌ |
-| 免部署直接試用 | ✅ app.opengeni.ai | ❌ | 視框架而定 |
-| 開源可自架 | ✅ Apache-2.0 | — | ✅ 多數開源 |
+| Session 持久化＋可重播事件紀錄 | ✓ 內建 | 需自己設計 schema 與重播邏輯 | ✗ 通常只處理單次執行 |
+| 人工審批關卡，可在中斷後精準恢復 | ✓ 內建 | 需自己寫 | ✗ 需自己加 |
+| 跨機器執行（Connected Machine，機器不持有憑證） | ✓ 內建 | 需自己設計撥號與憑證隔離 | ✗ |
+| 免部署直接試用 | ✓ app.opengeni.ai | ✗ | 視框架而定 |
+| 開源可自架 | ✓ Apache-2.0 | — | ✓ 多數開源 |
 
 ## 注意事項
 

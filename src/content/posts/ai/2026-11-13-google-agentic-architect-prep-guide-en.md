@@ -13,7 +13,7 @@ description: "A preparation guide for the Google Professional Agentic Architect 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-13-google-agentic-architect-prep-guide)
+> :globe: [中文版](/posts/ai/2026-11-13-google-agentic-architect-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official exam guide](https://services.google.com/fh/files/misc/professional_agentic_architect_exam_guide_english.pdf), and every "how to prepare" points to an official learning path or Google Cloud documentation. No leaked questions. Verified 2026-11-13.
 

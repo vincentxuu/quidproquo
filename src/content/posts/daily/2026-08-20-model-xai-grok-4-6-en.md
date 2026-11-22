@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-20-model-xai-grok-4-6)
+> :globe: [中文版](/posts/daily/2026-08-20-model-xai-grok-4-6)
 
 ## Model Info
 
@@ -45,7 +45,7 @@ series:
 | Terminal-Bench v3.0 | 26% | 15.7% | GPT-5.6 Sol Max 34.6% |
 | CursorBench v3.2 | 69.9% | 66.7% | Claude Fable 5 Max 70.5% |
 
-⚠️ All figures above are from xAI's own testing or each vendor's published system cards/leaderboards. Competitor scores reflect self-reported bests and await independent reproduction.
+:warning: All figures above are from xAI's own testing or each vendor's published system cards/leaderboards. Competitor scores reflect self-reported bests and await independent reproduction.
 
 ## Comparison with Previous Generation and Competitors
 

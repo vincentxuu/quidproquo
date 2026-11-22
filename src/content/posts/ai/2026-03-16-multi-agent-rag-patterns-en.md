@@ -14,7 +14,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-16-multi-agent-rag-patterns)
+> :globe: [中文版](/posts/ai/2026-03-16-multi-agent-rag-patterns)
 
 When your RAG system needs to simultaneously answer questions about legal statutes, financial reports, and technical documentation, having a single Agent do everything starts to break down.
 

@@ -13,7 +13,7 @@ description: "A deck-faithful guide to Stanford CS103 Graph Theory Part Two: rea
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-11-graphs-2)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-11-graphs-2)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

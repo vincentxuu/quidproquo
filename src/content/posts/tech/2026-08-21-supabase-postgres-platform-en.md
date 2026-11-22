@@ -26,7 +26,7 @@ glossary:
     definition_en: "Row Level Security — PostgreSQL's mechanism for controlling which rows each user can see and modify through declarative policies."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-supabase-postgres-platform)
+> :globe: [中文版](/posts/tech/2026-08-21-supabase-postgres-platform)
 
 [Supabase](https://supabase.com/) is often introduced as "the open-source Firebase alternative." That positioning isn't wrong, but it obscures the more interesting architectural decision: **the entire platform is built on PostgreSQL**, rather than inventing its own data model.
 

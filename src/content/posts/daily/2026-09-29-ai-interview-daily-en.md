@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-09-29-ai-interview-daily)
 
 ## Today's Topic
 

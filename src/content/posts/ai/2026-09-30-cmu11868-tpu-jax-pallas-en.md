@@ -29,7 +29,7 @@ glossary:
     context: "Every performance analysis in L12 and L13 revolves around movement between HBM and VMEM."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-tpu-jax-pallas)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

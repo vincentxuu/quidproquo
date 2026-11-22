@@ -14,7 +14,7 @@ series:
   order: 36
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation-en)
 
 這篇記錄一個在攀岩路線推薦系統上撞到的 retrieval 問題：使用者說「我完攀了美人照鏡 5.11b，推薦我類似難度的路線」，系統回了一堆名字跟「美人照鏡」沾邊的路線，難度完全不對。
 

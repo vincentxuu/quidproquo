@@ -12,7 +12,7 @@ series:
   order: 66
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-20-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -116,14 +116,14 @@ FTI Consulting 引用 Gartner 的預估把代價講得更直白：若企業導�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-github-digest)
-- 📄 [資安警報｜假 Web3 加速器用 npm 套件綁架 AI coding agent 流量](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack)
-- 📄 [融資速報｜Town Series B $108M](/posts/daily/2026-10-20-funding-town)
-- 📄 [定價追蹤｜Vertex AI 今天停用 Gemini 2.5 全系列](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset)
-- 📄 [工具推薦｜Audio Studio MCP](/posts/daily/2026-10-20-tool-audio-studio-mcp)
-- 📄 [AI Engineer 面試準備日報 — 2026-10-20](/posts/daily/2026-10-20-ai-interview-daily)
-- 📄 [Product Builder 面試準備日報 — 2026-10-20](/posts/daily/2026-10-20-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-github-digest)
+- :file: [資安警報｜假 Web3 加速器用 npm 套件綁架 AI coding agent 流量](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack)
+- :file: [融資速報｜Town Series B $108M](/posts/daily/2026-10-20-funding-town)
+- :file: [定價追蹤｜Vertex AI 今天停用 Gemini 2.5 全系列](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset)
+- :file: [工具推薦｜Audio Studio MCP](/posts/daily/2026-10-20-tool-audio-studio-mcp)
+- :file: [AI Engineer 面試準備日報 — 2026-10-20](/posts/daily/2026-10-20-ai-interview-daily)
+- :file: [Product Builder 面試準備日報 — 2026-10-20](/posts/daily/2026-10-20-product-builder-interview-daily)
 
 ## 明日關注
 

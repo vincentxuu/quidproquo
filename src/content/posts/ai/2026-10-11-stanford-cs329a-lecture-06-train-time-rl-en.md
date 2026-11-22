@@ -13,7 +13,7 @@ tldr: "Useful training feedback must distinguish candidates; filtering, relative
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl)
+> :globe: [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-06-train-time-rl)
 
 **Video status: Videos included.** Lecture text is available; caption type, listening checks, and the shadowing player still require verification.
 

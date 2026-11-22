@@ -10,7 +10,7 @@ description: "Anthropic 11/4 與 Cloudflare 接連發表 Code Mode 模式，重�
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en)
+:globe: [English version](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern-en)
 
 四月那篇〈[MCP vs CLI vs API：Agent 工具介面的真實分界](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface)〉處理的是「定位」：API 是 base layer，五種包裝各有適用場景，MCP 唯一站得住的護城河只剩「跨 host 共享」。但那篇沒處理一個更實務的問題——**就算選對了介面，為什麼一個 agent workflow 動不動就燒掉 100K 以上的 tokens？**
 

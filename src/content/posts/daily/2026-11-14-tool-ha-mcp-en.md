@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-14-tool-ha-mcp)
+> :globe: [中文版](/posts/daily/2026-11-14-tool-ha-mcp)
 
 ## Tool info
 
@@ -119,7 +119,7 @@ If you installed it as a Home Assistant custom integration or app instead, the s
 | Connection | Separate REST/WebSocket API | Runs on the Assist pipeline | Separate REST/WebSocket API |
 | Scope | Automations/scripts/helpers/dashboards/areas/calendars/backups/HACS/device & entity registries; YAML editing is beta | Only entities exposed to Assist, only intents Assist supports | Entity state/control, automation listing/control, dashboard read/write |
 | Tool count | 87 | Varies with your exposure settings, not a fixed set | Not stated; clearly narrower coverage |
-| Can write automations/scripts | ✅ | ❌ | ❌ (can only list/control existing ones) |
+| Can write automations/scripts | ✓ | ✗ | ✗ (can only list/control existing ones) |
 | Safety features | Read Only Mode, per-tool toggles, approval policies, automatic backups | Follows your Assist exposure settings | Not specifically documented |
 | Last updated | Pushing commits as of 2026-11-13 | Tracks the Home Assistant core release cycle | 2026-11-02 |
 

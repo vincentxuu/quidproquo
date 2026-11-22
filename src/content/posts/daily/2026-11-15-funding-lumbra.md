@@ -12,7 +12,7 @@ series:
   order: 136
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-funding-lumbra-en)
+> :globe: [English version](/posts/daily/2026-11-15-funding-lumbra-en)
 
 ## 融資資訊
 

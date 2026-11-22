@@ -22,7 +22,7 @@ glossary:
     context: "Used here under its English name; Taiwanese climbers have no common Chinese term for it."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-warm-up)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-warm-up)
 
 You rush to the gym after work on Friday and your friend is already on the route you didn't finish last week. You want to jump straight on, and a coach nearby says: "Warm up first, or you'll get hurt."
 

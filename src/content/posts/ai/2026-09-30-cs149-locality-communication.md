@@ -25,7 +25,7 @@ glossary:
     context: "L6 用教授 office hours 排隊的例子說明，解法是複製資源或錯開存取。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-locality-communication-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-locality-communication-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

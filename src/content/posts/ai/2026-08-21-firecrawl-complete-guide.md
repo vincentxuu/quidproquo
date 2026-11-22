@@ -10,7 +10,7 @@ description: "從 Firecrawl v2 的 Scrape、Crawl、Map 與 JSON Schema 抽取�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-firecrawl-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-firecrawl-complete-guide-en)
 
 [Firecrawl](https://docs.firecrawl.dev/advanced-scraping-guide) 是一套 Web Data API。給它一個 URL，可以拿回 Markdown、連結、HTML、截圖或結構化 JSON；給它一個網域，還能先列 URL，或直接把多個頁面爬回來。它和一般爬蟲函式庫最大的差別，不是多了一個 Markdown converter，而是把瀏覽器、快取、proxy、工作佇列與 API 服務一起包起來。
 

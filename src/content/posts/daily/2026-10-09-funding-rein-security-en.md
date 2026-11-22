@@ -12,7 +12,7 @@ series:
   order: 78
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-funding-rein-security)
+> :globe: [中文版](/posts/daily/2026-10-09-funding-rein-security)
 
 ## Deal Terms
 

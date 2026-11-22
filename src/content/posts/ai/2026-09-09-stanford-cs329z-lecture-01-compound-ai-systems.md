@@ -14,7 +14,7 @@ description: "逐頁核對 CS329Z 第一堂 71 頁投影片，以十段導讀解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en)
+> :globe: [English version](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 70 分鐘；本文依公開投影片與原文整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 

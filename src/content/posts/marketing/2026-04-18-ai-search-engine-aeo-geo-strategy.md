@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [English version](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en)
+:globe: [English version](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en)
 
 做 AEO/GEO 的人很容易把「AI 搜尋優化」想成傳統 SEO 的延伸：加 JSON-LD、補 FAQ schema、寫好 meta description，然後等 AI 引用你。但如果你看過各家 AI 引擎實際讀網頁的管線，會發現事情沒這麼單純——有些引擎根本讀不到你放在 `<head>` 裡的東西。
 
@@ -109,9 +109,9 @@ Gemini 的生成式回答直接建在 Google Search 索引和 Knowledge Graph �
 | | Claude（WebFetch） | ChatGPT | Perplexity | Gemini |
 |---|---|---|---|---|
 | 抓取方式 | 本地端 Axios | 伺服器端（`OAI-SearchBot`） | 預先爬取建索引（`PerplexityBot`） | 已有 Google 索引（Googlebot） |
-| 讀 `<head>`？ | ❌ | ⚠️ 間接 | ✅ | ✅ |
-| JSON-LD/schema 有效？ | ❌ | ⚠️ 有限 | ✅ | ⚠️ 讀得到，但 Google 說不是必要條件 |
-| 支援 JS 渲染？ | ❌ | ✅ | ✅ | ✅ |
+| 讀 `<head>`？ | ✗ | :warning: 間接 | ✓ | ✓ |
+| JSON-LD/schema 有效？ | ✗ | :warning: 有限 | ✓ | :warning: 讀得到，但 Google 說不是必要條件 |
+| 支援 JS 渲染？ | ✗ | ✓ | ✓ | ✓ |
 | 引用密度 | 低 | 中 | 高 | 中 |
 
 Claude 欄只涵蓋 WebFetch 這條路徑。Anthropic 另有 `Claude-SearchBot` 做搜尋索引，解析細節未公開，該路徑的欄位目前**無法確認**。

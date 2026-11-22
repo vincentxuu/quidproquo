@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-wireguard-vpn-tunnel)
+> :globe: [中文版](/posts/tech/2026-08-22-wireguard-vpn-tunnel)
 
 [WireGuard](https://www.wireguard.com/) is an encrypted tunnel carrying IP packets at layer 3. It deliberately handles a narrow core: peer keys, encrypted handshakes, packet encapsulation, and routing. It has no user directory, SSO, device posture, approval workflow, or central management UI. That smallness is both its strength and the work most frequently omitted from adoption estimates.
 

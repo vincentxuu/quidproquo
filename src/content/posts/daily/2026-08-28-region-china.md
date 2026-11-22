@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-region-china-en)
+> :globe: [English version](/posts/daily/2026-08-28-region-china-en)
 
 ## 區域：中國
 
@@ -30,7 +30,7 @@ series:
 
 ### 騰訊 WorkBuddy「模型無關」打法：不管誰的模型贏，錢收在平台這一層
 
-騰訊 WorkBuddy 的核心策略與豆包 Work、QwenWork 不同：它不是要證明自己的模型最強，而是把 DeepSeek、智譜 GLM、月之暗面 Kimi、MiniMax，以及騰訊自家的混元 Hy3 全部接進同一個工作台，讓使用者自由選擇底層模型，並用點數＋會員的混合計費模式在每一次呼叫上抽成——換句話說，不管哪個模型贏，騰訊都收得到租金，唯一沒揭露的是抽成比例與是否已經打平。產業媒體 CIW News 的分析指出，Hy3 於 8 月 5 日透過 WorkBuddy 全面免費開放後，在使用者自選模型時的選用比例已衝上 6 成以上；WorkBuddy 單月訪問量從 3 月首發時的 885 萬成長到 6 月的 2,097 萬，加計 CodeBuddy、QClaw 在內的騰訊系產品，6 月總訪問量達 3,262 萬，超過該機構追蹤的辦公 Agent 市場總量（6,062 萬）的一半。⚠️ 上述訪問量與模型選用比例數字來自 Analysys 經 36 氪轉引，以及騰訊自身揭露，尚未見獨立審計來源交叉驗證。（[CIW News](https://www.ciw.news/p/workplace-ai-desktop-china)）
+騰訊 WorkBuddy 的核心策略與豆包 Work、QwenWork 不同：它不是要證明自己的模型最強，而是把 DeepSeek、智譜 GLM、月之暗面 Kimi、MiniMax，以及騰訊自家的混元 Hy3 全部接進同一個工作台，讓使用者自由選擇底層模型，並用點數＋會員的混合計費模式在每一次呼叫上抽成——換句話說，不管哪個模型贏，騰訊都收得到租金，唯一沒揭露的是抽成比例與是否已經打平。產業媒體 CIW News 的分析指出，Hy3 於 8 月 5 日透過 WorkBuddy 全面免費開放後，在使用者自選模型時的選用比例已衝上 6 成以上；WorkBuddy 單月訪問量從 3 月首發時的 885 萬成長到 6 月的 2,097 萬，加計 CodeBuddy、QClaw 在內的騰訊系產品，6 月總訪問量達 3,262 萬，超過該機構追蹤的辦公 Agent 市場總量（6,062 萬）的一半。:warning: 上述訪問量與模型選用比例數字來自 Analysys 經 36 氪轉引，以及騰訊自身揭露，尚未見獨立審計來源交叉驗證。（[CIW News](https://www.ciw.news/p/workplace-ai-desktop-china)）
 
 ### 智譜（Z.ai）開源 GLM-5.3-Flash：MIT 授權、跑在國產晶片上，價格僅前代十分之一
 

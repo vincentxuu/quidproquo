@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
+> :globe: [English version](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool-en)
 
 ## 工具資訊
 
@@ -92,11 +92,11 @@ $eventDispatcher->addListener(ToolCallRequested::class, function (ToolCallReques
 
 | | symfony/ai-mcp-tool | 自己手寫轉接層 | LangChain `langchain-mcp-adapters`（Python） |
 |---|---|---|---|
-| 官方維護、跟框架版本同步 | ✅ | — | ✅（LangChain 官方） |
-| 多 server 自動前綴防撞名 | ✅ | 需自行實作 | ✅ |
-| 連線失敗斷路器（避免每次重試） | ✅（`retryAfter`） | 需自行實作 | 需視底層 client 而定 |
-| 工具呼叫可攔截/拒絕（權限閘） | ✅（事件系統） | 需自行實作 | 需自行包裝 |
-| PHP 生態 | ✅ | ✅ | ❌（Python） |
+| 官方維護、跟框架版本同步 | ✓ | — | ✓（LangChain 官方） |
+| 多 server 自動前綴防撞名 | ✓ | 需自行實作 | ✓ |
+| 連線失敗斷路器（避免每次重試） | ✓（`retryAfter`） | 需自行實作 | 需視底層 client 而定 |
+| 工具呼叫可攔截/拒絕（權限閘） | ✓（事件系統） | 需自行實作 | 需自行包裝 |
+| PHP 生態 | ✓ | ✓ | ✗（Python） |
 
 ## 注意事項
 

@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
+> :globe: [中文版](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
 
 ## Incident Overview
 

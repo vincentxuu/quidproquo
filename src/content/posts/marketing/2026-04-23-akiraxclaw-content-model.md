@@ -10,7 +10,7 @@ description: "拆解 AKIRAXCLAW 的內容策略：每天 3-5 篇的發布節奏�
 draft: false
 ---
 
-🌏 [English version](/posts/marketing/2026-04-23-akiraxclaw-content-model-en)
+:globe: [English version](/posts/marketing/2026-04-23-akiraxclaw-content-model-en)
 
 [AKIRAXCLAW](https://akiraxclaw.com) 是 Akira 經營的中文 AI 工具觀察站。截至 2026 年 4 月，171 篇文章、每天更新 3–5 篇，涵蓋 open-source、LLM、developer tools、AI agents 等主題，整體定位是「中文市場的 AI 實戰觀察與工作流筆記」。
 

@@ -11,7 +11,7 @@ series:
   order: 51
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-05-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ OpenAI 上週五（9/29）才推出要付費訂閱才能用的個人代理產品
 
 ## Trending Repos
 
-### open-dot ⭐ 550
+### open-dot ★ 550
 
 [GitHub](https://github.com/composio-community/open-dot)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ OpenAI 上週五（9/29）才推出要付費訂閱才能用的個人代理產品
 
 ---
 
-### mcp-audit-tool ⭐ 91
+### mcp-audit-tool ★ 91
 
 [GitHub](https://github.com/graygnatconsole/mcp-audit-tool)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ OpenAI 上週五（9/29）才推出要付費訂閱才能用的個人代理產品
 
 ---
 
-### strands-decider ⭐ 331
+### strands-decider ★ 331
 
 [GitHub](https://github.com/strands-labs/strands-decider)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ OpenAI 上週五（9/29）才推出要付費訂閱才能用的個人代理產品
 
 ---
 
-### answer-me-with-html ⭐ 977
+### answer-me-with-html ★ 977
 
 [GitHub](https://github.com/QingYunA/answer-me-with-html)　·　JavaScript　·　MIT
 

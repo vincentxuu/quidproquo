@@ -12,7 +12,7 @@ series:
   order: 95
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-27-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-27-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Earlier approaches to letting an agent build its own tools, like LATM, simply pr
 
 ### Deep Dive
 
-- After SMITH training, the 4B Qwen3 model reaches a 79.8% macro-average accuracy on held-out tests across 13 Reasoning-Gym procedural reasoning tasks — the highest score of any method tested, beating an untrained 30B-A3B tool-writer ⚠️ (author-reported, pending independent replication)
+- After SMITH training, the 4B Qwen3 model reaches a 79.8% macro-average accuracy on held-out tests across 13 Reasoning-Gym procedural reasoning tasks — the highest score of any method tested, beating an untrained 30B-A3B tool-writer :warning: (author-reported, pending independent replication)
 - Zero-shot transfer scores 40.4 on TabMWP-Hard and 42.6 on GQA visual QA (+7.6 points over the best inference-time baseline on the same backbone), despite never seeing tabular or visual data during training
 - Tools written by the 4B policy let a frozen 350M model (LFM-2.5-350M) match the level of a 30B tool-writer
 - Training uses DAPO, a clip-higher variant of GRPO, to stabilize entropy and avoid reward collapse
@@ -103,7 +103,7 @@ Existing tool-calling benchmarks like ToolBench and APIBank mostly test whether 
 
 ### Deep Dive
 
-- Core finding: strong logical-planning ability doesn't imply safe or efficient physical scheduling — the two are separable capabilities ⚠️ (author-reported, pending independent replication)
+- Core finding: strong logical-planning ability doesn't imply safe or efficient physical scheduling — the two are separable capabilities :warning: (author-reported, pending independent replication)
 - Proactively exposing resource information to the agent, instead of letting it call tools blindly in parallel, reduces avoidable resource overload and improves resource utilization
 - Benchmark construction pipeline: generate executable multi-tool queries with MCP tools → measure actual resource usage of each step in a sandbox → perturb execution order to reverse-engineer the true dependency/parallel structure
 - Deployment prerequisite: applying this evaluation requires visibility into each tool's resource usage (memory, API quota, GPU usage, etc.), which is hard to quantify for black-box third-party APIs
@@ -148,7 +148,7 @@ Existing approaches like direct function-calling and ReAct handle "tracking the 
 
 ### Deep Dive
 
-- Across five Qwen3 model sizes — 0.6B / 1.7B / 4B / 8B / 14B — Specialized OODA improves task success rate over the Direct-LoRA baseline by 6.86 / 6.79 / 6.99 / 5.94 / 4.48 points respectively, with smaller models seeing larger gains ⚠️ (author-reported, pending independent replication)
+- Across five Qwen3 model sizes — 0.6B / 1.7B / 4B / 8B / 14B — Specialized OODA improves task success rate over the Direct-LoRA baseline by 6.86 / 6.79 / 6.99 / 5.94 / 4.48 points respectively, with smaller models seeing larger gains :warning: (author-reported, pending independent replication)
 - The improvement is larger on hard and out-of-distribution (OOD) tasks, and smaller on easy tasks or tasks with heavily parallel tool calls
 - Test scenarios: ToolDial plus three additional benchmarks, covering multi-turn, multi-tool, and incomplete-information settings
 - Trade-off: generating in four separate stages costs more inference than Direct-LoRA's single-pass approach; if your scenario prioritizes single-call latency, Direct-LoRA remains the cheaper option

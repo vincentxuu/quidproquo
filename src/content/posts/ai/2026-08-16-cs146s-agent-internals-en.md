@@ -19,7 +19,7 @@ description: "Stanford CS146S Fall 2026 Week 1, 'The Internals of Coding Agents'
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-internals)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-agent-internals)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

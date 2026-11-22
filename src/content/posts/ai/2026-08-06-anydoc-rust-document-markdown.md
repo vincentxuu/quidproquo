@@ -25,7 +25,7 @@ glossary:
     context: "多數轉檔工具只支援 OOXML 新格式，能不能吃 OLE 老格式是 anydoc 跟 MarkItDown 的主要差異之一。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en)
+> :globe: [English version](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en)
 
 [Firecrawl](https://github.com/firecrawl) 開源了 [anydoc](https://github.com/firecrawl/anydoc)，一個用 Rust 寫的文件轉 Markdown 函式庫，MIT 授權。它支援 14 種辦公室格式，中位轉換耗時 4.7 毫秒。
 

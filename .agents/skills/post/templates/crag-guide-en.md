@@ -20,7 +20,7 @@ draft: true
 {{ }} 是待填處；發佈前全部刪掉，連同這段註解。
 -->
 
-> 🌏 [繁體中文版](/posts/climbing/YYYY-MM-DD-{{country}}-crag-{{slug}})
+> :globe: [繁體中文版](/posts/climbing/YYYY-MM-DD-{{country}}-crag-{{slug}})
 
 {{Opening 1–2 sentences: what you see on (or on the way to) the wall, leading into what makes the place distinctive. End by naming the common misjudgment (e.g. "A subway connection to the foot of the mountain does not make it an introductory outdoor lead venue.").}}
 

@@ -13,7 +13,7 @@ description: "導讀 Stanford CS161 Winter 2026 第四講：k-th selection、piv
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-04-median-selection-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

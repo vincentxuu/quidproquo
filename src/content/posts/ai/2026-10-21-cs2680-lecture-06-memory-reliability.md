@@ -22,7 +22,7 @@ glossary:
     context: "第 6 堂把它和 valid time 並列為記憶必備的兩個欄位。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-lecture-06-memory-reliability-en)
 
 **影片狀態：課程不錄影。** 本文依公開投影片整理，數值例子為本站補充。[來源說明](#課程影片來源)
 

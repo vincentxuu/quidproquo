@@ -11,7 +11,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-27-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### paperclipai/paperclip ⭐ 86,759
+### paperclipai/paperclip ★ 86,759
 
 [GitHub](https://github.com/paperclipai/paperclip)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### block/buzz ⭐ 34,783
+### block/buzz ★ 34,783
 
 [GitHub](https://github.com/block/buzz)　·　Rust　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### zai-org/ZCode ⭐ 6,827
+### zai-org/ZCode ★ 6,827
 
 [GitHub](https://github.com/zai-org/ZCode)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### mobile-next/mobile-mcp ⭐ 7,236
+### mobile-next/mobile-mcp ★ 7,236
 
 [GitHub](https://github.com/mobile-next/mobile-mcp)　·　TypeScript　·　Apache-2.0
 

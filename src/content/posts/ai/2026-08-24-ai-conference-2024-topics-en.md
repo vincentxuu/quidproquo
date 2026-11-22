@@ -23,7 +23,7 @@ glossary:
     context: "CVPR 2024 Best Student Paper Mip-Splatting belonged to this line of work."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2024-topics)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2024-topics)
 
 2024 was the year AI research became thoroughly "LLM-ified." A longitudinal analysis of roughly 80,000 accepted papers at ACL, CVPR, ICLR, ICML, and NeurIPS found another steep rise in LLM papers, 4.3-fold growth in agent-related keywords, and diffusion models joining LLMs as the two central pillars of generative AI. This article examines both awards and topic distributions to ask what the major AI conferences actually accepted in 2024.
 

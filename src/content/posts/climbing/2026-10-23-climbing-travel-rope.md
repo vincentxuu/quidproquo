@@ -30,7 +30,7 @@ glossary:
     context: "它不會變成兩條繩：單獨一條還是只能對折垂降繩長的一半。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-23-climbing-travel-rope-en)
+> :globe: [English version](/posts/climbing/2026-10-23-climbing-travel-rope-en)
 
 在台灣，很多人第一條繩是 60 m，在龍洞和岩館都夠用。帶出國就不一樣了。卡林諾斯官方攀岩網站把 70 m 當最低標準，長線多的地方帶 80 m 比較從容。兩週下來，同一條繩每天要在被磨光、局部又銳利的石灰岩上下放好幾次。搭廉航時，繩子可能是整袋最重的一件。
 

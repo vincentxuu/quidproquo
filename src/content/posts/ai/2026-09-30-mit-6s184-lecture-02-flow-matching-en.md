@@ -24,7 +24,7 @@ glossary:
     context: "The path used in Algorithm 3 of the notes, where the conditional vector field simplifies to z − ε."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "A reproducible method for agent search queries: classification, ke
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-agent-search-query-writing)
+> :globe: [中文版](/posts/ai/2026-08-22-agent-search-query-writing)
 
 Search quality does not come from the search engine alone. When an agent forwards “please look this up” unchanged, it treats conversational language as a retrieval language. That occasionally works, but it is not controllable.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en)
+> :globe: [English version](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en)
 
 這是「教學文章怎麼寫」系列的第 10 篇，屬於第二部分「要讀者做什麼」。[第 8 篇](/posts/learning/2026-10-14-active-learning-evidence)查了「做中學」的證據量的是什麼，[第 9 篇](/posts/learning/2026-10-13-teaching-text-questions-feedback)談文章裡的題目怎麼出、答案怎麼給。這兩篇有一個沒有明說的前提：讀者會作答。這篇回頭查這個前提。
 

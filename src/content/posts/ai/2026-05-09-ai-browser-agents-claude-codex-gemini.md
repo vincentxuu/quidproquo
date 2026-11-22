@@ -10,8 +10,8 @@ tldr: "三家原本走三條路：Anthropic 做擴充、OpenAI 蓋自己的瀏�
 description: "Claude in Chrome、OpenAI 收掉 Atlas 之後的路線、Gemini in Chrome 三家 AI 瀏覽器 agent 的路線比較與選擇建議，含權限模型與已知安全問題。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 7
+  name: "AI 瀏覽器自動化"
+  order: 1
 ---
 
 2026 年初，三家主要 AI 廠商都把 agent 帶進瀏覽器，而且走的路線完全不同：Anthropic 做 Chrome 擴充功能，OpenAI 蓋了自己的瀏覽器 Atlas，Google 直接把 Gemini 焊進 Chrome 本體。

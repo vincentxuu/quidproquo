@@ -22,7 +22,7 @@ glossary:
     context: "L9 用來降低 VAE 梯度估計的變異數；L7 的 x_t = √ᾱ_t x₀ + √(1 − ᾱ_t) ε 是同一招。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-variational-inference-vae-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

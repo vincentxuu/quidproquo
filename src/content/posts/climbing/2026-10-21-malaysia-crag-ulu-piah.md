@@ -13,7 +13,7 @@ description: "Ulu Piah 攀岩指南：通知地主的流程與電話、完整的
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-ulu-piah-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-ulu-piah-en)
 
 Ulu Piah 是霹靂州（[Perak](https://www.thecrag.com/en/climbing/malaysia/area/10135722960)）[Tambun](https://www.thecrag.com/en/climbing/malaysia/area/10135722960) 一帶 Mount Hugh Low 山系上的私人石灰岩岩場：27 條路線，難度從 5c 拉到 8b，是馬來西亞少數真正有 8 字頭的岩場。但它不是走到就能爬的地方——**去之前要先通知地主**，接近路爛得需要高底盤車，社群還回報過致命落石風險。這篇幫你把這三件事處理掉：誰要通知、怎麼開進去、要帶什麼。
 

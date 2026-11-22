@@ -13,7 +13,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-fpv-video-link-taiwan-en)
+> :globe: [English version](/posts/tech/2026-08-08-fpv-video-link-taiwan-en)
 
 [遙控鏈路那篇](/posts/tech/2026-08-08-drone-radio-link)的結尾我寫了一筆欠帳：
 

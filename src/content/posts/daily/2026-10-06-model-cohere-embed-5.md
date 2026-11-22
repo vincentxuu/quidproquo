@@ -15,7 +15,7 @@ glossary:
     def: "Cohere 開發的文字／圖像嵌入（embedding）模型家族，把內容轉成向量供語義檢索與 RAG 使用"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-06-model-cohere-embed-5-en)
+> :globe: [English version](/posts/daily/2026-10-06-model-cohere-embed-5-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 多語言（德／法／西／義／俄平均） | 77 | 未列 | 約 70（+7） | Voyage 4 Large 76、Gemini Embedding 2 73 |
 | 財務三榜平均（FinanceBench／FinQA／ViDoRe V3 Finance） | 領先次高 3.3 分 | — | 未列 | Gemini Embedding 2（次高） |
 
-⚠️ 以上均為 Cohere 自測結果，尚無第三方獨立複現；RCP-nDCG@10 是 Embed 5 首次採用的 Cohere 自家評測方法，官方附上標註資料與程式碼供外部核對，但評測集本身仍是 Cohere 設計與篩選。
+:warning: 以上均為 Cohere 自測結果，尚無第三方獨立複現；RCP-nDCG@10 是 Embed 5 首次採用的 Cohere 自家評測方法，官方附上標註資料與程式碼供外部核對，但評測集本身仍是 Cohere 設計與篩選。
 
 ## 與前代/競品比較
 

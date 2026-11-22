@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 25
 ---
-> 🌏 [English version](/posts/daily/2026-06-18-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-18-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,7 +70,7 @@ Agent 框架設計一直被視為「藝術而非科學」，HarnessX 把它轉�
 - 架構核心：9 維行為管道（nine-dimension behavior pipeline），Processor 以 pipe 運算子組合，總計 7 大類 Processor
 - AEGIS 4 stage pipeline：Digester（壓縮 trace）→ Planner（提修改計畫）→ Evolver（產生候選 Harness）→ Critic（評分篩選）
 - 五個 benchmark：ALFWorld、GAIA、WebShop、τ³-Bench、SWE-bench Verified
-- 平均提升 **+14.5%**，最高 **+44.0%**（論文數字）⚠️（具體哪個 benchmark 達 +44% 在搜尋結果中未明確拆分）
+- 平均提升 **+14.5%**，最高 **+44.0%**（論文數字）:warning:（具體哪個 benchmark 達 +44% 在搜尋結果中未明確拆分）
 - GitHub 公開數字：Qwen 9B 在 GAIA 從 33% → 47%（純 Harness 進化），co-evolution 後達 **55.77%**（64% 相對提升）；GPT-5 從 62% → **84%**
 - SWE-bench 分模型：Qwen3-235B +19.3%、Qwen3-32B +4.4%、Claude Opus 4.6 +2.6%（模型越強增益越小，符合預期）
 - 額外工具：Light-Memory plugin（時間衰減 + 每日壓縮）、IM Gateway（接 Feishu/Slack/Discord/Telegram）、VERL 分散式 RL 整合
@@ -79,7 +79,7 @@ Agent 框架設計一直被視為「藝術而非科學」，HarnessX 把它轉�
 
 ### Reviewer 一句話評
 
-工程野心十足，Harness 自動進化的想法具說服力——但 +14.5% 是跨 5 個差異極大的 benchmark 的均值，+44.0% 的出處不透明 ⚠️。整體是有料的系統論文，讀者應在自己的目標任務上重現，別直接把論文均值拿去做決策。
+工程野心十足，Harness 自動進化的想法具說服力——但 +14.5% 是跨 5 個差異極大的 benchmark 的均值，+44.0% 的出處不透明 :warning:。整體是有料的系統論文，讀者應在自己的目標任務上重現，別直接把論文均值拿去做決策。
 
 ### 給你的 take-away
 
@@ -100,7 +100,7 @@ Agent 框架設計一直被視為「藝術而非科學」，HarnessX 把它轉�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你在建多 Agent 協作平台（routing 多個專業 Agent），這篇的相圖分析對你有用；只做單一 Agent 的可跳過。
 
 ### 領域背景
@@ -127,14 +127,14 @@ Agent 框架設計一直被視為「藝術而非科學」，HarnessX 把它轉�
 - 核心量：R(i|k) = Agent i 在 skill k 上的信任分，透過 Ising 耦合從相關 skill 借用統計證據
 - 相圖分析三條件（同時需要）：高 Agent 異質性 + 每 skill 資料稀疏 + skill 間相關性高，才值得啟用條件信任
 - 實驗規模：AppWorld benchmark 的 14 個真實 Agent，驗證真實 Agent 池落在「有益區域」內，per-skill 最佳 Agent 確實因 skill 不同而變換
-- 安全攻擊：攻擊者用低成本手段在某個 skill 刷高評分，透過 β 耦合滲透到目標 skill，路由 regret 從 0 飆到 **0.94** ⚠️（論文內部測試，非第三方驗證）
+- 安全攻擊：攻擊者用低成本手段在某個 skill 刷高評分，透過 β 耦合滲透到目標 skill，路由 regret 從 0 飆到 **0.94** :warning:（論文內部測試，非第三方驗證）
 - 工具 CIVT（Conditional Information Value Test）：可事前判斷目前 Agent 池是否符合啟用條件信任的條件
 - Limitation：模型假設 skill 相關性已知且固定，現實中 skill 邊界模糊；14 個 Agent 規模偏小，結論需更大規模驗證
 - 與主流 framework 關聯：LangGraph / AutoGen 的 routing 目前用全域信任或手工規則，本文提供了理論化升級路徑
 
 ### Reviewer 一句話評
 
-理論框架清晰，把全域 vs. 條件信任的取捨正式化，對 multi-agent routing 的系統設計有參考價值——但 AppWorld 14 個 Agent 的規模太小，routing regret 0.94 的攻擊結論需要更大規模重現才有說服力 ⚠️。是好的起點，不是定論。
+理論框架清晰，把全域 vs. 條件信任的取捨正式化，對 multi-agent routing 的系統設計有參考價值——但 AppWorld 14 個 Agent 的規模太小，routing regret 0.94 的攻擊結論需要更大規模重現才有說服力 :warning:。是好的起點，不是定論。
 
 ### 給你的 take-away
 
@@ -155,7 +155,7 @@ LLM Agent 在完成任務的過程中，會一點一點把使用者隱私洩漏�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 要部署企業級 Agent（存取個人檔案、交易、CRM）的工程師或 PM 值得一讀；純研究場景的讀者可優先看前兩篇。
 
 ### 領域背景
@@ -184,11 +184,11 @@ OCELOT 把隱私問題重新定義為「後驗風險控制（posterior-risk cont
 - 技術上借鑒差分隱私（differential privacy）的 budget 概念，但應用在語義推斷層而非資料庫查詢層
 - 現有方案缺口對比：contextual-integrity filters 只看單次輸出；information-flow controls 不管累積推斷；posterior-leakage monitors 只監控不干預——OCELOT 宣稱是第一個在 runtime 同時控制三者的方案
 - Limitation：預算 ε 的設定需要領域知識，太嚴會阻礙 Agent 完成任務；計算後驗更新量需要運算資源，對即時 Agent 有延遲影響
-- 量化實驗細節（攔截率、任務完成率 trade-off）在公開搜尋結果中未找到具體數字 ⚠️，建議讀者查閱論文原文
+- 量化實驗細節（攔截率、任務完成率 trade-off）在公開搜尋結果中未找到具體數字 :warning:，建議讀者查閱論文原文
 
 ### Reviewer 一句話評
 
-問題定義很扎實，把累積推斷洩漏正式化是真正的貢獻——但從可取得的資訊來看，論文缺乏公開的量化實驗數字（如攔截率、任務成功率的 trade-off），讓人無法評估預算機制在現實 Agent 任務中的可行性 ⚠️。讀者應帶批判眼光，直接查原文數據。
+問題定義很扎實，把累積推斷洩漏正式化是真正的貢獻——但從可取得的資訊來看，論文缺乏公開的量化實驗數字（如攔截率、任務成功率的 trade-off），讓人無法評估預算機制在現實 Agent 任務中的可行性 :warning:。讀者應帶批判眼光，直接查原文數據。
 
 ### 給你的 take-away
 

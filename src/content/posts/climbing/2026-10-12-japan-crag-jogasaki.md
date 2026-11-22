@@ -13,7 +13,7 @@ description: "城ヶ崎海岸岩場介紹：岩質與路線規模、適合季節
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-jogasaki-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-jogasaki-en)
 
 城ヶ崎是伊豆東岸十幾公里長的熔岩海崖，以自放保護的裂隙路線為主，也有運動攀登與抱石。岩壁在國立公園內，又和觀光步道、吊橋、私有地貼在一起；有些區域要垂降下到海邊，爬完再沿出場路線爬回崖頂。
 

@@ -13,11 +13,11 @@ description: "OpenCode 的安裝、核心功能、雙 agent 模式、GitHub 整�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en)
+:globe: [English version](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent-en)
 
 OpenCode 是用 **TypeScript** 打造的開源 AI coding agent（MIT 授權），跑在終端機裡。不需訂閱費，支援 75+ 個 LLM 供應商，repo 幾經搬遷，現在在 [anomalyco/opencode](https://github.com/anomalyco/opencode)（前身 `sst/opencode`）。
 
-> **⚠️ 別跟同名的 Go 專案搞混**：早期有一個 `opencode-ai/opencode` 是 Go + Bubble Tea 寫的，跟這個不是同一份程式碼。網路上「OpenCode 是 Go 寫的」多半來自這個混淆。
+> **:warning: 別跟同名的 Go 專案搞混**：早期有一個 `opencode-ai/opencode` 是 Go + Bubble Tea 寫的，跟這個不是同一份程式碼。網路上「OpenCode 是 Go 寫的」多半來自這個混淆。
 
 ## 安裝：先分清楚 V1 與 V2
 

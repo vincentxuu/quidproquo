@@ -26,7 +26,7 @@ glossary:
     context: "Fall practice borrows most of its logic from exposure therapy, but no controlled trial has tested it in climbing."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-fear-of-falling)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-fear-of-falling)
 
 You watch someone let go a metre above a quickdraw, swing back to the wall laughing, and think: I'll take a few falls and stop being scared. Your first one is two metres above the draw. You slam into the wall, and for the next month you won't climb above a bolt.
 

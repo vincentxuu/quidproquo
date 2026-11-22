@@ -25,7 +25,7 @@ glossary:
     definition: "Cohere 的多語言研究系列，覆蓋 23 至 101 種語言，部分權重以 Apache 2.0 開源。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-cohere-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-cohere-en)
 
 2019 年，Transformer 論文共同作者 Aidan Gomez 在多倫多創立 Cohere。當多數實驗室追逐「最強聊天模型」時，Cohere 選了一條不同的路——做企業的 RAG 基礎設施。六年後，這個選擇長成了四根支柱：用來生成的 Command、用來檢索的 Embed、用來精排的 Rerank、用來跨語言的 Aya。沒有一家對手把這四塊同時做成產品線。
 

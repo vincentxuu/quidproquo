@@ -30,7 +30,7 @@ glossary:
     definition: "Climbing back down the wall after finishing or bailing, instead of jumping onto the mat. Some gyms install dedicated downclimb holds."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-bouldering-problem-solving)
+> :globe: [中文版](/posts/climbing/2026-10-18-bouldering-problem-solving)
 
 You're on a boulder problem and you've just fallen on the same move for the fifth time. Back to the start, chalk up, go again. Same move, same fall.
 

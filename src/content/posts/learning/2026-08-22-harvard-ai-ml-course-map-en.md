@@ -13,7 +13,7 @@ description: "An access and version audit of Harvard CS50 AI, CS1810, CS1820, an
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
+> :globe: [中文版](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

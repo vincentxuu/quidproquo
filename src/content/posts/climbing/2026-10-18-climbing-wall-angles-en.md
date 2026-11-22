@@ -30,7 +30,7 @@ glossary:
     context: "The most common way to turn the lip of a roof or rest on steep ground."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-wall-angles)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-wall-angles)
 
 A problem that flows on the vertical wall can feel impossible at the same grade on the overhang next door. It works the other way too: people who live on the steep wall often cannot stand up on a slab.
 

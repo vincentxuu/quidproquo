@@ -11,7 +11,7 @@ series:
   order: 129
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-30-ai-agent-arxiv-digest)
 
 ## Today's Overview
 

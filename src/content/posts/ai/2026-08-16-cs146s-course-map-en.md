@@ -22,7 +22,7 @@ description: "A side-by-side comparison of Stanford CS146S: The Modern Software 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-course-map)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-vllm-self-host-decision)
+:globe: [中文版](/posts/ai/2026-08-21-vllm-self-host-decision)
 
 This series has so far stayed in the application layer: routing, validation, documentation formats. This post drills one layer down, into self-hosted inference serving — the layer that directly determines the cost and latency of running models yourself, and one of the few choices where getting it wrong shows up on the invoice.
 

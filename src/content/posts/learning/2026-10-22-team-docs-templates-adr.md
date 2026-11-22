@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-team-docs-templates-adr-en)
+> :globe: [English version](/posts/learning/2026-10-22-team-docs-templates-adr-en)
 
 團隊裡三個人各寫了一份部署文件。一份是十二個步驟，沒說要先裝什麼；一份是一大段文字，把為什麼這樣部署和怎麼部署混在一起；一份寫得很好，但三個月前改過流程，沒人更新。新人照著第一份做，第五步就卡住了。
 

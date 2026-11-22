@@ -13,7 +13,7 @@ description: "The closing post of the NTHU Hung-Yu Kao NLP series: Fall 2025 ter
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-term-project-2026-changes)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

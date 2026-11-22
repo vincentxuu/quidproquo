@@ -10,7 +10,7 @@ description: "Deconstructing how Claude handles files by examining Anthropic's o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-19-claude-file-handling-three-layers)
+> :globe: [中文版](/posts/ai/2026-05-19-claude-file-handling-three-layers)
 
 LLMs cannot parse the binary formats of PDFs or DOCX files on their own, yet Claude can read and write them -- from scanned document OCR, form filling, and cross-page table extraction, to generating downloadable .pptx files, everything just works. It doesn't rely on some magical `pdf_tool`. Instead, it splits these capabilities into three layers: **generic tools visible to the LLM, SKILL.md instructions, and Python libraries pre-installed in the container**. This article deconstructs that architecture and examines how Anthropic's own open-source [`docx`](https://github.com/anthropics/skills/tree/main/skills/docx) / [`pdf`](https://github.com/anthropics/skills/tree/main/skills/pdf) / [`pptx`](https://github.com/anthropics/skills/tree/main/skills/pptx) / [`xlsx`](https://github.com/anthropics/skills/tree/main/skills/xlsx) skills are structured.
 

@@ -12,7 +12,7 @@ series:
   order: 122
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
+> :globe: [English version](/posts/daily/2026-11-04-funding-tutor-intelligence-en)
 
 ## 融資資訊
 

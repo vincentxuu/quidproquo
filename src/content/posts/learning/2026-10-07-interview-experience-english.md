@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-07-interview-experience-english-en)
+> :globe: [English version](/posts/learning/2026-10-07-interview-experience-english-en)
 
 英文口說練習區的「面試」情境原本只有兩句。這篇補上十句，範圍是面試裡最常被問到的四段內容。
 

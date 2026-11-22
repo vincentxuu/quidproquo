@@ -21,7 +21,7 @@ glossary:
     context: "Lecture 3 of CMU 10-423 contrasts it with greedy decoding, which always takes the most likely token."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

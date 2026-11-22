@@ -13,7 +13,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration-en)
 
 bug report 不是出現在終端機，是出現在 Slack 頻道——隊友貼了重現步驟、錯誤截圖、討論串裡累積了半天的 context。這時候最有價值的動作不是自己複製貼上到終端機，而是直接在對話串裡 `@Claude` 一句「幫我查然後修掉」，讓它在雲端開一個 Claude Code session 跑完回報。這是[系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)講的 agentic loop 換了一個入口：loop 還是同一個 loop，只是觸發點從終端機換成了團隊對話。
 

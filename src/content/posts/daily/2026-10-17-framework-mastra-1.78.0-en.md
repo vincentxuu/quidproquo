@@ -12,7 +12,7 @@ series:
   order: 44
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-17-framework-mastra-1.78.0)
+> :globe: [繁體中文版](/posts/daily/2026-10-17-framework-mastra-1.78.0)
 
 ## Version Info
 

@@ -22,7 +22,7 @@ glossary:
     context: "SAC、DQN 這類 off-policy 方法的共同元件。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-off-policy-actor-critic-ppo-sac-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

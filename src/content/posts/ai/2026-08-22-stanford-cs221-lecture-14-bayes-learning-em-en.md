@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-14-bayes-learning-em)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

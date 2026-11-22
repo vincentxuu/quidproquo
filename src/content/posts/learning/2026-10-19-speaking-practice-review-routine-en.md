@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-speaking-practice-review-routine)
+> :globe: [中文版](/posts/learning/2026-10-19-speaking-practice-review-routine)
 
 You enjoy a speaking lesson and the teacher improves a few sentences. The next day, a colleague asks something similar and you return to the original wording. One place to intervene is the review process: connect the lesson to your next conversation instead of simply filing the notes away.
 

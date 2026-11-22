@@ -14,7 +14,7 @@ draft: false
 
 這篇拆它的設計取捨、跟 Claude Design 的差異、以及「AI 設計工具」這個類別在這 11 天裡到底發生了什麼結構性的事。
 
-> ⚠️ 命名歧義先講清楚：本文寫的是 **nexu-io/open-design**（網域 opendesigner.io）。不要跟 `opendesign.dev`（Avocode/Ceros 的設計檔解析 SaaS，已於 2023-10-01 sunset）、`opendesigndev/open-design-engine`（前 Avocode 留下的 C++ rendering 引擎）、或 Open Design Alliance（CAD 互通聯盟）搞混。
+> :warning: 命名歧義先講清楚：本文寫的是 **nexu-io/open-design**（網域 opendesigner.io）。不要跟 `opendesign.dev`（Avocode/Ceros 的設計檔解析 SaaS，已於 2023-10-01 sunset）、`opendesigndev/open-design-engine`（前 Avocode 留下的 C++ rendering 引擎）、或 Open Design Alliance（CAD 互通聯盟）搞混。
 
 ## 它在解什麼問題
 
@@ -84,8 +84,8 @@ OD 的本地 daemon 給 agent 開的是真的 `Read` / `Write` / `Bash` / `WebFe
 | Export | PDF / URL / PPTX / Canva | HTML / PDF / PPTX / MP4 / ZIP |
 
 兩個結構性差異：
-1. **Claude Design**：吃你的 codebase 自動套設計風格 ✅；**OD**：靠預製 design system 當起點 ⚠️
-2. **OD**：模型可換、檔案在本地、能用 MCP 串到別的 agent ✅；**Claude Design**：hosted 簡單但你不能換 ❌
+1. **Claude Design**：吃你的 codebase 自動套設計風格 ✓；**OD**：靠預製 design system 當起點 :warning:
+2. **OD**：模型可換、檔案在本地、能用 MCP 串到別的 agent ✓；**Claude Design**：hosted 簡單但你不能換 ✗
 
 ## 適合與不適合誰
 

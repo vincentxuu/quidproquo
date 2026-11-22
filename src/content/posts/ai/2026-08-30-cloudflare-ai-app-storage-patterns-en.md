@@ -16,7 +16,7 @@ additionalSeries:
     order: 25
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns)
 
 AI apps often put data in the wrong place. Conversations go into D1, full transcripts go into D1, PDFs go into D1, embedding metadata goes into D1, tool outputs go into D1, and eventually the database becomes a file cabinet. The opposite mistake is putting everything into R2, then discovering that status queries, tenant filters, and reports require object scans.
 

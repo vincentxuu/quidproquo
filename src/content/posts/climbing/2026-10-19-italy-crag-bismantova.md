@@ -13,7 +13,7 @@ description: "Pietra di Bismantova 岩場介紹：鈣質砂岩的特性與規模
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-bismantova-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-bismantova-en)
 
 Pietra di Bismantova 在艾米利亞－羅馬涅大區（Emilia-Romagna）Reggio Emilia 省的亞平寧山區，Castelnovo ne' Monti 鎮旁邊。它是一塊孤立的平頂岩體，[Montagna.TV](https://www.montagna.tv/225832/bismantova-la-lunga-storia-di-una-pietra/) 寫它長 1 公里、寬 240 公尺、比底下的台地高 300 公尺，但丁在《神曲》煉獄篇提過它。同一篇稱它是「la più grande palestra di roccia dell'Emilia Romagna」。
 

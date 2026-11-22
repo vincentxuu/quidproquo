@@ -13,7 +13,7 @@ description: "A comparison guide to five walls at Batu Caves: fees, land status,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-other-walls)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-other-walls)
 
 Batu Caves is not one wall but a group of them, and each one charges differently, sits on different land, faces a different direction and carries bolts of a different age. Across these five: White Wall is free, Comic Wall is private land that is only tolerated, Gua Lepak charges tourists RM10, Red Rocks is soft to the point of being polished, and half of Nanyang is government land. This guide compares all five so you can pick the wall for the day, work out what you will pay, and see which approaches have reported rockfall, glass and bees.
 

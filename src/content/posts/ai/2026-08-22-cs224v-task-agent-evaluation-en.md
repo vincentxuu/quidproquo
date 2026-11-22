@@ -12,7 +12,7 @@ tldr: "CS224V splits task-agent evaluation into state updates and complete inter
 description: "CS224V Evaluation of Task-Oriented Agents: architecture comparison, Worksheets versus state machines, two-part evaluation, STARv2, and real-user testing."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-task-agent-evaluation)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-task-agent-evaluation)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

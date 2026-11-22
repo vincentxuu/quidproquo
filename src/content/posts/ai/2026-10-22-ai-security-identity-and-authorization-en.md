@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-identity-and-authorization)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-identity-and-authorization)
 
 You build a ticket assistant for a company. A user signs in and asks, “What is happening with N-1?” The model calls a reading tool, the backend finds the ticket, and its contents reach the model for an answer.
 

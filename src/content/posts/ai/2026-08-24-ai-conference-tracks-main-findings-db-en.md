@@ -23,9 +23,9 @@ glossary:
     context: "Main Track and D&B Track use the same hierarchical AC review structure."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-tracks-main-findings-db)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-tracks-main-findings-db)
 
-> 🌏 Series: [What Is a Top AI Conference?](/posts/ai/2026-08-23-what-is-ai-top-conference-en) (Part 0) → this article (Part 1)
+> :globe: Series: [What Is a Top AI Conference?](/posts/ai/2026-08-23-what-is-ai-top-conference-en) (Part 0) → this article (Part 1)
 
 The [previous article](/posts/ai/2026-08-23-what-is-ai-top-conference-en) explained how three independent ranking systems sustain the label "top AI conference." Knowing which conferences qualify is not enough. Within a single conference, publication routes form a visible prestige hierarchy. A NeurIPS Main Track paper and a NeurIPS D&B paper send different signals to academics. An ACL Main Track paper and a Findings paper also carry different weight on a CV.
 

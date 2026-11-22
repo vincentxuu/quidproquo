@@ -10,7 +10,7 @@ description: "依任務比較 Gemini、Claude、ChatGPT、Grok：長影音理解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task-en)
+> :globe: [English version](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task-en)
 
 Gemini、Claude、ChatGPT、Grok 是現在最常被放在一起比的四個 AI 助理。常見的講法是各家有一塊別人碰不到的地盤：Gemini 看長影片，Claude 寫程式，Grok 盯 X，ChatGPT 什麼都有。這些講法大多有官方文件撐腰，但「別人碰不到」說得太滿，有幾處要修正。
 
@@ -76,31 +76,31 @@ caption: 簡化示意。綠框是你要自己先做的步驟。
   <text class="dg-edge" x="122" y="304" dominant-baseline="central">免前處理</text>
 
   <rect class="dg-box" x="20" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="74" text-anchor="middle" dominant-baseline="central">影片檔</text>
-  <text class="dg-sub" x="110" y="92" text-anchor="middle" dominant-baseline="central">含音訊</text>
+  <text class="dg-label" x="110" y="70" text-anchor="middle" dominant-baseline="central">影片檔</text>
+  <text class="dg-sub" x="110" y="94" text-anchor="middle" dominant-baseline="central">含音訊</text>
   <rect class="dg-box" x="20" y="136" width="180" height="112" rx="6"/>
   <text class="dg-label" x="110" y="172" text-anchor="middle" dominant-baseline="central">Gemini API</text>
   <text class="dg-sub" x="110" y="196" text-anchor="middle" dominant-baseline="central">整支影片檔</text>
   <text class="dg-sub" x="110" y="214" text-anchor="middle" dominant-baseline="central">一次送進</text>
   <rect class="dg-box" x="20" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="378" text-anchor="middle" dominant-baseline="central">課程筆記</text>
-  <text class="dg-sub" x="110" y="396" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
+  <text class="dg-label" x="110" y="374" text-anchor="middle" dominant-baseline="central">課程筆記</text>
+  <text class="dg-sub" x="110" y="398" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
 
   <rect class="dg-box" x="240" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="74" text-anchor="middle" dominant-baseline="central">影片檔</text>
-  <text class="dg-sub" x="330" y="92" text-anchor="middle" dominant-baseline="central">含音訊</text>
+  <text class="dg-label" x="330" y="70" text-anchor="middle" dominant-baseline="central">影片檔</text>
+  <text class="dg-sub" x="330" y="94" text-anchor="middle" dominant-baseline="central">含音訊</text>
   <rect class="dg-box dg-box--accent" x="268" y="136" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="154" text-anchor="middle" dominant-baseline="central">抽幀</text>
-  <text class="dg-sub" x="332" y="172" text-anchor="middle" dominant-baseline="central">每隔幾秒截圖</text>
+  <text class="dg-label" x="332" y="150" text-anchor="middle" dominant-baseline="central">抽幀</text>
+  <text class="dg-sub" x="332" y="174" text-anchor="middle" dominant-baseline="central">每隔幾秒截圖</text>
   <rect class="dg-box dg-box--accent" x="268" y="200" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="218" text-anchor="middle" dominant-baseline="central">逐字稿</text>
-  <text class="dg-sub" x="332" y="236" text-anchor="middle" dominant-baseline="central">音訊轉文字</text>
+  <text class="dg-label" x="332" y="214" text-anchor="middle" dominant-baseline="central">逐字稿</text>
+  <text class="dg-sub" x="332" y="238" text-anchor="middle" dominant-baseline="central">音訊轉文字</text>
   <rect class="dg-box" x="240" y="280" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="298" text-anchor="middle" dominant-baseline="central">模型</text>
-  <text class="dg-sub" x="330" y="316" text-anchor="middle" dominant-baseline="central">讀圖片加文字</text>
+  <text class="dg-label" x="330" y="294" text-anchor="middle" dominant-baseline="central">模型</text>
+  <text class="dg-sub" x="330" y="318" text-anchor="middle" dominant-baseline="central">讀圖片加文字</text>
   <rect class="dg-box" x="240" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="378" text-anchor="middle" dominant-baseline="central">課程筆記</text>
-  <text class="dg-sub" x="330" y="396" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
+  <text class="dg-label" x="330" y="374" text-anchor="middle" dominant-baseline="central">課程筆記</text>
+  <text class="dg-sub" x="330" y="398" text-anchor="middle" dominant-baseline="central">帶時間戳</text>
 </svg>
 ```
 

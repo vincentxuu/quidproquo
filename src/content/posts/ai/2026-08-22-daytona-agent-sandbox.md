@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-daytona-agent-sandbox-en)
+> :globe: [English version](/posts/ai/2026-08-22-daytona-agent-sandbox-en)
 
 [Daytona](https://www.daytona.io/) 不是把一段 Python 包成一次性的 function，而是替 agent 準備一台能安裝套件、保留檔案、開服務、暫停、複製分支再繼續工作的電腦。這個差異決定了它最適合的任務：coding agent、長時間研究、強化學習 rollout，以及需要成千上萬個相同起點的評測。
 

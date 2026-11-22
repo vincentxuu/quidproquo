@@ -13,7 +13,7 @@ description: "從使用者視角完整走過 pi CLI 體驗：安裝方式、Inte
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective-en)
+> :globe: [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective-en)
 
 ## TL;DR
 
@@ -123,15 +123,15 @@ pi --rpc
 
 | Entry Type | 用途 | 進 LLM Context？ |
 |---|---|---|
-| `message` | user/assistant/toolResult | ✅ |
-| `thinking_level_change` | 思考等級切換 | ✅ (via context settings) |
-| `model_change` | 模型切換記錄 | ✅ (via context settings) |
-| `compaction` | 摘要壓縮點 | ✅ (代表被摘要的歷史) |
-| `branch_summary` | 分支摘要 | ✅ |
-| `custom_message` | Extension 注入訊息 | ✅ |
-| `custom` | Extension 內部狀態 | ❌ |
-| `label` | 使用者書籤 | ❌ |
-| `session_info` | 顯示名稱 | ❌ |
+| `message` | user/assistant/toolResult | ✓ |
+| `thinking_level_change` | 思考等級切換 | ✓ (via context settings) |
+| `model_change` | 模型切換記錄 | ✓ (via context settings) |
+| `compaction` | 摘要壓縮點 | ✓ (代表被摘要的歷史) |
+| `branch_summary` | 分支摘要 | ✓ |
+| `custom_message` | Extension 注入訊息 | ✓ |
+| `custom` | Extension 內部狀態 | ✗ |
+| `label` | 使用者書籤 | ✗ |
+| `session_info` | 顯示名稱 | ✗ |
 
 ### 樹狀結構：Branch、Reset、Fork
 

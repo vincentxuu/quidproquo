@@ -19,7 +19,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l12-representation-similarity)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l12-representation-similarity)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

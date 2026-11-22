@@ -20,7 +20,7 @@ glossary:
         url: "https://ollama.com/"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-07-build-chatbot)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

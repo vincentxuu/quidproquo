@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-funding-gmi-cloud)
+> :globe: [中文版](/posts/daily/2026-10-05-funding-gmi-cloud)
 
 ## Deal Terms
 

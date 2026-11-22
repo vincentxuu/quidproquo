@@ -14,7 +14,7 @@ description: "A preview of Stanford CS329Z Lecture 12, Data Selection & Quality,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

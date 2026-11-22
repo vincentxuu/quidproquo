@@ -23,7 +23,7 @@ glossary:
     context: "Published at SIGGRAPH 2023, it challenged NeRF with real-time rendering and differentiable training and became a major direction in 3D representation research."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2023-cv)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2023-cv)
 
 Computer vision returned to a long-missed in-person conference format in 2023: CVPR convened in Vancouver and ICCV in Paris. The more consequential change, however, was in the papers themselves. Diffusion models progressed from generating images to controlling them. Segmentation moved from task-specific training toward a general zero-shot capability. And 3D representations began shifting from NeRF's implicit fields to the explicit representation of Gaussian Splatting. This article reviews the award winners, influential research, and three technical trends that defined computer vision in 2023.
 

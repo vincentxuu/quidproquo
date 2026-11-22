@@ -25,7 +25,7 @@ glossary:
     context: "OpenAI's Preparedness Framework uses High and Critical; Anthropic's RSP maps thresholds to ASL levels. Both set thresholds for AI self-improvement."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

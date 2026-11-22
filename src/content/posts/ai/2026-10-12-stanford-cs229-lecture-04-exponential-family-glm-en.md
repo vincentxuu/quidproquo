@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm)
 
 **Video status: Videos included.** This article is written from the English captions of the Spring 2026 Lecture 4 recording published by Stanford Online, with notation checked against Chapter 3 and Section 2.3 of the 2026 main notes. I did not see the board or the slides, so wherever the lecturer points at something while talking, I reconstructed it from context and the notes.
 

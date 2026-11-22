@@ -13,7 +13,7 @@ description: "The eight-way competition in H2 2026 coding agent frameworks: full
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-harness-competition-h2-2026-landscape)
+> :globe: [中文版](/posts/ai/2026-08-22-harness-competition-h2-2026-landscape)
 
 August 2026 has too many things happening at once.
 

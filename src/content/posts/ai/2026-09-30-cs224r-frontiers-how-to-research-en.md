@@ -20,7 +20,7 @@ glossary:
     context: "CS224R L18 uses it to show why chatbot rewards are hard to define."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

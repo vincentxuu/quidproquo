@@ -52,9 +52,9 @@ System prompt 不是 prompt engineer 的 prompt，而是廠商的「客戶端」
 
 | Repo | 規模 | 強項 | 適合什麼研究 |
 |---|---|---|---|
-| **asgeirtj/system_prompts_leaks** | 40.3k ⭐ / 461 commits | 最新聊天助理模型覆蓋最齊、廠商目錄、official vs leaked 對照 | 比較 ChatGPT / Claude / Gemini / Grok 一線旗艦的設計取態 |
+| **asgeirtj/system_prompts_leaks** | 40.3k ★ / 461 commits | 最新聊天助理模型覆蓋最齊、廠商目錄、official vs leaked 對照 | 比較 ChatGPT / Claude / Gemini / Grok 一線旗艦的設計取態 |
 | **jujumilk3/leaked-system-prompts** | 較早建立 | 檔名帶日期（`openai-chatgpt4o_20250506.md`），歷史快照保留完整 | 看同一模型在不同月份的 prompt 演進 |
-| **x1xhlol/system-prompts-and-models-of-ai-tools** | 134k ⭐（Augment Code 報導數字） | 聚焦 AI coding tools，覆蓋 Cursor、Windsurf、Devin、Augment、Replit 等 28+ 工具 | 研究 AI coding tool 的 prompt 設計 |
+| **x1xhlol/system-prompts-and-models-of-ai-tools** | 134k ★（Augment Code 報導數字） | 聚焦 AI coding tools，覆蓋 Cursor、Windsurf、Devin、Augment、Replit 等 28+ 工具 | 研究 AI coding tool 的 prompt 設計 |
 
 OWASP LLM07 的官方 reference 同時點名 jujumilk3 和 asgeirtj 兩個 repo 作為威脅模型素材（[OWASP Gen AI Security Project](https://genai.owasp.org/llmrisk/llm07-insecure-plugin-design/)）。三者互補：聊天助理選 asgeirtj、版本演進選 jujumilk3、IDE / coding agent 選 x1xhlol。
 

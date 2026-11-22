@@ -30,7 +30,7 @@ glossary:
     context: "MCP 管 LLM 接工具，A2A 管 agent 接 agent；本講兩者都介紹了。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-agentic-llms-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-agentic-llms-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

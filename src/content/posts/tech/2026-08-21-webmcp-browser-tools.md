@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-webmcp-browser-tools-en)
+:globe: [English version](/posts/tech/2026-08-21-webmcp-browser-tools-en)
 
 [系列上一篇](/posts/tech/2026-08-21-llms-txt)講的是讓機器**讀得懂**你的文件。這篇是它的下一步：讓機器**呼叫得動**你的頁面。
 

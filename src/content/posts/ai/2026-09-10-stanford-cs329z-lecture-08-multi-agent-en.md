@@ -14,13 +14,18 @@ description: "A page-linked guide to the CS329Z Lecture 08 Multi-Agent Systems s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions. The pages 83–92 case study was skipped for time and only mentioned at the end.
 
 When one model cannot solve a problem, the instinct is to bring in more models and split the work: one writes code, one runs it, one looks for mistakes, like a meeting. Anyone who has sat through meetings knows they have costs: who speaks first, who writes the conclusion, who owns the error. Models in a meeting are no different, and their mistakes are quieter: an upstream agent's hallucination becomes a fact the downstream agent trusts.
 
 Lecture 8 (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://arxiv.org/abs/2308.08155), Cemri et al.'s MAST failure taxonomy, and Kim et al.'s work on scaling agent systems. This post digests AutoGen and MAST, plus the single-agent counterargument and DyLAN. The prerequisites are [Lecture 6's loop](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 7's memory tiers](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en). The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=TlX_ft_PQIM
+title: Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan
+```
 
 ## Lecture 08 slide guide: design the team, then inspect its failures
 
@@ -32,11 +37,15 @@ Lecture 8 (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://ar
 
 ### Pages 1–15 — Decide whether work is separable before adding agents
 
+[Recording 00:00–16:42](https://www.youtube.com/watch?v=TlX_ft_PQIM)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=1" data-slide-page="1">PDF pages 1–15</a>
 
 The opening places models, workflows, agents, and multi-agent systems on a complexity spectrum. Parallelism and role separation bring messaging, integration, and error-propagation costs. Ask whether this task can actually be decomposed. In the email example, a single message and simple question may benefit from a shorter single-agent evidence path.
 
 ### Pages 16–29 — Four orchestration patterns: follow information flow
+
+[Recording 16:42–31:06](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=1002s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=16" data-slide-page="16">PDF pages 16–29</a>
 
@@ -44,11 +53,15 @@ Independent agents aggregate at the end; centralized orchestration delegates and
 
 ### Pages 30–49 — Communication includes control ownership
 
+[Recording 31:06–56:14](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=1866s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=30" data-slide-page="30">PDF pages 30–49</a>
 
 AutoGen connects roles through conversation. A handoff transfers subsequent control; an agent used as a tool returns bounded work to its caller. Message boards share artifacts, while A2A introduces capability descriptions and cross-agent communication. Reliable transport does not guarantee faithful evidence: dropping “possible” from an email summary remains an error.
 
 ### Pages 50–68 — Coordination makes commitments inspectable
+
+[Recording 56:14–69:21](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=3374s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=50" data-slide-page="50">PDF pages 50–68</a>
 
@@ -56,11 +69,17 @@ Task ledgers record objectives, assignments, progress, and open questions. Share
 
 ### Pages 69–82 — Agreement does not replace external verification
 
+[Recording 69:21–77:48](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=4161s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=69" data-slide-page="69">PDF pages 69–82</a>
 
 Failures span system design, inter-agent interaction, and verification. Coordination problems, conformity, and incompatible goals explain why local success may not produce global success. Read each chart with its dataset and experimental conditions, rather than generalizing one study to all multi-agent work. Return to original observations, shared interfaces, and end-to-end outcomes.
 
 ### Pages 83–92 — Engineering case study: autonomy needs useful feedback
+
+[Recording 77:48–78:55](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=4668s)
+
+This part was skipped for time. At the end the speaker only noted that the slides walk through Anthropic's agent-team C compiler build to tie together the lecture's orchestration, communication, and coordination decisions, and suggested reading them when you have time.
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=83" data-slide-page="83">PDF pages 83–92</a>
 
@@ -299,17 +318,15 @@ Lecture 8 decides whether to divide the work; [Lecture 9](/posts/ai/2026-09-10-s
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-11-09.
+- Recording: [Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan](https://www.youtube.com/watch?v=TlX_ft_PQIM) (Stanford Online channel, uploaded 2026-11-16, about 79 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording's captions.
+- Content check: verified against the video transcript (2026-11-19): section start times were checked against the YouTube auto-generated captions, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-19: Stanford Online published this lecture's recording on 2026-11-16; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-19: Checked section start times against the recording's captions and added recording time links to each slides subsection.
 - 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 8 (Mon Oct 19), previously part of the "Week 5: go solo or call a meeting" guide; earlier entries below predate the split.
 - 2026-10-23: Added Lecture 08–09 material on coordination, worktrees, weight optimization and evaluation-based choices; added an original worked example, diagram and answer criteria.

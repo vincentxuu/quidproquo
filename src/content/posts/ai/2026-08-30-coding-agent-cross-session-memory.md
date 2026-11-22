@@ -13,7 +13,7 @@ description: "比較成熟 coding agent 的跨 session 記憶，並說明 Loopla
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-cross-session-memory-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-cross-session-memory-en)
 
 本篇取證範圍：**omp**（can1357/oh-my-pi）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入）、**pi**（badlogic/pi-mono）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace），對照我自己的 **looplane**。所有引用都在本地 clone 實際讀過。
 

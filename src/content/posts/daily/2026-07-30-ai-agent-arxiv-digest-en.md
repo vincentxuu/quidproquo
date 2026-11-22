@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 67
 ---
-> 🌏 [中文版](/posts/daily/2026-07-30-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-30-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -125,7 +125,7 @@ Top models scoring under 60% means "full-scenario agent deployment still has a l
 - Taxonomy covers **ToC (consumer), ToB (enterprise), ToE (engineering)**: 90 level-1 domains, 354 level-2 domains
 - Four task generation routes: DAG, DAG-S, Solver, Program, covering single-turn and multi-turn tasks
 - Total of **1,431 questions**; plus a **644-question challenging subset** designed to reduce evaluation cost and mitigate data contamination
-- Evaluation results (22 models): Claude Sonnet-5 **58.54%**, GPT-5.6-Sol **57.14%**, both below 60% **⚠️** (whether the low scores reflect difficulty calibration bias rather than "weak models" requires independent verification)
+- Evaluation results (22 models): Claude Sonnet-5 **58.54%**, GPT-5.6-Sol **57.14%**, both below 60% **:warning:** (whether the low scores reflect difficulty calibration bias rather than "weak models" requires independent verification)
 - 10-dimension capability taxonomy covering tool calling, planning, memory, long-range reasoning, and other core agent capabilities
 - 8 atomic difficulty factors that decompose task difficulty sources, helping pinpoint specific weaknesses
 - Limitation: tasks are auto-generated, so the full diversity of real user behavior is hard to replicate; ToE skews toward engineering scenarios with limited representation of pure business-process agents
@@ -181,7 +181,7 @@ This paper embeds an **ARIMA leaping** (leap-style ARIMA forecasting) module ins
 - Agent architecture: three-layer structure of LLM core + ARIMA leaping module + automatic calibration trigger
 - **ARIMA leaping**: improved ARIMA variant that is **52% faster** than standard ARIMA while maintaining equivalent accuracy
 - Application scenario: resource allocation prediction for zero-knowledge workloads (a type of privacy-preserving computation) on edge computing networks
-- Experimental results: **91.7% higher accuracy** than the uncalibrated baseline LLM agent **⚠️** (the baseline is an LLM agent with no adaptive mechanism—a weak baseline that warrants cautious interpretation); prediction speed **71.7% faster** than pure statistical profiling
+- Experimental results: **91.7% higher accuracy** than the uncalibrated baseline LLM agent **:warning:** (the baseline is an LLM agent with no adaptive mechanism—a weak baseline that warrants cautious interpretation); prediction speed **71.7% faster** than pure statistical profiling
 - No continuous human supervision needed, meeting practical requirements for autonomous edge deployment
 - Limitation: ARIMA assumes time-series data has some regularity; if workloads are highly non-stationary or bursty, approximate ground truth quality degrades and calibration effectiveness drops accordingly
 - Relation to mainstream frameworks: LangGraph / AutoGen currently have no built-in drift detection mechanism; similar logic needs to be added at the tool or orchestration layer

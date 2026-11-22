@@ -22,7 +22,7 @@ glossary:
     context: "CS224R L18 用它說明聊天機器人的獎勵為什麼難定義。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

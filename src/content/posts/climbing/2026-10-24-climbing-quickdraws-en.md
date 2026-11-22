@@ -30,13 +30,13 @@ glossary:
     context: "Length is usually measured by the sling; 12 cm and 17–18 cm are common."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-quickdraws)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-quickdraws)
 
 A quickdraw is two carabiners joined by a sewn sling. On lead you clip one end to a bolt and the rope into the other, and when you fall, that's what catches the rope. Gym lead routes are mostly pre-hung with draws; once you start sport climbing outdoors, you need a set of your own.
 
 This post answers one question: which quickdraws to buy. How to clip and orient them is in [gym lead climbing](/posts/climbing/2026-10-17-gym-lead-climbing-en); preparing for your first outdoor lead is in [first outdoor sport lead](/posts/climbing/2026-10-17-first-outdoor-sport-lead-en); choosing locking carabiners is in [Carabiners](/posts/climbing/2026-10-24-climbing-carabiners-en). By the end you should know which gate and sling length you want, and be able to pick one model from the tables below.
 
-> ⚠️ **Recall notice: Decathlon SIMOND quickdraws**
+> :warning: **Recall notice: Decathlon SIMOND quickdraws**
 >
 > [Taiwan's Bureau of Standards, Metrology and Inspection (BSMI) announced on 2026-10-19](https://www.bsmi.gov.tw/SafetyGIP/wSite/ct?xItem=130064&ctNode=8206&mp=65) (in Chinese) that Decathlon Taiwan is recalling SIMOND "登山快扣" (mountaineering quickdraws), models **8589547, 8589548, 8608405, 8935765, 8935909**, sold in Taiwan from 1 January 2022 to 22 July 2026. The notice says some draws have a defect where the wire is riveted, which can break the wiregate and create a risk of the quickdraw breaking in a fall. SIMOND's [recall page](https://simondrecallquickdraw.fandi.fr) maps these five models to the Alpinism 11 cm, Alpinism 17 cm, Alpinism pack of 5, Vertika 11 cm and Vertika 17 cm.
 >

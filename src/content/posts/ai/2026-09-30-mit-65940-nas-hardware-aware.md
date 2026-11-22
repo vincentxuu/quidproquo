@@ -28,7 +28,7 @@ glossary:
     context: "L8 投影片第 26–29 頁，出自 ProxylessNAS。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-nas-hardware-aware-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

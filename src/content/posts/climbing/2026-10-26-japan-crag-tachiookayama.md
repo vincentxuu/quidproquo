@@ -13,7 +13,7 @@ description: "太刀岡山攀岩指南：季節、交通、管理規範、公開
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-tachiookayama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-tachiookayama-en)
 
 太刀岡山把小山ロック的力量型運攀與左岩稜多段放在同一座山，兩種行程需要不同的裝備與能力。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

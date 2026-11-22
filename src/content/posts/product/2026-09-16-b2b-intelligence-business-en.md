@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-b2b-intelligence-business)
+> :globe: [中文版](/posts/product/2026-09-16-b2b-intelligence-business)
 
 Imagine a company preparing to buy a new factory. Its executives have hundreds of news stories, vendor decks, spreadsheets, and meeting notes. The hard questions remain: which signals are trustworthy, which companies deserve attention first, which criteria should every department use, and how will the team explain the decision six months later?
 

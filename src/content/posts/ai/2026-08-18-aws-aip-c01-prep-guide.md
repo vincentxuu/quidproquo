@@ -13,7 +13,7 @@ description: "AWS AIP-C01 備考指南：依官方考綱整理五章考點、四
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-aws-aip-c01-prep-guide-en)
 
 本文依官方資料與具名考生心得整理，不是應考實錄；作者沒有報考這張考試。「考什麼」以[官方 exam guide](https://docs.aws.amazon.com/aws-certification/latest/ai-professional-01/ai-professional-01.html)為準；讀書順序、實作驗收與時間配置是本文建議。查證日期：2026-09-12。
 

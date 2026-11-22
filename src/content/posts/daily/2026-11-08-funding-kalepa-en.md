@@ -12,7 +12,7 @@ series:
   order: 128
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-08-funding-kalepa)
+> :globe: [中文版](/posts/daily/2026-11-08-funding-kalepa)
 
 ## Funding Details
 

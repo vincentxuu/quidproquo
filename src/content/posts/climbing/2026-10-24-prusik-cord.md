@@ -26,7 +26,7 @@ glossary:
     context: "Sterling 說芳綸曬三個月太陽，強度可能掉一半。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-prusik-cord-en)
+> :globe: [English version](/posts/climbing/2026-10-24-prusik-cord-en)
 
 垂降時，手一鬆，繩子就從確保器裡跑掉。綁在主繩上的一小段細繩可以在那一刻咬住繩子，讓你停在原地。這條細繩台灣岩友多半叫「普魯士繩」，不管上面打的是普魯士結還是 autoblock。它也是自我救援的基本裝備：沿繩往上爬、做拉繩系統、從確保系統脫身，都靠兩條這種繩環。
 

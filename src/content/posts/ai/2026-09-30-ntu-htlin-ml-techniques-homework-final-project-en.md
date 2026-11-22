@@ -22,7 +22,7 @@ glossary:
     context: "The implementation task in Fall 2024 HW7 Q10–12, tied to Techniques Lecture 8 (the problem calls it Lecture 208)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-techniques-homework-final-project)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

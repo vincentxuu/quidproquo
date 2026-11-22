@@ -13,7 +13,7 @@ description: "Comparing telemetry and cost tracking across mature coding agents,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-telemetry-cost-tracking)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-telemetry-cost-tracking)
 
 Part 2 of the series, post #34. The previous one covered session recording and replay; this one covers a capability that looks trivial but suddenly becomes a big problem on long runs: telemetry and cost tracking.
 

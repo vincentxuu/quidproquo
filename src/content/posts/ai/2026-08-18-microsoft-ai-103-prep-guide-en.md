@@ -13,7 +13,7 @@ description: "A preparation guide for Microsoft AI-103 (Azure AI Apps and Agents
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-microsoft-ai-103-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-103), and every "how to prepare" points to official Microsoft training. No leaked questions. Verified 2026-08-18 against "Skills measured as of **April 16, 2026**."
 

@@ -13,7 +13,7 @@ description: "逐講讀 Stanford CS221 Autumn 2025 Lecture 10：官方 agenda、
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs221-lecture-10-games-minimax-alpha-beta-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

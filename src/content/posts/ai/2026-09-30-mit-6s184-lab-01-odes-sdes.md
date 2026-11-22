@@ -21,7 +21,7 @@ glossary:
     context: "Lab 1 用它建 Langevin dynamics；講義 §4 會正式展開。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lab-01-odes-sdes-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

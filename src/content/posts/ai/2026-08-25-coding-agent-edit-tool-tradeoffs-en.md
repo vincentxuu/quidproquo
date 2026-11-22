@@ -13,7 +13,7 @@ tldr: "LLMs break unified diffs on bookkeeping: wrong hunk counts, hallucinated 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs)
 
 ## The design problem
 

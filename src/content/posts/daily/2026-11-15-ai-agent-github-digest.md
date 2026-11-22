@@ -11,7 +11,7 @@ series:
   order: 92
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-15-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### github/gh-aw ⭐ 5,636
+### github/gh-aw ★ 5,636
 
 [GitHub](https://github.com/github/gh-aw)　·　Go　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### alibaba/open-code-review ⭐ 51,279
+### alibaba/open-code-review ★ 51,279
 
 [GitHub](https://github.com/alibaba/open-code-review)　·　Go　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### openai/codex-security ⭐ 13,503
+### openai/codex-security ★ 13,503
 
 [GitHub](https://github.com/openai/codex-security)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### deepseek-ai/dsh-superagent-prototype ⭐ 23,128
+### deepseek-ai/dsh-superagent-prototype ★ 23,128
 
 [GitHub](https://github.com/deepseek-ai/dsh-superagent-prototype)　·　TypeScript　·　MIT
 

@@ -13,7 +13,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-09-critical-infrastructure-drone-defence)
+> :globe: [中文版](/posts/policy/2026-08-09-critical-infrastructure-drone-defence)
 
 [The airport post](/posts/policy/2026-08-09-airport-drone-incursions-taiwan-en) concluded that airports are the weakest row in [the six-setting authority table](/posts/policy/2026-08-09-who-may-down-a-drone-en), holding only "enforce against."
 

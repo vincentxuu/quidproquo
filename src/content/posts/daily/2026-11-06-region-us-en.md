@@ -45,20 +45,20 @@ step: 11/9 — Congress's lame-duck session opens; OpenAI launches its lobbying 
 
   <g data-step="1">
     <circle class="dg-dot" cx="70" cy="100" r="6"/>
-    <text class="dg-label" x="70" y="128" text-anchor="middle" dominant-baseline="central">11/1 School AI standard live</text>
-    <text class="dg-sub" x="70" y="146" text-anchor="middle" dominant-baseline="central">Microsoft × AFT contract terms</text>
+    <text class="dg-label" x="70" y="144" text-anchor="start" dominant-baseline="central">11/1 School AI standard live</text>
+    <text class="dg-sub" x="70" y="168" text-anchor="start" dominant-baseline="central">Microsoft × AFT contract terms</text>
   </g>
   <g data-step="2">
     <path class="dg-line" d="M76 100H297" marker-end="url(#arrow)"/>
     <circle class="dg-dot" cx="303" cy="100" r="6"/>
-    <text class="dg-label" x="303" y="128" text-anchor="middle" dominant-baseline="central">11/4 Pentagon previews inventory</text>
-    <text class="dg-sub" x="303" y="146" text-anchor="middle" dominant-baseline="central">Full AI-lab law list due this month</text>
+    <text class="dg-label" x="303" y="34" text-anchor="middle" dominant-baseline="central">11/4 Pentagon previews inventory</text>
+    <text class="dg-sub" x="303" y="56" text-anchor="middle" dominant-baseline="central">Full AI-lab law list due this month</text>
   </g>
   <g data-step="3">
     <path class="dg-line dg-line--accent" d="M309 100H684" marker-end="url(#arrow-accent)"/>
     <circle class="dg-dot dg-dot--accent" cx="690" cy="100" r="6"/>
-    <text class="dg-label dg-text--accent" x="690" y="128" text-anchor="middle" dominant-baseline="central">11/9 Lame-duck session opens</text>
-    <text class="dg-sub" x="690" y="146" text-anchor="middle" dominant-baseline="central">OpenAI's "speed limits" push begins</text>
+    <text class="dg-label dg-text--accent" x="690" y="144" text-anchor="end" dominant-baseline="central">11/9 Lame-duck session opens</text>
+    <text class="dg-sub" x="690" y="168" text-anchor="end" dominant-baseline="central">OpenAI's "speed limits" push begins</text>
   </g>
 </svg>
 ```

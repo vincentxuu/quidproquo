@@ -13,7 +13,7 @@ description: "A complete reading of Stanford CS161 Winter 2026 Lecture 14: activ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-14-greedy-algorithms)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-14-greedy-algorithms)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

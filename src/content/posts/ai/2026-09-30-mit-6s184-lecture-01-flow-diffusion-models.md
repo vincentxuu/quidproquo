@@ -22,7 +22,7 @@ glossary:
     context: "SDE 的隨機項由它驅動。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-01-flow-diffusion-models-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

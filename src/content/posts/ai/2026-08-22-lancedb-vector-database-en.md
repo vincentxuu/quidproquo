@@ -10,7 +10,7 @@ description: "A practical deep dive into LanceDB: the Lance and Apache Arrow dat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-lancedb-vector-database)
+> :globe: [中文版](/posts/ai/2026-08-22-lancedb-vector-database)
 
 [LanceDB](https://github.com/lancedb/lancedb) is an open-source retrieval database that embeds in an application. It stores not only embeddings but also text, images, other source data, and metadata in the same table, with vector, full-text, and SQL-style querying. After installing the Python package, an application can connect to a local directory without starting a separate database service.
 

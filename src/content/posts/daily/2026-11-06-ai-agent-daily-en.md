@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-06-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-06-ai-agent-daily)
 
 ## The One-Line Take
 

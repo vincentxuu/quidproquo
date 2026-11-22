@@ -14,7 +14,7 @@ description: "The final AI Security in Practice exercise includes a runnable HTT
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-integrated-exercise)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-integrated-exercise)
 
 You have found a suspicious ticket-reading path and prepared a fix. Three questions remain: did the attack actually return the claimed data, does the audit record refer to the same request, and does legitimate access still work in the fixed build?
 

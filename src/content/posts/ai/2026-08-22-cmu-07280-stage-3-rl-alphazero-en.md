@@ -13,7 +13,7 @@ description: "A synthesis of MDPs, reinforcement learning, deep RL, MCTS, and th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-stage-3-rl-alphazero)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

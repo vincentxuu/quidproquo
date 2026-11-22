@@ -13,7 +13,7 @@ description: "A Chong Phli Spirit Mountain climbing guide: ten sectors and 157 r
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-chong-phli)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-chong-phli)
 
 Chong Phli, also called Spirit Mountain, sits on the Krabi mainland between Ao Nang and the town. theCrag logged **157 routes** there on 21 October 2026, graded 4b+ to 9a, spread across ten sectors, with 5,889 ascents.
 
@@ -298,7 +298,7 @@ YDS and V-grade conversions follow the [Mountain Project international grade com
 | RTT / Rubber Tapping Tranny | 8a | 5.13b | 20 m | Wild Child Wall | ★★★；; grade confirmed by fedor and tim |
 | Red Planet | 8a | 5.13b | 33 m | The Lounge / Main face | ★★★；; second pitch of Pill Box; 5 titanium bolts |
 | Scorpion (Direct) | 8a | 5.13b | 33 m | The Lounge / Main face | ; **just don't use the manufactured four finger pocket** |
-| Scorpion Queen 🦂 | 8b+/c | 5.14a | 40 m | The Lounge / Main face | ★★★ |
+| Scorpion Queen | 8b+/c | 5.14a | 40 m | The Lounge / Main face | ★★★ |
 | Singa-Paw | 8a | 5.13b | — | The Lounge / Main face | ★★★；; extension of Rex Kwan-Do |
 | Singa-Paw Slap! | 8b | 5.13d | — | The Lounge / Main face | ★★★；; climb Singa-Paw, mantle the final ledge to standing, then traverse |
 | Slap and Tickle | 8a | 5.13b | 26 m | The Lounge / Main face | ★★★；; second pitch of Superstition; all titanium bolts |

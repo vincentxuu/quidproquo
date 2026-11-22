@@ -10,7 +10,7 @@ description: "Complete Langfuse usage guide: from installation and setup to Trac
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-26-langfuse-llm-observability-guide)
+> :globe: [中文版](/posts/ai/2026-03-26-langfuse-llm-observability-guide)
 
 Once you ship an LLM application, you immediately hit a series of problems: users report that answer quality has degraded, but you don't know whether you broke the prompt or the retrieval is off; token costs are skyrocketing, but you can't tell which feature is burning money; you want to improve answer quality, but there's no systematic way to measure the improvement.
 

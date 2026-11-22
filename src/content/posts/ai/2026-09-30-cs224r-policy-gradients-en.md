@@ -21,7 +21,7 @@ glossary:
     context: "L3 introduces it in the causality section, and L4 estimates it with a value function."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-policy-gradients)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-policy-gradients)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

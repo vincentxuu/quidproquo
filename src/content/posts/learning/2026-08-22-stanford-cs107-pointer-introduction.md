@@ -13,7 +13,7 @@ description: "逐段導讀 Stanford CS107 Winter 2026 Lecture 8：記憶體位�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-pointer-introduction-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs107-pointer-introduction-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

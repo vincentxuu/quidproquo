@@ -30,7 +30,7 @@ glossary:
     context: "傳攀的學習多半從跟攀開始，先看別人怎麼放。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-sport-vs-trad-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-17-sport-vs-trad-overview-en)
 
 你在岩館考到上攀卡，也開始先鋒了。朋友約你去龍洞，說「那裡有很多 5.8，很簡單」。你帶了一串快扣過去，站到岩壁下才發現：這條 5.8 上面一顆 bolt 都沒有。
 

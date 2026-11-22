@@ -10,7 +10,7 @@ description: "Practical lessons learned from transitioning to AI Native developm
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-17-ai-native-team-practices)
+> :globe: [中文版](/posts/ai/2026-04-17-ai-native-team-practices)
 
 These aren't advanced techniques — for many people, they're probably basics. But every single one of these came from painful lessons learned while actually leading a team through the AI Native transition. Each one is something I only truly understood after hitting the wall.
 

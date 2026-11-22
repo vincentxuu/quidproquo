@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-weekly-review)
+> :globe: [中文版](/posts/daily/2026-10-30-weekly-review)
 
 ## The 5 Biggest Things This Week
 
@@ -98,13 +98,13 @@ The implication for enterprise adoption: instead of rushing to put agents into c
 
 ## Watchlist Update Suggestions
 
-### 🆕 Candidates to add
+### Candidates to add
 
 The companies that appeared most frequently in this week's signals are all already on the watchlist (OpenAI / Google / NVIDIA / Oracle / Cohere). The new companies that surfaced this week (Azoma, Nous, Hyphenate, Infisical, Casap, Plato, Wabi, Serval — see the startup radar below) each correspond to a single funding story this week, so no company outside the watchlist crossed the 3+ appearance threshold. No additions this week.
 
-### ⚠️ Candidates to remove
+### :warning: Candidates to remove
 
-✅ No companies met the removal criteria this week.
+✓ No companies met the removal criteria this week.
 
 ## This Week's Startup Radar
 

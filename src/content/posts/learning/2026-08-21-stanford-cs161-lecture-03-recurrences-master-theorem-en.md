@@ -13,7 +13,7 @@ description: "A reading of Stanford CS161 Winter 2026 Lecture 3: recurrences, re
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "Cross-reading six enterprise agent case studies — Salesforce, St
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-enterprise-agent-case-studies)
+> :globe: [中文版](/posts/ai/2026-08-10-enterprise-agent-case-studies)
 
 The first three parts covered principles. This one looks at teams that actually pushed agents into production — [Salesforce](https://blog.bytebytego.com/p/what-salesforce-learned-from-20000) (20,000 enterprise deployments), [Stripe](https://blog.bytebytego.com/p/how-stripes-minions-ship-1300-prs), [Microsoft](https://blog.bytebytego.com/p/how-microsoft-ships-ai-agents-at), [Grab](https://blog.bytebytego.com/p/how-grab-is-using-ai-agents-to-boost), [Meta](https://blog.bytebytego.com/p/how-meta-uses-ai-agents-for-data), and [OpenAI's data platform](https://blog.bytebytego.com/p/how-openai-built-its-data-agent).
 

@@ -13,7 +13,7 @@ description: "龍坡邦攀岩指南：Pak Ou 與 Gecko Wall 的路線數與級�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-luang-prabang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-luang-prabang-en)
 
 龍坡邦（Luang Prabang）在寮國北部，湄公河與南烏河交會處，是 UNESCO 世界遺產古城。攀岩在這裡不是主要行程，而是行程裡可以塞進去的一段。全區 theCrag 只列 **19 條路線**，分在兩個岩場：上游的 **Pak Ou（Eagle Wall）** 與下游的 **Gecko Wall**。
 

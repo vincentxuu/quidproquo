@@ -16,7 +16,7 @@ additionalSeries:
     order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control-en)
+> :globe: [English version](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control-en)
 
 [Cloudflare AI Search](/posts/tech/2026-08-29-cloudflare-ai-search-guide) 已經把一條 RAG 管線包好：資料來源、Markdown 轉換、chunking、embedding、Vectorize、BM25、rerank、Workers binding。那為什麼還要直接碰 [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)？
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 59
 ---
-> 🌏 [中文版](/posts/daily/2026-07-22-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-22-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -78,7 +78,7 @@ This fills the gap between framework and serving engine. The takeaway for platfo
 - Latency results: 1.1–6.8x lower than the strongest baseline; burst tail latency 2.5x lower under multi-tenant traffic spikes
 - SLO goodput recovery: overload plan improved from 18% to 67%, within 6.5% of the theoretically optimal static plan
 - Tool failure recovery: event-driven recovery restores 84% vs. only 55% for flat retry baseline
-- ⚠️ The system depends on pre-measured "skill-conditioned offline profiles" — the paper doesn't fully discuss profiling costs, which may be a hidden barrier to production deployment
+- :warning: The system depends on pre-measured "skill-conditioned offline profiles" — the paper doesn't fully discuss profiling costs, which may be a hidden barrier to production deployment
 - Relationship to existing frameworks: positioned below LangGraph/AutoGen and above vLLM — a new middleware abstraction layer
 - Deployment limitation: requires workflows with explicit DAG structures and node task-type labels; limited support for free-form dynamic workflows
 
@@ -139,7 +139,7 @@ For agent platforms and MLOps tooling, this is a mechanism that can be directly 
 - Lightweight fine-tuning loop: uses new attribution results to continuously improve the judge — a self-reinforcing design
 - Experiments evaluated on two complementary benchmarks, covering different task types, agent configurations, and trajectory lengths
 - Results: outperforms existing methods on both agent attribution and step attribution tasks, with better token efficiency and execution time
-- ⚠️ Available summary data lacks specific quantitative numbers (precision, recall, etc.) — consult the original paper for numerical details
+- :warning: Available summary data lacks specific quantitative numbers (precision, recall, etc.) — consult the original paper for numerical details
 - Relationship to existing frameworks: can integrate with any framework that has trajectory logging (LangSmith, LangGraph run tracking, AutoGen conversation history)
 - Deployment barrier: requires structured agent execution logs; pipelines without trace/logging infrastructure need to build that foundation first
 
@@ -166,7 +166,7 @@ Think top LLM agents can handle multilingual workflows? PolyWorkBench uses 67 re
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Worth reading for PMs and engineers building global B2B/B2C products: this paper gives you quantitative evidence that "multilingual agent deployment is not a minor issue." Readers working on single-language products only can skip for now.
 
 ### Background
@@ -195,7 +195,7 @@ Results show that multilingual settings produce "compounding degradation" across
 - Three-layer evaluation design worth borrowing: structural grading checks format, executable verification validates functional correctness, LLM semantic assessment covers the semantic layer — more reliable than LLM-judge alone
 - Tested state-of-the-art LLM agents, all showing significant degradation; even the strongest models failed to maintain monolingual performance levels under multilingual settings (see original paper for specific numbers)
 - Root cause analysis: models tend to "think in English internally" during multilingual reasoning, but workflows require output in specific non-English languages, causing linguistic consistency penalties
-- ⚠️ 67 tasks is a small scale; the benchmark's statistical significance is limited. The authors' institution (Tencent WeChat AI) may have specific biases in evaluation design — maintain critical awareness
+- :warning: 67 tasks is a small scale; the benchmark's statistical significance is limited. The authors' institution (Tencent WeChat AI) may have specific biases in evaluation design — maintain critical awareness
 - Relationship to existing frameworks: current agent frameworks generally lack native support for multilingual workflows; this research identifies a clear direction for framework improvement
 - Deployment insight: if your product has multilingual requirements, you need to add multilingual scenario testing to your eval pipeline now — don't wait for models to "naturally catch up"
 

@@ -15,7 +15,7 @@ glossary:
     context: "官方用統一記憶體的容量來設定完全本地與 Hybrid 的建議配置。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-23-perplexity-computer-local-mac-en)
+> :globe: [English version](/posts/ai/2026-10-23-perplexity-computer-local-mac-en)
 
 社群上流傳「拔掉網路也能用、資料零上傳」，大方向是對的，但要補兩個條件：離線只適用於不需要網路的任務，而且官方建議的 36GB 記憶體，比不少新 Mac 能配的上限還高。這篇幫你判斷：完全本地和 Hybrid 差在哪、哪些步驟還是會連網、你的 Mac 該直接試還是先別動。
 

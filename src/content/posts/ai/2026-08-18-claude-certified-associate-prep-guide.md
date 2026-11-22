@@ -13,7 +13,7 @@ description: "Claude Certified Associate – Foundations（CCAO-F）備考指南
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-claude-certified-associate-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回官方 **Claude Certified Associate – Foundations Exam Guide**，不含考古題。查證日期：2026-08-18。
 

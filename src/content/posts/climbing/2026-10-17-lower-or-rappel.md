@@ -30,7 +30,7 @@ glossary:
     context: "龍洞的羊角多為鈦合金，TOCC 提醒長巷佈告欄有一批 316 不鏽鋼羊角已出現磨損凹痕。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-lower-or-rappel-en)
+> :globe: [English version](/posts/climbing/2026-10-17-lower-or-rappel-en)
 
 在岩館，爬到頂端喊一聲「Take」，確保者就放你下來。頂端的繩子本來就掛好了，你不用碰任何東西。
 

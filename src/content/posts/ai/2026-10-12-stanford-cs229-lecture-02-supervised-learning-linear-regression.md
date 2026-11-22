@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 2 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 1 章〈Linear regression〉。字幕看不到投影片與手寫畫面，講者指著畫面說的內容，本文只寫前後文與講義能還原的部分。
 

@@ -12,7 +12,7 @@ series:
   order: 54
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-08-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-08-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -158,14 +158,14 @@ Africa was searched today; no AI-agent-direct event met the inclusion bar, so it
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Mastra @mastra/core@1.75.0](/posts/daily/2026-10-08-framework-mastra-1.75.0-en)
-- 📄 [Funding Brief｜Ampersand Series A $15M](/posts/daily/2026-10-08-funding-ampersand-en)
-- 📄 [Funding Brief｜Melius $25M](/posts/daily/2026-10-08-funding-melius-en)
-- 📄 [Funding Brief｜Vocca Series A $20M](/posts/daily/2026-10-08-funding-vocca-en)
-- 📄 [Pricing Watch｜Claude Sonnet 5.5 Cache-Hit Price Cut in Half](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut-en)
-- 📄 [Tool Pick｜mcpgawk](/posts/daily/2026-10-08-tool-mcpgawk-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-08](/posts/daily/2026-10-08-ai-agent-github-digest-en)
+- :file: [Framework Update｜Mastra @mastra/core@1.75.0](/posts/daily/2026-10-08-framework-mastra-1.75.0-en)
+- :file: [Funding Brief｜Ampersand Series A $15M](/posts/daily/2026-10-08-funding-ampersand-en)
+- :file: [Funding Brief｜Melius $25M](/posts/daily/2026-10-08-funding-melius-en)
+- :file: [Funding Brief｜Vocca Series A $20M](/posts/daily/2026-10-08-funding-vocca-en)
+- :file: [Pricing Watch｜Claude Sonnet 5.5 Cache-Hit Price Cut in Half](/posts/daily/2026-10-08-pricing-anthropic-claude-sonnet-5-5-cache-price-cut-en)
+- :file: [Tool Pick｜mcpgawk](/posts/daily/2026-10-08-tool-mcpgawk-en)
 
 ## Tomorrow's Watch
 

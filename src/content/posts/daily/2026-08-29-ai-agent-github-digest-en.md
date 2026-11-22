@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-29-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's projects happen to sit at opposite ends of the agent capability stack. O
 
 ## Trending Repos
 
-### calesthio/OpenMontage ⭐ 50,000+ (+1,000 this week)
+### calesthio/OpenMontage ★ 50,000+ (+1,000 this week)
 
 [GitHub](https://github.com/calesthio/OpenMontage) · Python · MIT
 
@@ -31,7 +31,7 @@ Today's projects happen to sit at opposite ends of the agent capability stack. O
 
 ---
 
-### anthropics/claude-plugins-official ⭐ 55+ plugins (+292 today)
+### anthropics/claude-plugins-official ★ 55+ plugins (+292 today)
 
 [GitHub](https://github.com/anthropics/claude-plugins-official) · JSON/Markdown · N/A
 
@@ -42,7 +42,7 @@ Today's projects happen to sit at opposite ends of the agent capability stack. O
 
 ---
 
-### rohitg00/agentmemory ⭐ growing fast (trending on GitHub's TypeScript chart)
+### rohitg00/agentmemory ★ growing fast (trending on GitHub's TypeScript chart)
 
 [GitHub](https://github.com/rohitg00/agentmemory) · TypeScript · N/A
 
@@ -53,7 +53,7 @@ Today's projects happen to sit at opposite ends of the agent capability stack. O
 
 ---
 
-### sodiumsun/agenttrail ⭐ 194 (created 8/21, growing)
+### sodiumsun/agenttrail ★ 194 (created 8/21, growing)
 
 [GitHub](https://github.com/sodiumsun/agenttrail) · Node.js · MIT
 

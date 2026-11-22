@@ -108,7 +108,7 @@ Gnani AI 宣布將主權 AI 平台 Gnani Artha 擴展至印度銀行、金融與
 
 **中東**
 
-阿布達比在巴黎國際太空峰會宣布與 Mistral、Loft Orbital 合作,投入 $10 億美元打造搭載 AI agent 的衛星星系,由馬克宏見證簽署。⚠️(來源未經其他媒體交叉驗證)([來源](https://france.news-pravda.com/france/2026/09/09/260090.html))
+阿布達比在巴黎國際太空峰會宣布與 Mistral、Loft Orbital 合作,投入 $10 億美元打造搭載 AI agent 的衛星星系,由馬克宏見證簽署。:warning:(來源未經其他媒體交叉驗證)([來源](https://france.news-pravda.com/france/2026/09/09/260090.html))
 
 **大洋洲**
 
@@ -129,12 +129,12 @@ NVIDIA 攜手 Megaport、Sharon AI、IREN 等澳洲夥伴擴充 AI 基礎設施,
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-11](/posts/daily/2026-09-11-ai-agent-arxiv-digest)
-- 💰 [融資速報｜Clay Series D $115M](/posts/daily/2026-09-11-funding-clay)
-- 💰 [融資速報｜Euno Series A $23M](/posts/daily/2026-09-11-funding-euno)
-- 🚨 [資安警報｜PaperCut 漏洞遭數百個 AI Agent 協同攻陷](/posts/daily/2026-09-11-security-papercut-ai-agent-mass-exploit)
-- 🛠️ [工具推薦｜skills — Dart/Flutter Agent Skill CLI](/posts/daily/2026-09-11-tool-dart-skills-cli)
-- 🎯 [AI Engineer 面試日練 — 2026-09-11：Coding](/posts/daily/2026-09-11-ai-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-11](/posts/daily/2026-09-11-ai-agent-arxiv-digest)
+- :coin: [融資速報｜Clay Series D $115M](/posts/daily/2026-09-11-funding-clay)
+- :coin: [融資速報｜Euno Series A $23M](/posts/daily/2026-09-11-funding-euno)
+- :warning: [資安警報｜PaperCut 漏洞遭數百個 AI Agent 協同攻陷](/posts/daily/2026-09-11-security-papercut-ai-agent-mass-exploit)
+- :wrench: [工具推薦｜skills — Dart/Flutter Agent Skill CLI](/posts/daily/2026-09-11-tool-dart-skills-cli)
+- :target: [AI Engineer 面試日練 — 2026-09-11：Coding](/posts/daily/2026-09-11-ai-interview-daily)
 
 ## 明日關注
 

@@ -30,7 +30,7 @@ glossary:
     context: "多數人不是把鞋穿到壞才換新鞋，而是送去換底。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-shoes-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-shoes-en)
 
 你在店裡試了三雙鞋。第一雙穿起來很舒服，店員說「太鬆了」；第二雙痛到站不住，店員說「穿一陣子就會鬆」；第三雙介於中間，可是你不知道它到底算不算合腳。
 

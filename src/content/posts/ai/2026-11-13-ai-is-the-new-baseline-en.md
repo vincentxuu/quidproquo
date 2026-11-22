@@ -10,7 +10,7 @@ description: "What Acronis's BossAI report, a Kaohsiung arrest of a self-taught 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-13-ai-is-the-new-baseline)
+> :globe: [中文版](/posts/ai/2026-11-13-ai-is-the-new-baseline)
 
 Three cases in the past three weeks point the same way: attacking websites with AI no longer takes an expert.
 

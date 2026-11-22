@@ -22,7 +22,7 @@ glossary:
     context: "Silbernagel's 2007 Achilles tendon trial used this approach; the versions common in climbing come from Hooper's Beta and The Climbing Doctor."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-return-to-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-18-return-to-climbing)
 
 Five weeks ago, crimping hard on a small edge, you felt a twinge at the base of your ring finger. The doctor said it was a mild pulley strain and you could ease back into climbing. Now the finger doesn't hurt, and you badly want to go back to the route you've been stuck on for a month.
 

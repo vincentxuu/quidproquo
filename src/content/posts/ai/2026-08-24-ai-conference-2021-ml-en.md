@@ -23,7 +23,7 @@ glossary:
     context: "The title Diffusion Models Beat GANs was itself a declaration of a change in eras."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2021-ml)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2021-ml)
 
 2021 was a turning point for machine learning conferences. Submission volume had not yet reached the explosive levels of 2024–2025, but it was rising rapidly. More importantly, several directions that would define the field—diffusion models, the theory of self-supervised learning, and evaluation methodology in reinforcement learning—produced pivotal papers at that year’s top conferences. This article centers on NeurIPS, ICML, and ICLR, with highlights from AAAI and IJCAI. It reviews award-winning and influential work from 2021 and, with hindsight, asks which papers truly changed the direction of subsequent research.
 

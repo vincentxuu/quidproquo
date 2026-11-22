@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-region-china)
+> :globe: [中文版](/posts/daily/2026-08-28-region-china)
 
 ## Region: China
 
@@ -30,7 +30,7 @@ Alibaba announced on August 26 that QwenWork International has entered public be
 
 ### Tencent's WorkBuddy Plays "Model-Agnostic": Collect Rent at the Platform Layer, Regardless of Which Model Wins
 
-Tencent's WorkBuddy takes a fundamentally different approach from Doubao Work and QwenWork: instead of proving its own model is the strongest, it plugs DeepSeek, Zhipu's GLM, Moonshot's Kimi, MiniMax, and its own in-house Hy3 into a single workspace, letting users freely pick the underlying model, and captures a cut of every call through a points-plus-membership pricing structure. In other words, no matter which model wins, Tencent collects rent -- the only thing undisclosed is the take rate and whether the arrangement is currently profitable. Trade publication CIW News reports that since Hy3 rolled out free through WorkBuddy on August 5, its share among users who self-select a model has climbed past 60%. WorkBuddy's monthly visits grew from 8.85 million at its March launch to 20.97 million in June; combined with CodeBuddy and QClaw, the broader Tencent ecosystem reached 32.62 million visits in June -- more than half of the 60.62 million total the outlet tracks across the office-agent market. ⚠️ These visit and model-selection figures come from Analysys via 36Kr and from Tencent's own disclosures, and have not been independently audited. ([CIW News](https://www.ciw.news/p/workplace-ai-desktop-china))
+Tencent's WorkBuddy takes a fundamentally different approach from Doubao Work and QwenWork: instead of proving its own model is the strongest, it plugs DeepSeek, Zhipu's GLM, Moonshot's Kimi, MiniMax, and its own in-house Hy3 into a single workspace, letting users freely pick the underlying model, and captures a cut of every call through a points-plus-membership pricing structure. In other words, no matter which model wins, Tencent collects rent -- the only thing undisclosed is the take rate and whether the arrangement is currently profitable. Trade publication CIW News reports that since Hy3 rolled out free through WorkBuddy on August 5, its share among users who self-select a model has climbed past 60%. WorkBuddy's monthly visits grew from 8.85 million at its March launch to 20.97 million in June; combined with CodeBuddy and QClaw, the broader Tencent ecosystem reached 32.62 million visits in June -- more than half of the 60.62 million total the outlet tracks across the office-agent market. :warning: These visit and model-selection figures come from Analysys via 36Kr and from Tencent's own disclosures, and have not been independently audited. ([CIW News](https://www.ciw.news/p/workplace-ai-desktop-china))
 
 ### Zhipu (Z.ai) Open-Sources GLM-5.3-Flash: MIT License, Runs on Domestic Chips, Priced at a Tenth of Its Predecessor
 

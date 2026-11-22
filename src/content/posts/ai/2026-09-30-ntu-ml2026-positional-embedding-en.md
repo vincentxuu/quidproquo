@@ -22,7 +22,7 @@ glossary:
     context: "The slides point out that it \"still requires fine-tuning the model\", which motivates the frequency-based methods that only compress low-frequency dimensions."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

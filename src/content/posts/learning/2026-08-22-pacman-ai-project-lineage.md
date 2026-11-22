@@ -10,7 +10,7 @@ description: "只依兩校官方 assignment 規格，比較 Pacman AI project �
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-pacman-ai-project-lineage-en)
+> :globe: [English version](/posts/learning/2026-08-22-pacman-ai-project-lineage-en)
 
 Berkeley CS188 與 CMU 15-281 都讓 Pacman 在迷宮裡搜尋、躲鬼、吃豆子，但「兩校剛好用了相似遊戲」不是最精確的說法。CMU 的 [Search and Games assignment](https://www.cs.cmu.edu/~15281/assignments/programming/search_and_games/)直接寫明，這份作業以 UC Berkeley 開發的 Pacman AI projects 為基礎。血統是官方明載的；至於 CMU 為什麼這樣改、哪位教師決定合併，公開規格沒有回答，本文不推測。
 

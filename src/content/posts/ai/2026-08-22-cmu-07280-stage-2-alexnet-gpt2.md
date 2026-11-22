@@ -13,7 +13,7 @@ description: "整合 CMU 07-280 Spring 2026 的 AlexNet 與 GPT-2 路線，從 C
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-stage-2-alexnet-gpt2-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

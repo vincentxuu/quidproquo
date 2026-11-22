@@ -22,11 +22,11 @@ glossary:
     context: "HW6 Problem 4 Part 2c 用它定義 N_cached 的第一項。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/.pdf`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 11 週、[Section 9](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf)（標頭 Spring 2026）為準。「Autoregressive Models」是 2026 新排的講題，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影。Section 9 講了自迴歸分解、teacher forcing 與 greedy／sampling 等解碼策略，但**沒有講 KV cache 與 speculative decoding**；這兩部分的背景只能靠作業題幹本身。作業解答未公開，Section 9 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6)（`hw6_release.tex/.pdf`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 11 週、[Section 9](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf)（標頭 Spring 2026）為準。「Autoregressive Models」是 2026 新排的講題，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影。Section 9 講了自迴歸分解、teacher forcing 與 greedy／sampling 等解碼策略，但**沒有講 KV cache 與 speculative decoding**；這兩部分的背景只能靠作業題幹本身。作業解答未公開，Section 9 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 11 篇。上一篇是 [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)，下一篇是 [HW6（二）：HMM 與 Kalman filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman)。
 

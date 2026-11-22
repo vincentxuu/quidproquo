@@ -26,7 +26,7 @@ glossary:
     context: "CS231N A2 從 Q4 起改用 autograd，Q5 的 RNN 只需寫 forward。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-a2-batchnorm-cnn-pytorch-rnn-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

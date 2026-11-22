@@ -13,7 +13,7 @@ description: "逐題導讀 Stanford CS109 Summer 2026 Lecture 21：Naive Bayes�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs109-lecture-21-comparing-classifiers-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

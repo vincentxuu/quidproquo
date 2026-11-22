@@ -19,7 +19,7 @@ glossary:
     definition: "驗證不通過時預設拒絕，而不是預設放行。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations-en)
+> :globe: [English version](/posts/tech/2026-08-23-stock-agent-6-auditable-number-citations-en)
 
 > **台股研究 Agent 實戰系列（篇 6 / 9）**：[上一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [下一篇：Copilot loop：計畫合約、可驗證來源與人類審查](/posts/tech/2026-08-23-stock-agent-7-research-plan-review-loop) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 

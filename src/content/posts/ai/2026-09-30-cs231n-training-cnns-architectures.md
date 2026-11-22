@@ -22,7 +22,7 @@ glossary:
     context: "CS231N L6 建議：資料集少於約一百萬張時，先找相似的大資料集預訓練，再遷移。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-training-cnns-architectures-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

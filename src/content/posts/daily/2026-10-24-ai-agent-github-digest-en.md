@@ -11,7 +11,7 @@ series:
   order: 70
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-24-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's throughline is making sure an agent actually did the right thing. ifixai
 
 ## Trending Repos
 
-### ifixai-ai/ifixai ⭐ 34k
+### ifixai-ai/ifixai ★ 34k
 
 [GitHub](https://github.com/ifixai-ai/ifixai)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Today's throughline is making sure an agent actually did the right thing. ifixai
 
 ---
 
-### shiyu-coder/Kronos ⭐ 43k
+### shiyu-coder/Kronos ★ 43k
 
 [GitHub](https://github.com/shiyu-coder/Kronos)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ Today's throughline is making sure an agent actually did the right thing. ifixai
 
 ---
 
-### mcp-use/mcp-use ⭐ 11k
+### mcp-use/mcp-use ★ 11k
 
 [GitHub](https://github.com/mcp-use/mcp-use)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ Today's throughline is making sure an agent actually did the right thing. ifixai
 
 ---
 
-### crestalnetwork/intentkit ⭐ 6.5k
+### crestalnetwork/intentkit ★ 6.5k
 
 [GitHub](https://github.com/crestalnetwork/intentkit)　·　Python　·　MIT
 
@@ -78,7 +78,7 @@ Today's throughline is making sure an agent actually did the right thing. ifixai
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
 
 - **What changed**: `RetryPromptPart` is now formally deprecated in favor of `ToolReturnPart(outcome='retried')` and a new `RetryFeedbackPart`; content the harness injects into the "user channel" is now wrapped as `<harness_data>` instead of being disguised as a user message; and the MCP capability's default `id` is now derived purely from the server URL's hostname, so two servers on the same host without an explicit id now fail outright instead of silently colliding.
-- **Breaking changes**: All three of the above are listed under the official "⚠️ Compatibility Notes" section — code that pattern-matches on `RetryPromptPart`'s type needs updating, and any setup running two unnamed MCP servers on the same host will now error on startup rather than quietly clash.
+- **Breaking changes**: All three of the above are listed under the official ":warning: Compatibility Notes" section — code that pattern-matches on `RetryPromptPart`'s type needs updating, and any setup running two unnamed MCP servers on the same host will now error on startup rather than quietly clash.
 - **What it means for you**: If you're connecting multiple MCP servers in pydantic-ai, check for any sharing a host without an explicit id and add one before upgrading, or startup will break. If your code checks retry status via `RetryPromptPart`, migrate to `ToolReturnPart(outcome='retried')` now, before it's removed outright.
 
 ## Today's Takeaway

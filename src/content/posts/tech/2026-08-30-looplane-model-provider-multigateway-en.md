@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-model-provider-multigateway)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-model-provider-multigateway)
 
 The previous article followed Looplane's native loop. This one moves down a layer: how `ModelProvider` collapses multiple protocol adapters into one interface, and how the same adapter can be exposed as an external service through `ModelGateway`.
 

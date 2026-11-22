@@ -31,7 +31,7 @@ glossary:
     context: "技法第 1 堂把 hard-margin SVM 對到 QP(Q, p, A, c) 的輸入。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-linear-dual-svm-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [201_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/201_handout.pdf) 與這堂五支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/28 到 28/28），寫「課堂上」的地方是轉述影片裡的說法。
 

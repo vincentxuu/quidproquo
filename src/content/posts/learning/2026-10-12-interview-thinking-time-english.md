@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-12-interview-thinking-time-english-en)
+> :globe: [English version](/posts/learning/2026-10-12-interview-thinking-time-english-en)
 
 [上一篇](/posts/learning/2026-10-12-coding-interview-english)練的是寫程式面試裡自己主動要講的話。這篇處理另一種狀況：面試官順著我的回答一直往下問，問到我沒準備的地方。
 

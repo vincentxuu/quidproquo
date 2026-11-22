@@ -10,7 +10,7 @@ description: "A practical guide to Stytch Consumer and B2B identity primitives, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-stytch-authentication-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-stytch-authentication-platform)
 
 [Stytch](https://stytch.com/) is better understood as an API-first managed identity platform than as a “passwordless widget.” It offers prebuilt UI, headless SDKs, and direct APIs, but the selection question is whether it should own the user/member → session → organization → authorization lifecycle for your application.
 

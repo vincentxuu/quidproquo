@@ -13,7 +13,7 @@ description: "Stanford CS336 Spring 2026 Lecture 17 導讀：CLIP、SigLIP、LLa
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs336-multimodal-alignment-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs336-multimodal-alignment-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

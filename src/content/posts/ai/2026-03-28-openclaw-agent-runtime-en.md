@@ -13,7 +13,7 @@ description: "The three-layer assembly of OpenClaw's system prompt, the three na
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-agent-runtime)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-agent-runtime)
 
 The previous article covered multi-agent boundaries. This one covers **what the model actually sees on a single agent's run**.
 

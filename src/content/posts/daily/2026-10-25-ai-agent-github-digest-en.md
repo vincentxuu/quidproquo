@@ -11,7 +11,7 @@ series:
   order: 71
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-25-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's throughline is the infrastructure for running a lot of agents at once. N
 
 ## Trending Repos
 
-### NVIDIA/OpenShell ⭐ 19,332 (+893)
+### NVIDIA/OpenShell ★ 19,332 (+893)
 
 [GitHub](https://github.com/NVIDIA/OpenShell)　·　Rust　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Today's throughline is the infrastructure for running a lot of agents at once. N
 
 ---
 
-### feder-cr/git-ai ⭐ 988
+### feder-cr/git-ai ★ 988
 
 [GitHub](https://github.com/feder-cr/git-ai)　·　Go　·　MIT
 
@@ -41,7 +41,7 @@ Today's throughline is the infrastructure for running a lot of agents at once. N
 
 ---
 
-### makecindy/cindy ⭐ 3,971 (+471)
+### makecindy/cindy ★ 3,971 (+471)
 
 [GitHub](https://github.com/makecindy/cindy)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ Today's throughline is the infrastructure for running a lot of agents at once. N
 
 ---
 
-### aws/agent-toolkit-for-aws ⭐ 3,055
+### aws/agent-toolkit-for-aws ★ 3,055
 
 [GitHub](https://github.com/aws/agent-toolkit-for-aws)　·　Python　·　Apache-2.0
 
@@ -68,7 +68,7 @@ Today's throughline is the infrastructure for running a lot of agents at once. N
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.61.0)
 
 - **What changed**: A provider-specific thinking setting from a broader scope now warns when it overrides the `thinking` you set; for models that can't turn thinking off, `thinking=False` now sends the least thinking that model will accept instead of silently dropping the setting; and a file in a `CohereModel` tool return that isn't supported now raises `NotImplementedError` instead of being quietly dropped.
-- **Breaking changes**: All three are listed under the official "⚠️ Compatibility Notes" — code that returns a file from a `CohereModel` tool without checking type support will now fail loudly on upgrade instead of silently losing data, as it did before.
+- **Breaking changes**: All three are listed under the official ":warning: Compatibility Notes" — code that returns a file from a `CohereModel` tool without checking type support will now fail loudly on upgrade instead of silently losing data, as it did before.
 - **Impact**: If you're stacking `thinking` settings across multiple scopes (provider/model/call), check which layer is actually winning first — after the upgrade, an outer-scope override gets logged, which is a good way to catch a layering you hadn't noticed.
 
 ---

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-aws-app-runner)
+> :globe: [中文版](/posts/tech/2026-08-22-aws-app-runner)
 
 [AWS App Runner](https://docs.aws.amazon.com/apprunner/latest/dg/architecture.html) turns a repository or ECR image into an HTTPS web service and manages build/deployment, instances, load balancing, and autoscaling. It requires much less assembly than ECS with Fargate and behaves more like an AWS-native PaaS.
 

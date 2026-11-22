@@ -10,7 +10,7 @@ description: "比較 Elasticsearch 與 OpenSearch 的共同 Lucene 基礎、全�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-elasticsearch-opensearch-site-search-en)
+> :globe: [English version](/posts/tech/2026-08-22-elasticsearch-opensearch-site-search-en)
 
 [Elasticsearch](https://www.elastic.co/elasticsearch) 與 [OpenSearch](https://opensearch.org/About/) 都是分散式搜尋與分析引擎。它們能替網站做全文檢索、篩選、排序、搜尋建議與分類統計，也能承接日誌和可觀測性資料。
 

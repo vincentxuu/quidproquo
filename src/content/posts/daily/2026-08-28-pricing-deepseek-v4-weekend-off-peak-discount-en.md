@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount)
+> :globe: [中文版](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount)
 
 ## Summary
 

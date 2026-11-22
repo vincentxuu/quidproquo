@@ -13,7 +13,7 @@ description: "A deck-aligned CS103 guide to returning from r, re, and utm, three
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-24-unsolvable-problems-1)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-24-unsolvable-problems-1)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

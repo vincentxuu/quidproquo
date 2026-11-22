@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-nativecamp-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-nativecamp-speaking-practice)
 
 If you want live English practice after work but struggle to keep a regular appointment, [NativeCamp](https://nativecamp.net/zh-tw) is worth considering. It offers one-to-one lessons with human tutors. Its on-demand option lets you choose an available tutor when you have time, without booking in advance.
 

@@ -10,7 +10,7 @@ description: "拆解 Haystack 的 Component、Pipeline、Document Store、索引
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-haystack-pipeline-framework-en)
+> :globe: [English version](/posts/ai/2026-08-22-haystack-pipeline-framework-en)
 
 [Haystack](https://docs.haystack.deepset.ai/) 是開放原始碼的 Python AI orchestration framework。它可以做 RAG、搜尋、agent 與多模態應用，但核心抽象始終是兩個：負責一件事的 Component，以及把 Component 接成資料流的 Pipeline。這使它更像應用程式內的工程框架，不是附管理後台的 RAG 平台。
 

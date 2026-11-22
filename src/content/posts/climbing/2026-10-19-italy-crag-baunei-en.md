@@ -13,7 +13,7 @@ description: "A guide to climbing on the Baunei coast and the Supramonte big wal
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-baunei)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-baunei)
 
 Baunei is a hill town in Ogliastra on Sardinia's east coast. Behind it lies the limestone Golgo plateau, and to the north runs the roadless sea-cliff coast of the Golfo di Orosei. The local climbing association Climbing Sardinia describes it on its [Baunei area page](https://climbingitaly.com/area/baunei/) as "Vertiginous crags overlooking the sea and solid limestone routes", and says that [Cala Gonone](/posts/climbing/2026-10-18-italy-crag-cala-gonone-en) to the north is tamed by comparison: "Baunei is WILD!"
 

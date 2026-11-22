@@ -13,7 +13,7 @@ description: "MIT 6.7960 Fall 2024 OCW 作業 1 完整走查。從零用 NumPy �
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-ps1-mlp-backprop-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

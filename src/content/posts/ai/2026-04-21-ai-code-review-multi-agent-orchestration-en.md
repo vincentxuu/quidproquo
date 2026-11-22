@@ -10,7 +10,7 @@ description: "Comparing AI Code Review architectures, costs, and trade-offs acro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-21-ai-code-review-multi-agent-orchestration)
+> :globe: [中文版](/posts/ai/2026-04-21-ai-code-review-multi-agent-orchestration)
 
 Now that AI is generating code at scale, Code Review has shifted from "humans reviewing human-written code" to "humans and AI reviewing AI-written code together." By early 2026, the industry consensus is clear: **parallel Multi-Agent analysis + a Coordinator for deduplication**. This post starts with Cloudflare's internal system published in April, then compares the trade-offs across Anthropic, GitHub, Google, CodeRabbit, Greptile, and Graphite.
 

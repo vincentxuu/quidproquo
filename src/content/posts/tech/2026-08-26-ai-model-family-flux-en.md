@@ -23,7 +23,7 @@ glossary:
     definition: "FLUX 3's unified multimodal architecture, jointly learning images, video, audio, and robot-action prediction in one set of weights; the foundation for BFL's move from image tooling to visual intelligence and world models."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-ai-model-family-flux)
+> :globe: [中文版](/posts/tech/2026-08-26-ai-model-family-flux)
 
 In August 2024, four German researchers who had left Stability AI—Robin Rombach, Patrick Esser, Andreas Blattmann, and Dominik Lorenz—founded [Black Forest Labs](https://bfl.ai) in Freiburg. Rombach was first author of the Latent Diffusion paper, and this group built the architecture behind Stable Diffusion. Amid their former employer's financial turmoil and researcher exodus, they released [FLUX.1](https://bfl.ai/blog/flux-2) that same month. Its 12B parameters immediately beat the successor from their former company. This thirteenth AI Model Families article traces how the “German Avengers” grew one open model into a visual-intelligence company spanning images, video, and robotics in two years.
 

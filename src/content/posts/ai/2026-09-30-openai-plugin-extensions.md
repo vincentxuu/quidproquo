@@ -33,7 +33,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-openai-plugin-extensions-en)
+> :globe: [English version](/posts/ai/2026-09-30-openai-plugin-extensions-en)
 
 我一直在關注 OpenAI 的 plugin。理由很單純：它一旦做起來，很多軟體的使用方式都會跟著改。2026 年 9 月 29 日的 [OpenAI DevDay 2026](https://openai.com/index/devday-2026-recap/) 果然又有 plugin 的戲，這次叫 **Plugin Extensions**。
 
@@ -115,11 +115,11 @@ const toolMetadata = {
 
 | 功能 | 桌面版 | Web | iOS | Android |
 |---|---|---|---|---|
-| Sidebar（global） | ✅ | ✅ | ✅ | ✅ |
-| Conversation panel（thread） | ✅ | ✅ | ✅ | ✅ |
-| File viewer（file） | ✅ | ❌ | ❌ | ❌ |
-| Composer @ 提及 | ✅ | ❌ | ❌ | ❌ |
-| Rich forms | ✅ | ✅ | ❌ | ❌ |
+| Sidebar（global） | ✓ | ✓ | ✓ | ✓ |
+| Conversation panel（thread） | ✓ | ✓ | ✓ | ✓ |
+| File viewer（file） | ✓ | ✗ | ✗ | ✗ |
+| Composer @ 提及 | ✓ | ✗ | ✗ | ✗ |
+| Rich forms | ✓ | ✓ | ✗ | ✗ |
 
 recap 寫「Available to all plans」，但文件補了一句：Web 版的 Free 與 Go 使用者「coming soon」。檔案檢視器目前只在桌面版，這對想做 file viewer 的團隊是最大的前提。
 

@@ -16,7 +16,7 @@ glossary:
     context: "本文用它指 SKILL.md 只留判斷與路由，表格與指令對照搬到 references 按需讀取。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-token-efficiency-skill-design-lessons-en)
+> :globe: [English version](/posts/ai/2026-08-22-token-efficiency-skill-design-lessons-en)
 
 ## TL;DR
 

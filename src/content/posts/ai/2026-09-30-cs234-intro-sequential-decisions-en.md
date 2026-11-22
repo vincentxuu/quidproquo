@@ -25,7 +25,7 @@ glossary:
     context: "CS234 L1 separates the two, and the course keeps coming back to the distinction."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-intro-sequential-decisions)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

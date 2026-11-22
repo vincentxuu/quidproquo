@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-proxmox-virtual-environment)
+> :globe: [中文版](/posts/tech/2026-08-22-proxmox-virtual-environment)
 
 [Proxmox Virtual Environment (PVE)](https://pve.proxmox.com/pve-docs/pve-admin-guide.html) is a Debian-based virtualization platform integrating KVM VMs, LXC system containers, web and APIs, clustering, HA, software-defined networks, and multiple storage types. It fits homelabs, small private clouds, edge sites, and enterprises retaining hardware control.
 

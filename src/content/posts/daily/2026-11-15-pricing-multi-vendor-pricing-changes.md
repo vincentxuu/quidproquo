@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes-en)
+> :globe: [English version](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes-en)
 
 ## 變更摘要
 
@@ -72,9 +72,9 @@ Carbon 的部分是硬數字，官方已經把 12/1 的新價寫進定價頁；S
 
 ## 時效提醒
 
-⏰ **促銷到期日（Gemini 4 Carbon／Argon）**：2026-12-01。到期後 input/output 雙雙從 $2.00/$10.00 漲到 $4.00/$20.00，官方定價頁與 changelog 已經寫明新價，沒有緩衝期。
+:clock: **促銷到期日（Gemini 4 Carbon／Argon）**：2026-12-01。到期後 input/output 雙雙從 $2.00/$10.00 漲到 $4.00/$20.00，官方定價頁與 changelog 已經寫明新價，沒有緩衝期。
 
-⏰ **促銷到期日（GPT-5.6 Sol）**：2026-11-30。到期後價格未定——官方模型頁只更新了到期日措辭（從「至少到 11/21」改成「到 11/30」），尚未公布接下來的新費率。
+:clock: **促銷到期日（GPT-5.6 Sol）**：2026-11-30。到期後價格未定——官方模型頁只更新了到期日措辭（從「至少到 11/21」改成「到 11/30」），尚未公布接下來的新費率。
 
 ## 今日收穫
 

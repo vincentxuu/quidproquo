@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-26-tool-terminal-mcp-en)
+> :globe: [English version](/posts/daily/2026-09-26-tool-terminal-mcp-en)
 
 ## 工具資訊
 
@@ -94,13 +94,13 @@ terminal-mcp --sandbox --sandbox-config ~/.terminal-mcp-sandbox.json
 
 | | terminal-mcp | mcp-tty | iterm-mcp |
 |---|---|---|---|
-| 全螢幕 TUI 正確渲染（vim／htop） | ✅ 完整 VT100 模擬 | ❌ README 明講 ANSI 被剝除，全螢幕程式讀不出來 | 依賴實際 iTerm 視窗，非獨立模擬 |
-| 跨平台 | ✅ macOS／Linux／Windows | ✅ macOS／Linux／Windows | ❌ 僅 macOS，且需另裝 iTerm2 |
-| 無 TTY 的 headless/CI 場景 | ✅ `--headless` 單 process | ✅ | ❌ 需要真的有 iTerm2 App 在跑 |
-| 多重獨立 session | ✅ 最多 5 個，`createSession`/`destroySession` | ✅ named session | ❌ 驅動的是你當下唯一的 iTerm 分頁 |
-| 畫面截圖（PNG） | ✅ | ❌ | ❌ |
-| Session 錄影回放（asciicast） | ✅ | ❌ | ❌ |
-| 沙箱限制檔案系統／網路 | ✅ macOS Seatbelt／Linux bubblewrap | ❌ | ❌ |
+| 全螢幕 TUI 正確渲染（vim／htop） | ✓ 完整 VT100 模擬 | ✗ README 明講 ANSI 被剝除，全螢幕程式讀不出來 | 依賴實際 iTerm 視窗，非獨立模擬 |
+| 跨平台 | ✓ macOS／Linux／Windows | ✓ macOS／Linux／Windows | ✗ 僅 macOS，且需另裝 iTerm2 |
+| 無 TTY 的 headless/CI 場景 | ✓ `--headless` 單 process | ✓ | ✗ 需要真的有 iTerm2 App 在跑 |
+| 多重獨立 session | ✓ 最多 5 個，`createSession`/`destroySession` | ✓ named session | ✗ 驅動的是你當下唯一的 iTerm 分頁 |
+| 畫面截圖（PNG） | ✓ | ✗ | ✗ |
+| Session 錄影回放（asciicast） | ✓ | ✗ | ✗ |
+| 沙箱限制檔案系統／網路 | ✓ macOS Seatbelt／Linux bubblewrap | ✗ | ✗ |
 
 ## 注意事項
 

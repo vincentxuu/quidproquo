@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-azure-container-apps)
+> :globe: [中文版](/posts/tech/2026-08-22-azure-container-apps)
 
 [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) is a serverless container platform that does not expose a Kubernetes control plane. It supports HTTP/TCP ingress, background apps, event/scheduled/on-demand jobs, revisions, traffic splitting, Dapr, and KEDA scaling. It fits teams wanting containers and microservices without operating AKS.
 

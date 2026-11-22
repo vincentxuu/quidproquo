@@ -13,7 +13,7 @@ description: "xAI Grok Build 的 Rust 架構、Arena Mode、8 個平行子 agent
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-grok-build-xai-privacy-incident-en)
+> :globe: [English version](/posts/tech/2026-08-24-grok-build-xai-privacy-incident-en)
 
 2026 年 5 月 14 日，xAI（SpaceXAI）發布 [Grok Build](https://github.com/xai-org/grok-build) beta，限 SuperGrok Heavy 訂閱者（$299/月）。5 月 25 日擴大到所有 SuperGrok 和 X Premium+ 使用者。
 

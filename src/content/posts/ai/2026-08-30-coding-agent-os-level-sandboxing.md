@@ -16,7 +16,7 @@ tldr: "OS 沙箱是 path policy 之外的核心防線。looplane 已落地 fail-
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing-en)
 
 ## 能力問題
 

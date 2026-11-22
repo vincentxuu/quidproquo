@@ -10,7 +10,7 @@ description: "OpenHarness is a complete open-source Agent Harness implementation
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-openharness-agent-infrastructure)
+> :globe: [中文版](/posts/ai/2026-04-05-openharness-agent-infrastructure)
 
 While researching Agent infrastructure recently, I came across OpenHarness, open-sourced by HKUDS (HKU Data Science Lab). It lays out a complete Agent Harness for you to inspect. If you want to understand "how an LLM becomes an Agent that can use tools, has memory, and can collaborate," this project's architecture is worth the time to study.
 

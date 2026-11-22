@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI's gated access tier for authorized penetration testing and exploit development; calling GPT-6 Cyber requires org-level Daybreak Red approval plus a separate model-specific sign-off"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-06-model-openai-gpt-6-cyber)
+> :globe: [中文版](/posts/daily/2026-11-06-model-openai-gpt-6-cyber)
 
 ## Model Info
 
@@ -108,7 +108,7 @@ step: Either branch ends in a reported result; the in-scope rate is 99.93% with 
 | ExploitGym Honeypot (in-scope rate, no prompt) | 99.93% | GPT-5.6 Cyber 94.49% | — |
 | Irregular FrontierCyber (external eval) | 90/288 | — | GPT-6 Astra 96/288 |
 
-⚠️ The first four are OpenAI's own self-reported numbers (published in the system card). FrontierCyber is an independent evaluation by third-party firm Irregular, which OpenAI cited as-is in the official announcement even though GPT-6 Cyber actually trails Astra here — neither model cracked the 15 hardest challenges. The Firefox (81 high-severity bugs) and Linux kernel (948 working exploits) real-world findings have been confirmed and fed into fix pipelines by Mozilla and the Linux community respectively; they're not self-reported scores.
+:warning: The first four are OpenAI's own self-reported numbers (published in the system card). FrontierCyber is an independent evaluation by third-party firm Irregular, which OpenAI cited as-is in the official announcement even though GPT-6 Cyber actually trails Astra here — neither model cracked the 15 hardest challenges. The Firefox (81 high-severity bugs) and Linux kernel (948 working exploits) real-world findings have been confirmed and fed into fix pipelines by Mozilla and the Linux community respectively; they're not self-reported scores.
 
 ## Versus the Predecessor / Competitors
 

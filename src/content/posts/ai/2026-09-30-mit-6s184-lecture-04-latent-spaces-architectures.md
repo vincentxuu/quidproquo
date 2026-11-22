@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.S184 講義 §6.2.2 訓練 VAE 時使用。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

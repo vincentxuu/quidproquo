@@ -46,7 +46,7 @@
   font-weight: 400;
   font-style: italic;
   letter-spacing: -0.02em;
-  color: var(--brand-900);
+  color: var(--text-primary);
   margin: 0 0 0.75rem;
   line-height: 1.05;
 }
@@ -54,7 +54,7 @@
 .project-hero-tagline {
   font-size: 1.15rem;
   line-height: 1.7;
-  color: var(--brand-900);
+  color: var(--text-secondary);
   margin: 0 0 1.2rem;
   font-weight: 600;
 }
@@ -183,7 +183,7 @@
   font-family: 'DM Serif Display', Georgia, serif !important;
   font-size: 1.3rem !important;
   font-weight: 400 !important;
-  color: var(--brand-900) !important;
+  color: var(--text-primary) !important;
   margin: 0 !important;
   padding: 0 !important;
   border: none !important;
@@ -210,8 +210,8 @@
 .htag {
   font-size: 0.62rem;
   font-weight: 600;
-  background: var(--brand-100);
-  color: var(--brand-700);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
   padding: 0.12rem 0.45rem;
   border-radius: 3px;
 }
@@ -228,7 +228,7 @@
   padding: 0.45rem 0.7rem;
   border-radius: 6px;
   display: block;
-  color: var(--brand-700);
+  color: var(--text-primary);
   overflow-x: auto;
   line-height: 1.5;
 }
@@ -244,7 +244,7 @@
   font-family: 'DM Serif Display', Georgia, serif !important;
   font-size: 1.3rem !important;
   font-weight: 400 !important;
-  color: var(--brand-900) !important;
+  color: var(--text-primary) !important;
   margin: 0 0 1rem !important;
   padding: 0 !important;
   border: none !important;

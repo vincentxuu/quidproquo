@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-webmcp-browser-tools)
+:globe: [中文版](/posts/tech/2026-08-21-webmcp-browser-tools)
 
 The [previous post in this series](/posts/tech/2026-08-21-llms-txt-en) was about making your docs *readable* by machines. This one is the next step: making your page *callable* by them.
 

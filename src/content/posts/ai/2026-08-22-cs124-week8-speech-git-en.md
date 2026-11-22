@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 8: basic phonetics (ARP
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week8-speech-git)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week8-speech-git)
 
 This is Week 8 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). [Last week](/posts/ai/2026-08-22-cs124-week7-transformers-speech-en) covered the speech recognition task and word error rate. This week covers how it is done: sound is a continuous series of air-pressure changes, and it takes several steps before it can be handed to a Transformer.
 

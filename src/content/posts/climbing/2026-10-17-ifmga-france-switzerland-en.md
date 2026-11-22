@@ -27,7 +27,7 @@ glossary:
         url: "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-france-switzerland)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-france-switzerland)
 
 France and Switzerland share a post because both treat mountain guiding as a state-regulated profession. France issues a state diploma, Switzerland a federal professional certificate, and in both guiding for pay without one carries penalties. Both are founding members of the [IFMGA](https://ifmga.net/member-associations/member-associations), and both train well beyond the IFMGA [minimum of 94 days](https://ifmga.net/professional-mountain-guide/training-and-assessment).
 

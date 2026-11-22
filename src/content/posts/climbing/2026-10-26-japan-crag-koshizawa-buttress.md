@@ -13,7 +13,7 @@ description: "越沢バットレス攀岩指南：季節、交通、管理規範
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress-en)
 
 越澤バットレス是奧多摩近郊的多段岩壁，低技術級數仍伴隨陡峭接近路、舊支點與尖銳岩角。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-14-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-14-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -152,17 +152,17 @@ Australia's government outlined a "systemic regulation" framework in a public ad
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-github-digest-en)
-- 📄 [Model Card: Liquid AI LFM2.5-24B-A2B](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b-en)
-- 📄 [Benchmark Shift: Arena Agent Leaderboard — GPT-6 Sol Cracks Top 3](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol-en)
-- 📄 [Framework Update: DSPy 3.4.1](/posts/daily/2026-10-14-framework-dspy-3.4.1-en)
-- 📄 [Framework Update: Mastra @mastra/core@1.76.0](/posts/daily/2026-10-14-framework-mastra-1.76.0-en)
-- 📄 [Funding Brief: Clueso Series A $10M](/posts/daily/2026-10-14-funding-clueso-en)
-- 📄 [Pricing Tracker: Claude Sonnet 4 Reaches EOL on Bedrock Today](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol-en)
-- 📄 [Tool Pick: mcptui](/posts/daily/2026-10-14-tool-mcptui-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-14](/posts/daily/2026-10-14-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-14](/posts/daily/2026-10-14-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-14](/posts/daily/2026-10-14-ai-agent-github-digest-en)
+- :file: [Model Card: Liquid AI LFM2.5-24B-A2B](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b-en)
+- :file: [Benchmark Shift: Arena Agent Leaderboard — GPT-6 Sol Cracks Top 3](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol-en)
+- :file: [Framework Update: DSPy 3.4.1](/posts/daily/2026-10-14-framework-dspy-3.4.1-en)
+- :file: [Framework Update: Mastra @mastra/core@1.76.0](/posts/daily/2026-10-14-framework-mastra-1.76.0-en)
+- :file: [Funding Brief: Clueso Series A $10M](/posts/daily/2026-10-14-funding-clueso-en)
+- :file: [Pricing Tracker: Claude Sonnet 4 Reaches EOL on Bedrock Today](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol-en)
+- :file: [Tool Pick: mcptui](/posts/daily/2026-10-14-tool-mcptui-en)
+- :file: [AI Engineer Interview Prep — 2026-10-14](/posts/daily/2026-10-14-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-14](/posts/daily/2026-10-14-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

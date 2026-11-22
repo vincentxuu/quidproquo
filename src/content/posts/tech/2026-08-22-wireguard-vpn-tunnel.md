@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-wireguard-vpn-tunnel-en)
+> :globe: [English version](/posts/tech/2026-08-22-wireguard-vpn-tunnel-en)
 
 [WireGuard](https://www.wireguard.com/) 是在 layer 3 傳送 IP packet 的加密 tunnel。它刻意只處理少量核心問題：peer key、加密握手、封包封裝與路由。沒有帳號目錄、SSO、裝置 posture、審批流程或中央管理 UI；這份「少」既是優點，也是導入時最容易漏算的工作。
 

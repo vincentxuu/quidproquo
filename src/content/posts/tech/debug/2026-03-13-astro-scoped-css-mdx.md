@@ -10,7 +10,7 @@ draft: false
 type: debug
 ---
 
-🌏 [English version](/posts/tech/debug/2026-03-13-astro-scoped-css-mdx-en)
+:globe: [English version](/posts/tech/debug/2026-03-13-astro-scoped-css-mdx-en)
 
 ## TL;DR
 

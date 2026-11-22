@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-19-react-stack-ai-era-en)
+:globe: [English version](/posts/tech/2026-08-19-react-stack-ai-era-en)
 
 React 套件選型的老三樣判準——功能覆蓋、生態規模、維護活躍度——現在要加上第四樣：**你的 AI coding agent 用它順不順手**。當越來越多程式碼由 agent 產出，「這個庫 agent 會不會寫、寫錯了能不能自己發現」開始實質影響開發速度。這篇記錄純 SPA 陣營目前最有共識的一套組合（以 TanStack Router + TanStack Query + Zustand 為核心），把周邊每一層的預設選擇與替代方案攤開（npm 下載數據全部 2026-08 實查），最後整理 AI 時代冒出來的新選型判準。
 
@@ -82,12 +82,12 @@ llms.txt 是讓 LLM 直接抓取全站文件純文字版的慣例。實測各家
 
 | 文件站 | /llms.txt |
 |---|---|
-| tanstack.com | ✅ 200 |
-| ui.shadcn.com | ✅ 200 |
-| zustand.docs.pmnd.rs | ✅ 200 |
-| ai-sdk.dev | ✅ 200 |
-| nextjs.org | ✅ 200 |
-| reactrouter.com | ❌ 404 |
+| tanstack.com | ✓ 200 |
+| ui.shadcn.com | ✓ 200 |
+| zustand.docs.pmnd.rs | ✓ 200 |
+| ai-sdk.dev | ✓ 200 |
+| nextjs.org | ✓ 200 |
+| reactrouter.com | ✗ 404 |
 
 這個表本身就說明了各團隊對 agent 開發流的態度。當你的 agent 需要查一個 API 的正確用法，有 llms.txt 的文件站可以整包餵進 context；沒有的就得靠爬頁面或訓練語料的記憶——後者正是幻覺的來源。
 

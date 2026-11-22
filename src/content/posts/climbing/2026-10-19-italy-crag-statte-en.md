@@ -13,7 +13,7 @@ description: "A guide to Statte: rock, scale and sectors in the Leucaspide gorge
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-statte)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-statte)
 
 Statte is a small town just north of Taranto. West of town runs a limestone gorge (gravina) about 100 metres deep, with more than two hundred single-pitch sport routes on its walls. [Climb Europe](https://climb-europe.com/pages/rock-climbing-italy-potenza-and-south-italy) calls it the largest crag in the region.
 

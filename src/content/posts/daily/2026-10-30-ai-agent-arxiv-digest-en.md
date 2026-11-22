@@ -72,7 +72,7 @@ Existing agent memory systems (Mem0, A-MEM, LightMem, SimpleMem, and others) mos
 
 - Across LoCoMo/MemGallery against four baselines (A-MEM, Mem0, LightMem, SimpleMem): macro-F1 gains of 2.23-3.14 points
 - LLM-Judge score: +4.07 points over SimpleMem on Qwen3.5-9B, +4.31 points on DeepSeek-V4-Flash
-- Context-token usage 12.8% (Qwen3.5-9B) / 5.1% (DeepSeek-V4-Flash) lower than SimpleMem ⚠️ (author-reported, not externally replicated)
+- Context-token usage 12.8% (Qwen3.5-9B) / 5.1% (DeepSeek-V4-Flash) lower than SimpleMem :warning: (author-reported, not externally replicated)
 - Ablation on thread-expansion depth H (1-3); H=2 offers a time/score compromise
 - Adoption bar: building the "event thread" index adds an extra abstraction layer on top of an existing RAG pipeline
 - Framework link: can be inserted as an alternative retrieval strategy in a LangChain/LangGraph memory layer
@@ -133,7 +133,7 @@ Multi-agent systems commonly use remembered past successes/failures to improve p
 
 - Average scores across AutoGen/CAMEL/MacNet beat the strongest reported baselines by 0.51-4.32 points
 - PDDL symbolic-planning score on CAMEL: 37.71 vs. 28.48 for the baseline
-- Uses a single Qwen3-4B-Instruct-2507 backbone, training-free (no parameter tuning needed) ⚠️ (author-reported, not externally replicated)
+- Uses a single Qwen3-4B-Instruct-2507 backbone, training-free (no parameter tuning needed) :warning: (author-reported, not externally replicated)
 - Code already public: github.com/ECNU-ICALK/DiscernMem
 - Adoption bar: requires an environment where tasks can be re-executed (replayed); human-scored or irreversible-action settings don't fit directly
 - Framework link: validated directly on three off-the-shelf multi-agent frameworks (AutoGen, CAMEL, MacNet), so migration cost is low
@@ -193,7 +193,7 @@ Multi-agent self-improvement frameworks like ACE, GEPA, EvoMAS, and ADAS let a s
 ### Deep-dive points
 
 - Across KramaBench/AppWorld/BBEH, 5 backbones (spanning two model families), achieves the best result in 17 of 20 benchmark-backbone combinations
-- Leads ACE/GEPA/EvoMAS/ADAS by up to 32.5% ⚠️ (author-reported, not externally replicated)
+- Leads ACE/GEPA/EvoMAS/ADAS by up to 32.5% :warning: (author-reported, not externally replicated)
 - Uses 17-38% fewer training executions than the most efficient baseline
 - Adoption bar: requires explicitly defining "who owns which scope of memory," a real restructuring effort for teams currently managing agent configuration ad hoc
 - Framework link: directly compares against four widely-cited agent self-evolution frameworks (ACE/GEPA/EvoMAS/ADAS)

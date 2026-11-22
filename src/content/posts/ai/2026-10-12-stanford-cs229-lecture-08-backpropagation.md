@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-08-backpropagation-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-08-backpropagation-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 8 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 7 章 7.4 節；這堂幾乎全程板書，我沒看到板書畫面，板書上的式子是照講義補回來的。
 

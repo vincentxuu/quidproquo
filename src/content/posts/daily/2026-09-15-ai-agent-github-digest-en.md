@@ -17,7 +17,7 @@ None of today's five trending projects are competing on "which agent is smarter.
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 4,881
+### CopilotKit/OpenBot ★ 4,881
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -28,7 +28,7 @@ None of today's five trending projects are competing on "which agent is smarter.
 
 ---
 
-### Tencent/teamai-cli ⭐ 4,508
+### Tencent/teamai-cli ★ 4,508
 
 [GitHub](https://github.com/Tencent/teamai-cli)　·　TypeScript　·　Custom license (not OSI-approved)
 
@@ -39,7 +39,7 @@ None of today's five trending projects are competing on "which agent is smarter.
 
 ---
 
-### VaderChen/YourDesk ⭐ 226
+### VaderChen/YourDesk ★ 226
 
 [GitHub](https://github.com/VaderChen/YourDesk)　·　Go　·　Custom license (not OSI-approved)
 
@@ -50,7 +50,7 @@ None of today's five trending projects are competing on "which agent is smarter.
 
 ---
 
-### agent-launch/agent-launcher ⭐ 130
+### agent-launch/agent-launcher ★ 130
 
 [GitHub](https://github.com/agent-launch/agent-launcher)　·　TypeScript　·　MIT
 
@@ -61,7 +61,7 @@ None of today's five trending projects are competing on "which agent is smarter.
 
 ---
 
-### agentverse-os/AgentVerse-OS ⭐ 160
+### agentverse-os/AgentVerse-OS ★ 160
 
 [GitHub](https://github.com/agentverse-os/AgentVerse-OS)　·　Rust　·　Apache-2.0
 

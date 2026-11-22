@@ -22,7 +22,7 @@ glossary:
     context: "子詞斷詞主要就是為了處理 OOV、拼錯的詞與複合字。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -11,7 +11,7 @@ series:
   order: 107
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-08-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-08-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -73,7 +73,7 @@ Coding agents are already widely used for software engineering tasks (the SWE-be
 ### Key Details
 
 - 53 public release tasks span four domains (airline, retail, telecom, banking), with a second held-out set of 53 kept private
-- The strongest configuration, Claude Opus 5 + Claude Code, passes 23.9% of evaluation simulations, versus an expert-authored reference ceiling of 82.2% ⚠️ (Sierra's own evaluation, not externally replicated)
+- The strongest configuration, Claude Opus 5 + Claude Code, passes 23.9% of evaluation simulations, versus an expert-authored reference ceiling of 82.2% :warning: (Sierra's own evaluation, not externally replicated)
 - Failure modes mirror junior human engineers: keyword-searching records instead of deep comprehension, barely interviewing the client, mismanaging the serving budget in both directions, shipping the first design that runs instead of exploring alternatives, and validating against self-authored tests that encode the developer's own blind spots
 - Deployment threshold: each task runs in an isolated, no-internet sandbox, and the held-out evaluation traffic is fully sealed — so the score reflects true end-to-end construction ability, not template-matching
 - Relation to mainstream frameworks: this extends the τ-bench family (τ-bench, τ²-bench), inverting "serve simulated users" into "build the thing that serves them"
@@ -134,7 +134,7 @@ Orchestrator-worker multi-agent frameworks like AutoGen and MetaGPT — where an
 
 - Across three Overcooked kitchen layouts, grounded SRMA outperforms text-only self-gating by 14.3%, 27.3%, and 30.0% respectively
 - In Resource Contest, adding execution memory gains 2.6 reward points on average and cuts mean regret from 4.33 to 1.70 (a 60.8% reduction)
-- SWE-bench 500: the complete bilevel SRMA system on Kimi K2.5 resolves 72.2% versus 58.4% for ungated free-form multi-agent reflection; the controlled DeepSeek comparison shows the same direction but a smaller gap, 71.4% vs. 68.2% ⚠️ (the 72.2% figure is compared against an external public leaderboard's 70.8%, not a matched-budget controlled run)
+- SWE-bench 500: the complete bilevel SRMA system on Kimi K2.5 resolves 72.2% versus 58.4% for ungated free-form multi-agent reflection; the controlled DeepSeek comparison shows the same direction but a smaller gap, 71.4% vs. 68.2% :warning: (the 72.2% figure is compared against an external public leaderboard's 70.8%, not a matched-budget controlled run)
 - A one-shot stochastic verifier falsely accepts 28.4% of worsening proposals; a fixed 5x verification cuts this to 6.8% at the cost of 225 verifier calls, while the adaptive gate matches that reliability (7.1%) using only 82 calls (a 63.6% reduction)
 - Limitation: the theoretical guarantees' preconditions (bounded coupling, finite action sets, a calibrated verifier) may not hold in open-ended tasks
 
@@ -194,7 +194,7 @@ Calling an agent system "reliable" is usually a claim read off an architecture d
 - Repairing one provenance rule alone drops false attribution from 44 of 107 cases to 4; the preregistered central prediction was refuted twice, and in opposite directions
 - Among four cognition-side interventions, one instance of trusted false testimony causes the group that trusted it to waste roughly 900 futile actions on average, while the distrusting group is unaffected
 - Five pre-declared reliability guarantees (a single accepted reality, invalid attempts refused with typed reasons, duties surviving process termination, no work accepted twice, and zero false completions accepted) never broke across any tested trajectory — including zero false completions among 2,581 claims submitted under the substituted cognition panel
-- The full re-execution harness is deliberately deferred; only a SHA-256 manifest of sealed artifacts and verification receipts have been released so far ⚠️ (authors' own stated boundary — not yet independently re-executable)
+- The full re-execution harness is deliberately deferred; only a SHA-256 manifest of sealed artifacts and verification receipts have been released so far :warning: (authors' own stated boundary — not yet independently re-executable)
 - Limitation: all results are tested in one designed world across only two fixed scenarios; the cognition-substitution comparator is a single model at n=3 cells; the authors explicitly state they make no estimate about a population of institutions
 
 ### Reviewer One-Liner

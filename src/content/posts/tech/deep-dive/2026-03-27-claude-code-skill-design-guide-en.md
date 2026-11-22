@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide)
 
 Every commit means thinking about the message format. Every new post means creating a file and filling in frontmatter. Every job search means running the same filtering process. None of these tasks are hard — they're just tedious to repeat, and every repetition is a chance to miss a step.
 

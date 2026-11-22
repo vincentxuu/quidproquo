@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-24-context-engineering-guide)
+> :globe: [中文版](/posts/ai/2026-03-24-context-engineering-guide)
 
 In mid-2025, the AI engineering community collectively adopted a new term.
 

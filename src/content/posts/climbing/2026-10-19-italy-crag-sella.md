@@ -13,7 +13,7 @@ description: "Sella 群攀登介紹：Sella 塔、Piz Ciavazes、Sass Pordoi、C
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-sella-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-sella-en)
 
 Sella 群（Gruppo del Sella）是 Val Gardena、Val Badia、Val di Fassa 和 Arabba 中間那一大塊白雲岩高台，環繞它的四個山口就是單車與機車常跑的 Sellaronda。攀岩者最常去的是西南角：Passo Sella 上方的 Sella 塔與 Piz Ciavazes 南壁，Passo Pordoi 上方的 Sass Pordoi，再加上山口旁的兩處運攀岩場，Cansla 和 Sassolungo 腳下的 Città dei Sassi。
 

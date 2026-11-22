@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-weekly-review-en)
+> :globe: [English version](/posts/daily/2026-10-23-weekly-review-en)
 
 ## 本週最重要的 5 件事
 
@@ -104,13 +104,13 @@ caption: 日期依各 daily／arxiv digest 發布與報導時間排序，詳見�
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 本週 signals 中出現的公司，最高頻率者皆已在 watchlist 內（OpenAI／Google／NVIDIA／Anthropic／Microsoft／DeepSeek／Alibaba-Qwen），沒有不在 watchlist 中的公司本週出現達 3 次以上，故本週無新增候選。
 
-### ⚠️ 考慮移除
+### :warning: 考慮移除
 
-✅ 本週無符合移除條件的公司
+✓ 本週無符合移除條件的公司
 
 ## 本週新創雷達
 

@@ -13,7 +13,7 @@ description: "Comparing LSP diagnostic injection across mature coding agents, in
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-lsp-integration)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-lsp-integration)
 
 The previous post covered [model catalogs and routing](/posts/ai/2026-08-30-coding-agent-model-catalog-routing-en). This one is about a sensory-layer question: how does an agent "see" that code is broken?
 

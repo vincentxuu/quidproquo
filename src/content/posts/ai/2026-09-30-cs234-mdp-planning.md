@@ -26,7 +26,7 @@ glossary:
     context: "CS234 L2 證明它每一輪單調改進，最多 |A|^|S| 輪結束。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-mdp-planning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-mdp-planning-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

@@ -14,7 +14,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-cross-encoder-reranking-en)
+> :globe: [English version](/posts/ai/2026-03-12-cross-encoder-reranking-en)
 
 向量搜尋（Bi-Encoder）快速高效，但有個根本限制：**查詢和文件是獨立編碼的，沒有互相交叉注意**。
 

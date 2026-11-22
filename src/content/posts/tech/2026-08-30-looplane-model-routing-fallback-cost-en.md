@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost)
 
 The [provider article](/posts/tech/2026-08-30-looplane-model-provider-multigateway-en) explained how different protocols become a canonical `ModelTurn`. This article follows one request through candidate selection, retry, fallback, cache signaling, and cost recording.
 

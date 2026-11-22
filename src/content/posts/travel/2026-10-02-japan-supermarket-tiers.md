@@ -21,7 +21,7 @@ glossary:
     context: "本文提到的トップバリュ（イオン）、みなさまのお墨付き（西友）、BIO-RAL（ライフ）都是 PB。"
 ---
 
-> 🌏 [English version](/posts/travel/2026-10-02-japan-supermarket-tiers-en)
+> :globe: [English version](/posts/travel/2026-10-02-japan-supermarket-tiers-en)
 
 去日本逛超市，常見的困惑是：同樣一盒草莓、一包咖哩塊，為什麼這家比那家貴三成？答案多半是你走進了不同「等級」的店。
 

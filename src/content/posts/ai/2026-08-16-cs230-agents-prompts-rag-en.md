@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 8: the
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-agents-prompts-rag)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-agents-prompts-rag)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -157,7 +157,7 @@ Someone fine-tuned on internal company Slack messages to build a model that "tal
 
 > "He wanted the model to talk like the people at the company, **and it really did become like a person — rather than doing what it was told.**"
 
-**⚠️ This position gets challenged head-on in the next post.** Lecture 9's guest speaker Laurence Moroney says fine-tuning is the single skill developers will need most over the next two or three years. They're talking about different markets, and that tension is handled in the next post.
+**:warning: This position gets challenged head-on in the next post.** Lecture 9's guest speaker Laurence Moroney says fine-tuning is the single skill developers will need most over the next two or three years. They're talking about different markets, and that tension is handled in the next post.
 
 ## RAG
 
@@ -247,7 +247,7 @@ A financial institution studied by McKinsey took **one to four weeks** to produc
 
 With GenAI agents added, **time drops 20–60%**: the relationship manager works directly with an agent system, which decomposes the project into tasks assigned to specialized agents, gathers the analysis and drafts, and two humans then review together and give feedback.
 
-> **⚠️ The case is real, but be careful with the numbers.** McKinsey does have this agentic credit-risk memo case,
+> **:warning: The case is real, but be careful with the numbers.** McKinsey does have this agentic credit-risk memo case,
 > but **their site blocks my extraction tools**, so I could only reach it through secondary reporting and couldn't
 > check the original text. And the secondary version differs from the classroom account in two places: the data sources
 > are **"at least ten,"** not fifteen or more; and 20–60% is a **productivity increase**, not a time reduction
@@ -366,7 +366,7 @@ Checked: 2026-10-10.
 - [The model is just a component, the harness is the system](/posts/ai/2026-08-10-model-component-harness-system-en) — on-site post, the engineering version of fuzzy engineering
 - [Navigating the Jagged Technological Frontier](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) — Dell'Acqua et al., HBS Working Paper 24-013 (September 2023, later in Organization Science). **The original jagged frontier study**: 758 BCG consultants, 18 tasks; inside the frontier they completed 12.2% more tasks, 25.1% faster, with quality rated 40% higher, while **outside the frontier AI users were 19% less likely to reach the correct solution**
 - [Promptfoo](https://promptfoo.dev/) — the LLM eval tool he names his team as using
-- [Embracing generative AI in credit risk](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/embracing-generative-ai-in-credit-risk) — McKinsey. The source for the credit-risk memo case. **Note: mckinsey.com blocks my extraction tools, so I could not check the original figures** — the discrepancies in the ⚠️ note above come from comparing secondary reporting
+- [Embracing generative AI in credit risk](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/embracing-generative-ai-in-credit-risk) — McKinsey. The source for the credit-risk memo case. **Note: mckinsey.com blocks my extraction tools, so I could not check the original figures** — the discrepancies in the :warning: note above come from comparing secondary reporting
 - **Source of the Slack fine-tuning joke**: John Allard's talk "Maximizing LLM Performance" at OpenAI DevDay 2023, whose slide shows the result of **fine-tuning GPT-3.5 on 140,000 internal Slack messages**. An independent experiment from the same period (Ross Lazerowitz, also 140k messages) produced similar results
 
 **Still unlinked**: the discussion about long context replacing RAG — the lecture only says "there's this argument" without naming a source, and I couldn't pin it to a single one.

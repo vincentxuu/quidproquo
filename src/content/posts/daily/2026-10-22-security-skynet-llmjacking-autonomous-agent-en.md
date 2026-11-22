@@ -11,7 +11,7 @@ series:
   order: 60
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent)
+> :globe: [中文版](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent)
 
 ## Summary
 

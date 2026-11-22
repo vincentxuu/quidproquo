@@ -10,7 +10,7 @@ description: "A Crawl4AI v0.9.x guide to Markdown output, CSS and LLM extraction
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-crawl4ai-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-crawl4ai-complete-guide)
 
 [Crawl4AI](https://github.com/unclecode/crawl4ai) is an asynchronous crawler and scraper for AI workflows. Given a known URL, it launches a browser, retrieves the page, and returns Markdown, links, metadata, or structured JSON. It does not search the open web. If you do not know the URL yet, start with a search service or SearXNG.
 

@@ -71,7 +71,7 @@ function buildPrompt(event: FundingEvent): string {
 領投：${event.leadInvestor}
 跟投：${event.coInvestors.join(', ') || '未公布'}
 估值：${event.valuationM ? `$${event.valuationM}M` : '未公布'}
-確認狀態：${event.confirmed ? '已交叉驗證（2+ 來源）' : '⚠️ 單一來源，未確認'}
+確認狀態：${event.confirmed ? '已交叉驗證（2+ 來源）' : '單一來源，未確認'}
 
 來源：
 ${sourcesText}

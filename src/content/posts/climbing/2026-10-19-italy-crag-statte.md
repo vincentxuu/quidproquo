@@ -13,7 +13,7 @@ description: "斯塔泰（Statte）岩場介紹：Leucaspide 峽谷的岩質、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-statte-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-statte-en)
 
 斯塔泰（Statte）是塔蘭托（Taranto）北邊的小鎮，鎮西有一條深約 100 公尺的石灰岩峽谷（gravina）。峽谷兩側掛了兩百多條單段運攀路線，[Climb Europe](https://climb-europe.com/pages/rock-climbing-italy-potenza-and-south-italy) 說它是這一帶最大的岩場。
 

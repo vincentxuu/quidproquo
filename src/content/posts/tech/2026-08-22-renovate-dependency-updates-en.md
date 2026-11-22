@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-renovate-dependency-updates)
+> :globe: [中文版](/posts/tech/2026-08-22-renovate-dependency-updates)
 
 [Renovate](https://docs.renovatebot.com/) scans package manifests, lockfiles, container images, GitHub Actions, Terraform, and other declarations. Managers extract current dependencies, datasources discover releases, and configuration controls branches and pull requests. Its value is policy for cadence, risk, and ownership—not a queue of bot PRs.
 

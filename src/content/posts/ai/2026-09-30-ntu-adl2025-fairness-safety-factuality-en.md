@@ -26,7 +26,7 @@ glossary:
     context: "Slide 25 of the ADL deck introduces the long-form factuality evaluation flow of FactScore and LongFact."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

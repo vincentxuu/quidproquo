@@ -12,7 +12,7 @@ series:
   order: 110
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-funding-infisical)
+> :globe: [中文版](/posts/daily/2026-10-28-funding-infisical)
 
 ## Funding Details
 

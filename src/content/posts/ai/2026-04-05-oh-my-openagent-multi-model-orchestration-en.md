@@ -10,7 +10,7 @@ description: "An introduction to oh-my-openagent's multi-model agent team archit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-oh-my-openagent-multi-model-orchestration)
+> :globe: [中文版](/posts/ai/2026-04-05-oh-my-openagent-multi-model-orchestration)
 
 Most AI coding tools follow a simple logic: pick one model and throw every task at it. oh-my-openagent (OmO, formerly oh-my-opencode) proposes a different approach: **use different models for different tasks and assemble them into an agent team**.
 

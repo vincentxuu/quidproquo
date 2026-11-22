@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 4 週導讀：資訊檢索的任務
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week4-information-retrieval-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week4-information-retrieval-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 4 週。主題是資訊檢索（information retrieval，IR）：使用者有一個想知道的事，手上有一大堆文件，系統要把最相關的幾篇找出來、排好順序。
 

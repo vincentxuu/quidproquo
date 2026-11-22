@@ -14,7 +14,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-text-to-sql-router)
+> :globe: [中文版](/posts/ai/2026-03-12-text-to-sql-router)
 
 RAG systems have a fundamental weakness when it comes to counting questions like "how many" or "how often": **semantic search finds similar documents, not statistical facts**.
 

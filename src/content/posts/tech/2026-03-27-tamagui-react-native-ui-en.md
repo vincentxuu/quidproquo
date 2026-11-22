@@ -10,7 +10,7 @@ description: "An introduction to the Tamagui UI framework: design tokens, themin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-03-27-tamagui-react-native-ui)
+> :globe: [中文版](/posts/tech/2026-03-27-tamagui-react-native-ui)
 
 React Native's styling system differs significantly from web CSS — there's no cascade, no `em`/`rem`, flexbox is the default layout, and font sizes need to be tested separately on each platform. This makes "bringing web UI libraries into React Native" harder than it looks.
 

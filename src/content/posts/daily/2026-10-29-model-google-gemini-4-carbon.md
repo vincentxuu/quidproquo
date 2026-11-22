@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 開發的大型語言模型家族，Carbon 為 Gemini 4.x 分支裡緊接在 Argon 之後的旗艦模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-29-model-google-gemini-4-carbon-en)
+> :globe: [English version](/posts/daily/2026-10-29-model-google-gemini-4-carbon-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | Artificial Analysis Coding Agent Index | 59 | 未列入 | Claude Opus 5.5（max）62（第一） |
 | Gray Swan IPI Benchmark（prompt injection 攻擊成功率，越低越好） | 0.0% | 0.7% | 未列出次高分 |
 
-⚠️ SEC-bench Pro、ExploitGym、CWE-bench、WebDev Arena、Terminal-Bench 4.0、Gray Swan IPI 均為 Google 官方自測／合作方（Gray Swan、Wiz）評測結果，尚無第三方獨立複現；Artificial Analysis Intelligence Index 與 Coding Agent Index 為第三方平台（Artificial Analysis）獨立測得，非官方自報數字。CWE-bench、Artificial Analysis Intelligence Index 兩項可與前代 Argon 直接對照，其餘資安 benchmark 官方未公布 Argon 對應分數，無法逐項比較進步幅度。
+:warning: SEC-bench Pro、ExploitGym、CWE-bench、WebDev Arena、Terminal-Bench 4.0、Gray Swan IPI 均為 Google 官方自測／合作方（Gray Swan、Wiz）評測結果，尚無第三方獨立複現；Artificial Analysis Intelligence Index 與 Coding Agent Index 為第三方平台（Artificial Analysis）獨立測得，非官方自報數字。CWE-bench、Artificial Analysis Intelligence Index 兩項可與前代 Argon 直接對照，其餘資安 benchmark 官方未公布 Argon 對應分數，無法逐項比較進步幅度。
 
 ```diagram
 title: Gemini 4 Carbon 在 Intelligence Index v5.0 拿下第一，但只贏一兩分

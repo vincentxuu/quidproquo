@@ -23,7 +23,7 @@ glossary:
     context: "The alternative is a custom project on a topic you define."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

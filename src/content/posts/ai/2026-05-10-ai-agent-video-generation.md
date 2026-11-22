@@ -155,10 +155,10 @@ Return the video URL when done
 
 | | Claude Code | Claude.ai | Cursor | Codex |
 |---|---|---|---|---|
-| **HyperFrames** | ✅ Skill | ❌ | ✅ Skill | ✅ Skill |
-| **HeyGen** | ✅ Skill + MCP | ✅ Connector | ✅ MCP | ✅ Skill |
-| **Runway** | ✅ Skill / API | 🔶 API | ✅ API | ✅ API |
-| **Synthesia** | 🔶 API | 🔶 API | 🔶 API | 🔶 API |
+| **HyperFrames** | ✓ Skill | ✗ | ✓ Skill | ✓ Skill |
+| **HeyGen** | ✓ Skill + MCP | ✓ Connector | ✓ MCP | ✓ Skill |
+| **Runway** | ✓ Skill / API | △ API | ✓ API | ✓ API |
+| **Synthesia** | △ API | △ API | △ API | △ API |
 
 ## 怎麼選
 

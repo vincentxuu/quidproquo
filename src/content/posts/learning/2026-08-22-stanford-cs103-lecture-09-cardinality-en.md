@@ -13,7 +13,7 @@ description: "A deck-aligned guide to Stanford CS103 Spring 2026 Lecture 8 on bi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

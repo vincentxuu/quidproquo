@@ -13,7 +13,7 @@ description: "OpenClaw's troubleshooting runbook: the first-60-seconds command l
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-troubleshooting)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-troubleshooting)
 
 This is the article in the series most worth bookmarking — not because it is interesting, but because you will need it at 2 AM.
 

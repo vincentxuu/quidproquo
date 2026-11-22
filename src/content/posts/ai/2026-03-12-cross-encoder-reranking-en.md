@@ -14,7 +14,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-cross-encoder-reranking)
+> :globe: [中文版](/posts/ai/2026-03-12-cross-encoder-reranking)
 
 Vector search (Bi-Encoder) is fast and efficient, but it has a fundamental limitation: **queries and documents are encoded independently, with no cross-attention between them**.
 

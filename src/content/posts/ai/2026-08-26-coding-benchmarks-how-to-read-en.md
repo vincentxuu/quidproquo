@@ -18,7 +18,7 @@ glossary:
     def: "The percentage of problems solved correctly on the first attempt with no retries — stricter than Pass@5 or Best-of-N"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-coding-benchmarks-how-to-read)
+> :globe: [中文版](/posts/ai/2026-08-26-coding-benchmarks-how-to-read)
 
 Every new model launch comes with a wall of numbers: SWE-bench 86%, Terminal-Bench 68.5%, DeepSWE 56. But what do these numbers actually mean? Why does the same model get different scores in different reports? Which benchmarks are easy to game? This guide is for anyone who wants to read model announcements without wading through papers.
 

@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-model-meta-muse-glimmer)
+> :globe: [中文版](/posts/daily/2026-08-17-model-meta-muse-glimmer)
 
 ## Model Information
 
@@ -47,7 +47,7 @@ series:
 | OSWorld-Verified (computer operation) | 65.9 | 58.5 | **75.6** |
 | TerminalBench 2.1 (terminal operation) | 51.7 | 43.4 | **60.7** |
 
-⚠️ The above are Meta's internally published evaluation results (including cross-vendor model comparisons), not third-party reproductions published by each vendor. Qwen3.6-27B leads on OSWorld-Verified, TerminalBench 2.1, and GDPVal-AA v2 (953 vs Qwen3.6-27B's 1141).
+:warning: The above are Meta's internally published evaluation results (including cross-vendor model comparisons), not third-party reproductions published by each vendor. Qwen3.6-27B leads on OSWorld-Verified, TerminalBench 2.1, and GDPVal-AA v2 (953 vs Qwen3.6-27B's 1141).
 
 ## Comparison with Predecessors and Competitors
 

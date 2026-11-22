@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 35
 ---
-> 🌏 [中文版](/posts/daily/2026-06-28-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-28-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -67,10 +67,10 @@ For agent platform builders, wrong technology choices are costly. This full-stac
 ### Key Details
 
 - **Four memory types** clearly defined: in-context (current conversation), external (vector DB, etc.), episodic (complete past experiences), semantic (extracted knowledge) — each with different read/write costs and use cases, directly guiding memory architecture design
-- **Three multi-agent topologies**: centralized (strong control, limited scale), decentralized (high parallelism, hard to coordinate), hierarchical (suited for complex task decomposition). The guide provides comparative analysis but remains descriptive, lacking experimental data to back selection recommendations **⚠️**
+- **Three multi-agent topologies**: centralized (strong control, limited scale), decentralized (high parallelism, hard to coordinate), hierarchical (suited for complex task decomposition). The guide provides comparative analysis but remains descriptive, lacking experimental data to back selection recommendations **:warning:**
 - Full chapters on MCP and A2A protocols covering design principles, use cases, and implementation details — mappable to real-world integration with Claude/LangGraph and similar frameworks
 - Agent harness design principles discuss context management strategies, directly applicable to LangGraph/AutoGen engineering choices
-- Single-author perspective (IBM Research's Haggai Roitman) may introduce selection bias; coverage of some cutting-edge research directions may be uneven **⚠️**
+- Single-author perspective (IBM Research's Haggai Roitman) may introduce selection bias; coverage of some cutting-edge research directions may be uneven **:warning:**
 - Fundamentally a survey/textbook rather than original research — no experimental data; technical claims should be cross-referenced with primary papers
 - Book-length paper — recommend picking chapters based on your needs rather than reading linearly
 
@@ -123,7 +123,7 @@ For agent platform developers, context management is a core production pain poin
 
 - 6 benchmarks (competitive math + agentic search) x 7 LLM models with consistently stable results, demonstrating good generalization — not just effective on specific models
 - Compared to the no-compression baseline, math tasks improved by up to **18.1 points**, agentic search tasks by **5-9 points**
-- Token cost is **30-70%** lower than fixed-interval compression **⚠️ This figure is relative to the "high-frequency fixed compression" baseline, not all baselines**
+- Token cost is **30-70%** lower than fixed-interval compression **:warning: This figure is relative to the "high-frequency fixed compression" baseline, not all baselines**
 - Requires zero fine-tuning — just modify the system prompt and add the compaction tool definition; integration barrier is extremely low
 - The rubric's "2 trigger conditions + 2 suppression conditions" design is simple yet outperforms more complex approaches, showing that meta-cognitive guidance is genuinely effective for LLMs
 - Limitation: the rubric is hand-designed; different task types (e.g., coding agent vs. search agent) may need rule adjustments; doesn't solve context length itself — still requires a sufficiently large context window
@@ -178,7 +178,7 @@ For agent training teams, APPO enables RL to more precisely identify "decision p
 ### Key Details
 
 - 13 benchmarks spanning coding, tool use, and reasoning task types, with consistent ~4 point improvements — robust rather than task-specific
-- Branching Score computation requires simulating subsequent generation for candidate branch points; computational cost exceeds traditional entropy-only methods **⚠️ The paper does not quantify computational overhead in detail**
+- Branching Score computation requires simulating subsequent generation for candidate branch points; computational cost exceeds traditional entropy-only methods **:warning: The paper does not quantify computational overhead in detail**
 - APPO is positioned as an add-on improvement to GRPO/PPO, stackable on existing training frameworks like verl and OpenRLHF without rewriting the entire pipeline
 - Trained agents maintain efficient tool calling (no extra call overhead) with improved behavioral interpretability (thanks to more precise training signals)
 - Core insight that "critical decision points are broadly distributed rather than concentrated at tool calls" is an important correction for the agent RL field — directionally sound

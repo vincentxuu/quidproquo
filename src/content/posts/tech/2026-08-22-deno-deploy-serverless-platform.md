@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-deno-deploy-serverless-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-deno-deploy-serverless-platform-en)
 
 [Deno Deploy](https://docs.deno.com/deploy/) 是執行 JavaScript、TypeScript 與 WebAssembly 的 serverless 平台。現在談它必須先標明「新版」：Deno Deploy 已以 Deno 2 execution environment、`console.deno.com` 與新 control plane 重做；Deploy Classic 與 subhosting v1 已在 2026 年 7 月 20 日停止服務。
 

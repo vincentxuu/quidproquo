@@ -21,7 +21,7 @@ glossary:
         url: "https://colinraffel.com/blog/role-playing-seminar.html"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-exam-hw623-project)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

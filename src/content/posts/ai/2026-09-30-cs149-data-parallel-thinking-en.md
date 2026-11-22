@@ -24,7 +24,7 @@ glossary:
     context: "L8 notes that inside a 32-wide SIMD warp the work-efficient version needs more instructions, because its SIMD utilization is low."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-data-parallel-thinking)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-data-parallel-thinking)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

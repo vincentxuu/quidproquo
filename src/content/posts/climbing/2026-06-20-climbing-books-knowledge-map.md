@@ -138,7 +138,7 @@ glossary:
     context: "本文介紹的 Strong Mind 流派將暴露療法作為核心方法之一。"
 ---
 
-🌏 [English version](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
+:globe: [English version](/posts/climbing/2026-06-20-climbing-books-knowledge-map-en)
 
 攀岩書很多，但多數書單只是把書名排在一起，沒告訴你這些書之間的關係。
 
@@ -159,7 +159,7 @@ Mountain Project 論壇的共識：「Horst 的書能讓大多數人爬到 5.11�
 | 書名 | 年份 | 電子書 | 中文版 |
 |------|------|--------|--------|
 | Training for Climbing (3rd ed.) | 2016 | Kindle US$14.99 / Apple Books | 無 |
-| How to Climb 5.12（攀岩聖經） | — | Kindle / Google Play / Apple Books | ✅ 臉譜出版 |
+| How to Climb 5.12（攀岩聖經） | — | Kindle / Google Play / Apple Books | ✓ 臉譜出版 |
 | Maximum Climbing（心理訓練） | 2010 | Kindle | 無 |
 | Nutrition for Climbers | 2023 | Kindle | 無 |
 
@@ -183,7 +183,7 @@ Reddit r/climbing 統計中，《9 Out of 10 Climbers》是被推薦次數最高
 
 | 書名 | 年份 | 電子書 | 中文版 |
 |------|------|--------|--------|
-| 9 Out of 10 Climbers Make the Same Mistakes | 2009 | **❌ 完全無電子書**（獨立出版，僅平裝本） | 無 |
+| 9 Out of 10 Climbers Make the Same Mistakes | 2009 | **✗ 完全無電子書**（獨立出版，僅平裝本） | 無 |
 | Make or Break（傷害預防） | 2015 | Kindle | 無 |
 | Moving the Needle | 2024 | — | 無 |
 
@@ -211,10 +211,10 @@ Bechtel 主張「肌力是主要品質」，使用非線性週期化——每次
 
 | 書名 | 作者 | 特色 | 電子書 |
 |------|------|------|--------|
-| Performance Rock Climbing | Goddard & Neumann (1993) | 攀岩動作科學的開山之作，後來所有訓練書都引用它 | ❌ 絕版 |
+| Performance Rock Climbing | Goddard & Neumann (1993) | 攀岩動作科學的開山之作，後來所有訓練書都引用它 | ✗ 絕版 |
 | The Self-Coached Climber | Hague & Hunter (2006) | 動作分析自我教練，附 DVD | Kindle |
 | Beastmaking | Ned Feehally (2021) | Beastmaker 指力板創辦人的指力訓練聖經 | Kindle |
-| Gimme Kraft! | Matros 等 (2013) | 70+ 種力量訓練圖解，德英雙語 | ❌ |
+| Gimme Kraft! | Matros 等 (2013) | 70+ 種力量訓練圖解，德英雙語 | ✗ |
 | Science of Climbing | Dr. Kevin Cowell (2024) | IFSC 首席物理治療師，解剖學拆解攀岩動作 | Kindle |
 
 ### 怎麼選？一張圖
@@ -244,8 +244,8 @@ Chris Sharma 和 Tommy Caldwell 都為這本書背書。UKClimbing 論壇歸類�
 
 | 書名 | 年份 | Goodreads | 電子書 |
 |------|------|-----------|--------|
-| The Rock Warrior's Way | 2003 | ⭐ 4.28 (2,383) | Kindle US$9.99 / Apple Books US$9.99 |
-| Espresso Lessons（實戰版） | 2008 | ⭐ 3.9 | Kindle |
+| The Rock Warrior's Way | 2003 | ★ 4.28 (2,383) | Kindle US$9.99 / Apple Books US$9.99 |
+| Espresso Lessons（實戰版） | 2008 | ★ 3.9 | Kindle |
 
 ### 流派 2：認知行為 — McGrath & Elison
 
@@ -253,7 +253,7 @@ Chris Sharma 和 Tommy Caldwell 都為這本書背書。UKClimbing 論壇歸類�
 
 | 書名 | 年份 | Goodreads | 電子書 |
 |------|------|-----------|--------|
-| Vertical Mind | 2014 | ⭐ 4.0 | Kindle |
+| Vertical Mind | 2014 | ★ 4.0 | Kindle |
 
 ### 流派 3：精英經驗 — Jerry Moffatt
 
@@ -261,7 +261,7 @@ Chris Sharma 和 Tommy Caldwell 都為這本書背書。UKClimbing 論壇歸類�
 
 | 書名 | 年份 | Goodreads | 電子書 |
 |------|------|-----------|--------|
-| Mastermind | 2022 | ⭐ 3.9 | Kindle |
+| Mastermind | 2022 | ★ 3.9 | Kindle |
 
 ### 流派 4：ACT / 正念教練 — Hazel Findlay
 
@@ -290,7 +290,7 @@ UKClimbing 論壇的經典三分法：
 
 各國遠征隊爭相攀登八千公尺高峰的時代。
 
-| 書名 | 作者 | GR ⭐ | 中文版 | 電子書 |
+| 書名 | 作者 | GR ★ | 中文版 | 電子書 |
 |------|------|-------|--------|--------|
 | Annapurna | Maurice Herzog (1951) | 4.09 | 簡中 | Kindle |
 | The White Spider | Heinrich Harrer (1959) | 4.10 | 簡中 | Kindle |
@@ -300,7 +300,7 @@ UKClimbing 論壇的經典三分法：
 
 Camp 4 營地、嬉皮、大岩壁自由攀登。
 
-| 書名 | 作者 | GR ⭐ | 中文版 | 電子書 |
+| 書名 | 作者 | GR ★ | 中文版 | 電子書 |
 |------|------|-------|--------|--------|
 | Camp 4 | Steve Roper (1994) | ~4.2 | 無 | — |
 | The Mountains of My Life | Walter Bonatti (1994) | 4.11 | 無 | Kindle |
@@ -310,16 +310,16 @@ Camp 4 營地、嬉皮、大岩壁自由攀登。
 
 攀岩從探險變成純粹的運動表現。
 
-| 書名 | 作者 | GR ⭐ | 中文版 | 電子書 |
+| 書名 | 作者 | GR ★ | 中文版 | 電子書 |
 |------|------|-------|--------|--------|
 | Climbing Free | Lynn Hill (2002) | 4.17 | 簡中《攀登自由》 | Kindle |
 | Revelations | Jerry Moffatt (2009) | ~4.3 | 無 | Kindle |
 
 ### 現代（2010s+）：Free Solo 世代
 
-| 書名 | 作者 | GR ⭐ | 中文版 | 電子書 |
+| 書名 | 作者 | GR ★ | 中文版 | 電子書 |
 |------|------|-------|--------|--------|
-| **The Push** | Tommy Caldwell (2017) | **4.46** | ✅ 繁中《獨行大岩壁》/ 簡中《攀岩人生》(豆瓣 9.2) | Kindle US$12.99 / Google Play NT$263 |
+| **The Push** | Tommy Caldwell (2017) | **4.46** | ✓ 繁中《獨行大岩壁》/ 簡中《攀岩人生》(豆瓣 9.2) | Kindle US$12.99 / Google Play NT$263 |
 | The Impossible Climb | Mark Synnott (2019) | 4.18 | 有外文書 | Kindle |
 | Alone on the Wall | Alex Honnold (2015) | 3.88 | 簡中《孤身絕壁》(豆瓣 8.1) | Kindle US$12.99 / Google Play NT$367 |
 | Beyond the Mountain | Steve House (2009) | 4.21 | 無 | Kindle |
@@ -329,16 +329,16 @@ Camp 4 營地、嬉皮、大岩壁自由攀登。
 
 登山文學中最暢銷的子類別。
 
-| 書名 | 作者 | GR ⭐ | 中文版 | 電子書 |
+| 書名 | 作者 | GR ★ | 中文版 | 電子書 |
 |------|------|-------|--------|--------|
-| **Into Thin Air** | Jon Krakauer (1997) | 4.26 (58 萬人評分) | ✅ 繁中《乘風破浪》/ 簡中 | Kindle US$8.99 / Apple Books 特價 US$1.99 |
+| **Into Thin Air** | Jon Krakauer (1997) | 4.26 (58 萬人評分) | ✓ 繁中《乘風破浪》/ 簡中 | Kindle US$8.99 / Apple Books 特價 US$1.99 |
 | Touching the Void | Joe Simpson (1988) | 4.23 | 簡中《觸及巔峰》 | Kindle US$8.69 |
 | Buried in the Sky | Peter Zuckerman (2012) | 4.22 | 無 | Kindle |
 | No Shortcuts to the Top | Ed Viesturs (2006) | 4.14 | 簡中 | Kindle |
 
 ### 女性攀岩文學
 
-| 書名 | 作者 | GR ⭐ | 電子書 |
+| 書名 | 作者 | GR ★ | 電子書 |
 |------|------|-------|--------|
 | In the Shadow of the Mountain | Silvia Vasquez-Lavado (2022) | 4.24 | Kindle |
 | Annapurna: A Woman's Place | Arlene Blum (1980) | 4.19 | Kindle |
@@ -368,7 +368,7 @@ Camp 4 營地、嬉皮、大岩壁自由攀登。
 
 | 書名 | 原著 | 豆瓣 | 價格 |
 |------|------|------|------|
-| 攀岩技術教本 詳細圖解 | 東秀磯（日） | ⭐ 9.5 (309人) | NT$390 |
+| 攀岩技術教本 詳細圖解 | 東秀磯（日） | ★ 9.5 (309人) | NT$390 |
 | 攀岩抱石防傷與復健 | Jared Vagy（美） | — | NT$800 |
 | 獨行大岩壁 | Tommy Caldwell | — | — |
 
@@ -393,10 +393,10 @@ Training for Climbing、The Climbing Bible、Rock Warrior's Way、9 Out of 10 Cl
 
 | 書名 | 原著 | 出版社 | 豆瓣 |
 |------|------|--------|------|
-| 攀岩人生 | The Push (Tommy Caldwell) | 中信出版 | ⭐ 9.2 |
-| 攀岩技術全圖解 | 東秀磯（日） | 北京聯合 | ⭐ 9.4 |
-| 岩之有道 | 劉常忠（台灣教練） | — | ⭐ 9.0 |
-| 孤身絕壁 | Alone on the Wall | 中信出版 | ⭐ 8.1 |
+| 攀岩人生 | The Push (Tommy Caldwell) | 中信出版 | ★ 9.2 |
+| 攀岩技術全圖解 | 東秀磯（日） | 北京聯合 | ★ 9.4 |
+| 岩之有道 | 劉常忠（台灣教練） | — | ★ 9.0 |
+| 孤身絕壁 | Alone on the Wall | 中信出版 | ★ 8.1 |
 | 德國登山協會攀岩全攻略（5 冊） | DAV（德） | — | — |
 
 德國登山協會的五冊套書是目前中文世界最完整的系統化攀岩教材，涵蓋技術、安全、人工岩壁、自然岩壁、抱石訓練。博客來可代購。
@@ -416,14 +416,14 @@ Training for Climbing、The Climbing Bible、Rock Warrior's Way、9 Out of 10 Cl
 
 ### 日本攀岩書推薦
 
-| 書名 | 作者 | Amazon ⭐ | Kindle | 中文版 |
+| 書名 | 作者 | Amazon ★ | Kindle | 中文版 |
 |------|------|----------|--------|--------|
-| スポーツクライミング教本 | 東秀磯 | 4.4 (248) | ✅ (KU 免費) | ✅ 繁中+簡中 |
-| チバトレ | 千葉啟史 | — | ✅ | ❌ |
-| クライマーズバイブル（上下） | PUMP | — | ❌ 僅實體 | ❌ |
-| Jack中根のクライミング道場 | 中根穗高 | 4.3 | ✅ | ❌ |
-| 野口啓代自伝 | 野口啟代 | 4.5 (79) | ✅ | ❌ |
-| コアトレ | 野口啟代 監修 | 4.5 (40) | ✅ | ❌ |
+| スポーツクライミング教本 | 東秀磯 | 4.4 (248) | ✓ (KU 免費) | ✓ 繁中+簡中 |
+| チバトレ | 千葉啟史 | — | ✓ | ✗ |
+| クライマーズバイブル（上下） | PUMP | — | ✗ 僅實體 | ✗ |
+| Jack中根のクライミング道場 | 中根穗高 | 4.3 | ✓ | ✗ |
+| 野口啓代自伝 | 野口啟代 | 4.5 (79) | ✓ | ✗ |
+| コアトレ | 野口啟代 監修 | 4.5 (40) | ✓ | ✗ |
 
 **唯一有中文翻譯的日本攀岩書**是東秀磯的《スポーツクライミング教本》（繁中《攀岩技術教本》，旗標出版）。其他全部沒有英文或中文翻譯。
 

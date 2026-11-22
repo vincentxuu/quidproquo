@@ -13,7 +13,7 @@ description: "A guide to Capo d'Uomo (Monte Argentario): rock, scale, aspect and
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-capo-duomo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-capo-duomo)
 
 Capo d'Uomo is on the Monte Argentario promontory at the southern tip of Tuscany, between the harbours of Porto Santo Stefano and Porto Ercole. The wall is a triangle of limestone rising out of the sea, topped by the ruins of a medieval watchtower. [Planetmountain](https://www.planetmountain.com/it/falesie/capo-d-uomo.html) calls it "una delle più belle falesie affacciate sul mare d'Italia" (one of the most beautiful sea-view crags in Italy).
 

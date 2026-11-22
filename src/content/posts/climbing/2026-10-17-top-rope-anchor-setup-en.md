@@ -30,7 +30,7 @@ glossary:
     context: "REI uses it to demonstrate a top-rope anchor on two bolts."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-top-rope-anchor-setup)
+> :globe: [中文版](/posts/climbing/2026-10-17-top-rope-anchor-setup)
 
 In the gym, the top ropes are already hanging. Outdoors, sooner or later you will climb up yourself and rig a top rope on the two bolts at the top so friends can take laps below.
 

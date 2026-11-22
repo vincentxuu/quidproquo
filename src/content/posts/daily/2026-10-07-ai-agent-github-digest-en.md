@@ -11,7 +11,7 @@ series:
   order: 53
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-07-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's rising repos are competing on how smart the model itself is. The
 
 ## Trending Repos
 
-### Autoloom ⭐ 256 (shipped 7 days ago)
+### Autoloom ★ 256 (shipped 7 days ago)
 
 [GitHub](https://github.com/GanyuanRan/Autoloom) · JavaScript · Other (source is public, license isn't a standard SPDX one)
 
@@ -30,7 +30,7 @@ None of today's rising repos are competing on how smart the model itself is. The
 
 ---
 
-### pi-pocket ⭐ 136 (shipped 3 days ago)
+### pi-pocket ★ 136 (shipped 3 days ago)
 
 [GitHub](https://github.com/TannerMidd/pi-pocket) · TypeScript · MIT
 
@@ -41,7 +41,7 @@ None of today's rising repos are competing on how smart the model itself is. The
 
 ---
 
-### brewery-ai ⭐ 193 (shipped 3 days ago, formerly Homebrew)
+### brewery-ai ★ 193 (shipped 3 days ago, formerly Homebrew)
 
 [GitHub](https://github.com/empero-org/brewery-ai) · Python · Brewery License (MIT plus a commercial-revenue threshold — organizations clearing $2M/month in gross revenue need a separate license)
 
@@ -52,7 +52,7 @@ None of today's rising repos are competing on how smart the model itself is. The
 
 ---
 
-### jev-doc-search ⭐ 99 (shipped 7 days ago)
+### jev-doc-search ★ 99 (shipped 7 days ago)
 
 [GitHub](https://github.com/VectifyAI/jev-doc-search) · Python · Apache-2.0
 

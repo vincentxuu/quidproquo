@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)
 
 Once the flights are booked, the first questions are usually these: is my 60 m rope long enough for Thailand? Do I need 12 quickdraws or 20? Can I even get a crash pad on the plane?
 

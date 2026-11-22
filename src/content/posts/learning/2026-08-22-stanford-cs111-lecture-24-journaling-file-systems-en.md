@@ -13,7 +13,7 @@ description: "A reading of Stanford CS111 Spring 2026 Lecture 24, covering journ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-24-journaling-file-systems)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

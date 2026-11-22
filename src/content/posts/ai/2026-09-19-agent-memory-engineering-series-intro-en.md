@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)
 
 You spend an afternoon coding with Claude Code and tell it to remember that "this repo uses pytest, not unittest." The next day you open a new session, and it asks what test framework you prefer.
 

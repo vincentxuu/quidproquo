@@ -29,7 +29,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-07-ai-certification-prep-method-en)
+> :globe: [English version](/posts/ai/2026-08-07-ai-certification-prep-method-en)
 
 決定一張證照考不考得過的，有兩件事發生在翻開教材之前：**排考日訂在哪一天**，以及**第一週該念哪一章**。多數準備指南跳過這兩件，直接從第一章開始教。
 

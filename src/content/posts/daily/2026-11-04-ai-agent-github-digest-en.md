@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, security, mcp, computer-use, coding-agent]
 lang: en
 description: "DeepSeek open-sources a coding agent that picks up its own GitHub issues, NVIDIA's skill scanner lands right as an MCPhantom security report breaks, and Mika operates your phone from a hidden background screen — two repos expand what agents can do on their own, two clean up after them"
-tldr: "deepseek-ai/dsh-superagent-prototype (⭐16k) is DeepSeek's open-sourced research prototype: it listens to GitHub (and optionally Feishu), opens a work item when asked, finishes it in its own session, and reports back in the original conversation — usually with a PR. NVIDIA/SkillSpector (⭐24k) scans agent skills for 71 vulnerability patterns — prompt injection, data exfiltration, and more — before you install them, landing the same day a Glow Labs report on 'MCPhantom' broke. mksglu/context-mode (⭐33k) sandboxes tool calls and indexes the output in SQLite FTS5, cutting what hits the context window by 98%. wangzan101/Mika (⭐6k) operates any app or webpage on a hidden background screen while you keep using your phone, handing logins, codes, and payments back to you. On the framework side: Haystack v2.31.1 patches two CVEs that arrived through transitive httpx/openai dependencies, and Pydantic AI v2.65.0 adds a ConversationStore plus a batch of model-fallback and error-classification compatibility fixes."
+tldr: "deepseek-ai/dsh-superagent-prototype (★16k) is DeepSeek's open-sourced research prototype: it listens to GitHub (and optionally Feishu), opens a work item when asked, finishes it in its own session, and reports back in the original conversation — usually with a PR. NVIDIA/SkillSpector (★24k) scans agent skills for 71 vulnerability patterns — prompt injection, data exfiltration, and more — before you install them, landing the same day a Glow Labs report on 'MCPhantom' broke. mksglu/context-mode (★33k) sandboxes tool calls and indexes the output in SQLite FTS5, cutting what hits the context window by 98%. wangzan101/Mika (★6k) operates any app or webpage on a hidden background screen while you keep using your phone, handing logins, codes, and payments back to you. On the framework side: Haystack v2.31.1 patches two CVEs that arrived through transitive httpx/openai dependencies, and Pydantic AI v2.65.0 adds a ConversationStore plus a batch of model-fallback and error-classification compatibility fixes."
 series:
   name: "AI Agent GitHub Digest"
   order: 81
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-04-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-04-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's four repos split into two pairs that push against each other: deepseek-a
 
 ## Trending Repos
 
-### deepseek-ai/dsh-superagent-prototype ⭐ 16k
+### deepseek-ai/dsh-superagent-prototype ★ 16k
 
 [GitHub](https://github.com/deepseek-ai/dsh-superagent-prototype)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ Today's four repos split into two pairs that push against each other: deepseek-a
 
 ---
 
-### NVIDIA/SkillSpector ⭐ 24k
+### NVIDIA/SkillSpector ★ 24k
 
 [GitHub](https://github.com/NVIDIA/SkillSpector)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Today's four repos split into two pairs that push against each other: deepseek-a
 
 ---
 
-### mksglu/context-mode ⭐ 33k
+### mksglu/context-mode ★ 33k
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2
 
@@ -52,7 +52,7 @@ Today's four repos split into two pairs that push against each other: deepseek-a
 
 ---
 
-### wangzan101/Mika ⭐ 6k
+### wangzan101/Mika ★ 6k
 
 [GitHub](https://github.com/wangzan101/Mika)　·　Kotlin　·　Apache-2.0
 

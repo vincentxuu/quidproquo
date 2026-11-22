@@ -10,7 +10,7 @@ description: "An introduction to oh-my-claudecode's multi-agent collaboration ar
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-oh-my-claudecode-multi-agent-claude)
+> :globe: [中文版](/posts/ai/2026-04-05-oh-my-claudecode-multi-agent-claude)
 
 Claude Code is a powerful single-agent CLI tool on its own. But when the task scope exceeds what one agent can handle, you need to coordinate multiple agents, decompose tasks, and track progress. oh-my-claudecode (OMC) is the enhancement tool that adds this coordination layer on top of Claude Code.
 

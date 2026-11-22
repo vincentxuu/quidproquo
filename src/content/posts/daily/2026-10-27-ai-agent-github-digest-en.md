@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, coding-agent, agent-platform, mcp-server]
 lang: en
 description: "The top of GitHub trending isn't a new framework or a new model — it's a skill that teaches agents design taste. Once writing code that runs is table stakes, the next battleground is taste, native IDE integration, and desktop multi-agent collaboration"
-tldr: "**pbakaus/impeccable** (⭐ 88,893) defines and fixes the recurring tells of AI-generated interfaces with 62 deterministic rules; **JetBrains/thinkrail** (⭐ 2,638) wraps a third-party `pi` coding agent inside JetBrains' own IDE, isolating each agent's work in its own git worktree; **nightly-labs/openbot** (⭐ 1,317) is a local-first desktop app that lets Codex, Claude, Grok, and other agents message each other and collaborate; **boyuchengz/canvas-mcp** (⭐ 115) is a read-only MCP server that connects the Canvas LMS used by universities to Claude and ChatGPT. No notable framework releases today."
+tldr: "**pbakaus/impeccable** (★ 88,893) defines and fixes the recurring tells of AI-generated interfaces with 62 deterministic rules; **JetBrains/thinkrail** (★ 2,638) wraps a third-party `pi` coding agent inside JetBrains' own IDE, isolating each agent's work in its own git worktree; **nightly-labs/openbot** (★ 1,317) is a local-first desktop app that lets Codex, Claude, Grok, and other agents message each other and collaborate; **boyuchengz/canvas-mcp** (★ 115) is a read-only MCP server that connects the Canvas LMS used by universities to Claude and ChatGPT. No notable framework releases today."
 series:
   name: "AI Agent GitHub Digest"
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-27-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-27-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The top of today's GitHub trending isn't a new framework or a new model — it's
 
 ## Trending Repos
 
-### pbakaus/impeccable ⭐ 88,893
+### pbakaus/impeccable ★ 88,893
 
 [GitHub](https://github.com/pbakaus/impeccable)　·　Rust　·　Apache-2.0
 
@@ -30,7 +30,7 @@ The top of today's GitHub trending isn't a new framework or a new model — it's
 
 ---
 
-### JetBrains/thinkrail ⭐ 2,638
+### JetBrains/thinkrail ★ 2,638
 
 [GitHub](https://github.com/JetBrains/thinkrail)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ The top of today's GitHub trending isn't a new framework or a new model — it's
 
 ---
 
-### nightly-labs/openbot ⭐ 1,317
+### nightly-labs/openbot ★ 1,317
 
 [GitHub](https://github.com/nightly-labs/openbot)　·　TypeScript　·　PolyForm Noncommercial 1.0.0
 
@@ -52,7 +52,7 @@ The top of today's GitHub trending isn't a new framework or a new model — it's
 
 ---
 
-### boyuchengz/canvas-mcp ⭐ 115
+### boyuchengz/canvas-mcp ★ 115
 
 [GitHub](https://github.com/boyuchengz/canvas-mcp)　·　JavaScript　·　MIT
 

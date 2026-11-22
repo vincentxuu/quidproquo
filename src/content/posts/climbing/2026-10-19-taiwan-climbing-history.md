@@ -22,7 +22,7 @@ glossary:
     context: "常拿 2012 年熄燈的蘭州街岩館與 2015 年後的新岩館對照。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-taiwan-climbing-history-en)
+> :globe: [English version](/posts/climbing/2026-10-19-taiwan-climbing-history-en)
 
 你在龍洞爬的那條路線是誰開的？你常去的抱石館，在台灣是第幾代的岩館？台灣第一個攀岩比賽辦在哪裡？
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-yjs-crdt-collaboration)
+> :globe: [中文版](/posts/tech/2026-08-22-yjs-crdt-collaboration)
 
 [Yjs](https://docs.yjs.dev/) is a network-agnostic CRDT implementation. Applications manipulate `Y.Text`, `Y.Map`, `Y.Array`, and other shared types inside a `Y.Doc`; transactions produce compressed binary updates. Updates are commutative, associative, and idempotent, so replicas converge despite ordering and duplication once they possess the same update set.
 

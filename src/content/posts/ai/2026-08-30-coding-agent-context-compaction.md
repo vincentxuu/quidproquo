@@ -13,7 +13,7 @@ description: "對照五家 coding agent 的 compaction 實作，並以 Looplane 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-context-compaction-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-context-compaction-en)
 
 進入系列第二部：每篇從一個成熟 agent 能力出發，再追蹤 looplane 的落地進度。第一個就選最要命的——context 管理。
 

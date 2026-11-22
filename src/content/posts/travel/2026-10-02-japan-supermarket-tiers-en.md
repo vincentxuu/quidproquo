@@ -21,7 +21,7 @@ glossary:
     context: "TOPVALU (AEON), Minasama no Osumitsuki (Seiyu), and BIO-RAL (Life) mentioned in this post are all private brands."
 ---
 
-> 🌏 [中文版](/posts/travel/2026-10-02-japan-supermarket-tiers)
+> :globe: [中文版](/posts/travel/2026-10-02-japan-supermarket-tiers)
 
 A common puzzle when grocery shopping in Japan: why does the same pack of strawberries or box of curry roux cost 30% more in one store than in another? Usually it's because you walked into a different *tier* of store.
 

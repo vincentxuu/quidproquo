@@ -13,7 +13,7 @@ description: "A guide to San Vito lo Capo: rock and sector sizes, the October–
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-san-vito-lo-capo)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-san-vito-lo-capo)
 
 San Vito lo Capo is a small seaside town at the northwest corner of Sicily, in the province of [Trapani](https://westofsicily.com/en/useful-information/how-to-get-there/by-bus). West of town is a long run of limestone cliffs facing the sea. [theCrag](https://www.thecrag.com/en/climbing/italy/trapani) lists 1,306 routes here and opens by calling it "by far the most popular climbing area in Sicily"; Sicily's official tourism site [VisitSicily](http://visitsicily.info/en/climbing-and-dws-in-sicily) calls it "Sicily's sport climbing capital".
 

@@ -15,7 +15,7 @@ glossary:
     def: "Zhipu AI（智譜，國際品牌 Z.ai）開發的開源大型語言模型家族"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-25-model-zhipu-glm-5-3-en)
+> :globe: [English version](/posts/daily/2026-08-25-model-zhipu-glm-5-3-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | ExploitBench（漏洞利用） | 54.4% | 24.4% | Claude Fable 5 78.0% |
 | DeepSWE v1.1 | 66.9% | 46.2% | GPT-5.6 Sol 72.7% |
 
-⚠️ 以上均為 Z.ai 官方自測結果，第三方尚未獨立複現。
+:warning: 以上均為 Z.ai 官方自測結果，第三方尚未獨立複現。
 
 ## 與前代/競品比較
 

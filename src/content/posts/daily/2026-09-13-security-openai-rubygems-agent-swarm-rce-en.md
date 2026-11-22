@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce)
+> :globe: [中文版](/posts/daily/2026-09-13-security-openai-rubygems-agent-swarm-rce)
 
 ## Incident Overview
 

@@ -10,7 +10,7 @@ description: "介紹 DSPy 的 Signature、Module、Metric、Optimizer、ReAct，
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-dspy-ai-program-optimization-en)
+> :globe: [English version](/posts/ai/2026-08-22-dspy-ai-program-optimization-en)
 
 [DSPy](https://dspy.ai/) 是用 Python 建立並最佳化 AI 系統的框架。它也能寫 ReAct agent、工具使用與 RAG，但核心問題不是「下一個 agent 是誰」，而是「能不能用資料和 metric 系統化改善整個 AI 程式，而不是一直手改 prompt」。
 

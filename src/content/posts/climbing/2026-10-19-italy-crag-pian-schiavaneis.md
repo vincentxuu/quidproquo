@@ -13,7 +13,7 @@ description: "Pian Schiavaneis（Cogoi／Cogui）岩場介紹：岩質與各來�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-pian-schiavaneis-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-pian-schiavaneis-en)
 
 Pian Schiavaneis 在特倫托自治省（Trentino）Val di Fassa 的最上端，從 Canazei 往 Passo Sella 的 SS242 路邊，頭上就是 Sass Pordoi 的西壁。[Planetmountain](https://www.planetmountain.com/en/crags/pian-schiavaneis.html) 說它乍看只是一塊不起眼的岩石，卻成了「the Dolomites' crucible of modern sports climbing, a playground for all and testing ground for the best」。資料庫上也叫它 Cogoi（[falesia.it](https://www.falesia.it/crag/845/pian-schiavaneis-cogoi.html)）或 Cogui（[UKC](https://www.ukclimbing.com/logbook/crags/cogui-10972)）。
 

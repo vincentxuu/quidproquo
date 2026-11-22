@@ -17,7 +17,7 @@ description: "A complete 2026 selection guide for 3D modeling tools: pricing and
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-27-3d-modeling-tools-landscape)
+> :globe: [中文版](/posts/ai/2026-07-27-3d-modeling-tools-landscape)
 
 "I want to make a 3D model" is not one question in 2026 — it's four. Is your input text, a photo, a physical object, or a dimensioned spec? Does the output go into a game engine, a 3D printer, an e-commerce page, or a CNC machine? Those two axes produce four completely different toolchains, and choosing wrong doesn't cost you "slightly worse quality" — it costs you the discovery, halfway through, that the thing you made cannot be modified at all.
 

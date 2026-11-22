@@ -14,7 +14,7 @@ description: "A self-study guide to CSPs, game trees, and the multi-agent Pacman
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

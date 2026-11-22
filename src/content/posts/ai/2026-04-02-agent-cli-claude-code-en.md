@@ -13,7 +13,7 @@ description: "An analysis of Claude Code's subscription tiers, how quota actuall
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-claude-code)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-claude-code)
 
 Claude Code is Anthropic's terminal-native AI coding agent. What sets it apart is that it offers both a **flat monthly subscription** and **pay-per-token API** access — and on the subscription path, running out of quota doesn't stop you dead: you can slide onto API rates mid-task.
 
@@ -47,7 +47,7 @@ This is the most misunderstood part. Claude's quota is **not a fixed message cou
 
 To stay strictly inside your subscription, decline the API credit option when offered; to avoid being asked at all, authenticate with `claude login` using only your subscription.
 
-> ⚠️ **Common trap**: if an `ANTHROPIC_API_KEY` environment variable is set on your system, Claude Code authenticates with that key **instead of your subscription** — so you get billed at API rates while your subscription allowance goes untouched. Paying for Max and still receiving an API bill is usually this.
+> :warning: **Common trap**: if an `ANTHROPIC_API_KEY` environment variable is set on your system, Claude Code authenticates with that key **instead of your subscription** — so you get billed at API rates while your subscription allowance goes untouched. Paying for Max and still receiving an API bill is usually this.
 
 ## API Token Pricing
 

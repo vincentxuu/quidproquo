@@ -12,7 +12,7 @@ series:
   order: 108
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-funding-azoma-en)
+> :globe: [English version](/posts/daily/2026-10-26-funding-azoma-en)
 
 ## 融資資訊
 

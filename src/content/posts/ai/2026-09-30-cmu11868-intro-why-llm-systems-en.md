@@ -18,7 +18,7 @@ glossary:
     context: "CMU 11-868 L01 makes this a core claim, under the slide title \"LLM needs Model-Algorithm-System Co-design\"."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

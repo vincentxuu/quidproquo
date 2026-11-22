@@ -8,9 +8,12 @@ type: deep-dive
 tldr: "Steel 用 Apache-2.0 runtime 把 Chromium session、CDP、proxy、stealth 與除錯介面包成同一套 browser API；公開 repo 約 7,400 stars，並在 2026 年進入 Stripe Projects developer preview。單機自架適合開發與資料邊界，Cloud 才解決高併發、託管 proxy、CAPTCHA、錄影與 SLA。"
 description: "從架構與選型拆解 Steel Browser：session API、CDP、Playwright、proxy、stealth、observability、安全憑證、單機自架限制，以及與其他 browser infrastructure 的差異。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-steel-browser-infrastructure-en)
+> :globe: [English version](/posts/ai/2026-08-22-steel-browser-infrastructure-en)
 
 [Steel](https://steel.dev/) 做的不是 browser agent，而是讓 agent 可以使用瀏覽器的基礎設施。模型負責判斷下一步要點哪裡，Playwright 或 Puppeteer 負責送出動作，Steel 負責建立 Chromium、保留 session、接 proxy、處理生命週期，並留下失敗時能看的畫面與紀錄。
 

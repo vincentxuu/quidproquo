@@ -13,7 +13,7 @@ description: "給想學 AI 模型但沒有 NVIDIA 顯卡的人：GPUtw.ai 這類
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-07-gputw-ai-learning-gpu-en)
+> :globe: [English version](/posts/ai/2026-09-07-gputw-ai-learning-gpu-en)
 
 如果你想學模型相關的東西，第一個誤會通常是：是不是要從「訓練一個大模型」開始。不是。個人學模型，真正需要的是一個可以反覆試錯的地方：把模型載起來、看 GPU 記憶體怎麼被吃掉、跑一個小訓練、存檢查點、改批次大小，再重來一次。
 

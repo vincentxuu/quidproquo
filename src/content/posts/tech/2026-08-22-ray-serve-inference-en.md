@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-ray-serve-inference)
+> :globe: [中文版](/posts/tech/2026-08-22-ray-serve-inference)
 
 [Ray Serve](https://docs.ray.io/en/latest/serve/) is the model-serving layer on the Ray distributed computing framework. You define HTTP ingress, preprocessing, model workers, and postprocessing in ordinary Python. Serve turns deployments into replicas, and Ray places them on CPUs, GPUs, and nodes across a cluster.
 

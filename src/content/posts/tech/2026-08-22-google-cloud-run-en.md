@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-google-cloud-run)
+> :globe: [中文版](/posts/tech/2026-08-22-google-cloud-run)
 
 [Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run) is Google Cloud's fully managed application platform. It has three resource types: services receive HTTP or events, jobs run to completion, and worker pools handle persistent pull-based background work. They share a container foundation but not a lifecycle.
 

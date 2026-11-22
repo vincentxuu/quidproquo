@@ -13,7 +13,7 @@ description: "The complete growth story of Sebastian Raschka and Ahead of AI: fr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-ahead-of-ai-academic-monthly)
+> :globe: [中文版](/posts/career/2026-08-26-ahead-of-ai-academic-monthly)
 
 Most successful AI newsletters compete on frequency — daily updates, five-minute digests, one visual per day. Sebastian Raschka went the opposite direction: one to two issues per month, each taking 30–90 minutes to read, focused on deep dives into LLM architecture papers. Four years in, Ahead of AI has 200K+ subscribers. He has never accepted a single sponsorship.
 

@@ -28,7 +28,7 @@ glossary:
     context: "Can take + or −; ED is further split into ED1, ED2, ED3."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-alpine-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-alpine-climbing)
 
 An alpine route's rock might top out at 5.4, easier than your gym warm-up. But you leave in the middle of the night, cross a glacier, step over crevasses, and have to finish and get down to safety before the weather turns.
 

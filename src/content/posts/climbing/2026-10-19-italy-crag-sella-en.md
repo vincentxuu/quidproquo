@@ -13,7 +13,7 @@ description: "A guide to climbing in the Sella group: style and scale of five ar
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-sella)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-sella)
 
 The Sella group (Gruppo del Sella) is the big dolomite plateau between Val Gardena, Val Badia, Val di Fassa and Arabba; the four passes around it form the Sellaronda loop popular with cyclists and motorcyclists. Climbers mostly head for its southwest corner: the Sella Towers and the south face of Piz Ciavazes above Passo Sella, Sass Pordoi above Passo Pordoi, and two sport areas by the pass, Cansla and Città dei Sassi below Sassolungo.
 

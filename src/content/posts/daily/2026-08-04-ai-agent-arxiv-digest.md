@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 72
 ---
-> 🌏 [English version](/posts/daily/2026-08-04-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-04-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ AutoMem 把記憶管理從「工程師手動設計規則」改成「讓 LLM 自�
 
 - 基準測試：Crafter、MiniHack、NetHack 三款程式生成的長程遊戲，衡量 Agent 在複雜環境長時間運作的能力
 - 具體數字：AutoMem 32B 模型在 Crafter 達 51.4%、MiniHack 達 30.0%、NetHack 達 1.9%
-- 對比：Claude Opus 4.5 在同三款分別為 49.5%、27.5%、2.0% ⚠️（Stanford 自測結果，需等外部複現才能確認）
+- 對比：Claude Opus 4.5 在同三款分別為 49.5%、27.5%、2.0% :warning:（Stanford 自測結果，需等外部複現才能確認）
 - 增益幅度：僅優化記憶，效能提升約 2x–4x（對比未做任何記憶優化的基準 Agent）
 - Loop 1 細節：跑 5 輪鷹架修訂，每輪 meta-LLM 讀完整軌跡並重寫記憶操作規則
 - 落地門檻：需要大量 episode rollout 收集訓練訊號；小型團隊若缺乏環境模擬基礎設施會有挑戰
@@ -162,7 +162,7 @@ AI 社群對「Agent 能自動做 AI 研究」充滿期待，但多數現有評�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你在構建面向外部的 Agent（處理使用者上傳內容或瀏覽外部網頁），這篇的數字值得知道。純內部工具或已有完善紅隊流程的團隊可暫緩。
 
 ### 領域背景

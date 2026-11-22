@@ -13,7 +13,7 @@ description: "Railay West 與 Phra Nang 攀岩指南：Thaiwand Wall 與 Candles
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-railay-west-phra-nang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-railay-west-phra-nang-en)
 
 Railay 西側是整個東南亞最有名的多段攀登地。**Lord of the Thais（7b，5 段 120 公尺）在 theCrag 的總頁描述裡被寫成「世界最佳之一」**，Circus Oz、Continental Drifters、Crystal Flame 都在同一片牆上。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-hono-rpc-client)
+> :globe: [中文版](/posts/tech/2026-08-22-hono-rpc-client)
 
 [Hono RPC](https://hono.dev/docs/guides/rpc) is not another server protocol. Hono routes still accept HTTP and return Fetch `Response` objects. The server exports `typeof AppType`, and an `hc<AppType>()` client infers paths, validator input, response JSON, and status codes.
 

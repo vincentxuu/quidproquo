@@ -10,7 +10,7 @@ description: "從 Acronis 揭露的 BossAI、高雄 AI 自學駭客案與首爾�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-13-ai-is-the-new-baseline-en)
+> :globe: [English version](/posts/ai/2026-11-13-ai-is-the-new-baseline-en)
 
 最近三週有三起案子，放在一起看，是同一件事：用 AI 打網站，已經不需要是高手。
 

@@ -13,7 +13,7 @@ description: "A guide to Berkeley's AI and ML curriculum based on official degre
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
+> :globe: [中文版](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

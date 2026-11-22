@@ -13,7 +13,7 @@ description: "說明 Claude Code hook 的預設失敗行為，比較 Agent Gover
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-guardrails-hooks-gateways-en)
 
 沙箱假設 agent 已經被騙，限制它能碰什麼。護欄想更早一步：在動作發生之前就攔下來。agent 要執行一條 shell 指令、呼叫一個 MCP 工具，護欄先看一眼，決定放行或拒絕。Claude Code 本來就會在多數動作前依權限規則問你；護欄工具多做的，是把「問你」換成「依規則自動決定」。
 

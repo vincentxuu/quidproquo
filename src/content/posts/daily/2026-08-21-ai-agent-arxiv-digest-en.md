@@ -12,7 +12,7 @@ series:
   order: 89
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-21-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -62,7 +62,7 @@ The mainstream approach to turning LLMs into multi-turn task agents is "trajecto
 - CTB (Critical Topological Breakpoint): projects the student's interaction state onto the "success-reachable region" and identifies the first point of departure as the tutoring point
 - Training loss is computed only on generated recovery steps; correct prefixes receive no destructive gradients — this is the key design for "protecting valid exploration"
 - Progressive self-distillation: the student re-rolls out each round, and CTBs shift later as capability improves, forming an automatic difficulty curve (self-paced curriculum)
-- Outperforms distillation and RL baselines across five benchmarks and two model scales, while reducing redundant tool calls ⚠️ (ByteDance self-evaluated; awaiting external reproduction)
+- Outperforms distillation and RL baselines across five benchmarks and two model scales, while reducing redundant tool calls :warning: (ByteDance self-evaluated; awaiting external reproduction)
 - Compatible with existing agent RL frameworks (GRPO-family methods) — it essentially replaces "how to compute loss," not the entire training pipeline
 
 ### Reviewer's One-liner
@@ -103,8 +103,8 @@ LLM agents are already strong at automated bug fixing, but have a structural wea
 
 ### Key Details
 
-- SWE-bench Verified: Pass@1 absolute improvement +5.8% (DeepSeek-V3.2), +5.6% (GPT-5-mini) ⚠️ (author-evaluated; awaiting external reproduction)
-- SWE-bench Pro (harder version): +5.8% (DeepSeek-V3.2), +4.1% (GPT-5-mini) ⚠️ (same caveat)
+- SWE-bench Verified: Pass@1 absolute improvement +5.8% (DeepSeek-V3.2), +5.6% (GPT-5-mini) :warning: (author-evaluated; awaiting external reproduction)
+- SWE-bench Pro (harder version): +5.8% (DeepSeek-V3.2), +4.1% (GPT-5-mini) :warning: (same caveat)
 - Synthetic issue source: reimplementing "test-covered core functions" from the repo, so generated issues are inherently executable and verifiable — no bogus problems
 - Two-layer skill library: global diagnostic skills + local intervention skills, both anchored to code entities for retrieval
 - Stable gains on both open-source and closed-source models, indicating the method isn't tied to specific model capabilities
@@ -150,8 +150,8 @@ Must-read — if you're building self-improving agents, autonomous R&D, or any s
 ### Key Details
 
 - Analysis scale: public trajectories across 7 benchmarks, 4 base models, 20 agent configurations on PostTrainBench
-- Strategy lock-in reflects agent priors, not task needs: 80.7% of Claude Code trajectories converge on full-parameter SFT, 89.6% of Codex CLI converge on PEFT ⚠️ (paper's statistics on public trajectories)
-- Intervention 1 (adding experience): experiment logs + skill library + evaluator agent scaffolding improves execution across the board — GSM8K +12.6 points, HumanEval +40.8 points — but strategy remains unchanged ⚠️ (author experiments)
+- Strategy lock-in reflects agent priors, not task needs: 80.7% of Claude Code trajectories converge on full-parameter SFT, 89.6% of Codex CLI converge on PEFT :warning: (paper's statistics on public trajectories)
+- Intervention 1 (adding experience): experiment logs + skill library + evaluator agent scaffolding improves execution across the board — GSM8K +12.6 points, HumanEval +40.8 points — but strategy remains unchanged :warning: (author experiments)
 - Intervention 2 (adding human guidance): humans rewriting the strategy before training does help, but once training starts the agent reverts to local-tuning loops
 - Intervention 3 (adding inference compute): scaffolded version uses 2–8× more inference tokens than the autonomous baseline; simple tasks see returns, hardest tasks see near-zero gains
 - Core conclusion: what's missing isn't resources (experience/guidance/compute) but a mechanism for "spontaneously restarting strategy selection mid-execution" — strategy is only malleable in the brief window before the first training run begins

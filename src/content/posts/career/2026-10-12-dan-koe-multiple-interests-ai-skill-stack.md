@@ -10,7 +10,7 @@ description: "導讀 Dan Koe 2026 年 9 月的影片，整理他的三層技能�
 draft: false
 ---
 
-> 🌏 [English version](/posts/career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack-en)
+> :globe: [English version](/posts/career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack-en)
 
 [直接開始三片段英文練習（2 分 28 秒・精選語句中英對照）](#video-practice-0)
 

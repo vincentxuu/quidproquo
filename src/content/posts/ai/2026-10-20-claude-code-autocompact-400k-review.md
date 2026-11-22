@@ -10,7 +10,7 @@ description: "Lydia Hallie 推廣的 /autocompact 400k 是什麼、怎麼設、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-20-claude-code-autocompact-400k-review-en)
+> :globe: [English version](/posts/ai/2026-10-20-claude-code-autocompact-400k-review-en)
 
 如果你用的是 1M context 的 Claude Code，這篇回答一個問題：要不要把 auto-compact 的門檻從預設值改成 400K。我的答案是要，而且 11 天的使用沒有出現我擔心的副作用；但有兩種情況不該照做，後面會講。
 

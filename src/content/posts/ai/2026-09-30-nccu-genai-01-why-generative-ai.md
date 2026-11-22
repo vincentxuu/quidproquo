@@ -22,7 +22,7 @@ glossary:
     context: "課程每份 notebook 開頭都會用 %matplotlib inline。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-01-why-generative-ai-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

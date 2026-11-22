@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-hybrid-retrieval)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-hybrid-retrieval)
 
 > **Optional companion reading:** Beginners can read this article directly. For background concepts, pair it with [Hybrid Search: Using BM25 + Vector Search to Cover Each Other's Blind Spots](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en), [RRF: How to Merge Multi-Source Results in RAG Systems](/posts/ai/2026-03-12-rrf-multi-source-fusion-en), and [CRAG: Automatically Relaxing Filters When Retrieval Comes Up Empty](/posts/ai/2026-03-12-corrective-rag-crag-en).
 

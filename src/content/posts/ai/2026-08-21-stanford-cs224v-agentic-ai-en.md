@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS224V: Agentic AI, written after r
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs224v-agentic-ai)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

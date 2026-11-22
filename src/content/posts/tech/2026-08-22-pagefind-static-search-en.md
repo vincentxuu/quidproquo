@@ -10,7 +10,7 @@ description: "A data-flow tour of Pagefind: build-time indexing, browser-side se
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-pagefind-static-search)
+> :globe: [中文版](/posts/tech/2026-08-22-pagefind-static-search)
 
 [Pagefind](https://pagefind.app/docs/) is a full-text search tool for static websites. Instead of calling a search API when someone submits a query, it scans the HTML produced after a site build and generates an index plus JavaScript and WebAssembly assets that deploy with the site. Search runs in the browser, so production does not need a separate Elasticsearch or Meilisearch service, or even a database search endpoint.
 

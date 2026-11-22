@@ -11,7 +11,7 @@ series:
   order: 91
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-14-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -22,57 +22,57 @@ title: Tool-calling 迴圈 vs 寫程式呼叫工具（Code Mode）
 desc: 傳統 tool-calling 要 LLM 每輪選一個工具、來回好幾輪才有答案；Code Mode 讓 LLM 直接寫一段程式，在 sandbox 裡一次呼叫多個工具，結果一次回傳。
 caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不畫，只畫呼叫工具的結構差異。
 ---
-<svg viewBox="0 0 640 400">
+<svg viewBox="0 0 640 416">
   <text class="dg-heading" x="20" y="28" dominant-baseline="central">改動前</text>
   <text class="dg-heading" x="340" y="28" dominant-baseline="central">改動後</text>
   <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
 
-  <path class="dg-line" d="M160 100V140" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M160 188V224" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M480 100V140" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M480 188V224" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 100V132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M160 188V216" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M480 100V132" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M480 188V216" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="76" y="56" width="168" height="44" rx="6"/>
+  <rect class="dg-box" x="52" y="56" width="216" height="44" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">Agent context</text>
 
-  <rect class="dg-box" x="76" y="140" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="160" y="156" text-anchor="middle" dominant-baseline="central">LLM 選一個工具</text>
-  <text class="dg-sub" x="160" y="174" text-anchor="middle" dominant-baseline="central">一次只選一個工具</text>
+  <rect class="dg-box" x="52" y="132" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="160" y="150" text-anchor="middle" dominant-baseline="central">LLM 選一個工具</text>
+  <text class="dg-sub" x="160" y="172" text-anchor="middle" dominant-baseline="central">一次只選一個工具</text>
 
-  <rect class="dg-box" x="76" y="224" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="160" y="240" text-anchor="middle" dominant-baseline="central">工具執行、回傳結果</text>
-  <text class="dg-sub" x="160" y="258" text-anchor="middle" dominant-baseline="central">通常來回好幾輪</text>
+  <rect class="dg-box" x="52" y="216" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="160" y="234" text-anchor="middle" dominant-baseline="central">工具執行、回傳結果</text>
+  <text class="dg-sub" x="160" y="256" text-anchor="middle" dominant-baseline="central">通常來回好幾輪</text>
 
-  <rect class="dg-box" x="396" y="56" width="168" height="44" rx="6"/>
+  <rect class="dg-box" x="372" y="56" width="216" height="44" rx="6"/>
   <text class="dg-label" x="480" y="78" text-anchor="middle" dominant-baseline="central">Agent context</text>
 
-  <rect class="dg-box dg-box--accent" x="396" y="140" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="480" y="156" text-anchor="middle" dominant-baseline="central">LLM 寫一段程式</text>
-  <text class="dg-sub" x="480" y="174" text-anchor="middle" dominant-baseline="central">一次呼叫多個工具</text>
+  <rect class="dg-box dg-box--accent" x="372" y="132" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="480" y="150" text-anchor="middle" dominant-baseline="central">LLM 寫一段程式</text>
+  <text class="dg-sub" x="480" y="172" text-anchor="middle" dominant-baseline="central">一次呼叫多個工具</text>
 
-  <rect class="dg-box" x="396" y="224" width="168" height="48" rx="6"/>
-  <text class="dg-label" x="480" y="240" text-anchor="middle" dominant-baseline="central">Sandbox 執行程式</text>
-  <text class="dg-sub" x="480" y="258" text-anchor="middle" dominant-baseline="central">結果一次回傳</text>
+  <rect class="dg-box" x="372" y="216" width="216" height="56" rx="6"/>
+  <text class="dg-label" x="480" y="234" text-anchor="middle" dominant-baseline="central">Sandbox 執行程式</text>
+  <text class="dg-sub" x="480" y="256" text-anchor="middle" dominant-baseline="central">結果一次回傳</text>
 
-  <g class="dg-badge"><circle cx="60" cy="164" r="10"/><text x="60" y="164" text-anchor="middle" dominant-baseline="central">−</text></g>
-  <g class="dg-badge"><circle cx="60" cy="248" r="10"/><text x="60" y="248" text-anchor="middle" dominant-baseline="central">−</text></g>
-  <g class="dg-badge dg-badge--accent"><circle cx="380" cy="164" r="10"/><text x="380" y="164" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <g class="dg-badge"><circle cx="380" cy="248" r="10"/><text x="380" y="248" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <g class="dg-badge"><circle cx="36" cy="160" r="10"/><text x="36" y="160" text-anchor="middle" dominant-baseline="central">−</text></g>
+  <g class="dg-badge"><circle cx="36" cy="244" r="10"/><text x="36" y="244" text-anchor="middle" dominant-baseline="central">−</text></g>
+  <g class="dg-badge dg-badge--accent"><circle cx="352" cy="160" r="10"/><text x="352" y="160" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <g class="dg-badge"><circle cx="352" cy="244" r="10"/><text x="352" y="244" text-anchor="middle" dominant-baseline="central">+</text></g>
 
   <line class="dg-rule" x1="20" y1="300" x2="620" y2="300"/>
   <text class="dg-tag" x="20" y="324" dominant-baseline="central">變更清單</text>
   <g class="dg-badge"><circle cx="32" cy="352" r="10"/><text x="32" y="352" text-anchor="middle" dominant-baseline="central">−</text></g>
   <text class="dg-sub" x="52" y="352" dominant-baseline="central">移除 逐次選一個工具，來回好幾輪才有答案</text>
-  <g class="dg-badge dg-badge--accent"><circle cx="352" cy="352" r="10"/><text x="352" y="352" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <text class="dg-sub" x="372" y="352" dominant-baseline="central">新增 LLM 一次寫好程式，一口氣呼叫多個工具</text>
-  <g class="dg-badge"><circle cx="352" cy="376" r="10"/><text x="352" y="376" text-anchor="middle" dominant-baseline="central">+</text></g>
-  <text class="dg-sub" x="372" y="376" dominant-baseline="central">新增 Sandbox 跑完整段程式，結果一次回傳</text>
+  <g class="dg-badge dg-badge--accent"><circle cx="32" cy="376" r="10"/><text x="32" y="376" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <text class="dg-sub" x="52" y="376" dominant-baseline="central">新增 LLM 一次寫好程式，一口氣呼叫多個工具</text>
+  <g class="dg-badge"><circle cx="32" cy="400" r="10"/><text x="32" y="400" text-anchor="middle" dominant-baseline="central">+</text></g>
+  <text class="dg-sub" x="52" y="400" dominant-baseline="central">新增 Sandbox 跑完整段程式，結果一次回傳</text>
 </svg>
 ```
 
 ## Trending Repos
 
-### vercel/eve ⭐ 5,884
+### vercel/eve ★ 5,884
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -83,7 +83,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### universal-tool-calling-protocol/code-mode ⭐ 1,667
+### universal-tool-calling-protocol/code-mode ★ 1,667
 
 [GitHub](https://github.com/universal-tool-calling-protocol/code-mode)　·　TypeScript　·　MPL-2.0
 
@@ -94,7 +94,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### nkarasiak/qgis-mcp ⭐ 436
+### nkarasiak/qgis-mcp ★ 436
 
 [GitHub](https://github.com/nkarasiak/qgis-mcp)　·　Python　·　GPL-2.0
 
@@ -105,7 +105,7 @@ caption: 簡化示意：context 視窗大小、計價方式的差異這裡先不
 
 ---
 
-### JuliusBrussee/caveman ⭐ 119,655
+### JuliusBrussee/caveman ★ 119,655
 
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 

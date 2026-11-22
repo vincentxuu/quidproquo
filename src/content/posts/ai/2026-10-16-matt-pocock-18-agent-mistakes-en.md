@@ -18,7 +18,7 @@ glossary:
     context: "Used here to explain what 'your architecture allows bad tests to be written' means."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-16-matt-pocock-18-agent-mistakes)
+> :globe: [中文版](/posts/ai/2026-10-16-matt-pocock-18-agent-mistakes)
 
 If you work with a coding agent every day and still feel worn out, this post is a self-diagnosis sheet: how Matt Pocock's 18-item list groups, which of his public practices each group maps to, and which item to fix first tonight.
 

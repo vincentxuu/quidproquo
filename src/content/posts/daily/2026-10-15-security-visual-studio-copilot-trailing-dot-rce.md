@@ -11,7 +11,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce-en)
+> :globe: [English version](/posts/daily/2026-10-15-security-visual-studio-copilot-trailing-dot-rce-en)
 
 ## 事件概述
 

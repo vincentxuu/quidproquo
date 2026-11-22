@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 53
 ---
-> 🌏 [English version](/posts/daily/2026-07-16-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-16-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,7 +70,7 @@ ATG（Atomic Task Graph，原子任務圖）把任務分解成一串 DAG（有�
 - **核心資料結構**：以 DAG 序列表示任務展開，每個節點是「原子子任務」，邊代表 I/O 依賴，整個演化過程可追蹤
 - **並行執行**：無相依節點可同時呼叫 LLM，縮短整體完成時間（論文未報告具體時間數字）
 - **局部失敗恢復**：失敗只標記影響到的子圖，下游未受影響的中間結果保留複用
-- **關鍵數字**：以 Mistral-7B 為 backbone，以 PoG 為最強 baseline，ATG 在 ALFWorld 上超越 **32.01 分**、WebShop 上超越 **38.57 分** ⚠️（數字來自論文自報 baseline，需確認 baseline 版本與實驗設定）
+- **關鍵數字**：以 Mistral-7B 為 backbone，以 PoG 為最強 baseline，ATG 在 ALFWorld 上超越 **32.01 分**、WebShop 上超越 **38.57 分** :warning:（數字來自論文自報 baseline，需確認 baseline 版本與實驗設定）
 - 也在 ScienceWorld 上測試，報告同樣有提升，搜尋結果未見詳細數字
 - **Backbone 範圍**：7B–8B 參數模型，不依賴超大模型
 - **Limitation**：DAG 分解品質依賴 LLM 規劃能力；動態任務（中途環境突變）中靜態 DAG 可能失效
@@ -126,7 +126,7 @@ PalmClaw 在手機上原生跑一個 agent 框架，把裝置能力封裝成 Dev
 
 - **核心創新**：Device Tools 抽象層，把相機、電話、行事曆、聯絡人等 OS 功能包成有 explicit argument 和 structured result 的函式
 - **Open-source 框架**，session/memory/skills/tools/agent loop 全在裝置本地跑
-- **關鍵數字**：相較最強 baseline，task success rate 相對提升 **11.5%**，completion time 縮短 **94.9%** ⚠️（「最強 baseline」的具體系統未在搜尋結果中明確，需讀原文確認公平性）
+- **關鍵數字**：相較最強 baseline，task success rate 相對提升 **11.5%**，completion time 縮短 **94.9%** :warning:（「最強 baseline」的具體系統未在搜尋結果中明確，需讀原文確認公平性）
 - 論文提供 execution trace 案例，展示清晰 tool call 邊界如何讓 trace 更易讀
 - 前驅工作 ClawMobile（2602.22942）是相關基礎，PalmClaw 在其上擴展
 - **Limitation**：目前只測試 Android 平台；Device Tools 需針對每個 OS API 手工封裝，規模擴展成本不小；隱私與權限設計未深入討論
@@ -184,7 +184,7 @@ IoAT 架構分三層：**雲端層**（高層策略規劃）、**邊緣/霧端�
 - **數位孿生整合**：虛擬模型與實體設備同步，agent 可先在虛擬環境模擬再驅動實體執行
 - **形式化框架**：Hylomorphic DP 把「工作流規劃」與「物理控制」分兩層建模，理論上可獨立優化後耦合
 - **示範用例**：智慧建築 HVAC 協調——多感測器輸入 + 多執行器協調
-- ⚠️ **無實驗結果**：這是 position paper，所有架構主張均為概念描述
+- :warning: **無實驗結果**：這是 position paper，所有架構主張均為概念描述
 - **研究挑戰（論文自列）**：可靠規劃、跨層控制、安全性、信任、隱私、低延遲、對抗性操作韌性
 - **Limitation**：沒有 benchmark、沒有實作驗證，主張需後續工作支撐；Hylomorphic DP 的工程指導性有限
 - **與現有框架的差距**：LangGraph/AutoGen 假設 cloud LLM 呼叫，不支援邊緣推理或實體執行器控制

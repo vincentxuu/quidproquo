@@ -25,7 +25,7 @@ glossary:
     context: "Because it means guiding real clients, this is where most foreigners get stuck."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-taiwan-path)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-taiwan-path)
 
 The first ten posts in this series covered what IFMGA is, how to hire a guide, what guides learn, and how each country trains them. This one answers the question Taiwanese readers end up asking: **I'm from Taiwan and I want an IFMGA qualification. How do I get there?**
 

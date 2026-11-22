@@ -13,11 +13,11 @@ description: "逐週導讀 Harvard CS181（CS1810 Spring 2026）HW1（due 2026-0
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en)
+> :globe: [English version](/posts/tech/2026-08-27-harvard-cs181-hw1-regression-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本**：以 [CS181 2026 HW1](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) 的 `hw1_release.tex` 為準（課號 CS1810-S26，截止 2026-02-13 11:59 PM）。往年版本的題目與配分可能不同，對照時以你那一屆的 `.tex` 為主。
+> :warning: **版本**：以 [CS181 2026 HW1](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) 的 `hw1_release.tex` 為準（課號 CS1810-S26，截止 2026-02-13 11:59 PM）。往年版本的題目與配分可能不同，對照時以你那一屆的 `.tex` 為主。
 
 ## TL;DR
 

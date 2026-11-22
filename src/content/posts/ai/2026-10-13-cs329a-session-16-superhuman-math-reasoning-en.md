@@ -13,7 +13,7 @@ tldr: "AlphaGeometry2 relies on a symbolic engine and AlphaProof on Lean, for a 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning)
+> :globe: [中文版](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning)
 
 The International Mathematical Olympiad (IMO) sets six problems a year, each worth 7 points, for a maximum of 42. It attracts AI research because whether a proof is correct has a clear standard. Session 16 of [CS329A](https://cs329a.stanford.edu/) Autumn 2025 was a guest lecture by Thang Luong of Google DeepMind, titled "Towards AI Superhuman Reasoning: AlphaProof, AlphaGeometry & Gemini IMO Gold Medal." After reading this guide you should be able to say who or what decides correctness in each of the three systems, and see which part changed between 2024 and 2025. Prerequisite: a rough idea of search trees and reinforcement learning. You do not need to know Lean.
 

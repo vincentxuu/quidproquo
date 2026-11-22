@@ -13,7 +13,7 @@ description: "濟州無水川上游The School Crag的兩道具名V5、落地與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-jeju-bouldering-en)
 
 在濟州抱石，先決定去哪一段溪床、能帶幾張墊子，以及每一道題目的落地和下攀能不能安排好。火山岩很有吸引力，但地圖上一個「Jeju bouldering」標記還不夠開始一天。
 

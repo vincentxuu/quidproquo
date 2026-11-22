@@ -13,7 +13,7 @@ description: "A deck-aligned guide to CS103 Functions Part II: surjective proofs
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-08-functions-2)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
+> :globe: [中文版](/posts/investing/2026-08-06-drone-supply-chain-four-criteria)
 
 **What this article does not do**: name tickers, recommend positions, or discuss timing. It applies an existing framework to a sector, and the conclusion may well be "doesn't qualify right now" — which it is.
 
@@ -21,7 +21,7 @@ This is the last piece of the [drone series](/tags/drone). Earlier entries cover
 
 The criteria are the same ones this site uses on the AI supply chain: **supply chain chokepoint, structural demand, high switching cost, long-term institutional holding.** Using one ruler across sectors is how you learn what differs.
 
-## Criterion one: supply chain chokepoint ❌
+## Criterion one: supply chain chokepoint ✗
 
 The question: **if this link were removed, would downstream stop?**
 
@@ -31,7 +31,7 @@ Layer 2's problem is **substitutability**. Motors, frames, and propellers have m
 
 **Verdict: does not currently hold.** Taiwan sits at the most competitive, lowest-bargaining-power layer. The policy bet on "three chips, two software" (flight control, comms, and satellite positioning chip modules plus flight and ground control software) targets the right cell, but that's a future state, not a present moat.
 
-## Criterion two: structural demand ⚠️
+## Criterion two: structural demand :warning:
 
 The question: **is demand driven by end-user behavior, or by a mechanism that can be interrupted?**
 
@@ -46,7 +46,7 @@ The live example: the Executive Yuan's special statute for defense-autonomous un
 
 **Verdict: partially holds, but the nature must be labeled.** Treating "NT$44.2 billion has been appropriated" as evidence of structural demand is this sector's most common analytical error.
 
-## Criterion three: high switching cost ✅
+## Criterion three: high switching cost ✓
 
 **This is the one criterion that genuinely holds, and it holds solidly.**
 
@@ -96,9 +96,9 @@ Measured with one ruler:
 
 | Criterion | Verdict | In one line |
 |---|---|---|
-| Supply chain chokepoint | ❌ | Taiwan sits at the most substitutable layer |
-| Structural demand | ⚠️ | Demand is real, but ~80% is policy, not structural |
-| High switching cost | ✅ | Certification is a real moat — sheltering very few |
+| Supply chain chokepoint | ✗ | Taiwan sits at the most substitutable layer |
+| Structural demand | :warning: | Demand is real, but ~80% is policy, not structural |
+| High switching cost | ✓ | Certification is a real moat — sheltering very few |
 | Long-term institutional holding | — | Requires stock-level data; not assessed here |
 
 **One of four holds.** That doesn't mean the sector lacks opportunity — it has a clear geopolitical window, NT$44.2 billion of policy resource, and 21x export growth. But **its current position is not 2023's AI supply chain; it's an earlier stage**: the chokepoint isn't taken, demand still rests on budgets, and the moat is in very few hands.

@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-overview)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-overview)
 
 Cloudflare is easy to describe as a CDN or DNS provider. But once you move a product onto it, it starts looking like an app platform: [Workers](https://developers.cloudflare.com/workers/) runs code, [D1](https://developers.cloudflare.com/d1/) stores SQL data, [KV](https://developers.cloudflare.com/kv/) handles global key-value state, [R2](https://developers.cloudflare.com/r2/) stores objects, [Durable Objects](https://developers.cloudflare.com/durable-objects/) handles state and coordination, and the platform continues through Queues, Workflows, Cache Rules, Smart Shield, Images, Email Service, Turnstile, Observability, Browser Run, and Containers.
 

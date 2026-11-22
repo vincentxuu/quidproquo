@@ -26,7 +26,7 @@ glossary:
     context: "CS149 L3、PA1 Program 3 都用這個詞。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-latency-bandwidth-ispc-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

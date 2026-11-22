@@ -12,7 +12,7 @@ series:
   order: 87
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-funding-mistlabs-en)
+> :globe: [English version](/posts/daily/2026-10-13-funding-mistlabs-en)
 
 ## 融資資訊
 

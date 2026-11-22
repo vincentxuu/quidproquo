@@ -7,11 +7,12 @@
 ## 版面
 
 - 每一層是一整列、同樣的 x 和寬度，由上往下疊，4–6 層。列與列之間留 8 的縫，或全部貼齊、只用 `dg-rule` 細線分隔，兩種選一種。
-- 每一列從左到右三塊：
-  1. **層號**：`dg-tag`（`L5`、`L4`…），靠左。
-  2. **層名**：`dg-label`，緊接在層號右邊，左對齊。
-  3. **說明或例子**：`dg-sub`，靠右對齊（`text-anchor="end"`）。
-- 列高 56；只有焦點層可以加高到 72，多出來的空間放一行副標。其他層高度要一致，沒理由的高低不齊看起來像沒排好。
+- 每一列左邊是層號，右邊上下兩行：
+  1. **層號**：`dg-tag`（`L5`、`L4`…），靠左，垂直置中。
+  2. **層名**：`dg-label`，在層號右邊，左對齊，放在列中線上方 12。
+  3. **說明或例子**：`dg-sub`，跟層名同一個 x、左對齊，放在列中線下方 12。
+- 不要把說明靠右對齊、跟層名放在同一列：層名和說明一長就會疊在一起或超出框線，英文版尤其容易（2026-11-19 日報就是這樣破版）。說明一行放不下就縮短，不要靠縮字級硬塞。
+- 列高 56；只有焦點層可以加高到 72，多出來的空間放第二行說明。其他層高度要一致，沒理由的高低不齊看起來像沒排好。
 - 底色只用兩種方式擇一：全部 `dg-box`，或 `dg-box` 與 `dg-box--store` 交替。不要每層一個顏色，層級會被色塊蓋掉。
 - accent 只給**一層**：正文在討論的那一層、瓶頸那一層，或最常出問題的那一層。
 - 方向提示放在堆疊**外面**的左邊：一條細的垂直箭頭，上下兩端用 `dg-tag` 寫方向（「抽象」／「具體」、「請求 ↓」）。不要把文字轉成直的。
@@ -40,29 +41,29 @@ caption: 簡化示意：各層的邊界因產品而異，例如有些團隊自�
 
   <rect class="dg-box" x="72" y="24" width="552" height="56" rx="6"/>
   <text class="dg-tag" x="92" y="52" dominant-baseline="central">L5</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">應用</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">聊天介面、IDE 外掛、客服機器人</text>
+  <text class="dg-label" x="124" y="40" dominant-baseline="central">應用</text>
+  <text class="dg-sub" x="124" y="64" dominant-baseline="central">聊天介面、IDE 外掛、客服機器人</text>
 
   <rect class="dg-box dg-box--accent" x="72" y="88" width="552" height="72" rx="6"/>
-  <text class="dg-tag" x="92" y="114" dominant-baseline="central">L4</text>
-  <text class="dg-label" x="124" y="114" dominant-baseline="central">Agent 框架</text>
-  <text class="dg-sub" x="124" y="138" dominant-baseline="central">把多次模型呼叫串成會做事的流程</text>
-  <text class="dg-sub" x="604" y="114" text-anchor="end" dominant-baseline="central">工具呼叫、記憶、規劃迴圈</text>
+  <text class="dg-tag" x="92" y="124" dominant-baseline="central">L4</text>
+  <text class="dg-label" x="124" y="106" dominant-baseline="central">Agent 框架</text>
+  <text class="dg-sub" x="124" y="128" dominant-baseline="central">把多次模型呼叫串成會做事的流程</text>
+  <text class="dg-sub" x="124" y="148" dominant-baseline="central">工具呼叫、記憶、規劃迴圈</text>
 
   <rect class="dg-box" x="72" y="168" width="552" height="56" rx="6"/>
   <text class="dg-tag" x="92" y="196" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="196" dominant-baseline="central">模型 API</text>
-  <text class="dg-sub" x="604" y="196" text-anchor="end" dominant-baseline="central">文字生成、embedding、按 token 計費</text>
+  <text class="dg-label" x="124" y="184" dominant-baseline="central">模型 API</text>
+  <text class="dg-sub" x="124" y="208" dominant-baseline="central">文字生成、embedding、按 token 計費</text>
 
   <rect class="dg-box" x="72" y="232" width="552" height="56" rx="6"/>
   <text class="dg-tag" x="92" y="260" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="260" dominant-baseline="central">推論基礎設施</text>
-  <text class="dg-sub" x="604" y="260" text-anchor="end" dominant-baseline="central">批次排程、KV cache、量化</text>
+  <text class="dg-label" x="124" y="248" dominant-baseline="central">推論基礎設施</text>
+  <text class="dg-sub" x="124" y="272" dominant-baseline="central">批次排程、KV cache、量化</text>
 
   <rect class="dg-box" x="72" y="296" width="552" height="56" rx="6"/>
   <text class="dg-tag" x="92" y="324" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="324" dominant-baseline="central">硬體</text>
-  <text class="dg-sub" x="604" y="324" text-anchor="end" dominant-baseline="central">GPU、TPU、高頻寬記憶體</text>
+  <text class="dg-label" x="124" y="312" dominant-baseline="central">硬體</text>
+  <text class="dg-sub" x="124" y="336" dominant-baseline="central">GPU、TPU、高頻寬記憶體</text>
 </svg>
 ```
 ````
@@ -78,3 +79,4 @@ caption: 簡化示意：各層的邊界因產品而異，例如有些團隊自�
 | 方向文字寫成直的 | 讀不了；改用箭頭兩端的短標籤 |
 | 防禦層畫到最後風險歸零 | 不誠實；最底下寫出剩餘風險 |
 | 兩三層以上標 accent | 焦點分散；只標正文在講的那一層 |
+| 說明靠右對齊、跟層名擠在同一列 | 文字一長就互相重疊、超出框線；說明放層名下一行 |

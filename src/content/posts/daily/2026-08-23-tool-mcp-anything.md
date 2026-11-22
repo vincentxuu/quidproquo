@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-23-tool-mcp-anything-en)
+> :globe: [English version](/posts/daily/2026-08-23-tool-mcp-anything-en)
 
 ## 工具資訊
 
@@ -77,10 +77,10 @@ mcp-anything serve --http --discovery-only   # 對外提供搜尋服務，但關
 
 | | mcp-anything | 手動逐一配置 | MetaMCP 類 gateway |
 |---|---|---|---|
-| 搜尋整個公開 MCP 生態（7.5 萬個） | ✅ | ❌ | ❌（只聚合已配置的） |
-| Context 成本固定（5 個 meta-tool） | ✅ | ❌（每裝一個燒一份） | 依聚合的 server 數量而定 |
-| 本機優先、開源、可自架 | ✅（MIT） | — | 部分方案為 hosted |
-| 內建 SSRF guard / stdio 執行預設關閉 | ✅ | 需自行把關 | 依實作而定 |
+| 搜尋整個公開 MCP 生態（7.5 萬個） | ✓ | ✗ | ✗（只聚合已配置的） |
+| Context 成本固定（5 個 meta-tool） | ✓ | ✗（每裝一個燒一份） | 依聚合的 server 數量而定 |
+| 本機優先、開源、可自架 | ✓（MIT） | — | 部分方案為 hosted |
+| 內建 SSRF guard / stdio 執行預設關閉 | ✓ | 需自行把關 | 依實作而定 |
 
 ## 注意事項
 

@@ -10,7 +10,7 @@ description: "A deep dive into abi/screenshot-to-code's agent architecture: the 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-29-screenshot-to-code-agent-architecture)
+> :globe: [中文版](/posts/ai/2026-08-29-screenshot-to-code-agent-architecture)
 
 [screenshot-to-code](https://github.com/abi/screenshot-to-code) is an open-source project with 74,500+ GitHub stars that converts screenshots, mockups, and screen recordings into frontend code. But it doesn't just toss an image into an LLM and return HTML — at its core is an AI Agent with tool-calling capabilities that autonomously decides when to extract assets, generate images, take verification screenshots, and fix its own code, running up to 30 iterations.
 

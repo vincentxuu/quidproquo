@@ -11,7 +11,7 @@ series:
   order: 70
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-24-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### ifixai-ai/ifixai ⭐ 34k
+### ifixai-ai/ifixai ★ 34k
 
 [GitHub](https://github.com/ifixai-ai/ifixai)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### shiyu-coder/Kronos ⭐ 43k
+### shiyu-coder/Kronos ★ 43k
 
 [GitHub](https://github.com/shiyu-coder/Kronos)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### mcp-use/mcp-use ⭐ 11k
+### mcp-use/mcp-use ★ 11k
 
 [GitHub](https://github.com/mcp-use/mcp-use)　·　TypeScript　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### crestalnetwork/intentkit ⭐ 6.5k
+### crestalnetwork/intentkit ★ 6.5k
 
 [GitHub](https://github.com/crestalnetwork/intentkit)　·　Python　·　MIT
 
@@ -78,7 +78,7 @@ series:
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.60.0)
 
 - **重要變更**：`RetryPromptPart` 正式標記為 deprecated，改用 `ToolReturnPart(outcome='retried')` 和新的 `RetryFeedbackPart`；harness 額外塞進對話「使用者頻道」的內容，現在統一包成 `<harness_data>`、不再假裝是使用者訊息；MCP capability 的預設 `id` 現在只用 server URL 的 hostname 推導，同一台 host 上兩個沒給明確 id 的 server 會直接被拒絕啟動。
-- **Breaking Changes**：以上三項都列在官方的「⚠️ Compatibility Notes」底下——直接判斷 `RetryPromptPart` 型別的程式碼要改；同一台 host 上跑兩個沒自訂 id 的 MCP server，升級後會直接報錯而不是悄悄碰撞。
+- **Breaking Changes**：以上三項都列在官方的「:warning: Compatibility Notes」底下——直接判斷 `RetryPromptPart` 型別的程式碼要改；同一台 host 上跑兩個沒自訂 id 的 MCP server，升級後會直接報錯而不是悄悄碰撞。
 - **對你的影響**：如果你在用 pydantic-ai 接多個 MCP server，先檢查有沒有同 host、沒設 id 的狀況，升級前補上明確 id 可以避免直接炸版；用 `RetryPromptPart` 判斷重試狀態的程式碼，趁這次還沒變成強制移除之前先遷移到 `ToolReturnPart(outcome='retried')`。
 
 ## 今日收穫

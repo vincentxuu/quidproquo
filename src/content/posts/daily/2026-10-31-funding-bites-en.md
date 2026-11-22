@@ -12,7 +12,7 @@ series:
   order: 119
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-funding-bites)
+> :globe: [中文版](/posts/daily/2026-10-31-funding-bites)
 
 ## Funding Details
 

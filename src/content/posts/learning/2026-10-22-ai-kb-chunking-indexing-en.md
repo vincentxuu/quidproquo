@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-chunking-indexing)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-chunking-indexing)
 
 A support colleague asks the AI, "How many years of warranty does model A-3021 have?" The product manual says it plainly, yet the AI says it can't find it. There are two reasons: the manual was cut into 500-character chunks, with "A-3021" at the end of one chunk and the warranty period at the start of the next; and the system uses only vector search, in which a model number like "A-3021" is nearly indistinguishable from "A-3012".
 

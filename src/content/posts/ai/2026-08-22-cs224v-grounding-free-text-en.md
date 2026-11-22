@@ -12,7 +12,7 @@ tldr: "The [WikiChat paper](https://aclanthology.org/2023.findings-emnlp.157/) e
 description: "CS224V Grounding Conversational Agents on Free Text: RAG baselines, WikiChat's seven-stage pipeline, claim verification, and dynamic evaluation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-grounding-free-text)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-grounding-free-text)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -14,7 +14,7 @@ description: "A project-centered guide to MDPs, value iteration, Q-learning, and
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-mdp-reinforcement-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

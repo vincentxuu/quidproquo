@@ -13,7 +13,7 @@ description: "A guide to climbing at Domusnovas and the Masua sea cliffs: aspect
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-domusnovas)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-domusnovas)
 
 Domusnovas is a small town in the Iglesiente region of southwest Sardinia, about 15 minutes by ARST bus from Iglesias. The local association Climbing Sardinia's [Domusnovas area page](https://climbingitaly.com/area/domusnovas/) calls it one of the largest climbing areas on the island, saying of the tall limestone walls you see from the main road, "be sure they are all bolted". [italia.it](https://www.italia.it/en/sardinia/things-to-do/free-climbing-sardinia) says that from Domusnovas and Iglesias it takes "only 30 minutes or less" to reach the rocks above the sea, meaning Masua: the single-pitch Castello dell'Iride and the sea-cliff multi-pitch facing the Pan di Zucchero stack.
 

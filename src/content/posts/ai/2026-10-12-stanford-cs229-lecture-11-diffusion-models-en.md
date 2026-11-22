@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 11 recording published by Stanford Online, with notation matched to Chapter 14 of the 2026 main lecture notes. I did not see the blackboard; the equations on the board are reconstructed from the surrounding transcript and the notes. Times given here are the start of a transcript segment and may be off from the actual picture by a few tens of seconds.
 

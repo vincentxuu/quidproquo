@@ -26,7 +26,7 @@ glossary:
     context: "Wilderness and urban first aid differ by time to hospital: urban means within about an hour, wilderness can mean one to two hours or more."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-crag-first-aid)
+> :globe: [中文版](/posts/climbing/2026-10-18-crag-first-aid)
 
 In May 2026 there were two climbing falls at Long Dong within two weeks. In the first, firefighters arrived about 40 minutes after the call, but because they had to descend into the gully, [paramedics only reached the patient an hour after the call](https://www.cna.com.tw/news/asoc/202605020099.aspx) (in Chinese); she was hoisted out by a National Airborne Service Corps helicopter. In the second, firefighters [carried the injured climber out by stretcher relay across the rocks](https://www.mirrordaily.news/story/61392) (in Chinese) to Keelung Hospital.
 

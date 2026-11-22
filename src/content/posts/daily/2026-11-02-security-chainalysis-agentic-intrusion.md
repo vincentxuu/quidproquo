@@ -11,7 +11,7 @@ series:
   order: 70
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion-en)
+> :globe: [English version](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion-en)
 
 ## 事件概述
 

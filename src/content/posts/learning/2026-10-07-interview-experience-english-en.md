@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-07-interview-experience-english)
+> :globe: [中文版](/posts/learning/2026-10-07-interview-experience-english)
 
 The "interview" scenario in my English speaking practice area only had two sentences. This post adds ten, covering the four things interviews ask about most.
 

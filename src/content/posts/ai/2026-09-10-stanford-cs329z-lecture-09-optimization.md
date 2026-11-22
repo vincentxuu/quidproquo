@@ -14,13 +14,18 @@ description: "依實體頁碼帶讀 CS329Z Lecture 09 Optimization 投影片，�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 81 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。
 
 第 9 堂（10/21，Optimization）換了一個問題：不管單幹還是開會，系統可以從三個地方改善。改 prompt（換說明書）、改權重（換腦袋）、加推理算力（想久一點）。投影片先問優化什麼時候值得，再逐一比較 context 優化、權重優化，以及 Darwin Gödel Machine 這類讓 agent 自己當優化器的做法。
 
 指定讀物是 Agrawal 等人的 [GEPA](https://arxiv.org/abs/2507.19457)、Opsahl-Ong 等人的 MIPRO 與 DeepSeekMath。本文深讀 GEPA 與 MIPRO，另讀 Snell 等人的 [test-time compute 論文](https://arxiv.org/abs/2408.03314)與 BetterTogether。時間點很現實：[HW1 在 10/30 截止](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，這篇幫你決定最後的力氣花在哪一軸。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=e_m99aR7_3Q
+title: Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan
+```
 
 ## Lecture 09 投影片導讀：讓證據決定優化哪一層
 
@@ -32,11 +37,15 @@ draft: false
 
 ### 第 1–11 頁：優化先有三個支柱
 
+[錄影 00:00–10:21](https://www.youtube.com/watch?v=e_m99aR7_3Q)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=1" data-slide-page="1">投影片第 1–11 頁</a>
 
 資料、可執行系統與評估必須一起存在。先把可靠性、領域需求或成本問題寫成能測的目標，再談搜尋 prompt。若指標只獎勵語氣，優化器可能把錯誤說得更流暢；若需要的行為無法靠文字指令穩定表達，示範與回饋才有價值。
 
 ### 第 12–22 頁：Few-shot：挑例子，也挑順序
+
+[錄影 10:21–21:50](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=621s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=12" data-slide-page="12">投影片第 12–22 頁</a>
 
@@ -44,11 +53,15 @@ draft: false
 
 ### 第 23–69 頁：反思式搜尋：MIPROv2 到 GEPA
 
+[錄影 21:50–51:28](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=1310s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=23" data-slide-page="23">投影片第 23–69 頁</a>
 
 MIPROv2 的長動畫其實只有三個階段：蒐集成功示範、根據程式與資料提出指令、搜尋指令與示範組合。小批量測試提供便宜回饋，定期完整評估再檢查候選。TextGrad 把文字回饋往模組傳，GEPA 讀失敗軌跡反思並保留互補候選。不要把一張結果圖讀成任何工作負載的通用保證。
 
 ### 第 70–104 頁：權重：誰產生軌跡，誰提供回饋
+
+[錄影 51:28–75:45](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=3088s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=70" data-slide-page="70">投影片第 70–104 頁</a>
 
@@ -56,11 +69,15 @@ SFT 用教師完成任務的軌跡訓練學生；RL 讓學生自己操作，由�
 
 ### 第 105–116 頁：Agent 也能改 harness，但評估必須可信
 
+[錄影 75:45–78:56](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=4545s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=105" data-slide-page="105">投影片第 105–116 頁</a>
 
 Darwin Gödel Machine、Meta-Harness 與 auto-research 都把修改、實驗與保留有效版本接成迴圈。它們改的是系統設計或研究流程，並不等於模型權重自己更新。本文建議將驗收條件放在改寫範圍之外，並保存實驗設定與失敗，避免優化變成挑最好看的分數。
 
 ### 第 117–125 頁：選擇策略：條件比口號重要
+
+[錄影 78:56–80:34](https://www.youtube.com/watch?v=e_m99aR7_3Q&t=4736s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture09.pdf#page=117" data-slide-page="117">投影片第 117–125 頁</a>
 
@@ -255,17 +272,15 @@ MIPRO 根據程式、資料與成功軌跡提出候選，使用代理評估搜�
 
 ## 課程影片來源
 
-官方 Logistics 頁（2026-11-09 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-11-09。
+- 錄影：[Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan](https://www.youtube.com/watch?v=e_m99aR7_3Q)（Stanford Online 頻道，2026-11-17 上架，全片約 81 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 自動字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-17 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 9（10/21 週三）的內容，原屬「第 5 週：該單幹還是開會」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依 Lecture 08–09 補入協調、worktree、權重優化與依評估選策略，新增完整教學例子、圖解與理解檢查。

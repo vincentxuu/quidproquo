@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-tool-agent-manager)
+> :globe: [中文版](/posts/daily/2026-08-26-tool-agent-manager)
 
 ## Tool Info
 
@@ -85,8 +85,8 @@ The three tools most commonly compared in the "multi-agent CLI orchestration" sp
 |---|---|---|---|---|
 | Architecture | Go TUI + tmux | Electron desktop app | Tauri (Rust + Vue3) desktop app | Native tmux |
 | Session isolation | tmux session | Git worktree (auto-created) | Terminal pane | Manual |
-| Full-file diff + inline comments sent to agent | ✅ | ✅ (GUI) | Requires integration | ❌ |
-| Agent operates the manager via MCP | ✅ (spawn/message/review) | Has its own CLI (runpane) | Forwards agent's own | ❌ |
+| Full-file diff + inline comments sent to agent | ✓ | ✓ (GUI) | Requires integration | ✗ |
+| Agent operates the manager via MCP | ✓ (spawn/message/review) | Has its own CLI (runpane) | Forwards agent's own | ✗ |
 | Cross-platform | macOS / Linux (Windows needs WSL2) | macOS / Windows / Linux | macOS / Windows / Linux | Depends on tmux |
 | Remote access | tmux detach/attach | Self-hosted daemon + mobile browser | Planned | tmux detach/attach |
 | GitHub Stars (2026-08) | 345 | 339 | 3,800 | — |

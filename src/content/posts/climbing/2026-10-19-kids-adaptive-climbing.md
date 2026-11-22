@@ -26,7 +26,7 @@ glossary:
     context: "World Climbing 的分級代碼有視障 B、下肢 AL、上肢 AU、肌力與關節活動度 RP 四組。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-kids-adaptive-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-kids-adaptive-climbing-en)
 
 岩館週末下午常常很熱鬧：牆上有一排穿著全身式吊帶的小孩，地上有一排拿著手機錄影的家長。另一種比較少見的場景是：一位看不見的攀岩者，靠著地面上的人喊「兩點鐘方向，一個大點」往上爬。
 

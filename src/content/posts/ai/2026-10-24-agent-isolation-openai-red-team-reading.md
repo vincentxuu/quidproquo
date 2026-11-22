@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading-en)
 
 2026 年 10 月 23 日，OpenAI 發表〈[Securing our frontier model training environment](https://openai.com/index/securing-our-frontier-model-training-environment/)〉。文章說明他們怎麼隔離訓練與評估前沿模型的環境，並用自家最強的模型組成紅隊，去找這些隔離的破口。其中一節寫到：沒有網路、沒有共用可寫檔案的兩個沙盒裡的 agent，找到了互相通訊的方法。
 

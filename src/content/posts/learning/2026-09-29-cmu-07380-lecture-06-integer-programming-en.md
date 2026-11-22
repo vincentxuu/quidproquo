@@ -14,7 +14,7 @@ description: "A guide to CMU 07-380 Fall 2026 Lecture 6, Integer Programming: ho
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-06-integer-programming)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

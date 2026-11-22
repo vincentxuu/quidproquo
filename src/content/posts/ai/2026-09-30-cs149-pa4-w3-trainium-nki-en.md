@@ -30,7 +30,7 @@ glossary:
     context: "All of CS149 PA4 is written in NKI."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-pa4-w3-trainium-nki)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

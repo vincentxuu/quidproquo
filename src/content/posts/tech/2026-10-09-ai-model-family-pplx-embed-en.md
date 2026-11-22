@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-09-ai-model-family-pplx-embed)
+> :globe: [中文版](/posts/tech/2026-10-09-ai-model-family-pplx-embed)
 
 On October 7, 2026, Perplexity released [pplx-embed-v2-late](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector), a week after [pplx-embed-v2-context-9b-preview](https://www.perplexity.ai/hub/blog/contextual-embedding-beyond-the-gold-passage), and the original [pplx-embed-v1](https://www.perplexity.ai/hub/blog/pplx-embed-state-of-the-art-embedding-models-for-web-scale-retrieval) dates from February. That is three batches and seven checkpoints in eight months, all named pplx-embed, but "v2" is not an upgrade of "v1". This is the twenty-fifth post in the "AI model family" series. It splits the family into three lines and answers one question: which one fits your documents.
 

@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-parsing-cleaning-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-parsing-cleaning-en)
 
 一份產品規格 PDF 匯進知識庫，解析工具沒報任何錯。有人問「團隊方案的儲存空間是多少」，AI 答「文件沒有寫」。原檔的表格裡，進階方案和團隊方案共用一格「1 TB」，是一個橫跨兩列的合併儲存格。轉成文字後，合併儲存格只剩第一列有字，團隊方案那一格變成空白。
 

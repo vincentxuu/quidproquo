@@ -13,7 +13,7 @@ tldr: "The ecosystem treats /v1/chat/completions as the lingua franca, but your 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-gateway-pattern)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-gateway-pattern)
 
 ## The design problem
 

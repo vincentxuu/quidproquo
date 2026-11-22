@@ -13,7 +13,7 @@ description: "A guide to climbing at Stilo on Monte Consolino: rock, scale, aspe
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-stilo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-stilo)
 
 Stilo is a hill town in the province of Reggio Calabria in Calabria, above the Stilaro valley about 12 km inland from the Ionian coast. Behind the town rises Monte Consolino, a long limestone ridge with a Norman castle on top; the crags line up along the south-east face below the ridge.
 

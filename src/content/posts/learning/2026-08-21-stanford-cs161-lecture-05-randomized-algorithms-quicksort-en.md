@@ -13,7 +13,7 @@ description: "A guide to Stanford CS161 Winter 2026 Lecture 5: Las Vegas algorit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-05-randomized-algorithms-quicksort)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-05-randomized-algorithms-quicksort)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

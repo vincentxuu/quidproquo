@@ -13,7 +13,7 @@ description: "MIT 6.S191 Introduction to Deep Learning 2026 完整導讀：九�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en)
+> :globe: [English version](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

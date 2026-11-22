@@ -30,7 +30,7 @@ glossary:
     context: "The L3 slides give the example of a linear ramp over roughly the first 5,000 iterations."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-regularization-optimization)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-regularization-optimization)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

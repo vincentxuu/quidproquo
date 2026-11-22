@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-30-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-30-ai-agent-daily)
 
 ## Today's Call
 
@@ -144,16 +144,16 @@ Three more funding briefs today: [Cohere Series E initial close](/posts/daily/20
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-github-digest-en)
-- 📄 [Benchmark Shift｜Arena Agent Leaderboard](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon-en)
-- 📄 [Security Alert｜PHP2Shell chained with Fragnesia breaches PAN-OS](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach-en)
-- 📄 [Tool Pick｜cedr](/posts/daily/2026-10-30-tool-cedr-en)
-- 📄 [Funding Brief｜Cohere Series E](/posts/daily/2026-10-30-funding-cohere-en)
-- 📄 [Funding Brief｜Serval Series C $150M](/posts/daily/2026-10-30-funding-serval-en)
-- 📄 [Funding Brief｜Wabi $55M](/posts/daily/2026-10-30-funding-wabi-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-30](/posts/daily/2026-10-30-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-30](/posts/daily/2026-10-30-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-30](/posts/daily/2026-10-30-ai-agent-github-digest-en)
+- :file: [Benchmark Shift｜Arena Agent Leaderboard](/posts/daily/2026-10-30-benchmark-arena-agent-gemini-carbon-en)
+- :file: [Security Alert｜PHP2Shell chained with Fragnesia breaches PAN-OS](/posts/daily/2026-10-30-security-panos-php2shell-ai-assisted-breach-en)
+- :file: [Tool Pick｜cedr](/posts/daily/2026-10-30-tool-cedr-en)
+- :file: [Funding Brief｜Cohere Series E](/posts/daily/2026-10-30-funding-cohere-en)
+- :file: [Funding Brief｜Serval Series C $150M](/posts/daily/2026-10-30-funding-serval-en)
+- :file: [Funding Brief｜Wabi $55M](/posts/daily/2026-10-30-funding-wabi-en)
+- :file: [AI Engineer Interview Prep — 2026-10-30](/posts/daily/2026-10-30-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-30](/posts/daily/2026-10-30-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -13,7 +13,7 @@ description: "御岳ボルダー（Mitake）岩場介紹：岩質來源衝突、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-mitake-boulder-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-mitake-boulder-en)
 
 御岳ボルダー（Mitake，讀音みたけぼるだー）是東京都青梅市多摩川河原上的抱石區，從新宿搭電車就到得了。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%BE%A1%E5%B2%B3%E3%83%9C%E3%83%AB%E3%83%80%E3%83%BC/) 說它 1982 年由池田功開始開拓，後來成為「関東で最も親しまれるエリア」。這篇整理去之前要知道的事：岩質、規模、季節、交通、規矩，以及 2018 年那場讓多條經典題消失的鑿點事件。
 

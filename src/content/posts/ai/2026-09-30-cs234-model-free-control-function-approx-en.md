@@ -25,7 +25,7 @@ glossary:
     context: "L4's explanation: the Bellman operator is a contraction, but the function-approximation fitting step can be an expansion."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-model-free-control-function-approx)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

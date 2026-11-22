@@ -10,11 +10,11 @@ tldr: "@playwright/mcp 預設用 accessibility tree（browser_snapshot）取代�
 description: "深入介紹 @playwright/mcp：安裝設定、工具分組與 --caps 開關、accessibility tree 模式的 token 優勢、profile 與 session 管理，以及什麼時候該改用截圖模式或改走 Playwright CLI。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 1
+  name: "AI 瀏覽器自動化"
+  order: 2
 ---
 
-> 🌏 [English version](/posts/tech/2026-06-20-playwright-mcp-en)
+> :globe: [English version](/posts/tech/2026-06-20-playwright-mcp-en)
 
 [@playwright/mcp](https://github.com/microsoft/playwright-mcp) 是微軟官方維護的 Playwright MCP server，讓 AI agent 能透過 [Model Context Protocol](https://modelcontextprotocol.io/) 控制瀏覽器。它最大的設計特點是：**預設不用截圖**，改用 ARIA accessibility tree 來回傳頁面狀態，大幅降低 token 消耗。
 

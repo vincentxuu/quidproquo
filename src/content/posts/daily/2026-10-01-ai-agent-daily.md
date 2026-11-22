@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-01-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-01-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -110,16 +110,16 @@ Delinea 調查：澳洲 99.6% 受訪組織曾有 AI 工具或 agent 存取超出
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-github-digest)
-- 📄 [模型卡｜Naive-N0.5-Flash](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash)
-- 📄 [框架更新｜Pydantic AI v2.52.0](/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0)
-- 📄 [工具推薦｜mcp-lint](/posts/daily/2026-10-01-tool-mcp-lint)
-- 📄 [資安警報｜Storm-3168（JADEPUFFER）](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction)
-- 📄 [融資速報｜Restate Series A $20M](/posts/daily/2026-10-01-funding-restate)
-- 📄 [融資速報｜Comp AI Series A $34M](/posts/daily/2026-10-01-funding-comp-ai)
-- 📄 [AI Engineer 面試日練 — LLM & Agent Engineering](/posts/daily/2026-10-01-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — AI Product Design](/posts/daily/2026-10-01-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-01](/posts/daily/2026-10-01-ai-agent-github-digest)
+- :file: [模型卡｜Naive-N0.5-Flash](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash)
+- :file: [框架更新｜Pydantic AI v2.52.0](/posts/daily/2026-10-01-framework-pydantic-ai-2.52.0)
+- :file: [工具推薦｜mcp-lint](/posts/daily/2026-10-01-tool-mcp-lint)
+- :file: [資安警報｜Storm-3168（JADEPUFFER）](/posts/daily/2026-10-01-security-storm-3168-azure-agentic-destruction)
+- :file: [融資速報｜Restate Series A $20M](/posts/daily/2026-10-01-funding-restate)
+- :file: [融資速報｜Comp AI Series A $34M](/posts/daily/2026-10-01-funding-comp-ai)
+- :file: [AI Engineer 面試日練 — LLM & Agent Engineering](/posts/daily/2026-10-01-ai-interview-daily)
+- :file: [Product Builder 面試日練 — AI Product Design](/posts/daily/2026-10-01-product-builder-interview-daily)
 
 ## 明日關注
 

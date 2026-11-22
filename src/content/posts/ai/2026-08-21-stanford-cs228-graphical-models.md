@@ -16,7 +16,7 @@ description: "Stanford CS228: Probabilistic Graphical Models 導讀。實際讀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-stanford-cs228-graphical-models-en)
+> :globe: [English version](/posts/ai/2026-08-21-stanford-cs228-graphical-models-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

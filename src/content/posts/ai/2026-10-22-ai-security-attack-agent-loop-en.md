@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-agent-loop)
+> :globe: [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-agent-loop)
 
 Once a model has HTTP tools, it can propose its next action. It can also repeat a failed request, move to another domain, or simply announce success. The design problem is how an observation changes the next action—and what actually forces a stop.
 

@@ -13,7 +13,7 @@ description: "A Nam Pha Pa Yai climbing guide: the scope and date of the River W
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-nam-pha-pa-yai)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-nam-pha-pa-yai)
 
 Nam Pha Pa Yai sits in the hills of Saraburi province about 130 km northeast of Bangkok, with the climbing camp at the foot of the cliff: tents, tree houses and an earthen bungalow, a restaurant and a farm. Not far from the capital, and rarely noticed by international climbers. theCrag logged 101 routes there on 21 October 2026, graded 4a to 8b.
 

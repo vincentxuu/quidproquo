@@ -13,7 +13,7 @@ description: "依 Stanford CS103 Spring 2026 Lecture 8 官方投影片，整理�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs103-lecture-09-cardinality-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-writer-citation-contract)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-writer-citation-contract)
 
 > **Optional companion reading:** Beginners can read this article directly. For background concepts, pair it with [RAG Prompt Engineering: How to Design System Prompts and Context](/posts/ai/2026-03-12-rag-prompt-engineering-en).
 

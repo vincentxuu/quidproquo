@@ -14,13 +14,18 @@ description: "依實體頁碼帶讀 CS329Z Lecture 08 Multi-Agent Systems 投影
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 79 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。第 83–92 頁的工程案例課堂時間不夠沒有講，只在結尾帶過。
 
 一個模型解不開的題目，直覺解法是多找幾個模型來分工：一個寫程式、一個跑程式、一個負責挑錯，就像開一場會。但開過會的人都知道，會議本身有成本。誰先發言、結論誰寫、錯了算誰的，一樣都少不了。模型開會也一樣，而且錯得更安靜：上游 agent 的幻覺，會變成下游 agent 深信不疑的事實。
 
 第 8 堂（10/19，Multi-Agent Systems）的指定讀物是 Wu 等人的 [AutoGen](https://arxiv.org/abs/2308.08155)、Cemri 等人的 MAST 失敗分類，以及 Kim 等人的 agent 系統擴展研究。本文深讀 AutoGen 與 MAST，另讀單一 agent 的反論與 DyLAN。先備是[第 6 堂的迴圈](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂的記憶分層](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=TlX_ft_PQIM
+title: Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan
+```
 
 ## Lecture 08 投影片導讀：先設計分工，再追查失敗
 
@@ -32,11 +37,15 @@ draft: false
 
 ### 第 1–15 頁：先判斷能不能拆，再決定要不要加 agent
 
+[錄影 00:00–16:42](https://www.youtube.com/watch?v=TlX_ft_PQIM)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=1" data-slide-page="1">投影片第 1–15 頁</a>
 
 開場先把單一模型、workflow、agent 與 multi-agent system 放在同一條複雜度軸上。多 agent 可以平行處理獨立子任務，也能分離角色；代價是訊息、整合與錯誤傳播。讀比較圖時要問任務是否真的能拆，而不是只問哪個架構平均分數最高。本文 email 情境若只有一封信與一個簡單問題，先用單 agent 保留較短的證據路徑。
 
 ### 第 16–29 頁：四種編排，先追資訊往哪裡走
+
+[錄影 16:42–31:06](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=1002s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=16" data-slide-page="16">投影片第 16–29 頁</a>
 
@@ -44,11 +53,15 @@ Independent 讓各自完成後彙整；centralized 把分派與收斂交給中�
 
 ### 第 30–49 頁：通訊：訊息內容與控制權一起看
 
+[錄影 31:06–56:14](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=1866s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=30" data-slide-page="30">投影片第 30–49 頁</a>
 
 AutoGen 把角色透過對話接起來；handoff 把後續控制權交給接手者，agent-as-tool 則把有界工作做完後交回呼叫者。Message board 讓角色共享成果，A2A 介紹跨 agent 的能力描述與溝通。這些機制不會自動保證證據正確：摘要若丟掉原始信件的「可能」，傳輸再成功也仍是錯誤。
 
 ### 第 50–68 頁：協調：把承諾寫進狀態
+
+[錄影 56:14–69:21](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=3374s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=50" data-slide-page="50">投影片第 50–68 頁</a>
 
@@ -56,11 +69,17 @@ Task ledger 記目標、分工、進度與未解問題；shared memory 保存共
 
 ### 第 69–82 頁：失敗：一致意見不能取代外部驗證
 
+[錄影 69:21–77:48](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=4161s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=69" data-slide-page="69">投影片第 69–82 頁</a>
 
 這段把失敗放在系統設計、agent 間互動與驗證等層面，也用協調困難、從眾與不相容目標說明「各自做對」未必等於整體成功。讀圖時先辨認資料集與實驗條件，不把單一研究結果延伸成所有 multi-agent 都不值得。實務檢查仍應回到原始工具輸出、共同介面與端到端結果。
 
 ### 第 83–92 頁：工程案例：自主工作需要可用的回饋
+
+[錄影 77:48–78:55](https://www.youtube.com/watch?v=TlX_ft_PQIM&t=4668s)
+
+課堂時間不夠，這段沒有講。講者在結尾只提到，這幾頁用 Anthropic 以 agent 團隊寫 C 編譯器的案例，把本堂的編排、通訊與協調決策串起來，建議有空自己讀。
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture08.pdf#page=83" data-slide-page="83">投影片第 83–92 頁</a>
 
@@ -299,17 +318,15 @@ DyLAN 先挑選團隊，再讓角色以動態網路互動，避免每題固定�
 
 ## 課程影片來源
 
-官方 Logistics 頁（2026-11-09 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-11-09。
+- 錄影：[Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan](https://www.youtube.com/watch?v=TlX_ft_PQIM)（Stanford Online 頻道，2026-11-16 上架，全片約 79 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 自動字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-16 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 8（10/19 週一）的內容，原屬「第 5 週：該單幹還是開會」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依 Lecture 08–09 補入協調、worktree、權重優化與依評估選策略，新增完整教學例子、圖解與理解檢查。

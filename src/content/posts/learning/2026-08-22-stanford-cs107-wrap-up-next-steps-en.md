@@ -13,7 +13,7 @@ description: "A guided reading of Stanford CS107 Winter 2026 Lecture 26: six cor
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs107-wrap-up-next-steps)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

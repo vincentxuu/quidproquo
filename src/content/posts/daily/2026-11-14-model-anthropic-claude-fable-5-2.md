@@ -15,7 +15,7 @@ glossary:
     def: "Anthropic 開發的大型語言模型家族，Fable/Mythos 是繼 Opus 之後的最新旗艦分級"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2-en)
+> :globe: [English version](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | Humanity's Last Exam（含工具） | 74.2% | 65.6% | Opus 5.5 67.7% |
 | RoboDojo Sim（機器人控制，內部評測） | 64.9% | 27.6% | Opus 5.5 39.4% |
 
-⚠️ 以上皆為 Anthropic 官方公告中自選的評測組合，「競品最強」欄的 GPT-6 Astra、Opus 5.5 分數也是 Anthropic 自行跑出，與 OpenAI／Google 自測結果可能有方法論差異，僅供參考。
+:warning: 以上皆為 Anthropic 官方公告中自選的評測組合，「競品最強」欄的 GPT-6 Astra、Opus 5.5 分數也是 Anthropic 自行跑出，與 OpenAI／Google 自測結果可能有方法論差異，僅供參考。
 
 ## 與前代/競品比較
 

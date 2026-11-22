@@ -19,7 +19,7 @@ glossary:
     context: "REA 的 Notion 案例就是沿著這條路追剪貼簿功能。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-20-rea-reverse-engineering-mcp-en)
+> :globe: [English version](/posts/ai/2026-10-20-rea-reverse-engineering-mcp-en)
 
 看到某個 app 有個功能做得很好，想知道它怎麼做到的，但手上只有安裝檔、沒有原始碼。[REA（Reverse Engineer Anything）](https://github.com/morluto/rea)想讓你把這件事直接交給 coding agent。它是一個 [MCP](https://modelcontextprotocol.io/) server，agent 透過它去讀執行檔、拆 Electron 套件、看 .NET 組件，拿回附有證據的結果，再解釋或重寫那個功能。這篇幫你判斷：它能分析什麼、跟直接接 Ghidra 的 MCP 有什麼不同、一次調查長什麼樣子，以及哪些情況不該用。
 

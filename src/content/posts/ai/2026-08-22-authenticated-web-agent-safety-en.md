@@ -13,7 +13,7 @@ description: "A practical security guide for authorized browser automation: prof
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-authenticated-web-agent-safety)
+> :globe: [中文版](/posts/ai/2026-08-22-authenticated-web-agent-safety)
 
 Public pages can go through a search API or crawler. Logged-in pages are different. Once an agent receives cookies, local storage, or a complete browser profile, it has more than permission to read a page. It has the user's identity on that site, potentially including access to private data, messaging, permission changes, deletion, and payments.
 

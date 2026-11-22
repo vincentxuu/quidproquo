@@ -10,7 +10,7 @@ description: "Biome is a JavaScript/TypeScript linter and formatter written in R
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-biome-linter-formatter)
+:globe: [中文版](/posts/tech/2026-03-27-biome-linter-formatter)
 
 The frontend toolchain has a longstanding problem: ESLint handles linting, Prettier handles formatting — two tools, two configs, two plugin ecosystems, and occasional conflicts between them. In a monorepo, running each across three separate apps compounds the problem. More time, more friction.
 

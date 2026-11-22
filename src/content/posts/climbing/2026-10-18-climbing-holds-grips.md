@@ -30,7 +30,7 @@ glossary:
     context: "和側拉（sidepull）方向相反：側拉是往身體這邊拉，扳點是往外推。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-holds-grips-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-holds-grips-en)
 
 爬到 V2、V3 之後，牆上的大把（jug）變少，換成只放得下指尖的小點。你發現自己一抓小點，大拇指就自動壓上食指，手指頭繃得發白。爬完隔天，中指根部有點怪怪的。
 

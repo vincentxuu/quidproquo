@@ -9,7 +9,7 @@ description: "薔琵、巴威、沙德爾都出現過 AI 模式與歐洲傳統�
 draft: false
 ---
 
-> 🌏 [English version](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics-en)
+> :globe: [English version](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics-en)
 
 薔琵離台灣還有好幾天路程的時候，新聞上已經在比兩邊的預報。預報單位會把起始條件稍微改動，一次跑出幾十到上千組預報，合起來叫系集預報，每一組是一個成員。聯合報 10 月 20 日引用一位氣象專家的統計：[歐洲傳統模式 IFS 的 50 組預報裡有 39 組](https://udn.com/news/story/7266/9825453)偏向台灣花東陸地登陸，Google 的 1,000 組裡只有 31 組通過台灣，多數從宮古島和石垣島之間通過。同一個颱風、同一天，一邊近八成，一邊約 3%。
 

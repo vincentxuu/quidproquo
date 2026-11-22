@@ -13,7 +13,7 @@ description: "阿爾科（Arco）／薩爾卡谷岩場介紹：岩質與規模�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-arco-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-arco-en)
 
 阿爾科（Arco）是特倫提諾（Trentino）南端、[加爾達湖（Lago di Garda）](https://www.gardatrentino.it/en/outdoor/climbing/crags)北岸往內陸幾公里的小鎮，坐落在[薩爾卡谷（Valle del Sarca）](https://www.thecrag.com/en/climbing/italy/arco)的谷底，兩側是一整排灰白色石灰岩壁。[Planetmountain](https://planetmountain.com/en/news/climbing/five-must-see-crags-at-arco-the-birthplace-of-sport-climbing-as-we-know-it.html) 寫這裡「Ever since the early 1980s ... has been one of the undisputed centers of sport climbing」，現在谷裡有幾百處岩場、上千條運動攀登路線。
 

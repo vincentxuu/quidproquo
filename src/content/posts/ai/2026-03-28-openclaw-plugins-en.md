@@ -13,7 +13,7 @@ description: "Installing and managing OpenClaw plugins: the five install sources
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-plugins)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-plugins)
 
 Plugins extend OpenClaw with channels, model providers, agent harnesses, tools, skills, speech, realtime transcription, media understanding and generation, web fetch, web search, and other runtime capabilities.
 

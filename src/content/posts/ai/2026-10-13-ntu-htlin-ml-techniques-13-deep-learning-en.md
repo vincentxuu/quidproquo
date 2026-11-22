@@ -31,7 +31,7 @@ glossary:
     context: "Techniques Lecture 13 derives it as the optimal solution of a linear autoencoder with tied weights and no constant term."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning)
+> :globe: [中文版](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [213_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/213_handout.pdf) and transcripts of the four official videos, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/24 to 24/24), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

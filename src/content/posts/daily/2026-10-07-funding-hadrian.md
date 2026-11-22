@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-funding-hadrian-en)
+> :globe: [English version](/posts/daily/2026-10-07-funding-hadrian-en)
 
 ## 融資資訊
 

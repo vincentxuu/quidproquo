@@ -13,7 +13,7 @@ description: "北標 Nam Pha Pa Yai 攀岩指南：River Wall 關閉的範圍與
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-nam-pha-pa-yai-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-nam-pha-pa-yai-en)
 
 北標（Nam Pha Pa Yai）在曼谷東北約 130 公里的沙繃里府山裡，岩壁下方就是攀岩營地：帳篷、木屋（樹屋與土屋）、餐廳與農場，離曼谷不算遠，卻很少被國際攀岩者注意到。theCrag 在 2026 年 10 月 21 日收錄 101 條路線，級數 4a 到 8b。
 

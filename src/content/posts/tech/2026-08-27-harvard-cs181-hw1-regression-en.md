@@ -13,11 +13,11 @@ description: "Weekly guide for Harvard CS181 (CS1810 Spring 2026) HW1 (due 2026-
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)
+> :globe: [中文版](/posts/tech/2026-08-27-harvard-cs181-hw1-regression)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition**: This guide follows `hw1_release.tex` from the [CS181 2026 HW1 repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) (course number CS1810-S26, due 2026-02-13 at 11:59 PM). Earlier years may differ in problems and points; if you are working from another year, go by that year's `.tex`.
+> :warning: **Edition**: This guide follows `hw1_release.tex` from the [CS181 2026 HW1 repository](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw1) (course number CS1810-S26, due 2026-02-13 at 11:59 PM). Earlier years may differ in problems and points; if you are working from another year, go by that year's `.tex`.
 
 ## TL;DR
 

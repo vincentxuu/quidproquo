@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-tool-postgres2mcp-en)
+> :globe: [English version](/posts/daily/2026-10-09-tool-postgres2mcp-en)
 
 ## 工具資訊
 
@@ -90,11 +90,11 @@ psql -c "ALTER ROLE mcp SET statement_timeout = '15s';"
 
 | | postgres2mcp | 手動開 Postgres 唯讀 role | 泛用 mcp-postgres 類包裝 |
 |---|---|---|---|
-| 每把 API key 各自限定能呼叫的工具 | ✅ | ❌（角色是資料庫層，不分 client） | ❌ 通常所有 client 共用同一組工具 |
-| 可用參數化 SQL 建語意化自訂工具 | ✅ dashboard / MCP 都能建 | ❌ | 需自己寫程式 |
-| 內建 audit log 與使用量分析 | ✅ | ❌ 要自己查 `pg_stat_statements` | 視實作而定，通常沒有 |
-| 10 分鐘內自架完成（含 HTTPS） | ✅ 一行 curl 腳本 | — | 視專案而定 |
-| 開源、刻意保持小可自行稽核 | ✅ MIT | — | 視專案而定 |
+| 每把 API key 各自限定能呼叫的工具 | ✓ | ✗（角色是資料庫層，不分 client） | ✗ 通常所有 client 共用同一組工具 |
+| 可用參數化 SQL 建語意化自訂工具 | ✓ dashboard / MCP 都能建 | ✗ | 需自己寫程式 |
+| 內建 audit log 與使用量分析 | ✓ | ✗ 要自己查 `pg_stat_statements` | 視實作而定，通常沒有 |
+| 10 分鐘內自架完成（含 HTTPS） | ✓ 一行 curl 腳本 | — | 視專案而定 |
+| 開源、刻意保持小可自行稽核 | ✓ MIT | — | 視專案而定 |
 
 ## 注意事項
 

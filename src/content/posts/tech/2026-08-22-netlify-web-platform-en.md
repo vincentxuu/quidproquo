@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-netlify-web-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-netlify-web-platform)
 
 [Netlify](https://docs.netlify.com/) grew from static and Jamstack hosting into a web platform. Git builds, global delivery, Functions, Deno-based Edge Functions, background and scheduled functions, Blobs, Database, Forms, and Image CDN share one site and deploy workflow.
 

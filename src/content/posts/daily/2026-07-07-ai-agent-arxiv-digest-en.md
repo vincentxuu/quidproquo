@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 44
 ---
-> 🌏 [中文版](/posts/daily/2026-07-07-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-07-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -177,7 +177,7 @@ The biggest advantage of this approach is that it's lightweight: no additional m
 
 - Uncertainty estimation is based on token-level log probability — a white-box method requiring the LLM API to expose the logprobs parameter (supported by both OpenAI and Anthropic APIs, though some locally deployed models don't expose it)
 - Phase-aware threshold calibration: different phases use different thresholds — requirements phase has a stricter threshold (early errors are costlier), implementation phase is more lenient
-- On the SRDD (Software Requirements-Driven Development) benchmark, outperforms existing frameworks across completeness, executability, consistency, and overall quality **⚠️** (exact improvement margins are in the paper's tables; publicly available information doesn't provide precise numbers)
+- On the SRDD (Software Requirements-Driven Development) benchmark, outperforms existing frameworks across completeness, executability, consistency, and overall quality **:warning:** (exact improvement margins are in the paper's tables; publicly available information doesn't provide precise numbers)
 - The "where does it look things up" part of retrieval-based verification is underspecified in the public abstract
 - Limitation: depends on the logprobs API, inapplicable to models that don't expose this parameter; SRDD benchmark is small-scale, lacking validation on mainstream benchmarks like SWE-bench; fundamentally an incremental improvement on ChatDev, not a framework-level breakthrough
 

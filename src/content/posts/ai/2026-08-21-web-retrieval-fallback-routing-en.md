@@ -13,7 +13,7 @@ description: "Fallback routing for AI-agent web retrieval: responsibility bounda
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-web-retrieval-fallback-routing)
+> :globe: [中文版](/posts/ai/2026-08-21-web-retrieval-fallback-routing)
 
 [The previous article in this series](/posts/ai/2026-05-08-local-deep-research-walkthrough-en) covers how a research agent plans work and combines sources. This article narrows the scope to the retrieval layer: when an agent receives “find this information” or “read this URL,” should it call Search, direct Fetch, a Crawler, a Browser, or a controlled stealth browser?
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-hatchet-durable-workflows-en)
+> :globe: [English version](/posts/tech/2026-08-22-hatchet-durable-workflows-en)
 
 [Hatchet](https://github.com/hatchet-dev/hatchet) 不只是一個 durable workflow SDK。它把 durable task queue、靜態 DAG、dynamic workflow、排程、rate limit、結果保存、observability 與 dashboard 放在同一個 Postgres-backed 平台，worker 則用 Python、TypeScript 或 Go 執行你的程式。
 

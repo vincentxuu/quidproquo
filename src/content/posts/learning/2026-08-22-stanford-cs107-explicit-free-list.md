@@ -13,7 +13,7 @@ description: "導讀 Stanford CS107 Winter 2026 Lecture 23：coalescing 練習�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list-en)
+> :globe: [English version](/posts/learning/2026-08-22-stanford-cs107-explicit-free-list-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

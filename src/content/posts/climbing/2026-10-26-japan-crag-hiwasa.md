@@ -13,7 +13,7 @@ description: "日和佐 攀岩指南：岩質與風格、季節、交通與停�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-hiwasa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-hiwasa-en)
 
 日和佐的行程要連岩壁、交通與當地土地使用一起安排。這篇協助你判斷風格是否合適、哪個季節去，以及第一次到訪要先確認哪些入口。
 

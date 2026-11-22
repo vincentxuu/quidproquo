@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, mcp, coding-agent]
 lang: en
 description: "PrimeIntellect builds programmable sub-agents and controlled self-improvement into one coding harness, while Microsoft Research proves you can scale to a thousand agents without a central coordinator — today's GitHub trending is arguing over how to keep agents from falling apart as they multiply"
-tldr: "**PrimeIntellect-ai/prime-agent** (⭐ 22,325) treats context as variables and sub-agents as function calls through its Recursive Language Model, plus a rollback-safe self-improvement harness; **microsoft/Agensh** (⭐ 238) open-sources Microsoft Research's decentralized multi-agent system, scaling to 1,024 agents with no central coordinator and a 40-50% relative lift in test-pass rates; **finereli/whatsapp-mcp** (⭐ 375) wraps read-only WhatsApp access in an MCP server and is unusually candid about who can see your messages. Release: Claude Code v2.1.310 adds a Monitor tool and plugin monitoring across platforms."
+tldr: "**PrimeIntellect-ai/prime-agent** (★ 22,325) treats context as variables and sub-agents as function calls through its Recursive Language Model, plus a rollback-safe self-improvement harness; **microsoft/Agensh** (★ 238) open-sources Microsoft Research's decentralized multi-agent system, scaling to 1,024 agents with no central coordinator and a 40-50% relative lift in test-pass rates; **finereli/whatsapp-mcp** (★ 375) wraps read-only WhatsApp access in an MCP server and is unusually candid about who can see your messages. Release: Claude Code v2.1.310 adds a Monitor tool and plugin monitoring across platforms."
 series:
   name: "AI Agent GitHub Digest"
   order: 72
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-26-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's trending repos are all wrestling with the same problem: how do you keep 
 
 ## Trending Repos
 
-### PrimeIntellect-ai/prime-agent ⭐ 22,325
+### PrimeIntellect-ai/prime-agent ★ 22,325
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Rust　·　MIT
 
@@ -30,7 +30,7 @@ Today's trending repos are all wrestling with the same problem: how do you keep 
 
 ---
 
-### microsoft/Agensh ⭐ 238
+### microsoft/Agensh ★ 238
 
 [GitHub](https://github.com/microsoft/Agensh)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ Today's trending repos are all wrestling with the same problem: how do you keep 
 
 ---
 
-### finereli/whatsapp-mcp ⭐ 375
+### finereli/whatsapp-mcp ★ 375
 
 [GitHub](https://github.com/finereli/whatsapp-mcp)　·　TypeScript　·　MIT
 

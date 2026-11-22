@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database)
 
 After moving an API to [Cloudflare Workers](https://developers.cloudflare.com/workers/), the database is usually the first hard edge. You may already have [Postgres](https://www.postgresql.org/) or [MySQL](https://www.mysql.com/) running on AWS, GCP, Azure, Neon, Supabase, PlanetScale, RDS, or Aurora. The application runtime can be global, while the database still lives in one region.
 

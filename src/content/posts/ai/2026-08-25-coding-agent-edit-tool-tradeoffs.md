@@ -13,7 +13,7 @@ tldr: "LLM 寫 unified diff 壞在簿記：hunk 行數算錯、上下文行幻�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs-en)
 
 ## 設計問題
 

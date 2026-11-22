@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-tool-localagents-mcp)
+> :globe: [中文版](/posts/daily/2026-08-29-tool-localagents-mcp)
 
 ## Tool Info
 
@@ -84,11 +84,11 @@ The more common way to point Claude Code at a different model is an external pro
 
 | | localagents | External proxy (e.g. claude-code-router) | Manually setting `ANTHROPIC_BASE_URL` |
 |---|---|---|---|
-| Main session stays on Claude, only subtasks delegated | ✅ | ❌ (swaps the source for the whole session) | ❌ |
-| KV-cache-friendly system message folding | ✅ | ❌ | ❌ |
-| Auto-detects context window and feeds it back to Claude Code | ✅ | Depends on the proxy | ❌ |
-| Git worktree isolation for local model changes | ✅ | ❌ | ❌ |
-| Background job execution and tracking | ✅ (`wait_job` / `job_log` / `list_jobs`) | ❌ | ❌ |
+| Main session stays on Claude, only subtasks delegated | ✓ | ✗ (swaps the source for the whole session) | ✗ |
+| KV-cache-friendly system message folding | ✓ | ✗ | ✗ |
+| Auto-detects context window and feeds it back to Claude Code | ✓ | Depends on the proxy | ✗ |
+| Git worktree isolation for local model changes | ✓ | ✗ | ✗ |
+| Background job execution and tracking | ✓ (`wait_job` / `job_log` / `list_jobs`) | ✗ | ✗ |
 | Backend lock-in | llama.cpp / vLLM | Usually supports many cloud/local providers | Whatever endpoint you wire up yourself |
 
 ## Caveats

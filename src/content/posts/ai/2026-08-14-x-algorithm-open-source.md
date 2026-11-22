@@ -28,7 +28,7 @@ glossary:
     context: "本文用它說明 X 2026 年 8 月開源的重點其實不在排序。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-14-x-algorithm-open-source-en)
+> :globe: [English version](/posts/ai/2026-08-14-x-algorithm-open-source-en)
 
 2026-08-13，[xai-org/x-algorithm](https://github.com/xai-org/x-algorithm) 推進了一個新增 363,246 行、變動 2,053 個檔案的 commit，交出了所有人吵了三年要的東西：排序權重。
 

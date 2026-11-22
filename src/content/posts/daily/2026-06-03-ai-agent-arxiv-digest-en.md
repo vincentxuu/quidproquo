@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 10
 ---
-> 🌏 [中文版](/posts/daily/2026-06-03-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-03-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,9 +74,9 @@ If memorywire gains community adoption, it could produce an "MCP effect" for age
 ### Key Details
 
 - Core philosophy: specify only the "wire format," not the backend implementation — analogous to REST defining HTTP verbs without dictating how the server stores data
-- Key numbers: 100 facts, 50 queries (42 with labeled answers) in a small-scale benchmark; recall@5 = 1.000; ingest p50 = 37.8 ms; recall p50 = 40.6 ms **⚠️** (scale too small to represent production scenarios)
+- Key numbers: 100 facts, 50 queries (42 with labeled answers) in a small-scale benchmark; recall@5 = 1.000; ingest p50 = 37.8 ms; recall p50 = 40.6 ms **:warning:** (scale too small to represent production scenarios)
 - The HITL governance channel is a rare governance-aware design in memory frameworks, relevant for enterprise agents with compliance requirements
-- Among the 4 memory types, "emotional" lacks a clear application example in the paper **⚠️**
+- Among the 4 memory types, "emotional" lacks a clear application example in the paper **:warning:**
 - Limitations: single independent researcher proposal with no community adoption yet; fan-out router performance under high write volumes not evaluated
 - Relationship to LangGraph/AutoGen: can serve as a memory-layer complement — current mainstream orchestration frameworks have minimal memory backend abstraction
 - Adoption barrier: requires memory framework maintainers to agree on and implement a common interface — standardization difficulty is high; the most practical short-term use is borrowing the operation vocabulary to design your own memory API
@@ -135,10 +135,10 @@ This architecture reduces token overhead to near zero (no context window consump
 
 - SOTA on 12/13 tasks, improving 6.8% over strong baselines (Reflexion, ExpeL, etc.)
 - Zero-shot cross-domain transfer +16.32%, few-shot transfer +15.21% — latent experience generalizes better than text experience
-- Architectural concern: experiences encoded as a specific LLM version's hidden states may require full re-encoding when the underlying model is upgraded — backward compatibility not discussed in the paper **⚠️**
+- Architectural concern: experiences encoded as a specific LLM version's hidden states may require full re-encoding when the underlying model is upgraded — backward compatibility not discussed in the paper **:warning:**
 - Cross-attention integration tightly couples experience retrieval with token generation; fine-tuning is required, **cannot be applied directly to closed-source LLM APIs**
 - Advantage over text-based RAG: no context window consumption; retrieval implicitly integrated rather than explicitly concatenated as text
-- Specific benchmark names for the SOTA claims not fully listed at the abstract level **⚠️**
+- Specific benchmark names for the SOTA claims not fully listed at the abstract level **:warning:**
 - Limitations: training cost not quantified; requires model weight access — GPT-4o/Claude API users cannot use this approach for now
 - Relationship to LangGraph/AutoGen: this is a model-level modification, not a framework plugin — only teams with self-training capabilities can deploy it
 
@@ -195,8 +195,8 @@ This paper exposes a systemic blind spot in production deployments: you cannot a
 
 - Core finding: the weak r=0.35 correlation means high-task-success models are not necessarily budget-aware — the two dimensions require independent evaluation and training
 - Consistent over-optimism bias: all 5 frontier models across all 4 environments exhibit systematic over-optimism (continuing doomed tasks) rather than conservatism
-- Specific names of the 5 tested models (GPT-4o, Claude, Gemini, etc.) not confirmed at the abstract level — see the original paper **⚠️**
-- Specific benchmark names for the 4 test environments not detailed at the abstract level **⚠️**
+- Specific names of the 5 tested models (GPT-4o, Claude, Gemini, etc.) not confirmed at the abstract level — see the original paper **:warning:**
+- Specific benchmark names for the 4 test environments not detailed at the abstract level **:warning:**
 - Purely diagnostic paper: precisely describes the problem without proposing a fix — solutions deferred to future work
 - The rollout-replay protocol itself is a reusable evaluation tool: you can directly use it to assess your own agent system's budget-awareness
 - Difference from ContextBudget (2604.01664) and related work: BAGEN focuses on "measuring awareness capability" rather than proposing specific budget control mechanisms

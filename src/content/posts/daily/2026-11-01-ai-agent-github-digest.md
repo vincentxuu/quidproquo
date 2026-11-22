@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, browser-automation, agent-tool-use]
 lang: zh-TW
 description: "T3 Code 把多個 coding agent 收進一支手機 app 當遠端控制面，Lightpanda 用 Zig 重寫無頭瀏覽器把記憶體砍到 Chromium 的 1/16，anthropics/skills 本週衝破 18 萬星；release 這邊 Pydantic AI 跟 Claude Code 都在收斂背後送出去的請求細節"
-tldr: "**T3 Code**（⭐ 22.6k）用一支 iOS／Android／桌面 app 同時接上 Codex、Claude Code、Cursor、Grok Build、OpenCode、Google Antigravity，當多個 coding agent 的遠端控制面；**Lightpanda**（⭐ 36k）拿 Zig 從零寫無頭瀏覽器，官方 benchmark 顯示記憶體只要 headless Chrome 的 1/16、抓頁快 9 倍；**anthropics/skills** 本週 +2,300 衝破 18.57 萬星，Agent Skills 格式正從 Claude 專屬變成跨平台共用標準。release 這邊 **Pydantic AI v2.64.0** 四項 compatibility notes 改了 retry 失敗後的錯誤處理與跨 provider 的 server state 傳遞規則，**Claude Code v2.1.316** 則宣布 Opus 4.8 的 fast mode 11 月底除役。"
+tldr: "**T3 Code**（★ 22.6k）用一支 iOS／Android／桌面 app 同時接上 Codex、Claude Code、Cursor、Grok Build、OpenCode、Google Antigravity，當多個 coding agent 的遠端控制面；**Lightpanda**（★ 36k）拿 Zig 從零寫無頭瀏覽器，官方 benchmark 顯示記憶體只要 headless Chrome 的 1/16、抓頁快 9 倍；**anthropics/skills** 本週 +2,300 衝破 18.57 萬星，Agent Skills 格式正從 Claude 專屬變成跨平台共用標準。release 這邊 **Pydantic AI v2.64.0** 四項 compatibility notes 改了 retry 失敗後的錯誤處理與跨 provider 的 server state 傳遞規則，**Claude Code v2.1.316** 則宣布 Opus 4.8 的 fast mode 11 月底除役。"
 series:
   name: "AI Agent GitHub Digest"
   order: 78
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-01-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-01-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### T3 Code ⭐ 22.6k
+### T3 Code ★ 22.6k
 
 [GitHub](https://github.com/pingdotgg/t3code)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### Lightpanda ⭐ 36k
+### Lightpanda ★ 36k
 
 [GitHub](https://github.com/lightpanda-io/browser)　·　Zig　·　AGPL-3.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### anthropics/skills ⭐ 185.7k（本週 +2.3k）
+### anthropics/skills ★ 185.7k（本週 +2.3k）
 
 [GitHub](https://github.com/anthropics/skills)　·　Markdown + 腳本　·　Apache-2.0（範例技能）／ source-available（文件技能）
 

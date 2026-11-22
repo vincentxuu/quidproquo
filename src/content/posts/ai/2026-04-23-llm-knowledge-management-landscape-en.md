@@ -10,7 +10,7 @@ description: "An overview of Karpathy's llm-wiki pattern and the 100+ derivative
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-23-llm-knowledge-management-landscape)
+> :globe: [中文版](/posts/ai/2026-04-23-llm-knowledge-management-landscape)
 
 In April 2026, Andrej Karpathy shared a workflow shift on X: he was no longer just using LLMs to generate code -- he was using them to build and maintain a personal knowledge base. He called this approach **llm-wiki**, and the original gist surpassed 5,000 stars within days.
 

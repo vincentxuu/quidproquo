@@ -24,7 +24,7 @@ glossary:
     context: "Three of them, 3% each, covering the problem and related work, the technical approach, and preliminary results."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

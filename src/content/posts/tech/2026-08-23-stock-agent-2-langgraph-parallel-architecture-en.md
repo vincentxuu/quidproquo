@@ -19,7 +19,7 @@ glossary:
     definition: "Answering a historical question with only the data visible at that time, without using information known afterward."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture)
 
 > **Building a Taiwan Stock Research Agent (Part 2 of 9):** [Previous: Why Taiwan Needs Its Own Research Agent](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en) ｜ [Next: Tiered LLMs and a Degradation Chain](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback-en) ｜ [Complete contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

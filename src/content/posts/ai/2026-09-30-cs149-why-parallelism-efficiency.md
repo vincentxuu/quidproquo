@@ -30,7 +30,7 @@ glossary:
     context: "L1 說明存取記憶體是 stall 的主要來源，cache 的作用是縮短 stall。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-why-parallelism-efficiency-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

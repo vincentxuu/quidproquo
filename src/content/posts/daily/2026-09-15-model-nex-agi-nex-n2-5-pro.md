@@ -15,7 +15,7 @@ glossary:
     def: "Nex AGI 開發的開源 agentic 模型家族，分 mini／Pro／Max 三個量級，主打長時程任務中的電腦操作、瀏覽器操作與視覺回饋自我修正能力"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
+> :globe: [English version](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | OSWorld-G（電腦操作定位） | 87.4 | N/A（前代未列入此項評測） | Qwen3.8-Max：84.9（本表次高） |
 | DeepSWE（v1.1） | 55.8 | 33.6（舊版 DeepSWE，非 v1.1） | Claude Opus 5：73.7 |
 
-⚠️ 以上為 Nex AGI 官方以自家 NexAU／NexCUA harness 自測（`temperature=0.7`、`top_p=0.95`、`top_k=40`），發布當日數據，尚無獨立第三方複現。前代 Nex-N2-Pro 分數取自官方 GitHub（`nex-agi/Nex-N2`），DeepSWE 新舊版本評測基準可能不完全一致，僅供級距參考。
+:warning: 以上為 Nex AGI 官方以自家 NexAU／NexCUA harness 自測（`temperature=0.7`、`top_p=0.95`、`top_k=40`），發布當日數據，尚無獨立第三方複現。前代 Nex-N2-Pro 分數取自官方 GitHub（`nex-agi/Nex-N2`），DeepSWE 新舊版本評測基準可能不完全一致，僅供級距參考。
 
 ## 與前代/競品比較
 

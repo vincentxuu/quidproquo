@@ -29,7 +29,7 @@ glossary:
     context: "From ALOHA/ACT and Diffusion Policy. The HW1 policy predicts 20 steps and executes the first 10."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-imitation-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-imitation-learning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

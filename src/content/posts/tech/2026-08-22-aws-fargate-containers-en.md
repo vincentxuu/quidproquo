@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-aws-fargate-containers)
+> :globe: [中文版](/posts/tech/2026-08-22-aws-fargate-containers)
 
 [AWS Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-tasks-services.html) is serverless container compute for ECS and EKS. With ECS, you stop creating EC2 clusters, patching hosts, and tuning bin packing. You still define images, CPU and memory, ports, health checks, IAM, networking, desired count, and deployment policy.
 

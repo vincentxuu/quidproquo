@@ -10,7 +10,7 @@ description: "從 OpenCode 2 內建免費模型開始，不必先接 OpenRouter�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en)
+> :globe: [English version](/posts/ai/2026-11-01-free-llm-opencode2-openrouter-en)
 
 想用 AI 想晚餐、整理待辦或修改文字，卻還不想訂閱付費方案，可以先裝 **OpenCode 2，直接選它提供的免費模型**。不需要先註冊 OpenRouter，也不用先準備其他供應商的 API key。
 

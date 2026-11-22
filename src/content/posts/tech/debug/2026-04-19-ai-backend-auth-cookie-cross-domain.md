@@ -10,7 +10,7 @@ description: "本機開發時 AI backend 推薦 API 回傳空陣列，根本原�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain-en)
+:globe: [English version](/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain-en)
 
 ## TL;DR
 

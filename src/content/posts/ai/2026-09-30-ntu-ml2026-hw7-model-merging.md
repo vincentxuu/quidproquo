@@ -22,7 +22,7 @@ glossary:
     context: "magnitude prune、DARE、TIES、SCE 都要設 density；linear 與 slerp 不用。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

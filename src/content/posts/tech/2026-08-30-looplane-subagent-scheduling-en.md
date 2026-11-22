@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-subagent-scheduling)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-subagent-scheduling)
 
 The [previous article](/posts/tech/2026-08-30-looplane-skills-hooks-plugins-en) separated three kinds of repository-local extension authority. When a task has independent investigation tracks, [Looplane](https://github.com/vincentxuu/looplane) can also dispatch subagents. The central question is not how many agents run, but who owns the workspace and modification authority.
 

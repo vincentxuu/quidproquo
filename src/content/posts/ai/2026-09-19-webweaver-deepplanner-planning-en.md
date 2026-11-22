@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-webweaver-deepplanner-planning)
+> :globe: [中文版](/posts/ai/2026-09-19-webweaver-deepplanner-planning)
 
 Previous articles covered training agents from scratch (order 2) and long-horizon memory management (order 3). This article goes one level deeper: **how to make the agent's 'planning' itself better?**
 

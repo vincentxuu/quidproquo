@@ -23,7 +23,7 @@ glossary:
     definition: "xAI 的圖像/影片生成模型線，透過 xAI API 以每張/每秒計費。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-family-grok-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-family-grok-en)
 
 2024 年 3 月 17 日，xAI 把 314B 參數的 [Grok-1](https://github.com/xai-org/grok-1) 以 Apache 2.0 丟上 GitHub——當時業界還在爭「是否開源」，xAI 直接把最大的 MoE 權重開了。這是 Grok 家族的起點，也是至今唯一的開源權重。兩年半後，同一家族已長成四條線：會推理的 [Grok 4.6](https://docs.x.ai/docs/models/grok-4.6)（500K、$2/$6）、便宜到 98% 價差的 [Grok 4 Fast](https://x.ai/news/grok-4-fast)（2M）、做圖/影片的 [Imagine](https://docs.x.ai/docs/models/grok-imagine-image-2.0)，以及跑在終端機裡的 [Grok Build](https://github.com/xai-org/grok-build)。這篇追蹤 Grok 從開源賭注到全家桶的完整演化。
 

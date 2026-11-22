@@ -13,7 +13,7 @@ description: "介紹三重縣御在所岳的藤内壁：花崗岩多段與裂隙
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-gozaisho-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-gozaisho-en)
 
 御在所（ございしょ，Gozaisho）在三重縣三重郡菰野町，是鈴鹿山脈的主峰御在所岳（標高 1,212 公尺）。攀岩者說的「御在所」，主要是山的北面那片花崗岩岩場「藤内壁」（とうないかべ）。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%BE%A1%E5%9C%A8%E6%89%80/) 的介紹是：「藤内壁は御在所岳北面に広がる美しい花崗岩の岩場で、アルパインのゲレンデとして現在も良く登られ」。
 

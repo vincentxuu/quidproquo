@@ -30,7 +30,7 @@ glossary:
     context: "下放時繩子固定磨同一個位置，會在鉤環上磨出銳利的凹槽。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en)
 
 你的吊帶標籤寫著五年前製造。你查了一下，Petzl 說紡織品最多 10 年，你鬆了一口氣：還有五年。然後你又看到 Black Diamond 說，吊帶正常使用的預期壽命大約三年。到底誰對？
 

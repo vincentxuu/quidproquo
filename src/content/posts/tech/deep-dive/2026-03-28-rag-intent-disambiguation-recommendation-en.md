@@ -14,7 +14,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-rag-intent-disambiguation-recommendation)
 
 While building a RAG system for climbing route recommendations, I ran into a subtle but painful bug: when a user says "recommend the next route" versus "recommend a similar route," both look like recommendation requests on the surface — but the underlying intent is completely different. The system was handling both with a single keyword-matching function, and the result was poor recommendation quality across the board.
 

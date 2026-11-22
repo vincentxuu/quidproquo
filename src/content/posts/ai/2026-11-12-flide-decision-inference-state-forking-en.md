@@ -10,7 +10,7 @@ description: "A guide to the decision-model inference engine Flide (arXiv:2610.4
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-12-flide-decision-inference-state-forking)
+> :globe: [中文版](/posts/ai/2026-11-12-flide-decision-inference-state-forking)
 
 [Flide](https://github.com/OmniJev/Flide) (paper: [arXiv:2610.42148](https://arxiv.org/abs/2610.42148), authors from the National University of Singapore and the University of Oxford) is an inference engine built for decision models. A decision model reads a long context, answers several multiple-choice questions about it, and outputs only a probability for each option, with no generated text. Flide computes the shared context once, then forks it into each question, and every answer matches what the model gives when asked that question alone.
 

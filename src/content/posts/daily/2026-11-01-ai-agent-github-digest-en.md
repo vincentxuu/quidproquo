@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, browser-automation, agent-tool-use]
 lang: en
 description: "T3 Code folds several coding agents into one remote-control phone app, Lightpanda rewrites the headless browser in Zig and cuts memory use to 1/16 of Chromium's, and anthropics/skills breaks 180k stars this week — while Pydantic AI and Claude Code both tighten up exactly what gets sent where behind the scenes"
-tldr: "**T3 Code** (⭐ 22.6k) turns an iOS/Android/desktop app into a remote control surface for multiple coding agents at once — Codex, Claude Code, Cursor, Grok Build, OpenCode, Google Antigravity. **Lightpanda** (⭐ 36k) rewrites the headless browser from scratch in Zig; its own benchmark shows memory use at roughly 1/16 of headless Chrome and page-fetch time about 9x faster. **anthropics/skills** gained 2,300 stars this week alone, crossing 185.7k — a sign Agent Skills is moving from a Claude-only feature to a format other platforms share. On the release side, **Pydantic AI v2.64.0** ships four compatibility notes that change how failed retries surface errors and how server state crosses providers, while **Claude Code v2.1.316** announces the retirement of Opus 4.8 fast mode at the end of November."
+tldr: "**T3 Code** (★ 22.6k) turns an iOS/Android/desktop app into a remote control surface for multiple coding agents at once — Codex, Claude Code, Cursor, Grok Build, OpenCode, Google Antigravity. **Lightpanda** (★ 36k) rewrites the headless browser from scratch in Zig; its own benchmark shows memory use at roughly 1/16 of headless Chrome and page-fetch time about 9x faster. **anthropics/skills** gained 2,300 stars this week alone, crossing 185.7k — a sign Agent Skills is moving from a Claude-only feature to a format other platforms share. On the release side, **Pydantic AI v2.64.0** ships four compatibility notes that change how failed retries surface errors and how server state crosses providers, while **Claude Code v2.1.316** announces the retirement of Opus 4.8 fast mode at the end of November."
 series:
   name: "AI Agent GitHub Digest"
   order: 78
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-01-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-11-01-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's center of gravity on GitHub shifted from "how do we build smarter agents
 
 ## Trending Repos
 
-### T3 Code ⭐ 22.6k
+### T3 Code ★ 22.6k
 
 [GitHub](https://github.com/pingdotgg/t3code) · TypeScript · MIT
 
@@ -30,7 +30,7 @@ Today's center of gravity on GitHub shifted from "how do we build smarter agents
 
 ---
 
-### Lightpanda ⭐ 36k
+### Lightpanda ★ 36k
 
 [GitHub](https://github.com/lightpanda-io/browser) · Zig · AGPL-3.0
 
@@ -41,7 +41,7 @@ Today's center of gravity on GitHub shifted from "how do we build smarter agents
 
 ---
 
-### anthropics/skills ⭐ 185.7k (+2.3k this week)
+### anthropics/skills ★ 185.7k (+2.3k this week)
 
 [GitHub](https://github.com/anthropics/skills) · Markdown + scripts · Apache-2.0 (example skills) / source-available (document skills)
 

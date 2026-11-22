@@ -14,7 +14,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-20-large-language-models)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-20-large-language-models)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

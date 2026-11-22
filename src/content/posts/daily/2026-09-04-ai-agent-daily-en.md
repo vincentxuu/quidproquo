@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-04-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -94,17 +94,17 @@ Europe, Japan/South Korea, and India were searched in this same window but turne
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-09-04](/posts/daily/2026-09-04-ai-agent-github-digest-en)
-- 📄 [Model Card: Gemini 3.8 Flash](/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
-- 📄 [Security Alert: Unit 42's AI-Agent-Orchestrated Enterprise Intrusion](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion-en)
-- 📄 [Framework Changelog: Pydantic AI 2.38.0](/posts/daily/2026-09-04-framework-pydantic-ai-2.38.0-en)
-- 📄 [Tool Pick: reverify](/posts/daily/2026-09-04-tool-reverify-en)
-- 📄 [Funding Alert: Conveo Series A $50M](/posts/daily/2026-09-04-funding-conveo-en)
-- 📄 [Funding Alert: HiddenLayer Series B $100M](/posts/daily/2026-09-04-funding-hiddenlayer-en)
-- 📄 [Pricing Tracker: Multi-Vendor Pricing Changes](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
-- 📄 [Region Focus: Europe](/posts/daily/2026-09-04-region-europe-en)
-- 📄 [Region Focus: Middle East](/posts/daily/2026-09-04-region-middle-east-en)
-- 📄 [Region Focus: Japan & Korea](/posts/daily/2026-09-04-region-japan-korea-en)
+- :file: [AI Agent GitHub Digest — 2026-09-04](/posts/daily/2026-09-04-ai-agent-github-digest-en)
+- :file: [Model Card: Gemini 3.8 Flash](/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
+- :file: [Security Alert: Unit 42's AI-Agent-Orchestrated Enterprise Intrusion](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion-en)
+- :file: [Framework Changelog: Pydantic AI 2.38.0](/posts/daily/2026-09-04-framework-pydantic-ai-2.38.0-en)
+- :file: [Tool Pick: reverify](/posts/daily/2026-09-04-tool-reverify-en)
+- :file: [Funding Alert: Conveo Series A $50M](/posts/daily/2026-09-04-funding-conveo-en)
+- :file: [Funding Alert: HiddenLayer Series B $100M](/posts/daily/2026-09-04-funding-hiddenlayer-en)
+- :file: [Pricing Tracker: Multi-Vendor Pricing Changes](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes-en)
+- :file: [Region Focus: Europe](/posts/daily/2026-09-04-region-europe-en)
+- :file: [Region Focus: Middle East](/posts/daily/2026-09-04-region-middle-east-en)
+- :file: [Region Focus: Japan & Korea](/posts/daily/2026-09-04-region-japan-korea-en)
 
 ## Tomorrow's Watch
 

@@ -22,7 +22,7 @@ glossary:
     context: "L4 的共享位址空間網格解算器用 barrier 分隔紅格與黑格的更新。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-parallelizing-thought-process-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

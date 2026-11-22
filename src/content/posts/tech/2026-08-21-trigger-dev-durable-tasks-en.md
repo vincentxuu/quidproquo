@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-trigger-dev-durable-tasks)
+> :globe: [中文版](/posts/tech/2026-08-21-trigger-dev-durable-tasks)
 
 This site already has a dedicated piece on [Temporal](/posts/tech/2026-08-21-temporal-durable-execution-en), covering the replay model of durable execution — when a worker crashes, it re-executes the workflow code from the top, using the event history to skip completed steps. That article left an axis open: **does recovery re-execute your orchestration code?** [Trigger.dev](https://trigger.dev/docs/introduction) sits on the other side. It uses [CRIU](https://criu.org/Main_Page) (Checkpoint/Restore In Userspace) to snapshot the entire Node.js process, then restores it at the exact point of interruption without re-executing a single line of your code.
 

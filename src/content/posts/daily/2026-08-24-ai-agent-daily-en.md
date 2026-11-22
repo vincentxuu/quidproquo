@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-24-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -99,13 +99,13 @@ Japan's Ministry of Economy, Trade and Industry (METI) launched the FRONTia proj
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-github-digest)
-- 📄 [Model Card | Muse Spark 1.2](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
-- 📄 [Security Alert | Xinference eval() for LLM Tool Calls](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
-- 📄 [Tool Pick | localmem-mcp](/posts/daily/2026-08-24-tool-localmem-mcp)
-- 📄 [AI Engineer Interview Daily — 2026-08-24: ML Fundamentals](/posts/daily/2026-08-24-ai-interview-daily)
-- 📄 [Product Builder Interview Daily — 2026-08-24: Product Sense](/posts/daily/2026-08-24-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-github-digest)
+- :file: [Model Card | Muse Spark 1.2](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
+- :file: [Security Alert | Xinference eval() for LLM Tool Calls](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
+- :file: [Tool Pick | localmem-mcp](/posts/daily/2026-08-24-tool-localmem-mcp)
+- :file: [AI Engineer Interview Daily — 2026-08-24: ML Fundamentals](/posts/daily/2026-08-24-ai-interview-daily)
+- :file: [Product Builder Interview Daily — 2026-08-24: Product Sense](/posts/daily/2026-08-24-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

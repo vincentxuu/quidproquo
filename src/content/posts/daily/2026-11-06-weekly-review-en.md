@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-06-weekly-review)
+> :globe: [中文版](/posts/daily/2026-11-06-weekly-review)
 
 ## The 5 Biggest Things This Week
 
@@ -59,7 +59,7 @@ The implication for enterprise adoption: picking an agent vendor based purely on
 
 ## Watchlist Update Suggestions
 
-### 🆕 Candidates to add
+### Candidates to add
 
 Every company that showed up in this week's signals was already on the watchlist — no company outside the watchlist crossed the 3+ appearance threshold. The following startups surfaced for the first time this week via standalone funding stories, haven't yet hit that threshold, and are listed in the startup radar below for now pending higher future frequency:
 
@@ -69,9 +69,9 @@ Every company that showed up in this week's signals was already on the watchlist
 | Traversal | AI SRE using causal reasoning to find production root causes | 1 | [Traversal](https://www.traversal.com/blog/traversal-series-b-120-million-ai-sre) | B6 (Agent observability / evaluation) |
 | Larridin | Audits enterprise AI spend | 1 | [Business Insider](https://www.businessinsider.com/larridin-ai-spending-measurement-series-a-30-million-2026-11) | B6 (Agent observability / evaluation) |
 
-### ⚠️ Candidates to remove
+### :warning: Candidates to remove
 
-✅ No companies met the removal criteria this week (no confirmed shutdown or exit-from-the-agent-space source found).
+✓ No companies met the removal criteria this week (no confirmed shutdown or exit-from-the-agent-space source found).
 
 ## This Week's Startup Radar
 

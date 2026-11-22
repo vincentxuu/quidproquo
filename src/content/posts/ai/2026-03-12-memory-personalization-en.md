@@ -14,7 +14,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-memory-personalization)
+> :globe: [中文版](/posts/ai/2026-03-12-memory-personalization)
 
 Most RAG systems treat every user identically: the same question gets the same answer regardless of whether the person is a beginner or an expert. But in rock climbing, skill level and preferences vary enormously — 5.10 is a challenge for a newcomer and a warmup for a seasoned climber.
 

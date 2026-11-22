@@ -28,7 +28,7 @@ glossary:
         url: "https://arxiv.org/abs/2307.15043"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-risks-alignment-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-risks-alignment-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

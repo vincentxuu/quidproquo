@@ -128,12 +128,12 @@ Improbable 旗下新創 Bolter 獲 $10M 投資,打造給人類與 AI agent 混�
 
 ## 今日 Digest 一覽
 
-- 📄 [框架更新｜Temporal v1.32.0](/posts/daily/2026-09-12-framework-temporal-1.32.0)
-- 📄 [融資速報｜Mistral Series D €3B](/posts/daily/2026-09-12-funding-mistral)
-- 📄 [模型卡｜DeepSeek-V4.1-Flash](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
-- 📄 [工具推薦｜mcp-bi — 讓 Agent 用同一組工具呼叫讀懂 Superset、Metabase 到 Power BI 的儀表板](/posts/daily/2026-09-12-tool-mcp-bi)
-- 📄 [AI Engineer 面試日練 — 2026-09-12：Paper Reading](/posts/daily/2026-09-12-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-12：Technical PM](/posts/daily/2026-09-12-product-builder-interview-daily)
+- :file: [框架更新｜Temporal v1.32.0](/posts/daily/2026-09-12-framework-temporal-1.32.0)
+- :file: [融資速報｜Mistral Series D €3B](/posts/daily/2026-09-12-funding-mistral)
+- :file: [模型卡｜DeepSeek-V4.1-Flash](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
+- :file: [工具推薦｜mcp-bi — 讓 Agent 用同一組工具呼叫讀懂 Superset、Metabase 到 Power BI 的儀表板](/posts/daily/2026-09-12-tool-mcp-bi)
+- :file: [AI Engineer 面試日練 — 2026-09-12：Paper Reading](/posts/daily/2026-09-12-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-12：Technical PM](/posts/daily/2026-09-12-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -13,7 +13,7 @@ description: "A reading of CMU 07-280 Spring 2026 Lecture 11: neurons, activatio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-11-neural-networks)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-07280-lecture-11-neural-networks)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

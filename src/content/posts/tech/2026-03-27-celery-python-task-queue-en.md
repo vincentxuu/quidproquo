@@ -10,7 +10,7 @@ description: "Celery makes it easy to push tasks into background execution in Py
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-celery-python-task-queue)
+:globe: [中文版](/posts/tech/2026-03-27-celery-python-task-queue)
 
 Python's async/await handles I/O concurrency well, but CPU-intensive work or tasks that wait on external APIs (like calling an LLM) will still slow down your API if they sit inside the request/response cycle. The solution is to push these tasks into a background queue and let worker processes consume them asynchronously.
 

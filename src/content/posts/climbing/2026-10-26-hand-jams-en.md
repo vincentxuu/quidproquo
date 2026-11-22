@@ -26,7 +26,7 @@ glossary:
     context: "Tom Randall and others call this swimming, but some people use 'like swimming' to describe crossing hand over hand, so check the context."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-hand-jams)
+> :globe: [中文版](/posts/climbing/2026-10-26-hand-jams)
 
 A hand-width crack is the size most people learn first, and the most secure. When the jam is good, you can hang off one hand to rest and even let go with your fingers without falling out. Finger cracks, fists and offwidths all grow out of this move.
 

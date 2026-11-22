@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-funding-town)
+> :globe: [中文版](/posts/daily/2026-10-20-funding-town)
 
 ## Funding Details
 

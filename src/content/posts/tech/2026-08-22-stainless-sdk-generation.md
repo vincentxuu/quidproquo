@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-stainless-sdk-generation-en)
+> :globe: [English version](/posts/tech/2026-08-22-stainless-sdk-generation-en)
 
 [Stainless](https://www.stainless.com/docs/) 從 OpenAPI 產生 TypeScript、Python、Go、Java 等 SDK，也能延伸到 reference docs、CLI、Terraform provider 與 MCP server。它解的不是「把 schema 轉成 interface」，而是每次 API 變更後，怎麼穩定產生、測試、預覽、發布並升級多個語言 package。
 

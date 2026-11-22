@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 3
 ---
-> 🌏 [中文版](/posts/daily/2026-05-27-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-27-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ SafeFix's design philosophy has direct implications for agent platform UX — su
 ### Deep Dive
 
 - **Evaluation dataset**: 300 carefully designed scenarios (6 risk categories) + 630 independently generated adversarial scenarios (safe development workflows, medium-risk DevOps operations, dangerous attacks, and obfuscation bypasses)
-- **Key numbers**: the production ruleset achieved **95.0% verdict accuracy** and 73.7% risk-level accuracy on internal benchmarks, with end-to-end latency in the millisecond range ⚠️ (internal benchmark, not a public test set — interpret with caution)
+- **Key numbers**: the production ruleset achieved **95.0% verdict accuracy** and 73.7% risk-level accuracy on internal benchmarks, with end-to-end latency in the millisecond range :warning: (internal benchmark, not a public test set — interpret with caution)
 - **Shell deobfuscation breadth** is a highlight: ANSI-C quoting (`$'\x41\x42'`) and adjacent-quote concatenation (`'ca''t'`) are common in real obfuscation but rarely covered by defense systems
 - **Limitation**: single-author paper with no peer cross-validation; the 630 adversarial scenarios were independently generated, and how they compare to real production traffic distributions is unknown; no comparison with other defense tools (e.g., eBPF sandboxes)
 - **Framework integration**: AgentTrust is positioned as middleware that can sit in front of LangGraph / AutoGen tool dispatchers; MCP servers could also add a similar mechanism as a pre-execution hook
@@ -131,7 +131,7 @@ The researchers developed **Hermes** — a multi-agent LLM system that scans Ope
 ### Deep Dive
 
 - **Industrial-scale validation**: 16 production APIs, ~600 endpoints from a real microservices architecture, not synthetic data
-- **Key findings**: 2,450 smells detected total, averaging 4.08 per endpoint, **every single endpoint had at least one smell** ⚠️ (a 100% hit rate raises questions about false positive rates; Hermes' own precision/recall numbers are not provided)
+- **Key findings**: 2,450 smells detected total, averaging 4.08 per endpoint, **every single endpoint had at least one smell** :warning: (a 100% hit rate raises questions about false positive rates; Hermes' own precision/recall numbers are not provided)
 - **Actionable smell taxonomy**: the fix for FRAGMENTED is "consolidate information"; the fix for LAZY is "make descriptions specific" — no API architecture rewrite needed, just documentation changes
 - **Direct MCP connection**: failure cases explicitly trace back to two core flows in MCP agents — tool selection and payload construction
 - **Limitation**: all 16 APIs come from a single company, so generalizability needs verification; "every endpoint has a smell" may also reflect overly strict classification criteria; Hermes itself provides no precision/recall evaluation metrics
@@ -187,7 +187,7 @@ This paper advances personalization from "adding user preference descriptions in
 
 ### Deep Dive
 
-- **Public evaluation numbers are missing** ⚠️: no concrete experimental results could be found through search; readers should consult the paper's experiment section before making judgments
+- **Public evaluation numbers are missing** :warning:: no concrete experimental results could be found through search; readers should consult the paper's experiment section before making judgments
 - **Three tightly coupled components**: PARPO needs PSGM for personalized skills, and the reward model provides training signals for PARPO — the system is hard to deploy piecemeal, making engineering costs relatively high
 - **Conformity effect disentanglement** is a real engineering problem: both human annotations and user feedback carry this bias; the two-stage separation approach is academically creative but effectiveness remains to be validated
 - **PSGM's graph memory** design is conceptually close to RAG (Retrieval-Augmented Generation) but uses a heterogeneous graph instead of vector search, better suited for expressing complex relationships among multiple entity types (users, skills, tools)

@@ -12,7 +12,7 @@ series:
   order: 81
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-13-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-13-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -57,7 +57,7 @@ Existing memory-augmented agents mainly solve "how to store" and "how to retriev
 
 ### Deep Dive
 
-- Consistently outperforms existing memory-augmented agent baselines across multiple backbone models ⚠️ (author-evaluated, awaiting external replication)
+- Consistently outperforms existing memory-augmented agent baselines across multiple backbone models :warning: (author-evaluated, awaiting external replication)
 - Ablation shows significant performance drop when graph editing is removed, proving append-only is insufficient
 - Utility-aware retrieval outperforms pure semantic similarity retrieval
 - Deployment overhead: requires running graph update logic after each task; additional latency is acceptable for small-scale deployments
@@ -103,7 +103,7 @@ In multi-agent workflows, shared memory lets agents reuse other agents' outputs,
 ### Deep Dive
 
 - 2,700 synthetic tasks (three domains), 94.96% overall success rate, 72.70% precise decisions
-- Clean scenario (requiring correct pass-through rather than security blocking) success rate 90.22% ⚠️ (author-evaluated)
+- Clean scenario (requiring correct pass-through rather than security blocking) success rate 90.22% :warning: (author-evaluated)
 - Ablation study isolates contributions of permission filtering, path trust, and action gating
 - Precise decision and access control advantages hold across two different backbone models
 - Deployment overhead: requires pre-defined permission rules and trust scoring; easier to integrate for enterprises with existing RBAC systems
@@ -150,7 +150,7 @@ Information exchange between agents today is almost entirely text-based — one 
 
 - Tested on five store structures: chain, pipeline, symmetric, hub, and natural language
 - Successfully recovered target fragments under isolation conditions, remaining effective as irrelevant fragments increase
-- Cross-model-family transfer tests passed ⚠️ (author-evaluated, limited scale)
+- Cross-model-family transfer tests passed :warning: (author-evaluated, limited scale)
 - Routing stage still depends on store size; end-to-end performance needs further evaluation
 - High deployment bar: requires models to expose KV cache interfaces, which mainstream APIs currently don't support
 - Lexical routing may miss semantically related but lexically disconnected evidence

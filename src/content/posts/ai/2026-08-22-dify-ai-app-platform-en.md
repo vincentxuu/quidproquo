@@ -10,7 +10,7 @@ description: "An application-lifecycle introduction and hands-on guide to Dify m
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-dify-ai-app-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-dify-ai-app-platform)
 
 [Dify](https://github.com/langgenius/dify) is an open-source AI application platform. It combines model providers, knowledge bases, visual workflows, Agents, tools, execution records, and application publishing in one workspace. RAG is one capability rather than the platform's only center.
 

@@ -26,7 +26,7 @@ glossary:
     context: "怕失敗的感覺常在「這次應該送得掉」的紅點嘗試時最強。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-performance-anxiety-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-performance-anxiety-en)
 
 你已經練過墜落，在快扣上方放手不太怕了。可是到了 project 的紅點嘗試，爬到 crux 前還是腳軟、手抓死，最後在一個練過十次的動作前喊了 take。或者平常爬得好好的，岩館人一多、有人在下面看，你就開始亂掉。
 

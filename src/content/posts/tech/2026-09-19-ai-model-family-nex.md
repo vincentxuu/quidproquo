@@ -20,7 +20,7 @@ glossary:
     definition: "Nex-N2.5 控制思考行為的參數：none 直接回答、medium（預設）自適應思考、high 強制思考。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-nex-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-nex-en)
 
 2026 年 9 月 8 日，[Nex AGI](https://nex-agi.com/) 發佈 [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini)——一個從 35B 到 1.6T 的開源 agentic 模型家族，全部掛 Apache-2.0。其中最抓眼球的不是最大的那個，而是中間的 Pro：在 [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) 電腦操作定位上拿下 87.4 分，贏過 [Claude Opus 5](https://www.anthropic.com/) 的 76.8 分；而最大的 Max 則在 BrowseComp 以 92.6 分居官方全表之冠。這是「AI 模型家族」系列的第二十二篇，追蹤 Nex 從 Nex-N2 到 N2.5 的完整路徑。
 

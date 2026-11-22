@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-vitest-testing-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-vitest-testing-framework-en)
 
 [Vitest](https://vitest.dev/guide/) 是以 Vite 為底層的 JavaScript／TypeScript 測試框架。它提供熟悉的 `describe`、`test`、`expect` 與 mock API，但「像 Jest」不是核心價值；真正的差別是測試預設讀取 `vite.config.*`，直接沿用 alias、transform 與 framework plugin。應用怎麼解讀原始碼，測試就盡量怎麼解讀，少維護一份平行設定。
 

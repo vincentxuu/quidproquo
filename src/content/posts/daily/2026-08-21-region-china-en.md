@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-region-china)
+> :globe: [中文版](/posts/daily/2026-08-21-region-china)
 
 ## Region: China
 

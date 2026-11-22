@@ -10,7 +10,7 @@ description: "A practical guide to Algolia records and indices, tie-breaking ran
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-algolia-site-search)
+> :globe: [中文版](/posts/tech/2026-08-22-algolia-site-search)
 
 [Algolia](https://www.algolia.com/doc/) is a hosted search service. An application turns articles, products, or documents into JSON records, sends them to a remote index, then queries that index from a browser or backend. It is not a query layer over your existing database. It joins indexing, relevance configuration, querying, and interactive UI into one product.
 

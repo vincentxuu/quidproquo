@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 開發的大型語言模型家族，Flash 為其中主打速度與成本效益的分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
+> :globe: [English version](/posts/daily/2026-09-04-model-google-gemini-3-8-flash-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | Humanity's Last Exam | 45.4% | 45.7% | — |
 | CWE-Bench（Cyber 變體，修補 pass@1） | 47.2% | — （首代 Cyber 對照為 3.5 Flash Cyber，未公佈確切數字） | 領先 frontier 模型 47.8% |
 
-⚠️ 以上均為 Google 官方公佈的內部評測結果（部分含跨廠商模型比較），非各廠商自行公佈的第三方複現數據。CWE-Bench 為第三方機構 Collinear 執行的外部 benchmark，其餘 Cyber 相關數據（CyberGym、20 語言真實漏洞挖掘）目前僅有 Google 自測結果，尚待外部複現。本站前一篇 3.7 Flash 模型卡記錄的 Terminal-Bench 2.1 數字為 85.8%，與本次 Google 官方對照表所列的 81.6% 不一致，推測評測方法或 agent harness 版本有變動（DeepMind 揭露 Terminal-Bench 2.1 統一改用 Terminus 2 harness 重新量測），本文採用 3.8 Flash 發佈當下 Google 官方對照表的數字。
+:warning: 以上均為 Google 官方公佈的內部評測結果（部分含跨廠商模型比較），非各廠商自行公佈的第三方複現數據。CWE-Bench 為第三方機構 Collinear 執行的外部 benchmark，其餘 Cyber 相關數據（CyberGym、20 語言真實漏洞挖掘）目前僅有 Google 自測結果，尚待外部複現。本站前一篇 3.7 Flash 模型卡記錄的 Terminal-Bench 2.1 數字為 85.8%，與本次 Google 官方對照表所列的 81.6% 不一致，推測評測方法或 agent harness 版本有變動（DeepMind 揭露 Terminal-Bench 2.1 統一改用 Terminus 2 harness 重新量測），本文採用 3.8 Flash 發佈當下 Google 官方對照表的數字。
 
 ## 與前代/競品比較
 

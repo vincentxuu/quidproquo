@@ -10,7 +10,7 @@ description: "沿 AI 應用生命週期介紹並實作 Dify：模型設定、Kno
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-dify-ai-app-platform-en)
+> :globe: [English version](/posts/ai/2026-08-22-dify-ai-app-platform-en)
 
 [Dify](https://github.com/langgenius/dify) 是開放原始碼的 AI 應用平台。它把模型供應商、知識庫、視覺化 workflow、Agent、工具、執行紀錄與應用發布放進同一個 workspace。RAG 是其中一項能力，不是整套產品的唯一中心。
 

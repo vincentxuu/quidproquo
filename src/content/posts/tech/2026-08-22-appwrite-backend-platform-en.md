@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-appwrite-backend-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-appwrite-backend-platform)
 
 [Appwrite](https://appwrite.io/docs) is an open-source BaaS for Auth, Databases or TablesDB, Storage, Functions, Realtime, Messaging, and Sites through client and server SDKs, REST, GraphQL, and WebSockets. Teams can use Appwrite Cloud or deploy the same product line themselves.
 

@@ -20,7 +20,7 @@ description: "9Router is a local router that unifies Claude Code / Cursor / Clin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-9router-ai-coding-router-introduction)
+> :globe: [中文版](/posts/ai/2026-05-09-9router-ai-coding-router-introduction)
 
 The [previous post comparing LLM inference services](https://quidproquo.cc/posts/ai/2026-05-09-llm-inference-free-tier-comparison/) laid out the free tiers and pricing of 30+ inference providers. The next question is: once you have a pile of API keys, how do you make Claude Code, Cursor, Cline, and other CLIs automatically switch between them, max out your subscription, and seamlessly fall back to cheap or free tiers when quota runs out?
 

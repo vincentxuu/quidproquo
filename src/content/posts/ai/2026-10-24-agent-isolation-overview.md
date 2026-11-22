@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-overview-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-overview-en)
 
 Coding agent、程式碼直譯器和雲端沙盒產品的說明頁，不少都會寫「在隔離環境中執行」。這句話省略了三件事：隔離的是什麼、靠哪一層做到、哪些東西其實還共用。
 

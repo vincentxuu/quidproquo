@@ -70,9 +70,17 @@ export function researchProblems(text, exists = existsSync) {
   return miss;
 }
 
-export function reviewProblems(text) {
-  return REVIEW_REQUIRED.filter(([, re]) => !re.test(text)).map(([label]) => label);
+// 書籍導讀（tags 含 reading-guide）另需「## 冷讀」：只給子代理正文，答得出事件／論點、作者與研究的差異、
+// 讀完能做什麼與系列收穫。審稿者讀過研究筆記看不出缺口，Mackay 篇三節全綠仍被讀者說「沒頭沒尾」（2026-11-20）。
+// 規則：.agents/skills/post/references/book-guide-contract.md「冷讀」。只在指定檔案（pre-commit）時查，舊文改到才補。
+const COLD_READ = ['## 冷讀', /^##\s*冷讀/m];
+
+export function reviewProblems(text, { coldRead = false } = {}) {
+  const required = coldRead ? [...REVIEW_REQUIRED, COLD_READ] : REVIEW_REQUIRED;
+  return required.filter(([, re]) => !re.test(text)).map(([label]) => label);
 }
+
+const isBookGuide = (text) => /^tags:.*\breading-guide\b/m.test(text.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '');
 
 function seriesNameOf(text) {
   const fm = text.match(/^---\n([\s\S]*?)\n---/);
@@ -112,11 +120,12 @@ function run(files, explicit) {
   const reviewed = explicit ? gated : gated.filter((s) => !rewriting.has(s.slug));
   const nameToSlug = new Map(reviewed.flatMap((s) => s.names.map((n) => [n, s.slug])));
   for (const f of files) {
-    const series = seriesNameOf(readFileSync(f, 'utf8'));
+    const postText = readFileSync(f, 'utf8');
+    const series = seriesNameOf(postText);
     if (!series || !nameToSlug.has(series)) continue;
     const review = join(REVIEWS, `${postSlug(f)}.md`);
     if (!existsSync(review)) { errors.push(`${f} 沒有審稿紀錄 ${review}（post-verify＋post-review＋post-polish）`); continue; }
-    const miss = reviewProblems(readFileSync(review, 'utf8'));
+    const miss = reviewProblems(readFileSync(review, 'utf8'), { coldRead: explicit && isBookGuide(postText) });
     if (miss.length) errors.push(`${review} 缺：${miss.join('、')}`);
   }
   return { errors, gated: gated.length };
@@ -137,6 +146,9 @@ function selfTest() {
   assert(researchProblems('`.work/research/a-b/research-note.md`', () => true).length === 1, '缺五關判準會擋');
   assert(reviewProblems('## post-verify\n## post-review\n## post-polish').length === 0, '三節齊全的審稿紀錄通過');
   assert(reviewProblems('## post-verify\n只做了查證').length === 2, '只有查證會擋');
+  assert(reviewProblems('## post-verify\n## post-review\n## post-polish', { coldRead: true }).length === 1, '書籍導讀缺冷讀會擋');
+  assert(reviewProblems('## post-verify\n## post-review\n## post-polish\n## 冷讀\n- a', { coldRead: true }).length === 0, '書籍導讀有冷讀通過');
+  assert(isBookGuide('---\ntags: [series, reading-guide]\n---\n') && !isBookGuide('---\ntags: [x]\n---\nreading-guide'), '只看 frontmatter tags 判斷書籍導讀');
   assert(postSlug('src/content/posts/tech/2026-10-13-x-en.md') === '2026-10-13-x', '中英共用審稿紀錄');
   assert(seriesNameOf('---\ntitle: t\nseries:\n  name: "A B"\n  order: 1\n---\n') === 'A B', '讀 frontmatter 的系列名');
   assert(seriesNameOf('---\ndraft: true\nseries:\n  name: "A B"\n---\n') === null, '草稿不檢查');

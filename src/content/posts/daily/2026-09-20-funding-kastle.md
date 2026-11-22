@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-20-funding-kastle-en)
+> :globe: [English version](/posts/daily/2026-09-20-funding-kastle-en)
 
 ## 融資資訊
 

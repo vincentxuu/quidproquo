@@ -13,7 +13,7 @@ description: "An overview of Claw Code's architecture, tool system, feature-pari
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation)
+> :globe: [中文版](/posts/ai/2026-04-05-claw-code-rust-claude-code-reimplementation)
 
 Claude Code is Anthropic's official CLI agent tool, but it's not open source. Claw Code did something bold: **rewrite a feature-aligned alternative from scratch in Rust** — and the entire development process itself was a public experiment in multi-AI-agent collaboration.
 

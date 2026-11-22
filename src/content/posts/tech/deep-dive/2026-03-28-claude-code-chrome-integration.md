@@ -13,7 +13,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration-en)
 
 [系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)講過，Claude Code 的 agentic loop 有三個階段：蒐集 context、採取行動、驗證結果。但 loop 一直以來只碰得到終端機和檔案系統——前端改動的最終裁判是瀏覽器，驗證那一步卻得靠你自己切視窗、重新整理、開 DevTools 看 console。Chrome 整合補的就是這塊：它透過 [Claude in Chrome 擴充套件](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn)把瀏覽器變成 loop 裡的一組工具，讓「build → 在瀏覽器驗證 → 回頭修 code」在同一個對話裡跑完。同系列 G 叢集的另一篇講的是另一種 surface——[Slack 整合與 Claude Tag](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)；這篇聚焦瀏覽器。
 

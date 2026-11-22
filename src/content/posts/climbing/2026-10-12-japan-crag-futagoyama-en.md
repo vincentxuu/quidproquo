@@ -13,7 +13,7 @@ description: "A guide to Futagoyama in Chichibu, Saitama: rock type, size and gr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-futagoyama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-futagoyama)
 
 Futagoyama (二子山, "twin mountain") sits in Ogano, Chichibu District, Saitama Prefecture. It is a double summit of two limestone peaks, Higashi-dake (East Peak) and Nishi-dake (West Peak), with climbing sectors scattered across both. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%BA%8C%E5%AD%90%E5%B1%B1/) (in Japanese) gives the wall angle as 90–135 degrees, and most routes fall in the 5.11 and 5.12 grades; only 8 are 5.9 or easier. [Mountain Project](https://www.mountainproject.com/area/108546606/futagoyama) opens with "One of Japan's premiere limestone crags."
 

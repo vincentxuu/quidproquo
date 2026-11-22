@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/investing/2026-08-07-drone-maker-financials-en)
+> :globe: [English version](/posts/investing/2026-08-07-drone-maker-financials-en)
 
 **先講三個邊界。**
 

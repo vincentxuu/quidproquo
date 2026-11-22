@@ -10,7 +10,7 @@ description: "介紹 Portkey AI Gateway 的定位、路由設定、觀測與治�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-portkey-ai-gateway-en)
+> :globe: [English version](/posts/ai/2026-08-22-portkey-ai-gateway-en)
 
 [Portkey](https://portkey.ai/docs/product/ai-gateway) 是放在應用程式與模型供應商之間的 AI Gateway。它不訓練模型，也不是另一家賣 token 的推論服務；它接住原本要送往 OpenAI、Anthropic、Google 或自架模型的請求，在中間處理路由、重試、fallback、用量紀錄、預算與安全規則。
 

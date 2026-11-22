@@ -25,7 +25,7 @@ glossary:
     definition: "Google DeepMind's invisible watermark embedded directly in generated pixels or audio waveforms. Human eyes cannot see it, but detection tools can read it. Veo and Imagen include it."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-ai-model-family-video-generation)
+> :globe: [中文版](/posts/tech/2026-08-26-ai-model-family-video-generation)
 
 In February 2024, OpenAI previewed Sora with a minute-long Tokyo street scene and realistic physical reflections. The industry suddenly took text-to-video seriously. Sora was not even a public product—only a few filmmakers could test it—but it set the agenda for the next two years. Two and a half years later, this fifteenth family deep dive in the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) has different protagonists: Sora has announced its exit, and Veo, Kling, and Runway divide the market.
 

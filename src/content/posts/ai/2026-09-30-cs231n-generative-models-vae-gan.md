@@ -22,7 +22,7 @@ glossary:
     context: "VAE 訓練時從編碼器輸出的分布取樣 z 需要它。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-generative-models-vae-gan-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

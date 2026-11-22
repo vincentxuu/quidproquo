@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-17-funding-profound-en)
+> :globe: [English version](/posts/daily/2026-09-17-funding-profound-en)
 
 ## 融資資訊
 

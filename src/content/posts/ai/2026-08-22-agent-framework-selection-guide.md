@@ -10,7 +10,7 @@ description: "用編排原語、狀態耐久性、多 agent 模型、型別、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-agent-framework-selection-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-agent-framework-selection-guide-en)
 
 七套名字常出現在同一張「Agent 框架」清單，實際上解的是不同問題。[LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) 是低階編排 runtime。[CrewAI](https://docs.crewai.com/) 與 [AG2](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/pattern-cookbook/overview/) 先處理多 agent 怎麼合作。[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/)（下稱 MAF）與 [Mastra](https://mastra.ai/ai-workflows) 同時提供 agent 與明確工作流。[Pydantic AI](https://ai.pydantic.dev/agents/) 從型別化 Python agent 出發；[DSPy](https://dspy.ai/) 則把提示、工具使用與推理策略當成可以用資料最佳化的程式。
 

@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-tool-mcp-guardrail)
+> :globe: [中文版](/posts/daily/2026-08-25-tool-mcp-guardrail)
 
 ## Tool Info
 
@@ -97,10 +97,10 @@ rules:
 
 | | mcp-guardrail | Bare direct connection | General-purpose secret scanners (gitleaks, etc.) | Host-native tool permission settings |
 |---|---|---|---|---|
-| Tool-level allow/deny policy | ✅ (glob pattern) | ❌ | ❌ (no MCP semantics) | Varies by host, usually coarse-grained |
-| Auditable call log | ✅ (local JSONL) | ❌ | ❌ | Most hosts lack a standalone portable audit file |
-| Secret scanning for MCP configs | ✅ | ❌ | Partial (generic patterns, not MCP-specific heuristics) | ❌ |
-| Same config works across MCP clients | ✅ (proxy layer, host-agnostic) | — | — | ❌ (permissions tied to the specific host) |
+| Tool-level allow/deny policy | ✓ (glob pattern) | ✗ | ✗ (no MCP semantics) | Varies by host, usually coarse-grained |
+| Auditable call log | ✓ (local JSONL) | ✗ | ✗ | Most hosts lack a standalone portable audit file |
+| Secret scanning for MCP configs | ✓ | ✗ | Partial (generic patterns, not MCP-specific heuristics) | ✗ |
+| Same config works across MCP clients | ✓ (proxy layer, host-agnostic) | — | — | ✗ (permissions tied to the specific host) |
 | Requires extra services or accounts | No, pure CLI | — | No | No |
 
 ## Caveats

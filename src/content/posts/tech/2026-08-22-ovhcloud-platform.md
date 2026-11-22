@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ovhcloud-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-ovhcloud-platform-en)
 
 [OVHcloud](https://docs.ovhcloud.com/en/) 橫跨 VPS、Dedicated Server、Public Cloud、Managed Kubernetes、database、object/block/file storage，以及 VMware/Nutanix 等 hosted private cloud。Public Cloud 大量採用 OpenStack API，適合需要標準 IaaS 與 public/dedicated/private resource 混合的團隊。
 

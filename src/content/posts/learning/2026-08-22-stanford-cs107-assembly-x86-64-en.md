@@ -13,7 +13,7 @@ description: "A guided reading of Stanford CS107 Winter 2026 Lecture 14: the com
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-x86-64)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs107-assembly-x86-64)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

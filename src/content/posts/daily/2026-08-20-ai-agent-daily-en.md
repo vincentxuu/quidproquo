@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-20-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-20-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -79,14 +79,14 @@ UK enterprise knowledge-graph company Prevalent AI secured $22M in its first ins
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
-- 📄 [Model Card | Grok 4.6](/posts/daily/2026-08-20-model-xai-grok-4-6)
-- 📄 [Security Alert | CoSnitch](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
-- 📄 [Funding Brief | Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
-- 📄 [Tool Pick | comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
-- 📄 [AI Engineer Interview Daily — 2026-08-20: ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
-- 📄 [Product Builder Interview Daily — 2026-08-20: Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
+- :file: [Model Card | Grok 4.6](/posts/daily/2026-08-20-model-xai-grok-4-6)
+- :file: [Security Alert | CoSnitch](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
+- :file: [Funding Brief | Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
+- :file: [Tool Pick | comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
+- :file: [AI Engineer Interview Daily — 2026-08-20: ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
+- :file: [Product Builder Interview Daily — 2026-08-20: Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

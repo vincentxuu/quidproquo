@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-tool-mcp-memory)
+> :globe: [中文版](/posts/daily/2026-08-17-tool-mcp-memory)
 
 ## Tool Info
 
@@ -93,11 +93,11 @@ export MCP_MEMORY_DB_PATH=.mcp_memory/memories.db  # SQLite index location
 
 | | mcp-memory | Mem0 | Manually maintaining CLAUDE.md |
 |---|---|---|---|
-| Local execution, no API key | ✅ | ❌ (requires cloud account) | ✅ |
-| Standardized format (cross-Agent compatible) | ✅ (OKF v0.2) | ❌ (proprietary schema) | ❌ (plain text, no schema) |
-| Full-text search | ✅ SQLite FTS5 | ✅ vector search | ❌ Agent reads entire file |
-| Human-readable, Git-diffable | ✅ (Markdown) | ❌ (stored in vector DB) | ✅ |
-| Session checkpoint (tracking "where I left off") | ✅ | Requires custom design | Requires manual maintenance |
+| Local execution, no API key | ✓ | ✗ (requires cloud account) | ✓ |
+| Standardized format (cross-Agent compatible) | ✓ (OKF v0.2) | ✗ (proprietary schema) | ✗ (plain text, no schema) |
+| Full-text search | ✓ SQLite FTS5 | ✓ vector search | ✗ Agent reads entire file |
+| Human-readable, Git-diffable | ✓ (Markdown) | ✗ (stored in vector DB) | ✓ |
+| Session checkpoint (tracking "where I left off") | ✓ | Requires custom design | Requires manual maintenance |
 | Cost | Free | $19–249/mo | Free |
 
 ## Caveats

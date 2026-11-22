@@ -11,7 +11,7 @@ series:
   order: 149
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-20-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 

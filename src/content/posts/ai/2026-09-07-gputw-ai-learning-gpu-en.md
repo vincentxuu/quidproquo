@@ -13,7 +13,7 @@ description: "A practical guide for people who want to learn AI models without o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-07-gputw-ai-learning-gpu)
+> :globe: [中文版](/posts/ai/2026-09-07-gputw-ai-learning-gpu)
 
 If you want to learn models, the first wrong assumption is usually that you need to start by training a large model. You do not. What you need is a place where you can make small mistakes repeatedly: load a model, watch GPU memory fill up, run a short training job, save a checkpoint, change batch size, and try again.
 

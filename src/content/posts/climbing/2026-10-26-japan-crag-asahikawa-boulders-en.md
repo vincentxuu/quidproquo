@@ -13,7 +13,7 @@ description: "Asahikawa Boulders climbing guide: seasons, public transport, park
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders)
 
 Asahikawa Boulders is a regional group centred on Kamuikotan and extending toward Amekon and Shunshunai. Kenji Komoro and Ryozanpaku are key names. The separate Kamuiiwa guide covers roped cliffs, not another copy of these boulders.
 

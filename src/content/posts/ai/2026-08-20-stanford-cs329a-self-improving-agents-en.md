@@ -16,7 +16,7 @@ description: "An Autumn 2025 course overview linking nine recorded sessions, thr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
+> :globe: [中文版](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

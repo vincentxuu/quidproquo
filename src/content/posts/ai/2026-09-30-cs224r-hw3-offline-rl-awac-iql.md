@@ -26,7 +26,7 @@ glossary:
     context: "CS224R HW3 的 antmaze-umaze-v0 和 antmaze-medium-diverse-v0 都來自 D4RL。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-hw3-offline-rl-awac-iql-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

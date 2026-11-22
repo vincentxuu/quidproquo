@@ -10,7 +10,7 @@ description: "Better Agent Terminal 是 tony1223 開發的跨平台桌面工具�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-04-13-better-agent-terminal-intro-en)
+:globe: [English version](/posts/tech/2026-04-13-better-agent-terminal-intro-en)
 
 同時開著三四個專案的時候，iTerm / Windows Terminal 的分頁很快就會爆炸：每個專案自己一堆 tab，切來切去還要記哪個 window 是哪個 repo。再加上最近 Claude Code 變成日常工具，Agent 基本上又佔掉一個獨立終端機，桌面會更亂。
 

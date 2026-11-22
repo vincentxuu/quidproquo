@@ -13,7 +13,7 @@ description: "Fairy Caves climbing guide: bus and taxi routes from Kuching to Ba
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-fairy-caves)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-fairy-caves)
 
 East Malaysia has only a handful of climbing spots, and Fairy Caves is the one with the most complete information: nine sectors, 88 routes, named lines, consistent hardware, and less than an hour from Kuching. The catch is that most of the rules here live between people rather than on notice boards — closures without announcements, two versions of the fee, and a start that depends on a local.
 

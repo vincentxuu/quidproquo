@@ -28,7 +28,7 @@ glossary:
         url: "http://proceedings.mlr.press/v70/sundararajan17a.html"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

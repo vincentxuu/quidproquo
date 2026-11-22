@@ -10,7 +10,7 @@ description: "How to use scp with SSH config aliases to download files from a VP
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-15-scp-ssh-config-alias)
+:globe: [中文版](/posts/tech/2026-03-15-scp-ssh-config-alias)
 
 ## TL;DR
 

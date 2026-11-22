@@ -10,7 +10,7 @@ draft: false
 type: debug
 ---
 
-🌏 [中文版](/posts/tech/debug/2026-03-13-astro-scoped-css-mdx)
+:globe: [中文版](/posts/tech/debug/2026-03-13-astro-scoped-css-mdx)
 
 ## TL;DR
 

@@ -13,7 +13,7 @@ description: "介紹 CMU 07-280 Spring 2026 的改制目的、24 講課程架構
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-course-overview-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-course-overview-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

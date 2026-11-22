@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-08-tool-mcpgawk-en)
+> :globe: [English version](/posts/daily/2026-10-08-tool-mcpgawk-en)
 
 ## 工具資訊
 
@@ -77,11 +77,11 @@ mcpgawk changes
 
 | | mcpgawk | 人工定期肉眼核對 | 一般雲端 MCP 掃描服務 |
 |---|---|---|---|
-| 偵測「核准後又被改」(rug-pull) | ✅ `--track` | ❌ 沒人會每次重看 | 部分支援 |
-| 直接擋下呼叫，不是只回報 | ✅ `guard install` | ❌ | ❌ 多半只出報告 |
-| 清單/掃描結果上傳雲端 | ❌（本機執行） | — | 通常會 |
-| CI 整合 | ✅ GitHub Action | ❌ | 視廠商而定 |
-| 免費可用 | ✅ 掃描/防護核心免費 | ✅ | 多為付費方案 |
+| 偵測「核准後又被改」(rug-pull) | ✓ `--track` | ✗ 沒人會每次重看 | 部分支援 |
+| 直接擋下呼叫，不是只回報 | ✓ `guard install` | ✗ | ✗ 多半只出報告 |
+| 清單/掃描結果上傳雲端 | ✗（本機執行） | — | 通常會 |
+| CI 整合 | ✓ GitHub Action | ✗ | 視廠商而定 |
+| 免費可用 | ✓ 掃描/防護核心免費 | ✓ | 多為付費方案 |
 
 ## 注意事項
 

@@ -14,7 +14,7 @@ tldr: "五個外部 CLI 有五種機器介面：JSONL 事件流、JSON-RPC、HTT
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake-en)
 
 ## 設計問題：支援多個外部 CLI，但不假裝它們一樣
 

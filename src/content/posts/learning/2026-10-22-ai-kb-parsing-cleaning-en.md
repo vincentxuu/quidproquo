@@ -12,7 +12,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-parsing-cleaning)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-parsing-cleaning)
 
 A product spec PDF goes into the knowledge base, and the parser reports no errors. Someone asks, "How much storage does the Team plan include?" The AI answers, "The document doesn't say." In the original table, the Pro and Team plans share one cell reading "1 TB", a merged cell spanning two rows. After conversion, only the first row of the merged cell has a value, and the Team plan's cell is blank.
 

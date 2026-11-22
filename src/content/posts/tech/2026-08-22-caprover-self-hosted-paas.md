@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-caprover-self-hosted-paas-en)
+> :globe: [English version](/posts/tech/2026-08-22-caprover-self-hosted-paas-en)
 
 [CapRover](https://caprover.com/docs/get-started.html) 是建立在 Docker Swarm 上的自架 PaaS，以 dashboard/CLI、Nginx、Let's Encrypt 與 one-click apps 簡化部署。Application 可從 source、Dockerfile 或 image 發佈，`captain-definition` 記錄 build/deploy recipe。
 

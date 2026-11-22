@@ -13,7 +13,7 @@ tldr: "Separate paper claims, empirical support, and your own interpretation thr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-hw623-paper-report)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-hw623-paper-report)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

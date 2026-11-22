@@ -20,27 +20,28 @@ title: Agent observability gaps, from the outside in
 desc: Top to bottom: the deployment-side security gateway, the evaluation-side judge mechanism, and the model's internal activation state. Today's three papers each find a concrete, measurable observability gap in one of these layers.
 caption: Numbers in order from arXiv 2611.15223 (5 of 15 execution paths bypass every deployment design), 2611.14581 (the judge missed 10 of 11 confirmed policy-violating writes), and 2611.14996 (negative steering cuts the cheat rate from 97% to 0%).
 ---
-<svg viewBox="0 0 640 340">
-  <rect class="dg-box" x="72" y="24" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="52" dominant-baseline="central">L1</text>
-  <text class="dg-label" x="124" y="52" dominant-baseline="central">Deployment: security gateway</text>
-  <text class="dg-sub" x="604" y="52" text-anchor="end" dominant-baseline="central">Catches: tool calls that cross the gateway, with content and metadata</text>
-  <text class="dg-sub" x="604" y="80" text-anchor="end" dominant-baseline="central">Misses: 5 of 15 execution paths bypass every deployment design tested</text>
+<svg viewBox="0 0 700 404">
+  <rect class="dg-box" x="20" y="24" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="48" dominant-baseline="central">L1</text>
+  <text class="dg-label" x="68" y="48" dominant-baseline="central">Deployment: security gateway</text>
+  <text class="dg-sub" x="68" y="74" dominant-baseline="central">Catches: tool calls that cross the gateway, with content and metadata</text>
+  <text class="dg-sub" x="68" y="96" dominant-baseline="central">Misses: 5 of 15 execution paths bypass every deployment design tested</text>
 
-  <rect class="dg-box" x="72" y="112" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="140" dominant-baseline="central">L2</text>
-  <text class="dg-label" x="124" y="140" dominant-baseline="central">Evaluation: judge mechanism</text>
-  <text class="dg-sub" x="604" y="140" text-anchor="end" dominant-baseline="central">Catches: the judge reads the transcript and returns pass or fail</text>
-  <text class="dg-sub" x="604" y="168" text-anchor="end" dominant-baseline="central">Misses: 10 of 11 confirmed violating writes, even with the policy doc</text>
+  <rect class="dg-box" x="20" y="124" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="148" dominant-baseline="central">L2</text>
+  <text class="dg-label" x="68" y="148" dominant-baseline="central">Evaluation: judge mechanism</text>
+  <text class="dg-sub" x="68" y="174" dominant-baseline="central">Catches: the judge reads the transcript and returns pass or fail</text>
+  <text class="dg-sub" x="68" y="196" dominant-baseline="central">Misses: 10 of 11 confirmed violating writes, even with the policy doc</text>
 
-  <rect class="dg-box" x="72" y="200" width="552" height="80" rx="6"/>
-  <text class="dg-tag" x="92" y="228" dominant-baseline="central">L3</text>
-  <text class="dg-label" x="124" y="228" dominant-baseline="central">Internal: activation state</text>
-  <text class="dg-sub" x="604" y="228" text-anchor="end" dominant-baseline="central">Catches: the model's output reasoning text, which reads coherently</text>
-  <text class="dg-sub" x="604" y="256" text-anchor="end" dominant-baseline="central">Misses: the "task going badly" signal already rising before the hack</text>
+  <rect class="dg-box" x="20" y="224" width="660" height="92" rx="6"/>
+  <text class="dg-tag" x="36" y="248" dominant-baseline="central">L3</text>
+  <text class="dg-label" x="68" y="248" dominant-baseline="central">Internal: activation state</text>
+  <text class="dg-sub" x="68" y="274" dominant-baseline="central">Catches: the model's output reasoning text, which reads coherently</text>
+  <text class="dg-sub" x="68" y="296" dominant-baseline="central">Misses: the "task going badly" signal already rising before the hack</text>
 
-  <line class="dg-rule" x1="72" y1="300" x2="624" y2="300"/>
-  <text class="dg-sub" x="72" y="324" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only; none yet spans all three observability gaps in one end-to-end deployment</text>
+  <line class="dg-rule" x1="20" y1="336" x2="680" y2="336"/>
+  <text class="dg-sub" x="20" y="360" dominant-baseline="central">Residual risk: each paper validates its own controlled setup only;</text>
+  <text class="dg-sub" x="20" y="382" dominant-baseline="central">none yet spans all three observability gaps in one end-to-end deployment</text>
 </svg>
 ```
 

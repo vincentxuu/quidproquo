@@ -17,7 +17,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs229-machine-learning)
 
 **Video status: Videos included.** This post is the overview of the whole course. The video embedded below is Spring 2026 Lecture 1 (the course introduction); the recording for each lecture sits at the top of that lecture's guide.
 

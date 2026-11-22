@@ -13,7 +13,7 @@ description: "Skills and sub-agents in OpenClaw: the six-layer load order, node-
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-skills-subagents)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-tools-skills-subagents)
 
 Skills teach an agent **how to work**; sub-agents let it **work on several things at once**. They belong together because they solve the same problem: **extending capability without blowing up context.**
 

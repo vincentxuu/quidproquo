@@ -10,7 +10,7 @@ description: "用 Google Scholar、Moonlight、CorTeX 三個工具串起論文�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-15-academic-tools-find-read-write-en)
+> :globe: [English version](/posts/learning/2026-09-15-academic-tools-find-read-write-en)
 
 做研究的日常可以壓縮成三個動作：找到論文、讀懂論文、寫出論文。每個動作都有工具可以幫忙，但工具太多反而不知道從哪裡開始。
 

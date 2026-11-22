@@ -21,7 +21,7 @@ glossary:
     context: "本文指 Cursor 的兩天到場試用，以及其他公司的長時間 take-home。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ai-engineer-interview-resources-en)
+> :globe: [English version](/posts/ai/2026-09-30-ai-engineer-interview-resources-en)
 
 [pallavi-shekhar/ai-engineering-interview-questions-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) 這個 repo 在 2026 年 9 月 19 日建立，9 天後就有 1.5k 顆星。它整理了 35 間公司、約 600 題「真實面試題」，但全檔沒有任何一題附出處。這不是個案：這次盤點的 12 個熱門 AI 面試 repo，只有 2 個替題目或面試流程附上可點的來源。
 
@@ -72,18 +72,18 @@ flowchart TD
 
 | Repo | ★ | 最後 commit | 附來源 | 答案 | 2026 題型 | 備註 |
 |---|---|---|---|---|---|---|
-| [alexeygrigorev/ai-engineering-field-guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) | 5.7k | 2026-09-23 | ✅ 題目附註腳 | ❌ | take-home、AI 可用面試 | 面試章節主要停在 2026 年 2–6 月 |
-| [ombharatiya/AI-Engineer-Interview-Questions](https://github.com/ombharatiya/AI-Engineer-Interview-Questions) | 149 | 2026-08-25 | ✅ 公司頁 | ✅ 每題 | AI 協作面試、work trial、FDE | 6 週內大批量建立 |
-| [alirezadir/AIMLInterviews](https://github.com/alirezadir/AIMLInterviews) | 9.8k | 2026-09-23 | 作者經驗 | 🟡 程式有解 | agent 設計、eval | 還沒涵蓋 AI 可用面試 |
-| [amitshekhariitbhu/ai-engineering-interview-questions](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) | 3.2k | 2026-09-29 | ❌ | 🟡 外連文章 | agent、harness | 答案幾乎都連到同一個教育機構 |
-| [pallavi-shekhar/…-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) | 1.5k | 2026-09-29 | ❌ | 🟡 外連文章 | 情境題 | 同一機構維護 |
-| [llmgenai/LLMInterviewQuestions](https://github.com/llmgenai/LLMInterviewQuestions) | 1.9k | 2025-02-12 | ❌ | ❌ 付費課程 | ❌ | 近一年沒更新 |
-| [KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub) | 1.1k | 2026-02-09 | ❌ | ✅ 短答 | ❌ | 推銷自己的書 |
-| [KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub) | 645 | 2025-12-21 | ❌ | ✅ 短答 | ❌ | 一次上傳後沒再維護 |
-| [wdndev/llm_interview_note](https://github.com/wdndev/llm_interview_note) | 15.2k | 2026-06 | ❌ | 🟡 品質不一 | ❌ | 簡中；主體內容停在 2023–24 年 |
-| [km1994/LLMs_interview_notes](https://github.com/km1994/LLMs_interview_notes) | 2.6k | 2024-12-26 | ❌ | ❌ 連到外部平台 | 🟡 有 o1 章節 | 簡中；repo 內只有題目 |
-| [khangich/machine-learning-interview](https://github.com/khangich/machine-learning-interview) | 12.8k | 2023-08-31 | 作者經驗 | ❌ | ❌ | 沒有 LLM 內容，已停更 |
-| [chiphuyen/ml-interviews-book](https://github.com/chiphuyen/ml-interviews-book) | 4.8k | 2025-03-21 | 書 | ❌ 答案檔是空的 | ❌ | 傳統 ML 經典，實質內容停在 2023 年 |
+| [alexeygrigorev/ai-engineering-field-guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) | 5.7k | 2026-09-23 | ✓ 題目附註腳 | ✗ | take-home、AI 可用面試 | 面試章節主要停在 2026 年 2–6 月 |
+| [ombharatiya/AI-Engineer-Interview-Questions](https://github.com/ombharatiya/AI-Engineer-Interview-Questions) | 149 | 2026-08-25 | ✓ 公司頁 | ✓ 每題 | AI 協作面試、work trial、FDE | 6 週內大批量建立 |
+| [alirezadir/AIMLInterviews](https://github.com/alirezadir/AIMLInterviews) | 9.8k | 2026-09-23 | 作者經驗 | :yellow-circle: 程式有解 | agent 設計、eval | 還沒涵蓋 AI 可用面試 |
+| [amitshekhariitbhu/ai-engineering-interview-questions](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) | 3.2k | 2026-09-29 | ✗ | :yellow-circle: 外連文章 | agent、harness | 答案幾乎都連到同一個教育機構 |
+| [pallavi-shekhar/…-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) | 1.5k | 2026-09-29 | ✗ | :yellow-circle: 外連文章 | 情境題 | 同一機構維護 |
+| [llmgenai/LLMInterviewQuestions](https://github.com/llmgenai/LLMInterviewQuestions) | 1.9k | 2025-02-12 | ✗ | ✗ 付費課程 | ✗ | 近一年沒更新 |
+| [KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub) | 1.1k | 2026-02-09 | ✗ | ✓ 短答 | ✗ | 推銷自己的書 |
+| [KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub) | 645 | 2025-12-21 | ✗ | ✓ 短答 | ✗ | 一次上傳後沒再維護 |
+| [wdndev/llm_interview_note](https://github.com/wdndev/llm_interview_note) | 15.2k | 2026-06 | ✗ | :yellow-circle: 品質不一 | ✗ | 簡中；主體內容停在 2023–24 年 |
+| [km1994/LLMs_interview_notes](https://github.com/km1994/LLMs_interview_notes) | 2.6k | 2024-12-26 | ✗ | ✗ 連到外部平台 | :yellow-circle: 有 o1 章節 | 簡中；repo 內只有題目 |
+| [khangich/machine-learning-interview](https://github.com/khangich/machine-learning-interview) | 12.8k | 2023-08-31 | 作者經驗 | ✗ | ✗ | 沒有 LLM 內容，已停更 |
+| [chiphuyen/ml-interviews-book](https://github.com/chiphuyen/ml-interviews-book) | 4.8k | 2025-03-21 | 書 | ✗ 答案檔是空的 | ✗ | 傳統 ML 經典，實質內容停在 2023 年 |
 
 「2026 題型」指 AI 可用或 AI 協作的面試、work trial、[FDE](https://www.tryexponent.com/guides/openai-forward-deployed-engineer-interview) 情境題、agent／harness 設計、eval 設計。star 數最高的兩個（wdndev、khangich）都已經跟不上這些變化。
 

@@ -10,7 +10,7 @@ description: "AI Agent frameworks are flourishing in 2026, from OpenClaw at 343k
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-01-agent-frameworks-2026)
+> :globe: [中文版](/posts/ai/2026-04-01-agent-frameworks-2026)
 
 In 2026, every major vendor has their own Agent framework, and the open-source community keeps producing new contenders. This post isn't a "best of" ranking — GitHub Stars don't equal quality, and download counts don't mean it's the right fit for you. But stars at least reflect community attention, making them a reasonable starting point.
 
@@ -18,7 +18,7 @@ Below are 15 frameworks in active development, sorted by GitHub Stars. Each come
 
 ---
 
-## 1. OpenClaw — ~343k ⭐
+## 1. OpenClaw — ~343k ★
 
 **Repo:** [openclaw/openclaw](https://github.com/openclaw/openclaw) | **Language:** TypeScript | **License:** MIT
 
@@ -37,7 +37,7 @@ The biggest phenomenon project of 2026. Developed by PSPDFKit founder Peter Stei
 
 ---
 
-## 2. n8n — ~182k ⭐
+## 2. n8n — ~182k ★
 
 **Repo:** [n8n-io/n8n](https://github.com/n8n-io/n8n) | **Language:** TypeScript | **License:** Fair-code (Sustainable Use License)
 
@@ -56,7 +56,7 @@ A visual workflow automation platform with 400+ integrations that fully embraced
 
 ---
 
-## 3. Dify — ~134k ⭐
+## 3. Dify — ~134k ★
 
 **Repo:** [langgenius/dify](https://github.com/langgenius/dify) | **Language:** Python / TypeScript | **License:** Apache 2.0
 
@@ -73,7 +73,7 @@ A low-code LLM application development platform. In March 2026 it raised $30M in
 
 ---
 
-## 4. LangChain — ~126k ⭐
+## 4. LangChain — ~126k ★
 
 **Repo:** [langchain-ai/langchain](https://github.com/langchain-ai/langchain) | **Language:** Python / JavaScript | **License:** MIT
 
@@ -92,7 +92,7 @@ The Swiss Army knife of LLM application development. The most established framew
 
 ---
 
-## 5. LlamaIndex — ~48k ⭐
+## 5. LlamaIndex — ~48k ★
 
 **Repo:** [run-llama/llama_index](https://github.com/run-llama/llama_index) | **Language:** Python / TypeScript | **License:** MIT
 
@@ -109,7 +109,7 @@ Originally a RAG framework, it pivoted to a full agent platform in 2026. In thei
 
 ---
 
-## 6. CrewAI — ~44.6k ⭐
+## 6. CrewAI — ~44.6k ★
 
 **Repo:** [crewAIInc/crewAI](https://github.com/crewAIInc/crewAI) | **Language:** Python | **License:** MIT | **PyPI Monthly Downloads:** 12M+
 
@@ -128,7 +128,7 @@ A multi-role collaboration framework. The core concepts are Agent (role), Task, 
 
 ---
 
-## 7. MetaGPT — ~44k ⭐
+## 7. MetaGPT — ~44k ★
 
 **Repo:** [FoundationAgents/MetaGPT](https://github.com/FoundationAgents/MetaGPT) | **Language:** Python | **License:** MIT
 
@@ -146,7 +146,7 @@ Organizes multi-agent systems using a "software company" metaphor. Each agent pl
 
 ---
 
-## 8. SmolAgents — ~26k ⭐
+## 8. SmolAgents — ~26k ★
 
 **Repo:** [huggingface/smolagents](https://github.com/huggingface/smolagents) | **Language:** Python | **License:** Apache 2.0
 
@@ -165,7 +165,7 @@ A minimalist agent framework from Hugging Face. The core codebase is only ~1,000
 
 ---
 
-## 9. LangGraph — ~24.6k ⭐
+## 9. LangGraph — ~24.6k ★
 
 **Repo:** [langchain-ai/langgraph](https://github.com/langchain-ai/langgraph) | **Language:** Python / JavaScript | **License:** MIT | **PyPI Monthly Downloads:** 38M+
 
@@ -184,7 +184,7 @@ The agent orchestration engine from the LangChain team. It reached v1.0 in late 
 
 ---
 
-## 10. Mastra — ~22.3k ⭐
+## 10. Mastra — ~22.3k ★
 
 **Repo:** [mastra-ai/mastra](https://github.com/mastra-ai/mastra) | **Language:** TypeScript | **License:** MIT | **npm Weekly Downloads:** 300k+
 
@@ -201,7 +201,7 @@ A TypeScript-native agent framework built by the Gatsby team. It graduated from 
 
 ---
 
-## 11. OpenAI Agents SDK — ~20.5k ⭐
+## 11. OpenAI Agents SDK — ~20.5k ★
 
 **Repo:** [openai/openai-agents-python](https://github.com/openai/openai-agents-python) | **Language:** Python / JavaScript | **License:** MIT | **PyPI Monthly Downloads:** 14.7M+
 
@@ -220,7 +220,7 @@ OpenAI's official agent framework, released March 2025 as the formal successor t
 
 ---
 
-## 12. Google ADK — ~18.6k ⭐
+## 12. Google ADK — ~18.6k ★
 
 **Repo:** [google/adk-python](https://github.com/google/adk-python) | **Language:** Python / TypeScript / Go / Java | **License:** Apache 2.0
 
@@ -237,7 +237,7 @@ Google's official Agent Development Kit, announced at the 2025 Cloud Next confer
 
 ---
 
-## 13. Agno — ~18.5k ⭐
+## 13. Agno — ~18.5k ★
 
 **Repo:** [agno-agi/agno](https://github.com/agno-agi/agno) | **Language:** Python | **License:** Apache 2.0
 
@@ -254,7 +254,7 @@ Formerly known as Phidata, renamed to Agno (Greek for "pure") in January 2025. T
 
 ---
 
-## 14. Pydantic AI — ~16k ⭐
+## 14. Pydantic AI — ~16k ★
 
 **Repo:** [pydantic/pydantic-ai](https://github.com/pydantic/pydantic-ai) | **Language:** Python | **License:** MIT
 
@@ -271,7 +271,7 @@ Built by the Pydantic team, aiming to bring the FastAPI developer experience to 
 
 ---
 
-## 15. Claude Agent SDK — Growing Rapidly ⭐
+## 15. Claude Agent SDK — Growing Rapidly ★
 
 **Repo:** [anthropics/claude-agent-sdk-python](https://github.com/anthropics/claude-agent-sdk-python) (Python) / [anthropics/claude-agent-sdk](https://github.com/anthropics/claude-agent-sdk) (TypeScript) | **License:** MIT
 

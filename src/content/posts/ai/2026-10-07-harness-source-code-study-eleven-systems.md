@@ -23,7 +23,7 @@ glossary:
     context: "論文統計 11 個系統中有 9 個支援。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-07-harness-source-code-study-eleven-systems-en)
+> :globe: [English version](/posts/ai/2026-10-07-harness-source-code-study-eleven-systems-en)
 
 如果你正在挑 coding agent，或打算自己做一個，這篇論文給了少見的材料：不是跑分，也不是廠商說法，而是把 11 個正在上線的 harness 原始碼並排讀完，看它們實際怎麼蓋。這篇導讀整理它的結論，以及你讀完可以拿去做的事。
 

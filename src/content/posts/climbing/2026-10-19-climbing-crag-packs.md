@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-crag-packs-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-crag-packs-en)
 
 在泰國萊利（Railay）爬一天，住宿到岩壁可能只要走十幾分鐘；但如果住在奧南（Ao Nang），每天得先搭長尾船過去。在卡林諾斯，很多人租機車到岩場。這兩種日子，背在身上的包差很多：搭船和騎車時包要能抱在身上、不能太大；走到岩壁之後，它又要能攤開來放繩、快扣和鞋。
 

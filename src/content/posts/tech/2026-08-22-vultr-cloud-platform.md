@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-vultr-cloud-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-vultr-cloud-platform-en)
 
 [Vultr](https://docs.vultr.com/products) 的產品面從 Cloud Compute、optimized instance、bare metal 與 GPU，延伸到 Vultr Kubernetes Engine（VKE）、Managed Databases、block/file/object storage、Load Balancer、VPC、Firewall、Direct Connect、CDN 與 serverless inference。
 

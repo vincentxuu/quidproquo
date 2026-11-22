@@ -21,7 +21,7 @@ glossary:
     context: "Marker's code is Apache-2.0 while its model weights use a modified OpenRAIL-M — two different licenses in one repo, and the easiest trap to fall into."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-document-parsing-layout-ocr)
+> :globe: [中文版](/posts/ai/2026-08-06-document-parsing-layout-ocr)
 
 The last rung of the [three-layer ladder](/posts/ai/2026-08-06-document-parsing-three-layers-en): the file contains no usable structure, and sometimes no text at all. Scanned contracts, photographed invoices, two-column papers with formulas, financial statements with nested tables — these can only be inferred by a model from visual signals.
 

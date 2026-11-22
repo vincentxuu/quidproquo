@@ -14,7 +14,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-graph-rag)
+> :globe: [中文版](/posts/ai/2026-03-12-graph-rag)
 
 Standard RAG retrieves "semantically similar documents," but some questions don't need semantic similarity — they need **relationship traversal**.
 

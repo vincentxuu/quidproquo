@@ -12,7 +12,7 @@ series:
   order: 90
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-funding-fragment-en)
+> :globe: [English version](/posts/daily/2026-10-15-funding-fragment-en)
 
 ## 融資資訊
 

@@ -12,7 +12,7 @@ series:
   order: 61
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-tool-anythingmcp-en)
+> :globe: [English version](/posts/daily/2026-10-21-tool-anythingmcp-en)
 
 ## 工具資訊
 
@@ -78,11 +78,11 @@ claude mcp add --transport http anythingmcp http://localhost:4000/mcp
 
 | | AnythingMCP | 手寫單一 MCP server | AI Agent Gateway（[已推薦過](/posts/daily/2026-10-10-tool-ai-agent-gateway)的憑證閘道） |
 |---|---|---|---|
-| 從既有 API/ERP/DB 自動生成 tool | ✅ | ❌（每個系統都要自己寫） | ❌（它假設工具已經是 MCP server） |
-| 517 個現成 adapter | ✅ | ❌ | ❌ |
-| RBAC + SSO + 稽核日誌 | ✅ | 需自行實作 | ✅（這是它的核心功能） |
-| 回應欄位過濾（防敏感資料進 context） | ✅ | 需自行實作 | ❌（不碰工具回傳內容） |
-| 自架開源 | ✅（AGPL-3.0） | 視專案而定 | ✅（Apache-2.0） |
+| 從既有 API/ERP/DB 自動生成 tool | ✓ | ✗（每個系統都要自己寫） | ✗（它假設工具已經是 MCP server） |
+| 517 個現成 adapter | ✓ | ✗ | ✗ |
+| RBAC + SSO + 稽核日誌 | ✓ | 需自行實作 | ✓（這是它的核心功能） |
+| 回應欄位過濾（防敏感資料進 context） | ✓ | 需自行實作 | ✗（不碰工具回傳內容） |
+| 自架開源 | ✓（AGPL-3.0） | 視專案而定 | ✓（Apache-2.0） |
 
 兩者其實可以疊著用：AnythingMCP 負責把舊系統變成 MCP tool，AI Agent Gateway 負責在多個 agent 間做憑證注入和稽核。
 

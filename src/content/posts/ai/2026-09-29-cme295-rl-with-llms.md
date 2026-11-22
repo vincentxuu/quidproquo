@@ -30,7 +30,7 @@ glossary:
     context: "Thinking Machines 的 on-policy distillation 用每個 token 的 reverse KL 當成負的 advantage。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
 
 **影片狀態：原講次錄影已上架，本文尚未依錄影更新；目前僅附相關補充影片。** [影片來源與說明](#課程影片來源)
 

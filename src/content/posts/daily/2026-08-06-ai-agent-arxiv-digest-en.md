@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-06-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-06-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Agent memory research has long been split into two tracks: long-term memory (how
 ### Key Details
 
 - On Qwen2.5-7B: ALFWorld 46.3%, SciWorld 43.4%, BabyAI 65.6%, HotpotQA 62.8%
-- Averages 5-8 points above the strongest baseline AgeMem ⚠️ (author-reported, awaiting independent replication)
+- Averages 5-8 points above the strongest baseline AgeMem :warning: (author-reported, awaiting independent replication)
 - On Qwen3-4B the lead holds: HotpotQA 63.6% (AgeMem 55.5%)
 - Efficiency: achieves the strongest efficiency-performance frontier under controlled token budgets
 - Fine-tuned only on HotpotQA training set, transfers directly to ALFWorld, SciWorld, PDDL, BabyAI
@@ -105,7 +105,7 @@ Existing agent safety mechanisms fall into four categories: improving memory/ret
 ### Key Details
 
 - Single-world reasoning: unsafe action rate 41.2%, task success rate 58.8%
-- SafeCommit (with probes): UCR 2.6%, task success rate 97.4%, average only 0.55 probes ⚠️ (controlled simulator results, not real LLM agent deployment)
+- SafeCommit (with probes): UCR 2.6%, task success rate 97.4%, average only 0.55 probes :warning: (controlled simulator results, not real LLM agent deployment)
 - All four memory failure modes tested: stale (1.2%), conflicting (1.2%), poisoned (3.9%), authorization drift (3.5%)
 - Probe budget ablation: 0 probes → task completion rate only 44.7%; 1 probe jumps to 95.1%
 - α control: 1% target → UCR 0.6%; 5% → 2.6%; 10% → 4.8%, providing a tunable safety-utility frontier
@@ -152,7 +152,7 @@ LLM agent tool planning currently has two approaches: directly reasoning from to
 ### Key Details
 
 - ID benchmarks (HuggingFace, Multimedia): 1.4-1.5 points above the strongest baseline
-- OOD benchmarks (DailyLifeAPIs, Seal-Tools, ToolAlpaca): 3.2-4.9 points above the strongest baseline ⚠️ (author-reported)
+- OOD benchmarks (DailyLifeAPIs, Seal-Tools, ToolAlpaca): 3.2-4.9 points above the strongest baseline :warning: (author-reported)
 - Largest gains on rare tool combinations — 2.8 points above Tool-graph on rare tools in Multimedia
 - Medium-to-long chain tasks (3-4 steps) benefit most; short chains have limited room for improvement
 - Validated on both Qwen2.5-7B and Llama-3.1-8B backbones with consistent results

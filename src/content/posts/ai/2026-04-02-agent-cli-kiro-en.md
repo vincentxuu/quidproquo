@@ -13,7 +13,7 @@ description: "An in-depth analysis of AWS Kiro's 2026 pricing plans, Auto mode, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-kiro)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-kiro)
 
 Kiro is an Agentic IDE from AWS, built on Code OSS (the open-source foundation of VS Code). Its core philosophy is to move developers from casual "vibe coding" into a **structured spec-driven development workflow**, while retaining the flexibility of AI assistance. During the preview phase, over 250,000 developers have used it, with the underlying infrastructure running on Amazon Bedrock.
 

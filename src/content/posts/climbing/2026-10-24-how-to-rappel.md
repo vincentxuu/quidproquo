@@ -42,7 +42,7 @@ glossary:
     context: "SAC 指出，如果垂降器根本掛錯，消防員確保救不了人，所以不能取代自己的備份。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-how-to-rappel-en)
+> :globe: [English version](/posts/climbing/2026-10-24-how-to-rappel-en)
 
 垂降看起來很單純：把繩子穿過固定點，掛上垂降器，自己滑下來。真正的風險在細節。一股繩沒穿進垂降器、繩尾沒打結、摩擦套結太長碰到垂降器，任何一個漏掉，都可能直接墜落。
 

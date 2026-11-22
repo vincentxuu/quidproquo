@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-16-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -122,14 +122,14 @@ Haystack v3.4.0 新增實驗性 `ToolResultOffloadCompactor`，context compactio
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily)
-- 📄 [框架更新｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0)
-- 📄 [融資速報｜Confido Health Series A 累計 $22.5M](/posts/daily/2026-10-16-funding-confido-health)
-- 📄 [定價追蹤｜OpenAI 公告 GPT-4o／GPT-4.1 明年 1 月 14 日 API 下架](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset)
-- 📄 [工具推薦｜Boundscope](/posts/daily/2026-10-16-tool-boundscope)
+- :file: [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily)
+- :file: [框架更新｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0)
+- :file: [融資速報｜Confido Health Series A 累計 $22.5M](/posts/daily/2026-10-16-funding-confido-health)
+- :file: [定價追蹤｜OpenAI 公告 GPT-4o／GPT-4.1 明年 1 月 14 日 API 下架](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset)
+- :file: [工具推薦｜Boundscope](/posts/daily/2026-10-16-tool-boundscope)
 
 ## 明日關注
 

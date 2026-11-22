@@ -12,7 +12,7 @@ tldr: "CHURRO represents full-page text, layout, and metadata in HDML, unifies m
 description: "CS224V NLP Building Blocks: historical OCR gaps, HDML, CHURRO-DS, the CHURRO VLM, benchmarking, and HistoryGenie."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-churro-historical-documents)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-churro-historical-documents)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

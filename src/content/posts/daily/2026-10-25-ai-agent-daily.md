@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-25-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-25-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -136,14 +136,14 @@ Rivian收購英國世界模型新創Third Dimension（15人團隊），用於訓
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-github-digest)
-- 📄 [Benchmark 異動｜Arena Agent 排行榜 — 2026-10-25](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3)
-- 📄 [框架更新｜Pydantic AI v2.61.0 — 2026-10-25](/posts/daily/2026-10-25-framework-pydantic-ai-v2.61.0)
-- 📄 [融資速報｜Pathos AI — 2026-10-25](/posts/daily/2026-10-25-funding-pathos-ai)
-- 📄 [工具推薦｜photoshop-mcp — 2026-10-25](/posts/daily/2026-10-25-tool-photoshop-mcp)
-- 📄 [AI Engineer 面試準備 — 2026-10-25](/posts/daily/2026-10-25-ai-interview-daily)
-- 📄 [Product Builder 面試準備 — 2026-10-25](/posts/daily/2026-10-25-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-github-digest)
+- :file: [Benchmark 異動｜Arena Agent 排行榜 — 2026-10-25](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3)
+- :file: [框架更新｜Pydantic AI v2.61.0 — 2026-10-25](/posts/daily/2026-10-25-framework-pydantic-ai-v2.61.0)
+- :file: [融資速報｜Pathos AI — 2026-10-25](/posts/daily/2026-10-25-funding-pathos-ai)
+- :file: [工具推薦｜photoshop-mcp — 2026-10-25](/posts/daily/2026-10-25-tool-photoshop-mcp)
+- :file: [AI Engineer 面試準備 — 2026-10-25](/posts/daily/2026-10-25-ai-interview-daily)
+- :file: [Product Builder 面試準備 — 2026-10-25](/posts/daily/2026-10-25-product-builder-interview-daily)
 
 ## 明日關注
 

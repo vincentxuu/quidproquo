@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-nestjs-application-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-nestjs-application-framework-en)
 
 [NestJS](https://docs.nestjs.com/) 是 TypeScript-first Node.js application framework。它預設以 Express 執行 HTTP，也能換 Fastify adapter；上層用 Controller、Provider、Module、dependency injection 和 decorators 組織 application，並把相同概念延伸到 GraphQL、WebSocket 與多種 message transports。
 

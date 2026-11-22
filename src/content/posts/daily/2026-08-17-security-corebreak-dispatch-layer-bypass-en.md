@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass)
+> :globe: [中文版](/posts/daily/2026-08-17-security-corebreak-dispatch-layer-bypass)
 
 ## Incident Overview
 

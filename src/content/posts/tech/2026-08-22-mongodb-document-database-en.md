@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-mongodb-document-database)
+> :globe: [中文版](/posts/tech/2026-08-22-mongodb-document-database)
 
 [MongoDB](https://www.mongodb.com/docs/manual/introduction/) stores BSON documents in collections. Nested objects and arrays can mirror application objects and colocate data read together. This is a modeling choice, not an absence of schema: validation, indexes, document size, update frequency, and ownership boundaries still require design.
 

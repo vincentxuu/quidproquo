@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of CS224N Winter 2026 Lecture 5: atte
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-transformers)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-transformers)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

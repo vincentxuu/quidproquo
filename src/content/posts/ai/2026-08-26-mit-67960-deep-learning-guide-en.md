@@ -13,7 +13,7 @@ description: "A guided tour of MIT 6.7960 Deep Learning Fall 2025: instructor ro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
+> :globe: [中文版](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

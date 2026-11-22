@@ -13,7 +13,7 @@ description: "Gunung Keriang 攀岩指南：吉打休閒公園的免費進入方
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-gunung-keriang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-gunung-keriang-en)
 
 如果你在吉打（Kedah）想塞半天攀岩，Gunung Keriang 是最省事的一個：岩壁在公園裡、免費入場、進園就到。但它也是資料最薄的一個：線上只有一條具名路線，連岩質都沒寫、接近方式也沒寫。這篇幫你判斷它適不適合成為半天目標、要自備什麼交通，以及為什麼不能只靠線上資料挑線。
 

@@ -17,7 +17,7 @@ glossary:
     def: "評測 AI agent 操作真實電腦（開啟應用程式、點擊、填表等多步驟操作）完成任務能力的 benchmark，常用來衡量 computer use 能力"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5-en)
+> :globe: [English version](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | Humanity's Last Exam（無工具） | 45.9% | 10.2% | 未提供 | 56.9% |
 | Chartography（視覺推理，無工具） | 46.4% | 6.4% | 29.1% | 61.6% |
 
-⚠️ 以上皆為 Anthropic 官方自測（詳見 [Haiku 5.5 System Card](https://www.anthropic.com/claude-haiku-5-5-system-card)），尚無第三方複現數字。GDPval-AA v2.1 與 AA-Briefcase v1.1 兩項官方知識工作指標也同步大幅提升（分別為 1620 與 1578，前代為 735 與 614），但因非外部標準化分數，未列入上表。
+:warning: 以上皆為 Anthropic 官方自測（詳見 [Haiku 5.5 System Card](https://www.anthropic.com/claude-haiku-5-5-system-card)），尚無第三方複現數字。GDPval-AA v2.1 與 AA-Briefcase v1.1 兩項官方知識工作指標也同步大幅提升（分別為 1620 與 1578，前代為 735 與 614），但因非外部標準化分數，未列入上表。
 
 ## 與前代/競品比較
 

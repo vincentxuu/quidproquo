@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-16-funding-alphapai)
+> :globe: [中文版](/posts/daily/2026-09-16-funding-alphapai)
 
 ## Funding Details
 

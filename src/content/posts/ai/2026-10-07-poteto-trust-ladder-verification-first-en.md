@@ -17,7 +17,7 @@ glossary:
     context: "Used in the conversation to show how one precise word can compress a lot of intent."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-07-poteto-trust-ladder-verification-first)
+> :globe: [中文版](/posts/ai/2026-10-07-poteto-trust-ladder-verification-first)
 
 [Start the English video exercise (3 clips, 2 min 8 sec; partial bilingual captions)](#video-practice-0)
 

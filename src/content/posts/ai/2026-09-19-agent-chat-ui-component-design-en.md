@@ -10,7 +10,7 @@ description: "A practical breakdown of AI Agent chat UI component design: stream
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-chat-ui-component-design)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-chat-ui-component-design)
 
 ## Why Agent Chat UI Is Fundamentally Different
 

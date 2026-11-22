@@ -14,7 +14,7 @@ description: "A page-linked guide to the CS329Z Lecture 03 RAG slides, digests o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)
 
 **Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 77 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 

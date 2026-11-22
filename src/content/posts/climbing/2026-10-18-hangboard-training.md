@@ -26,7 +26,7 @@ glossary:
     context: "López 的 MaxHangs 寫法裡，括號中的數字就是餘裕。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-hangboard-training-en)
+> :globe: [English version](/posts/climbing/2026-10-18-hangboard-training-en)
 
 你爬了一年，岩館裡的 V3、V4 開始卡關。[診斷篇](/posts/climbing/2026-10-18-climbing-training-diagnosis)讀完，你覺得是手指不夠力：小點一抓就滑掉。岩館牆角那塊有很多凹槽的木板，你看別人吊了好幾次，想知道自己能不能也開始。
 

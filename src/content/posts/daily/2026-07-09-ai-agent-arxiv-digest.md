@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 46
 ---
-> 🌏 [English version](/posts/daily/2026-07-09-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-09-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -129,7 +129,7 @@ Vera-Bench——1,600 個可執行 safety case、124 個風險類別——是目
 ### 深入要點
 
 - 測試對象：OpenClaw、Hermes、Codex、Claude Code 四套生產級框架，而非只測底層語言模型
-- 多通道攻擊下平均 **ASR = 93.9%** ⚠️（test case 由同一實驗室設計，外部框架可能有差異）
+- 多通道攻擊下平均 **ASR = 93.9%** :warning:（test case 由同一實驗室設計，外部框架可能有差異）
 - Vera-Bench：1,600 個可執行 safety case，涵蓋 **124 個風險類別**、3 種執行情境（有無工具、有無記憶等）
 - Vera 的 Risk Discovery 是「持續進行式」的——隨新攻擊出現，測試集可自動擴充，解決了 static benchmark 老化問題
 - 每個 Safety Case 的驗證條件基於「可觀測 artifact」（工具呼叫日誌、回應文字），讓自動化判斷成為可能——這是工程上的核心突破
@@ -186,7 +186,7 @@ PiSAs（Private information in Shared Agentic Systems）設計了一套涵蓋多
 
 - PiSAs 由 Meta AI 與 Université Laval 團隊提出，背景來自企業 Agent 實際部署需求，可信度較高
 - 情境完整性框架評估四個維度：資訊**發送方**、**接收方**、**資訊類型**、**傳輸原則**是否符合脈絡規範——比「隱私/非隱私」二元判斷複雜得多
-- 同領域相關工作 MAGPIE 顯示：GPT-5 在多 Agent 隱私場景的洩露率高達 **50.7%**，Gemini 2.5-Pro 達 **35.1%** ⚠️（數據來自 MAGPIE 論文，非本論文直接結果）
+- 同領域相關工作 MAGPIE 顯示：GPT-5 在多 Agent 隱私場景的洩露率高達 **50.7%**，Gemini 2.5-Pro 達 **35.1%** :warning:（數據來自 MAGPIE 論文，非本論文直接結果）
 - 與同期 CI-Work（2604.21308）、MuPPET 等 benchmark 相比，PiSAs 專注在「多使用者共享 Agent」這個尚未被充分覆蓋的設定
 - 落地門檻：解決此問題需要在 Agent 設計層加入「使用者身份 + 情境感知」，這對現有大多數 Agent 框架是架構層改動——缺乏原生 multi-user context isolation 的框架需要應用層自行補充
 - 與 MCP 的關聯：MCP 目前工具呼叫設計沒有內建 per-user context scope，多使用者隱私隔離需要框架或應用層自行處理

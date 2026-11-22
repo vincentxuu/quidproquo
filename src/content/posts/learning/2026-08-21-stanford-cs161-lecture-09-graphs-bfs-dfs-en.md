@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-09-graphs-bfs-dfs)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-09-graphs-bfs-dfs)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

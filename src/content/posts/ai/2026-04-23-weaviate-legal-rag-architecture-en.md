@@ -14,7 +14,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-23-weaviate-legal-rag-architecture)
+> :globe: [中文版](/posts/ai/2026-04-23-weaviate-legal-rag-architecture)
 
 Legal document search is one of the hardest scenarios for RAG. Not because of data volume, but because of the precision requirement: if the user asks about a 2024 contract, you cannot return a semantically similar clause from 2022. Date, parties involved, governing law, specific clause type -- getting any single dimension wrong is a legal risk.
 

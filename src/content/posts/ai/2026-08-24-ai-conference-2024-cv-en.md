@@ -20,7 +20,7 @@ glossary:
     context: "CVPR 2024 featured several world-model papers for autonomous-driving planning, including Drive-WM, GenAD, and DriveWorld."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2024-cv)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2024-cv)
 
 > This is the 2024 computer-vision installment of the [AI Conference Review](/posts/ai/2026-08-23-what-is-ai-top-conference) series (zh-TW only).
 

@@ -13,7 +13,7 @@ description: "龜島 Koh Tao 攀岩指南：花崗岩抱石與運攀的子區分
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-koh-tao-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-koh-tao-en)
 
 龜島（Koh Tao）是泰國南部蘇拉塔尼府外海的島，渡輪與潛水是它的主要觀光業。**但對攀岩者來說，它是泰國唯一一個真正的花崗岩抱石場**——theCrag 在 2026 年 10 月 21 日收錄 496 條路線，級數用 FB 抱石系統，從 1A+ 一直到 8A+。
 

@@ -13,7 +13,7 @@ description: "A guide to three single-pitch sport crags near Cortina (Crépe de 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-cortina-crags)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-cortina-crags)
 
 At Pocol, just west of Cortina d'Ampezzo, the SP638 road climbs toward Passo Giau. Between 1.5 and 4 km up it, three single-pitch sport crags sit beside the road: Bèco d'Ajàl, Crépe de Oucèra Basse and Crépe de Oucèra Alte. The Cortina tourist board calls Basse one of Cortina's first crags, "seconda solo a quella del Béco d'Ajàl" (second only to Bèco d'Ajàl) ([Cortina tourist board](https://cortina.dolomiti.org/it/arrampicata-sportiva/crepe-de-oucera-basse/)).
 

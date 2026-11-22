@@ -12,7 +12,7 @@ series:
   order: 109
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-funding-nous-en)
+> :globe: [English version](/posts/daily/2026-10-27-funding-nous-en)
 
 ## 融資資訊
 

@@ -13,7 +13,7 @@ description: "OpenClaw multi-agent routing: what an agent boundary contains, how
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-multi-agent)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-multi-agent)
 
 OpenClaw can run multiple isolated agents **inside one Gateway process**, each with its own workspace, state directory, and SQLite session history, plus multiple channel accounts (two WhatsApp numbers, say). Inbound messages route to the right agent through **bindings**.
 

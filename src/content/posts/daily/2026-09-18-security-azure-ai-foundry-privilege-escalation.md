@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-security-azure-ai-foundry-privilege-escalation-en)
+> :globe: [English version](/posts/daily/2026-09-18-security-azure-ai-foundry-privilege-escalation-en)
 
 ## 事件概述
 

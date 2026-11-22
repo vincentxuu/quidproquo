@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-16-attention-variants-in-context-learning)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-16-attention-variants-in-context-learning)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 [Lecture 16 recording](https://www.youtube.com/watch?v=hHC-SF3utxg) published by Stanford Online, with formula notation checked against Chapter 17 of the 2026 main notes; I did not see the board. The topic in the YouTube title (Basic Concept in RL, Policy Gradient) does not match the content: the video contains no reinforcement learning at all, and what follows is organized around what the lecture actually covers.
 

@@ -17,7 +17,7 @@ Today's trending projects split into two threads. One extends what agents can se
 
 ## Trending Repos
 
-### cloudflare/security-audit-skill ⭐ 6,504 (+1,249 today)
+### cloudflare/security-audit-skill ★ 6,504 (+1,249 today)
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 
@@ -28,7 +28,7 @@ Today's trending projects split into two threads. One extends what agents can se
 
 ---
 
-### vercel/eve ⭐ 5,191
+### vercel/eve ★ 5,191
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -39,7 +39,7 @@ Today's trending projects split into two threads. One extends what agents can se
 
 ---
 
-### volcengine/OpenViking ⭐ 37,736
+### volcengine/OpenViking ★ 37,736
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Python　·　AGPL-3.0
 
@@ -50,7 +50,7 @@ Today's trending projects split into two threads. One extends what agents can se
 
 ---
 
-### anthropics/knowledge-work-plugins ⭐ 24,221
+### anthropics/knowledge-work-plugins ★ 24,221
 
 [GitHub](https://github.com/anthropics/knowledge-work-plugins)　·　Python　·　Apache-2.0
 
@@ -61,7 +61,7 @@ Today's trending projects split into two threads. One extends what agents can se
 
 ---
 
-### Panniantong/Agent-Reach ⭐ 82,445
+### Panniantong/Agent-Reach ★ 82,445
 
 [GitHub](https://github.com/Panniantong/Agent-Reach)　·　Python　·　MIT
 

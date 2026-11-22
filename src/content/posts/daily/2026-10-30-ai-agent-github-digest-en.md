@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-memory, agent-governance, multi-agent]
 lang: en
 description: "claude-mem broke 100k stars the same day GitHub trending surfaced an education agent, a game-studio template, and a tool that mints a custom harness for any repo"
-tldr: "**thedotmack/claude-mem** (⭐ 104,523, +459 today) broke 100k stars and added a memory timeline for Codex subagents; **HKUDS/DeepTutor** (⭐ 49,631, +1,926 today) turns personalized tutoring into a multi-agent system that maintains its own knowledge base; **Donchitos/Claude-Code-Game-Studios** (⭐ 28,954, +538 today) packages Claude Code into a 49-agent game studio template; **ruvnet/metaharness** (⭐ 729) mints a branded agent harness for any repo in one command, with built-in governance policy and approval gates. On the release side, Mastra 1.80.0 opens up per-end-user OAuth connections (with 4 breaking changes), and crewAI v1.15.33 adds skill search and flow input passing."
+tldr: "**thedotmack/claude-mem** (★ 104,523, +459 today) broke 100k stars and added a memory timeline for Codex subagents; **HKUDS/DeepTutor** (★ 49,631, +1,926 today) turns personalized tutoring into a multi-agent system that maintains its own knowledge base; **Donchitos/Claude-Code-Game-Studios** (★ 28,954, +538 today) packages Claude Code into a 49-agent game studio template; **ruvnet/metaharness** (★ 729) mints a branded agent harness for any repo in one command, with built-in governance policy and approval gates. On the release side, Mastra 1.80.0 opens up per-end-user OAuth connections (with 4 breaking changes), and crewAI v1.15.33 adds skill search and flow input passing."
 series:
   name: "AI Agent GitHub Digest"
   order: 76
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-30-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Yesterday Agno v3.1.11 made Claude Code and Codex full members of a Team; today 
 
 ## Trending Repos
 
-### thedotmack/claude-mem ⭐ 104,523 (+459)
+### thedotmack/claude-mem ★ 104,523 (+459)
 
 [GitHub](https://github.com/thedotmack/claude-mem)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Yesterday Agno v3.1.11 made Claude Code and Codex full members of a Team; today 
 
 ---
 
-### HKUDS/DeepTutor ⭐ 49,631 (+1,926)
+### HKUDS/DeepTutor ★ 49,631 (+1,926)
 
 [GitHub](https://github.com/HKUDS/DeepTutor)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Yesterday Agno v3.1.11 made Claude Code and Codex full members of a Team; today 
 
 ---
 
-### Donchitos/Claude-Code-Game-Studios ⭐ 28,954 (+538)
+### Donchitos/Claude-Code-Game-Studios ★ 28,954 (+538)
 
 [GitHub](https://github.com/Donchitos/Claude-Code-Game-Studios)　·　Shell　·　MIT
 
@@ -52,7 +52,7 @@ Yesterday Agno v3.1.11 made Claude Code and Codex full members of a Team; today 
 
 ---
 
-### ruvnet/metaharness ⭐ 729
+### ruvnet/metaharness ★ 729
 
 [GitHub](https://github.com/ruvnet/metaharness)　·　TypeScript　·　MIT
 

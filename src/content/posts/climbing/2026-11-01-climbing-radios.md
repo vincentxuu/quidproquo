@@ -30,7 +30,7 @@ glossary:
     context: "按下後等一下再開口，第一個字比較不會被切掉。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-11-01-climbing-radios-en)
+> :globe: [English version](/posts/climbing/2026-11-01-climbing-radios-en)
 
 多繩距爬到一半，風很大，繩伴在轉角另一邊。你喊「Off belay」，他聽到的可能只是一陣風聲；你拉三下繩子，他分不出那是訊號還是繩子卡住。對講機讓你們不用喊：按住側邊的鍵說話，放開聽對方。它是繩伴之間的溝通工具，不是求救工具；要對外求救，見〈[衛星通訊器與個人求救信標](/posts/climbing/2026-11-01-satellite-messengers-plb)〉。
 

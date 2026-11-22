@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-tool-proton-safe-mcp)
+> :globe: [中文版](/posts/daily/2026-08-30-tool-proton-safe-mcp)
 
 ## Tool Info
 
@@ -94,11 +94,11 @@ Only after approval can the agent call `commit_approved_draft(draft_id)` to actu
 
 | | proton-safe-mcp | Typical email MCP (built-in send) | Manual copy-paste |
 |---|---|---|---|
-| No send capability anywhere in the code | ✅ | ❌ | — |
-| Drafts require local-terminal human approval | ✅ | Usually absent, or an optional flag at best | Always manual |
-| Attachments go through chunked hash verification, never expose file paths | ✅ | Depends on implementation | — |
-| Read-only operations don't change read status | ✅ (`BODY.PEEK`) | Depends on implementation | ✅ |
-| Supports batch, automated inbox triage | ✅ (automated read/search) | ✅ | ❌ |
+| No send capability anywhere in the code | ✓ | ✗ | — |
+| Drafts require local-terminal human approval | ✓ | Usually absent, or an optional flag at best | Always manual |
+| Attachments go through chunked hash verification, never expose file paths | ✓ | Depends on implementation | — |
+| Read-only operations don't change read status | ✓ (`BODY.PEEK`) | Depends on implementation | ✓ |
+| Supports batch, automated inbox triage | ✓ (automated read/search) | ✓ | ✗ |
 
 ## Caveats
 

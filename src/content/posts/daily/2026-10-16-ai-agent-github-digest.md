@@ -11,7 +11,7 @@ series:
   order: 62
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-16-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### JuliusBrussee/caveman ⭐ 112,360 (+530)
+### JuliusBrussee/caveman ★ 112,360 (+530)
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 
 - **是什麼**：讓 coding agent 用「山頂洞人語」說話、讀檔前先把 log／JSON／測試輸出壓縮過的 skill + proxy，程式碼本身不受影響。
@@ -29,7 +29,7 @@ series:
 
 ---
 
-### debpalash/VoiceStudio ⭐ 68,575 (+3,027)
+### debpalash/VoiceStudio ★ 68,575 (+3,027)
 [GitHub](https://github.com/debpalash/VoiceStudio)　·　Python　·　開源
 
 - **是什麼**：開源、可完全在本機跑的 ElevenLabs 替代品，涵蓋語音複製、語音設計、影片配音、聽寫、轉錄和有聲書製作，支援 646 種語言。
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### xerj-org/xerj ⭐ 5,432 (+725)
+### xerj-org/xerj ★ 5,432 (+725)
 [GitHub](https://github.com/xerj-org/xerj)　·　Rust　·　Apache-2.0
 
 - **是什麼**：用 Rust 寫的本機 AI 搜尋索引，一個指令把整個資料夾（程式碼、文件、log、PDF）自動索引起來，讓 agent 改用搜尋取代一行一行讀檔，介面相容 Elasticsearch，舊 client 直接能接。
@@ -49,7 +49,7 @@ series:
 
 ---
 
-### lightseekorg/tokenspeed ⭐ 2,405 (+25)
+### lightseekorg/tokenspeed ★ 2,405 (+25)
 [GitHub](https://github.com/lightseekorg/tokenspeed)　·　Python　·　Apache-2.0
 
 - **是什麼**：由非營利 LightSeek Foundation 維護、NVIDIA 和 AMD 掛名提供硬體與工程支援的 LLM 推理引擎，主打 agentic workload。

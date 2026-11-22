@@ -14,7 +14,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-25-graph-neural-networks)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-25-graph-neural-networks)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

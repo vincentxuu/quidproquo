@@ -15,7 +15,7 @@ glossary:
     def: "新加坡新創 Sapiens AI（創辦人 Bruce Yang）旗下的商業品牌，以單一 omni-modal API 同時提供文字、圖像、影片模型"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
+> :globe: [English version](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | AA-LCR v1.1（長 context 推理） | 81% | 80% | 84.0% |
 | AA-Omniscience Accuracy（事實知識） | 25% | 49% | 46% |
 
-⚠️ 以上為 Artificial Analysis v4.3 對 API／生產版 Agnes 3.0 Flash 的測試結果（截至 2026-09-11 存取，官方標注為「估計值，等待獨立覆現」），HuggingFace 開源 Preview checkpoint 的 benchmark 數字與此不同、不可互相引用。DeepSeek V4.1 Flash 資料取自昨日（2026-09-12）已發表之模型卡。
+:warning: 以上為 Artificial Analysis v4.3 對 API／生產版 Agnes 3.0 Flash 的測試結果（截至 2026-09-11 存取，官方標注為「估計值，等待獨立覆現」），HuggingFace 開源 Preview checkpoint 的 benchmark 數字與此不同、不可互相引用。DeepSeek V4.1 Flash 資料取自昨日（2026-09-12）已發表之模型卡。
 
 ## 與前代/競品比較
 

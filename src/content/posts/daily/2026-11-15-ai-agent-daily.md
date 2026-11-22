@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-15-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -33,10 +33,10 @@ title: 資安攻防加速後的兩條線：攻擊端規模化複製，防禦端�
 desc: 左欄是攻擊端把開源 agentic 工具重複使用到多個大洲與受害類型，右欄是防禦端把精力放在降低揭露與究責的摩擦，而不是單純防堵。
 caption: 依 Amazon MadPot、Elastic Security Labs、The Register、白宮 AI 任務小組、香港金管局 Project SAGE 相關報導整理。
 ---
-<svg viewBox="0 0 640 300">
+<svg viewBox="0 0 640 272">
   <text class="dg-heading" x="160" y="28" text-anchor="middle" dominant-baseline="central">攻擊端：規模化複製</text>
   <text class="dg-heading" x="480" y="28" text-anchor="middle" dominant-baseline="central">防禦端：降低揭露摩擦</text>
-  <line class="dg-rule" x1="320" y1="16" x2="320" y2="280"/>
+  <line class="dg-rule" x1="320" y1="16" x2="320" y2="216"/>
 
   <rect class="dg-box dg-box--accent" x="60" y="56" width="200" height="56" rx="6"/>
   <text class="dg-label" x="160" y="78" text-anchor="middle" dominant-baseline="central">攻擊工具擴散</text>
@@ -57,7 +57,7 @@ caption: 依 Amazon MadPot、Elastic Security Labs、The Register、白宮 AI �
   <path class="dg-line" d="M160 112V140" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M480 112V140" marker-end="url(#arrow)"/>
 
-  <text class="dg-sub" x="320" y="240" text-anchor="middle" dominant-baseline="central">揭露機制的摩擦夠不夠低，決定下一輪事件多快被看見</text>
+  <text class="dg-sub" x="320" y="244" text-anchor="middle" dominant-baseline="central">揭露機制的摩擦夠不夠低，決定下一輪事件多快被看見</text>
 </svg>
 ```
 
@@ -161,16 +161,16 @@ GitHub 生態的訊號是 GitHub、Alibaba、OpenAI、DeepSeek 同週把自己�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest)
-- 📄 [模型卡｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
-- 📄 [資安警報｜官方 MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce)
-- 📄 [融資速報｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra)
-- 📄 [融資速報｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor)
-- 📄 [定價追蹤｜Gemini 4／GPT-5.6 Sol 促銷到期](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
-- 📄 [工具推薦｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
-- 📄 [AI Engineer 面試準備日報](/posts/daily/2026-11-15-ai-interview-daily)
-- 📄 [Product Builder 面試準備日報](/posts/daily/2026-11-15-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-15](/posts/daily/2026-11-15-ai-agent-github-digest)
+- :file: [模型卡｜LongCat-2.5](/posts/daily/2026-11-15-model-meituan-longcat-2-5)
+- :file: [資安警報｜官方 MCP Git Server .git/config RCE](/posts/daily/2026-11-15-security-mcp-git-server-gitconfig-rce)
+- :file: [融資速報｜Lumbra Series A $25M](/posts/daily/2026-11-15-funding-lumbra)
+- :file: [融資速報｜Mercor Series D $750M](/posts/daily/2026-11-15-funding-mercor)
+- :file: [定價追蹤｜Gemini 4／GPT-5.6 Sol 促銷到期](/posts/daily/2026-11-15-pricing-multi-vendor-pricing-changes)
+- :file: [工具推薦｜Copper KiCad MCP](/posts/daily/2026-11-15-tool-copper-kicad-mcp)
+- :file: [AI Engineer 面試準備日報](/posts/daily/2026-11-15-ai-interview-daily)
+- :file: [Product Builder 面試準備日報](/posts/daily/2026-11-15-product-builder-interview-daily)
 
 ## 明日關注
 

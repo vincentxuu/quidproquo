@@ -13,7 +13,7 @@ description: "Mizunami Byobuiwa climbing guide: seasons, access, management rule
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa)
 
 Mizunami Byobuiwa combines granite cracks and friction faces, for climbers practising jams, wide cracks and precise footwork. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

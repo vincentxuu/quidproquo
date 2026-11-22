@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 39
 ---
-> 🌏 [中文版](/posts/daily/2026-07-02-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-02-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -125,7 +125,7 @@ This architecture is fundamentally different from mainstream frameworks (LangGra
 
 ### Key Details
 
-- **SWE-bench Verified**: using Gemini 3-Flash, achieves 65.7%, **+10.5pp** above the strongest centralized baseline, at roughly **50%** lower cost ⚠️ (figure from VentureBeat reporting; verify against the original paper's Table)
+- **SWE-bench Verified**: using Gemini 3-Flash, achieves 65.7%, **+10.5pp** above the strongest centralized baseline, at roughly **50%** lower cost :warning: (figure from VentureBeat reporting; verify against the original paper's Table)
 - **LongBench-v2 Multi-Doc QA**: achieves the highest average accuracy across four frontier models; demonstrates the architecture works beyond coding, extending to long-document reasoning
 - **Shared Context verification mechanism**: information written back by agents must pass verification before entering Context, preventing erroneous information from polluting downstream agents; specific verification method (unit test? LLM judge?) — check paper Section 3 for details
 - **Relationship to AutoGen / LangGraph**: DeLM proposes an architectural pattern; in theory, a similar shared-state node could be implemented on top of LangGraph
@@ -156,7 +156,7 @@ After a Web Agent completes a task, HANSEL automatically extracts the "most crit
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Worth a quick read if you're interested in Agent explainability / user trust; if your biggest pain point right now isn't Web Agent observability, save it for later.
 
 ### Background

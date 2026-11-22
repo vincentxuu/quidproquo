@@ -12,7 +12,7 @@ tldr: "自動質性編碼先以 codebook 定義事件型別與 arguments，再�
 description: "CS224V Document Set Analysis：質性編碼、ACLED codebook、abstractive event detection、Python/JSON schema、entity linking 與端到端限制。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-qualitative-coding-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-qualitative-coding-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

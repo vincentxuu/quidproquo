@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-tool-ismail)
+> :globe: [中文版](/posts/daily/2026-09-27-tool-ismail)
 
 ## Tool Info
 
@@ -81,11 +81,11 @@ python -m ismail -p songs/demo cmp_worst                    # find the worst-sco
 
 | | ismail | Suno/Udio-style text-to-music | Ableton-style DAW automation over MCP |
 |---|---|---|---|
-| Note-level editability | ✅ | ❌ black-box generation, can't touch a single note | ✅ (but via MIDI/OSC) |
-| Agent can read back the mix and judge it | ✅ structured analysis and scoring | ❌ | ❌ usually still needs a human ear |
-| Iteration gated on a human listening | ❌ | ✅ | ✅ |
-| Rebuild and score against a reference track | ✅ the `cmp_run` family | ❌ | ❌ |
-| Fully open source, self-hostable | ✅ MIT | ❌ mostly closed services | depends on the project |
+| Note-level editability | ✓ | ✗ black-box generation, can't touch a single note | ✓ (but via MIDI/OSC) |
+| Agent can read back the mix and judge it | ✓ structured analysis and scoring | ✗ | ✗ usually still needs a human ear |
+| Iteration gated on a human listening | ✗ | ✓ | ✓ |
+| Rebuild and score against a reference track | ✓ the `cmp_run` family | ✗ | ✗ |
+| Fully open source, self-hostable | ✓ MIT | ✗ mostly closed services | depends on the project |
 
 ## Things to Watch
 

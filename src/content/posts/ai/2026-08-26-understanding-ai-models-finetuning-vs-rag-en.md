@@ -20,7 +20,7 @@ glossary:
     def: "When a model learns new knowledge during fine-tuning but forgets capabilities it previously had"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag)
 
 You have a pile of internal company documents and you want a model to answer questions about them. Two paths lie ahead: feed the data into the model through additional training (fine-tuning), or look up relevant documents in real time when the user asks a question (RAG).
 

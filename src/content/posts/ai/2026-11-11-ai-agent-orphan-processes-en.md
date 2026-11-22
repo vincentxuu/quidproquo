@@ -10,7 +10,7 @@ description: "Why AI coding agents leave orphan processes behind (re-parenting t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-11-11-ai-agent-orphan-processes)
+> :globe: [中文版](/posts/ai/2026-11-11-ai-agent-orphan-processes)
 
 ## TL;DR
 

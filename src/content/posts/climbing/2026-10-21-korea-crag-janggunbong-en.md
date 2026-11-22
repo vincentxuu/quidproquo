@@ -13,7 +13,7 @@ description: "Janggunbong climbing guide: compare route grades and versions, pla
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-janggunbong)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-janggunbong)
 
 From Biseondae (비선대), Janggunbong (장군봉) rises above the valley. This is not a single-pitch venue where a team can warm up and then select another climb: once on a multipitch line, pace, food and retreat options shape the whole day.
 

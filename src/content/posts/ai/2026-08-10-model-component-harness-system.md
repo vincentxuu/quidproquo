@@ -13,7 +13,7 @@ description: "七家公司對 agent 可靠性的收斂結論、四個把確定�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-model-component-harness-system-en)
+> :globe: [English version](/posts/ai/2026-08-10-model-component-harness-system-en)
 
 [上一篇](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)建立了 workflow 與 agent 的分界，並且留了一個伏筆：複合錯誤讓「多幾步」不是線性變難。這一篇處理業界對這件事的共同答案。
 

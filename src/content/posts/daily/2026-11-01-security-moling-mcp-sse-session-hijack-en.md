@@ -11,7 +11,7 @@ series:
   order: 69
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack)
+> :globe: [中文版](/posts/daily/2026-11-01-security-moling-mcp-sse-session-hijack)
 
 ## Summary
 
@@ -64,12 +64,12 @@ caption: Precondition — the victim already started MoLing in SSE mode with -l,
   <rect class="dg-box" x="300" y="108" width="8" height="68" rx="2" data-step="1 2"/>
   <rect class="dg-box" x="300" y="196" width="8" height="68" rx="2" data-step="3 4"/>
 
-  <rect class="dg-box" x="12" y="24" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="84" y="42" text-anchor="middle" dominant-baseline="central">Malicious page</text>
-  <text class="dg-sub" x="84" y="60" text-anchor="middle" dominant-baseline="central">attacker-controlled</text>
-  <rect class="dg-box" x="232" y="24" width="144" height="48" rx="6"/>
-  <text class="dg-label" x="304" y="42" text-anchor="middle" dominant-baseline="central">MoLing</text>
-  <text class="dg-sub" x="304" y="60" text-anchor="middle" dominant-baseline="central">SSE mode, no auth</text>
+  <rect class="dg-box" x="12" y="16" width="144" height="56" rx="6"/>
+  <text class="dg-label" x="84" y="32" text-anchor="middle" dominant-baseline="central">Malicious page</text>
+  <text class="dg-sub" x="84" y="56" text-anchor="middle" dominant-baseline="central">attacker-controlled</text>
+  <rect class="dg-box" x="232" y="16" width="144" height="56" rx="6"/>
+  <text class="dg-label" x="304" y="32" text-anchor="middle" dominant-baseline="central">MoLing</text>
+  <text class="dg-sub" x="304" y="56" text-anchor="middle" dominant-baseline="central">SSE mode, no auth</text>
 </svg>
 ```
 

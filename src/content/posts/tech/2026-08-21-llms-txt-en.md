@@ -16,7 +16,7 @@ additionalSeries:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-llms-txt)
+:globe: [中文版](/posts/tech/2026-08-21-llms-txt)
 
 One criterion keeps recurring in this series: pick libraries whose documentation machines can read. This post covers the vehicle for that criterion. llms.txt resembles the file its name winks at — robots.txt, a plain-text convention at the site root — but points the opposite way: robots.txt tells crawlers what **not** to look at; llms.txt tells language models what they **should** read, and where.
 
@@ -34,12 +34,12 @@ While writing the [selection overview](/posts/tech/2026-08-19-react-stack-ai-era
 
 | Docs site | /llms.txt |
 |---|---|
-| tanstack.com | ✅ 200 |
-| ui.shadcn.com | ✅ 200 |
-| zustand.docs.pmnd.rs | ✅ 200 |
-| ai-sdk.dev | ✅ 200 |
-| nextjs.org | ✅ 200 |
-| reactrouter.com | ❌ 404 |
+| tanstack.com | ✓ 200 |
+| ui.shadcn.com | ✓ 200 |
+| zustand.docs.pmnd.rs | ✓ 200 |
+| ai-sdk.dev | ✓ 200 |
+| nextjs.org | ✓ 200 |
+| reactrouter.com | ✗ 404 |
 
 The difference is concrete. Say your coding agent needs to write file-based routing with TanStack Router — a library under-represented in training data (a weakness [the series' third post](/posts/tech/2026-08-21-tanstack-router-type-safety-en) covers), so bare-handed output drifts into React Router idioms. With llms.txt the workflow is: fetch the index → locate the file-based-routing page → fetch it → write against the current API. Without it, the agent scrapes HTML and hopes, or writes from stale memory. **llms.txt is a niche library's main weapon against the training-data deficit** — which also explains the adoption pattern: the most eager adopters are young ecosystems like TanStack and the AI SDK, while React Router, with the largest installed base, hasn't moved. When the corpus already knows you, the pain is smaller.
 

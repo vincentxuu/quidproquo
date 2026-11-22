@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standardized test that measures a model's ability to solve real GitHub issues"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
+> :globe: [中文版](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
 
 DeepReinforce is not a big lab. Not Alibaba, not Meta, not Google — it's a small team focused on agentic coding and reinforcement learning. Yet their Ornith 1.5 family, released in August 2026, matches or beats Claude Opus 4.8 on multiple coding benchmarks, all under an MIT license. Here's how they did it and whether it's worth paying attention to.
 

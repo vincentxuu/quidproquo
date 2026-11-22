@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-framework-agno-v3.1.12-en)
+> :globe: [English version](/posts/daily/2026-10-30-framework-agno-v3.1.12-en)
 
 ## 版本資訊
 

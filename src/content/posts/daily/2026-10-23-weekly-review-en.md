@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-weekly-review)
+> :globe: [中文版](/posts/daily/2026-10-23-weekly-review)
 
 ## The 5 things that mattered most this week
 
@@ -25,7 +25,7 @@ title: This week's agent security arms race
 desc: Attack and defense traded blows from 10/19 to 10/22, with defensive tooling and the Skynet disclosure landing on the same day.
 caption: Dates follow each daily/arXiv digest's publication and reporting time; see references below.
 ---
-<svg viewBox="0 0 760 260">
+<svg viewBox="0 0 772 260">
   <path class="dg-axis" d="M60 140H700"/>
 
   <g>
@@ -104,13 +104,13 @@ For Taiwanese enterprises, the takeaway is this: before deciding whether to buil
 
 ## Watchlist update suggestions
 
-### 🆕 Suggested additions
+### Suggested additions
 
 Among the companies appearing in this week's signals, the most frequent ones are all already on the watchlist (OpenAI, Google, NVIDIA, Anthropic, Microsoft, DeepSeek, Alibaba-Qwen). No company outside the watchlist appeared 3+ times this week, so there are no new addition candidates.
 
-### ⚠️ Considered for removal
+### :warning: Considered for removal
 
-✅ No companies met the removal criteria this week
+✓ No companies met the removal criteria this week
 
 ## This week's startup radar
 

@@ -30,7 +30,7 @@ glossary:
     context: "Most climbers resole rather than wearing shoes out and buying new."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-shoes)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-shoes)
 
 You've tried on three pairs in the shop. The first feels comfortable, and the staff say "too loose." The second hurts too much to stand in, and they say "it'll loosen up." The third is somewhere between, and you can't tell whether it fits.
 

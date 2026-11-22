@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en)
 
 Cloudflare 的快取很容易被講成一句「把 CDN 打開就好」。實際上，產品一旦有登入頁、API、preview、圖片、RSS、OG image、文件下載、AI 產生的 artifact，真正要決定的是：哪些東西能進 shared cache，哪些東西必須保持 dynamic，TTL 由 origin 說了算還是由平台覆蓋，purge 時能不能精準清掉。
 

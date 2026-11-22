@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-31-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -156,16 +156,16 @@ AWS 分享物流業者 Worldwide Express 的案例：建構於 Amazon Bedrock �
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-github-digest)
-- 📄 [資安警報｜Cursor Marketplace Claude Code 擴充套件 SSH 後門](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor)
-- 📄 [定價追蹤｜Microsoft Foundry 模型退場時程脫鉤](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch)
-- 📄 [工具推薦｜git-ai (gitai)](/posts/daily/2026-10-31-tool-git-ai)
-- 📄 [融資速報｜Bites Series A $40M](/posts/daily/2026-10-31-funding-bites)
-- 📄 [融資速報｜Broccoli AI Series B $30M](/posts/daily/2026-10-31-funding-broccoli-ai)
-- 📄 [融資速報｜Phonic Series A $27.5M](/posts/daily/2026-10-31-funding-phonic)
-- 📄 [AI Engineer 面試日練 — 2026-10-31](/posts/daily/2026-10-31-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-31](/posts/daily/2026-10-31-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-31](/posts/daily/2026-10-31-ai-agent-github-digest)
+- :file: [資安警報｜Cursor Marketplace Claude Code 擴充套件 SSH 後門](/posts/daily/2026-10-31-security-claude-code-cursor-extension-ssh-backdoor)
+- :file: [定價追蹤｜Microsoft Foundry 模型退場時程脫鉤](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch)
+- :file: [工具推薦｜git-ai (gitai)](/posts/daily/2026-10-31-tool-git-ai)
+- :file: [融資速報｜Bites Series A $40M](/posts/daily/2026-10-31-funding-bites)
+- :file: [融資速報｜Broccoli AI Series B $30M](/posts/daily/2026-10-31-funding-broccoli-ai)
+- :file: [融資速報｜Phonic Series A $27.5M](/posts/daily/2026-10-31-funding-phonic)
+- :file: [AI Engineer 面試日練 — 2026-10-31](/posts/daily/2026-10-31-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-31](/posts/daily/2026-10-31-product-builder-interview-daily)
 
 ## 明日關注
 

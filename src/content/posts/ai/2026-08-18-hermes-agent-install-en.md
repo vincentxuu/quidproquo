@@ -13,7 +13,7 @@ description: "Practical notes on installing and upgrading Hermes Agent: the supp
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-install)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-install)
 
 Post 2 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

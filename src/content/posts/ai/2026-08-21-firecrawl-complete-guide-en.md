@@ -10,7 +10,7 @@ description: "Implement Firecrawl v2 Scrape, Crawl, Map, and JSON Schema extract
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-firecrawl-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-firecrawl-complete-guide)
 
 [Firecrawl](https://docs.firecrawl.dev/advanced-scraping-guide) is a Web Data API. Give it a URL and it can return Markdown, links, HTML, screenshots, or structured JSON. Give it a domain and it can discover URLs first or crawl content across multiple pages. Its main difference from a crawler library is not merely another Markdown converter: it packages browsers, caching, proxies, job queues, and an API service together.
 

@@ -13,7 +13,7 @@ description: "Claude Code 的安裝方式、核心功能、六層擴充機制、
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en)
+:globe: [English version](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en)
 
 Claude Code 是 Anthropic 推出的 agentic coding 工具。它能理解你的 codebase，透過自然語言指令執行日常任務、解釋複雜程式碼、處理 git workflow。可以在終端機、IDE（VS Code / JetBrains）、Slack、GitHub、或 Web 上使用。
 
@@ -139,8 +139,8 @@ Model Context Protocol 讓 Claude 連上你的工具鏈：資料庫、GitHub、S
 |---|---|---|---|---|---|
 | 廠商 | Anthropic | OpenAI | Google | anomalyco（開源社群） | earendil-works（開源社群） |
 | 擴充層數 | 6 層 | Skills + MCP | MCP | 雙 Agent | Extension |
-| 開源 | ❌ | ✅ | ✅（Apache 2.0） | ✅ | ✅ |
-| 免費方案 | ❌（需訂閱） | 部分免費 | ❌（個人免費層已於 2026/6 終止） | 完全免費 | 完全免費 |
+| 開源 | ✗ | ✓ | ✓（Apache 2.0） | ✓ | ✓ |
+| 免費方案 | ✗（需訂閱） | 部分免費 | ✗（個人免費層已於 2026/6 終止） | 完全免費 | 完全免費 |
 | 核心優勢 | 擴充生態最完整 | OpenAI 模型整合 | Antigravity 平台整合 | 75+ 模型自由度 | 極簡 + 低 token |
 | IDE 整合 | VS Code + JetBrains | VS Code | VS Code | TUI | TUI |
 

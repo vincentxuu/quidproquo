@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-03-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-03-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -108,16 +108,16 @@ GitHub Trending today is dominated by tools that help agents burn fewer resource
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-github-digest-en)
-- 📄 [Framework Update: Pydantic AI v2.53.0](/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0-en)
-- 📄 [Funding Brief｜Supabase Raises $150M, Acquires Turso](/posts/daily/2026-10-03-funding-supabase-en)
-- 📄 [Model Card: Clef (Cloudflare)](/posts/daily/2026-10-03-model-cloudflare-clef-en)
-- 📄 [Pricing Watch｜xAI Retires grok-imagine-image-quality](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
-- 📄 [Security Alert｜One Email Hijacks a Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en)
-- 📄 [Tool Pick｜HarnessRouter](/posts/daily/2026-10-03-tool-harnessrouter-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-03: Paper Reading](/posts/daily/2026-10-03-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-10-03: Technical PM](/posts/daily/2026-10-03-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-03](/posts/daily/2026-10-03-ai-agent-github-digest-en)
+- :file: [Framework Update: Pydantic AI v2.53.0](/posts/daily/2026-10-03-framework-pydantic-ai-2.53.0-en)
+- :file: [Funding Brief｜Supabase Raises $150M, Acquires Turso](/posts/daily/2026-10-03-funding-supabase-en)
+- :file: [Model Card: Clef (Cloudflare)](/posts/daily/2026-10-03-model-cloudflare-clef-en)
+- :file: [Pricing Watch｜xAI Retires grok-imagine-image-quality](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset-en)
+- :file: [Security Alert｜One Email Hijacks a Manus AI Agent](/posts/daily/2026-10-03-security-manus-email-jsfuck-rce-en)
+- :file: [Tool Pick｜HarnessRouter](/posts/daily/2026-10-03-tool-harnessrouter-en)
+- :file: [AI Engineer Interview Daily — 2026-10-03: Paper Reading](/posts/daily/2026-10-03-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-10-03: Technical PM](/posts/daily/2026-10-03-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -26,7 +26,7 @@ glossary:
     context: "In López's notation, the number in parentheses is the margin."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-hangboard-training)
+> :globe: [中文版](/posts/climbing/2026-10-18-hangboard-training)
 
 You have been climbing for a year and the gym's V3s and V4s have stopped going down. After the [diagnosis post](/posts/climbing/2026-10-18-climbing-training-diagnosis-en) you suspect your fingers: small holds just slide out of your hand. There is a wooden board full of slots in the corner of the gym, you have watched people hang from it, and you want to know whether you should start too.
 

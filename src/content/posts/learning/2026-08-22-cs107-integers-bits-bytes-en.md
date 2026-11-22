@@ -13,7 +13,7 @@ description: "A slide-by-slide reading of Stanford CS107 Winter 2026 Lecture 3: 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-cs107-integers-bits-bytes)
+> :globe: [中文版](/posts/learning/2026-08-22-cs107-integers-bits-bytes)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

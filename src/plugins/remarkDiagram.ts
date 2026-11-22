@@ -90,7 +90,7 @@ export function renderDiagram(spec: DiagramSpec, index = 0): string {
   svg = `<svg class="dg-svg" xmlns="http://www.w3.org/2000/svg"${attrs} role="img" aria-labelledby="${id}-title ${id}-desc"><title id="${id}-title">${escape(spec.title)}</title><desc id="${id}-desc">${escape(spec.desc)}</desc>${index === 0 ? markerDefs() : ''}${svg.slice(open.length)}`;
   const stepped = spec.steps.length > 0;
   return [
-    `<figure class="dg dg--${widthClass(spec.width)}"${stepped ? ` data-flow-diagram data-flow-total="${spec.steps.length}" data-flow-lang="${spec.lang}"` : ''}>`,
+    `<figure class="dg dg--${widthClass(spec.width)}" style="--dg-w:${spec.width}px"${stepped ? ` data-flow-diagram data-flow-total="${spec.steps.length}" data-flow-lang="${spec.lang}"` : ''}>`,
     `<figcaption class="dg__title">${escape(spec.title)}</figcaption>`,
     `<div class="dg__scroll" tabindex="0" aria-label="${en ? 'Diagram, scroll sideways if it is cut off' : '圖表，若被截斷可左右捲動'}">${svg}</div>`,
     stepped ? `<div class="flow-diagram__controls" data-flow-controls hidden><button type="button" data-flow-prev aria-label="${en ? 'Previous step' : '上一步'}">←</button><button type="button" data-flow-toggle aria-pressed="false">${en ? 'Play' : '播放'}</button><button type="button" data-flow-next aria-label="${en ? 'Next step' : '下一步'}">→</button><span data-flow-status role="status" aria-live="polite">${en ? `All ${spec.steps.length} steps` : `全部 ${spec.steps.length} 步`}</span></div>` : '',

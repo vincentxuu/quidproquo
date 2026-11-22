@@ -22,7 +22,7 @@ glossary:
     context: "L05 uses it to explain the Add & Norm blocks in the original Transformer diagram."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-05-transformers-math)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

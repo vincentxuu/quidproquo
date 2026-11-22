@@ -22,7 +22,7 @@ glossary:
     context: "它挑戰了 RICE／PRICE 裡的冰敷與長時間休息，但本身是專家意見，不是臨床指引。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-injury-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-injury-overview-en)
 
 抱石抱到一半，手指在小點上「啪」一聲；或是從四公尺高跳下來，腳踝落在墊子縫上。你坐在墊子上，心裡只有三個問題：嚴不嚴重？要不要現在去醫院？要掛哪一科？
 

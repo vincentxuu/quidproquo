@@ -17,7 +17,7 @@ glossary:
     def: "開發 Ornith 模型家族的研究團隊，2026 年 6 月以 Ornith-1.0 首次開源釋出"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b-en)
+> :globe: [English version](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b-en)
 
 
 ## 模型資訊
@@ -53,7 +53,7 @@ glossary:
 | BrowseComp | 78.5 | 未提供同規模前代分數 | Beam-1.0（501B）：80.2（領先） |
 | HLE（含工具） | 48.0 | 未提供同規模前代分數 | Beam-1.0（501B）：51.1（領先） |
 
-⚠️ 以上均為官方模型卡自測數據（SWE-bench 系列用 OpenHands harness、Terminal-Bench 用 Claude Code harness、HLE 用 Claude 4.6 Opus 當裁判模型），尚無外部單位獨立複現。Ornith-1.0 並未推出 122B 規模版本，因此沒有同規模的前代分數可對照。
+:warning: 以上均為官方模型卡自測數據（SWE-bench 系列用 OpenHands harness、Terminal-Bench 用 Claude Code harness、HLE 用 Claude 4.6 Opus 當裁判模型），尚無外部單位獨立複現。Ornith-1.0 並未推出 122B 規模版本，因此沒有同規模的前代分數可對照。
 
 ## 與前代/競品比較
 

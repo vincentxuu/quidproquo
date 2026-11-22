@@ -32,7 +32,7 @@ glossary:
     context: "Definitions vary from region to region."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-ice-mixed-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-ice-mixed-climbing)
 
 In 2011, Lin Yi-fan from Kaohsiung saw an ice fall at the Banff Mountain Film Festival: "The Wings" in Shuangqiao Valley, Sichuan, graded WI4+. According to a [go4mosa profile (in Chinese)](https://www.go4mosa.net/blog/posts/iceclimbing), from then on his rock climbing, snow training and hiking were all for ice. He first went to Sichuan to climb ice in 2018, went back in January 2025, and sent The Wings.
 

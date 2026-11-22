@@ -13,7 +13,7 @@ description: "台大李宏毅《機器學習 2026 Spring》HW5「Finetuning with
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

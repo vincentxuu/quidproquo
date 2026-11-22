@@ -23,7 +23,7 @@ glossary:
     context: "TAICA 114 學年上學期把本課標為「封閉式：鏡像課程／條件式：衛星課程」，115 學年上學期標為「鏡像課程」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide-en)
 
 **影片狀態：已附影片。** 導言附第 1 週週二的錄影（1 小時 25 分），各週錄影在各篇導讀。[影片來源與說明](#課程影片來源)
 

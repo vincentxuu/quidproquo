@@ -13,7 +13,7 @@ description: "島島阿學從 2020 年的學習資源平台、學習馬拉松、
 draft: false
 ---
 
-> 🌏 [English version](/posts/product/2026-10-29-daodao-why-help-facilitators-en)
+> :globe: [English version](/posts/product/2026-10-29-daodao-why-help-facilitators-en)
 
 一個人在島島阿學建立了「30 天讀完一本書」的主題實踐，第一天打卡，第二天打卡，第三天也打卡。三天裡沒有人按任何一個回應，也沒有人留言。第四天他就沒有再打開了。
 

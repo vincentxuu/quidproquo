@@ -13,7 +13,7 @@ description: "Comparing cross-session memory in mature coding agents, then docum
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-cross-session-memory)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-cross-session-memory)
 
 Evidence base: **omp** (can1357/oh-my-pi), **claude-code** (community decompiled v2.1.88 — symbol names may differ from the official build), **pi** (badlogic/pi-mono), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), compared against my own **looplane**. All citations were read in local clones.
 

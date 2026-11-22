@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-content-model-ai-exposure-defense)
+> :globe: [中文版](/posts/product/2026-09-17-content-model-ai-exposure-defense)
 
 Imagine four restaurants posting menus outside. AI can copy the dish names and prices. It cannot carry away the kitchen, regular-customer list, reservation system, or today's ingredients.
 

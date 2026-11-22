@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-29-tool-localagents-mcp-en)
+> :globe: [English version](/posts/daily/2026-08-29-tool-localagents-mcp-en)
 
 ## 工具資訊
 
@@ -84,11 +84,11 @@ run_agent(task="重構 parser 模組加型別註解", model="qwen3.8-27b", isola
 
 | | localagents | 外部 proxy（如 claude-code-router） | 手動改 `ANTHROPIC_BASE_URL` |
 |---|---|---|---|
-| 主 session 留在 Claude，只委派子任務 | ✅ | ❌（整個 session 換掉來源） | ❌ |
-| KV-cache 友善的系統訊息折疊 | ✅ | ❌ | ❌ |
-| Context window 自動偵測並回填給 Claude Code | ✅ | 依各 proxy 實作而定 | ❌ |
-| Git worktree 隔離本地模型的改動 | ✅ | ❌ | ❌ |
-| 任務背景執行與 job 追蹤 | ✅（`wait_job` / `job_log` / `list_jobs`） | ❌ | ❌ |
+| 主 session 留在 Claude，只委派子任務 | ✓ | ✗（整個 session 換掉來源） | ✗ |
+| KV-cache 友善的系統訊息折疊 | ✓ | ✗ | ✗ |
+| Context window 自動偵測並回填給 Claude Code | ✓ | 依各 proxy 實作而定 | ✗ |
+| Git worktree 隔離本地模型的改動 | ✓ | ✗ | ✗ |
+| 任務背景執行與 job 追蹤 | ✓（`wait_job` / `job_log` / `list_jobs`） | ✗ | ✗ |
 | 鎖定後端 | llama.cpp / vLLM | 通常支援多家雲端/本地供應商 | 你自己接的任何 endpoint |
 
 ## 注意事項

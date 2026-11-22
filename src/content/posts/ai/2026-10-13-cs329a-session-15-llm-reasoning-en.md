@@ -13,7 +13,7 @@ tldr: "Reasoning is the intermediate tokens between input and output; RL fine-tu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning)
+> :globe: [中文版](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning)
 
 "Can models reason?" is often argued as philosophy. Denny Zhou of Google DeepMind offers a definition you can work with: reasoning is the intermediate tokens generated between the input and the final answer. He gave session 15 of [CS329A](https://cs329a.stanford.edu/) Autumn 2025 as a guest, under the title "LLM Reasoning." After reading this guide you should be able to explain why intermediate tokens help, how SFT and RL fine-tuning differ, and work through self-consistency by hand. Prerequisites: a language model predicts one token at a time, and sampling differs from greedy decoding.
 

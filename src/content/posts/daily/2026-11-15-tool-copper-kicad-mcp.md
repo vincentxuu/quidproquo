@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-15-tool-copper-kicad-mcp-en)
 
 ## 工具資訊
 
@@ -46,7 +46,7 @@ caption: 簡化示意，實際流程還包含渲染與多次零件替換。
   <path class="dg-line" d="M280 108V152" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M280 204V228" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--warn" d="M280 320V352" marker-end="url(#arrow-warn)"/>
-  <path class="dg-line dg-line--accent" d="M376 276H428" marker-end="url(#arrow-accent)"/>
+  <path class="dg-line dg-line--accent" d="M410 276H440" marker-end="url(#arrow-accent)"/>
   <path class="dg-line dg-line--warn dg-line--dashed" d="M184 382H108Q100 382 100 374V186Q100 178 108 178H188" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="280" cy="28" r="6"/>
@@ -64,7 +64,7 @@ caption: 簡化示意，實際流程還包含渲染與多次零件替換。
   </g>
 
   <g>
-    <path class="dg-box" d="M280 232L376 276L280 320L184 276Z"/>
+    <path class="dg-box" d="M280 232L410 276L280 320L150 276Z"/>
     <text class="dg-label" x="280" y="266" text-anchor="middle" dominant-baseline="central">ERC/DRC 全過？</text>
     <text class="dg-sub" x="280" y="288" text-anchor="middle" dominant-baseline="central">每次改動都重跑</text>
   </g>
@@ -75,13 +75,13 @@ caption: 簡化示意，實際流程還包含渲染與多次零件替換。
   </g>
 
   <g>
-    <rect class="dg-box dg-box--accent" x="432" y="252" width="192" height="52" rx="6"/>
-    <text class="dg-label" x="528" y="269" text-anchor="middle" dominant-baseline="central">匯出生產檔</text>
-    <text class="dg-sub" x="528" y="289" text-anchor="middle" dominant-baseline="central">Gerber・BOM・置件檔</text>
+    <rect class="dg-box dg-box--accent" x="440" y="252" width="192" height="52" rx="6"/>
+    <text class="dg-label" x="536" y="269" text-anchor="middle" dominant-baseline="central">匯出生產檔</text>
+    <text class="dg-sub" x="536" y="289" text-anchor="middle" dominant-baseline="central">Gerber・BOM・置件檔</text>
   </g>
 
   <text class="dg-edge dg-text--warn" x="290" y="336" text-anchor="start" dominant-baseline="central">否</text>
-  <text class="dg-edge" x="402" y="264" text-anchor="middle" dominant-baseline="central">是</text>
+  <text class="dg-edge" x="425" y="264" text-anchor="middle" dominant-baseline="central">是</text>
   <text class="dg-edge dg-text--warn" x="90" y="280" text-anchor="end" dominant-baseline="central">退回修正</text>
 </svg>
 ```
@@ -139,12 +139,12 @@ npx -y copper-kicad doctor
 
 | | Copper | KiCAD-MCP-Server（社群其他方案） | tscircuit |
 |---|---|---|---|
-| 原生操作 KiCad 專案 | ✅ | ✅（讀寫為主，無自動排線/零件匯入） | ❌（電路用程式碼定義，非 KiCad 原生） |
-| 自動搜零件＋匯入現貨零件 | ✅（LCSC/JLCPCB 即時庫存） | ❌ | 部分（需另查零件） |
-| 自動排線（長度匹配/差分線/覆銅） | ✅ | ❌ | 需另外處理 |
-| 每次改動自動跑 ERC/DRC | ✅ | 視實作而定 | — |
-| 直接產出工廠生產檔（Gerber/BOM） | ✅ | 部分 | ✅（匯出 Circuit JSON/Gerber） |
-| 綁定特定 AI 模型 | ❌（用你 AI app 原本接的模型） | 視實作而定 | ❌ |
+| 原生操作 KiCad 專案 | ✓ | ✓（讀寫為主，無自動排線/零件匯入） | ✗（電路用程式碼定義，非 KiCad 原生） |
+| 自動搜零件＋匯入現貨零件 | ✓（LCSC/JLCPCB 即時庫存） | ✗ | 部分（需另查零件） |
+| 自動排線（長度匹配/差分線/覆銅） | ✓ | ✗ | 需另外處理 |
+| 每次改動自動跑 ERC/DRC | ✓ | 視實作而定 | — |
+| 直接產出工廠生產檔（Gerber/BOM） | ✓ | 部分 | ✓（匯出 Circuit JSON/Gerber） |
+| 綁定特定 AI 模型 | ✗（用你 AI app 原本接的模型） | 視實作而定 | ✗ |
 
 ## 注意事項
 

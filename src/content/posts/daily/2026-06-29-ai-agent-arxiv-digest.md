@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 36
 ---
-> 🌏 [English version](/posts/daily/2026-06-29-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-29-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -80,7 +80,7 @@ Agent libOS 借鑑 Library OS 概念，把 agent 視為 **AgentProcess**，具�
 - 與 **LangGraph** 比較：LangGraph 是 workflow 編排層，Agent libOS 是更底層的 runtime 基礎，兩者可以互補
 - 與 **AutoGen** 比較：AutoGen 的 agent 通訊模型相對扁平，Agent libOS 有明確的 process hierarchy 和 capability control
 - 與 **AOS（2606.01508）** 的區別：AOS 強調把 agentic control plane 整合進傳統 OS，Agent libOS 走 library OS 路線，把控制權留在 agent process 層
-- **落地門檻**：單一作者、無機構支援、prototype 階段、無效能 benchmark，建議作為架構參考，而非直接生產採用 ⚠️
+- **落地門檻**：單一作者、無機構支援、prototype 階段、無效能 benchmark，建議作為架構參考，而非直接生產採用 :warning:
 
 ### Reviewer 一句話評
 
@@ -137,7 +137,7 @@ Self-Instruct、Evol-Instruct 等方法讓 LLM 生成合成資料（synthetic da
 
 - 實驗任務：CS research 任務、legal reasoning（法律推理）、mathematical object reasoning（數學推理）
 - Meta-optimization 將資料創建 pass rate 從 **62.1% 提升到 79.6%**
-- 法律任務：用 Autodata 訓練的 **4B 參數模型打贏 397B baseline** ⚠️（Meta 內部 baseline，細節未公開，數字需謹慎解讀）
+- 法律任務：用 Autodata 訓練的 **4B 參數模型打贏 397B baseline** :warning:（Meta 內部 baseline，細節未公開，數字需謹慎解讀）
 - Agent-generated 資料整體優於傳統合成資料方法（跨三個 domain 均成立）
 - 需要強模型作為 judge 評估資料品質，實際使用成本需個別估算
 - 目前實驗 domain 偏窄（3 個），對通用 agent 任務的適用性待驗證
@@ -201,10 +201,10 @@ Coding agent（如 GitHub Copilot Workspace、Cursor）在銀行、保險、法�
 
 ### 深入要點
 
-- 核心指標：分析性建模顯示保留 **84–97% agentic coding 效率**（中位估計 91%）⚠️ 此為分析性估算，非 A/B 實測
+- 核心指標：分析性建模顯示保留 **84–97% agentic coding 效率**（中位估計 91%）:warning: 此為分析性估算，非 A/B 實測
 - 主要案例研究基於泰國央行（Bank of Thailand）2025 AI 風險政策，跨司法管轄適用性需個別驗證
 - OCM 是確定性規則，不依賴 LLM 判斷，可減少邊界案例的不確定性，也方便稽核
-- 作者 Richard Kang，機構背景未公開 ⚠️
+- 作者 Richard Kang，機構背景未公開 :warning:
 - 與 NIST AI RMF 的映射是論文中最可操作的部分，PM 可重點關注
 - 三層架構跟現有 agent 框架的 human-in-the-loop 節點設計高度吻合，LangGraph 的 interrupt 機制可直接對應
 - 限制：OCM 四個維度在邊界案例（例如「寫測試但測試覆蓋核心帳務邏輯」）可能難以明確分類

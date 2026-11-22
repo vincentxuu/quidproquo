@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-zerotier-virtual-network)
+> :globe: [中文版](/posts/tech/2026-08-22-zerotier-virtual-network)
 
 [ZeroTier](https://docs.zerotier.com/) creates a software-defined virtual Ethernet network. Each node has a cryptographic identity. A controller authorizes membership and distributes managed addresses, routes, and capabilities, while the data plane prefers direct peer-to-peer paths and can relay through root infrastructure.
 

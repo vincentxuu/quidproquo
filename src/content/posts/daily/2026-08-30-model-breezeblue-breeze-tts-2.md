@@ -15,7 +15,7 @@ glossary:
     def: "BreezeBlue 開發的即時互動語音（text-to-speech）模型家族，主打語音設計、語音導演與低延遲串流"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
+> :globe: [English version](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | TTS Voice Direction Benchmark | 4.25 | MiMo-v2.5-TTS：3.76 | BreezeBlue 自建開源 benchmark，SPK_SIM 0.67 |
 | 吞吐量（字元／秒） | 45 | Fish Audio S2 Pro：102 | Breeze TTS 2 吞吐量不到競品一半 |
 
-⚠️ Provider Voices／Controlled Voices Elo 來自第三方獨立平台 Artificial Analysis 的盲測競技場，可信度較高；Voice Design／Voice Direction／Latency 三項 benchmark 為 BreezeBlue 官方自建並開源評測程式碼（非黑箱自測），但目前尚未見到大規模第三方復現。吞吐量數字出自第三方報導 AlphaSignal 整理的 Artificial Analysis 資料。
+:warning: Provider Voices／Controlled Voices Elo 來自第三方獨立平台 Artificial Analysis 的盲測競技場，可信度較高；Voice Design／Voice Direction／Latency 三項 benchmark 為 BreezeBlue 官方自建並開源評測程式碼（非黑箱自測），但目前尚未見到大規模第三方復現。吞吐量數字出自第三方報導 AlphaSignal 整理的 Artificial Analysis 資料。
 
 ## 與前代/競品比較
 

@@ -13,7 +13,7 @@ tldr: "開放式演化改的是 agent 程式與流程；archive 保留不同分�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings-en)
+> :globe: [English version](/posts/ai/2026-10-11-cs329a-session-07-open-ended-evolution-readings-en)
 
 當 agent 已經能寫程式，下一個問題是：它能不能修改自己的工具與解題流程，而不是每次只換答案？這篇讀 [CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 7 堂的指定閱讀，教你區分「候選答案變多」與「解題系統本身改變」，並設計一個不會只獎勵當下分數的搜尋流程。先備是知道 agent 會呼叫工具、測試會回傳結果；不必先懂演化演算法。
 

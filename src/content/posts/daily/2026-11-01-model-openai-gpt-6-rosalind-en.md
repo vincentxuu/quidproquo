@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI's gated access process for high-risk-capability models: applicants must pass a mission review, governance check, and access-control audit before getting the model"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-01-model-openai-gpt-6-rosalind)
+> :globe: [中文版](/posts/daily/2026-11-01-model-openai-gpt-6-rosalind)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | Biorisk knowledge test (refusal-adjusted) | 85.0% (refusal rate 9.4%) | Not published | 90.0% (refusal rate 29.2%) |
 | Sensitive-biosecurity safety grader pass rate | 79.0% | Not published | 99.8% |
 
-⚠️ All figures are OpenAI's own self-reported results from the system card addendum; none have been independently reproduced. GeneBench Pro used "a benchmark-specific configuration that differs from production." The refusal-adjusted biorisk score treats a refusal as if it were a correct answer, to estimate the true capability that safety training may be hiding — it's a risk-assessment tool, not a general capability ranking.
+:warning: All figures are OpenAI's own self-reported results from the system card addendum; none have been independently reproduced. GeneBench Pro used "a benchmark-specific configuration that differs from production." The refusal-adjusted biorisk score treats a refusal as if it were a correct answer, to estimate the true capability that safety training may be hiding — it's a risk-assessment tool, not a general capability ranking.
 
 ## Versus Predecessor / Competitors
 

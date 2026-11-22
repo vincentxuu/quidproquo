@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-workers-ai-model-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-workers-ai-model-guide-en)
 
 Workers AI 的模型目錄換得很快。上一次大規模汰換是 2026-05-30，一口氣把 18 個 model ID 標為 deprecated，包含 Llama 2 / 3 / 3.1 全系列、Mistral 7B 與 Gemma 3 12B。注意[官方用字](https://developers.cloudflare.com/workers-ai/changelog/)是 *will be deprecated* 而不是移除——這些模型的文件頁與定價至今仍在，所以舊教學不一定當天就壞，但它們已經在退場軌道上，不該再拿來起新專案。這個日期本身也是從 2026-05-10 延後過來的，會再變。
 

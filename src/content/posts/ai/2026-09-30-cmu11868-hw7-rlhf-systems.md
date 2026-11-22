@@ -26,7 +26,7 @@ glossary:
     context: "作業七頁把 HybridFlow 論文與 VERL 文件列為 Essential Reading。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw7-rlhf-systems-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

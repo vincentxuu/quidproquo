@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.S184 notes, eqs. (63)–(64) and Algorithm 5."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03b-classifier-free-guidance)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

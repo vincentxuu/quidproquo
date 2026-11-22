@@ -14,7 +14,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-response-permissions)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-response-permissions)
 
 After reading E-002, an assistant recommends disabling Alice. That may be a reasonable response direction. If the investigator already holds administrator credentials, however, malicious text inside a summarized log can influence an actual account action.
 

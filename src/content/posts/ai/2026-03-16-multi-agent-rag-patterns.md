@@ -14,7 +14,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-16-multi-agent-rag-patterns-en)
+> :globe: [English version](/posts/ai/2026-03-16-multi-agent-rag-patterns-en)
 
 當你的 RAG 系統需要同時回答法律條文、財務報表、和技術文件的問題時，一個 Agent 做所有事情就開始出問題了。
 

@@ -28,7 +28,7 @@ glossary:
     context: "作業一 Q4 用 6 個狀態、三種水流強度的修改版。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

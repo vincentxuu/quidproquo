@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-partykit-realtime-rooms-en)
+> :globe: [English version](/posts/tech/2026-08-22-partykit-realtime-rooms-en)
 
 [PartyKit](https://docs.partykit.io/) 是為多人與 realtime app 設計的 JavaScript platform。核心 mental model 是：以 room ID 路由到一個 `Party.Server` instance，由它接受 WebSocket connections、保留 room-local coordination state、broadcast，再視需求寫 storage。這比任意多台 stateless WebSocket server 加全域 pub/sub 更接近 actor 模型。
 

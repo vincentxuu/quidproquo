@@ -21,7 +21,7 @@ glossary:
     context: "The Assignment 1 web page is, at heart, a renderer for this event stream."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-assignment-1-mads-lens)
 
 **Video status: The course is not recorded.** This post is based on the public assignment page; the code examples are this site's additions, not an official solution. [Source notes](#course-video-sources)
 

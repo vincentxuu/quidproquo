@@ -10,7 +10,7 @@ description: "A complete debugging record of Vision API PDF parsing — from per
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws)
+> :globe: [中文版](/posts/ai/2026-09-19-vision-pdf-parse-too-fast-for-aws)
 
 ## TL;DR
 
@@ -95,9 +95,9 @@ Batching reduced 150 requests to 15, but they were still sequential. Next: send 
 
 | Approach | Pros/Cons | Verdict |
 |----------|-----------|---------|
-| Celery fan-out | One task per batch, natural parallelism | ❌ Batches from the same document need to merge results, share token accounting, and write cache in the same task |
-| asyncio | Native async | ❌ Existing Celery tasks are sync; refactoring scope too large |
-| ThreadPoolExecutor | Bounded thread pool | ✅ boto3 client is thread-safe, shareable; results written back by page number, completion order doesn't matter |
+| Celery fan-out | One task per batch, natural parallelism | ✗ Batches from the same document need to merge results, share token accounting, and write cache in the same task |
+| asyncio | Native async | ✗ Existing Celery tasks are sync; refactoring scope too large |
+| ThreadPoolExecutor | Bounded thread pool | ✓ boto3 client is thread-safe, shareable; results written back by page number, completion order doesn't matter |
 
 Final implementation used `concurrent.futures.ThreadPoolExecutor` with `max_workers` from config (default 5, max 10):
 

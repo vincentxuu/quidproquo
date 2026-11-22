@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-apache-kafka-event-streaming)
+> :globe: [中文版](/posts/tech/2026-08-22-apache-kafka-event-streaming)
 
 [Apache Kafka](https://kafka.apache.org/42/design/design/) often appears in message-queue lists, but its central data structure is a retained, replayable distributed commit log. Producers append records to topic partitions, and consumers store offsets describing their position. Retention policy—not whether one consumer read a record—determines when data disappears.
 

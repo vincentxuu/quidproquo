@@ -10,7 +10,7 @@ description: "GitHub Actions 的 workflow 語法、常用 pattern、secrets 管�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-github-actions-ci-cd-en)
+:globe: [English version](/posts/tech/2026-03-27-github-actions-ci-cd-en)
 
 CI/CD 的目標很簡單：把「寫完程式碼」到「跑在 production」之間的手動步驟自動化。GitHub Actions 是目前設定成本最低的選擇——不需要獨立的 Jenkins server，不需要 CircleCI 的帳號管理，workflow 設定直接放在 repo 裡，跟程式碼一起版本管理。
 

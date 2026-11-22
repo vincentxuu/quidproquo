@@ -23,7 +23,7 @@ glossary:
     context: "HW3 problem 3 uses ridge regression as the example and compares its memory cost with unrolling T steps of GD."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw3-autograd-optimizers)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

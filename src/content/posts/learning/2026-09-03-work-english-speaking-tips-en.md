@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-03-work-english-speaking-tips)
+> :globe: [中文版](/posts/learning/2026-09-03-work-english-speaking-tips)
 
 Most office workers in Taiwan have a lopsided English skill set: reading documents is fine, writing emails with some help is manageable, but the moment they need to speak up in a meeting, their brain shifts into translate-compose-hesitate mode — and by the time they've formed a sentence, the conversation has moved on. The bottleneck isn't vocabulary. It's speaking reaction time and a lack of ready-made phrases for real work situations.
 

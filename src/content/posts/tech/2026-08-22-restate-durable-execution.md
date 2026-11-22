@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-restate-durable-execution-en)
+> :globe: [English version](/posts/tech/2026-08-22-restate-durable-execution-en)
 
 [Restate](https://docs.restate.dev/foundations/key-concepts) 把 durable execution 做成服務層：application handler 照常部署在 Node.js、Bun、Deno、Cloudflare Workers、Lambda 或其他環境，Restate Server 位在前方，接收 invocation、保存 journal、安排 retry，並提供 durable state、message 與 service call。
 

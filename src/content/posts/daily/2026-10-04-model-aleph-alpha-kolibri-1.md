@@ -15,7 +15,7 @@ glossary:
     def: "Aleph Alpha 開發的德英雙語 MoE reasoning 模型家族，主打歐洲「主權 AI」（sovereign AI）與受監管產業部署"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
+> :globe: [English version](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | BrowseComp | 29.4% | 4.4% | Nemotron 3 Super 29.1% |
 | SWE-Bench Verified | 69.2% | 未測 | Qwen3.6-35B-A3B 73.8% |
 
-⚠️ 以上均為 Aleph Alpha 官方自測，尚無第三方獨立複現。SWE-Bench Verified 是少數 Kolibri 落後的項目，coding 並非這次訓練重點。
+:warning: 以上均為 Aleph Alpha 官方自測，尚無第三方獨立複現。SWE-Bench Verified 是少數 Kolibri 落後的項目，coding 並非這次訓練重點。
 
 ## 與前代/競品比較
 

@@ -25,7 +25,7 @@ glossary:
     context: "Theorem 22 and Example 23 in the notes. DDPM's noise-prediction loss is a reparameterization of it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

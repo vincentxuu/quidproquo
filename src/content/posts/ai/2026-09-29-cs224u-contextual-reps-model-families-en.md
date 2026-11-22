@@ -25,7 +25,7 @@ glossary:
     context: "DistilBERT distills 12-layer BERT-base into 6 layers."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "御前岩攀岩指南：季節、交通、管理規範、公開路
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-gozeniwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-gozeniwa-en)
 
 御前岩是奧多摩的中高難度石灰岩運攀目的地，入山資格比路線數更早決定你能不能去。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

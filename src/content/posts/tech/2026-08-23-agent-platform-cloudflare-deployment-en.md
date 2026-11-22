@@ -9,7 +9,7 @@ description: "A deep dive into deploying Agent Platform on Cloudflare: Cloudflar
 tldr: "Agent Platform uses a Cloudflare-first architecture: local `npm run dev` runs Node-based simulations, while production maps to Workers + Workers Assets + D1 + KV + R2 + Vectorize + Queues + Workflows + Durable Objects + Workers AI. The Runtime interfaces stay the same (InMemory → Cloudflare implementations), so upper layers migrate without noticing. Deployment requires only `wrangler login` → create resources → fill in IDs → `wrangler secret put` → `wrangler deploy`. CI/CD watches the main branch and runs typecheck + build + dry-run + migration + deploy."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-cloudflare-deployment)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-cloudflare-deployment)
 
 ## TL;DR
 

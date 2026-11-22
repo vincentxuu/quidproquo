@@ -17,7 +17,7 @@ glossary:
     def: "A benchmark that measures a model's ability to autonomously execute multi-step commands, debug, and complete tasks in a real terminal environment — widely used as a proxy for agentic coding capability"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-23-model-xai-grok-4-7)
+> :globe: [中文版](/posts/daily/2026-09-23-model-xai-grok-4-7)
 
 ## Model Info
 
@@ -52,7 +52,7 @@ glossary:
 | Artificial Analysis Intelligence Index (independent) | 46 | No directly comparable prior score | Claude Fable 5.1 / GPT-6 tied at 53 |
 | Terminal-Bench 4.0 (Artificial Analysis re-test, standardized conditions) | 26% | — | GPT-6 Astra 60%, Claude Fable 5.1 55% |
 
-⚠️ Except for the two Artificial Analysis rows, every figure above is self-reported by xAI or the respective vendor, each run at its own highest reasoning-effort setting (high/max) — these are not apples-to-apples comparisons and await further independent replication.
+:warning: Except for the two Artificial Analysis rows, every figure above is self-reported by xAI or the respective vendor, each run at its own highest reasoning-effort setting (high/max) — these are not apples-to-apples comparisons and await further independent replication.
 
 ## vs. Previous Generation / Competitors
 

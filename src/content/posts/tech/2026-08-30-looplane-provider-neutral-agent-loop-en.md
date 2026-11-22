@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-provider-neutral-agent-loop)
 
 Orders 1–3 establish the interface, disposable workspace, and [prompt, instruction, and explicit-memory pipeline](/posts/tech/2026-08-30-looplane-prompt-instructions-memory-en). This article enters the native lane: how Looplane's own `AgentRunner` turns one model request into tool execution and reaches either verified success or an explicit failure.
 

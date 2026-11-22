@@ -8,9 +8,12 @@ lang: en
 tldr: "AgentQL replaces brittle CSS and XPath selectors with queries shaped like the data you want: `query_data` returns structured values, while `query_elements` returns interactive Playwright locators. The public Starter plan lists 50 free API calls per month, but its payment, hard-stop, and remote-browser reset rules still need to be verified in Billing."
 description: "Learn AgentQL query syntax, structured extraction, local and remote Playwright usage, debugging, pricing boundaries, and how AgentQL differs from Crawl4AI, AutoScraper, and Browser Use."
 draft: false
+series:
+  name: "AI Browser Automation"
+  order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-agentql-semantic-web-extraction)
+> :globe: [中文版](/posts/ai/2026-08-21-agentql-semantic-web-extraction)
 
 [AgentQL](https://github.com/tinyfish-io/agentql) is a toolkit for web extraction and browser automation. You describe a target with semantic fields such as `product_name` or `add_to_cart_btn`, then use the result through its Python or JavaScript SDK, REST API, or Playwright. You still own the workflow, error handling, and data validation. AgentQL handles the narrower question: which data or element on this page matches the description?
 

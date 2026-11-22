@@ -14,7 +14,7 @@ description: "帶讀 Stanford CS329Z Week 7 三篇主讀物：agentic benchmark 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

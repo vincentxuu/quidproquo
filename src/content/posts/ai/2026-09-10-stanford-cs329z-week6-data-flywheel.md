@@ -14,15 +14,20 @@ description: "帶讀 CS329Z 第 6 週 Terminal-Bench 任務定義與 Shankar 資
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片（第 10 堂 Terminal-Bench 客座）。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架；本週第 11 堂（10/28）的錄影尚未上架。
 
 Week 6 是繳交週。週一（10/26）預定由 Ryan Marten、Alex Shaw 帶來 Terminal-Bench 客座演講，同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28，Data for Agentic Systems）的主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著 11/4 晚上 11:59 前要交期中 demo 錄影，期中報告在 11/6 到期。
 
 資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。智慧體每回答一題，就留下一條軌跡：使用者問了什麼、系統走了哪幾步、最後答對還是答錯。把軌跡收好、打上分數，挑好的放回提示當示範，修好的壞例子也放回去。轉完一圈，示範變好、分數變高，下一圈又產出更好的資料。
 
 Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定成功長什麼樣子，監控確保指標沒有跟現實脫鉤，改進負責把學到的東西放回系統。三站吃的是同一批生產資料，只是用途不同。這篇文章沒有新模型也沒有新演算法，談的是工程紀律：怎麼把每一筆生產資料用到極致。
+
+```youtube
+url: https://www.youtube.com/watch?v=7GW-9ug2nvw
+title: Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten
+```
 
 ## 從終態往回追：資料飛輪怎麼產生可用證據
 
@@ -276,17 +281,13 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 
 ## 課程影片來源
 
-[官方錄影規則](https://cs329z.stanford.edu/logistics.html)說明講課錄影由課程 Canvas 提供，需登入取得。本文新增內容依公開論文與指定閱讀撰寫，未取得客座錄影或逐字稿。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-23。
+- 錄影：[Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten](https://www.youtube.com/watch?v=7GW-9ug2nvw)（Stanford Online 頻道，2026-11-18 上架，全片約 73 分鐘）。各節時間對照見[第 10 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)。
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)；第 11 堂尚未上架。
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 公開上架第 10 堂 Terminal-Bench 客座錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。
 
 - 2026-10-23：補入已公布的 Terminal-Bench 客座閱讀、自擬成果驗收例子、雙語流程圖與開發／測試分流。客座尚未開講，本文是閱讀導讀，不是講授逐字稿。

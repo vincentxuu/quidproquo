@@ -12,7 +12,7 @@ series:
   order: 51
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-funding-cyera)
+> :globe: [中文版](/posts/daily/2026-09-26-funding-cyera)
 
 ## Funding Details
 

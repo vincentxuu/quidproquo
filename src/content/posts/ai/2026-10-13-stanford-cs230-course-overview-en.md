@@ -16,7 +16,7 @@ description: "An overview of the Stanford CS230: Deep Learning series, based on 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-stanford-cs230-course-overview)
+> :globe: [中文版](/posts/ai/2026-10-13-stanford-cs230-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

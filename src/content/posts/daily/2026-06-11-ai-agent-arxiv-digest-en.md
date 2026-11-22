@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 18
 ---
-> 🌏 [中文版](/posts/daily/2026-06-11-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-11-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,7 +68,7 @@ The insight here isn't "agents need to be smarter" — it's "the API design itse
 
 - Experimental design: N=30 per cell, 3 LLMs (including an Anthropic model and gpt-4o-mini), 10 adversarial tasks, with a "leak audit" mechanism to ensure the baseline isn't contaminated
 - Key numbers: structured suggestions improve task completion rate by **+36.7–40.0 percentage points** on the Anthropic model vs. plain-text diagnostics (Fisher's exact p ≤ 0.0022), with **1.8–2.2×** better per-success token efficiency
-- **⚠️ Important exception**: improvement on gpt-4o-mini was not significant (p=0.435) — model-specific differences in handling structured errors cannot be ignored
+- **:warning: Important exception**: improvement on gpt-4o-mini was not significant (p=0.435) — model-specific differences in handling structured errors cannot be ignored
 - A second cross-domain replication experiment on a billing API confirmed the effect isn't a fluke
 - Limitation: small sample size (N=30), focused on validation errors; other failure types (timeouts, business logic errors) are not covered
 - MCP relevance: MCP tool call error response formats are currently provider-defined; this paper offers a design direction for standardized error schemas
@@ -184,7 +184,7 @@ With this simulator, researchers and engineers can test different KV cache strat
 
 - Core innovation: modeling agent execution as "stateful program execution" rather than "stateless request handling" — this abstraction shift is the paper's most critical design decision
 - The simulator uses a composable module architecture where each module is swappable, suitable for researching different scheduling strategies
-- **⚠️** Specific experimental result numbers are not available from the abstract level; reading the full Evaluation section is recommended for verification
+- **:warning:** Specific experimental result numbers are not available from the abstract level; reading the full Evaluation section is recommended for verification
 - Forms a complete toolchain with concurrent work: Tangram (2606.06302, KV cache non-uniform management) and Continuum (multi-turn KV cache TTL) provide strategies; AgentServeSim provides the quantitative verification platform
 - Limitation: simulator accuracy depends on whether tool latency and KV cache behavior model assumptions match real-world conditions — actual tool latency distributions may diverge from simulated assumptions
 - Adoption path: can serve as an offline evaluation tool for agent serving platforms (e.g. vLLM, SGLang) before developing new scheduling strategies, reducing GPU trial-and-error costs

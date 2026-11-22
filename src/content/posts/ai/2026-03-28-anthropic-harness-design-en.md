@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-anthropic-harness-design)
+> :globe: [中文版](/posts/ai/2026-03-28-anthropic-harness-design)
 
 Anthropic's engineering team published two articles on harness design between late 2025 and early 2026: [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) and [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps). Together, they represent the most complete publicly available field report on "how to keep an AI agent working continuously for hours."
 

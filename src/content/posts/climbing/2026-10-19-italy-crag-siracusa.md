@@ -13,7 +13,7 @@ description: "錫拉庫薩（Siracusa）岩場介紹：Canicattini Bagni 五大�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-siracusa-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-siracusa-en)
 
 錫拉庫薩（Siracusa）在西西里島東南角。攀岩者來這裡有兩個理由。一個是內陸伊布雷高原（Monti Iblei）上的 Canicattini Bagni 峽谷群：河流在石灰岩裡切出一道道深谷，谷裡幾乎都是單段運攀。另一個是城市海岸的 DWS（deep water solo，不綁繩、掉進海裡的攀登）。
 

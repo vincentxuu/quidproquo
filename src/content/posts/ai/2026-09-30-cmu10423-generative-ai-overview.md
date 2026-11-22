@@ -13,7 +13,7 @@ description: "Spring 2026 公開課程材料教學：生成式 AI 學習路線�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-generative-ai-overview-en)
 
 **影片狀態：錄影需登入或課程授權。** 本文依公開投影片與作業整理，數值例子為本站補充，不是課堂逐字稿。
 

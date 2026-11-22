@@ -3,8 +3,11 @@
 // Usage: <Icons name="search" size={16} stroke="#555" />
 //
 // Geometry comes from koboyo's hand-drawn library — see src/components/icons/koboyo.ts
-// for the source, licence, and why these need the fattening pass below.
-import { KOBOYO_ICONS, type IconName } from './icons/koboyo';
+// for the source and licence. The markup (including the fattening pass that makes
+// the light koboyo art legible at UI sizes) lives in src/components/icons/render.ts,
+// shared with the rehypeNoEmoji Markdown plugin.
+import type { IconName } from './icons/koboyo';
+import { renderIconSvg } from './icons/render';
 
 interface Props {
   name: IconName;
@@ -17,26 +20,6 @@ interface Props {
   class?: string;
 }
 
-/**
- * Extra weight, in rendered pixels, added by stroking the filled outline.
- *
- * The koboyo art is drawn much lighter than the stroke-width:2 Lucide geometry
- * it replaced — at 11-16px it otherwise reads as a grey hairline next to body
- * text. 0.9px was picked by rendering the set at 11/13/16/24px and comparing
- * against the old icons; below ~0.7 the icons still look disabled, above ~1.1
- * the denser ones (brain-circuit, server-cog) start filling in.
- */
-const FATTEN_PX = 0.9;
-
 const { name, size = 16, stroke = 'currentColor', class: cls } = Astro.props;
-const { vb, body } = KOBOYO_ICONS[name];
-const [vw, vh] = vb;
-
-// Each icon has its own viewBox, so the browser's xMidYMid meet fit renders one
-// user unit as size / max(vw, vh) pixels. Invert that ratio so the added weight
-// is the same on screen regardless of how big the source grid is.
-const strokeWidth = (FATTEN_PX * Math.max(vw, vh)) / size;
-
-const attrs = `width="${size}" height="${size}" viewBox="0 0 ${vw} ${vh}" fill="${stroke}" stroke="${stroke}" stroke-width="${strokeWidth.toFixed(3)}" stroke-linejoin="round"${cls ? ` class="${cls}"` : ''}`;
 ---
-<Fragment set:html={`<svg ${attrs}>${body}</svg>`} />
+<Fragment set:html={renderIconSvg(name, { size, color: stroke, class: cls })} />

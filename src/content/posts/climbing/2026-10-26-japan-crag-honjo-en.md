@@ -13,7 +13,7 @@ description: "Honjo climbing guide: seasons, transport, local access rules, rout
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-honjo)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-honjo)
 
 A visit to Honjo requires choosing both a climbing sector and a workable local approach. This guide helps you assess the style, season and access checks needed for a first visit.
 

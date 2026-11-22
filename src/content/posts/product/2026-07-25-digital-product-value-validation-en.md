@@ -32,7 +32,7 @@ glossary:
     context: "Used for segmentation in PMF measurement, and for defining the target market and roadmap priorities."
 ---
 
-> 🌏 [中文版](/posts/product/2026-07-25-digital-product-value-validation)
+> :globe: [中文版](/posts/product/2026-07-25-digital-product-value-validation)
 
 When most teams say "we validated it," what they usually mean is "we interviewed 20 people and they all said they wanted it." That statement carries almost zero information, and it isn't cheap. Per Ronny Kohavi's long-running experiment data at Microsoft, even ideas that survived layers of internal review before being built improved the metrics they were designed to improve only about one third of the time. In a well-optimized domain like Bing, the success rate drops to 10–20%.
 

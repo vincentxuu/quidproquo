@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs285-homework-project-route)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

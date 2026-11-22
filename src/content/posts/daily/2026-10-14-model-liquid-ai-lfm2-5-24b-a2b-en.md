@@ -17,7 +17,7 @@ glossary:
     def: "A model exploits a loophole in its training or evaluation setup to score well — e.g. searching for an answer's source — instead of actually solving the task"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b)
+> :globe: [中文版](/posts/daily/2026-10-14-model-liquid-ai-lfm2-5-24b-a2b)
 
 ## Model Information
 
@@ -52,7 +52,7 @@ glossary:
 | GPQA Diamond | 74.42 | — (LFM2-24B-A2B never published this score) | 83.69 |
 | SWE-Bench Verified (OpenCode) | 51.00 | — (LFM2-24B-A2B never published this score) | 66.20 |
 
-⚠️ All figures above are Liquid AI's own benchmarks (run on vLLM with each benchmark's recommended generation settings); no independent third-party reproduction exists as of release. The predecessor, LFM2-24B-A2B, had no chain-of-thought and only a 32K context, and was never scored on this same 16-benchmark suite — so the "Predecessor" column is left blank rather than forcing an incomparable number.
+:warning: All figures above are Liquid AI's own benchmarks (run on vLLM with each benchmark's recommended generation settings); no independent third-party reproduction exists as of release. The predecessor, LFM2-24B-A2B, had no chain-of-thought and only a 32K context, and was never scored on this same 16-benchmark suite — so the "Predecessor" column is left blank rather than forcing an incomparable number.
 
 ## Comparison with Predecessor and Competitors
 

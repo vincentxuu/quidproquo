@@ -10,7 +10,7 @@ description: "記錄 nginx upstream 解析跨 Compose 專案容器失敗導致 5
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-16-docker-cross-compose-nginx-502-en)
+:globe: [English version](/posts/tech/2026-03-16-docker-cross-compose-nginx-502-en)
 
 ## TL;DR
 

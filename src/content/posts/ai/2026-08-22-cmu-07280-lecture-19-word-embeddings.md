@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-19-word-embeddings-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-lecture-19-word-embeddings-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

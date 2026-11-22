@@ -12,7 +12,7 @@ series:
   order: 96
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,13 +58,13 @@ Scroll 不把歷史序列化進 prompt,而是把整個 agent session 變成一�
 
 ### 深入要點
 
-- 主結果(Qwen3.8-Max):LongMemEvalS 94.8%、BEAM10M 73.1%(比最佳已發表記憶系統高 5.1 分)、LOCA 128K 89.3%／256K 86.7%(比對照的 MiniMax M3 + ReAct 在 256K 的 49.3% 高出 37.4 分)⚠️(基準線多取自各系統文獻裡的最佳公開結果,並非同一套環境下的受控重現)
+- 主結果(Qwen3.8-Max):LongMemEvalS 94.8%、BEAM10M 73.1%(比最佳已發表記憶系統高 5.1 分)、LOCA 128K 89.3%／256K 86.7%(比對照的 MiniMax M3 + ReAct 在 256K 的 49.3% 高出 37.4 分):warning:(基準線多取自各系統文獻裡的最佳公開結果,並非同一套環境下的受控重現)
 - 消融實驗最傷的一刀:把 Event Log 換成「寫入時就摘要、丟棄原文」,整體分數從 73.1 崩到 19.9,尤其是需要精確數值的資訊擷取、時序推理、事實更新類任務幾乎歸零
 - 拿掉常駐 kernel、把查詢改成一般工具呼叫,掉 7.3 分——序列化過的工具結果沒辦法在 kernel 裡再篩選、合併、聚合
 - 反例:在「寫入時先做好摘要」反而有利的任務(對話摘要、偏好追蹤)上,Scroll 輸給專門的記憶系統,例如摘要類分數 70.5 分,不敵 Exabase M-1 的 91.9 分
 - 模型能力越弱,受益越少:35B 開源模型在 LongMemEvalS 上還能拿 88.8(只差最佳 6 分),但在 LOCA 256K 差距被拉到 64 分(86.7 vs 22.7)——顯示 Scroll 的效果上限跟著模型的多步驟程式規劃能力走
 - 落地訊號:GitHub 上可查到開源 agent 框架 QwenPaw(AgentScope 系）已把類似 scroll 的策略合併進生產程式碼,並經過完整 code review(含 sandbox 安全性、SQL injection 防護等修正),不是純學術概念
-- Limitation:所有跟其他記憶系統的比較都是「文獻裡的最佳公開結果」,不是同一套環境下的受控比較 ⚠️
+- Limitation:所有跟其他記憶系統的比較都是「文獻裡的最佳公開結果」,不是同一套環境下的受控比較 :warning:
 
 ### Reviewer 一句話評
 
@@ -151,7 +151,7 @@ PolyMemDB 用五種不同資料庫分別存記憶的不同面向(圖、向量、
 - 展示案例:LongMemEval 一則 48-session 對話,PolyMemDB 建出 229 個實體、221 條關係的記憶圖,能追出「最愛作者的書打幾折」這類需要長距離依賴的答案,並附上完整證據鏈
 - 第二個展示場景:從長對話裡自動抽取「畢業旅行」行程,並用時空地圖視覺化,依時間視窗篩掉不相關地點(例如把整趟旅程精確篩到 5 個義大利城市)
 - 信心計算範例:針對「Alice 喜歡跑步嗎」,近期完成馬拉松帶來的正向驅動只有 47.2%,但歷史上的膝蓋痛與熱衰竭事件讓「證據衝突」高達 52.3%,最終淨可信度只有約 0.22——系統據此讓 LLM 給出「投入但過程受挫」的細緻回答,而非簡單的「喜歡」或「不喜歡」
-- Limitation:這是系統展示(demo track)論文,沒有大規模量化評測跟 baseline 比較,只有三個質化的展示場景 ⚠️
+- Limitation:這是系統展示(demo track)論文,沒有大規模量化評測跟 baseline 比較,只有三個質化的展示場景 :warning:
 - 落地門檻:同時維運 Neo4j、ProvSQL、MobilityDB、ChromaDB 加物件儲存五套異質資料庫,對小團隊是不小的基礎設施成本
 - 原始碼已開源:[github.com/wangyu-1999/PolyMemDB](https://github.com/wangyu-1999/PolyMemDB)
 

@@ -10,7 +10,7 @@ description: "從 PostgreSQL 資料模型與交易出發，拆解 pgvector 的�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-pgvector-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-pgvector-guide-en)
 
 [pgvector](https://github.com/pgvector/pgvector) 是 PostgreSQL extension，不是另一套獨立向量資料庫。安裝後，你仍然連線到 PostgreSQL、建立一般資料表、寫 SQL，只是多了向量資料型別、距離運算子，以及 HNSW、IVFFlat 兩種近似最近鄰索引。
 

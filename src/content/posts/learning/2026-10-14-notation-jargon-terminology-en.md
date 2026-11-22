@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-notation-jargon-terminology)
+> :globe: [中文版](/posts/learning/2026-10-14-notation-jargon-terminology)
 
 This article asks: among the terms, symbols, formulas, and untranslated English words in a teaching article, which choices make readers stall, what can the author do about it, and how much evidence stands behind each option.
 

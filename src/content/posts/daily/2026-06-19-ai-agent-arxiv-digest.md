@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 26
 ---
-> 🌏 [English version](/posts/daily/2026-06-19-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-19-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -125,7 +125,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 - 核心論點：MAS 的傳統比較對象是「單 agent 無 CoT」，這個 baseline 太弱；換成等量計算成本的 CoT-SC 後，MAS 優勢大幅縮水甚至消失
 - 評測資料集：BrowseComp-Plus（互動式多步驟 web 搜尋）+ 傳統推理資料集（邏輯推理、知識問答等多領域）
-- 核心數字：自動 MAS 計算成本高達 CoT-SC 的最多 **10 倍**，但效能低於或持平 CoT-SC ⚠️（詳細分項數值在公開搜尋結果中未見完整表格，建議查原文）
+- 核心數字：自動 MAS 計算成本高達 CoT-SC 的最多 **10 倍**，但效能低於或持平 CoT-SC :warning:（詳細分項數值在公開搜尋結果中未見完整表格，建議查原文）
 - 引用 MASBench（Ke et al., 2026）作為更公平評測 MAS 的控制框架
 - 關鍵區分：本論文只測試「自動生成 MAS」，人工精心設計的 MAS 在特定場景仍可能有優勢
 - Limitation：不涵蓋人工設計的 MAS（如 OpenAI Swarm 的最佳實踐場景）；BrowseComp-Plus 是特定 web 任務，不代表所有 agent 應用場景
@@ -134,7 +134,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 ### Reviewer 一句話評
 
-研究問題非常重要，打破了一個業界普遍但未嚴格檢驗的假設；但「自動生成 MAS」的設定有點稻草人之嫌——AutoGen 的最佳實踐是人工設計 agent 角色，這篇結論對那種場景的說服力打折 ⚠️。值得讀，但不要直接套用成「MAS 沒用」的結論。
+研究問題非常重要，打破了一個業界普遍但未嚴格檢驗的假設；但「自動生成 MAS」的設定有點稻草人之嫌——AutoGen 的最佳實踐是人工設計 agent 角色，這篇結論對那種場景的說服力打折 :warning:。值得讀，但不要直接套用成「MAS 沒用」的結論。
 
 ### 給你的 take-away
 
@@ -155,7 +155,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你在做 coding agent 產品或評估 agent tooling 的市場時機，這是少見的「真實 GitHub 行為資料」，值得作為市場訊號；技術方法偏軟體工程實證研究，PM 和產品方向讀者比工程師更受益。
 
 ### 領域背景
@@ -181,7 +181,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 - 採用偵測方法：靜態分析設定檔（`.cursor/`、`AGENTS.md`、GitHub Copilot 相關設定）+ commit message 中的 AI 輔助標記
 - 前作基準（2601.18341）：128,018 個專案，12.08% 在檔案層面有採用跡象；11.51% 有額外 agent 指標；整體估計 15.85%–22.60%
-- 本文核心結果：新樣本採用率 **超過前作兩倍** ⚠️（具體百分比在公開可搜尋資訊中未見明確數字，建議查原文），AI-assisted commit 比例顯著更高
+- 本文核心結果：新樣本採用率 **超過前作兩倍** :warning:（具體百分比在公開可搜尋資訊中未見明確數字，建議查原文），AI-assisted commit 比例顯著更高
 - 研究侷限一：以「設定檔和 commit message 的可偵測跡象」為代理指標，實際採用可能被低估（不是所有工具都留下可偵測跡象）
 - 研究侷限二：「新建立的 GitHub 專案」樣本本身偏向早採用者（early adopters），不代表整體 GitHub 專案的平均水準
 - [AGENTS.md](http://AGENTS.md) 成為重要偵測指標之一，顯示開發者在主動設定 agent 的工作指引，這與 LangGraph、AutoGen 生態系的成長互相呼應
@@ -190,7 +190,7 @@ ACCORD 在每個 action 執行前加入一個「主動接地步驟（active grou
 
 ### Reviewer 一句話評
 
-實證方法扎實可信——直接看 GitHub artifacts 比問卷更客觀；但「新建立專案」樣本本身有 adoption bias，而且 2x 的具體數字公開資訊中未見明確百分比 ⚠️，讀者應以「趨勢方向」而非「精確數值」解讀。對市場時機判斷有幫助，但別過度推論到所有 GitHub 專案。
+實證方法扎實可信——直接看 GitHub artifacts 比問卷更客觀；但「新建立專案」樣本本身有 adoption bias，而且 2x 的具體數字公開資訊中未見明確百分比 :warning:，讀者應以「趨勢方向」而非「精確數值」解讀。對市場時機判斷有幫助，但別過度推論到所有 GitHub 專案。
 
 ### 給你的 take-away
 

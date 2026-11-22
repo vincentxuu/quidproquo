@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-webwatcher-multimodal)
+> :globe: [中文版](/posts/ai/2026-09-19-webwatcher-multimodal)
 
 The previous articles all looked at text-centric deep research agents. But the real world isn't just text—you encounter:
 

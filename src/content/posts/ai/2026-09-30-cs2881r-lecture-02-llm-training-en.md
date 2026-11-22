@@ -25,7 +25,7 @@ glossary:
         url: "https://arxiv.org/abs/2412.16339"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

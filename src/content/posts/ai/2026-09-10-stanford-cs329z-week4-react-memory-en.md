@@ -14,7 +14,7 @@ description: "A guided reading of the Stanford CS329Z Week 4 anchors: how Yao et
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -10,7 +10,7 @@ description: "從安裝、index／document／task 模型，到 searchable、filt
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-meilisearch-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-meilisearch-complete-guide-en)
 
 [Meilisearch](https://www.meilisearch.com/docs/learn/getting_started/what_is_meilisearch) 是一套以應用程式搜尋為目標的全文檢索引擎。把產品、文章、文件或客服知識同步進 index 後，它可以提供前綴搜尋、拼字容錯、篩選、排序與 facets，而不必讓每個查詢都掃一次主資料庫。
 

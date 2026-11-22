@@ -5,7 +5,7 @@ category: tech
 tags: [ai-agent, llm, model-selection, open-source, multimodal, embedding]
 lang: en
 type: guide
-tldr: "In 2026, AI models span seven major categories and more than 20 subcategories. This introduction to the AI Model Families series maps use cases to models and models to families, with current rankings and selection advice for each use case."
+tldr: "In 2026, AI models span seven major categories and more than 20 subcategories. This introduction to the AI Model Families series maps use cases to models and models to families, with selection advice for each use case. November 2026 edition: the closed frontier is now Claude Fable 5.2, GPT-6.2, and Gemini 4, the strongest open-weight model is Kimi K3.1 Pro, coding is compared using Artificial Analysis's Terminal-Bench 4.0 and FrontierCode 2.0, and decision models are added as a category."
 description: "A 2026 selection guide covering text generation, reasoning, code, images, video, speech, music, embeddings, reranking, OCR, 3D, translation, agents, and more than 20 AI model use cases."
 series:
   name: "AI Model Families"
@@ -20,85 +20,94 @@ glossary:
     def: "Hugging Face's task classification tag, used to group models by use case, such as text-generation or text-to-image."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-landscape-overview)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-landscape-overview)
 
-This is the map for the “AI Model Families” series. Hugging Face has 47 task categories and more than three million models; add closed APIs and the ecosystem is too large for anyone to follow completely. This guide cuts across it by use case: seven categories and more than 20 subcategories, each with major models and selection advice, so you can move from “what do I need to do?” to “which model should I use?”
+This is the map for the “AI Model Families” series. Hugging Face has 47 task categories and more than three million models; add closed APIs and the ecosystem is too large for anyone to follow completely. This guide cuts across it by use case: seven categories and more than 20 subcategories, each with major models and selection advice, so you can move from “what do I need to do?” to “which model should I use?” The text, reasoning, coding, vision, and agent sections use data from 2026-11-20; the image, video, speech, retrieval, and other sections still use August 2026 data, so cite them with dates.
 
 Each major family—Qwen, DeepSeek, Claude, GPT, and others—gets its own deep dive covering its evolution and version choices. For help reading the benchmark figures, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en).
+
 
 ## 1. Core Text Capabilities
 
 ### Text Generation / Chat
 
-In August 2026, closed models still led on quality while open models caught up. DeepSeek V4 Flash ranked first on OpenRouter with 11.6T processed tokens, but Claude Opus 5 and GPT-5.6 remained the strongest on quality.
+As of November 2026, the closed frontier has turned over a full generation, and the strongest open-weight model is Kimi's. The top of the [Artificial Analysis Intelligence Index v5.0.1](https://artificialanalysis.ai/leaderboards/models) (2026-11-20) is Claude Fable 5.2 (64.6), GPT-6.2 Astra (62.1), Gemini 4 Neon (61.4), Gemini 4 Carbon (60.0), and Claude Opus 5.5 (59.1); the top open-weight model is Kimi K3.1 Pro (46.5), followed by DeepSeek V4.1 Flash (32.6) and GLM-5.3 (31.7) — still a clear gap.
 
-| Family | Type | Latest version | Positioning |
+| Family | Type | Current workhorses | Positioning |
 |---|---|---|---|
-| Claude (Anthropic) | Closed | Opus 5, Sonnet 5, Fable 5 | Strongest agent/coding family; native MCP |
-| GPT (OpenAI) | Closed + open | GPT-5.6 Sol/Luna, GPT-OSS 20b/120b | Largest ecosystem; first open release under Apache-2.0 |
-| Gemini (Google) | Closed | Gemini 3.7 Flash, Gemini 3 Pro | Largest context and broadest multimodality |
-| DeepSeek | Open | V4 Pro, V4 Flash | #1 [OpenRouter](https://openrouter.ai/rankings) usage; MIT |
-| Qwen (Alibaba) | Open | Qwen3.8-27B, Qwen3.8-2.4T-A95B | Hugging Face download leader; sizes from 0.6B to 2.4T |
-| Kimi (Moonshot) | Open | K3 (2.8T) | Third-highest HF likes (10.9K); MoE |
-| GLM (Z.AI) | Open | GLM 5.3 | Exceptional coding/terminal performance; fastest iteration |
-| Llama (Meta) | Open | Llama 4 Scout/Maverick | Largest enterprise deployment and most mature ecosystem |
-| Mistral | Open | Medium 3.5, Small 3.1 | European flagship; multilingual; clearest licensing |
-| Grok (xAI) | Closed | Grok 4.5 | Rapid iteration |
-| Ornith | Open | Ornith 1.5-35B-A3B | Summer 2026 breakout model; MIT |
-| Phi (Microsoft) | Open | Phi-4 | Small-model specialist |
-| Cohere | Closed + open | Command R+, North | RAG-native, with Embed, Rerank, and multilingual Aya |
+| [Claude](/posts/tech/2026-08-24-ai-model-family-claude-en) (Anthropic) | Closed | Fable 5.2, Opus 5.5, Sonnet 5.5, Haiku 5.5 | Agent/coding workhorse; first on the composite index |
+| [GPT](/posts/tech/2026-08-24-ai-model-family-gpt-en) (OpenAI) | Closed + open | GPT-6.2 Astra/Sol, 6.1 Terra, 6 Luna; gpt-oss | Largest ecosystem; four price tiers with the widest coverage |
+| [Gemini](/posts/tech/2026-08-24-ai-model-family-gemini-en) (Google) | Closed | Gemini 4 Carbon/Neon/Argon/Hydrogen | Most complete multimodality, 1M context |
+| [Qwen](/posts/tech/2026-08-24-ai-model-family-qwen-en) (Alibaba) | Closed flagship + open | Qwen4-Max (API); Qwen3.8 27B / Flash-Next (weights) | Widest size range; the flagship went back to closed |
+| [Kimi](/posts/tech/2026-08-24-ai-model-family-kimi-en) (Moonshot) | Open | K3.1 Pro (2.8T / 104B active) | Strongest open-weight model overall; custom license |
+| [DeepSeek](/posts/tech/2026-08-24-ai-model-family-deepseek-en) | Open | V4.1 Flash, V4 Pro | Low price, MIT license |
+| [GLM](/posts/tech/2026-08-24-ai-model-family-glm-en) (Z.AI) | Open | GLM-5.3, 5.3-Flash | MIT license, strong on coding and terminal work |
+| [Muse](/posts/tech/2026-09-19-ai-model-family-muse-spark-en) (Meta) | Closed + open | Muse Wonder / Spark 1.3 / Ember; Spark Open | Three API tiers plus an open-weight flagship |
+| [MiniMax](/posts/tech/2026-08-26-minimax-model-family-en) | Open | M3.1 Flash | The lowest price tier; strong on enterprise automation |
+| [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat-en) (Meituan) | Open | LongCat-2.5 | 1.6T open weights under MIT |
+| [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron-en) (NVIDIA) | Open | 3.5 Super VL, Bolt, Lightning | Open training data; tiered by deployment target |
+| [Llama](/posts/tech/2026-08-24-ai-model-family-llama-en) (Meta) | Open | Llama 4 Scout/Maverick | Most mature ecosystem, but no new versions |
+| [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral-en) | Open | Mistral Large 4, Medium 3.5 | European compliance positioning |
+| [Grok](/posts/tech/2026-08-24-ai-model-family-grok-en) (xAI) | Closed | Grok 4.7 | Distribution is the moat |
+| [Cohere](/posts/tech/2026-08-24-ai-model-family-cohere-en) | Closed + open | Command A, North | RAG-native: Embed + Rerank + Aya |
 
-**Selection:** for agent development, Claude Opus 5 or GPT-5 currently provides the most reliable tool use. For high-throughput batch work, DeepSeek V4 Flash has unmatched price/performance. For local deployment, choose Qwen3.8-27B (Apache-2.0) or Gemma 4-12B, which fits 16GB VRAM.
+(The DeepSeek, GLM, Llama, Mistral, Grok, and Cohere family posts are still at their October 2026 versions; the "current workhorses" column follows Artificial Analysis's model list on 2026-11-20, with details to follow when those family posts are updated.)
 
-**Market data** (OpenRouter, Aug. 23): DeepSeek V4 Flash 0731 (11.6T tokens) > Ox Alpha (11.6T) > MiMo-V2.5 (9.94T) > Hy3 (8.21T) > DeepSeek V4 Flash 0423 (5.46T).
+**Selection advice**: For agent development, compare the two mid-priced workhorses, Claude Opus 5.5 and GPT-6.2 Sol, first; step up to Fable 5.2 or GPT-6.2 Astra for the hardest tasks. For high-throughput batch work, look at MiniMax M3.1 Flash ($0.15/$0.60), DeepSeek V4.1 Flash ($0.30/$1.20), or Claude Haiku 5.5 and GPT-6 Luna (both $0.10/$0.50). For self-hosted open weights, the only frontier-class option is Kimi K3.1 Pro (multi-node); for a single GPU or laptop, look at Qwen3.8-27B (Apache-2.0), Nemotron 3.5 Bolt 24GB, or LFM3-1.7B.
+
+**Market data**: this post last recorded OpenRouter usage rankings on 2026-08-23 (DeepSeek V4 Flash 0731 first with 11.6T tokens) and hasn't updated them since; check [OpenRouter Rankings](https://openrouter.ai/rankings) for current numbers before citing them.
 
 ### Reasoning
 
-Reasoning models emerged as a category in 2025–2026. They perform long-chain thinking before answering and specialize in mathematics, logic, and science.
+In 2025, reasoning models were still a separate category (the o-series, DeepSeek-R1, QwQ). By November 2026, the major families have folded reasoning back into their main models and control it with an effort parameter: GPT's `reasoning_effort`, Claude's effort, Gemini 4's thinking level, Muse's minimal to max, and Kimi K3.1 Pro, which always thinks but lets you adjust the effort. The selection question has shifted from "which reasoning model" to "which setting for the same model."
 
-| Family | Type | Latest version | Positioning |
-|---|---|---|---|
-| o-series (OpenAI) | Closed | o3, o4-mini, o3-pro | Strongest reasoning, highest cost |
-| DeepSeek-R1 | Open | R1-0528 | MIT; leading open reasoning model (13.5K HF likes) |
-| QwQ (Qwen) | Open | QwQ-32B | Apache-2.0; 32B can run locally |
-| Kimi-Thinking | Open | K2-Thinking | Hybrid reasoning and general model |
+Artificial Analysis lists each reasoning setting separately: Claude Fable 5.2 ranges from 53.9 at Low to 64.6 at Max, and GPT-6.2 Sol from 40.6 at Low to 57.3 at Max. The same model differs by 10 to 17 points between its low and high settings, and cost and latency scale up with it.
 
-**Selection:** o3 (high) or o4-mini gives the best math and science quality. DeepSeek-R1 is the only frontier-class open reasoning option. For local consumer hardware, QwQ-32B performs best.
+**Selection advice**: Test your tasks at a middle setting (medium or high) first and step up only if accuracy falls short; for simple classification and routing, use a low setting or switch to a [decision model](/posts/tech/2026-10-22-ai-model-family-decision-models-en). For open-weight reasoning, Kimi K3.1 Pro, DeepSeek V4.1 Flash, and GLM-5.3 all have built-in thinking modes; for local use, look at Qwen3.8-27B.
 
 ### Code Generation
 
-Coding is the model dimension agent developers care about most. [Aider Polyglot](https://aider.chat/docs/leaderboards/) is especially practical because it reports both effectiveness and cost.
+Coding is the dimension agent developers care about most. The Aider Polyglot scores this post used before were stuck on 2025 models and no longer useful; this section now uses two coding evaluations that Artificial Analysis runs itself, under consistent conditions that allow side-by-side comparison: Terminal-Bench 4.0 (long terminal tasks) and FrontierCode 2.0 (Cognition's private evaluation of 132 tasks in real open-source repos, graded on whether a maintainer would merge the change).
 
-| Family | Aider score | Cost/run | Positioning |
-|---|---|---|---|
-| GPT-5 (high) | 88.0% | $29.08 | Highest quality |
-| Gemini 2.5 Pro | 83.1% | $49.88 | 32K thinking |
-| o3 (high) | 81.3% | $21.23 | Reasoning-oriented coding |
-| Grok 4 (high) | 79.6% | $59.62 | — |
-| DeepSeek V3.2 Exp (Reasoner) | 74.2% | $1.30 | Exceptional value |
-| Claude Opus 4 (32K thinking) | 72.0% | $65.75 | — |
-| DeepSeek V3.2 Exp (Chat) | 70.2% | $0.88 | Lowest cost |
-| Kimi K2 | 59.1% | $1.24 | — |
-| Qwen3 235B A22B | 59.6% | — | Large open model |
+| Model | Type | Terminal-Bench 4.0 | FrontierCode 2.0 | Price (per 1M tokens) |
+|---|---|---|---|---|
+| Kimi K3.1 Pro | Open | **67.2** | 25.5 | $2/$10 |
+| Gemini 4 Carbon (High) | Closed | 65.2 | 40.6 | $4/$20 |
+| GPT-6.2 Astra (Max) | Closed | 64.1 | 45.4 | $8/$40 |
+| Claude Sonnet 5.5 (Max) | Closed | 63.6 | 41.7 | $2/$10 |
+| GPT-6.2 Sol (Max) | Closed | 60.1 | 44.4 | $2/$10 |
+| Claude Fable 5.2 (Max) | Closed | 59.6 | **48.8** | $8/$40 |
+| Claude Opus 5.5 (Max) | Closed | 59.6 | 46.4 | $4/$20 |
+| Qwen4-Max | Closed | 48.5 | 26.5 | $1.50/$4.50 |
+| GLM-5.3 (Max) | Open | 41.9 | 21.6 | $1.40/$4.40 |
+| DeepSeek V4.1 Flash (Max) | Open | 33.8 | 28.5 | $0.30/$1.20 |
+| MiniMax M3.1 Flash | Open | 25.8 | 20.8 | $0.15/$0.60 |
 
-**Selection:** for maximum quality regardless of price, GPT-5 (high) leads Aider at 88%. For a roughly tenfold saving while remaining useful, DeepSeek V3.2 Exp Chat scores 70.2% for $0.88, one thirty-third of GPT-5's cost.
+(Artificial Analysis data from 2026-11-20; each model uses the reasoning setting with its highest composite index on that table.)
+
+The two evaluations disagree: Kimi K3.1 Pro leads on long terminal tasks but scores only 25.5 on FrontierCode, meaning it's good at running through a long chain of commands but its changes don't necessarily meet a maintainer's bar; Claude Fable 5.2 and Opus 5.5 lead on FrontierCode.
+
+**Selection advice**: For PR quality, look at Claude Opus 5.5 or Fable 5.2 first; for running long tasks unattended in a terminal, Kimi K3.1 Pro is half the price; for large volumes of budget coding subtasks, DeepSeek V4.1 Flash or MiniMax M3.1 Flash are an order of magnitude cheaper per token, but trail clearly on both evaluations.
 
 ## 2. Visual Understanding
 
 ### Vision-Language Models (VLMs)
 
-VLMs interpret images and text together. By 2026, open VLMs had surpassed closed models in specific areas such as document understanding and mathematical reasoning.
+Almost every 2026 main-line model is natively multimodal, and standalone VLM lines (Qwen-VL, Kimi-VL) have been folded back into the main lines. On Artificial Analysis's MMMU-Pro (multi-discipline image-text reasoning) as of 2026-11-20:
 
-| Family | Type | MMMU-Pro | DocVQA | MathVista | Positioning |
-|---|---|---|---|---|---|
-| Gemini 3.1 Pro | Closed | 82% | 92% | 75% | Strongest across broad academic subjects |
-| GPT-5.4 | Closed | 81% | 95% | 78.4% | Strongest closed document model |
-| Qwen3-VL-235B | Open | 69.3% | 96.5% | 85.8% | Open leader; visual math beats closed models |
-| InternVL3-78B | Open | — | 95.4% | 79.0% | Second among open models |
-| Llama 4 Maverick | Open | — | 94.4% | 73.7% | Meta's open multimodal model |
-| Kimi-VL | Open | — | — | — | Lightweight VLM |
+| Model | Type | MMMU-Pro | Positioning |
+|---|---|---|---|
+| GPT-6.2 Astra (Max) | Closed | 89.5 | Highest score |
+| Gemini 4 Carbon | Closed | 89.2 | Most complete multimodal input (including video and audio) |
+| Claude Opus 5.5 (Max) | Closed | 87.7 | — |
+| Kimi K3.1 Pro | Open | 83.9 | Highest open-weight score |
+| Muse Spark Open | Open | 80.9 | 816B open weights, natively multimodal |
+| DeepSeek V4.1 Flash (Max) | Open | 80.6 | — |
+| MiniMax M3.1 Flash | Open | 79.1 | Low price |
 
-**Selection:** Qwen3-VL at 96.5% DocVQA beats GPT-5.4 for self-hosted document pipelines. Gemini 3.1 Pro leads broad academic reasoning at 82% MMMU-Pro. Qwen3-VL leads all closed models on visual math at 85.8% MathVista.
+Older document-specific numbers (DocVQA and similar) came from the August 2026 Qwen3-VL-235B (96.5%) and GPT-5.4 (95%) and haven't been revisited since; for document processing, look at natively multimodal open-weight models such as Qwen3.8-27B in the [Qwen family post](/posts/tech/2026-08-24-ai-model-family-qwen-en) and Nemotron 3.5 Super VL, and test on your own documents.
+
+**Selection advice**: For the best image-text reasoning, GPT-6.2 Astra or Gemini 4 Carbon; for open weights, Kimi K3.1 Pro (multi-node) or the single-GPU Qwen3.8-27B; to analyze video and audio together, the Gemini 4 series.
 
 ### OCR / Document Understanding
 
@@ -256,6 +265,10 @@ Hugging Face has 121K text-classification models, the largest task category. In 
 
 Hugging Face has 30K models. spaCy plus a transformer is the standard 2026 NER pipeline. General LLMs handle most languages well; specialized models retain an advantage in medical, legal, and financial entity recognition.
 
+### Decision Models (Judgements Over a Fixed Set of Options)
+
+A new category since September 2026: these models don't generate text but return a probability for each option, and bill only input tokens. For "pick one of a fixed set of options" work — ticket routing, content moderation, approving tool calls — they can replace zero-shot LLM calls. On the Artificial Analysis Decision Index v2.1, the top model, d1.2-ultra, is only 1.7 points behind Claude Haiku 5.5 (Max), at 47× lower cost per million tasks and about 150× the speed. The trade-off is weaker knowledge and reasoning, and they're often confidently wrong. For the version matrix, the two leaderboards, and threshold setting, see [Choosing a Decision Model](/posts/tech/2026-10-22-ai-model-family-decision-models-en).
+
 ### Translation
 
 | Model | Type | Languages | Positioning |
@@ -272,9 +285,11 @@ Hugging Face has 30K models. spaCy plus a transformer is the standard 2026 NER p
 
 ### Function Calling / Tool Use
 
-Function calling is not a model category but a capability of major LLMs. Claude, GPT, and Gemini have the most mature native tool-use support: standardized APIs, parallel calls, and error recovery.
+Function calling isn't a separate model category but a capability dimension of the major LLMs. Claude, GPT, and Gemini have the most mature native tool use — standardized API formats, parallel tool calls, and error recovery; Muse's and Qwen's APIs are also compatible with both OpenAI and Anthropic formats.
 
-[tau-bench](https://github.com/sierra-research/tau-bench) is the main multi-turn tool-use evaluation. Among open models, Qwen3.8 and GLM 5.3 are improving fastest. **Selection:** Claude or GPT has the highest production reliability; Qwen3.8 with function calling is the best open option.
+The [tau-bench](https://github.com/sierra-research/tau-bench) series is the main multi-turn tool-calling evaluation. Among open-weight models, Kimi K3.1 Pro's long-horizon coding scores are close to the closed frontier, and MiniMax M3.1 Flash and LongCat-2.5 post strong official scores on enterprise automation and web search tasks; for judgements limited to "whether to call a tool, and which one," [decision models](/posts/tech/2026-10-22-ai-model-family-decision-models-en) score higher on When2Call than language models.
+
+**Selection advice**: For production agents, Claude's or GPT's tool use is still the most reliable; running the main loop on a large model and handing repeated subtasks to cheap small models (Muse Ember, Claude Haiku 5.5, GPT-6 Luna) is a common 2026 division of labor. For open-source agents, compare Kimi K3.1 Pro and GLM-5.3 first, noting that their licenses differ.
 
 ### Multi-step Planning and Orchestration
 
@@ -282,13 +297,18 @@ This belongs to agent frameworks, not model selection. Models understand instruc
 
 ## Overall
 
-The 2026 ecosystem is highly specialized. No model leads every use case. DeepSeek V4 Flash has the most OpenRouter usage, while GPT-5 tops coding. Qwen-VL beats every closed model on document understanding but trails Gemini by more than ten percentage points on broad academic reasoning.
+The 2026 ecosystem is highly specialized, and no model leads every use case. Claude Fable 5.2 leads the composite index and FrontierCode, Kimi K3.1 Pro leads Terminal-Bench 4.0, and GPT-6.2 Astra leads image-text reasoning; decision models beat language models outright on tool selection and cost, but fall a step behind on knowledge.
 
-Open models have matched or surpassed closed ones in most areas: document understanding (Qwen-VL 96.5%), mathematical reasoning (Qwen-VL 85.8%), video generation (MiniMax H3), embeddings (BGE-M3), and TTS (Kokoro and OmniVoice). Closed models still lead mainly in agent tasks, image generation, and the strongest reasoning models.
+The gap between open and closed actually widened in the second half of 2026. The strongest open-weight model, Kimi K3.1 Pro, scores 46.5 on the composite index, while the closed frontier sits between 60 and 65; and flagship open weights increasingly come with conditions (Kimi, Qwen, MiniMax, and Muse Spark Open all use custom licenses), while Qwen4-Max took its flagship back to closed. Open models' advantages concentrate in self-hosting, low prices, and specific tasks (long terminal tasks, documents, embeddings, TTS); closed models still lead in composite reasoning, PR quality, and image generation.
 
 This article is the map. The evolution, architecture, and version choices for each family belong in its own family article.
 
 ---
+
+## Update History
+
+- **2026-11-20**: Synced with the November family updates. The "Text Generation" table now lists each family's current workhorses and adds Muse, MiniMax, LongCat, and Nemotron; "Reasoning" was rewritten to reflect reasoning being folded back into main models and controlled by an effort parameter; the "Code Generation" Aider Polyglot table (stuck on 2025 models such as GPT-5 and Gemini 2.5 Pro) was replaced with Artificial Analysis's Terminal-Bench 4.0 and FrontierCode 2.0 from 2026-11-20; "VLMs" now uses Artificial Analysis's MMMU-Pro; a "Decision Models" subsection was added; "Agent" and "Overall" were rewritten with the new data, and the earlier conclusion that open models had matched or surpassed closed ones in most areas was changed to note that the gap widened in the second half of the year. The image, video, 3D, speech, music, embedding, rerank, OCR, and translation sections still use August 2026 data and were not re-verified this time.
+- 2026-08-24: First version.
 
 ## References
 
@@ -296,7 +316,9 @@ This article is the map. The evolution, architecture, and version choices for ea
 - [OpenRouter Rankings](https://openrouter.ai/rankings) — actual AI model API usage through 2026-08-23
 - [Artificial Analysis](https://artificialanalysis.ai) — quality, price, and speed across text, image, video, and speech
 - [LMArena](https://lmarena.ai) — human-preference ELO rankings for text and image models
-- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — cross-language coding benchmark with cost
+- [Artificial Analysis Models Leaderboard](https://artificialanalysis.ai/leaderboards/models) — Intelligence Index v5.0.1, Terminal-Bench 4.0, FrontierCode 2.0, MMMU-Pro (2026-11-20)
+- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — cross-language coding benchmark with cost (source of this post's earlier coding table)
+- [Choosing a Decision Model](/posts/tech/2026-10-22-ai-model-family-decision-models-en) — this site
 - [HuggingFace Models](https://huggingface.co/models) — open-model downloads, likes, and trends
 - [VBench](https://vchitect.github.io/VBench-project/) — video generation across 16+18 dimensions
 - [MTEB Leaderboard](https://huggingface.co/spaces/mteb/leaderboard) — standard embedding ranking

@@ -10,7 +10,7 @@ description: "介紹決策模型推論引擎 Flide（arXiv:2610.42148）：ForkA
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-12-flide-decision-inference-state-forking-en)
+> :globe: [English version](/posts/ai/2026-11-12-flide-decision-inference-state-forking-en)
 
 [Flide](https://github.com/OmniJev/Flide)（論文 [arXiv:2610.42148](https://arxiv.org/abs/2610.42148)，作者來自新加坡國立大學與牛津大學）是專門服務「決策模型」的推論引擎。決策模型讀一大段上下文，回答好幾個選擇題，只輸出各選項的機率，不生成文字。Flide 把共用的上下文只算一次，再分岔給每一題，每題的答案和單獨問它時一致。
 

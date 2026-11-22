@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-04-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's trending repos are all about giving agents more structure before letting
 
 ## Trending Repos
 
-### github/spec-kit ⭐ 133,294 (+224)
+### github/spec-kit ★ 133,294 (+224)
 
 [GitHub](https://github.com/github/spec-kit) · Python · MIT
 
@@ -31,7 +31,7 @@ Today's trending repos are all about giving agents more structure before letting
 
 ---
 
-### stablyai/orca ⭐ 60,787 (+812)
+### stablyai/orca ★ 60,787 (+812)
 
 [GitHub](https://github.com/stablyai/orca) · TypeScript · MIT
 
@@ -42,7 +42,7 @@ Today's trending repos are all about giving agents more structure before letting
 
 ---
 
-### KeygraphHQ/shannon ⭐ 47,684 (+117)
+### KeygraphHQ/shannon ★ 47,684 (+117)
 
 [GitHub](https://github.com/KeygraphHQ/shannon) · TypeScript · AGPL-3.0
 
@@ -53,7 +53,7 @@ Today's trending repos are all about giving agents more structure before letting
 
 ---
 
-### ChromeDevTools/chrome-devtools-mcp ⭐ 50,823 (+148)
+### ChromeDevTools/chrome-devtools-mcp ★ 50,823 (+148)
 
 [GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp) · TypeScript · Apache-2.0
 

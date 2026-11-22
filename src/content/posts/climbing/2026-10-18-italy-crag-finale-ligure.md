@@ -13,7 +13,7 @@ description: "Finale Ligure 岩場介紹：石灰岩運攀與多段的規模、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-finale-ligure-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-finale-ligure-en)
 
 菲納萊利古雷（Finale Ligure）在義大利西北的利古里亞大區（Liguria），熱那亞（Genova）與法國邊界之間的海岸上。小鎮背後一層層石灰岩台地的邊緣都是岩壁，從海邊一路分布到內陸山谷。在地推廣單位 [Finale Outdoor Region](https://finaleoutdoor.com/en/stories/climbing-in-the-finale-area-all-you-need-to-know) 的說法是：「Finale Ligure, with its almost 4000 routes, is one of the main climbing spots not only in Italy but in Europe」。
 

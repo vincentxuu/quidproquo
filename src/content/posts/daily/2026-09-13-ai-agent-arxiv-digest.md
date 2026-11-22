@@ -71,7 +71,7 @@ AutoResearch Agent(能自己提出想法、寫程式跑實驗、看結果再迭�
 ### 深入要點
 
 - 在 MLE-Dojo(test)十任務上,WMRL 讓 real-execution GRPO 的訓練運算量砍掉 3.1–3.4 倍,分數不降反升(4B 模型 15.2→16.4,9B 模型 18.8→21.6)
-- 4B/9B 規模的 WMRL 訓練後模型,在 MLE-Dojo 與 DSBench 上均打贏規模大上 10 倍以上的開源 Agent(48B 的 Kimi-48B-A3B、120B 的 Nemotron-120B-A12B)⚠️（作者自測,尚未見外部複現）
+- 4B/9B 規模的 WMRL 訓練後模型,在 MLE-Dojo 與 DSBench 上均打贏規模大上 10 倍以上的開源 Agent(48B 的 Kimi-48B-A3B、120B 的 Nemotron-120B-A12B):warning:（作者自測,尚未見外部複現）
 - 消融實驗顯示,只用世界模型不做任何修正的分數反而低於真實環境訓練;Online Debiasing 單獨貢獻 2.2–2.8 分,Inverse-Variance Denoising 單獨貢獻 0.9–1.7 分,兩者合計貢獻 2.9–4.8 分,顯示兩個機制互補而非重疊
 - 遷移到 VLA(視覺-語言-動作)機器人策略後訓練任務時,同一套修正機制依然有效,整體成功率提升 2.9 個百分點,顯示方法不是只綁定 AutoResearch 這個特定場景
 - 落地門檻:需要一個跟 Agent 同等能力的模型當世界模型,且要設計出合理的「錨點」比例去校正偏誤——不是單純省掉環境就好,仍需一定的工程調校

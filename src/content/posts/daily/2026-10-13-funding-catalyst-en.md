@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-13-funding-catalyst)
+> :globe: [中文版](/posts/daily/2026-10-13-funding-catalyst)
 
 ## Deal Terms
 

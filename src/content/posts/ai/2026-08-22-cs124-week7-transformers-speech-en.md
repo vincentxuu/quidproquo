@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 7: the intuition for at
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week7-transformers-speech)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week7-transformers-speech)
 
 This is Week 7 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). Last week treated the Transformer as a black box: context in, a probability distribution over the next token out. This week opens it.
 

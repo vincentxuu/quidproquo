@@ -13,7 +13,7 @@ description: "從同事閒聊與面試經驗中找不到字、組不出句子的
 draft: true
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-26-speaking-word-retrieval-en)
+> :globe: [English version](/posts/learning/2026-10-26-speaking-word-retrieval-en)
 
 跟同事聊感冒、自己做飯，或聊一次面試經驗，中文意思就在腦中，英文卻出不來。有時卡在一個字，有時知道幾個字，仍接不成要說的句子。
 

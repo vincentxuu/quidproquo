@@ -13,7 +13,7 @@ description: "Tonsai 通賽島攀岩指南：24 個子區的路線分布、屋�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-tonsai-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-tonsai-en)
 
 Tonsai 是 Phra-Nang 半島東側的島，Railay 在半島西側，兩邊隔著一道窄水。Tonsai 是東南亞最有名的攀岩地點之一：theCrag 在 2026 年 10 月 21 日收錄 **448 條路線**，25,344 次攀登，168 張照片。**Greed（8c+）在 theCrag 上被標為「目前泰國最難的一條攀登」。**
 

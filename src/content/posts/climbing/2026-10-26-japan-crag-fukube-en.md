@@ -13,7 +13,7 @@ description: "Fukube bouldering guide: spring and autumn seasons, MinoIC access,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-fukube)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-fukube)
 
 Fukube is more than one famous boulder. Problems are spread along Kataji Valley and the surrounding slopes, from rocks near parking to others requiring a separate approach. This guide helps you select a day’s cluster by level and plan transport and pads without chasing a list across the hillside.
 

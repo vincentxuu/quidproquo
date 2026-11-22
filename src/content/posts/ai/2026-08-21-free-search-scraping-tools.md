@@ -10,7 +10,7 @@ description: "整理搜尋 API、爬蟲、瀏覽器與抽取工具的週期額�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-free-search-scraping-tools-en)
+> :globe: [English version](/posts/ai/2026-08-21-free-search-scraping-tools-en)
 
 搜尋、爬取與使用瀏覽器的 agent，定價頁都喜歡寫「Free」。但背後可能是每天或每月恢復、只把餘額補到固定上限、只限制 RPM、註冊時送一次，或單純讓你免費下載程式。這些方案的長期成本完全不同。
 

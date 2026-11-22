@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-redpanda-kafka-compatible-en)
+> :globe: [English version](/posts/tech/2026-08-22-redpanda-kafka-compatible-en)
 
 [Redpanda](https://docs.redpanda.com/streaming/current/get-started/architecture/) 是使用 Kafka API 的分散式 event log，但不是 Apache Kafka 的包裝版。它以 C++ 與 Seastar 實作 broker，採 thread-per-core、共享記憶體架構。Kafka producer、consumer 與多數工具可以沿用，同時移除 JVM 與另一套 metadata service。
 

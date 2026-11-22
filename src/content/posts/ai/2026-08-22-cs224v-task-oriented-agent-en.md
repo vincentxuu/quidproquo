@@ -12,7 +12,7 @@ tldr: "Genie Worksheets declare task capability as a form-like specification. A 
 description: "CS224V Building a Task-Oriented Agent, from dialogue state and the Worksheet language to semantic parsing, runtime composition, and evaluation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224v-task-oriented-agent)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224v-task-oriented-agent)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

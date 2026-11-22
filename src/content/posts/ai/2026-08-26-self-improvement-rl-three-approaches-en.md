@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standardized test that measures a model's ability to solve real GitHub issues"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-self-improvement-rl-three-approaches)
+> :globe: [中文版](/posts/ai/2026-08-26-self-improvement-rl-three-approaches)
 
 There's a counterintuitive pattern in 2026: the models matching or beating top closed-source models on coding benchmarks aren't the ones with the biggest pretraining budgets. They're the ones that got creative with reinforcement learning during post-training. [Ornith](/posts/tech/2026-08-26-ornith-deepreinforce-model-family-en), [Nous Research](/posts/tech/2026-08-26-nous-research-hermes-en), and [MiniMax](/posts/tech/2026-08-26-minimax-model-family-en) took three very different RL paths and each produced results that surprised the field. This post compares their design philosophies, concrete methods, and respective strengths.
 

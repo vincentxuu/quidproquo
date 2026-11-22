@@ -13,7 +13,7 @@ description: "A guide to Joyama in the northern Izu Peninsula: rock type and geo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-joyama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-joyama)
 
 Joyama (城山, じょうやま; listed on theCrag as Jo-yama) is a rocky hill on the Kano River in Izunokuni, Shizuoka Prefecture, 342 m high according to [Izunokuni City](https://www.city.izunokuni.shizuoka.jp/kankou/documents/shizen_keikan.pdf). People have been climbing its river-facing walls since 1960. Today it is a large, mostly bolted sport crag with a good number of multi-pitch lines: [ROCKTOPO](https://www.rocktopo.net/areas/10) lists 362 routes across 18 sectors.
 

@@ -14,7 +14,7 @@ description: "Entry point to the Berkeley CS189 series: how public the Spring 20
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

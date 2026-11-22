@@ -12,7 +12,7 @@ series:
   order: 88
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-funding-clueso-en)
+> :globe: [English version](/posts/daily/2026-10-14-funding-clueso-en)
 
 ## 融資資訊
 

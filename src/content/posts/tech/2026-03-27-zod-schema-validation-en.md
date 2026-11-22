@@ -10,7 +10,7 @@ description: "Zod is a TypeScript-first schema validation library that lets you 
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-zod-schema-validation)
+:globe: [中文版](/posts/tech/2026-03-27-zod-schema-validation)
 
 TypeScript is powerful, but it has one fundamental limitation: **types only exist at compile time and disappear entirely at runtime**. That means when data arrives from your API, a user form, or environment variables, TypeScript has no way to guarantee it actually matches your defined types.
 

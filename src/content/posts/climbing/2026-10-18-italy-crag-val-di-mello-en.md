@@ -13,7 +13,7 @@ description: "A guide to Val di Mello: where the bouldering, sport and multi-pit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-val-di-mello)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-val-di-mello)
 
 Val di Mello is in the province of Sondrio in Lombardy, a side valley branching east from the head of Val Masino. [27crags](https://27crags.com/areas/val-di-mello) puts Val di Mello and Val Masino at 800–1,100 m and calls them "the birthplace of bouldering in Italy"; Lombardy's tourism site [in-Lombardia](https://www.in-lombardia.it/en/tourism-in-lombardy/tourism-sondrio/val-di-mello) says it is often compared to Yosemite. The reserve's own site calls it the "Tempio" (temple) of "sassismo", visited by climbers and boulderers from around the world for its historic routes and erratic boulders ([Riserva Naturale Val di Mello](https://riservanaturalevaldimello.org/vivere-la-riserva/)).
 

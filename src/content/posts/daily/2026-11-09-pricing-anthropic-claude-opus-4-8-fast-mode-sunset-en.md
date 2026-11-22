@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset)
+> :globe: [中文版](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset)
 
 ## Summary
 
@@ -70,7 +70,7 @@ OpenAI simply renamed its old Priority processing tier to Fast mode on 2026-07-3
 
 ## Time-Sensitive Notice
 
-⚠️ **Shutdown date**: 2026-11-30. Fast mode on Claude Opus 4.8 is removed on this date; `speed: "fast"` requests will return an error afterward. Migration guide: [Migrating to Claude Opus 5.5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-4-8).
+:warning: **Shutdown date**: 2026-11-30. Fast mode on Claude Opus 4.8 is removed on this date; `speed: "fast"` requests will return an error afterward. Migration guide: [Migrating to Claude Opus 5.5 from Claude Opus 4.8](https://platform.claude.com/docs/en/models/opus-5-5/migration-guide#migrating-from-claude-opus-4-8).
 
 ## Today's Takeaway
 

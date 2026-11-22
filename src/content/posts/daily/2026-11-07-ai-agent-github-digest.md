@@ -11,7 +11,7 @@ series:
   order: 84
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-07-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-07-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### NVIDIA/auto-ontology ⭐ 約 5.5k（上線首日 +2k）
+### NVIDIA/auto-ontology ★ 約 5.5k（上線首日 +2k）
 
 [GitHub](https://github.com/NVIDIA/auto-ontology)　·　Python　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### vercel-labs/agent-browser ⭐ 約 42k（本週 +487）
+### vercel-labs/agent-browser ★ 約 42k（本週 +487）
 
 [GitHub](https://github.com/vercel-labs/agent-browser)　·　Rust　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### JosssphZhou/poki ⭐ 257+（上線首日）
+### JosssphZhou/poki ★ 257+（上線首日）
 
 [GitHub](https://github.com/JosssphZhou/poki)　·　Rust + TypeScript　·　AGPL-3.0
 

@@ -13,7 +13,7 @@ description: "烏拉薩伊（Ulassai）與耶爾祖（Jerzu）攀岩介紹：石
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-ulassai-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-ulassai-en)
 
 烏拉薩伊（Ulassai）和耶爾祖（Jerzu）是薩丁尼亞東部奧利亞斯特拉（Ogliastra）山區相距約 5 公里的兩個村子，四周是當地叫「tacchi」的平頂石灰岩台地。在地攀岩協會 Climbing Sardinia 的 [Ulassai & Jerzu 區頁](https://climbingitaly.com/area/ulassai/)開頭就寫：「Ulassai and Jerzu are the most popular climbing destination in Sardinia during the summer」。
 

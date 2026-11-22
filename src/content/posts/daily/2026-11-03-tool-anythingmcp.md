@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-tool-anythingmcp-en)
+> :globe: [English version](/posts/daily/2026-11-03-tool-anythingmcp-en)
 
 ## 工具資訊
 
@@ -37,41 +37,42 @@ title: AnythingMCP 怎麼把舊系統變成 MCP tool
 desc: ERP、REST/SOAP API 和 SQL 資料庫各自的規格匯入 AnythingMCP 的 connector 目錄，產生 MCP tool，經治理層過濾欄位與角色權限後，才讓 Claude、ChatGPT 等 AI client 透過一個 MCP 端點呼叫。
 caption: 簡化示意：省略知識圖譜、公司記憶與 Code Mode 的沙箱執行層。
 ---
-<svg viewBox="0 0 680 480">
-  <rect class="dg-zone" x="200" y="16" width="308" height="448" rx="8"/>
-  <text class="dg-tag" x="216" y="38" dominant-baseline="central">ANYTHINGMCP（自架）</text>
+<svg viewBox="0 0 776 480">
+  <rect class="dg-zone" x="228" y="16" width="304" height="448" rx="8"/>
+  <text class="dg-tag" x="244" y="38" dominant-baseline="central">ANYTHINGMCP（自架）</text>
 
-  <path class="dg-line" d="M160 110H224" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M160 210H224" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M160 310H224" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M354 360V384" marker-end="url(#arrow)"/>
-  <path class="dg-line dg-line--link" d="M484 416H560" marker-end="url(#arrow-link)"/>
+  <path class="dg-line" d="M208 110H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M208 210H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M208 310H252" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M388 360V384" marker-end="url(#arrow)"/>
+  <path class="dg-line dg-line--link" d="M524 416H636" marker-end="url(#arrow-link)"/>
 
-  <rect class="dg-box" x="20" y="82" width="140" height="56" rx="6"/>
-  <text class="dg-label" x="90" y="102" text-anchor="middle" dominant-baseline="central">ERP／SAP、Odoo</text>
-  <text class="dg-sub" x="90" y="122" text-anchor="middle" dominant-baseline="central">OData／SQL 規格</text>
+  <rect class="dg-box" x="20" y="82" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="98" text-anchor="middle" dominant-baseline="central">ERP／SAP、Odoo</text>
+  <text class="dg-sub" x="114" y="122" text-anchor="middle" dominant-baseline="central">OData／SQL 規格</text>
 
-  <rect class="dg-box" x="20" y="182" width="140" height="56" rx="6"/>
-  <text class="dg-label" x="90" y="202" text-anchor="middle" dominant-baseline="central">REST／SOAP／GraphQL</text>
-  <text class="dg-sub" x="90" y="222" text-anchor="middle" dominant-baseline="central">OpenAPI／WSDL</text>
+  <rect class="dg-box" x="20" y="182" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="198" text-anchor="middle" dominant-baseline="central">REST／SOAP／GraphQL</text>
+  <text class="dg-sub" x="114" y="222" text-anchor="middle" dominant-baseline="central">OpenAPI／WSDL</text>
 
-  <rect class="dg-box" x="20" y="282" width="140" height="56" rx="6"/>
-  <text class="dg-label" x="90" y="302" text-anchor="middle" dominant-baseline="central">SQL／MongoDB</text>
-  <text class="dg-sub" x="90" y="322" text-anchor="middle" dominant-baseline="central">自家資料庫</text>
+  <rect class="dg-box" x="20" y="282" width="188" height="56" rx="6"/>
+  <text class="dg-label" x="114" y="298" text-anchor="middle" dominant-baseline="central">SQL／MongoDB</text>
+  <text class="dg-sub" x="114" y="322" text-anchor="middle" dominant-baseline="central">自家資料庫</text>
 
-  <rect class="dg-box dg-box--store" x="224" y="60" width="260" height="300" rx="6"/>
-  <text class="dg-label" x="354" y="200" text-anchor="middle" dominant-baseline="central">Connector 目錄</text>
-  <text class="dg-sub" x="354" y="222" text-anchor="middle" dominant-baseline="central">694 個 adapter，runtime 註冊成 MCP tool</text>
+  <rect class="dg-box dg-box--store" x="252" y="60" width="272" height="300" rx="6"/>
+  <text class="dg-label" x="388" y="188" text-anchor="middle" dominant-baseline="central">Connector 目錄</text>
+  <text class="dg-sub" x="388" y="212" text-anchor="middle" dominant-baseline="central">694 個 adapter</text>
+  <text class="dg-sub" x="388" y="234" text-anchor="middle" dominant-baseline="central">runtime 註冊成 MCP tool</text>
 
-  <rect class="dg-box dg-box--accent" x="224" y="384" width="260" height="64" rx="6"/>
-  <text class="dg-label" x="354" y="406" text-anchor="middle" dominant-baseline="central">治理層</text>
-  <text class="dg-sub" x="354" y="428" text-anchor="middle" dominant-baseline="central">角色權限・欄位過濾・稽核紀錄</text>
+  <rect class="dg-box dg-box--accent" x="252" y="384" width="272" height="64" rx="6"/>
+  <text class="dg-label" x="388" y="404" text-anchor="middle" dominant-baseline="central">治理層</text>
+  <text class="dg-sub" x="388" y="428" text-anchor="middle" dominant-baseline="central">角色權限・欄位過濾・稽核紀錄</text>
 
-  <rect class="dg-box" x="560" y="388" width="100" height="56" rx="6"/>
-  <text class="dg-label" x="610" y="408" text-anchor="middle" dominant-baseline="central">AI client</text>
-  <text class="dg-sub" x="610" y="428" text-anchor="middle" dominant-baseline="central">Claude／ChatGPT</text>
+  <rect class="dg-box" x="636" y="388" width="124" height="56" rx="6"/>
+  <text class="dg-label" x="698" y="404" text-anchor="middle" dominant-baseline="central">AI client</text>
+  <text class="dg-sub" x="698" y="428" text-anchor="middle" dominant-baseline="central">Claude／ChatGPT</text>
 
-  <text class="dg-edge" x="522" y="404" text-anchor="middle" dominant-baseline="central">MCP endpoint</text>
+  <text class="dg-edge" x="584" y="400" text-anchor="middle" dominant-baseline="central">MCP endpoint</text>
 </svg>
 ```
 
@@ -115,9 +116,9 @@ Code Mode 預設關閉，要先由管理者在工作區層級打開（`codeMode`
 | | AnythingMCP | Composio | n8n |
 |---|---|---|---|
 | 授權 | 開源 AGPL-3.0（`ee/` 另計） | SDK 是 MIT，但平台本身封閉、跑在官方雲端 | Source-available「fair-code」（Sustainable Use License，非 OSI 開源） |
-| 自架可用完整功能 | ✅ `docker compose up` 就是完整版 | ❌ 自架是 Enterprise 專案，要走 sales，自助方案一律把憑證存在 Composio 雲端 | ✅（但憑證與維運要自己管理） |
-| 把既有 REST/SOAP/OData/SQL 規格自動轉成 MCP tool | ✅ 匯入規格即產生，694 個現成 adapter | 以自動產生的 SaaS 工具目錄為主，SOAP／OData／自架資料庫不是強調重點 | ❌ 工作流程平台，MCP 只是其中一個 node／trigger，要自己拼整合邏輯 |
-| 內建角色權限、欄位過濾、稽核 | ✅ 視覺化編輯器直接設 | 另外設定 | 要自己用 workflow 拼 |
+| 自架可用完整功能 | ✓ `docker compose up` 就是完整版 | ✗ 自架是 Enterprise 專案，要走 sales，自助方案一律把憑證存在 Composio 雲端 | ✓（但憑證與維運要自己管理） |
+| 把既有 REST/SOAP/OData/SQL 規格自動轉成 MCP tool | ✓ 匯入規格即產生，694 個現成 adapter | 以自動產生的 SaaS 工具目錄為主，SOAP／OData／自架資料庫不是強調重點 | ✗ 工作流程平台，MCP 只是其中一個 node／trigger，要自己拼整合邏輯 |
+| 內建角色權限、欄位過濾、稽核 | ✓ 視覺化編輯器直接設 | 另外設定 | 要自己用 workflow 拼 |
 
 ## 注意事項
 

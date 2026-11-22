@@ -15,7 +15,7 @@ glossary:
     def: "多數主流擴散模型（Stable Diffusion、FLUX 等）用來把高解析度圖片先壓縮成低維度「潛空間」再還原回像素的壓縮/還原模組，能大幅降低運算量，但壓縮過程會損失部分細節"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-12-model-speridlabs-iris-3b-en)
+> :globe: [English version](/posts/daily/2026-10-12-model-speridlabs-iris-3b-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 單眼深度 AbsRel（5 資料集零樣本平均） | 0.071 | 原生潛空間 FLUX.2 Klein（打平）／同架構轉換版 FLUX.2 Klein（落後 Iris-3B） | Marigold V2 協定 |
 | 4× 影像修復 LPIPS／PSNR（DIV2K） | 0.292／20.68 | 原生潛空間 FLUX.2 Klein 微調版（兩個像素空間版本皆未超越） | 論文自測 |
 
-⚠️ 以上全為 Sperid Labs 自測，目前未見第三方獨立複現。論文的核心結論本身就是負向結果：深度估計與影像修復兩項，拿掉 VAE 並未帶來顯著優勢。
+:warning: 以上全為 Sperid Labs 自測，目前未見第三方獨立複現。論文的核心結論本身就是負向結果：深度估計與影像修復兩項，拿掉 VAE 並未帶來顯著優勢。
 
 ## 與前代/競品比較
 

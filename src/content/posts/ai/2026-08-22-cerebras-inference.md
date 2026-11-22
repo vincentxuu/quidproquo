@@ -10,7 +10,7 @@ tldr: "Cerebras 的價值是把支援模型的生成階段大幅加速；但 Age
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cerebras-inference-en)
+> :globe: [English version](/posts/ai/2026-08-22-cerebras-inference-en)
 
 Cerebras Inference 最吸睛的數字一直是 tokens per second。但如果要替 production Agent 選推論平台，問題不能只問「哪一家吐字最快」，而要問：**我的等待時間究竟花在 prefill、模型逐 token 解碼，還是瀏覽器、搜尋與資料庫？** Cerebras 的 wafer-scale 路線確實改變了解碼的速度上限；它卻不會自動消除 Agent 迴圈以外的延遲。
 

@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide-en)
 
 這是「Claude Code 深入介紹」系列的[自動化篇之一](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)。系列前面講過 hooks 是在 agentic loop 的特定時點插你的腳本——但那些時點全是 loop 內建的事件。如果你人在外面，而 loop 外的世界發生了事：CI 掛了、監控系統跳告警、你在手機上想到一個新指示，Claude 都不會知道。Channels 補的就是這一塊。
 

@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter)
+:globe: [中文版](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter)
 
 Cloudflare Workers runs on V8 isolates, not a standard Node.js environment. Next.js depends on several Node.js APIs (`fs`, `crypto`, `net`, `http`), so deploying directly to Workers doesn't work out of the box. `@opennextjs/cloudflare` is an adapter that transforms Next.js build output into a format that Cloudflare Workers can execute.
 

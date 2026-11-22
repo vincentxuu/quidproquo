@@ -20,7 +20,7 @@ glossary:
     definition: "Thinking Machines Lab 的微調 API 平台——提交任務後由官方叢集執行訓練，可微調 Inkling、Qwen、Nemotron 等開源家族"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-05-ai-model-family-inkling-en)
+> :globe: [English version](/posts/tech/2026-09-05-ai-model-family-inkling-en)
 
 2025 年 2 月，前 OpenAI CTO Mira Murati 帶著約 30 位來自 OpenAI、Meta、Mistral 的研究與工程人員，在舊金山創立了 Thinking Machines Lab。同年 7 月，公司在還沒有任何產品的情況下完成 20 億美元 seed 輪、估值 120 億美元，由 a16z 領投——創下矽谷早期融資紀錄。一年後，它交出的第一份答卷不是封閉 API，而是一個 Apache 2.0 開源模型 Inkling（975B 總參數），外加一個把微調做成服務的 Tinker 平台。這是「AI 模型家族」系列的第十九篇家族深度介紹，追蹤這家公司從 Tinker 到 Inkling、再到 Inkling-Small 的路線，以及它「不賣最強模型、賣可自訂性」的賭注。
 
@@ -96,7 +96,7 @@ Inkling 的定位是「美國開源領先、全球開源第二梯隊前段」。
 | HLE（含工具） | 46.0% | 47.8% | 37.4% | 54.0% | 54.7% | 55.0% | 64.5% |
 | FORTRESS（對抗） | 78.0% | 71.6% | 77.6% | 65.6% | 71.3% | 82.4% | 96.0% |
 
-⚠️ 以上為 TML 官方自測結果，第三方尚未獨立複現。
+:warning: 以上為 TML 官方自測結果，第三方尚未獨立複現。
 
 三個判讀：第一，美國開源內戰它贏了 Nemotron 3 Ultra（MCP Atlas 76.0 對 44.7 是輾壓級差距）；第二，對上中國開源（GLM-5.2、Kimi K2.6、DeepSeek V4 Pro）互有勝負，Terminal Bench 的 82.7%（GLM-5.2）仍是它摸不到的天花板；第三，封閉前沿（Claude Fable 5、GPT-5.6 Sol）全面領先，SWE-Bench 的 95.0% 對 77.6% 說明差距不在一個檔次。安全是亮點：FORTRESS 對抗 78.0% 是表列開源最高，且 benign 95.9% 沒過度拒答。
 

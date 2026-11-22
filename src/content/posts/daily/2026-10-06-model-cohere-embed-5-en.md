@@ -15,7 +15,7 @@ glossary:
     def: "Cohere's family of text/image embedding models, which turn content into vectors for semantic search and RAG"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-model-cohere-embed-5)
+> :globe: [中文版](/posts/daily/2026-10-06-model-cohere-embed-5)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | Multilingual (avg. of German/French/Spanish/Italian/Russian) | 77 | Not listed | ~70 (+7) | Voyage 4 Large 76, Gemini Embedding 2 73 |
 | Finance 3-benchmark average (FinanceBench/FinQA/ViDoRe V3 Finance) | Leads runner-up by 3.3 points | — | Not listed | Gemini Embedding 2 (runner-up) |
 
-⚠️ All figures above are Cohere's own benchmarks; there's no independent third-party reproduction yet. RCP-nDCG@10 is a Cohere-designed methodology introduced with Embed 5 — Cohere published the annotations and code for outside review, but the evaluation set itself was still designed and curated by Cohere.
+:warning: All figures above are Cohere's own benchmarks; there's no independent third-party reproduction yet. RCP-nDCG@10 is a Cohere-designed methodology introduced with Embed 5 — Cohere published the annotations and code for outside review, but the evaluation set itself was still designed and curated by Cohere.
 
 ## vs. Previous Generation / Competitors
 

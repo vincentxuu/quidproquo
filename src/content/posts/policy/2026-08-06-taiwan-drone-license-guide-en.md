@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-06-taiwan-drone-license-guide)
+> :globe: [中文版](/posts/policy/2026-08-06-taiwan-drone-license-guide)
 
 [The previous piece](/posts/policy/2026-08-06-taiwan-drone-regulation-guide-en) covered who needs a licence. This one covers **how you get one**: how many tiers, how long, how much.
 

@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-07-funding-atira)
+> :globe: [中文版](/posts/daily/2026-09-07-funding-atira)
 
 ## Funding Details
 

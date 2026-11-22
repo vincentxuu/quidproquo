@@ -14,7 +14,7 @@ description: "Berkeley CS188 Spring 2026 的 CSP、game trees 與 Project 2 多�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-csp-multi-agent-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

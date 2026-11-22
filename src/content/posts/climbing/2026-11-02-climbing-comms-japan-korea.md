@@ -30,7 +30,7 @@ glossary:
     context: "類比機只能用到 2026-12-31，2027 年起只剩數位機。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-11-02-climbing-comms-japan-korea-en)
+> :globe: [English version](/posts/climbing/2026-11-02-climbing-comms-japan-korea-en)
 
 在龍洞用得好好的那一對對講機，帶去日本、韓國就不能按發話鍵了。台灣免執照的 FRS 用 467 MHz，日本免執照的是有技適標章的機器，韓國是有 KC 認證、用 424／448 MHz 的生活無線電；台灣的機子兩邊都不符合。日本總務省北海道總合通信局的台灣語公告，還直接點名「台灣規格的FRS」不能用。
 

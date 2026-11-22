@@ -30,7 +30,7 @@ glossary:
     context: "IQL 用它估計資料支撐範圍內較好動作的價值，不需要查詢資料外的動作。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-offline-rl-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-offline-rl-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

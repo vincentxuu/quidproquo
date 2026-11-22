@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nhost-postgres-graphql-backend)
+> :globe: [中文版](/posts/tech/2026-08-22-nhost-postgres-graphql-backend)
 
 [Nhost](https://docs.nhost.io/) is a PostgreSQL-centered BaaS. Hasura derives a GraphQL API from the schema, Nhost Auth signs tokens with Hasura claims, and Storage, Serverless Functions, and a local CLI complete the backend. Like Supabase it starts with Postgres, but its API and authorization model differ.
 

@@ -13,7 +13,7 @@ description: "釜山金井山大陸峰上下壁選線、東南向日照、溫泉
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-daeryukbong-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-daeryukbong-en)
 
 住在釜山，想排一天花崗岩短線，不一定要把交通拉到蔚山。金井山的大陸峰有上下兩面岩壁，可以把一天的重點放在運攀動作，而不是多繩距登頂。
 

@@ -13,7 +13,7 @@ description: "Seonunsan guide: Soksal, Tugu and Mun, seasonal aspects, Gochang b
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-korea-crag-seonunsan)
+> :globe: [中文版](/posts/climbing/2026-10-21-korea-crag-seonunsan)
 
 For steep Korean sport climbing, Seonunsan deserves a place on your list. It also offers a change of pace: walk around to another face and powerful pocket moves become careful vertical footwork. This guide helps you choose a sector, reach it from Gochang and keep historical route listings separate from present access.
 

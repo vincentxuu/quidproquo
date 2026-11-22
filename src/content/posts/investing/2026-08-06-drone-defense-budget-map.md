@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/investing/2026-08-06-drone-defense-budget-map-en)
+> :globe: [English version](/posts/investing/2026-08-06-drone-defense-budget-map-en)
 
 **先講清楚**：本文是預算流程與產業結構分析，不是投資建議，不列標的、不談時機。
 

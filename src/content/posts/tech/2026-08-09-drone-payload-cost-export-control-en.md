@@ -13,7 +13,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-09-drone-payload-cost-export-control)
+> :globe: [中文版](/posts/tech/2026-08-09-drone-payload-cost-export-control)
 
 [The supply-chain layers post](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) concluded that Taiwan's gap is at layer 3 — flight control, comms link, EO/IR payload. Flight control [got written](/posts/tech/2026-08-08-px4-vs-ardupilot-en), the link [got written](/posts/tech/2026-08-08-drone-radio-link-en), payload never moved.
 
@@ -63,7 +63,7 @@ Check: 72 × 5,469,231 + 33 × 2,030,769 = 460,800,000  ✓
 
 **About NT$5.47M per thermal drone set, and NT$2.03M per rescue robot.**
 
-> ⚠️ **Correction (2026-08-09): the simultaneous solve above is wrong.** Pulling the line-item records from Taiwan's government e-procurement system afterwards shows each county's budget was **NT$4M for 4 drone sets (NT$1M each) and NT$26M for 4 rescue robots (NT$6.5M each)** — the opposite direction from this solve, and off by more than fivefold. **The correct figures are D = NT$1M and R = NT$6.5M** (1M + 6.5M = 7.5M ✓). Section 8 below is recomputed accordingly. The full line-item evidence and a post-mortem on this error are in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en). The lesson: **solving two aggregates simultaneously looks like derivation but is guessing; when the line-item record exists, it isn't an alternative check — it is the only thing you should use.**
+> :warning: **Correction (2026-08-09): the simultaneous solve above is wrong.** Pulling the line-item records from Taiwan's government e-procurement system afterwards shows each county's budget was **NT$4M for 4 drone sets (NT$1M each) and NT$26M for 4 rescue robots (NT$6.5M each)** — the opposite direction from this solve, and off by more than fivefold. **The correct figures are D = NT$1M and R = NT$6.5M** (1M + 6.5M = 7.5M ✓). Section 8 below is recomputed accordingly. The full line-item evidence and a post-mortem on this error are in [the production-ramp post](/posts/tech/2026-08-09-drone-production-ramp-procurement-en). The lesson: **solving two aggregates simultaneously looks like derivation but is guessing; when the line-item record exists, it isn't an alternative check — it is the only thing you should use.**
 
 (The original text is kept below for comparison.) The assumption needs stating plainly: **this assumes unit prices are identical across two programmes four years and one legal basis apart.** That may not hold, and the robot figure it produces (NT$2.03M for a remotely-driven platform with a 4,800 L/min water cannon and a five-gas detector) looks low — **that instinct was right, and I did not chase it.**
 

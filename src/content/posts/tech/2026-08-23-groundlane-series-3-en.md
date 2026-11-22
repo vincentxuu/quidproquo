@@ -15,7 +15,7 @@ glossary:
     definition: "In-site stealth retrieval tool; lacks structured selector extraction and deterministic provenance fields (engine/backend) compared to Groundlane."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-3)
+> :globe: [繁體中文版](/posts/tech/2026-08-23-groundlane-series-3)
 
 This article's purpose is not to declare "Groundlane is better than traditional approaches." Its purpose is to map differences onto verifiable dimensions — determinism, replaceability, identity boundary, and operational cost — so that the choice between a remote controlled MCP layer and local scripts (WebFetch, stealth_fetch, puppeteer, requests) becomes an observable decision rather than a preference judgment. Every claim traces back to `v0.1.0` observable behavior; no future improvement is assumed.
 

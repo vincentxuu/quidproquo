@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-codeql-semantic-code-analysis-en)
+> :globe: [English version](/posts/tech/2026-08-22-codeql-semantic-code-analysis-en)
 
 [CodeQL](https://codeql.github.com/docs/) 把 source code 視為可查詢資料。Language extractor 在 build 或 source extraction 時建立 database，包含 syntax、types、calls、control flow 與 data flow facts；QL query 再找 vulnerability、correctness bug 或 organization-specific pattern。結果可輸出 SARIF 並顯示於 GitHub code scanning。
 

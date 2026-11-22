@@ -13,7 +13,7 @@ description: "An in-depth look at OpenAI Codex: the ChatGPT subscription tiers, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-openai-codex)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-openai-codex)
 
 OpenAI Codex is not a standalone product — it is an extension of the ChatGPT ecosystem. Understanding this is key to properly evaluating its pricing and use cases. This article provides a complete breakdown of Codex's plan design, covering product positioning, subscription tiers, credit billing, and model selection.
 

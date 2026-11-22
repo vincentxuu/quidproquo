@@ -10,7 +10,7 @@ description: "A breakdown of AKIRAXCLAW's content strategy: how a publishing cad
 draft: false
 ---
 
-🌏 [中文版](/posts/marketing/2026-04-23-akiraxclaw-content-model)
+:globe: [中文版](/posts/marketing/2026-04-23-akiraxclaw-content-model)
 
 [AKIRAXCLAW](https://akiraxclaw.com) is Akira's Chinese-language AI tools observation hub. As of April 2026, it has published 171 articles at a cadence of 3–5 posts per day, covering topics like open-source, LLMs, developer tools, and AI agents. The overall positioning is "real-world AI observations and workflow notes for the Chinese-speaking market."
 

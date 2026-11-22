@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-04-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -114,16 +114,16 @@ Meta 將在 2026 年把 Naver 地圖的步行導航整合進 Ray-Ban 與 Oakley 
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-github-digest)
-- 📄 [模型卡｜Kolibri 1（Aleph Alpha）](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1)
-- 📄 [Benchmark 異動｜Arena Agent：Claude Sonnet 5.5 空降第三](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5)
-- 📄 [融資速報｜Parakeet Health Series A $10M](/posts/daily/2026-10-04-funding-parakeet-health)
-- 📄 [定價追蹤｜Gemini 4 Argon 促銷價](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing)
-- 📄 [資安警報｜Loom for AWS 認證繞過＋SSRF](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf)
-- 📄 [工具推薦｜shipstores](/posts/daily/2026-10-04-tool-shipstores)
-- 📄 [AI Engineer 面試日練 — 2026-10-04：本週回顧與行為面試](/posts/daily/2026-10-04-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-04：Behavioral & Weekly Review](/posts/daily/2026-10-04-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-github-digest)
+- :file: [模型卡｜Kolibri 1（Aleph Alpha）](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1)
+- :file: [Benchmark 異動｜Arena Agent：Claude Sonnet 5.5 空降第三](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5)
+- :file: [融資速報｜Parakeet Health Series A $10M](/posts/daily/2026-10-04-funding-parakeet-health)
+- :file: [定價追蹤｜Gemini 4 Argon 促銷價](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing)
+- :file: [資安警報｜Loom for AWS 認證繞過＋SSRF](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf)
+- :file: [工具推薦｜shipstores](/posts/daily/2026-10-04-tool-shipstores)
+- :file: [AI Engineer 面試日練 — 2026-10-04：本週回顧與行為面試](/posts/daily/2026-10-04-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-04：Behavioral & Weekly Review](/posts/daily/2026-10-04-product-builder-interview-daily)
 
 ## 明日關注
 

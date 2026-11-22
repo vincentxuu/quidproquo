@@ -13,7 +13,7 @@ description: "厄爾巴島（Isola d'Elba）岩場介紹：San Bartolomeo、Feto
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-elba-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-elba-en)
 
 厄爾巴島（Isola d'Elba）是托斯卡尼（Toscana）外海的大島，屬於托斯卡尼群島國家公園。義大利中部的岩場幾乎都是石灰岩，厄爾巴島西半部卻是花崗岩，岩場散在海邊與山腰，很多人把攀岩和海島度假排在同一趟。
 

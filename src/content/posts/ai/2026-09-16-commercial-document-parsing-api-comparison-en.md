@@ -20,7 +20,7 @@ glossary:
     context: "Azure and Google offer 20+ prebuilt document types — this is their main differentiator over pure-parsing APIs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison)
+> :globe: [中文版](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison)
 
 The first seven posts in this series covered open-source tools exclusively: from the [three-layer staircase](/posts/ai/2026-08-06-document-parsing-three-layers-en) selection framework, through [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en) at the conversion layer, [PyMuPDF / pdfplumber](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) at the extraction layer, [MinerU / Marker / Docling](/posts/ai/2026-08-06-document-parsing-layout-ocr-en) at the parsing layer, to [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents-en) for agent-driven tool selection. The conclusion was always the same: **pick the right layer first, then pick the tool**.
 
@@ -136,13 +136,13 @@ And general-purpose VLMs have three problems specialized parsers don't:
 
 | Scenario | General VLM | Specialized Parser |
 |---|---|---|
-| Chart-heavy (tech manuals, research reports) | ✅ Only route that understands charts | ❌ Chart dimension nearly zeroed out |
-| Low volume + high heterogeneity (<10K pages/month) | ✅ Not worth building a pipeline | ❌ Over-engineering |
-| Need "comprehension" not just "transcription" | ✅ Can ask "what are the risk clauses in this contract?" | ❌ Only converts to text |
-| High-volume homogeneous docs (100K invoices/month) | ❌ $900+/month (Claude Sonnet 5) | ✅ $150–1,500/month |
-| Need structured JSON | ❌ Unstable formatting | ✅ Fixed schema |
-| Zero hallucination tolerance | ❌ Hallucination rate 0.04–0.26 (varies by model) | ✅ Leaves blanks or flags low confidence |
-| Table structure accuracy | ❌ Dr.DocBench TEDS ~49–51 | ✅ MinerU 55.85, Reducto 90.2% |
+| Chart-heavy (tech manuals, research reports) | ✓ Only route that understands charts | ✗ Chart dimension nearly zeroed out |
+| Low volume + high heterogeneity (<10K pages/month) | ✓ Not worth building a pipeline | ✗ Over-engineering |
+| Need "comprehension" not just "transcription" | ✓ Can ask "what are the risk clauses in this contract?" | ✗ Only converts to text |
+| High-volume homogeneous docs (100K invoices/month) | ✗ $900+/month (Claude Sonnet 5) | ✓ $150–1,500/month |
+| Need structured JSON | ✗ Unstable formatting | ✓ Fixed schema |
+| Zero hallucination tolerance | ✗ Hallucination rate 0.04–0.26 (varies by model) | ✓ Leaves blanks or flags low confidence |
+| Table structure accuracy | ✗ Dr.DocBench TEDS ~49–51 | ✓ MinerU 55.85, Reducto 90.2% |
 
 ### The Practical Approach: Multi-Model Routing
 
@@ -196,14 +196,14 @@ Cohere and LlamaParse don't do KV extraction — they convert documents to Markd
 
 | Method | Has Confidence Scores |
 |---|---|
-| Azure DI | ✅ (per field) |
-| Google Document AI | ✅ (per field) |
-| AWS Textract | ✅ (per field) |
-| Mistral OCR | ✅ (per field + bounding box) |
-| Reducto | ✅ (citation grounding) |
-| LlamaParse | ❌ |
-| Cohere Parse | ❌ |
-| General VLMs | ❌ |
+| Azure DI | ✓ (per field) |
+| Google Document AI | ✓ (per field) |
+| AWS Textract | ✓ (per field) |
+| Mistral OCR | ✓ (per field + bounding box) |
+| Reducto | ✓ (citation grounding) |
+| LlamaParse | ✗ |
+| Cohere Parse | ✗ |
+| General VLMs | ✗ |
 
 Confidence scores are a hard requirement for enterprise scenarios. Without them, you don't know which pages need human review — either review everything (cost explosion) or trust the machine blindly (quality disaster). Cohere's documentation explicitly lacks confidence scores, a significant limitation for high-value documents (contracts, legal documents).
 

@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-30-ai-agent-daily)
 
 ## Bottom Line
 
@@ -124,18 +124,18 @@ Australia joined an OECD-led agentic AI governance framework for governments ([s
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-github-digest-en)
-- 🚨 [Security Alert: GPT-6 Astra Launched Supply-Chain Attacks](/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain-en)
-- 🧾 [Model Card: GPT-6.1 Sol](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
-- 🛠️ [Tool Pick: skillmem](/posts/daily/2026-09-30-tool-skillmem-en)
-- 🧩 [Framework Update: AG2 v1.1.1](/posts/daily/2026-09-30-framework-ag2-1.1.1-en)
-- 💰 [Pricing Watch: Claude Sonnet 5.5](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing-en)
-- 💸 [Funding Brief: EliseAI $350M](/posts/daily/2026-09-30-funding-eliseai-en)
-- 💸 [Funding Brief: Reco $55M Series B Extension](/posts/daily/2026-09-30-funding-reco-en)
-- 💸 [Funding Brief: Atomic $12.5M Series A](/posts/daily/2026-09-30-funding-atomic-en)
-- 🎯 [AI Engineer Interview Daily — ML System Design](/posts/daily/2026-09-30-ai-interview-daily-en)
-- 🎯 [Product Builder Interview Daily — Strategy & Execution](/posts/daily/2026-09-30-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-30](/posts/daily/2026-09-30-ai-agent-github-digest-en)
+- :warning: [Security Alert: GPT-6 Astra Launched Supply-Chain Attacks](/posts/daily/2026-09-30-security-gpt-6-astra-unsanctioned-supply-chain-en)
+- :receipt: [Model Card: GPT-6.1 Sol](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
+- :wrench: [Tool Pick: skillmem](/posts/daily/2026-09-30-tool-skillmem-en)
+- :puzzle: [Framework Update: AG2 v1.1.1](/posts/daily/2026-09-30-framework-ag2-1.1.1-en)
+- :coin: [Pricing Watch: Claude Sonnet 5.5](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing-en)
+- :coin: [Funding Brief: EliseAI $350M](/posts/daily/2026-09-30-funding-eliseai-en)
+- :coin: [Funding Brief: Reco $55M Series B Extension](/posts/daily/2026-09-30-funding-reco-en)
+- :coin: [Funding Brief: Atomic $12.5M Series A](/posts/daily/2026-09-30-funding-atomic-en)
+- :target: [AI Engineer Interview Daily — ML System Design](/posts/daily/2026-09-30-ai-interview-daily-en)
+- :target: [Product Builder Interview Daily — Strategy & Execution](/posts/daily/2026-09-30-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

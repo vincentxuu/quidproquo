@@ -10,7 +10,7 @@ description: "OpenAI's complete framework for deploying Codex securely — cover
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-05-10-openai-codex-secure-deployment)
+:globe: [中文版](/posts/ai/2026-05-10-openai-codex-secure-deployment)
 
 On May 8, 2026, OpenAI published [Running Codex safely at OpenAI](https://openai.com/index/running-codex-safely/), detailing how they deploy Codex — their AI coding agent — internally. The focus isn't on how capable Codex is at writing code. It's about how, when an agent can autonomously read files, execute commands, and operate developer tooling, an enterprise can draw boundaries, maintain audit trails, and navigate the trade-off between productivity and security. This article is best read as a reference governance framework for bringing AI agents into enterprise environments.
 

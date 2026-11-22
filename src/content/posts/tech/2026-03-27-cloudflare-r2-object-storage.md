@@ -14,7 +14,7 @@ series:
   order: 6
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)
+:globe: [English version](/posts/tech/2026-03-27-cloudflare-r2-object-storage-en)
 
 如果你的應用跑在 Cloudflare Workers 上，你需要地方存圖片——用 S3 可以，但要管 AWS 帳號、設 CORS、還要注意 egress 費用（AWS 從 S3 傳資料出去要收費，流量大了帳單很嚇人）。R2 解決了這個問題：S3 相容 API、零 egress 費用、跑在 Cloudflare 網路上。
 

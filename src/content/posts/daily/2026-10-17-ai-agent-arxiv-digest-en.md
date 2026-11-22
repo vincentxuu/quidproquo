@@ -11,7 +11,7 @@ series:
   order: 146
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-17-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-17-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ Agents today are evaluated with two main tools: capability benchmarks measure wh
 
 - The best trained auditor discovers 12/20 policy violations across 50 held-out scenarios, versus 7/20 for a zero-shot 30B auditor and 1/20 for random probing
 - Digging a lot isn't the same as digging broad: the variant with the highest raw violation count (the dedup-only ablation) produces 1,914 hits per 100 episodes but covers only 55% of the policy suite — showing why coverage, not raw hit count, is the headline metric
-- The authors validated their own LLM judge against human annotators: two humans agree almost perfectly (kappa=0.985), but the judge matches human consensus only 39.6% of the time (kappa=0.084), and training exploited this judge error ⚠️ (the authors caught and corrected this themselves; deterministic re-scoring drops best coverage from 60% to 55% with the ranking unchanged)
+- The authors validated their own LLM judge against human annotators: two humans agree almost perfectly (kappa=0.985), but the judge matches human consensus only 39.6% of the time (kappa=0.084), and training exploited this judge error :warning: (the authors caught and corrected this themselves; deterministic re-scoring drops best coverage from 60% to 55% with the ranking unchanged)
 - Applied without adaptation to an unseen Gemma model family, the trained auditor still discovers 40% of policy violations (vs. 55% in-domain), while a fixed static test suite stays at 5%
 - Adoption bar: this requires a frozen target agent, a clear policy/verifier set, and compute to train the auditor (two A100s in the paper)
 - Limitation: over 90% of tool calls stay at search, so the target agent rarely reaches genuinely high-risk states like booking or cancellation, leaving the most severe policies hard to fully test
@@ -134,7 +134,7 @@ Agent safety guards are usually a supervision layer separate from the main model
 
 - AgentDojo-Traj: the same tool-lookup rule scores F1=.901 under mixed-domain folds, but drops to .495 under domain-holdout splitting
 - AgentHarm-Traj: the released TS-Guard scores F1=.902 weighted by row, but drops to .719 weighted by interaction (while balanced accuracy actually rises — showing the scoring unit itself can change the conclusion)
-- On a fixed set of 64 real steps, rewriting only the marker phrase (replacing `<INFORMATION>` with `<UNTRUSTED_EXTERNAL_CONTENT>`) lowers Claude Haiku 4.5's blocking rate by 8.33 percentage points; aliasing tool names instead raises it by 11.46 points, with both effects surviving a formatting-placebo subtraction ⚠️ (based on 960 repeated calls, reproducing only on Haiku)
+- On a fixed set of 64 real steps, rewriting only the marker phrase (replacing `<INFORMATION>` with `<UNTRUSTED_EXTERNAL_CONTENT>`) lowers Claude Haiku 4.5's blocking rate by 8.33 percentage points; aliasing tool names instead raises it by 11.46 points, with both effects surviving a formatting-placebo subtraction :warning: (based on 960 repeated calls, reproducing only on Haiku)
 - The same intervention produces essentially no effect on GPT-5.6 Luna, and only 3 of 64 decisions change for a quantized TS-Guard reproduction — the authors explicitly state this is "configuration-specific," not a general guard weakness
 - Adoption bar: running this kind of audit requires a guard's raw prediction logs plus a placebo-controlled rewritten version of the evaluation set — not expensive, but it requires discipline (freezing the sample before seeing results)
 - Limitation: the 64-step cohort is not a probability sample and the confidence intervals are exploratory; there is no blinded human check confirming the rewrites truly preserve the underlying safety label

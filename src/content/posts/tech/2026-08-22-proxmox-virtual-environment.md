@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-proxmox-virtual-environment-en)
+> :globe: [English version](/posts/tech/2026-08-22-proxmox-virtual-environment-en)
 
 [Proxmox Virtual Environment（PVE）](https://pve.proxmox.com/pve-docs/pve-admin-guide.html) 是 Debian-based virtualization platform。它把 KVM VM、LXC system container、Web/API、cluster、HA、software-defined network 與多種 storage 整合在一起，適合 homelab、中小型私有雲、edge site 與希望掌握硬體的企業環境。
 

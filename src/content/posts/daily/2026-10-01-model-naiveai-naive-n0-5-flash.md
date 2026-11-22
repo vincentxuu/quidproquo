@@ -15,7 +15,7 @@ glossary:
     def: "北京新創 NaiveAI（清華大學戴吉峰創立）開源模型系列首作，主打訓練與推理流程由 AI 系統自主設計、人類把關方向"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
+> :globe: [English version](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | NL2Repo-Bench | 71.9 | 無（NaiveAI 首作） | 官方圖表中自己最高分，領先 DeepSeek V4.1 Flash 的 64.0 |
 | ProgramBench | 17.5 | 無（NaiveAI 首作） | Claude Opus 5 37.0；DeepSeek V4.1 Flash 20.3（7 個模型中並列最後） |
 
-⚠️ 以上全數為 NaiveAI 官方自行公布的圖表，評測 harness 為 Claude Code 2.1.207，對照分數取自各廠商自家發布頁面與 leaderboard（非同一測試環境直接複現），尚無獨立第三方重新驗證。
+:warning: 以上全數為 NaiveAI 官方自行公布的圖表，評測 harness 為 Claude Code 2.1.207，對照分數取自各廠商自家發布頁面與 leaderboard（非同一測試環境直接複現），尚無獨立第三方重新驗證。
 
 ## 與前代/競品比較
 

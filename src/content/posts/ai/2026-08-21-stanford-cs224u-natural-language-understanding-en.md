@@ -16,7 +16,7 @@ description: "A full walkthrough of Stanford CS224U: Natural Language Understand
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs224u-natural-language-understanding)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 115
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-funding-cohere-en)
+> :globe: [English version](/posts/daily/2026-10-30-funding-cohere-en)
 
 ## 融資資訊
 

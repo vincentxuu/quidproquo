@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge)
+> :globe: [中文版](/posts/ai/2026-09-03-hierarchical-chunking-auto-merge)
 
 The chunk size dilemma in RAG systems is a permanent tradeoff: small chunks give precise embeddings but send context-poor fragments to the LLM; big chunks preserve context but dilute the embedding with irrelevant content. According to [Firecrawl's 2026 chunking recommendations](https://www.firecrawl.dev/blog/best-chunking-strategies-rag), fixed 400–600 token chunks with 15% overlap plus cross-encoder reranking remain the industry baseline — but that baseline compromises on chunk size rather than solving the problem.
 

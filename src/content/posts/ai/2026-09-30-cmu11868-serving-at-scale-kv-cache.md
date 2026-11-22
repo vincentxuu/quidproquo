@@ -26,7 +26,7 @@ glossary:
     context: "DistServe 講義以聊天機器人（TTFT 要快）與摘要（TTFT 可以慢）說明不同應用的 SLO 不同。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-serving-at-scale-kv-cache-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-10-funding-harvey)
+> :globe: [中文版](/posts/daily/2026-09-10-funding-harvey)
 
 ## Funding Details
 

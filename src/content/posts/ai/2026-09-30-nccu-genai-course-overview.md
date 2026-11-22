@@ -21,7 +21,7 @@ glossary:
     context: "長庚大學的衛星班頁面就是這種安排下的產物，作業評分標準出自那裡。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

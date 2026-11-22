@@ -13,7 +13,7 @@ description: "南邦 Lampang 攀岩指南：Veteran Wall、Ranger Wall 與 No Na
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-lampang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-lampang-en)
 
 南邦（Lampang）在清邁北邊，是泰國北部的舊都城，鴉片與柚木的歷史讓這裡有全泰最漂亮的機場月台。**市區外 30 分鐘車程的山谷裡，有北泰最新的岩場**：CMRCA（泰國攀岩發展協會）開發，theCrag 在 2026 年 10 月 21 日收錄 25 條路線，級數 5b 到 6c+。
 

@@ -20,7 +20,7 @@ glossary:
     context: "The CS231N L5 intuition: image features don't depend on where they appear in the image."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
+> :globe: [中文版](/posts/ai/2026-09-30-cs231n-cnn-image-classification)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

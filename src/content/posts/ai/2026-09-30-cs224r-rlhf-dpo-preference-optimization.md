@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L9 把它列為 RLHF 的核心風險，並以此引出可驗證獎勵。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

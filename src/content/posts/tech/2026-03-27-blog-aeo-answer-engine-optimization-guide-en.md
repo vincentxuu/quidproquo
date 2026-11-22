@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide)
+:globe: [中文版](/posts/tech/2026-03-27-blog-aeo-answer-engine-optimization-guide)
 
 Starting in 2025, the way people search is changing. Google AI Overview delivers answers directly at the top of search results. Perplexity uses AI to synthesize multiple sources into a single response. ChatGPT's search feature lets users get information without ever leaving the conversation.
 

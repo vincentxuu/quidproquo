@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-03-security-gitspawn-git-config-rce)
+> :globe: [中文版](/posts/daily/2026-09-03-security-gitspawn-git-config-rce)
 
 ## Incident Overview
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-mongodb-document-database-en)
+> :globe: [English version](/posts/tech/2026-08-22-mongodb-document-database-en)
 
 [MongoDB](https://www.mongodb.com/docs/manual/introduction/) 把 BSON document 存在 collection。Nested object 與 array 能讓資料形狀貼近應用物件，也能把常一起讀取的內容嵌進同一 document。這是 data modeling 選擇，不是「不用 schema」：validation、index、document size、更新頻率與 ownership boundary 仍須明確設計。
 

@@ -18,7 +18,7 @@ glossary:
     context: "REA's Notion case study follows this path to trace the clipboard feature."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-20-rea-reverse-engineering-mcp)
+> :globe: [中文版](/posts/ai/2026-10-20-rea-reverse-engineering-mcp)
 
 You see an app with a feature done really well and want to know how it works, but all you have is the installed app, not the source. [REA (Reverse Engineer Anything)](https://github.com/morluto/rea) wants you to hand that job straight to your coding agent. It is an [MCP](https://modelcontextprotocol.io/) server: through it, the agent reads executables, unpacks Electron packages, inspects .NET assemblies, gets back results with evidence attached, and then explains or reimplements the feature. This post should help you decide what it can analyze, how it differs from just wiring an agent to Ghidra over MCP, what an investigation looks like, and when not to use it.
 

@@ -13,7 +13,7 @@ description: "A practical guide to Mem0's extraction, scoping, retrieval, deleti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-mem0-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-22-mem0-agent-memory)
 
 [Mem0](https://docs.mem0.ai/platform/overview) is an external memory layer for AI applications. It does not run the agent, nor does it merely dump full transcripts into a vector database. It turns interactions into shorter, searchable, deletable memories and retrieves relevant items for later requests.
 

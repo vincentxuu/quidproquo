@@ -12,7 +12,7 @@ series:
   order: 67
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-funding-gmi-cloud-en)
+> :globe: [English version](/posts/daily/2026-10-05-funding-gmi-cloud-en)
 
 ## 融資資訊
 

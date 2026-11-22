@@ -13,7 +13,7 @@ description: "馬來西亞岩場系列的總覽：13 個岩場的季節、岩質
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crags-overview-en)
 
 想到馬來西亞攀岩，畫面多半是石灰岩壁、洞穴、指洞和叢林。這個國家被泰國的喀比與萊利包圍著，卻有一批自己的岩場，分布在從北部玻璃市到南部玻璃市、從西岸到東海岸、再到婆羅洲的廣闊範圍裡。它們的共同點不是「一整片岩場」，而是散落、規模都不大，而且每一面的進入方式都不一樣。
 

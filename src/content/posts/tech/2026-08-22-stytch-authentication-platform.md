@@ -10,7 +10,7 @@ description: "拆解 Stytch 的 Consumer 與 B2B identity primitives、session�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-stytch-authentication-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-stytch-authentication-platform-en)
 
 [Stytch](https://stytch.com/) 最準確的定位不是「passwordless 元件」，而是 API-first 的託管身分平台。你可以使用預製 UI，也可以從 SDK 或 REST API 自己組登入；真正的選型重點，是它能否承接 user/member → session → organization → authorization 的生命週期。
 

@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode-en)
 
 上一篇[系列入口](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)提到，checkpoints 和 permission modes 是 Claude Code 的兩道安全防線。這篇把第二道展開：它解決的是一個兩難——每次動作都問你，長任務會被提示打斷到失去耐心；完全不問，你又等於把檔案系統和終端機整台交出去。Permission modes 就是這兩個極端之間的刻度。
 

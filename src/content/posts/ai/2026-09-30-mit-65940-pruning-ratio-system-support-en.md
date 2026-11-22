@@ -22,7 +22,7 @@ glossary:
     context: "6.5940 Lecture 4 uses it to show how fine-grained but regular sparsity can deliver speedups on GPUs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 17
 ---
-> 🌏 [English version](/posts/daily/2026-06-10-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-10-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,8 +72,8 @@ series:
 - Runbook 作為結構化知識來源，減少 agent 需要「自行腦補」的不確定性
 - Progressive autonomy：先 high-supervision → 確認多次 → full-auto，適合高風險操作
 - Closed-loop verification：修復後主動驗確效果，失敗才 escalate，避免靜默失敗
-- 生產部署達 90%+ 自主解決率（作者自述，無第三方驗證，baseline 未明確定義）**⚠️**
-- 作者機構為「大型雲端供應商」但未公開揭露，可查性有限 **⚠️**
+- 生產部署達 90%+ 自主解決率（作者自述，無第三方驗證，baseline 未明確定義）**:warning:**
+- 作者機構為「大型雲端供應商」但未公開揭露，可查性有限 **:warning:**
 - 論文偏 architecture report，缺乏嚴格實驗對照，更接近工程白皮書而非 academic paper
 
 ### Reviewer 一句話評
@@ -125,8 +125,8 @@ MemToolAgent 由兩個模組組成：
 
 ### 深入要點
 
-- 三個 benchmark 改進（vs strong baseline）：WorkBench +29%、NESTFUL +80%、PEToolBench +17% **⚠️ baselines 定義未詳述**
-- NESTFUL +80% 數字顯著異常，可能與 baseline 設定有關，需特別留意 **⚠️**
+- 三個 benchmark 改進（vs strong baseline）：WorkBench +29%、NESTFUL +80%、PEToolBench +17% **:warning: baselines 定義未詳述**
+- NESTFUL +80% 數字顯著異常，可能與 baseline 設定有關，需特別留意 **:warning:**
 - 記憶條目結構包含：環境反饋（API 錯誤碼、工具輸出）+ 使用者回饋（直接糾正、偏好表達）
 - 記憶庫規模增大後的 retrieval latency 和精準度下降，論文未深入探討——是實際部署的隱憂
 - 與 Mem0、LangMem 等通用記憶框架不同，專門針對「工具呼叫行為」而非對話摘要
@@ -187,8 +187,8 @@ MemToolAgent 由兩個模組組成：
 - BMAD Method 最接近傳統 Agile，適合已有 sprint 流程的團隊
 - GSD 專注 context engineering（如何讓 AI 始終有足夠的上下文），而非規格文件
 - Spec Kitty 強調 worktree 隔離和 code review，偏向工程嚴謹性
-- 研究方法偏 qualitative（質化打分），主觀性強，未有 RCT 或客觀 code quality 評測 **⚠️**
-- 樣本只有六個框架，篩選方式（一次性搜尋）覆蓋率有限，可能遺漏重要選項 **⚠️**
+- 研究方法偏 qualitative（質化打分），主觀性強，未有 RCT 或客觀 code quality 評測 **:warning:**
+- 樣本只有六個框架，篩選方式（一次性搜尋）覆蓋率有限，可能遺漏重要選項 **:warning:**
 - 這六個框架均非 LangGraph/AutoGen/CrewAI 等 runtime——請確認你找的問題是哪一層
 - 一作一人、小型研究所，適合作為「啟發思考」而非「決策依據」
 

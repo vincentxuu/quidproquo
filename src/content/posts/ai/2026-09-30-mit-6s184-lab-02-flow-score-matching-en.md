@@ -18,7 +18,7 @@ glossary:
     context: "Lab 2 Part 4. The source need not be Gaussian, so it supports flow matching between any two distributions, but it has no closed-form conditional score."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lab-02-flow-score-matching)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "介紹伊豆半島北部的城山岩場：岩質與地質、路線
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-joyama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-joyama-en)
 
 城山（じょうやま，Joyama；theCrag 寫作 Jo-yama）是靜岡縣伊豆の国市、狩野川畔的一座岩山，標高 342 公尺（[伊豆の国市](https://www.city.izunokuni.shizuoka.jp/kankou/documents/shizen_keikan.pdf)）。面對河的岩壁從 1960 年就有人攀登，現在是以 bolt 運動攀登為主、兼有多段路線的大型岩場：[ROCKTOPO](https://www.rocktopo.net/areas/10) 收 362 條，分成 18 個區域。
 

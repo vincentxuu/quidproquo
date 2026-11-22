@@ -24,7 +24,7 @@ glossary:
     context: "作業二的訓練腳本從 Hugging Face 的 nyu-mll/glue 載入 sst2。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw2-minitorch-framework-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

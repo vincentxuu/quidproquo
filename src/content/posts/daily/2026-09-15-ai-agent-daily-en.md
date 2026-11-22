@@ -145,14 +145,14 @@ We checked for Middle East coverage today and found no AI-relevant (model/regula
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-github-digest-en)
-- 📄 [Funding Brief｜Temporal Series E $550M](/posts/daily/2026-09-15-funding-temporal-en)
-- 📄 [Model Card｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
-- 📄 [Security Alert｜Anthropic discloses GTG-50014](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
-- 📄 [Tool of the Day｜DearAgent](/posts/daily/2026-09-15-tool-dearagent-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-15: Deep Learning & NLP](/posts/daily/2026-09-15-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-15: Metrics & Analytics](/posts/daily/2026-09-15-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-github-digest-en)
+- :file: [Funding Brief｜Temporal Series E $550M](/posts/daily/2026-09-15-funding-temporal-en)
+- :file: [Model Card｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en)
+- :file: [Security Alert｜Anthropic discloses GTG-50014](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft-en)
+- :file: [Tool of the Day｜DearAgent](/posts/daily/2026-09-15-tool-dearagent-en)
+- :file: [AI Engineer Interview Prep — 2026-09-15: Deep Learning & NLP](/posts/daily/2026-09-15-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-15: Metrics & Analytics](/posts/daily/2026-09-15-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

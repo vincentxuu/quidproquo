@@ -13,7 +13,7 @@ description: "A maintainable academic-search pipeline covering the roles of five
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-academic-search-pipeline)
+> :globe: [中文版](/posts/ai/2026-08-22-academic-search-pipeline)
 
 Ordinary web search needs to answer which URL is worth reading. Academic search has a harder question: **are these five records five papers, five versions of one paper, or one paper plus its correction and retraction notices?**
 

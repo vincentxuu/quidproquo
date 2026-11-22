@@ -23,7 +23,7 @@ glossary:
     context: "Lec 20 contrasts it with the bias-variance tradeoff from earlier in the semester, citing Nakkiran et al. (ICLR 2020)."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-19-20-cnn-generalization)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

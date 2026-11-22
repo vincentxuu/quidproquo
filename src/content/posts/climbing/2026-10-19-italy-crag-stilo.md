@@ -13,7 +13,7 @@ description: "斯蒂洛（Stilo）Monte Consolino 岩場介紹：各區岩質、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-stilo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-stilo-en)
 
 斯蒂洛（Stilo）是卡拉布里亞大區（Calabria）雷焦卡拉布里亞省（Reggio Calabria）的山城，在愛奧尼亞海岸往內陸約 12 公里的 Stilaro 河谷上。鎮後方的 Monte Consolino 是一長條石灰岩稜，頂上有諾曼城堡，岩壁就沿著稜線下方的東南面一字排開。
 

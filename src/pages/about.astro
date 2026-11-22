@@ -351,7 +351,7 @@ import PostLayout from '../layouts/PostLayout.astro';
   }
 
   .about-sidebar-inner {
-    padding-right: 2rem;
+    padding-right: var(--space-8);
     border-right: 1px solid var(--border);
   }
 
@@ -360,7 +360,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-style: italic;
     font-size: 2rem;
     line-height: 1.05;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 0.4rem;
     letter-spacing: -0.01em;
   }
@@ -371,7 +371,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     text-transform: uppercase;
     letter-spacing: 0.09em;
     color: var(--text-muted);
-    margin: 0 0 1rem;
+    margin: 0 0 var(--space-4);
   }
 
   .about-sidebar-rule {
@@ -400,8 +400,8 @@ import PostLayout from '../layouts/PostLayout.astro';
 
   /* ── Right body ── */
   .about-body {
-    padding-left: 2.5rem;
-    padding-bottom: 3rem;
+    padding-left: var(--space-10);
+    padding-bottom: var(--space-12);
   }
 
   .about-h1 {
@@ -409,7 +409,7 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-size: 2.4rem;
     font-weight: 400;
     letter-spacing: -0.02em;
-    color: var(--brand-900);
+    color: var(--text-primary);
     margin: 0 0 1.4rem;
     line-height: 1.1;
   }
@@ -419,8 +419,8 @@ import PostLayout from '../layouts/PostLayout.astro';
     font-family: 'DM Serif Display', Georgia, serif !important;
     font-size: 1.4rem !important;
     font-weight: 400 !important;
-    color: var(--brand-900) !important;
-    margin: 2.5rem 0 1rem !important;
+    color: var(--text-primary) !important;
+    margin: var(--space-10) 0 var(--space-4) !important;
     padding-bottom: 0.35rem !important;
     border-bottom: 1px solid var(--border) !important;
     line-height: 1.2 !important;
@@ -449,14 +449,14 @@ import PostLayout from '../layouts/PostLayout.astro';
     color: var(--text-secondary) !important;
     background: var(--bg-subtle) !important;
     border: 1px solid var(--border) !important;
-    border-radius: 8px !important;
-    padding: 1rem 1.3rem !important;
+    border-radius: var(--corner-md) !important;
+    padding: var(--space-4) 1.3rem !important;
     margin: 1.3rem 0 !important;
   }
 
   .about-pullquote em {
     font-style: italic;
-    color: var(--brand-500);
+    color: var(--text-primary);
     font-weight: 600;
   }
 
@@ -522,21 +522,21 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-projects {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
-    margin-bottom: 0.5rem;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
   }
 
   .about-page .project-card {
-    padding: 1rem 1.15rem;
+    padding: var(--space-4) 1.15rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-left: 3px solid var(--brand-500);
-    border-radius: 0 8px 8px 0;
+    border-left: 3px solid var(--border);
+    border-radius: 0 var(--corner-md) var(--corner-md) 0;
     transition: border-left-color 0.15s, box-shadow 0.15s, transform 0.15s;
   }
 
   .about-page .project-card:hover {
-    border-left-color: var(--heading-accent);
+    border-left-color: var(--brand-500);
     box-shadow: var(--shadow-card-hover);
     transform: translateX(3px);
   }
@@ -551,7 +551,7 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-page .project-name {
     font-size: 0.96rem;
     font-weight: 800;
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
 
   .about-page .project-badge {
@@ -610,16 +610,16 @@ import PostLayout from '../layouts/PostLayout.astro';
   .about-page .project-detail-hint {
     font-size: 0.77rem;
     font-weight: 600;
-    color: var(--brand-500);
+    color: var(--text-muted);
   }
 
   .about-page .ptag {
     font-size: 0.62rem;
     font-weight: 600;
-    background: var(--brand-100);
-    color: var(--brand-700);
+    background: var(--bg-card);
+    color: var(--text-secondary);
     padding: 0.1rem 0.42rem;
-    border-radius: 3px;
+    border-radius: var(--corner-sm);
   }
 
   /* ── Skills ── */
@@ -627,17 +627,17 @@ import PostLayout from '../layouts/PostLayout.astro';
     display: flex;
     flex-direction: column;
     gap: 0.65rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--space-2);
   }
 
   .about-page .skill-row {
     display: flex;
     align-items: flex-start;
-    gap: 1rem;
+    gap: var(--space-4);
   }
 
   .about-page .skill-cat {
-    font-size: 0.65rem;
+    font-size: var(--fs-2xs);
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.07em;
@@ -694,9 +694,9 @@ import PostLayout from '../layouts/PostLayout.astro';
       border-bottom: 1px solid var(--border);
       padding-right: 0;
       padding-bottom: 1.2rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: var(--space-6);
       display: flex;
-      gap: 1.5rem;
+      gap: var(--space-6);
       align-items: center;
     }
     .about-sidebar-rule {

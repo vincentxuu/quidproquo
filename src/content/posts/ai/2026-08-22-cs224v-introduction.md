@@ -12,7 +12,7 @@ tldr: "Fall 2025 第一講把 CS224V 的主線定成計算思維：不要期待�
 description: "逐段拆解 Stanford CS224V Fall 2025 Introduction：幻覺問題、計算思維、兩階段研究路線、語意剖析與課程地圖。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224v-introduction-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224v-introduction-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

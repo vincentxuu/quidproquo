@@ -11,7 +11,7 @@ series:
   order: 54
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-security-langflow-mcp-stdio-rce-en)
+> :globe: [English version](/posts/daily/2026-10-15-security-langflow-mcp-stdio-rce-en)
 
 ## 事件概述
 

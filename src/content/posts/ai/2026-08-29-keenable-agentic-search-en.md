@@ -13,7 +13,7 @@ description: "A research note turned deep dive on Keenable.ai: product positioni
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-29-keenable-agentic-search)
+> :globe: [中文版](/posts/ai/2026-08-29-keenable-agentic-search)
 
 [Keenable.ai](https://keenable.ai/) is a new AI search infrastructure company. It is not an answer product like Perplexity. It is trying to sell a web search and content access layer to AI labs, inference platforms, browser agents, and MCP toolchains. The homepage makes the pitch concrete: 100B+ documents, under 250ms p95 in US East, and pricing from $1 per 1,000 requests at 100 RPS+.
 

@@ -18,7 +18,7 @@ glossary:
     context: "All four associations here have this stage under slightly different names (NZ calls it Assistant Guide; Norway calls it tindeveglederaspirant)."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic)
 
 These four countries share a post for two reasons. First, none of them has a law saying "anyone who guides in the mountains must hold IFMGA certification": the UK licenses providers who sell adventure activities to under-18s, New Zealand regulates adventure activity operators, Norway regulates nothing, and Sweden relies on general advice from its consumer agency. Second, the UK and New Zealand teach in English, which makes them the easiest for Taiwanese readers to follow, while Norway and Sweden show two other Nordic models: a state-recognized vocational school (Norway) and a small association running its own scheme (Sweden, which had help from the UK's BMG when it started).
 

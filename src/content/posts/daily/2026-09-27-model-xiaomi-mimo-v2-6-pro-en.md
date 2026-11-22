@@ -15,7 +15,7 @@ glossary:
     def: "Xiaomi's in-house large language model family, spanning Pro, Flash, and UltraSpeed variants"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
+> :globe: [中文版](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
 
 ## Model Info
 
@@ -51,7 +51,7 @@ glossary:
 | DeepSWE v1.1 (code agent) | 71.9 | 19.0 | Claude Opus 5 — 74.0 (highest overall) |
 | ExploitBench (security) | 47.9 | 16.6 | GPT-5.6 Sol — 78.5 (highest overall) |
 
-⚠️ All figures above are from Xiaomi's own technical report (compared against Claude Opus 5, GPT-5.6 Sol, and Claude Fable 5 — not the newer Claude Fable 5.1 / GPT-6 Astra generation). The Artificial Analysis Intelligence Index score of 46.32 is an independent third-party measurement; several closed models still rank above MiMo-V2.6-Pro on that leaderboard overall.
+:warning: All figures above are from Xiaomi's own technical report (compared against Claude Opus 5, GPT-5.6 Sol, and Claude Fable 5 — not the newer Claude Fable 5.1 / GPT-6 Astra generation). The Artificial Analysis Intelligence Index score of 46.32 is an independent third-party measurement; several closed models still rank above MiMo-V2.6-Pro on that leaderboard overall.
 
 ## Versus the previous generation and competitors
 

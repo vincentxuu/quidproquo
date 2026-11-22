@@ -13,7 +13,7 @@ description: "斯巴魯阿岩（Rocca Sbarua）岩場介紹：花崗片麻岩的
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-rocca-sbarua-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-rocca-sbarua-en)
 
 斯巴魯阿岩（Rocca Sbarua）在杜林近郊的 Pinerolo 上方，是 Monte Freidur 南坡一串花崗片麻岩的岩稜與岩塔，行政上屬於 Frossasco 市。[Versante Sud](https://www.versantesud.it/en/shop/catalogue/rocca-sbarua_1479/) 寫「Sbarua」在皮埃蒙特方言裡就是「害怕」的意思。岩壁底下的 Rifugio Melano 山屋全年開放，是大家的集合點。
 

@@ -13,7 +13,7 @@ description: "A material-gap record and official reading map for CS224N Winter 2
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs224n-multimodality)
+> :globe: [中文版](/posts/ai/2026-08-22-cs224n-multimodality)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-18-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-18-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -120,14 +120,14 @@ Also: Voxel51 released version 3.0, expanding its data-management support for ag
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-github-digest-en)
-- 📄 [Model Card: Reflection Beam 1.0](/posts/daily/2026-10-18-model-reflection-beam-1-0-en)
-- 📄 [Benchmark Shift: Arena Agent Leaderboard](/posts/daily/2026-10-18-benchmark-arena-agent-astra-en)
-- 📄 [Funding Flash: Opsin's $21M Round](/posts/daily/2026-10-18-funding-opsin-en)
-- 📄 [Tool Pick: AI Slop Meter](/posts/daily/2026-10-18-tool-aislopmeter-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-18](/posts/daily/2026-10-18-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-18](/posts/daily/2026-10-18-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-18](/posts/daily/2026-10-18-ai-agent-github-digest-en)
+- :file: [Model Card: Reflection Beam 1.0](/posts/daily/2026-10-18-model-reflection-beam-1-0-en)
+- :file: [Benchmark Shift: Arena Agent Leaderboard](/posts/daily/2026-10-18-benchmark-arena-agent-astra-en)
+- :file: [Funding Flash: Opsin's $21M Round](/posts/daily/2026-10-18-funding-opsin-en)
+- :file: [Tool Pick: AI Slop Meter](/posts/daily/2026-10-18-tool-aislopmeter-en)
+- :file: [AI Engineer Interview Prep — 2026-10-18](/posts/daily/2026-10-18-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-18](/posts/daily/2026-10-18-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

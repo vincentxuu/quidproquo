@@ -13,7 +13,7 @@ description: "從 CoALA 四類記憶到六個獨立設計軸與設計哲學光�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
+> :globe: [English version](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
 
 同一個問題——agent 要記住使用者的偏好——Claude Code 用 Markdown 檔解決，Mem0 用向量資料庫解決，GitHub Copilot 用 KV 儲存加引用驗證解決。三家都在做「記憶」，但底層的設計選擇完全不同。
 

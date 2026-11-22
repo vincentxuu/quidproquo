@@ -13,7 +13,7 @@ description: "Mobile device support in OpenClaw: what a node is, the pairing lif
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-platforms-mobile)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-platforms-mobile)
 
 Mobile devices have exactly one role in OpenClaw: **node (peripheral)**.
 

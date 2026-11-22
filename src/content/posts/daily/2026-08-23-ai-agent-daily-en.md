@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-23-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-23-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -115,13 +115,13 @@ Shin Cheng Industrial shared a four-phase Agentic AI transformation playbook —
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
-- 📄 [Pricing Tracker | OpenAI GPT-5.6 Sol Official 20–33% Price Cut](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
-- 📄 [Security Alert | Omnigent Agent Bundle Upload Vulnerability](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce)
-- 📄 [Tool Pick | mcp-anything](/posts/daily/2026-08-23-tool-mcp-anything)
-- 📄 [AI Agent Interview Prep — 2026-08-23](/posts/daily/2026-08-23-ai-interview-daily)
-- 📄 [Product Builder Interview Prep — 2026-08-23](/posts/daily/2026-08-23-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-23](/posts/daily/2026-08-23-ai-agent-github-digest)
+- :file: [Pricing Tracker | OpenAI GPT-5.6 Sol Official 20–33% Price Cut](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
+- :file: [Security Alert | Omnigent Agent Bundle Upload Vulnerability](/posts/daily/2026-08-23-security-omnigent-agent-bundle-rce)
+- :file: [Tool Pick | mcp-anything](/posts/daily/2026-08-23-tool-mcp-anything)
+- :file: [AI Agent Interview Prep — 2026-08-23](/posts/daily/2026-08-23-ai-interview-daily)
+- :file: [Product Builder Interview Prep — 2026-08-23](/posts/daily/2026-08-23-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

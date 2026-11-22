@@ -13,7 +13,7 @@ description: "A deep look at open source multi-model routing tools — ruflo, cl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)
+> :globe: [中文版](/posts/ai/2026-04-02-multi-model-routing-opensource-tools)
 
 ## Why You Need Model Routing
 

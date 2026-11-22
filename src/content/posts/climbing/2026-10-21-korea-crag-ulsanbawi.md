@@ -13,7 +13,7 @@ description: "蔚山岩攀岩指南：比較路線級數與走法版本、束草
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-ulsanbawi-en)
 
 蔚山岩（울산바위，Ulsanbawi）是雪嶽山那道像石牆一樣展開的花崗岩。遊客沿階梯走到展望臺，攀登者則從不同裂隙往上，還有人沿整排岩峰連走。三種行程會出現在同一個地名下，準備方式卻差很多。
 

@@ -9,7 +9,7 @@ description: "Writing an AI paper and getting it on arXiv involves four layers o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-13-writing-ai-paper-arxiv-submission)
+> :globe: [中文版](/posts/ai/2026-09-13-writing-ai-paper-arxiv-submission)
 
 ## TL;DR
 
@@ -260,7 +260,7 @@ This is one of the most confusing questions for first-time submitters. arXiv can
 
 | Aspect | NeurIPS | ICML | ICLR | CVPR | ACL |
 |--------|---------|------|------|------|-----|
-| arXiv during review? | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes | ✅ Yes, **anonymity period eliminated since 2024** |
+| arXiv during review? | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes | ✓ Yes, **anonymity period eliminated since 2024** |
 | Advertising restriction | Cannot mark "Under review at NeurIPS" | Strictest — "under no circumstances" may advertise | Most permissive — OpenReview open discussion | Media embargo | No additional restrictions |
 | Double-blind impact | Reviewers instructed not to search | Submission version must not cite non-anonymous version | Third-person self-citation OK | arXiv not considered prior art | Reviewers must disclose outside knowledge |
 | Camera-ready | +1 page allowed | +1 page allowed | Same page limit | 2026: 2-week embargo | Footnote prior preprints |

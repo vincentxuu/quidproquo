@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro)
 
 The last post left one question open: containers, gVisor, and microVMs all separate kernels, yet sandboxes on one host still share CPU caches, storage, and CPU time. Can two programs with no connection and no shared writable file exchange data using only those shared resources?
 

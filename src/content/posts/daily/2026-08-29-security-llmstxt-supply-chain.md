@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
+> :globe: [English version](/posts/daily/2026-08-29-security-llmstxt-supply-chain-en)
 
 ## 事件概述
 

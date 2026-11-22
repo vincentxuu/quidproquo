@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)
+> :globe: [中文版](/posts/climbing/2026-10-19-multipitch-climbing-backpacks)
 
 The [crag pack from the previous article](/posts/climbing/2026-10-19-climbing-crag-packs-en) stays on the ground at the base. A multipitch pack climbs with you and spends the whole day on the wall. A pack that carries well on the trail can get in the way everywhere once you climb. You look up at the next pitch and your helmet hits the top of the pack. You reach for a quickdraw and the hipbelt is sitting on your gear loop. You open a zip at a hanging belay and your jacket nearly falls out.
 

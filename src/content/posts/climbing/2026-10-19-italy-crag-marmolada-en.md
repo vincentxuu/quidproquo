@@ -13,7 +13,7 @@ description: "A guide to the Marmolada south face: size and style of the wall, s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-marmolada)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-marmolada)
 
 The Marmolada is the highest mountain in the Dolomites; its main summit, Punta Penia, is over 3,300 m, on the border between Veneto and Trentino. The north side is glacier and ski runs. The south side is one huge limestone wall that Italians call the "Parete d'argento" (silver wall). [Planetmountain](https://www.planetmountain.com/it/notizie/alpinismo/la-sud-della-marmolada-arrampicare-sulla-parete-d-argento-della-regina-delle-dolomiti.html) describes it as "1000 metri d'altezza per tre chilometri di favoloso calcare", about an hour from the car park at Malga Ciapela.
 

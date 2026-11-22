@@ -10,7 +10,7 @@ description: "A guide to Apple's third-generation Foundation Models (AFM 3): fiv
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-apple-pcc-free-afm3)
+> :globe: [中文版](/posts/ai/2026-08-25-apple-pcc-free-afm3)
 
 At WWDC 2026 in June, Apple introduced the third generation of Apple Foundation Models (AFM 3) and announced that qualifying small developers could use its cloud models on Private Cloud Compute (PCC) **for free**. The announcement was easy to miss amid the rest of WWDC, but for independent developers and small studios, it may be the first opportunity to add a frontier-class model to an app without first taking on a cloud AI bill.
 

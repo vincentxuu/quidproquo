@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-inngest-durable-functions)
+> :globe: [中文版](/posts/tech/2026-08-22-inngest-durable-functions)
 
 [Inngest](https://www.inngest.com/docs/learn/how-functions-are-executed) is an event-driven durable execution platform. You write ordinary TypeScript, Python, or Go functions and put database, API, and model calls inside `step.run()`. Inngest persists each step result and manages retries, sleeps, event waits, and flow control.
 

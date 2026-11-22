@@ -20,7 +20,7 @@ glossary:
     context: "HW3 Problem 3 requires TransformerLayer to use pre-LN."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-hw3-transformer-architecture)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 

@@ -15,7 +15,7 @@ glossary:
     def: "小米自研的大型語言模型家族，涵蓋 Pro／Flash／UltraSpeed 等不同規格版本"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
+> :globe: [English version](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | DeepSWE v1.1（code agent） | 71.9 | 19.0 | Claude Opus 5 74.0（全場最高） |
 | ExploitBench（資安） | 47.9 | 16.6 | GPT-5.6 Sol 78.5（全場最高） |
 
-⚠️ 以上均為小米官方技術報告自測數據（比較對象為 Claude Opus 5、GPT-5.6 Sol、Claude Fable 5，非最新一代 Claude Fable 5.1／GPT-6 Astra）。Artificial Analysis Intelligence Index 的 46.32 分則是第三方獨立評測，該榜單上仍有多個閉源旗艦模型排名高於 MiMo-V2.6-Pro。
+:warning: 以上均為小米官方技術報告自測數據（比較對象為 Claude Opus 5、GPT-5.6 Sol、Claude Fable 5，非最新一代 Claude Fable 5.1／GPT-6 Astra）。Artificial Analysis Intelligence Index 的 46.32 分則是第三方獨立評測，該榜單上仍有多個閉源旗艦模型排名高於 MiMo-V2.6-Pro。
 
 ## 與前代/競品比較
 

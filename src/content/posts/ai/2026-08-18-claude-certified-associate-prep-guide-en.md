@@ -13,7 +13,7 @@ description: "A preparation guide for Claude Certified Associate – Foundations
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-claude-certified-associate-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-claude-certified-associate-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the official **Claude Certified Associate – Foundations Exam Guide**. No leaked questions. Verified 2026-08-18.
 

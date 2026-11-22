@@ -13,7 +13,7 @@ description: "加盧拉（Gallura）花崗岩抱石介紹：La Cerra、Monte Pul
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-gallura-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-gallura-en)
 
 加盧拉（Gallura）是薩丁尼亞島的東北角，首府是有機場和渡輪港的奧爾比亞（Olbia）。義大利攀岩者一想到薩丁尼亞，通常是東岸的石灰岩，例如[卡拉戈諾內](/posts/climbing/2026-10-18-italy-crag-cala-gonone)。但 [Planetmountain](https://www.planetmountain.com/it/falesie/boulder-gallura-sardegna.html) 提醒，島上最多的岩石其實是花崗岩，加盧拉尤其是滿地巨石。
 

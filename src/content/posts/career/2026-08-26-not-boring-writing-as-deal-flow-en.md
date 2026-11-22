@@ -13,7 +13,7 @@ description: "The full arc of Not Boring founder Packy McCormick: from Duke econ
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-not-boring-writing-as-deal-flow)
+> :globe: [中文版](/posts/career/2026-08-26-not-boring-writing-as-deal-flow)
 
 Packy McCormick spent six years turning a newsletter with a few hundred readers into a flywheel spanning media and investing. He had never founded a company, had no technical background, and had zero VC experience. His starting point was his mother-in-law's basement, his wife expecting their first child, fresh off leaving a startup that was running out of runway.
 

@@ -22,7 +22,7 @@ glossary:
     context: "MIT 6.5940 Lecture 12 slides, page 73."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-transformer-llm-primer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

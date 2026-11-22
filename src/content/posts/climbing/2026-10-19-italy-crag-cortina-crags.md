@@ -13,7 +13,7 @@ description: "Cortina 周邊三處單段運攀岩場（Crépe de Oucèra Alte、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-cortina-crags-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-cortina-crags-en)
 
 Cortina d'Ampezzo 西邊的 Pocol，有一條 SP638 公路往 Passo Giau 爬升。開上去 1.5 到 4 公里這一段，路邊有三處單段運攀岩場：Bèco d'Ajàl、Crépe de Oucèra Basse 和 Crépe de Oucèra Alte。Cortina 觀光局寫 Basse 是 Cortina 最早的岩場之一，「seconda solo a quella del Béco d'Ajàl」（只比 Bèco d'Ajàl 晚）（[Cortina 觀光局](https://cortina.dolomiti.org/it/arrampicata-sportiva/crepe-de-oucera-basse/)）。
 

@@ -13,7 +13,7 @@ description: "A deck-aligned guide to implication, quantified negation, contrapo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-03-indirect-proofs)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

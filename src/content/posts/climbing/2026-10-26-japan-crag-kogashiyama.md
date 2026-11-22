@@ -13,7 +13,7 @@ description: "古賀志山攀岩指南：季節、大眾運輸、停車、在地
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-kogashiyama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-kogashiyama-en)
 
 古賀志山的不動瀑布周邊有密集的短繩攀線，適合把一天留給同一組岩面。它也是住家、神社與登山步道交會的地方，停車和通行規矩會直接決定這趟能不能順利開始。
 

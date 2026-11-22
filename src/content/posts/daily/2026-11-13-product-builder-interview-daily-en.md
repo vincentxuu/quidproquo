@@ -12,7 +12,7 @@ series:
   order: 86
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-13-product-builder-interview-daily)
+> :globe: [中文版](/posts/daily/2026-11-13-product-builder-interview-daily)
 
 ## Today's Topic
 
@@ -32,44 +32,44 @@ step: Existing connections already in the network pull them back (retain)
 step: Users invite teammates or upgrade to a paid plan (expand)
 step: The new users expansion brings in re-enter acquisition from a bigger network
 ---
-<svg viewBox="0 0 440 392">
-  <path class="dg-line" d="M280 56.3A152 152 0 0 1 368.8 165.1" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M369.4 224A152 152 0 0 1 282.7 334.4" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M160 335.7A152 152 0 0 1 71.2 226.9" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line" d="M70.6 168A152 152 0 0 1 157.3 57.6" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--dashed" d="M312 196H276" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--dashed" d="M220 224V316" marker-end="url(#arrow)" data-step="3"/>
+<svg viewBox="0 0 688 388">
+  <path class="dg-line" d="M414 50.5A240 150 0 0 1 578.8 162.9" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M579.8 222A240 150 0 0 1 417.1 336.9" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M274 337.5A240 150 0 0 1 109.2 225.1" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line" d="M108.2 166A240 150 0 0 1 270.9 51.1" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--dashed" d="M496 194H412" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--dashed" d="M344 222V312" marker-end="url(#arrow)" data-step="3"/>
 
   <g data-step="1 5">
-    <rect class="dg-box" x="160" y="16" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="35" text-anchor="middle" dominant-baseline="central">Acquire</text>
-    <text class="dg-sub" x="220" y="55" text-anchor="middle" dominant-baseline="central">share link / invite</text>
+    <rect class="dg-box" x="274" y="16" width="140" height="56" rx="6"/>
+    <text class="dg-label" x="344" y="32" text-anchor="middle" dominant-baseline="central">Acquire</text>
+    <text class="dg-sub" x="344" y="56" text-anchor="middle" dominant-baseline="central">share link / invite</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box dg-box--accent" x="312" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="372" y="187" text-anchor="middle" dominant-baseline="central">Activate</text>
-    <text class="dg-sub" x="372" y="207" text-anchor="middle" dominant-baseline="central">first key action</text>
+    <rect class="dg-box dg-box--accent" x="496" y="166" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="584" y="182" text-anchor="middle" dominant-baseline="central">Activate</text>
+    <text class="dg-sub" x="584" y="206" text-anchor="middle" dominant-baseline="central">first key action</text>
   </g>
 
   <g data-step="3">
-    <rect class="dg-box" x="160" y="320" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="220" y="339" text-anchor="middle" dominant-baseline="central">Retain</text>
-    <text class="dg-sub" x="220" y="359" text-anchor="middle" dominant-baseline="central">forms a habit</text>
+    <rect class="dg-box" x="274" y="316" width="140" height="56" rx="6"/>
+    <text class="dg-label" x="344" y="332" text-anchor="middle" dominant-baseline="central">Retain</text>
+    <text class="dg-sub" x="344" y="356" text-anchor="middle" dominant-baseline="central">forms a habit</text>
   </g>
 
   <g data-step="4">
-    <rect class="dg-box" x="8" y="168" width="120" height="56" rx="6"/>
-    <text class="dg-label" x="68" y="187" text-anchor="middle" dominant-baseline="central">Expand</text>
-    <text class="dg-sub" x="68" y="207" text-anchor="middle" dominant-baseline="central">invite teammates / upgrade</text>
+    <rect class="dg-box" x="16" y="166" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="104" y="182" text-anchor="middle" dominant-baseline="central">Expand</text>
+    <text class="dg-sub" x="104" y="206" text-anchor="middle" dominant-baseline="central">invite teammates / upgrade</text>
   </g>
 
-  <rect class="dg-box dg-box--store" x="168" y="168" width="104" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="187" text-anchor="middle" dominant-baseline="central">User network</text>
-  <text class="dg-sub" x="220" y="207" text-anchor="middle" dominant-baseline="central">grows each loop</text>
+  <rect class="dg-box dg-box--store" x="280" y="166" width="128" height="56" rx="6"/>
+  <text class="dg-label" x="344" y="182" text-anchor="middle" dominant-baseline="central">User network</text>
+  <text class="dg-sub" x="344" y="206" text-anchor="middle" dominant-baseline="central">grows each loop</text>
 
-  <text class="dg-edge" x="292" y="182" text-anchor="middle" dominant-baseline="central" data-step="2">converts</text>
-  <text class="dg-edge" x="230" y="270" text-anchor="start" dominant-baseline="central" data-step="3">pulls back</text>
+  <text class="dg-edge" x="452" y="180" text-anchor="middle" dominant-baseline="central" data-step="2">converts</text>
+  <text class="dg-edge" x="354" y="269" text-anchor="start" dominant-baseline="central" data-step="3">pulls back</text>
 </svg>
 ```
 

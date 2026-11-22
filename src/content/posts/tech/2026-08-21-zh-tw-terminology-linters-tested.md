@@ -11,7 +11,7 @@ draft: false
 ---
 
 
-> 🌏 [English version](/posts/tech/2026-08-21-zh-tw-terminology-linters-tested-en)
+> :globe: [English version](/posts/tech/2026-08-21-zh-tw-terminology-linters-tested-en)
 
 LLM 的中文語料以中國內容為大宗，所以它寫出來的「繁體中文」常常是**字形正確、詞彙錯誤**：軟件、視頻、用戶、質量。
 

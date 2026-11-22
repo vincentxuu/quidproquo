@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-27-claude-code-skill-design-guide-en)
 
 每次 commit 都要想 message 格式、每次寫文章都要建檔案填 frontmatter、每次篩職缺都要跑同樣的流程。這些事情不難，但重複做很煩，而且每次都有可能漏掉某個步驟。
 

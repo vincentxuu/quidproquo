@@ -13,7 +13,7 @@ description: "From CoALA's four memory types to six design axes and a design-phi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-taxonomy)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-taxonomy)
 
 Same problem — an agent needs to remember a user's preferences — and three different answers: Claude Code uses a Markdown file, Mem0 uses a vector database, GitHub Copilot uses KV storage with citation verification. All three are doing "memory," but the underlying design choices are entirely different.
 

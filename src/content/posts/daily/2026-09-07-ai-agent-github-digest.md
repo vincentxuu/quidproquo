@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### deepseek-ai/deepseek-harness ⭐ 213,907
+### deepseek-ai/deepseek-harness ★ 213,907
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### DietrichGebert/ponytail ⭐ 129,035
+### DietrichGebert/ponytail ★ 129,035
 
 [GitHub](https://github.com/DietrichGebert/ponytail)　·　JavaScript　·　MIT
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### magnitudedev/magnitude ⭐ 3,580
+### magnitudedev/magnitude ★ 3,580
 
 [GitHub](https://github.com/magnitudedev/magnitude)　·　TypeScript　·　Apache-2.0
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### KnockOutEZ/wigolo ⭐ 5,123
+### KnockOutEZ/wigolo ★ 5,123
 
 [GitHub](https://github.com/KnockOutEZ/wigolo)　·　TypeScript　·　AGPL-3.0（GitHub 授權欄位顯示為 unlicensed/Other，與 README 標示不一致，採用前建議先確認實際授權條款）
 

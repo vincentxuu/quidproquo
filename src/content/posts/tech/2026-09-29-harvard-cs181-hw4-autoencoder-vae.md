@@ -26,11 +26,11 @@ glossary:
     context: "VAE loss 用它把 encoder 的輸出分布拉向 N(0, I)。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/ipynb`）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，2026-09-29 實際打開。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答。Section 6 的 autoencoder 段落講到 sparse 與 denoising AE 為止，**沒有涵蓋 VAE**；Week 6 的 Representation Learning / Autoencoders 講課投影片本篇沒有取得，所以 VAE 部分只根據作業題目本身。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/ipynb`）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，2026-09-29 實際打開。本課整體為 **A3**，但官方課表未列對應講次的公開錄影、沒有作業解答。Section 6 的 autoencoder 段落講到 sparse 與 denoising AE 為止，**沒有涵蓋 VAE**；Week 6 的 Representation Learning / Autoencoders 講課投影片本篇沒有取得，所以 VAE 部分只根據作業題目本身。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 7 篇，接在 [HW4（上）Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 之後。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-e2b-agent-sandbox)
+> :globe: [中文版](/posts/ai/2026-08-22-e2b-agent-sandbox)
 
 [E2B](https://github.com/e2b-dev/e2b) is a cloud Linux execution environment for AI agents. The model decides what to do next; E2B executes shell commands, file operations, Git actions, and code inside an isolated sandbox, keeping the model away from the application host.
 

@@ -14,7 +14,7 @@ description: "A Seoninbong climbing guide: Dobongsan Station approach, seasons o
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-seoninbong)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-seoninbong)
 
 Insubong is not the only option for a granite multipitch day while staying in Seoul. Farther northeast, Seoninbong (선인봉) in Dobongsan also begins with a subway journey. Its cracks can put fists, arms and your whole body to work alongside the slabs.
 

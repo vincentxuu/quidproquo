@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 70
 ---
-> 🌏 [English version](/posts/daily/2026-08-02-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-02-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -123,7 +123,7 @@ Coding Agent（如 GitHub Copilot Workspace、Devin、SWE-agent）日益能自�
 ### 深入要點
 
 - 資料來自真實 GitHub repo，不是模擬，代表性高；AIDev-pop 涵蓋 Copilot、Devin 類多種 coding agent
-- **⚠️ 標題黨警示**：標題含「Merge Conflict Rates」但正文沒有直接量化實際 conflict 發生率或解決率，核心貢獻是「頻率與結構分析」
+- **:warning: 標題黨警示**：標題含「Merge Conflict Rates」但正文沒有直接量化實際 conflict 發生率或解決率，核心貢獻是「頻率與結構分析」
 - co-active pair 中 99.5% 是 same-agent（同一個 agent 自衝），跨 agent 互衝僅發生在 122 個 repo（共 2,807 個）中
 - 落地門檻：在 Agent task queue 層加 pre-flight check（「這個 repo 有沒有我未合併的 PR？」）可以直接解決大多數 self-conflict
 - 對 platform builder 的啟示：Agent 的記憶不只要記對話歷史，還要記 infra 操作歷史（PR status、deployment state）
@@ -152,7 +152,7 @@ AI Agent 有五大安全漏洞類別，現有評測沙箱裝不住真正有能�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你在設計 Agent 平台的 sandbox 隔離或做安全評估值得參考；作為 PM 至少要知道這五類風險的名字，能在客戶問安全問題時應對。
 
 ### 領域背景
@@ -180,7 +180,7 @@ Cyber-capable AI Agent 結合 LLM + 工具 + 記憶 + 執行環境，能執行�
 - **四大防禦**：containment（沙箱隔離）、privilege separation（最小權限原則）、provenance（溯源追蹤）、responder access（響應者控制）
 - **雙重使用問題（dual-use）**：防禦 artifact 本身也可能被攻擊者拿來偵測沙箱邊界，這個矛盾沒有簡單解法
 - 2026 年 7 月 HuggingFace/OpenAI 事件作為 bounded case study，但文中細節有限，詳情仍待公開報告確認
-- **⚠️ 注意**：這是 review paper，不是原創實驗；單一作者，來自非頂尖學術機構，部分論述缺乏量化數據，建議交叉驗證
+- **:warning: 注意**：這是 review paper，不是原創實驗；單一作者，來自非頂尖學術機構，部分論述缺乏量化數據，建議交叉驗證
 - 與 MCP 的關聯：privilege separation 對應到 MCP 的 tool permission scoping；provenance 對應到 trace / logging middleware 設計
 - 落地門檻：五類漏洞中的 persistent C2（Agent 能在沙箱內留後門嗎？）是最難防的，需要 stateless execution 設計
 

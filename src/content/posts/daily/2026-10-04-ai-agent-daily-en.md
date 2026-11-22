@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-04-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -114,16 +114,16 @@ Meta will integrate Naver Map's walking navigation into Ray-Ban and Oakley Meta 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-github-digest-en)
-- 📄 [Model Card｜Kolibri 1 (Aleph Alpha)](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
-- 📄 [Benchmark Shift｜Arena Agent: Claude Sonnet 5.5 debuts at third](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
-- 📄 [Funding Brief｜Parakeet Health Series A $10M](/posts/daily/2026-10-04-funding-parakeet-health-en)
-- 📄 [Pricing Tracker｜Gemini 4 Argon introductory pricing](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
-- 📄 [Security Alert｜Loom for AWS auth bypass + SSRF](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf-en)
-- 📄 [Tool Pick｜shipstores](/posts/daily/2026-10-04-tool-shipstores-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-04: Weekly Review & Behavioral](/posts/daily/2026-10-04-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-04: Behavioral & Weekly Review](/posts/daily/2026-10-04-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-04](/posts/daily/2026-10-04-ai-agent-github-digest-en)
+- :file: [Model Card｜Kolibri 1 (Aleph Alpha)](/posts/daily/2026-10-04-model-aleph-alpha-kolibri-1-en)
+- :file: [Benchmark Shift｜Arena Agent: Claude Sonnet 5.5 debuts at third](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
+- :file: [Funding Brief｜Parakeet Health Series A $10M](/posts/daily/2026-10-04-funding-parakeet-health-en)
+- :file: [Pricing Tracker｜Gemini 4 Argon introductory pricing](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
+- :file: [Security Alert｜Loom for AWS auth bypass + SSRF](/posts/daily/2026-10-04-security-loom-aws-auth-bypass-ssrf-en)
+- :file: [Tool Pick｜shipstores](/posts/daily/2026-10-04-tool-shipstores-en)
+- :file: [AI Engineer Interview Daily — 2026-10-04: Weekly Review & Behavioral](/posts/daily/2026-10-04-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-04: Behavioral & Weekly Review](/posts/daily/2026-10-04-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

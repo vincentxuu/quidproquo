@@ -24,7 +24,7 @@ glossary:
     context: "L13 uses it to answer 'the Q function is still terrible at first, so what rule should the computer play by?'"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-nccu-genai-13-reinforcement-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-07-job-hunt-chat-english)
+> :globe: [中文版](/posts/learning/2026-10-07-job-hunt-chat-english)
 
 I was texting in English with a friend who is also looking for a job. We talked about interview progress, how big companies differ from startups, and what a friend's job at a multinational is like. The conversation worked and my friend understood everything, but when I reread my own messages, the same mistakes kept showing up.
 

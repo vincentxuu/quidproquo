@@ -17,7 +17,7 @@ glossary:
     def: "A benchmark measuring how well a model can autonomously execute multi-step commands, debug, and complete tasks in a real terminal environment — widely used as an agentic-coding indicator"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5)
+> :globe: [中文版](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5)
 
 ## Model Info
 
@@ -53,7 +53,7 @@ glossary:
 | Terminal-Bench-Science 0.1 | 58.7% | 29.0% | GPT-6 Astra 64.6% (top score) |
 | AutomationBench (run by Zapier) | 40.0% | 26.9% | GPT-6 Astra 41.4% (top score) |
 
-⚠️ Except for GDPval-AA v2.1, which Artificial Analysis ran independently, all figures above are vendor self-reported at each model's highest effort setting. Anthropic itself notes its Terminal-Bench 4.0 and Terminal-Bench-Science 0.1 reproductions fall within the public leaderboards' noise (±1.6–5pt standard error). GPT-6 Astra still leads on AutomationBench and Terminal-Bench-Science — this is not a clean sweep.
+:warning: Except for GDPval-AA v2.1, which Artificial Analysis ran independently, all figures above are vendor self-reported at each model's highest effort setting. Anthropic itself notes its Terminal-Bench 4.0 and Terminal-Bench-Science 0.1 reproductions fall within the public leaderboards' noise (±1.6–5pt standard error). GPT-6 Astra still leads on AutomationBench and Terminal-Bench-Science — this is not a clean sweep.
 
 ## Versus Prior Model and Competitors
 

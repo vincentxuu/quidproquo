@@ -25,7 +25,7 @@ glossary:
     context: "三次各占 3%，分別看問題與相關研究、技術方法、初步結果。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs231n-world-models-hcai-final-project-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

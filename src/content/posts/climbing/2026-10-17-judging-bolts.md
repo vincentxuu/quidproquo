@@ -30,7 +30,7 @@ glossary:
     context: "龍洞的做法是 8 kN 軸向拉力維持 1 分鐘，10 分鐘內重複 5 次。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-judging-bolts-en)
+> :globe: [English version](/posts/climbing/2026-10-17-judging-bolts-en)
 
 2015 年夏天，龍洞音樂廳一條叫「大鼓」的路線，頂端固定點的兩顆 bolt 同時斷裂，一位攀登者摔到地面。他離地面不遠，只受輕傷。事後查出來，那兩顆 bolt 是 2010 年以前出廠的 304 不鏽鋼。
 

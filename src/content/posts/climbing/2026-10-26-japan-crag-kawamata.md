@@ -13,7 +13,7 @@ description: "河又攀岩指南：季節、交通、管理規範、公開路線
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-kawamata-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-kawamata-en)
 
 河又是飯能名栗一帶的石灰岩運攀區，5.10到5.12選擇多，目前先避開有崩落與倒木公告的局部範圍。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

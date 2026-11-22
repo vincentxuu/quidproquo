@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-25-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's trending projects land on opposite ends of agent capability expansion �
 
 ## Trending Repos
 
-### Panniantong/Agent-Reach ⭐ 74,776 (+365)
+### Panniantong/Agent-Reach ★ 74,776 (+365)
 
 [GitHub](https://github.com/Panniantong/Agent-Reach)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ Today's trending projects land on opposite ends of agent capability expansion �
 
 ---
 
-### langchain-ai/deepagents ⭐ 28,365 (+231)
+### langchain-ai/deepagents ★ 28,365 (+231)
 
 [GitHub](https://github.com/langchain-ai/deepagents)　·　Python　·　MIT
 
@@ -42,7 +42,7 @@ Today's trending projects land on opposite ends of agent capability expansion �
 
 ---
 
-### Tracer-Cloud/opensre ⭐ 10,869 (+41)
+### Tracer-Cloud/opensre ★ 10,869 (+41)
 
 [GitHub](https://github.com/Tracer-Cloud/opensre)　·　Python　·　Apache-2.0
 
@@ -53,7 +53,7 @@ Today's trending projects land on opposite ends of agent capability expansion �
 
 ---
 
-### anthropics/claude-plugins-community ⭐ 1,275 (+490)
+### anthropics/claude-plugins-community ★ 1,275 (+490)
 
 [GitHub](https://github.com/anthropics/claude-plugins-community)　·　Python　·　Apache-2.0
 

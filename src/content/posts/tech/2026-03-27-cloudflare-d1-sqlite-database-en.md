@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)
+:globe: [中文版](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database)
 
 D1 is Cloudflare's serverless relational database, built on SQLite. It shares the Cloudflare platform with your Workers and keeps setup overhead minimal — but do not read that as "the database runs at every edge node alongside the Worker": without read replication, [D1 routes both reads and writes to a primary instance in a single location in the world](https://developers.cloudflare.com/d1/best-practices/read-replication/), and latency depends on how far the user is from it. If you've already committed to Cloudflare Workers, D1 is the most natural relational database option.
 

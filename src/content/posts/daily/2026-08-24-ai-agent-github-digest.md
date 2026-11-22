@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-24-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-24-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### duty1g/x64dbg-mcp-server ⭐ 563
+### duty1g/x64dbg-mcp-server ★ 563
 
 [GitHub](https://github.com/duty1g/x64dbg-mcp-server)　·　Zig　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### QwenLM/qwen-code ⭐ 27,316
+### QwenLM/qwen-code ★ 27,316
 
 [GitHub](https://github.com/QwenLM/qwen-code)　·　TypeScript　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### open-gitagent/gitagent ⭐ 657
+### open-gitagent/gitagent ★ 657
 
 [GitHub](https://github.com/open-gitagent/gitagent)　·　Rust　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### Cripacx/mediagen ⭐ 55（剛發布，成長中）
+### Cripacx/mediagen ★ 55（剛發布，成長中）
 
 [GitHub](https://github.com/Cripacx/mediagen)　·　TypeScript
 

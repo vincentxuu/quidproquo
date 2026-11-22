@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-24-monte-carlo-tree-search-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-lecture-24-monte-carlo-tree-search-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 

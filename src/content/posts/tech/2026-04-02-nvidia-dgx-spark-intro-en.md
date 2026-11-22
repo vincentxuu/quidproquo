@@ -10,7 +10,7 @@ description: "The NVIDIA DGX Spark is a desktop AI computer built around the Gra
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-02-nvidia-dgx-spark-intro)
+:globe: [中文版](/posts/tech/2026-04-02-nvidia-dgx-spark-intro)
 
 ## What Is the DGX Spark?
 

@@ -24,7 +24,7 @@ glossary:
     context: "需要先用 SUNet ID 註冊，校外讀者無法使用課程的 queue。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs149-pa5-fastest-kernels-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -95,12 +95,12 @@ cp src/content/posts/<category>/YYYY-MM-DD-<zh-slug>.md \
 
 zh-TW 版（原文）開頭加：
 ```markdown
-> 🌏 [English version](/posts/<category>/<en-slug>)
+> :globe: [English version](/posts/<category>/<en-slug>)
 ```
 
 en 版開頭加：
 ```markdown
-> 🌏 [中文版](/posts/<category>/<zh-slug>)
+> :globe: [中文版](/posts/<category>/<zh-slug>)
 ```
 
 實際 URL 結構先看 `src/pages/posts/[...slug].astro` 與 `src/pages/en/` 的路由怎麼吃 slug，**不要瞎猜**。

@@ -22,7 +22,7 @@ glossary:
     context: "It keeps systems from scoring well by producing very short, very precise outputs."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-methods-metrics)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-methods-metrics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

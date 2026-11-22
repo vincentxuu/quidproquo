@@ -14,7 +14,7 @@ description: "依實體頁碼帶讀 CS329Z Lecture 11 Data for Agentic Systems �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

@@ -25,7 +25,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en)
+> :globe: [English version](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en)
 
 2026 上半年三家雲端業者同時改版 AI 認證線，能報名的證照跟一年前差很多。這篇把工程師現在能考的每一張逐條列出來，價格、效期、報考門檻都以原廠公告為準。
 

@@ -10,7 +10,7 @@ description: "介紹 Expo + React Native 跨平台開發：Expo Router、為什�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-expo-react-native-cross-platform-en)
+:globe: [English version](/posts/tech/2026-03-27-expo-react-native-cross-platform-en)
 
 React Native 的想法一直很吸引人：一套 JavaScript 程式碼，iOS 和 Android 各自編譯成原生元件，不是 WebView 包裝，而是真正的原生 UI。但 React Native 的設定歷來是一個問題——Xcode、Android SDK、模擬器、橋接層的版本相依，光是跑起來 hello world 就能卡很久。
 

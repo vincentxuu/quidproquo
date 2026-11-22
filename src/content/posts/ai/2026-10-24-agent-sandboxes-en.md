@@ -13,7 +13,7 @@ description: "The four kinds of agent sandbox, how Claude Code's and Codex CLI's
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-sandboxes)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-sandboxes)
 
 The scanners in the last post work before anything is installed. Some risks no scanner can see: the agent reads a web page with a malicious instruction hidden in it and is talked into running a command. A sandbox starts from accepting that this will happen and asks one question: once the agent has been fooled, what is the farthest it can reach?
 

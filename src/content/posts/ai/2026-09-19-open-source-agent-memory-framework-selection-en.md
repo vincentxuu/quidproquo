@@ -13,7 +13,7 @@ description: "Comparing Mem0, Zep/Graphiti, Letta, LangGraph, LlamaIndex Memory,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection)
+> :globe: [中文版](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection)
 
 Your agent needs long-term memory across sessions, but you don't want to be locked into a single cloud. The open-source landscape in 2026 has far more options than two years ago — and far more confusion. This post compares seven major frameworks on a consistent set of criteria, then offers selection guidance for four common scenarios.
 

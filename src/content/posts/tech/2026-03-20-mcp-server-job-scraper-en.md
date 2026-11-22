@@ -10,7 +10,7 @@ description: "A step-by-step walkthrough of turning a 104.com job scraper into a
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-20-mcp-server-job-scraper)
+:globe: [中文版](/posts/tech/2026-03-20-mcp-server-job-scraper)
 
 I have a script that scrapes job listings from 104.com and LinkedIn, then uses an LLM to score, filter, and generate a report. The pipeline looks like this:
 

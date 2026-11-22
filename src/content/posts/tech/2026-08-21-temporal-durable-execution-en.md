@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-temporal-durable-execution)
+:globe: [中文版](/posts/tech/2026-08-21-temporal-durable-execution)
 
 This site already has deep dives on [BullMQ](/posts/tech/2026-03-27-bullmq-job-queue-nodejs-en) and [Celery](/posts/tech/2026-03-27-celery-python-task-queue-en), but a whole layer sits between them. When a process looks like "call an LLM → wait three days for a human approval → hit a third-party API → write back to the database," pushing it through a queue exposes the gap: when the worker dies at step three, you don't know whether steps one and two ran, and a retry starts over from the top. That LLM call gets paid for twice, and that email gets sent twice.
 

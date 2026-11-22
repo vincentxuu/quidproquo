@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-06-docling-document-parsing-en)
+> :globe: [English version](/posts/tech/2026-09-06-docling-document-parsing-en)
 
 把複雜文件轉成 LLM 讀得懂的東西，不是只有一條路。我們已經在這個系列走過轉換層（[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)）、抽取層（[PyMuPDF / pdfplumber / Tika 那組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)）、解析層的三家比較（[MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en)、Marker、Docling）與掃描實測（[10 種工具丟進考古題](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)），最後用 [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents) 說明為什麼固定管線不夠。這篇把焦點放在解析層裡最容易被低估的一個：**Docling**。
 

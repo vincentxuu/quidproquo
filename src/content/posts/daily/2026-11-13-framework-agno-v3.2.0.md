@@ -33,36 +33,36 @@ title: Agno v3.2.0：三項 Breaking Changes 的新舊對照
 desc: OS Manager 預設值、A2A 協定版本、Slack 核准權限，三處行為一次性改變，升級前要逐一確認是否命中。
 caption: 簡化示意：每項的完整影響範圍與相容層細節見下方「Breaking Changes」。
 ---
-<svg viewBox="0 0 640 400">
-  <rect class="dg-box" x="20" y="20" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="42" text-anchor="middle" dominant-baseline="central">OS Manager 預設值（舊）</text>
-  <text class="dg-sub" x="145" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=8／num_history_runs=7</text>
+<svg viewBox="0 0 696 400">
+  <rect class="dg-box" x="20" y="20" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="42" text-anchor="middle" dominant-baseline="central">OS Manager 預設值（舊）</text>
+  <text class="dg-sub" x="170" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=8／num_history_runs=7</text>
 
-  <path class="dg-line" d="M270 56H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 56H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="20" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="42" text-anchor="middle" dominant-baseline="central">OS Manager 預設值（新）</text>
-  <text class="dg-sub" x="495" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=24／num_history_runs=5</text>
+  <rect class="dg-box dg-box--accent" x="376" y="20" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="42" text-anchor="middle" dominant-baseline="central">OS Manager 預設值（新）</text>
+  <text class="dg-sub" x="526" y="66" text-anchor="middle" dominant-baseline="central">tool_call_limit=24／num_history_runs=5</text>
 
-  <rect class="dg-box" x="20" y="160" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="182" text-anchor="middle" dominant-baseline="central">A2A 協定（舊）</text>
-  <text class="dg-sub" x="145" y="206" text-anchor="middle" dominant-baseline="central">/v1/message:*／/v1/tasks:* 路由</text>
+  <rect class="dg-box" x="20" y="160" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="182" text-anchor="middle" dominant-baseline="central">A2A 協定（舊）</text>
+  <text class="dg-sub" x="170" y="206" text-anchor="middle" dominant-baseline="central">/v1/message:*／/v1/tasks:* 路由</text>
 
-  <path class="dg-line" d="M270 196H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 196H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="160" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="182" text-anchor="middle" dominant-baseline="central">A2A 協定（新，v1.0）</text>
-  <text class="dg-sub" x="495" y="206" text-anchor="middle" dominant-baseline="central">官方 a2a-sdk 1.x，各自的 A2A endpoint</text>
+  <rect class="dg-box dg-box--accent" x="376" y="160" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="182" text-anchor="middle" dominant-baseline="central">A2A 協定（新，v1.0）</text>
+  <text class="dg-sub" x="526" y="206" text-anchor="middle" dominant-baseline="central">官方 a2a-sdk 1.x，各自的 A2A endpoint</text>
 
-  <rect class="dg-box" x="20" y="300" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="145" y="322" text-anchor="middle" dominant-baseline="central">Slack 核准權限（舊）</text>
-  <text class="dg-sub" x="145" y="346" text-anchor="middle" dominant-baseline="central">任何人都能 Approve／Deny</text>
+  <rect class="dg-box" x="20" y="300" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="170" y="322" text-anchor="middle" dominant-baseline="central">Slack 核准權限（舊）</text>
+  <text class="dg-sub" x="170" y="346" text-anchor="middle" dominant-baseline="central">任何人都能 Approve／Deny</text>
 
-  <path class="dg-line" d="M270 336H360" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M320 336H366" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box dg-box--accent" x="370" y="300" width="250" height="72" rx="6"/>
-  <text class="dg-label" x="495" y="322" text-anchor="middle" dominant-baseline="central">Slack 核准權限（新）</text>
-  <text class="dg-sub" x="495" y="346" text-anchor="middle" dominant-baseline="central">預設只有本人，除非列入 approvers</text>
+  <rect class="dg-box dg-box--accent" x="376" y="300" width="300" height="72" rx="6"/>
+  <text class="dg-label" x="526" y="322" text-anchor="middle" dominant-baseline="central">Slack 核准權限（新）</text>
+  <text class="dg-sub" x="526" y="346" text-anchor="middle" dominant-baseline="central">預設只有本人，除非列入 approvers</text>
 </svg>
 ```
 

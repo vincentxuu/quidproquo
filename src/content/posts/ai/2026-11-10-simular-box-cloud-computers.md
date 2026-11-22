@@ -10,7 +10,7 @@ description: "比較 Simular box 與 Orgo、Runloop、E2B、Windows 365 for Agen
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-10-simular-box-cloud-computers-en)
+> :globe: [English version](/posts/ai/2026-11-10-simular-box-cloud-computers-en)
 
 [Simular box](https://box.simular.ai/) 是一台雲端 Ubuntu 桌面，內建 Chrome 和 shell。把它當遠端 MCP 伺服器加進 Claude、ChatGPT、Claude Code、Codex 或 Cursor，你的 AI 就能開瀏覽器、點擊、打字、讀螢幕、跑指令，你自己的電腦不必開著。官方的收費說法是「電腦本身免費，模型呼叫用帳號的每日額度（credits）」。
 

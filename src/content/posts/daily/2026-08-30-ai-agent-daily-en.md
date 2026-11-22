@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-30-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -138,15 +138,15 @@ Both houses of Australia's Parliament established a Joint Select Committee on AI
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-github-digest)
-- 📄 [Model Card｜BreezeBlue Breeze TTS 2](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
-- 📄 [Pricing Watch｜OpenAI Assistants API Officially Retired](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
-- 📄 [Framework Update｜Pydantic AI 2.36.0](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0-en)
-- 📄 [Security Alert｜Claude Code Auto Mode Bypassed](/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing-en)
-- 📄 [Tool of the Day｜proton-safe-mcp](/posts/daily/2026-08-30-tool-proton-safe-mcp) (zh-TW only)
-- 📄 [AI Engineer Interview Daily — 2026-08-30](/posts/daily/2026-08-30-ai-interview-daily)
-- 📄 [Product Builder Interview Daily — 2026-08-30](/posts/daily/2026-08-30-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-github-digest)
+- :file: [Model Card｜BreezeBlue Breeze TTS 2](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2-en)
+- :file: [Pricing Watch｜OpenAI Assistants API Officially Retired](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
+- :file: [Framework Update｜Pydantic AI 2.36.0](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0-en)
+- :file: [Security Alert｜Claude Code Auto Mode Bypassed](/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing-en)
+- :file: [Tool of the Day｜proton-safe-mcp](/posts/daily/2026-08-30-tool-proton-safe-mcp) (zh-TW only)
+- :file: [AI Engineer Interview Daily — 2026-08-30](/posts/daily/2026-08-30-ai-interview-daily)
+- :file: [Product Builder Interview Daily — 2026-08-30](/posts/daily/2026-08-30-product-builder-interview-daily)
 
 ## Tomorrow's Watch
 

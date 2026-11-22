@@ -13,7 +13,7 @@ tldr: "取回管理、訓練 KV 表示與 cache 重用處理不同瓶頸；速�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings-en)
+> :globe: [English version](/posts/ai/2026-10-11-cs329a-session-14-agent-memory-readings-en)
 
 「讓 agent 記住更多」可能是在解三個完全不同的問題：找回過去資訊、用較少記憶體表示長文件，或加速已看過文件的處理。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 14 堂指定的三篇論文分別碰到這三層。讀完你應能替記憶瓶頸選方法，而不是看到 memory 就放進同一個比較表。先備是知道模型有有限的 context window；KV cache 是模型處理輸入後保存的 key/value 張量，不是文字摘要。
 

@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-15-tool-dearagent)
+> :globe: [中文版](/posts/daily/2026-09-15-tool-dearagent)
 
 ## Tool Info
 
@@ -100,11 +100,11 @@ curl -X POST $DA/webhooks -H "Authorization: Bearer $KEY" -d '{
 | | DearAgent | AgentMail (hosted) | Roll your own SMTP webhook service |
 |---|---|---|---|
 | Where mail lives | Your own Cloudflare account (D1 + R2) | Their cloud | Whatever infrastructure you run |
-| Source is readable / auditable | ✅ one repo, AGPL-3.0 | ❌ closed | ✅ (but you write it from scratch) |
-| Built-in MCP server | ✅ (`/mcp`, 15 tools) | Needs your own integration | Needs your own integration |
-| Threading / attachments / webhooks | ✅ built in | ✅ (product feature) | You implement it yourself |
+| Source is readable / auditable | ✓ one repo, AGPL-3.0 | ✗ closed | ✓ (but you write it from scratch) |
+| Built-in MCP server | ✓ (`/mcp`, 15 tools) | Needs your own integration | Needs your own integration |
+| Threading / attachments / webhooks | ✓ built in | ✓ (product feature) | You implement it yourself |
 | Billing | Your Workers bill (receiving is free, sending needs Workers Paid) | Priced per inbox or message | Whatever your own infra costs |
-| Multi-tenant / per-agent permissions | ❌ one API key, full access | ✅ built into the product | You implement it yourself |
+| Multi-tenant / per-agent permissions | ✗ one API key, full access | ✓ built into the product | You implement it yourself |
 
 ## Caveats
 

@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide)
 
 This is part 4 of the [Claude Code Deep Dives](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) series. The series opener split Claude Code's safety design into two lines of defense: checkpoints let you take back file changes, and permission modes control how much it can do without asking. This post expands on the first line: how snapshots are stored, how rewind works, and — just as important — what it cannot recover.
 

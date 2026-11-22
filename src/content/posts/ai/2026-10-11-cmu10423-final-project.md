@@ -13,7 +13,7 @@ tldr: "以固定比較條件、配對結果與重現紀錄，把生成模型專�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-final-project-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-final-project-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

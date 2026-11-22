@@ -25,7 +25,7 @@ glossary:
     definition: "Cohere's multilingual research series covering 23 to 101 languages, with some weights open-sourced under Apache 2.0."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-cohere)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-cohere)
 
 In 2019, Transformer co-author Aidan Gomez founded Cohere in Toronto. While most labs chased the strongest chat model, Cohere chose a different path — enterprise RAG infrastructure. Six years later that bet has grown into four pillars: Command for generation, Embed for retrieval, Rerank for precise ranking, and Aya for multilingual coverage. No competitor ships all four as product lines.
 

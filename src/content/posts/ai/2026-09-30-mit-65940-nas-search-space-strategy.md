@@ -22,7 +22,7 @@ glossary:
     context: "第 7 講強調搜尋空間設計本身就決定了 NAS 的上限。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-nas-search-space-strategy-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

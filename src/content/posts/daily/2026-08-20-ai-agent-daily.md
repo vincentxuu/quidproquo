@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-20-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-20-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -79,14 +79,14 @@ Benchmark 端另有兩則更新：Zhipu GLM-5.3 的分數解讀值得細看標�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
-- 📄 [模型卡｜Grok 4.6](/posts/daily/2026-08-20-model-xai-grok-4-6)
-- 📄 [資安警報｜CoSnitch](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
-- 📄 [融資速報｜Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
-- 📄 [工具推薦｜comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-08-20：ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-20：Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-20](/posts/daily/2026-08-20-ai-agent-github-digest)
+- :file: [模型卡｜Grok 4.6](/posts/daily/2026-08-20-model-xai-grok-4-6)
+- :file: [資安警報｜CoSnitch](/posts/daily/2026-08-20-security-copilot-cosnitch-one-click-exfiltration)
+- :file: [融資速報｜Prevalent AI](/posts/daily/2026-08-20-funding-prevalent-ai)
+- :file: [工具推薦｜comfy-mcp](/posts/daily/2026-08-20-tool-comfy-mcp)
+- :file: [AI Engineer 面試日練 — 2026-08-20：ML System Design](/posts/daily/2026-08-20-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-20：Strategy & Execution](/posts/daily/2026-08-20-product-builder-interview-daily)
 
 ## 明日關注
 

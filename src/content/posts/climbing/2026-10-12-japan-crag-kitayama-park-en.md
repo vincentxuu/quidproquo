@@ -13,7 +13,7 @@ description: "A guide to the Kitayama Park boulders in Nishinomiya, Hyogo: rock 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-kitayama-park)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-kitayama-park)
 
 Kitayama Park (北山公園, Kitayama Kōen; listed on Mountain Project as Kitayama Boulders) is in Nishinomiya, Hyogo Prefecture, filed under the "Rokko" (六甲) district on CLIMBING-net. The rock is granite and the climbing is bouldering only. [ROCKTOPO](https://www.rocktopo.net/areas/146) lists 126 problems, most of them between 7-kyu and 1-kyu. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%8C%97%E5%B1%B1%E5%85%AC%E5%9C%92/) (in Japanese) says the boulders have been climbed "since the early 1980s" (1980年代初頭より登られ) and, being close to Osaka and Kobe with good transit, "have been used by many climbers" (多くのクライマーに利用されてきた).
 

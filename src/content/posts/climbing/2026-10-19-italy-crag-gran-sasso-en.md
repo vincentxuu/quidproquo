@@ -13,7 +13,7 @@ description: "A guide to Gran Sasso: multi-pitch on Corno Piccolo, Corno Grande 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-gran-sasso)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-gran-sasso)
 
 Gran Sasso d'Italia is a limestone massif in Abruzzo, between the provinces of L'Aquila and Teramo. Its highest summit, Corno Grande, at 2,912 m, is the high point of the entire Apennine chain. [Guillaume Dargaud](http://www.gdargaud.net/Climbing/GranSasso.html) writes that Francesco De Marchi reached the top of Corno Grande in 1573, and "The birth of Italian mountain climbing may be here". The whole massif became part of the Gran Sasso and Monti della Laga National Park in 1991.
 

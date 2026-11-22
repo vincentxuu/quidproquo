@@ -23,7 +23,7 @@ glossary:
     context: "Off-campus students have no tutorials and use a different grading scheme."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 

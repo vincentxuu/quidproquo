@@ -13,7 +13,7 @@ description: "A deck-aligned CS103 guide to starting from ordinary induction, in
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-14-induction-2)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs103-lecture-14-induction-2)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 

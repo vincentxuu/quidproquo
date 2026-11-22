@@ -12,7 +12,7 @@ series:
   order: 52
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-funding-snorkel-ai)
+> :globe: [中文版](/posts/daily/2026-09-26-funding-snorkel-ai)
 
 ## Funding Details
 

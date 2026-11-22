@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 <!-- [skip-harness] — English prose triggers false positives on code-only rules -->
-> 🌏 [中文版](/posts/daily/2026-07-18-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-18-ai-agent-arxiv-digest)
 
 ## Today's Overview
 

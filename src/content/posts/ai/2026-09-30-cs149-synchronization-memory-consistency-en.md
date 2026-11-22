@@ -28,7 +28,7 @@ glossary:
     context: "L15 concludes that data-race-free programs produce SC results even on non-SC systems."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)
+> :globe: [中文版](/posts/ai/2026-09-30-cs149-synchronization-memory-consistency)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

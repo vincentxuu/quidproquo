@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-funding-go-ai-en)
+> :globe: [English version](/posts/daily/2026-09-28-funding-go-ai-en)
 
 ## 融資資訊
 

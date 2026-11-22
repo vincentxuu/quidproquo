@@ -20,7 +20,7 @@ glossary:
     context: "Moore et al. argue it requires human characteristics; the NEJM AI Therabot trial reports participant ratings comparable to human therapists."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

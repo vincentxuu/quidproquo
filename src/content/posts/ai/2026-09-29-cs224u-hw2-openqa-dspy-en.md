@@ -21,7 +21,7 @@ glossary:
     context: "Assignment 2 ships a prebuilt ColBERT index so students don't have to build a retrieval system."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-hw2-openqa-dspy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

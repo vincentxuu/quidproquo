@@ -20,7 +20,7 @@ glossary:
     context: "ICML 2024 Best Paper 之一就是 rectified flow 的 scaling 研究。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-24-ai-conference-2024-ml-en)
+> :globe: [English version](/posts/ai/2026-08-24-ai-conference-2024-ml-en)
 
 > 本文是[「AI 頂會導讀」系列](/tags/ai-conference)的一部分。系列總覽見[〈AI 頂會是什麼〉](/posts/ai/2026-08-23-what-is-ai-top-conference)。
 

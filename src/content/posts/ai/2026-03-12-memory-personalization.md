@@ -14,7 +14,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-memory-personalization-en)
+> :globe: [English version](/posts/ai/2026-03-12-memory-personalization-en)
 
 大多數 RAG 系統對每個使用者都一視同仁：同樣的問題，不管是初學者還是高手，得到同樣的回答。但攀岩這個場景，使用者的程度和偏好差異很大——5.10 對新手是挑戰，對高手是暖身。
 

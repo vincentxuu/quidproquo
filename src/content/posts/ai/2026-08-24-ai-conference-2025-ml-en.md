@@ -23,7 +23,7 @@ glossary:
     context: "The sigmoid gate in Gated Attention can eliminate the effect."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2025-ml)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2025-ml)
 
 > The 2025 machine-learning installment of the [AI Conference Review](/posts/ai/2026-08-23-what-is-ai-top-conference) series (zh-TW only), covering NeurIPS, ICML, ICLR, AAAI, and IJCAI.
 

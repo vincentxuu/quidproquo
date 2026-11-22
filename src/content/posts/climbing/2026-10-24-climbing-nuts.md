@@ -29,7 +29,7 @@ glossary:
     context: "台灣岩友直接說 nut tool，器材行商品名偶見「岩械取出器」。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-nuts-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-nuts-en)
 
 岩楔（nut，BD 叫 stopper）是一塊楔形金屬接一條鋼索，卡進裂隙變窄的地方。它沒有活動零件，又輕又便宜：[UKClimbing 的影片](https://www.youtube.com/watch?v=Tadx1NCOScU)算過，一整套 11 顆的錢，大約只夠買一顆 cam。所以很多人的第一套傳攀器材，是從一套岩楔開始。
 

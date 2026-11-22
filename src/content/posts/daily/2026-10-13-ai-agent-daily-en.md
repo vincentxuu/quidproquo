@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-13-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-13-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -142,15 +142,15 @@ Uruguay-founded startup Flai raised a $27M Series A to build AI agents serving U
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-13](/posts/daily/2026-10-13-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-13](/posts/daily/2026-10-13-product-builder-interview-daily-en)
-- 📄 [Security Alert｜Triple CVE on an Obsidian MCP Server](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass-en)
-- 📄 [Tool of the Day｜REA](/posts/daily/2026-10-13-tool-rea-en)
-- 📄 [Funding Brief｜Catalyst](/posts/daily/2026-10-13-funding-catalyst-en)
-- 📄 [Funding Brief｜Mistlabs](/posts/daily/2026-10-13-funding-mistlabs-en)
-- 📄 [Funding Brief｜Vesta](/posts/daily/2026-10-13-funding-vesta-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-13](/posts/daily/2026-10-13-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-10-13](/posts/daily/2026-10-13-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-13](/posts/daily/2026-10-13-product-builder-interview-daily-en)
+- :file: [Security Alert｜Triple CVE on an Obsidian MCP Server](/posts/daily/2026-10-13-security-obsidian-tc-mcp-vault-auth-bypass-en)
+- :file: [Tool of the Day｜REA](/posts/daily/2026-10-13-tool-rea-en)
+- :file: [Funding Brief｜Catalyst](/posts/daily/2026-10-13-funding-catalyst-en)
+- :file: [Funding Brief｜Mistlabs](/posts/daily/2026-10-13-funding-mistlabs-en)
+- :file: [Funding Brief｜Vesta](/posts/daily/2026-10-13-funding-vesta-en)
 
 ## Tomorrow's Watch
 

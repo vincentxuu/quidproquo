@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-tool-claude-scope-en)
+> :globe: [English version](/posts/daily/2026-08-21-tool-claude-scope-en)
 
 ## 工具資訊
 
@@ -82,11 +82,11 @@ claude-scope 的定位就是針對「索引式」和「grep 式」兩種既有�
 
 | | claude-scope | 索引式工具 | grep / ripgrep 直掃 |
 |---|---|---|---|
-| 結果永遠最新 | ✅（每次搜尋前增量同步） | ❌（等下次重建） | ✅ |
-| 查詢速度 | ✅（只讀新增位元組） | ✅ | ❌（每次重掃全部） |
-| 過期會明講 | ✅（`[index refreshed]` / WARNING） | ❌（靜默） | — |
-| 免額外進程 / 免網路 | ✅（原生外掛，Python stdlib） | 視工具而定 | ✅ |
-| CLI 與 IDE 輸出一致 | ✅ | 視工具而定 | ✅ |
+| 結果永遠最新 | ✓（每次搜尋前增量同步） | ✗（等下次重建） | ✓ |
+| 查詢速度 | ✓（只讀新增位元組） | ✓ | ✗（每次重掃全部） |
+| 過期會明講 | ✓（`[index refreshed]` / WARNING） | ✗（靜默） | — |
+| 免額外進程 / 免網路 | ✓（原生外掛，Python stdlib） | 視工具而定 | ✓ |
+| CLI 與 IDE 輸出一致 | ✓ | 視工具而定 | ✓ |
 
 它也刻意處理了兩個大多數索引器會漏掉的細節：寫到一半的行（Claude Code 正在寫）會先擋著、等寫完才算，不會漏也不會重複計；被 Claude Code 記成 `attachment` 而非 `user` 的排隊 prompt 也會被索引，但共用同一種 record type 的背景任務通知會被過濾掉，避免你搜「自己說過的話」時混進 agent 的雜訊。
 

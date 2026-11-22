@@ -18,7 +18,7 @@ series:
 
 ## Trending Repos
 
-### can1357/oh-my-pi ⭐ 28,455
+### can1357/oh-my-pi ★ 28,455
 
 [GitHub](https://github.com/can1357/oh-my-pi)　·　TypeScript + Rust　·　MIT
 
@@ -29,7 +29,7 @@ series:
 
 ---
 
-### K-Dense-AI/scientific-agent-skills ⭐ 38,894
+### K-Dense-AI/scientific-agent-skills ★ 38,894
 
 [GitHub](https://github.com/K-Dense-AI/scientific-agent-skills)　·　Python　·　MIT
 
@@ -40,7 +40,7 @@ series:
 
 ---
 
-### addyosmani/agent-skills ⭐ 90,900
+### addyosmani/agent-skills ★ 90,900
 
 [GitHub](https://github.com/addyosmani/agent-skills)　·　JavaScript　·　MIT
 
@@ -51,7 +51,7 @@ series:
 
 ---
 
-### THU-MAIC/OpenMAIC ⭐ 23,594
+### THU-MAIC/OpenMAIC ★ 23,594
 
 [GitHub](https://github.com/THU-MAIC/OpenMAIC)　·　TypeScript　·　MIT
 

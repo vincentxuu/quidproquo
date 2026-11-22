@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-vercel-sandbox-en)
+> :globe: [English version](/posts/ai/2026-08-22-vercel-sandbox-en)
 
 [Vercel Sandbox](https://vercel.com/docs/sandbox) 是一個按需建立的 Linux 執行環境，讓應用程式透過 SDK 或 CLI 跑 AI Agent 產生的程式碼、使用者上傳的腳本與測試工作。它不是把 Vercel Function 加上一層權限提示，而是把不受信任的工作移到另一個 Firecracker microVM。Agent 的控制迴圈可以留在 Vercel Function，真正執行 shell、安裝套件與啟動預覽伺服器的部分則進 Sandbox。
 

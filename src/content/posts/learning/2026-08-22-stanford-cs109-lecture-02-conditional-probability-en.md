@@ -13,7 +13,7 @@ description: "A lecture-by-lecture guide to Stanford CS109 Summer 2026 Lecture 2
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-02-conditional-probability)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs109-lecture-02-conditional-probability)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 

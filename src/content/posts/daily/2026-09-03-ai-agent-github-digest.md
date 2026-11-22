@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-03-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-03-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### NousResearch/hermes-agent ⭐ 239,994 (+529)
+### NousResearch/hermes-agent ★ 239,994 (+529)
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### pacifio/atlas ⭐ 2,767 (+895)
+### pacifio/atlas ★ 2,767 (+895)
 
 [GitHub](https://github.com/pacifio/atlas)　·　Rust　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### blader/humanizer ⭐ 40,149 (+366)
+### blader/humanizer ★ 40,149 (+366)
 
 [GitHub](https://github.com/blader/humanizer)　·　Python　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### firecrawl/pdf-inspector ⭐ 18,388 (+589)
+### firecrawl/pdf-inspector ★ 18,388 (+589)
 
 [GitHub](https://github.com/firecrawl/pdf-inspector)　·　Rust　·　MIT
 
@@ -64,7 +64,7 @@ series:
 
 ---
 
-### superlinked/sie ⭐ 3,008 (+61)
+### superlinked/sie ★ 3,008 (+61)
 
 [GitHub](https://github.com/superlinked/sie)　·　Python / Rust　·　Apache-2.0
 

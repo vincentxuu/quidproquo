@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-tool-mcpspan-en)
+> :globe: [English version](/posts/daily/2026-10-05-tool-mcpspan-en)
 
 ## 工具資訊
 
@@ -85,11 +85,11 @@ server.registerTool('health_check', {}, exclude(async () => {
 
 | | mcpspan | 自己寫 log | 泛用 APM（接 OTel） |
 |---|---|---|---|
-| 認得 MCP 語意（tool/resource/prompt） | ✅ | ❌ 需自行解析 | ❌ 看不到 tool 名稱、client 類型 |
-| 分辨「tool 回報錯誤」vs「handler 丟例外」 | ✅ | 需自行實作 | ❌ |
-| 參數值離開 process | ❌ 永不送出 | 依你的 log 設計 | 依你的 instrumentation 設計 |
-| 8 種語言同一份行為合約 | ✅ | — | 依各家 SDK |
-| 零設定也能轉出 OTel | ✅ | ❌ | （本身就是） |
+| 認得 MCP 語意（tool/resource/prompt） | ✓ | ✗ 需自行解析 | ✗ 看不到 tool 名稱、client 類型 |
+| 分辨「tool 回報錯誤」vs「handler 丟例外」 | ✓ | 需自行實作 | ✗ |
+| 參數值離開 process | ✗ 永不送出 | 依你的 log 設計 | 依你的 instrumentation 設計 |
+| 8 種語言同一份行為合約 | ✓ | — | 依各家 SDK |
+| 零設定也能轉出 OTel | ✓ | ✗ | （本身就是） |
 
 ## 注意事項
 

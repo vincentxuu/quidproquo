@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-patreon-membership-value-ladder)
+> :globe: [中文版](/posts/product/2026-09-17-patreon-membership-value-ladder)
 
 Imagine a street performer placing a hat on the ground after a show. Someone who enjoyed the performance can drop in a few dollars, but meeting again is mostly a matter of luck. Patreon builds a membership club next to that hat. A passerby can first join for free. A regular can pay monthly for a particular room. A devoted fan can buy an individual product, attend an event, or give membership to someone else.
 

@@ -22,7 +22,7 @@ glossary:
     context: "CMU 10-423 第 3 講拿它和只挑最可能 token 的 greedy decoding 對比。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-transformer-lm-decoding-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

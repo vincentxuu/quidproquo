@@ -1,0 +1,1477 @@
+{
+ "date": "2026-11-21",
+ "status": "published",
+ "selectedCount": 3,
+ "candidateSources": {
+  "layerA": "arXiv list/cs.AI/new + list/cs.MA/new + list/cs.CL/new, announcement batch shown as 'Friday, 20 November 2026' (no Saturday batch; arXiv does not announce on weekends, consistent with 2026-11-21 falling on a Saturday in Asia/Taipei) -- cs.AI 109 new submissions (all reviewed via title+abstract keyword screen, paginated fetch skip=0/50/100 show=50/50/25 to stay under per-call output cap), cs.MA 4 new submissions + 9 cross-list (all reviewed, full page), cs.CL 64 new submissions (all reviewed via title+abstract keyword screen, paginated fetch). Q1-Q3 Groundlane web_search supplementary queries skipped this round: direct listing review already yielded 56 topic-relevant title matches, well above what could be deep-read in one round (toolDegradation: scope reduction, not tool failure)",
+  "layerB": [
+   "HuggingFace Daily Papers api (date=2026-11-20 and 2026-11-19) attempted via /api/daily_papers; response exceeded per-call output cap and was truncated mid-JSON before reaching rank-sorted entries, so full upvote ranking could not be read this round (toolDegradation: hf-daily-papers-truncated, fell back to targeted web_search per-candidate checks for the three leading picks -- none found listed on HF Daily Papers or Papers with Code by title search). huggingface.co/papers/date/* human-facing page returned no server-rendered content (JS SPA, Reader extraction stripped it) (toolDegradation: hf-papers-page-js-rendered)",
+   "Semantic Scholar API attempted for background signals on all topic-relevant candidates; one query (2611.25534) returned 404 not-found (expected: submitted 2 days ago, not yet indexed), all subsequent queries 429 rate-limited (toolDegradation: semantic-scholar-rate-limited, fell back to citationCount=0/preprint-venue inference, which is accurate for papers submitted 1-2 days ago; venue status for the one accepted paper (2611.26361, IAAI 2027 Oral) confirmed directly from the paper's own arXiv 'Comments' field instead)"
+  ],
+  "layerC": "lookback from 2026-11-07 to 2026-11-20 (14-day window), 153 unique watch/stronger-competitor/evidence-insufficient candidates re-entered per decay rules (58 distinct watch-decision papers recurring across multiple days' records, ~15 distinct stronger-competitor papers, ~80 distinct evidence-insufficient papers). The two highest-scoring Layer C candidates (2611.22901 'Done, But Still Working: Anytime Evaluation of When Coding Agents Should Stop', todayImportance=high, daysAgo=2; 2611.14492 'ReTrace: Distilling Tool-Using Agents into Planner-Free Workflows', todayImportance=high, daysAgo=8) were both previously rejected only for thematic fit, not evidence, but neither matches today's fresh cluster (agent skill/memory self-maintenance) and both score below today's fresh picks once decay(0.85^2=0.72 / 0.85^8=0.27) is applied against three substantial-evidence fresh candidates; none re-selected this round"
+ },
+ "generatedAt": "2026-11-21T00:00:00+08:00",
+ "candidates": [
+  {
+   "arxivId": "2611.25534",
+   "title": "How Feedback-Free Self-Evolution Reshapes Agent Skills: A Systematic Study",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint (submitted 19 Nov 2026)",
+   "citationCount": 0,
+   "citationVelocity": "發布 2 天，Semantic Scholar 回 404（尚未索引，同日 preprint 常見），引用數幾乎必為 0",
+   "institution": "The Hong Kong University of Science and Technology (Guangzhou) + HKUST + Knowin",
+   "communitySignals": [
+    "未見於 HF Daily Papers / Papers with Code（web_search 確認）；HF Daily Papers 完整清單本輪因輸出截斷無法核對排名"
+   ],
+   "credibility": "pass",
+   "credibilityEvidence": [
+    "Sec 2.1-2.2: 6 models (GPT-5.6-Luna, GPT-6.1-Sol, MiMo-V2.5-Pro, Claude Haiku 5.5, Qwen3.7-Plus, Qwen3.8-Flash) x 3 benchmarks (SkillsBench 87 tasks with deterministic per-container verifiers, LogicBench 760 Qs, MedCalc-Bench 1,100 Qs), 30 recursive feedback-free rewriting rounds per skill, every agent's pass rate falls below the original skill by round 30 (10.3-23.0pp across agents)",
+    "Sec 3.1: TF-IDF cosine-distance analysis shows rewrites move toward the model's own self-written-from-topic-alone priors across all models/benchmarks",
+    "Sec 3.2 Fig 3: item-retention tracking shows items outside the model's prior survive at 23.1% after 30 rounds vs 84.2% for items inside the prior",
+    "Sec 4 causal restoration experiment: putting back lost items outside the prior recovers most of the lost pass rate (about 2x the recovery from restoring other lost items), establishing causation not just correlation",
+    "Appendix B.7 swap test: both models perform worse with either model's round-30 rewrite, ruling out a model-specific artifact",
+    "SkillDiff method (marks prior-external content in place, no feedback, no rewrite) raises SkillsBench pass rate by 4.8pp average -- a working fix proposed and tested, not just a diagnosis",
+    "Code/data: public GitHub repo (github.com/LitaoGuo/How-Self-Evolution-Reshapes-Skills)"
+   ],
+   "evidenceMaturity": "substantial",
+   "evidenceMaturityReason": "first systematic study of this exact failure mode, with causal (not just correlational) restoration experiments, a cross-model swap control, and a working mitigation tested on the same benchmarks; still single-paper, not yet externally replicated",
+   "reproducibility": "full-artifacts",
+   "reproducibilityEvidence": [
+    "public GitHub repository with the rewriting pipeline and SkillDiff implementation; SkillsBench, LogicBench, MedCalc-Bench/SRA-Bench are public third-party benchmarks with deterministic verifiers"
+   ],
+   "editorialConfidence": "high",
+   "editorialConfidenceReason": "claim is narrow and precisely scoped to feedback-free rewriting specifically (not all self-evolution), and every number traces to a described experiment with a stated model/benchmark/round count",
+   "primaryLimitation": "all three benchmarks (SkillsBench, LogicBench, MedCalc-Bench) pair tasks with pre-existing expert skills in a research-benchmark setting; whether real-world skill libraries (noisier, less curated) degrade the same way under feedback-free maintenance is untested",
+   "hiddenAssumption": "TF-IDF cosine distance to the model's self-written-from-topic-alone skills is assumed to correctly identify which content lies 'outside the model's prior'; if a model's prior is better captured by embeddings or by what it would write with chain-of-thought rather than a flat topic prompt, some content classified as 'outside the prior' could actually be inside it",
+   "hiddenAssumptionImpact": "the causal restoration experiment (Sec 4) directly tests the practical consequence of this classification -- restoring items classified as prior-external recovers far more pass rate than restoring other items -- so even if the TF-IDF proxy is imperfect, the behavioral evidence that *some* real distinction exists and matters would likely survive; the precise 23.1%/84.2% retention numbers could shift with a different prior-estimation method",
+   "presentation": "clear",
+   "presentationReason": "explicit study design section, each of the two plausible prior hypotheses stated before testing, and an appendix section specifically designed to rule out alternative explanations (model-specific artifact)",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "decision": "selected",
+   "reason": "first systematic evidence that a real, already-widespread practice (agents rewriting their own skill files without feedback) actively destroys value rather than improving it, with a causal mechanism identified and a no-cost fix (SkillDiff) proposed and validated; frames the whole day's theme"
+  },
+  {
+   "arxivId": "2611.25429",
+   "title": "Evolve Where It Matters: Coverage-Guided Self-Evolution of Agent Skills",
+   "source": [
+    "layerA_CL"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint (submitted 19 Nov 2026, cross-listed cs.CL/cs.AI)",
+   "citationCount": 0,
+   "citationVelocity": "發布 2 天，Semantic Scholar 429 rate limit 無法查得；preprint 剛發布，引用數幾乎必為 0",
+   "institution": "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI) + University of Liverpool",
+   "communitySignals": [
+    "未見於 HF Daily Papers / Papers with Code（web_search 確認，僅見 arXiv 清單頁與自動摘要站 zerohour.day 轉載）"
+   ],
+   "credibility": "pass",
+   "credibilityEvidence": [
+    "Sec 5: 3 benchmarks (SkillsBench 87 tasks, SkillLearnBench 50 task families, SWE-Skills-Bench-Hard 70 tasks) x 3 executors (GPT-5.5/Codex, Opus 4.8/Claude Code, DeepSeek-V4-Pro/OpenHands), all deterministic verifiers (not LLM-judge pass/fail)",
+    "Sec 6.1 Table 2: leads both baselines (SkillRevise, CoEvoSkills) on every benchmark/executor combination; recovers 30/34, 32/38, 29/34 of SkillRevise's own recovered failures with the three executors respectively, showing gains are additive not just a reshuffle",
+    "Sec 6.2 ablation: removing the Coverage component (keeping the same RCA agent, same trajectories, same budget) drops recovery from 24 to 19 of 52 SkillsBench failures -- isolates the mechanism's contribution from general agentic trajectory analysis",
+    "Appendix G: explicit token-cost accounting showing SkillPlumber uses ~2x the tokens of baselines but spends them on producing the Coverage signal itself, not a hidden budget advantage",
+    "Explicit self-stated Limitations section naming the LLM-judge dependency of the Coverage labels and citing a separate validation against human labels for the same labeling task"
+   ],
+   "evidenceMaturity": "substantial",
+   "evidenceMaturityReason": "three benchmarks spanning different task structures, three different executor/harness stacks, two real published baselines reproduced under a shared protocol, and a controlled ablation isolating the proposed mechanism",
+   "reproducibility": "partial-artifacts",
+   "reproducibilityEvidence": [
+    "SkillsBench, SkillLearnBench, SWE-Skills-Bench are public third-party benchmarks with deterministic verifiers; full prompts/protocol described in Appendices A-D; no public code repository for SkillPlumber itself found in the paper or via search this round"
+   ],
+   "editorialConfidence": "high",
+   "editorialConfidenceReason": "every headline number is tied to a stated benchmark/executor/baseline combination, and the paper openly reports where it does not lead (early rounds on one benchmark) rather than only its wins",
+   "primaryLimitation": "the method's root-cause-analysis and coverage-labeling steps all depend on an LLM judge; the paper cites a separate validation study for the labeling task's reliability but does not re-validate it inside this paper",
+   "hiddenAssumption": "instruction-level coverage labels (follow / not-follow / not-covered) are assumed reliable enough to drive revision decisions; the paper's own Limitations section names this explicitly and defers to a cited external validation rather than testing it here",
+   "hiddenAssumptionImpact": "if the judge systematically mislabels a class of instructions (e.g. implicit ones not stated as discrete steps), SkillPlumber would misattribute some failures to 'wrong instruction' vs 'not followed', weakening the root-cause step specifically; the paper's own ablation already shows coverage matters more than generic trajectory analysis, so the overall performance gain is unlikely to vanish, but its causal attribution of *why* a given fix helped would be less trustworthy",
+   "presentation": "clear",
+   "presentationReason": "explicit protocol section, ablation isolates the named mechanism, and a dedicated Limitations section flags the paper's own weakest link",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "decision": "selected",
+   "reason": "directly answers the question 2611.25534 raises -- self-evolution degrades skills *without* feedback, but this paper shows that properly scoped feedback (instruction-level coverage from real execution, not just outcome pass/fail) makes self-evolution outperform strong published baselines; the two papers together map both failure and fix for the same underlying problem"
+  },
+  {
+   "arxivId": "2611.26361",
+   "title": "How Much Should an Agent Remember? Deployment Lessons from Self-Distilled Memory for LLM Agents",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "Accepted to IAAI 2027 (Oral) -- peer-reviewed, accepted applications track",
+   "citationCount": 0,
+   "citationVelocity": "發布 2 天，Semantic Scholar 429 rate limit 無法查得；accepted paper 但剛掛上 arXiv，引用數幾乎必為 0",
+   "institution": "IBM Research",
+   "communitySignals": [
+    "未見於本輪 HF Daily Papers / Papers with Code 清單（但同一 altk-evolve 專案在 2026-04-08 已有 IBM Research 官方 HuggingFace blog post，確認是既有、非臨時掛名的production 系統）"
+   ],
+   "credibility": "pass",
+   "credibilityEvidence": [
+    "Measurement section + Insight 1 + Table 2: 8 models baselined (40-92% baseline task completion on AppWorld, a public third-party benchmark with authoritative pass/fail verdicts), 6 run with memory, dose-response curves across 0 to full guideline sets per model",
+    "Insight 5 explicitly measures the noise floor before reading any delta (identical configs scoring 56.0 vs 54.8 TGC; ~32/168 tasks flip outcome run-to-run) -- a self-imposed statistical discipline rare even in accepted venue papers",
+    "Insight 6: self-caught and corrected a baseline confound against a prior method (ACE) where a 'win' was mostly due to a different prompt scaffold, not the memory method itself; reports the corrected like-for-like comparison",
+    "Deployment section: re-ran results in two real IBM products (CUGA agent across 2 models/2 benchmarks with 3 trials each, reporting standard deviation-scale deltas honestly as 'below the noise floor' where applicable; watsonx Orchestrate production trace) after finding and fixing a silent write-path bug (Insight 7) that had made an earlier internal evaluation falsely show no effect",
+    "Explicit, numbered list of 7 'what went wrong' insights including a mislabeled page-limit guideline that caused a real regression, found and hand-fixed",
+    "altk-evolve is a pre-existing open-source library (confirmed via independent IBM Research HF blog post from 2026-04) integrated into shipping IBM products (CUGA, watsonx Orchestrate), not a one-off research artifact"
+   ],
+   "evidenceMaturity": "substantial",
+   "evidenceMaturityReason": "combines controlled benchmark evaluation (AppWorld, with explicit noise-floor quantification) with real production deployment evidence (two shipping products); the production qualitative example is explicitly labelled 'descriptive rather than a controlled estimate', a self-disclosed boundary rather than an overclaim",
+   "reproducibility": "full-artifacts",
+   "reproducibilityEvidence": [
+    "altk-evolve is a public open-source library (github.com/AgentToolkit/altk-evolve) with the described extraction/consolidation/delivery pipeline; AppWorld and tau-bench are public benchmarks with deterministic verifiers"
+   ],
+   "editorialConfidence": "high",
+   "editorialConfidenceReason": "the paper repeatedly narrows its own claims (e.g. downgrading a '+1.2 TGC win' to 'a tie at 1/7th the token cost' once noise and scaffold confounds are accounted for), which is exactly the discipline the selection standard rewards",
+   "primaryLimitation": "the core acceptance mechanism for a guideline is recurrence (how many independent trajectories derived it), not correctness; the paper's own Insight 4 shows a popular-but-wrong guideline caused a real task regression that had to be fixed by hand, and the authors state they would not run the memory loop unattended without adding a correctness/recency signal first",
+   "hiddenAssumption": "the paper assumes AppWorld's authoritative pass/fail verdicts and controlled train/dev/test split transfer to the production deployment case, where no such ground truth exists; the watsonx Orchestrate evidence is explicitly a single qualitative trace, not benchmarked",
+   "hiddenAssumptionImpact": "the paper itself states this directly ('a single qualitative example rather than a benchmark') and does not claim the production numbers establish effect size -- so this is a disclosed scope limit rather than an unexamined premise the article needs to catch",
+   "presentation": "clear",
+   "presentationReason": "the entire paper is structured around named, numbered 'Insight' sections that state what was expected, what happened, and what was changed -- an unusually explicit before/after format for a systems paper",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "decision": "selected",
+   "reason": "the only candidate today backed by a real, named production deployment (IBM CUGA + watsonx Orchestrate) and a peer-reviewed accepted venue (IAAI 2027 Oral), and its central finding -- that the right amount of self-generated memory depends on the model's own capability, not a universal setting -- generalizes the day's other two papers' point (self-maintained knowledge needs calibrated feedback, not blind accumulation or blind compression) to a different artifact (memory guidelines instead of skill documents) with production-scale evidence"
+  },
+  {
+   "arxivId": "2611.25583",
+   "title": "DriftGuard: Online Memory-Drift Detection via Causal Attribution for LLM Agents",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "同屬今日記憶管理主軸且方向扎實（因果歸因偵測記憶漂移），但本輪未讀正文驗證其因果歸因方法的基準比較是否充分；在記憶可靠性這個子題上，入選的 2611.26361（IBM 實際落地的記憶劣化案例，含真實 regression 與修法）已用生產環境證據覆蓋『記憶可能是錯的』這一點，證據規模更大，故本篇留在回溯池"
+  },
+  {
+   "arxivId": "2611.25673",
+   "title": "CompAct-Bench: A Benchmark for Working-Context Compaction in Long-Horizon Agent Tasks",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "情境壓縮是記憶管理的相鄰子題，基準設計合理，但本輪未讀正文核對受測模型數與消融設計；與入選三篇相比，本篇是純評測基準而非同時提出診斷+方法+落地證據的組合，今日版面優先覆蓋更完整的因果鏈條論文"
+  },
+  {
+   "arxivId": "2611.25855",
+   "title": "HabitusMem: Belief Memory over Evolving User Preferences for LLM Agents",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "個人化記憶的新穎框架（借用 Bourdieu habitus 概念），但摘要層級無法確認其『信念』抽取的驗證基準規模；與 2611.26361 的『支持度不等於正確性』發現方向互補但證據較薄，留回溯池待後續信號"
+  },
+  {
+   "arxivId": "2611.25721",
+   "title": "MemMend: A Selective Revision Framework for Memory Question Answering",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "選擇性記憶修訂與入選的 skill/memory 自我維護主題高度相關，LoCoMo 開發集上有具體數字，但本輪未讀正文確認其『僅修訂不完整答案』判準的驗證方式；與 2611.25429 的 instruction-level coverage 判準相比，公開摘要未顯示同等的消融與基準覆蓋廣度"
+  },
+  {
+   "arxivId": "2611.26427",
+   "title": "MemFolder: Structure-Guided Memory Folding for Efficient Agent Memory Management",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "記憶壓縮效率方法，聚焦儲存/檢索成本而非記憶是否可靠或如何演化，與今日『自我維護知識是否可信』主軸的交集較弱，列入回溯池"
+  },
+  {
+   "arxivId": "2611.25123",
+   "title": "Forget Freely, Grep Later: Lossless, Index-Free Memory for Long-Horizon LLM Agents (GrepMem)",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "無損、免索引記憶機制，設計方向與 2611.26361 的『不要壓縮，保留長尾』洞見互相呼應，但本篇本輪僅讀摘要，未核對其 grep 式檢索在大規模歷史下的延遲與準確率取捨；資訊量不足以在今天與三篇入選論文並列"
+  },
+  {
+   "arxivId": "2611.25705",
+   "title": "STARK: Moving towards Personalized Agents That Truly Learn and Remember",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "雙圖記憶架構（事件圖+洞察圖）用意清楚，但摘要被截斷未讀到完整評測設計；與入選三篇相比缺乏同等篇幅的因果驗證或生產部署證據"
+  },
+  {
+   "arxivId": "2611.25325",
+   "title": "Pandora's Toolbox Or Why Agent Safety Cannot Be Verified",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "理論性論文，用運算理論（不可判定性、PSPACE-complete）證明通用 Agent 安全性無法完全驗證，論證形式可能嚴謹，但屬於純理論推導而非系統/實證研究；依選案標準『純 position/理論 paper 除非有重大事件否則不作為 daily 主選』，且今日已有以豐富實證證據為主的記憶/技能主題，故本篇留回溯池，值得後續有空檔時完整讀正文評估其證明的嚴謹度"
+  },
+  {
+   "arxivId": "2611.26077",
+   "title": "Same Judgement, Different Scores: Numerical Scoring Topology in LLM-as-a-Judge Evaluation",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "延續近期『LLM-as-judge 可靠性』主軸（與近日 Resolution Hypothesis 等論文呼應），系統性研究評分量表設計如何影響判分結果，方向扎實，但今日已選定以 skill/memory 自我維護為主軸的三篇，評測可靠性主題昨日已有专文覆蓋，故本篇留回溯池避免連續兩天同主題"
+  },
+  {
+   "arxivId": "2611.25582",
+   "title": "AutoRAGBench: A Benchmark for LLM Agents Automating RAG System Development",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level review this round"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "abstract-only review this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "insufficient reading depth this round",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "adaptation",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "評測 agent 自動建構 RAG 系統的能力，方向有趣（agent 做 agent 工程），但本輪僅讀摘要，未核對九項開發任務的評分方式是否可信；與今日主軸（技能/記憶的自我維護）相關性為間接，列入回溯池"
+  },
+  {
+   "arxivId": "2611.25380",
+   "title": "Beyond Weight Updates: Evolving Agent Harnesses for Domain Specialization",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "harness 演化（system prompt/工具схема/規劃鷹架）與技能自我維護主題相鄰，但聚焦領域專精化而非『回饋存在與否』這一今日主軸所需的對照，且僅讀摘要未核對 GEPA 外部演化迴圈的基準比較規模"
+  },
+  {
+   "arxivId": "2611.25891",
+   "title": "Meta-RTL: Evolving Agent Harnesses for RTL Optimization",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "harness 演化方法應用於 RTL 晶片優化這一垂直領域，對一般 Agent 開發者的可遷移性有限，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.25404",
+   "title": "Toward a Science of AI Agent Societies",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "位置論文，提出研究議程與四個性質定義，尚無實證或系統驗證，依選案標準位置論文除非有重大事件否則不作為主選"
+  },
+  {
+   "arxivId": "2611.26012",
+   "title": "When Agents Play Differently: Localizing Human-Agent Behavioral Divergence with Conditional Distributional Testing",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "評測方法學本身合理（分佈層級而非均值比較），但應用場域是商業遊戲比對人類玩家行為，與今日 Agent 知識自我維護主軸關聯度低，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.26248",
+   "title": "TwinLab-Bench: Evaluating AI Scientists in Agentic Twins of Real Labs",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "評測 agent 自主設計實驗的能力，方向與『agent 能否做開放式研究』這條其他日子已覆蓋過的主軸相近，今日未選入，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.26423",
+   "title": "Seer: Guiding Small Deep-Research Agents with Shared Decision Models",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "小模型 deep-research agent 的推論時引導框架，僅讀摘要，未核對其與雲端大模型 agent 的對照基準規模"
+  },
+  {
+   "arxivId": "2611.25868",
+   "title": "Generalist Meets Specialists: An Evolving Multimodal Agent with Persistent Tool Orchestration for Traffic Scenario Understanding",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "交通場景理解垂直應用，僅讀摘要，對一般 Agent 讀者的遷移價值有限"
+  },
+  {
+   "arxivId": "2611.25793",
+   "title": "When Safety Rationales Hallucinate: Diagnosing and Grounding Multimodal Safety Guards",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "多模態安全護欄的理由幻覺問題值得關注，但僅讀摘要，且今日主軸已定為技能/記憶自我維護，與安全護欄可靠性是不同但同樣重要的主題，留待未來主選"
+  },
+  {
+   "arxivId": "2611.25228",
+   "title": "MKA: Evaluating Multimodal Knowledge Agents on end-to-end professional tasks",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "多模態知識 agent 端到端評測基準，僅讀摘要，未核對評分是否為 LLM-judge 或人工標註"
+  },
+  {
+   "arxivId": "2611.25146",
+   "title": "EverydayBench: Evaluating Satisfactory Completion of Live User-Facing Digital Work",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "日常數位工作滿意度評測，僅讀摘要，與今日主軸關聯度低"
+  },
+  {
+   "arxivId": "2611.25087",
+   "title": "SailSearch: Agent-Assisted Discovery in Combinatorial Optimization",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "組合優化領域的 agent 輔助搜尋，垂直應用,僅讀摘要"
+  },
+  {
+   "arxivId": "2611.25111",
+   "title": "DSFlow: A Neuro-Symbolic Data Workflow Agent with Statistical Diagnostic Guardrails",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "資料工作流 agent 的神經符號護欄，僅讀摘要，未核對其統計診斷護欄的驗證方式"
+  },
+  {
+   "arxivId": "2611.25043",
+   "title": "Closing the Analyze-to-Design Gap: An Authorization-Bounded Agent for Self-Driving Laboratories",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "自駕實驗室領域垂直應用，僅讀摘要，遷移價值有限"
+  },
+  {
+   "arxivId": "2611.25363",
+   "title": "Stop Going in Circles: Loop-Triggered Routing for System 1 Decision Agents",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "decision agent 迴圈偵測與路由機制，與今日主軸（知識自我維護）不同子題，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.25489",
+   "title": "When Should a Voice Agent Speak? End-of-Turn Detection in Turkish",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "土耳其語語音 agent 的話輪偵測，垂直語言應用，與今日主軸無關，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.25543",
+   "title": "Efficient Multimodal Agents for Auditing 3D Worlds",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "3D 世界稽核的多模態 agent 效率方法，僅讀摘要，與今日主軸無關"
+  },
+  {
+   "arxivId": "2611.26007",
+   "title": "System-One RSI: Building Muscle Memory for Interactive Agents through Guided Practice",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "『肌肉記憶』式的 System-1 強化，概念上與今日記憶主軸相鄰，但僅讀摘要，未核對引導式練習的基準設計"
+  },
+  {
+   "arxivId": "2611.26003",
+   "title": "AI agents can redesign engineering parts with more than a thousand CAD parameters and nonlinear simulations",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "CAD 工程設計垂直應用，僅讀摘要，與今日主軸無關"
+  },
+  {
+   "arxivId": "2611.25903",
+   "title": "From Cases to Criteria: Reusing Evaluation Knowledge for Task-Specific Rubric Generation",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "評分標準生成方法，僅讀摘要，與今日主軸（技能/記憶自我維護）關聯度低"
+  },
+  {
+   "arxivId": "2611.25526",
+   "title": "MATE: Mobile Agent Trustworthy Execution for Safe and Efficient Mobile Control",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "手機 agent 的執行層信任控制，方向扎實但垂直於行動裝置場域，僅讀摘要，今日主軸聚焦知識自我維護而非執行層防護"
+  },
+  {
+   "arxivId": "2611.24977",
+   "title": "CANDID: Candidate-Driven Intervention for Disciplined Execution in Local Computer-Use Agents",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "本地電腦使用 agent 的執行控制框架，僅讀摘要，與今日主軸關聯度低"
+  },
+  {
+   "arxivId": "2611.26009",
+   "title": "Evaluating safeguarding in multi-turn conversations with AI assistants",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "多輪對話安全防護評測，與社群心理健康工作者合作設計情境,方向有意義，但聚焦對話助理而非 Agent 架構/知識維護，僅讀摘要"
+  },
+  {
+   "arxivId": "2611.25407",
+   "title": "ChronoDossier: Long-Form Personas as Temporal Memory Representations",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "medium",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "長文本人物誌作為時序記憶表徵的基準，與記憶主軸相鄰，但僅讀摘要，未核對其五種讀取者評分設計的信度"
+  },
+  {
+   "arxivId": "2611.25898",
+   "title": "Verifiable Logic in Medical LLMs: A Critical Review of Agentic Clinical Reasoning Optimization and Neuro-Symbolic Grounding",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "venue": "arXiv preprint",
+   "citationCount": 0,
+   "citationVelocity": "發布 1-2 天，尚無引用資料",
+   "institution": "not fully assessed from listing",
+   "communitySignals": [
+    "未見於 HF Daily Papers"
+   ],
+   "credibility": "not-assessed",
+   "credibilityEvidence": [
+    "abstract-level only"
+   ],
+   "evidenceMaturity": "not-assessed",
+   "evidenceMaturityReason": "not assessed this round",
+   "reproducibility": "not-assessed",
+   "reproducibilityEvidence": [],
+   "editorialConfidence": "not-assessed",
+   "editorialConfidenceReason": "not assessed",
+   "primaryLimitation": "not independently verified beyond abstract this round",
+   "hiddenAssumption": "not-assessed",
+   "hiddenAssumptionImpact": "not-assessed",
+   "presentation": "not-assessed",
+   "presentationReason": "not assessed",
+   "relevance": "direct",
+   "novelty": "not-assessed",
+   "todayImportance": "low",
+   "practicalLink": "speculative",
+   "decision": "rejected",
+   "rejectionCategory": "evidence-insufficient",
+   "reason": "批判性綜述文章（critical review），非原創實證研究，依選案標準綜述可作為背景但不作為 daily 主選"
+  }
+ ]
+}

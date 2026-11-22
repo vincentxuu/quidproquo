@@ -13,7 +13,7 @@ description: "Ena Kasagiyama bouldering: seasonal conditions, registration, desi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama)
 
 For a forest-bouldering trip in Japan, Ena Kasagiyama deserves a full climbing day. Its areas are spread across a mountain: choose your objective before choosing parking, rather than carrying pads around looking for a familiar photograph. This guide helps you plan the season, level and access.
 

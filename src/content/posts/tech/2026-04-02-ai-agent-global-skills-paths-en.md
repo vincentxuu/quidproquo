@@ -10,7 +10,7 @@ tldr: "Skill paths are almost always runtime-specific. AGENTS.md is the reliable
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-02-ai-agent-global-skills-paths)
+:globe: [中文版](/posts/tech/2026-04-02-ai-agent-global-skills-paths)
 
 ## TL;DR
 

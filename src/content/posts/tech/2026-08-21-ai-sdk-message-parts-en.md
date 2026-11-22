@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-21-ai-sdk-message-parts)
+:globe: [中文版](/posts/tech/2026-08-21-ai-sdk-message-parts)
 
 The [AI Elements post](/posts/tech/2026-08-19-vercel-ai-elements-en) mentioned that its components are shaped to the AI SDK's message-parts structure. This post covers the foundation itself — **why an AI message is no longer a string but an array of typed fragments**, and how that one decision cascades into the way every conversation UI gets written.
 

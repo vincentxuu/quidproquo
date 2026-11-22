@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-travel-delays-lost-baggage-english-en/)
+> :globe: [English version](/posts/learning/2026-10-25-travel-delays-lost-baggage-english-en/)
 
 班機原本該起飛了，螢幕上的時間卻一直往後移。你聽得懂 delayed，但走到櫃檯，還是不知道要問「所以現在預計幾點飛？」。另一種慌張發生在下機後：大家都往出口走，你才發現隨身包包還在飛機上。
 

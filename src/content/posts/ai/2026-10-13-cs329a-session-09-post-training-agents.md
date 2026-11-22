@@ -13,7 +13,7 @@ tldr: "聊天模型的獎勵看單則回覆像不像人喜歡的答案；Agent �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents-en)
+> :globe: [English version](/posts/ai/2026-10-13-cs329a-session-09-post-training-agents-en)
 
 預訓練完的模型會接話，但不會自動變成好用的助理，更不會自動變成能連續操作工具的 Agent。中間那段加工叫 post-training。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 9 堂是 Google DeepMind 的 Melvin Johnson 客座，題目是「Evolution of Post-training from Chatbots to Agents」。讀完本文，你應能說出聊天時代與 Agent 時代的 post-training 各用什麼訊號當獎勵，並判斷一個任務該用哪一種。先備是知道監督式微調與強化學習（RL）的差別。
 

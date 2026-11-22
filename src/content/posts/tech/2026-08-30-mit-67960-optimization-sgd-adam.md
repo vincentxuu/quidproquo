@@ -13,7 +13,7 @@ description: "MIT 6.7960 Fall 2024 OCW 主題單元（相關內容分散在 Lec 
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-optimization-sgd-adam-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 

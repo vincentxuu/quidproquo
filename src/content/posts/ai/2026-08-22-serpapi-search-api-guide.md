@@ -10,7 +10,7 @@ description: "從請求、結構化結果、地區與分頁，到 Search Archive
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-serpapi-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-serpapi-search-api-guide-en)
 
 [SerpAPI](https://serpapi.com/search-api) 是代管的 SERP（search engine results page，搜尋引擎結果頁）抓取與解析服務。你指定 Google、Bing、YouTube、Google Scholar 等搜尋介面，它負責送出查詢、處理代理伺服器與頁面變動，再把自然搜尋結果、廣告、知識圖譜或在地結果整理成 JSON。它的主要價值不是替你建立一份網頁索引，而是把「取得某個搜尋引擎此刻呈現的結果頁」包成 API。
 

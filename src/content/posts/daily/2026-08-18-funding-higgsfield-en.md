@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-18-funding-higgsfield)
+> :globe: [中文版](/posts/daily/2026-08-18-funding-higgsfield)
 
 ## Funding Details
 

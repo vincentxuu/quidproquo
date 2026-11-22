@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-vite-8-rolldown-en)
+> :globe: [English version](/posts/tech/2026-08-22-vite-8-rolldown-en)
 
 [Vite 8](https://vite.dev/blog/announcing-vite8) 是 Vite 自 2.0 之後最大的一次底層改造。開發期依賴預先打包、TypeScript／JSX 轉換與正式建置，不再分別交給 esbuild 和 Rollup，而是收斂到以 Rust 寫成的 [Rolldown](https://rolldown.rs/) 與 Oxc 工具鏈。官方公布的 Rollup 對照基準最高可到 10–30 倍，但這次改版最值得關心的不是單一跑分，而是兩套 bundler 語意終於變成一套。
 

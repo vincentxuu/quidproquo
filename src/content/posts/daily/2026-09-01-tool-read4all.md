@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-01-tool-read4all-en)
+> :globe: [English version](/posts/daily/2026-09-01-tool-read4all-en)
 
 ## 工具資訊
 
@@ -96,11 +96,11 @@ export READ4ALL_VLM_MODEL="gpt-4o-mini"
 
 | | read4all | 自寫 pymupdf/pdfplumber script | MarkItDown（獨立使用） | 雲端 OCR SaaS（如 Textract） |
 |---|---|---|---|---|
-| MCP 原生，Agent 直接呼叫 | ✅ | ❌ | ❌ | 需自行包 |
-| 無 key 也能用（本地降級） | ✅ | ✅（但要自己寫） | ✅ | ❌ |
-| 高精度公式／表格／版面（有 key 時） | ✅（MinerU） | ❌ | ❌ | 部分支援 |
-| 內容雜湊快取，重複轉換秒級 | ✅ | 需自行實作 | ❌ | 依廠商而定 |
-| 全格式（PDF/Office/圖片/網頁）單一入口 | ✅ | 需自行整合 | ✅（不含深度提取） | 依廠商而定 |
+| MCP 原生，Agent 直接呼叫 | ✓ | ✗ | ✗ | 需自行包 |
+| 無 key 也能用（本地降級） | ✓ | ✓（但要自己寫） | ✓ | ✗ |
+| 高精度公式／表格／版面（有 key 時） | ✓（MinerU） | ✗ | ✗ | 部分支援 |
+| 內容雜湊快取，重複轉換秒級 | ✓ | 需自行實作 | ✗ | 依廠商而定 |
+| 全格式（PDF/Office/圖片/網頁）單一入口 | ✓ | 需自行整合 | ✓（不含深度提取） | 依廠商而定 |
 
 ## 注意事項
 

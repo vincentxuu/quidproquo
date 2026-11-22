@@ -16,7 +16,7 @@ description: "Series overview for Stanford CS124: From Languages to Information:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
+> :globe: [中文版](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
