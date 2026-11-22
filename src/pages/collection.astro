@@ -7,7 +7,7 @@ import {
   getCollection,
   getTopWorks,
   getWorksByType,
-  getGradientFor,
+  getPosterStyle,
   getStatusLabel,
   type MediaType,
 } from '../lib/collection';
@@ -51,7 +51,7 @@ const mosaic = [...top, ...all.filter((w) => !top.includes(w))];
         <div class:list={['mosaic-tile', w.tier === 'favorite' && 'mosaic-tile--hero']}>
           <a
             href={`/collection/${w.slug}`}
-            style={`background:${getGradientFor(w.slug)}`}
+            style={getPosterStyle(w.slug)}
             aria-label={w.title}
           >
             <b>{w.title}</b>
@@ -70,7 +70,7 @@ const mosaic = [...top, ...all.filter((w) => !top.includes(w))];
       <div class="collection-grid">
         {top.map((w) => (
           <a class="work-card" href={`/collection/${w.slug}`}>
-            <div class="work-card-poster" style={`background:${getGradientFor(w.slug)}`}>
+            <div class="work-card-poster" style={getPosterStyle(w.slug)}>
               {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
               <span class="work-card-year">{w.year}</span>
               {w.rating > 0 && <span class="work-card-rating">★ {w.rating}</span>}
@@ -98,7 +98,7 @@ const mosaic = [...top, ...all.filter((w) => !top.includes(w))];
           <div class="collection-grid">
             {s.works.map((w) => (
               <a class="work-card" href={`/collection/${w.slug}`}>
-                <div class="work-card-poster" style={`background:${getGradientFor(w.slug)}`}>
+                <div class="work-card-poster" style={getPosterStyle(w.slug)}>
                   {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
                   <span class="work-card-year">{w.year}</span>
                   {w.rating > 0 && <span class="work-card-rating">★ {w.rating}</span>}

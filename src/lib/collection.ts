@@ -80,25 +80,38 @@ export function getStatusLabel(status: WatchStatus, lang: string): string {
 }
 
 /**
- * 沒有海報圖時的視覺替代：由 slug 從精選的暗色雙色調（duotone）色板挑一組，
- * 避免隨機亮色漸層——這是「放映廳」的基調，Phase 2 海報下載後即可替換。
+ * 海報替身：明亮 duotone。
+ * 設計：每個海報是一組明亮 pair；文字色由 CSS 從 room 主題解析（light 用深色 fg、dark 用白 fg）。
+ * Phase 2 海報下載後，poster 非空即可改用 <img>。
  */
+export interface PosterStyle {
+  background: string;
+  color: 'inherit';
+}
+
 const DUOTONES: ReadonlyArray<readonly [string, string]> = [
-  ['#1a0d10', '#5b1a24'], // oxblood
-  ['#0c1220', '#1d3557'], // midnight
-  ['#0d1a14', '#1f513a'], // forest
-  ['#170d1f', '#4a1d63'], // plum
-  ['#1d1206', '#6b4312'], // bronze
-  ['#101418', '#313d4d'], // steel
-  ['#08201f', '#155e5a'], // deep sea
-  ['#200a17', '#7c2d4e'], // wine
+  ['#1a6b7a', '#d0e9e8'],   // teal steel → mist
+  ['#a95d4e', '#f2e2c5'],   // terracotta → parchment
+  ['#3d7a47', '#dfe3c9'],   // forest → sage linen
+  ['#8a3d77', '#eadbef'],   // plum → lilac
+  ['#5d5a39', '#d7c899'],   // olive → straw
+  ['#1b4d63', '#c5e0e6'],   // deep sea → sky
+  ['#b33f4a', '#f3dbc2'],   // brick → blush
+  ['#6a7d45', '#e2dfb5'],   // grass → lichen
 ];
 
-export function getGradientFor(slug: string): string {
+export function getPosterStyle(slug: string): PosterStyle {
   let hash = 0;
   for (const ch of slug) hash = (hash * 31 + ch.charCodeAt(0)) | 0;
   const [from, to] = DUOTONES[Math.abs(hash) % DUOTONES.length];
-  return `linear-gradient(165deg, ${from} 0%, ${to} 78%)`;
+  return {
+    background: `linear-gradient(165deg, ${from} 0%, ${to} 78%)`,
+    color: 'inherit',
+  };
+}
+
+export function getGradientFor(slug: string): string {
+  return getPosterStyle(slug).background;
 }
 
 export function collectionHref(lang: string): string {

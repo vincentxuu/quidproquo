@@ -5,7 +5,7 @@ import "../../styles/collection.css";
 import PostLayout from '../../layouts/PostLayout.astro';
 import {
   getCollection,
-  getGradientFor,
+  getPosterStyle,
   getStatusLabel,
   type CollectionWork,
 } from '../../lib/collection';
@@ -32,7 +32,7 @@ const tierLabels = { favorite: '真愛', loved: '很喜歡', watched: '看過' }
   <div class="collection-scope">
     <article>
       <div class="work-hero">
-        <div class="work-hero-poster" style={`background:${getGradientFor(work.slug)}`}>
+        <div class="work-hero-poster" style={getPosterStyle(work.slug)}>
           {work.poster && <img src={work.poster} alt={`${work.title} 海報`} />}
           {!work.poster && <b>{work.title}</b>}
         </div>
