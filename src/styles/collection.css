@@ -1,7 +1,8 @@
 /* Collection 頁樣式 —— 「放映廳」基調。收藏館色板來源沿用 site tokens.css（不引入新色系），
    依主題切換：light → 淺色房間（柔和灰）；dark → 深色房間。 */
 body.is-collection {
-  --coll-bg: var(--bg-subtle);
+  /* 純白融合：房間和卡片都以站上的 light 主題值為主，dark 切換時自動跟隨 site tokens.css 的 dark 值 */
+  --coll-bg: var(--bg-page);
   --coll-panel: var(--bg-card);
   --coll-border: var(--border);
   --coll-text: var(--text-primary);
@@ -10,12 +11,6 @@ body.is-collection {
   --coll-accent: var(--brand-700);
 
   max-width: none;
-}
-
-[data-theme="dark"] body.is-collection {
-  --coll-bg: var(--bg-page);
-  --coll-panel: var(--bg-card);
-  --coll-accent: var(--brand-500);
 }
 
 body.is-collection header nav {
@@ -339,8 +334,7 @@ body.is-collection #main-content {
   position: relative;
   border: 1px solid var(--coll-border);
   box-shadow: 0 16px 40px rgb(0 0 0 / 0.15);
-  color: var(--coll-text);
-}
+  color: var(--coll-text);}
 
 .work-hero-poster::after {
   content: '';
