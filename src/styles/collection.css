@@ -1,17 +1,21 @@
-/* Collection 頁樣式 —— 暗色放映廳基調（body.is-collection，不受站上主題切換影響）。
-   色板刻意不使用站上 token：這裡是獨立的「房間」，深淺模式下視覺一致，對照 initiald.fan。
-   顏色來源依 site 設計：底色是 room 系統色，強調色與 badge 系統以品牌 accent（--brand-500）為主。 */
-
+/* Collection 頁樣式 —— 「放映廳」基調。收藏館色板來源沿用 site tokens.css（不引入新色系），
+   依主題切換：light → 淺色房間（柔和灰）；dark → 深色房間。 */
 body.is-collection {
-  --coll-bg: #0f1419;      /* = tokens dark --bg-page */
-  --coll-panel: #1a2332;   /* = tokens dark --bg-card */
-  --coll-border: #2a3545;  /* = tokens dark --border */
-  --coll-text: #d1d5db;    /* = tokens dark --text-primary */
-  --coll-soft: #a9b2ba;    /* 介於 text/muted 的中間層 */
-  --coll-muted: #8b929e;   /* = tokens dark --text-muted */
-  --coll-accent: var(--brand-500);
+  --coll-bg: var(--bg-subtle);
+  --coll-panel: var(--bg-card);
+  --coll-border: var(--border);
+  --coll-text: var(--text-primary);
+  --coll-soft: var(--text-secondary);
+  --coll-muted: var(--text-muted);
+  --coll-accent: var(--brand-700);
 
   max-width: none;
+}
+
+[data-theme="dark"] body.is-collection {
+  --coll-bg: var(--bg-page);
+  --coll-panel: var(--bg-card);
+  --coll-accent: var(--brand-500);
 }
 
 body.is-collection header nav {
@@ -129,7 +133,7 @@ body.is-collection #main-content {
   flex-direction: column;
   justify-content: flex-end;
   padding: 0.55rem;
-  color: #fff;
+  color: var(--coll-text);
   text-decoration: none;
   overflow: hidden;
   filter: saturate(0.82) brightness(0.9);
@@ -164,7 +168,7 @@ body.is-collection #main-content {
   z-index: 1;
   font-size: 0.62rem;
   letter-spacing: 0.08em;
-  color: rgb(255 255 255 / 0.72);
+  color: var(--coll-soft);
 }
 
 .mosaic-tile--hero {
@@ -273,7 +277,7 @@ body.is-collection #main-content {
   z-index: 1;
   font-size: 0.62rem;
   letter-spacing: 0.14em;
-  color: rgb(255 255 255 / 0.75);
+  color: var(--coll-text);
 }
 
 .work-card-rating {
@@ -281,7 +285,7 @@ body.is-collection #main-content {
   bottom: 0.55rem;
   right: 0.65rem;
   z-index: 1;
-  color: #fff;
+  color: var(--coll-accent);
   font-weight: 700;
   font-size: 0.85rem;
   text-shadow: 0 1px 4px rgb(0 0 0 / 0.8);
@@ -334,8 +338,8 @@ body.is-collection #main-content {
   padding: 0.75rem;
   position: relative;
   border: 1px solid var(--coll-border);
-  box-shadow: 0 16px 40px rgb(0 0 0 / 0.5);
-  color: #fff;
+  box-shadow: 0 16px 40px rgb(0 0 0 / 0.15);
+  color: var(--coll-text);
 }
 
 .work-hero-poster::after {
@@ -351,7 +355,7 @@ body.is-collection #main-content {
   z-index: 1;
   font-size: 0.95rem;
   line-height: 1.3;
-  text-shadow: 0 1px 4px rgb(0 0 0 / 0.8);
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.5);
 }
 
 .work-hero-poster img {
@@ -385,14 +389,15 @@ body.is-collection #main-content {
   margin-bottom: 0.85rem;
 }
 
+/* 徽章：收藏館以品牌 accent 為強調，依主題自動明暗 */
 .work-badge {
   font-size: 0.72rem;
   letter-spacing: 0.05em;
   padding: 0.26rem 0.65rem;
   border-radius: 999px;
-  background: rgb(255 255 255 / 0.04);
-  color: var(--coll-soft);
-  border: 1px solid var(--coll-border);
+  background: color-mix(in srgb, var(--coll-accent) 12%, transparent);
+  color: var(--coll-accent);
+  border: 1px solid color-mix(in srgb, var(--coll-accent) 45%, transparent);
 }
 
 /* 徽章：沿用 site 設計——分類不靠色區分，全部以品牌 accent 加腔強調 */
