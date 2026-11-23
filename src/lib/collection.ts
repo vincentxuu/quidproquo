@@ -1,4 +1,6 @@
 import mediaCollection from '../data/media-collection.json';
+import mediaCollectionMeta from '../data/media-collection.meta.json';
+import mediaCollectionYoutube from '../data/media-collection.youtube.json';
 
 export type MediaType = 'anime' | 'film' | 'drama';
 
@@ -25,14 +27,117 @@ export interface CollectionWork {
   tier: 'favorite' | 'loved' | 'watched';
   /** 連結既有/未來影評文章，如 film/2026-01-01-xxx */
   postSlugs: string[];
+  /** 站主手填：每看一次一筆，重看次數＝筆數（不另存） */
+  watches?: WatchRecord[];
   deep: {
-    characters: unknown[];
-    scenes: unknown[];
+    /** 站主挑的角色；name 對得上 meta.cast 的 character 時，演員牆會標出來 */
+    characters: DeepCharacter[];
+    scenes: DeepScene[];
     meaning: string;
   };
 }
 
-const raw = mediaCollection as { works: CollectionWork[] };
+export interface WatchRecord {
+  /** YYYY-MM-DD 或 YYYY-MM */
+  date: string;
+  note?: string;
+}
+
+export interface DeepCharacter {
+  name: string;
+  actor?: string;
+  image?: string;
+  /** 站主的看法 */
+  take: string;
+  spoiler?: boolean;
+}
+
+export interface DeepScene {
+  title: string;
+  /** 出處，如 S01E05 或 1:12:30 */
+  ref?: string;
+  image?: string;
+  take: string;
+  spoiler?: boolean;
+}
+
+/** scripts/collection-meta.mjs 產生的客觀資料（media-collection.meta.json），站主不手改 */
+export interface WorkMeta {
+  fetchedAt: string;
+  source: Partial<Record<'tmdb' | 'anilist' | 'mal', string>>;
+  backdrop: string | null;
+  tagline: string | null;
+  /** 電影＝片長；動漫＝單集分鐘 */
+  runtime: number | null;
+  episodes: number | null;
+  seasons: number | null;
+  /** 動漫系列的各季（沿 AniList 續集關聯收集）；themes[].season 是這裡的索引 */
+  seasonList?: SeasonInfo[];
+  /** 動漫＝製作公司；劇集＝電視台 */
+  studios: string[];
+  directors: { name: string; role: string }[];
+  cast: CastCredit[];
+  themes: ThemeSong[];
+}
+
+export interface CastCredit {
+  /** 演員（動漫為日文聲優）；可能缺 */
+  name: string | null;
+  character: string | null;
+  characterRomaji?: string;
+  image: string | null;
+  order: number;
+  role?: 'MAIN' | 'SUPPORTING' | 'BACKGROUND';
+}
+
+export interface SeasonInfo {
+  title: string;
+  native: string | null;
+  year: number | null;
+  episodes: number | null;
+  status: string;
+}
+
+export interface ThemeSong {
+  type: 'op' | 'ed';
+  title: string;
+  artist: string | null;
+  episodes: string | null;
+  spotify: string | null;
+  /** MyAnimeList 附的 YouTube Music 影片 id（未驗證可嵌入；頁面改用 getThemeVideo） */
+  youtube?: string | null;
+  /** seasonList 的索引 */
+  season?: number;
+}
+
+/** scripts/collection-youtube.mjs 產生、站主確認的主題曲影片（media-collection.youtube.json） */
+export interface ThemeVideo {
+  id: string;
+  channel: string;
+  videoTitle: string;
+  source: 'myanimelist' | 'search';
+  confirmed: boolean;
+}
+
+const meta = mediaCollectionMeta as unknown as { works: Record<string, WorkMeta> };
+const videos = mediaCollectionYoutube as unknown as { works: Record<string, Record<string, ThemeVideo>> };
+
+export function getWorkMeta(slug: string): WorkMeta | null {
+  return meta.works[slug] ?? null;
+}
+
+/** 已確認可嵌入的官方影片；沒有就回 null（頁面只顯示 Spotify） */
+export function getThemeVideo(slug: string, themeTitle: string): ThemeVideo | null {
+  return videos.works[slug]?.[themeTitle] ?? null;
+}
+
+/** Spotify 歌曲網址 → 嵌入播放器用的 track id */
+export function spotifyTrackId(url: string | null): string | null {
+  return url?.match(/open\.spotify\.com\/track\/([A-Za-z0-9]+)/)?.[1] ?? null;
+}
+
+// JSON 匯入推論不出字面型別（type、status、externalIds 各筆鍵不同），經 unknown 轉成手寫的 CollectionWork
+const raw = mediaCollection as unknown as { works: CollectionWork[] };
 
 export function getCollection(): CollectionWork[] {
   return raw.works;

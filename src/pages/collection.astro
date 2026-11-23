@@ -5,114 +5,242 @@ import "../styles/collection.css";
 import PostLayout from '../layouts/PostLayout.astro';
 import {
   getCollection,
-  getTopWorks,
   getWorksByType,
   getPosterStyle,
   getStatusLabel,
+  type CollectionWork,
   type MediaType,
 } from '../lib/collection';
 
 const all = getCollection();
-const top = getTopWorks(5);
-const sections: { type: MediaType; works: typeof all }[] = [
-  { type: 'anime', works: getWorksByType('anime') },
-  { type: 'film', works: getWorksByType('film') },
-  { type: 'drama', works: getWorksByType('drama') },
-];
-const sectionLabels: Record<MediaType, string> = {
-  anime: '動漫',
-  film: '電影',
-  drama: '戲劇',
-};
-const count = (type: MediaType) => all.filter((w) => w.type === type).length;
+const typeLabels: Record<MediaType, string> = { anime: '動漫', film: '電影', drama: '戲劇' };
+// 沒有作品的類型不顯示（例如電影、戲劇清單還沒給）
+const types = (['anime', 'film', 'drama'] as MediaType[]).filter((t) => getWorksByType(t).length > 0);
+
 const favoriteCount = all.filter((w) => w.tier === 'favorite').length;
-const mosaic = [...top, ...all.filter((w) => !top.includes(w))];
+
+// 評分排行：有評分的依分數，同分依年份新到舊；未評分的排在最後
+const ranked = [...all].sort((a, b) => b.rating - a.rating || b.year - a.year);
+// No.1 與排行、結尾 CTA 用同一個順序，避免同分時三處指向不同作品
+const no1 = ranked.find((w) => w.tier === 'favorite') ?? ranked[0];
+const otherFavorites = ranked.filter((w) => w.tier === 'favorite' && w.slug !== no1.slug);
+const rated = ranked.filter((w) => w.rating > 0);
+const avgRating = rated.length ? (rated.reduce((s, w) => s + w.rating, 0) / rated.length).toFixed(1) : '—';
+
+// 品味關鍵詞：genres 出現次數前五
+const genreCount = new Map<string, number>();
+for (const w of all) for (const g of w.genres) genreCount.set(g, (genreCount.get(g) ?? 0) + 1);
+const keywords = [...genreCount.entries()].sort((a, b) => b[1] - a[1]).slice(0, 5).map(([g]) => g);
+
+// 最愛場景：攤平成引言牆
+const scenes = all.flatMap((w) => w.favoriteScenes.map((scene) => ({ scene, work: w })));
+
+// 拼貼牆：真愛 2x2，最後一列補一格；欄數需與 collection.css 斷點一致（寬 5／中 6／窄 4）
+const mosaic = [...ranked.filter((w) => w.tier === 'favorite'), ...ranked.filter((w) => w.tier !== 'favorite')];
+const heroCount = mosaic.filter((w) => w.tier === 'favorite').length;
+const mosaicCells = heroCount * 4 + (mosaic.length - heroCount);
+const fillFor = (cols: number) => (cols - (mosaicCells % cols)) % cols;
+const mosaicFill = { wide: fillFor(5), mid: fillFor(6), narrow: fillFor(4) };
+
+const posterAlt = (w: CollectionWork) => `${w.title} 海報`;
 ---
 
 <PostLayout title="收藏館 — quidproquo" lang="zh-TW" description="動漫、電影與戲劇的個人收藏館：評分、最愛場景與真愛作品。" bodyClass="is-collection">
   <div class="collection-scope">
-    <header class="collection-hero">
-      <p class="collection-eyebrow">Quidproquo Collection</p>
-      <h1>我的收藏館</h1>
-      <p class="collection-tagline">
-        看過的作品沉澱在這裡。評分是我的，感受是我的，真愛作品單獨開一間房。
-      </p>
-      <div class="collection-stats">
-        <div class="collection-stat"><b>{all.length}</b><span>收藏</span></div>
-        <div class="collection-stat"><b>{favoriteCount}</b><span>真愛</span></div>
-        <div class="collection-stat"><b>{count('anime')}</b><span>動漫</span></div>
-        <div class="collection-stat"><b>{count('film')}</b><span>電影</span></div>
-        <div class="collection-stat"><b>{count('drama')}</b><span>戲劇</span></div>
+    <!-- Hero：左宣言，右拼貼牆 -->
+    <header class="coll-hero">
+      <div class="coll-hero-text">
+        <p class="collection-eyebrow">Quidproquo Collection</p>
+        <h1>我的收藏館</h1>
+        <p class="collection-tagline">
+          看過的作品沉澱在這裡。評分是我的，感受是我的，真愛作品單獨開一間房。
+        </p>
+        <ul class="coll-keywords" aria-label="品味關鍵詞">
+          {keywords.map((k) => <li>{k}</li>)}
+        </ul>
+        <div class="coll-actions">
+          <a class="coll-btn coll-btn--primary" href="#collection-spotlight">從 No.1 開始</a>
+          <a class="coll-btn" href="#collection-ranking">看評分排行</a>
+        </div>
+        <dl class="collection-stats">
+          <div class="collection-stat"><dt>收藏</dt><dd>{all.length}</dd></div>
+          <div class="collection-stat"><dt>真愛</dt><dd>{favoriteCount}</dd></div>
+          <div class="collection-stat"><dt>平均評分</dt><dd>{avgRating}</dd></div>
+        </dl>
+      </div>
+
+      <div class="collection-mosaic" aria-label="收藏牆">
+        {mosaic.map((w) => (
+          <div class:list={['mosaic-tile', w.tier === 'favorite' && 'mosaic-tile--hero']}>
+            <a href={`/collection/${w.slug}`} style={getPosterStyle(w.slug)} aria-label={w.title}>
+              {w.poster ? (
+                <img src={w.poster} alt="" loading="lazy" />
+              ) : (
+                <>
+                  <b>{w.title}</b>
+                  <span>{w.year} · {typeLabels[w.type]}</span>
+                </>
+              )}
+            </a>
+          </div>
+        ))}
+        <a
+          class:list={[
+            'mosaic-fill',
+            mosaicFill.wide === 0 && 'mosaic-fill--none-wide',
+            mosaicFill.mid === 0 && 'mosaic-fill--none-mid',
+            mosaicFill.narrow === 0 && 'mosaic-fill--none-narrow',
+          ]}
+          href="#collection-types"
+          style={`--fill-wide: ${mosaicFill.wide}; --fill-mid: ${mosaicFill.mid}; --fill-narrow: ${mosaicFill.narrow}`}
+        >
+          <span>看分類 ↓</span>
+        </a>
       </div>
     </header>
 
-    <div class="collection-mosaic" aria-label="收藏牆">
-      {mosaic.map((w) => (
-        <div class:list={['mosaic-tile', w.tier === 'favorite' && 'mosaic-tile--hero']}>
-          <a
-            href={`/collection/${w.slug}`}
-            style={getPosterStyle(w.slug)}
-            aria-label={w.title}
-          >
-            <b>{w.title}</b>
-            <span>{w.year} · {sectionLabels[w.type]}</span>
-          </a>
-        </div>
-      ))}
-    </div>
-
-    <section class="collection-section">
+    <!-- 01 No.1 主打 -->
+    <section class="collection-section" id="collection-spotlight">
       <div class="collection-section-header">
         <span class="collection-section-no">01</span>
-        <h2>真愛 TOP {top.length}</h2>
-        <span class="collection-section-count">FAVORITES</span>
+        <h2>No.1 真愛</h2>
+        <span class="collection-section-count">SPOTLIGHT</span>
       </div>
-      <div class="collection-grid">
-        {top.map((w) => (
-          <a class="work-card" href={`/collection/${w.slug}`}>
-            <div class="work-card-poster" style={getPosterStyle(w.slug)}>
-              {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
-              <span class="work-card-year">{w.year}</span>
-              {w.rating > 0 && <span class="work-card-rating">★ {w.rating}</span>}
+
+      <article class="spotlight">
+        <a class="spotlight-poster" href={`/collection/${no1.slug}`} style={getPosterStyle(no1.slug)}>
+          {no1.poster && <img src={no1.poster} alt={posterAlt(no1)} />}
+        </a>
+        <div class="spotlight-body">
+          <p class="spotlight-meta">{typeLabels[no1.type]} · {no1.year} · {no1.originalTitle}</p>
+          {no1.oneLiner && <blockquote class="spotlight-quote">{no1.oneLiner}</blockquote>}
+          <h3><a href={`/collection/${no1.slug}`}>{no1.title}</a></h3>
+          <p class="spotlight-rating"><b>{no1.rating}</b><span>/ 10</span></p>
+          <p class="spotlight-synopsis">{no1.synopsis}</p>
+          {no1.favoriteScenes.length > 0 && (
+            <div class="spotlight-scenes">
+              <span>最愛場景</span>
+              <ul>{no1.favoriteScenes.map((s) => <li>{s}</li>)}</ul>
             </div>
-            <div class="work-card-body">
-              <span class="work-card-title">{w.title}</span>
-              <span class="work-card-meta">{sectionLabels[w.type]} · {getStatusLabel(w.status, 'zh-TW')}</span>
-              {w.oneLiner && <span class="work-card-oneliner">{w.oneLiner}</span>}
-            </div>
-          </a>
+          )}
+          <a class="coll-link" href={`/collection/${no1.slug}`}>走進作品頁 →</a>
+        </div>
+      </article>
+
+      {otherFavorites.length > 0 && (
+        <div class="fav-row">
+          {otherFavorites.map((w) => (
+            <a class="fav-card" href={`/collection/${w.slug}`}>
+              <div class="fav-card-poster" style={getPosterStyle(w.slug)}>
+                {w.poster && <img src={w.poster} alt={posterAlt(w)} loading="lazy" />}
+              </div>
+              <div class="fav-card-body">
+                <span class="fav-card-meta">{typeLabels[w.type]} · {w.year} · ★ {w.rating}</span>
+                <span class="fav-card-title">{w.title}</span>
+                {w.oneLiner && <span class="fav-card-quote">{w.oneLiner}</span>}
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </section>
+
+    <!-- 02 評分排行（歌單式） -->
+    <section class="collection-section" id="collection-ranking">
+      <div class="collection-section-header">
+        <span class="collection-section-no">02</span>
+        <h2>評分排行</h2>
+        <span class="collection-section-count">{all.length} 部</span>
+      </div>
+      <ol class="ranking">
+        {ranked.map((w, i) => (
+          <li>
+            <a class="ranking-row" href={`/collection/${w.slug}`}>
+              <span class="ranking-no">{String(i + 1).padStart(2, '0')}</span>
+              <span class="ranking-thumb" style={getPosterStyle(w.slug)}>
+                {w.poster && <img src={w.poster} alt="" loading="lazy" />}
+              </span>
+              <span class="ranking-title">
+                <b>{w.title}</b>
+                <small>{w.originalTitle !== w.title ? `${w.originalTitle} · ` : ''}{w.year}</small>
+              </span>
+              <span class="ranking-genres">{w.genres.join(' · ')}</span>
+              <span class="ranking-type">{typeLabels[w.type]}{w.tier === 'favorite' ? ' · 真愛' : ''}</span>
+              <span class:list={['ranking-score', w.rating === 0 && 'ranking-score--none']}>
+                {w.rating > 0 ? `★ ${w.rating}` : '未評分'}
+              </span>
+            </a>
+          </li>
         ))}
+      </ol>
+    </section>
+
+    <!-- 03 依類型 -->
+    <section class="collection-section" id="collection-types">
+      <div class="collection-section-header">
+        <span class="collection-section-no">03</span>
+        <h2>依類型</h2>
+        <span class="collection-section-count">{types.length} 類</span>
+      </div>
+      <div class="type-grid">
+        {types.map((type, i) => {
+          const works = getWorksByType(type);
+          return (
+            <article class="type-card" id={`collection-${type}`}>
+              <header class="type-card-head">
+                <span class="type-card-no">{String(i + 1).padStart(2, '0')}</span>
+                <h3>{typeLabels[type]}</h3>
+                <span class="type-card-count">{works.length} 部</span>
+              </header>
+              <div class="type-card-posters">
+                {works.slice(0, 4).map((w) => (
+                  <a href={`/collection/${w.slug}`} style={getPosterStyle(w.slug)} aria-label={w.title}>
+                    {w.poster && <img src={w.poster} alt="" loading="lazy" />}
+                  </a>
+                ))}
+              </div>
+              <ul class="type-card-list">
+                {works.map((w) => (
+                  <li>
+                    <a href={`/collection/${w.slug}`}>{w.title}</a>
+                    <span>{w.year} · {w.rating > 0 ? `★ ${w.rating}` : getStatusLabel(w.status, 'zh-TW')}</span>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          );
+        })}
       </div>
     </section>
 
-    {sections.map((s, i) => (
-      <section class="collection-section">
+    <!-- 04 最愛場景 -->
+    {scenes.length > 0 && (
+      <section class="collection-section" id="collection-scenes">
         <div class="collection-section-header">
-          <span class="collection-section-no">{String(i + 2).padStart(2, '0')}</span>
-          <h2>{sectionLabels[s.type]}</h2>
-          <span class="collection-section-count">{s.works.length} 部</span>
+          <span class="collection-section-no">04</span>
+          <h2>最愛場景</h2>
+          <span class="collection-section-count">{scenes.length} 幕</span>
         </div>
-        {s.works.length === 0 ? (
-          <p class="collection-empty">這個分類還沒有收藏。</p>
-        ) : (
-          <div class="collection-grid">
-            {s.works.map((w) => (
-              <a class="work-card" href={`/collection/${w.slug}`}>
-                <div class="work-card-poster" style={getPosterStyle(w.slug)}>
-                  {w.poster && <img src={w.poster} alt={`${w.title} 海報`} loading="lazy" />}
-                  <span class="work-card-year">{w.year}</span>
-                  {w.rating > 0 && <span class="work-card-rating">★ {w.rating}</span>}
-                </div>
-                <div class="work-card-body">
-                  <span class="work-card-title">{w.title}</span>
-                  <span class="work-card-meta">{w.year} · {getStatusLabel(w.status, 'zh-TW')}</span>
-                  {w.oneLiner && <span class="work-card-oneliner">{w.oneLiner}</span>}
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
+        <ul class="scene-wall">
+          {scenes.map(({ scene, work }) => (
+            <li class="scene-card">
+              <p>{scene}</p>
+              <a href={`/collection/${work.slug}`}>— {work.title}</a>
+            </li>
+          ))}
+        </ul>
       </section>
-    ))}
+    )}
+
+    <!-- 結尾 CTA -->
+    <aside class="coll-cta">
+      <p class="collection-eyebrow">Recommendation</p>
+      <h2>朋友問有什麼好看的？</h2>
+      <p>把這頁丟給他。不知道從哪部開始，就從評分最高的這部。</p>
+      <div class="coll-actions coll-actions--center">
+        <a class="coll-btn coll-btn--primary" href={`/collection/${no1.slug}`}>{no1.title} →</a>
+        <a class="coll-btn" href="#collection-ranking">看完整排行</a>
+      </div>
+    </aside>
   </div>
 </PostLayout>
