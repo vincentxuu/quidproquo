@@ -114,7 +114,7 @@ response = client.chat.completions.create(
 
 Supported OpenAI API endpoints include Chat Completions, Completions, Embeddings, Images, and more. It also supports [Function Calling](https://inference.readthedocs.io/en/latest/models/model_abilities/tools.html) (tool use), as well as integrations with LangChain, LlamaIndex, and Dify.
 
-v3.0.0 (July 2026) added MCP server support, enabling Xinference to be called as an MCP tool by agent frameworks.
+v3.0.0 (July 2026) added MCP server support, enabling Xinference to be called as an MCP tool by agent frameworks. v4.0.0 (October 2026) added a stateless OpenAI Responses API (`/v1/responses`, with streaming and tool calls), so Responses-based clients can connect directly; the same release extended Xavier's prefix KV cache sharing to vLLM, SGLang, and MLX, and allows prefill and decode to run on different engines or hardware.
 
 ## How It Compares to Similar Tools
 
@@ -160,10 +160,15 @@ This vulnerability isn't a vLLM or SGLang issue — they only handle inference s
 
 As with all management platforms, first confirm you actually need this layer of abstraction. If you're unsure, start with vLLM or Ollama, and consider Xinference when you hit the "managing multiple models is a pain" problem.
 
+## Update Log
+
+- 2026-11-23: Added v4.0.0's Responses API and cross-engine Xavier and prefill/decode separation to the API compatibility section.
+
 ## References
 
 - [Xinference official documentation](https://inference.readthedocs.io/)
 - [Xinference GitHub (Apache-2.0)](https://github.com/xorbitsai/inference)
+- [Xinference v4.0.0 release notes](https://github.com/xorbitsai/inference/releases/tag/v4.0.0)
 - [Xinference Installation Guide](https://inference.readthedocs.io/en/latest/getting_started/installation.html)
 - [Xinference Backends](https://inference.readthedocs.io/en/latest/user_guide/backends.html)
 - [Xinference Built-in Models](https://inference.readthedocs.io/en/latest/models/builtin/)

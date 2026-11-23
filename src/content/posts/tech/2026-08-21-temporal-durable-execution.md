@@ -27,7 +27,7 @@ draft: false
 |---|---|---|
 | 任務佇列 | [BullMQ](https://docs.bullmq.io/)、[Celery](https://docs.celeryq.dev/) | 一則訊息會被某個 worker 消費（可重試、可延遲、可排優先級） |
 | 事件串流 | [Kafka](https://kafka.apache.org/documentation/)、[NATS](https://docs.nats.io/) | 事件有序、可保留、可被多個消費者重播 |
-| durable execution | Temporal、[Restate](https://docs.restate.dev/)、[DBOS](https://docs.dbos.dev/) | 一段橫跨多次外部呼叫的**流程**，中途崩了也會接著走完 |
+| durable execution | Temporal、[Restate](https://docs.restate.dev/)、[DBOS](https://docs.dbos.dev/)、[Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) | 一段橫跨多次外部呼叫的**流程**，中途崩了也會接著走完 |
 
 差別在單位。佇列的單位是一則訊息，串流的單位是一筆事件，durable execution 的單位是**整段流程的執行狀態**。[Hatchet 的文件](https://docs.hatchet.run/home/durable-execution)把這件事講得直白：durable execution 給你的是「一般任務佇列給不了的保證」。它的價值集中在那些「不可能做成冪等所以無法重播」的流程上。
 
@@ -101,6 +101,7 @@ durable execution 內部確實有架構分歧，但分歧不在「checkpoint」�
 | [Restate](https://docs.restate.dev/develop/python/durable-steps) | 從頭重跑 handler，重放 journal，跳過已完成的步驟 | 要（提供 `ctx.run` / `ctx.uuid()` / `ctx.random()` / `ctx.time()`） |
 | [DBOS](https://docs.dbos.dev/architecture) | 用 checkpoint 過的輸入重新呼叫 workflow，每個 step 先查 Postgres 有沒有 checkpoint | 要（文件明列 workflow function must be deterministic） |
 | [Hatchet](https://docs.hatchet.run/home/durable-execution) | 從 durable event log 的最後一個 checkpoint 重放 | 要（durable task 只能 wait 或 spawn child） |
+| [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) | checkpoint/replay：從頭重跑 handler，已完成的 step 直接回填結果（2025-12 GA，單次執行最長一年） | 要（重放會從頭重跑，step 外的程式要走出同樣路徑） |
 | [Trigger.dev](https://trigger.dev/docs/how-it-works) | 用 CRIU 對整個行程做記憶體快照，還原後從中斷處續跑 | 不要 |
 | [LangGraph](https://langchain-ai.github.io/langgraph/concepts/persistence/) | checkpointer 存 graph state 快照，從 thread 的 checkpoint 續跑 | 不要 |
 
@@ -139,7 +140,13 @@ Server 是 MIT 授權，`temporal server start-dev` 一個 binary 就能在本�
 
 反過來說，只要流程滿足「多步、跨外部系統、失敗代價高、需要人類介入或長時間等待」這四項裡的三項，Temporal 幾乎一定划算——因為那些你原本要自己寫的狀態表、冪等鍵與補償邏輯，加起來比學會決定性約束貴得多。
 
+## 更新紀錄
+
+- 2026-11-23：durable execution 類別表與「replay 還是快照」比較表補上 2025-12 GA 的 AWS Lambda durable functions。
+
 ## 參考資料
+
+- [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
 
 - [Temporal Workflow（含 replay 機制說明）](https://docs.temporal.io/workflows)
 - [Temporal Workflow Definition：決定性約束與版本管理](https://docs.temporal.io/workflow-definition)

@@ -31,7 +31,11 @@ Ping/pong 可偵測 half-open connection，但 browser API 不直接暴露 proto
 
 MDN 明確指出穩定的 `WebSocket` interface 不會自動 backpressure；若 producer 比 consumer 快，buffer、記憶體與 CPU 可能失控。要監看 `bufferedAmount`、限制 per-connection queue、合併 cursor/presence updates、drop 可丟事件，對不可丟事件則落 durable log。`WebSocketStream` 能利用 Streams backpressure，但仍是 non-standard、支援有限，不能當通用解法。
 
-水平擴展要決定 connection affinity、room directory、cross-node fan-out、deploy drain 與 presence consistency。WebSocket 本身沒有 ordering across reconnect、exactly-once 或 durable history。Socket.IO 加入 event/recovery abstractions；SSE 簡化單向 push；Ably 提供 managed channels；PartyKit/Durable Objects 以單一 room coordinator 降低分散式狀態複雜度。
+水平擴展要決定 connection affinity、room directory、cross-node fan-out、deploy drain 與 presence consistency。WebSocket 本身沒有 ordering across reconnect、exactly-once 或 durable history。Socket.IO 加入 event/recovery abstractions；SSE 簡化單向 push；Ably 提供 managed channels；[PartyServer（原 PartyKit）](/posts/tech/2026-08-22-partykit-realtime-rooms)/Durable Objects 以單一 room coordinator 降低分散式狀態複雜度。
+
+## 更新紀錄
+
+- 2026-11-23：PartyKit 託管平台已於 2026-10-23 關閉，比較對象改為後繼的 PartyServer
 
 ## 參考資料
 

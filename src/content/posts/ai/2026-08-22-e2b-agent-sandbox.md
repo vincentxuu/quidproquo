@@ -86,7 +86,7 @@ E2B sandbox [預設可連外](https://docs.e2b.dev/network/internet-access)。�
 | 長期開發工作區與多種 VM／容器類別 | Daytona | [預設保留檔案系統](https://www.daytona.io/docs/en/persistence/)，VM 還有 hot snapshot 與 fork |
 | coding-agent 評測、Blueprint 與 Devbox 工作流 | Runloop | [Devbox](https://docs.runloop.ai/docs/devboxes/overview)把 repository、快照與開發機器語意放在產品中心；目前 snapshot 只保存磁碟 |
 | 應用程式已在 Vercel，偏 TypeScript 整合 | Vercel Sandbox | [官方 SDK](https://vercel.com/docs/sandbox)與 Vercel OIDC、preview workflow 接得最短 |
-| 控制面已在 Workers，想接 Durable Objects／R2 | Cloudflare Sandboxes | [Sandbox SDK](https://developers.cloudflare.com/sandbox/)直接長在 Workers + Containers；stable 版閒置重啟會失去本機狀態，要把持久資料移到 object storage |
+| 控制面已在 Workers，想接 Durable Objects／R2 | Cloudflare Sandboxes | [Sandbox SDK](https://developers.cloudflare.com/sandbox/)直接長在 Workers + Containers；2026-09 的 SDK 1.0 可在停機前存 snapshot，但只保存檔案、不含記憶體與 process |
 
 這不是功能總分表。若只要執行一次 Python 並拿回結果，六家都可能勝任。先做一個真實任務，量建立時間、依賴準備時間、暫停恢復、失敗後清理與每任務成本，再決定哪種生命週期最貼近產品。
 
@@ -96,7 +96,7 @@ E2B 在 2025-07 [官方 A 輪公告](https://changelog.e2b.dev/blog/series-a)宣
 
 同一份公告稱已有 88% 的 Fortune 100 註冊，並在超過半數 Fortune 500 啟動數億個 sandbox。這些都是公司自報，且「註冊」不等於付費或正式上線。它們適合證明市場關注，不能代替你自己的可靠度測試。
 
-開放原始碼訊號比較容易查核：截至本文查證時，[E2B GitHub repository](https://github.com/e2b-dev/e2b)約 13,500 stars，SDK 與基礎設施程式碼可直接檢視。它降低的是審查與自架門檻，不代表託管服務沒有綁定；Template、生命周期與網路政策一旦深入應用，搬家仍需要重寫控制層。
+開放原始碼訊號比較容易查核：截至 2026-11，[E2B GitHub repository](https://github.com/e2b-dev/e2b)約 15,000 stars，SDK 與基礎設施程式碼可直接檢視。它降低的是審查與自架門檻，不代表託管服務沒有綁定；Template、生命周期與網路政策一旦深入應用，搬家仍需要重寫控制層。
 
 ## 適合、不適合與最後判斷
 
@@ -105,6 +105,10 @@ E2B 適合 agent 會 clone repository、跑測試、產生檔案，且工作跨�
 不適合的情況有三種：工作負載主要是 GPU、任務必須不中斷地跑超過方案上限，或你只需要幾百毫秒的純函式計算。前兩者應看 GPU／batch 平台或長駐 VM，最後一種用一般 serverless function 更直接。
 
 真正的判斷題不是「要不要 sandbox」，而是**你的 agent 狀態是否值得保存**。若每個動作都可重播，選最便宜的拋棄式執行環境。若 repository、程序、快取與互動上下文要跨輪延續，E2B 的 pause/resume 才會從方便功能變成架構優勢。
+
+## 更新紀錄
+
+- 2026-11-23：Cloudflare Sandboxes 對照列改為 SDK 1.0 的 snapshot 行為；GitHub stars 更新為約 15,000。E2B 的費率、方案上限、pause 效能與預設連外行為對照官方文件後未變。
 
 ## 參考資料
 

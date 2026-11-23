@@ -149,7 +149,7 @@ draft: false
 | **建置與工具鏈** | Vite 8 與 Rolldown、Vitest、oxlint / Oxc、TypeScript 7 | 完全空白 |
 | **訊息佇列與事件串流** | Kafka、RabbitMQ、NATS、Redpanda、Pulsar、Redis Streams、AWS SQS / SNS、Cloudflare Queues | 有 BullMQ 與 Celery 兩篇任務佇列 |
 | **Durable execution** | Inngest、Restate、Hatchet | 已有 Temporal 與 Trigger.dev 專文 |
-| **後端的合約層** | tRPC、oRPC、ts-rest、Zodios、Hono RPC；OpenAPI 那側的 openapi-typescript、Stainless、Speakeasy；跨語言的 gRPC / Connect、Protobuf / Buf、GraphQL 與 Codegen | 完全空白 |
+| **後端的合約層** | tRPC、oRPC、ts-rest（2026-10 已封存）、Zodios（2023-08 後未再發版）、Hono RPC；OpenAPI 那側的 openapi-typescript、Stainless（2026-05 併入 Anthropic，已停止對外服務）、Speakeasy；跨語言的 gRPC / Connect、Protobuf / Buf、GraphQL 與 Codegen | 完全空白 |
 | **資料存取** | Kysely | 已有 Drizzle 與 Prisma 專文 |
 | **認證與授權** | Better Auth，以及 agent 代表使用者行動時的授權模型 | 完全空白 |
 | **三大雲的運算層** | AWS Lambda / Fargate / App Runner（2026-04-30 起停收新客戶，新專案改用 ECS Express Mode）、Google Cloud Run / GKE、Azure Container Apps / App Service | 只有 AI 證照備考文，沒有平台選型文 |

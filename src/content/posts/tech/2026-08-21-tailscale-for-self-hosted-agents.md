@@ -125,11 +125,11 @@ Tailscale 在這件事上的好消息是快。改完 policy 之後，官方文�
 
 代價要先知道。至少要指定兩個簽署節點，初始化時會產生 10 組 disablement secret，停用時只需要其中一組。這些密語只在初始化那一刻顯示一次。文件的原話是，如果你弄丟了、又沒有留一份給 Tailscale 支援，那個 tailnet 就救不回來了。它也是 TOFU 模型：第一次還是得信任控制面，之後才把信任中心搬到自己的節點上。
 
-還有一層在網路之上：agent 手上那把模型供應商的 API key。Tailscale 2026 年推的 [Aperture](https://tailscale.com/docs/aperture) 就是在收這個。它是一個 AI gateway，把供應商金鑰集中在 gateway 裡；用戶端靠 Tailscale 身分認證，再由 gateway 代打上游。附帶的是每個請求的 session log 與花費上限，它也能代理 MCP server 並套用以身分為基礎的存取控制。它要解的問題，官方 blog 描述得很具體：
+還有一層在網路之上：agent 手上那把模型供應商的 API key。Tailscale 2026 年推的 [Aperture](https://tailscale.com/docs/aperture) 就是在收這個。它的核心是一個 AI gateway，把供應商金鑰集中在 gateway 裡；用戶端靠 Tailscale 身分認證，再由 gateway 代打上游。附帶的是每個請求的 session log 與花費上限，它也能代理 MCP server 並套用以身分為基礎的存取控制。它要解的問題，官方 blog 描述得很具體：
 
 > It gets copied into a local .env file for testing. Then into a CI pipeline. Then into a container. Then into an agent runtime so it can call a model or tool on its own.
 
-分寸也要講清楚：2026-08 實查，文件頁把 Aperture 標為 beta，更早的公告文寫的是 alpha。它是跟 Tailscale 方案分開購買的產品，值得知道，還不到「照著做」。
+Aperture 在 2026-08-26 GA，同時從 gateway 往外長了一層：Aperture Chat 本身就是一個 agent，你把 tailnet 裡的機器接進某個任務，它就以你的權限在那些機器上跑指令；另有 Tailscale 與 Tailscale SSH 兩個 MCP endpoint，讓 Aperture 或其他 coding agent 新增節點、經 Tailscale SSH 連進去，每台新機器都要你核准，動作全部留紀錄。這對本篇的讀者是兩面的：gateway 那一半正好補上金鑰擴散的缺口，agent 那一半則是又一個能動你機器的程式，前面講的 tag、ACL 與 device approval 一樣要套在它身上。它跟 Tailscale 方案分開申請（`aperture.tailscale.com`），可以在裡面直接買 token；Personal 以外的方案要自帶 API key 得先找業務。
 
 ## 定價：2026-08 實查
 
@@ -166,6 +166,10 @@ Tailscale 在這件事上的好消息是快。改完 policy 之後，官方文�
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：Aperture 已於 2026-08-26 GA，改寫狀態說明，補上 Aperture Chat agent、Tailscale／Tailscale SSH MCP 與 token 購買，並補參考資料；定價表重新核對未變
+
 ## 參考資料
 
 - [Tailscale Pricing](https://tailscale.com/pricing) — 席次計價、Personal 方案額度、tagged / ephemeral resource 定義（2026-08 實查）
@@ -182,6 +186,8 @@ Tailscale 在這件事上的好消息是快。改完 policy 之後，官方文�
 - [Remove a device — Tailscale Docs](https://tailscale.com/docs/features/access-control/device-management/how-to/remove) — 移除後可自行重新加入的條件
 - [Tailscale SSH — Tailscale Docs](https://tailscale.com/docs/features/tailscale-ssh) — 政策數秒內生效並中斷既有連線、check mode
 - [Aperture — Tailscale Docs](https://tailscale.com/docs/aperture) — AI gateway、身分認證、MCP 代理與花費控制
+- [Aperture GA: model tokens, MCP controls, Projects, and custom permissions](https://tailscale.com/blog/aperture-ga) — GA、內建 token、Tailscale／Tailscale SSH MCP
+- [What is Aperture? — Tailscale Docs](https://tailscale.com/docs/aperture/what-is-aperture) — Aperture Chat agent 以使用者權限在接入的機器上執行指令
 - [Aperture by Tailscale: More secure AI now available via self-serve](https://tailscale.com/blog/aperture-self-serve) — 金鑰擴散的問題描述
 - [Headscale — GitHub](https://github.com/juanfont/headscale) — 自架控制伺服器、單一 tailnet 的設計射程
 - [從外面連回家裡的 Mac：Cloudflare Tunnel 與 2026 的替代方案](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026) — 反方向的問題與各家工具比較

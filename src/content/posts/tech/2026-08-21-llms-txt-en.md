@@ -26,7 +26,7 @@ llms.txt was proposed by Jeremy Howard of fast.ai on September 3, 2024. The offi
 
 The format is deliberately simple: structured Markdown with an H1 site name, a blockquote one-line summary, then H2 sections of link lists to the pages that matter, each with a short description. It addresses three practical problems LLMs have with websites: the whole site doesn't fit in a context window, HTML is polluted with navigation/ads/JS noise, and the model can't tell which pages are authoritative. llms.txt is the site answering, "if the model can only read ten pages, these are the ten."
 
-In practice a companion convention has grown alongside it: **llms-full.txt** — not an index but the entire documentation concatenated into one large Markdown file, suited to stuffing into a big context window or serving as RAG corpus. Anthropic (docs.anthropic.com), Cloudflare (developers.cloudflare.com), the AI SDK, and Zod all serve both files (each hand-verified reachable, August 2026).
+In practice a companion convention has grown alongside it: **llms-full.txt** — not an index but the entire documentation concatenated into one large Markdown file, suited to stuffing into a big context window or serving as RAG corpus. Anthropic, Cloudflare (developers.cloudflare.com), and Zod serve both files; Anthropic's docs have moved to platform.claude.com, and the old docs.anthropic.com URLs redirect there. The AI SDK puts the full text directly at /llms.txt, and its llms-full.txt simply redirects to the same file.
 
 ## Who ships it: a six-site test
 
@@ -41,7 +41,7 @@ While writing the [selection overview](/posts/tech/2026-08-19-react-stack-ai-era
 | nextjs.org | ✓ 200 |
 | reactrouter.com | ✗ 404 |
 
-The difference is concrete. Say your coding agent needs to write file-based routing with TanStack Router — a library under-represented in training data (a weakness [the series' third post](/posts/tech/2026-08-21-tanstack-router-type-safety-en) covers), so bare-handed output drifts into React Router idioms. With llms.txt the workflow is: fetch the index → locate the file-based-routing page → fetch it → write against the current API. Without it, the agent scrapes HTML and hopes, or writes from stale memory. **llms.txt is a niche library's main weapon against the training-data deficit** — which also explains the adoption pattern: the most eager adopters are young ecosystems like TanStack and the AI SDK, while React Router, with the largest installed base, hasn't moved. When the corpus already knows you, the pain is smaller.
+The difference is concrete. Say your coding agent needs to write file-based routing with TanStack Router — a library under-represented in training data (a weakness [the series' third post](/posts/tech/2026-08-21-tanstack-router-type-safety-en) covers), so bare-handed output drifts into React Router idioms. With llms.txt the workflow is: fetch the index → locate the file-based-routing page → fetch it → write against the current API. Without it, the agent scrapes HTML and hopes, or writes from stale memory. **llms.txt is a niche library's main weapon against the training-data deficit** — which also explains the adoption pattern: the most eager adopters are young ecosystems like TanStack and the AI SDK, while React Router, with the largest installed base, still has no llms.txt. When the corpus already knows you, the pain is smaller. Its v8 (June 2026) took a different route: the docs ship inside the package in `node_modules`, and `create-react-router` installs the official Agent Skill into new projects, so agents read the docs locally.
 
 ## The honest part: disputes and limits
 
@@ -57,11 +57,16 @@ The natural question at this point: should content sites follow? This site's AEO
 
 llms.txt bets on a premise that is coming true: **the readership of websites has permanently changed, and the machine share only grows**. Technically it is almost naive — one hand-written Markdown index — but it is positioned precisely: on the question of "what should the model read," it gives site owners their first formal say. For library authors it's a cheap must-do; for anyone choosing libraries it's an honest signal — a project that maintains llms.txt probably also cares about the agent-era developer experience; for content authors it's the cheapest tool in the GEO toolbox.
 
+## Update Log
+
+- 2026-11-23: Added React Router v8's approach of shipping docs to agents with the package; Anthropic's docs moved to platform.claude.com, and the AI SDK folded its full text into /llms.txt.
+
 ## References
 
 - [The llms.txt spec (llmstxt.org)](https://llmstxt.org/)
 - [TanStack llms.txt (example)](https://tanstack.com/llms.txt)
-- [Anthropic llms-full.txt (example)](https://docs.anthropic.com/llms-full.txt)
+- [Anthropic llms-full.txt (example)](https://platform.claude.com/llms-full.txt)
+- [Remix Newsletter #44 (agent support in React Router v8)](https://remix.run/newsletter/44)
 - [GEO paper (KDD 2024, arXiv 2311.09735)](https://arxiv.org/abs/2311.09735)
 - [Google Says LLMs.Txt Comparable To Keywords Meta Tag (Search Engine Journal)](https://www.searchenginejournal.com/google-says-llms-txt-comparable-to-keywords-meta-tag/544804)
 - On this site: [Choosing a React Stack in the AI Era](/posts/tech/2026-08-19-react-stack-ai-era-en), [AEO/GEO Strategy for the AI Search Era](/posts/marketing/2026-04-18-ai-search-engine-aeo-geo-strategy-en)

@@ -23,7 +23,7 @@ draft: false
 
 producer 透過 Kafka protocol 把 record 寫入 topic partition，consumer 依 offset 讀取；同 key 會路由到同一 partition，順序保證仍只在 partition 內。consumer group、retention、compaction、transaction 與 schema registry 等概念也延續 Kafka 生態。
 
-所以 Redpanda 不會消除 partition key 選錯、hot partition、consumer lag、schema breaking change 或 exactly-once 邊界。application architecture 若在 Kafka 上不正確，換 broker 不會自動修好。
+所以 Redpanda 不會消除 partition key 選錯、hot partition、consumer lag、schema breaking change 或 exactly-once 邊界。application architecture 若在 Kafka 上不正確，換 broker 不會自動修好。反過來也要注意：Apache Kafka 4.2 起的 [share group](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)（KIP-932）已可上 production，讓多個 consumer 分食同一 partition、逐筆 ack，Redpanda 目前還不支援（維護者在[官方 issue](https://github.com/redpanda-data/redpanda/issues/26434) 說最快 27.1）。打算用 share group 做工作佇列的設計，暫時不能換到 Redpanda。
 
 ## 每個 partition 都是 Raft group
 
@@ -53,10 +53,20 @@ Redpanda Tiered Storage 可把 log segment 近即時 offload 到 object storage�
 
 想保留 Kafka client 與 event model、追求較單一的 self-hosted broker、重視 tiered storage，或選用 Redpanda Cloud／BYOC 時，它值得進 shortlist。組織已有成熟 Kafka platform、依賴完整周邊工具，且瓶頸不在 broker，遷移收益可能不夠付相容驗證成本。
 
+自架前先看授權。從 26.3.1（2026-11-20）起，Redpanda broker 與 Operator 不再公開原始碼，只以 binary 形式提供，Community Edition 改用 [Redpanda Community Edition License](https://docs.redpanda.com/streaming/current/get-started/licensing/redpanda-community-edition-license/)：免費但整個組織所有 cluster 加起來最多 50 個 core，而且不能拿來對外提供 streaming／queuing 服務。[超過上限](https://docs.redpanda.com/streaming/current/get-started/licensing/core-limit/)的 cluster 不會停機，但會持續警告，並擋下升到下一個 feature release。Tiered Storage 本來就是要 license 的 enterprise 功能。所以「self-hosted、規模會長大」的團隊要把 Enterprise 訂閱算進成本，或是改評估 Apache Kafka 本身；26.3.1 以前的版本原始碼仍留在已 archive 的 GitHub repo。
+
 AI pipeline 的做法和 Kafka 相同：event 放 pointer 與 metadata，大型 prompt、文件和模型輸出放 object storage。Redpanda 能讓這條 event backbone 換一個 runtime，但資料契約、冪等、PII retention 與 replay governance 仍是應用責任。
+
+## 更新紀錄
+
+- 2026-11-23：補上 26.3.1 起的授權變更（broker 不再公開原始碼、Community Edition 全組織 50 core 上限、禁止對外提供 streaming 服務），以及這對自架選型的影響；補上 Redpanda 尚不支援 Kafka 4.2 share group。
 
 ## 參考資料
 
 - [How Redpanda works](https://docs.redpanda.com/streaming/current/get-started/architecture/)
 - [Redpanda Kafka compatibility](https://docs.redpanda.com/current/develop/kafka-clients/)
+- [Apache Kafka 4.2.0 release announcement（share groups）](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)
+- [Support KIP-932: Queues for Kafka（Redpanda issue）](https://github.com/redpanda-data/redpanda/issues/26434)
+- [R2: The engine of engines（26.3.1 授權變更公告）](https://www.redpanda.com/blog/r2-the-engine-of-engines)
+- [Redpanda Community Edition Core Limit](https://docs.redpanda.com/streaming/current/get-started/licensing/core-limit/)
 - [Redpanda Tiered Storage](https://docs.redpanda.com/current/manage/tiered-storage/)

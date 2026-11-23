@@ -89,7 +89,7 @@ Daytona 的差異不在「能跑 shell」——E2B、Modal、Runloop、Vercel Sa
 
 如果需求只是短暫執行一小段 Python，較窄的 code interpreter 會更省整合成本。已把推論與 GPU 工作負載放在 Modal 的團隊，也可能偏好同一套運算平台。Vercel 應用若只需在既有部署流程旁加短命 sandbox，採用 Vercel Sandbox 的帳務與身分整合通常更直接。比較時應用自己的 Docker image，量建立延遲、長任務失敗率、snapshot 還原時間與每個成功任務成本；不要只比首頁的毫秒數。
 
-價格則是可拆解的。[2026-08-22 定價頁](https://www.daytona.io/pricing)列出 vCPU 每小時 0.0504 美元、每 GiB 記憶體每小時 0.0162 美元，按秒計費；儲存前 5 GiB 免費，之後另計。這使 2 vCPU、4 GiB、忽略儲存的環境約為每小時 0.1656 美元。Warm pool、停止後仍保留的磁碟，以及失敗重試都會改變實際帳單，所以最有用的指標是「每個完成任務成本」。
+價格則是可拆解的。[定價頁](https://www.daytona.io/pricing)截至 2026-11 列出 vCPU 每小時 0.0504 美元、每 GiB 記憶體每小時 0.0162 美元，按秒計費；儲存前 5 GiB 免費，之後另計。這使 2 vCPU、4 GiB、忽略儲存的環境約為每小時 0.1656 美元。Warm pool、停止後仍保留的磁碟，以及失敗重試都會改變實際帳單，所以最有用的指標是「每個完成任務成本」。Windows、macOS 與 GPU（例如 H100 on-demand 每小時 4.29 美元）另有獨立價格。
 
 ## 適合、不適合與最大的限制
 
@@ -97,9 +97,13 @@ Daytona 的差異不在「能跑 shell」——E2B、Modal、Runloop、Vercel Sa
 
 **不適合 Daytona**：只跑固定、短暫函式；團隊已有成熟 Kubernetes sandbox 且能承擔維運；資料政策禁止第三方 control plane；或你要求完整、持續維護的開源自架控制面。
 
-最後一點是 2026 年選型最容易漏掉的變化。Daytona 的[公開核心 repository](https://github.com/daytonaio/daytona)已標示：自 2026 年 6 月起停止維護，核心開發移到私有 codebase，舊碼維持原授權但沒有更新、修補或支援。這不代表託管服務不能用；它代表「選 Daytona Cloud」與「採用 Daytona 開源專案自架」已是兩個風險完全不同的決策。若可攜性是硬需求，簽約前要實測映像匯出、資料取回、API 相依面與 BYOC 的故障責任。
+最後一點是 2026 年選型最容易漏掉的變化。Daytona 的[公開核心 repository](https://github.com/daytonaio/daytona)已標示：自 2026 年 6 月起停止維護，核心開發移到私有 codebase，舊碼維持原授權但沒有更新、修補或支援；repository 之後也已封存成唯讀。TypeScript SDK 的 npm 套件同時改名為 `@daytona/sdk`，舊的 `@daytonaio/sdk` 標為 deprecated。這不代表託管服務不能用；它代表「選 Daytona Cloud」與「採用 Daytona 開源專案自架」已是兩個風險完全不同的決策。若可攜性是硬需求，簽約前要實測映像匯出、資料取回、API 相依面與 BYOC 的故障責任。
 
 Daytona 最有說服力的地方，是把 agent 工作的真實形狀——長時間、有狀態、會犯錯、會分支——直接做成基礎設施操作。最大的代價也同樣清楚：你把狀態、排程與安全政策交給一個快速變動的平台。它不是通用雲端的替代品，而是當「每個 agent 都需要一台可丟棄的電腦」真的成為瓶頸時，值得買下的一層。
+
+## 更新紀錄
+
+- 2026-11-23：補上公開 repository 已封存、TypeScript SDK 改名 `@daytona/sdk`，以及 Windows／macOS／GPU 另計價；vCPU、記憶體費率與 Tier 1 建立上限對照官方頁面後未變。
 
 ## 參考資料
 

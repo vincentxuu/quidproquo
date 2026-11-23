@@ -160,7 +160,7 @@ CrewAI 的商業模式是開源核心 + 託管平台。[開源套件](https://py
 | SSO、稽核日誌、SOC 2 Type II | 無 | Enterprise 方案 |
 | 資料駐留（data residency） | 自行處理 | Enterprise 方案 |
 
-定價方面，免費方案每月 50 次工作流執行、1 個部署的 crew、1 個使用者。往上有付費方案，Enterprise 需要聯繫銷售。但真正的成本大頭不是平台費——是 LLM token 消耗。CrewAI 要求你自帶 LLM API key，agent 消耗的 token 費用完全另計。
+定價方面，定價頁現在只剩兩檔：免費的 Basic（每月 50 次工作流執行，含視覺化編輯器與 GitHub 整合），以及要聯繫銷售的 Enterprise 客製報價；中間的付費方案已經拿掉，免費檔用完就是直接談 Enterprise。但真正的成本大頭不是平台費——是 LLM token 消耗。CrewAI 要求你自帶 LLM API key，agent 消耗的 token 費用完全另計。
 
 ## 七、什麼時候用 CrewAI
 
@@ -178,10 +178,15 @@ CrewAI 的商業模式是開源核心 + 託管平台。[開源套件](https://py
 
 **怎麼做**：如果你現在要選多 agent 框架，先問自己一個問題——你的 agent 之間的互動，是用自然語言描述比較自然（「把初稿交給編輯審」），還是用程式碼規定比較自然（「generate 節點的輸出分數低於 0.5 時，回到 retrieve 節點」）。前者選 CrewAI，後者選 LangGraph。需要企業級 middleware、checkpoint、合規，先看 [MAF](/posts/ai/2026-08-21-microsoft-agent-framework)。問題根本不需要多 agent，看看 [LlamaIndex](/posts/ai/2026-08-21-llamaindex-rag-framework) 或直接用模型 API。更完整的框架地圖見[這篇](/posts/ai/2026-04-01-agent-frameworks-2026)。
 
+## 更新紀錄
+
+- 2026-11-23：AMP 定價改成現況：只剩免費 Basic 與 Enterprise 兩檔，中間的付費方案已移除。
+
 ## 參考資料
 
 - [CrewAI GitHub](https://github.com/crewAIInc/crewAI)
 - [CrewAI 官方文件](https://docs.crewai.com/)
+- [CrewAI 定價](https://www.crewai.com/pricing)
 - [CrewAI PyPI](https://pypi.org/project/crewai/)
 - [CrewAI Agents 概念文件](https://docs.crewai.com/concepts/agents)
 - [CrewAI Crews 概念文件](https://docs.crewai.com/concepts/crews)

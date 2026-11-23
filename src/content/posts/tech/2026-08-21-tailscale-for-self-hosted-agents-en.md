@@ -125,11 +125,11 @@ The bad news comes in three parts, all in the details.
 
 Know the cost first. You must designate at least two signing nodes, and initialization produces 10 disablement secrets, of which you need only one to disable it. Those secrets are displayed once, at initialization. The docs state that if you lose them and didn't leave one with Tailscale support, the tailnet cannot be recovered. It's also a TOFU model: you still have to trust the control plane the first time, and only afterward does the center of trust move onto your own nodes.
 
-There's one more layer above the network: the model provider API key sitting on the agent box. [Aperture](https://tailscale.com/docs/aperture), which Tailscale shipped in 2026, is aimed at that. It's an AI gateway that keeps provider credentials inside the gateway; clients authenticate with their Tailscale identity, and the gateway calls upstream on their behalf. You get a session log and spending limits per request, and it can proxy MCP servers with identity-based access control. The official blog describes the problem it targets concretely:
+There's one more layer above the network: the model provider API key sitting on the agent box. [Aperture](https://tailscale.com/docs/aperture), which Tailscale shipped in 2026, is aimed at that. At its core it's an AI gateway that keeps provider credentials inside the gateway; clients authenticate with their Tailscale identity, and the gateway calls upstream on their behalf. You get a session log and spending limits per request, and it can proxy MCP servers with identity-based access control. The official blog describes the problem it targets concretely:
 
 > It gets copied into a local .env file for testing. Then into a CI pipeline. Then into a container. Then into an agent runtime so it can call a model or tool on its own.
 
-Keep the proportions straight: checked 2026-08, the docs page marks Aperture as beta, while the earlier announcement post called it alpha. It's purchased separately from Tailscale plans. Worth knowing about, not yet "go do this."
+Aperture reached GA on 2026-08-26 and grew a layer beyond the gateway. Aperture Chat is itself an agent: connect machines from your tailnet to a task and it runs commands on them with your access. Two MCP endpoints, Tailscale and Tailscale SSH, let Aperture or other coding agents add nodes and reach them over Tailscale SSH; you approve every new machine, and every action is logged. For readers of this post that cuts both ways. The gateway half closes the key-sprawl gap, while the agent half is one more program that can act on your machines, so the tags, ACLs, and device approval described above apply to it as well. It's signed up for separately from Tailscale plans (`aperture.tailscale.com`) and sells tokens directly; bringing your own API keys on plans other than Personal requires contacting sales.
 
 ## Pricing: Checked 2026-08
 
@@ -166,6 +166,10 @@ If you take one thing from this post: **a freshly created tailnet is wide open.*
 
 ---
 
+## Update Log
+
+- 2026-11-23: Aperture reached GA on 2026-08-26; rewrote its status and added the Aperture Chat agent, the Tailscale and Tailscale SSH MCP endpoints, token purchasing, and references. Rechecked the pricing table; unchanged.
+
 ## References
 
 - [Tailscale Pricing](https://tailscale.com/pricing) — seat-based billing, Personal plan allowances, tagged / ephemeral resource definitions (checked 2026-08)
@@ -182,6 +186,8 @@ If you take one thing from this post: **a freshly created tailnet is wide open.*
 - [Remove a device — Tailscale Docs](https://tailscale.com/docs/features/access-control/device-management/how-to/remove) — the conditions under which a removed device can rejoin itself
 - [Tailscale SSH — Tailscale Docs](https://tailscale.com/docs/features/tailscale-ssh) — policy taking effect within seconds and cutting live connections, check mode
 - [Aperture by Tailscale: More secure AI now available via self-serve](https://tailscale.com/blog/aperture-self-serve) — the description of key sprawl
+- [Aperture GA: model tokens, MCP controls, Projects, and custom permissions](https://tailscale.com/blog/aperture-ga) — GA, bundled tokens, Tailscale and Tailscale SSH MCP
+- [What is Aperture? — Tailscale Docs](https://tailscale.com/docs/aperture/what-is-aperture) — the Aperture Chat agent runs commands on connected machines with the user's access
 - [Aperture — Tailscale Docs](https://tailscale.com/docs/aperture) — AI gateway, identity-based auth, MCP proxying and spend control
 - [Headscale — GitHub](https://github.com/juanfont/headscale) — self-hosted control server, single-tailnet design scope
 - [Reaching your home Mac from outside: Cloudflare Tunnel and the 2026 alternatives](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026-en) — the opposite problem, plus the tool-by-tool comparison

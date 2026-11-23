@@ -17,7 +17,7 @@ draft: false
 
 The [previous post in this series](/posts/tech/2026-08-21-llms-txt-en) was about making your docs *readable* by machines. This one is the next step: making your page *callable* by them.
 
-WebMCP is a set of browser APIs. It lets a page declare a set of "tools" in its own JavaScript — each with a name, a natural-language description, and a JSON Schema for its inputs. An AI agent inside the browser can then call them directly, instead of staring at a screenshot guessing which button says "checkout." The proposal comes from engineers at Microsoft Edge and Google Chrome, incubated in the W3C Web Machine Learning Community Group. The latest revision is a Draft Community Group Report dated 19 August 2026, and its status section is blunt: **this is not a W3C Standard, nor is it on the W3C Standards Track.**
+WebMCP is a set of browser APIs. It lets a page declare a set of "tools" in its own JavaScript — each with a name, a natural-language description, and a JSON Schema for its inputs. An AI agent inside the browser can then call them directly, instead of staring at a screenshot guessing which button says "checkout." The proposal comes from engineers at Microsoft Edge and Google Chrome, incubated in the W3C Web Machine Learning Community Group. The latest revision is a Draft Community Group Report dated 19 November 2026, and its status section is blunt: **this is not a W3C Standard, nor is it on the W3C Standards Track.** (Its move toward the standards track after TPAC is covered below.)
 
 One confusion to clear first: **WebMCP is not MCP**. Anthropic's MCP is a backend protocol speaking JSON-RPC, hosted on a server, alive whether or not anyone has a browser open. WebMCP runs entirely inside a browser tab; a tool's lifetime is the tab's lifetime. It inherits the user's already-authenticated session by construction, so there is no separate server to deploy and no second auth story to build. The spec's own framing is that pages using WebMCP "can be thought of as Model Context Protocol servers that implement tools in client-side script instead of on the backend." What the two share is the word "tool," not a wire.
 
@@ -88,11 +88,12 @@ Worth remembering: Chrome's companion document for agent developers concedes the
 
 ## Who is actually building this
 
-| Engine | Status (2026-08) |
+| Engine | Status (2026-11) |
 |---|---|
 | Chrome | Dev Trial 146, Origin Trial 149–156, stable estimated at 157 |
 | Edge | Origin Trial from 150 |
-| Brave | Experimental support in Leo AI chat |
+| Brave | Leo AI chat, supported from 1.102.2 (expected January 2027) |
+| ChatGPT Desktop | Supported (a desktop agent, not a browser engine) |
 | Firefox | Standards position: **neutral** |
 | Safari | Standards position: **oppose** |
 
@@ -112,6 +113,8 @@ In mid-June, WebKit went further and proposed setting WebMCP aside back to the p
 
 Chrome's reply is public in the same thread. The core of it: real agents already drive pages by injecting JavaScript and even using `chrome.debugger`, so "an agent must be unobservable" is not a premise that holds today. That rebuttal has force — but what it establishes is that the status quo is bad, not that WebMCP is the right fix.
 
+**What changed after TPAC.** At the TPAC Agentic Web breakout on 2026-10-30 (co-chaired by Marcos Cáceres, who wrote the oppose-side reply in the WebKit thread), there was general support for chartering an **Agentic Web Working Group**. The draft charter's first normative deliverable is "Site Capabilities for Agents," an evolution of the WebMCP spec whose name will likely change; W3C aims to start Advisory Committee review before the end of November and have the group running early next year. In other words, the ideas in WebMCP are moving onto the standards track, but WebKit has not withdrawn its oppose position, Mozilla is still neutral, and a chartered working group does not mean every engine will implement it.
+
 ## Should you invest now
 
 My read splits three ways.
@@ -128,7 +131,11 @@ One practical warning: the docs and the spec disagree right now. Chrome's impera
 
 WebMCP bets on the same premise as llms.txt — that the readership of the web has permanently changed — but it is far more aggressive about it. llms.txt is a Markdown index; if it's wrong, nobody reads it. WebMCP asks you to hand over executable capability to a probabilistic, injectable caller.
 
-So the conclusion here is not "this is the future, get on board." It is: **ship the declarative half now, and let the imperative half follow engine consensus**. The one thing all three positions actually agree on is that the human interface stays primary and the human stays in the loop. The rest can wait for TPAC.
+So the conclusion here is not "this is the future, get on board." It is: **ship the declarative half now, and let the imperative half follow engine consensus**. The one thing all three positions actually agree on is that the human interface stays primary and the human stays in the loop. The rest depends on how the engines respond once the Agentic Web Working Group charter is settled.
+
+## Update Log
+
+- 2026-11-23: Added the TPAC 2026 consensus on an Agentic Web Working Group (WebMCP evolving into "Site Capabilities for Agents"), moved the spec revision to 2026-11-19, added ChatGPT Desktop to the implementation table, and updated Brave.
 
 ## References
 
@@ -145,4 +152,6 @@ So the conclusion here is not "this is the future, get on board." It is: **ship 
 - [WebMCP — Chrome Platform Status (milestones)](https://chromestatus.com/feature/5117755740913664)
 - [Mozilla standards-positions #1412 (neutral)](https://github.com/mozilla/standards-positions/issues/1412)
 - [WebKit standards-positions #670 (oppose)](https://github.com/WebKit/standards-positions/issues/670)
+- [The Agentic Web: TPAC 2026 breakout minutes (W3C)](https://www.w3.org/2026/10/30-the-agentic-web-minutes.html)
+- [W3C Newsletter, October 2026 (Agentic Web WG charter)](https://www.w3.org/blog/2026/w3c-newsletter-october-2026/)
 - On this site: [llms.txt: The Copy of Your Docs Written for Machines](/posts/tech/2026-08-21-llms-txt-en), [shadcn registry and MCP](/posts/tech/2026-08-21-shadcn-registry-mcp-en), [Choosing a React Stack in the AI Era](/posts/tech/2026-08-19-react-stack-ai-era-en), [AI-ready content strategy](/posts/ai/2026-03-30-ai-ready-content-en)

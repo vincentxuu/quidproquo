@@ -33,7 +33,7 @@ Residual client state → Zustand (UI prefs, modals, cross-component scratch)
 
 ### Routing market reality: the incumbent and the challenger
 
-npm weekly downloads (checked August 2026): react-router **44.2M**, @tanstack/react-router **19.7M**. The precise statement is: **React Router is still the mainstream choice, and TanStack Router is the mainstream second choice** — about forty-plus percent of the incumbent's volume, a rare catch-up pace for a router whose 1.0 is barely two and a half years old. React Router's turbulent version history (the breaking v5→v6 rewrite, then v7 absorbing Remix and splitting into library/framework modes) has accumulated community fatigue; TanStack Router's type safety and search-params story are architectural gaps that can't be closed by patches. Existing projects have no reason to migrate; for new TypeScript-heavy back-office apps, the scale has tipped.
+npm weekly downloads (checked August 2026): react-router **44.2M**, @tanstack/react-router **19.7M**. The precise statement is: **React Router is still the mainstream choice, and TanStack Router is the mainstream second choice** — about forty-plus percent of the incumbent's volume, a rare catch-up pace for a router whose 1.0 is barely two and a half years old. React Router's turbulent version history (the breaking v5→v6 rewrite, then v7 absorbing Remix and splitting into library/framework modes) has accumulated community fatigue; v8 (June 2026) was deliberately made a "boring" upgrade (every breaking change can be adopted ahead of time through v7 future flags) and moved the project to one major release a year, an attempt to stop that fatigue; TanStack Router's type safety and search-params story are architectural gaps that can't be closed by patches. Existing projects have no reason to migrate; for new TypeScript-heavy back-office apps, the scale has tipped.
 
 ## The rest of the stack
 
@@ -89,7 +89,7 @@ llms.txt is a convention for exposing a docs site as plain text that an LLM can 
 | nextjs.org | ✓ 200 |
 | reactrouter.com | ✗ 404 |
 
-The table speaks for itself about each team's posture toward agent-driven development. When your agent needs the current form of an API, a docs site with llms.txt can be fed wholesale into context; without it, the agent scrapes HTML or leans on training-data memory — which is exactly where hallucinations come from.
+The table speaks for itself about each team's posture toward agent-driven development. One caveat for the React Router row: its /llms.txt is still a 404, but v8 (June 2026) ships the docs inside the package in `node_modules`, and `create-react-router` installs the official Agent Skill into new projects, a different route to handing docs to agents. When your agent needs the current form of an API, a docs site with llms.txt can be fed wholesale into context; without it, the agent scrapes HTML or leans on training-data memory — which is exactly where hallucinations come from.
 
 ### 2. Type safety = agent guardrails
 
@@ -109,12 +109,18 @@ For serious SPAs without SSR (dashboards, SaaS back offices, internal tools), th
 
 The AI-era selection rule compresses to one line: **pick what machines can catch when it's wrong (strong types), what machines can read (llms.txt / MCP), and what machines can edit (copy-in source)** — because the "person" writing the code is, increasingly, not a person.
 
+## Update Log
+
+- 2026-11-23: Added React Router v8 (June 2026), its upgrade approach and yearly major cadence, and how it now ships docs to agents with the package.
+
 ## References
 
 - [TanStack Router](https://tanstack.com/router/latest)
 - [TanStack Query](https://tanstack.com/query/latest)
 - [Zustand](https://zustand.docs.pmnd.rs/)
 - [React Router](https://reactrouter.com/)
+- [React Router v8 (Remix Blog)](https://remix.run/blog/react-router-v8)
+- [Remix Newsletter #44 (agent support in v8)](https://remix.run/newsletter/44)
 - [Vite](https://vite.dev/)
 - [react-hook-form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)

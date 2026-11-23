@@ -35,9 +35,20 @@ Storage authorization 也連到 user role/metadata；database row、object 和�
 
 只在 cloud console 手改會造成 drift，甚至被下一次同步覆蓋。Migration 要能與新舊 client 共存，production 前測 rollback/forward-fix、metadata inconsistency、seed isolation 和 restore。Functions/event triggers 仍需冪等，不能把 Hasura event delivery 當 exactly-once。
 
+## Hasura v2 逐步收尾，Nhost 開始自建引擎
+
+Nhost 用的是 Hasura v2（Community Edition）。v2 仍在出修正版，但 Hasura 的主力已轉到 v3／DDN，[官方版本政策](https://hasura.io/docs/2.0/policies/versioning/)把 v2 的 LTS 線排到 v2.45（支援到 2027-12）與 v2.50（規劃到 2028-12）。Nhost 認為 v2 正逐步收尾，因此在 2026-06 發表 [Constellation](https://nhost.io/blog/introducing-constellation)，一個用 Go 寫、讀同一份 Hasura metadata 的相容引擎，目前是 alpha：只接手 query／mutation／subscription，Actions、event／cron trigger 等仍要靠 Hasura，兩者並排跑在同一個 database 上。選 Nhost 時，metadata 與 permission 設計仍以 Hasura 語意為準，但要追蹤 GraphQL 層之後換引擎的時程，並在 staging 用同一份流量比對兩個引擎的行為。
+
 Nhost 適合重視 PostgreSQL、GraphQL subscription、role permissions 與 local cloud parity 的團隊。偏 REST/mobile ecosystem 看 Firebase/Appwrite；typed reactive functions 看 Convex；只需單機最小 backend 看 PocketBase。驗收要涵蓋 role escalation、nested query cost、migration+metadata deployment、event redelivery、storage orphan cleanup 與 Postgres point-in-time recovery。
 
+## 更新紀錄
+
+- 2026-11-23：新增一節說明 Hasura v2 逐步收尾（LTS 排到 2028-12）、Nhost 推出相容引擎 Constellation（alpha）對選型的影響。
+
 ## 參考資料
+
+- [Hasura Version Support Policy](https://hasura.io/docs/2.0/policies/versioning/)
+- [Introducing Constellation（Nhost Blog）](https://nhost.io/blog/introducing-constellation)
 
 - [Nhost documentation](https://docs.nhost.io/)
 - [Nhost local development](https://docs.nhost.io/platform/cli/local-development)

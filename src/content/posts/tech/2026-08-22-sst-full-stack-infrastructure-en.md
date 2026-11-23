@@ -1,12 +1,12 @@
 ---
-title: "SST v3: Composing Full-Stack Cloud Apps with Components, Link, and Dev Mode"
+title: "SST v3 and v4: Composing Full-Stack Cloud Apps with Components, Link, and Dev Mode"
 date: 2026-08-22
 category: tech
 type: deep-dive
 tags: [sst, infrastructure-as-code, serverless, aws, typescript]
 lang: en
-tldr: "SST v3 composes cloud resources through TypeScript, high-level app components, Pulumi and Terraform providers, and resource linking; it is application-first IaC, not a hosted PaaS."
-description: "SST v3 components, providers, resource linking, stages, dev mode, state home, secrets, removal, and v2 migration boundaries."
+tldr: "From v3 on (including v4 from 2026-02), SST composes cloud resources through TypeScript, high-level app components, Pulumi and Terraform providers, and resource linking; it is application-first IaC, not a hosted PaaS."
+description: "SST v3 and v4 components, providers, resource linking, stages, dev mode, state home, secrets, removal, v2 and v4 migration boundaries, and current maintenance status."
 series:
   name: "Technology Choices in the AI Era"
   order: 93
@@ -18,6 +18,10 @@ draft: false
 [SST](https://sst.dev/docs) is an application-first infrastructure framework. One `sst.config.ts` defines frontends, APIs, Functions, container Services, databases, buckets, queues, domains, and third-party provider resources in the team's AWS, Cloudflare, or other accounts.
 
 Version matters. SST v3's Ion engine moved away from CDK and CloudFormation to Pulumi's engine and the Pulumi or Terraform provider ecosystem. Old Stack, Construct, CloudFormation quota, and v2 plugin assumptions do not transfer directly.
+
+[v4](https://sst.dev/docs/migrate-from-v3/), released on 2026-02-24, keeps the same Ion model; the main change is upgrading the underlying Pulumi AWS provider from v6 to v7. Apps that only use SST components without transforms or direct `@pulumi/aws` usage need no code changes, but every stage must run `sst refresh` once to migrate state. The migration is one-way, so review `sst diff` first. Everything below about components, links, stages, and state applies to both v3 and v4.
+
+Check the maintenance status before adopting it. Since the second half of 2025 the core team's focus has shifted to OpenCode, and users on GitHub [asked whether SST is still maintained](https://github.com/anomalyco/sst/issues/6215). The team replied that they still use SST and it is not going away, but PRs and feature requests have a backlog and they are forming a community maintainer group. The repository also moved from `sst/sst` to `anomalyco/sst`. When a new AWS service has no component yet, you write raw Pulumi resources inside `sst.config.ts`; count that in the long-term cost.
 
 ## Components package low-level resources as app features
 
@@ -39,9 +43,16 @@ The app `home` stores [state](https://sst.dev/docs/state/) in AWS, Cloudflare, o
 
 Production should explicitly choose `remove`, `retain`, or `retain-all`. `sst remove` may delete databases or buckets according to policy; retention may leave costs and sensitive data. Inventory, back up, satisfy retention rules, and obtain ownership approval before deleting stages.
 
-SST fits TypeScript full-stack teams, especially AWS or Cloudflare serverless applications where code and infrastructure evolve together. Use Pulumi or Terraform for general platform IaC, managed frontend platforms to avoid cloud detail, and Kubernetes for cluster runtime orchestration. Test v2-to-v3 migration, component and provider upgrades, rename behavior, linked IAM, stage collisions, state recovery, secret rotation, failed deployment, and protected removal.
+SST fits TypeScript full-stack teams, especially AWS or Cloudflare serverless applications where code and infrastructure evolve together. Use Pulumi or Terraform for general platform IaC, managed frontend platforms to avoid cloud detail, and Kubernetes for cluster runtime orchestration. Test v2-to-v3 and v3-to-v4 migration (including `sst refresh`), component and provider upgrades, rename behavior, linked IAM, stage collisions, state recovery, secret rotation, failed deployment, and protected removal.
+
+## Update history
+
+- 2026-11-23: Added SST v4 (2026-02; Pulumi AWS provider v6 to v7, state migration via `sst refresh`) and the current maintenance status; the title, summary, and test list now cover v3 and v4.
 
 ## References
+
+- [Migrate From v3 (SST v4 migration guide)](https://sst.dev/docs/migrate-from-v3/)
+- [Is SST still actively maintained? (GitHub issue #6215)](https://github.com/anomalyco/sst/issues/6215)
 
 - [What is SST](https://sst.dev/docs)
 - [SST components](https://sst.dev/docs/components/)

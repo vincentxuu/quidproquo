@@ -86,7 +86,7 @@ All of these products can run untrusted code. The useful distinction is which la
 | Durable development workspaces and several VM/container classes | Daytona | [Filesystems persist by default](https://www.daytona.io/docs/en/persistence/), and VM classes add hot snapshots and forks |
 | Coding-agent evaluation, Blueprints, and Devbox workflows | Runloop | [Devbox](https://docs.runloop.ai/docs/devboxes/overview) centers repository and development-machine semantics; snapshots currently preserve disk only |
 | An application already on Vercel with TypeScript integration | Vercel Sandbox | The [official SDK](https://vercel.com/docs/sandbox) shortens integration with Vercel OIDC and preview workflows |
-| A control plane already on Workers with Durable Objects or R2 | Cloudflare Sandboxes | The [Sandbox SDK](https://developers.cloudflare.com/sandbox/) is built around Workers + Containers; the stable version loses local state after idle restart, so durable data belongs in object storage |
+| A control plane already on Workers with Durable Objects or R2 | Cloudflare Sandboxes | The [Sandbox SDK](https://developers.cloudflare.com/sandbox/) is built around Workers + Containers; SDK 1.0 (2026-09) can save a snapshot before shutdown, but it keeps files only, not memory or processes |
 
 This is not a feature scorecard. If you only execute Python once and return a result, all six may work. Prototype one real task and measure creation time, dependency setup, pause/resume, failure cleanup, and cost per task. Pick the lifecycle that matches your product.
 
@@ -96,7 +96,7 @@ In its 2025-07 [Series A announcement](https://changelog.e2b.dev/blog/series-a),
 
 The same announcement said 88% of the Fortune 100 had signed up and that hundreds of millions of sandboxes had been started across more than half of the Fortune 500. These are company-reported numbers, and “signed up” does not mean paid or deployed in production. They demonstrate market attention, not reliability for your workload.
 
-The open-source signal is easier to inspect. At verification time, the [E2B GitHub repository](https://github.com/e2b-dev/e2b) had roughly 13,500 stars, and both SDK and infrastructure code were available for review. That lowers review and self-hosting barriers; it does not eliminate managed-service lock-in. Deep use of Templates, lifecycle, and network policy still makes a migration a control-layer rewrite.
+The open-source signal is easier to inspect. As of 2026-11, the [E2B GitHub repository](https://github.com/e2b-dev/e2b) had roughly 15,000 stars, and both SDK and infrastructure code were available for review. That lowers review and self-hosting barriers; it does not eliminate managed-service lock-in. Deep use of Templates, lifecycle, and network policy still makes a migration a control-layer rewrite.
 
 ## Fit, non-fit, and the final decision
 
@@ -105,6 +105,10 @@ E2B fits products where agents clone repositories, run tests, produce artifacts,
 Three cases are poor fits: workloads dominated by GPUs, tasks that cannot be interrupted beyond the plan's continuous-runtime limit, and sub-second pure-function jobs. The first two call for GPU/batch infrastructure or persistent VMs. The last is simpler on an ordinary serverless function.
 
 The real question is not whether an agent needs a sandbox. It is **whether the agent's state is worth preserving**. If every action is replayable, choose the least expensive disposable runtime. If repositories, processes, caches, and interactive context must survive across turns, E2B's pause/resume becomes an architectural advantage rather than a convenience.
+
+## Update Log
+
+- 2026-11-23: The Cloudflare Sandboxes comparison row now reflects SDK 1.0 snapshot behavior; GitHub stars updated to roughly 15,000. E2B's rates, plan limits, pause performance, and default outbound access were unchanged against the official docs.
 
 ## References
 

@@ -1,12 +1,12 @@
 ---
-title: "Deno Deploy：Deno 2、Revision、Timeline 與全球 TypeScript Serverless"
+title: "Deno Deploy 將在 2027-04 關閉：現有服務怎麼搬、新專案改用什麼"
 date: 2026-08-22
 category: tech
 type: deep-dive
 tags: [deno, deno-deploy, serverless, typescript, edge-computing]
 lang: zh-TW
-tldr: "新版 Deno Deploy 是以 Deno 2 執行 application revision 的 serverless 平台；應以 timeline、context、database 與 observability 理解，而不是沿用 Deploy Classic 印象。"
-description: "介紹新版 Deno Deploy 的 Application、Revision、Timeline、Context、Cron、database、region 與 Classic 遷移邊界。"
+tldr: "Deno 團隊 2026-10 加入 Cloudflare，Deno Deploy 預計 2027-04 關閉，Deno runtime 只再維護到 2027-10。新專案不要選它；現有服務要排程搬到 Cloudflare Workers 或任何能跑 Node.js 的平台，搬之前先盤點 revision、context、cron 與 KV。"
+description: "Deno Deploy 宣布關閉後的處境：Application、Revision、Timeline、Context、Cron 這些設定搬家時要帶走什麼，以及新專案改選 Cloudflare Workers、Koyeb、Railway／Render 的判準。"
 series:
   name: "AI 時代的技術選擇"
   order: 78
@@ -16,6 +16,16 @@ draft: false
 > :globe: [English version](/posts/tech/2026-08-22-deno-deploy-serverless-platform-en)
 
 [Deno Deploy](https://docs.deno.com/deploy/) 是執行 JavaScript、TypeScript 與 WebAssembly 的 serverless 平台。現在談它必須先標明「新版」：Deno Deploy 已以 Deno 2 execution environment、`console.deno.com` 與新 control plane 重做；Deploy Classic 與 subhosting v1 已在 2026 年 7 月 20 日停止服務。
+
+## 先講結論：新專案不要選 Deno Deploy
+
+2026-10-09 Deno 宣布[整個團隊加入 Cloudflare](https://deno.com/blog/cloudflare)，之後的開發集中在 Cloudflare Workers 與 Durable Objects 的共同平台，不再另外發展 runtime 和代管服務：
+
+- **Deno Deploy**：再營運約六個月就關閉，[官方文件](https://docs.deno.com/deploy/)寫的是 2027 年 4 月。付費客戶搬到 Cloudflare Workers 會有遷移協助。
+- **Deno runtime**：[每月出一版 2.9.x LTS](https://github.com/denoland/deno/issues/37030)，只修 bug 與安全問題，維護到 2027 年 10 月，之後 Deno 公司不再開發；程式碼維持 MIT 開源，社群可以接手。
+- **JSR** 繼續營運，基礎設施搬到 Cloudflare。
+
+所以這篇的讀法分兩種：還沒用過的讀者直接看最後一節的替代選項；已經有服務在上面的，下面幾節是搬家時要逐項帶走的設定清單。
 
 ## Application、Revision、Timeline 是 release model
 
@@ -35,9 +45,20 @@ draft: false
 
 新版與 Classic 的 feature parity 並不完全相同：官方比較表目前列新版支援 Cron 和 databases，但不支援 Classic 的 Queues。遷移不能只換 dashboard；要逐項盤點 runtime API、regions、KV/queue、environment、domain、logs 與 subhosting。
 
-Deno Deploy 適合 Deno/TypeScript web API、Fresh/Astro 應用、code-defined cron，以及想共用本機與雲端 Deno runtime 的團隊。需要長駐 worker、任意 container 或成熟 queue topology 時比較 Cloudflare Workers、Koyeb、Railway/Render。驗收應包含 revision rollback、preview secret isolation、cron 重送、database migration 與 region failure。
+## 搬去哪裡
+
+官方指定的去處是 Cloudflare Workers：`Deno.cron()` 對應 Cron Triggers，KV 類資料要改放 Workers KV、D1 或 Durable Objects，這幾項都要改程式，不是換 endpoint 就好。只想保留 TypeScript 與 Web 標準 API、不想綁在單一平台的，可以先讓程式在 Node.js 上跑起來，再搬到 Railway、Render 這類 PaaS；需要長駐 worker 或任意 container 時比較 Koyeb、Railway／Render。Koyeb 本身也在 2026-02 被 Mistral AI 收購，評估時一併看它的產品方向。
+
+搬遷驗收照原本的清單做：revision rollback、preview 與 production secret 隔離、cron 重送、database migration 與 region failure，在新平台上逐項重測一次。
+
+## 更新紀錄
+
+- 2026-11-23：Deno 團隊加入 Cloudflare、Deno Deploy 預計 2027-04 關閉，改寫標題、摘要與開頭結論，並把最後一節改成搬遷去處；中間各節保留為搬家時的設定清單。
 
 ## 參考資料
+
+- [Deno is joining Cloudflare](https://deno.com/blog/cloudflare)
+- [The state of Deno after the Cloudflare announcement](https://github.com/denoland/deno/issues/37030)
 
 - [About Deno Deploy](https://docs.deno.com/deploy/)
 - [Deno Deploy applications](https://docs.deno.com/deploy/reference/apps/)

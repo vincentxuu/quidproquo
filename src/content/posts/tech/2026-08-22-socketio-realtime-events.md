@@ -29,7 +29,11 @@ Room 是 server-side membership 與 fan-out target，適合 document、tenant �
 
 多 instance 透過 adapter 廣播。不同 adapter 對 recovery 支援不同：plain Redis Pub/Sub adapter 無法保存 packets，Redis Streams 等 durable adapter 才可能支援。Load balancer、sticky session、long-polling 與 adapter failure mode 要依實際 transport 設定測試。
 
-Socket.IO 適合 browser/app event API、需要 fallback、rooms 與成熟 Node ecosystem 的產品。原生 WebSocket 適合自行定義 protocol；SSE 適合單向 server push；Ably 是 managed messaging；PartyKit 把 room state 放到 edge server。選型應以 offline/replay contract、最大 fan-out、slow consumer、auth renewal、deploy drain 與 adapter outage 驗收，而不是只確認聊天 demo 能動。
+Socket.IO 適合 browser/app event API、需要 fallback、rooms 與成熟 Node ecosystem 的產品。原生 WebSocket 適合自行定義 protocol；SSE 適合單向 server push；Ably 是 managed messaging；[PartyServer（原 PartyKit）](/posts/tech/2026-08-22-partykit-realtime-rooms) 把 room state 放到 Durable Objects。選型應以 offline/replay contract、最大 fan-out、slow consumer、auth renewal、deploy drain 與 adapter outage 驗收，而不是只確認聊天 demo 能動。
+
+## 更新紀錄
+
+- 2026-11-23：PartyKit 託管平台已於 2026-10-23 關閉，比較對象改為後繼的 PartyServer
 
 ## 參考資料
 

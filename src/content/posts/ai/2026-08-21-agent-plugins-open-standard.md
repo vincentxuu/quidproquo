@@ -222,7 +222,7 @@ my-plugin/
 
 **Skill 的解讀仍然因 client 而異。** 同一份 SKILL.md 在不同 client 裡的行為不保證一致——不同的模型、不同的 system prompt 組裝方式、不同的 context window 管理。
 
-**v1 只有兩種元件。** 規格書明確說其他提案——commands、hooks、agents、rules、LSP servers——「too client-specific for a stable portable contract」，留待未來版本。
+**v1 只有兩種元件。** 規格書明確說其他提案——commands、hooks、agents、rules、LSP servers——「too client-specific for a stable portable contract」，留待未來版本。（後來的 1.1.0 工作草案先把 hooks 收進來，見文末。）
 
 這些限制是刻意的。Vercel 的公告寫得很直白：「The format is intentionally small and easy to implement.」先把所有人都能同意的最小交集標準化，剩下的讓各 client 自己競爭——這跟 MCP 早期只定義最小可行協定的策略很像。
 
@@ -275,16 +275,21 @@ Copilot Business/Enterprise 已經可以用 `managed-settings.json` 管理 plugi
 ## 值得追蹤的事
 
 1. **Anthropic 會不會正式加入 TSC。** Claude Code 的 plugin 結構已經相容，但「結構相容」和「正式加入治理」是兩回事。
-2. **v1.1 會加什麼。** GitHub 上已有工作草案，社群討論最多的是認證標準化和某種形式的 plugin registry。
+2. **v1.1 會加什麼。** 1.1.0 的工作草案已經放進規格庫，第一個新增的是第三種元件 **hooks**（`hooks.json`，可攜的 hook handler 與工具事件結構）。社群討論最多的認證與 registry 反而沒進：草案明寫不定義 OAuth 設定與可攜的憑證欄位，授權仍交給各 client 處理，套件單位也還是檔案目錄、不經 registry。
 3. **Skill 可移植性的實際表現。** 格式統一不等於行為統一，同一份 SKILL.md 在六個 client 裡的表現差異會是生態系成熟度的試金石。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：補上 1.1.0 工作草案的現況：新增 hooks 元件，認證與 registry 仍不在規格內；TSC 成員仍沒有 Anthropic。
 
 ## 參考資料
 
 | 資料 | 來源 | 日期 |
 |---|---|---|
 | Agent Plugins 1.0.0 規格 | [agent-plugins.org/specification](https://agent-plugins.org/specification) | 2026-08-11 |
+| Agent Plugins 1.1.0 工作草案 | [spec/1.1.0.md（GitHub）](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.1.0.md) | Working Draft |
 | Vercel 公告 | [vercel.com/blog/introducing-agent-plugins](https://vercel.com/blog/introducing-agent-plugins) | 2026-08-06 |
 | Google 加入 | [developers.googleblog.com](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/) | 2026-08-06 |
 | GitHub 規格庫 | [github.com/agentplugins/agent-plugins-spec](https://github.com/agentplugins/agent-plugins-spec) | 截至 2026-08-21，1.1k stars |

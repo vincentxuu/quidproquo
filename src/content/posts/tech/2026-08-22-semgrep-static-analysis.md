@@ -34,13 +34,17 @@ rules:
 
 每條 custom rule 應附會命中的 positive fixtures 與不能誤報的 negative fixtures，鎖定 rule engine version，在 CI 跑 `semgrep --test`。Framework wrapper、sanitizer、ORM helper 與 internal abstraction 變動時要更新 modeling。只貼一段 production incident code 當 pattern，通常會產生 brittle rule。
 
-Semgrep CE 可本機/CI 執行 community/custom rules；商業平台另整合 Semgrep Code、Supply Chain 與 Secrets，能力、interprocedural analysis、reachability、triage 和資料處理依 edition/configuration 而異。評估時使用自己的 languages/frameworks 與已知 vulnerabilities 做 benchmark，不以產品總稱推論每個 engine 都支援相同深度。
+Semgrep CE 可本機/CI 執行 community/custom rules；商業平台另整合 Semgrep Code、Supply Chain 與 Secrets，能力、interprocedural analysis、reachability、triage 和資料處理依 edition/configuration 而異。從 Semgrep 1.100.0 分出的 [Opengrep](https://github.com/opengrep/opengrep) 採 LGPL-2.1，由幾家 AppSec 廠商支持，相容 Semgrep rules，README 列出跨函式與跨檔案的 taint tracking；想在開源引擎上做較深的 dataflow，可以把它一起列入比較。評估時使用自己的 languages/frameworks 與已知 vulnerabilities 做 benchmark，不以產品總稱推論每個 engine 都支援相同深度。
 
 ## Diff-aware gate 與 full scan 是兩種節奏
 
 PR 掃描聚焦新 code，能讓新增 finding 立即有 owner；default branch/scheduled full scan 才能抓 framework model 或 ruleset 更新後浮現的舊問題。Blocking policy 先從高訊號規則開始。`nosemgrep` 或 platform ignore 必須附 justification、owner、expiry；否則 exception 會變永久 blind spot。
 
 Secrets finding 要立即 revoke/rotate，從 git history 移除只是在降低後續曝光；SCA finding 要確認 dependency reachability 和 fix；SAST finding 需 trace source/sink 與 exploit precondition。Semgrep 適合快速把 incident lesson 與 coding policy 自動化；CodeQL 適合更深 semantic query，Snyk 做整合 AppSec governance，gitleaks 專注 secret patterns/history。多工具要 deduplicate 並明確分派 authoritative finding source。
+
+## 更新紀錄
+
+- 2026-11-23：補上 Semgrep 的開源分支 Opengrep（LGPL-2.1、相容 Semgrep rules、跨函式 taint）作為評估對象
 
 ## 參考資料
 
@@ -50,3 +54,4 @@ Secrets finding 要立即 revoke/rotate，從 git history 移除只是在降低�
 - [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules)
 - [Semgrep CI](https://semgrep.dev/docs/semgrep-ci/overview)
 - [Sample CI configurations](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs)
+- [Opengrep](https://github.com/opengrep/opengrep)

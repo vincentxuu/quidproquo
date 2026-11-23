@@ -89,7 +89,7 @@ Daytona is not unique because it can run a shell—E2B, Modal, Runloop, and Verc
 
 If the job only executes a short Python snippet, a narrower code interpreter reduces integration work. A team already running inference and GPUs on Modal may value one compute platform. A Vercel application that needs brief sandboxes beside an existing deployment may prefer Vercel's billing and identity integration. Compare providers with your Docker image and measure creation latency, long-task failure rate, snapshot restore time, and cost per successful task—not homepage milliseconds.
 
-Pricing is decomposable. The [pricing page checked on 2026-08-22](https://www.daytona.io/pricing) lists $0.0504 per vCPU-hour and $0.0162 per GiB-hour of memory, billed per second; storage is separately charged after the first 5 GiB. A 2-vCPU, 4-GiB environment therefore costs about $0.1656 per hour before storage. Warm pools, retained disks, and retries change the real bill, so cost per completed task is the useful metric.
+Pricing is decomposable. As of 2026-11, the [pricing page](https://www.daytona.io/pricing) lists $0.0504 per vCPU-hour and $0.0162 per GiB-hour of memory, billed per second; storage is separately charged after the first 5 GiB. A 2-vCPU, 4-GiB environment therefore costs about $0.1656 per hour before storage. Warm pools, retained disks, and retries change the real bill, so cost per completed task is the useful metric. Windows, macOS, and GPUs (for example, an on-demand H100 at $4.29 per hour) have separate prices.
 
 ## Fit, non-fit, and the largest limitation
 
@@ -97,9 +97,13 @@ Pricing is decomposable. The [pricing page checked on 2026-08-22](https://www.da
 
 **Daytona does not fit** when work is a fixed, brief function; a team already operates mature Kubernetes sandboxing; policy forbids a third-party control plane; or a continuously maintained, fully open-source self-hosted control plane is mandatory.
 
-That last condition reflects an easy-to-miss 2026 change. Daytona's [public core repository](https://github.com/daytonaio/daytona) states that it stopped receiving maintenance in June 2026 and core development moved to a private codebase. Existing code remains under its license, but without updates, fixes, or support. This does not make the managed service unusable. It means “choose Daytona Cloud” and “self-host the Daytona open-source project” are now materially different risk decisions. If portability is mandatory, test image export, data retrieval, API dependencies, and BYOC failure ownership before signing.
+That last condition reflects an easy-to-miss 2026 change. Daytona's [public core repository](https://github.com/daytonaio/daytona) states that it stopped receiving maintenance in June 2026 and core development moved to a private codebase. Existing code remains under its license, but without updates, fixes, or support, and the repository has since been archived as read-only. The TypeScript SDK's npm package was also renamed to `@daytona/sdk`, with the old `@daytonaio/sdk` marked deprecated. This does not make the managed service unusable. It means “choose Daytona Cloud” and “self-host the Daytona open-source project” are now materially different risk decisions. If portability is mandatory, test image export, data retrieval, API dependencies, and BYOC failure ownership before signing.
 
 Daytona's strongest idea is matching infrastructure to the real shape of agent work: long-running, stateful, error-prone, and branching. Its cost follows from the same choice: state, scheduling, and security policy move onto a fast-changing platform. It is not a replacement for general cloud infrastructure. It is a layer worth buying when “a disposable computer for every agent” becomes the bottleneck.
+
+## Update Log
+
+- 2026-11-23: Added that the public repository is now archived, the TypeScript SDK moved to `@daytona/sdk`, and Windows / macOS / GPU are priced separately; vCPU and memory rates and the Tier 1 creation limit were unchanged against the official pages.
 
 ## References
 

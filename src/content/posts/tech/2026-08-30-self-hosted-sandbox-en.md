@@ -86,26 +86,26 @@ spec:
 
 ### What is agent-sandbox
 
-`kubernetes-sigs/agent-sandbox` is the Kubernetes community's official sandbox controller, designed specifically for AI agent execution environments. It decouples workload lifecycle management from isolation backend selection.
+`kubernetes-sigs/agent-sandbox` is a project under Kubernetes SIG Apps that provides a `Sandbox` CRD and controller for managing a single Pod with a stable identity and persistent storage, with AI agent runtimes as the main use case. It only orchestrates; isolation is delegated to RuntimeClasses such as gVisor or Kata. v1.0.0 shipped on 2026-08-28, and it is now on v1.0.x.
 
 ### Core Features
 
 #### 1. Lifecycle Management
 
-The agent-sandbox controller handles the full sandbox lifecycle: creation, scheduled deletion, pause (hibernation), auto-resume (on network connection).
+The agent-sandbox controller handles the full sandbox lifecycle: creation, scheduled deletion, pausing, and resuming. The API is `agents.x-k8s.io/v1beta1`, and the isolation backend goes in `runtimeClassName` inside `podTemplate`; the extensions add `SandboxTemplate`, `SandboxClaim`, and `SandboxWarmPool` for pre-warming.
 
 ```yaml
-apiVersion: agent.sigs.k8s.io/v1alpha1
+apiVersion: agents.x-k8s.io/v1beta1
 kind: Sandbox
 metadata:
   name: agent-sandbox-01
 spec:
-  runtimeClass: kata
-  hibernation:
-    enabled: true
-    idleTimeout: 300s
-  persistentStorage:
-    size: 10Gi
+  podTemplate:
+    spec:
+      runtimeClassName: kata
+      containers:
+      - name: agent
+        image: agent-image:latest
 ```
 
 #### 2. Pluggable Isolation Backend
@@ -114,7 +114,7 @@ Supports standard containers, gVisor, Kata Containers, and other OCI-compliant r
 
 #### 3. Python and Go SDK
 
-Provides high-level client libraries for programmatic sandbox management.
+The Go SDK is `sigs.k8s.io/agent-sandbox/clients/go/sandbox` and the Python SDK is `pip install k8s-agent-sandbox`; the optional Sandbox Router lets SDKs reach sandboxes on runtimes like Kata or gVisor where direct port-forwarding is unavailable.
 
 ### Guest Agent
 
@@ -139,9 +139,9 @@ BYOC means enterprises deploy sandbox control plane on their own cloud (AWS, GCP
 
 ### Implementation Options
 
-1. **OpenSandbox BYOC**: Alibaba Cloud OpenSandbox supports deploying control plane on AWS, GCP, Azure
+1. **Self-hosted OpenSandbox**: OpenSandbox, open-sourced by Alibaba and now an AAIF project, deploys on your own Docker or Kubernetes, with gVisor, Kata, or Firecracker isolation
 2. **Kata + Kubernetes self-hosted**: Build with Kata Containers + Kubernetes agent-sandbox
-3. **E2B Embed**: E2B provides self-hosted version (E2B Embed), runnable on own cloud
+3. **E2B BYOC and E2B Embed**: E2B's BYOC is operated by E2B inside your AWS, GCP, or Azure account (Enterprise only); E2B Embed is the self-hosted version you run yourself
 
 ---
 
@@ -198,12 +198,17 @@ BYOC means enterprises deploy sandbox control plane on their own cloud (AWS, GCP
 
 ---
 
+## Update Log
+
+- 2026-11-23: agent-sandbox now notes v1.0 (2026-08-28) and the extensions, the YAML follows the official `agents.x-k8s.io/v1beta1` and `podTemplate` form, and the Go / Python SDK names are added; OpenSandbox is now described as open-source and self-hosted (now under AAIF); E2B now separates BYOC (operated by E2B, Enterprise) from E2B Embed (self-hosted).
+
 ## References
 
 - [Kata Containers Documentation](https://katacontainers.io/)
 - [Kubernetes-sigs/agent-sandbox](https://agent-sandbox.sigs.k8s.io/docs)
-- [Alibaba OpenSandbox BYOC](https://www.alibabacloud.com/)
-- [E2B Embed (BYOC)](https://e2b.dev/docs/byoc)
+- [OpenSandbox GitHub](https://github.com/opensandbox-group/OpenSandbox)
+- [E2B BYOC (including how it differs from E2B Embed)](https://docs.e2b.dev/byoc)
+- [kubernetes-sigs/agent-sandbox GitHub](https://github.com/kubernetes-sigs/agent-sandbox)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview-en)
 - [本站：雲端產品全景與選型矩陣（order 7）](/posts/tech/2026-08-30-sandbox-product-landscape-en)
 - [本站：沙箱成本模型（order 26）](/posts/tech/2026-08-30-sandbox-cost-model-en)

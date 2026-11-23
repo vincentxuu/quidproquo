@@ -69,18 +69,20 @@ GDPR is the EU data privacy regulation, applicable to all organizations processi
 
 ISO 27001 is the international Information Security Management System standard.
 
-| Annex A Control | How Sandbox Meets |
+The 2022 Annex A regroups controls into Organizational (A.5), People (A.6), Physical (A.7), and Technological (A.8); the old A.9, A.12, and A.13 numbers are no longer used.
+
+| Annex A Control (2022) | How Sandbox Meets |
 |-----------------|-----------------|
-| A.5 (Organizational) | Information security policy, roles & responsibilities |
-| A.6 (People) | Remote work, confidentiality agreements |
-| A.8 (Assets) | Data classification, media handling |
-| A.9 (Access Control) | User access management, privileged access management |
-| A.12 (Operations) | Operational procedures, change management, log monitoring |
-| A.13 (Communications Security) | Network security, data transfer security |
+| A.5 Organizational (5.1 policies, 5.15 access control, 5.18 access rights) | Information security policy, roles & responsibilities, sandbox access rules |
+| A.6 People (6.6 confidentiality agreements, 6.7 remote working) | Remote work, confidentiality agreements |
+| A.5.12 Classification of information, A.5.14 Information transfer | Data classification, which data may enter and leave the sandbox |
+| A.8.2 Privileged access rights | No root or elevated rights inside the sandbox; privileged access managed separately |
+| A.8.15 Logging, A.8.16 Monitoring activities, A.8.32 Change management | Operational procedures, change management, log monitoring |
+| A.8.20 Networks security, A.8.22 Segregation of networks | Sandbox network isolation, outbound allowlist |
 
 ### EU AI Act
 
-The EU AI Act (effective 2026) has special requirements for "high-risk AI systems":
+Most EU AI Act rules apply from 2026-08-02; the obligations for "high-risk AI systems" were postponed by the [Digital Omnibus on AI (Regulation (EU) 2026/1744)](https://eur-lex.europa.eu/eli/reg/2026/1744/oj/eng) to 2027-12-02 for Annex III systems and 2028-08-02 for Annex I systems embedded in products. High-risk requirements include:
 
 | Requirement | How Sandbox Meets |
 |-------------|-----------------|
@@ -229,6 +231,10 @@ Regulated industries (especially finance, healthcare) often have strict data sov
 6. Ready-to-use compliance checklist with 16 core controls.
 
 ---
+
+## Update Log
+
+- 2026-11-23: The ISO 27001 table now uses the 2022 Annex A numbering (A.9 / A.12 / A.13 are 2013 numbers); the EU AI Act section now gives the postponed high-risk application dates under Regulation (EU) 2026/1744 (2027-12-02 and 2028-08-02).
 
 ## References
 

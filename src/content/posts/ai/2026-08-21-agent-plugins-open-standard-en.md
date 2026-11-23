@@ -222,7 +222,7 @@ A standard's boundaries matter as much as its contents. v1 explicitly excludes:
 
 **Skill interpretation still varies by client.** The same SKILL.md may behave differently across clients — different models, different system prompt assembly, different context window management.
 
-**v1 has only two component types.** The spec explicitly says other proposals — commands, hooks, agents, rules, LSP servers — are "too client-specific for a stable portable contract," deferred to future versions.
+**v1 has only two component types.** The spec explicitly says other proposals — commands, hooks, agents, rules, LSP servers — are "too client-specific for a stable portable contract," deferred to future versions. (The later 1.1.0 working draft brings hooks in first; see the end of this post.)
 
 These limitations are deliberate. Vercel's announcement is direct: "The format is intentionally small and easy to implement." Standardize the smallest common denominator everyone can agree on, let clients compete on everything else — the same strategy MCP used when it first defined a minimum viable protocol.
 
@@ -275,16 +275,21 @@ Covers VS Code, Copilot CLI, JetBrains (as of 2026-08-18), and the Copilot cloud
 ## What to Watch
 
 1. **Whether Anthropic formally joins the TSC.** Claude Code's plugin structure is already compatible, but "structurally compatible" and "formally participating in governance" are different things.
-2. **What v1.1 adds.** A working draft is underway on GitHub. The most discussed additions are authentication standardization and some form of plugin registry.
+2. **What v1.1 adds.** The 1.1.0 working draft is now in the spec repo, and its first addition is a third component type, **hooks** (`hooks.json`, with portable hook handlers and a tool-event structure). The most discussed community asks, authentication and a registry, did not make it in: the draft says it defines no OAuth configuration or portable credential fields, leaves authorization to each client, and keeps the filesystem directory as the package unit rather than registry-fetched bundles.
 3. **Actual skill portability in practice.** Format unification isn't behavior unification — how the same SKILL.md performs across six clients will be the real litmus test for ecosystem maturity.
 
 ---
+
+## Update Log
+
+- 2026-11-23: Added the status of the 1.1.0 working draft: it adds a hooks component, authentication and a registry are still out of the spec, and Anthropic is still not on the TSC.
 
 ## References
 
 | Data | Source | Date |
 |---|---|---|
 | Agent Plugins 1.0.0 spec | [agent-plugins.org/specification](https://agent-plugins.org/specification) | 2026-08-11 |
+| Agent Plugins 1.1.0 working draft | [spec/1.1.0.md (GitHub)](https://github.com/agentplugins/agent-plugins-spec/blob/main/spec/1.1.0.md) | Working Draft |
 | Vercel announcement | [vercel.com/blog/introducing-agent-plugins](https://vercel.com/blog/introducing-agent-plugins) | 2026-08-06 |
 | Google joining | [developers.googleblog.com](https://developers.googleblog.com/agent-plugins-package-your-skills-tools-and-more/) | 2026-08-06 |
 | GitHub spec repo | [github.com/agentplugins/agent-plugins-spec](https://github.com/agentplugins/agent-plugins-spec) | As of 2026-08-21, 1.1k stars |

@@ -89,9 +89,9 @@ Drizzle 零依賴、壓縮後約 7.4 KB，從設計上就瞄準 serverless 和 e
 | MySQL | `mysql2` | 傳統 server |
 | SQLite | `better-sqlite3` | 本地開發 |
 
-對本站（跑在 Cloudflare Workers + D1 上）而言，Drizzle 是少數能直接用 Workers binding 連 D1 的 ORM——連線設定就是 `drizzle(env.DB)`，不需要繞 HTTP proxy。
+對本站（跑在 Cloudflare Workers + D1 上）而言，Drizzle 能直接用 Workers binding 連 D1——連線設定就是 `drizzle(env.DB)`，不需要繞 HTTP proxy。
 
-Prisma 也支援 edge runtime（Prisma Accelerate），但需要經過 Prisma 的代理服務；Drizzle 直接走 binding，中間沒有額外一層。
+Prisma 從 [7.0（2025-11）](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0)起把 client 改成不含 Rust engine 的 TypeScript 實作，並規定一律透過 driver adapter 連資料庫；D1 用 `@prisma/adapter-d1` 接 Workers binding，不必再經過 Accelerate 代理。兩者在 edge 上的差距因此縮小，剩下的差別是 Prisma 仍要從 `.prisma` schema 產生 client，Drizzle 則沒有 codegen 這一步。
 
 ## Schema 定義與遷移
 
@@ -122,7 +122,7 @@ Turso、Neon、Replit 等平台已經把 Drizzle Studio 嵌入自家服務——
 
 ## 0.x 版本的誠實面
 
-1,690 萬週下載、35,500 GitHub 星——但版本號還是 0.45.2，沒有 1.0。這不是一個可以忽略的事實。
+1,690 萬週下載、35,500 GitHub 星——但版本號還是 0.45.2，沒有 1.0。這不是一個可以忽略的事實。到 2026-11，npm 的 `latest` 是 0.45.4，[1.0 已經進到 RC](https://www.npmjs.com/package/drizzle-orm?activeTab=versions)（`rc` tag 為 1.0.0-rc.6），正式版還沒發。
 
 **實務影響**：0.x 意味著 API 不保證向後相容。Drizzle 的 breaking change 紀錄確實存在——`drizzle-kit` 的版號甚至跟 `drizzle-orm` 脫鉤（目前 0.31.10），兩者的相容矩陣需要注意。在已上線的專案升級時，你得看 changelog。
 
@@ -139,9 +139,9 @@ Turso、Neon、Replit 等平台已經把 Drizzle Studio 嵌入自家服務——
 | 設計哲學 | SQL-first，貼著 SQL 走 | Schema-first，自有查詢語言 |
 | Schema 定義 | TypeScript 檔案 | `.prisma` DSL |
 | 型別安全 | 從 TypeScript schema 推斷 | 從 `.prisma` codegen |
-| Edge 支援 | 直接 binding，零中間層 | 需 Prisma Accelerate 代理 |
-| 套件大小 | 約 7.4 KB gzipped，零依賴 | 較大（含 Rust engine） |
-| 版本狀態 | 0.45.2（無 1.0） | 6.x（穩定） |
+| Edge 支援 | 直接 binding，零中間層 | 7.0 起走 driver adapter（D1 可接 binding），不必經 Accelerate |
+| 套件大小 | 約 7.4 KB gzipped，零依賴 | 7.0 起改為 TypeScript client、不再含 Rust engine，官方稱 bundle 縮小約 90%；仍需 codegen |
+| 版本狀態 | 0.45.x（1.0 在 RC） | 7.x（穩定；8.0 在 RC） |
 | 週下載量 | 1,690 萬 | 1,380 萬 |
 
 **怎麼選**：如果你的專案跑在 edge runtime、你在意套件大小、或者你希望 agent 寫出來的查詢你能直接用 SQL 知識審——Drizzle 比較適合。如果你需要成熟的 migration 工具鏈、穩定的版本承諾、或者你的團隊比較熟 Prisma 的心智模型——Prisma 仍然是好選擇。兩者不是取代關係，是不同取捨。
@@ -162,7 +162,13 @@ Turso、Neon、Replit 等平台已經把 Drizzle Studio 嵌入自家服務——
 
 Drizzle 賭的是一個簡單的判斷：**SQL 是 50 年來最穩定的 API，不要在上面再蓋一層語言**。這個判斷在 AI 時代獲得了額外的紅利——當你的查詢是由 agent 寫的，「寫出來的東西跟 SQL 長一樣」就從開發者偏好變成了工程需求。加上零依賴、原生 edge 支援、1,690 萬週下載的生態驗證，Drizzle 是 TypeScript 專案在 2026 年選 ORM 時應該認真評估的選項。前提是你接受 0.x 的版本現實。
 
+## 更新紀錄
+
+- 2026-11-23：對照組 Prisma 已在 7.0（2025-11）改為無 Rust engine 的 TypeScript client、edge 改走 driver adapter，修正 edge 支援、套件大小與版本狀態的比較；補上 Drizzle 1.0 進入 RC。
+
 ## 參考資料
+
+- [Announcing Prisma 7](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0)
 
 - [Drizzle ORM 官方文件](https://orm.drizzle.team/)
 - [Drizzle ORM GitHub](https://github.com/drizzle-team/drizzle-orm)

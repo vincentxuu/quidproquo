@@ -158,7 +158,7 @@ The commercial side is called **AMP** (Agent Management Platform), a hosted clou
 | SSO, audit logs, SOC 2 Type II | No | Enterprise plan |
 | Data residency | Self-managed | Enterprise plan |
 
-On pricing, the free plan includes 50 workflow executions per month, 1 deployed crew, and 1 user. Paid plans scale up from there, with Enterprise requiring sales contact. But the real cost driver isn't the platform fee — it's LLM token consumption. CrewAI requires you to bring your own LLM API keys, and the token costs your agents consume are entirely separate.
+On pricing, the pricing page now has only two tiers: a free Basic plan (50 workflow executions per month, with the visual editor and GitHub integration) and custom-quoted Enterprise, which requires sales contact. The paid tiers in between are gone, so once you outgrow the free plan the next step is an Enterprise conversation. But the real cost driver isn't the platform fee — it's LLM token consumption. CrewAI requires you to bring your own LLM API keys, and the token costs your agents consume are entirely separate.
 
 ## 7. When to Use CrewAI
 
@@ -176,10 +176,15 @@ On pricing, the free plan includes 50 workflow executions per month, 1 deployed 
 
 **How to decide**: If you're choosing a multi-agent framework right now, ask yourself one question: are the interactions between your agents more naturally described in natural language ("hand the draft to the editor for review") or more naturally prescribed in code ("if the generate node's output score is below 0.5, go back to the retrieve node")? The former points to CrewAI; the latter to LangGraph. If you need enterprise-grade middleware, checkpointing, and compliance, start with [MAF](/posts/ai/2026-08-21-microsoft-agent-framework). If your problem doesn't actually need multiple agents, look at [LlamaIndex](/posts/ai/2026-08-21-llamaindex-rag-framework) or just use the model API directly. For a broader framework map, see [this overview](/posts/ai/2026-04-01-agent-frameworks-2026).
 
+## Update Log
+
+- 2026-11-23: Updated AMP pricing to the current state: only the free Basic plan and Enterprise remain, and the paid tiers in between have been removed.
+
 ## References
 
 - [CrewAI GitHub](https://github.com/crewAIInc/crewAI)
 - [CrewAI Official Documentation](https://docs.crewai.com/)
+- [CrewAI Pricing](https://www.crewai.com/pricing)
 - [CrewAI PyPI](https://pypi.org/project/crewai/)
 - [CrewAI Agents Concept](https://docs.crewai.com/concepts/agents)
 - [CrewAI Crews Concept](https://docs.crewai.com/concepts/crews)

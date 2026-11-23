@@ -29,7 +29,11 @@ Production 應由 backend 使用 secret key 簽 ID token，public key 只適合 
 
 Liveblocks 會保存 realtime storage、Yjs documents、comments 與 webhook payload 等資料。導入前要核對 region、retention、delete/export、encryption、backup expectation、webhook retry 與 data residency。若主資料仍在 application DB，需定義 Liveblocks 是 source of truth、cache 還是協作 projection，並透過 webhook/outbox 處理同步失敗。
 
-Liveblocks 適合要快速加入多人游標、shared state、comments、mentions、inbox 與 editor integration 的產品。Yjs 是可自選 provider 的 CRDT engine；Ably 是較底層 messaging；PartyKit/Durable Objects 適合自訂 room server。AI agent 加入 room 時需獨立 user ID、短效 presence、最小 write scope、可回溯 action 與 human override。
+Liveblocks 適合要快速加入多人游標、shared state、comments、mentions、inbox 與 editor integration 的產品。Yjs 是可自選 provider 的 CRDT engine；Ably 是較底層 messaging；[PartyServer（原 PartyKit）](/posts/tech/2026-08-22-partykit-realtime-rooms)/Durable Objects 適合自訂 room server。AI agent 加入 room 時需獨立 user ID、短效 presence、最小 write scope、可回溯 action 與 human override。
+
+## 更新紀錄
+
+- 2026-11-23：PartyKit 託管平台已於 2026-10-23 關閉，比較對象改為後繼的 PartyServer
 
 ## 參考資料
 

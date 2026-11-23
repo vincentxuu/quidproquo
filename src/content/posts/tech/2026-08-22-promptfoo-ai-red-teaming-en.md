@@ -27,13 +27,17 @@ Strategies range from base64 and jailbreak templates to iterative attacker model
 
 Testing only a system prompt misses retrieval ACLs, argument validation, tenant isolation, and sandbox egress. Use staging with synthetic identities and data, mock or reversible tools, and minimal credentials. Red-team suites must never trigger real sends, deletes, or payments. Coding-agent tests should inspect protected-file hashes, filesystem diffs, commands, network activity, and verifier evidence.
 
-Attack generation and grading providers are separate from targets. Some community plugins may use remote generation. Determine whether system prompts, policies, transcripts, or customer data leave the environment, configure a private provider, or disable remote generation. A locally running scanner does not imply every inference is local.
+Attack generation and grading providers are separate from targets. Some community plugins may use remote generation. Determine whether system prompts, policies, transcripts, or customer data leave the environment, configure a private provider, or disable remote generation. A locally running scanner does not imply every inference is local. OpenAI announced its acquisition of Promptfoo in 2026-03, with both sides committing to keep the open-source project maintained; for attack generation and grading that go through Promptfoo's hosted service, the party receiving that data now belongs in the evaluation, as covered in the [Promptfoo evaluation post](/posts/ai/2026-08-22-promptfoo-llm-evaluation-en).
 
 ## Pass rate is not a security score
 
 LLM graders have false positives and negatives; calibrate against human-labeled cases. Turn each confirmed exploit into a deterministic regression. Run a cheap, high-signal subset on PRs, dynamic and multi-turn attacks nightly, and human attacks before releases. Gate known critical regressions rather than every small random pass-rate change.
 
 Promptfoo discovers attack paths, Model Armor filters runtime content, and sandboxing plus authorization cap impact. After a fix, identify whether the control belongs in prompts, retrieval, tool schemas, permissions, confirmation, network policy, or output filters, then replay the original attack.
+
+## Update Log
+
+- 2026-11-23: Added OpenAI's 2026-03 announced acquisition of Promptfoo and its effect on evaluating where remote-generation data goes.
 
 ## References
 
@@ -44,3 +48,5 @@ Promptfoo discovers attack paths, Model Armor filters runtime content, and sandb
 - [Strategies](https://www.promptfoo.dev/docs/red-team/strategies/)
 - [Agent and RAG red-team guides](https://www.promptfoo.dev/docs/red-team/guides/)
 - [Coding-agent plugins](https://www.promptfoo.dev/docs/red-team/plugins/coding-agent/)
+- [OpenAI to acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo/)
+- [Promptfoo is joining OpenAI](https://www.promptfoo.dev/blog/promptfoo-joining-openai/)

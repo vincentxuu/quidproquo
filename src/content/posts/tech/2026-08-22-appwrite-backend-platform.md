@@ -35,9 +35,15 @@ TablesDB 的 table/row、relationship、query、index 與 transaction 應由 acc
 
 Cloud 由 Appwrite 維護；[self-hosting](https://appwrite.io/docs/advanced/self-hosting) 則自行負責 database、storage backend、worker、function runtime、SMTP/SMS、proxy/TLS、升級 migration、監控、容量與備份。能啟動 Docker Compose 不等於 production-ready；資料與 Appwrite control state 都要 restore drill。
 
-Appwrite 適合希望取得完整 BaaS API、又保留 cloud/self-host 選擇的 web/mobile 團隊。SQL/RLS 生態可比較 Supabase/Nhost；Google mobile ecosystem 看 Firebase；較小型單機產品看 PocketBase。驗收應包含 permission deny tests、session change、function redelivery、Cloud/self-host migration、database/file backup 與版本升級 rollback。
+Appwrite 適合希望取得完整 BaaS API、又保留 cloud/self-host 選擇的 web/mobile 團隊。需要 SQL/RLS 生態可比較 Supabase/Nhost，不過 Appwrite Cloud 從 2026-09 起也能在專案裡開[原生 PostgreSQL 與 MySQL](https://appwrite.io/blog/post/native-databases-all-appwrite-cloud-regions)：真正的資料庫 engine、有自己的 hostname 與帳密，用既有 ORM 和 migration 直接連，backup、PITR 與 replica 由 Appwrite 代管，只開放付費方案。要注意這條路徑不經過 Appwrite SDK，row permission 與 Realtime 都不適用，授權得由你的 backend 或 PostgreSQL 自己的 RLS 處理；Google mobile ecosystem 看 Firebase；較小型單機產品看 PocketBase。驗收應包含 permission deny tests、session change、function redelivery、Cloud/self-host migration、database/file backup 與版本升級 rollback。
+
+## 更新紀錄
+
+- 2026-11-23：補上 Appwrite Cloud 2026-09 起的原生 PostgreSQL／MySQL，以及它和 Appwrite 權限模型的邊界、與 Supabase／Nhost 的選型差異。
 
 ## 參考資料
+
+- [Native and dedicated databases in every Appwrite Cloud region](https://appwrite.io/blog/post/native-databases-all-appwrite-cloud-regions)
 
 - [Appwrite documentation](https://appwrite.io/docs)
 - [Appwrite authentication](https://appwrite.io/docs/products/auth)

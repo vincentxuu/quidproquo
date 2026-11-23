@@ -70,6 +70,8 @@ result = await agent.run("What is the largest city in France?")
 
 The packaging is worth knowing up front. `pip install agent-framework` pulls the core plus a set of common provider packages. The core is `agent-framework-core`, with providers split out (`agent-framework-openai`, `-foundry`, `-mem0`, `-copilotstudio`, and so on) so you can install only what you need once you know. But **imports always come from `agent_framework`**, regardless of how the packages are split.
 
+**Pin the version when you install.** On 2026-11-17 someone uploaded `agent-framework` 1.26.1 and 1.26.2 to PyPI without authorization. Both added a `.pth` file that runs whenever Python starts in that environment, collecting environment variables, credential files, and Azure and GitHub Actions tokens and sending them out (PyPA advisory PYSEC-2026-4388, GitHub advisory GHSA-764m-3ppc-5m73). PyPI quarantined both within about half an hour, and 1.26.0 is the last clean release; the same night Microsoft made the `microsoft/agent-framework` GitHub repo private to investigate, so its source and releases are temporarily unreachable. Treat any environment that installed an unpinned version that day as having leaked credentials; from here on, pin versions with a lockfile and hashes rather than letting CI pick up the latest release.
+
 Anyone migrating from Semantic Kernel will notice one difference immediately. SK offered a different agent class per service (`ChatCompletionAgent`, `OpenAIAssistantAgent`, `AzureAIAgent`, and more); MAF collapses those into a single `Agent` that works with any service whose SDK implements the right interface. The .NET equivalent is `ChatClientAgent`. Only two special cases remain: `CopilotStudioAgent` and `A2AAgent`.
 
 ## The brake Microsoft pumps itself
@@ -106,7 +108,7 @@ Back to the opening. Here is where the names actually sit (checked on PyPI, 2026
 
 Two things fall out of that table.
 
-First, **Microsoft's AutoGen really has stopped**. `autogen-agentchat` last shipped on 2025-09-30, and MAF was announced the following month. The timing does not need much explaining.
+First, **Microsoft's AutoGen really has stopped**. `autogen-agentchat` last shipped on 2025-09-30, and MAF was announced the following month. The timing does not need much explaining. In November 2026 Microsoft went further and formally archived the `microsoft/autogen` repo; the README says it no longer provides bug fixes, security fixes, or support, and points new users to MAF.
 
 Second, **AG2 did not merge**. It is maintained by the original authors, and it shipped 1.0.2 on 2026-08-15 — one day before MAF's latest release. These are two lines both alive, not two stages of one line.
 
@@ -139,6 +141,10 @@ The most instructive thing about MAF is not its feature list. It is that it demo
 
 The genuinely awkward part is the name left behind. AutoGen is now simultaneously a frozen Microsoft package, an active community project, and a PyPI name that resolves to the latter. Check the year and the owner before deciding whether to trust the tutorial in front of you.
 
+## Update Log
+
+- 2026-11-23: Added the 2026-11-17 incident in which `agent-framework` 1.26.1/1.26.2 shipped a credential stealer, with version-pinning advice, and noted that the `microsoft/autogen` repo is now archived.
+
 ## References
 
 - [Microsoft Agent Framework Version 1.0 announcement](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/)
@@ -146,6 +152,9 @@ The genuinely awkward part is the name left behind. AutoGen is now simultaneousl
 - [Semantic Kernel migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 - [Semantic Kernel and Microsoft Agent Framework (support timeline)](https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/)
 - [Microsoft Agent Framework Reaches Release Candidate](https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/)
-- [microsoft/agent-framework (GitHub)](https://github.com/microsoft/agent-framework)
+- [microsoft/agent-framework (GitHub, private since 2026-11-17)](https://github.com/microsoft/agent-framework)
+- [PYSEC-2026-4388: agent-framework 1.26.1 and 1.26.2 contain credential-stealing code (OSV)](https://osv.dev/vulnerability/PYSEC-2026-4388)
+- [GHSA-764m-3ppc-5m73: Malicious code in agent-framework (GitHub Advisory)](https://github.com/advisories/GHSA-764m-3ppc-5m73)
+- [microsoft/autogen (GitHub, archived)](https://github.com/microsoft/autogen)
 - [ag2ai/ag2 (GitHub)](https://github.com/ag2ai/ag2)
 - On this site: [LangGraph: Managing Agent Workflows with Graphs](/posts/ai/2026-03-27-langgraph-agent-orchestration-en), [MCP (Model Context Protocol)](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en)

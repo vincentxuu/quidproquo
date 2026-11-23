@@ -17,7 +17,7 @@ draft: false
 
 讓模型幫你跑程式碼之前，先回答一個比模型能力更重要的問題：程式碼在哪裡跑、能看到什麼、能碰到誰。這篇把近一年各家執行環境的實際設計，整理成一條可對照的隔離光譜。
 
-讀完你會得到三件事：沙箱設計的四根柱子與三種建構模式、從 [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) 到 [Firecracker](https://github.com/firecracker-microvm/firecracker)、[gVisor](https://gvisor.dev/)、[E2B](https://e2b.dev/)、[AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) 各家的定位與取捨，以及一份今晚就能照著做的選型決策樹。
+讀完你會得到三件事：沙箱設計的四根柱子與三種建構模式、從 [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime) 到 [Firecracker](https://github.com/firecracker-microvm/firecracker)、[gVisor](https://gvisor.dev/)、[E2B](https://e2b.dev/)、[AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) 各家的定位與取捨，以及一份今晚就能照著做的選型決策樹。
 
 ## 沙箱是什麼：先對齊名詞
 
@@ -117,7 +117,7 @@ AWS 在 2026-06-22 推出的 [Lambda MicroVMs](https://aws.amazon.com/about-aws/
 
 ### Anthropic sandbox-runtime（ASRT）
 
-[Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime)（`@anthropic-ai/sandbox-runtime`，Apache-2.0，2025-10-20 開源）在 [Claude Code](https://code.claude.com/docs/en/sandbox-environments) 沙箱設計文件中被完整揭露，核心是「不需要容器化的 OS 層級限制」。
+[Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime)（`@anthropic-ai/sandbox-runtime`，Apache-2.0，2025-10-20 開源）在 [Claude Code](https://code.claude.com/docs/en/sandbox-environments) 沙箱設計文件中被完整揭露，核心是「不需要容器化的 OS 層級限制」。
 
 其設計是雙軌：
 
@@ -238,13 +238,17 @@ Kubernetes 叢集 (hades-openbar)
 
 ## 整體來說
 
-沙箱不是「要不要做」的選擇題，而是「在哪一層做、做多緊、誰來維運」的取捨題。容器的 Namespace / cgroups / seccomp 讓你快速起步，[gVisor](https://gvisor.dev/) 用最小改動換取明顯更強的邊界，[Firecracker](https://github.com/firecracker-microvm/firecracker) 與 [Kata Containers](https://katacontainers.io/) 用硬體虛擬化換取最接近虛擬機的保證，[Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) 與 [nsjail](https://github.com/google/nsjail) 則補上「不需要容器也能對任意行程加邊界」的能力；而 [E2B](https://e2b.dev/)、[Daytona](https://www.daytona.io/)、[Modal](https://modal.com/)、[Vercel Sandbox](https://vercel.com/docs/sandbox)、[Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/) 與 [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) 則把這些原語包裝成產品，讓團隊不必先成為虛擬化專家就能交付安全的程式執行環境。
+沙箱不是「要不要做」的選擇題，而是「在哪一層做、做多緊、誰來維運」的取捨題。容器的 Namespace / cgroups / seccomp 讓你快速起步，[gVisor](https://gvisor.dev/) 用最小改動換取明顯更強的邊界，[Firecracker](https://github.com/firecracker-microvm/firecracker) 與 [Kata Containers](https://katacontainers.io/) 用硬體虛擬化換取最接近虛擬機的保證，[Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime) 與 [nsjail](https://github.com/google/nsjail) 則補上「不需要容器也能對任意行程加邊界」的能力；而 [E2B](https://e2b.dev/)、[Daytona](https://www.daytona.io/)、[Modal](https://modal.com/)、[Vercel Sandbox](https://vercel.com/docs/sandbox)、[Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/) 與 [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) 則把這些原語包裝成產品，讓團隊不必先成為虛擬化專家就能交付安全的程式執行環境。
 
 若今晚就要動手，做三件事就好：把所有不可信執行收斂到單一入口並預設無網路，將每個任務的憑證換成短效可撤銷的 token 並走代理注入，以及為每個沙箱加上明確的資源上限與銷毀策略。隔離層級可以逐步升級，但這三個動作不做，換哪一層都補不回來。
 
+## 更新紀錄
+
+- 2026-11-23：Anthropic sandbox-runtime 的 repository 已移到 `anthropics/sandbox-runtime`，連結改到新位置；E2B、Modal、Vercel、Cloudflare 與 Lambda MicroVMs 的段落對照官方文件後未變（Cloudflare Sandbox SDK 1.0 的變化見 Cloudflare Sandboxes 篇）。
+
 ## 參考資料
 
-- [Anthropic sandbox-runtime (GitHub)](https://github.com/anthropic-experimental/sandbox-runtime)
+- [Anthropic sandbox-runtime (GitHub)](https://github.com/anthropics/sandbox-runtime)
 - [Anthropic sandbox-runtime (npm)](https://www.npmjs.com/package/@anthropic-ai/sandbox-runtime)
 - [Claude Code — Sandbox environments](https://code.claude.com/docs/en/sandbox-environments)
 - [Anthropic — Code execution tool (sandboxed containers)](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/code-execution-tool)

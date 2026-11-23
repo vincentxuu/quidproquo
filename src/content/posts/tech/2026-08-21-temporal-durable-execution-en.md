@@ -27,7 +27,7 @@ Queues, streams, and durable execution get used interchangeably. They guarantee 
 |---|---|---|
 | Task queue | [BullMQ](https://docs.bullmq.io/), [Celery](https://docs.celeryq.dev/) | A message gets consumed by some worker (with retries, delays, priorities) |
 | Event stream | [Kafka](https://kafka.apache.org/documentation/), [NATS](https://docs.nats.io/) | Events are ordered, retained, and replayable by multiple consumers |
-| Durable execution | Temporal, [Restate](https://docs.restate.dev/), [DBOS](https://docs.dbos.dev/) | A **process** spanning many external calls runs to completion, even through a crash |
+| Durable execution | Temporal, [Restate](https://docs.restate.dev/), [DBOS](https://docs.dbos.dev/), [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) | A **process** spanning many external calls runs to completion, even through a crash |
 
 The difference is the unit. A queue's unit is one message, a stream's unit is one event, and durable execution's unit is **the execution state of a whole process**. [Hatchet's docs](https://docs.hatchet.run/home/durable-execution) put it plainly: durable execution gives you "guarantees about tasks and workflows you wouldn't get from an ordinary task queueing system," and it is "priceless in systems that cannot reasonably be made idempotent, so replaying on failure is impossible."
 
@@ -101,6 +101,7 @@ There is a genuine architectural split inside durable execution, but it isn't ma
 | [Restate](https://docs.restate.dev/develop/python/durable-steps) | Re-runs the handler, replays the journal, skips completed steps | Yes (provides `ctx.run` / `ctx.uuid()` / `ctx.random()` / `ctx.time()`) |
 | [DBOS](https://docs.dbos.dev/architecture) | Re-invokes the workflow with checkpointed inputs; each step first checks Postgres for a checkpoint | Yes (docs state the workflow function must be deterministic) |
 | [Hatchet](https://docs.hatchet.run/home/durable-execution) | Replays from the last checkpoint in a durable event log | Yes (a durable task may only wait or spawn children) |
+| [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) | Checkpoint/replay: reruns the handler from the start and fills in results for completed steps (GA in 2025-12, up to one year per execution) | Yes (replay reruns from the start, so code outside steps must take the same path) |
 | [Trigger.dev](https://trigger.dev/docs/how-it-works) | CRIU takes a memory snapshot of the whole process and restores it mid-flight | No |
 | [LangGraph](https://langchain-ai.github.io/langgraph/concepts/persistence/) | A checkpointer stores graph state snapshots; a thread resumes from its checkpoint | No |
 
@@ -139,7 +140,13 @@ One detail that matters to the cost model: **Actions generated during replay are
 
 Flip it around, though: if a process hits three of these four — multi-step, spanning external systems, expensive to get wrong, requires human input or long waits — Temporal almost always pays off, because the state table, idempotency keys, and compensation logic you'd otherwise write by hand cost far more than learning the determinism rules.
 
+## Update history
+
+- 2026-11-23: Added AWS Lambda durable functions (GA in 2025-12) to the durable execution category table and the replay-versus-snapshot comparison table.
+
 ## References
+
+- [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
 
 - [Temporal Workflow (including how replay works)](https://docs.temporal.io/workflows)
 - [Temporal Workflow Definition: deterministic constraints and versioning](https://docs.temporal.io/workflow-definition)

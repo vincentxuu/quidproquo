@@ -65,10 +65,10 @@ draft: false
 | 供應商 | 暫停方式 | 恢復速度 | 保留內容 |
 |--------|----------|----------|----------|
 | E2B | pause/resume API | ~1 秒 | 記憶體 + 行程 + 檔案 |
-| Modal | pause/resume API | sub-second | 記憶體 + 行程 + 檔案 |
-| Vercel | pause API | 3–3 秒 | 檔案（記憶體重建） |
-| Cloudflare | pause API | 2–3 秒 | 檔案（記憶體重建） |
-| Azure Container Apps | pause/resume API | 視規模而定 | 記憶體 + 行程 + 檔案 |
+| Modal | 記憶體快照（沒有 pause API） | 視映像而定 | 記憶體 + 行程 + 檔案（7 天到期） |
+| Vercel | stop 時自動 snapshot（persistent 預設） | 新 session 從 snapshot 開機 | 檔案（記憶體重建） |
+| Cloudflare | SDK 1.0 停機前存 snapshot | 新 instance 從 snapshot 啟動 | 檔案（記憶體重建） |
+| Azure Container Apps | auto-suspend／resume | 官方稱 1 秒內 | Memory 模式：記憶體 + 行程 + 檔案；Disk 模式：檔案 |
 
 ### 注意事項
 
@@ -89,8 +89,8 @@ draft: false
 | 特性 | 暫停 (pause) | 快照 (snapshot) |
 |------|-------------|-----------------|
 | 繼續執行 | 原沙箱繼續 | 建立新沙箱 |
-| 記憶體狀態 | 保留 | 不保留 |
-| 行程狀態 | 保留 | 不保留 |
+| 記憶體狀態 | 保留 | 多數不保留（Azure、Modal 記憶體快照例外） |
+| 行程狀態 | 保留 | 多數不保留（同上） |
 | 檔案狀態 | 保留 | 保留 |
 | 適用場景 | 短暫中斷 | 長期儲存、跨沙箱共用 |
 
@@ -118,10 +118,10 @@ draft: false
 
 | 供應商 | 休眠支援 | 保留時間 | 喚醒速度 |
 |--------|----------|----------|----------|
-| Modal | 否 | N/A | N/A |
+| Modal | 記憶體快照 | 7 天 | 視映像而定 |
 | E2B | 有 | 無限 | 秒級 |
 | Blaxel | 有 (standby) | 無限 | 25 ms |
-| Azure Container Apps | 有 | 視規模而定 | 視規模而定 |
+| Azure Container Apps | 有（auto-suspend） | 由 auto-delete 天數決定 | 官方稱 1 秒內 |
 | Freestyle | 有 | 無限 | 秒級 |
 
 ---
@@ -172,11 +172,18 @@ ML 模型訓練或評估可能需要數小時或數天，沙箱可在中間暫�
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：依各家文件更新暫停與休眠表：Modal 沒有 pause API，改列記憶體快照（7 天到期）；Vercel 改為 persistent sandbox 停止時自動 snapshot；Cloudflare 改為 SDK 1.0 的 snapshot；Azure 改為 auto-suspend 的 Memory／Disk 兩種模式；快照不保留記憶體的說法補上 Azure、Modal 例外。
+
 ## 參考資料
 
 - [Azure Container Apps Sandboxes Documentation](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
 - [E2B Sandbox Persistence](https://e2b.dev/docs/sandbox/persistence)
 - [Modal Sandbox Snapshots](https://modal.com/docs/guide/sandbox-snapshots)
+- [Vercel Sandbox persistent sandboxes](https://vercel.com/docs/sandbox/concepts/persistent-sandboxes)
+- [Cloudflare Sandboxes：Lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/)
+- [Azure Container Apps Sandboxes：Snapshots and state management](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
 - [Blaxel Sub-second Sandbox Startup 2026](https://blaxel.ai/blog/sub-second-sandbox-startup-2026)
 - [Beam: Best Stateful Sandboxes for Code Execution in 2026](https://www.beam.cloud/blog/best-stateful-sandbox-code-execution-2026)
 - [Kubernetes-sigs/agent-sandbox: Guest Agent Proposal](https://github.com/kubernetes-sigs/agent-sandbox/issues/1237)

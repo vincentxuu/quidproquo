@@ -17,7 +17,7 @@ draft: false
 
 ## What This Post Is
 
-This post is the "cloud deep dive" post (order 14) of the Sandbox Series, focusing on **Azure Container Apps Sandboxes** — Microsoft Azure's cloud-native sandbox service. As part of the Azure cloud ecosystem, it's a natural choice for Azure enterprise users, alongside AWS Bedrock AgentCore and Alibaba OpenSandbox.
+This post is the "cloud deep dive" post (order 14) of the Sandbox Series, focusing on **Azure Container Apps Sandboxes** — Microsoft Azure's cloud-native sandbox service, generally available since 2026-09-23. As part of the Azure cloud ecosystem, it's a natural choice for Azure enterprise users, alongside AWS Bedrock AgentCore.
 
 This post covers:
 
@@ -26,82 +26,76 @@ This post covers:
 3. **Lifecycle Policy** — Lifecycle strategy, auto-destroy, idle handling
 4. **Security Boundary** — Network policy, identity authentication, credential management
 5. **Trade-offs with other providers** — E2B, Daytona, Modal, Bedrock AgentCore comparison
-6. **Azure ecosystem integration advantages** — Azure AI, AKS, Key Vault integration
+6. **Azure ecosystem integration advantages** — Shared foundation with Microsoft products, managed identity, VNet
 
 ---
 
 ## Azure Container Apps Sandboxes Architecture
 
-Azure Container Apps Sandboxes uses a cloud-native architecture built on the Azure Container Apps platform, using microVM isolation:
+Azure Container Apps Sandboxes entered public preview on 2026-06-02 (Build'26) and reached GA on 2026-09-23. It is a first-class resource type in Container Apps (`Microsoft.App/SandboxGroups`), alongside apps, jobs, and dynamic sessions:
 
 ```
 ┌─────────────────────────────────────┐
-│          Azure Control Plane         │
-│  - Container Apps environment config  │
-│  - Sandbox lifecycle policy           │
-│  - Snapshot and state management      │
+│          Azure Control Plane (ARM)   │
+│  - Sandbox Group: shared scope for   │
+│    images, snapshots, volumes,       │
+│    secrets, managed identities       │
+│  - Defaults, VNet, identity settings │
 └─────────────────────────────────────┘
            │
 ┌─────────────────────────────────────┐
 │          Execution Plane              │
-│  - microVM isolation                  │
-│  - Container execution environment    │
-│  - Network policy                     │
+│  - One microVM per sandbox            │
+│    (its own kernel)                   │
+│  - Boots from disk image or snapshot  │
+│  - Ingress/egress proxies outside     │
 └─────────────────────────────────────┘
 ```
 
 ### Isolation Technology
 
-Azure Container Apps Sandboxes uses **microVM isolation**, with each sandbox running in its own virtual machine, providing stronger isolation guarantees than containers. This is similar to AWS Bedrock AgentCore's Firecracker microVM, but integrated within the Azure Container Apps ecosystem.
+Each sandbox is a [hardware-isolated microVM](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-sandboxes-now-generally-available/4559125) with its own Linux kernel and virtual hardware, with memory separated by CPU virtualization; typical container runtimes share the host kernel instead. The root filesystem comes from a disk image converted from an OCI image, and platform images such as Ubuntu, Python, Node.js, and Claude Code are provided. Resources come in tiers from 0.25 cores / 0.5 GiB up to 16 cores / 32 GiB.
 
 ### Sandbox Lifecycle
 
-Azure Container Apps Sandboxes supports full lifecycle management:
-
-1. **Create**: Create sandbox from container image
-2. **Execute**: Send commands via SDK or CLI
-3. **Pause**: Release compute resources, retain state
-4. **Resume**: Automatically resume on incoming network connection
-5. **Snapshot**: Create sandbox state checkpoint
-6. **Create from snapshot**: Create new sandbox from snapshot
-7. **Auto-destroy**: Automatically clean up idle sandboxes based on lifecycle policy
+1. **Create**: From a disk image or snapshot; boots in under a second per Microsoft
+2. **Execute**: Send commands through the Python or TypeScript SDK, the `aca` CLI, or the REST API
+3. **Auto-suspend**: Suspends after an idle interval according to the lifecycle policy
+4. **Resume**: On a start command or when network traffic arrives; under a second per Microsoft
+5. **Snapshot**: Manually or automatically on suspend; can include memory and disk
+6. **Create from snapshot**: Fork new sandboxes from a snapshot
+7. **Auto-delete**: The lifecycle policy removes sandboxes stopped longer than a set number of days
 
 ---
 
 ## Snapshot and State Management
 
-Azure Container Apps Sandboxes provides two state retention mechanisms:
+Azure splits sandbox state into three kinds: in-memory state (processes, open files, terminal sessions), local disk state, and external state written outside the sandbox. The first two are tied to the sandbox lifecycle, so the platform offers two ways to keep them: lifecycle policy and snapshots.
 
 ### Snapshot
 
-Snapshot is a point-in-time copy of the sandbox state, used for:
-- Creating new sandboxes (restore from snapshot)
-- Backup and restore
-- Cross-sandbox state sharing
+A snapshot is a point-in-time copy of sandbox state and can include memory, disk, and running processes. Use it to:
+- Checkpoint before a risky operation
+- Fork multiple sandboxes from one prepared environment
+- Preserve local state before deleting a sandbox
 
-**Snapshot vs. Resume difference**:
-- **Resume**: Continues on existing sandbox, preserves memory and process state
-- **Snapshot**: Creates new sandbox, starts from captured point-in-time state
+Snapshots capture sandbox-local state only. They do not coordinate writes to databases, queues, object storage, or external APIs; a sandbox forked from a snapshot may repeat non-idempotent operations, so design the workflow for that.
 
 ### State Management
 
-Azure Container Apps Sandboxes supports persistent storage, files can survive restarts. However, memory state is only preserved during pause/resume; snapshots do not preserve memory state.
+Data that must outlive a sandbox belongs on a mounted volume (Azure Blob, bring-your-own Blob, or Data Disk); it stays after the sandbox is deleted. Sandboxes with a Data Disk volume attached cannot use memory snapshots.
 
 ---
 
 ## Lifecycle Policy
 
-Azure Container Apps Sandboxes supports **lifecycle policy** as default safety net:
+Lifecycle policy fits routine idle-and-resume behavior; snapshots fit deliberate checkpoints:
 
-| Policy | Description | Applicable Scenario |
-|--------|-------------|---------------------|
-| Auto-pause | Sandbox auto-pauses after idle | Save compute costs |
-| Auto-destroy | Sandbox auto-destroys after max lifetime | Prevent resource leaks |
-| Idle timeout | Auto-pause on no network activity | Interactive agent workflows |
-
-**When to use**:
-- Use lifecycle policy for routine automatic cleanup
-- Use snapshots for explicit checkpoints or reproducible startups
+| Policy | Description | Use Case |
+|--------|-------------|----------|
+| Auto-suspend (Memory mode) | Suspends after inactivity and keeps full state, including memory | Interactive agents that need processes kept between turns |
+| Auto-suspend (Disk mode) | Keeps disk only; the VM restarts fresh on resume | Work that only needs files and can restart |
+| Auto-delete | Deletes sandboxes stopped longer than a set number of days | Keeps abandoned sandboxes from piling up snapshot storage |
 
 ---
 
@@ -109,48 +103,52 @@ Azure Container Apps Sandboxes supports **lifecycle policy** as default safety n
 
 ### Network Policy
 
-Azure Container Apps Sandboxes supports network policy, controlling outbound and inbound traffic. By default, sandbox network access is restricted, requiring explicit allowlist configuration.
+Each sandbox has its own egress policy, enforced by a proxy outside the sandbox: the default action can be Allow or Deny, plus domain-pattern or CIDR rules. The default is not deny-all; for untrusted code, set it to Deny explicitly and open only the endpoints you need. Network Audit records every allow and deny. You can also join your own VNet to reach private resources.
 
 ### Identity Authentication
 
-Integrated with Azure Active Directory (Entra ID), supporting authentication of sandbox access via Azure identity, avoiding long-term keys passed into sandbox.
+Sandbox Groups support system-assigned and user-assigned managed identities, so sandboxes can reach Azure resources with an Entra ID identity instead of long-lived keys passed into the sandbox.
 
 ### Credential Management
 
-Integrated with Azure Key Vault, credentials managed by Key Vault, sandbox accesses on demand, avoiding long-term keys landing in sandbox.
+Sandbox Groups can store secrets, and egress-policy transform rules add authentication headers to outbound requests at the proxy, so code inside the sandbox never sees the secret. For Key Vault access, use the managed identity.
+
+### Billing
+
+Running sandboxes are billed per vCPU core-second and memory GiB-second, with no compute charge once stopped; disk images, snapshots, and volumes are billed separately by storage (Microsoft lists storage billing as coming soon).
 
 ---
 
 ## Trade-offs with Other Providers
 
 | Provider | Isolation Tech | Cold Start | Pricing Model | Best For |
-|----------|---------------|------------|---------------|----------|
-| Azure Container Apps Sandboxes | microVM | ~1–2 s | wall-clock | Azure ecosystem integration |
-| AWS Bedrock AgentCore | Firecracker microVM | ~1–2 s | wall-clock | AWS ecosystem integration |
-| Alibaba OpenSandbox | gVisor | ~200 ms | wall-clock | Alibaba Cloud ecosystem |
+|----------|----------------|------------|---------------|----------|
+| Azure Container Apps Sandboxes | microVM | under 1 s (official) | Per second while running; no compute charge when stopped | Azure ecosystem integration |
+| AWS Bedrock AgentCore | microVM (Runtime) / container (Code Interpreter) | ~1–2 s | active-CPU | AWS ecosystem integration |
+| OpenSandbox | runc by default; gVisor / Kata / Firecracker optional | Depends on deployment | Open source, self-hosted | Your own Kubernetes |
 | E2B | Firecracker microVM | ~150 ms | wall-clock | Coding agent, long tasks |
-| Modal | gVisor / microVM | sub-second | wall-clock (no idle) | GPU workloads, high concurrency |
+| Modal | gVisor / microVM | sub-second | Higher of request and usage | GPU workloads |
 
 **Choose Azure Container Apps Sandboxes when**:
 - Deeply bound to Azure ecosystem
-- Need integration with Azure AI, AKS, Key Vault
-- Data must stay within Azure regions
+- Need managed identity, VNet, and Azure resource integration
+- Data must stay in Azure regions
 
 ---
 
 ## Azure Ecosystem Integration Advantages
 
-### Integration with Azure AI
+### Shared Foundation with Microsoft Products
 
-Azure Container Apps Sandboxes integrates seamlessly with Azure AI services (Azure OpenAI, Azure AI Search, etc.), allowing agents to securely call Azure AI APIs from within the sandbox.
+Microsoft says GitHub Copilot's cloud sandboxes, Foundry Hosted Agents, Azure SRE Agent, and Container Apps Express all run on the same sandbox infrastructure.
 
-### Integration with AKS
+### Integration with Azure Services
 
-For scenarios requiring Kubernetes orchestration, Azure Container Apps Sandboxes can integrate with Azure Kubernetes Service (AKS), supporting large-scale sandbox deployment.
+Sandboxes use managed identity to reach Key Vault, Storage, and other Azure services, and VNet integration to reach private endpoints; telemetry can export console logs, platform metrics, OpenTelemetry, and egress decision records.
 
-### Integration with Key Vault
+### Deployment Tooling
 
-Credentials and keys managed via Azure Key Vault, sandbox accesses on demand, avoiding long-term keys landing in sandbox environment.
+The GA release ships Python and TypeScript SDKs, the `aca` CLI, Bicep, and a preview Terraform provider; a .NET SDK is still planned.
 
 ---
 
@@ -159,15 +157,22 @@ Credentials and keys managed via Azure Key Vault, sandbox accesses on demand, av
 1. Azure Container Apps Sandboxes architecture and isolation technology (microVM).
 2. Snapshot vs. Resume difference, and State Management scope.
 3. Lifecycle Policy configuration and usage scenarios.
-4. Security boundary: network policy, Entra ID identity authentication, Key Vault credential management.
-5. Trade-offs with AWS Bedrock AgentCore, Alibaba OpenSandbox, E2B, Daytona, Modal.
-6. Azure ecosystem integration advantages: Azure AI, AKS, Key Vault.
+4. Security boundary: egress policy, Entra ID managed identity, credentials injected at the proxy.
+5. Trade-offs with AWS Bedrock AgentCore, OpenSandbox, E2B, Modal.
+6. Azure ecosystem integration advantages: shared foundation, managed identity, VNet, and deployment tooling.
 
 ---
 
+## Update Log
+
+- 2026-11-23: Added the 2026-06 public preview and 2026-09-23 GA; corrected snapshots to include memory; lifecycle policy now follows the official auto-suspend (Memory / Disk mode) and auto-delete; the network default action can be Allow or Deny and credentials are injected at the proxy; added billing and SDKs; removed the AKS integration claim, which has no official source, and rewrote the ecosystem section.
+
 ## References
 
-- [Azure Container Apps Sandboxes Documentation](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
+- [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview)
+- [Azure Container Apps Sandboxes: Snapshots and state management](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
+- [Introducing Azure Container Apps Sandboxes (public preview announcement)](https://techcommunity.microsoft.com/blog/appsonazureblog/introducing-azure-container-apps-sandboxes-secure-infrastructure-for-agentic-wor/4524131)
+- [Azure Container Apps Sandboxes, Now Generally Available](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-sandboxes-now-generally-available/4559125)
 - [Azure Container Apps Documentation](https://learn.microsoft.com/en-us/azure/container-apps/)
 - [Azure Key Vault Documentation](https://learn.microsoft.com/en-us/azure/key-vault/)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview-en)

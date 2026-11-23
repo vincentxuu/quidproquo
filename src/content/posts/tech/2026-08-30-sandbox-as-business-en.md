@@ -5,8 +5,8 @@ category: tech
 type: guide
 tags: [sandbox, business, modal, commercial, pricing, ai-agent]
 lang: en
-tldr: "The business post (order 27) of the Sandbox Series. How Modal's sandbox grew from a feature to a $300M–$1B annualized run rate standalone product line, pricing and packaging strategies, and implications for build-vs-buy decisions."
-description: "Sandbox as a standalone commercial product: Modal's $300M–$1B ARR lesson, pricing and packaging strategies, key success factors for sandbox commercialization."
+tldr: "The business post (order 27) of the Sandbox Series. How Modal's sandbox grew from a feature to a standalone product line at about a $300M run rate, pricing and packaging strategies, and implications for build-vs-buy decisions."
+description: "Sandbox as a standalone commercial product: Modal's $300M sandbox ARR lesson, pricing and packaging strategies, key success factors for sandbox commercialization."
 series:
   name: "Sandbox Series"
   order: 28
@@ -19,7 +19,7 @@ draft: false
 
 This post is the "business" post (order 27) of the Sandbox Series. It doesn't cover technical details. It covers **"how sandboxing is done as business"**:
 
-1. **How did Modal's sandbox grow from a feature to a $300M–$1B annualized run rate standalone product line?**
+1. **How did Modal's sandbox grow from a feature to a standalone product line at about a $300M run rate?**
 2. **What are the pricing and packaging strategies for sandbox as a commercial product?**
 3. **What are the implications for build-vs-buy decisions?**
 4. **What are the key success factors for sandbox commercialization?**
@@ -34,8 +34,8 @@ Modal originally was a serverless compute platform, and Sandboxes was one featur
 
 **Key moments (2026)**:
 - **May 2026**: Modal completed $355M Series C at $4.65B valuation, sandbox already contributing significant revenue.
-- **October 2026**: Modal completed $750M Series D at $15.75B valuation, annualized run rate (ARR) exceeding $1B, with sandbox alone contributing approximately $300M–$330M ARR.
-- **Sandbox executions**: Cumulative over 3 billion, single workload supporting 1 million concurrent sandboxes.
+- **October 2026**: Modal completed a $750M Series D at a $15.75B post-money valuation, with annualized run rate (ARR) above $1B and sandboxes alone at about $300M.
+- **Sandbox count**: Close to 3 billion sandboxes created, scaling to 1 million concurrent.
 
 This shows: **sandboxing has shifted from "agent's ancillary feature" to "independent commercial market"**, with scale and growth rate not to be underestimated.
 
@@ -53,7 +53,7 @@ Sandbox products typically price across the following dimensions:
 | Memory | Per GB-hour | Almost all providers |
 | Network egress | Per GB | Cloudflare, Vercel |
 | Storage & snapshots | Per GB-month | Daytona, Runloop |
-| GPU usage | Per GPU-hour | Modal, Bedrock AgentCore |
+| GPU usage | Per GPU-hour | Modal, Daytona |
 | Concurrency | Number of concurrent sandboxes | Modal, Daytona |
 | Base fee | Monthly subscription | E2B Pro, Modal Team |
 
@@ -114,13 +114,17 @@ Based on Modal and other providers' experience, key success factors for sandbox 
 
 ## What You Should Understand After Reading
 
-1. How Modal's sandbox grew from feature to $300M–$1B ARR standalone product line.
+1. How Modal's sandbox grew from feature to a standalone product line at about $300M ARR.
 2. Pricing dimensions and strategies for commercial sandbox products (compute, memory, network, storage, GPU, concurrency).
 3. Product packaging strategy: from "selling execution environment" to "selling developer experience."
 4. Build vs. buy decision rules: execution scale, engineering team, compliance requirements, data sovereignty.
 5. Five key success factors for sandbox commercialization.
 
 ---
+
+## Update Log
+
+- 2026-11-23: Corrected the sandbox figures from Modal's official Series C / D announcements (sandboxes at about a $300M run rate, close to 3 billion sandboxes created); the representative GPU-pricing vendors are now Modal and Daytona (Bedrock AgentCore has no GPU sandboxes).
 
 ## References
 

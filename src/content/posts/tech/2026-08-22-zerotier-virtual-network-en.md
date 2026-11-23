@@ -19,13 +19,17 @@ draft: false
 
 ## Controllers configure; nodes carry data
 
-Hosted ZeroTier Central is the common controller, and self-hosting is supported. A self-hosted controller does not automatically replace public roots: controllers and planet/root infrastructure have distinct jobs. Private roots require moons or a custom planet plus discovery, upgrade, and availability work. Test how controller loss affects established traffic and new authorization.
+Hosted ZeroTier Central is the common controller, and self-hosting is supported, but check the license first: since 1.16.0 (2025-09) the controller code lives under `nonfree/` in the repository with a source-available license limited to non-commercial use, so a company, government, or non-profit running its own controller needs a separate commercial license; the agent on each node remains MPL-2.0. A self-hosted controller does not automatically replace public roots: controllers and planet/root infrastructure have distinct jobs. Private roots require moons or a custom planet plus discovery, upgrade, and availability work. Test how controller loss affects established traffic and new authorization.
 
 Managed routes expose a physical subnet through a member. Routing or layer-2 bridging can reach legacy devices without clients. Bridging also imports broadcast traffic, loops, MTU problems, and a larger failure domain, so avoid stretching a broadcast domain unless L2 semantics are required.
 
 Flow Rules execute in the distributed data plane and can accept, drop, redirect, or rate-limit based on tags, addresses, protocols, and ports. They are stronger than a peer list and easier to make overly permissive. Start deny-first, version policies, test with dedicated nodes, and retain controller audit evidence.
 
 ZeroTier fits cross-platform fleets, branch networks, labs, games, and L2 requirements. WireGuard is smaller and manual; Tailscale centers identity ACLs over WireGuard; Twingate maps users to resources; Teleport audits infrastructure sessions. Verify NAT traversal, relay fallback, CIDR overlap, DNS, IPv6, MTU, controller compromise, member revocation, route spoofing, and bridge loops.
+
+## Update Log
+
+- 2026-11-23: Added that since 1.16.0 the self-hosted controller is under a non-commercial source-available license and commercial self-hosting needs a separate license.
 
 ## References
 
@@ -34,3 +38,4 @@ ZeroTier fits cross-platform fleets, branch networks, labs, games, and L2 requir
 - [Network controllers](https://docs.zerotier.com/controller/)
 - [Rules engine](https://docs.zerotier.com/rules/)
 - [Route between physical and virtual networks](https://docs.zerotier.com/route-between-phys-and-virt/)
+- [ZeroTier source-available license (nonfree/LICENSE.md)](https://github.com/zerotier/ZeroTierOne/blob/dev/nonfree/LICENSE.md)

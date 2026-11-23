@@ -29,7 +29,11 @@ Production backends should use a secret key to issue ID tokens; public keys are 
 
 Liveblocks retains realtime Storage, Yjs documents, comments, and some webhook data. Verify region, retention, deletion and export, encryption, backup expectations, webhook retry, and residency. If the application database remains canonical, define Liveblocks as source, cache, or collaboration projection and handle synchronization failure through webhooks and an outbox.
 
-Liveblocks fits products needing multiplayer cursors, shared state, comments, mentions, inboxes, and editor integrations quickly. Yjs is a CRDT engine with selectable providers; Ably is lower-level messaging; PartyKit and Durable Objects run custom room servers. AI agents need distinct IDs, expiring presence, minimal write scopes, attributable actions, and human override.
+Liveblocks fits products needing multiplayer cursors, shared state, comments, mentions, inboxes, and editor integrations quickly. Yjs is a CRDT engine with selectable providers; Ably is lower-level messaging; [PartyServer (formerly PartyKit)](/posts/tech/2026-08-22-partykit-realtime-rooms-en) and Durable Objects run custom room servers. AI agents need distinct IDs, expiring presence, minimal write scopes, attributable actions, and human override.
+
+## Update Log
+
+- 2026-11-23: The hosted PartyKit platform shut down on 2026-10-23, so the comparison now points to its successor, PartyServer.
 
 ## References
 

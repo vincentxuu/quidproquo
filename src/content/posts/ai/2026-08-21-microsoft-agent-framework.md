@@ -70,6 +70,8 @@ result = await agent.run("What is the largest city in France?")
 
 套件結構值得先知道：`pip install agent-framework` 會裝進核心加上一批常用的供應商套件。核心是 `agent-framework-core`，其餘按供應商拆開（`agent-framework-openai`、`-foundry`、`-mem0`、`-copilotstudio` 等），確定需求之後可以只裝需要的那幾個。但**匯入路徑一律從 `agent_framework` 走**，不隨套件拆分改變。
 
+**安裝時要鎖版本。** 2026-11-17 有人未經授權把 `agent-framework` 1.26.1 與 1.26.2 傳上 PyPI。兩版都多了一個 `.pth` 檔，只要那個環境啟動 Python 就會執行，收集環境變數、憑證檔與 Azure、GitHub Actions 的 token 外傳（PyPA 公告 PYSEC-2026-4388、GitHub 公告 GHSA-764m-3ppc-5m73）。兩版在半小時左右被 PyPI 隔離，1.26.0 是最後一個乾淨版本；微軟同一晚把 `microsoft/agent-framework` 的 GitHub repo 轉成私人調查，原始碼與 release 暫時連不到。當天裝過未鎖版本的環境要當成憑證外洩處理；往後用 lockfile 加 hash 鎖住版本，不要讓 CI 自動吃最新版。
+
 另外一個從 Semantic Kernel 遷移過來的人會立刻感覺到的差異：SK 為不同服務準備了不同的 agent 類別（`ChatCompletionAgent`、`OpenAIAssistantAgent`、`AzureAIAgent`⋯⋯），MAF 收斂成單一的 `Agent`，只要底層 SDK 實作了對應介面就能接。.NET 那側對應的是 `ChatClientAgent`。額外只留兩個特例：`CopilotStudioAgent` 與 `A2AAgent`。
 
 ## 官方自己踩的煞車
@@ -106,7 +108,7 @@ result = await agent.run("What is the largest city in France?")
 
 兩件事值得從這張表讀出來。
 
-第一，**微軟那條 AutoGen 確實停了**。`autogen-agentchat` 最後一次發版是 2025-09-30，而 MAF 在隔月宣布——時間點吻合到不需要多解釋。
+第一，**微軟那條 AutoGen 確實停了**。`autogen-agentchat` 最後一次發版是 2025-09-30，而 MAF 在隔月宣布——時間點吻合到不需要多解釋。2026-11 微軟進一步把 `microsoft/autogen` repo 正式 archive，README 寫明不再提供錯誤修正、安全修補與支援，新使用者改用 MAF。
 
 第二，**AG2 沒有合併**。它由原作者維護，2026-08-15 還發了 1.0.2，比 MAF 的最新版只早一天。它跟微軟是兩條各自活著的線，不是一條線的兩個階段。
 
@@ -139,6 +141,10 @@ MAF 最值得記住的不是功能表，是它示範了一種**大廠收束自�
 
 真正麻煩的是留下來的那個名字。AutoGen 現在同時是一個停更的微軟套件、一個活躍的社群專案、以及一個指向後者的 PyPI 名稱。查資料時先確認年份與歸屬，再決定要不要相信那篇教學。
 
+## 更新紀錄
+
+- 2026-11-23：補上 2026-11-17 `agent-framework` 1.26.1／1.26.2 遭植入竊密程式的事件與鎖版本建議，以及 `microsoft/autogen` repo 已 archive。
+
 ## 參考資料
 
 - [Microsoft Agent Framework Version 1.0 發布公告](https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-version-1-0/)
@@ -146,6 +152,9 @@ MAF 最值得記住的不是功能表，是它示範了一種**大廠收束自�
 - [Semantic Kernel 遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 - [Semantic Kernel and Microsoft Agent Framework（支援時程說明）](https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/)
 - [Microsoft Agent Framework 進入 Release Candidate](https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/)
-- [microsoft/agent-framework（GitHub）](https://github.com/microsoft/agent-framework)
+- [microsoft/agent-framework（GitHub，2026-11-17 起轉為私人）](https://github.com/microsoft/agent-framework)
+- [PYSEC-2026-4388：agent-framework 1.26.1 與 1.26.2 含竊取憑證程式（OSV）](https://osv.dev/vulnerability/PYSEC-2026-4388)
+- [GHSA-764m-3ppc-5m73：Malicious code in agent-framework（GitHub Advisory）](https://github.com/advisories/GHSA-764m-3ppc-5m73)
+- [microsoft/autogen（GitHub，已 archive）](https://github.com/microsoft/autogen)
 - [ag2ai/ag2（GitHub）](https://github.com/ag2ai/ag2)
 - 站內相關：[LangGraph：用圖結構管理 Agent 工作流程](/posts/ai/2026-03-27-langgraph-agent-orchestration)、[MCP（Model Context Protocol）](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)

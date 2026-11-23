@@ -31,7 +31,7 @@ producer -> orders(topic exchange)
               +--> incident queue -> on-call worker
 ```
 
-這套模型比 Kafka consumer group 更擅長細緻路由，也更自然地支援短生命週期工作、priority、TTL 與 dead-letter exchange。代價是訊息通常在 ack 後刪除；若需要多組 consumer 任意回到舊位置重播，應看 RabbitMQ Streams、Kafka 或 Redpanda。
+這套模型比 Kafka consumer group 更擅長細緻路由，也更自然地支援短生命週期工作、priority、TTL 與 dead-letter exchange。Kafka 4.2 起 [share group](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/) 已可上 production，讓 consumer 數超過 partition 數、逐筆 ack 並重送，工作佇列不再只能靠傳統 consumer group 硬做；但它仍沒有 exchange／binding 路由、priority 與 TTL 這類拓撲，也不保證順序。代價是訊息通常在 ack 後刪除；若需要多組 consumer 任意回到舊位置重播，應看 RabbitMQ Streams、Kafka 或 Redpanda。
 
 ## Quorum queue 是高可用工作的預設
 
@@ -70,7 +70,13 @@ RabbitMQ 適合排 LLM batch、文件解析、embedding、工具執行與 webhoo
 
 agent task 可能跑很久。不要靠延長 ack timeout 假裝它已成為 durable execution；worker crash 後，RabbitMQ 只知道重新交付整筆訊息，不知道流程做完哪些 step。需要逐步恢復、等待人類數小時或跨多個外部呼叫時，Temporal、Restate 或 Trigger.dev 才是對應層。
 
+## 更新紀錄
+
+- 2026-11-23：與 Kafka 的比較改成只針對傳統 consumer group，補上 Kafka 4.2 share group 的工作佇列語意與它仍缺的路由能力。
+
 ## 參考資料
+
+- [Apache Kafka 4.2.0 release announcement（share groups）](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)
 
 - [RabbitMQ queues](https://www.rabbitmq.com/docs/queues)
 - [RabbitMQ quorum queues](https://www.rabbitmq.com/docs/quorum-queues)

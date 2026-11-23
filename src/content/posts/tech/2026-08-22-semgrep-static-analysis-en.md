@@ -34,13 +34,17 @@ rules:
 
 Give every custom rule positive fixtures that must match and negative fixtures that must not, pin the engine version, and run `semgrep --test` in CI. Update models when framework wrappers, sanitizers, ORM helpers, and internal abstractions change. A copied incident snippet alone usually produces a brittle pattern.
 
-Semgrep CE runs community and custom rules locally or in CI. The commercial platform combines Code, Supply Chain, and Secrets, with interprocedural analysis, reachability, triage, and data handling varying by edition and configuration. Benchmark the actual engines against project languages, frameworks, and known vulnerabilities rather than extrapolating from the product name.
+Semgrep CE runs community and custom rules locally or in CI. The commercial platform combines Code, Supply Chain, and Secrets, with interprocedural analysis, reachability, triage, and data handling varying by edition and configuration. [Opengrep](https://github.com/opengrep/opengrep), forked from Semgrep 1.100.0, is LGPL-2.1, backed by several AppSec vendors, compatible with Semgrep rules, and lists cross-function and cross-file taint tracking in its README; include it in the comparison if you want deeper dataflow on an open-source engine. Benchmark the actual engines against project languages, frameworks, and known vulnerabilities rather than extrapolating from the product name.
 
 ## Diff-aware gates and full scans serve different cadences
 
 PR scans make new findings immediately ownable. Default-branch and scheduled full scans uncover old code after framework models or rulesets improve. Begin blocking with high-signal rules. Require justification, owner, and expiry for `nosemgrep` and platform ignores or exceptions become permanent blind spots.
 
 Revoke and rotate exposed secrets immediately; rewriting Git history only reduces later exposure. Confirm dependency reachability and fixes for SCA, and trace sources, sinks, and exploit preconditions for SAST. Semgrep quickly automates incident lessons and coding policy. CodeQL supports deeper semantic queries, Snyk provides broader governance, and gitleaks specializes in secrets and history. Deduplicate overlapping tools and name an authoritative source for each finding class.
+
+## Update Log
+
+- 2026-11-23: Added Opengrep, the open-source Semgrep fork (LGPL-2.1, Semgrep-rule compatible, cross-function taint), as an evaluation candidate.
 
 ## References
 
@@ -50,3 +54,4 @@ Revoke and rotate exposed secrets immediately; rewriting Git history only reduce
 - [Testing rules](https://semgrep.dev/docs/writing-rules/testing-rules)
 - [Semgrep CI](https://semgrep.dev/docs/semgrep-ci/overview)
 - [Sample CI configurations](https://semgrep.dev/docs/semgrep-ci/sample-ci-configs)
+- [Opengrep](https://github.com/opengrep/opengrep)

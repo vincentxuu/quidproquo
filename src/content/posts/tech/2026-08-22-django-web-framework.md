@@ -17,6 +17,8 @@ draft: false
 
 [Django](https://docs.djangoproject.com/en/5.2/) 是 Python 的 batteries-included web framework。它不是只把 HTTP request 映射成 function，而是把 URL routing、views、ORM、migrations、auth、sessions、admin、forms、templates、cache 與安全機制放進同一套演進模型。當產品核心是關聯資料、後台流程與權限管理，這種整合通常比單項 benchmark 更重要。
 
+本文以 LTS 版 Django 5.2 為基準；目前的 feature release 是 6.1（2026-08），6.0（2025-12）與 6.1 加了幾項會影響下文做法的功能，在對應段落補充。
+
 ## Project 是部署單位，app 是可組合能力
 
 Django project 管 settings、root URLconf、WSGI/ASGI entrypoint；app 封裝一塊 domain capability，並可獨立測試或打包重用。不要把 app 誤當成 microservice：同一 process、database transaction 與 deployment boundary 內，app 只是模組化邊界。
@@ -34,25 +36,29 @@ class Note(models.Model):
 notes = Note.objects.filter(owner=request.user).select_related("owner")[:20]
 ```
 
-QuerySet 是 lazy 的；template iteration、`len()`、serialization 或關聯存取才可能真正查 DB。列表頁要主動檢查 N+1，依關係使用 `select_related`／`prefetch_related`，並用 query count、execution plan 與 production-like data 驗證。需要原子性時明確用 `transaction.atomic()`，不要假設一次 request 自動是一個 transaction。
+QuerySet 是 lazy 的；template iteration、`len()`、serialization 或關聯存取才可能真正查 DB。列表頁要主動檢查 N+1，依關係使用 `select_related`／`prefetch_related`，並用 query count、execution plan 與 production-like data 驗證。Django 6.1 起可用 `QuerySet.fetch_mode(models.FETCH_PEERS)` 讓存取未載入欄位時一次替同一個 QuerySet 的所有 instance 補查，多數 N+1 會降成兩次查詢；`FETCH_RAISE` 則讓意外的查詢直接丟例外，適合鎖住效能敏感路徑。需要原子性時明確用 `transaction.atomic()`，不要假設一次 request 自動是一個 transaction。
 
 ## Admin 與 auth 是槓桿，不是公共產品介面
 
 Django admin 能根據 model 快速建立內部 CRUD、搜尋、filter 與權限操作，非常適合營運和客服後台；它是給可信任 staff 的管理工具，不應直接當消費者產品 UI。內建 auth 提供 user、password hashing、permissions、groups、sessions 與 authentication backend；若一開始就需要自訂 user identifier，應在第一次 migration 前建立 custom user model，事後替換成本很高。
 
-Middleware 像洋蔥包住 request/response，順序直接影響 session、authentication、CSRF、messages 與 exception handling。SecurityMiddleware、CSRF protection、template escaping、ORM parameterization 和 clickjacking headers 降低常見風險，但不會修正錯誤的 raw SQL、`mark_safe`、不可信 upload、object-level authorization 或 production settings。
+Middleware 像洋蔥包住 request/response，順序直接影響 session、authentication、CSRF、messages 與 exception handling。SecurityMiddleware、CSRF protection、template escaping、ORM parameterization 和 clickjacking headers 降低常見風險，但不會修正錯誤的 raw SQL、`mark_safe`、不可信 upload、object-level authorization 或 production settings。Django 6.0 起內建 Content Security Policy：`ContentSecurityPolicyMiddleware` 加 header，`SECURE_CSP`／`SECURE_CSP_REPORT_ONLY` 設定 policy，可先用 report-only 觀察再強制。
 
 ## ASGI 不會自動把整條 stack 變 async
 
 Django 支援 async views，部署在 ASGI 下可受益於 long-polling、streaming 與大量慢連線；在 WSGI 下，async view 會進一次性的 event loop，沒有完整 async stack 的優勢。任何 sync middleware 都可能造成 thread adaptation，第三方 middleware 也未必同時支援 sync/async。Django 5.2 的內建 auth backend 已有 native async support，但自訂 backend 若只有 sync interface，仍會經 `sync_to_async` 並付出成本。
 
-因此不要用「函式寫成 `async def`」判斷擴展性。要測完整 middleware、ORM、cache、auth 與外部 I/O 路徑；同步區段正確包裝，並確認 transaction 行為。CPU-bound 工作或長任務仍應送到 worker，不應卡在 request lifecycle。
+因此不要用「函式寫成 `async def`」判斷擴展性。要測完整 middleware、ORM、cache、auth 與外部 I/O 路徑；同步區段正確包裝，並確認 transaction 行為。CPU-bound 工作或長任務仍應送到 worker，不應卡在 request lifecycle。Django 6.0 起內建 Tasks framework（`django.tasks`），提供 task 定義、驗證、排入佇列與結果處理的統一介面，但實際執行仍由外部 worker 負責；它統一了寫法，不會替你提供 queue 與 worker 的維運。
 
 ## 選 Django 是選一套長期產品骨架
 
 Django 適合 relational CRUD、內容管理、marketplace、SaaS back office，以及需要成熟 auth/admin 生態的 Python 團隊。FastAPI 適合 OpenAPI-first、typed API 與較薄的 async service；Flask 適合自行組裝；NestJS 適合 TypeScript 團隊和 opinionated DI/modules。Django 的代價是 framework conventions、settings 與 ORM 行為需要整隊理解，也不會自動替代 queue、object storage、observability 或部署平台。
 
 上線前至少以 production settings 執行 `manage.py check --deploy`，關閉 `DEBUG`，保護並輪替 `SECRET_KEY`，設定 `ALLOWED_HOSTS`、HTTPS、secure cookies、static/media handling、database backup、logging 和 error monitoring；使用 production WSGI/ASGI server，而不是 `runserver`。這些才是 batteries-included 在真實環境裡能否成立的最後一段。
+
+## 更新紀錄
+
+- 2026-11-23：註明本文以 LTS 版 5.2 為基準、目前 feature release 為 6.1；補上 6.1 的 fetch modes（`FETCH_PEERS`／`FETCH_RAISE`）、6.0 的內建 CSP 與 Tasks framework。
 
 ## 參考資料
 
@@ -64,3 +70,5 @@ Django 適合 relational CRUD、內容管理、marketplace、SaaS back office，
 - [Asynchronous support](https://docs.djangoproject.com/en/5.2/topics/async/)
 - [Security in Django](https://docs.djangoproject.com/en/5.2/topics/security/)
 - [Deployment checklist](https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/)
+- [Django 6.0 release notes](https://docs.djangoproject.com/en/6.0/releases/6.0/)
+- [Django 6.1 release notes](https://docs.djangoproject.com/en/6.1/releases/6.1/)

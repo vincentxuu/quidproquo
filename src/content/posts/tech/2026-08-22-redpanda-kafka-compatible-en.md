@@ -23,7 +23,7 @@ Choose Redpanda when the Kafka event model is correct but a different broker imp
 
 Producers use the Kafka protocol to write records to topic partitions, and consumers read by offset. Records with the same key route to one partition, and ordering remains partition-local. Consumer groups, retention, compaction, transactions, and schema-registry concepts continue from the Kafka ecosystem.
 
-Redpanda therefore does not eliminate poor partition keys, hot partitions, consumer lag, breaking schema changes, or exactly-once boundaries. An application architecture that was wrong on Kafka does not become correct after switching brokers.
+Redpanda therefore does not eliminate poor partition keys, hot partitions, consumer lag, breaking schema changes, or exactly-once boundaries. An application architecture that was wrong on Kafka does not become correct after switching brokers. The reverse also matters: Apache Kafka [share groups](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/) (KIP-932) are production-ready since 4.2, letting several consumers share a partition with per-record acknowledgment, and Redpanda does not support them yet (a maintainer on the [official issue](https://github.com/redpanda-data/redpanda/issues/26434) says 27.1 at the earliest). A design that relies on share groups as a work queue cannot move to Redpanda for now.
 
 ## Every partition is a Raft group
 
@@ -53,10 +53,20 @@ Use shadow traffic or dual publication for migration. Map topic settings and ACL
 
 Redpanda is compelling when a team wants Kafka clients and semantics with a more unified self-hosted broker, values tiered storage, or prefers Redpanda Cloud/BYOC. An organization with a mature Kafka platform, extensive integrations, and no broker bottleneck may not recover the compatibility-testing cost.
 
+Check the license before self-hosting. Starting with 26.3.1 (2026-11-20), the Redpanda broker and Operator are no longer source-available and ship as binaries only. Community Edition now falls under the [Redpanda Community Edition License](https://docs.redpanda.com/streaming/current/get-started/licensing/redpanda-community-edition-license/): free, but capped at 50 cores in total across every cluster your organization runs, and it may not be used to offer a streaming or queuing service to others. A cluster [over the limit](https://docs.redpanda.com/streaming/current/get-started/licensing/core-limit/) keeps running but logs warnings and refuses upgrades to the next feature release. Tiered Storage was already a licensed enterprise feature. Teams that plan to self-host at growing scale should budget for an Enterprise subscription or evaluate Apache Kafka itself; source for releases before 26.3.1 remains in the archived GitHub repository.
+
 AI pipelines should follow the same data contract as Kafka: events contain pointers and metadata, while large prompts, documents, and model outputs live in object storage. Redpanda changes the runtime beneath that event backbone; idempotency, PII retention, schemas, and replay governance remain application responsibilities.
+
+## Update history
+
+- 2026-11-23: Added the license change from 26.3.1 (broker no longer source-available, Community Edition capped at 50 cores per organization, no offering it as a streaming service) and what it means for self-hosting decisions; noted that Redpanda does not yet support Kafka 4.2 share groups.
 
 ## References
 
 - [How Redpanda works](https://docs.redpanda.com/streaming/current/get-started/architecture/)
 - [Redpanda Kafka compatibility](https://docs.redpanda.com/current/develop/kafka-clients/)
+- [Apache Kafka 4.2.0 release announcement (share groups)](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)
+- [Support KIP-932: Queues for Kafka (Redpanda issue)](https://github.com/redpanda-data/redpanda/issues/26434)
+- [R2: The engine of engines (26.3.1 license announcement)](https://www.redpanda.com/blog/r2-the-engine-of-engines)
+- [Redpanda Community Edition Core Limit](https://docs.redpanda.com/streaming/current/get-started/licensing/core-limit/)
 - [Redpanda Tiered Storage](https://docs.redpanda.com/current/manage/tiered-storage/)

@@ -58,6 +58,8 @@ Do not turn every job into a durable task. Use a regular task for independent wo
 
 Hatchet Cloud operates the control plane while workers may remain in a private VPC. A self-hosted installation includes the Hatchet engine, REST API, dashboard, and PostgreSQL. RabbitMQ is optional for high-throughput real-time dispatch; Postgres-backed messaging is the simpler alternative. Independent workers connect to the engine over gRPC.
 
+[Hatchet v2](https://hatchet.run/announcement/hatchet-v2), released in 2026-11, adds a second execution path: [serverless endpoints](https://docs.hatchet.run/v1/serverless). Functions on platforms such as Cloudflare Workers or Vercel can be registered as endpoints that Hatchet calls over public HTTPS, with no long-lived worker to run. The trade-off is that task duration is capped by the platform's request timeout, and durable tasks need a platform that supports websockets; long-running or state-heavy work still belongs on workers. v2 also adds durable streams (topics that readers can replay from a cursor) and sandbox integrations, and Python SDK v2 requires durable tasks to be async. The engine remains MIT-licensed.
+
 The CLI and Docker Compose fit development or small deployments, while Kubernetes and Helm fit production. “Backed by Postgres” is not zero operations: database HA, backups, connection budgets, event retention, engine upgrades, worker credentials, and gRPC ingress remain production responsibilities.
 
 ## Dynamic fan-out is valuable for agents
@@ -68,11 +70,18 @@ Permissions and cost controls are not automatic. Child inputs should carry tenan
 
 ## When to choose Hatchet
 
-Hatchet deserves an early trial when a team wants one platform for background queues, DAGs, schedules, and dynamic durable workflows, prefers Python, TypeScript, or Go, and values a Postgres self-hosting path. Inngest is more direct for event-driven serverless functions and managed flow controls. Restate is distinctive for keyed durable state and service semantics. Temporal merits comparison for mature large-scale workflow governance.
+Hatchet deserves an early trial when a team wants one platform for background queues, DAGs, schedules, and dynamic durable workflows, prefers Python, TypeScript, or Go, and values a Postgres self-hosting path. Inngest is more direct for event-driven serverless functions and managed flow controls, though Hatchet v2 can now call serverless endpoints directly, which narrows that gap. Restate is distinctive for keyed durable state and service semantics. Temporal merits comparison for mature large-scale workflow governance.
 
 A proof of concept should test failure, not just the happy path. Kill a worker after a child side effect, restart the control plane during a wait, upgrade workflow code, and verify history, duplicate handling, and manual replay against the team's failure contract.
 
+## Update history
+
+- 2026-11-23: Added Hatchet v2 (serverless endpoints, durable streams, sandbox integrations) and how it changes the execution model and the case for choosing Inngest instead.
+
 ## References
+
+- [Hatchet v2 announcement](https://hatchet.run/announcement/hatchet-v2)
+- [Hatchet serverless endpoints](https://docs.hatchet.run/v1/serverless)
 
 - [Hatchet repository and platform overview](https://github.com/hatchet-dev/hatchet)
 - [Hatchet durable tasks](https://github.com/hatchet-dev/hatchet/blob/main/frontend/docs/pages/v1/durable-tasks.mdx)

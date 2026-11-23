@@ -114,7 +114,7 @@ response = client.chat.completions.create(
 
 支援的 OpenAI API 端點包括 Chat Completions、Completions、Embeddings、Images 等。也支援 [Function Calling](https://inference.readthedocs.io/en/latest/models/model_abilities/tools.html)（工具呼叫），以及和 LangChain、LlamaIndex、Dify 的整合。
 
-v3.0.0（2026 年 7 月）新增了 MCP server 支援，讓 Xinference 可以作為 MCP 工具被 Agent 框架呼叫。
+v3.0.0（2026 年 7 月）新增了 MCP server 支援，讓 Xinference 可以作為 MCP 工具被 Agent 框架呼叫。v4.0.0（2026 年 10 月）再補上無狀態的 OpenAI Responses API（`/v1/responses`，含串流與工具呼叫），用 Responses API 的 client 也能直接接；同版把 Xavier 的 prefix KV cache 共享擴到 vLLM、SGLang、MLX 三個引擎，並支援 prefill 與 decode 分別跑在不同引擎或硬體上。
 
 ## 和同類工具的定位差異
 
@@ -160,10 +160,15 @@ Xinference 的安全邊界比純服務引擎更需要注意，因為管理層有
 
 和所有管理平台一樣，先確認你真的需要這一層抽象。如果你不確定，從 vLLM 或 Ollama 開始，碰到「管理多個模型很麻煩」的問題時再考慮 Xinference。
 
+## 更新紀錄
+
+- 2026-11-23：API 相容層補上 v4.0.0 新增的 Responses API 與跨引擎的 Xavier／prefill-decode 分離。
+
 ## 參考資料
 
 - [Xinference 官方文件](https://inference.readthedocs.io/)
 - [Xinference GitHub（Apache-2.0）](https://github.com/xorbitsai/inference)
+- [Xinference v4.0.0 release notes](https://github.com/xorbitsai/inference/releases/tag/v4.0.0)
 - [Xinference Installation Guide](https://inference.readthedocs.io/en/latest/getting_started/installation.html)
 - [Xinference Backends](https://inference.readthedocs.io/en/latest/user_guide/backends.html)
 - [Xinference Built-in Models](https://inference.readthedocs.io/en/latest/models/builtin/)

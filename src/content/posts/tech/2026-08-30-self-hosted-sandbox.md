@@ -86,26 +86,26 @@ spec:
 
 ### 什麼是 agent-sandbox
 
-`kubernetes-sigs/agent-sandbox` 是 Kubernetes 社群的官方沙箱控制器，專門為 AI agent 執行環境設計。它將工作負載生命週期管理與隔離後端選擇解耦。
+`kubernetes-sigs/agent-sandbox` 是 Kubernetes SIG Apps 底下的專案，提供 `Sandbox` CRD 與 controller，專門管理有穩定身分、可持久儲存的單一 Pod，AI agent 執行環境是主要用途。它只做編排，隔離交給 gVisor、Kata 這類 RuntimeClass。v1.0.0 於 2026-08-28 發布，目前在 v1.0.x。
 
 ### 核心功能
 
 #### 1. 生命週期管理
 
-agent-sandbox 控制器處理沙箱的完整生命週期：建立、排程刪除、暫停（休眠）、自動恢復（於網路連線進入時）。
+agent-sandbox 控制器處理沙箱的完整生命週期：建立、排程刪除、暫停與恢復。API 是 `agents.x-k8s.io/v1beta1`，隔離後端寫在 `podTemplate` 的 `runtimeClassName`；extensions 另提供 `SandboxTemplate`、`SandboxClaim` 與預熱用的 `SandboxWarmPool`。
 
 ```yaml
-apiVersion: agent.sigs.k8s.io/v1alpha1
+apiVersion: agents.x-k8s.io/v1beta1
 kind: Sandbox
 metadata:
   name: agent-sandbox-01
 spec:
-  runtimeClass: kata
-  hibernation:
-    enabled: true
-    idleTimeout: 300s
-  persistentStorage:
-    size: 10Gi
+  podTemplate:
+    spec:
+      runtimeClassName: kata
+      containers:
+      - name: agent
+        image: agent-image:latest
 ```
 
 #### 2. 隔離後端可插拔
@@ -114,7 +114,7 @@ spec:
 
 #### 3. Python 與 Go SDK
 
-提供高階客戶端函式庫，方便程式化管理沙箱。
+Go SDK 是 `sigs.k8s.io/agent-sandbox/clients/go/sandbox`，Python SDK 是 `pip install k8s-agent-sandbox`；選用的 Sandbox Router 讓 SDK 在 Kata、gVisor 這類無法直接 port-forward 的環境連到沙箱。
 
 ### Guest Agent
 
@@ -139,9 +139,9 @@ BYOC 是指企業在自有雲端（AWS、GCP、Azure 或自建機房）部署沙
 
 ### 實作方式
 
-1. **OpenSandbox BYOC**：阿里雲 OpenSandbox 支援在 AWS、GCP、Azure 上部署控制平面
+1. **OpenSandbox 自架**：阿里巴巴開源、現屬 AAIF 的 OpenSandbox 可部署在自己的 Docker 或 Kubernetes 上，隔離可選 gVisor、Kata 或 Firecracker
 2. **Kata + Kubernetes 自建**：使用 Kata Containers + Kubernetes agent-sandbox 自建
-3. **E2B Embed**：E2B 提供自託管版本（E2B Embed），可在自有雲端運行
+3. **E2B BYOC 與 E2B Embed**：E2B 的 BYOC 是由 E2B 在你的 AWS、GCP 或 Azure 帳號裡代管（限 Enterprise）；E2B Embed 才是自己維運的自架版本
 
 ---
 
@@ -198,12 +198,17 @@ BYOC 是指企業在自有雲端（AWS、GCP、Azure 或自建機房）部署沙
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：agent-sandbox 補 v1.0（2026-08-28）與 extensions，YAML 改為官方的 `agents.x-k8s.io/v1beta1` 與 `podTemplate` 寫法，補 Go／Python SDK 名稱；OpenSandbox 改為開源自架（現屬 AAIF）；E2B 分清 BYOC（Enterprise 代管）與 E2B Embed（自架）。
+
 ## 參考資料
 
 - [Kata Containers Documentation](https://katacontainers.io/)
 - [Kubernetes-sigs/agent-sandbox](https://agent-sandbox.sigs.k8s.io/docs)
-- [Alibaba OpenSandbox BYOC](https://www.alibabacloud.com/)
-- [E2B Embed (BYOC)](https://e2b.dev/docs/byoc)
+- [OpenSandbox GitHub](https://github.com/opensandbox-group/OpenSandbox)
+- [E2B BYOC（含與 E2B Embed 的差異）](https://docs.e2b.dev/byoc)
+- [kubernetes-sigs/agent-sandbox GitHub](https://github.com/kubernetes-sigs/agent-sandbox)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview)
 - [本站：雲端產品全景與選型矩陣（order 7）](/posts/tech/2026-08-30-sandbox-product-landscape)
 - [本站：沙箱成本模型（order 26）](/posts/tech/2026-08-30-sandbox-cost-model)

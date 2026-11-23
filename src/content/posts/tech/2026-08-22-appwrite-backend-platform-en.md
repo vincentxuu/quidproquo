@@ -35,9 +35,15 @@ Design TablesDB rows, relationships, queries, indexes, and transactions around a
 
 Appwrite operates Cloud. With [self-hosting](https://appwrite.io/docs/advanced/self-hosting), the team owns databases, storage backends, workers, runtimes, SMTP or SMS, proxies, TLS, migrations, monitoring, capacity, and backups. A running Compose stack is not production readiness; rehearse restoration of data and platform state.
 
-Appwrite fits web and mobile teams wanting a complete BaaS API with cloud and self-host choices. Compare Supabase or Nhost for SQL and RLS, Firebase for Google's mobile ecosystem, and PocketBase for a smaller single-host system. Test permission denial, session changes, function redelivery, migration, database and file restoration, and upgrade rollback.
+Appwrite fits web and mobile teams wanting a complete BaaS API with cloud and self-host choices. Compare Supabase or Nhost for SQL and RLS, although since 2026-09 Appwrite Cloud can also provision [native PostgreSQL and MySQL](https://appwrite.io/blog/post/native-databases-all-appwrite-cloud-regions) inside a project: a real engine with its own hostname and credentials that existing ORMs and migrations connect to directly, with backups, PITR, and replicas managed by Appwrite, on paid plans only. That path bypasses the Appwrite SDKs, so row permissions and Realtime do not apply; authorization belongs to your backend or to PostgreSQL's own RLS. Compare Firebase for Google's mobile ecosystem, and PocketBase for a smaller single-host system. Test permission denial, session changes, function redelivery, migration, database and file restoration, and upgrade rollback.
+
+## Update history
+
+- 2026-11-23: Added Appwrite Cloud's native PostgreSQL and MySQL (since 2026-09), how they sit outside Appwrite's permission model, and how that changes the comparison with Supabase and Nhost.
 
 ## References
+
+- [Native and dedicated databases in every Appwrite Cloud region](https://appwrite.io/blog/post/native-databases-all-appwrite-cloud-regions)
 
 - [Appwrite documentation](https://appwrite.io/docs)
 - [Appwrite authentication](https://appwrite.io/docs/products/auth)

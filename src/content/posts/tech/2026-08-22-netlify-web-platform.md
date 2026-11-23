@@ -33,9 +33,20 @@ platform adapter 會把 framework route 自動編譯成 function/edge asset。�
 
 static file 和 deploy-scoped cache 跟 deployment 版本走；[Blobs](https://docs.netlify.com/build/data-and-storage/netlify-blobs/) 與 Database 是持久資料。要明確選 deploy-specific 或 cross-deploy store、tenant key、consistency、backup 與 deletion。Preview 若可讀 production blobs，也必須重新做 authorization。
 
-Netlify 適合 content/frontend-heavy site、atomic deploy、preview collaboration 與少量 serverless/edge logic。Next.js 深度整合可比較 Vercel；需要 container、private network、worker 與 disk 的完整 backend 拓撲則比較 Render。驗收要切回舊 deploy、保留新 schema、重送 background job、測 edge/function region 與 cache invalidation。
+## Netlify Server 補上長駐 backend
+
+2026-11 公布的 [Netlify Server](https://docs.netlify.com/build/server) 是另一種 runtime：long-lived process，可以在請求之間保留 connection pool 與 cache、維持 WebSocket／SSE 連線，閒置時縮到零，而且每個 branch deploy 與 Deploy Preview 都有自己的一份 backend，rollback deploy 也會連 server 一起回滾。它仍有[明確上限](https://docs.netlify.com/build/server/limits/)：單一請求最長 30 分鐘（Pro 以上 2 小時），對外連線閒置 60 秒會被切斷，instance 最多約 8 小時就會被替換，記憶體與本機磁碟都不持久。官方說明新體驗正逐步開放給使用者，採用前先確認自己的帳號能不能開。
+
+Netlify 適合 content/frontend-heavy site、atomic deploy、preview collaboration 與少量 serverless/edge logic。Next.js 深度整合可比較 Vercel；只需要 WebSocket、connection pool 或幾分鐘的背景工作，可以先試 Netlify Server；需要任意 container、private network、長駐 worker 與持久 disk 的完整 backend 拓撲，仍比較 Render。驗收要切回舊 deploy、保留新 schema、重送 background job、測 edge/function region 與 cache invalidation。
+
+## 更新紀錄
+
+- 2026-11-23：新增 Netlify Server 一節（long-lived server、WebSocket／SSE、每個 preview 一份 backend 與其上限），並改寫與 Render 的選型界線。
 
 ## 參考資料
+
+- [Netlify Server](https://docs.netlify.com/build/server)
+- [Netlify Server limits](https://docs.netlify.com/build/server/limits/)
 
 - [Netlify documentation](https://docs.netlify.com/)
 - [Netlify deploy overview](https://docs.netlify.com/deploy/deploy-overview/)
