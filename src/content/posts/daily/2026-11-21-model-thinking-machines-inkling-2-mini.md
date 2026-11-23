@@ -5,7 +5,7 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, thinking-machines, model-family-inkling]
 lang: zh-TW
-description: "Thinking Machines Lab 發布 Inkling 2 Mini——業界首個公開發布的 looped transformer，26B 權重、5.4B 有效運算量，agentic coding 打贏五倍參數的 Qwen3.8-27B，20GB 就能跑在 MacBook 上"
+description: "Thinking Machines Lab 發布 Inkling 2 Mini——最早公開發布的 looped transformer 之一，26B 權重、5.4B 有效運算量，agentic coding 打贏五倍參數的 Qwen3.8-27B，20GB 就能跑在 MacBook 上"
 tldr: "Inkling 2 Mini（thinkingmachines/Inkling-2-Mini）：2026-11-20 Thinking Machines Lab 發布，Apache 2.0；26.4B 總參數、3.4B 原生 active、中間 12 層循環執行 3 次等效 5.4B 推理運算量；1M context；Tinker 官方定價 input $0.15／output $0.50／cache hit $0.015（每 1M tokens）；DeepSWE v1.1 48.2% 打贏 Qwen3.8-27B 的 42.2%，SWE-bench Pro v2 Hard 77.9% 贏 73.8%；首次公開研究 looped transformer 對 CoT 可監控性的影響，結論是循環本身沒有讓監控明顯變差"
 series:
   name: "AI Model Tracker"
@@ -35,7 +35,7 @@ glossary:
 
 ## 能力亮點
 
-- **業界首個公開發布的 looped transformer**：24 層中間 2 個 block（12 層）循環執行 3 次，共 48 次層運算只儲存 24 層權重，讓模型「多想而不多寫」
+- **最早公開發布的 looped transformer 之一**：24 層中間 2 個 block（12 層）循環執行 3 次，共 48 次層運算只儲存 24 層權重，讓模型「多想而不多寫」
 - **agentic coding 打贏五倍參數的開源競品**：DeepSWE v1.1 48.2%（Qwen3.8-27B 42.2%）、SWE-bench Pro v2 Hard 77.9%（Qwen3.8-27B 73.8%），而 Inkling 2 Mini 的有效 active 參數只有 5.4B，約 Qwen3.8-27B 的五分之一
 - **20GB 就能跑在筆電上**：權重以訓練時的原生精度（20 層 NVFP4、4 層 MXFP8）直接部署，無量化轉換損失，32GB 記憶體的 MacBook、Mac mini 或 1 張 NVIDIA DGX Spark 就能本地推理
 - **單位能耗算力領先**：Stanford Hazy Research 實測 DGX Spark 上「每焦耳智能」指標達 0.703，對比 Qwen3.6-35B-A3B 的 0.430、Gemma-4-26B-A4B 的 0.159
@@ -84,12 +84,12 @@ caption: 數字取自 Thinking Machines Lab 官方 Hugging Face 模型卡。換�
 
 | Benchmark | 分數（Inkling 2 Mini） | 前代 | 競品最強（Qwen3.8-27B） |
 |---|---|---|---|
-| DeepSWE v1.1 | 48.2% | 無直接前代（首款公開 looped transformer） | 42.2% |
+| DeepSWE v1.1 | 48.2% | 無直接前代（Thinking Machines 首款 looped 模型） | 42.2% |
 | SWE-bench Pro v2 Hard | 77.9% | 無 | 73.8% |
 | SWE-bench Verified | 79.2% | 無 | 77.8% |
 | Vals Index v2.2 | 46.5% | 無 | 未提供分數 |
 | AA Index v5.0（Artificial Analysis） | 20.1 | 無 | 20.1（打平） |
-| ComplexConstraints v1.1 | 33.4% | 無 | 35.6%（Inkling 落後） |
+| ComplexConstraints v1.1 | 33.4% | 無 | 30.1%（官方限制段仍列為 Inkling 弱項） |
 
 以上均為 Thinking Machines Lab 官方 Hugging Face 模型卡自測結果，Artificial Analysis 的 AA Index 與每任務成本／耗時數字已由第三方獨立量測。
 
@@ -97,7 +97,7 @@ caption: 數字取自 Thinking Machines Lab 官方 Hugging Face 模型卡。換�
 
 Inkling 2 Mini 沒有同代前作可比——這是 Thinking Machines Lab 首次公開發布 looped transformer，官方拿來對照的是「有循環 vs 無循環」的內部實驗：在相同訓練運算量下，不循環的版本訓練成本少 7.5%，但要多花 140% 的推理運算量才能在 51.2 萬 token 的 agentic trace 上追平循環版本的 loss。這代表「循環」換來的不是訓練便宜，而是推理時用更少 token 達到同等推理深度。
 
-跟競品 Qwen3.8-27B 比，Inkling 2 Mini 用五分之一的有效 active 參數（5.4B vs 27B）在三項 agentic coding 評測全部領先：DeepSWE v1.1 贏 6 個百分點、SWE-bench Pro v2 Hard 贏 4.1 個百分點、SWE-bench Verified 贏 1.4 個百分點。但 Terminal-Bench v2.1（71.6% vs 73.0%）、MultiChallenge 多輪對話（50.0% vs 更高分）、ComplexConstraints v1.1（33.4% vs 35.6%）這幾項需要長指令遵循或多輪穩定性的評測，Qwen3.8-27B 仍略勝一籌——官方自己在限制段落也點名這是 Inkling 2 Mini 的弱項。
+跟競品 Qwen3.8-27B 比，Inkling 2 Mini 用五分之一的有效 active 參數（5.4B vs 27B）在三項 agentic coding 評測全部領先：DeepSWE v1.1 贏 6 個百分點、SWE-bench Pro v2 Hard 贏 4.1 個百分點、SWE-bench Verified 贏 1.4 個百分點。但 Terminal-Bench v2.1（71.6% vs 73.0%）、MultiChallenge 多輪對話（50.0% vs 更高分）、ComplexConstraints v1.1（官方表格為 33.4% 對 30.1%，但限制段把它列為 Inkling 落後的項目；35.6% 是 Muse Glimmer）這幾項需要長指令遵循或多輪穩定性的評測，Qwen3.8-27B 仍略勝一籌——官方自己在限制段落也點名這是 Inkling 2 Mini 的弱項。
 
 定價策略上，Thinking Machines Lab 直接給出 Tinker 平台官方價格（input $0.15／output $0.50／cache hit $0.015，每 1M tokens），這不是「開源模型沒有官方 API」的常見模式，而是直接打出極低定價參與競爭：Artificial Analysis 實測同一組 Intelligence Index 任務，Inkling 2 Mini 平均成本 $0.59、耗時 9.0 分鐘，Qwen3.8-27B 則要 $3.53、38.2 分鐘——換算下來便宜約 6 倍、快約 4 倍。
 

@@ -3,10 +3,10 @@ title: "Cloudflare Model Family: Choosing Clef Decision Models and Clairic Extra
 date: 2026-10-22
 category: tech
 type: deep-dive
-tags: [cloudflare, clef, clairic, decision-model, extraction-model, model-family-clef, model-selection]
+tags: [cloudflare, clef, clairic, clairic-flash, decision-model, extraction-model, model-family-clef, model-selection]
 lang: en
-tldr: "Cloudflare's own models come in two classes: the Clef family returns option probabilities (clef 27B, clef-flash 9B, clef-omni 30B-A3B), while Clairic returns typed values and intervals. All four bill input tokens only ($0.038–$0.24 per million) and charge nothing for output; the three Clef models ship Apache-2.0 weights, and Clairic is still a hosted preview. They beat Jev on decision benchmarks and trail it on reasoning-heavy ones."
-description: "Cloudflare model family selection: the Clef, Clef-flash, Clef-omni, and Clairic matrix, pricing, self-hosting, the limits of Cloudflare's self-reported evaluations, and how to wire them into an agent."
+tldr: "Cloudflare's own models come in two classes: the Clef family returns option probabilities (clef 27B, clef-flash 9B, clef-omni 30B-A3B), while the Clairic family returns typed values and intervals (clairic 27B, clairic-flash 9B). All five bill input tokens only ($0.038–$0.24 per million), and all ship Apache-2.0 open weights for self-hosting. On 2026-11-18 Clairic moved to a new architecture and split into two sizes; the 27B model carries a $0.10 promotional price until December 1. They beat Jev on decision benchmarks and trail it on reasoning-heavy ones."
+description: "Cloudflare model family selection: the Clef, Clef-flash, Clef-omni, Clairic, and Clairic-flash matrix, pricing, self-hosting, the limits of Cloudflare's self-reported evaluations, and how to wire them into an agent."
 draft: false
 series:
   name: "AI Model Families"
@@ -22,25 +22,26 @@ glossary:
 
 > :globe: [中文版](/posts/tech/2026-10-22-ai-model-family-cloudflare)
 
-Cloudflare's first in-house models fall into two classes: the **Clef family** (clef, clef-flash, clef-omni) returns a probability for every allowed option, and **Clairic** returns typed values and intervals. All four run on Workers AI and bill input tokens only, but their modalities, context windows, and open-weight status differ. If you want to put a cheap classification, routing, or extraction layer inside an agent, this is the selection and validation guide. Prices and versions are as verified on 2026-10-22.
+Cloudflare's first in-house models fall into two classes: the **Clef family** (clef, clef-flash, clef-omni) returns a probability for every allowed option, and the **Clairic family** (clairic, clairic-flash) returns typed values and intervals. All five run on Workers AI, bill input tokens only, and publish Apache-2.0 weights on Hugging Face, but their modalities, context windows, and prices differ. If you want to put a cheap classification, routing, or extraction layer inside an agent, this is the selection and validation guide. Prices and versions follow the official docs as of 2026-11-23.
 
 ## Family positioning and model matrix
 
-Cloudflare calls these "Cloudflare-trained models," meaning the Workers AI team post-trained them itself; the dozens of third-party models on the platform are out of scope here.
+Cloudflare calls these "Cloudflare-trained models," meaning the Workers AI team post-trained them itself; on 2026-11-18 the team renamed itself the Workers AI superintelligence team. The dozens of third-party models on the platform are out of scope here.
 
 | Model / product line | Positioning | Key differences | Access |
 |---|---|---|---|
 | `@cf/cloudflare/clef` | 27B decision model, accuracy first | 65,536 context; text, JSON, images, video frames; $0.24 per 1M input | Workers AI hosting; Apache-2.0 weights |
 | `@cf/cloudflare/clef-flash` | 9B decision model, latency and cost first | Hosted context is only 24,576; $0.038 per 1M input; self-hosted weights trained to 256K | Same as above |
 | `@cf/cloudflare/clef-omni` | 30B-A3B MoE decision model, multimodal | Adds native audio and video; 64,000 context; $0.15 per 1M input | Same as above |
-| `@cf/cloudflare/clairic` | Extraction model (preview) | Returns values, spans, and uncertainty intervals; 65,536 context; $0.10 per 1M input | Workers AI hosting only; weights not open yet |
+| `@cf/cloudflare/clairic` | 27B extraction model, accuracy first | Returns values, spans, and uncertainty intervals; text, images, PDFs; 65,536 context; $0.24 per 1M input ($0.10 until 2026-12-01) | Workers AI hosting (labeled preview); Apache-2.0 weights |
+| `@cf/cloudflare/clairic-flash` | 9B extraction model, latency and cost first | Same API and inputs; 65,536 context; $0.10 per 1M input | Workers AI hosting (labeled early research preview); Apache-2.0 weights |
 
-Two things are easy to mix up. First, the Clef family keeps the Jev/System One `state` + `questions` API, while Clairic takes `state` + `fields`; they are not the same schema. Second, context and prices are a snapshot from the check date, and this family changed its pricing once within eight days.
+Three things are easy to mix up. First, the Clef family keeps the Jev/System One `state` + `questions` API, while Clairic takes `state` + `fields`; they are not the same schema. Second, during the 2026-10-19 preview `@cf/cloudflare/clairic` was served by a 9B model; from 11-18 the same endpoint was swapped in place to the new 27B model, and the 9B moved to `clairic-flash`. Third, context and prices are a 2026-11-23 snapshot, and both Clef and Clairic changed pricing within two months of launch.
 
 ### Split by output class, then by size
 
 - If you need to "pick one option from a list you provide" (classification, routing, review): use the Clef family. Pick clef-flash for latency, clef for accuracy or long context, and clef-omni when audio or video is involved.
-- If you need to "turn input into values" (invoice fields, dates, estimates, time-series forecasts): use Clairic.
+- If you need to "turn input into values" (invoice fields, dates, estimates, time-series forecasts): use the Clairic family. Pick clairic for accuracy, clairic-flash for latency and cost.
 - They compose: Cloudflare's own demo pipeline is Clairic extracts values → Clef decides → an LLM writes the reply. See "Agent integration and selection."
 
 ## Family evolution
@@ -49,9 +50,10 @@ Two things are easy to mix up. First, the Clef family keeps the Jev/System One `
 |---|---|---|
 | 2026-10-01 | Clef and Clef-flash launch: Apache-2.0, hosted on Workers AI, Jev-compatible API; an RL fine-tuning service is announced the same day | A self-hostable decision model exists, and switching away from Jev is cheap |
 | 2026-10-09 | Clef-omni arrives with audio and video; clef-flash gets cheaper but its hosted context shrinks; Clef moves to SGLang | The cheap option gets cheaper, but long inputs need clef or self-hosting |
-| 2026-10-19 | Clairic preview: a new extraction-model class, hosted endpoint only | A new "extract values" layer is available, but it cannot be self-hosted |
+| 2026-10-19 | Clairic preview: a new extraction-model class; the hosted endpoint ran a 9B single-forward-pass model at $0.10 per 1M input. Vendor tests: a 21-day TSA checkpoint forecast with 3.3% mean error; a three-layer pipeline at 19.3 seconds versus 61.7 seconds for all-GLM-5.3 | A new "extract values" layer is available, but it cannot be self-hosted |
+| 2026-11-18 | Clairic redesigned (fields now use parallel autoregressive generation) and gains PDF input; split into 27B `clairic` and 9B `clairic-flash`, both with Apache-2.0 weights; 27B priced at $0.24, with a $0.10 promotion until 12-01 | Extraction models can now be self-hosted; the preview's single-pass architecture and evaluations become history, and the rest of this post covers the new version |
 
-Cloudflare's own account of the Clef schedule is that the team decided to build a decision model on a Friday evening, trained over the weekend, and launched on Thursday; the omni version followed eight days later. This line is moving fast: within eight days clef-flash changed both its price and its context window. The upside is that API compatibility makes a model swap a one-line change, so start with the cheap combination and revisit once the numbers settle.
+Cloudflare's own account of the Clef schedule is that the team decided to build a decision model on a Friday evening, trained over the weekend, and launched on Thursday; the omni version followed eight days later. This line is moving fast: within eight days clef-flash changed both its price and its context window, and within a month Clairic went from hosted preview to a new architecture, open weights, and two sizes. The upside is that neither line changed its API, so a model swap is a one-line change, so start with the cheap combination and revisit once the numbers settle.
 
 ## Architecture and training trade-offs
 
@@ -85,15 +87,17 @@ Media is converted into input tokens.
 
 Media tokens count against the context window: when space runs out, the `state` text is truncated, while media that exceeds the window on its own fails the request.
 
-### Clairic: a regression problem bounded by your schema
+### Clairic: typed fields, now with parallel autoregressive generation
 
-Clairic does not use options; it uses field types: `text` (returns the source span and character offsets), `number`/`date`/`time`/`datetime`/`duration`, `list`, plus `estimate` and `forecast`.
+Clairic does not use options; it uses field types: `text` (returns the source span and character offsets), `number`/`date`/`time`/`datetime`/`duration`, `boolean`, `enum`, `object`, `list`, `compute`, plus `estimate` and `forecast`.
 
-- `estimate` returns a distribution: you supply `min`, `max`, and `step`, and it returns a median with an 80% interval (p10–p90).
-- `forecast` returns a value and interval for each step of a time series, with a horizon of up to 64 steps.
-- Every answer carries `confidence` and `p_null` (the probability that the value is not in the input); when nothing is found, it returns `null`.
-- There is no upper limit on field count. Fields that do not fit in a single 8,192-token pass are split across parallel passes that each see the full input and are then merged. Cloudflare describes this as asking 30 fields costing roughly the same as asking 3.
-- Cloudflare admits a limit: reading and one- or two-step calculations are reliable, while long chains of dependent calculation and cross-table aggregation are not. The recommendation is to let Clairic produce values and leave arithmetic to code.
+- Base models: clairic is Qwen3.8-27B, clairic-flash is Qwen3.5-9B.
+- The 2026-11-18 version no longer uses a single forward pass. Ordinary text and number fields use what Cloudflare calls parallel slot autoregressive generation: each field picks its next token from the tokens it has already written and stops at its own end marker, and all fields advance together in the serving batch. Estimates, forecasts, durations, calculated dates, and explicit arithmetic go to separately trained heads. Cloudflare says this bought extraction accuracy on text and images at a small latency cost.
+- `estimate` returns a distribution: you supply `min`, `max`, and `step`, and it returns a median with an 80% interval (p10–p90); `forecast` returns a value and interval for each step of a time series.
+- Every answer carries `confidence` and `p_null` (the probability that the value is not in the input); when nothing is found, it returns `null`. Text answers include source spans.
+- Input can be text, up to four images, or PDFs; images and PDF pages together are capped at four, at 4 MiB per file and 8 MiB combined.
+- Billing and passes: each `text` field runs its own pass, other fields share a pass, and anything that does not fit is split further. Every pass carries the full `state` and images, so those tokens are billed once per pass, and `usage.passes` reports the count. There is no cap on field count, but the more text fields you add, the closer the bill gets to "input length times number of text fields."
+- During the preview Cloudflare said reading and one- or two-step calculations were reliable, while long chains of dependent calculation and cross-table aggregation were not. The new version adds arithmetic heads, but for these tasks the advice still holds: let Clairic produce values and check the arithmetic in code.
 
 ## Evaluation and alternatives
 
@@ -138,18 +142,33 @@ What the Clef family buys you is speed and calibration on classification and too
 
 Cloudflare ran these on the evals TypeSafe publishes; they are not TypeSafe's results for Clef. Jev still leads the agent trace observability row.
 
-### Clairic (preview, two vendor-run tests)
+### Clairic (2026-11-18 release, vendor-run tests)
 
-- TSA airport checkpoint volume: a rolling 21-day forecast made each morning, with 3.3% mean error.
-- 17 of the 21 days landed inside its own 80% interval; the misses clustered around the Columbus Day weekend, a holiday the model could not see.
-- A three-layer pipeline versus running everything on GLM-5.3: 19.3 seconds versus 61.7 seconds end to end.
-- The cost was $6,032 versus $11,740 per million claims. Cloudflare says the all-LLM version got the facts and the decision right; the difference was that Clairic's estimate was identical every time while GLM's varied.
+Cloudflare says there are no public extraction benchmarks yet; the table below is its internal evaluation, with two other extraction models as baselines (Liquid AI D1.2 paired with Apple Vision OCR, and Scaledown Extract). Numbers are correct fields over total fields:
 
-Both are single experiments reported by the vendor. Clairic's weights are not public, so nobody outside Cloudflare can reproduce them.
+| Eval set | Clairic preview | clairic | clairic-flash | D1.2 + OCR | Scaledown |
+|---|---|---|---|---|---|
+| Fresh text fields (96 requests) | 295/336 | 335/336 | 328/336 | 304/336 | 259/336 |
+| Mixed-input fields (36 requests) | 207/226 | 221/226 | 213/226 | 116/226 | 156/226 |
+| Tracked customer assertions (139 request shapes) | 1,033/1,263 | 1,263/1,263 | 1,263/1,263 | 973/1,263 | 653/1,263 |
+| Synthetic receipt fields in text and images | 369/576 | 576/576 | 576/576 | 397/576 | 280/576 |
+
+Latency was measured as the complete HTTP response from a self-hosted server, including every field in the request:
+
+| Eval set | clairic p50 / p95 | clairic-flash p50 / p95 |
+|---|---|---|
+| Fresh text fields | 358 / 736 ms | 155 / 328 ms |
+| Fresh image fields | 453 / 976 ms | 305 / 605 ms |
+| Commercial leases | 691 / 803 ms | 379 / 519 ms |
+| Loan pricing | 395 / 407 ms | 188 / 192 ms |
+| Traffic forecasting | 532 / 585 ms | 243 / 261 ms |
+| Expense audit | 632 / 742 ms | 393 / 512 ms |
+
+Both tables are vendor-reported, and Cloudflare itself calls them directional. The preview's TSA forecast and three-layer pipeline experiments ran on the old 9B single-pass version; see Family evolution. Flash ties the 27B on two of the evals at about half the latency, which makes it a sensible first try.
 
 ### Third-party numbers
 
-As of the check date there is no independently rebuilt Decision Index. The few non-vendor figures are community evaluations posted on Hugging Face model pages: clef-flash scores 0.71 accuracy and 0.11 Brier on typed-decisions. Their methods and coverage differ from Cloudflare's, so treat them as directional only.
+There is no independently rebuilt Decision Index yet, and no third-party evaluation of Clairic. The few non-vendor figures are community evaluations posted on Hugging Face model pages: clef-flash scores 0.71 accuracy and 0.11 Brier on typed-decisions. Their methods and coverage differ from Cloudflare's, so treat them as directional only.
 
 ## Licensing, pricing, and deployment
 
@@ -157,19 +176,21 @@ As of the check date there is no independently rebuilt Decision Index. The few n
 
 - **Clef, Clef-flash, Clef-omni**: Apache-2.0 weights, published as standard safetensors plus loading code on Hugging Face. Self-hosting works through SGLang; Clef support landed in 0.5.22, and Cloudflare publishes H200/B200/B300 cookbooks.
 - **Official test environment**: torch 2.11, transformers 5.10.2, and a single H200.
-- **Clairic**: hosted preview only, no weights. The docs spell out the terms: AS IS, no guarantee of continued availability, and Cloudflare may discontinue it at any time without refund or compensation.
+- **Clairic, Clairic-flash**: since 2026-11-18, Apache-2.0 weights on Hugging Face, with custom Transformers loading code and a `systemone` request helper; they need Python 3.11 or later and use `xgrammar` for schema constraints. The model cards list no hardware requirements.
+- **Hosting terms**: both Clairic Workers AI pages are still labeled preview and carry a terms block that is blunt: AS IS, no guarantee of continued availability, and Cloudflare may discontinue it at any time without refund or compensation. Self-hosting the open weights sidesteps those hosting terms, but you own the operations.
 - **Hosted endpoint**: Workers AI via `env.AI.run()` or REST. Billing is in Neurons on the backend, with 10,000 free Neurons per day; the pricing page converts that into a per-model price per million input tokens.
 
-### Pricing (checked 2026-10-22)
+### Pricing (2026-11-23)
 
 | Model | Price (USD per 1M input tokens) | Output | Notes |
 |---|---|---|---|
 | clef | $0.24 | Not billed | 65,536 context |
 | clef-flash | $0.038 | Not billed | Cut from $0.09 on 2026-10-09; hosted context 24,576 |
 | clef-omni | $0.15 | Not billed | Audio and video billed as converted tokens |
-| clairic | $0.10 | Not billed | Response reports `output_tokens` as 0 |
+| clairic | $0.24 ($0.10 until 2026-12-01) | Not billed | Response reports `output_tokens` as 0; input billed per pass |
+| clairic-flash | $0.10 | Not billed | Same as above |
 
-None of the four generates output text, so there is no output charge; the bill varies with media and input length. The price changed once within eight days, so check the pricing page before you commit.
+The Clef family generates no output text; the new Clairic does generate tokens, but Cloudflare kept the input-only principle and absorbs the output cost. The bill varies with media, input length, and Clairic's pass count. Both lines have changed prices since launch, so check the pricing page before you commit; when the promotion ends on 2026-12-01, any workload still on clairic rather than clairic-flash pays 2.4 times the unit price.
 
 ### Two self-hosting gotchas
 
@@ -186,7 +207,7 @@ Cloudflare promises not to read, store, or train on standard Workers AI requests
 
 Cloudflare's demo shape is: an extraction model turns unstructured input into values, a decision model picks the action, and an LLM handles the prose. In the support-claim example, Clairic pulls the order number, amount, and damage description; Clef picks "refund" or "repair" against policy; GLM-5.3 only receives the decision and the numbers it needs to write the reply.
 
-There are two reasons for the split. Each step's input is cleaner than the last, and the LLM never sees the raw email, which reduces its prompt-injection surface. Do not treat that as a security guarantee, though. Our earlier write-up of HiddenLayer's tests shows decision models can be manipulated into the wrong action just the same. The same language model is still reading untrusted content ([the Jev test summary](/posts/daily/2026-10-16-security-jev-decision-model-prompt-injection)).
+There are two reasons for the split. Each step's input is cleaner than the last, and the LLM never sees the raw email, which reduces its prompt-injection surface. Do not treat that as a security guarantee, though. Our earlier write-up of HiddenLayer's tests shows decision models can be manipulated into the wrong action just the same. The same language model is still reading untrusted content ([the Jev test summary](/posts/daily/2026-10-16-security-jev-decision-model-prompt-injection-en)).
 
 ### Which one to use
 
@@ -195,12 +216,13 @@ There are two reasons for the split. Each step's input is cleaner than the last,
 | Text classification or routing with low latency | clef-flash | 24k context; notably lower accuracy than clef on some classification tasks |
 | Highest accuracy or long context | clef | More than six times the price of flash |
 | Decisions over audio or video | clef-omni | 2 fps video, 60-second cap; media billed as tokens |
-| Turning unstructured input into values | clairic | Preview; arithmetic and calibration limits covered in "Evaluation and alternatives" |
+| Turning unstructured input into values, cheap and fast first | clairic-flash | Ties the 27B on two vendor evals; about half the latency |
+| Extraction accuracy first, complex documents | clairic | 2.4 times flash's price after 12-01; leave long calculations to code |
 | Reasoning or explanations | None of these | GPQA/BBH trail; that is LLM work |
 
 ### Turning probabilities into thresholds
 
-A decision model returns probabilities so you can write rules: route to a human when `confidence` falls below a threshold or `p_null` exceeds a set value. Our earlier [decisionkit](/posts/daily/2026-10-12-tool-decisionkit) write-up is a CLI example of that pattern (it currently targets the Decisions API and Jev); because the Clef API is Jev-compatible, the same threshold design carries over. The model only scores; which decisions may auto-approve is a policy you set.
+A decision model returns probabilities so you can write rules: route to a human when `confidence` falls below a threshold or `p_null` exceeds a set value. Our earlier [decisionkit](/posts/daily/2026-10-12-tool-decisionkit-en) write-up is a CLI example of that pattern (it currently targets the Decisions API and Jev); because the Clef API is Jev-compatible, the same threshold design carries over. The model only scores; which decisions may auto-approve is a policy you set.
 
 ### The minimum validation before launch
 
@@ -233,12 +255,17 @@ Responses are grouped by question id: `choice` returns the chosen option, its `c
 
 ## Limitations and trade-offs
 
-- **Every evaluation is vendor-reported.** The Decision Index is Cloudflare's own harness, and the Jev numbers are Cloudflare's runs; as of the check date there is no independent reproduction. Validate on your own data before launch.
+- **Every evaluation is vendor-reported.** The Decision Index is Cloudflare's own harness, and the Jev numbers are Cloudflare's runs; there is no independent reproduction yet. Validate on your own data before launch.
 - **The official latency numbers contradict each other.** In the same launch, the blog reports clef-omni at about 130 ms for text and about 1.5 seconds for a 21-second video, while the official changelog reports about 20 ms and about 300 ms. The two sources differ by four to six times, and neither publishes its measurement conditions. Budget for the slower figure, or measure it yourself.
-- **The capability boundaries are explicit.** Deep-reasoning rows trail Jev by double digits, and clef-flash falls well below clef on some classification tasks. Cloudflare itself says Clairic cannot yet handle long dependent calculations, cross-row aggregation, or long-horizon forecasting; calibration holds only approximately, on the tested sets.
-- **Clairic is a preview.** No weights, AS IS terms, and it can change at any time. Have a fallback before putting it in a critical path.
-- **The product line moves fast.** Within eight days there was one price cut and one context cut. Good for cost, bad for a six-month plan; trust the official pages for current numbers.
-- **Some information is undisclosed.** Clairic's parameter count, architecture, and training data are not published, and the Clef family describes its training data only as internally generated synthetic data with permutations. Token budgets and data scale are missing. Those gaps affect cost estimates and risk assessment.
+- **The capability boundaries are explicit.** Deep-reasoning rows trail Jev by double digits, and clef-flash falls well below clef on some classification tasks. During the preview Cloudflare said Clairic could not yet handle long dependent calculations, cross-row aggregation, or long-horizon forecasting, and the new version publishes no evaluations for those cases; calibration holds only approximately, on the tested sets.
+- **Clairic's hosted endpoints are still previews.** The weights are open, but the hosted pages say preview, the terms are AS IS, and within a month both the architecture and the model behind the endpoint changed. Have a fallback before putting it in a critical path, or self-host.
+- **Work out Clairic's billing and long-input rules yourself.** Each text field runs its own pass and every pass bills the full input; the same docs page says in one place that the `state` is truncated when it exceeds the context and in another that input is never truncated and oversized requests are rejected. Control document length yourself and watch `usage.passes`.
+- **The product line moves fast.** clef-flash took a price cut and a context cut within eight days; Clairic changed architecture, sizes, and pricing within a month. Good for cost, bad for a six-month plan; trust the official pages for current numbers.
+- **Some information is undisclosed.** Clairic now discloses its sizes, base models, and architectural direction, but not its training data or recipe, and the Clef family describes its training data only as internally generated synthetic data with permutations. Token budgets and data scale are missing. Those gaps affect cost estimates and risk assessment.
+
+## Update history
+
+- 2026-11-23: Added the 2026-11-18 Clairic release: the architecture moved from a single forward pass to parallel autoregressive generation and gained PDF input, the line split into 27B `clairic` and 9B `clairic-flash`, both with Apache-2.0 weights, and the 27B price became $0.24 ($0.10 promotion until 12-01). Corrected statements that no longer held: the tldr and matrix saying Clairic was still a hosted preview with no open weights, and the field-splitting and "field count barely changes cost" billing description (the new docs run one pass per text field and bill every pass). The preview Clairic is now a historical generation; its TSA and three-layer pipeline experiments moved to Family evolution, and evaluation now uses the new vendor-reported tables. Clef family specs and prices are unchanged. English daily-card links now point to the English versions.
 
 ## References
 
@@ -250,13 +277,17 @@ Responses are grouped by question id: `choice` returns the chosen option, its `c
 - [Workers AI docs: clef model page](https://developers.cloudflare.com/workers-ai/models/clef/)
 - [Workers AI docs: clef-flash model page](https://developers.cloudflare.com/workers-ai/models/clef-flash/)
 - [Workers AI docs: clef-omni model page](https://developers.cloudflare.com/workers-ai/models/clef-omni/)
+- [Cloudflare Blog: Clairic and Clairic-flash go open-weight (2026-11-18)](https://blog.cloudflare.com/open-clairic)
 - [Workers AI docs: clairic model page](https://developers.cloudflare.com/workers-ai/models/clairic/)
+- [Workers AI docs: clairic-flash model page](https://developers.cloudflare.com/workers-ai/models/clairic-flash/)
 - [Workers AI docs: Extraction models concept page](https://developers.cloudflare.com/workers-ai/concepts/extraction-models/)
 - [Workers AI pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Hugging Face: Cloudflare/clef](https://huggingface.co/Cloudflare/clef)
 - [Hugging Face: Cloudflare/clef-flash](https://huggingface.co/Cloudflare/clef-flash)
 - [Hugging Face: Cloudflare/clef-omni](https://huggingface.co/Cloudflare/clef-omni)
+- [Hugging Face: Cloudflare/clairic](https://huggingface.co/Cloudflare/clairic)
+- [Hugging Face: Cloudflare/clairic-flash](https://huggingface.co/Cloudflare/clairic-flash)
 - [Clef Decision Index demo site](https://clef-evals.workers-ai-mle.workers.dev/)
 - [Typesafe Evals](https://evals.typesafe.ai/)
-- [Model card: Jev (TypeSafe AI)](/posts/daily/2026-09-19-model-typesafe-ai-jev)
-- [Model card: Clef (Cloudflare)](/posts/daily/2026-10-03-model-cloudflare-clef)
+- [Model card: Jev (TypeSafe AI)](/posts/daily/2026-09-19-model-typesafe-ai-jev-en)
+- [Model card: Clef (Cloudflare)](/posts/daily/2026-10-03-model-cloudflare-clef-en)

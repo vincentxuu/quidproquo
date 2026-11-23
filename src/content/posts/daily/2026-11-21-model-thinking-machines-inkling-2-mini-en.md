@@ -5,7 +5,7 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, thinking-machines, model-family-inkling]
 lang: en
-description: "Thinking Machines Lab released Inkling 2 Mini, the first publicly released looped transformer. 26B weights, 5.4B effective active compute, it beats five-times-larger Qwen3.8-27B on agentic coding and fits on a 20GB laptop."
+description: "Thinking Machines Lab released Inkling 2 Mini, one of the first publicly released looped transformers. 26B weights, 5.4B effective active compute, it beats five-times-larger Qwen3.8-27B on agentic coding and fits on a 20GB laptop."
 tldr: "Inkling 2 Mini (thinkingmachines/Inkling-2-Mini): released 2026-11-20 by Thinking Machines Lab under Apache 2.0. 26.4B total params, 3.4B native active; the middle 12 layers loop 3 times, giving 5.4B effective active compute per token. 1M context. Official Tinker pricing: $0.15 input / $0.50 output / $0.015 cache hit per 1M tokens. It beats Qwen3.8-27B on DeepSWE v1.1 (48.2% vs 42.2%) and SWE-bench Pro v2 Hard (77.9% vs 73.8%). Thinking Machines also published the first public study of how looping affects chain-of-thought monitorability, concluding that looping itself did not make the model meaningfully harder to monitor at this scale."
 series:
   name: "AI Model Tracker"
@@ -35,7 +35,7 @@ glossary:
 
 ## Key Capabilities
 
-- **The first publicly released looped transformer**: two of the 24 layers' middle blocks (12 layers) run three times each, for 48 layer applications from 24 stored layers — the model "thinks more without writing more"
+- **One of the first publicly released looped transformers**: two of the 24 layers' middle blocks (12 layers) run three times each, for 48 layer applications from 24 stored layers — the model "thinks more without writing more"
 - **Beats a five-times-larger open competitor on agentic coding**: DeepSWE v1.1 48.2% (vs. Qwen3.8-27B's 42.2%) and SWE-bench Pro v2 Hard 77.9% (vs. 73.8%), while Inkling 2 Mini's effective active parameter count is only 5.4B — about a fifth of Qwen3.8-27B's
 - **Runs on a 20GB laptop**: weights are deployed at the same precision they were trained in (20 layers NVFP4, 4 layers MXFP8) with no quantization conversion loss, so a 32GB-RAM MacBook, Mac mini, or a single NVIDIA DGX Spark can run it locally
 - **Leads on compute efficiency per watt**: Stanford's Hazy Research Lab measured 0.703 on their "intelligence per joule" metric running on a DGX Spark, versus 0.430 for Qwen3.6-35B-A3B and 0.159 for Gemma-4-26B-A4B
@@ -84,12 +84,12 @@ caption: Figures from Thinking Machines Lab's official Hugging Face model card. 
 
 | Benchmark | Score (Inkling 2 Mini) | Predecessor | Best competitor (Qwen3.8-27B) |
 |---|---|---|---|
-| DeepSWE v1.1 | 48.2% | None (first public looped transformer) | 42.2% |
+| DeepSWE v1.1 | 48.2% | None (Thinking Machines' first looped model) | 42.2% |
 | SWE-bench Pro v2 Hard | 77.9% | None | 73.8% |
 | SWE-bench Verified | 79.2% | None | 77.8% |
 | Vals Index v2.2 | 46.5% | None | Not reported |
 | AA Index v5.0 (Artificial Analysis) | 20.1 | None | 20.1 (tied) |
-| ComplexConstraints v1.1 | 33.4% | None | 35.6% (Inkling trails) |
+| ComplexConstraints v1.1 | 33.4% | None | 30.1% (the official limitations section still lists it as an Inkling weakness) |
 
 All figures above are Thinking Machines Lab's own benchmarks from the official Hugging Face model card; Artificial Analysis independently measured the AA Index and per-task cost and latency figures.
 
@@ -97,7 +97,7 @@ All figures above are Thinking Machines Lab's own benchmarks from the official H
 
 Inkling 2 Mini has no direct predecessor to compare against — it's Thinking Machines Lab's first public looped transformer. Their own comparison is an internal "looped vs. non-looped" experiment: at equal training compute, the non-looped version trained 7.5% cheaper, but needed 140% more inference compute to match the looped version's loss on 512K-token agentic traces. The gain from looping isn't cheaper training — it's reaching the same reasoning depth with fewer tokens at inference time.
 
-Against Qwen3.8-27B, Inkling 2 Mini leads on all three agentic coding benchmarks using a fifth of the effective active parameters (5.4B vs. 27B): +6 points on DeepSWE v1.1, +4.1 points on SWE-bench Pro v2 Hard, +1.4 points on SWE-bench Verified. But on benchmarks that need long instruction-following or multi-turn stability — Terminal-Bench v2.1 (71.6% vs. 73.0%), MultiChallenge multi-turn dialogue, and ComplexConstraints v1.1 (33.4% vs. 35.6%) — Qwen3.8-27B still edges ahead, and Thinking Machines names this as a limitation of Inkling 2 Mini themselves.
+Against Qwen3.8-27B, Inkling 2 Mini leads on all three agentic coding benchmarks using a fifth of the effective active parameters (5.4B vs. 27B): +6 points on DeepSWE v1.1, +4.1 points on SWE-bench Pro v2 Hard, +1.4 points on SWE-bench Verified. But on benchmarks that need long instruction-following or multi-turn stability — Terminal-Bench v2.1 (71.6% vs. 73.0%), MultiChallenge multi-turn dialogue, and ComplexConstraints v1.1 (the official table shows 33.4% vs. 30.1%, though the limitations section lists it as an Inkling weakness; 35.6% is Muse Glimmer) — Qwen3.8-27B still edges ahead, and Thinking Machines names this as a limitation of Inkling 2 Mini themselves.
 
 On pricing, Thinking Machines Lab gave an official Tinker platform price ($0.15 input / $0.50 output / $0.015 cache hit per 1M tokens) rather than following the usual open-weights pattern of no first-party API. That's an aggressive price play: Artificial Analysis measured the same Intelligence Index tasks costing $0.59 and taking 9.0 minutes on Inkling 2 Mini, versus $3.53 and 38.2 minutes on Qwen3.8-27B — roughly 6x cheaper and 4x faster.
 

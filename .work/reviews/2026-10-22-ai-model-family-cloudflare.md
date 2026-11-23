@@ -39,3 +39,32 @@
 - 英文版同步鏡射所有結構改動（演化表、延遲表、推理表、bullets 拆分、驗證段落），沒有只改中文。
 - `scan-ledger.sh`（zh / en）：模板化轉折、台灣中文高風險用詞、壓縮分類語氣皆 0 命中。
 - 未做：沒有實際呼叫 Workers AI，〈請求長什麼樣〉已標明「本文沒有實際部署這個請求」。
+
+## 2026-11-23 更新審稿
+
+範圍：Clairic 2026-11-18 改版（開權重、拆 27B／9B、改架構、改定價）。中英兩版同步。查證紀錄：`.work/2026-11-23-refresh-2026-10-22-ai-model-family-cloudflare/notes.md`。
+
+### post-verify
+
+結論：**通過，Clairic 段改寫為新版；Clef 家族不變**。
+
+- 🟢 Clairic 規格：27B 底模 Qwen3.8-27B、9B 底模 Qwen3.5-9B、兩者 Apache-2.0（HF API cardData＋LICENSE 全文）；端點 `@cf/cloudflare/clairic`（27B）、`@cf/cloudflare/clairic-flash`（9B），對到 open-clairic 部落格與兩個 Workers AI 模型頁。
+- 🟢 定價：clairic $0.24，2026-12-01 前 $0.10；clairic-flash $0.10；Clef 三顆 $0.24／$0.038／$0.15 未變。對到定價頁與模型頁。
+- 🟢 架構：parallel slot autoregressive generation、估計／預測／算術專用 head、只收 input 由 Cloudflare 吸收 output 成本，對到部落格原文。
+- 🟢 輸入與計費：圖片＋PDF 頁合計 ≤4、4 MiB／8 MiB；每個 text 欄位一個 pass、每 pass 計完整 state 與圖片，對到 clairic 模型頁。
+- 🟢 評測：四列抽取表（預覽／27B／9B／D1.2+OCR／Scaledown）與六列延遲表逐格對回部落格。
+- 🟡 文件自相矛盾：clairic 模型頁一處寫超出 context 截斷 `state`、參數段寫輸入不截斷直接拒絕。正文列進限制，不選邊。
+- 🟡 託管仍標 preview（clairic）／early research preview（clairic-flash），AS IS 條款只出現在 Clairic 頁，Clef 頁沒有；正文已限定為 Clairic。
+- 🔴→已修：舊稿「Clairic 仍是託管預覽、權重尚未開源」、8,192-token 欄位拆分與「30 欄位≈3 欄位成本」、forecast horizon 64 步（新文件沒有）。
+- 🔵 未揭露：Clairic 訓練資料與訓練方式；Clairic 自架硬體需求模型卡沒寫。
+
+### post-review
+
+結論：**符合 `model-family-contract` 換代規則**。
+
+- 矩陣多一列 clairic-flash，clairic 列改為 27B；託管與權重分開寫。
+- 〈家族演化〉新增 2026-11-18 列；預覽版 TSA 與三層 pipeline 實驗降到 10-19 列，正文評測只留新版數字。本站沒有 Clairic 的 daily 模型卡可連。
+- 新增 `## 更新紀錄`（原稿沒有），放在參考資料前；參考資料補 open-clairic 部落格、clairic-flash 模型頁、兩張 HF 卡。
+- 英文版：daily 卡連結改成 `-en` 版（契約要求）；這點只寫在英文更新紀錄。
+- 檢查：check-model-family-format 0 problems；check-process-leak 通過；check-lang-parity 本篇無問題（修掉一條以日期開頭的 bullet 被誤算成更新紀錄）；check-tw-terms 0；check:references 本篇無警告；emoji 0。
+- 未做：沒有實際呼叫 Workers AI 或自架 Clairic。
