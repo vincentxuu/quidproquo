@@ -183,7 +183,7 @@ Last step: when you create each bot, use the first message to spell out its job,
 
 In Taiwan, the docs list no regional restriction; Premium or higher on The X Subscription gets you access.
 
-This is the last post on route 1, all about one person using their own agents. Next, Devin Bots opens route 2: bots that don't work for you personally, but are handed to a team and own a whole area of work.
+This is the last post on route 1, all about one person using their own agents. Next, [Devin Bots](/posts/ai/2026-11-20-devin-bots-en) opens route 2: bots that don't work for you personally, but are handed to a team and own a whole area of work.
 
 ## References
 
