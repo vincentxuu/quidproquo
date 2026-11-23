@@ -45,6 +45,8 @@ glossary:
 | [Muse](/posts/tech/2026-09-19-ai-model-family-muse-spark)（Meta） | 閉源＋開源 | Muse Wonder／Spark 1.3／Ember；Spark Open | 三層 API，另有開放權重旗艦 |
 | [MiniMax](/posts/tech/2026-08-26-minimax-model-family) | 開源 | M3.1 Flash | 單價最低的一檔，企業自動化強 |
 | [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat)（美團） | 開源 | LongCat-2.5 | MIT 授權的 1.6T 開放權重 |
+| [Tencent Hy](/posts/tech/2026-11-23-ai-model-family-tencent-hy)（騰訊混元） | 開源 | Hy4、Hy4 flash | 金融與辦公 agent 強，自訂授權 |
+| [ERNIE](/posts/tech/2026-11-23-ai-model-family-ernie)（百度文心） | 閉源旗艦＋開源 | ERNIE 5.1（API）；5.5 Flash Preview／Base | 14B 啟用的低價開放權重，尚無第三方評測 |
 | [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron)（NVIDIA） | 開源 | 3.5 Super VL、Bolt、Lightning | 開放訓練資料，依部署位置分層 |
 | [Llama](/posts/tech/2026-08-24-ai-model-family-llama)（Meta） | 開源 | Llama 4 Scout／Maverick | 生態最成熟，但已無新版本 |
 | [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral) | 開源 | Mistral Large 4、Medium 3.5 | 歐洲合規定位 |
@@ -115,7 +117,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 
 | 模型 | 類型 | 授權 | 定位 |
 |---|---|---|---|
-| Baidu Unlimited-OCR | 開源 | MIT | 4.1K likes，多語言 OCR |
+| [Baidu Unlimited-OCR](/posts/tech/2026-11-23-ai-model-family-ernie) | 開源 | MIT | 4.1K likes，多語言 OCR |
 | DeepSeek-OCR | 開源 | MIT | 3.3K likes，高精度 |
 | Mistral OCR | 閉源 | API | 商用 OCR API |
 | Marker | 開源 | GPL | PDF 轉 Markdown |
@@ -181,7 +183,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 | 模型 | 類型 | 授權 | VRAM | 定位 |
 |---|---|---|---|---|
 | TRELLIS.2 | 開源 | MIT | 16-24GB | 品質最高，PBR 材質 |
-| Hunyuan3D 2.1 | 開源 | 受限 | 10-29GB | 實用平衡，VRAM 較低 |
+| [Hunyuan3D 2.1](/posts/tech/2026-11-23-ai-model-family-tencent-hy) | 開源 | 受限 | 10-29GB | 實用平衡，VRAM 較低 |
 | TripoSR | 開源 | MIT | 6-8GB | 最快（<10s），品質已落後 |
 | Meshy 6 | 託管 | 付費 | — | 最完整商用平台 |
 

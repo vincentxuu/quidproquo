@@ -45,6 +45,8 @@ As of November 2026, the closed frontier has turned over a full generation, and 
 | [Muse](/posts/tech/2026-09-19-ai-model-family-muse-spark-en) (Meta) | Closed + open | Muse Wonder / Spark 1.3 / Ember; Spark Open | Three API tiers plus an open-weight flagship |
 | [MiniMax](/posts/tech/2026-08-26-minimax-model-family-en) | Open | M3.1 Flash | The lowest price tier; strong on enterprise automation |
 | [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat-en) (Meituan) | Open | LongCat-2.5 | 1.6T open weights under MIT |
+| [Tencent Hy](/posts/tech/2026-11-23-ai-model-family-tencent-hy-en) (Tencent Hunyuan) | Open | Hy4, Hy4 flash | Strong on finance and office agents; custom license |
+| [ERNIE](/posts/tech/2026-11-23-ai-model-family-ernie-en) (Baidu) | Closed flagship + open | ERNIE 5.1 (API); 5.5 Flash Preview / Base | Low-cost 14B-active open weights; no third-party scores yet |
 | [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron-en) (NVIDIA) | Open | 3.5 Super VL, Bolt, Lightning | Open training data; tiered by deployment target |
 | [Llama](/posts/tech/2026-08-24-ai-model-family-llama-en) (Meta) | Open | Llama 4 Scout/Maverick | Most mature ecosystem, but no new versions |
 | [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral-en) | Open | Mistral Large 4, Medium 3.5 | European compliance positioning |
@@ -113,7 +115,7 @@ Older document-specific numbers (DocVQA and similar) came from the August 2026 Q
 
 | Model | Type | License | Positioning |
 |---|---|---|---|
-| Baidu Unlimited-OCR | Open | MIT | 4.1K likes; multilingual OCR |
+| [Baidu Unlimited-OCR](/posts/tech/2026-11-23-ai-model-family-ernie-en) | Open | MIT | 4.1K likes; multilingual OCR |
 | DeepSeek-OCR | Open | MIT | 3.3K likes; high accuracy |
 | Mistral OCR | Closed | API | Commercial OCR API |
 | Marker | Open | GPL | PDF to Markdown |
@@ -175,7 +177,7 @@ ELO comes from [Artificial Analysis Video Arena](https://artificialanalysis.ai/v
 | Model | Type | License | VRAM | Positioning |
 |---|---|---|---|---|
 | TRELLIS.2 | Open | MIT | 16–24GB | Highest quality, PBR materials |
-| Hunyuan3D 2.1 | Open | Restricted | 10–29GB | Practical balance, lower VRAM |
+| [Hunyuan3D 2.1](/posts/tech/2026-11-23-ai-model-family-tencent-hy-en) | Open | Restricted | 10–29GB | Practical balance, lower VRAM |
 | TripoSR | Open | MIT | 6–8GB | Fastest (<10s), but quality has fallen behind |
 | Meshy 6 | Hosted | Paid | — | Most complete commercial platform |
 
