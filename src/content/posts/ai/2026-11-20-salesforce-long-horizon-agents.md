@@ -125,7 +125,7 @@ Hunter 會自己擬計畫和護欄，但你核准之前，應該知道自己想�
 
 在台灣，Hunter 支援哪些地區和語言還沒公布。
 
-下一篇的 OpenClaw Enterprise 換一個角度：不是單一廠商自己的企業 agent，而是一個跨廠商、統一管理 agent 的平台。
+下一篇的 [OpenClaw Enterprise](/posts/ai/2026-11-20-openclaw-enterprise) 換一個角度：不是單一廠商自己的企業 agent，而是一個跨廠商、統一管理 agent 的平台。
 
 ## 參考資料
 
