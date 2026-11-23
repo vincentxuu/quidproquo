@@ -161,7 +161,7 @@ A week is only a starting point. As the previous post said, keep checking back a
 
 These questions apply to every product available in Taiwan; the evaluation reports themselves are mostly in English, but the one-week method works in any language.
 
-Evaluation is about whether it's useful; next is whether it's worth it. In AIMultiple's test, OpenClaw's model usage cost about $11 a day, whether or not it produced a report. An always-on agent keeps running, and someone pays for that.
+Evaluation is about whether it's useful; [next](/posts/ai/2026-11-20-who-pays-for-always-on-en) is whether it's worth it. In AIMultiple's test, OpenClaw's model usage cost about $11 a day, whether or not it produced a report. An always-on agent keeps running, and someone pays for that.
 
 ## References
 
