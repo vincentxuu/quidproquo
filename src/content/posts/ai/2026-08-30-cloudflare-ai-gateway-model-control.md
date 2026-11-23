@@ -46,6 +46,7 @@ AI Gateway
 - **provider 管理**：同一個 gateway 可接 [Workers AI](https://developers.cloudflare.com/workers-ai/)、OpenAI、Anthropic、Google AI Studio、Groq、Mistral、OpenRouter、Perplexity 等 [provider](https://developers.cloudflare.com/ai-gateway/usage/providers/)。
 - **金鑰集中管理**：用 [BYOK](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/) 把 provider API key 放在 Cloudflare 端，程式不用直接帶第三方金鑰。
 - **帳務整合**：用 [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) 透過 Cloudflare credits 呼叫支援的 provider。
+- **網路搜尋**：2026-10 推出的 [Web Search API](https://developers.cloudflare.com/web-search/)（open beta）也走 AI Gateway，可選 Ceramic.ai、Exa、Linkup 三家 provider，搜尋請求一樣進 gateway logs，用 AI Gateway credits 照 provider 定價付費，或帶自己的 provider key。
 
 如果你只有一個內部腳本、每天打十次模型，直接 call provider API 就好。AI Gateway 開始有價值的時間點，是你有使用者、有多個模型、有 production logs 要查，或你希望把 AI 成本限制寫成平台規則。
 
@@ -59,7 +60,7 @@ AI Gateway
 export default {
   async fetch(request, env) {
     const result = await env.AI.run(
-      "@cf/zai-org/glm-5.3-flash",
+      "@cf/google/gemma-4-26b-a4b-it",
       {
         messages: [
           { role: "system", content: "Reply in Traditional Chinese." },
@@ -95,7 +96,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/ai/v1/chat/compl
   -H "cf-aig-gateway-id: default" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "@cf/zai-org/glm-5.3-flash",
+    "model": "@cf/google/gemma-4-26b-a4b-it",
     "messages": [
       { "role": "user", "content": "Summarize this issue." }
     ]
@@ -136,7 +137,7 @@ Provider-native endpoint 適合現有 app 漸進導入：先把 base URL 換到 
 
 [AI Gateway analytics](https://developers.cloudflare.com/ai-gateway/observability/analytics/) 會整理 requests、token usage、cost、errors、cached responses 等指標。Dashboard 可以看，GraphQL 也能查。對一個 AI app 來說，這比「我大概知道模型很貴」有用得多，因為你可以照 feature、user、team、tenant 或 experiment 分組。
 
-[Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/) 更細：單次 request 會記 provider、timestamp、status、token、cost、duration、user agent，也可記 prompt 與 response。這裡要先決定隱私策略。Logs 預設啟用；如果不想收 raw payload，可以在單次 request 用 `cf-aig-collect-log-payload: false`，保留 metadata 但不存 prompt/response。若整筆 log 都不想收，才用 `cf-aig-collect-log: false`。
+[Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/) 更細：單次 request 會記 provider、timestamp、status、token、cost、duration、user agent，也可記 prompt 與 response。這裡要先決定隱私策略。Logs 預設啟用；2026-09-24 以後才建立第一個 gateway 的帳號，log 改存進 Workers Logs、照 [Workers Logs 的定價與保留期](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#pricing)計，之前就有 gateway 的帳號沿用 Legacy Logs（付費方案每 gateway 1,000 萬筆、免費方案全帳號 10 萬筆）。另外新建的 gateway 一律要求 [authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)，provider-native endpoint 要帶 `cf-aig-authorization`。如果不想收 raw payload，可以在單次 request 用 `cf-aig-collect-log-payload: false`，保留 metadata 但不存 prompt/response。若整筆 log 都不想收，才用 `cf-aig-collect-log: false`。
 
 實務上我會把 metadata 當成必填：
 
@@ -184,14 +185,14 @@ const digest = await env.AI.run(model, payload, {
 
 [Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/) 可以在 gateway 層設定固定或 sliding window。超過就回 `429 Too Many Requests`。最基本的設定是每個 gateway 每分鐘最多多少 requests；更實用的做法，是搭配 metadata 或 route，把免費使用者、付費使用者、內部 job 分開。
 
-更進一步是 [Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)。你可以在 Dashboard 或 JSON 裡定義 route flow：條件判斷、百分比分流、模型節點、rate limit、budget limit、fallback。常見用法：
+更進一步是 [Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)。你可以在 Dashboard 或 JSON 裡定義 route flow：條件判斷、百分比分流、模型節點、rate limit、budget limit、fallback。常見用法：
 
 - 免費方案走便宜模型，付費方案走高品質模型。
 - 某個 team 每天預算用完後，改走小模型或直接拒絕。
 - 新模型先 5% 流量 A/B，穩定後再放大。
 - 主要 provider 失敗時，fallback 到另一個 provider。
 
-這個功能有兩個現階段限制要記：Dynamic Routing 需要 authenticated gateway 與 BYOK；官方文件也明講，目前 dynamic routes 要走 OpenAI-compatible `/compat/chat/completions` endpoint，還沒有放到一般 REST API。也就是說，若你只是單模型呼叫，REST API 是新路；若你要 route flow，暫時仍要照 dynamic routing 文件的 compat endpoint 走。
+這個功能有兩個限制要記：Dynamic Routing 需要 authenticated gateway 與 BYOK；route 只吃 OpenAI chat completions 的 request 格式。呼叫時把 model 換成 route 名稱（例如 `dynamic/support`），REST API 的 `/ai/v1/chat/completions`、Worker 的 AI binding、OpenAI-compatible 的 `/compat/chat/completions` 三條路都能用；`/ai/run` 端點與 Anthropic Messages 這類其他格式會回 `400`。REST API 記得帶 `cf-aig-gateway-id` 指到建 route 的那個 gateway，否則會落到 default gateway 而回 `404`。
 
 ## BYOK、Unified Billing 與 Secrets Store
 
@@ -244,6 +245,10 @@ AI Gateway 不會替你解 prompt quality、RAG chunking、模型評測或資料
 
 AI Gateway 的好處不在讓 demo 變快；它讓 demo 進 production 後還看得懂、控得住。只要你的 AI app 開始有真使用者，這一層就該早點放進架構圖。
 
+## 更新紀錄
+
+- 2026-11-23：範例模型從 2026-11-20 起停用的 `glm-5.3-flash` 改為 `gemma-4-26b-a4b-it`；Dynamic Routing 現在也能走 REST API `/ai/v1/chat/completions` 與 AI binding，不再只限 compat endpoint；補上新 gateway 必須開 authentication、2026-09-24 後新帳號的 log 改計入 Workers Logs，以及 Web Search API（open beta）。
+
 ## 參考資料
 
 - [Cloudflare AI Gateway — Overview](https://developers.cloudflare.com/ai-gateway/)
@@ -252,11 +257,15 @@ AI Gateway 的好處不在讓 demo 變快；它讓 demo 進 production 後還看
 - [Cloudflare AI Gateway — Providers](https://developers.cloudflare.com/ai-gateway/usage/providers/)
 - [Cloudflare AI Gateway — Caching](https://developers.cloudflare.com/ai-gateway/features/caching/)
 - [Cloudflare AI Gateway — Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/)
-- [Cloudflare AI Gateway — Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+- [Cloudflare AI Gateway — Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
 - [Cloudflare AI Gateway — Analytics](https://developers.cloudflare.com/ai-gateway/observability/analytics/)
 - [Cloudflare AI Gateway — Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/)
 - [Cloudflare AI Gateway — Bring your own keys](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/)
 - [Cloudflare AI Gateway — Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)
 - [Cloudflare AI Gateway — Limits](https://developers.cloudflare.com/ai-gateway/reference/limits/)
+- [Cloudflare AI Gateway — Authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)
+- [Cloudflare AI Gateway — Pricing](https://developers.cloudflare.com/ai-gateway/reference/pricing/)
+- [Cloudflare Web Search API](https://developers.cloudflare.com/web-search/)
+- [Workers AI changelog：Planned model deprecations（2026-11-05）](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/)
 - [Cloudflare Secrets Store](https://developers.cloudflare.com/secrets-store/)
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)

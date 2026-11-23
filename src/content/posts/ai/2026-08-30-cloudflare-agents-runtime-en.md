@@ -31,11 +31,13 @@ I would read Agents through this table:
 | Layer | Responsibility | Examples |
 |---|---|---|
 | Communication channels | How users and systems reach the agent | chat, voice, email, Slack, webhooks |
-| Agent harness | How the agent loop runs | Project Think, custom planning/tool loop |
-| Agents SDK runtime | Durable identity, state, connection, schedule, recovery | Agent class, sessions, WebSockets, fibers, SQLite |
-| Tools | What the agent can operate | Browser, Sandbox, AI Search, MCP, Payments |
+| Agent harness | How the agent loop runs | Pi harness, Think, OpenCode, or a custom planning/tool loop |
+| Agents SDK runtime | Durable identity, state, connection, schedule, recovery | Durable Object, Lifecycle, capabilities (State, WebSockets, Scheduler, MCP client), SQLite |
+| Tools | What the agent can operate | Workspace, Browser, Web fetch / search, Sandbox, AI Search, MCP, Payments |
 
 Keep those layers separate. Chat UI is only a channel. The model provider is only the inference source. Tools are capabilities. The runtime decides whether an agent can keep state across requests, connections, and time.
+
+The current docs describe the runtime in more detail: each agent is a Durable Object running the Agents SDK Lifecycle, with capabilities attached through `.use()`. The harness is itself a capability, and getting started now begins with the Pi harness (Pi Durable is still marked experimental). The `Agent` class used below is a preset with the Lifecycle and a set of capabilities already installed, and the chat, email, and Slack channel guides still build on it.
 
 ## Agent Instance: A Small Addressable Server
 
@@ -121,7 +123,9 @@ This is why Agents are more than a Workers AI example. Workers AI solves inferen
 
 The tools layer connects the rest of the Cloudflare AI Stack:
 
-- Browser: uses Browser Run to operate pages, take screenshots, and extract data.
+- Workspace: a durable filesystem and code execution environment from Cloudflare Computer.
+- Web fetch / Web search: read pages and documents (converted to Markdown automatically) and search through the Cloudflare Web Search API.
+- Browser: uses Browser Run to operate pages, take screenshots, and extract data; the persistent browser keeps tabs and logins across turns.
 - Sandbox: executes code or analyzes artifacts.
 - AI Search: retrieves from a managed RAG source.
 - MCP: connects the agent to external tools and services.
@@ -167,7 +171,7 @@ An Agents project Wrangler config includes Durable Object bindings, `exports`, `
 }
 ```
 
-The configuration docs note that Agents require `nodejs_compat`, that new Agents should use SQLite storage, and that `exports` declares the Agent class and durable-object storage. These are not incidental template details; they are the runtime dependencies of the agent.
+The setup docs note that Agents require `nodejs_compat`, that new Agents should use SQLite storage, and that `exports` declares the Agent class and durable-object storage. These are not incidental template details; they are the runtime dependencies of the agent.
 
 ## When Agents Fit
 
@@ -195,11 +199,17 @@ The Cloudflare AI Stack can be read like this:
 
 Agents are the runtime that turns the earlier services into a product. They do not replace Workers; they wrap Workers, Durable Objects, WebSockets, AI models, tools, and observability into a durable agent unit.
 
+## Update Log
+
+- 2026-11-23: Updated the four-layer table to the current docs: the runtime is now described as Durable Object plus Lifecycle plus capabilities, harness examples are Pi, Think, and OpenCode (previously Project Think), and tools add Workspace, Web fetch, Web search, and the persistent browser; pointed reference links to current doc paths (the old Agents API and configuration pages were merged into other pages).
+
 ## References
 
 - [Cloudflare Agents](https://developers.cloudflare.com/agents/)
-- [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
-- [Agents configuration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)
+- [Agent class](https://developers.cloudflare.com/agents/agent-class/)
+- [Add Agents to an existing project](https://developers.cloudflare.com/agents/getting-started/add-to-existing-project/)
+- [Agents tools: Web search](https://developers.cloudflare.com/agents/tools/web-search/)
+- [Agents tools: Workspace](https://developers.cloudflare.com/agents/tools/filesystem/)
 - [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/)
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)
 - [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/)

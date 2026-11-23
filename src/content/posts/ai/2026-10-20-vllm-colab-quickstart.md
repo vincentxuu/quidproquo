@@ -5,7 +5,7 @@ category: ai
 type: guide
 tags: [vllm, llm-inference, colab, model-serving, openai-compatible, gpu]
 lang: zh-TW
-tldr: "Mac 沒有 NVIDIA 卡跑不了 vLLM，Colab 免費 T4（compute capability 7.5，剛好達 vLLM 最低門檻）可以。用 vllm serve 把 0.6B 的 Qwen3 開成 OpenAI 相容 API，再同時打 8 個請求、看 /metrics，就能親眼看到 continuous batching。"
+tldr: "vLLM 主線不支援 Mac 的 GPU（Apple Silicon 只有社群外掛 vLLM-Metal），Colab 免費 T4（compute capability 7.5，剛好達 vLLM 最低門檻）可以。用 vllm serve 把 0.6B 的 Qwen3 開成 OpenAI 相容 API，再同時打 8 個請求、看 /metrics，就能親眼看到 continuous batching。"
 description: "用 Google Colab 免費 GPU 試跑 vLLM 的實作指南：Colab 是什麼與限制、vLLM 在系統裡的位置、安裝與啟動、用 curl 和 OpenAI SDK 呼叫、併發請求與 Prometheus 指標，以及 --api-key 不保護 /metrics 的資安提醒。"
 draft: false
 series:
@@ -86,7 +86,9 @@ T4 是 7.5，剛好壓線。代價是 T4 不支援 bfloat16，而多數新模型
 !python -c "import vllm; print(vllm.__version__)"
 ```
 
-安裝要幾分鐘，因為會一併拉 PyTorch 與 CUDA 相關套件。查證當天（2026-10-20）[GitHub releases](https://github.com/vllm-project/vllm/releases) 上的最新版是 v0.32.0（10-18 發布），前兩版是 v0.31.0（10-05）與 v0.30.0（09-22），約兩週一版。
+安裝要幾分鐘，因為會一併拉 PyTorch 與 CUDA 相關套件。[GitHub releases](https://github.com/vllm-project/vllm/releases) 上的最新版是 2026-11-16 的 v0.34.0，大約兩到三週一版。
+
+要注意驅動版本：依 [GPU 安裝文件](https://docs.vllm.ai/en/latest/getting_started/installation/gpu/)，v0.33 起 PyPI 版只附 CUDA 13.0 的 wheel，需要支援 CUDA 13 的 NVIDIA 驅動。步驟 1 的 `nvidia-smi` 右上角會顯示 `CUDA Version`；低於 13.0 的話，改裝最後一個附 CUDA 12.9 版本的 v0.32.0（安裝文件的 CUDA 12 一節有完整指令），否則服務會啟動失敗。
 
 裝完如果 Colab 提示要「重新啟動工作階段」，照做再往下。
 
@@ -205,7 +207,7 @@ Colab 的儲存格本身就跑在 event loop 裡，所以可以直接 `await`。
 
 ## Mac 上的替代方案
 
-想在自己的 Mac 上有同樣的體驗，用 Ollama 或 LM Studio 比較實際：一鍵安裝、能用 Apple Silicon 加速，也提供 OpenAI 相容 API。它們不是 vLLM，沒有同等級的併發能力，但「模型跑成服務、用 `/v1/chat/completions` 呼叫」的概念完全一樣。安裝與用法見 [Ollama 完整指南](/posts/ai/2026-03-14-ollama-local-llm-guide)。
+vLLM 主線不支援 macOS 的 GPU；官方安裝文件指向社群維護的 [vLLM-Metal](https://github.com/vllm-project/vllm-metal) 外掛，用 MLX 當運算後端、搭配 mlx-community 的模型。想在自己的 Mac 上有同樣的體驗，用 Ollama 或 LM Studio 比較實際：一鍵安裝、能用 Apple Silicon 加速，也提供 OpenAI 相容 API。它們不是 vLLM，沒有同等級的併發能力，但「模型跑成服務、用 `/v1/chat/completions` 呼叫」的概念完全一樣。安裝與用法見 [Ollama 完整指南](/posts/ai/2026-03-14-ollama-local-llm-guide)。
 
 ## 整體來說
 
@@ -215,7 +217,11 @@ Colab 加 T4 能讓你在不花錢、不買卡的情況下，把 vLLM 的三件�
 
 - 想看課堂上怎麼講部署：[台大深度學習之應用 助教課](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations)從 Colab 一路講到用 vLLM 部署。
 - 想評估要不要自架：[自架推論伺服器怎麼選](/posts/tech/2026-08-24-self-hosted-inference-server-guide)。
-- 換一個稍大的模型（例如 1.5B～4B），觀察 `kv_cache_usage_perc` 和 tok/s 怎麼變。
+- 換一個稍大的模型（例如 Qwen3.5 的 2B 或 4B），觀察 `kv_cache_usage_perc` 和 tok/s 怎麼變。
+
+## 更新紀錄
+
+- 2026-11-23：vLLM 最新版改為 v0.34.0，補上 v0.33 起只發 CUDA 13 wheel 的驅動檢查與退回 v0.32.0 的做法；Mac 一節與 tldr 補上社群外掛 vLLM-Metal；延伸練習的模型改成 Qwen3.5。
 
 ## 參考資料
 
@@ -226,6 +232,7 @@ Colab 加 T4 能讓你在不花錢、不買卡的情況下，把 vLLM 的三件�
 - [vLLM 文件：Metrics](https://docs.vllm.ai/en/latest/design/metrics/)
 - [vLLM 文件：Security](https://docs.vllm.ai/en/latest/usage/security/)
 - [vLLM GitHub Releases](https://github.com/vllm-project/vllm/releases)
+- [vLLM-Metal（Apple Silicon 外掛）](https://github.com/vllm-project/vllm-metal)
 - [vLLM issue #1157：T4 不支援 bfloat16](https://github.com/vllm-project/vllm/issues/1157)
 - [Qwen/Qwen3-0.6B 模型卡](https://huggingface.co/Qwen/Qwen3-0.6B)
 - [vLLM — 從 PagedAttention 到生產級 LLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)

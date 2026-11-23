@@ -42,7 +42,7 @@ For a screenshot or PDF, I would start with Quick Actions. For multi-step intera
 Quick Actions can be called through the REST API. A screenshot request looks like this:
 
 ```bash
-curl -X POST "https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-rendering/screenshot" \
+curl -X POST "https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/screenshot" \
   -H "Authorization: Bearer <apiToken>" \
   -H "Content-Type: application/json" \
   -d '{ "url": "https://example.com" }' \
@@ -75,7 +75,7 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-The official docs note that `.quickAction()` requires a `compatibility_date` of `2026-03-24` or later. Local development with a real headless browser also uses a remote binding.
+The official docs note that `.quickAction()` requires a `compatibility_date` of `2026-03-24` or later. Since November 2026, `.quickAction()` under `wrangler dev` runs against a local Chrome, so a remote binding is no longer required. The `json` action returns schema-shaped placeholder data (Workers AI is not available locally) and Kitesurf is unavailable; set `"remote": true` on the browser binding when you need real results.
 
 Quick Actions are straightforward:
 
@@ -114,9 +114,18 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-The `finally` block matters. The Browser Run limits page explicitly warns that sessions not closed with `browser.close()` keep consuming browser time until idle timeout. The default idle timeout is 60 seconds, and `keep_alive` can extend it up to 10 minutes.
+The `finally` block matters. The Browser Run limits page explicitly warns that sessions not closed with `browser.close()` keep consuming browser time until idle timeout. The default idle timeout is 60 seconds, and `keep_alive` can extend it up to 20 minutes.
 
 If a browser session should be reused across requests, pair it with [Durable Objects](/posts/tech/2026-08-22-cloudflare-durable-objects-en). Durable Objects can store session state, queue operations, and keep one browser from being hit by too many requests. This is also one difference between Browser Run and Containers: Browser Run gives you managed headless Chrome, not an arbitrary Linux runtime.
+
+## New Options: /script and Kitesurf
+
+Browser Run added two options in the second half of 2026 that are worth knowing up front:
+
+- **`/script`**: send a Playwright, Puppeteer, or raw CDP JavaScript function in a single API request. Browser Run runs it in an isolated Worker connected to a browser session and returns the result, so you do not need to deploy a Worker. Inside a Worker, use `env.BROWSER.script()`. It counts as Browser Sessions, billed on browser hours plus concurrent browsers, and it does not close the session after the script runs: close it yourself or wait for the idle timeout.
+- **Kitesurf**: Cloudflare's browser engine for agents. It runs entirely on Workers without Chromium and uses far less CPU and memory for screenshots and HTML extraction. It is in beta, free behind per-account limits, and cannot play video, render WebGL, pass bot challenges that need real TLS fingerprints, or hold long authenticated sessions. Add `browser=kitesurf` to a Quick Action to try it; it was open-sourced under Apache 2.0 in November 2026.
+
+The default Chromium moved to Chrome 152 in October 2026, and the default Quick Actions User-Agent now reports Chrome 152 instead of Chrome 119. If your site allowlists Browser Run by User-Agent, update the rule.
 
 ## Limits: Plan for Browser Time and Concurrency
 
@@ -177,6 +186,10 @@ Use Containers for ffmpeg, custom binaries, long-running services, or custom run
 
 That line prevents Browser Run from becoming generic compute. Browsers are heavy, priced by browser time, and constrained by concurrency and time limits. If `fetch()` is enough, do not open Chrome. If Quick Actions are enough, do not manage a session.
 
+## Update Log
+
+- 2026-11-23: Switched the REST example to the `/browser-run/` path used in current docs; raised the `keep_alive` maximum from 10 to 20 minutes; noted that Quick Actions now run locally under `wrangler dev`; added `/script`, Kitesurf, and the Chrome 152 default User-Agent change.
+
 ## References
 
 - [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/)
@@ -185,4 +198,7 @@ That line prevents Browser Run from becoming generic compute. Browsers are heavy
 - [Browser Run pricing](https://developers.cloudflare.com/browser-run/pricing/)
 - [Browser Run Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/)
 - [Browser Run Playwright](https://developers.cloudflare.com/browser-run/playwright/)
+- [Browser Run custom scripts](https://developers.cloudflare.com/browser-run/script/)
+- [Browser Run Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/)
+- [Changelog: Browser Run now runs Chrome 152](https://developers.cloudflare.com/changelog/post/2026-10-30-chrome-152/)
 - [Browser Run with Durable Objects](https://developers.cloudflare.com/browser-run/how-to/browser-run-with-do/)

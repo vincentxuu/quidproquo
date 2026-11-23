@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [cloudflare, cloudflare-ai-search, rag, hybrid-search, vectorize, workers-ai]
 lang: zh-TW
-tldr: "前身 AutoRAG 的託管搜尋原語：丟文件進內建儲存或綁 R2／網站，自動走 Markdown 轉換、切分與向量加 BM25 索引，透過 hybrid 加 RRF 加 rerank 檢索，並以 namespace 與 instance 兩種綁定或 REST 與 MCP 在 Worker 與 Agent 內查詢。"
+tldr: "前身 AutoRAG 的託管搜尋原語，2026-10-01 GA、2026-12-01 起計費：丟文件進內建儲存或綁 R2／網站／D1（beta），自動走 Markdown 轉換、切分與向量加 BM25 索引，預設 hybrid 加 RRF、可加 rerank 檢索，並以 namespace 與 instance 兩種綁定或 REST 與 MCP 在 Worker 與 Agent 內查詢。中文內容關鍵字檢索要用 trigram tokenizer。"
 description: "從資料來源、索引管線、模型選擇到檢索與綁定，完整拆解 Cloudflare AI Search 的架構、用法與限制，並對照自建 Vectorize 方案的取捨。"
 series:
   name: "Cloudflare AI Stack"
@@ -31,17 +31,18 @@ additionalSeries:
 
 適合情境：文件或知識庫搜尋、Agent 的研究工具、每個 tenant／每個 Agent 一個可搜尋上下文（例如客服中每位客戶的歷史解法）。不適合：需要自訂切分策略、大量 metadata 欄位（目前每 instance 最多 5 個自訂欄位）或要 pin embedding 模型版本做離線評測的團隊。
 
-## 資料怎麼進來：三種資料來源與索引管線
+## 資料怎麼進來：四種資料來源與索引管線
 
-AI Search 的資料面有三條路（[Data source](https://developers.cloudflare.com/ai-search/configuration/data-source/)）：
+AI Search 的資料面有四條路（[Data source](https://developers.cloudflare.com/ai-search/configuration/data-source/)）：
 
 1. **內建儲存（Built-in storage）**：每個 instance 自帶儲存與向量索引，直接用 API 上傳檔案即可索引，不用先建 R2。這是 2026 年 4 月後的新預設，適合「每個 Agent 一個 instance」這種動態建立的模型。
 2. **R2 Bucket**：把已有的 R2 桶綁為來源，AI Search 會持續同步。適合你本來就把文件放在 R2 的架構。
-3. **Website**：綁你擁有的網域，AI Search 用 [Browser Rendering](https://developers.cloudflare.com/browser-rendering/) 爬取並索引，支援 `discover` 與 `sitemap` 兩種 [Parse types](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/)。
+3. **Website**：綁你擁有的網域，AI Search 用 [Browser Run](https://developers.cloudflare.com/browser-run/)（舊名 Browser Rendering）爬取並索引，支援 `discover` 與 `sitemap` 兩種 [Parse types](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/)。
+4. **D1 資料庫**（2026-11-12 起，beta）：你給一段唯讀 SQL，AI Search 把回傳的每一列當成一份文件索引，排程同步時跟著新增、修改、刪除。適合把已經在 [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) 裡的文章、FAQ 或商品資料直接變成可搜尋的 index，不用先匯出成檔案。
 
-支援的檔案類型分兩層：純文字（`.md`、`.json`、`.csv`、`.py`、`.go` 等）直接索引；富文件（`.pdf`、`.docx`、`.xlsx`、`.html`、`.png`／`.jpg` 等）先走 [Markdown Conversion](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) 轉成 Markdown 再切分。這步會調 Workers AI 的視覺模型做圖片描述，因此會產生額外計費。單檔上限 4 MB，超過不會索引，會出現在錯誤日誌。
+支援的檔案類型分兩層：純文字（`.md`、`.json`、`.csv`、`.py`、`.go` 等）直接索引；富文件（`.pdf`、`.docx`、`.xlsx`、`.html`、`.png`／`.jpg` 等）先走 [Markdown Conversion](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) 轉成 Markdown 再切分。圖片與掃描檔走 OCR，以 image processing ingestion tokens 另計。單檔上限依格式不同：純文字、程式碼與開了 OCR 的 PDF 是 10 MiB，沒開 OCR 的 PDF 與其他要轉 Markdown 的格式是 4 MiB，超過不會索引，會出現在錯誤日誌。
 
-索引是自動且持續的（[Automated indexing](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/)）。R2 與 Website 來源會在來源變更時重同步；內建儲存則是上傳即索引。關鍵差別在於「誰擁有資料」：內建儲存的檔案就在 AI Search 託管的 R2＋Vectorize 之上，不再需要在你帳號內額外建桶。舊版 AutoRAG 時代幫你建的那個 R2 桶現在已不再寫入，可自行清掉（見 [Limits & pricing 歷史計費](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)）。
+索引是自動的（[Automated indexing](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/)）。R2、Website 與 D1 來源靠排程同步，預設每 24 小時一次（2026-11-02 起，原本是 6 小時），可在 15 分鐘到 24 小時之間調整；內建儲存則是上傳即索引。關鍵差別在於「誰擁有資料」：內建儲存的檔案就在 AI Search 託管的 R2＋Vectorize 之上，不再需要在你帳號內額外建桶。舊版 AutoRAG 時代幫你建的那個 R2 桶現在已不再寫入，可自行清掉（見 [Limits & pricing 歷史計費](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)）。
 
 ```ts
 // 內建儲存：上傳後自動索引
@@ -63,6 +64,8 @@ const ready = await instance.items.uploadAndPoll("handbook.pdf", pdfBytes);
 
 模型來源分兩種：[Workers AI](https://developers.cloudflare.com/workers-ai/) 目錄內的模型，或經 [AI Gateway](https://developers.cloudflare.com/ai-gateway/) 帶你自己的 OpenAI／Anthropic 金鑰（[Bring your own keys](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/)）。後者要在建立或設定頁綁定 Gateway，之後就能在 AI Search 選那些外部模型。選「Smart Default」則由 Cloudflare 自動幫你挑並隨時間更新；想鎖版就切顯式選擇，但要注意 [Supported models](https://developers.cloudflare.com/ai-search/configuration/models/supported-models/) 的生命週期（Production → Announcement → End of life）。
 
+GA 之後，AI Search 自己發出的 Workers AI embedding 與 rerank 呼叫已併入 AI Search 計價，不會再出現在 Workers AI 帳單或 AI Gateway log；生成、query rewriting 與外部 provider 仍走你的帳號與 gateway。
+
 取捨：Smart Default 省維運，但模型會無預警升級，評測分數可能漂移；顯式 pin 版可重現，但要自己追 [Release notes](https://developers.cloudflare.com/ai-search/platform/release-note/) 與棄用公告。對繁中場景，生成模型的中文能力仍以外部模型較穩，這正是 Gateway 整合的價值。
 
 ## 怎麼查：向量、關鍵字與混合檢索
@@ -71,11 +74,11 @@ const ready = await instance.items.uploadAndPoll("handbook.pdf", pdfBytes);
 
 - **純向量**：語意理解強，但會漏掉精確詞彙。例如查 `ERR_CONNECTION_REFUSED timeout`，向量可能回「網路疑難排解」而非那篇含錯誤碼的文件。
 - **純關鍵字（BM25）**：依詞頻、稀有度與文件長度打分（BM25），精確詞彙命中率高，但會漏掉同義表述。
-- **混合（Hybrid）**：兩路並行再融合。建 instance 時把 `index_method: { vector: true, keyword: true }` 同時打開即可啟用，融合方法有 `rrf`（Reciprocal Rank Fusion，依排名而非分數，推薦預設）與 `max`（取正規化後較高分）。[Hybrid search 官方說明](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/) 建議多數情境用 `rrf`。實作細節與自建對照見站內 [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)。
+- **混合（Hybrid）**：兩路並行再融合。GA 之後新建的 instance 預設就是 hybrid（`index_method: { vector: true, keyword: true }`），融合方法有 `rrf`（Reciprocal Rank Fusion，依排名而非分數，推薦預設）與 `max`（取正規化後較高分）。[Hybrid search 官方說明](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/) 建議多數情境用 `rrf`。實作細節與自建對照見站內 [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)。
 
 可調參數（instance 層或 per-request 覆蓋）：
 
-- `keyword_tokenizer`：`porter`（詞幹化，`running` 匹配 `run`）或 `trigram`（子字串，`conf` 匹配 `configuration`，適合程式碼）。
+- `keyword_tokenizer`：`porter`（詞幹化，`running` 匹配 `run`）或 `trigram`（子字串，`conf` 匹配 `configuration`，適合程式碼）。**中文、日文、韓文內容一定要選 `trigram`**：`porter` 靠空白斷詞，中文查詢會被當成一整個片語，關鍵字那一路通常回不了結果。2026-10-16 起 `trigram` 也能吃完整的中文自然語句查詢；換 tokenizer 會觸發整個 index 重建。
 - `keyword_match_mode`：`and`（全部詞彙都要命中）或 `or`（任一命中）。
 - `reranking`：用 `@cf/baai/bge-reranker-base` 這類 cross-encoder 重排，融合後再精煉。
 - `query_rewrite`：改寫查詢以提升召回。
@@ -89,7 +92,7 @@ const ready = await instance.items.uploadAndPoll("handbook.pdf", pdfBytes);
 const instance = await env.AI_SEARCH.create({
   id: "my-instance",
   index_method: { vector: true, keyword: true },
-  indexing_options: { keyword_tokenizer: "porter" },
+  indexing_options: { keyword_tokenizer: "trigram" },  // 中日韓內容用 trigram
   retrieval_options: { keyword_match_mode: "or" },
   fusion_method: "rrf",
   reranking: true,
@@ -171,29 +174,43 @@ await env.MY_SEARCH.search({ messages: [{ role: "user", content: "什麼是 Clou
 
 ## 限制、計費與何時不用它
 
-先看硬限制（[Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)，2026-08-26 更新）：
+先看硬限制（[Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)）：
 
 | 項目 | Workers Free | Workers Paid |
 |---|---|---|
-| 每帳號 instance 數 | 100 | 5,000 |
+| 每帳號 instance 數 | 100 | 預設 5,000，超出每個每月 $0.10 |
 | 每帳號 namespace 數 | 100 | 100 |
 | 每 instance 檔案數 | 100,000 | 1,000,000（啟用 hybrid 為 500,000） |
-| 單檔大小 | 4 MB | 4 MB |
-| 每月查詢 | 20,000 | 無上限 |
+| 單檔大小（純文字、程式碼、OCR PDF） | 10 MiB | 10 MiB |
+| 單檔大小（未開 OCR 的 PDF 與其他格式） | 4 MiB | 4 MiB |
+| 每月內含查詢 | semantic 1,000＋全文 1,000 | semantic 1,000＋全文 1,000（超出計費） |
+| `discover` 單次爬取頁數 | 100,000 | 100,000 |
 | 跨 instance 單次查詢數 | 10 | 10 |
 | 每天爬取頁數 | 500 | 無上限 |
 | 自訂 metadata 欄位 | 每 instance 5 個 | 每 instance 5 個 |
 | 單向量 metadata | 10 KiB（含系統開銷） | 10 KiB |
 | 可過濾字串索引長度 | 前 64 bytes | 前 64 bytes |
 
-計費：open beta 期間 AI Search 本身在限額內免費；[Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) 與 [AI Gateway](https://developers.cloudflare.com/ai-gateway/reference/pricing/) 依用量另計。儲存、向量索引與 Website 爬取的 [Browser Rendering](https://developers.cloudflare.com/browser-rendering/) 已包含在 AI Search，不另收費。舊帳單若見獨立的 R2／Vectorize 項目，是遷移前的歷史計費。
+計費：AI Search 在 2026-10-01 GA，用量計費原定 11-01 開始，後來延到 **2026-12-01**。每個帳號每月內含 500 萬 ingestion tokens、10 GB-月儲存、1,000 次 semantic 查詢與 1,000 次全文查詢，超出部分：
+
+| 項目 | 價格 |
+|---|---|
+| Base ingestion | $0.75 / 百萬 tokens |
+| 圖片處理（含 OCR） | 另加 $0.50 / 百萬 tokens |
+| 儲存 | $2.00 / GB-月 |
+| Semantic、vector、hybrid 查詢 | $0.75 / 千次 |
+| 全文查詢 | $0.10 / 千次 |
+
+Ingestion tokens 是在切分後的 chunks 上用 `cl100k_base` 計數，chunk 重疊的文字會重複計；儲存只算 AI Search 保留的內容（上傳檔案與從來源抽出的 Markdown），向量與關鍵字索引不算。AI Search 代你跑的 R2、Vectorize 與 [Browser Run](https://developers.cloudflare.com/browser-run/) 用量不會另出帳單；生成、query rewriting 與 2026-11-17 新增的 file summaries 則走 [Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) 或外部 provider 另計。舊帳單若見獨立的 R2／Vectorize 項目，是遷移前的歷史計費。
+
+這套計價對兩種用法差別很大：查詢量大、內容少的 FAQ 型 instance，主要成本在每千次 $0.75 的 hybrid 查詢；內容多、查詢少的知識庫，成本在 ingestion 與儲存。估價前先用 tiktoken 算一次自己語料的 token 數。
 
 何時不用：
 
 - 要自訂切分、重疊、或對同一文件做多粒度索引（AI Search 切分策略固定）。
 - 要超過 5 個可過濾 metadata 欄位、或要對長字串全文過濾（僅前 64 bytes 可過濾）。
 - 要 pin 住 embedding／reranker 版本做長期評測（Smart Default 會漂移，顯式選擇又可能遇到 [Model lifecycle](https://developers.cloudflare.com/ai-search/configuration/models/) 的汰換）。
-- 單檔常超過 4 MB（例如整本掃描 PDF）——得先在外層切檔再上傳。
+- 單檔常超過上限（例如整本掃描 PDF 超過 10 MiB）——得先在外層切檔再上傳。
 
 反之，若需求就是「對一批文件做混合檢索、支援 keyword 精確命中、可在 Agent 內動態開 instance、並希望少維運」，託管的省事程度很明顯。站內在 [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf) 末尾也提過同樣取捨：要的是維運省事就用託管，要的是對 filter 提取與降級策略的完全掌控就自己組。
 
@@ -205,6 +222,7 @@ AI Search 的增量不在「能做 RAG」，而在「把 RAG 的髒活收進原�
 
 ## 更新紀錄
 
+- 2026-11-23：AI Search 已於 2026-10-01 GA，計費延到 2026-12-01 開始，改寫計費段並補上內含用量與單價；資料來源補 D1（beta）；新 instance 預設 hybrid；中日韓內容改建議 `trigram` tokenizer；單檔上限改為依格式 10 MiB／4 MiB；預設同步間隔改為 24 小時；限制表的查詢列改為每月內含量；Browser Rendering 更名 Browser Run。
 - 2026-08-30：納入 Cloudflare AI Stack 系列，並以 additionalSeries 保留 Edge Platform 閱讀路徑。
 
 ## 參考資料
@@ -216,6 +234,10 @@ AI Search 的增量不在「能做 RAG」，而在「把 RAG 的髒活收進原�
 - [Cloudflare AI Search — Models](https://developers.cloudflare.com/ai-search/configuration/models/)
 - [Cloudflare AI Search — Supported models](https://developers.cloudflare.com/ai-search/configuration/models/supported-models/)
 - [Cloudflare AI Search — Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)
+- [Cloudflare AI Search — D1 data source](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/)
+- [Cloudflare Changelog — AI Search is generally available（2026-10-01）](https://developers.cloudflare.com/changelog/post/2026-10-01-ai-search-generally-available/)
+- [Cloudflare Changelog — AI Search billing postponed to December 1, 2026（2026-11-02）](https://developers.cloudflare.com/changelog/post/2026-11-02-billing-postponed-default-sync-interval/)
+- [Cloudflare Changelog — CJK keyword search（2026-10-16）](https://developers.cloudflare.com/changelog/post/2026-10-16-cjk-keyword-search/)
 - [Cloudflare AI Search — Workers binding](https://developers.cloudflare.com/ai-search/api/search/workers-binding/)
 - [Cloudflare AI Search — Workers binding migration](https://developers.cloudflare.com/ai-search/api/migration/workers-binding/)
 - [Cloudflare AI Search — REST API migration](https://developers.cloudflare.com/ai-search/api/migration/rest-api/)

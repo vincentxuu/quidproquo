@@ -33,13 +33,13 @@ Workers 不是萬能的，但真正卡住你的是哪一條，跟很多人以為
 - **CPU time**：只算 CPU 真的在執行你程式碼的時間，等 `fetch()`、等 D1 查詢都不算。免費版 10ms；付費版預設 30 秒、可在設定裡調到 5 分鐘上限
 - **牆鐘時間**：HTTP 請求沒有硬性上限，只要 client 還連著就繼續跑；`waitUntil()` 在回應送出後可再延長一段時間。Cron Trigger、Queue consumer、Durable Object alarm 才有分鐘級的牆鐘上限
 - **記憶體**：128 MB per Worker，兩個方案都一樣
-- **Worker 大小**：免費版與付費版上限不同，打包出來太肥會部署失敗
+- **Worker 大小**：2026-09 起兩個方案都是壓縮前 64 MiB，不再看壓縮後大小；bundle 太肥仍會拖慢啟動
 - **Subrequest**：每次呼叫能發幾個外部請求有上限，免費版緊得多；付費版可以在設定裡往上調
-- **沒有完整 native Node.js API**：`fs`、`child_process` 這類不能用，但大多數純 JS 套件可以
+- **沒有完整 native Node.js API**：`node:fs` 只是記憶體裡的虛擬檔案系統（讀 bundle 內的模組、寫 `/tmp` 暫存），`child_process` 這類不能用，但大多數純 JS 套件可以
 
 確切數字會變，[Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) 是唯一該相信的來源——這頁分開列了 CPU time 與 wall time 兩張表，值得整頁讀過一次。
 
-Workers runtime 不是完整的 Node.js。`node:crypto`、`node:buffer` 這些走 [Node.js 相容層](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)，要開 `nodejs_compat` compatibility flag 才有。
+Workers runtime 不是完整的 Node.js。`node:crypto`、`node:buffer` 這些走 [Node.js 相容層](https://developers.cloudflare.com/workers/runtime-apis/nodejs/)：`compatibility_date` 設在 2026-08-04 或之後就預設開啟，不用再加 flag；更早的 compatibility date 才要手動開 `nodejs_compat`。
 
 ## 最基本的 Worker
 
@@ -119,7 +119,6 @@ wrangler 是 Cloudflare 官方的開發工具，從初始化到部署都靠它�
   "main": "src/index.ts",
   // 設成你開始寫這個 Worker 的日期
   "compatibility_date": "2026-08-18",
-  "compatibility_flags": ["nodejs_compat"],
   "d1_databases": [
     { "binding": "DB", "database_name": "my-db", "database_id": "<DATABASE_ID>" }
   ],
@@ -180,7 +179,7 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 - 大量 CPU 密集運算（機器學習訓練、影像轉檔）——這是最硬的一條，CPU 上限直接擋住
 - 記憶體吃超過 128 MB 的工作
 - 需要 native Node.js addon 的套件（某些資料庫 driver、`.node` binary）
-- 需要本地檔案系統（`fs` 不能用）
+- 需要持久的本地檔案系統（`node:fs` 只有記憶體裡的虛擬檔案系統，請求結束就不在）
 
 有兩件事**不再**是不用 Workers 的理由：長連線的 WebSocket 有 [Durable Objects](https://developers.cloudflare.com/durable-objects/)（只要 caller 連著就沒有牆鐘上限），長流程有 Workflows。它們是不同的心智模型，但不是「Workers 做不到」。
 
@@ -188,6 +187,7 @@ Bindings 是 Workers 連接 Cloudflare 服務的方式，透過 `env` 物件注�
 
 ## 更新紀錄
 
+- 2026-11-23：Worker 大小上限改為兩方案皆壓縮前 64 MiB；Node.js 相容層在 compatibility date 2026-08-04 之後預設開啟；`node:fs` 改寫為虛擬檔案系統
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料

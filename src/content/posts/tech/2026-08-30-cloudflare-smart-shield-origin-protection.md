@@ -101,6 +101,7 @@ Cache Reserve 有幾個重要門檻：
 - response 要有 `Content-Length`。
 - Image transformations 的原始檔可 eligible，resize variant 不 eligible，因為 transformation 在 response flow 中發生於 Cache Reserve 之後。
 - Smart Shield Advanced 目前包含 2 TB Cache Reserve storage。
+- purge 的行為 2026-09 起改了：不論用 tag、hostname、prefix 還是 everything，purge 後下一次請求都會在 Cache Reserve miss，origin 要整份重送，再寫回 Cache Reserve 又是一次 Class A 操作。想保留內容只做驗證，改用 [invalidate](https://developers.cloudflare.com/changelog/post/2026-09-28-cache-reserve-purge-behavior/)：origin 回 `304` 就沿用已存的內容。
 
 這層最適合「origin egress 貴、asset 很多、熱門程度長尾」的網站。如果內容每分鐘變、不能 stale、或 response 是 API JSON，Cache Reserve 通常不是答案。
 
@@ -159,11 +160,15 @@ Free、Pro、Business 可以購買 Smart Shield 和 Smart Shield + Argo；Smart 
 - 有觀察 Smart Tiered Cache 啟用後的 cache hit ratio 和 origin request volume。
 - dynamic request latency 問題明確，再評估 Argo。
 - Cache Reserve 只放 TTL 足夠長、可 cache、帶 `Content-Length` 的 assets。
-- purge 流程有測過，知道 edge cache 和 Cache Reserve 的行為。
+- purge／invalidate 流程有測過，知道 edge cache 和 Cache Reserve 的行為。
 - Health Checks 的告警不是只看首頁，要覆蓋真正代表 origin health 的 endpoint。
 - Dedicated CDN Egress IPs 上線前先演練 firewall allowlist，避免把 Cloudflare 到 origin 的流量擋掉。
 
 Smart Shield 的核心價值是讓 origin 不再被每個 cache miss、每個地理位置、每條新 connection 直接消耗。Cache Rules 決定什麼能被 cache；Smart Shield 決定 cache miss 和 dynamic request 怎麼更溫和地抵達 origin。兩者一起看，才是 Cloudflare Edge Platform 裡完整的 origin protection。
+
+## 更新紀錄
+
+- 2026-11-23：Cache Reserve 的 purge 行為 2026-09 起改為一律強制 miss，補上 invalidate 作為保留內容的替代做法
 
 ## 參考資料
 

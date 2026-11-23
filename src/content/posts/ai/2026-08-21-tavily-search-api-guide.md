@@ -170,14 +170,15 @@ evidence = [
 
 ## 錯誤與重試要分流
 
-Search 的[錯誤回應](https://docs.tavily.com/documentation/api-reference/endpoint/search)區分了幾種狀況。`400` 是參數錯誤，`401` 是缺少或無效的 API key，`429` 是請求過多。`432` 是方案用量上限，`433` 是 pay-as-you-go 上限，`500` 是服務端錯誤。不要把它們全部套同一個 retry。
+Search 的[錯誤回應](https://docs.tavily.com/documentation/api-reference/endpoint/search)區分了幾種狀況。`400` 是參數錯誤，`401` 是缺少或無效的 API key，`429` 是請求過多。`432` 是方案用量上限，`433` 是 pay-as-you-go 上限，`434` 是免費方案帶 `max_age_hours` 要求即時抓取、而服務正處高負載時被拒，`500` 是服務端錯誤。不要把它們全部套同一個 retry。
 
 - `400`、`401`：修正請求或憑證，原樣重試沒有意義。
 - `429`：依回應的 `retry-after` 等待，再做有上限的重試。
 - `432`、`433`：停止呼叫，通知預算或帳號管理流程。
+- `434`：拿掉 `max_age_hours` 改用快取結果，或稍後再試；這不是額度問題。
 - `500`：使用指數退避與 jitter，並保留總時限。
 
-官方[限流文件](https://docs.tavily.com/documentation/rate-limits)明確說 `429` 會帶 `retry-after`。批次搜尋仍要限制同時呼叫數量，讓單筆失敗回到自己的 query，不要讓 `asyncio.gather` 的一個例外取消整批。
+官方[限流文件](https://docs.tavily.com/documentation/rate-limits)明確說 `429` 會帶 `retry-after`。限流以組織為單位，同一組織的所有 API key 共用一個額度：免費 Researcher 每分鐘 100 次，開啟 pay-as-you-go 或付費方案為 1,000 次以上；`/crawl`、`/map` 另限每分鐘 100 次。批次搜尋仍要限制同時呼叫數量，讓單筆失敗回到自己的 query，不要讓 `asyncio.gather` 的一個例外取消整批。
 
 ## 免費 credits 與實際計價
 
@@ -219,6 +220,10 @@ Tavily 的 [FAQ](https://docs.tavily.com/faq/faq)把 zero data retention 列為�
 Tavily 的價值不是「又一支 search API」，而是把找 URL、讀已知頁面、看網站結構、抓多頁內容放在同一個認證與計價模型下。穩健的起點是 `basic` Search、五筆結果、不帶 answer 和 raw content。找到真正需要的 URL 後再 Extract；只有任務範圍本來就是整個網站，才進 Map 與 Crawl。
 
 這篇沒有驗證 Tavily 對特定網站的抓取成功率，也沒有測量四種 search depth 的實際延遲與品質。那些需要固定查詢集、同時段呼叫與可重跑的評分方法，不能從文件推論。本文能確認的是 API 形狀、公開計價、錯誤語意與官方揭露的資料邊界。
+
+## 更新紀錄
+
+- 2026-11-23：錯誤處理補上 `434`（免費方案即時抓取在高負載時被拒），並依官方限流文件補上以組織為單位的每分鐘上限。免費額度、credits 單價與 search depth 計價經重查未變。
 
 ## 參考資料
 

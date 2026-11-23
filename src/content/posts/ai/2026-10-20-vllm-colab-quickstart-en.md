@@ -5,7 +5,7 @@ category: ai
 type: guide
 tags: [vllm, llm-inference, colab, model-serving, openai-compatible, gpu]
 lang: en
-tldr: "A Mac has no NVIDIA GPU, so it can't really run vLLM — but Colab's free T4 (compute capability 7.5, exactly vLLM's minimum) can. Serve the 0.6B Qwen3 as an OpenAI-compatible API with vllm serve, fire 8 requests at once, read /metrics, and you can watch continuous batching happen."
+tldr: "Mainline vLLM doesn't support Mac GPUs (Apple Silicon only has the community vLLM-Metal plugin), but Colab's free T4 (compute capability 7.5, exactly vLLM's minimum) can. Serve the 0.6B Qwen3 as an OpenAI-compatible API with vllm serve, fire 8 requests at once, read /metrics, and you can watch continuous batching happen."
 description: "A hands-on guide to running vLLM on Google Colab's free GPU: what Colab is and its limits, where vLLM sits in a stack, installing and starting the server, calling it with curl and the OpenAI SDK, concurrent requests and Prometheus metrics, and a security note that --api-key does not protect /metrics."
 draft: false
 series:
@@ -86,7 +86,9 @@ You should see one `Tesla T4` with roughly 15 GB of memory. If you get `command 
 !python -c "import vllm; print(vllm.__version__)"
 ```
 
-The install takes a few minutes because it pulls PyTorch and the CUDA packages along with it. On the day this was checked (2026-10-20), the latest release on [GitHub releases](https://github.com/vllm-project/vllm/releases) was v0.32.0 (October 18), with v0.31.0 (October 5) and v0.30.0 (September 22) before it — roughly one release every two weeks.
+The install takes a few minutes because it pulls PyTorch and the CUDA packages along with it. The latest release on [GitHub releases](https://github.com/vllm-project/vllm/releases) is v0.34.0 from 2026-11-16, with a new release roughly every two to three weeks.
+
+Watch the driver version: per the [GPU installation docs](https://docs.vllm.ai/en/latest/getting_started/installation/gpu/), PyPI wheels since v0.33 ship only for CUDA 13.0 and need an NVIDIA driver that supports CUDA 13. The `nvidia-smi` output from step 1 shows `CUDA Version` in the top right; if it is below 13.0, install v0.32.0, the last release with CUDA 12.9 wheels (the docs' CUDA 12 section has the full command), or the server will fail to start.
 
 If Colab asks you to restart the session after installing, do it before moving on.
 
@@ -205,7 +207,7 @@ The unprotected ones include `/metrics`, `/health`, `/version`, `/tokenize`, and
 
 ## Alternatives on a Mac
 
-For a similar experience on your own Mac, Ollama or LM Studio is the practical route: one-click install, Apple Silicon acceleration, and an OpenAI-compatible API. Neither is vLLM, and neither matches its concurrency, but the idea — run a model as a service and call `/v1/chat/completions` — is exactly the same. Setup and usage are in [The Complete Ollama Guide](/posts/ai/2026-03-14-ollama-local-llm-guide-en).
+Mainline vLLM doesn't support GPUs on macOS; the official install docs point to the community-maintained [vLLM-Metal](https://github.com/vllm-project/vllm-metal) plugin, which uses MLX as the compute backend with models from mlx-community. For a similar experience on your own Mac, Ollama or LM Studio is the practical route: one-click install, Apple Silicon acceleration, and an OpenAI-compatible API. Neither is vLLM, and neither matches its concurrency, but the idea — run a model as a service and call `/v1/chat/completions` — is exactly the same. Setup and usage are in [The Complete Ollama Guide](/posts/ai/2026-03-14-ollama-local-llm-guide-en).
 
 ## The big picture
 
@@ -215,7 +217,11 @@ Where to go next:
 
 - How a course teaches deployment: [NTU Applied Deep Learning TA recitations](/posts/ai/2026-09-30-ntu-adl2025-ta-recitations-en) go from Colab all the way to serving with vLLM.
 - Whether to self-host at all: [How to Pick a Self-Hosted Inference Server](/posts/tech/2026-08-24-self-hosted-inference-server-guide-en).
-- Swap in a somewhat larger model (say 1.5B–4B) and watch how `kv_cache_usage_perc` and tok/s change.
+- Swap in a somewhat larger model (say Qwen3.5 2B or 4B) and watch how `kv_cache_usage_perc` and tok/s change.
+
+## Changelog
+
+- 2026-11-23: Updated the latest vLLM release to v0.34.0 and added the driver check for CUDA 13-only wheels since v0.33, with the fallback to v0.32.0; added the community vLLM-Metal plugin to the Mac section and tldr; switched the follow-up exercise model to Qwen3.5.
 
 ## References
 
@@ -226,6 +232,7 @@ Where to go next:
 - [vLLM docs: Metrics](https://docs.vllm.ai/en/latest/design/metrics/)
 - [vLLM docs: Security](https://docs.vllm.ai/en/latest/usage/security/)
 - [vLLM GitHub Releases](https://github.com/vllm-project/vllm/releases)
+- [vLLM-Metal (Apple Silicon plugin)](https://github.com/vllm-project/vllm-metal)
 - [vLLM issue #1157: T4 doesn't support bfloat16](https://github.com/vllm-project/vllm/issues/1157)
 - [Qwen/Qwen3-0.6B model card](https://huggingface.co/Qwen/Qwen3-0.6B)
 - [vLLM — From PagedAttention to a Production-Grade LLM Inference Engine](/posts/ai/2026-03-14-vllm-inference-engine-en)

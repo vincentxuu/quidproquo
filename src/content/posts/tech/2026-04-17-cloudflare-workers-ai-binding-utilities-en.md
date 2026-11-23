@@ -35,7 +35,7 @@ Most tutorials jump straight from here to `env.AI.run("<some model ID>")` for LL
 env.AI
 ├── run(model, input, options?)       ← direct model inference
 ├── toMarkdown(files, options?)       ← document-to-Markdown pipeline
-├── autorag(name)                     ← managed RAG (now called AI Search)
+├── autorag(name)                     ← managed RAG (now AI Search; this entry point is legacy)
 ├── gateway(name)                     ← AI Gateway: unified proxy for external providers
 └── models()                          ← list all available models with metadata
 ```
@@ -158,7 +158,9 @@ const hits = await rag.search({
 });
 ```
 
-Best fit when: **your documents don't change often, you don't want to maintain a pipeline yourself, and Cloudflare's default chunking strategy is acceptable.** If you need fine-grained control over chunk size, hybrid search, or query rewriting, build it yourself (see [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)).
+Best fit when: **you don't want to maintain a pipeline yourself and can accept a managed chunking and indexing flow.** AI Search became generally available on 2026-10-01; chunk size and overlap are now configurable, new instances use hybrid search by default, and query rewriting and reranking can be turned on. Build it yourself only when you need full control over the chunking algorithm, filter extraction, and fallback strategy (see [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)).
+
+Note that the official docs now label `env.AI.autorag()` as legacy: it still works, but new features (built-in storage, namespaces, cross-instance search, and so on) only ship on the new `ai_search` / `ai_search_namespaces` bindings. See [Workers binding migration](https://developers.cloudflare.com/ai-search/api/migration/workers-binding/); new projects should start on the new binding.
 
 Recent update: AI Search now supports using OpenAI / Anthropic models for generation via an AI Gateway binding — not limited to models in the Cloudflare catalog.
 
@@ -213,7 +215,7 @@ Useful for "auto-select model" scenarios — for example, dynamically picking th
 | Send a prompt, get a completion | `run()` |
 | Generate embeddings | `run()` with an embedding model |
 | PDF / DOCX / web page → Markdown | `toMarkdown()` |
-| Q&A over a batch of R2 documents | `autorag()` / AI Search |
+| Q&A over a batch of R2 documents | AI Search binding (legacy entry point: `autorag()`) |
 | Use OpenAI / Anthropic with unified logging / caching | `gateway()` |
 | Mix Cloudflare models with external models | `run()` + `gateway()` together |
 | Dynamically select a model at runtime | `models()` |
@@ -225,7 +227,7 @@ The [quidproquo blog](/posts/product/2026-03-12-quidproquo-blog-from-scratch-en)
 Some natural next steps:
 
 1. **External document crawler** — `src/lib/crawl/` already has crawling configuration; piping fetched HTML through `toMarkdown()` before chunking would significantly cut downstream embedding token costs.
-2. **AI Search** — sync `src/content/posts/` to R2 and wire up `autorag()` for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide-en) from scratch. For the full architecture, data sources, hybrid retrieval, and Workers bindings, see [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en).
+2. **AI Search** — sync `src/content/posts/` to R2 and wire up the AI Search binding for a Q&A bot, without rebuilding the [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide-en) from scratch. For the full architecture, data sources, hybrid retrieval, and Workers bindings, see [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en).
 3. **Gateway** — for `llm-as-judge` answer quality evaluation, Claude or GPT-4 would outperform anything in the Workers AI catalog; Gateway handles unified logging and caching for those calls.
 
 ## Limitations and Trade-offs
@@ -234,7 +236,7 @@ Some natural next steps:
 
 - Workers [CPU time / wall time limits](/posts/tech/2026-03-27-cloudflare-workers-edge-compute-en) still apply
 - Model versions are opaque — Cloudflare manages checkpoints; you cannot pin a version
-- No fine-tuning — domain adaptation relies on prompt engineering + RAG only
+- No full fine-tuning — you can only attach [LoRA adapters](https://developers.cloudflare.com/workers-ai/fine-tunes/loras/) (open beta, selected models); otherwise domain adaptation relies on prompt engineering + RAG
 
 **`toMarkdown` specific:**
 
@@ -244,12 +246,12 @@ Some natural next steps:
 
 **`autorag` specific:**
 
-- Chunking strategy is fixed; if you need customization, don't use this
+- Only chunk size and overlap are tunable; if you need a custom chunking algorithm, don't use this
 - Adds a black-box layer compared to a self-built pipeline
 
 **`gateway` specific:**
 
-- External provider API keys are still your responsibility; Gateway only proxies
+- Calling third-party models through the AI binding **does not require your own API key**: the docs state that *Cloudflare manages the provider credentials and deducts credits from your account* (Unified Billing). This path now also uses BYOK, but only the key stored under the `default` alias; other aliases are ignored and the request falls through to Unified Billing. To select a different alias, use the provider-native endpoint with the `cf-aig-byok-alias` header ([source](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/))
 - Caching is disabled by default and must be explicitly enabled
 
 ## Summary
@@ -258,13 +260,14 @@ Some natural next steps:
 
 - Run a model → `run()`
 - Clean up data → `toMarkdown()`
-- Build Q&A → `autorag()`
+- Build Q&A → AI Search (legacy entry point: `autorag()`)
 - Connect external providers → `gateway()`
 
 Before writing AI features next time, ask: is there a managed version of this? Surprisingly often the answer is yes — and it's right there under `env.AI.`.
 
 ## Changelog
 
+- 2026-11-23: AI Search is generally available and `env.AI.autorag()` is now legacy, so the post points to the new AI Search binding; corrected the AI Search capability description (configurable chunk size and overlap, hybrid by default, optional query rewriting); third-party calls through the AI binding now use a BYOK key under the `default` alias; "no fine-tuning" changed to note LoRA adapters.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References

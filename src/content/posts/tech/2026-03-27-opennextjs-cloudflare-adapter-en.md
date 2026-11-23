@@ -97,7 +97,7 @@ When a request comes in, the Cloudflare edge node first determines whether it's 
 }
 ```
 
-Three fields people miss: `nodejs_compat` is the precondition for Next.js running at all; the `WORKER_SELF_REFERENCE` service binding is used internally by the adapter; and image optimization only exists if the `images` binding is declared. Do not change `main` or `assets` yourself.
+Three fields people miss: the Node.js compatibility layer is the precondition for Next.js running at all (it is on by default for a `compatibility_date` of 2026-08-04 or later, so keeping `nodejs_compat` is harmless; earlier dates must set it); the `WORKER_SELF_REFERENCE` service binding is used internally by the adapter; and image optimization only exists if the `images` binding is declared. Do not change `main` or `assets` yourself.
 
 `package.json` scripts:
 
@@ -165,9 +165,9 @@ This architecture means NobodyClimb requires zero server management — no EC2, 
 
 This adapter isn't a silver bullet. It has well-defined constraints:
 
-**Genuinely unsupported:**
+**Unsupported or not yet stable:**
 - **The Edge runtime**: every `export const runtime = "edge";` must be removed
-- **Node Middleware**, introduced in Next.js 15.2, is not yet supported
+- **Node Middleware**, introduced in Next.js 15.2 (renamed `proxy.ts` in Next.js 16): experimental support since `@opennextjs/cloudflare` 1.20.3 (2026-08); verify it yourself before relying on it in production
 
 **Supported, but frequently written up as unsupported in older posts:**
 - `next/image` optimization — via the `IMAGES` binding (backed by Cloudflare Images) or a custom loader. A few compatibility gaps are worth knowing: only PNG, JPEG, WEBP, AVIF, GIF, and SVG are handled, and anything else is returned unchanged; the `minimumCacheTTL` setting has no effect; and image optimization [can incur additional cost](https://opennext.js.org/cloudflare/howtos/image)
@@ -218,6 +218,7 @@ For a community platform like NobodyClimb — moderate traffic, everything on Cl
 
 ## Changelog
 
+- 2026-11-23: Node Middleware (`proxy.ts`) moved from "unsupported" to experimental support since 1.20.3; noted that the Node.js compatibility layer is on by default for compatibility dates from 2026-08-04
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References

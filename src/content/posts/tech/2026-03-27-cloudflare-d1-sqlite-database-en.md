@@ -196,6 +196,7 @@ For architecture details, see [NobodyClimb System Architecture](/posts/tech/deep
 - A per-database size ceiling that is **explicitly not raisable** — if the data will grow, plan the sharding up front
 - The free plan's **per-database size ceiling is far below the paid one** — 500 MB against 10 GB, a 20x gap that is easy to misjudge during development
 - Large bulk `UPDATE` / `DELETE` statements hit execution limits; the docs recommend chunking them into batches of roughly a thousand rows
+- A single query result is capped at 50 MB (enforced from 2026-11-04); anything larger fails with an error. Select only the columns you need, paginate with `LIMIT` / `OFFSET`, and use the REST API export for whole-database dumps
 
 ## The Shape of the Billing
 
@@ -203,12 +204,13 @@ Exact numbers live in [D1 Pricing](https://developers.cloudflare.com/d1/platform
 
 1. **You are billed for rows scanned, not rows returned.** A `SELECT *` full scan over a five-thousand-row table is five thousand rows read, even if you use one of them. This is why indexes show up directly on the D1 bill.
 2. **Per-million writes cost orders of magnitude more than reads.** Indexes also add a written row when the write touches an indexed column (one to the table, one to the index) — the docs still recommend indexing, because the reads saved almost always outweigh the extra write.
-3. **The free plan's daily read/write allowances are hard walls.** Hit one and D1 returns errors account-wide until the 00:00 UTC reset. Have an error path for that before you launch.
+3. **The free plan's daily read/write allowances are hard walls** (enforced since 2026-09-01). Hit one and D1 returns errors account-wide, through both the binding and the REST API (stored data is unaffected), until the 00:00 UTC reset. Have an error path for that before you launch.
 
 There are no egress or bandwidth charges.
 
 ## Changelog
 
+- 2026-11-23: Added the 50 MB per-query result cap enforced from 2026-11-04, and noted that the free plan's daily read/write limits have been enforced since 2026-09-01.
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References

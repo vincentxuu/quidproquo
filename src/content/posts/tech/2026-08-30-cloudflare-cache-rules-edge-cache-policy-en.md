@@ -110,6 +110,8 @@ Adding dimensions has a cost. Add `Accept-Language`, and languages split. Add de
 
 Cloudflare's docs call out a practical consequence: when a custom cache key includes headers, cookies, or other request properties, dashboard single-file purge may not work because the dashboard purge request cannot supply those values. In that case, use API purge by URL with the full key dimensions, or purge by host, prefix, tag, or everything.
 
+Since 2026-09 there is a gentler option than purge: [invalidate](https://developers.cloudflare.com/changelog/post/2026-09-28-cache-invalidation/). It takes the same selectors (URL, tag, hostname, prefix, everything) but marks content stale instead of deleting it; on the next request Cloudflare revalidates with the origin using `ETag` or `Last-Modified`, and a `304` lets the cached copy be reused. When only a few files under a tag actually changed, invalidate saves origin traffic compared with purge, provided the origin returns validators and handles conditional requests. To stop serving old content for certain, purge is still the tool.
+
 I use this order:
 
 1. Is the URL path already unique? If yes, leave the cache key alone.
@@ -196,12 +198,16 @@ I would check Cache Rules against this list:
 - HTML browser TTL stays conservative, so users do not keep stale pages for too long.
 - APIs are cached only when responses are public, shareable, and stale-tolerant.
 - Cache key dimensions are limited to values that actually change the response body.
-- Custom cache keys include a purge strategy by URL/header, prefix, host, or tag.
+- Custom cache keys include a purge/invalidate strategy by URL/header, prefix, host, or tag.
 - `BYPASS` and `DYNAMIC` are debugged separately.
 - Cloudflare Trace and `CF-Cache-Status` are checked before production rollout.
 - API or Terraform management avoids copying PUT examples that replace the whole existing ruleset.
 
 The value of Cache Rules is not caching as much as possible. It is turning shared cache into reviewable platform policy. Put shareable content at the edge, bypass content that must stay dynamic, and design cache keys together with purge. Then Cloudflare is reducing origin cost instead of preserving the wrong response.
+
+## Update Log
+
+- 2026-11-23: Added cache invalidate (marks content stale and revalidates with the origin), launched 2026-09, as an alternative to purge
 
 ## References
 

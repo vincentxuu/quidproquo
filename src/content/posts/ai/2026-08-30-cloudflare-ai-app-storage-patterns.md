@@ -123,7 +123,7 @@ return stub.fetch(request);
 AI app 還有三種很容易混淆的資料層：
 
 - Agent Memory：user/team/project 的 facts、events、instructions、tasks。
-- AI Search：託管 RAG pipeline，資料來源、索引、混合檢索由 Cloudflare 包起來。
+- AI Search：託管 RAG pipeline，資料來源、索引、混合檢索由 Cloudflare 包起來。資料來源除了網站、R2 與直接上傳，2026-11 起也能接 [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/)（beta）：給一段唯讀 SQL，每一列索引成一份文件，排程同步跟上新增、修改與刪除。產品文件已經存在 D1 時，不必先匯出成 R2 檔案。
 - Vectorize：自己控制 embedding、metadata、query path 的向量搜尋。
 
 使用者偏好不該塞進 AI Search 文件庫。產品文件不該當 Agent Memory。embedding index 也不該拿來當完整 transcript archive。
@@ -176,6 +176,10 @@ AI app 特別容易過度留存。幾個原則：
 - Secrets Store：AI Gateway BYOK 或跨 Worker provider key。
 
 這個版本不是最完整，但責任分明。等到 workload 真的變大，再把 queue、workflow、container、browser、memory 分別補上。
+
+## 更新紀錄
+
+- 2026-11-23：補上 AI Search 可直接以 D1 查詢結果當資料來源（2026-11，beta）。
 
 ## 參考資料
 

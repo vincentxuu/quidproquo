@@ -82,7 +82,7 @@ Hyperdrive 用三件事處理這個問題：
 
 ## 建立 Hyperdrive configuration
 
-Hyperdrive 目前支援 Postgres、MySQL，以及相容協定的資料庫。官方支援表列出 PostgreSQL 9.0 到 17.x、MySQL 5.7 到 8.x，也列出 Aurora、Neon、Supabase、Timescale、Materialize、CockroachDB、PlanetScale、MariaDB 等相容服務。SQL Server 和 MongoDB 目前不支援。
+Hyperdrive 目前支援 Postgres、MySQL，以及相容協定的資料庫。官方支援表列出 PostgreSQL 9.0 到 18.x、MySQL 5.7 到 8.x，也列出 Aurora、Neon、Supabase、Timescale、Materialize、CockroachDB、PlanetScale、MariaDB 等相容服務。SQL Server 和 MongoDB 目前不支援。
 
 建立時給它資料庫 connection string：
 
@@ -248,7 +248,7 @@ Hyperdrive 的 pool 是 transaction mode。query 或 transaction 結束後，con
 - 不要為了保留 `SET` 狀態，把一堆操作包成長 transaction；長 transaction 會卡住 pool，降低 Hyperdrive scaling。
 - 如果有多個 Hyperdrive config 指向同一個資料庫，要把總 connection 數一起算。
 
-官方 limits 頁目前列出的每個 configuration origin database connections 約是 Free 20、Paid 100，最小連線數是 5。這些是靠近 origin database 的連線，不是 Workers client concurrency；Hyperdrive 不限制 Workers 到 Hyperdrive 的 concurrent client connections。
+每個 configuration 的 origin database connections 上限約是 Free 20；Paid 原本約 100，[2026-11-11 起可自行調到 1,500](https://developers.cloudflare.com/changelog/post/2026-11-11-hyperdrive-raised-limits/)，最小連線數是 5。官方建議把這個值設得比 origin database 本身的連線上限低，因為它是 soft limit，網路異常時 Hyperdrive 可能多開連線。這些是靠近 origin database 的連線，不是 Workers client concurrency；Hyperdrive 不限制 Workers 到 Hyperdrive 的 concurrent client connections。
 
 你最該監控的是 pool 有沒有卡住。常見錯誤包含：
 
@@ -277,12 +277,12 @@ Hyperdrive 提供 dashboard metrics，也能透過 [GraphQL Analytics API](https
 
 ## Limits 和 pricing
 
-截至 2026-08-30 查到的官方文件：
+以 2026-11 的官方文件與 changelog 為準：
 
 - Hyperdrive 可用於 Workers Free 和 Paid plans。
 - Free plan 每天 100,000 database queries；Paid plan database queries unlimited。
 - database query 指任何經 Hyperdrive 發出的 statement，包含 `SELECT`、`INSERT`、`UPDATE`、`DELETE`、`CREATE`、`ALTER`、`DROP`。
-- Free 最多 10 個 configured databases；Paid 最多 25 個。
+- Free 最多 10 個 configured databases；Paid 2026-11-11 起從 25 個提高到 100 個。
 - initial connection timeout 15 秒，idle connection timeout 10 分鐘。
 - query statement duration 上限 60 秒。
 - cached query response size 上限 50 MB；超過仍會回給 Worker，但不會 cache。
@@ -325,6 +325,10 @@ Hyperdrive 提供 dashboard metrics，也能透過 [GraphQL Analytics API](https
 - database provider firewall / ACL 允許 Hyperdrive 連線。
 
 Hyperdrive 的價值不在於取代資料庫，而是在你不想重寫資料層時，讓 Workers 比較自然地接上現有 Postgres/MySQL。對 Edge Platform 來說，它是一個遷移橋：先把 runtime 搬近使用者，再逐步決定哪些資料該留在原本資料庫，哪些該搬到 D1、R2、KV 或 Durable Objects。
+
+## 更新紀錄
+
+- 2026-11-23：Paid 方案 configuration 上限 25 → 100、每個 configuration 的 origin connections 可調到 1,500；支援的 PostgreSQL 版本更新到 18.x
 
 ## 參考資料
 

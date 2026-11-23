@@ -35,7 +35,7 @@ additionalSeries:
 env.AI
 ├── run(model, input, options?)       ← 直接叫模型做推論
 ├── toMarkdown(files, options?)       ← 文件轉 Markdown pipeline
-├── autorag(name)                     ← 託管 RAG（現已更名 AI Search）
+├── autorag(name)                     ← 託管 RAG（現已更名 AI Search，此入口為 legacy）
 ├── gateway(name)                     ← AI Gateway：統一代理外部 provider
 └── models()                          ← 列出目錄裡所有可用模型
 ```
@@ -163,7 +163,9 @@ const hits = await rag.search({
 });
 ```
 
-適用場景：**文件不常變、不想自己維護 pipeline、可接受 Cloudflare 的預設 chunking 策略**。如果你需要客製 chunk 大小、hybrid search、query rewriting 這些精細控制，還是自己組（參考 [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)）。
+適用場景：**不想自己維護 pipeline、可接受託管的切分與索引流程**。AI Search 在 2026-10-01 GA，現在可以調 chunk 大小與重疊比例，新 instance 預設就是 hybrid search，query rewriting 與 rerank 也都能開；要完全掌控切分演算法、filter 提取與降級策略，才需要自己組（參考 [NobodyClimb RAG Pipeline](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture)）。
+
+注意 `env.AI.autorag()` 在官方文件裡已標為 legacy：還能用，但新功能（內建儲存、namespace、跨 instance 查詢等）只出現在新的 `ai_search`／`ai_search_namespaces` binding 上，遷移方式見 [Workers binding migration](https://developers.cloudflare.com/ai-search/api/migration/workers-binding/)。新專案直接用新 binding。
 
 近期更新：AI Search 已經可以透過綁 AI Gateway 用 OpenAI / Anthropic 的模型生成，不限於 Cloudflare 目錄內模型。
 
@@ -219,7 +221,7 @@ const list = await env.AI.models();
 | 丟 prompt、拿 completion | `run()` |
 | 產 embedding | `run()` with embedding model |
 | PDF / DOCX / 網頁 → Markdown | `toMarkdown()` |
-| 有一批 R2 文件，要做問答 | `autorag()` / AI Search |
+| 有一批 R2 文件，要做問答 | AI Search binding（舊入口 `autorag()`） |
 | 要用 OpenAI / Anthropic，想要統一 log / cache | `gateway()` |
 | 想混用自家 + 外部模型 | `run()` + `gateway()` 並用 |
 | 程式動態挑模型 | `models()` |
@@ -231,7 +233,7 @@ const list = await env.AI.models();
 幾個自然的延伸：
 
 1. **外部文件爬蟲** — `src/lib/crawl/` 下已有爬蟲設定，把抓到的 HTML 過一次 `toMarkdown()` 再 chunk，可以大幅降低後續 embedding 的 token 成本
-2. **AI Search** — 把 `src/content/posts/` 同步到 R2，接 `autorag()` 做問答 bot，不用自己重刻 [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide)。詳細架構、資料來源、hybrid 檢索與 Workers 綁定見 [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide)。
+2. **AI Search** — 把 `src/content/posts/` 同步到 R2，接 AI Search binding 做問答 bot，不用自己重刻 [chatbot pipeline](/posts/ai/2026-03-13-chatbot-development-guide)。詳細架構、資料來源、hybrid 檢索與 Workers 綁定見 [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide)。
 3. **Gateway** — 如果要做 `llm-as-judge` 評估答案品質，走 Claude 或 GPT-4 會比 Workers AI 目錄內的模型準，透過 Gateway 統一走
 
 ## 限制與取捨
@@ -240,7 +242,7 @@ const list = await env.AI.models();
 
 - Workers 的 [CPU time / wall time 限制](/posts/tech/2026-03-27-cloudflare-workers-edge-compute) 仍適用
 - 模型版本不透明 — Cloudflare 管理 checkpoint，你不能 pin 版本
-- 沒有 fine-tuning — 領域適應只能靠 prompt + RAG
+- 不能完整微調 — 只能掛 [LoRA adapter](https://developers.cloudflare.com/workers-ai/fine-tunes/loras/)（open beta，限部分模型），其餘領域適應靠 prompt + RAG
 
 **`toMarkdown` 特有：**
 
@@ -250,12 +252,12 @@ const list = await env.AI.models();
 
 **`autorag` 特有：**
 
-- Chunking 策略固定，想客製就不要用這個
+- 切分只能調 chunk 大小與重疊比例，要客製切分演算法就不要用這個
 - 跟自組 pipeline 比，多一層黑盒
 
 **`gateway` 特有：**
 
-- 透過 AI binding 打第三方模型時**不必自備 API key**：官方明講 *Cloudflare manages the provider credentials and deducts credits from your account*（Unified Billing）。反過來，這條路徑**不支援 BYOK**——要用自己的 provider key，得走 provider-native 的呼叫方式（[來源](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/)）
+- 透過 AI binding 打第三方模型時**不必自備 API key**：官方明講 *Cloudflare manages the provider credentials and deducts credits from your account*（Unified Billing）。這條路徑現在也會用 BYOK，但只認存在 `default` alias 下的那把 key；其他 alias 不會被讀到，請求會落回 Unified Billing。要指定別的 alias，得走 provider-native endpoint 加 `cf-aig-byok-alias` header（[來源](https://developers.cloudflare.com/ai-gateway/usage/worker-binding-methods/)）
 - Cache 預設關閉，要自己開
 
 ## 小結
@@ -264,13 +266,14 @@ const list = await env.AI.models();
 
 - 要跑模型 → `run()`
 - 要清資料 → `toMarkdown()`
-- 要做問答 → `autorag()`
+- 要做問答 → AI Search（舊入口 `autorag()`）
 - 要接外部 → `gateway()`
 
 下次寫 AI 功能前先問：這件事有沒有 managed 版本？很多時候答案是有，而且就掛在 `env.AI.` 下。
 
 ## 更新紀錄
 
+- 2026-11-23：AI Search 已 GA，`env.AI.autorag()` 標為 legacy，改推新的 AI Search binding；更正 AI Search 的能力描述（chunk 大小與重疊可調、預設 hybrid、可開 query rewriting）；AI binding 呼叫第三方模型改為會使用 `default` alias 的 BYOK key；「沒有 fine-tuning」改為可掛 LoRA adapter。
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料

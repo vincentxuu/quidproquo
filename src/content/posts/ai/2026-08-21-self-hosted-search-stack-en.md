@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Search and Scraping in Practice"
   order: 2
-tldr: "Tavily and Exa are cloud-only APIs and can't be self-hosted. What you can assemble instead is SearXNG (269 upstream engines, 82 on by default) plus Crawl4AI (78.8k stars, Apache-2.0), and the ready-made Tavily-compatible wrappers are all still double-digit-star solo projects you should not depend on. But SearXNG has no index of its own, and running it from a datacenter IP gets you empty results — those two facts decide whether self-hosting is worth it."
+tldr: "Tavily and Exa are cloud-only APIs and can't be self-hosted. What you can assemble instead is SearXNG (261 upstream engines, 80 on by default) plus Crawl4AI (87.7k stars, Apache-2.0), and the ready-made Tavily-compatible wrappers are all still double-digit-star solo projects you should not depend on. But SearXNG has no index of its own, and running it from a datacenter IP gets you empty results — those two facts decide whether self-hosting is worth it."
 description: "Why Tavily and Exa can't be self-hosted, what a SearXNG + Crawl4AI self-hosted stack actually consists of, why the ready-made wrappers are not usable yet, the state of open-source attempts at Exa-style owned indexes, and the datacenter-IP problem that sinks most deployments."
 draft: false
 ---
@@ -45,11 +45,11 @@ An entire cluster of projects already does this, all with the same architecture:
 
 SearXNG is the core. Per the official documentation (2026.8.20 build):
 
-> SearXNG supports 269 search engines of which 82 are enabled by default.
+> SearXNG supports 261 search engines of which 80 are enabled by default.
 
-In other words it maintains no index of its own; it fans queries out to Google, Bing, DuckDuckGo, Brave, Mojeek and friends, then deduplicates and merges what comes back. 35.8k stars, AGPL-3.0.
+In other words it maintains no index of its own; it fans queries out to Google, Bing, DuckDuckGo, Brave, Mojeek and friends, then deduplicates and merges what comes back. 39.8k stars, AGPL-3.0.
 
-On the fetching side the usual partner is [Crawl4AI](https://github.com/unclecode/crawl4ai) (78,805 stars, Apache-2.0), Python plus Playwright, returning Markdown directly:
+On the fetching side the usual partner is [Crawl4AI](https://github.com/unclecode/crawl4ai) (87,690 stars, Apache-2.0), Python plus Playwright, returning Markdown directly:
 
 ```python
 import asyncio
@@ -68,7 +68,7 @@ asyncio.run(main())
 
 Remember to run `crawl4ai-setup` after installing — it provisions the Playwright browser, and skipping it means your first `arun()` fails with no Chromium found. For sites with stable markup, write a CSS schema with `JsonCssExtractionStrategy` at zero token cost; reach for `LLMExtractionStrategy` only when the markup varies, and point its provider at Ollama if you want the whole chain to stay inside your network.
 
-The other option is self-hosting [Firecrawl](https://docs.firecrawl.dev/contributing/self-host) (170k stars, AGPL-3.0), though the official self-hosting docs are blunt about what is missing:
+The other option is self-hosting [Firecrawl](https://docs.firecrawl.dev/contributing/self-host) (207k stars, AGPL-3.0), though the official self-hosting docs are blunt about what is missing:
 
 > Screenshots or page actions: Not available in the default stack. Fetch and Playwright both report no support; both require Fire-engine.
 
@@ -78,17 +78,17 @@ The Fire-engine anti-bot layer, screenshots, and page actions are all outside th
 
 Searching GitHub turns up a batch of "open-source Tavily alternatives" that package the whole stack, but **this layer is broadly immature** — most are solo projects with single- to double-digit star counts and no second maintainer. Fine to read for the architecture, not fine for production.
 
-The most credible one is [searcharvester](https://github.com/vakovalskii/searcharvester) (256 stars, AGPL-3.0): one `docker compose up` brings up SearXNG plus trafilatura, it adds a `/research` deep-research endpoint, and it ships a prebuilt GHCR image. Even so, 256 stars means you should be prepared to maintain it yourself.
+The most credible one is [searcharvester](https://github.com/vakovalskii/searcharvester) (283 stars, AGPL-3.0): one `docker compose up` brings up SearXNG plus trafilatura, it adds a `/research` deep-research endpoint, and it ships a prebuilt GHCR image. Even so, 283 stars means you should be prepared to maintain it yourself.
 
-The underlying components, by contrast, all have real communities — SearXNG (35.8k), Crawl4AI (78.8k), [trafilatura](https://github.com/adbar/trafilatura) (6,673 stars, Apache-2.0). **The glue that joins those three is under three hundred lines, and writing it yourself is more controllable than depending on a wrapper that may stop being updated at any time.**
+The underlying components, by contrast, all have real communities — SearXNG (39.8k), Crawl4AI (87.7k), [trafilatura](https://github.com/adbar/trafilatura) (7,161 stars, Apache-2.0). **The glue that joins those three is under three hundred lines, and writing it yourself is more controllable than depending on a wrapper that may stop being updated at any time.**
 
 ## Layer two: trying to reproduce Exa's owned index
 
 Exa's real differentiator is not the API shape but the index it crawls itself and searches with embeddings. Open-source analogues do exist, but look at their actual state first:
 
 - **[DawnSearch](https://github.com/dawn-search/dawnsearch)**: closest in design — indexes Common Crawl, embeds with all-MiniLM-L6-v2, uses USearch for vector search, written in Rust as a distributed P2P network. But it has **14 stars and its last push was 2023-08-14**. It is a dead project, useful only as a design reference.
-- **[Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch)** (1,917 stars, Java): alive, still updated as of 2026-07. It explicitly supports running as your own white-label engine — the README says it "can both be run as a copy of Marginalia Search, or as a white-label search engine for your own data". The hardware bar is stated honestly: 32GB RAM will run it, but a production-like setup wants enterprise SSDs plus several extra terabytes for crawl data.
-- **[YaCy](https://github.com/yacy/yacy_search_server)** (4,013 stars): the veteran P2P search engine, which can also be cut off from the network to serve as a pure intranet search appliance.
+- **[Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch)** (2,241 stars, Java): alive, still updated as of 2026-11. It explicitly supports running as your own white-label engine — the README says it "can both be run as a copy of Marginalia Search, or as a white-label search engine for your own data". The hardware bar is stated honestly: 32GB RAM will run it, but a production-like setup wants enterprise SSDs plus several extra terabytes for crawl data.
+- **[YaCy](https://github.com/yacy/yacy_search_server)** (4,108 stars): the veteran P2P search engine, which can also be cut off from the network to serve as a pure intranet search appliance.
 
 The shared hard limit is **freshness**. Common Crawl is a snapshot; crawling yourself is bounded by your bandwidth and your IP. You end up with an index whose semantic retrieval is decent but whose contents are stale — and continuous recrawling is precisely Exa's selling point. **The first thing a self-hosted version loses is the thing you were trying to buy.**
 
@@ -116,7 +116,7 @@ A small always-on box at home (mini-PC, NAS) on a residential IP works far bette
             ▼                         ▼
      ┌─────────────┐          ┌──────────────┐
      │  SearXNG    │          │  Crawl4AI    │
-     │ 269 engines │          │  Playwright  │
+     │ 261 engines │          │  Playwright  │
      └──────┬──────┘          └──────┬───────┘
             │                        │
             ▼                        ▼
@@ -145,14 +145,18 @@ The trade-off in one line: **you can own the interface and you can own the fetch
 
 The next post returns to the tools themselves — how to choose among [34 open-source scrapers](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape-en); wiring all of it into a full research pipeline is covered in [the Local Deep Research walkthrough](/posts/ai/2026-05-08-local-deep-research-walkthrough-en).
 
+## Changelog
+
+- 2026-11-23: Updated the SearXNG engine count to 261, with 80 enabled by default (was 269/82), per the official docs, and refreshed star counts for SearXNG, Crawl4AI, Firecrawl, searcharvester, Marginalia, YaCy, and trafilatura via the GitHub API. Conclusions unchanged.
+
 ## References
 
-- [Crawl4AI](https://github.com/unclecode/crawl4ai) — 78,805 stars, Apache-2.0 (checked 2026-08-21)
+- [Crawl4AI](https://github.com/unclecode/crawl4ai) — 87,690 stars, Apache-2.0 (checked 2026-11-23)
 - [SearXNG](https://github.com/searxng/searxng) — 35,834 stars, AGPL-3.0
-- [SearXNG Configured Engines](https://docs.searxng.org/user/configured_engines.html) — 269 engines, 82 enabled by default
+- [SearXNG Configured Engines](https://docs.searxng.org/user/configured_engines.html) — 261 engines, 80 enabled by default
 - [Firecrawl self-hosting docs](https://docs.firecrawl.dev/contributing/self-host) — self-hosted feature support table
 - [trafilatura](https://github.com/adbar/trafilatura) — main-content extraction library
-- [searcharvester](https://github.com/vakovalskii/searcharvester) — Tavily-compatible self-hosted API (256 stars, AGPL-3.0)
+- [searcharvester](https://github.com/vakovalskii/searcharvester) — Tavily-compatible self-hosted API (283 stars, AGPL-3.0)
 - [Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch) — self-hostable white-label search engine
 - [YaCy](https://github.com/yacy/yacy_search_server) — P2P search engine and intranet search appliance
 - [DawnSearch](https://github.com/dawn-search/dawnsearch) — Common Crawl semantic search (abandoned 2023)

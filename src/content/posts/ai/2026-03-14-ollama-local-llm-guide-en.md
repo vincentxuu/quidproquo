@@ -18,16 +18,16 @@ When running LLMs locally, the most common hurdles are: converting model formats
 
 ## What Is Ollama
 
-Ollama is an open-source platform (MIT license) for running large language models on local machines. Under the hood it uses the llama.cpp inference engine, with a Docker-style CLI and REST API layered on top.
+Ollama is an open-source platform (MIT license) for running large language models on local machines. It started out as a direct wrapper around the llama.cpp inference engine; today NVIDIA, AMD, and CPU still run on an engine built on llama.cpp/GGML, while on Apple Silicon the model architectures MLX supports run on Apple's MLX by default since version 0.40 (September 2026). A Docker-style CLI and REST API are layered on top.
 
 Core design philosophy: **manage models like you manage containers**. Model weights, configuration, and runtime environment are packaged into a unit called a Modelfile. Model layers are cached like container images, and shared layers don't need to be downloaded again.
 
 ```bash
 # This single line does three things: downloads the model, configures GPU, and starts an interactive chat
-ollama run llama3.2
+ollama run gemma4
 ```
 
-As of 2026 Q1, Ollama sees 52 million monthly downloads and has over 100,000 stars on GitHub.
+As of 2026 Q1, Ollama sees 52 million monthly downloads; by November 2026 it has about 188,000 stars on GitHub.
 
 ---
 
@@ -36,14 +36,15 @@ As of 2026 Q1, Ollama sees 52 million monthly downloads and has over 100,000 sta
 Ollama is more than just a CLI tool — it's a complete local LLM runtime platform:
 
 - **One-command model management** — `ollama run`, `ollama pull`, `ollama rm`
-- **Automatic GPU detection** — NVIDIA CUDA, AMD ROCm, Apple Metal all auto-detected
+- **Automatic GPU detection** — NVIDIA CUDA, AMD ROCm, Vulkan, and Apple Silicon (MLX/Metal) all auto-detected
 - **Automatic VRAM management** — Multiple models loaded simultaneously; overflow to RAM when VRAM is exceeded
 - **OpenAI-compatible API** — `localhost:11434/v1/` can directly replace an OpenAI endpoint
 - **Modelfile system** — Configuration files similar to Dockerfiles
-- **Multimodal** — Supports vision models (Gemma 3, Llama 3.2 Vision, LLaVA)
+- **Multimodal** — Supports vision models (Gemma 4, Qwen3.8, Qwen3-VL)
 - **Structured output** — JSON Schema-constrained response formats
 - **Tool calling** — Function calling support
 - **Embeddings** — Built-in embedding endpoint
+- **Decision models** — `/v1/systemone` returns choices, probabilities, and scores instead of text (since 0.35)
 
 ---
 
@@ -51,15 +52,17 @@ Ollama is more than just a CLI tool — it's a complete local LLM runtime platfo
 
 The full list is at [ollama.com/library](https://ollama.com/library). Here are the highlights:
 
-**General chat**: Llama 3.1/3.2/4 (Meta), Mistral/Mixtral (Mistral AI), Qwen 2.5/3 (Alibaba), Gemma 2/3 (Google), Phi-3/4 (Microsoft), GPT-OSS (OpenAI open-source models)
+**General chat (current generation you can run locally)**: Qwen3.8 27B and Qwen3.5 0.8B–122B (Alibaba), Gemma 4 E2B/E4B/12B/26B/31B (Google), GPT-OSS 20B/120B (OpenAI open-source models), Inkling 2 Mini (Thinking Machines Lab), LFM3 (Liquid AI), Nemotron 3.5 Bolt (NVIDIA)
 
-**Reasoning**: DeepSeek R1, DeepSeek-v3.1 (various distilled sizes)
+**Large open weights (mostly multi-GPU, or use Ollama Cloud)**: DeepSeek V4.1 Flash, GLM-5.3-Flash, Qwen3.8 Flash-Next, Kimi K3.1 Pro
 
-**Code**: Qwen 2.5-Coder, CodeLlama, Qwen3-Coder
+**Code**: Qwen3-Coder, Devstral Small 2
 
-**Vision**: Gemma 3 (officially recommended), Llama 3.2 Vision, LLaVA
+**Vision**: Gemma 4, Qwen3.8, Qwen3-VL
 
-**Embeddings**: embeddinggemma, qwen3-embedding, all-minilm (official top three picks)
+**Embeddings**: embeddinggemma, embeddinggemma-2, qwen3-embedding, nomic-embed-text
+
+Older models such as Llama 3.x, Qwen2.5, and Mistral are still in the library, but since 0.32 `ollama launch` shows a deprecation warning before wiring them into a coding agent. For where each family stands and how to choose, see the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en).
 
 Models not in the official library can be manually imported as long as they're in GGUF format.
 
@@ -117,7 +120,7 @@ class Country(BaseModel):
     languages: list[str]
 
 response = chat(
-    model='llama3.2',
+    model='gemma4',
     messages=[{'role': 'user', 'content': 'Tell me about Taiwan'}],
     format=Country.model_json_schema(),
 )
@@ -143,44 +146,39 @@ Combined with models like Qwen 3, you can build a search agent: the model autono
 
 ### Ollama Cloud
 
-Cloud hosting service launched in September 2025:
+A cloud hosting service launched in September 2025. The [pricing page](https://ollama.com/pricing) currently lists:
 
-- **Pro**: $20/month
-- **Max**: $100/month
+- **Pay as you go**: $0/month, billed per token, 3 concurrent requests
+- **Pro**: $20/month with $60 of usage credits
+- **Max**: $100/month with $300 of usage credits and 10 concurrent requests
+- **Team**: $500/month, unlimited users, $1,000 of shared credits (early access)
+- **Enterprise**: custom
 
-Suitable for those who don't want to manage hardware but want to use the Ollama ecosystem. Cloud models run at full context capacity. However, public documentation for rate limits, per-token billing, and enterprise SLAs is still lacking — it's still in early stages.
+Every cloud model lists per-million-token prices for input, cached input, and output, with off-peak pricing outside 12:00–18:00 UTC on weekdays and all weekend. It suits people who don't want to manage hardware but want the Ollama ecosystem, and it is the fallback for large models you can't run locally (such as DeepSeek V4.1 Flash or GLM-5.3). Cloud models run at full context capacity.
 
-### TUI Interactive Interface + AI Tool Launcher (0.18.3)
+### Built-in Agent and Tool Launcher (0.18 → 0.32)
 
-This is the biggest positioning shift. Starting from 0.18, typing `ollama` in the terminal with no arguments opens an interactive TUI menu:
+This is the biggest positioning shift. Starting from 0.18, typing `ollama` in the terminal with no arguments opens an interactive menu where you can chat or launch coding tools such as Claude Code and Codex with one keystroke. Version 0.32 (July 2026) went a step further: `ollama` now drops you straight into Ollama's own agent by default:
 
 ```
-Ollama 0.18.3
+❯ ollama
+Ollama 0.32.0
 
-▸ Run a model
-    Start an interactive chat with a model
-
-  Launch Claude Code
-    Anthropic's coding tool with subagents
-
-  Launch Codex
-    OpenAI's open-source coding agent
-
-  Launch OpenClaw
-    Personal AI with 100+ skills
-
-  Launch Visual Studio Code
-    Microsoft's open-source AI code editor
-
-  Launch Cline (not installed)
-    Install with: npm install -g cline
-
-↑/↓ navigate • enter launch • → configure • esc quit
+▸ Chat, Code, & Work (glm-5.2:cloud)
+    Chat with models, code, search the web, and delegate real work
 ```
 
-Ollama is no longer just a "local LLM runner" — it has become a **unified entry point for AI development tools**. The official documentation lists 18 integrated tools: Claude Code, Codex, Cline, OpenClaw, VS Code, JetBrains, Xcode, Zed, Roo Code, OpenCode, Droid, Pi, Goose, Marimo, n8n, NemoClaw, Onyx, and more. Tools that aren't installed display installation commands.
+The launcher menu was trimmed to the most popular integrations at the same time; everything else is reached with `ollama launch <name>`, for example `ollama launch claude` or `ollama launch openclaw`. As of November 2026 the official documentation lists 26 integrations: Claude Code, Claude Desktop, Codex, ChatGPT, Copilot CLI, Cline, OpenClaw, Hermes, VS Code, JetBrains, Xcode, Zed, Roo Code, OpenCode, Droid, Pi, Goose, Marimo, n8n, NemoClaw, Onyx, and more. Desktop apps are covered too: Claude Desktop since 0.23, and since 0.34 Ollama models can be used directly inside ChatGPT Desktop on macOS.
 
-This is a smart design move — Ollama is already the default choice for developers running local LLMs, and turning itself into an AI tool launcher means it's competing for the entry point position in developer workflows.
+Ollama is no longer just a "local LLM runner" — it has become a **unified entry point for AI development tools**. Ollama is already the default choice for developers running local LLMs, and turning itself into the entry point for AI tools means it's competing for that position in developer workflows.
+
+### Apple Silicon Moves to MLX (0.19 → 0.40)
+
+Version 0.19 (March 2026) started running models on Apple Silicon through Apple's MLX framework as a preview, to make direct use of unified memory; since 0.40 (September 2026), model architectures that MLX supports run on MLX by default on Apple Silicon, including Qwen3.8, Qwen3.5/3.6, Gemma 4, and embeddinggemma-2. No command changes are needed: `ollama run` picks the engine itself. On MLX, an unset `OLLAMA_NUM_PARALLEL` is now chosen automatically from available memory instead of being fixed at 1.
+
+### Decision Models (0.35)
+
+Version 0.35 added a `/v1/systemone` endpoint and "decision models" (Nimble, Tev1, Clef, and others): you send context and one or more questions, and get back choices, probabilities, and scores instead of free text. They fit structured judgments such as ticket triage, model routing, and content classification, and are more robust than asking a chat model and parsing its output.
 
 ---
 
@@ -193,7 +191,7 @@ This is a smart design move — Ollama is already the default choice for develop
 brew install ollama
 ```
 
-Apple Silicon automatically enables Metal GPU acceleration with no extra configuration.
+Apple Silicon automatically enables GPU acceleration (MLX for supported models, Metal for the rest) with no extra configuration.
 
 ### Linux
 
@@ -246,11 +244,11 @@ Ollama's behavior is almost entirely controlled by environment variables. These 
 | Variable | Purpose | Default |
 |----------|---------|---------|
 | `OLLAMA_CONTEXT_LENGTH` | Global context window size | Auto-determined by VRAM |
-| `OLLAMA_NUM_PARALLEL` | Max parallel requests per model | `1` |
+| `OLLAMA_NUM_PARALLEL` | Max parallel requests per model | `1` (chosen from available memory on Apple Silicon's MLX) |
 | `OLLAMA_MAX_LOADED_MODELS` | Models loaded in memory simultaneously | GPU count x 3 (or 3 in CPU mode) |
 | `OLLAMA_MAX_QUEUE` | Request queue limit; returns 503 when exceeded | `512` |
 | `OLLAMA_KEEP_ALIVE` | How long a model stays in memory after idle | `5m` |
-| `OLLAMA_FLASH_ATTENTION` | Enable Flash Attention (saves memory) | Not enabled |
+| `OLLAMA_FLASH_ATTENTION` | Force Flash Attention on (`1`) or off (`0`) (saves memory) | Enabled automatically when the backend and device support it |
 | `OLLAMA_KV_CACHE_TYPE` | KV Cache quantization type | `f16` (options: `q8_0` for half memory, `q4_0` for quarter) |
 
 `OLLAMA_KEEP_ALIVE` supports multiple formats: `"10m"`, `"24h"`, `0` (unload immediately after use), negative values (never unload). The memory overhead of `OLLAMA_NUM_PARALLEL` = parallel count x context length — setting it too high will exhaust memory.
@@ -278,14 +276,14 @@ Commands you'll use day to day:
 
 ```bash
 ollama serve                          # Start server (port 11434)
-ollama run llama3.2                   # Download + start interactive chat
-ollama run llama3.2 "Explain the TCP three-way handshake"  # One-shot question
-ollama pull qwen2.5:14b               # Download only, don't launch
+ollama run gemma4                     # Download + start interactive chat
+ollama run gemma4 "Explain the TCP three-way handshake"  # One-shot question
+ollama pull qwen3.8:27b               # Download only, don't launch
 ollama list                           # List downloaded models
 ollama ps                             # See which models are in memory
-ollama show llama3.2                  # Model info (architecture, quantization, license)
+ollama show gemma4                    # Model info (architecture, quantization, license)
 ollama rm mistral                     # Delete a model
-ollama stop llama3.2                  # Unload from memory
+ollama stop gemma4                    # Unload from memory
 ```
 
 You can adjust parameters in real time during interactive mode:
@@ -310,7 +308,7 @@ Ollama provides two API sets at `localhost:11434`.
 ```bash
 # Multi-turn chat
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2",
+  "model": "gemma4",
   "messages": [{"role": "user", "content": "What is RAG?"}],
   "stream": false
 }'
@@ -347,7 +345,7 @@ Both `/api/chat` and `/api/generate` support an `options` object that lets you o
 
 ```bash
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2",
+  "model": "gemma4",
   "messages": [{"role": "user", "content": "Write a poem"}],
   "stream": false,
   "options": {
@@ -376,7 +374,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="llama3.2",
+    model="gemma4",
     messages=[{"role": "user", "content": "Write a binary search in Python"}],
 )
 print(response.choices[0].message.content)
@@ -401,11 +399,13 @@ Reserve 2-3 GB for the OS. Higher quantization levels (Q8, FP16) increase memory
 
 ### GPU Support
 
-**NVIDIA** (most complete): CUDA compute capability 5.0+. The RTX 4090 (24 GB) is the top consumer choice; the RTX 4060 (8 GB) is the budget option.
+**NVIDIA** (most complete): CUDA compute capability 5.0+ with driver 550 or newer (older cards with compute capability 5.0–6.2 need 570 or newer). The RTX 5090 (32 GB) and RTX 4090 (24 GB) are the top consumer choices; 8 GB cards only suit small models.
 
-**AMD**: Supported on Linux via ROCm; experimental on Windows. The RX 7900 XTX (24 GB) works well, but some GPUs may need the `HSA_OVERRIDE_GFX_VERSION` environment variable.
+**AMD**: Supported via ROCm on both Linux and Windows, and both need the ROCm v7 driver; Windows currently lists the RX 7000 series and Radeon PRO W7000 series, while Linux also covers the RX 9070/9060, Ryzen AI Max, and more. The RX 7900 XTX (24 GB) works well; GPUs outside the list may need the `HSA_OVERRIDE_GFX_VERSION` environment variable or the Vulkan path.
 
-**Apple Silicon**: Metal API is automatically enabled. The unified memory architecture advantage is that all system RAM is available to the GPU — M-series chips with 32 GB+ memory provide an excellent local LLM experience.
+**Vulkan**: An additional GPU path on Windows and Linux, enabled by default once installed; Intel GPUs and AMD cards that ROCm doesn't support can run through it.
+
+**Apple Silicon**: Enabled automatically; since 0.40, supported models run on MLX by default. The unified memory architecture advantage is that all system RAM is available to the GPU — M-series chips with 32 GB+ memory provide an excellent local LLM experience; for example, the 4-bit Qwen3.8 27B on Ollama is about 18 GB.
 
 ### Context Length and VRAM Relationship
 
@@ -425,7 +425,7 @@ OLLAMA_CONTEXT_LENGTH=64000 ollama serve
 
 # Per-request level (via options.num_ctx)
 curl http://localhost:11434/api/chat -d '{
-  "model": "qwen3",
+  "model": "qwen3.8",
   "messages": [...],
   "options": {"num_ctx": 64000}
 }'
@@ -440,8 +440,8 @@ Ollama automatically spills some layers to system RAM. The upside is it doesn't 
 ```bash
 # Check GPU/CPU allocation status
 ollama ps
-# NAME       SIZE    PROCESSOR    CONTEXT
-# llama3.2   4.9 GB  100% GPU     8192
+# NAME             SIZE      PROCESSOR    CONTEXT
+# gemma4:latest    9.6 GB    100% GPU     131072
 ```
 
 `PROCESSOR` showing `100% GPU` is the ideal state. If you see `50% GPU / 50% CPU`, it means the model is partially running on CPU with significantly reduced performance. Solutions: use a smaller model, reduce context length, enable KV cache quantization, or upgrade hardware.
@@ -453,7 +453,7 @@ ollama ps
 Modelfile is one of Ollama's killer features. The syntax resembles Dockerfile:
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 
 PARAMETER temperature 0.7
 PARAMETER num_ctx 8192
@@ -470,7 +470,7 @@ ollama create my-code-assistant -f ./Modelfile
 ollama run my-code-assistant
 
 # View any model's Modelfile
-ollama show --modelfile llama3.2
+ollama show --modelfile gemma4
 ```
 
 ### All Directives
@@ -496,7 +496,7 @@ ollama show --modelfile llama3.2
 | `top_k` | Limit candidate tokens; lower = more deterministic | 40 |
 | `top_p` | Nucleus sampling threshold | 0.9 |
 | `min_p` | Minimum probability threshold | 0.0 |
-| `repeat_penalty` | Repetition penalty | 1.1 |
+| `repeat_penalty` | Repetition penalty | 1.0 (disabled) |
 | `repeat_last_n` | Lookback window for repetition detection | 64 |
 | `seed` | Random seed (with fixed temperature, enables reproducible output) | 0 |
 | `stop` | Stop sequences (can be set multiple times) | — |
@@ -504,7 +504,7 @@ ollama show --modelfile llama3.2
 ### Advanced Example: Pre-filling Conversations with MESSAGE
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 SYSTEM """You are a Taiwan labor law consultant, specializing in the Labor Standards Act. Answer in Traditional Chinese."""
 PARAMETER temperature 0.3
 PARAMETER num_ctx 8192
@@ -548,7 +548,7 @@ FROM /path/to/safetensors/directory
 Or import a LoRA adapter (output from fine-tuning with tools like Unsloth or MLX):
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 ADAPTER /path/to/adapter/directory
 ```
 
@@ -579,7 +579,7 @@ ollama push myuser/my-model
 | | Ollama | llama.cpp | LM Studio | vLLM |
 |---|---|---|---|---|
 | Interface | CLI + REST API | Pure CLI | GUI + API | Server API |
-| Installation | One command | Requires compilation | Installer | pip install |
+| Installation | One command | Prebuilt binaries or build from source | Installer | pip install |
 | Open source | MIT | MIT | No (free) | Apache 2.0 |
 | Best for | Developers, API integration | Maximum performance control | Beginners, GUI preference | Production high-throughput |
 | GPU management | Automatic | Fully manual | GUI controls | Auto-optimized |
@@ -591,24 +591,24 @@ ollama push myuser/my-model
 - Need maximum performance control and customization → **llama.cpp**
 - Need production deployment with high concurrency → **vLLM**
 
-Both Ollama and LM Studio use llama.cpp under the hood. Ollama wins on automatic VRAM management and developer-friendly APIs; LM Studio wins on UI and model discovery experience.
+Both Ollama and LM Studio build on llama.cpp, and on a Mac both can switch to MLX. Ollama wins on automatic VRAM management and developer-friendly APIs; LM Studio wins on UI and model discovery experience.
 
 ---
 
 ## Ecosystem
 
-Ollama's official documentation lists 18 integrated tools, and the community ecosystem is already quite mature:
+Ollama's official documentation lists 26 integrated tools, and the community ecosystem is already quite mature:
 
 | Category | Tools |
 |----------|-------|
 | Web UI | OpenWebUI (the most ChatGPT-like local interface) |
-| AI Coding | Claude Code, Codex, Cline, Roo Code, OpenCode, Droid, Pi, Goose |
+| AI Coding | Claude Code, Codex, Copilot CLI, Cline, Roo Code, OpenCode, Droid, Pi, Goose |
 | IDE | VS Code, JetBrains, Xcode, Zed |
 | Automation | n8n, Marimo |
-| Personal Assistant | OpenClaw, NemoClaw, Onyx |
+| Desktop Apps & Personal Assistants | Claude Desktop, ChatGPT, Hermes, OpenClaw, NemoClaw, Onyx |
 | RAG Frameworks | LangChain, LlamaIndex |
 
-Common pairings: Ollama + OpenWebUI for a local chat interface, Ollama + LangChain for local RAG, Ollama + Claude Code/Codex for using local models as coding agents. The TUI launcher in version 0.18 makes switching between these tools even more seamless.
+Common pairings: Ollama + OpenWebUI for a local chat interface, Ollama + LangChain for local RAG, Ollama + Claude Code/Codex for using local models as coding agents. `ollama launch` makes switching between these tools even more seamless.
 
 ---
 
@@ -624,14 +624,14 @@ There's no authentication by default. If you set `OLLAMA_HOST` to `0.0.0.0`, the
 
 ### Model Quality Ceiling
 
-Open-source models running locally still generally can't match cloud APIs like Claude or GPT-4o on complex reasoning tasks. 7B models are suitable for simple tasks; 70B approaches cloud quality, but hardware requirements scale accordingly.
+Open-source models running locally still generally can't match frontier Claude and GPT models on complex reasoning tasks. Per the November 2026 Artificial Analysis numbers collected in the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en), the strongest open-weight model, Kimi K3.1 Pro, scores 46.5 on the intelligence index versus 60–65 for the closed frontier; Kimi K3.1 Pro also needs multiple nodes, and the 27B-class models a single GPU or laptop can run trail by more. Small models suit classification, extraction, and simple Q&A; for complex tasks, evaluate cloud APIs.
 
 ### Other Limitations
 
 - Cannot select specific quantization methods (Ollama decides automatically)
 - Models are stored in a proprietary blob format, making cross-tool sharing inconvenient (unlike using GGUF directly)
 - Inference only, no fine-tuning (though you can apply LoRA adapters)
-- No built-in GUI — requires third-party frontends like OpenWebUI
+- The desktop app only has a basic chat and settings UI; multi-user setups or a full web UI still need third-party frontends like OpenWebUI
 - AMD GPU support is less mature than NVIDIA
 
 ---
@@ -676,7 +676,7 @@ To enable debug mode on Windows: `$env:OLLAMA_DEBUG="1"` before launching.
 **Installing a specific version**:
 
 ```bash
-curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.5.7 sh
+curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.40.17 sh
 ```
 
 ---
@@ -685,7 +685,7 @@ curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.5.7 sh
 
 Ollama's core trade-off is clear: **sacrifice a layer of abstraction for developer experience**. You give up llama.cpp's fine-grained control in exchange for one-command model execution + OpenAI-compatible API + automatic GPU management.
 
-From 2025 to 2026, Ollama's positioning has expanded from "local LLM runner" to "unified entry point for AI developers." Thinking mode, tool calling agent loops, structured output, web search, TUI launcher — these features combined have transformed it from a simple inference tool into a development platform.
+From 2025 to 2026, Ollama's positioning has expanded from "local LLM runner" to "unified entry point for AI developers." Thinking mode, tool calling agent loops, structured output, web search, the built-in agent and `ollama launch`, MLX on Apple Silicon — these features combined have transformed it from a simple inference tool into a development platform.
 
 Good use cases: local development and testing of LLM applications, cost-saving prototype development, privacy-sensitive offline usage, experimenting with RAG frameworks, importing custom fine-tuned models for inference.
 
@@ -693,10 +693,19 @@ Not-so-good use cases: high-concurrency production environments (use vLLM), maxi
 
 If you're a developer who wants to run LLMs locally for development and testing, Ollama is currently the lowest-friction option.
 
+## Changelog
+
+- 2026-11-23: Rewrote the new-features section from the 0.19–0.40 release notes: the built-in agent and `ollama launch` in 0.32, MLX by default on Apple Silicon since 0.40, and decision models in 0.35; updated Ollama Cloud to the current plans and per-token billing; switched the supported-model list and all examples to current-generation models such as Gemma 4 and Qwen3.8; updated environment variables (automatic Flash Attention, NUM_PARALLEL), the `repeat_penalty` default, AMD/Vulkan support, the integration count (26), the desktop app, and the model-quality gap per the official docs and the model landscape overview.
+
 ## References
 
 - [Ollama Official Documentation](https://ollama.com/docs) — Complete reference for Ollama CLI, API, and Modelfile
 - [Ollama GitHub Repository](https://github.com/ollama/ollama) — Source code, issue tracker, and release notes
+- [Ollama Releases](https://github.com/ollama/ollama/releases) — Notes for 0.19 (MLX preview), 0.32 (built-in agent), 0.35 (decision models), 0.40 (MLX by default), and more
+- [Ollama Pricing](https://ollama.com/pricing) — Cloud plans and per-million-token prices
+- [Ollama GPU documentation](https://github.com/ollama/ollama/blob/main/docs/gpu.mdx) — NVIDIA, AMD ROCm v7, and Vulkan support lists
+- [Ollama FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) — Environment variables and defaults
+- [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) — Current generation of each family and the open/closed gap
 - [llama.cpp GitHub Repository](https://github.com/ggml-org/llama.cpp) — Ollama's underlying inference engine, a C++ implementation supporting GGUF format
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024), research on best practices for local LLMs with RAG
 - [OpenWebUI GitHub Repository](https://github.com/open-webui/open-webui) — The most commonly paired open-source Web UI for Ollama

@@ -27,13 +27,14 @@ LLM 推論分成 prefill 與 decode。長 system prompt、固定 few-shot 範例
 
 SGLang 也支援 continuous batching、量化、推測式解碼、結構化輸出，以及 tensor、pipeline、expert 等平行化方式。這些能力都在同一個 serving layer，但開越多最佳化，模型相容性與除錯面積也會跟著增加。
 
+硬體也不再只有 NVIDIA 與 AMD：官方 README 列出的平台還包括 Google TPU、Intel GPU／CPU、Apple Silicon（Metal／MLX）與華為 Ascend，DGX Spark 和 RTX 50 系列也在 NVIDIA 支援清單裡。各平台支援的功能不一樣，非 NVIDIA 硬體要先查對應的平台文件。
+
 ## 用 OpenAI 相容 API 起一個服務
 
-官方的 [OpenAI-compatible APIs](https://docs.sglang.io/basic_usage/openai_api_completions.html) 讓既有 SDK 不必改寫協定。最小啟動方式如下；正式環境應固定模型 revision、限制網路入口，並先確認權重授權。
+官方的 [OpenAI-compatible APIs](https://docs.sglang.io/docs/basic_usage/openai_api_completions) 讓既有 SDK 不必改寫協定。最小啟動方式如下（目前官方 quickstart 用 `sglang serve`，舊的 `python -m sglang.launch_server` 寫法在舊文件與範例裡仍常見）；預設映像與套件需要支援 CUDA 13 的 NVIDIA 驅動。正式環境應固定模型 revision、限制網路入口，並先確認權重授權。
 
 ```bash
-python -m sglang.launch_server \
-  --model-path Qwen/Qwen3-8B \
+sglang serve Qwen/Qwen3.5-9B \
   --host 0.0.0.0 \
   --port 30000
 ```
@@ -47,7 +48,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="Qwen/Qwen3-8B",
+    model="Qwen/Qwen3.5-9B",
     messages=[{"role": "user", "content": "用三點解釋 KV cache"}],
     temperature=0.2,
 )
@@ -58,7 +59,7 @@ print(response.choices[0].message.content)
 
 ## 多 GPU 與多節點不是多打一個參數而已
 
-[Server Arguments](https://docs.sglang.io/advanced_features/server_arguments.html) 集中列出 tensor parallel、資料平行與分散式初始化等設定。模型放不進單張 GPU 時，可先用 tensor parallel 拆權重；吞吐不足但單一 replica 放得下時，資料平行通常比較直觀。跨節點還要處理高速互連、容器映像、權重下載、節點故障與健康檢查。
+[Server Arguments](https://docs.sglang.io/docs/advanced_features/server_arguments) 集中列出 tensor parallel、資料平行與分散式初始化等設定。模型放不進單張 GPU 時，可先用 tensor parallel 拆權重；吞吐不足但單一 replica 放得下時，資料平行通常比較直觀。跨節點還要處理高速互連、容器映像、權重下載、節點故障與健康檢查。
 
 真正要量的至少有首 token 延遲、每個輸出 token 的時間、吞吐、GPU 記憶體、錯誤率與佇列長度。只追求總 tokens/s，可能得到一個壓測很好看、互動卻很慢的服務。
 
@@ -76,11 +77,17 @@ print(response.choices[0].message.content)
 
 SGLang 的取捨很清楚：它用專門化換來生成式模型的效能與控制力，也把 GPU 容量規劃、模型相容性和服務可靠性留給部署者。沒有持續流量或 GPU 維運能力時，自架仍可能比按量 API 更貴。
 
+## 更新紀錄
+
+- 2026-11-23：啟動指令改成官方 quickstart 的 `sglang serve`，範例模型換成 Qwen3.5-9B；補上 TPU、Apple Silicon、Ascend 等硬體支援與 CUDA 13 驅動需求；文件連結改成新路徑。
+
 ## 參考資料
 
 - [SGLang Documentation](https://docs.sglang.io/)
-- [SGLang OpenAI-Compatible APIs](https://docs.sglang.io/basic_usage/openai_api_completions.html)
-- [SGLang Server Arguments](https://docs.sglang.io/advanced_features/server_arguments.html)
-- [SGLang Structured Outputs](https://docs.sglang.io/advanced_features/structured_outputs.html)
+- [SGLang Quickstart](https://docs.sglang.io/docs/get-started/quickstart)
+- [SGLang GitHub README（支援硬體）](https://github.com/sgl-project/sglang)
+- [SGLang OpenAI-Compatible APIs](https://docs.sglang.io/docs/basic_usage/openai_api_completions)
+- [SGLang Server Arguments](https://docs.sglang.io/docs/advanced_features/server_arguments)
+- [SGLang Structured Outputs](https://docs.sglang.io/docs/advanced_features/structured_outputs)
 - [SGLang: Efficient Execution of Structured Language Model Programs](https://arxiv.org/abs/2312.07104)
 - [本站：vLLM 自架推論的成本門檻](/posts/ai/2026-08-21-vllm-self-host-decision)

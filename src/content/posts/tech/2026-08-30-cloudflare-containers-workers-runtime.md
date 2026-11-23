@@ -95,6 +95,36 @@ Wrangler 設定則同時宣告 `containers`、Durable Objects binding 和 migrat
 
 這也解釋為什麼你可以做 named container、stateful service、session routing、或 load balancing。Worker 仍是控制面，container 是資料面的一段執行環境。
 
+### 2026-09 起：先選 scheduling policy
+
+上面的範例用 `@cloudflare/containers` 的 `Container` class，`containers` 設定沒寫 `scheduling_policy`，等於走 `default` policy：整個 application 共用 Wrangler 裡的一個 image 和一個 `instance_type`，改了之後由 Cloudflare 做 rollout。2026-09-30 起多了 `durable_object` scheduling policy（public beta），官方文件同時把 `default` policy 標為 deprecated，現在的 get started 範例也改成新寫法：
+
+```jsonc
+{
+  "containers": [
+    {
+      "class_name": "MyContainer",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "base": { "dockerfile": "./Dockerfile" }
+      }
+    }
+  ]
+}
+```
+
+Durable Object 自己透過 `ctx.container` 決定每次啟動用哪個 image、多大的 instance：
+
+```ts
+this.ctx.container.start({
+  image: this.ctx.container.images.base,
+  instance: "lite",
+  enableInternet: false,
+});
+```
+
+差別在於 image 和規格從「application 層級的設定」變成「每次 `start()` 的參數」，部署新版也不會重啟正在跑的 instance。這種 instance 有各自的生命週期，不參與 application 層級的 rollout。scheduling policy 建立後不能改，既有 `default` application 要遷移，得照官方 [migration guide](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/) 開一個新的 application 替換，光改設定不會生效。新專案直接用 `durable_object`；同一份 Wrangler 設定裡兩種 policy 可以並存。
+
 ## Deploy：Wrangler 會一起處理 Worker 和 image
 
 Containers 需要本機 Docker 參與 build/push。官方 get started 文件要求部署時 Docker 要在本機跑起來；`wrangler deploy` 會上傳 Worker、用 Docker build/push container image，然後更新 Cloudflare network 上的 container instances。
@@ -145,9 +175,11 @@ Containers 的 CPU、memory、disk 由 instance type 決定。官方 limits 頁�
 | standard-3 | 2 | 8 GiB | 16 GB |
 | standard-4 | 4 | 12 GiB | 20 GB |
 
-也可以設定 custom instance type，但有幾個邊界：vCPU 最低 1、最高 4；memory 最高 12 GiB；disk 最高 20 GB；每個 vCPU 至少 3 GiB memory；disk 和 memory 的比例也有限制。
+也可以設定 custom instance type。用 `durable_object` policy 時，最低是 1/16 vCPU、256 MiB memory、2 GB disk，上限受 account limits 的單一 instance 上限約束（4 vCPU、12 GiB memory、20 GB disk）；官方文件提醒，若遇到不同的限制，多半是還在用舊的 `default` policy。
 
-Account-level limits 則包含 concurrent memory 6 TiB、concurrent vCPU 1,500、concurrent disk 30 TB、image storage 50 GB。image size 和 instance disk space 相關。
+Account-level limits 包含 concurrent memory 60 TiB、concurrent vCPU 15,000、concurrent disk 300 TB、image storage 50 GB；image size 和 instance disk space 相同。官方註明這頁的上限都是預設值，可以向 account team 或 support 申請提高。
+
+`durable_object` policy 另外支援 container snapshot（public beta）：`snapshotContainer()` 存下 writable root filesystem，之後把 snapshot 傳回 `start()` 還原檔案；不含記憶體與執行中的 process。單一 snapshot 上限 20 GB，建立或最近一次還原後保留 30 天。
 
 這些數字讓 Containers 很適合 bursty heavy work，但也提醒你：container 不是拿來替代所有 request handler。instance type 選太大，memory 和 disk 都會用 provisioned resources 算成本。
 
@@ -159,7 +191,7 @@ Containers 目前是 Workers Paid plan 功能。官方 pricing 頁面寫明，Co
 - CPU：每月 375 vCPU-minutes，超過後每 vCPU-second $0.000020。
 - Disk：每月 200 GB-hours，超過後每 GB-second $0.00000007。
 
-Container 收到 request 或手動啟動後開始計費；instance sleep 後停止。Memory 和 disk 依你選的 instance type provisioned resources 計算，CPU 則看 active usage。
+Container 收到 request 或手動啟動後開始計費；instance sleep 後停止。Memory 和 disk 依你選的 instance type provisioned resources 計算，CPU 則看 active usage。Snapshot 在 public beta 期間不收費，正式價格官方說 GA 時再公布。
 
 Network egress 另外計價。官方 pricing 頁面列出 North America & Europe 每 GB $0.025、Oceania/Korea/Taiwan 每 GB $0.05、其他地區每 GB $0.04，並各有月包含量。使用 Containers 時，Worker 和每個 container 背後的 Durable Object 也會各自依 Workers / DO pricing 計費。Logs 和 observability 則接 Workers Logs 的計費。
 
@@ -203,12 +235,18 @@ Containers 當然可以跑瀏覽器，也可以跑 code execution service，但�
 
 Containers 讓 Cloudflare Edge Platform 的上限變高，但也把部署、資源選型、成本、觀測複雜度一起帶進來。把它放在系列後段是合理的：先用 Workers 和 bindings 解決 80% 的產品工作；剩下真的需要 Linux runtime 的 20%，再用 Containers 補上。
 
+## 更新紀錄
+
+- 2026-11-23：補上 2026-09 推出的 `durable_object` scheduling policy（`default` policy 已標 deprecated）與 container snapshot；account limits 更新為 concurrent memory 60 TiB、vCPU 15,000、disk 300 TB（原寫 6 TiB、1,500、30 TB）；custom instance type 的下限改為新 policy 的 1/16 vCPU、256 MiB、2 GB；參考連結改到現行文件路徑。
+
 ## 參考資料
 
 - [Cloudflare Containers](https://developers.cloudflare.com/containers/)
 - [Containers get started](https://developers.cloudflare.com/containers/get-started/)
 - [Containers limits and instance types](https://developers.cloudflare.com/containers/platform/limits/)
 - [Containers pricing](https://developers.cloudflare.com/containers/platform/pricing/)
-- [Container class reference](https://developers.cloudflare.com/containers/reference/container-class/)
-- [Durable Object Container API](https://developers.cloudflare.com/durable-objects/api/container/)
+- [Durable Object Container API](https://developers.cloudflare.com/containers/api/durable-object-container/)
+- [Containers scheduling policies](https://developers.cloudflare.com/containers/configuration/scheduling-policy/)
+- [Migrate to the Durable Object scheduling policy](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/)
+- [Containers snapshots](https://developers.cloudflare.com/containers/guides/snapshots/)
 - [Containers examples](https://developers.cloudflare.com/containers/examples/)

@@ -253,7 +253,7 @@ This is saga-style compensation, not a database transaction. It fits reserving i
 
 ## Cost and Limits
 
-Workflows is available on Workers Free and Paid plans, but Cloudflare's pricing docs say step and storage billing starts on August 10, 2026. It uses Workers Standard pricing for requests and CPU time, plus storage and step usage.
+Workflows is available on Workers Free and Paid plans, and step and storage usage has been billed since August 10, 2026. It uses Workers Standard pricing for requests and CPU time, plus storage and step usage.
 
 Several limits shape the design:
 
@@ -262,7 +262,8 @@ Several limits shape the design:
 - Total persisted state per instance has different Free and Paid limits.
 - Workers Free supports 1,024 steps per Workflow. Workers Paid defaults to 10,000 steps and can be configured up to 25,000.
 - `step.sleep()` can wait up to 365 days.
-- Completed instance state is retained for a period that differs by plan, and instance creation can request shorter retention.
+- Completed instance state is retained for 3 days on Free; on Paid the default is 7 days (for Workflows created since 2026-09-10; older ones keep a 30-day default), configurable up to 30 days, and instance creation can request shorter retention.
+- Concurrent instances are capped per account (100 on Free, 50,000 on Paid), and by default a single Workflow can use the whole account allowance. Since 2026-11-10 you can set `concurrency.limit` on a workflow binding to cap one Workflow; instances above the limit are queued. Use it when a downstream database or third-party API cannot handle the concurrency.
 - Workflows cannot currently be deployed to Workers for Platforms namespaces.
 
 My default design is to pass immutable pointers in the payload, store durable results in R2, D1, or Vectorize, and keep Workflow state to the summary needed to resume the process. Large documents, full model outputs, and long-term audit records should not live as step output. That turns Workflows storage into the wrong data store.
@@ -280,6 +281,10 @@ I would choose Workflows for these cases:
 I would not use it for every background job. Single-step email, logging, batch flushes, and short fan-out tasks are lighter with Queues. Per-user, per-session, or per-entity locks, WebSocket coordination, and live state fit Durable Objects better. Existing Postgres/MySQL connectivity belongs to Hyperdrive; Workflows only owns the process.
 
 Cloudflare Workflows has a practical place in the Edge Platform: it is not another queue, and it does not turn business logic into YAML. It lets you write the process in TypeScript while the platform owns completed steps, waiting, retries, rollbacks, and instance lifecycle.
+
+## Update Log
+
+- 2026-11-23: Billing is now described as in effect; added completed-instance retention (Paid default changed to 7 days) and per-Workflow concurrency limits available since 2026-11-10.
 
 ## References
 

@@ -37,7 +37,7 @@ NobodyClimb's backend is built with Hono and deployed on Cloudflare Workers. The
 The problem with Express isn't its API design — it's that Express assumes Node.js exists:
 
 - `req.socket`, `res.end()`, `Buffer` are all Node.js-only APIs
-- Bundle size eats a meaningful share of the Workers [script size limit](https://developers.cloudflare.com/workers/platform/limits/) (different ceilings on free and paid: 3 MB / 10 MB compressed, plus a 64 MB uncompressed ceiling shared by both)
+- A bigger bundle means a slower Worker startup: since 2026-09 the [size limit](https://developers.cloudflare.com/workers/platform/limits/) is a relaxed 64 MiB uncompressed on both plans, but the 1-second startup limit for global-scope code still applies
 - No native async/await middleware support, making error handling easy to miss
 
 In a Cloudflare Workers environment, you need:
@@ -148,7 +148,7 @@ Routes handle only OpenAPI descriptions and request validation, services contain
 
 **Good fit for:**
 - Deploying to Cloudflare Workers, Deno Deploy, or Bun
-- Situations where bundle size matters (Workers has strict limits)
+- Situations where a small bundle and fast startup matter (Workers has a startup time limit)
 - Codebases that want Web Standard API compatibility
 - Migrating from Express while keeping a familiar API syntax
 
@@ -165,6 +165,7 @@ Another thing to keep in mind: the Workers environment has real constraints (no 
 
 ## Changelog
 
+- 2026-11-23: Workers size limit is now 64 MiB uncompressed on both plans (the 3 MB / 10 MB compressed limits are gone); bundle-size impact reframed as startup time
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References

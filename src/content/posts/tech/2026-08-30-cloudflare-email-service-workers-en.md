@@ -139,7 +139,7 @@ Cloudflare Email Service limits affect the product architecture:
 
 - One email can have up to 50 combined `to`, `cc`, and `bcc` recipients.
 - Subject lines can be up to 998 characters.
-- Normal message size is capped at 5 MiB; verified destination addresses can receive up to 25 MiB.
+- Outbound message size (including attachments) is capped at 25 MiB, with no separate limit for verified destination addresses.
 - Custom headers are capped at 16 KB total.
 - A domain can have up to 200 routing rules.
 - An account can have up to 200 destination addresses.
@@ -149,7 +149,7 @@ Routing to Workers still consumes Workers CPU and memory. On the Free plan, comp
 
 ## Pricing: Watch Two Things
 
-As of the official pricing page dated 2026-06-09, Email Routing is available on Workers Free and Workers Paid, with unlimited inbound emails. Arbitrary outbound Email Sending requires Workers Paid, includes 3,000 outbound emails per month, and then costs $0.35 per 1,000 emails.
+According to the official [pricing page](https://developers.cloudflare.com/email-service/platform/pricing/), Email Routing is available on Workers Free and Workers Paid, with unlimited inbound emails. Arbitrary outbound Email Sending requires Workers Paid, includes 3,000 outbound emails per month, and then costs $0.35 per 1,000 emails.
 
 Two details are easy to miss.
 
@@ -180,6 +180,10 @@ I would avoid Email Service in three cases:
 - The team needs mature deliverability tooling, dedicated IPs, or complex suppression and complaint workflows.
 
 Those cases usually belong on a dedicated email platform. Cloudflare Email Service is better understood as a product email primitive for the Edge Platform: send the emails a Workers app needs, receive the messages the product should process, and keep the next step inside the same serverless architecture.
+
+## Update Log
+
+- 2026-11-23: Outbound message size limit is now 25 MiB for all sends (previously 5 MiB normally, 25 MiB to verified destinations)
 
 ## References
 

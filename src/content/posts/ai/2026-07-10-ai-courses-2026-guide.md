@@ -176,11 +176,11 @@ Kaggle 在 2026 年 6 月也開過一梯 [**Vibe Coding 版的 5-Day Intensive**
 
 ### Stanford CS146S：唯一廠商中立的實戰全景
 
-[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**（Fall 2025）：3 學分、10 週，每週投入約 10–12 小時，先修要求是 CS111 等同程度的程式經驗。本站有這門課的[逐週拆解系列](/posts/ai/2026-08-16-cs146s-course-map)。
+[`themodernsoftware.dev`](https://themodernsoftware.dev/) 看起來像獨立課程平台，實際上是 **Stanford 正式學分課「CS146S: The Modern Software Developer」的課程官網**：3 學分、10 週，每週投入約 10–12 小時。2026 秋季正在開第二輪，官網標示「Fall 2026 / Fall 2025」，先修改為 CS111/CS161 等同程度的程式經驗、建議修過 CS221 或 CS229；新版課程描述的主軸換成 MCP、agent skills、spec-driven development、loop engineering 與 software factory。兩版大綱差在哪，見本站的 [CS146S 課程地圖](/posts/ai/2026-08-16-cs146s-course-map)與逐週拆解系列。
 
 主講 Mihail Eric：Stanford NLP Group 出身（指導教授含 Manning、Percy Liang、Potts），前 Amazon Alexa AI 科學家，YC 新創 Storia AI 共同創辦人。
 
-關鍵是，**每週的 slides、reading list、[GitHub 作業](https://github.com/mihail911/modern-software-dev-assignments)全部對外公開**，等於一份免費的自學教材。10 週大綱：
+關鍵是，**每週的 slides、reading list、[GitHub 作業](https://github.com/mihail911/modern-software-dev-assignments)全部對外公開**，等於一份免費的自學教材。Fall 2025 的 10 週大綱：
 
 ```
 1  Introduction to Coding LLMs
@@ -195,7 +195,7 @@ Kaggle 在 2026 年 6 月也開過一梯 [**Vibe Coding 版的 5-Day Intensive**
 10 What's Next for AI SWE
 ```
 
-Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**、Silas Alberti（Cognition/Devin 研究主管）、Zach Lloyd（Warp CEO）、Isaac Evans（Semgrep CEO）、Gaspar Garcia（Vercel AI 研究主管）、Martin Casado（a16z GP）。
+Fall 2025 的 guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**、Silas Alberti（Cognition/Devin 研究主管）、Zach Lloyd（Warp CEO）、Isaac Evans（Semgrep CEO）、Gaspar Garcia（Vercel AI 研究主管）、Martin Casado（a16z GP）。
 
 它跟 OpenAI Academy、Claude Academy 最大的差異是**廠商中立**：同一門課裡同時教 Cursor、Claude Code、Windsurf、Warp，而不是只教自家產品。作業裡包含從零手刻一個 coding agent 和一個 MCP server。
 
@@ -245,7 +245,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 ### Microsoft：開源選項裡最扎實的一份
 
-[`microsoft/generative-ai-for-beginners`](https://github.com/microsoft/generative-ai-for-beginners) 是一份 21 課的開源課程，MIT License，約 113k stars、60.6k forks。每課包含短影片、README 與 Python／TypeScript 範例。
+[`microsoft/generative-ai-for-beginners`](https://github.com/microsoft/generative-ai-for-beginners) 是一份 21 課的開源課程，MIT License，約 124k stars、66.8k forks。每課包含短影片、README 與 Python／TypeScript 範例。
 
 它有兩個其他資源少見的優點。第一，**README 提供 50 多種語言的翻譯，其中包含繁體中文（台灣）**——在這份清單裡，明確確認有繁中的只有它和李宏毅。第二，它在 2026 年仍然活躍更新，最新的 commit 正在做 Azure OpenAI 到 Responses API 的遷移，不是一份放著長灰塵的教材。
 
@@ -285,7 +285,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 如果你讀中文比讀英文快，這一段比後面三段都重要。
 
-台大李宏毅的課**全繁體中文、免費、投影片與影片全公開**，無正式證書（旁聽無學分）。他每年開新版，目前手上有兩門值得分開看：
+台大李宏毅的課**全繁體中文、免費、投影片與影片全公開**，無正式證書（旁聽無學分）。他每年開新版，[個人首頁](https://speech.ee.ntu.edu.tw/~hylee/index.php)列出的最新兩門值得分開看（本站有 [ML 2026 課程總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)與逐講導讀）：
 
 - [**Machine Learning 2026 Spring**](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php)——最新的一版，重心明顯往 agent 移動：前兩講直接講 AI agent 運作原理與 context engineering，中段是 Flash Attention、KV Cache、Positional Embedding 這些推論內功，十份作業裡有 AI Agent as an AI Engineer、LLM Fast Inference、Test-Time Scaling、Model Merging。**它其實橫跨本文的第三層與第四層**，不只是「底層 AI」——想補 agent 工程又讀中文的人，這門的性價比目前沒有對手。
 - [**生成式人工智慧與機器學習導論 2025 Fall**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php)——10 講，走的是「模型怎麼被訓練出來」這條線：訓練訣竅、後訓練與災難性遺忘、影像生成、語音語言模型。要打地基選這門。
@@ -302,13 +302,13 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 [2026 版](https://introtodeeplearning.com/)已於 5 月 25 日跑完，**9 講的 slides、影片與 lab 全部開源上架**，點進去一次拿到全部，不必等更新。實驗跑在 Google Colab 上。內容從神經網路基礎、深度序列模型、電腦視覺、生成模型、強化學習，一路到大型語言模型、AI for science，最後兩講是 The Three Laws of AI 與 Secrets to Massively Parallel Training。它每年更新，2026 版加強了 LLM 與 agentic AI 的篇幅。
 
-如果你想理解「模型為什麼會這樣」但不想一開始就手刻 kernel，這是最合理的第一站。
+如果你想理解「模型為什麼會這樣」但不想一開始就手刻 kernel，這是最合理的第一站。三個 lab 需要哪些外部服務、怎麼排進度，見本站的 [MIT 6.S191 課程總覽](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)。
 
 ### Harvard CS50 AI：LLM 以外的 AI
 
 CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因為它教的東西**刻意不只是 LLM**：搜尋演算法、知識表示與邏輯、機率、最佳化、機器學習、神經網路、自然語言處理。
 
-在一個所有課程都在教 prompt 和 agent 的年份，補一門講 search 與 logic 的課，反而會讓你對「什麼問題該用 LLM、什麼問題根本不該用」有判斷力。
+在一個所有課程都在教 prompt 和 agent 的年份，補一門講 search 與 logic 的課，反而會讓你對「什麼問題該用 LLM、什麼問題根本不該用」有判斷力。七週怎麼讀，見本站的 [CS50 AI 課程總覽](/posts/ai/2026-08-26-harvard-cs50-ai-guide)。
 
 [Harvard OpenCourseWare 上**免費且含證書**](https://www.classcentral.com/report/harvard-cs50-guide)；edX 上的驗證證書要 $299。課程頁標示 7 週；每週時數兩邊口徑不同——Harvard 官方頁寫 10–30 小時，Class Central 取 20 小時。
 
@@ -316,9 +316,11 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 如果 DeepLearning.AI 是廣度標竿，CS336: Language Modeling from Scratch 就是深度標竿的另一端。它在 Stanford 整條先修階梯上的位置，見本站的 [Stanford CS 課程導讀](/posts/learning/2026-08-20-stanford-cs-course-map)。
 
-[網站](https://cs336.stanford.edu/)、投影片、作業說明與 YouTube 錄影全部免費公開（正式學分與 Gradescope 批改限 Stanford 學生）。官網現已更新到 **Spring 2026 版**，主講 Tatsunori Hashimoto 與 Percy Liang，19 講，搭配 5 個大型 assignment：從手刻 tokenizer、model、optimizer，到 FlashAttention2 與 Triton kernel，再到 scaling law、資料處理，最後是 SFT + RL。
+[網站](https://cs336.stanford.edu/)、投影片、作業說明與 YouTube 錄影全部免費公開（正式學分與 Gradescope 批改限 Stanford 學生）。這門課只在春季開，官網目前仍是 **Spring 2026 版**，主講 Tatsunori Hashimoto 與 Percy Liang，19 講，搭配 5 個大型 assignment：從手刻 tokenizer、model、optimizer，到 FlashAttention2 與 Triton kernel，再到 scaling law、資料處理，最後是 SFT + RL。
 
 先修門檻是實話實說的高：熟練 Python、PyTorch、深度學習與系統基礎，加上微積分、線性代數、機率。官方自述**「實作量至少比其他課多一個數量級」**。沒有證書，也沒有中文。
+
+五份作業的 GPU 預算怎麼抓，見本站的 [CS336 課程總覽](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch)。
 
 它跟李宏毅的差異在於深度而非方向：李宏毅讓你理解模型在做什麼，CS336 要你把它整個做出來。合理的順序是先李宏毅、再 CS336，中間隔一段真的動手寫過東西的時間。
 
@@ -332,48 +334,48 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 | 教材 | 星數 | 最後更新 |
 |---|---|---|
-| `d2l-ai/d2l-zh`《動手學深度學習》 | 79.8k | **2024-07** |
-| `karpathy/LLM101n` | 37.5k | **2024-08**（講義始終沒寫完） |
-| `karpathy/nn-zero-to-hero` | 24.0k | **2024-08** |
-| `fastai/course22` | 3.7k | **2024-10** |
+| `d2l-ai/d2l-zh`《動手學深度學習》 | 82.7k | **2024-07** |
+| `karpathy/LLM101n` | 37.5k | **2024-08**（講義始終沒寫完，repo 已封存） |
+| `karpathy/nn-zero-to-hero` | 25.9k | **2024-08** |
+| `fastai/course22` | 3.8k | **2024-10** |
 
 它們教的 CNN、RNN、反向傳播、from-scratch 實作不會過期，當地基仍然可用；但 2024 年之後的東西——現代 LLM 訓練配方、agent、推論優化、evals——它們一概沒有，而且不會再有。**拿它們當「現況教材」會有兩年的認知落差。**
 
-以下是同一把尺篩過、**2026 年仍在更新**的清單（星數與最後更新日期為 2026-08-21 查得）：
+以下是同一把尺篩過、**2026 年仍在更新**的清單（星數與最後更新日期為 2026-11-23 查得）：
 
 ### 從零手刻模型
 
 | repo | 星數 | 最後更新 | 定位 |
 |---|---|---|---|
-| [`rasbt/LLMs-from-scratch`](https://github.com/rasbt/LLMs-from-scratch) | **103.1k** | 2026-08 | Sebastian Raschka 的逐步手刻 LLM。星數全場最高，而且還在動——**Karpathy 空出來的那個位置，現任者是它** |
-| [`karpathy/nanochat`](https://github.com/karpathy/nanochat) | 57.4k | 2026-08 | 「$100 能買到的最好 ChatGPT」。嚴格說是專案不是課，但讀 code 的學習密度很高 |
-| [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) | 33.1k | 2026-08 | 简中，从零开始构建大模型。基本上是 D2L 想做但沒做完的那件事的 2026 版 |
+| [`rasbt/LLMs-from-scratch`](https://github.com/rasbt/LLMs-from-scratch) | **108.9k** | 2026-11 | Sebastian Raschka 的逐步手刻 LLM。星數全場最高，而且還在動——**Karpathy 空出來的那個位置，現任者是它** |
+| [`karpathy/nanochat`](https://github.com/karpathy/nanochat) | 60.8k | 2026-09 | 「$100 能買到的最好 ChatGPT」。嚴格說是專案不是課，但讀 code 的學習密度很高 |
+| [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) | 35.1k | 2026-08 | 简中，从零开始构建大模型。基本上是 D2L 想做但沒做完的那件事的 2026 版 |
 
 ### Agent 與 RAG（對應第三層）
 
 | repo | 星數 | 最後更新 | 定位 |
 |---|---|---|---|
-| [`microsoft/ai-agents-for-beginners`](https://github.com/microsoft/ai-agents-for-beginners) | 72.9k | 2026-08 | 微軟出品，與前面提過的 generative-ai-for-beginners 同系列 |
-| [`NirDiamant/RAG_Techniques`](https://github.com/NirDiamant/RAG_Techniques) | 29.1k | 2026-08 | RAG 各種技法的可執行實作合集 |
-| [`NirDiamant/GenAI_Agents`](https://github.com/NirDiamant/GenAI_Agents) | 23.9k | 2026-08 | 同作者的 agent 版 |
-| [`DataTalksClub/llm-zoomcamp`](https://github.com/DataTalksClub/llm-zoomcamp) | 7.1k | 2026-08 | **免費的 cohort 制課程**——有梯次、有同學、有 deadline，是這份清單裡唯一不孤單的選項 |
+| [`microsoft/ai-agents-for-beginners`](https://github.com/microsoft/ai-agents-for-beginners) | 80.8k | 2026-11 | 微軟出品，與前面提過的 generative-ai-for-beginners 同系列 |
+| [`NirDiamant/RAG_Techniques`](https://github.com/NirDiamant/RAG_Techniques) | 30.5k | 2026-11 | RAG 各種技法的可執行實作合集 |
+| [`NirDiamant/GenAI_Agents`](https://github.com/NirDiamant/GenAI_Agents) | 25.1k | 2026-11 | 同作者的 agent 版 |
+| [`DataTalksClub/llm-zoomcamp`](https://github.com/DataTalksClub/llm-zoomcamp) | 7.7k | 2026-11 | **免費的 cohort 制課程**——有梯次、有同學、有 deadline，是這份清單裡唯一不孤單的選項 |
 
 ### 工程與落地
 
 | repo | 星數 | 最後更新 | 定位 |
 |---|---|---|---|
-| [`openai/openai-cookbook`](https://github.com/openai/openai-cookbook) | 75.4k | 2026-08 | 官方 cookbook，更新頻率以天計 |
-| [`google-gemini/cookbook`](https://github.com/google-gemini/cookbook) | 17.7k | 2026-08 | Gemini 版 |
-| [`liguodongiot/llm-action`](https://github.com/liguodongiot/llm-action) | 24.9k | 2026-07 | 简中，大模型工程化與落地實戰 |
-| [`stas00/ml-engineering`](https://github.com/stas00/ml-engineering) | 18.7k | 2026-08 | 訓練大模型的工程實務——硬體、平行化、除錯。這個角度幾乎沒有課在教 |
-| [`datawhalechina/llm-universe`](https://github.com/datawhalechina/llm-universe) | 13.8k | 2026-07 | 简中，面向小白的大模型應用開發 |
-| [`huggingface/smol-course`](https://github.com/huggingface/smol-course) | 6.7k | 2026-08 | 小模型對齊 |
+| [`openai/openai-cookbook`](https://github.com/openai/openai-cookbook) | 77.4k | 2026-11 | 官方 cookbook，更新頻率以天計 |
+| [`google-gemini/cookbook`](https://github.com/google-gemini/cookbook) | 18.0k | 2026-11 | Gemini 版 |
+| [`liguodongiot/llm-action`](https://github.com/liguodongiot/llm-action) | 25.3k | 2026-10 | 简中，大模型工程化與落地實戰 |
+| [`stas00/ml-engineering`](https://github.com/stas00/ml-engineering) | 19.7k | 2026-11 | 訓練大模型的工程實務——硬體、平行化、除錯。這個角度幾乎沒有課在教 |
+| [`datawhalechina/llm-universe`](https://github.com/datawhalechina/llm-universe) | 14.3k | 2026-08 | 简中，面向小白的大模型應用開發 |
+| [`huggingface/smol-course`](https://github.com/huggingface/smol-course) | 6.8k | 2026-11 | 小模型對齊 |
 
-一個邊緣案例：[`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) 星數 81.9k，很多清單把它排第一，但最後更新是 2026-02，已經半年沒動——還沒到「停更」，但要留意。
+一個邊緣案例：[`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) 星數 85.2k，很多清單把它排第一，但最後更新是 2026-02，已經九個月沒動，快要落進上面那張停更表了。
 
 ### 不是教材，是索引：csdiy.wiki
 
-最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**★75.1k、7,988 forks、100+ 貢獻者**，最後更新 2026-08）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
+最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**★76.8k、8,033 forks、100+ 貢獻者**，最後更新 2026-09）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
 
 它在 AI 這塊的覆蓋，剛好補上本文最大的空白——**Stanford 以外的大學課**：
 
@@ -386,13 +388,15 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 | 機器學習進階 | CMU 10-708、CS229M、STA4273 |
 | 深度生成模型 | MIT 6.S184、大型語言模型 |
 
+其中不少門本站已有總覽可以先讀：[Berkeley AI／ML 課程導讀](/posts/learning/2026-08-21-berkeley-ai-ml-course-map)（CS188、CS189、CS285 的位置）、[CS189 Spring 2026 課程地圖](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map)、[CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning)、[CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning)、[CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs)、[CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview)、[MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide)、[MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)。
+
 但它值得收的真正理由不是清單長度，而是**它有人在修壞掉的連結**。近幾個月的 commit 包含 `[Fix] update MIT calculus course links`、`Update web links`，以及持續新增課程（CMU 15-442、CMU 11-785、MIT 6.7960、NYU DLSP21、UCSD CSE234）。
 
-這剛好替這一節收尾：**星數不能證明一份教材還活著，而一份會修壞連結的索引，正是幫你持續回答「這門課還在不在」的東西。** 本文只能給你 2026 年 8 月的快照；索引是那個會跟著時間走的東西。
+這剛好替這一節收尾：**星數不能證明一份教材還活著，而一份會修壞連結的索引，正是幫你持續回答「這門課還在不在」的東西。** 本文只能給你某個時間點的快照；索引是那個會跟著時間走的東西。
 
 用它的正確方式是當**目錄而非教材**——從裡面挑一門課，然後直接去讀那門課的官網。
 
-**簡中這邊有個結構性優勢值得單獨指出**：上面四份简中教材有三份出自 Datawhale，那是個活的社群組織而不是單人維護，所以更新是持續的。這正是 D2L 缺的東西——D2L 星數是 happy-llm 的兩倍多，但一個停在 2024、一個上個月還在動。繁中讀者直接讀简中版本沒有障礙，用語差異遠小於內容落差。
+**簡中這邊有個結構性優勢值得單獨指出**：上面四份简中教材有三份出自 Datawhale，那是個活的社群組織而不是單人維護，所以更新是持續的。這正是 D2L 缺的東西——D2L 星數是 happy-llm 的兩倍多，但一個停在 2024、一個 2026 年還在更新。繁中讀者直接讀简中版本沒有障礙，用語差異遠小於內容落差。
 
 ## 互動式平台：不用裝環境的那一類
 
@@ -456,6 +460,12 @@ Stanford CS146S 公開教材              ← 廠商中立的實戰全景，含�
 ---
 
 ## 更新紀錄
+
+- **2026-11-23**：更新大學課的 2026 秋季現況與倉庫數字。
+  - **Stanford CS146S 2026 秋季開第二輪**：官網改為「Fall 2026 / Fall 2025」，先修改為 CS111/CS161、建議 CS221/229，課程描述換成 MCP、agent skills、spec-driven development、loop engineering、software factory；原本的 10 週大綱與講者名單標明為 Fall 2025。
+  - **CS336** 確認仍是 Spring 2026 版（只在春季開）；**李宏毅**首頁最新仍是 ML 2026 Spring 與 GenAI-ML 2025 Fall。
+  - 李宏毅、MIT 6.S191、CS50 AI、CS336 各段，以及 csdiy.wiki 收錄的 Berkeley、Stanford、CMU、MIT 課，補上本站對應的課程總覽連結。
+  - 自學倉庫的星數與最後更新日期重新查過；`karpathy/LLM101n` 已封存；`mlabonne/llm-course` 停在 2026-02、已九個月未更新；csdiy.wiki 改為 ★76.8k、最後更新 2026-09。
 
 - **2026-08-21**：發文六週後重新查證定價、課數與開課期別，**過期內容直接改寫，不保留舊版數字**。
   - **Anthropic 整塊重寫**：Anthropic Academy 已於 2026-08-20 改組為 **Claude Academy**，課程從 `anthropic.skilljar.com` 搬到 `academy.claude.com`，目錄改為按產品分艙。時數與課數全部重編——AI Fluency 總綱從 1.1 小時變 4 小時、AI Capabilities and Limitations 從 0.25 小時變 3.5 小時、Building with the Claude API 從 84 課/8.1 小時變 67 課/9 小時、Claude Code in Action 從 15 課變 9 課；新增 Claude Platform 101 與 Tutorial 格式。認證從一張擴為四張（Associate / Architect / Developer Foundations + Architect Professional），仍留在 skilljar。

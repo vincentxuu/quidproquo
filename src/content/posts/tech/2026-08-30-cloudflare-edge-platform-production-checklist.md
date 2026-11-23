@@ -111,6 +111,7 @@ Cloudflare 的單項價格常看起來便宜，真正的成本會出現在組合
 - Free/Paid/Enterprise limit 是否影響 production？
 - 高風險功能是否有 per-tenant rate limit？
 - dashboard 裡是否看得到 usage，還是需要自己寫 Analytics Engine？
+- 要不要設 spend limit？2026-11-13 起 Workers 和 Durable Objects 可以在 Billing > Spend limits 各自設[花費上限或 email 警示](https://developers.cloudflare.com/changelog/post/2026-11-13-spend-management/)；上限生效時會擋掉該產品的新用量（例如新的 Worker invocation），只想收警示要關掉 Block usage。用量回報有延遲，實際花費可能略超過上限。
 
 ## 最小上線 checklist
 
@@ -123,9 +124,13 @@ Cloudflare 的單項價格常看起來便宜，真正的成本會出現在組合
 5. observability、structured logs、basic metrics 已開。
 6. secrets 不在 code、log、R2 artifact 裡。
 7. 每個付費服務都有 usage estimate。
-8. deploy rollback 或 version strategy 已確認。
+8. deploy rollback 或 version strategy 已確認。Workers 只能 rollback 到最近 100 個 version；2026-11-19 起，超過 30 天且不在這 100 個之內、也沒在部署中的 version 會被刪除。
 
 這份 checklist 不會讓系統變完美，但可以避免最常見的 Cloudflare 上線誤判：把「能 deploy」誤認成「能穩定接 production traffic」。
+
+## 更新紀錄
+
+- 2026-11-23：成本段補上 Workers / Durable Objects spend limit，rollback 項補上 version 保留規則
 
 ## 參考資料
 

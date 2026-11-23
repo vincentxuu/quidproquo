@@ -170,14 +170,15 @@ Only then should your own model produce a conclusion and citation URLs under a f
 
 ## Route errors before retrying
 
-The [Search error responses](https://docs.tavily.com/documentation/api-reference/endpoint/search) distinguish several conditions: `400` means invalid parameters, `401` means a missing or invalid key, `429` means excessive request rate, `432` means a plan usage limit, `433` means a pay-as-you-go limit, and `500` means a server failure. They should not share one retry policy.
+The [Search error responses](https://docs.tavily.com/documentation/api-reference/endpoint/search) distinguish several conditions: `400` means invalid parameters, `401` means a missing or invalid key, `429` means excessive request rate, `432` means a plan usage limit, `433` means a pay-as-you-go limit, `434` means a free-plan request that set `max_age_hours` for live fetching was refused while the service was under heavy load, and `500` means a server failure. They should not share one retry policy.
 
 - `400` and `401`: fix the request or credentials; an unchanged retry is useless.
 - `429`: wait for the response's `retry-after` value, then retry with a cap.
 - `432` and `433`: stop calls and alert the budget or account-management path.
+- `434`: drop `max_age_hours` and accept cached results, or retry later; this is not a quota problem.
 - `500`: use exponential backoff with jitter and an overall deadline.
 
-The official [rate-limit documentation](https://docs.tavily.com/documentation/rate-limits) explicitly says `429` includes `retry-after`. Batch search should still cap concurrency and attach each failure to its query, rather than allowing one exception in `asyncio.gather` to cancel the batch.
+The official [rate-limit documentation](https://docs.tavily.com/documentation/rate-limits) explicitly says `429` includes `retry-after`. Limits are set per organization, and every API key in the organization shares one limit: 100 requests per minute on the free Researcher plan, and 1,000 or more with pay-as-you-go or a paid plan; `/crawl` and `/map` are separately capped at 100 per minute. Batch search should still cap concurrency and attach each failure to its query, rather than allowing one exception in `asyncio.gather` to cancel the batch.
 
 ## Free credits and actual billing units
 
@@ -219,6 +220,10 @@ This is not a performance ranking. I did not run the four services against a sha
 Tavily's value is not merely another search endpoint. It puts URL discovery, known-page reading, site-structure discovery, and multi-page extraction under one authentication and credit model. A robust starting configuration is basic Search, five results, no answer, and no raw content. Extract only the selected URLs. Move to Map and Crawl only when the task genuinely spans a site.
 
 This article does not verify crawl success against specific sites or benchmark the four Search depths for latency and relevance. Those claims require a fixed query set, synchronized runs, and a reproducible scoring method; they cannot be inferred from documentation. What is verified here is the API shape, public credit model, error semantics, and officially disclosed data boundary.
+
+## Changelog
+
+- 2026-11-23: Added `434` (free-plan live fetching refused under heavy load) to error handling, and added the per-organization requests-per-minute limits from the official rate-limit docs. Free credits, credit price, and search-depth costs were rechecked and are unchanged.
 
 ## References
 

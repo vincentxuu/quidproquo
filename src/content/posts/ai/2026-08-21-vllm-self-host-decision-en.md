@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [vllm, llm-inference, self-hosting, gpu, pagedattention, cost]
 lang: en
-tldr: "vLLM is the de facto standard for self-hosted LLM inference (89,470 GitHub stars, verified 2026-08-21), built on managing the KV cache the way an OS manages paged memory. But the selection question isn't how fast it is — it's your GPU utilization. Using Red Hat's measured 793 output tokens/second, a fully saturated A100 costs roughly $0.70 per million output tokens; at 10% utilization that becomes $7, more than most cloud APIs."
+tldr: "vLLM is the de facto standard for self-hosted LLM inference (97,383 GitHub stars, verified 2026-11-23), built on managing the KV cache the way an OS manages paged memory. But the selection question isn't how fast it is — it's your GPU utilization. Using Red Hat's measured 793 output tokens/second, a fully saturated A100 costs roughly $0.70 per million output tokens; at 10% utilization that becomes $7, more than most cloud APIs."
 description: "vLLM from a technology-selection angle: what problems PagedAttention and continuous batching actually solve, how to compute the cost threshold between self-hosting and a cloud API, how SGLang compares in the same layer, and when running your own inference server is over-engineering."
 series:
   name: "Self-Hosted Inference"
@@ -17,11 +17,11 @@ draft: false
 
 This series has so far stayed in the application layer: routing, validation, documentation formats. This post drills one layer down, into self-hosted inference serving — the layer that directly determines the cost and latency of running models yourself, and one of the few choices where getting it wrong shows up on the invoice.
 
-[vLLM](https://github.com/vllm-project/vllm) is the default answer in that layer. It is an open-source LLM inference and serving engine: hand it a Hugging Face model name and it stands up an OpenAI-compatible HTTP server that squeezes your GPU's memory and compute as hard as it can. The project came out of UC Berkeley's Sky Computing Lab and is now [hosted by the PyTorch Foundation](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/), with 89,470 GitHub stars.
+[vLLM](https://github.com/vllm-project/vllm) is the default answer in that layer. It is an open-source LLM inference and serving engine: hand it a Hugging Face model name and it stands up an OpenAI-compatible HTTP server that squeezes your GPU's memory and compute as hard as it can. The project came out of UC Berkeley's Sky Computing Lab and is now [hosted by the PyTorch Foundation](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/), with 97,383 GitHub stars.
 
 This site already has a [usage-oriented introduction to vLLM](/posts/ai/2026-03-14-vllm-inference-engine-en) covering PagedAttention's details, the V1 engine, and how to start a server. This post doesn't repeat any of that. It answers three selection questions: **should I self-host, should I use vLLM, and when should I not.**
 
-Version numbers, prices, and star counts in this post were verified on 2026-08-21; methodology and sources are collected in the appendix.
+Version numbers, prices, and star counts in this post were verified on 2026-11-23; methodology and sources are collected in the appendix.
 
 ## Two mechanisms, in one sentence each
 
@@ -44,9 +44,9 @@ This is the calculation you should run first and the one most often skipped. Sta
 | Item | Price |
 |---|---|
 | A100 SXM 40GB on demand ([Lambda](https://lambda.ai/service/gpu-cloud#pricing)) | $1.99 / GPU / hour |
-| H100 SXM 80GB on demand ([RunPod](https://www.runpod.io/pricing)) | $3.29 / hour |
+| H100 SXM 80GB on demand ([RunPod](https://www.runpod.io/pricing)) | $4.39 / hour |
 | gpt-oss-120B serverless ([Together AI](https://www.together.ai/pricing)) | $0.15 in / $0.60 out, per million tokens |
-| Llama 3.3 70B serverless (Together AI) | $1.04 / million tokens |
+| Qwen3.8 Flash serverless (Together AI) | $0.15 input / $0.47 output |
 | Qwen3.5 9B serverless (Together AI) | $0.17 in / $0.25 out |
 
 Now one measured throughput figure. On a single A100 running an 8B model, Red Hat clocked vLLM's peak at [793 output tokens per second](https://developers.redhat.com/articles/2025/08/08/ollama-vs-vllm-deep-dive-performance-benchmarking).
@@ -81,10 +81,10 @@ Both trade-offs are defensible, but you should know which one you picked. vLLM's
 
 There aren't many real choices in this layer.
 
-| Engine | Position | Stars (2026-08-21) |
+| Engine | Position | Stars (2026-11-23) |
 |---|---|---|
-| [vLLM](https://github.com/vllm-project/vllm) | Production GPU serving, widest hardware coverage | 89,470 |
-| [SGLang](https://github.com/sgl-project/sglang) | Production GPU serving, focused on large-scale deployment | 32,194 |
+| [vLLM](https://github.com/vllm-project/vllm) | Production GPU serving, widest hardware coverage | 97,383 |
+| [SGLang](https://github.com/sgl-project/sglang) | Production GPU serving, focused on large-scale deployment | 38,957 |
 | [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide-en) | Local development and single-user use | — |
 
 Ollama is the easy call: it isn't a competitor to vLLM, it's the earlier stage of the same pipeline. Local development, single-user chat, quickly trying a model — use Ollama; the moment you're serving multiple people, switch. Red Hat's benchmark concludes the same way.
@@ -109,7 +109,7 @@ Read that backwards and you get vLLM's boundary. In the following situations its
 
 Then add the hidden costs of self-hosting: GPU drivers and CUDA versions, downloading and storing model weights, tuning OOM and queueing parameters, monitoring — and upgrades.
 
-That last one is the most underestimated. vLLM moves fast: the recent v0.27.0 alone landed 561 commits, and it carried a major PyTorch version bump, the kind of change that breaks environments. Someone has to maintain all of this.
+That last one is the most underestimated. vLLM moves fast: v0.34.0 (November 2026) alone landed 1,061 commits, and it carried changes that break existing setups, such as removing the old model runner, raising the default block size from 16 to 64, and shipping PyPI wheels only for CUDA 13. Someone has to maintain all of this.
 
 **What to do**: budget "self-hosting" as a project with a headcount attached, not as a technical option. If nobody on your team is willing to put their name on upgrading and being on call for this service, the answer is don't self-host — that predicts the outcome better than any benchmark.
 
@@ -125,14 +125,18 @@ The cost structure of inference serving is nothing like package selection in the
 - **$0.70 per million output tokens**: this site's arithmetic, not a claim by any source. 793 × 3600 ÷ 1,000,000 ≈ 2.85 (million tokens/hour); $1.99 ÷ 2.85 ≈ $0.70. It assumes 100% GPU saturation, counts output tokens only, ignores storage and network fees, and pairs Red Hat's throughput on an A100-40GB with Lambda's list price for an A100 40GB. Real numbers vary by model, sequence length, and hardware; this formula is for order of magnitude, not for quoting.
 - **2–4x and 20–26%**: both from the PagedAttention paper's own evaluation (baselines FasterTransformer and Orca, hardware A100, models from the OPT family and LLaMA), not independent replication.
 - **23x**: measured by Anyscale (the Ray team) on 2023-06-22, on a production-inference workload they simulated themselves, against naive static batching.
-- **Prices**: public list-price pages from Lambda, RunPod, and Together AI, retrieved 2026-08-21, before tax and before any committed-use discount.
+- **Prices**: public list-price pages from Lambda, RunPod, and Together AI, retrieved 2026-11-23, before tax and before any committed-use discount.
+
+## Changelog
+
+- 2026-11-23: Updated star counts and RunPod's H100 hourly price ($3.29 to $4.39) to current values; replaced Llama 3.3 70B, no longer on Together's price list, with Qwen3.8 Flash; switched the upgrade-cost example from v0.27.0 to v0.34.0.
 
 ## References
 
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention (arXiv:2309.06180)](https://arxiv.org/abs/2309.06180) — read the abstract, §1 Introduction, §2 Background, §7.1 kernel microbenchmark, §7.3 recomputation vs swapping, and §8 Discussion; the memory-waste share, the 2–4x throughput figure, the 20–26% kernel latency, and the preconditions for paging all come from here
 - [vLLM documentation](https://docs.vllm.ai/en/latest/) — the count of supported model architectures and the hardware backend list
 - [vLLM GitHub repository](https://github.com/vllm-project/vllm) — star count, README feature list, hardware support
-- [vLLM Releases](https://github.com/vllm-project/vllm/releases) — v0.27.1's release date, v0.27.0's commit and contributor counts, the PyTorch 2.13 upgrade
+- [vLLM Releases](https://github.com/vllm-project/vllm/releases) — v0.34.0's commit count and upgrade notes (Model Runner V1 removed, default block size 64, CUDA 13)
 - [vLLM V1: A Major Upgrade to vLLM's Core Architecture](https://blog.vllm.ai/2025/01/27/v1-alpha-release.html) — the scope of the V1 rewrite and the acknowledgments crediting SGLang and other engines
 - [PyTorch Foundation Welcomes vLLM as a Hosted Project](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/) — governance and timing
 - [Ollama vs. vLLM: A deep dive into performance benchmarking (Red Hat)](https://developers.redhat.com/articles/2025/08/08/ollama-vs-vllm-deep-dive-performance-benchmarking) — 793 TPS, P99 TTFT of 80 ms vs 673 ms, and the ITL rise past concurrency 16
