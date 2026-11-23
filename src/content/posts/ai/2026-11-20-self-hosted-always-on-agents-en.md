@@ -152,7 +152,7 @@ Once you've picked, start with one scheduled job that has a quiet path, then add
 
 Open-source projects have no regional restrictions and can be installed directly in Taiwan; which models you can use depends on whose API you connect.
 
-Next, how China wraps the same open-source core into products: cloud hosting, one-click installers, and messaging-app integrations. The deeper the wrapping, the more convenient it gets, and security tests suggest the larger the attack surface becomes.
+Next, [how China wraps the same open-source core into products](/posts/ai/2026-11-20-china-claw-family-en): cloud hosting, one-click installers, and messaging-app integrations. The deeper the wrapping, the more convenient it gets, and security tests suggest the larger the attack surface becomes.
 
 ## References
 
