@@ -148,7 +148,7 @@ If the work needs files on your computer or native apps, like sorting a Download
 
 The announcement says teammates launch first on the web for Max subscribers, with iOS coming soon, and doesn't mention regional restrictions.
 
-With Devin Bots and teammates, the team itself decides what an agent can touch. Next, Microsoft Autopilot takes a different approach: the agent gets its own identity in the company directory, managed by IT, with a named human accountable for it.
+With Devin Bots and teammates, the team itself decides what an agent can touch. Next, [Microsoft Autopilot](/posts/ai/2026-11-20-microsoft-autopilot-en) takes a different approach: the agent gets its own identity in the company directory, managed by IT, with a named human accountable for it.
 
 ## References
 

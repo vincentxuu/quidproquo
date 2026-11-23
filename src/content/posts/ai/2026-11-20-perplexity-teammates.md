@@ -148,7 +148,7 @@ Perplexity 現在有三種用法，差別在工作的長度和它需要碰到什
 
 官方公告寫 teammates 先開放 Max 訂閱者的網頁版，iOS 版即將推出，沒有提到地區限制。
 
-Devin Bots 和 teammates 都是由團隊自己決定 agent 能碰什麼。下一篇的 Microsoft Autopilot 換一個做法：agent 有自己在公司目錄裡的身分，由 IT 管，也有一位具名的人類負責。
+Devin Bots 和 teammates 都是由團隊自己決定 agent 能碰什麼。下一篇的 [Microsoft Autopilot](/posts/ai/2026-11-20-microsoft-autopilot) 換一個做法：agent 有自己在公司目錄裡的身分，由 IT 管，也有一位具名的人類負責。
 
 ## 參考資料
 
