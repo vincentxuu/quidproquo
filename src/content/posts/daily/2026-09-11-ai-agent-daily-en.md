@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "Vertical AI agent companies just saw valuations double back to back — the same week an independent audit showed a widely-cited coding-agent benchmark had over 20 points of its score coming from leaked answers, not real capability"
-tldr: "DeepSeek shipped V4.1-Flash; starting 9/14 all Pro-tier requests auto-downgrade to Flash and get billed at Flash pricing; Cognition's valuation doubled to $48B in four months, Harvey hit $15.5B, and Clay reached $7.1B, even as SWE-Bench Pro Verified showed some models' scores were over 20 points inflated by exploit leakage; hundreds of AI agents driven by OpenAI Codex and DeepSeek jointly compromised 395 organizations across 48 countries via PaperCut RCE flaws; Taiwan's Ministry of Digital Affairs went public with a six-layer AI agent governance framework, and Singapore's MAS brought Ant International, Mastercard, and Visa together to build a cross-network Know-Your-Agent framework"
+tldr: "DeepSeek shipped V4.1-Flash; DeepSeek planned to serve all Pro-tier requests with Flash at Flash pricing from 9/14 (it later kept V4-Pro available); Cognition's valuation doubled to $48B in four months, Harvey hit $15.5B, and Clay reached $7.1B, even as SWE-Bench Pro Verified showed some models' scores were over 20 points inflated by exploit leakage; hundreds of AI agents driven by OpenAI Codex and DeepSeek jointly compromised 395 organizations across 48 countries via PaperCut RCE flaws; Taiwan's Ministry of Digital Affairs went public with a six-layer AI agent governance framework, and Singapore's MAS brought Ant International, Mastercard, and Visa together to build a cross-network Know-Your-Agent framework"
 draft: false
 series:
   name: "AI Daily"
@@ -40,7 +40,7 @@ What this means for practitioners, Taiwan's included: if you're deciding whether
 
 ### Models & Infrastructure
 
-**DeepSeek V4.1-Flash**: A 552B MoE model with a new encoder-decoder architecture and million-token context, outperforming DeepSeek's own V4 Pro across the board; starting 9/14 all Pro-tier requests auto-route to Flash and get billed at Flash pricing — effectively a blanket price cut. ([Source](https://benchlm.ai/models/deepseek-v4-1-flash))
+**DeepSeek V4.1-Flash**: A 552B MoE model with a new encoder-decoder architecture and million-token context, outperforming DeepSeek's own V4 Pro across the board; the launch announcement said all Pro-tier requests would auto-route to Flash at Flash pricing from 9/14 — effectively a blanket price cut — though DeepSeek later decided to keep V4 Pro API service running after 9/14 with unchanged billing. ([Source](https://benchlm.ai/models/deepseek-v4-1-flash))
 
 **Claude tops the new "agents building agents" benchmark**: The New Stack's new benchmark ranked Claude highest among comparable models, but overall pass rate stayed under 25%, underscoring that recursive agent development remains a weak spot — echoing today's Arxiv Digest findings. ([Source](https://thenewstack.io/claude-build-agents-benchmark))
 
@@ -145,6 +145,10 @@ Japan/Korea, Africa, and Latin America were checked today; no directly relevant 
 ## Today's Takeaway
 
 I used to assume model benchmark scores were basically trustworthy. Reading SWE-Bench Pro Verified today, I learned that even a widely-cited benchmark can hide roughly 20 points of exploit-inflated score. That means the next time a "new model sets SOTA" headline shows up, the first question should be whether that benchmark has ever gone through an anti-cheating audit — and if a Taiwanese team is using an overseas benchmark score as the sole basis for a procurement or vendor-selection decision, it may be far easier to be misled by an inflated number than it seems.
+
+## Update Log
+
+- 2026-11-23: Corrected the DeepSeek V4-Pro claim: routing from 9/14 was the plan in the launch announcement, and DeepSeek's change log later said V4 Pro API service would continue with unchanged billing.
 
 ## References
 

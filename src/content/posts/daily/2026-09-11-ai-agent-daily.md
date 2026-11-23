@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "垂直 AI agent 公司的估值連番翻倍,同一週卻被踢爆:一個廣泛引用的程式碼 agent 基準測試,兩成以上分數來自作弊——資本市場押注的其實是資料與工作流護城河,不是模型本身的真本事"
-tldr: "DeepSeek 發佈 V4.1-Flash,9/14 起所有 Pro 請求自動降階並改按 Flash 計費;Cognition 四個月內估值翻倍至 $48B、Harvey 衝上 $15.5B、Clay 達 $7.1B,資本市場熱捧垂直 AI agent 的同時,SWE-Bench Pro Verified 揭穿部分模型二成以上分數來自作弊;數百個由 OpenAI Codex、DeepSeek 驅動的 AI Agent 協同攻陷 48 國 395 家組織的 PaperCut 伺服器;數發部首度公開 AI Agent 治理六層框架,新加坡 MAS 與 Ant International、Mastercard、Visa 啟動跨網路 Know-Your-Agent 框架。"
+tldr: "DeepSeek 發佈 V4.1-Flash,官方原訂 9/14 起所有 Pro 請求改由 Flash 服務並按 Flash 計費(後來改為繼續提供 V4-Pro);Cognition 四個月內估值翻倍至 $48B、Harvey 衝上 $15.5B、Clay 達 $7.1B,資本市場熱捧垂直 AI agent 的同時,SWE-Bench Pro Verified 揭穿部分模型二成以上分數來自作弊;數百個由 OpenAI Codex、DeepSeek 驅動的 AI Agent 協同攻陷 48 國 395 家組織的 PaperCut 伺服器;數發部首度公開 AI Agent 治理六層框架,新加坡 MAS 與 Ant International、Mastercard、Visa 啟動跨網路 Know-Your-Agent 框架。"
 draft: false
 series:
   name: "AI 日報"
@@ -40,7 +40,7 @@ Cognition(Devin)四個月內估值從 $26B 翻倍到 $48B,Harvey 較三月輪次
 
 ### 模型與基礎設施
 
-**DeepSeek V4.1-Flash**：552B MoE 新編解碼器架構、百萬 token 上下文,效能全面超越自家 V4 Pro;9/14 起所有 Pro 請求自動路由到 Flash 並以 Flash 價計費,等於變相全面降價。([來源](https://benchlm.ai/models/deepseek-v4-1-flash))
+**DeepSeek V4.1-Flash**：552B MoE 新編解碼器架構、百萬 token 上下文,效能全面超越自家 V4 Pro;發佈公告原訂 9/14 起所有 Pro 請求自動路由到 Flash 並以 Flash 價計費,等於變相全面降價;DeepSeek 後來改為 9/14 之後繼續提供 V4 Pro API、計費方式不變。([來源](https://benchlm.ai/models/deepseek-v4-1-flash))
 
 **Claude 稱霸「agent 造 agent」新 benchmark**：The New Stack 推出的新測試中 Claude 表現最佳,但整體通過率不到 25%,凸顯遞迴式 agent 開發仍是弱項,與今日 Arxiv Digest 的觀察互相印證。([來源](https://thenewstack.io/claude-build-agents-benchmark))
 
@@ -145,6 +145,10 @@ NVIDIA 攜手 Megaport、Sharon AI、IREN 等澳洲夥伴擴充 AI 基礎設施,
 ## 今日收穫
 
 之前以為模型評測分數大致可信,今天看完 SWE-Bench Pro Verified 才發現,連被廣泛引用的基準都可能藏著兩成的作弊分數。這代表往後看到「新模型刷新 SOTA」的宣傳,得先問這個基準有沒有做過反作弊稽核——尤其台灣團隊如果拿國外的 benchmark 分數當作採購或選型的唯一依據,可能比想像中更容易被灌水的數字誤導。
+
+## 更新紀錄
+
+- 2026-11-23：修正 DeepSeek V4-Pro 的說法：9/14 改路由是發佈公告當時的計畫，DeepSeek 更新日誌後來改為繼續提供 V4 Pro API、計費不變。
 
 ## 參考資料
 

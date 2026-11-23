@@ -18,7 +18,7 @@ series:
 
 ### 1. Anthropic 與 OpenAI 一小時內接連發模型，Grok 4.7 官方自測與第三方複測落差擴大
 
-Anthropic 在 9/22 發佈 Claude Opus 5.5（效能追平 Claude Fable 5.1、成本降 40%），約一小時後 OpenAI 同步在 AWS Bedrock 上架 GPT-6 Sol 與 GPT-6 Luna，前沿模型的發布節奏已經壓縮到「同一天互打」。同一週稍早，xAI 發佈 Grok 4.7，官方自測 Terminal-Bench 4.0 從 20.3% 跳到 38.0%，但 Artificial Analysis 獨立複測只有 26%——落差達 12 個百分點。三件事疊在一起說明兩件事：模型層的價格戰已經進入「發布即互打」的下半場，而官方自測分數與第三方複測的落差正在變成常態而非例外，選型時不能只看廠商自己公布的 benchmark。（[Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5) · [Opus 5.5 完整分析](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5) · [GPT-6 Sol/Luna 上架 AWS Bedrock](https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/) · [Grok 4.7 benchmark 落差](https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/) · [Grok 4.7 完整分析](/posts/daily/2026-09-23-model-xai-grok-4-7)）
+Anthropic 在 9/22 發佈 Claude Opus 5.5（效能追平 Claude Fable 5.1、成本降 40%），約一小時後 OpenAI 同步在 AWS Bedrock 上架 GPT-6 Sol 與 GPT-6 Luna，前沿模型的發布節奏已經壓縮到「同一天互打」。同一週稍早，xAI 發佈 Grok 4.7，官方自測 Terminal-Bench 4.0 從 20.3% 跳到 37.6%，但 Artificial Analysis 獨立複測只有 26%——落差將近 12 個百分點。三件事疊在一起說明兩件事：模型層的價格戰已經進入「發布即互打」的下半場，而官方自測分數與第三方複測的落差正在變成常態而非例外，選型時不能只看廠商自己公布的 benchmark。（[Claude Opus 5.5](https://www.anthropic.com/claude-opus-5-5) · [Opus 5.5 完整分析](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5) · [GPT-6 Sol/Luna 上架 AWS Bedrock](https://aws.amazon.com/blogs/machine-learning/bring-more-intelligence-to-everyday-work-with-gpt-6-sol-and-gpt-6-luna-on-amazon-bedrock/) · [Grok 4.7 benchmark 落差](https://the-decoder.com/xai-launches-grok-4-7-at-bargain-prices-but-benchmarks-reveal-a-wide-gap-to-claude-and-gpt-6/) · [Grok 4.7 完整分析](/posts/daily/2026-09-23-model-xai-grok-4-7)）
 
 ### 2. Anthropic、OpenAI、SpaceXAI、Google 首次同時被告反壟斷
 
@@ -39,7 +39,7 @@ Meta Connect 2026 上，個人 AI agent Muse 新增即時視訊分身、專屬 e
 ## 本週認知更新
 
 - 之前以為「人工審核」「模型自己判斷該不該做」「按下取消」這三種機制能各自擋住 Agent 的越權行為，現在知道它們都只是「執行前的意圖聲明」，不是「執行當下的驗證」——AWS AgentCore、MaxKB 兩起真實事件從程式碼層證明這件事，Loopjacking、APort Vault、Authorization Revocation 三篇論文分別從真實產品重現、22.6 萬次評測、形式化證明三個角度證明同一個結論：真正擋下風險的是工具呼叫當下的確定性政策層。
-- 之前以為前沿模型廠商自己公布的 benchmark 分數大致可信，現在看到 Grok 4.7 官方自測 Terminal-Bench 4.0 從 20.3% 跳到 38.0%、但 Artificial Analysis 獨立複測只有 26%，落差高達 12 個百分點，才知道官方自測與第三方複測的落差已經大到不能忽略——選型決策該優先看獨立評測，不是廠商自己的發布稿。
+- 之前以為前沿模型廠商自己公布的 benchmark 分數大致可信，現在看到 Grok 4.7 官方自測 Terminal-Bench 4.0 從 20.3% 跳到 37.6%、但 Artificial Analysis 獨立複測只有 26%，落差將近 12 個百分點，才知道官方自測與第三方複測的落差已經大到不能忽略——選型決策該優先看獨立評測，不是廠商自己的發布稿。
 - 之前以為 Agent 記憶系統的技術瓶頸在「存什麼、存多少」，這週看 JitMem 把記憶策展延後到讀取時才決策（比最強基準多出最多 16.3 個百分點的成功率）、CliffCompaction 用「只刪不改寫」把成本砍最多 50%，才知道瓶頸其實在「什麼時候做決策」——把同一批決策從寫入時搬到讀取時，不用換模型、不用加資料就能多榨出兩位數的效能。
 - 之前以為企業導入 Agent 還停留在概念驗證、各憑本事試水溫的階段，這週把 Ema、Chamelio、Firecrawl、Enhans 四筆合計超過 2 億美元的融資放在一起看才知道，資本已經把「Agent 直接接管企業原本外包給 SaaS 或服務商的工作」當成既定趨勢在下注，不是還在等驗證。
 

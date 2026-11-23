@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: zh-TW
 description: "OpenAI 把驅動 Codex 的 agent harness 開放成公開 beta 的同一週,資安研究證實攻擊者用同一套 harness 搭配 DeepSeek 模型 7 分鐘拿下網域控制——agent 基礎設施降低的門檻沒有方向性"
-tldr: "OpenAI 開放 Agents API 公開 beta,同週 PaperCut 漏洞遭數百個 OpenAI Codex harness + DeepSeek 驅動的 AI Agent 協同攻陷 48 國 395 個組織;WeWorm 展示 AI 兩天寫出 RCE、一週做出零點擊蠕蟲;Cognition 發表 SWE-2 並完成 $2B 融資衝上 $48B 估值;Mistral 完成 €3B Series D、估值破 €21B,從模型公司轉型主權雲端供應商;DeepSeek-V4.1-Flash 發佈,9/14 起取代自家旗艦 V4-Pro。"
+tldr: "OpenAI 開放 Agents API 公開 beta,同週 PaperCut 漏洞遭數百個 OpenAI Codex harness + DeepSeek 驅動的 AI Agent 協同攻陷 48 國 395 個組織;WeWorm 展示 AI 兩天寫出 RCE、一週做出零點擊蠕蟲;Cognition 發表 SWE-2 並完成 $2B 融資衝上 $48B 估值;Mistral 完成 €3B Series D、估值破 €21B,從模型公司轉型主權雲端供應商;DeepSeek-V4.1-Flash 發佈,原訂 9/14 起取代自家旗艦 V4-Pro(後來改為繼續提供)。"
 draft: false
 series:
   name: "AI 日報"
@@ -40,7 +40,7 @@ OpenAI 這次把 Agents API 開放公開 beta,本質是把過去只有 Codex 內
 
 ### 模型與基礎設施
 
-**DeepSeek-V4.1-Flash**：552B 總參數 MoE 換上 Causal Encoder-Decoder 架構,Terminal-Bench 4.0 從前代 7.0 分衝到 31.2 分,DeepSWE v1.1 追平 Claude Opus 5;定價比前代更便宜,官方宣布 9/14 起自家旗艦 V4-Pro 全部流量轉發給這隻 Flash 版並按 Flash 計價。詳見[模型卡](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)。
+**DeepSeek-V4.1-Flash**：552B 總參數 MoE 換上 Causal Encoder-Decoder 架構,Terminal-Bench 4.0 從前代 7.0 分衝到 31.2 分,DeepSWE v1.1 追平 Claude Opus 5;定價比前代更便宜,官方當時宣布 9/14 起自家旗艦 V4-Pro 全部流量轉發給這隻 Flash 版並按 Flash 計價,後來改為繼續提供 V4-Pro、計費不變。詳見[模型卡](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)。
 
 **Cognition SWE-2**：在 FrontierCode 1.1 上贏過 SWE-1.7 與 Grok 4.6、成本更低,是首個支援 effort levels 的模型,已上線 Devin Desktop/CLI。([來源](https://cognition.com/blog/swe-2))
 
@@ -144,6 +144,10 @@ Improbable 旗下新創 Bolter 獲 $10M 投資,打造給人類與 AI agent 混�
 ## 今日收穫
 
 之前以為 AI 基礎設施燒錢只能靠股權融資撐,今天看 Mistral 這輪才意識到,「歐洲運算單位」（ECU）多年期採購承諾其實是把雲端銷售合約提前變現——讓大型客戶預付款去蓋資料中心,等於把未來的營收拉到現在當資本支出用,這跟單純融資燒錢是兩種不同的財務邏輯,也可能是資本密集的 AI 基礎設施公司接下來會複製的模式。
+
+## 更新紀錄
+
+- 2026-11-23：修正 DeepSeek V4-Pro 的說法：9/14 改路由是發佈公告當時的計畫，DeepSeek 更新日誌後來改為繼續提供 V4 Pro API、計費不變。
 
 ## 參考資料
 

@@ -5,7 +5,7 @@ category: daily
 tags: [ai-agent, daily]
 lang: en
 description: "The same week OpenAI opened public beta of the harness that drives Codex, security researchers confirmed attackers used the same harness paired with DeepSeek to seize domain control in 7 minutes — the lowered barrier to agent infrastructure cuts both ways"
-tldr: "OpenAI opened public beta of its Agents API; the same week hundreds of AI agents powered by the OpenAI Codex harness and DeepSeek jointly compromised 395 organizations across 48 countries via PaperCut flaws; WeWorm showed AI writing an RCE exploit in two days and a full zero-click worm in a week; Cognition shipped SWE-2 and raised $2B at a $48B valuation; Mistral closed a €3B Series D at over €21B, pivoting from a model company to a sovereign cloud provider; DeepSeek-V4.1-Flash shipped and will replace DeepSeek's own flagship V4-Pro starting 9/14."
+tldr: "OpenAI opened public beta of its Agents API; the same week hundreds of AI agents powered by the OpenAI Codex harness and DeepSeek jointly compromised 395 organizations across 48 countries via PaperCut flaws; WeWorm showed AI writing an RCE exploit in two days and a full zero-click worm in a week; Cognition shipped SWE-2 and raised $2B at a $48B valuation; Mistral closed a €3B Series D at over €21B, pivoting from a model company to a sovereign cloud provider; DeepSeek-V4.1-Flash shipped and was slated to replace DeepSeek's own flagship V4-Pro from 9/14 (V4-Pro was later kept available)."
 draft: false
 series:
   name: "AI Daily"
@@ -40,7 +40,7 @@ For practitioners — and especially Taiwanese enterprises evaluating agent adop
 
 ### Models & Infrastructure
 
-**DeepSeek-V4.1-Flash**: A 552B total-parameter MoE swapping in a Causal Encoder-Decoder architecture; Terminal-Bench 4.0 jumped from 7.0 to 31.2, and DeepSWE v1.1 now matches Claude Opus 5. Pricing undercuts the prior generation, and DeepSeek announced that starting 9/14 all traffic to its own flagship V4-Pro will be routed to this Flash version and billed at Flash rates. See the [model card](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en).
+**DeepSeek-V4.1-Flash**: A 552B total-parameter MoE swapping in a Causal Encoder-Decoder architecture; Terminal-Bench 4.0 jumped from 7.0 to 31.2, and DeepSWE v1.1 now matches Claude Opus 5. Pricing undercuts the prior generation, and DeepSeek announced that starting 9/14 all traffic to its own flagship V4-Pro would be routed to this Flash version and billed at Flash rates, though it later decided to keep V4-Pro available with unchanged billing. See the [model card](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash-en).
 
 **Cognition SWE-2**: Beat SWE-1.7 and Grok 4.6 on FrontierCode 1.1 at lower cost, and is the first model to support effort levels; already live in Devin Desktop/CLI. ([Source](https://cognition.com/blog/swe-2))
 
@@ -144,6 +144,10 @@ Taiwan was checked today; no directly relevant AI-agent news with credible sourc
 ## Today's Takeaway
 
 I used to assume AI infrastructure could only be funded by burning equity rounds. Looking at Mistral's raise today, I realized its multi-year "European Compute Unit" (ECU) prepayment commitments are really pulling forward future cloud sales revenue into present-day capital for building data centers — a different financial logic from simply raising and burning cash, and one that other capital-intensive AI infrastructure companies may well copy next.
+
+## Update Log
+
+- 2026-11-23: Corrected the DeepSeek V4-Pro claim: routing from 9/14 was the plan in the launch announcement, and DeepSeek's change log later said V4 Pro API service would continue with unchanged billing.
 
 ## References
 
