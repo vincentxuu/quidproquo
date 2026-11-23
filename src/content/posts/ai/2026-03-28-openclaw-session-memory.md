@@ -23,7 +23,7 @@ OpenClaw 首先是個**個人 agent**。開箱狀態下，你從 Telegram、What
 
 - **群組活動會匯進來。** 群組與房間 session 預設是隔離的，但在預設 DM 範圍下，主 session 會**自動關注它們**。活動排隊成精簡的通知——**每個對話合併一次，不是每則訊息叫醒一次**——agent 在下次執行時看到（你的下一則訊息，或在主對話裡跑的排程檢查）
 - **背景工作會回報。** 子 agent 與 spawn 出來的 session 會把結果宣告回啟動它們的那個 session
-- **週期性檢查可以跑在主 session**：新安裝會建一個每 30 分鐘、閒置才跑的 Proactive check，用的就是主對話，這就是為什麼你沒說話它也會有意識
+- **週期性檢查可以跑在主 session**：新安裝會建一個 Proactive check（預設關閉，打開後每 30 分鐘、閒置才跑），用的就是主對話，這就是為什麼你沒說話它也會有意識
 
 ## DM 範圍：多人時必須主動隔離
 
@@ -152,6 +152,7 @@ Control UI 的 **Settings → Import Memory** 可以匯入 Codex、Claude Code �
 
 ## 更新紀錄
 
+- 2026-11-23：修正 Proactive check 的說法：新安裝會建立這個工作，但預設是關的，要自己用 `openclaw automations enable` 打開（原寫成新安裝就會每 30 分鐘跑）。
 - 2026-11-20：heartbeat 已遷移成一般 automation 工作，主 session 的說明改成 Proactive check（每 30 分鐘、用主對話、閒置才跑）；拿掉「預設 heartbeat prompt 不做記憶維護」這句。
 - 2026-08-18：對照官方文件現況大改。新增：**主 session 的匯流設計**（群組活動合併成通知、背景工作回報、heartbeat 指向它）、`dmScope` 四種模式與啟用隔離會連帶關掉群組關注與跨對話回想、`groupScope` 的 binding 層覆寫、**incognito session** 及其明確邊界（不限制工具、供應商仍處理訊息、保護的不是 gateway 擁有者）、重置的新鮮度基準（系統事件不延長閒置計時）與重置時丟棄舊通知、**10 GB 磁碟預算與壓縮封存**。記憶部分新增 `USER.md` 與 `DREAMS.md` 兩個檔案、`USER.md` 的 supersede 寫法、**dreaming 掃描負責蒸餾而 heartbeat 不做記憶維護**、`MEMORY.md` 超出預算時只截斷注入副本、**會影響行動的記憶**該捕捉的行動邊界（含「記憶不執行政策」的界線）、`intent` 工具、記憶引擎已 plugin 化與混合搜尋的供應商選項，以及從 Codex／Claude Code／Hermes 匯入記憶的範圍與隔離存放。
 

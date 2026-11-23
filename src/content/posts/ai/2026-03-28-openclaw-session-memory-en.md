@@ -25,7 +25,7 @@ Underneath it is an ordinary session with the default key `agent:<id>:main`. Wha
 
 - **Group activity flows in.** Group and room sessions stay isolated by default, but under the default DM scope the main session **watches them**. Activity queues as compact notices — **coalesced per conversation, never one wake-up per message** — which the agent sees on its next run (your next message, or a scheduled check running in the main conversation)
 - **Background work reports back.** Sub-agents and spawned sessions announce results to the session that started them
-- **Periodic checks can run in the main session**: new setups get a Proactive check every 30 minutes, run when idle, in the main conversation, which is what gives it awareness when you have not written anything
+- **Periodic checks can run in the main session**: new setups get a Proactive check (disabled by default; once enabled it runs every 30 minutes when idle) in the main conversation, which is what gives it awareness when you have not written anything
 
 ## DM scope: isolation is mandatory with multiple people
 
@@ -155,6 +155,7 @@ But explicit is not the same as a safe default. The one decision to make deliber
 
 ## Changelog
 
+- 2026-11-23: Corrected the Proactive check description: new setups create the job but leave it disabled, and you turn it on with `openclaw automations enable` (previously described as running every 30 minutes on new installs).
 - 2026-11-20: Heartbeat has migrated into ordinary automation jobs, so the main-session description now refers to the Proactive check (every 30 minutes, in the main conversation, when idle); removed the line about the default heartbeat prompt doing no memory maintenance.
 - 2026-08-18: Substantially revised against the current official docs. Added: **how the main session converges activity** (coalesced group notices, background work reporting back, heartbeats targeting it), the four `dmScope` modes and the fact that isolation also disables group watching and cross-conversation recall, per-binding `groupScope` overrides, **incognito sessions** with their explicit boundaries (tools unrestricted, the provider still processes messages, no protection from the gateway owner), reset freshness rules (system events do not extend idle timers) and discarded stale notices, and the **10 GB disk budget with verified compressed archiving**. On memory: the `USER.md` and `DREAMS.md` files, the supersede-in-place rule, **dreaming handling distillation while heartbeat does no memory maintenance**, truncation of the injected `MEMORY.md` copy, **action-sensitive memories** and the line that memory does not enforce policy, the `intent` tool, plugin-based memory engines with hybrid search providers, and the scope and isolation of memory imports from Codex, Claude Code, and Hermes.
 

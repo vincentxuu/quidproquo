@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [ai-agent, always-on-agent, openclaw, hermes-agent, self-hosted]
 lang: zh-TW
-tldr: "「自架」分三種：開源程式自己跑、廠商的 app 跑在你的機器上、廠商在雲端替你跑開源程式。三種差在誰掌握機器、程式、更新和憑證。開源自己跑的兩大專案：OpenClaw 新安裝就有每 30 分鐘一次的 Proactive check，會自己醒來看；但工具預設直接跑在主機上，沙盒要自己開。Hermes Agent 內建排程和簽章 webhook，指令預設也跑在本機，但危險指令要審批、排程裡碰到一律拒絕，要自己醒來得裝社群外掛 heartbeat2。不管選哪個，機器要一直開著、事件要有公開網址、修補要自己追。"
+tldr: "「自架」分三種：開源程式自己跑、廠商的 app 跑在你的機器上、廠商在雲端替你跑開源程式。三種差在誰掌握機器、程式、更新和憑證。開源自己跑的兩大專案：OpenClaw 新安裝會建好一個 Proactive check，自己打開後每 30 分鐘醒來看一次；但工具預設直接跑在主機上，沙盒要自己開。Hermes Agent 內建排程和簽章 webhook，指令預設也跑在本機，但危險指令要審批、排程裡碰到一律拒絕，要自己醒來得裝社群外掛 heartbeat2。不管選哪個，機器要一直開著、事件要有公開網址、修補要自己追。"
 description: "自架常駐 agent 的三種類型與各自的責任分界，OpenClaw 與 Hermes Agent 在醒來機制、安全預設與省錢設計上的差別，QwenPaw、ClickHouse Nerve 等其他開源專案，Perplexity Personal Computer 這種「機器是你的、程式是廠商的」，以及依自己能力選類型的方法。"
 series:
   name: "常駐型 AI agent"
@@ -53,7 +53,7 @@ draft: false
 
 OpenClaw 是目前最大的開源常駐 agent：MIT 授權，GitHub 星數約 39.5 萬（11 月 23 日）。
 
-**醒來機制**：一個 Node.js 的 Gateway 跑在你的機器上，排程都在它裡面跑。新安裝會建一個 [Proactive check](/posts/ai/2026-03-28-openclaw-automation-cron-webhook)：每 30 分鐘一次，用主對話執行，等閒置才跑，結果送到你的私訊。沒事要回報時，回 `NO_REPLY` 就不會送出。這就是 L3：它自己決定要不要說話。
+**醒來機制**：一個 Node.js 的 Gateway 跑在你的機器上，排程都在它裡面跑。新安裝會建一個 [Proactive check](/posts/ai/2026-03-28-openclaw-automation-cron-webhook)，但預設是關的，要用 `openclaw automations enable` 打開。打開後每 30 分鐘一次，用主對話執行，等閒置才跑，結果送到你的私訊。沒事要回報時，回 `NO_REPLY` 就不會送出。這就是 L3：它自己決定要不要說話。
 
 舊版叫 Heartbeat，現在已經併進一般的排程工作。
 
@@ -86,7 +86,7 @@ Hermes Agent 是 Nous Research 的開源 agent：MIT 授權，GitHub 星數約 2
 
 | | OpenClaw | Hermes Agent |
 |---|---|---|
-| 內建醒來級別 | L3：每 30 分鐘的 Proactive check | L2：排程和 webhook；L3 要裝 heartbeat2 |
+| 內建醒來級別 | L3：每 30 分鐘的 Proactive check（預設關閉，要自己打開） | L2：排程和 webhook；L3 要裝 heartbeat2 |
 | 沒事時不說話 | `NO_REPLY` | `[SILENT]`；monitor mode 連模型都不叫 |
 | 工具預設跑在哪 | 主機，沙盒要自己開 | 本機，但危險指令要審批 |
 | 無人看管時碰到危險指令 | 依工具政策 | 預設拒絕 |
@@ -153,6 +153,11 @@ GitHub 上還有很多星數只有個位數、還在 1.0 之前的小專案，�
 開源專案沒有地區限制，台灣可以直接裝；能用的模型取決於你接哪家的 API。
 
 下一篇看[中國怎麼把同一個開源核心包成產品](/posts/ai/2026-11-20-china-claw-family)：雲端託管、一鍵安裝、綁進通訊軟體。包得越深越方便，安全評測顯示攻擊面也越大。
+
+
+## 更新紀錄
+
+- 2026-11-23：修正 Proactive check 的說法：新安裝會建立這個工作，但預設是關的，要自己用 `openclaw automations enable` 打開（原寫成新安裝就會每 30 分鐘跑）。
 
 ## 參考資料
 

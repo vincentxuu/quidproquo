@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 24
-tldr: "Cron is now Automations (openclaw cron remains an alias), and periodic checks have folded into it: Heartbeat is no longer a separate mechanism. openclaw doctor --fix converts old settings into ordinary jobs, and new setups get a Proactive check that runs every 30 minutes in the main conversation when idle. Background Tasks and Task Flow are gone; multi-step flows use the Lobster plugin. Picking a mechanism now comes down to whether it is triggered by time, by an event, or is a rule to follow every time."
+tldr: "Cron is now Automations (openclaw cron remains an alias), and periodic checks have folded into it: Heartbeat is no longer a separate mechanism. openclaw doctor --fix converts old settings into ordinary jobs, and new setups get a Proactive check (disabled by default; once enabled it runs every 30 minutes in the main conversation when idle). Background Tasks and Task Flow are gone; multi-step flows use the Lobster plugin. Picking a mechanism now comes down to whether it is triggered by time, by an event, or is a rule to follow every time."
 description: "A selection guide for OpenClaw's automation mechanisms: how Automations, Hooks, Webhooks, the IMAP trigger, Standing Orders and Lobster divide the work, how monitoring works after Heartbeat migrated into scheduled jobs, plus the scheduler's execution location, layered timeouts and failure handling."
 draft: false
 ---
@@ -50,7 +50,7 @@ So choosing a mechanism comes down to one question: is it triggered by **time** 
 The old trade-off was "Automations are exact but isolated; Heartbeat is approximate but has main-session context." Both capabilities now live in automation jobs. The [heartbeat migration docs](https://docs.openclaw.ai/gateway/heartbeat) describe the change:
 
 - **Old configuration must be migrated**: run `openclaw doctor --fix`. It converts existing heartbeat monitors into editable automation jobs, keeping their IDs, run history, scratch and schedule anchors, and imports supported `HEARTBEAT.md` content. Only after the new jobs are verified does it remove settings such as `agents.defaults.heartbeat`; `HEARTBEAT.md` is no longer read.
-- **New setups get one Proactive check**: every 30 minutes, run in the agent's main conversation, waiting for idle, delivered to the owner's DM. It is provisioned once; delete it and it stays deleted.
+- **New setups get one Proactive check, disabled by default**: once you turn it on with `openclaw automations enable <job-id>`, it runs every 30 minutes, run in the agent's main conversation, waiting for idle, delivered to the owner's DM. It is provisioned once; delete it and it stays deleted.
 - **Quiet when nothing needs attention**: a check with nothing to report returns `NO_REPLY`, sends no message, and needs no extra model request.
 
 To keep the old "check on it while you're there" behavior on a scheduled job, use [these per-job settings](https://docs.openclaw.ai/automation/cron-jobs/schedules):
@@ -150,6 +150,7 @@ Standing Orders are next — they answer a different question: **what the agent 
 
 ## Changelog
 
+- 2026-11-23: Corrected the Proactive check description: new setups create the job but leave it disabled, and you turn it on with `openclaw automations enable` (previously described as running every 30 minutes on new installs).
 - 2026-11-20: Rewrote the first two sections against the current docs. Heartbeat has migrated into ordinary automation jobs (`openclaw doctor --fix`, a Proactive check provisioned on new setups, `NO_REPLY`); Background Tasks and Task Flow were removed (use automation run history; multi-step flows move to the Lobster plugin); the mechanism table now follows the current official one (adding the IMAP trigger and Webhooks). Added monitoring policies (`activeHours`, `idleOnly`, `skipIfScratchEmpty`, owner delivery), dynamic cadence and `/loop`, condition scripts and the concurrency limit; corrected "every run creates a background task record" and the 48-hour budget, and noted the removal of inferred follow-ups in v2026.8.1.
 - 2026-08-18: Substantially revised against the current official docs. **Cron is now Automations** (`openclaw cron` as alias), and automation expanded to six mechanisms (Automations, Heartbeat, Background Tasks, Task Flow, Hooks, Standing Orders) with the full decision table and the Automations/Heartbeat comparison. Added the scheduler's actual behavior: **running inside the Gateway process so nothing fires when it is down**, SQLite-persisted state, a task record per run, **layered timeouts** (the scheduler's 60-minute watchdog, 10-minute commands, 5-minute scripts, a 48-hour underlying default) and phase-specific watchdogs, **the three "failure must look like failure" designs**, forced session-ownership clearing after a timeout, the `on-exit` and `stream` schedule kinds, up-to-5-minute staggering with `--exact`/`--stagger`, rescheduling of overdue jobs at startup, and the hard-kill recommendation plus `--run-id` reuse behavior for external schedulers.
 

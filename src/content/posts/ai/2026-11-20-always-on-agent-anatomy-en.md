@@ -81,7 +81,7 @@ Hermes Agent's [webhooks](https://pinggy.io/blog/proactive_ai_agents_compared/) 
 
 At this level the question is open. The agent isn't told to "read the statement"; it's told to "see what needs your attention", and judges for itself.
 
-- **OpenClaw**: first-time setup creates a [Proactive check](https://docs.openclaw.ai/gateway/heartbeat) that runs every 30 minutes by default, uses your main conversation with the agent, waits until the agent is idle, and delivers to your DM. If nothing needs attention it replies `NO_REPLY` and nothing is sent. This used to be called heartbeat; it's now an ordinary automation job you can retime, re-prompt or delete.
+- **OpenClaw**: first-time setup creates a [Proactive check](https://docs.openclaw.ai/gateway/heartbeat), but leaves it disabled; you turn it on with `openclaw automations enable`. Once on, it runs every 30 minutes, uses your main conversation with the agent, waits until the agent is idle, and delivers to your DM. If nothing needs attention it replies `NO_REPLY` and nothing is sent. This used to be called heartbeat; it's now an ordinary automation job you can retime, re-prompt or delete.
 - **Claude Duet**: [each morning](https://support.claude.com/en/articles/17631495-get-started-with-claude-duet) it looks across your email and calendar and picks what most needs your attention; through the day it follows up on threads that have gone quiet and checks your connected accounts at set intervals. The main thread speaks up only when a task is done or needs a decision.
 - **OpenAI Dots**: when you're not working with it directly, it does "[proactive research](https://learn.chatgpt.com/docs/dots/controls)" in the background, looking through your connected apps for ways to help and forming memories from them. During that research it can only use read-only tools: no sending messages, no changing app content, no controlling the browser or computer.
 - **Grok Bot**: each account has a [primary Bot](https://docs.x.ai/grok-bot/bots) that checks in with you on its own and coordinates your other Bots.
@@ -105,7 +105,7 @@ So to place a product, or a job you set up yourself, ask four questions:
 | What context does it wake with? | Only what's in the prompt | The prompt plus the triggering event | Main conversation, memory, connected data |
 | Can it stay quiet when nothing's wrong? | Mostly no | Depends on the product | Yes |
 
-Mistral Vibe and Doubao Work fail the last row: every run hands back a result, so even an open prompt reports every time. Hermes is different. Write an open prompt, have it reply `[SILENT]` when nothing's wrong, add the persistent memory that loads anyway, and you can assemble something close to L3 yourself; what's missing is the main conversation, and you have to set it up. OpenClaw's Proactive check ships set up by default and uses the main conversation, so it passes all four rows even though, underneath, it is also a scheduled job.
+Mistral Vibe and Doubao Work fail the last row: every run hands back a result, so even an open prompt reports every time. Hermes is different. Write an open prompt, have it reply `[SILENT]` when nothing's wrong, add the persistent memory that loads anyway, and you can assemble something close to L3 yourself; what's missing is the main conversation, and you have to set it up. OpenClaw's Proactive check comes ready-made and uses the main conversation, so once enabled it passes all four rows even though, underneath, it is also a scheduled job.
 
 This is also why the overview said scheduled automation "isn't worse". L3's open question and memory cost you predictability about what it will do this time. The *Overreach* post later in the series shows what that cost looks like in practice.
 
@@ -151,6 +151,11 @@ Whichever product you use, the first time you open its settings, look for these 
 Self-check: while doing proactive research in the background, Dots finds an email that needs a reply. Can it reply? No. Proactive research only uses read-only tools. Replying has to be work you assigned or an action your custom rules allow, and it still passes the automatic review.
 
 The next post starts route 1 with its boundary case: why [Tasks in Gemini](/posts/ai/2026-11-20-gemini-tasks-en) stops at L2, and why that may be exactly enough for you.
+
+
+## Update log
+
+- 2026-11-23: Corrected the Proactive check description: new setups create the job but leave it disabled, and you turn it on with `openclaw automations enable` (previously described as running every 30 minutes on new installs).
 
 ## References
 

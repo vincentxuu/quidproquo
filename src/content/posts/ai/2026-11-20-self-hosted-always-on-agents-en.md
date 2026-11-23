@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [ai-agent, always-on-agent, openclaw, hermes-agent, self-hosted]
 lang: en
-tldr: "\"Self-hosted\" comes in three kinds: open-source software you run yourself, a vendor's app running on your machine, and a vendor running open-source software for you in its cloud. They differ in who controls the machine, the code, the updates and the credentials. Of the two big open-source projects, OpenClaw creates a Proactive check every 30 minutes on new installs, so it wakes up and looks around on its own; but tools run directly on the host by default and you have to turn the sandbox on yourself. Hermes Agent has built-in scheduling and signed webhooks, and its commands also run locally by default, but dangerous commands need approval and are always denied inside scheduled jobs; to make it wake on its own you install the community plugin heartbeat2. Whichever you choose, the machine has to stay on, events need a public URL, and patching is on you."
+tldr: "\"Self-hosted\" comes in three kinds: open-source software you run yourself, a vendor's app running on your machine, and a vendor running open-source software for you in its cloud. They differ in who controls the machine, the code, the updates and the credentials. Of the two big open-source projects, OpenClaw sets up a Proactive check on new installs that, once you turn it on, wakes every 30 minutes to look around on its own; but tools run directly on the host by default and you have to turn the sandbox on yourself. Hermes Agent has built-in scheduling and signed webhooks, and its commands also run locally by default, but dangerous commands need approval and are always denied inside scheduled jobs; to make it wake on its own you install the community plugin heartbeat2. Whichever you choose, the machine has to stay on, events need a public URL, and patching is on you."
 description: "The three kinds of self-hosted always-on agents and where responsibility falls in each, how OpenClaw and Hermes Agent differ in wake mechanisms, security defaults and cost-saving design, other open-source projects such as QwenPaw and ClickHouse Nerve, Perplexity Personal Computer's \"your machine, the vendor's code,\" and a way to pick a kind based on your own skills."
 series:
   name: "Always-On AI Agents"
@@ -53,7 +53,7 @@ The third kind is most common in China and gets its own post next. This post foc
 
 OpenClaw is the largest open-source always-on agent today: MIT-licensed, with about 395,000 GitHub stars (November 23).
 
-**Wake mechanism**: a Node.js Gateway runs on your machine, and schedules run inside it. A new install creates a [Proactive check](/posts/ai/2026-03-28-openclaw-automation-cron-webhook-en): every 30 minutes, in the main conversation, only when idle, with results sent to your DM. When there's nothing to report, replying `NO_REPLY` sends nothing. That's L3: it decides for itself whether to speak.
+**Wake mechanism**: a Node.js Gateway runs on your machine, and schedules run inside it. A new install creates a [Proactive check](/posts/ai/2026-03-28-openclaw-automation-cron-webhook-en), but leaves it disabled; you turn it on with `openclaw automations enable`. Once on, it runs every 30 minutes, in the main conversation, only when idle, with results sent to your DM. When there's nothing to report, replying `NO_REPLY` sends nothing. That's L3: it decides for itself whether to speak.
 
 It used to be called Heartbeat; it has since been folded into ordinary scheduled jobs.
 
@@ -86,7 +86,7 @@ One caveat, covered [in this site's Hermes series](/posts/ai/2026-08-18-hermes-a
 
 | | OpenClaw | Hermes Agent |
 |---|---|---|
-| Built-in wake level | L3: a Proactive check every 30 minutes | L2: schedules and webhooks; L3 needs heartbeat2 |
+| Built-in wake level | L3: a Proactive check every 30 minutes (disabled by default) | L2: schedules and webhooks; L3 needs heartbeat2 |
 | Staying quiet when nothing's up | `NO_REPLY` | `[SILENT]`; monitor mode doesn't even call the model |
 | Where tools run by default | The host; you enable the sandbox | Locally, but dangerous commands need approval |
 | Dangerous commands with nobody watching | Depends on tool policy | Denied by default |
@@ -153,6 +153,11 @@ Once you've picked, start with one scheduled job that has a quiet path, then add
 Open-source projects have no regional restrictions and can be installed directly in Taiwan; which models you can use depends on whose API you connect.
 
 Next, [how China wraps the same open-source core into products](/posts/ai/2026-11-20-china-claw-family-en): cloud hosting, one-click installers, and messaging-app integrations. The deeper the wrapping, the more convenient it gets, and security tests suggest the larger the attack surface becomes.
+
+
+## Update log
+
+- 2026-11-23: Corrected the Proactive check description: new setups create the job but leave it disabled, and you turn it on with `openclaw automations enable` (previously described as running every 30 minutes on new installs).
 
 ## References
 

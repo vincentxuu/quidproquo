@@ -81,7 +81,7 @@ Hermes Agent 的 [webhook](https://pinggy.io/blog/proactive_ai_agents_compared/)
 
 這一級的問題是開放的。agent 收到的提示是「看看有什麼需要你處理」，要看哪些資料、要不要找你，由它自己判斷。
 
-- **OpenClaw**：第一次設定時會建立一個 [Proactive check](https://docs.openclaw.ai/gateway/heartbeat)，預設每 30 分鐘跑一次，用的是你和 agent 的主對話，只在 agent 閒著時跑，結果送到你的私訊；沒有需要注意的事就回 `NO_REPLY`，不送出任何訊息。這個機制以前叫 heartbeat，現在併進一般的自動化工作，你可以改頻率、改提示，或整個刪掉。
+- **OpenClaw**：第一次設定時會建立一個 [Proactive check](https://docs.openclaw.ai/gateway/heartbeat)，但預設是關的，要自己用 `openclaw automations enable` 打開。打開後每 30 分鐘跑一次，用的是你和 agent 的主對話，只在 agent 閒著時跑，結果送到你的私訊；沒有需要注意的事就回 `NO_REPLY`，不送出任何訊息。這個機制以前叫 heartbeat，現在併進一般的自動化工作，你可以改頻率、改提示，或整個刪掉。
 - **Claude Duet**：[每天早上](https://support.claude.com/en/articles/17631495-get-started-with-claude-duet)看過你的信箱和行事曆，挑出最需要你注意的事；白天會跟進已經沉寂的討論串，並以固定間隔檢查你連接的帳號。主對話只在任務完成或需要你決定時才出聲。
 - **OpenAI Dots**：沒有你直接交辦時，它會在背景做「[主動研究](https://learn.chatgpt.com/docs/dots/controls)」，看你連接的 app 找可以幫忙的地方，還會從中形成記憶。這時它只能用唯讀工具：不能寄訊息、不能改 app 內容、不能控制瀏覽器或電腦。
 - **Grok Bot**：每個帳號有一個[主 bot](https://docs.x.ai/grok-bot/bots)，它會自己找你 check in，並協調其他 bot 的工作。
@@ -105,7 +105,7 @@ Pinggy 實際在 Hermes Agent 上這樣做過：Hermes 的排程任務只要最�
 | 醒來時有沒有你的脈絡 | 只有提示裡寫的 | 提示加上觸發的事件 | 主對話、記憶、連接的資料 |
 | 沒事能不能保持安靜 | 多半不能 | 看產品 | 能 |
 
-Mistral Vibe 和豆包工作卡在最後一列：跑完一定交回結果，就算你把提示寫成開放的，它也會每次回報。Hermes 不一樣：寫一個開放的提示、讓它沒事回 `[SILENT]`、再加上會載入的長期記憶，你可以自己組出一個接近 L3 的任務，差的是它不帶主對話，而且要你自己設。OpenClaw 的 Proactive check 是產品預設就幫你設好、用的又是主對話，所以四列都做到，雖然它底層其實也是一個排程。
+Mistral Vibe 和豆包工作卡在最後一列：跑完一定交回結果，就算你把提示寫成開放的，它也會每次回報。Hermes 不一樣：寫一個開放的提示、讓它沒事回 `[SILENT]`、再加上會載入的長期記憶，你可以自己組出一個接近 L3 的任務，差的是它不帶主對話，而且要你自己設。OpenClaw 的 Proactive check 是產品幫你建好、用的又是主對話，打開之後四列都做到，雖然它底層其實也是一個排程。
 
 這也是為什麼總覽說排程自動化「不比較差」。L3 的開放問題和記憶，換來的是你比較難預測它這次會做什麼；這個代價在〈主動過頭〉那篇會看到實例。
 
@@ -151,6 +151,11 @@ Mistral Vibe 和豆包工作卡在最後一列：跑完一定交回結果，就�
 自我檢查：Dots 在背景做主動研究時，發現一封該回的信，它能直接回嗎？不能。主動研究只用唯讀工具；要回信，得是你交辦的工作，或你在自訂規則裡允許的動作，而且還要經過自動審查。
 
 下一篇從路線一的邊界案例開始：[Tasks in Gemini](/posts/ai/2026-11-20-gemini-tasks) 為什麼停在 L2，而這對你來說可能剛好夠用。
+
+
+## 更新紀錄
+
+- 2026-11-23：修正 Proactive check 的說法：新安裝會建立這個工作，但預設是關的，要自己用 `openclaw automations enable` 打開（原寫成新安裝就會每 30 分鐘跑）。
 
 ## 參考資料
 

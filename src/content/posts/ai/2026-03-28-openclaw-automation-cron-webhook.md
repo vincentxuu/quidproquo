@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "OpenClaw 文件導讀"
   order: 24
-tldr: "Cron 已改名 Automations（openclaw cron 仍是別名），而且週期性檢查也併進來了：Heartbeat 不再是獨立機制，舊設定用 openclaw doctor --fix 轉成一般排程工作，新安裝會建一個每 30 分鐘、用主對話、閒置才跑的 Proactive check。Background Tasks 與 Task Flow 已移除，多步驟流程改用 Lobster 外掛。選機制只剩一個問題：是時間到了、事件發生了，還是每次都要遵守的規則。"
+tldr: "Cron 已改名 Automations（openclaw cron 仍是別名），而且週期性檢查也併進來了：Heartbeat 不再是獨立機制，舊設定用 openclaw doctor --fix 轉成一般排程工作，新安裝會建一個 Proactive check（預設關閉，打開後每 30 分鐘、用主對話、閒置才跑）。Background Tasks 與 Task Flow 已移除，多步驟流程改用 Lobster 外掛。選機制只剩一個問題：是時間到了、事件發生了，還是每次都要遵守的規則。"
 description: "OpenClaw 自動化機制的選擇指南：Automations、Hooks、Webhooks、IMAP 觸發、Standing Orders、Lobster 的分工，Heartbeat 遷移成排程工作後的監控設定，以及排程器的執行位置、逾時分層與失敗處理。"
 draft: false
 ---
@@ -47,7 +47,7 @@ OpenClaw 跑背景工作的機制在 2026 年下半年整併過一次。這篇�
 舊版的取捨是「Automations 精確但隔離，Heartbeat 大約但有主 session 脈絡」。現在這兩種能力都放進 automation 工作，[Heartbeat 遷移文件](https://docs.openclaw.ai/gateway/heartbeat)寫的變化是：
 
 - **舊設定要遷移**：跑 `openclaw doctor --fix`，它會把舊的 heartbeat 監控轉成可編輯的 automation 工作。ID、執行歷史、scratch 和排程錨點都會保留，`HEARTBEAT.md` 裡支援的內容也會匯入。轉換驗證成功後，`agents.defaults.heartbeat` 這類設定才會被移除，`HEARTBEAT.md` 也不再被讀取。
-- **新安裝會建一個 Proactive check**：每 30 分鐘一次，用 agent 的主對話執行，等閒置才跑，結果送到擁有者的私訊。它只建一次，刪掉就不會再自動長回來。
+- **新安裝會建一個 Proactive check，但預設是關的**：用 `openclaw automations enable <job-id>` 打開後，每 30 分鐘一次，用 agent 的主對話執行，等閒置才跑，結果送到擁有者的私訊。它只建一次，刪掉就不會再自動長回來。
 - **沒事就不說話**：檢查沒有要回報的事時回 `NO_REPLY`，不會發訊息，也不需要多一次模型請求。
 
 要讓排程工作保留舊 heartbeat 的「順便看一下」行為，用[這幾個工作層級的設定](https://docs.openclaw.ai/automation/cron-jobs/schedules)：
@@ -147,6 +147,7 @@ timeout -k 60 600 openclaw agent ...
 
 ## 更新紀錄
 
+- 2026-11-23：修正 Proactive check 的說法：新安裝會建立這個工作，但預設是關的，要自己用 `openclaw automations enable` 打開（原寫成新安裝就會每 30 分鐘跑）。
 - 2026-11-20：對照官方文件現況改寫前兩節。Heartbeat 已遷移成一般 automation 工作（`openclaw doctor --fix`、新安裝建一個 Proactive check、`NO_REPLY`），Background Tasks 與 Task Flow 已移除（改看 automation 執行歷史、多步驟流程改用 Lobster 外掛），機制表改依官方現行選擇表（新增 IMAP 觸發、Webhooks）；新增監控設定（`activeHours`、`idleOnly`、`skipIfScratchEmpty`、擁有者投遞）、動態頻率與 `/loop`、條件腳本、同時執行上限，修正「每次執行建立背景任務紀錄」與 48 小時上限的說法，並記下 v2026.8.1 移除推斷待辦的實驗。
 - 2026-08-18：對照官方文件現況大改。**cron 已改稱 Automations**（`openclaw cron` 為別名），自動化擴充為六種機制（Automations、Heartbeat、Background Tasks、Task Flow、Hooks、Standing Orders）並補上完整的選擇決策表與 Automations／Heartbeat 的對照。新增排程器的實際行為：**跑在 Gateway 程序內、Gateway 沒開就不觸發**、狀態持久化於共用 SQLite、每次執行建立背景任務紀錄、**分層的逾時**（排程器 60 分鐘看門狗、指令 10 分鐘、腳本 5 分鐘、底層 agent-turn 預設 48 小時）與階段專屬看門狗、**三條「不讓失敗偽裝成成功」的設計**（無 payload 的執行失敗仍計為錯誤、結構化拒絕不算綠燈、只回中途狀態會被重新提示）、逾時後強制清除 session 擁有權、`on-exit` 與 `stream` 兩種新排程種類、整點錯開最多 5 分鐘與 `--exact`／`--stagger`、啟動時逾期工作重新排程，以及從外部排程器驅動時的硬殺升級建議與 `--run-id` 重用行為。
 
