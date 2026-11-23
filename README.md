@@ -9,7 +9,7 @@
 ![Platform](https://img.shields.io/badge/platform-Cloudflare_Workers-f38020.svg)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
-[Quick start](#quick-start) · [Features](#features-at-a-glance) · [Architecture](#architecture) · [Deploy](#deploy-to-cloudflare) · [Agent Ecosystem](#agent-ecosystem) · [Docs](#documentation)
+[Quick start](#quick-start) · [Features](#features-at-a-glance) · [Architecture](#architecture) · [Deploy](#deploy-to-cloudflare) · [Admin & Agents](#admin-console-and-agent-platform) · [Docs](#documentation)
 
 [English](README.md) · [繁體中文](README.zh-TW.md)
 
@@ -19,7 +19,7 @@
 
 ## Overview
 
-quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal blog built with **Astro (SSR)** on **Cloudflare Workers**. Articles are written in Markdown, served bilingually (`zh-TW` default, `en`), and backed by a retrieval layer: posts are chunked into D1 and Vectorize to power semantic search, related posts, and a chat endpoint.
+quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal blog built with **Astro (SSR)** on **Cloudflare Workers**. Articles are written in Markdown, served bilingually (`zh-TW` default, `en` under `/en/`), and synced into D1. A retrieval layer (Vectorize, D1 keyword search, Cloudflare AI Search) powers hybrid search, related posts, and a chat endpoint. An admin console runs agent sessions, scheduled routines, and flows on top of the same platform.
 
 > [!IMPORTANT]
 > This is a personal project under active development. The D1 schema, API routes, and content pipelines may change without notice. It is not intended as a general-purpose blogging framework.
@@ -30,17 +30,17 @@ quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal b
 
 | Layer | Technology |
 |-------|------------|
-| **Framework** | Astro 5 (SSR), TypeScript, React (islands) |
-| **Runtime** | Cloudflare Workers (Node.js compat) |
-| **Database** | D1 (SQLite) — posts, chunks, glossary, skills, MCP, plugins |
-| **Vector Search** | Vectorize (768-dim embeddings via Workers AI) |
-| **AI/ML** | Workers AI (embeddings, inference), LangChain adapters |
-| **Queue/Async** | Cloudflare Queues (agent runs, digests, DLQ) |
-| **Storage** | R2 (images, artifacts), KV (sessions, rate limit, deep-research) |
-| **Auth** | Session cookies (KV-backed), admin-only routes |
-| **Quality** | oxlint, custom check scripts, `pnpm verify` gate |
-| **Testing** | Vitest, Playwright (browser) |
-| **i18n** | `zh-TW` (default) + `en`, language-parity checks |
+| **Framework** | Astro 7 (SSR, `output: server`), TypeScript, React islands, Tailwind CSS 4 |
+| **Runtime** | Cloudflare Workers (`@astrojs/cloudflare`, Node.js compat), Durable Objects |
+| **Database** | D1 (SQLite) — posts, chunks, glossary, vocabulary, agent sessions, skills / MCP / plugins |
+| **Search** | Vectorize (Workers AI embeddings) + D1 keyword search + Cloudflare AI Search, fused with weighted RRF |
+| **AI** | Workers AI, LangChain / LangGraph adapters, Vercel AI SDK, Langfuse tracing |
+| **Async** | Cloudflare Queues (agent runs, with DLQ), cron triggers |
+| **Storage** | R2 (images, agent memory, artifacts), KV (sessions, rate limits, deep-research state) |
+| **Auth** | Cloudflare Access (JWT verified in middleware) when configured; KV session cookie as fallback |
+| **Quality** | oxlint, custom `scripts/check-*.mjs`, `pnpm verify` gate |
+| **Testing** | Vitest, Playwright (visual baselines, axe accessibility) |
+| **i18n** | `zh-TW` (default, no prefix) + `en` (`/en/...`), language-parity checks |
 
 ---
 
@@ -48,15 +48,13 @@ quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal b
 
 | Area | What it does | Where it lives |
 |------|--------------|----------------|
-| **Bilingual blog** | Markdown/MDX posts with categories, tags, series, RSS, sitemap, OG image generation | `src/content/posts/`, `src/pages/` |
-| **RAG search & chat** | Post chunks embedded into Vectorize; semantic search, related posts, chat API | `src/pages/api/search.ts`, `src/pages/api/chat.ts` |
+| **Bilingual blog** | Markdown/MDX posts with categories, tags, series, RSS, sitemap, `llms.txt`, generated OG images | `src/content/posts/`, `src/pages/` |
+| **Search & chat** | Hybrid retrieval (vector + keyword + AI Search) with degradation fallback; related posts; chat API | `src/pages/api/search.ts`, `src/pages/api/chat.ts`, `src/lib/retrieval/` |
 | **Deep research** | Multi-step research workflow with evidence tracking and queued agent runs | `src/pages/api/deep-research.ts`, `flows/` |
-| **Content pipelines** | Crawlers, YouTube-to-post, translation, daily digest routines | `src/lib/crawl/`, `scripts/`, `docs/yt-to-post-pipeline.md` |
-| **Agent ecosystem** | Skills, MCP Servers, Plugins management with D1 persistence and admin UI | `src/lib/agent-skills/`, `src/pages/admin/agent-ecosystem.astro` |
-| **Admin console** | Session-authenticated admin UI for jobs, providers, policies, skills | `src/pages/admin/` |
-| **Quality gates** | Lint + post-reference, terminology, language-parity, glossary, link checks | `scripts/check-*.mjs`, `pnpm verify` |
-
-Search and chat work without external SaaS beyond model providers configured via `LLM_PROVIDER`; embeddings and inference use Workers AI and LangChain adapters.
+| **Learning sections** | Glossary, English vocabulary and speaking practice, daily digests, collection, projects | `src/pages/glossary/`, `vocabulary/`, `english.astro`, `daily/`, `collection/` |
+| **Content pipelines** | Crawlers, media-to-post, translation, daily digest routines | `src/lib/crawl/`, `src/lib/digest/`, `scripts/` |
+| **Admin console** | Home / Sessions / Routines / Flows / Settings, with extensions (skills, MCP servers, plugins, hooks, marketplace) | `src/pages/admin/`, `src/pages/api/admin/` |
+| **Quality gates** | Lint, post references, terminology, language parity, glossary, series order, links, diagrams, skills sync | `scripts/check-*.mjs`, `pnpm verify` |
 
 ---
 
@@ -64,125 +62,89 @@ Search and chat work without external SaaS beyond model providers configured via
 
 ```mermaid
 graph TB
-    subgraph Client["Client"]
-        Browser["🌐 Browser"]
+    Browser["Browser"] -->|HTTPS| Workers["Workers (Astro SSR)<br/>middleware: Access / session, i18n"]
+    Browser -->|Static| Assets["Assets"]
+
+    subgraph Data["Data layer"]
+        D1[("D1<br/>quidproquo-db")]
+        Vec[("Vectorize<br/>quidproquo-vectors")]
+        AIS[("AI Search<br/>quidproquo-public")]
+        KV[("KV<br/>SESSION, RATE, DEEP_RESEARCH_KV")]
+        R2[("R2<br/>images, agent memory, artifacts")]
+        Q[("Queues<br/>agent-queue + DLQ")]
+        AI[("Workers AI")]
     end
 
-    subgraph Edge["Cloudflare Edge"]
-        Workers["⚡ Workers (Astro SSR)"]
-        Assets["📦 Assets (Static)"]
+    subgraph Agents["Agent platform"]
+        DO["Durable Objects<br/>AgentSessionDO, AgentSandbox"]
+        Ext["Extensions<br/>skills, MCP, plugins, hooks"]
     end
 
-    subgraph Data["Data Layer"]
-        D1[("🗄️ D1\nquidproquo-db")]
-        Vec[("🔍 Vectorize\nquidproquo-vectors")]
-        KV[("🔑 KV\nSESSION, RATE, DR_KV")]
-        R2[("🪣 R2\nIMAGES, ARTIFACTS, MEMORY")]
-        Queue[("📬 Queues\nAGENT_QUEUE + DLQ")]
-        AI[("🤖 Workers AI\nEmbeddings + Inference")]
-    end
-
-    subgraph Admin["Admin & Agents"]
-        AdminUI["🖥️ Admin Console"]
-        AgentOS["🧠 Agent OS\n(Kernel, Scheduler, Tools)"]
-        Skills["📝 Skills Engine"]
-        MCP["🔌 MCP Servers"]
-        Plugins["📦 Plugin Manager"]
-    end
-
-    Browser -->|HTTPS| Workers
-    Browser -->|Static| Assets
-    Workers --> D1
-    Workers --> Vec
-    Workers --> KV
-    Workers --> R2
-    Workers --> Queue
-    Workers --> AI
-    AdminUI --> Workers
-    AgentOS --> Workers
-    AgentOS --> Skills
-    AgentOS --> MCP
-    AgentOS --> Plugins
-    Skills --> D1
-    MCP --> D1
-    Plugins --> D1
+    Workers --> D1 & Vec & AIS & KV & R2 & Q & AI
+    Workers --> DO
+    Q --> DO
+    DO --> Ext
+    Ext --> D1
 ```
 
-### Data Flow
+### Content flow
 
 ```text
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│   Author    │────▶│  Markdown    │────▶│  Content    │
-│  (Markdown) │     │  + Frontmatter│    │  Config     │
-└─────────────┘     └──────────────┘     └──────┬──────┘
-                                                │
-                                                ▼
-┌─────────────┐     ┌──────────────┐     ┌─────────────┐
-│   D1 Sync   │◀────│  Validation  │◀────│  Type-check │
-│ (scripts/)  │     │ (checks)     │     │ (Astro)     │
-└──────┬──────┘     └──────────────┘     └─────────────┘
-       │
-       ▼
-┌─────────────────────────────────────────────────────┐
-│                    D1 Database                       │
-│  posts • post_chunks • doc_chunks • user_skills     │
-│  mcp_servers • plugins • glossary_terms • stats     │
-└─────────────────────────────────────────────────────┘
-       │                         │
-       ▼                         ▼
-┌─────────────────┐      ┌─────────────────┐
-│  Vectorize      │      │  SSR Queries    │
-│  (Embeddings)   │      │  (Live Data)    │
-└────────┬────────┘      └────────┬────────┘
-         │                        │
-         ▼                        ▼
-┌─────────────────────────────────────────────────────┐
-│              API Layer (Workers)                     │
-│  /api/search • /api/chat • /api/deep-research       │
-│  /api/skills • /api/mcp-servers • /api/plugins      │
-└─────────────────────────────────────────────────────┘
+src/content/posts/<category>/*.md
+        │  type-checked by src/content.config.ts, validated by scripts/check-*.mjs
+        ▼
+pnpm build ──► Astro SSR bundle + OG images
+        │
+        ▼  (CI, on content changes)
+scripts/sync-to-d1.ts ──► D1 posts / post_chunks
+scripts/sync-embeddings-prod.mjs ──► Vectorize
+        │
+        ▼
+/api/search · /api/chat · /api/related-posts · /api/deep-research
 ```
 
 ---
 
 ## Quick Start
 
-**Requirements:** Node.js 22+, pnpm 10, Git. Playwright only for browser tests.
+**Requirements:** Node.js 22.12+ or 24 (`.nvmrc` pins 24), pnpm 10, Git. Playwright only for browser tests.
 
 ```bash
 git clone https://github.com/vincentxuu/quidproquo.git
 cd quidproquo
 pnpm install
+pnpm dev                 # http://localhost:4321, with Cloudflare platform proxy
 ```
 
-### Development
+`pnpm dev` runs through `scripts/dev.mjs`: it stops older dev servers from the same repo and shuts itself down after 3 idle hours (`DEV_IDLE_HOURS`); set `DEV_KEEP_ALIVE=1` to keep it running.
 
 ```bash
-pnpm dev                 # Start dev server at http://localhost:4321
-pnpm sync                # Sync content to local D1
-pnpm sync:prod           # Sync to production D1
+pnpm sync                # Sync posts to local D1
+pnpm sync:prod           # Sync posts to production D1
 ```
 
 ### Everyday Commands
 
 | Command | Purpose |
 |---------|---------|
-| `pnpm build` | Production build to `./dist/` (cron entry, OG images) |
+| `pnpm build` | Production build to `./dist/` (cron entry, rendered-post check, OG images) |
 | `pnpm preview` | Preview production build locally |
 | `pnpm lint` | oxlint static analysis |
 | `pnpm test` | Vitest test suite |
-| `pnpm verify` | **Full pre-commit gate** (lint, refs, quality, glossary, parity, skills-sync, progress) |
-| `pnpm check:lang-parity` | Verify `zh-TW`/`en` content parity |
+| `pnpm test:visual` | Playwright visual and accessibility tests |
+| `pnpm verify` | **Full quality gate** (lint, references, quality, glossary, parity, skills sync, progress protocol) |
+| `pnpm verify:staged` | Pre-commit gate: checks staged files only, falls back to full `verify` for code / config / script changes |
+| `pnpm skills:sync` | Rebuild the `.claude/skills/` mirror from `.agents/skills/` |
 | `pnpm eval:rag` | Run RAG baseline evaluation |
-| `pnpm session:start` | Show latest commit, `progress.txt`, run lint |
+| `pnpm session:start` | Show latest commit and `progress.txt`, then run `verify` |
 
 ---
 
 ## Deploy to Cloudflare
 
-Deployment is automated via GitHub Actions: pushes to `main` run lint, verify, build, and deploy to production.
+Pushes to `main` trigger [`deploy.yml`](.github/workflows/deploy.yml): quality gate → build → `d1 migrations apply` → `wrangler deploy`. When post content changed, it then calls [`content-index.yml`](.github/workflows/content-index.yml) to sync D1 and embeddings and check search freshness.
 
-**Required secrets:** `CLOUDFLARE_API_TOKEN` for deployment and `INDEX_SYNC_SECRET` for protected embedding sync (see [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)). If the deployment token does not include D1 import/write permissions, also set `CLOUDFLARE_D1_API_TOKEN`; the D1 sync step will prefer it over `CLOUDFLARE_API_TOKEN`.
+**Required secrets:** `CLOUDFLARE_API_TOKEN` (build, migrations, deploy) and `INDEX_SYNC_SECRET` (protected content / embedding sync against the deployed Worker).
 
 ### Manual Deploy
 
@@ -191,7 +153,7 @@ pnpm exec wrangler login
 pnpm run deploy
 ```
 
-`pnpm run deploy` builds first, then deploys with generated `dist/server/wrangler.json`. Scheduled jobs (cron triggers for crawlers, digests, retention) are defined in [`wrangler.jsonc`](wrangler.jsonc).
+`pnpm run deploy` builds first, then deploys with the generated `dist/server/wrangler.json`. Cron triggers (crawlers, digests, retention) and a `preview` environment are defined in [`wrangler.jsonc`](wrangler.jsonc). See [`docs/cloudflare-deployment-runbook.md`](docs/cloudflare-deployment-runbook.md) for operations.
 
 ### Cloudflare Resources
 
@@ -201,9 +163,11 @@ pnpm run deploy
 | `SESSION` | KV | Session storage |
 | `RATE` | KV | Rate limiting |
 | `DEEP_RESEARCH_KV` | KV | Deep-research state |
-| `DB` | D1 | Posts, chunks, glossary, **skills, MCP servers, plugins** (`quidproquo-db`) |
-| `VECTORIZE_INDEX` | Vectorize | Embedding search (`quidproquo-vectors`, 768-dim) |
-| `AI` | Workers AI | Embeddings (`@cf/baai/bge-base-en-v1.5`) and inference |
+| `DB` | D1 | All relational data (`quidproquo-db`) |
+| `VECTORIZE_INDEX` | Vectorize | Embedding search (`quidproquo-vectors`) |
+| `AI_SEARCH` | AI Search | Managed search instance (`quidproquo-public`) |
+| `AI` | Workers AI | Embeddings and inference |
+| `AGENT_SESSION_DO` | Durable Object | Per-session agent state (`AgentSessionDO`) |
 | `R2_IMAGES` | R2 | Image storage |
 | `R2_AGENT_MEMORY` | R2 | Agent memory offload |
 | `R2_AGENT_ARTIFACT` | R2 | Agent artifacts |
@@ -211,140 +175,78 @@ pnpm run deploy
 
 ### Database Migrations
 
-Located in [`migrations/`](migrations/). Core tables:
-
-| Table | Purpose |
-|-------|---------|
-| `posts` | Articles (bilingual, categories, tags, series) |
-| `post_chunks` | RAG chunks from posts (embedded) |
-| `doc_chunks` | Chunks from crawled external documents |
-| `user_skills` | User-defined agent skills (SKILL.md) |
-| `mcp_servers` | MCP Server configurations (stdio/http/sse) |
-| `plugins` | Installed plugin packages (skills + MCP bundles) |
-| `glossary_terms` | Terminology definitions |
-| `glossary_lookup_stats` | Search analytics for glossary |
+Located in [`migrations/`](migrations/) and applied automatically on deploy. Core tables include `posts`, `post_chunks`, `doc_chunks`, `glossary_terms`, agent session / evidence / artifact tables, `user_skills`, `mcp_servers`, `plugins`, and vocabulary / personal progress tables.
 
 ---
 
 ## Why quidproquo?
 
-- **Content as data** — Every post is plain Markdown synced into D1; search, recommendations, analytics all query one source of truth.
-- **RAG-native** — Retrieval is not bolted on: chunking, embedding, evaluation (`pnpm eval:rag`), trace retention are first-class.
+- **Content as data** — Every post is plain Markdown synced into D1; search, recommendations, and analytics query one source of truth.
+- **RAG-native** — Chunking, embedding, hybrid fusion, evaluation (`pnpm eval:rag`), and trace retention are first-class.
 - **Bilingual by construction** — Language-parity and Traditional-Chinese terminology checks keep editions consistent.
-- **Quality gates before publish** — References, series order, glossary coverage, external links verified in CI.
-- **One platform** — Compute, storage, search indexes, queues, AI all run inside Cloudflare Workers.
-- **Agent-extensible** — Built-in Skills/MCP/Plugins system for composing agent workflows.
+- **Quality gates before publish** — References, series order, glossary coverage, links, and diagram geometry are verified locally and in CI.
+- **One platform** — Compute, storage, search, queues, Durable Objects, and AI all run on Cloudflare.
+- **Feature-flagged** — Every advanced AI capability is individually toggleable via `wrangler.jsonc` vars.
 
 ---
 
-## Agent Ecosystem
+## Admin Console and Agent Platform
 
-The project includes a built-in agent extensibility system with three layers:
+The admin console lives at `/admin` (auth required; disabled entirely when `AGENT_CONSOLE_ENABLED` is off). It has five top-level tabs:
 
-### Component Architecture
+| Tab | What it does |
+|-----|--------------|
+| **Home** | Composer, items waiting on you, recent sessions, usage |
+| **Sessions** | Agent sessions with event stream, steps, diffs, approvals, evidence, and artifacts |
+| **Routines** | Scheduled agent jobs (create, edit, run history) |
+| **Flows** | Declarative pipelines from `flows/` |
+| **Settings** | Models, permissions, access, environments, GitHub, notifications, site, and **extensions** |
 
-```mermaid
-graph LR
-    subgraph Runtime["Agent Runtime"]
-        Kernel["🧠 Kernel\n(State, Memory, Permissions)"]
-        Scheduler["⏰ Scheduler\n(Queues, Crons, Durable)"]
-        Tools["🔧 Tools Registry\n(Syscalls, MCP, Providers)"]
-    end
+**Extensions** (`/admin/settings/extensions`) manage the agent's extensibility layer:
 
-    subgraph Extensibility["Extensibility Layer"]
-        Skills["📝 Skills\n(SKILL.md + Scripts + Refs)"]
-        MCPServers["🔌 MCP Servers\n(stdio / HTTP / SSE)"]
-        Plugins["📦 Plugins\n(Skills + MCP Bundles)"]
-    end
+| Extension | Purpose | API |
+|-----------|---------|-----|
+| **Skills** | Reusable workflows in `SKILL.md` format. Project skills live in `.agents/skills/` (git); user skills in D1 / R2 | `/api/admin/settings/extensions/skills` (+ `export`, `import`) |
+| **MCP Servers** | External tools via Model Context Protocol (`stdio`, `http`, `sse`) | `/api/admin/settings/extensions/mcp-servers` |
+| **Plugins** | Packages bundling skills + MCP servers | `/api/admin/settings/extensions/plugins` (+ `install`) |
+| **Hooks** | `PreToolUse` / `PostToolUse` / `SessionStart` / `Stop` hooks (command, HTTP, or inline handlers) | `/api/admin/settings/extensions/hooks` |
+| **Marketplace** | Browse and install packages | `/api/admin/settings/extensions/marketplace` |
 
-    Kernel --> Skills
-    Kernel --> MCPServers
-    Scheduler --> Tools
-    Tools --> MCPServers
-    Skills --> Plugins
-    MCPServers --> Plugins
-```
-
-### Components
-
-| Component | Purpose | Storage | API |
-|-----------|---------|---------|-----|
-| **Skills** | Reusable workflow definitions (SKILL.md format) for agents | Project: `.agents/skills/` (git)<br>User: D1 `user_skills` | `GET/POST/PUT/DELETE /api/skills`<br>`GET /api/skills/export`<br>`POST /api/skills/import` |
-| **MCP Servers** | External tool providers via Model Context Protocol (GitHub, Notion, Slack, custom) | D1 `mcp_servers` | `GET/POST/PUT/DELETE /api/mcp-servers`<br>`PATCH /api/mcp-servers/:name` (toggle) |
-| **Plugins** | Distributable packages bundling skills + MCP servers | D1 `plugins` | `GET/POST/PUT/DELETE /api/plugins` |
-
-### Key Design Decisions
-
-- **Dual-source skills**: Project skills (`.agents/skills/`, version-controlled) + User skills (D1, runtime-editable) merged at execution time
-- **SKILL.md standard**: Follows [agentskills.io](https://agentskills.io) format (frontmatter + sections: When to use, Instructions, Scripts, References, Assets)
-- **MCP agnostic**: Supports `stdio` (local), `http`, `sse` (remote) transports
-- **Plugin as package**: Plugin = manifest + skills[] + mcp_servers[]; install/uninstall/upgrade via API
-- **Compatibility layer**: Exposes `SUPPORTED_AGENT_SKILLS` for existing deep-research pipelines
-
-### Admin UI
-
-Visit `/admin/agent-ecosystem` (auth required):
-- **Three tabs**: Skills / MCP Servers / Plugins
-- Search, filter by source/status
-- Modal editors for create/update
-- Import/export JSON (skills)
-- One-click enable/disable MCP servers
-
-### Authoring Skills
-
-See [`docs/skill-package-development-guide.md`](docs/skill-package-development-guide.md) for:
-- SKILL.md frontmatter schema
-- Section structure (When to use, Instructions, Scripts, References, Assets)
-- Testing and validation
-- Publishing as plugin
-
----
-
-## Project Status
-
-- **Live**: [quidproquo.cc](https://quidproquo.cc) (auto-deploy from `main`)
-- **Implemented**:
-  - Bilingual SSR blog with categories, tags, series, RSS, sitemap
-  - RAG search, chat, related posts
-  - Deep-research workflow (planner→research→writer→critic)
-  - Agent queue console with evidence tracking
-  - Content QA suite (references, terminology, parity, glossary, links)
-  - RAG evaluation harness (`pnpm eval:rag`)
-  - **Agent Skills/MCP/Plugins ecosystem**
-- **In progress**: Agent flow/policy/artifact expansion, glossary analytics, publishing automation — see [`docs/TODO.md`](docs/TODO.md) and [`docs/content-pipeline-roadmap.md`](docs/content-pipeline-roadmap.md)
+The full route table is in [`docs/admin-route-map.md`](docs/admin-route-map.md). Skill authoring is covered in [`docs/skill-package-development-guide.md`](docs/skill-package-development-guide.md).
 
 ---
 
 ## Environment Variables
 
-Configure via `wrangler.jsonc` `[vars]` or Cloudflare dashboard:
+Configured via `wrangler.jsonc` `vars` or the Cloudflare dashboard. All `AGENT_*` flags are booleans; see [`wrangler.jsonc`](wrangler.jsonc) for the full list and current defaults.
 
-| Variable | Required | Default | Description |
-|----------|----------|---------|-------------|
-| `LLM_PROVIDER` | Yes | `groq` | `openai` \| `anthropic` \| `gemini` \| `groq` \| `openrouter` |
-| `AGENT_OS_ENABLED` | No | `true` | Enable Agent OS kernel |
-| `AGENT_OS_PLANNER` | No | `false` | Enable planner agent |
-| `AGENT_OS_RESEARCH` | No | `false` | Enable research agent |
-| `AGENT_OS_WRITER` | No | `false` | Enable writer agent |
-| `AGENT_OS_CRITIC` | No | `true` | Enable critic agent |
-| `AGENT_PROVIDERS_ENABLED` | No | `true` | Enable provider router |
-| `AGENT_PROVIDERS_LLM_*` | No | `false` | Per-provider toggles |
-| `AGENT_PROVIDERS_SEARCH_*` | No | `false` | Search provider toggles (tavily, exa, jina) |
-| `ADMIN_PASSWORD` | Yes* | — | Admin console password (bcrypt hash in KV) |
-| `CRAWL_SECRET` | No | — | Secret for crawler webhooks |
-
-*Required for admin access.
+| Variable | Description |
+|----------|-------------|
+| `LLM_PROVIDER` | Default model provider (`openai` \| `anthropic` \| `gemini` \| `groq` \| `openrouter`) |
+| `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD` | Cloudflare Access team domain and application audience; once any `ACCESS_*` var is set, admin and private routes require a verified Access JWT (and fail with 503 if the config is incomplete) |
+| `ACCESS_ALLOWED_EMAILS` | Comma-separated emails allowed through Access-protected routes |
+| `AGENT_OS_*` | Agent OS kernel and roles (planner, research, writer, critic), external MCP tools, queue scheduler |
+| `AGENT_CONSOLE_ENABLED` | Umbrella flag for `/admin` |
+| `AGENT_EVIDENCE_ENABLED` | Evidence tracking |
+| `AGENT_ARTIFACT_*` | Artifact outputs (CSV, PDF, PPTX, Notion, Slack, GitHub issue / PR, email) |
+| `AGENT_PROVIDERS_*` | Provider router and per-provider toggles (LLM, search, reader, knowledge) |
+| `ADMIN_PASSWORD` | Secret for session-cookie login when Access is not configured |
+| `CRAWL_SECRET` | Secret for crawler webhooks |
 
 ---
 
 ## Documentation
 
-- [AI agent content system](docs/ai-agent-content-system.md)
+- [Docs index](docs/README.md)
 - [Operating charter](docs/governance/operating-charter.md)
+- [Design system](docs/design-system.md)
+- [Admin route map](docs/admin-route-map.md)
+- [AI agent content system](docs/ai-agent-content-system.md)
 - [Content pipeline roadmap](docs/content-pipeline-roadmap.md)
 - [Translation pipeline](docs/translation-pipeline.md)
 - [YT-to-post pipeline](docs/yt-to-post-pipeline.md)
 - [RAG trace retention policy](docs/rag-trace-retention-policy.md)
+- [Cloudflare deployment runbook](docs/cloudflare-deployment-runbook.md)
 - [Skill package development guide](docs/skill-package-development-guide.md)
 - [Architecture decisions](docs/adr/)
 
