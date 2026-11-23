@@ -46,13 +46,22 @@
 
 答不出 1–3，或第 4 題列出規劃用語，就回去改正文，不是改審稿紀錄。冷讀結果記進 `.work/reviews/<slug>.md` 的「## 冷讀」一節。
 
+## 交付時不留「能研究卻沒做」的缺口
+
+交付回報或審稿紀錄裡列出的缺口，只能是兩種：
+
+1. **試完仍做不到**：工具照 fallback 鏈試過、也換過替代來源（見 writing-guide 與 [[fill-source-gaps-with-alternatives]]），同一行寫「已試：<工具與來源>」。
+2. **使用者明確同意不補**：同一行寫「使用者同意不補」。
+
+「需要另外研究」「之後再補」「先發」都不是理由：查得到就查完再交。本站踩過（2026-11-23）：Mackay 篇把「金額沒有生活尺度」「沒列反對 Garber／Goldgar 的研究」列成已知缺口交給使用者，被問「不處理的原因？」。兩項都查得到（de Vries 與 van der Woude 的工資資料、Goldgar 2018 的檔案數字、Thompson 2007、French 2006、McClure 與 Thomas 2017），一輪研究就補上；而沒列反方研究，等於研究五關的「反證」沒過就上站。
+
 ## 自動檢查（只套 tags 含 `reading-guide` 的文章）
 
 - `check-process-leak`：正文、description、tldr 出現規劃用語（L1–L5、order N、解釋鏈、回扣、敘事模板…），或 H2 用固定標籤（台灣回扣、限制、解釋鏈…），pre-commit 擋下被修改的文章。
-- `check-series-plan`：被修改的書籍導讀，審稿紀錄缺「## 冷讀」就擋。
+- `check-series-plan`：被修改的書籍導讀，審稿紀錄缺「## 冷讀」就擋；審稿紀錄裡條列開頭寫「已知缺口／未處理／待補／之後再補／尚未研究」或出現「需要另外研究」的行，同一行沒有「已試：」或「使用者同意不補」也擋。
 - 兩者在全站模式不擋舊文：舊文改到時才要補齊。冷讀本身要開子代理，檢查器只能確認有做、有記錄，答得好不好仍要人看。
 
 ## 範本
 
 - 站外：Smithsonian〈[There Never Was a Real Tulip Fever](https://www.smithsonianmag.com/history/there-never-was-real-tulip-fever-180964915/)〉（Boissoneault, 2017）。順序是：大家熟悉的故事 → 「這些都不是真的」→ 當時的社會背景與商品本身 → Mackay 的版本 → 檔案查到的事 → 這個版本為什麼被編出來、為什麼還活著。
-- 站內：Mackay 篇（`src/content/posts/learning/2026-11-17-mackay-popular-delusions.md` 與 `-en.md`，2026-11-20 使用者認可）。看它怎麼做：開頭引作者命題 → 用一章當檢驗案例 → 先講事件再對照作者寫法 → 「瘋狂」的三種解釋當跨篇工具 → 回答系列問題（故事本身被成群相信）→ 點名後續篇章。已知缺口：金額沒有生活尺度、沒列反對 Garber／Goldgar 的研究。
+- 站內：Mackay 篇（`src/content/posts/learning/2026-11-17-mackay-popular-delusions.md` 與 `-en.md`，2026-11-20 使用者認可）。看它怎麼做：開頭引作者命題 → 用一章當檢驗案例 → 先講事件再對照作者寫法 → 「瘋狂」的三種解釋當跨篇工具 → 回答系列問題（故事本身被成群相信）→ 點名後續篇章。2026-11-23 補上工資尺度與四種反方／替代解釋，是「交付時不留缺口」的示範。
