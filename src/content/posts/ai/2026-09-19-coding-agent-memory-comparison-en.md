@@ -8,7 +8,7 @@ series:
   name: "AI Agent 記憶工程"
   order: 3
 lang: en
-tldr: "Nine coding agents have taken at least four different paths for long-term memory: Claude Code and Codex use Markdown files (agent-written, human-readable), Antigravity CLI inherits Gemini CLI's approval inbox (agent proposes, human decides), and Copilot uses citations with JIT verification (auto-deleted after 28 days unverified). Cursor removed its Memories feature and fell back to human-written Rules. Hermes Agent, OpenClaw, and Letta Code treat memory as a core harness component, not a plugin. Their choices on write timing, forgetting, and cross-team sharing are completely different — and none has published a controlled experiment on whether their memory system actually helps."
+tldr: "Nine coding agents have taken at least four different paths for long-term memory: Claude Code and Codex use Markdown files (agent-written, human-readable), Antigravity CLI drafts a `/learn` proposal and writes only after approval (agent proposes, human decides), and Copilot uses citations with JIT verification (auto-deleted after 28 days unverified). Cursor removed its Memories feature and fell back to human-written Rules. Hermes Agent, OpenClaw, and Letta Code treat memory as a core harness component, not a plugin. Their choices on write timing, forgetting, and cross-team sharing are completely different — and none has published a controlled experiment on whether their memory system actually helps."
 description: "Comparing long-term memory designs across Claude Code, Codex, Antigravity CLI, Cursor, GitHub Copilot, Devin Desktop, Hermes Agent, OpenClaw, and Letta Code: instruction file hierarchies, automatic memory extraction, forgetting mechanisms, cross-session sharing, and prompt cache trade-offs."
 draft: false
 ---
@@ -19,7 +19,7 @@ draft: false
 
 Yesterday you spent three hours teaching Claude Code your API naming conventions, walked Codex through your deploy pipeline, and marked five team standards in Cursor. You close the terminal. Are those things still there?
 
-This post compares nine coding agents on long-term memory design choices. The scope covers mechanisms with public documentation — not platform APIs ([next post](/posts/ai/2026-09-19-cloud-platform-memory-apis-en)) or open-source frameworks. Compared to the previous six-agent survey, this edition adds Hermes Agent, OpenClaw, and Letta Code — three harnesses that treat memory as a core architectural component — and reflects the fact that Gemini CLI was retired on 2026-06-18 and replaced by Antigravity CLI.
+This post compares nine coding agents on long-term memory design choices. The scope covers mechanisms with public documentation — not platform APIs ([next post](/posts/ai/2026-09-19-cloud-platform-memory-apis-en)) or open-source frameworks. Compared to the previous six-agent survey, this edition adds Hermes Agent, OpenClaw, and Letta Code — three harnesses that treat memory as a core architectural component — and reflects that general users moved from Gemini CLI to Antigravity CLI on 2026-06-18.
 
 ## Overview: What Each Agent Has
 
@@ -121,20 +121,20 @@ Codex Memories' file layout matches OpenAI Agents SDK's [sandbox memory](https:/
 
 ## Antigravity CLI (Google)
 
-Gemini CLI was officially retired on 2026-06-18, replaced by **Antigravity CLI**. This is Google's consolidation announced at I/O 2026 (May 19), bringing the Antigravity 2.0 platform's core agent harness to the terminal.
+On 2026-05-19 Google [announced](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) it was consolidating its terminal product into **Antigravity CLI**, which brings the Antigravity 2.0 agent harness to the terminal. Since 2026-06-18, Gemini CLI no longer serves free users or Google AI Pro / Ultra subscribers, who now use Antigravity CLI; Gemini Code Assist Standard / Enterprise licenses and paid API keys can keep using Gemini CLI, including its Auto Memory inbox.
 
-**Memory mechanism: Inherits Gemini CLI's inbox approval route**
+**Memory mechanism: `/learn` proposals, human approval**
 
-Antigravity CLI preserves the core developer experience constructs from Gemini CLI, including skills and hooks. The memory system follows the same design philosophy:
+Antigravity CLI keeps Gemini CLI's Agent Skills, Hooks, Subagents, and Extensions (now called plugins). Memory and configuration work like this:
 
-- **Config migration**: Global skills path moved from `~/.gemini/skills/` to `~/.gemini/antigravity-cli/skills/`, project from `.gemini/skills/` to `.agents/skills/`
+- **Path migration**: Global skills can stay in `~/.gemini/skills/` or move to `~/.gemini/antigravity-cli/skills/`; project skills move from `.gemini/skills/` to `.agents/skills/`; `GEMINI.md` and `AGENTS.md` are read as before
 - **MCP config separated**: MCP servers pulled out of preferences into dedicated lightweight JSON profiles
-- **Write approval**: Same as Gemini CLI — agent proposes → inbox → human approval required
+- **Write approval**: There is no background Auto Memory like Gemini CLI's; lessons are saved through [`/learn`](https://antigravity.google/docs/commands/learn/), where the agent drafts a `learning_proposal.md` and writes a rule or skill file only after explicit approval
 - **Auto onboarding conversion**: Migration command sequences and first-launch onboarding automatically convert legacy settings
 
 Antigravity CLI is a Go-compiled multi-agent tool supporting Agent Manager for parallel agent execution, sharing the same harness as the Antigravity 2.0 IDE (VS Code fork).
 
-> Design implication: Google chose "agent proposes, human approves" and carried it to the CLI. Among nine agents, this remains one of the strictest write-access controls. The risk: inbox piles up and gets ignored.
+> Design implication: Google chose "agent proposes, human approves" and carried it to the CLI. Among nine agents, this remains one of the strictest write-access controls. The cost: someone has to invoke `/learn` and review each proposal.
 
 ## Cursor (Anysphere)
 
@@ -192,7 +192,7 @@ Per [2026-01-15 announcement](https://github.blog/changelog/2026-01-15-agentic-m
 
 - **May 15**: Copilot Memory expanded to **user-level preferences** — no longer just repo-level. Personal preferences follow you across all repos
 - **June 1**: Usage-based billing went live, Copilot code review consumes GitHub Actions minutes
-- **September 2026**: Multiple models deprecated October 19 (Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5 mini, Grok 4.5). GPT-5.2-Codex GA across VS Code, Copilot Chat, Coding Agent, CLI
+- **October 19**: Gemini 3.7 Flash, GPT-5.5, GPT-5.4, GPT-5.4 mini, GPT-5 mini, and Grok 4.5 were [deprecated in Copilot](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/) (announced September 18). GPT-5.2-Codex GA across VS Code, Copilot Chat, Coding Agent, CLI
 - Copilot SDK entered technical preview (Node.js/TypeScript, Python, Go, .NET)
 
 **Forgetting: 28 days unverified = deleted**
@@ -362,8 +362,8 @@ Letta Code is model-agnostic (OpenAI, Anthropic, Mistral, etc.) — the memory s
 | | Claude Code | Codex | Antigravity CLI | Cursor | Copilot | Devin Desktop | Hermes Agent | OpenClaw | Letta Code |
 |---|---|---|---|---|---|---|---|---|---|
 | **Storage** | Local Markdown | Local Markdown | Local Markdown | Rules files | GitHub-hosted KV | Local + Cloud | Local Markdown + SQLite | Files + Wiki | Git-backed MemFS |
-| **Write timing** | In-session auto | 6h idle background | Idle → inbox | Human-written Rules | In-session tool call | Auto + manual | Background nudge + auto | Background + provenance | Agent tool calls |
-| **Requires approval** | No | No | **Yes (inbox)** | N/A (human) | No | Partial | write_approval | Partial | No |
+| **Write timing** | In-session auto | 6h idle background | `/learn` proposal | Human-written Rules | In-session tool call | Auto + manual | Background nudge + auto | Background + provenance | Agent tool calls |
+| **Requires approval** | No | No | **Yes (proposal approval)** | N/A (human) | No | Partial | write_approval | Partial | No |
 | **Forgetting** | None | 30 days unused | None | N/A | 28 days unverified | Manual | Periodic grading | None (manual) | Manual |
 | **Cross-session** | ✓ | ✓ | ✓ | ✓ (Rules) | ✓ | ✓ | ✓ | ✓ | ✓ |
 | **Cross-team** | ✗ | ✗ | ✗ | Team Rules | **Repo-level** | Org Knowledge | ✗ | ✗ | ✗ |
@@ -385,7 +385,7 @@ The agent automatically writes memorable things as Markdown — during the sessi
 
 **Route 2: Agent proposes, human approves (Antigravity CLI)**
 
-The agent produces candidate memories, but the final step is human approval. Antigravity CLI inherits Gemini CLI's inbox mechanism — Auto Memory patch and SKILL.md candidates require human sign-off.
+The agent produces candidate memories, but the final step is human approval. Antigravity CLI's `/learn` drafts a proposal that becomes a rule or skill only after human approval; enterprise users still on Gemini CLI get Auto Memory patch and SKILL.md candidates in an inbox awaiting sign-off.
 
 *Bet*: Humans are willing to spend time reviewing memories. *Risk*: Inbox piles up and gets ignored, making the feature effectively off.
 
@@ -425,6 +425,10 @@ Letta's Context Repositories offer an interesting direction: using Git's replaya
 
 Coding agent memory is designed for "people using tools" — local, personal, following the session. But if you're **building** agents, the cloud platforms' memory APIs are a different world: hosted storage, multi-tenant isolation, asynchronous extraction pipelines. [Next post](/posts/ai/2026-09-19-cloud-platform-memory-apis-en) breaks down OpenAI, Anthropic, Google, AWS, and Microsoft's five clouds' memory APIs.
 
+## Update Log
+
+- 2026-11-23: Corrected Gemini CLI's status (not fully retired: general users moved to Antigravity CLI while enterprise licenses continue), rewrote Antigravity CLI's memory writes as `/learn` proposals with approval; Copilot model deprecations are now past tense and include GPT-5.4 mini; removed stray page-navigation text pasted at the end
+
 ## References
 
 - [Claude Code — Memory official docs](https://code.claude.com/docs/en/memory)
@@ -440,6 +444,7 @@ Coding agent memory is designed for "people using tools" — local, personal, fo
 - [OpenAI — Agents SDK Sandbox Memory official docs](https://openai.github.io/openai-agents-python/sandbox/memory/)
 - [Google — An important update: Transitioning Gemini CLI to Antigravity CLI (2026-05-19)](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)
 - [Google Antigravity Docs — Migrating from Gemini CLI](https://antigravity.google/docs/cli/gcli-migration)
+- [Google Antigravity Docs — /learn command](https://antigravity.google/docs/commands/learn/)
 - [Cursor — Rules official docs](https://cursor.com/docs/rules)
 - [Cursor — Automations official docs](https://cursor.com/docs/cloud-agents/automations)
 - [Cursor forum official reply — Memories removed starting from 2.1.17](https://forum.cursor.com/t/memories-not-showing/143820)
@@ -447,6 +452,7 @@ Coding agent memory is designed for "people using tools" — local, personal, fo
 - [GitHub Copilot — Memory concept docs](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
 - [GitHub — Agentic memory for GitHub Copilot public preview (2026-01-15)](https://github.blog/changelog/2026-01-15-agentic-memory-for-github-copilot-is-in-public-preview)
 - [GitHub Engineering — Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
+- [GitHub — Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)
 - [GitHub — Copilot Memory supports user preferences (2026-05-15)](https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users)
 - [Cognition — Introducing Devin Desktop (2026-06-02)](https://cognition.com/blog/introducing-devin-desktop)
 - [Devin Desktop — Memories official docs](https://docs.devin.ai/desktop/cascade/memories)
@@ -461,14 +467,5 @@ Coding agent memory is designed for "people using tools" — local, personal, fo
 - [OpenClaw — v2026.9.3 Release](https://docs.openclaw.ai/releases/2026.9.3)
 - [OpenClaw 2.0 explained (2026-08-31)](https://cellcog.ai/blog/openclaw-2-0)
 - [OpenBrain — Memory Provenance for OpenClaw](https://www.mindstudio.ai/blog/openbrain-memory-provenance-openclaw-labels)
-- [Coding agent session persistence and crash recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)
-- [Context overflow: seven answers, none of them consensus](/posts/ai/2026-08-21-context-full-seven-answers)
-
-[Previous: 'The difference of writing a single "Write a script" — How Skill Instructions determine LLM success or failure'](https://quidproquo.cc/posts/ai/2026-09-19-docx-skill-instructions-stream-stall)
-[Next: Five clouds' memory APIs: How OpenAI, Anthropic, Google, AWS, Microsoft make agents remember](https://quidproquo.cc/posts/ai/2026-09-19-cloud-platform-memory-apis)
-
-### Related posts
-
-[Series intro: AI Agent Memory Engineering](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)
-[Four types of memory and six design axes: Agent memory system design space](/posts/ai/2026-09-19-agent-memory-taxonomy)
-[Where AI memory systems go in 2026: Files won over vectors, forgetting has only just begun](/posts/ai/2026-09-19-agent-memory-2026-trends)
+- [Coding agent session persistence and crash recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
+- [Context overflow: seven answers, none of them consensus](/posts/ai/2026-08-21-context-full-seven-answers-en)

@@ -34,7 +34,7 @@ Further left means humans can read and edit the memory. Further right means high
 
 ## Mem0: one-line `add()` with automatic extraction
 
-[Mem0](https://mem0.ai) (Apache-2.0, v2.0.19, 2026-08-24) is the most widely integrated open-source memory layer. Per the [ECAI 2025 paper](https://arxiv.org/abs/2504.19413), the core flow is: conversation comes in → LLM extracts facts worth keeping → stores in a vector store → next time, hybrid retrieval (semantic + BM25 + entity) with recency decay.
+[Mem0](https://mem0.ai) (Apache-2.0, v2.2.1, 2026-09-25) is the most widely integrated open-source memory layer. Per the [ECAI 2025 paper](https://arxiv.org/abs/2504.19413), the core flow is: conversation comes in → LLM extracts facts worth keeping → stores in a vector store → next time, hybrid retrieval (semantic + BM25 + entity) with recency decay.
 
 **Storage**: Vector-based. The 2026 version switched to single-pass ADD-only extraction ([OSS v2→v3 migration docs](https://docs.mem0.ai/migration/oss-v2-to-v3)). Graph memory was removed from the open-source SDK and moved to the hosted Platform.
 
@@ -52,7 +52,7 @@ Good fit for quickly adding "remember user preferences" to an existing agent. No
 
 ## Zep / Graphiti: time as a first-class citizen
 
-[Graphiti](https://github.com/getzep/graphiti) (Apache-2.0, v0.29.3, 2026-07-27) is the open-source engine; Zep Cloud is the commercial service built on it (SOC 2 Type II, HIPAA). Zep Community Edition was discontinued on 2025-04-02.
+[Graphiti](https://github.com/getzep/graphiti) (Apache-2.0, v0.31.2, 2026-10-20) is the open-source engine; Zep Cloud is the commercial service built on it (SOC 2 Type II, HIPAA). Zep Community Edition was discontinued on 2025-04-02.
 
 **Storage**: A **bi-temporal knowledge graph** — every edge carries `created_at` / `expired_at` / `valid_at` / `invalid_at`. Contradictory facts aren't overwritten or deleted; they're marked as invalidated at a point in time. Per the [Graphiti paper](https://arxiv.org/abs/2501.13956), this lets the system answer time-bounded questions like "where did they live last month."
 
@@ -70,7 +70,9 @@ Good fit for scenarios requiring temporal reasoning: customer service history, m
 
 ## Letta: the agent manages its own memory
 
-[Letta](https://github.com/letta-ai/letta) (Apache-2.0, v0.16.8, 2026-05-14) evolved from the [MemGPT paper](https://arxiv.org/abs/2310.08560). Its core idea is making memory management a tool the agent uses itself — the model actively edits core memory blocks pinned in the system prompt via `memory_replace` / `memory_insert` / `memory_rethink`.
+[Letta](https://github.com/letta-ai/letta-code) (Apache-2.0) evolved from the [MemGPT paper](https://arxiv.org/abs/2310.08560). Its core idea is making memory management a tool the agent uses itself — the model actively edits core memory blocks pinned in the system prompt via `memory_replace` / `memory_insert` / `memory_rethink`.
+
+Since 2026-08, the old Python server repo `letta-ai/letta` has been marked legacy and stops at 0.16.8 (2026-05-14). The current source (agent harness, App Server, `letta server`) lives in [`letta-ai/letta-code`](https://github.com/letta-ai/letta-code), and the `letta` package on PyPI has shipped Letta Code since 0.34 (2026-09-30).
 
 **First generation** (MemGPT era): core blocks (always in system prompt) + archival (pgvector for long-term) + recall (conversation history).
 
@@ -88,7 +90,7 @@ Good fit for scenarios where the agent should self-manage memory and you want gi
 
 ## LangGraph / LangMem: framework-native memory
 
-[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence) (MIT, v1.2.11, 2026-08-11) is LangChain's agent orchestration layer. Memory here isn't a standalone product but part of the framework.
+[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence) (MIT, v1.2.24, 2026-11-20) is LangChain's agent orchestration layer. Memory here isn't a standalone product but part of the framework.
 
 **Short-term**: **Checkpointer** (thread state). Backends include InMemory / Sqlite / Postgres / MongoDB / Redis (Redis with native TTL). Automatically snapshots after each graph execution.
 
@@ -106,7 +108,7 @@ Good fit for teams already using LangGraph — no extra infra needed, checkpoint
 
 ## LlamaIndex Memory: block priority controls truncation
 
-[LlamaIndex](https://github.com/run-llama/llama_index) (MIT, llama-index-core 0.14.24, 2026-08-19) revamped its Memory module on 2025-05-08.
+[LlamaIndex](https://github.com/run-llama/llama_index) (MIT, llama-index-core 0.14.26, 2026-11-13) revamped its Memory module on 2025-05-08.
 
 **Core mechanism**: The `Memory` object manages `token_limit` (default 30,000), `chat_history_token_ratio` (0.7), and `token_flush_size` (3,000). When the budget overflows, the oldest messages are flushed in batches to each block's `aput()`; on read, `get()` prepends blocks back into context.
 
@@ -124,7 +126,7 @@ Good fit for existing LlamaIndex RAG projects that want to incrementally add mem
 
 ## Cognee: a triple-store pipeline
 
-[Cognee](https://github.com/topoteretes/cognee) (Apache-2.0, v1.5.3, 2026-08-23) is a data-to-AI-memory pipeline using three storage types: relational (LanceDB default) + vector + graph (Kuzu default, swappable for Neo4j / FalkorDB). $7.5M seed (2026-02-19).
+[Cognee](https://github.com/topoteretes/cognee) (Apache-2.0, v1.6.10, 2026-11-18) is a data-to-AI-memory pipeline using three storage types: relational (LanceDB default) + vector + graph (Kuzu default, swappable for Neo4j / FalkorDB). $7.5M seed (2026-02-19).
 
 **API**: `remember()` = add → cognify → improve; `recall()` / `search(SearchType)` for reads; `forget()` for deletion.
 
@@ -138,7 +140,7 @@ Good fit for turning unstructured documents into a queryable knowledge graph (e.
 
 ## Supermemory: temporal vector-graph engine
 
-[Supermemory](https://github.com/supermemoryai/supermemory) (MIT, server 0.0.8, 2026-08-17) calls itself a "Temporal Vector-Graph Engine," mixing chunks + memories (fact graph) + profile. $3M raised (2025-10-06).
+[Supermemory](https://github.com/supermemoryai/supermemory) (MIT, server 0.0.9, 2026-10-12) calls itself a "Temporal Vector-Graph Engine," mixing chunks + memories (fact graph) + profile. $3M raised (2025-10-06).
 
 **Write**: `/v3/documents`, `/v4/memories`, SDK auto-extraction. Memory Router proxy (status unclear — documented but community reports instability).
 
@@ -160,7 +162,7 @@ These frameworks are either new or small, but each brings a unique design idea:
 | [EverMemOS](https://arxiv.org/abs/2601.02163) (EverMind) | — | MemCell → MemScene hierarchy, ACL 2026 | LoCoMo 93.05% |
 | [MemOS](https://arxiv.org/abs/2507.03724) (MemTensor) | — | MemCube abstraction unifying parametric/activation/explicit memory | LoCoMo +38.97% vs OpenAI memory |
 | Mastra Observational Memory | — | Observational memory | LongMemEval ~95% |
-| [OpenViking](https://github.com/nicepkg/OpenViking) (Volcengine) | AGPL | `viking://` virtual filesystem, three-tier loading | LoCoMo 80–83% |
+| [OpenViking](https://github.com/volcengine/OpenViking) (Volcengine) | AGPL | `viking://` virtual filesystem, three-tier loading | LoCoMo 80–83% |
 | Memori (GibsonAI) | — | SQL-native memory | — |
 | Honcho (Plastic Labs) | AGPL | — | — |
 | Redis Agent Memory Server | — | Redis-native memory service | — |
@@ -201,7 +203,7 @@ Avoid relying solely on Mem0's key conventions or LlamaIndex's `session_id` — 
 
 Requirements: local execution, file-based memory, MCP integration.
 
-**Go with OpenViking** (`viking://` virtual filesystem, supports Claude Code / Cursor) or **Mem0 OpenMemory MCP** (hosted). Letta Code (v0.31.0) also supports this but is positioned differently — it's a full agent runtime, not just a memory plugin.
+**Go with OpenViking** (`viking://` virtual filesystem, supports Claude Code / Cursor) or **Mem0 OpenMemory MCP** (hosted). Letta Code (v0.34.69) also supports this but is positioned differently — it's a full agent runtime, not just a memory plugin.
 
 This series' [order 7: OpenViking](/posts/ai/2026-08-22-openviking-agent-memory-en) has a full deep-dive.
 
@@ -220,6 +222,10 @@ If you need temporal reasoning: **Graphiti**'s bi-temporal design is unique — 
 A counterintuitive 2026 trend: major vendors (OpenAI, Anthropic, Letta, LangChain) have independently converged on **Markdown files + indexes + progressive disclosure** as the memory substrate (details in this series' order 9: Where Memory Systems Are Headed in 2026). Vector/graph memory hasn't disappeared, but it has retreated to "pluggable backend" status. If your scenario doesn't require temporal reasoning or complex knowledge graphs, files + indexes may be enough.
 
 The next two posts deep-dive into representatives from each end of the spectrum — [Mem0 (vector extraction)](/posts/ai/2026-08-22-mem0-agent-memory-en) and [OpenViking (filesystem)](/posts/ai/2026-08-22-openviking-agent-memory-en).
+
+## Update Log
+
+- 2026-11-23: Updated version numbers for Mem0, Graphiti, LangGraph, LlamaIndex, Cognee, Supermemory, and Letta Code; noted that Letta's old server repo is now legacy and the source moved to letta-code; fixed the OpenViking GitHub link
 
 ## References
 

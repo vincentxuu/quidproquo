@@ -130,7 +130,7 @@ OpenAI and Anthropic chose "files as memory" — human-readable, version-control
 
 The 2026 trend is convergence: OpenAI sandbox memory's two-stage write is effectively auto-extraction, just with results stored as files rather than vectors; Google and AWS are exposing more customizable prompts. But the core tradeoff won't disappear — do you want "I can see what my memory looks like" or "I don't want to manage how memory is stored."
 
-Next: Open-source Memory Framework Selection — choices free from platform lock-in.
+Next: [Open-source Memory Framework Selection](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection-en) — choices free from platform lock-in.
 
 ## References
 

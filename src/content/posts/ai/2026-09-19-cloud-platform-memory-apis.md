@@ -130,7 +130,7 @@ OpenAI 和 Anthropic 選了「檔案即記憶」——人可讀、可版本控�
 
 2026 年的趨勢是這兩派在靠近：OpenAI sandbox memory 的兩階段寫入其實就是自動抽取，只是結果存成檔案而非向量；Google 和 AWS 開始暴露更多自訂 prompt 的介面。但核心取捨不會消失——你要「我看得到記憶長什麼樣」還是「我不想管記憶怎麼存」。
 
-下一篇：〈開源記憶框架選型〉——不被平台綁定的選擇。
+下一篇：〈[開源記憶框架選型](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection)〉——不被平台綁定的選擇。
 
 ## 參考資料
 
@@ -156,4 +156,4 @@ OpenAI 和 Anthropic 選了「檔案即記憶」——人可讀、可版本控�
 - [Microsoft — Foundry Agent Service: What is memory](https://learn.microsoft.com/en-us/azure/foundry/agents/concepts/what-is-memory)
 - [Microsoft — Memory at Build 2026](https://devblogs.microsoft.com/foundry/memory-build2026)
 - 站內系列：[四種記憶與六個設計軸](/posts/ai/2026-09-19-agent-memory-taxonomy)
-- 站內系列：開源記憶框架選型（同系列 order 5，待發佈）
+- 站內系列：[開源 Agent 記憶框架選型](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection)

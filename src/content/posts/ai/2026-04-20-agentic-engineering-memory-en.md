@@ -113,7 +113,7 @@ At this scale, pgvector is more than sufficient — no need for dedicated vector
 
 ## What Does LangMem Solve?
 
-LangMem is an open-source library (Apache 2.0, free) that is essentially **a wrapper around vector DB + automatic summarization**.
+LangMem is an open-source library (MIT license, free) that is essentially **a wrapper around vector DB + automatic summarization**. Watch its maintenance status: the last feature release was 0.0.30 (2025-10), and the repo has only seen dependency bumps since, so weigh the long-term maintenance risk before picking it for a new project.
 
 What it handles for you:
 - Semantic search (built-in vector store, swappable backend)
@@ -133,7 +133,7 @@ On cost, LangMem itself is free, but it calls an LLM to extract memories at the 
 ```
 100 users × 3 sessions/day × ~1K tokens/call
 = 300K tokens/day
-≈ ~$0.1/day with Claude Haiku
+≈ ~$0.03/day with Claude Haiku 5.5 ($0.10 per million input tokens), output billed separately
 ```
 
 Using a cheap model for memory extraction and an expensive model for the main task is standard practice.
@@ -157,7 +157,7 @@ This is the core warning Harrison Chase raised in "Your harness, your memory," a
 > "Memory isn't a plugin — it's part of the harness itself."
 
 Here's the problem:
-- Use **Claude Managed Agents** (Anthropic API) → Memory lives entirely on Anthropic's servers; you can't see it or take it with you
+- Use **Claude Managed Agents** (Anthropic API) → Memory lives in memory stores on Anthropic's servers; you can now read, edit, import, and export individual memories through the API or Console, but storage and execution stay tied to Anthropic's platform (not ZDR-eligible)
 - Use **Codex** (OpenAI) → Compressed summaries are encrypted; unusable outside the OpenAI ecosystem
 - Use **open-source harness** (LangGraph + self-hosted store) → Memory is entirely in your hands
 
@@ -182,9 +182,17 @@ Memory makes agents better over time — but only if you truly own it.
 
 ---
 
+## Update Log
+
+- 2026-11-23: Corrected LangMem's license to MIT and added its maintenance status (last feature release 0.0.30); recalculated memory-extraction cost with current Claude Haiku 5.5 pricing; rewrote the Claude Managed Agents memory point to reflect memory stores (readable and exportable via API).
+
 ## References
 
 - [Agentic Engineering: How Swarms of AI Agents Are Redefining Software Engineering](https://www.langchain.com/blog/agentic-engineering-redefining-software-engineering)
 - [Your harness, your memory — Harrison Chase](https://www.langchain.com/blog/your-harness-your-memory)
 - [Continual learning for AI agents — Harrison Chase](https://www.langchain.com/blog/continual-learning-for-ai-agents)
 - [Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents)
+- [LangMem GitHub](https://github.com/langchain-ai/langmem)
+- [LangMem on PyPI](https://pypi.org/project/langmem/)
+- [Claude API pricing](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Claude Managed Agents — Using agent memory](https://platform.claude.com/docs/en/managed-agents/memory)

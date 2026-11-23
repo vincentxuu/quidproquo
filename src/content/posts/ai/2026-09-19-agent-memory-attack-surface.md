@@ -98,7 +98,7 @@ GitHub Copilot Memory 的設計是目前最精細的防線，依其[工程部落
 
 另一派直接把寫入決定權交還給人：
 
-- **Gemini CLI Auto Memory**（[官方文件](https://geminicli.com/docs/cli/auto-memory)）：背景掃描閒置 3+ 小時的 session，草擬 memory patch 和 SKILL.md 候選進審核 inbox，**使用者核准才生效**。Auto Memory 不能直接改 active memory、settings 或憑證
+- **Gemini CLI Auto Memory**（[官方文件](https://geminicli.com/docs/cli/auto-memory)）：背景掃描閒置 3+ 小時的 session，草擬 memory patch 和 SKILL.md 候選進審核 inbox，**使用者核准才生效**。Auto Memory 不能直接改 active memory、settings 或憑證。2026-06-18 起 Gemini CLI 只服務 Code Assist 企業授權與付費 API key，移到 Antigravity CLI 的使用者改用 [`/learn`](https://antigravity.google/docs/commands/learn/)：agent 先產出提案，使用者明確核准後才寫成 rule 或 skill
 - **Devin Knowledge Suggestions**（[官方文件](https://docs.devin.ai/product-guides/knowledge)）：從對話回饋自動建議知識條目，使用者核准後才加入組織的 Knowledge base
 - **LangSmith Fleet**：記憶更新須使用者逐條核准
 - **Cursor 1.2**：在 GA 時對背景產生的記憶加入核准流程（後來整個 Memories 功能在 2.1.17 被移除）
@@ -181,6 +181,10 @@ MINJA 的結論暗示了一個尷尬的現實：只要記憶系統用 LLM 自動
 
 實務上，**三層都做**是 2026 年的最低標準。
 
+## 更新紀錄
+
+- 2026-11-23：補充 Gemini CLI 的服務範圍變動，以及 Antigravity CLI 以 `/learn` 提案核准的寫入方式
+
 ## 參考資料
 
 - [SpAIware: persistent data exfiltration via ChatGPT memory — Johann Rehberger（2024-09）](https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/)
@@ -189,6 +193,7 @@ MINJA 的結論暗示了一個尷尬的現實：只要記憶系統用 LLM 自動
 - [Building an agentic memory system for GitHub Copilot — GitHub Engineering](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
 - [Copilot Memory 概念文件 — GitHub Docs](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
 - [Gemini CLI Auto Memory 官方文件](https://geminicli.com/docs/cli/auto-memory)
+- [Google Antigravity — /learn 指令文件](https://antigravity.google/docs/commands/learn/)
 - [Devin Knowledge 官方文件](https://docs.devin.ai/product-guides/knowledge)
 - [Cursor Automations 官方文件](https://cursor.com/docs/cloud-agents/automations)
 - [Anthropic memory tool 官方文件](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool)

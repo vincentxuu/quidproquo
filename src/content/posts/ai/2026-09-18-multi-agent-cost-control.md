@@ -60,7 +60,7 @@ Managed Agents 的計費結構是 token 費率 + $0.08/session-hour + tool costs
 
 ### Microsoft Agent Framework（2026-04 GA）
 
-[Microsoft Agent Framework](https://github.com/microsoft/agents) 合併了 AutoGen 的 agent 抽象和 Semantic Kernel 的企業功能，兩者進入維護模式。它的核心理念叫 **TokenOps**：
+[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) 合併了 AutoGen 的 agent 抽象和 Semantic Kernel 的企業功能，兩者進入維護模式。它的核心理念叫 **TokenOps**：
 
 > 超支時優先「原地干預」——壓縮 context、快取結果、縮減輸出。Kill switch 是最後手段。
 
@@ -73,7 +73,7 @@ Managed Agents 的計費結構是 token 費率 + $0.08/session-hour + tool costs
 
 TokenOps 的思路是：先壓縮再降級再停止，不要一刀切。
 
-MAF 的前身 AutoGen 是個值得記住的教訓。AutoGen 0.2 的 `GroupChat` 讓多個 agent 自由對話，沒有內建的 token 預算或輪次上限，社群回報 40% 的預算超支。2024 年 11 月原作者離開微軟後 fork 出 [AG2](https://github.com/ag2ai/ag2)，微軟自己則做了 async-first 的 AutoGen 0.4 重寫。到了 2026 年 4 月，微軟決定把 AutoGen + Semantic Kernel 合併成 MAF，AutoGen 正式進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)。從「無上限對話」到「分級 TokenOps」，這條路走了將近兩年。
+MAF 的前身 AutoGen 是個值得記住的教訓。AutoGen 0.2 的 `GroupChat` 讓多個 agent 自由對話，沒有內建的 token 預算或輪次上限，社群回報 40% 的預算超支。2024 年 11 月原作者離開微軟後 fork 出 [AG2](https://github.com/ag2ai/ag2)，微軟自己則做了 async-first 的 AutoGen 0.4 重寫。到了 2026 年 4 月，微軟決定把 AutoGen + Semantic Kernel 合併成 MAF，AutoGen 正式進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)，2026-10 起 [repo 已封存](https://github.com/microsoft/autogen)。從「無上限對話」到「分級 TokenOps」，這條路走了將近兩年。
 
 ### LangGraph
 
@@ -153,6 +153,10 @@ Multi-Agent 的成本控制不是一個開關的問題，是一組分層機制�
 
 如果你正在建 multi-agent 系統，最低標準是：迭代上限 + token 預算 + 並行限制。進階做法是：加歷史截斷 + 分級反應。最終目標是讓系統在預算內自己找到最高效的方式完成任務，而不是跑到一半突然被掐斷。
 
+## 更新紀錄
+
+- 2026-11-23：AutoGen 補上已封存的現況；Microsoft Agent Framework 連結改為官方文件（原連結指向另一個 M365 Agents SDK repo）
+
 ## 參考資料
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
@@ -162,7 +166,7 @@ Multi-Agent 的成本控制不是一個開關的問題，是一組分層機制�
 - [Claude Code — Dynamic Workflows 官方文件](https://code.claude.com/docs/en/workflows)
 - [OpenAI — Codex GA 官方公告](https://openai.com/index/codex-now-generally-available/)
 - [OpenAI — Symphony 開源編排層](https://openai.com/index/open-source-codex-orchestration-symphony/)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Microsoft Agent Framework 官方文件](https://learn.microsoft.com/en-us/agent-framework/)
 - [Microsoft — AutoGen 進入維護模式討論](https://github.com/microsoft/autogen/discussions/7066)
 - [Microsoft — AutoGen to Agent Framework 遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

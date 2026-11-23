@@ -104,7 +104,7 @@ LangChain organized context engineering into four operations:
 Not all information needs to be in the context at all times. Store it first, pull it in when needed.
 
 **Scratchpad**
-The agent takes notes during execution. For example, Claude Code's `TodoWrite` is a form of scratchpad — the agent records task progress so subsequent steps can reference it.
+The agent takes notes during execution. For example, Claude Code's task list is a form of scratchpad — the agent records task progress so subsequent steps can reference it. It started as a single `TodoWrite` tool; the default is now the `TaskCreate` / `TaskUpdate` / `TaskList` / `TaskGet` set of Task tools.
 
 **Memory**
 Persistent memory across sessions. Three types:
@@ -137,7 +137,7 @@ The most effective approach is usually "pre-loading + runtime exploration":
 Context windows are finite. As conversations progress, accumulated tokens grow.
 
 **Summary Compression**
-Claude Code's approach: when context usage hits 95%, automatically trigger compression, summarizing old conversation history into a shorter version. Architectural decisions and unresolved issues are preserved; redundant tool outputs are discarded.
+Claude Code's approach: when the conversation approaches the model's context limit (about 967K tokens by default on 1M-context models, adjustable with `CLAUDE_CODE_AUTO_COMPACT_WINDOW`), automatically trigger compression, summarizing old conversation history into a shorter version. Architectural decisions and unresolved issues are preserved; redundant tool outputs are discarded.
 
 **Pruning Rules**
 Hard-coded trimming rules — for example, keeping only the most recent N conversation turns, or deleting full tool call outputs and keeping only summaries.
@@ -318,6 +318,10 @@ If your agent is performing inconsistently, don't rush to swap models. Look back
 - [Simon Willison — Context Engineering](https://simonwillison.net/2025/jun/27/context-engineering/) — Why this name is better than prompt engineering
 - [Prompting Guide — Context Engineering Guide](https://www.promptingguide.ai/guides/context-engineering-guide) — Systematic tutorial
 
+## Update Log
+
+- 2026-11-23: Claude Code's task-list tool changed from `TodoWrite` to the default Task tool set; rewrote the auto-compaction threshold in terms of the current auto-compact window (the fixed 95% figure no longer applies).
+
 ## References
 
 - [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic engineering blog on managing context as a finite resource: compaction, note-taking, and sub-agent architecture implementation guide
@@ -326,4 +330,6 @@ If your agent is performing inconsistently, don't rush to swap models. Look back
 - [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560) — Packer et al. (2023), analogizing LLM memory management to OS virtual memory, with a concrete implementation of the context window as RAM
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025), a comprehensive survey of context management and memory architectures in Agentic RAG
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023), the complete technical background on RAG as a context selection strategy
+- [Claude Code — Tools reference](https://code.claude.com/docs/en/tools-reference) — current status of the Task tools and `TodoWrite`
+- [Claude Code — Model configuration: Context window and auto-compaction](https://code.claude.com/docs/en/model-config) — default auto-compaction thresholds and how to change them
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023), the pioneering framework for interleaving reasoning and action within the context window

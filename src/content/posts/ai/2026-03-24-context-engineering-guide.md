@@ -101,7 +101,7 @@ LangChain 把 context engineering 整理成四個操作：
 不是所有資訊都要即時放進 context。先存起來，需要時再拉。
 
 **Scratchpad（草稿本）**
-Agent 在執行過程中自己做筆記。例如 Claude Code 的 `TodoWrite` 就是一種 scratchpad——agent 把任務進度寫下來，後續步驟可以參考。
+Agent 在執行過程中自己做筆記。例如 Claude Code 的任務清單就是一種 scratchpad——agent 把任務進度寫下來，後續步驟可以參考。早期是單一的 `TodoWrite` 工具，現在預設改成 `TaskCreate`／`TaskUpdate`／`TaskList`／`TaskGet` 這組 Task 工具。
 
 **Memory（記憶）**
 跨 session 的持久記憶。三種類型：
@@ -134,7 +134,7 @@ Agent 在執行過程中自己做筆記。例如 Claude Code 的 `TodoWrite` 就
 Context window 有限。隨著對話進行，累積的 token 會越來越多。
 
 **摘要壓縮**
-Claude Code 的做法：當 context 使用量達到 95%，自動觸發壓縮，把舊的對話歷史摘要成更短的版本。保留架構決策和未解決的問題，丟棄冗餘的工具輸出。
+Claude Code 的做法：當對話接近模型的 context 上限（1M context 的模型預設約在 967K tokens，可用 `CLAUDE_CODE_AUTO_COMPACT_WINDOW` 調整門檻），自動觸發壓縮，把舊的對話歷史摘要成更短的版本。保留架構決策和未解決的問題，丟棄冗餘的工具輸出。
 
 **修剪規則**
 用硬編碼的規則裁切——例如只保留最近 N 輪對話，或刪除工具呼叫的完整輸出只留摘要。
@@ -315,6 +315,10 @@ Karpathy 的比喻最到位：LLM 是 CPU，context window 是 RAM。你不會�
 - [Simon Willison — Context Engineering](https://simonwillison.net/2025/jun/27/context-engineering/) — 為什麼這個名字比 prompt engineering 好
 - [Prompting Guide — Context Engineering Guide](https://www.promptingguide.ai/guides/context-engineering-guide) — 系統性教程
 
+## 更新紀錄
+
+- 2026-11-23：Claude Code 的任務清單工具由 `TodoWrite` 改為預設的 Task 工具組；自動壓縮門檻改寫為現行的 auto-compact window 說法（原本寫的固定 95% 已不適用）。
+
 ## 參考資料
 
 - [Anthropic — Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) — Anthropic 工程部落格，context 作為有限資源的管理策略，compaction、note-taking 與 sub-agent 架構的實作指南
@@ -323,4 +327,6 @@ Karpathy 的比喻最到位：LLM 是 CPU，context window 是 RAM。你不會�
 - [MemGPT: Towards LLMs as Operating Systems](https://arxiv.org/abs/2310.08560) — Packer et al. (2023)，將 LLM 記憶管理類比作業系統虛擬記憶體，context window 即 RAM 的具體實作
 - [Agentic Retrieval-Augmented Generation: A Survey on Agentic RAG](https://arxiv.org/abs/2501.09136) — Singh et al. (2025)，Agentic RAG 中 context 管理與記憶架構的全面綜述
 - [Retrieval-Augmented Generation for Large Language Models: A Survey](https://arxiv.org/abs/2312.10997) — Gao et al. (2023)，RAG 作為 context selection 策略的完整技術背景
+- [Claude Code — Tools reference](https://code.claude.com/docs/en/tools-reference) — Task 工具組與 `TodoWrite` 的現行狀態
+- [Claude Code — Model configuration：Context window and auto-compaction](https://code.claude.com/docs/en/model-config) — 自動壓縮門檻的預設值與調整方式
 - [ReAct: Synergizing Reasoning and Acting in Language Models](https://arxiv.org/abs/2210.03629) — Yao et al. (2023)，Agent 在 context window 中交織推理與行動的開創性框架

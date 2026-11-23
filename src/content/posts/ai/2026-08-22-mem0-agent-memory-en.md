@@ -52,7 +52,7 @@ result = memory.search(
 )
 ```
 
-This uses the current Platform v2 filter shape. Hosted and open-source APIs are not identical, so older examples that put `user_id` at the top level of `search()` may hit a breaking change.
+This uses the current Platform API filter shape (the REST endpoint is `/v3/memories/search/`). Hosted and open-source APIs are not identical, so older examples that put `user_id` at the top level of `search()` may hit a breaking change.
 
 ## Open source and Platform are different paths
 
@@ -80,6 +80,10 @@ The decision is not a feature-count ranking. It is whether you need an API layer
 ## A minimum launch test
 
 Write three conflicting preferences for one test user and query after every change. Inspect whether stale facts remain, whether results retain time and provenance, and whether deletion removes them from search. Repeat under another `user_id` and require an empty result.
+
+## Update Log
+
+- 2026-11-23: Updated the Platform API version note to the current v3 REST endpoint; the `filters` usage in the example still matches the official Quickstart
 
 ## References
 

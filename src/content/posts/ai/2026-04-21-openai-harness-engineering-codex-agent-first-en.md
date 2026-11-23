@@ -87,7 +87,7 @@ For teams wanting to adopt this approach, the most important preparation isn't c
 
 ## References
 
-- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/de-DE/index/harness-engineering/) — Ryan Lopopolo, OpenAI (Feb 11, 2026)
+- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/) — Ryan Lopopolo, OpenAI (Feb 11, 2026)
 - [OpenAI Codex CLI — Harness Engineering and AGENTS.md agent-first development foundation](https://github.com/openai/codex)
 - [OpenAI introduces Codex: Agentic Coding and agent-first engineering model](https://openai.com/index/introducing-codex/)
 - [Unrolling the Codex agent loop — Technical details of the Codex Harness Engineering agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/)

@@ -8,18 +8,18 @@ series:
   name: "AI Agent 記憶工程"
   order: 3
 lang: zh-TW
-tldr: "九家 coding agent 的長期記憶走了至少四條路：Claude Code 和 Codex 用 Markdown 檔（agent 寫、人可讀）、Antigravity CLI 繼承 Gemini CLI 的 inbox 核准（agent 提案、人拍板）、Copilot 用引用＋JIT 驗證（28 天沒被驗證就自動刪）。Cursor 把 Memories 拔掉退回純 Rules。Hermes Agent、OpenClaw、Letta Code 則把記憶當成 harness 的核心元件，不只是外掛。寫入時機、遺忘機制、跨團隊共享上的選擇完全不同，而且沒有任何一家公布過記憶功能的對照實驗數據。"
+tldr: "九家 coding agent 的長期記憶走了至少四條路：Claude Code 和 Codex 用 Markdown 檔（agent 寫、人可讀）、Antigravity CLI 用 `/learn` 先出提案、核准才寫入（agent 提案、人拍板）、Copilot 用引用＋JIT 驗證（28 天沒被驗證就自動刪）。Cursor 把 Memories 拔掉退回純 Rules。Hermes Agent、OpenClaw、Letta Code 則把記憶當成 harness 的核心元件，不只是外掛。寫入時機、遺忘機制、跨團隊共享上的選擇完全不同，而且沒有任何一家公布過記憶功能的對照實驗數據。"
 description: "比較 Claude Code、Codex、Antigravity CLI、Cursor、GitHub Copilot、Devin Desktop、Hermes Agent、OpenClaw、Letta Code 九家 coding agent 的長期記憶設計：指示檔層級、自動記憶寫入、遺忘機制、跨 session 共享與 prompt cache 的取捨。"
 draft: false
 ---
 
 > :globe: [English version](/posts/ai/2026-09-19-coding-agent-memory-comparison-en)
 
-[上一篇](/posts/ai/2026-08-21-context-full-seven-answers)講的是 working memory——context 滿了怎麼麼辦。壓縮、剪枝、換手，全是在顧「這一次 session」。但下一次打開呢？
+[上一篇](/posts/ai/2026-08-21-context-full-seven-answers)講的是 working memory——context 滿了怎麼辦。壓縮、剪枝、換手，全是在顧「這一次 session」。但下一次打開呢？
 
 你昨天花三小時教 Claude Code 你們的 API 命名慣例、跟 Codex 解釋過部署流程、在 Cursor 裡標記了五條團隊規範——關掉 terminal，這些東西還在嗎？
 
-這篇比較九家 coding agent 在長期記憶上的設計選擇。範圍限定在有公開文件的機制，不含平台 API（[下一篇](/posts/ai/2026-09-19-cloud-platform-memory-apis)）或開源框架。相較於上次調查的六家，這次新增了 Hermes Agent、OpenClaw、Letta Code 三個把記憶當成核心元件的 harness，也反映了 Gemini CLI 已於 2026-06-18 退役、由 Antigravity CLI 取代的現狀。
+這篇比較九家 coding agent 在長期記憶上的設計選擇。範圍限定在有公開文件的機制，不含平台 API（[下一篇](/posts/ai/2026-09-19-cloud-platform-memory-apis)）或開源框架。相較於上次調查的六家，這次新增了 Hermes Agent、OpenClaw、Letta Code 三個把記憶當成核心元件的 harness，也反映了 2026-06-18 起一般使用者從 Gemini CLI 移往 Antigravity CLI 的現狀。
 
 ## 先看全貌：每家都有什麼
 
@@ -121,20 +121,20 @@ Codex Memories 的檔案布局和 OpenAI Agents SDK 的 [sandbox memory](https:/
 
 ## Antigravity CLI（Google）
 
-Gemini CLI 已於 2026-06-18 正式退役，由 **Antigravity CLI** 取代。這是 Google 在 I/O 2026（5/19）宣布的整合方案，將 Antigravity 2.0 平台的核心 agent harness 帶到終端機。
+Google 在 2026-05-19 [宣布](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)把終端機產品整合到 **Antigravity CLI**，帶入 Antigravity 2.0 的 agent harness。2026-06-18 起，Gemini CLI 不再服務免費使用者與 Google AI Pro／Ultra 訂閱，這些人改用 Antigravity CLI；Gemini Code Assist Standard／Enterprise 授權與付費 API key 仍可繼續用 Gemini CLI，包括它的 Auto Memory inbox。
 
-**記憶機制：繼承 Gemini CLI 的 inbox 核准路線**
+**記憶機制：`/learn` 提案、人核准**
 
-Antigravity CLI 保留了 Gemini CLI 的核心開發者體驗結構，包括 skills 和 hooks。記憶系統沿用 Gemini CLI 的設計哲學：
+Antigravity CLI 保留了 Gemini CLI 的 Agent Skills、Hooks、Subagents 與 Extensions（改稱 plugins）。記憶與設定的做法：
 
-- **指示檔路徑遷移**：全域從 `~/.gemini/skills/` 搬到 `~/.gemini/antigravity-cli/skills/`，專案從 `.gemini/skills/` 搬到 `.agents/skills/`
+- **路徑遷移**：全域 skills 可留在 `~/.gemini/skills/` 或改放 `~/.gemini/antigravity-cli/skills/`，專案 skills 從 `.gemini/skills/` 搬到 `.agents/skills/`；`GEMINI.md`、`AGENTS.md` 照舊讀取
 - **MCP 設定分離**：MCP servers 從偏好設定中拆出，獨立為輕量 JSON profiles
-- **寫入核准**：與 Gemini CLI 一致，agent 提案 → inbox → 人核准才生效
+- **寫入核准**：沒有 Gemini CLI 那種背景 Auto Memory；要記住的東西靠 [`/learn`](https://antigravity.google/docs/commands/learn/)，agent 先產出 `learning_proposal.md` 提案，使用者明確核准後才寫成 rule 或 skill 檔
 - **自動導入轉換**：提供 migration command 序列和 first-launch onboarding，自動轉換舊設定
 
 Antigravity CLI 是 Go 編譯的 multi-agent tool，支援 Agent Manager 進行多 agent 並行執行，與 Antigravity 2.0 IDE（VS Code fork）共用同一套 harness。
 
-> 設計含義：Google 選擇「agent 提案、人核准」的路線並延續到 CLI 端。這在六家（現在九家）中仍然是對寫入權控制最嚴格的設計之一。代價是 inbox 可能堆積到被忽略。
+> 設計含義：Google 選擇「agent 提案、人核准」的路線並延續到 CLI 端。這在六家（現在九家）中仍然是對寫入權控制最嚴格的設計之一。代價是要有人主動叫 `/learn`、逐份審提案。
 
 ## Cursor（Anysphere）
 
@@ -164,7 +164,7 @@ Cursor 的記憶故事是九家中最曲折的——它曾經有 Memories 功能
 
 **Automations memory**
 
-依 [官方文件](https://cursor.com/docs/cloud-agents/automations)，Cursor 的雲端 Automations 有自己的記憶機制：具名檔（預設 `MEMORIES.md`）放在工作檔案系統之外，跨執行讀讀寫、預設開啟、UI 可編輯。文件明確附上 prompt injection 警語。
+依 [官方文件](https://cursor.com/docs/cloud-agents/automations)，Cursor 的雲端 Automations 有自己的記憶機制：具名檔（預設 `MEMORIES.md`）放在工作檔案系統之外，跨執行讀寫、預設開啟、UI 可編輯。文件明確附上 prompt injection 警語。
 
 ## GitHub Copilot（GitHub / Microsoft）
 
@@ -192,7 +192,7 @@ Copilot 的記憶設計最獨特的地方是**每條記憶都附引用（citatio
 
 - **5/15**：Copilot Memory 擴充到 **user-level preferences**——不再只有 repo 層級。個人偏好可跨所有 repo 追隨使用者
 - **6/1**：Usage-based billing 上線，Copilot code review 消耗 GitHub Actions minutes
-- **9/2026**：多個模型將於 10/19 退役（Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5 mini、Grok 4.5），GPT-5.2-Codex GA 跨 VS Code、Copilot Chat、Coding Agent、CLI
+- **10/19**：Gemini 3.7 Flash、GPT-5.5、GPT-5.4、GPT-5.4 mini、GPT-5 mini、Grok 4.5 在 Copilot [退役](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)（9/18 預告）；GPT-5.2-Codex GA 跨 VS Code、Copilot Chat、Coding Agent、CLI
 - Copilot SDK 進入技術預覽（Node.js/TypeScript、Python、Go、.NET）
 
 **遺忘：28 天未驗證即刪**
@@ -362,8 +362,8 @@ Letta Code 是 model-agnostic 的（OpenAI、Anthropic、Mistral 等），記憶
 |  | Claude Code | Codex | Antigravity CLI | Cursor | Copilot | Devin Desktop | Hermes Agent | OpenClaw | Letta Code |
 |---|---|---|---|---|---|---|---|---|---|
 | **儲存形式** | 本機 Markdown | 本機 Markdown | 本機 Markdown | Rules 檔 | GitHub 託管 KV | 本機 + 雲端 | 本機 Markdown + SQLite | 檔案 + Wiki | Git-backed MemFS |
-| **寫入時機** | session 中自動 | 閒置 6h 後背景 | 閒置 → inbox | 人手動寫 Rules | session 中 tool call | 自動 + 手動 | 背景 nudge + 自動 | 背景 + 證明 | Agent 工具呼叫 |
-| **寫入需核准** | 否 | 否 | **是（inbox）** | N/A（人寫） | 否 | 部分 | write_approval | 部分 | 否 |
+| **寫入時機** | session 中自動 | 閒置 6h 後背景 | `/learn` 提案 | 人手動寫 Rules | session 中 tool call | 自動 + 手動 | 背景 nudge + 自動 | 背景 + 證明 | Agent 工具呼叫 |
+| **寫入需核准** | 否 | 否 | **是（提案核准）** | N/A（人寫） | 否 | 部分 | write_approval | 部分 | 否 |
 | **遺忘機制** | 無 | 30 天未用 | 無 | N/A | 28 天未驗證 | 手動 | 定期 grading | 無（手動） | 手動 |
 | **跨 session** | ✓ | ✓ | ✓ | ✓（Rules） | ✓ | ✓ | ✓ | ✓ | ✓ |
 | **跨團隊共享** | ✗ | ✗ | ✗ | Team Rules | **repo 層級** | 組織 Knowledge | ✗ | ✗ | ✗ |
@@ -385,7 +385,7 @@ Agent 在 session 中（Claude Code）或結束後（Codex）自動把值得記�
 
 **路線二：Agent 提案、人核准（Antigravity CLI）**
 
-Agent 產出候選記憶，最後一步交給人。Antigravity CLI 繼承 Gemini CLI 的 inbox 機制——Auto Memory 產出的 patch 和 SKILL.md 候選都要人核准才生效。
+Agent 產出候選記憶，最後一步交給人。Antigravity CLI 的 `/learn` 先產出提案，人核准後才寫成 rule 或 skill；仍用 Gemini CLI 的企業授權使用者，則是 Auto Memory 的 patch 和 SKILL.md 候選進 inbox 等核准。
 
 賭注：人願意花時間審核記憶。風險是 inbox 堆積到被忽略，功能等於沒開。
 
@@ -393,7 +393,7 @@ Agent 產出候選記憶，最後一步交給人。Antigravity CLI 繼承 Gemini
 
 Cursor 曾經有自動記憶，但拔掉了。長期知識完全靠人寫的 Rules 承擔。
 
-賭注：人寫的品质比 agent 抽取好。風險是記憶的維護成本完全落在人身上。
+賭注：人寫的品質比 agent 抽取好。風險是記憶的維護成本完全落在人身上。
 
 **路線四：引用＋驗證（Copilot）**
 
@@ -425,6 +425,10 @@ Letta 的 Context Repositories 提出了一個有趣的方向：用 git 的 repl
 
 Coding agent 的記憶是給「用工具的人」設計的——本機、個人、跟著 session 走。但如果你是在**建** agent，各家雲平台提供的記憶 API 是另一個世界：託管儲存、多租戶隔離、非同步抽取管線。[下一篇](/posts/ai/2026-09-19-cloud-platform-memory-apis)拆解 OpenAI、Anthropic、Google、AWS、Microsoft 五朵雲的記憶 API。
 
+## 更新紀錄
+
+- 2026-11-23：更正 Gemini CLI 的狀態（不是全面退役，而是一般使用者移往 Antigravity CLI、企業授權照常），Antigravity CLI 的記憶寫入改寫成 `/learn` 提案核准；Copilot 模型退役改為已發生並補上 GPT-5.4 mini；移除文末誤貼的網頁導覽文字與錯字
+
 ## 參考資料
 
 - [Claude Code — Memory 官方文件](https://code.claude.com/docs/en/memory)
@@ -440,6 +444,7 @@ Coding agent 的記憶是給「用工具的人」設計的——本機、個人�
 - [OpenAI — Agents SDK Sandbox Memory 官方文件](https://openai.github.io/openai-agents-python/sandbox/memory/)
 - [Google — An important update: Transitioning Gemini CLI to Antigravity CLI（2026-05-19）](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli)
 - [Google Antigravity Docs — Migrating from Gemini CLI](https://antigravity.google/docs/cli/gcli-migration)
+- [Google Antigravity Docs — /learn 指令](https://antigravity.google/docs/commands/learn/)
 - [Cursor — Rules 官方文件](https://cursor.com/docs/rules)
 - [Cursor — Automations 官方文件](https://cursor.com/docs/cloud-agents/automations)
 - [Cursor 論壇官方回覆 — Memories removed starting from 2.1.17](https://forum.cursor.com/t/memories-not-showing/143820)
@@ -447,6 +452,7 @@ Coding agent 的記憶是給「用工具的人」設計的——本機、個人�
 - [GitHub Copilot — Memory 概念文件](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
 - [GitHub — Agentic memory for GitHub Copilot public preview（2026-01-15）](https://github.blog/changelog/2026-01-15-agentic-memory-for-github-copilot-is-in-public-preview)
 - [GitHub Engineering — Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
+- [GitHub — Copilot models deprecated on October 19, 2026](https://github.blog/changelog/2026-10-19-github-copilot-models-deprecated-on-october-19-2026/)
 - [GitHub — Copilot Memory supports user preferences（2026-05-15）](https://github.blog/changelog/2026-05-15-copilot-memory-supports-user-preferences-for-pro-pro-users)
 - [Cognition — Introducing Devin Desktop（2026-06-02）](https://cognition.com/blog/introducing-devin-desktop)
 - [Devin Desktop — Memories 官方文件](https://docs.devin.ai/desktop/cascade/memories)
@@ -463,9 +469,3 @@ Coding agent 的記憶是給「用工具的人」設計的——本機、個人�
 - [OpenBrain — Memory Provenance for OpenClaw](https://www.mindstudio.ai/blog/openbrain-memory-provenance-openclaw-labels)
 - [Coding agent session 持久化與 crash recovery](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)
 - [Context 滿了怎麼辦：七種答案](/posts/ai/2026-08-21-context-full-seven-answers)
-
-[上一篇一句 'Write a script' 的差距：Skill Instructions 如何決定 LLM 成功或失敗](/posts/ai/2026-09-19-docx-skill-instructions-stream-stall)[下一篇五朵雲的記憶 API：OpenAI、Anthropic、Google、AWS、Microsoft 怎麼讓 Agent 記住事情](/posts/ai/2026-09-19-cloud-platform-memory-apis)
-
-### 相關文章
-
-[系列導讀：AI Agent 記憶工程1 min](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)[四種記憶與六個設計軸：Agent 記憶系統的設計空間1 min](/posts/ai/2026-09-19-agent-memory-taxonomy)[2026 記憶系統往哪走：檔案贏了向量，遺忘才剛開始1 min](/posts/ai/2026-09-19-agent-memory-2026-trends)

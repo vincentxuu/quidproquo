@@ -42,7 +42,7 @@ Claude Code 的特色是**同時支援腳本和 model-driven 兩種模式**—�
 
 ### Antigravity（原 Gemini CLI，Google）
 
-Gemini CLI 於 2026-06-18 正式退役，改名為 [Antigravity](https://github.com/google-gemini/gemini-cli/discussions/27274)，用 Go 重寫並新增多 agent 背景編排。原有的 subagent 架構延續了 Hub-and-Spoke 模式：主 agent 用 `@agent` 語法 dispatch，內建 `@generalist`、`@cli_help`、`@codebase_investigator` 三個 agent。
+2026-06-18 起，免費與 Google AI Pro／Ultra 使用者從 Gemini CLI 移往 [Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)（用 Go 寫成，新增多 agent 背景編排）；Gemini CLI 本身仍服務 Code Assist Standard／Enterprise 授權與付費 API key。原有的 subagent 架構延續了 Hub-and-Spoke 模式：主 agent 用 `@agent` 語法 dispatch，內建 `@generalist`、`@cli_help`、`@codebase_investigator` 三個 agent。
 
 Antigravity 的特色是**結果壓縮後才回傳主 session**，防止子 agent 的大量輸出污染父 context。每個 subagent 獨立 context + tool set。
 
@@ -68,7 +68,7 @@ Windsurf 的策略是**不自己做 multi-agent 編排，而是當指揮台**：
 - **Wave 13**（2025-12）：平行多 Cascade session（最多 5 個），各自 git worktree 隔離
 - **Windsurf 2.0**（2026-04）：[Agent Command Center](https://devin.ai/blog/windsurf-2-0)（Kanban 式多 agent 儀表板）+ Devin 原生整合
 
-Cascade 負責即時的本地工作（低延遲），長任務一鍵交給 Devin 的雲端 VM 跑。
+Cascade 負責即時的本地工作（低延遲），長任務一鍵交給 Devin 的雲端 VM 跑。2026-06-02 Cognition 推出 [Devin Desktop](https://cognition.com/blog/introducing-devin-desktop)，定位為 Windsurf 的下一代：Agent Command Center 成為 IDE 預設介面，也能透過 Agent Client Protocol（ACP）跑其他家的 agent。
 
 ### VS Code Agent Sessions（Microsoft）
 
@@ -100,7 +100,7 @@ VS Code 1.109（2026-02）加入 Multi-Agent Development，讓多個不同 agent
 
 ### Microsoft Agent Framework（MAF）
 
-2026-04 GA，合併 AutoGen + Semantic Kernel。AutoGen 進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)。支援 sequential / concurrent / handoff / group chat / Magentic-One 編排模式，Graph-based workflow 做顯式多 agent 編排。
+2026-04 GA（PyPI `agent-framework` 1.0.0 於 2026-04-02 發布），合併 AutoGen + Semantic Kernel。AutoGen 先進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)，2026-10 起 [repo 已封存](https://github.com/microsoft/autogen)、不再提供修補，官方建議照[遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)改用 MAF。支援 sequential / concurrent / handoff / group chat / Magentic-One 編排模式，Graph-based workflow 做顯式多 agent 編排。
 
 原 AutoGen 的社群 fork [AG2](https://github.com/ag2ai/ag2) 仍在獨立發展，保留 0.2 API。
 
@@ -148,6 +148,10 @@ LangGraph    Claude Code    CrewAI    Cursor    Codex    Devin    AutoGen
 - **可觀測性**：多 agent 系統怎麼 debug、怎麼知道錢花在哪
 - **安全與護欄**：防 prompt injection 跨 agent 傳播、權限隔離
 
+## 更新紀錄
+
+- 2026-11-23：更正 Gemini CLI 狀態（一般使用者移往 Antigravity CLI，企業授權照常）；補充 Windsurf 的下一代 Devin Desktop；AutoGen 已封存；Microsoft Agent Framework 連結改為官方文件（原連結指向另一個 M365 Agents SDK repo）
+
 ## 參考資料
 
 - [Anthropic — Claude Code Workflows 官方文件](https://code.claude.com/docs/en/workflows)
@@ -164,7 +168,10 @@ LangGraph    Claude Code    CrewAI    Cursor    Codex    Devin    AutoGen
 - [Cognition — Devin Fusion 架構](https://cognition.com/blog/devin-fusion)
 - [Cursor — Changelog](https://cursor.com/changelog)
 - [Windsurf — Agent Command Center (2.0)](https://devin.ai/blog/windsurf-2-0)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Cognition — Introducing Devin Desktop](https://cognition.com/blog/introducing-devin-desktop)
+- [Google — Transitioning Gemini CLI to Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
+- [Microsoft Agent Framework 官方文件](https://learn.microsoft.com/en-us/agent-framework/)
+- [Microsoft — AutoGen → Agent Framework 遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [Microsoft — AutoGen 進入維護模式](https://github.com/microsoft/autogen/discussions/7066)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [LangChain — Benchmarking Multi-Agent Architectures](https://www.langchain.com/blog/benchmarking-multi-agent-architectures)

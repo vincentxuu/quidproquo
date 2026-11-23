@@ -36,15 +36,15 @@ draft: false
 | 篇 | 主題 | 你會得到什麼 |
 |---|---|---|
 | **0（本篇）** | 系列導讀 | 問題意識與閱讀地圖 |
-| **1** | 四種記憶與六個設計軸 | 分類框架——用 CoALA 四類記憶和六個獨立設計軸（讀取形態、寫入時機、保真度、寫入權歸屬、遺忘機制、範圍）描述任何記憶系統的設計選擇 |
+| **1** | [四種記憶與六個設計軸](/posts/ai/2026-09-19-agent-memory-taxonomy) | 分類框架——用 CoALA 四類記憶和六個獨立設計軸（讀取形態、寫入時機、保真度、寫入權歸屬、遺忘機制、範圍）描述任何記憶系統的設計選擇 |
 | **2** | [Context 滿了怎麼辦：七種答案，沒有一種是共識](/posts/ai/2026-08-21-context-full-seven-answers) | 短期記憶（working memory）——Anthropic、Amp、Cursor、Manus 等八家對 context 管理的策略比較 |
-| **3** | 六家 Coding Agent 怎麼記東西 | 長期記憶的工具端——Claude Code、Codex、Gemini CLI、Cursor、GitHub Copilot、Devin 各自的記憶設計與取捨 |
-| **4** | 五朵雲的記憶 API | 長期記憶的平台端——OpenAI Agents SDK、Anthropic Managed Agents、Google Memory Bank、AWS AgentCore、Microsoft Foundry 五家拆解 |
-| **5** | 開源記憶框架選型 | 長期記憶的開源端——Mem0、Zep/Graphiti、Letta、LangGraph、LlamaIndex Memory、Cognee、Supermemory 的定位與選型決策 |
+| **3** | [九家 Coding Agent 怎麼記東西](/posts/ai/2026-09-19-coding-agent-memory-comparison) | 長期記憶的工具端——Claude Code、Codex、Antigravity CLI、Cursor、GitHub Copilot、Devin Desktop，加上 Hermes Agent、OpenClaw、Letta Code 各自的記憶設計與取捨 |
+| **4** | [五朵雲的記憶 API](/posts/ai/2026-09-19-cloud-platform-memory-apis) | 長期記憶的平台端——OpenAI Agents SDK、Anthropic Managed Agents、Google Memory Bank、AWS AgentCore、Microsoft Foundry 五家拆解 |
+| **5** | [開源記憶框架選型](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection) | 長期記憶的開源端——Mem0、Zep/Graphiti、Letta、LangGraph、LlamaIndex Memory、Cognee、Supermemory 的定位與選型決策 |
 | **6** | [Mem0 完整介紹](/posts/ai/2026-08-22-mem0-agent-memory) | 深潛——向量抽取派代表，從寫入管線到租戶隔離 |
 | **7** | [OpenViking：Agent 記憶做成虛擬檔案系統](/posts/ai/2026-08-22-openviking-agent-memory) | 深潛——檔案系統派代表，三層載入與 550 tokens 平均檢索 |
-| **8** | Agent 記憶的攻擊面 | 安全——SpAIware 持久化外洩、MINJA 對話注入（>95% 成功率）、Bedrock 記憶投毒，以及業界兩派防線 |
-| **9** | 2026 記憶系統往哪走 | 趨勢——檔案贏了向量、寫入權交還人類、Dreaming 成為新名詞、benchmark 被玩壞的現實 |
+| **8** | [Agent 記憶的攻擊面](/posts/ai/2026-09-19-agent-memory-attack-surface) | 安全——SpAIware 持久化外洩、MINJA 對話注入（>95% 成功率）、Bedrock 記憶投毒，以及業界兩派防線 |
+| **9** | [2026 記憶系統往哪走](/posts/ai/2026-09-19-agent-memory-2026-trends) | 趨勢——檔案贏了向量、寫入權交還人類、Dreaming 成為新名詞、benchmark 被玩壞的現實 |
 
 ## 閱讀建議
 
@@ -70,6 +70,10 @@ draft: false
 向量和圖記憶沒有消失，但退居「可插拔後端」。這件事值得一篇完整的分析——那是第 9 篇的事。
 
 先從第 1 篇的分類框架開始。
+
+## 更新紀錄
+
+- 2026-11-23：路線圖補上第 1、3、4、5、8、9 篇連結；第 3 篇的名單改成實際比較的九家 coding agent（Gemini CLI 的一般使用者已移往 Antigravity CLI）
 
 ## 參考資料
 

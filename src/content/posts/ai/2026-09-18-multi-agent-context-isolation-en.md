@@ -73,13 +73,13 @@ The sub-agent's full response is summarized by an LLM into a condensed version b
 
 According to [Anthropic's multi-agent research system writeup](https://www.anthropic.com/engineering/multi-agent-research-system), their orchestrator-worker architecture compresses worker responses before merging them into the orchestrator's context. This prevents a common problem: one worker returns a lengthy response that eats up the context space available for subsequent workers.
 
-[Antigravity (formerly Gemini CLI)](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md) takes this even further — **all** subagent results are mandatorily compressed before being returned to the main session. This reflects Antigravity's design philosophy: the main agent's context is a precious resource that sub-agents shouldn't freely pollute.
+[Gemini CLI's subagent design](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md) takes this even further — **all** subagent results are mandatorily compressed before being returned to the main session. This reflects its design philosophy: the main agent's context is a precious resource that sub-agents shouldn't freely pollute.
 
 ### History Truncation
 
 Instead of carrying full history, fork mode truncates to the most recent N messages or produces a summary.
 
-According to the Microsoft Agent Framework's [TokenOps philosophy](https://github.com/microsoft/agents), the first response to approaching a budget limit isn't to stop, but to compress context. The original AutoGen 0.2's `TransformMessages` mechanism could truncate or summarize messages before passing them to an agent — while the API is now deprecated, the concept was inherited by MAF.
+According to the Microsoft Agent Framework's [TokenOps philosophy](https://learn.microsoft.com/en-us/agent-framework/), the first response to approaching a budget limit isn't to stop, but to compress context. The original AutoGen 0.2's `TransformMessages` mechanism could truncate or summarize messages before passing them to an agent — while the API is now deprecated, the concept was inherited by MAF.
 
 Practical recommendations:
 - Fork mode should default to carrying only the most recent 20 messages (or ~8K tokens)
@@ -114,6 +114,10 @@ The core trade-off in context management is **information sufficiency vs token e
 
 One easily overlooked point: **context management affects quality, not just cost**. According to [Google Research's experiments](https://arxiv.org/abs/2512.08296), information-overloaded agents actually perform worse than those with lean information — once models are buried in irrelevant messages, they ignore the instructions that actually matter. Less is more.
 
+## Update Log
+
+- 2026-11-23: Relabeled the subagent result-compression example as Gemini CLI (it wasn't renamed to Antigravity; general users moved to the separate Antigravity CLI); the Microsoft Agent Framework link now points to the official docs
+
 ## References
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
@@ -121,7 +125,7 @@ One easily overlooked point: **context management affects quality, not just cost
 - [Anthropic — Claude models & pricing](https://docs.anthropic.com/en/docs/about-claude/models)
 - [Claude Code — Subagent types (Fork vs Fresh)](https://code.claude.com/docs/en/workflows)
 - [OpenAI — Codex GA announcement](https://openai.com/index/codex-now-generally-available/)
-- [Antigravity — Subagents documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Gemini CLI — Subagents documentation](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)
+- [Microsoft Agent Framework docs](https://learn.microsoft.com/en-us/agent-framework/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [Google Research — Towards a Science of Scaling Agent Systems (arXiv 2512.08296)](https://arxiv.org/abs/2512.08296)

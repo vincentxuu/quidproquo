@@ -42,7 +42,7 @@ Three built-in agent types: `default`, `worker` (implementation-oriented), and `
 
 ### Antigravity (formerly Gemini CLI, Google)
 
-Gemini CLI was officially retired on 2026-06-18 and renamed to [Antigravity](https://github.com/google-gemini/gemini-cli/discussions/27274), rewritten in Go with new multi-agent background orchestration. The existing subagent architecture carries over the Hub-and-Spoke model: the main agent dispatches using `@agent` syntax, with built-in `@generalist`, `@cli_help`, and `@codebase_investigator` agents.
+Since 2026-06-18, free and Google AI Pro / Ultra users have moved from Gemini CLI to [Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/) (written in Go, with new multi-agent background orchestration); Gemini CLI itself still serves Code Assist Standard / Enterprise licenses and paid API keys. The existing subagent architecture carries over the Hub-and-Spoke model: the main agent dispatches using `@agent` syntax, with built-in `@generalist`, `@cli_help`, and `@codebase_investigator` agents.
 
 Antigravity's distinguishing feature is **compressing results before returning them to the main session**, preventing subagent output from polluting the parent context. Each subagent has its own independent context and tool set.
 
@@ -68,7 +68,7 @@ Windsurf's strategy is **not to build its own multi-agent orchestration but to s
 - **Wave 13** (Dec 2025): Parallel multiple Cascade sessions (up to 5), each with git worktree isolation
 - **Windsurf 2.0** (April 2026): [Agent Command Center](https://devin.ai/blog/windsurf-2-0) (Kanban-style multi-agent dashboard) + native Devin integration
 
-Cascade handles real-time local work (low latency); long-running tasks are handed off to Devin's cloud VM with one click.
+Cascade handles real-time local work (low latency); long-running tasks are handed off to Devin's cloud VM with one click. On 2026-06-02 Cognition launched [Devin Desktop](https://cognition.com/blog/introducing-devin-desktop) as the next generation of Windsurf: the Agent Command Center becomes the IDE's default surface, and other vendors' agents can run in it through the Agent Client Protocol (ACP).
 
 ### VS Code Agent Sessions (Microsoft)
 
@@ -100,7 +100,7 @@ Each task executes in a Google-managed independent cloud VM. Four internal stage
 
 ### Microsoft Agent Framework (MAF)
 
-GA in April 2026, merging AutoGen + Semantic Kernel. AutoGen entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066). Supports sequential / concurrent / handoff / group chat / Magentic-One orchestration patterns, with graph-based workflows for explicit multi-agent orchestration.
+GA in April 2026 (PyPI `agent-framework` 1.0.0 shipped on 2026-04-02), merging AutoGen + Semantic Kernel. AutoGen first entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066); since 2026-10 the [repo has been archived](https://github.com/microsoft/autogen) with no further fixes, and Microsoft points users to the [migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/) for MAF. Supports sequential / concurrent / handoff / group chat / Magentic-One orchestration patterns, with graph-based workflows for explicit multi-agent orchestration.
 
 The original AutoGen community fork [AG2](https://github.com/ag2ai/ag2) continues independent development, preserving the 0.2 API.
 
@@ -148,6 +148,10 @@ This is the first article in the Multi-Agent Systems in Practice series. Subsequ
 - **Observability**: How to debug multi-agent systems and know where the money goes
 - **Safety and Guardrails**: Preventing prompt injection from propagating across agents, permission isolation
 
+## Update Log
+
+- 2026-11-23: Corrected Gemini CLI's status (general users moved to Antigravity CLI, enterprise licenses continue); added Devin Desktop as Windsurf's successor; AutoGen is now archived; the Microsoft Agent Framework link now points to the official docs (the old link went to the separate M365 Agents SDK repo)
+
 ## References
 
 - [Anthropic — Claude Code Workflows official docs](https://code.claude.com/docs/en/workflows)
@@ -164,7 +168,10 @@ This is the first article in the Multi-Agent Systems in Practice series. Subsequ
 - [Cognition — Devin Fusion architecture](https://cognition.com/blog/devin-fusion)
 - [Cursor — Changelog](https://cursor.com/changelog)
 - [Windsurf — Agent Command Center (2.0)](https://devin.ai/blog/windsurf-2-0)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Cognition — Introducing Devin Desktop](https://cognition.com/blog/introducing-devin-desktop)
+- [Google — Transitioning Gemini CLI to Antigravity CLI](https://developers.googleblog.com/an-important-update-transitioning-gemini-cli-to-antigravity-cli/)
+- [Microsoft Agent Framework docs](https://learn.microsoft.com/en-us/agent-framework/)
+- [Microsoft — AutoGen to Agent Framework migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [Microsoft — AutoGen enters maintenance mode](https://github.com/microsoft/autogen/discussions/7066)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [LangChain — Benchmarking Multi-Agent Architectures](https://www.langchain.com/blog/benchmarking-multi-agent-architectures)

@@ -95,7 +95,7 @@ Agent 最常見的能力來源就是工具呼叫。但這裡有一個反直覺�
 
 ### MCP 整合
 
-MCP 是 Anthropic 提出的工具標準化協議，讓不同工具伺服器用統一格式暴露工具定義。Tool Registry 天然適合作為 MCP 的消費端：
+MCP 是 Anthropic 提出的工具標準化協議（2025-12 起捐給 Linux Foundation 旗下的 Agentic AI Foundation 託管），讓不同工具伺服器用統一格式暴露工具定義。Tool Registry 天然適合作為 MCP 的消費端：
 
 ```
 ┌──────────┐     ┌──────────┐     ┌──────────┐
@@ -1001,11 +1001,16 @@ Harness 跑起來之後，你需要知道它跑得好不好。以下是生產環
 
 這些不是理論。如果你正在建 Agent 系統，從 Guard System 和 Checkpoint 開始——它們的 ROI 最高、實作最直接、出事時最感謝自己當初有做。
 
+## 更新紀錄
+
+- 2026-11-23：補上 MCP 已移交 Linux Foundation 旗下 Agentic AI Foundation 託管。
+
 ## 參考資料
 
 - [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，Guard System 與 tool 設計的原則出處
 - [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic 實戰，checkpoint 和 progress file 的具體實作
 - [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 協議，Tool Registry 整合的標準介面
+- [Anthropic — Donating the Model Context Protocol and establishing the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation) — MCP 移交 AAIF 的官方公告
 - [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — 內建 durable execution 和 checkpointing 的主流 agent 框架
 - [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，agent 安全性與可控性的學術研究背景
 - [Circuit Breaker Pattern — Microsoft Azure Architecture](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) — Circuit Breaker 設計模式的權威說明，本文第 6 節的理論基礎

@@ -81,7 +81,7 @@ Two standardization efforts are underway:
 
 ### MCP (Model Context Protocol)
 
-Per [Anthropic's MCP documentation](https://modelcontextprotocol.io/), MCP defines a standard interface between agents and tools — tools, resources, and prompts. It solves "how agents invoke external capabilities," not "how agents talk to agents."
+Per the [MCP documentation](https://modelcontextprotocol.io/), MCP defines a standard interface between agents and tools — tools, resources, and prompts. It solves "how agents invoke external capabilities," not "how agents talk to agents."
 
 However, MCP indirectly affects multi-agent communication: when Agent A needs to call Agent B, B can be wrapped as an MCP tool. Per the [OpenAI Agents SDK's agents-as-tools pattern](https://developers.openai.com/api/docs/guides/agents/orchestration), one agent can be registered as another agent's tool — invoked just like any regular tool.
 
@@ -93,7 +93,7 @@ Per the [A2A protocol survey (arXiv 2505.02279)](https://arxiv.org/abs/2505.0227
 
 The key difference from MCP: MCP is an agent ↔ tool interface; A2A is an agent ↔ agent interface. In MCP, the callee is a passive tool. In A2A, both parties are autonomous agents.
 
-A2A is still in early stages with low production adoption. But it represents a direction: multi-agent systems need a universal communication protocol, otherwise switching frameworks means reimplementing all communication logic.
+A2A shipped its [1.0 specification](https://github.com/a2aproject/A2A) in 2026-03. On governance, Anthropic [donated](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation) MCP to the Linux Foundation's Agentic AI Foundation (AAIF) in 2025-12, and A2A is now an AAIF project too, so both protocols sit under the same neutral foundation. Cross-framework agent interop is still uncommon in production, though; A2A represents a direction: multi-agent systems need a universal communication protocol, otherwise switching frameworks means reimplementing all communication logic.
 
 ## Decision Tree
 
@@ -113,13 +113,19 @@ Do you need to surrender control?
 
 The core tradeoff in inter-agent communication is **control vs. flexibility** — handoff is the most disciplined (one active agent at a time), delegate balances control with parallelism, and mailbox is the most flexible but hardest to debug.
 
-There's no unified communication standard yet. MCP is becoming the de facto standard for agent ↔ tool interactions; A2A is attempting to become the agent ↔ agent standard but adoption remains low. In the short term, choosing a communication pattern means choosing a framework — switching frameworks means rewiring everything.
+There's no unified communication standard yet. MCP is becoming the de facto standard for agent ↔ tool interactions; A2A 1.0 aims to be the agent ↔ agent standard, but real cross-framework adoption is still limited. In the short term, choosing a communication pattern means choosing a framework — switching frameworks means rewiring everything.
+
+## Update Log
+
+- 2026-11-23: Added A2A 1.0 (2026-03) and that MCP and A2A are both governed by the Agentic AI Foundation
 
 ## References
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
 - [Anthropic — Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems)
-- [Anthropic — Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+- [Model Context Protocol (MCP) docs](https://modelcontextprotocol.io/)
+- [Anthropic — Donating MCP and establishing the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)
+- [A2A Protocol GitHub](https://github.com/a2aproject/A2A)
 - [OpenAI — Agents SDK orchestration and handoffs](https://developers.openai.com/api/docs/guides/agents/orchestration)
 - [OpenAI — Codex GA announcement](https://openai.com/index/codex-now-generally-available/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

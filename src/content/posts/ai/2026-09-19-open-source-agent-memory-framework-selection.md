@@ -34,7 +34,7 @@ draft: false
 
 ## Mem0：一行 `add()` 的自動抽取
 
-[Mem0](https://mem0.ai)（Apache-2.0，v2.0.19，2026-08-24）是目前整合最廣的開源記憶層。依 Mem0 [ECAI 2025 論文](https://arxiv.org/abs/2504.19413)，核心流程是：對話進來 → LLM 抽取值得保留的事實 → 存進向量 store → 下次用語意 + BM25 + entity 混合檢索取回。
+[Mem0](https://mem0.ai)（Apache-2.0，v2.2.1，2026-09-25）是目前整合最廣的開源記憶層。依 Mem0 [ECAI 2025 論文](https://arxiv.org/abs/2504.19413)，核心流程是：對話進來 → LLM 抽取值得保留的事實 → 存進向量 store → 下次用語意 + BM25 + entity 混合檢索取回。
 
 **儲存**：向量為主。2026 版改為單趟 ADD-only 抽取（[OSS v2→v3 遷移文件](https://docs.mem0.ai/migration/oss-v2-to-v3)），graph memory 已從開源版移除，改為 Platform 內建。
 
@@ -52,7 +52,7 @@ draft: false
 
 ## Zep / Graphiti：時間是一等公民
 
-[Graphiti](https://github.com/getzep/graphiti)（Apache-2.0，v0.29.3，2026-07-27）是開源引擎；Zep Cloud 是基於它的商業服務（SOC 2 Type II、HIPAA）。Zep Community Edition 已於 2025-04-02 停止。
+[Graphiti](https://github.com/getzep/graphiti)（Apache-2.0，v0.31.2，2026-10-20）是開源引擎；Zep Cloud 是基於它的商業服務（SOC 2 Type II、HIPAA）。Zep Community Edition 已於 2025-04-02 停止。
 
 **儲存**：**bi-temporal 知識圖**——每條 edge 有 `created_at` / `expired_at` / `valid_at` / `invalid_at`。矛盾的事實不會被覆蓋或刪除，而是被標記為「在某個時間點失效」。依 [Graphiti 論文](https://arxiv.org/abs/2501.13956)，這讓系統能回答「他上個月住哪」這類時間限定的問題。
 
@@ -70,7 +70,9 @@ draft: false
 
 ## Letta：agent 自己管自己的記憶
 
-[Letta](https://github.com/letta-ai/letta)（Apache-2.0，v0.16.8，2026-05-14）從 [MemGPT 論文](https://arxiv.org/abs/2310.08560) 演化而來，核心理念是把記憶管理做成 agent 自己的工具——模型用 `memory_replace` / `memory_insert` / `memory_rethink` 主動編輯釘在 system prompt 裡的 core memory blocks。
+[Letta](https://github.com/letta-ai/letta-code)（Apache-2.0）從 [MemGPT 論文](https://arxiv.org/abs/2310.08560) 演化而來，核心理念是把記憶管理做成 agent 自己的工具——模型用 `memory_replace` / `memory_insert` / `memory_rethink` 主動編輯釘在 system prompt 裡的 core memory blocks。
+
+2026-08 起，舊的 Python server repo `letta-ai/letta` 標為 legacy、停在 0.16.8（2026-05-14），現行原始碼（agent harness、App Server、`letta server`）都在 [`letta-ai/letta-code`](https://github.com/letta-ai/letta-code)；PyPI 上的 `letta` 套件從 0.34（2026-09-30）起也改發 Letta Code。
 
 **第一代**（MemGPT 時期）：core blocks（常駐 system prompt）+ archival（pgvector 長期）+ recall（對話歷史）。
 
@@ -88,7 +90,7 @@ draft: false
 
 ## LangGraph / LangMem：框架原生的記憶層
 
-[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence)（MIT，v1.2.11，2026-08-11）是 LangChain 生態的 agent orchestration 層，記憶不是獨立產品而是框架的一部分。
+[LangGraph](https://docs.langchain.com/oss/python/langgraph/persistence)（MIT，v1.2.24，2026-11-20）是 LangChain 生態的 agent orchestration 層，記憶不是獨立產品而是框架的一部分。
 
 **短期**：**checkpointer**（thread state）。後端可選 InMemory / Sqlite / Postgres / MongoDB / Redis（Redis 原生 TTL）。每次 graph 執行完自動快照。
 
@@ -106,7 +108,7 @@ draft: false
 
 ## LlamaIndex Memory：block 優先級控制截斷
 
-[LlamaIndex](https://github.com/run-llama/llama_index)（MIT，llama-index-core 0.14.24，2026-08-19）的 Memory 模組在 2025-05-08 改版。
+[LlamaIndex](https://github.com/run-llama/llama_index)（MIT，llama-index-core 0.14.26，2026-11-13）的 Memory 模組在 2025-05-08 改版。
 
 **核心機制**：`Memory` 物件管理 `token_limit`（預設 30,000）、`chat_history_token_ratio`（0.7）、`token_flush_size`（3,000）。超額時最舊訊息以 `token_flush_size` 批次歸檔到各 block 的 `aput()`，讀取時 `get()` 把 blocks prepend 回 context。
 
@@ -124,7 +126,7 @@ draft: false
 
 ## Cognee：三種儲存的混合管線
 
-[Cognee](https://github.com/topoteretes/cognee)（Apache-2.0，v1.5.3，2026-08-23）是資料到 AI 記憶的 pipeline，用三種儲存混合：relational（LanceDB 預設）+ vector + graph（Kuzu 預設，可換 Neo4j / FalkorDB）。$7.5M seed（2026-02-19）。
+[Cognee](https://github.com/topoteretes/cognee)（Apache-2.0，v1.6.10，2026-11-18）是資料到 AI 記憶的 pipeline，用三種儲存混合：relational（LanceDB 預設）+ vector + graph（Kuzu 預設，可換 Neo4j / FalkorDB）。$7.5M seed（2026-02-19）。
 
 **API**：`remember()` = add → cognify → improve；`recall()` / `search(SearchType)` 讀取；`forget()` 刪除。
 
@@ -138,7 +140,7 @@ draft: false
 
 ## Supermemory：時態向量圖引擎
 
-[Supermemory](https://github.com/supermemoryai/supermemory)（MIT，server 0.0.8，2026-08-17）自稱「Temporal Vector-Graph Engine」，混合 chunks + memories（fact graph）+ profile 三層。$3M 募資（2025-10-06）。
+[Supermemory](https://github.com/supermemoryai/supermemory)（MIT，server 0.0.9，2026-10-12）自稱「Temporal Vector-Graph Engine」，混合 chunks + memories（fact graph）+ profile 三層。$3M 募資（2025-10-06）。
 
 **寫入**：`/v3/documents`、`/v4/memories`、SDK 自動擷取。Memory Router proxy（狀態不明——文件提到但社群反映不穩定）。
 
@@ -160,7 +162,7 @@ draft: false
 | [EverMemOS](https://arxiv.org/abs/2601.02163)（EverMind） | — | MemCell → MemScene 分層，ACL 2026 | LoCoMo 93.05% |
 | [MemOS](https://arxiv.org/abs/2507.03724)（MemTensor） | — | MemCube 抽象統一參數/激活/明文記憶 | LoCoMo +38.97% vs OpenAI memory |
 | Mastra Observational Memory | — | 觀察式記憶 | LongMemEval ~95% |
-| [OpenViking](https://github.com/nicepkg/OpenViking)（Volcengine） | AGPL | `viking://` 虛擬檔案系統，三層載入 | LoCoMo 80–83% |
+| [OpenViking](https://github.com/volcengine/OpenViking)（Volcengine） | AGPL | `viking://` 虛擬檔案系統，三層載入 | LoCoMo 80–83% |
 | Memori（GibsonAI） | — | SQL-native 記憶 | — |
 | Honcho（Plastic Labs） | AGPL | — | — |
 | Redis Agent Memory Server | — | Redis 原生記憶服務 | — |
@@ -201,7 +203,7 @@ draft: false
 
 需求：本機執行、檔案式記憶、與 MCP 整合。
 
-**首選 OpenViking**（`viking://` 虛擬檔案系統，支援 Claude Code / Cursor）或 **Mem0 OpenMemory MCP**（hosted）。Letta Code（v0.31.0）也支援但定位不同——它是完整的 agent runtime，不只是記憶外掛。
+**首選 OpenViking**（`viking://` 虛擬檔案系統，支援 Claude Code / Cursor）或 **Mem0 OpenMemory MCP**（hosted）。Letta Code（v0.34.69）也支援但定位不同——它是完整的 agent runtime，不只是記憶外掛。
 
 本系列 [order 7：OpenViking](/posts/ai/2026-08-22-openviking-agent-memory) 有完整拆解。
 
@@ -221,6 +223,10 @@ draft: false
 
 接下來兩篇分別拆解光譜兩端的代表方案——[Mem0（向量抽取派）](/posts/ai/2026-08-22-mem0-agent-memory) 和 [OpenViking（檔案系統派）](/posts/ai/2026-08-22-openviking-agent-memory)。
 
+## 更新紀錄
+
+- 2026-11-23：更新 Mem0、Graphiti、LangGraph、LlamaIndex、Cognee、Supermemory、Letta Code 的版本號；補充 Letta 舊 server repo 已改為 legacy、原始碼移到 letta-code；修正 OpenViking 的 GitHub 連結
+
 ## 參考資料
 
 - [Mem0 官方文件](https://docs.mem0.ai)
@@ -230,7 +236,8 @@ draft: false
 - [Graphiti GitHub](https://github.com/getzep/graphiti)
 - [Zep 官方文件](https://help.getzep.com)
 - [Graphiti 論文](https://arxiv.org/abs/2501.13956)
-- [Letta GitHub](https://github.com/letta-ai/letta)
+- [Letta Code GitHub](https://github.com/letta-ai/letta-code)
+- [Letta GitHub（legacy server）](https://github.com/letta-ai/letta)
 - [MemGPT 論文](https://arxiv.org/abs/2310.08560)
 - [Letta 部落格：Next Phase](https://www.letta.com/blog)
 - [LangGraph Persistence 官方文件](https://docs.langchain.com/oss/python/langgraph/persistence)

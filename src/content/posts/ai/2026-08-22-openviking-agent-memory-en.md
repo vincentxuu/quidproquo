@@ -145,7 +145,11 @@ The main project is AGPLv3-licensed — commercial derivatives must be open-sour
 
 Notable limitations: benchmarks used Volcano Engine's own models (Doubao), and third-party validation on other models is still pending. AGPLv3 licensing creates friction for enterprise integration — using it as a CLI tool (Apache 2.0) is fine, but integrating it into your own service requires evaluating license obligations.
 
-31,700+ stars on GitHub, actively maintained, and worth watching.
+42,000+ stars on GitHub (2026-11), actively maintained, and worth watching.
+
+## Update Log
+
+- 2026-11-23: Updated the GitHub star count; benchmark figures are still the v0.3.22 results published in the README
 
 ## References
 

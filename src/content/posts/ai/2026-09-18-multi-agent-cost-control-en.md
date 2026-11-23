@@ -60,7 +60,7 @@ On cost control, Codex is relatively restrained:
 
 ### Microsoft Agent Framework (2026-04 GA)
 
-[Microsoft Agent Framework](https://github.com/microsoft/agents) merged AutoGen's agent abstractions with Semantic Kernel's enterprise features; both entered maintenance mode. Its core philosophy is called **TokenOps**:
+[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) merged AutoGen's agent abstractions with Semantic Kernel's enterprise features; both entered maintenance mode. Its core philosophy is called **TokenOps**:
 
 > When overspending, prioritize "in-place intervention" — compress context, cache results, reduce output. The kill switch is the last resort.
 
@@ -73,7 +73,7 @@ Specific mechanisms:
 
 The TokenOps philosophy: compress first, downgrade second, stop last — never a binary cut.
 
-MAF's predecessor AutoGen is a cautionary tale worth remembering. AutoGen 0.2's `GroupChat` let multiple agents converse freely with no built-in token budget or turn limits, leading to community-reported 40% budget overruns. In November 2024, the original authors left Microsoft and forked [AG2](https://github.com/ag2ai/ag2); Microsoft built the async-first AutoGen 0.4 rewrite. By April 2026, Microsoft merged AutoGen + Semantic Kernel into MAF, and AutoGen officially entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066). From "unbounded conversation" to "tiered TokenOps" — this journey took nearly two years.
+MAF's predecessor AutoGen is a cautionary tale worth remembering. AutoGen 0.2's `GroupChat` let multiple agents converse freely with no built-in token budget or turn limits, leading to community-reported 40% budget overruns. In November 2024, the original authors left Microsoft and forked [AG2](https://github.com/ag2ai/ag2); Microsoft built the async-first AutoGen 0.4 rewrite. By April 2026, Microsoft merged AutoGen + Semantic Kernel into MAF, and AutoGen officially entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066), and since 2026-10 the [repo has been archived](https://github.com/microsoft/autogen). From "unbounded conversation" to "tiered TokenOps" — this journey took nearly two years.
 
 ### LangGraph
 
@@ -153,6 +153,10 @@ Multi-agent cost control isn't a single switch — it's a layered set of mechani
 
 If you're building a multi-agent system, the minimum bar is: iteration limits + token budget + concurrency limits. The advanced approach adds: history truncation + tiered response. The ultimate goal is letting the system find the most efficient way to complete the task within budget, rather than getting abruptly cut off mid-execution.
 
+## Update Log
+
+- 2026-11-23: Added AutoGen's archived status; the Microsoft Agent Framework link now points to the official docs (the old link went to the separate M365 Agents SDK repo)
+
 ## References
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
@@ -162,7 +166,7 @@ If you're building a multi-agent system, the minimum bar is: iteration limits + 
 - [Claude Code — Dynamic Workflows](https://code.claude.com/docs/en/workflows)
 - [OpenAI — Codex GA announcement](https://openai.com/index/codex-now-generally-available/)
 - [OpenAI — Symphony open-source orchestration](https://openai.com/index/open-source-codex-orchestration-symphony/)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Microsoft Agent Framework docs](https://learn.microsoft.com/en-us/agent-framework/)
 - [Microsoft — AutoGen maintenance mode discussion](https://github.com/microsoft/autogen/discussions/7066)
 - [Microsoft — AutoGen to Agent Framework migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
