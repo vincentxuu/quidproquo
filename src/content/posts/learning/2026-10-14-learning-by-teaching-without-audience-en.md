@@ -252,7 +252,7 @@ One more point about how this site actually works. Many of the course guides are
 
 ## Limits of this evidence
 
-- **No study has tested writing a public article for strangers.** The closest is writing an explanation or recording one for a fictional classmate in the lab. Extending the results to a guide several thousand words long, written over several days and revised repeatedly, is an extension. Lachner and colleagues themselves say every study used a "stripped down" version of explaining.
+- **No study has tested writing a public article for strangers.** The closest is writing an explanation or recording one for a fictional classmate in the lab. A guide several thousand words long, written over several days and revised repeatedly, is far from those conditions, and no one has tested whether the results hold there. Lachner and colleagues themselves say every study used a "stripped down" version of explaining.
 - **Materials are mostly short science exposition, participants mostly college students, tests mostly within a week.** In Kobayashi's meta-analysis, all delayed tests were within a week; most studies Lachner and colleagues compiled had only immediate tests.
 - **The researchers are concentrated.** Kobayashi's meta-analysis, the two reanalyses, the mechanisms review, and the commentary all come from one author; the three studies of watching someone being taught come from one research group.
 - **Heterogeneity is high.** I² in Kobayashi's meta-analysis ranges from 76% to 94%, and the author says the sources of heterogeneity remain largely unclear.

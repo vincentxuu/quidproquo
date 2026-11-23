@@ -33,7 +33,7 @@ Before carrying the studies below over to *one person reading a web article*, ke
 4. **The interaction is arranged**. There is a task, a time limit, and a teacher or researcher deciding who works with whom. A self-learner finding someone to talk to is a different situation.
 5. **The outcomes are tests or amounts recalled**. They do not measure whether someone understood a long article.
 
-What can be borrowed is which ingredients go along with the benefit and when the benefit disappears. Applying them to a person reading an article alone is an extension throughout.
+What can be borrowed is which ingredients go along with the benefit and when the benefit disappears. None of these studies tested a person reading an article alone; the suggestions below are carried over from those ingredients.
 
 ## The conclusions first
 

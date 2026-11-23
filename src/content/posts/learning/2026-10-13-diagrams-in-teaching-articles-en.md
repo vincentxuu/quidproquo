@@ -276,7 +276,7 @@ What to do: give every mermaid diagram an `accTitle` line. Write the surrounding
 
 ## Options besides mermaid
 
-The costs below are estimates; the two items marked "docs checked" follow the official documentation. Whichever you choose, the Chinese and English versions each need their own copy.
+The costs below are estimates, except cells marked "per the docs." Whichever you choose, the Chinese and English versions each need their own copy.
 
 | Approach | Good for | Light and dark themes | Cost and risk |
 |---|---|---|---|
@@ -286,8 +286,8 @@ The costs below are estimates; the two items marked "docs checked" follow the of
 | KaTeX | Formulas, aligned derivations | Automatic | Low |
 | ASCII diagrams in a code block | Very small chains or trees | Automatic | Low. Full-width Chinese characters don't align with half-width symbols |
 | Hand-written inline SVG | Diagrams that need exact layout | Follows the theme if you use `currentColor` | Medium to high. Font size can be fixed, but you compute coordinates by hand |
-| [rehype-mermaid](https://github.com/remcohaszing/rehype-mermaid) | Same as mermaid, rendered at build time | Docs checked: two of its output strategies support a `dark` option | Docs checked: the build environment needs Playwright and a browser |
-| [D2](https://d2lang.com/) | Architecture diagrams, nested containers | Docs checked: the dark theme follows the system preference, not this site's manual toggle | Medium. One more command in the build |
+| [rehype-mermaid](https://github.com/remcohaszing/rehype-mermaid) | Same as mermaid, rendered at build time | Per the docs: two of its output strategies support a `dark` option | Per the docs: the build environment needs Playwright and a browser |
+| [D2](https://d2lang.com/) | Architecture diagrams, nested containers | Per the docs: the dark theme follows the system preference, not this site's manual toggle | Medium. One more command in the build |
 | Graphviz | Large graphs | You handle it yourself | Medium |
 | Excalidraw | Hand-drawn-style concept diagrams | Export two files | High. Two languages times two themes is four files that drift apart |
 

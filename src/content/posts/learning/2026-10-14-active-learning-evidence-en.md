@@ -249,7 +249,7 @@ Pick a teaching article you have written; about an hour:
 
 ## Limits of this evidence
 
-- **No study directly tested one person reading a web article.** The studies read here are set in college classrooms and online courseware used in for-credit courses. Carrying any result over to a web guide is an extension.
+- **No study directly tested one person reading a web article.** The studies read here are set in college classrooms and online courseware used in for-credit courses. Every result here reaches web guides by inference from those settings.
 - **The classroom meta-analyses are mostly US colleges and STEM.** Freeman's search ends in 2010; the humanities and social sciences one has reporting-quality concerns and does not publish its list of included studies.
 - **Most classroom studies did not use random assignment**, and many controls are not reported (Martella et al.). Martella and colleagues computed no effect sizes, so no one has measured how much the missing controls affect the effect sizes.
 - **The Deslauriers experiment** has one school, one course, two instructors, one class each, and an immediate test; the active condition changed three things at once.

@@ -276,7 +276,7 @@ mermaid 支援在圖的原始碼裡寫 `accTitle` 與 `accDescr`（[官方文件
 
 ## mermaid 以外的做法
 
-下表的成本是估計；標「已查文件」的兩項以官方文件為準。每一種做法，中文版和英文版都要各有一份。
+下表的成本是估計，標「依官方文件」的格子除外。每一種做法，中文版和英文版都要各有一份。
 
 | 做法 | 適合什麼 | 深淺色 | 成本與風險 |
 |---|---|---|---|
@@ -286,8 +286,8 @@ mermaid 支援在圖的原始碼裡寫 `accTitle` 與 `accDescr`（[官方文件
 | KaTeX | 公式、對齊的推導 | 自動 | 低 |
 | 程式碼區塊裡的 ASCII 圖 | 很小的鏈或樹 | 自動 | 低。中文是全形字，和半形符號混排會對不齊 |
 | 手寫的行內 SVG | 需要精確版面的圖 | 用 `currentColor` 就會跟著切換 | 中到高。字級可以固定，但要手算座標 |
-| [rehype-mermaid](https://github.com/remcohaszing/rehype-mermaid) | 同 mermaid，改在建置時渲染 | 已查文件：兩種輸出方式支援 `dark` 選項 | 已查文件：建置環境要裝 Playwright 與瀏覽器 |
-| [D2](https://d2lang.com/) | 架構圖、有巢狀容器的圖 | 已查文件：深色主題跟著系統偏好，不跟站上的手動切換 | 中。建置流程要多一個指令 |
+| [rehype-mermaid](https://github.com/remcohaszing/rehype-mermaid) | 同 mermaid，改在建置時渲染 | 依官方文件：兩種輸出方式支援 `dark` 選項 | 依官方文件：建置環境要裝 Playwright 與瀏覽器 |
+| [D2](https://d2lang.com/) | 架構圖、有巢狀容器的圖 | 依官方文件：深色主題跟著系統偏好，不跟站上的手動切換 | 中。建置流程要多一個指令 |
 | Graphviz | 大型的圖 | 要自己處理 | 中 |
 | Excalidraw | 手繪風格的概念圖 | 要匯出兩份 | 高。兩種語言乘兩種主題，四個檔容易不同步 |
 
