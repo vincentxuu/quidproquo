@@ -136,7 +136,7 @@ A local app with messaging-app remote control opens all four, so be especially c
 
 For Taiwan, Kimi Claw and MaxClaw have international sites, and AutoClaw has an overseas site (autoclaw.z.ai). Whether you can subscribe and which messaging apps you can connect should be confirmed when you sign up. ArkClaw is a Volcano Engine service, and QClaw has stopped accepting new registrations.
 
-The first three routes all give the agent a computer, whether the vendor's cloud, your own machine or a wrapped version. Route 4, next, doesn't open a new computer: the agent moves into the apps you already use every day.
+The first three routes all give the agent a computer, whether the vendor's cloud, your own machine or a wrapped version. [Route 4, next](/posts/ai/2026-11-20-super-app-agents-en), doesn't open a new computer: the agent moves into the apps you already use every day.
 
 ## References
 
