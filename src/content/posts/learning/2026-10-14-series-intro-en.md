@@ -15,7 +15,7 @@ draft: false
 
 Do examples, diagrams, and questions necessarily make a teaching article more effective? “How to Write Teaching Articles” starts with practical decisions and examines research comparisons, limits, and possible writing choices. It covers instructional design.
 
-The series runs from order 0 to 29. This introduction is the entry point; articles 1–28 examine writing decisions, and article 29 uses this site's writing and review pipeline as a case study. The numbers provide navigation, rather than a qualification or assessment of the reader's skills.
+The series is numbered 0 to 29. This introduction is the entry point; articles 1–28 examine writing decisions, and article 29 uses this site's writing and review pipeline as a case study. The numbers provide navigation, rather than a qualification or assessment of the reader's skills.
 
 ## Choose an entry point
 
