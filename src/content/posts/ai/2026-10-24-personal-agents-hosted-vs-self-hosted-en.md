@@ -354,8 +354,11 @@ Back to Monday's email. A hosted agent stops it in three places: a model trained
 
 Hosted agents give you that isolation and those approvals, and in exchange the vendor decides the model, the data policy and the update pace. Self-hosted agents let you decide all three, and you carry the sandbox, the updates and the auditing. Neither side has solved prompt injection itself: what stops that email is approvals and isolation, not a promise from the model. Picking a side is picking which layers you want to manage yourself.
 
+Whichever side you pick, the last checkpoint is you reading carefully before you press approve. [The next post](/posts/ai/2026-11-20-human-side-of-agents-en) turns to people: the more you hand over, whether you can still catch its mistakes.
+
 ## Update Log
 
+- 2026-11-23: Added a closing line leading into the next post in the series (the human side).
 - 2026-11-20: Added to the *Always-On AI Agents* series, with a series note and overview link at the top; updated the Grok Bot background-approval expiry to 30 minutes per the current docs (previously about 10 minutes).
 - 2026-10-25: Reworked the post around one phishing email; added a "five layers" diagram, a Muse approval-flow diagram, a chart of Dots system card numbers, and comparison tables for credentials, approvals, data and published evidence; added each vendor's concrete isolation mechanisms, settings paths, an OpenClaw hardening example and how the CVE worked; corrected the Dots enterprise description (local computer access needs a separate admin opt-in, and admins can turn off custom rules).
 
