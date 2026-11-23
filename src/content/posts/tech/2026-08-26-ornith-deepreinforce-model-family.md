@@ -8,8 +8,8 @@ lang: zh-TW
 series:
   name: "AI 模型家族"
   order: 13
-tldr: "DeepReinforce 用 self-improvement RL 訓練的 Ornith 1.5 家族：397B 旗艦在 SWE-bench Verified 拿 86.0 追平 Claude Opus 4.8，35B-A3B 每 token 只啟用 3B 參數卻在同量級 coding benchmark 全面領先，9B 版本可以跑在手機上。MIT 授權、完全開源。"
-description: "Ornith 模型家族深入介紹：DeepReinforce 團隊背景、self-scaffolding 訓練方法論、三個規模的 benchmark 對比、實際部署方式與開源生態意義。"
+tldr: "DeepReinforce 用 self-improvement RL 訓練的 Ornith 1.5 家族：397B 旗艦在 SWE-bench Verified 拿 86.0 追平 Claude Opus 4.8，35B-A3B 每 token 只啟用 3B 參數卻在同量級 coding benchmark 全面領先，9B 版本可以跑在手機上。2026-10-16 加入 122B MoE，SWE-bench Verified（non-hack）84.5，是 35B 與 397B 之間的自架選項。MIT 授權、完全開源。"
+description: "Ornith 模型家族深入介紹：DeepReinforce 團隊背景、self-scaffolding 訓練方法論、四個規模（含 2026-10 新增的 122B）的 benchmark 對比、實際部署方式與開源生態意義。"
 draft: false
 glossary:
   - term: "MoE"
@@ -29,6 +29,7 @@ DeepReinforce 不是大廠。不是阿里、不是 Meta、不是 Google——是
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
 | Ornith 1.5-397B | 旗艦 coding／推理 | 397B MoE | MIT 權重；vLLM／SGLang |
+| Ornith 1.5-122B | 中大型自架 | 122B MoE；262K context，YaRN 可延伸到約 1M | MIT 權重；BF16、FP8、NVFP4、GGUF、MLX |
 | Ornith 1.5-35B-A3B | 自架效率 | 35B／約 3B 啟用 | MIT 權重；OpenAI 相容介面 |
 | Ornith 1.5-9B | 本地小尺寸 | 9B Dense，有量化版 | MIT 權重 |
 
@@ -40,19 +41,33 @@ DeepReinforce（官網 [deep-reinforce.com](https://deep-reinforce.com)、產品
 
 ### 模型家族規格
 
-Ornith 1.5 有三個規模，全部 MIT 授權、權重公開在 [Hugging Face](https://huggingface.co/ornith-ai)：
+Ornith 1.5 有四個規模，全部 MIT 授權、權重公開在 [Hugging Face](https://huggingface.co/ornith-ai)：
 
 | 模型 | 架構 | 總參數 | 每 token 啟用 | 特點 |
 |---|---|---|---|---|
 | Ornith 1.5-397B | MoE | 397B | 未公開 | 旗艦，追平閉源頂尖 |
+| Ornith 1.5-122B | MoE | 122B | 未公開 | 2026-10-16 新增，介於 35B 與 397B 之間 |
 | Ornith 1.5-35B-A3B | MoE | 35B | ~3B | 效率怪物，同量級王者 |
 | Ornith 1.5-9B | Dense | 9B | 9B | 有量化版可跑手機 |
 
 9B 版本提供 `Ornith-1.5-9B-Mobile` 量化版，官方表示可以部署在 iPhone 和 Android 裝置上。
 
+### 122B：35B 與 397B 之間的新尺寸
+
+[Ornith-1.5-122B](https://huggingface.co/ornith-ai/Ornith-1.5-122B) 在 2026-10-16 上架 Hugging Face，10-20 補上 FP8、NVFP4、GGUF 與 MLX（4-bit／8-bit）版本，全部標 MIT。它是 reasoning 模型，預設先輸出 `<think>` 區塊；HF 的 `config.json` 是 `Qwen3_5MoeForConditionalGeneration`，256 個專家、每 token 選 8 個，原生 context 262,144 token，模型卡驗證過用 YaRN（factor 4.0）延伸到約 1M。每 token 啟用參數模型卡沒有寫。
+
+模型卡稱它是 1.5 家族「most capable and efficient」的成員，可在單張 80GB GPU 上服務。這句要對照權重大小讀：BF16 權重檔約 250 GB、FP8 版約 133 GB，只有 NVFP4 版（約 78 GB）接近 80GB，留給 KV cache 的空間很少。要單卡跑，實際上是 NVFP4 加上縮短 context，上線前要自己量。模型卡另提到可裝進手機的 `Ornith-1.5-122B-Mobile`，但 ornith-ai 的 Hugging Face 組織頁目前沒有這個 repo。
+
 ## 家族演化
 
 Ornith 從 1.0 的 self-scaffolding 走向 1.5 聯合優化出題、搭建 scaffold 與解題的迴圈；轉折是訓練方法，不只是尺寸。
+
+| 時間 | 版本 | 改變了什麼選型 |
+|---|---|---|
+| 2026-06 | Ornith 1.0（9B／35B／397B） | 第一代 self-scaffolding，三個尺寸與 FP8／GGUF 版 |
+| 2026-08-18 | Ornith 1.5（9B／35B-A3B／397B） | 訓練迴圈加入自己出題；35B-A3B 成為自架 coding agent 的效率選項 |
+| 2026-09-20 | 1.5 的 DFlash draft 模型 | 397B、35B-A3B、9B 各有推測解碼 draft，降低自架延遲 |
+| 2026-10-16 | Ornith 1.5-122B | 在 35B 與 397B 之間多一個 MoE 尺寸，10-20 補齊量化版；細節見[模型卡｜Ornith-1.5-122B](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b) |
 
 ## 架構與訓練取捨
 
@@ -119,9 +134,30 @@ Ornith 的訓練方法是它最有意思的部分。
 
 9B 在 Terminal-Bench 上超過 Qwen3.5-9B 兩倍以上。官方稱 9B 的表現已經追平甚至超越 Gemma 4-31B 和 Qwen 3.6-35B 這些大好幾倍的模型。
 
+#### 122B：另一張表、另一組條件
+
+122B 的數字來自它自己的[模型卡](https://huggingface.co/ornith-ai/Ornith-1.5-122B)，比較對象與評測設定都和上面 1.5 技術報告不同（SWE-bench 系列用 OpenHands、加防 reward hacking 檢查，標示為 non-hack），所以不跟 397B、35B 的表混排：
+
+| Benchmark | Ornith 1.5-122B | Qwen3.8-Flash-Next（125B） | Qwen3.8（27B） | DeepSeek-V4-Flash-0731（284B） |
+|---|---|---|---|---|
+| SWE-bench Verified（non-hack） | **84.5** | 82.8 | 76.8 | — |
+| SWE-bench Pro（no-hack） | **76.9** | 43.9 | 65.5 | — |
+| SWE-bench Multilingual（non-hack） | **76.4** | 73.0 | 70.3 | — |
+| Terminal-Bench 2.1 | 81.2 | **83.4** | 71.9 | 82.7 |
+| CyberGym | **80.0** | 78.0 | 55.0 | 76.7 |
+| NL2Repo | 51.2 | 45.2 | 42.3 | **54.2** |
+| HLE（with tools） | 48.0 | 38.0 | 31.3 | **50.8** |
+| BrowseComp | 78.5 | 75.3 | 71.4 | **80.2** |
+
+讀法：122B 在 SWE-bench 三項領先同表，但 Terminal-Bench 2.1、NL2Repo、HLE、BrowseComp 輸給 Qwen3.8-Flash-Next 或兩倍大的 DeepSeek-V4-Flash。全部是 DeepReinforce 自報、沒有第三方複現；Terminal-Bench 2.1 用 Claude Code 2.1.126 跑、5 次平均，HLE 用 Claude 4.6 Opus 當評分模型。
+
 ## 授權、價格與部署
 
 Ornith 1.5 權重採 MIT，從 Hugging Face 取得；既有使用範例以 vLLM／SGLang 搭配 OpenAI 相容的本地端點。本篇未整理託管 API 價格，權重取得方式不能推導服務帳單。
+
+122B 的模型卡 metadata 標 MIT，`license_link` 指向 repo 裡的 LICENSE，但目前 repo 沒有這個檔案；法務要看授權全文的話，先拿同家族其他 repo 的 LICENSE 對照，或向 DeepReinforce 確認。122B 需要 Transformers ≥ 5.8.1、vLLM ≥ 0.19.1 或 SGLang ≥ 0.5.9；YaRN 是靜態套用到每個請求，模型卡提醒只有真的需要長於 262K 時才開，否則一般長度的輸入品質會略降。
+
+2026-09-20 起 397B、35B-A3B、9B 各有 [DFlash](https://huggingface.co/ornith-ai/Ornith-1.5-397B-DFlash) 推測解碼 draft 模型，要搭配支援 DFlash 的推理設定，只加速、不是獨立模型。
 
 ## Agent 使用與選型
 
@@ -138,6 +174,8 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Fix the bug in this function..."}]
 )
 ```
+
+選尺寸的順序：先看硬體。單機多卡、要最好成績用 397B；放得下 122B 的 FP8 版（約 133 GB，兩張 80GB 卡）或願意用 NVFP4 單卡、想要比 35B 強一截的 SWE-bench 成績，評測 122B；只有一張卡用 35B-A3B；手機與小 GPU 用 9B。
 
 35B-A3B 因為每 token 只啟用 3B 參數，推論成本遠低於同分數的模型。社群已有人在單張 A100 上跑 35B 本地部署的實測報告。9B 量化版甚至可以跑在消費級 GPU（12 GB 起）或手機上。
 
@@ -159,6 +197,7 @@ response = client.chat.completions.create(
 
 ## 更新紀錄
 
+- 2026-11-23：補上 Ornith 1.5-122B（2026-10-16，MIT）：版本矩陣、規格表、家族演化時間線（連 122B 每日模型卡）、獨立的 122B 官方評測表（與 1.5 技術報告不同條件，不混表）、部署需求與單卡 80GB 說法的權重大小對照、LICENSE 檔缺漏；補 2026-09-20 的 DFlash draft 模型與選尺寸順序。
 - 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
@@ -167,6 +206,10 @@ response = client.chat.completions.create(
 - [DeepReinforce 官網](https://deep-reinforce.com)
 - [Ornith GitHub Repository](https://github.com/ornith-ai/Ornith-1)
 - [Ornith Hugging Face 模型頁](https://huggingface.co/ornith-ai)
+- [Hugging Face：ornith-ai/Ornith-1.5-122B（模型卡、評測與部署說明）](https://huggingface.co/ornith-ai/Ornith-1.5-122B)
+- [Hugging Face：ornith-ai/Ornith-1.5-122B-NVFP4](https://huggingface.co/ornith-ai/Ornith-1.5-122B-NVFP4)
+- [Hugging Face：ornith-ai/Ornith-1.5-397B-DFlash](https://huggingface.co/ornith-ai/Ornith-1.5-397B-DFlash)
+- [模型卡｜Ornith-1.5-122B（站內）](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b)
 - [Ornith 1.5 35B-A3B Benchmark 分析 — MindStudio](https://www.mindstudio.ai/blog/ornith-1-5-35b-a3b-benchmarks)
 - [Ornith 1.5 Self-Improvement Loop 解析 — MindStudio](https://www.mindstudio.ai/blog/ornith-1-5-self-improvement-loop)
 - [AI 模型用途總覽——2026 年你該知道的模型地圖](/posts/tech/2026-08-24-ai-model-landscape-overview)

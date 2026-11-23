@@ -1,12 +1,12 @@
 ---
-title: "Nex-N2.5: The Open Agent Family That Treats Vision as an Interface, From 35B mini to 1.6T Max"
+title: "Nex-N2.5 and N2.6: The Open Agent Family That Treats Vision as an Interface, From 35B mini to 1.6T Max"
 date: 2026-09-19
 category: tech
 type: deep-dive
 tags: [ai-agent, llm, nex-agi, model-family-nex, moe, open-source, agentic-coding, model-selection]
 lang: en
-tldr: "Nex-N2.5 is Nex AGI's open agentic model family: mini scores 82.9 on OSWorld-G at 35B-A3B, Pro tops Claude Opus 5 with 87.4 at 397B-A17B, and Max leads the whole official table on BrowseComp with 92.6 at 1.6T, all open under Apache-2.0."
-description: "Complete guide to the Nex AGI Nex-N2.5 model family: evolution from Nex-N1 to N2.5, mini/Pro/Max positioning, the visual-feedback self-correction design philosophy, three-level reasoning_effort control, a walkthrough of the official benchmark table, Apache-2.0 open weights and deployment, and a selection guide for agent builders"
+tldr: "Nex-N2.5 is Nex AGI's open agentic model family: mini scores 82.9 on OSWorld-G at 35B-A3B, Pro tops Claude Opus 5 with 87.4 at 397B-A17B, and Max leads the whole official table on BrowseComp with 92.6 at 1.6T, all open under Apache-2.0. Nex-N2.6 (2026-11-10) moves to a GLM-5.3-Flash base (about 321B, FP8 weights, Apache-2.0) and replaces Pro as the mid-size main model, scoring 83.0 on OSWorld; the OpenRouter free tier is gone, so mini and Pro now use paid endpoints."
+description: "Complete guide to the Nex AGI Nex-N2.5 model family: evolution from Nex-N1 to N2.5, mini/Pro/Max positioning, the visual-feedback self-correction design philosophy, three-level reasoning_effort control, a walkthrough of the official benchmark table, Nex-N2.6 on a GLM-5.3-Flash base, Apache-2.0 open weights and deployment, and a selection guide for agent builders"
 series:
   name: "AI Model Families"
   order: 22
@@ -17,12 +17,12 @@ glossary:
   - term: "OSWorld-G"
     definition: "A computer-use grounding benchmark that measures how accurately a model locates UI elements — the coordinate fundamentals for computer-use agents."
   - term: "reasoning_effort"
-    definition: "Nex-N2.5's thinking control: none answers directly, medium (default) thinks adaptively, high always thinks."
+    definition: "Nex's thinking control. N2.5: none answers directly, medium (default) thinks adaptively, high always thinks; N2.6: low, high, max, defaulting to max."
 ---
 
 > :globe: [中文版](/posts/tech/2026-09-19-ai-model-family-nex)
 
-On September 8, 2026, [Nex AGI](https://nex-agi.com/) released [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini) — an open agentic model family spanning 35B to 1.6T, all under Apache-2.0. The eye-catcher is not the biggest one but the middle child: Pro scores 87.4 on [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) computer-use grounding, ahead of [Claude Opus 5](https://www.anthropic.com/) at 76.8, while the Max tops the entire official table on BrowseComp with 92.6. This is the twenty-second family deep-dive in the "AI Model Families" series, tracing Nex from Nex-N2 to N2.5.
+On September 8, 2026, [Nex AGI](https://nex-agi.com/) released [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini) — an open agentic model family spanning 35B to 1.6T, all under Apache-2.0. The eye-catcher is not the biggest one but the middle child: Pro scores 87.4 on [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) computer-use grounding, ahead of [Claude Opus 5](https://www.anthropic.com/) at 76.8, while the Max tops the entire official table on BrowseComp with 92.6. On November 10, 2026 came [Nex-N2.6](https://huggingface.co/nex-agi/Nex-N2.6): a single mid-size model whose base switches from Qwen3.5 to GLM-5.3-Flash, focused on less repetitive reasoning and calling only the tools it was given. This is the twenty-second family deep-dive in the "AI Model Families" series, tracing Nex from Nex-N2 and N2.5 to N2.6.
 
 For how to read benchmark numbers in this post, see the [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI model landscape overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) series. For per-model details see the site's two model cards: [Model Card: Nex-N2.5-mini](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en) and [Model Card: Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en).
 
@@ -30,19 +30,31 @@ For how to read benchmark numbers in this post, see the [AI model evaluation sou
 
 | Model / product line | Positioning | Key difference | Access |
 |---|---|---|---|
-| Nex-N2.5-mini | Prototypes/lower-barrier self-hosting | 35B-A3B; multimodal | Apache-2.0 weights; free OpenRouter tier |
-| Nex-N2.5-Pro | Self-hosted main model | 397B-A17B; multimodal | Apache-2.0 weights; free OpenRouter tier |
+| Nex-N2.6 | Mid-size main model (succeeds Pro) | ~321B, FP8 weights; GLM-5.3-Flash base; multimodal | Apache-2.0 weights; OpenRouter `nex-agi/nex-n2.6` ($0.12 / $0.40) |
+| Nex-N2.5-mini | Prototypes/lower-barrier self-hosting | 35B-A3B; multimodal | Apache-2.0 weights; OpenRouter `nex-agi/nex-n2.5-mini` ($0.025 / $0.10) |
+| Nex-N2.5-Pro | Single 8×H100 self-hosting | 397B-A17B; multimodal | Apache-2.0 weights; OpenRouter `nex-agi/nex-n2.5-pro` ($0.075 / $0.25) |
 | Nex-N2.5-Max | Text-only flagship | 1.6T MoE; multi-node requirements | Apache-2.0 weights |
+
+Prices are OpenRouter input / output per million tokens, with Nex AGI itself as the only provider (as of 2026-11-23). The former `:free` endpoints for mini and Pro no longer have a provider and cannot be used.
 
 ### Three sizes: mini for volume, Pro for work, Max for the ceiling
 
-**mini (35B-A3B)**: the entry point, 35B total parameters in BF16 on [Hugging Face](https://huggingface.co/nex-agi/Nex-N2.5-mini), post-trained from Qwen3.5-35B-A3B-Base. 262,144 context with about 236K max output. Runs on a single 2×H100 node (`--tp 2`) — the lowest deployment bar of the three. [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini:free) hosts a free tier at $0.00 for input and output.
+**mini (35B-A3B)**: the entry point, 35B total parameters in BF16 on [Hugging Face](https://huggingface.co/nex-agi/Nex-N2.5-mini), post-trained from Qwen3.5-35B-A3B-Base. 262,144 context with about 236K max output. Runs on a single 2×H100 node (`--tp 2`) — the lowest deployment bar of the three. The paid [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini) endpoint costs $0.025 / $0.10 per million tokens, the cheapest hosted entry in the family.
 
-**Pro (397B-A17B)**: the workhorse, keeping the previous generation's 397B-total, ~17B-active MoE (built on `Qwen3.5-397B-A17B`). Same 262,144 context. Servable on a single 8×H100 node (`--tp 8`) with no multi-node cluster like Max needs. [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-pro:free) offers a free tier too.
+**Pro (397B-A17B)**: the workhorse, keeping the previous generation's 397B-total, ~17B-active MoE (built on `Qwen3.5-397B-A17B`). Same 262,144 context. Servable on a single 8×H100 node (`--tp 8`) with no multi-node cluster like Max needs. The paid [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-pro) endpoint costs $0.075 / $0.25 per million tokens.
 
 **Max (1.6T text-only MoE)**: the flagship, a 1.6-trillion-parameter text-only MoE and Nex's first complete post-training run at trillion scale. Note the difference from its siblings: **text only, no multimodality**. Deployment takes 2 nodes and 16×H200 (`--tp 16`) at 262,144 context. This size is clearly not meant for self-hosting mortals — it exists to prove the post-training recipe works at trillion scale.
 
 The division of labor is blunt: **mini validates the loop, Pro does the work, Max proves the ceiling**.
+
+### Nex-N2.6: a new base for the mid-size slot
+
+[Nex-N2.6](https://huggingface.co/nex-agi/Nex-N2.6) (2026-11-10, Apache-2.0) is the current recommended mid-size model. The model card says it is "built on GLM-5.3-Flash"; the weights on HF are FP8 with approximately 321B parameters, and it accepts image input. Nex positions it as the follow-up to N2.5-Pro, aimed at two things:
+
+- **Less looping**: in an internal checkpoint-replay evaluation, the reasoning repetition rate fell from 16.0% for N2.5-Pro to 1.6%.
+- **Only declared tools**: among responses that made tool calls, 100% used only the tools listed in the request (N2.5-Pro: 80.5%).
+
+N2.6 ships in this one size only; mini and Max remain N2.5. Self-hosting needs a runtime with GLM-5.3-Flash support. The model card points to SGLang's GLM-5.3-Flash deployment guide with an FP8-compatible configuration, lists no minimum hardware, and points to upstream SGLang rather than the Nex sglang fork used for N2.5.
 
 ## Family evolution
 
@@ -52,9 +64,13 @@ The division of labor is blunt: **mini validates the loop, Pro does the work, Ma
 |---|---|---|
 | Dec 2025 | Nex-N1 (four sizes 8B–671B + N1.1) | First generation: full-stack agent platform, flagship DeepSeek-V3.1-Nex-N1 (671B) at 70.6 on SWE-bench Verified |
 | Pre-2026 | Nex-N2 (mini / Pro) | Previous generation: mini as a 35B-A3B autonomous-agent model, Pro at 397B-A17B; N2-mini's DeepSWE sat at 8.0 — the baseline N2.5 exploded from |
-| 2026-09-08 | Nex-N2.5 (mini / Pro / Max) | Full second generation: mini/Pro continue N2's multimodal foundations with stronger post-training, Max completes full post-training at trillion-parameter scale for the first time |
+| 2026-09-08 | Nex-N2.5 (mini / Pro / Max) | Full second generation: mini/Pro continue N2's multimodal foundations with stronger post-training, Max completes full post-training at trillion-parameter scale for the first time; per-model details in [Model Card: Nex-N2.5-mini](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini-en) and [Model Card: Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro-en) |
+| 2026-09-28 | Nex-N2.5-Pro-DFlash / Max-DSpark | Draft models for speculative decoding (1.29B / 77.5B): lower latency, unchanged output distribution, require Nex's sglang fork |
+| 2026-11-10 | Nex-N2.6 | Mid-size moves to a GLM-5.3-Flash base (~321B, FP8); the pick shifts from the 397B Pro to N2.6; reasoning levels become low / high / max |
 
-Nex iterates the same way [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna-en) does: **new post-training, not a new base**. Looking further back, the first generation was [Nex-N1](https://github.com/nex-agi/Nex-N1) (Dec 2025, four sizes from 8B to 671B, flagship DeepSeek-V3.1-Nex-N1), with N2 building one layer on top. The official line is that N2.5-mini/Pro continue the [Nex-N2](https://github.com/nex-agi/Nex-N2) multimodal foundations, with gains from wider agent-training environments, task types, and productivity-scenario coverage. The shape of the scores backs it: mini's DeepSWE v1.1 jumps from 8.0 to 36.1 (4.5x), Pro's Terminal-Bench 2.1 from 75.3 to 82.7 (+7.4pp) — same parameters, higher long-horizon success rates.
+Through N2.5, Nex iterated the same way [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna-en) does: **new post-training, not a new base**. Looking further back, the first generation was [Nex-N1](https://github.com/nex-agi/Nex-N1) (Dec 2025, four sizes from 8B to 671B, flagship DeepSeek-V3.1-Nex-N1), with N2 building one layer on top. The official line is that N2.5-mini/Pro continue the [Nex-N2](https://github.com/nex-agi/Nex-N2) multimodal foundations, with gains from wider agent-training environments, task types, and productivity-scenario coverage. The shape of the scores backs it: mini's DeepSWE v1.1 jumps from 8.0 to 36.1 (4.5x), Pro's Terminal-Bench 2.1 from 75.3 to 82.7 (+7.4pp) — same parameters, higher long-horizon success rates.
+
+N2.6 breaks that pattern: the mid-size base moves from Qwen3.5-397B-A17B to GLM-5.3-Flash. That shows Nex's post-training recipe is not tied to one base, and it also means N2.5 deployment scripts and reasoning-parser settings do not carry over to N2.6 as-is.
 
 ## Architecture and training trade-offs
 
@@ -85,7 +101,7 @@ All numbers below are the official September 8, 2026 table (coding on the in-hou
 | Toolathlon Verified | 54.6 | 68.5 | 74.7 | Opus 5 / Kimi-K3: 76.5 |
 | AutomationBench | 32.3 | 44.2 | 50.2 | Opus 5: 50.3 |
 
-Selection logic: **for free computer-use loop experiments — mini; for grounding accuracy on holdable single-node hardware — Pro; for the text-reasoning ceiling — Max (if you have 16×H200)**. Max has no OSWorld-family scores because it is a text-only model and cannot enter the computer-use track — don't measure it with the wrong ruler.
+Selection logic (within N2.5): **for low-cost computer-use loop experiments — mini; for grounding accuracy on holdable single-node hardware — Pro; for the text-reasoning ceiling — Max (if you have 16×H200)**. The newer mid-size option, N2.6, is covered later in this section under "Nex-N2.6 official numbers". Max has no OSWorld-family scores because it is a text-only model and cannot enter the computer-use track — don't measure it with the wrong ruler.
 
 ### Where it stands against rivals
 
@@ -95,13 +111,27 @@ On text coding (Terminal-Bench, SWE-Pro, DeepSWE) all three trail Opus 5 by 3pp 
 
 One caveat: the whole table is vendor self-tested (NexAU/NexCUA) with rival scores taken from public reports and leaderboards, not rerun in one harness by a third party. Discount for home-field advantage accordingly.
 
+### Nex-N2.6 official numbers
+
+The N2.6 model card has its own table, comparing against its base and similar-tier models; it is not merged with the N2.5 table above:
+
+| Benchmark | GLM-5.3-Flash | DeepSeek-V4.1-Flash | Nex-N2.5-Pro | Nex-N2.6 |
+|---|---|---|---|---|
+| OSWorld | 78.0 | 71.7 | 82.2 | **83.0** |
+| Terminal-Bench 2.1 | 84.3 | 82.7 | 82.7 | 84.1 |
+| AutomationBench | 48.8 | 54.8 | 44.2 | 45.7 |
+
+These are also Nex's own numbers, and the card notes that scores depend on harness and settings. Reading: N2.6 edges out N2.5-Pro, but trails its GLM-5.3-Flash base slightly on Terminal-Bench 2.1 and trails both the base and DeepSeek-V4.1-Flash on AutomationBench. N2.6's main selling points are the repetition and tool-adherence results from the previous section, which come from internal evaluations built on real-task issues from Nex and partner teams, with no externally reproducible version.
+
 ## Licensing, pricing, and deployment
 
 ### Open strategy and ecosystem
 
-All three ship under Apache-2.0, with weights on both [Hugging Face](https://huggingface.co/collections/nex-agi/nex-n25) and [ModelScope](https://modelscope.cn/models/nex-agi/Nex-N2.5-mini) and hosted access via [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini) (mini/Pro on free tiers). Deployment runs on the in-house [sglang fork](https://github.com/nex-agi/Nex-N2.5) (`nexagi/sglang:v0.5.18-nex-patch`), with [vLLM](https://github.com/vllm-project/vllm) and transformers also supported. Against Laguna's OpenMDW-1.1, Apache-2.0 is the more dispute-free commercial license and the easier sell to enterprise legal.
+The three N2.5 models and N2.6 all ship under Apache-2.0. N2.5 weights are on both [Hugging Face](https://huggingface.co/collections/nex-agi/nex-n25) and [ModelScope](https://modelscope.cn/models/nex-agi/Nex-N2.5-mini); N2.6 is on [Hugging Face](https://huggingface.co/nex-agi/Nex-N2.6) (FP8). Against Laguna's OpenMDW-1.1, Apache-2.0 is the more dispute-free commercial license and the easier sell to enterprise legal.
 
-The free-tier play is worth noting: mini and Pro both at $0.00 pushes the "try it" cost to zero. Unlike [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna-en), whose free tier caps context at 256K, Nex's free offering is the full model — the price is rate limits, so check OpenRouter's limit docs before scaling.
+Hosted access goes through [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.6), per million tokens (input / output): N2.6 $0.12 / $0.40, N2.5-Pro $0.075 / $0.25, N2.5-mini $0.025 / $0.10, each with Nex AGI as the only provider; Max has no hosted endpoint. The earlier `:free` endpoints for mini and Pro no longer have a provider, so replace any `:free` model IDs in existing code. The N2.6 [GitHub README](https://github.com/sii-nex/Nex-N2.6) also lists the MOSS platform as an API entry.
+
+Deployment splits in two. N2.5 runs on the in-house [sglang fork](https://github.com/nex-agi/Nex-N2.5) (`nexagi/sglang:v0.5.18-nex-patch`), with [vLLM](https://github.com/vllm-project/vllm) and transformers also supported; on 2026-09-28 Nex added speculative-decoding drafts [Nex-N2.5-Pro-DFlash](https://huggingface.co/nex-agi/Nex-N2.5-Pro-DFlash) (1.29B, text and multimodal) and [Nex-N2.5-Max-DSpark](https://huggingface.co/nex-agi/Nex-N2.5-Max-DSpark) (77.5B, text only), which cut latency while keeping the target model's output distribution and also require that fork. N2.6 uses upstream SGLang's GLM-5.3-Flash path instead.
 
 ## Agent integration and selection
 
@@ -109,7 +139,9 @@ The free-tier play is worth noting: mini and Pro both at $0.00 pushes the "try i
 
 N2.5 controls thinking with `reasoning_effort` ([official docs](https://huggingface.co/nex-agi/Nex-N2.5-mini)): `none` answers directly with no trace, `medium` (default) thinks adaptively, `high` always thinks. Compared with [Laguna S 2.1](/posts/tech/2026-09-19-ai-model-family-laguna-en), which offers only `off`/`max`, Nex adds one middle setting that lets the model decide.
 
-The parsers come in two pairs as well: `--reasoning-parser qwen3` for mini/Pro, `--reasoning-parser deepseek-r1` for Max, with function calling uniformly on `--tool-call-parser qwen3_coder`. Recommended sampling is `temperature=0.7`, `top_p=0.95`, `top_k=40` — note the departure from the `temperature=1.0` default of most coding models; align judge conditions before cross-comparing.
+N2.6 changes the levels: the chat template shipped with the weights accepts `low`, `high`, and `max`, defaulting to `max`, with no `none`. Code that sends `none` or `medium` needs changing when moving from N2.5 to N2.6.
+
+The parsers (N2.5) come in two pairs as well: `--reasoning-parser qwen3` for mini/Pro, `--reasoning-parser deepseek-r1` for Max, with function calling uniformly on `--tool-call-parser qwen3_coder`. Recommended sampling is `temperature=0.7`, `top_p=0.95`, `top_k=40` — note the departure from the `temperature=1.0` default of most coding models; align judge conditions before cross-comparing.
 
 ```python
 from openai import OpenAI
@@ -119,32 +151,35 @@ client = OpenAI(
     api_key="YOUR_OPENROUTER_KEY",
 )
 resp = client.chat.completions.create(
-    model="nex-agi/nex-n2.5-mini:free",
+    model="nex-agi/nex-n2.6",
     messages=[{"role": "user", "content": "Open the settings app and turn on dark mode."}],
-    extra_body={"reasoning_effort": "medium"},
+    extra_body={"reasoning_effort": "high"},  # N2.6: low/high/max; N2.5: none/medium/high
 )
 print(resp.choices[0].message.content)
 ```
 
 ### What it means for agent builders
 
-For **computer-use/browser-use prototypes**: mini is currently the cheapest validation entry — a free tier plus 82.9 grounding to test whether the visual-feedback loop works before committing to a paid API.
+For **computer-use/browser-use prototypes**: mini is currently the cheapest validation entry — $0.025 / $0.10 per million tokens plus 82.9 grounding to test whether the visual-feedback loop works before moving to a bigger model.
 
-For a **self-hosted workhorse agent**: Pro is the sweet spot. 87.4 grounding accuracy, 82.7 on TB 2.1, single 8×H100 node, and Apache-2.0 with no modification baggage. Existing N2 sglang deployment scripts carry over for upgrades.
+For a **mid-size workhorse agent**: try N2.6 first. On the official table it edges out N2.5-Pro on OSWorld and Terminal-Bench 2.1, and the bigger difference is far less repetitive reasoning and fewer bad tool calls, the two failures long-horizon agent loops suffer most from. Measure repetition and tool-call errors on your own tasks before shipping, because those two numbers exist only as internal evaluations.
+
+For **keeping an existing deployment**: N2.5-Pro is still available. 87.4 grounding accuracy, 82.7 on TB 2.1, single 8×H100 node, and existing N2 sglang deployment scripts carry over; moving to N2.6 means switching to GLM-5.3-Flash inference settings.
 
 
 ## Limitations and trade-offs
 
-Not for: top coding accuracy in production (SWE-Pro 61.2 trails Opus 5's 79.2 by ~18pp), commercial SLAs (this article has not compiled standalone commercial pricing or SLA terms; the OpenRouter free tier does not establish a service guarantee), or flagship text capabilities outside multimodality (that's Max territory, and it wants a two-node H200 cluster).
+Not for: top coding accuracy in production (SWE-Pro 61.2 trails Opus 5's 79.2 by ~18pp), commercial SLAs (the OpenRouter endpoints have Nex AGI as their only provider and this article has not compiled SLA terms, so treat them as no service guarantee), or flagship text capabilities outside multimodality (that's Max territory, and it wants a two-node H200 cluster).
 
 ### Overall
 
 Nex-N2.5's bet is the other side of Laguna's coin: Laguna bets on "behavior that persists", Nex bets on "**the loop that sees**" — turning vision from input into verification interface so agents finish tasks in real environments on their own. mini proves the loop works at 35B, Pro proves it can beat closed models, Max proves it scales to trillions.
 
-Two things to watch: whether third parties reproduce the 87.4 OSWorld-G once NexCUA is open-sourced, and whether Max's text-only track merges with the multimodal line next generation — 1.6T doing text alone looks like an unfinished puzzle.
+Things to watch: whether third parties reproduce the 87.4 OSWorld-G once NexCUA is open-sourced; whether mini and Max follow N2.6 onto a new base; and whether Max's text-only track merges with the multimodal line next generation — 1.6T doing text alone looks like an unfinished puzzle.
 
 ## Update history
 
+- 2026-11-23: Added Nex-N2.6 (2026-11-10, GLM-5.3-Flash base, ~321B FP8, Apache-2.0): model matrix, family evolution, a separate official benchmark table, the `reasoning_effort` level change, and selection. The N2.5 table is kept and not merged with N2.6. The OpenRouter `:free` endpoints for mini and Pro no longer have a provider, so the matrix, pricing section, code sample, and references now use paid endpoints and prices. Added the 2026-09-28 DFlash / DSpark speculative-decoding drafts.
 - 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
@@ -157,5 +192,10 @@ Two things to watch: whether third parties reproduce the 87.4 OSWorld-G once Nex
 - [GitHub: nex-agi/Nex-N2 (previous-gen benchmarks and base specs)](https://github.com/nex-agi/Nex-N2)
 - [GitHub: nex-agi/Nex-N1 (first generation, four sizes 8B–671B)](https://github.com/nex-agi/Nex-N1)
 - [Hugging Face: Nex-N1 Collection](https://huggingface.co/collections/nex-agi/nex-n1)
-- [OpenRouter: nex-agi/nex-n2.5-mini:free](https://openrouter.ai/nex-agi/nex-n2.5-mini:free)
-- [OpenRouter: nex-agi/nex-n2.5-pro:free](https://openrouter.ai/nex-agi/nex-n2.5-pro:free)
+- [Hugging Face: nex-agi/Nex-N2.6 (model card and official evaluations)](https://huggingface.co/nex-agi/Nex-N2.6)
+- [GitHub: sii-nex/Nex-N2.6](https://github.com/sii-nex/Nex-N2.6)
+- [Hugging Face: nex-agi/Nex-N2.5-Pro-DFlash](https://huggingface.co/nex-agi/Nex-N2.5-Pro-DFlash)
+- [Hugging Face: nex-agi/Nex-N2.5-Max-DSpark](https://huggingface.co/nex-agi/Nex-N2.5-Max-DSpark)
+- [OpenRouter: nex-agi/nex-n2.6](https://openrouter.ai/nex-agi/nex-n2.6)
+- [OpenRouter: nex-agi/nex-n2.5-mini](https://openrouter.ai/nex-agi/nex-n2.5-mini)
+- [OpenRouter: nex-agi/nex-n2.5-pro](https://openrouter.ai/nex-agi/nex-n2.5-pro)
