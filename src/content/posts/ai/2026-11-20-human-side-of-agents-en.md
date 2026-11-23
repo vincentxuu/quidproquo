@@ -127,7 +127,7 @@ This isn't a product post, so here's when to be especially careful instead:
 
 These issues have nothing to do with any particular product; they apply to every always-on agent available in Taiwan, and to self-hosted OpenClaw and Hermes alike.
 
-Trust has to be calibrated against evidence. Next: how to evaluate whether an always-on agent is actually useful, what reporters' hands-on tests are worth, and what existing benchmarks do and don't measure.
+Trust has to be calibrated against evidence. [Next](/posts/ai/2026-11-20-evaluating-always-on-agents-en): how to evaluate whether an always-on agent is actually useful, what reporters' hands-on tests are worth, and what existing benchmarks do and don't measure.
 
 ## References
 
