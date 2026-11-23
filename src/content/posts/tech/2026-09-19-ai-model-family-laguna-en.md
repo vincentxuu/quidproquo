@@ -30,17 +30,19 @@ For how to read benchmark numbers in this post, see the [AI model evaluation sou
 
 | Model / product line | Positioning | Key difference | Access |
 |---|---|---|---|
-| Laguna XS 2.1 | Local iteration | 33B/3B; 256K context | OpenMDW-1.1 weights; hosted endpoints |
-| Laguna S 2.1 | Long-horizon coding | 118B/8B; 1M context | Weights; free/paid OpenRouter endpoints |
+| Laguna XS 2.1 | Local iteration | 33B/3B; 256K context | OpenMDW-1.1 weights; Poolside API |
+| Laguna S 2.1 | Long-horizon coding | 118B/8B; 1M context | OpenMDW-1.1 weights; Poolside API |
 | M.1／XS.2 | Historical comparison | Historical versions, separate from current selection | Official historical model documentation |
 
 ### Two sizes, one philosophy
 
 To understand Laguna, accept its default first: **these models are not for chatting, they are for running hundreds of steps inside an agent harness**. The docs say the same thing about [M.1](https://docs.poolside.ai/release-notes/models) and [XS.2](https://docs.poolside.ai/release-notes/models): use them inside [Poolside Agent workflows](https://docs.poolside.ai/cli/pool), not as standalone chat models. S 2.1 and XS 2.1 are no different — supported modes are Agentic + Chat, but peak results all come from the in-house [pool](https://poolside.ai/get-started) terminal coding agent.
 
-**XS line (runs locally)**: [XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) is 33B total with 3B active and 256K context (262,144 exactly). The official line is "compact enough to run on a Mac with 36 GB of RAM", with FP8, NVFP4, and INT4 checkpoints on [Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) plus a [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) draft model that doubles throughput in testing. Paid pricing carries over from XS.2 at $0.10 / $0.20 / $0.05 per 1M input / output / cache-read tokens.
+**XS line (runs locally)**: [XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) is 33B total with 3B active and 256K context (262,144 exactly). The official line is "compact enough to run on a Mac with 36 GB of RAM", with FP8, NVFP4, and INT4 checkpoints on [Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) plus a [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) draft model that doubles throughput in testing.
 
-**S line (holds the long run)**: [S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) is 118B total with 8B active and 1M context (1,048,576 exactly). The pitch is "Frontier-class reasoning at mid-size cost", small enough for a single [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1) yet strong enough to beat several 500B+ open models on Terminal-Bench 2.1. On [OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1), the free endpoint offers 256K context while the dedicated paid endpoint unlocks the full 1M at $0.10 / $0.20 / $0.01 (announced July 2026).
+**S line (holds the long run)**: [S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) is 118B total with 8B active and 1M context (1,048,576 exactly). The pitch is "Frontier-class reasoning at mid-size cost", small enough for a single [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1) yet strong enough to beat several 500B+ open models on Terminal-Bench 2.1. The official docs estimate about 192 GB of GPU memory for FP8 weights (about 96 GB for XS 2.1), as a planning starting point rather than a minimum requirement.
+
+**Hosted access**: both models are served through the [Poolside API](https://docs.poolside.ai/api/overview) (OpenAI-compatible, base URL `https://inference.poolside.ai/v1`, model IDs `poolside/laguna-s-2.1` and `poolside/laguna-xs-2.1`). Signing in to [Poolside Platform](https://docs.poolside.ai/get-started/log-in) issues a free developer API key, and [chat.poolside.ai](https://chat.poolside.ai/) lets you try the models without signing up. Poolside does not publish a hosted price list, so confirm production pricing with Poolside. The free and paid OpenRouter endpoints listed at launch have been taken down; do not use them as an entry point.
 
 Neither size supports vision — text in, text out only. That is deliberate, not an omission: Laguna bets all complexity on the read-repo, edit-file, run-test, verify loop.
 
@@ -129,7 +131,7 @@ XS 2.1 fights at the 30B level: SWE-bench Verified at 70.9% beats Cohere North M
 
 Both current Laguna models ship under [OpenMDW-1.1](https://openmdw.ai/), fully permissive with no extra permission needed for commercial use. S 2.1 arrived day one with BF16, FP8, INT4, and NVFP4 plus official GGUF and MLX conversions; XS 2.1 offers BF16, FP8, NVFP4, and INT4. The M.1 era used Apache 2.0, and the 2.1 generation moved wholesale to OpenMDW, following the [NVIDIA and Linux Foundation](https://poolside.ai/blog/introducing-laguna-xs-2-1) direction.
 
-The serving ecosystem was day-one complete: [vLLM](https://github.com/vllm-project/vllm), [SGLang](https://github.com/sgl-project/sglang), [Ollama](https://ollama.com/library/laguna-s-2-1) (`ollama run laguna-s-2.1`), llama.cpp, MLX, NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559), plus [Baseten](https://www.baseten.co/library/laguna-s-21/), [OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1), and [Vercel AI Gateway](https://vercel.com/ai-gateway/models?q=laguna). On the agent side it landed in [Kilo](https://kilocode.ai), [Hermes Agent](https://hermes-agent.nousresearch.com/), pi, [OpenCode](https://opencode.ai/), [OpenClaw](https://openclaw.ai/), and [Cline](https://cline.bot/). Every published score ships with full trajectories on [trajectories.poolside.ai](https://trajectories.poolside.ai/), which is more accountability than most score-only releases.
+The serving ecosystem was day-one complete: [vLLM](https://github.com/vllm-project/vllm), [SGLang](https://github.com/sgl-project/sglang), [Ollama](https://ollama.com/library/laguna-s-2-1) (`ollama run laguna-s-2.1`), llama.cpp, MLX, NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559), with hosted options in Poolside's own API and [Baseten](https://www.baseten.co/library/laguna-s-21/) model-library deployments (the launch-time OpenRouter and Vercel AI Gateway listings have been removed). On the agent side it landed in [Kilo](https://kilocode.ai), [Hermes Agent](https://hermes-agent.nousresearch.com/), pi, [OpenCode](https://opencode.ai/), [OpenClaw](https://openclaw.ai/), and [Cline](https://cline.bot/). Every published score ships with full trajectories on [trajectories.poolside.ai](https://trajectories.poolside.ai/), which is more accountability than most score-only releases.
 
 ## Agent integration and selection
 
@@ -152,15 +154,17 @@ Two things to watch: how many steps S 2.1's 1M context actually holds together i
 
 ## Update history
 
+- 2026-11-23: The free and paid OpenRouter endpoints for S 2.1 and XS 2.1 have been taken down, and Vercel AI Gateway no longer lists Laguna. The model matrix and deployment sections now point to the Poolside API (free developer key from Poolside Platform), chat.poolside.ai, and Baseten. Removed the prices that came from the OpenRouter listings (S 2.1 at $0.10 / $0.20 / $0.01 and XS 2.1 at $0.10 / $0.20 / $0.05); Poolside does not publish a hosted price list. Added the official FP8 GPU memory estimates. The model generation is unchanged; S 2.1 and XS 2.1 remain Poolside's current models.
 - 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
 
 - [Poolside: Introducing Laguna S 2.1 (2026-07-21)](https://poolside.ai/blog/introducing-laguna-s-2-1)
 - [Poolside: Introducing Laguna XS 2.1 (2026-07-02)](https://poolside.ai/blog/introducing-laguna-xs-2-1)
-- [Poolside: Models (S 2.1 / XS 2.1 specs and pricing)](https://www.poolside.ai/models)
+- [Poolside: Models (S 2.1 / XS 2.1 specs)](https://www.poolside.ai/models)
 - [Poolside docs: Model release notes (M.1 / XS.2 / XS 2.1 / S 2.1)](https://docs.poolside.ai/release-notes/models)
 - [Hugging Face: poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
 - [Hugging Face: poolside/Laguna-XS-2.1](https://huggingface.co/poolside/Laguna-XS-2.1)
-- [OpenRouter: poolside/laguna-s-2.1](https://openrouter.ai/poolside/laguna-s-2-1)
+- [Poolside docs: Poolside API (base URL, model IDs, authentication)](https://docs.poolside.ai/api/overview)
+- [Poolside docs: Supported models (parameters, GPU memory estimates, licenses)](https://docs.poolside.ai/get-started/supported-models)
 - [trajectories.poolside.ai: full S 2.1 evaluation trajectories](https://trajectories.poolside.ai/)
