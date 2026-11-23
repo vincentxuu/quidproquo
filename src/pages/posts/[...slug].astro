@@ -21,7 +21,7 @@ import { getYouTubeEmbedId } from '../../utils/youtube';
 import { stripEmojiText, INLINE_ICONS_KEY, INLINE_ICON_SPRITE_PX } from '../../plugins/rehypeNoEmoji';
 import { renderIconSprite } from '../../components/icons/render';
 import type { IconName } from '../../components/icons/koboyo';
-import { getReadingTime } from '../../utils/readingTime';
+import { getReadingTime, getWordCount } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -103,7 +103,7 @@ const blogPostingLD = {
   dateModified: modifiedDate.toISOString(),
   inLanguage: lang === 'en' ? 'en' : 'zh-TW',
   articleSection: post.data.category,
-  wordCount: post.body?.trim().split(/\s+/).length ?? undefined,
+  wordCount: post.body ? getWordCount(post) : undefined,
   author: {
     '@type': 'Person',
     name: 'xiaoxu',

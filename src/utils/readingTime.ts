@@ -12,15 +12,18 @@ const CJK_CHARS_PER_MINUTE = 500;
 
 const CJK = /[\p{Script=Han}\p{Script=Hiragana}\p{Script=Katakana}\p{Script=Hangul}]/gu;
 
-export function calculateReadingTime(text: string): number {
+/** CJK characters and latin words, counted separately. */
+export function countText(text: string): { cjkChars: number; latinWords: number } {
   const normalized = text.trim();
-  if (!normalized) return 1;
-
   const cjkChars = normalized.match(CJK)?.length ?? 0;
   const latinWords = normalized
     .replace(CJK, ' ')
     .match(/[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*/g)?.length ?? 0;
+  return { cjkChars, latinWords };
+}
 
+export function calculateReadingTime(text: string): number {
+  const { cjkChars, latinWords } = countText(text);
   const minutes = (cjkChars / CJK_CHARS_PER_MINUTE) + (latinWords / LATIN_WORDS_PER_MINUTE);
   return Math.max(1, Math.ceil(minutes));
 }
@@ -37,4 +40,10 @@ export function markdownToReadableText(markdown: string): string {
 
 export function getReadingTime(entry: { body?: string }): number {
   return calculateReadingTime(markdownToReadableText(entry.body ?? ''));
+}
+
+/** Word count for structured data: each CJK character counts as one word. */
+export function getWordCount(entry: { body?: string }): number {
+  const { cjkChars, latinWords } = countText(markdownToReadableText(entry.body ?? ''));
+  return cjkChars + latinWords;
 }

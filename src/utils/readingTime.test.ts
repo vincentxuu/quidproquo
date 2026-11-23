@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { calculateReadingTime, getReadingTime, markdownToReadableText } from './readingTime';
+import { calculateReadingTime, getReadingTime, getWordCount, markdownToReadableText } from './readingTime';
 
 describe('calculateReadingTime', () => {
   it('counts CJK text by characters instead of whitespace-separated words', () => {
@@ -37,5 +37,12 @@ describe('getReadingTime', () => {
   it('reads the entry body and is never below one minute', () => {
     expect(getReadingTime({ body: '' })).toBe(1);
     expect(getReadingTime({ body: '字'.repeat(1600) })).toBe(4);
+  });
+});
+
+describe('getWordCount', () => {
+  it('counts CJK characters and latin words, ignoring link targets', () => {
+    expect(getWordCount({ body: '中文內容 two words [連結](https://example.com/x)' })).toBe(8);
+    expect(getWordCount({})).toBe(0);
   });
 });
