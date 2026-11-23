@@ -33,17 +33,17 @@ series:
 
 ### Anthropic：Claude Agent SDK + Managed Agents
 
-依 [Anthropic 文件](https://docs.anthropic.com/en/docs/agents)，Anthropic 在 2026 年推出三層分級機制：
+依 Claude Platform 文件，Anthropic 目前提供三種彼此獨立的預算機制：
 
 | 機制 | 類型 | 說明 |
 |---|---|---|
-| **Session Budget** | 硬美元 cap | 設在 session 層級，到頂回傳 `budget_reached` stop reason，暫停而非終止 |
-| **Task Budget** | 軟 token 提示 | server-side 注入倒數計時，模型自行分配優先級，接近預算時主動收尾 |
-| `max_tokens` per tool call | per-call | 限制單次工具呼叫的輸出 token |
+| **[Session budget](https://platform.claude.com/docs/en/managed-agents/budgets)**（Managed Agents） | 硬美元 cap | 建立 session 時設 `budget.max_list_cost`（美分），平台以公開牌價持續計算 token、web search 與 session 執行時間的花費；到頂後在下一次模型請求前暫停，session 以 `budget_reached` stop reason 轉為 idle，不會終止，調高或移除 budget 就自動續跑。multi-agent session 所有 thread 共用一個 budget |
+| **[Task budget](https://platform.claude.com/docs/en/build-with-claude/task-budgets)**（Messages API，beta） | 軟 token 提示 | 在 `output_config.task_budget` 設整個 agentic loop 的 token 總量（最少 20,000），server-side 注入倒數，模型自己分配優先級、接近預算時收尾；不保證不超過 |
+| `max_tokens` | 每次請求的硬上限 | 限制單次 API 請求產生的 token，到頂以 `stop_reason: "max_tokens"` 截斷；模型本身看不到這個值 |
 
-Task Budget 是最有意思的設計——它不是硬擋，而是讓模型「知道」預算快用完了，自行決定要省著用還是趕快收尾。依 Anthropic 的說法，這在 Opus 4.7+ 上效果最好。
+Task budget 是最有意思的設計：它不是硬擋，而是讓模型「知道」預算快用完了，自行決定要省著用還是趕快收尾。它從 Opus 4.7 起以 beta 提供（beta header `task-budgets-2026-03-13`），Claude Code 與 Managed Agents 不支援，Managed Agents 改用 session budget。官方建議兩者搭配：task budget 當配速目標，`max_tokens` 當絕對上限。
 
-Managed Agents 的計費結構是 token 費率 + $0.08/session-hour + tool costs。
+Managed Agents 的計費結構是 token 費率 + $0.08/session-hour + tool costs（web search 每千次 $10）。
 
 另外值得一提的是 [Claude Code](https://code.claude.com/docs/en/workflows) 的 Dynamic Workflow 系統。它提供 `budget.remaining()` 原語讓腳本在編排過程中查詢剩餘 token 預算，搭配 `pipeline()` / `parallel()` / `agent({schema})` 做確定性編排。單次 run 最多 1,000 個 agent、16 並發，支援中斷後 resume（cache hit）。這是目前唯一把預算追蹤做成一級原語的 coding agent。
 
@@ -60,20 +60,16 @@ Managed Agents 的計費結構是 token 費率 + $0.08/session-hour + tool costs
 
 ### Microsoft Agent Framework（2026-04 GA）
 
-[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) 合併了 AutoGen 的 agent 抽象和 Semantic Kernel 的企業功能，兩者進入維護模式。它的核心理念叫 **TokenOps**：
+[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) 合併了 AutoGen 的 agent 抽象和 Semantic Kernel 的企業功能，兩者進入維護模式。它沒有單一的「預算」開關，成本控制分散在幾個元件：
 
-> 超支時優先「原地干預」——壓縮 context、快取結果、縮減輸出。Kill switch 是最後手段。
+- **每次執行的輸出上限**：[run options](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/running-agents) 可設 `max_tokens`（Python 傳 `options={"max_tokens": ...}`；.NET 透過 `ChatClientAgentRunOptions` 帶入 `ChatOptions`），也能在單次執行覆寫 `model`，把便宜的任務交給小模型
+- **[Compaction](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)**（experimental）：`TokenBudgetComposedStrategy` 依序跑由輕到重的壓縮策略，例如先收起舊的 tool 結果、再用小模型摘要舊對話、最後只留最近的訊息，壓到 token 預算以下就停；都不夠時退回刪掉最舊的訊息
+- **[Group chat 終止條件](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/group-chat)**：Python 的 `GroupChatBuilder(termination_condition=...)`、.NET 的 `MaximumIterationCount` 與可覆寫的 `ShouldTerminateAsync`，限制多 agent 對話的輪數
+- **[Middleware](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/middleware/)**：可攔截 agent run、function call 與 chat client 呼叫，要做 token 累計、超額告警或暫停等人確認，就寫在這一層
 
-具體機制：
+思路是先壓縮、再降級、最後才停止，不要一刀切。AutoGen 的 [`TokenUsageTermination`](https://microsoft.github.io/autogen/stable/reference/python/autogen_agentchat.conditions.html) 是現成的 token 終止條件，MAF 的 group chat 目前沒有對應的內建類別，要自己在 `termination_condition` 或 middleware 裡依 usage 判斷。
 
-- `ChatClientAgentRunOptions.max_tokens`：per-call 輸出上限
-- **Termination middleware**：composable 的終止條件，包括 `TokenUsageTermination`
-- **三級反應**：接近閾值 → throttle（降速）→ pause（暫停等確認）→ terminate（終止）
-- 接近預算時自動壓縮 context 或降級模型
-
-TokenOps 的思路是：先壓縮再降級再停止，不要一刀切。
-
-MAF 的前身 AutoGen 是個值得記住的教訓。AutoGen 0.2 的 `GroupChat` 讓多個 agent 自由對話，沒有內建的 token 預算或輪次上限，社群回報 40% 的預算超支。2024 年 11 月原作者離開微軟後 fork 出 [AG2](https://github.com/ag2ai/ag2)，微軟自己則做了 async-first 的 AutoGen 0.4 重寫。到了 2026 年 4 月，微軟決定把 AutoGen + Semantic Kernel 合併成 MAF，AutoGen 正式進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)，2026-10 起 [repo 已封存](https://github.com/microsoft/autogen)。從「無上限對話」到「分級 TokenOps」，這條路走了將近兩年。
+MAF 的前身 AutoGen 是個值得記住的教訓。AutoGen 0.2 的 `GroupChat` 讓多個 agent 自由對話，沒有內建的 token 預算或輪次上限，社群回報 40% 的預算超支。2024 年 11 月原作者離開微軟後 fork 出 [AG2](https://github.com/ag2ai/ag2)，微軟自己則做了 async-first 的 AutoGen 0.4 重寫。到了 2026 年 4 月，微軟決定把 AutoGen + Semantic Kernel 合併成 MAF，AutoGen 正式進入[維護模式](https://github.com/microsoft/autogen/discussions/7066)，2026-10 起 [repo 已封存](https://github.com/microsoft/autogen)。從「無上限對話」到「分層壓縮與終止條件」，這條路走了將近兩年。
 
 ### LangGraph
 
@@ -127,8 +123,8 @@ Bedrock 的優勢是護欄在 platform 層面，不需要應用層自己管。�
 
 各家做法的差異在「靠誰判斷」：
 
-- **Anthropic Task Budget**：靠模型自己判斷要收尾了（soft hint）
-- **Microsoft TokenOps**：靠 middleware 自動壓縮和降級（系統自動）
+- **Anthropic Task budget**：靠模型自己判斷要收尾了（soft hint）；session budget 則是平台硬擋後暫停
+- **Microsoft Agent Framework**：靠 compaction 策略與 middleware 自動壓縮和降級（系統自動）
 - **Bedrock Guardrails**：靠平台硬擋（無 application-level 控制）
 - **CrewAI**：靠開發者在建 agent 時就分好模型等級（設計期決定）
 
@@ -149,17 +145,19 @@ Bedrock 的優勢是護欄在 platform 層面，不需要應用層自己管。�
 
 ## 整體來說
 
-Multi-Agent 的成本控制不是一個開關的問題，是一組分層機制。業界正從「設個上限就好」走向「分級反應 + 模型自覺」。Anthropic 的 Task Budget 讓模型自己省錢、Microsoft 的 TokenOps 讓系統自動降級，都比單純的硬擋聰明得多。
+Multi-Agent 的成本控制不是一個開關的問題，是一組分層機制。業界正從「設個上限就好」走向「分級反應 + 模型自覺」。Anthropic 的 task budget 讓模型自己省錢、Microsoft Agent Framework 的 compaction 讓系統自動壓縮，都比單純的硬擋聰明得多。
 
 如果你正在建 multi-agent 系統，最低標準是：迭代上限 + token 預算 + 並行限制。進階做法是：加歷史截斷 + 分級反應。最終目標是讓系統在預算內自己找到最高效的方式完成任務，而不是跑到一半突然被掐斷。
 
 ## 更新紀錄
 
-- 2026-11-23：AutoGen 補上已封存的現況；Microsoft Agent Framework 連結改為官方文件（原連結指向另一個 M365 Agents SDK repo）
+- 2026-11-23：AutoGen 補上已封存的現況；Microsoft Agent Framework 連結改為官方文件（原連結指向另一個 M365 Agents SDK repo）；依官方文件改寫 Anthropic 預算機制（session budget、task budget、`max_tokens` 是每次請求的上限）與 Microsoft Agent Framework 段落（官方文件沒有「TokenOps」，`TokenUsageTermination` 是 AutoGen 的類別，改列 run options、compaction、group chat 終止條件與 middleware）
 
 ## 參考資料
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
+- [Claude Platform — Task budgets](https://platform.claude.com/docs/en/build-with-claude/task-budgets)
+- [Claude Platform — Session budgets](https://platform.claude.com/docs/en/managed-agents/budgets)
 - [Anthropic — Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk)
 - [Anthropic — How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
 - [Anthropic — Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems)
@@ -167,6 +165,8 @@ Multi-Agent 的成本控制不是一個開關的問題，是一組分層機制�
 - [OpenAI — Codex GA 官方公告](https://openai.com/index/codex-now-generally-available/)
 - [OpenAI — Symphony 開源編排層](https://openai.com/index/open-source-codex-orchestration-symphony/)
 - [Microsoft Agent Framework 官方文件](https://learn.microsoft.com/en-us/agent-framework/)
+- [Microsoft Agent Framework — Compaction](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)
+- [Microsoft Agent Framework — Group Chat orchestration](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/group-chat)
 - [Microsoft — AutoGen 進入維護模式討論](https://github.com/microsoft/autogen/discussions/7066)
 - [Microsoft — AutoGen to Agent Framework 遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

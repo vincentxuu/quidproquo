@@ -31,12 +31,12 @@ Prisma schemas are declarative and more readable than raw SQL:
 ```prisma
 // schema.prisma
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"            // Prisma 7 Rust-free client
+  output   = "../src/generated/prisma"  // required since v7; no longer generated into node_modules
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"  // the connection string moved to prisma.config.ts
 }
 
 model User {
@@ -79,6 +79,20 @@ model Reaction {
 }
 ```
 
+Since Prisma 7, the connection string the CLI uses, the schema location, and the migrations path live in `prisma.config.ts` at the project root. Environment variables are no longer loaded automatically, so load them yourself with `dotenv`:
+
+```typescript
+// prisma.config.ts
+import 'dotenv/config'
+import { defineConfig, env } from 'prisma/config'
+
+export default defineConfig({
+  schema: 'prisma/schema.prisma',
+  migrations: { path: 'prisma/migrations' },
+  datasource: { url: env('DATABASE_URL') },
+})
+```
+
 The `@@unique([userId, postId])` constraint maps directly to DaoDao's reaction upsert pattern — duplicate data is impossible by design at the database layer.
 
 ## Migration Workflow
@@ -88,6 +102,9 @@ After changing the schema:
 ```bash
 # Generate migration SQL and apply it (development)
 npx prisma migrate dev --name add-reactions-table
+
+# Regenerate Prisma Client (since Prisma 7, migrate dev no longer does this)
+npx prisma generate
 
 # Apply migrations (production — does not generate new migrations)
 npx prisma migrate deploy
@@ -100,9 +117,12 @@ Generated migration files live in `prisma/migrations/` and get committed to vers
 Prisma Client types are inferred automatically from the schema, giving you complete IDE autocomplete:
 
 ```typescript
-import { PrismaClient } from '@prisma/client'
+// lib/prisma.ts: since Prisma 7, every database needs a driver adapter
+import { PrismaClient } from '../generated/prisma/client'
+import { PrismaPg } from '@prisma/adapter-pg'
 
-const prisma = new PrismaClient()
+const adapter = new PrismaPg({ connectionString: process.env.DATABASE_URL })
+export const prisma = new PrismaClient({ adapter })
 
 // Query: types fully inferred — posts is Post[]
 const user = await prisma.user.findUnique({
@@ -187,6 +207,18 @@ export class PostService {
 
 `prisma.$transaction([...])` runs multiple queries in a single transaction, ensuring the `count` and `findMany` results are consistent with each other.
 
+## What Changed in Prisma 7
+
+Prisma 7.0 (November 2025) was a major release, and the examples above already use the v7 style:
+
+- **No more Rust query engine**: Prisma Client was rewritten in TypeScript. Prisma reports a 90% smaller bundle and 3x faster queries. Without a native binary, deploying to edge runtimes such as Cloudflare Workers and Vercel Edge no longer runs into engine size or platform compatibility limits.
+- **Driver adapters are mandatory**: every `PrismaClient` takes an adapter (`@prisma/adapter-pg` for PostgreSQL, `@prisma/adapter-better-sqlite3` for SQLite). Edge databases use the same mechanism: Neon serverless, PlanetScale serverless, Turso (`@libsql/client`), and Cloudflare D1 each have an adapter, so a Worker connects directly without going through the Prisma Accelerate proxy.
+- **Accelerate is being retired**: standalone Prisma Accelerate and `prisma+postgres://accelerate.prisma-data.net` connections stop working on December 1, 2026. Projects still using them need a direct database connection or the Prisma Postgres serverless driver.
+- **Connection pooling follows the driver**: pool settings now come from the underlying driver. For example, `pg` has no connection timeout by default, while Prisma 6 used 5 seconds. If connections hang after upgrading, check the adapter's pool options first. SSL certificate validation is also stricter: invalid certificates that used to be ignored now fail.
+- **Other breaking changes**: the package is ESM; the minimums are Node 20.19 and TypeScript 5.4; `prisma migrate dev` no longer runs `prisma generate` or the seed script; client middleware (`$use`) is gone in favor of Client Extensions; the Metrics preview was removed.
+
+Upgrading from v6, work through the official [Upgrade to v7](https://www.prisma.io/docs/orm/more/upgrade-guides/upgrading-versions/upgrading-to-prisma-7) guide item by item. MongoDB projects should not move to v7, which has no MongoDB support; Prisma recommends going to Prisma 8 (currently a release candidate) instead.
+
 ## When Prisma Will Hurt You
 
 **Complex SQL queries**: Prisma's query builder gets awkward fast when you need complex JOINs, subqueries, or window functions. The `prisma.$queryRaw` escape hatch becomes essential:
@@ -217,10 +249,17 @@ const result = await prisma.$queryRaw<RawResult[]>`
 
 If your project is TypeScript + PostgreSQL + standard CRUD operations, Prisma is the right call. If your business logic demands heavy complex queries or fine-grained performance tuning, consider Drizzle ORM (type-safe and closer to SQL syntax) or going directly with pg and handwritten types.
 
+## Update log
+
+- 2026-11-23: Updated the examples to Prisma 7 (`prisma-client` generator, `prisma.config.ts`, driver adapter, generated-path import) and added a "What Changed in Prisma 7" section (Rust engine removed, edge databases via driver adapters, Accelerate retired on December 1, 2026).
+
 ## References
 
 - [Prisma ORM Official Docs](https://www.prisma.io/docs)
-- [Prisma Schema Reference](https://www.prisma.io/docs/reference/api-reference/prisma-schema-reference)
-- [Prisma Client API Reference](https://www.prisma.io/docs/reference/api-reference/prisma-client-reference)
+- [Prisma Schema Reference](https://www.prisma.io/docs/orm/reference/prisma-schema-reference)
+- [Prisma Client API Reference](https://www.prisma.io/docs/orm/reference/prisma-client-reference)
+- [Announcing Prisma 7](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0)
+- [Upgrade to Prisma ORM 7](https://www.prisma.io/docs/orm/more/upgrade-guides/upgrading-versions/upgrading-to-prisma-7)
+- [Deploy to Cloudflare Workers & Pages](https://www.prisma.io/docs/orm/prisma-client/deployment/edge/deploy-to-cloudflare) — the list of edge-compatible drivers
 - [Drizzle ORM](https://orm.drizzle.team/) — a type-safe ORM alternative that stays closer to SQL syntax
 - [DaoDao Tech Architecture Overview](/posts/tech/deep-dive/2026-03-12-daodao-tech-architecture-en) — full architectural context for Prisma in a production project

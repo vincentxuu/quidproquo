@@ -55,12 +55,12 @@ Start with this overview to build the series map, then read order 1 to understan
 ### Path B: Comparing managed cloud sandbox providers
 > Suggested order: **This overview → order 7 Cloud Product Landscape & Selection Matrix → order 8–15 provider deep dives**
 
-First read order 7 to see positioning and pricing comparisons across eight providers, then dive into the specific provider you need (e.g., E2B order 8, Daytona order 9, Runloop order 10, Vercel order 11, Cloudflare order 15, Modal order 13, Bedrock AgentCore order 14, Azure Container Apps order 16).
+First read order 7 to see positioning and pricing comparisons across eight providers, then dive into the specific provider you need (e.g., E2B order 8, Daytona order 9, Runloop order 10, Vercel order 11, Modal order 12, Bedrock AgentCore order 13, Azure Container Apps order 14, Cloudflare order 15).
 
 ### Path C: Integrating sandbox into your own agent system
-> Suggested order: **This overview → order 5 Local Products → order 6–7 Integration Practice → order 20 MCP Server Integration**
+> Suggested order: **This overview → order 5 Local Products → order 18–19 Integration Practice → order 20 MCP Server Integration**
 
-First read order 5 to understand how mature products like Claude Code do local sandboxing, then read order 6–7 to learn Cloudflare Sandbox deployment practice and OS-level sandboxing, finally read order 20 to understand how MCP servers run inside sandboxes.
+First read order 5 to understand how mature products like Claude Code do local sandboxing, then read order 18–19 to learn Cloudflare Sandbox deployment practice and OS-level sandboxing, finally read order 20 to understand how MCP servers run inside sandboxes.
 
 ### Path D: Responsible for security review or red-team defense
 > Suggested order: **This overview → order 21 Permission Boundaries → order 22 Credentials & Network Boundaries → order 23 Observability & Audit → order 24 Compliance Audit → order 25 Real Escape Cases**
@@ -76,6 +76,10 @@ Start with "what to restrict," move to "how to test," then "how to audit," "what
 **This post is the map, not the destination.** Specific technical details, architecture breakdowns, code examples, and selection decisions live in each sub-series article. If you already know what you are looking for, you can jump directly to the corresponding post.
 
 ---
+
+## Update log
+
+- 2026-11-23: Corrected the order numbers in Paths B and C to match each post's actual series order (Modal 12, Bedrock AgentCore 13, Azure Container Apps 14; integration practice is order 18–19).
 
 ## References
 

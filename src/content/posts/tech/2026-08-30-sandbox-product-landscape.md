@@ -90,16 +90,18 @@ Modal 比較特別：CPU 與記憶體都按「request 與實際用量取高者�
 
 ## 冷啟動與恢復速度比較
 
+下表取自 [ComputeSDK Burst TTI 榜單](https://www.computesdk.com/benchmarks/sandboxes/burst-tti) 2026-11-20 那次的結果。TTI（time to interactive）是從 SDK 呼叫 `create()` 到沙箱裡第一個指令成功的時間；每家一次同時開 100 個沙箱，每週重跑。
+
 | 供應商 | 中位數 TTI | P95 | P99 | 成功率 |
 |--------|-----------|-----|-----|--------|
-| Daytona | 0.27 s | 0.43 s | 0.44 s | 37% |
-| Vercel | 0.67 s | 1.04 s | 1.12 s | 100% |
-| Modal | 0.88 s | 1.00 s | 1.08 s | 100% |
-| Runloop | 0.89 s | 3.27 s | 3.50 s | 100% |
-| E2B | 1.61 s | 1.77 s | 1.81 s | 100% |
-| Cloudflare | 5.06 s | 6.04 s | 6.48 s | 100% |
+| Vercel | 0.31 s | 0.46 s | 0.59 s | 100% |
+| Daytona | 0.48 s | 0.67 s | 0.69 s | 100% |
+| Modal | 0.66 s | 0.85 s | 0.88 s | 100% |
+| Cloudflare | 0.87 s | 1.12 s | 1.17 s | 100% |
+| E2B | 1.04 s | 1.33 s | 1.46 s | 100% |
+| Runloop | 未列入 | — | — | — |
 
-** Daytona 的成功率較低（37%）** 可能與其測試條件有關，但其冷啟動速度確實是業界領先。
+這類數字只能當起點。這份榜單每週重跑，名次與成功率都會變動；同一次結果裡也有供應商 100 次只成功不到一半，中位數再快也沒用。測法也決定結果：同時開 100 個（burst）與一次開一個（sequential）差很多，量的也只是 `create()` 到第一個指令，不含映像大小、區域、warm pool 與 snapshot 還原。上面全景表裡的冷啟動欄位多半是供應商自己的說法，條件各不相同。選型前請用自己的映像、區域與預期併發量自己量，看 P95／P99 與失敗率，不要只看中位數。
 
 ---
 
@@ -145,7 +147,7 @@ Modal 比較特別：CPU 與記憶體都按「request 與實際用量取高者�
 
 ## 更新紀錄
 
-- 2026-11-23：依各家定價頁重算成本情境（Modal 原估 ~$36 不成立，改為 $315–$595；補 Cloudflare、Bedrock AgentCore）；Bedrock AgentCore 改列 active-CPU；Runloop 補實際費率；OpenSandbox 改為開源自架（預設 runc，可選 gVisor／Kata／Firecracker，現屬 AAIF）；Azure Container Apps Sandboxes 2026-09 GA；Cloudflare Sandbox SDK 1.0 可存 snapshot；GPU 分支改為 Modal 或 Daytona。
+- 2026-11-23：依各家定價頁重算成本情境（Modal 原估 ~$36 不成立，改為 $315–$595；補 Cloudflare、Bedrock AgentCore）；Bedrock AgentCore 改列 active-CPU；Runloop 補實際費率；OpenSandbox 改為開源自架（預設 runc，可選 gVisor／Kata／Firecracker，現屬 AAIF）；Azure Container Apps Sandboxes 2026-09 GA；Cloudflare Sandbox SDK 1.0 可存 snapshot；GPU 分支改為 Modal 或 Daytona；冷啟動表改用 ComputeSDK Burst TTI 2026-11-20 的數字並說明測法限制。
 
 ## 參考資料
 
@@ -161,6 +163,7 @@ Modal 比較特別：CPU 與記憶體都按「request 與實際用量取高者�
 - [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview)
 - [Modal Pricing](https://modal.com/pricing) 與 [Modal resources billing](https://modal.com/docs/guide/resources)
 - [Runloop Pricing](https://runloop.ai/pricing)
+- [ComputeSDK Sandbox Burst TTI Benchmarks](https://www.computesdk.com/benchmarks/sandboxes/burst-tti)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview)
 - [本站：E2B Agent Sandbox（order 8）](/posts/ai/2026-08-22-e2b-agent-sandbox)
 - [本站：Daytona Agent Sandbox（order 9）](/posts/ai/2026-08-22-daytona-agent-sandbox)

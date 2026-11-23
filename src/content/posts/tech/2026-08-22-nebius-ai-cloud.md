@@ -33,9 +33,13 @@ Kubernetes/Slurm cluster 要檢查 topology、RDMA、node health remediation、q
 
 每個 workload 使用獨立 service account 與最小權限，不把 console/API key 烤進 image。private subnet、public endpoint、NAT、registry、object storage 與 observability 的流向要畫清楚；「在同一 cloud」不等於自動 private 或免 egress。
 
-OCI image、Terraform、Kubernetes manifest、portable checkpoint 與標準 object layout 能降低 lock-in。GPU topology、managed service API 與效能調校仍不完全可攜。Nebius 適合想在同一 AI cloud 從研究擴到 cluster/serving 的團隊；單一 prototype 可先比較 RunPod，model-API-first 可比較 Replicate。
+OCI image、Terraform、Kubernetes manifest、portable checkpoint 與標準 object layout 能降低 lock-in。GPU topology、managed service API 與效能調校仍不完全可攜。Nebius 適合想在同一 AI cloud 從研究擴到 cluster/serving 的團隊；單一 prototype 可先比較 Runpod，model-API-first 可比較 Replicate。
 
 上線前中止一個 GPU node、切斷 shared storage、撤銷 service identity，並讓 endpoint 從零擴張。只有 recovery、audit、quota 與成本上限都能觀察，才算平台可用。
+
+## 更新紀錄
+
+- 2026-11-23：比較段的「RunPod」改成現行品牌寫法 Runpod（2025-06 起更名）。
 
 ## 參考資料
 

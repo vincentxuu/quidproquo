@@ -90,16 +90,18 @@ This scenario simulates "burst interactive agent" workloads: each session lives 
 
 ## Cold Start & Resume Speed Comparison
 
+The table below is from the [ComputeSDK Burst TTI leaderboard](https://www.computesdk.com/benchmarks/sandboxes/burst-tti) run of November 20, 2026. TTI (time to interactive) is the time from the SDK's `create()` call to the first successful command inside the sandbox; each provider launches 100 sandboxes at once, and the benchmark reruns weekly.
+
 | Provider | Median TTI | P95 | P99 | Success Rate |
 |----------|-----------|-----|-----|--------------|
-| Daytona | 0.27 s | 0.43 s | 0.44 s | 37% |
-| Vercel | 0.67 s | 1.04 s | 1.12 s | 100% |
-| Modal | 0.88 s | 1.00 s | 1.08 s | 100% |
-| Runloop | 0.89 s | 3.27 s | 3.50 s | 100% |
-| E2B | 1.61 s | 1.77 s | 1.81 s | 100% |
-| Cloudflare | 5.06 s | 6.04 s | 6.48 s | 100% |
+| Vercel | 0.31 s | 0.46 s | 0.59 s | 100% |
+| Daytona | 0.48 s | 0.67 s | 0.69 s | 100% |
+| Modal | 0.66 s | 0.85 s | 0.88 s | 100% |
+| Cloudflare | 0.87 s | 1.12 s | 1.17 s | 100% |
+| E2B | 1.04 s | 1.33 s | 1.46 s | 100% |
+| Runloop | Not listed | — | — | — |
 
-**Daytona's success rate is lower (37%)** possibly due to test conditions, but its cold start speed is indeed industry-leading.
+Treat these numbers as a starting point only. The leaderboard reruns weekly, and rankings and success rates move from run to run; even within one run, some providers succeed on fewer than half of 100 launches, which makes a fast median meaningless. Method shapes the result too: launching 100 at once (burst) differs a lot from launching one at a time (sequential), and the metric covers only `create()` to the first command, not image size, region, warm pools, or snapshot restore. The cold-start column in the landscape table above is mostly vendor-stated, under differing conditions. Before choosing, measure with your own image, region, and expected concurrency, and look at P95/P99 and failure rate rather than the median alone.
 
 ---
 
@@ -145,7 +147,7 @@ Starting point: Your agent workload characteristics
 
 ## Update Log
 
-- 2026-11-23: Recomputed the cost scenario from each vendor's pricing page (the original ~$36 estimate for Modal does not hold; now $315–$595; added Cloudflare and Bedrock AgentCore); moved Bedrock AgentCore to active-CPU; added Runloop's actual rates; OpenSandbox is now described as open-source and self-hosted (runc by default, gVisor / Kata / Firecracker optional, now under AAIF); Azure Container Apps Sandboxes reached GA in 2026-09; Cloudflare Sandbox SDK 1.0 can save snapshots; the GPU branch now points to Modal or Daytona.
+- 2026-11-23: Recomputed the cost scenario from each vendor's pricing page (the original ~$36 estimate for Modal does not hold; now $315–$595; added Cloudflare and Bedrock AgentCore); moved Bedrock AgentCore to active-CPU; added Runloop's actual rates; OpenSandbox is now described as open-source and self-hosted (runc by default, gVisor / Kata / Firecracker optional, now under AAIF); Azure Container Apps Sandboxes reached GA in 2026-09; Cloudflare Sandbox SDK 1.0 can save snapshots; the GPU branch now points to Modal or Daytona; the cold-start table now uses ComputeSDK Burst TTI numbers from November 20, 2026, with the method's limits explained.
 
 ## References
 
@@ -161,6 +163,7 @@ Starting point: Your agent workload characteristics
 - [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview)
 - [Modal Pricing](https://modal.com/pricing) and [Modal resources billing](https://modal.com/docs/guide/resources)
 - [Runloop Pricing](https://runloop.ai/pricing)
+- [ComputeSDK Sandbox Burst TTI Benchmarks](https://www.computesdk.com/benchmarks/sandboxes/burst-tti)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview-en)
 - [本站：E2B Agent Sandbox（order 8）](/posts/ai/2026-08-22-e2b-agent-sandbox-en)
 - [本站：Daytona Agent Sandbox（order 9）](/posts/ai/2026-08-22-daytona-agent-sandbox-en)

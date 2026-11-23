@@ -143,7 +143,7 @@ The genuinely awkward part is the name left behind. AutoGen is now simultaneousl
 
 ## Update Log
 
-- 2026-11-23: Added the 2026-11-17 incident in which `agent-framework` 1.26.1/1.26.2 shipped a credential stealer, with version-pinning advice, and noted that the `microsoft/autogen` repo is now archived.
+- 2026-11-23: Added the 2026-11-17 incident in which `agent-framework` 1.26.1/1.26.2 shipped a credential stealer, with version-pinning advice, and noted that the `microsoft/autogen` repo is now archived; the GitHub repo is no longer public, so the reference now points to the PyPI and NuGet package pages.
 
 ## References
 
@@ -152,7 +152,8 @@ The genuinely awkward part is the name left behind. AutoGen is now simultaneousl
 - [Semantic Kernel migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 - [Semantic Kernel and Microsoft Agent Framework (support timeline)](https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/)
 - [Microsoft Agent Framework Reaches Release Candidate](https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/)
-- [microsoft/agent-framework (GitHub, private since 2026-11-17)](https://github.com/microsoft/agent-framework)
+- [agent-framework (PyPI)](https://pypi.org/project/agent-framework/)
+- [Microsoft.Agents.AI (NuGet)](https://www.nuget.org/packages/Microsoft.Agents.AI)
 - [PYSEC-2026-4388: agent-framework 1.26.1 and 1.26.2 contain credential-stealing code (OSV)](https://osv.dev/vulnerability/PYSEC-2026-4388)
 - [GHSA-764m-3ppc-5m73: Malicious code in agent-framework (GitHub Advisory)](https://github.com/advisories/GHSA-764m-3ppc-5m73)
 - [microsoft/autogen (GitHub, archived)](https://github.com/microsoft/autogen)

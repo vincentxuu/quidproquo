@@ -79,7 +79,7 @@ Fork 模式在巢狀 spawn 時會造成 context 指數膨脹。考慮這個情�
 
 Fork 模式不帶完整歷史，而是截斷到最近 N 條訊息或做摘要。
 
-依 Microsoft Agent Framework 的 [TokenOps 理念](https://learn.microsoft.com/en-us/agent-framework/)，接近預算時的第一反應不是停止，而是壓縮 context。原 AutoGen 0.2 的 `TransformMessages` 機制可以在訊息傳給 agent 前做截斷或摘要——雖然 API 已過時，概念被 MAF 繼承。
+依 Microsoft Agent Framework 的 [compaction 文件](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)，接近預算時的第一反應不是停止，而是壓縮 context：`TokenBudgetComposedStrategy` 由輕到重依序收起舊 tool 結果、摘要、滑動視窗，壓到預算以下就停。原 AutoGen 0.2 的 `TransformMessages` 機制可以在訊息傳給 agent 前做截斷或摘要——雖然 API 已過時，概念被 MAF 繼承。
 
 實務建議：
 - Fork 模式預設只帶最近 20 條訊息（或 ~8K tokens）
@@ -116,7 +116,7 @@ Context 管理的核心取捨是**資訊充分性 vs token 效率**：
 
 ## 更新紀錄
 
-- 2026-11-23：subagent 結果壓縮的例子改標為 Gemini CLI（它不是改名成 Antigravity，一般使用者是另外移往 Antigravity CLI）；Microsoft Agent Framework 連結改為官方文件
+- 2026-11-23：subagent 結果壓縮的例子改標為 Gemini CLI（它不是改名成 Antigravity，一般使用者是另外移往 Antigravity CLI）；Microsoft Agent Framework 連結改為官方文件；壓縮段改引 MAF 的 compaction 文件（官方沒有「TokenOps」這個名稱）
 
 ## 參考資料
 

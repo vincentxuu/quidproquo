@@ -143,7 +143,7 @@ MAF 最值得記住的不是功能表，是它示範了一種**大廠收束自�
 
 ## 更新紀錄
 
-- 2026-11-23：補上 2026-11-17 `agent-framework` 1.26.1／1.26.2 遭植入竊密程式的事件與鎖版本建議，以及 `microsoft/autogen` repo 已 archive。
+- 2026-11-23：補上 2026-11-17 `agent-framework` 1.26.1／1.26.2 遭植入竊密程式的事件與鎖版本建議，以及 `microsoft/autogen` repo 已 archive；GitHub repo 已不公開，參考連結改為 PyPI 與 NuGet 套件頁。
 
 ## 參考資料
 
@@ -152,7 +152,8 @@ MAF 最值得記住的不是功能表，是它示範了一種**大廠收束自�
 - [Semantic Kernel 遷移指南](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-semantic-kernel/)
 - [Semantic Kernel and Microsoft Agent Framework（支援時程說明）](https://devblogs.microsoft.com/agent-framework/semantic-kernel-and-microsoft-agent-framework/)
 - [Microsoft Agent Framework 進入 Release Candidate](https://devblogs.microsoft.com/foundry/microsoft-agent-framework-reaches-release-candidate/)
-- [microsoft/agent-framework（GitHub，2026-11-17 起轉為私人）](https://github.com/microsoft/agent-framework)
+- [agent-framework（PyPI）](https://pypi.org/project/agent-framework/)
+- [Microsoft.Agents.AI（NuGet）](https://www.nuget.org/packages/Microsoft.Agents.AI)
 - [PYSEC-2026-4388：agent-framework 1.26.1 與 1.26.2 含竊取憑證程式（OSV）](https://osv.dev/vulnerability/PYSEC-2026-4388)
 - [GHSA-764m-3ppc-5m73：Malicious code in agent-framework（GitHub Advisory）](https://github.com/advisories/GHSA-764m-3ppc-5m73)
 - [microsoft/autogen（GitHub，已 archive）](https://github.com/microsoft/autogen)

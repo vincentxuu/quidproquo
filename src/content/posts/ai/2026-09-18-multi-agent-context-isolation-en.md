@@ -79,7 +79,7 @@ According to [Anthropic's multi-agent research system writeup](https://www.anthr
 
 Instead of carrying full history, fork mode truncates to the most recent N messages or produces a summary.
 
-According to the Microsoft Agent Framework's [TokenOps philosophy](https://learn.microsoft.com/en-us/agent-framework/), the first response to approaching a budget limit isn't to stop, but to compress context. The original AutoGen 0.2's `TransformMessages` mechanism could truncate or summarize messages before passing them to an agent — while the API is now deprecated, the concept was inherited by MAF.
+According to the Microsoft Agent Framework's [compaction docs](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction), the first response to approaching a budget limit isn't to stop, but to compress context: `TokenBudgetComposedStrategy` collapses old tool results, summarizes, then applies a sliding window, from gentle to aggressive, and stops once history fits the budget. The original AutoGen 0.2's `TransformMessages` mechanism could truncate or summarize messages before passing them to an agent — while the API is now deprecated, the concept was inherited by MAF.
 
 Practical recommendations:
 - Fork mode should default to carrying only the most recent 20 messages (or ~8K tokens)
@@ -116,7 +116,7 @@ One easily overlooked point: **context management affects quality, not just cost
 
 ## Update Log
 
-- 2026-11-23: Relabeled the subagent result-compression example as Gemini CLI (it wasn't renamed to Antigravity; general users moved to the separate Antigravity CLI); the Microsoft Agent Framework link now points to the official docs
+- 2026-11-23: Relabeled the subagent result-compression example as Gemini CLI (it wasn't renamed to Antigravity; general users moved to the separate Antigravity CLI); the Microsoft Agent Framework link now points to the official docs; the compression paragraph now cites MAF's compaction docs (the official docs have no "TokenOps")
 
 ## References
 
