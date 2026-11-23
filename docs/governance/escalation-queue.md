@@ -78,7 +78,8 @@
 - 本次產出：《AI 日報 — 2026-11-11》中英雙版，series order 88。主題「模型護城河保鮮期壓縮到 24 小時」（Claude Fable 5.2 登頂次日被 Gemini 4 Carbon 追平並砍半成本），五力分析框架貫穿深度分析；含 1 張 NEAR AI 攻擊鏈循序圖（中英座標相同）。Stage 1 當日（2026-11-11）無其他 routine 產出可引用，僅 Stage 2 signals JSON（33 條）可用，依規則略過「今日 Digest 一覽」段落；Step 4e 全球區域補掃經 Groundlane `web_search`／`web_fetch` 新增日韓（Korea Deep Learning 與南韓 IBK 的 PoC）與東南亞（新加坡 CSA／GovTech／IMDA 個人 agent 風險指引）兩筆經查證的區域事件。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`（初版撞 4 處「用戶」已修正為「使用者」）／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 下找不到 `chrome-headless-shell`），改用 `check:diagram-geometry` 做幾何驗證替代。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-report.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
 
-## Q-050 ⏳ 剩一項：CME295 第 4、5 講依錄影改寫（課程影片查核與 process-leak 已解決）
+## Q-050 ✅ 已解決（2026-11-23）：CME295 第 4、5 講依錄影改寫（課程影片查核與 process-leak 已解決）
+- 結案（2026-11-23）：兩講依錄影與 2026 投影片改寫並經獨立語意審稿，commit `b70b57321`。第 6、8 講（AI Agents、Diffusion LLM）仍是課前預寫版，錄影上架後另案更新。
 - 更新（2026-11-23）：卡住的 process-leak 已在 commit `88a82a9c0`、`a56786f41` 修完（79 篇，no-emoji baseline 同步清空），`check:course-videos` 通過（僅提醒 2 篇查核日期 7 天內過期）。剩下的工作只有下方「另一件」的 CME295 兩講。
 - 登錄：2026-11-09（來源：對話）
 - 進度：2026-11-09 已逐門即時重查 40 門課，820 篇更新查核日期（commit 4c94a500a）。剩下 46 篇的查核日期也已在工作區改好、重查結論相同，但這些文章原本就有 process-leak（「附錄：數字與查證方式」「這一篇可以確認與不能確認的」「逐頁核對清單」整節，少數另有 404／查不到句型），暫存後被 pre-commit 逐篇擋下，所以沒有 commit。清單：`node scripts/check-process-leak.mjs $(git diff --name-only -- src/content/posts)`。
