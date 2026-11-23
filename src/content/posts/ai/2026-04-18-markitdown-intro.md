@@ -13,6 +13,8 @@ series:
 draft: false
 ---
 
+> :globe: [English version](/posts/ai/2026-04-18-markitdown-intro-en)
+
 把各種格式的文件餵給 LLM 之前，都要面對同一個問題：PDF 有排版雜訊、Word 有隱藏樣式、圖片沒有文字、Excel 是二進位格式。MarkItDown 是 Microsoft 開源的 Python 工具，核心就是做這一件事——把這些格式統一轉成 Markdown，讓 LLM 可以直接讀。
 
 ## 設計哲學：為機器，不為人類
