@@ -19,7 +19,7 @@ glossary:
     aliases: ["identity Hyper-Connections"]
     definition: "把單一殘差路徑擴成多條並行殘差流（Hy4 為 4 條）的設計，目的是加強跨層資訊流動"
   - term: "Engram"
-    definition: "Hy4 flash 的 N-gram 嵌入模組：用多頭雜湊查表取出 bigram／trigram 表示，增加參數容量但幾乎不增加每 token 計算量"
+    definition: "Hy4 flash 的 N-gram 嵌入模組：用多頭雜湊查表取出 bigram／trigram 表示，以查表參數擴充模型容量"
 ---
 
 > :globe: [English version](/posts/tech/2026-11-23-ai-model-family-tencent-hy-en)
@@ -87,19 +87,23 @@ Tencent Hy 是騰訊的大型語言模型家族，原名「騰訊混元（Hunyua
 
 - **混合注意力**：稀疏注意力與 512 token 的滑動視窗注意力以 1:3 交錯。
 - **LatentMoE**：路由專家在低維 latent 空間運算，每 token 從 512 個專家選 16 個，加 1 個共用專家。
-- **Engram**：用雜湊查表取 bigram／trigram 表示，63.5B 參數只做查表、不進注意力。
+- **Engram**：用雜湊查表取 bigram／trigram 表示，63.5B 參數都用在查表。
 
-三者合起來，KV cache 只有 Hy3 的 1/24、Hy4 的 1/6。後訓練從 Hy4 自蒸餾，再用強化學習把平均輸出 token 砍掉一半。讀規格時要注意：220B 的總參數裡有近三成是查表參數，推論成本要看 12B 啟用量，不能用總參數估。
+三者合起來，KV cache 只有 Hy3 的 1/24、Hy4 的 1/6。後訓練從 Hy4 自蒸餾，再用強化學習把平均輸出 token 砍掉一半。讀規格時要注意：220B 的總參數裡有近三成是查表參數，推論成本要看 12B 啟用量，不能用總參數估。總參數的數字也有兩種寫法。模型卡規格表加總約 220B（主幹 155.5B＋Engram 63.5B＋視覺與草稿模型），[騰訊新聞稿](https://www.prnewswire.co.uk/news-releases/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows-302941888.html)則寫 224B（含 64B Engram）；本文依模型卡。
 
 ## 評測與競品比較
 
 ### 第三方：Artificial Analysis
 
-[Artificial Analysis](https://artificialanalysis.ai/models/tencent-hy4) 的 Intelligence Index v5.0.1 給 Hy4 35 分（推理設定），在同尺寸開放權重模型裡高於中位數 23；[heise 報導](https://www.heise.de/en/news/Tencent-Hy4-New-AI-model-joins-China-s-top-tier-11513717.html)指出它在中國實驗室裡排第二，落後 Kimi K3.1 Pro 的 46 分，與 Grok 4.7 同分、略低於 Claude Haiku 5.5 的 36 分。同一頁也標出它很囉嗦：跑完整套指數產生 1.6 億個輸出 token，中位數約 1 億。Hy4 flash 目前沒有 Artificial Analysis 分數。
+[Artificial Analysis](https://artificialanalysis.ai/models/tencent-hy4) 的 Intelligence Index v5.0.1 給 Hy4 35 分（推理設定），在同尺寸開放權重模型裡高於中位數 23。[heise 報導](https://www.heise.de/en/news/Tencent-Hy4-New-AI-model-joins-China-s-top-tier-11513717.html)指出它在中國實驗室裡排第二，落後 Kimi K3.1 Pro 的 46 分，與 Grok 4.7 同分、略低於 Claude Haiku 5.5 的 36 分。Artificial Analysis 也標出它很囉嗦：跑完整套指數產生 1.6 億個輸出 token，中位數約 1 億。Artificial Analysis 自己跑的 Terminal-Bench 4.0 是 37%，低於騰訊自報的 44.4。
+
+### 第三方：Vals AI
+
+[Vals AI](https://www.vals.ai/models/tencent_hy4) 的 Vals Index（金融、程式、法律、稅務任務依產業 GDP 加權）給 Hy4 59.35%，43 個模型中排第 20；它在 Hy4 發佈當天的評語是開放權重第四，落後 Kimi K3.1 Pro、DeepSeek V4.1 Flash 1017 與 GLM 5.3。Vals 跑的 Terminal-Bench 4.0 是 39.39%。[Hy4 flash](https://www.vals.ai/models/tencent_hy4-flash) 的 Vals Index 是 50.78%，排第 36；Hy4 flash 目前沒有 Artificial Analysis 分數。
 
 ### 官方自報：Hy4 對上開放權重與閉源前沿
 
-以下摘自 [Hy4 模型卡附錄](https://huggingface.co/tencent/Hy4)，全部是騰訊公布的數字；對手欄位有兩個數字時，前者引用對方官方報告、後者是騰訊自測：
+以下摘自 [Hy4 模型卡附錄](https://huggingface.co/tencent/Hy4)，全部是騰訊公布的數字，各模型都用最高推理設定。對手欄位有兩個數字時，前者引用對方官方報告、後者是騰訊自測；只有一個數字的，標「騰訊自測」者是騰訊自己跑的，其餘引自對方報告。Terminal-Bench 4.0 與 ProgramBench 用 Claude Code harness 跑：
 
 | Benchmark | Hy4 preview | Hy4 | DeepSeek-V4.1-Flash-1017 | Kimi K3.1 Pro | Claude Opus 5.5 |
 |---|---|---|---|---|---|
@@ -107,20 +111,22 @@ Tencent Hy 是騰訊的大型語言模型家族，原名「騰訊混元（Hunyua
 | Terminal-Bench 4.0 | 26.3 | 44.4 | 42.3／40.0 | 65.7／66.8 | 66.4／66.4 |
 | ProgramBench（almost solved） | 17.5 | 30.0 | 29.1／29.0 | 31.5／24.5 | 65.0／56.5 |
 | APEX-Agents v1.1 | 53.9 | 75.2 | 72.1／72.9 | 67.2／68.2 | 73.5／74.8 |
-| OSWorld 2.1 | — | 78.9 | 68.4 | 79.6 | 81.8 |
-| MMMU-Pro | — | 78.6 | 76.7 | 84.1／83.4 | 88.2 |
+| OSWorld 2.1 | — | 78.9 | 68.4（騰訊自測） | 79.6 | 81.8 |
+| MMMU-Pro | — | 78.6 | 76.7（騰訊自測） | 84.1／83.4 | 88.2（騰訊自測） |
 
 讀法：
 
 - **coding 長任務是弱項。** DeepSWE 跟對手打平，但 Terminal-Bench 4.0 與 ProgramBench 明顯落後 Kimi K3.1 Pro 與 Claude Opus 5.5。官方在 Known Limitations 也這樣寫。
 - **工作型 agent 是強項。** APEX-Agents 與 OSWorld 接近閉源前沿；騰訊與騰訊金融科技找 213 位金融從業者盲評 579 個任務，Hy4 平均 3.04／4，高於 DeepSeek-V4.1-Flash-1017 的 2.97、Kimi K3.1 Pro 與 GLM-5.3 的 2.68。
-- **幻覺率改善是自家數字。** 官方內部評測的幻覺率從 preview 的 15.76% 降到 5.45%，沒有第三方複現。
+- **幻覺率改善是自家數字，而且兩份官方文件對不上。** 模型卡寫內部評測的幻覺率從 preview 的 15.76% 降到 5.45%，同日的[新聞稿](https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/)寫 12.95% 降到 7.2%。Artificial Analysis 的 AA-Omniscience 量到的幻覺率約 89%（不知道答案時傾向硬答而不是放棄，定義與騰訊不同，不能直接相比）；[系統卡](https://cdn-front.hy.tencent.ai/common-files/Hy4_system_card.pdf)也承認 `high` 推理下會回答超出知識範圍的問題。
 
 跨廠商表格的數字也不一定一致：百度在 [ERNIE 5.5 Flash Preview 公告](https://ernie.baidu.com/release/ernie-5-5-flash-preview)引用的 Hy4 APEX-Agents 是 77.6，騰訊自己的表是 75.2。引用時要寫明是哪一家的表。
 
 ### Hy4 flash
 
-[Hy4 flash 模型卡](https://huggingface.co/tencent/Hy4-flash)只公布內部 WorkIndex（簡報、文件、試算表、影音處理等 8 組任務）：Hy4 flash 42.1、Hy4 preview 39.7、Hy4 51.4；每任務平均成本是 Hy4 preview 的 1/13、Hy4 的 1/20、DeepSeek-V4.1-Flash-1017（Max 檔、尖峰價）的 1/8。公開 agent benchmark 只給圖表，騰訊明確建議長程軟體工程改用 Hy4。
+[Hy4 flash 模型卡](https://huggingface.co/tencent/Hy4-flash)主打內部 WorkIndex（簡報、文件、試算表、影音處理等 8 組任務）：Hy4 flash 42.1、Hy4 preview 39.7、Hy4 51.4；每任務平均成本是 Hy4 preview 的 1/13、Hy4 的 1/20、DeepSeek-V4.1-Flash-1017（Max 檔、尖峰價）的 1/8。
+
+附錄另列公開 agent benchmark（騰訊自測），差距集中在 coding：Terminal-Bench 4.0 19.2（Hy4 44.4）、ProgramBench 16.0（Hy4 30.0）、DeepSWE 64.6（Hy4 74.9）；工作型任務落差較小，APEX-Agents 63.1（Hy4 75.2）、OSWorld 2.1 68.1（Hy4 78.9）。這也是騰訊明確建議長程軟體工程改用 Hy4 的原因。
 
 ## 授權、價格與部署
 
@@ -141,7 +147,7 @@ Tencent Hy 是騰訊的大型語言模型家族，原名「騰訊混元（Hunyua
 ### API 價格
 
 - **Hy4**：$0.834／$2.501，快取命中 $0.042（OpenRouter 上 Tencent Cloud、Together、DeepInfra 同價）；Tencent Cloud 到 2026-12-31 前五折。上下文 1M。
-- **Hy4 flash**：$0.07／$0.281，快取命中 $0.003；目前只有 Tencent Cloud 一家託管，同樣在五折期間。
+- **Hy4 flash**：$0.07／$0.281，快取命中 $0.003；目前只有 Tencent Cloud 一家託管，TokenHub 五折只到 2026-11-30。
 - **快取的影響很大。** OpenRouter 統計 Hy4 實際成交的快取命中率約 96%，加權平均輸入價只有每 1M 約 $0.04；agent 工作流的重複 prompt 會讓帳單遠低於牌價。
 
 ### 自架
@@ -162,8 +168,8 @@ Tencent Hy 是騰訊的大型語言模型家族，原名「騰訊混元（Hunyua
 
 ## 限制與取捨
 
-- **長程 coding 落後閉源前沿。** 官方自己的表與 Artificial Analysis 都指向同一件事：終端與從零建系統的任務，Hy4 跟 Kimi K3.1 Pro、Claude Opus 5.5 還有距離。
-- **評測多半是自報或內部基準。** WorkIndex、TenureTrail、金融盲評都是騰訊自建；目前唯一的獨立整體分數是 Artificial Analysis 的 35 分。
+- **長程 coding 落後閉源前沿。** 官方自己的表、Known Limitations 與系統卡都指向同一件事：終端與從零建系統的任務，Hy4 跟 Kimi K3.1 Pro、Claude Opus 5.5 還有距離。第三方跑的 Terminal-Bench 4.0（Artificial Analysis 37%、Vals AI 39%）也低於騰訊自報的 44.4。
+- **評測多半是自報或內部基準。** WorkIndex、TenureTrail、金融盲評都是騰訊自建；獨立的整體分數只有 Artificial Analysis 的 35 分與 Vals Index 的 59.35%。
 - **授權不再是 Apache 2.0。** Hy4 世代的權重附帶 MaaS 條款，判斷門檻要看集團營收與月活，不能沿用「Hy 開源＝可任意商用」的舊印象。
 - **輸出冗長。** 預設 `high` 推理會產生大量 token，延遲與成本都要實測。
 - **原生視覺仍弱。** 不靠工具的細粒度視覺理解，官方承認明顯落後前沿模型。
@@ -178,16 +184,20 @@ Hy 的策略可以概括成：用騰訊自家產品當訓練與評測場，把�
 - [Tencent Hy License 1.0 — HuggingFace](https://huggingface.co/tencent/Hy4/blob/main/LICENSE)
 - [Hy4 System Card](https://cdn-front.hy.tencent.ai/common-files/Hy4_system_card.pdf)
 - [tencent/Hy4-flash — HuggingFace 模型卡](https://huggingface.co/tencent/Hy4-flash)
+- [Tencent Launches Hy4 flash — Tencent 新聞稿（PR Newswire）](https://www.prnewswire.co.uk/news-releases/tencent-launches-hy4-flash-to-power-high-speed-cost-efficient-ai-deployment-for-everyday-workflows-302941888.html)
 - [tencent/Hy3 — HuggingFace 模型卡](https://huggingface.co/tencent/Hy3)
 - [腾讯混元Hy3正式发布 — Tencent 官方新聞稿（簡體中文）](https://www.tencent.com/zh-cn/tencent-hunyuan-officially-releases-hy3-advancing-agent-capabilities-and-deeper-product-integration/)
 - [Tencent Hy3 Now Available Globally — Tencent 官方新聞稿](https://www.tencent.com/tencent-hy3-now-available-globally-extending-practical-ai-across-products-workflows-and-cloud-services/)
 - [tencent/Hy3-preview — HuggingFace 模型卡](https://huggingface.co/tencent/Hy3-preview)
 - [tencent/Hy4-preview — HuggingFace 模型卡](https://huggingface.co/tencent/Hy4-preview)
 - [tencent/Tencent-Hunyuan-Large — HuggingFace](https://huggingface.co/tencent/Tencent-Hunyuan-Large)
+- [Hunyuan-Large 技術報告 — arXiv 2411.02265](https://arxiv.org/abs/2411.02265)
 - [tencent/Hunyuan-A13B-Instruct — HuggingFace](https://huggingface.co/tencent/Hunyuan-A13B-Instruct)
 - [Tencent: Hy4 — OpenRouter（供應商與價格）](https://openrouter.ai/tencent/hy4)
 - [Tencent: Hy4 flash — OpenRouter](https://openrouter.ai/tencent/hy4-flash)
 - [Tencent Hy4 — Artificial Analysis](https://artificialanalysis.ai/models/tencent-hy4)
+- [Hy4 — Vals AI](https://www.vals.ai/models/tencent_hy4)
+- [Hy4 Flash — Vals AI](https://www.vals.ai/models/tencent_hy4-flash)
 - [Tencent Hy4: New AI model joins China's top tier — heise online](https://www.heise.de/en/news/Tencent-Hy4-New-AI-model-joins-China-s-top-tier-11513717.html)
 - [Tencent releases Hy4 model weights with million-token context — TechNode](https://technode.com/2026/11/20/tencent-releases-hy4-model-weights-with-million-token-context/)
 - [ERNIE 5.5 Flash Preview — Baidu ERNIE 官方部落格（含 Hy4 對照數字）](https://ernie.baidu.com/release/ernie-5-5-flash-preview)

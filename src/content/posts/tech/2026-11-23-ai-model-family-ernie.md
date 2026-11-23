@@ -5,7 +5,7 @@ category: tech
 tags: [ai-agent, llm, baidu, open-source, model-family-ernie, moe, model-selection]
 lang: zh-TW
 type: deep-dive
-tldr: "百度 ERNIE 這一代是 ERNIE 5.5 Flash：280B 總參數、14B 啟用、1M context 的純文字 MoE。11 月 5 日先開源未經後訓練的 Base（自訂授權，排除歐盟、英國、南韓），11 月 11 日推出後訓練的 Preview，API 在千帆、承諾以 Apache 2.0 開源。官方評測在 agent 類任務接近 Hy4 與 DeepSeek-V4.1-Flash，但目前沒有任何第三方分數。閉源旗艦仍是 5 月的 ERNIE 5.1。"
+tldr: "百度 ERNIE 這一代是 ERNIE 5.5 Flash：280B 總參數、14B 啟用、1M context 的純文字 MoE。11 月 5 日先開源未經後訓練的 Base（自訂授權，排除歐盟、英國、南韓），11 月 11 日推出後訓練的 Preview，API 在千帆、承諾以 Apache 2.0 開源。官方評測與 Hy4、DeepSeek-V4.1-Flash 互有勝負（Terminal-Bench 4.0、AutomationBench 略高，DeepSWE、APEX-Agents 較低），但目前沒有任何第三方分數。閉源旗艦仍是 5 月的 ERNIE 5.1。"
 description: "百度 ERNIE（文心）模型家族介紹：ERNIE 5.5 Flash Base／Preview 規格與架構（HCA＋MLA-DSA、Multi-Router Latent MoE、ECHO）、官方評測、兩種授權的差異、千帆價格、ERNIE 4.5→5.0→5.1→5.5 演化時間線、Unlimited OCR 子線與 Agent 選型。"
 series:
   name: "AI 模型家族"
@@ -33,7 +33,7 @@ ERNIE（文心）是百度的大型模型家族，中國市場的對話產品「
 |---|---|---|---|
 | ERNIE 5.5 Flash Preview（千帆 `ERNIE-5.5-Flash-Preview`） | 目前這一代的後訓練模型 | 280B 總參數、14B 啟用；1M context，預設輸出 64K；純文字；官方標明是後訓練中途的 checkpoint | 千帆 API；OpenRouter 免費提供；權重承諾以 Apache 2.0 開源 |
 | ERNIE 5.5 Flash Base（`baidu/ERNIE-5.5-Flash-Base`） | 預訓練權重 | 同架構，未經任何中訓練或後訓練，只能用 completions 呼叫 | 開放權重（FP8／BF16），ERNIE 5.5 Flash Base 授權 |
-| ERNIE 5.1 | 閉源旗艦 | 從 ERNIE 5.0 抽出的子網路，總參數約 5.0 的三分之一 | ERNIE 官網、文心產品與千帆 |
+| ERNIE 5.1 | 閉源旗艦 | 從 ERNIE 5.0 抽出的子網路，總參數約 5.0 的三分之一 | ERNIE 官網、百度 AI Studio |
 | ERNIE 4.5 系列 | 上一代開放權重 | 0.3B 稠密到 424B-A47B 多模態 MoE，共 10 款 | 開放權重，Apache 2.0 |
 | Unlimited OCR 2（`baidu/Unlimited-OCR-2`） | 長文件 OCR | 3.34B，針對上百頁文件的跨頁解析 | 開放權重，MIT |
 
@@ -74,7 +74,7 @@ ERNIE（文心）是百度的大型模型家族，中國市場的對話產品「
 - **ECHO**：不另接 MTP 模組，直接重用主幹最後一層預測後續 token，同一層兼任投機解碼的草稿模型。
 - **訓練**：33.5T tokens、Muon 優化器、FP8 混合精度；訓練 context 逐步拉到 128K，微調與推論支援 1M。
 
-代價是長 context 能力多半來自推論時延伸，不是訓練時原生學到；Base 的長 context 評測確實比考試與程式碼類保守。Preview 在千帆上以 FP4 專家權重搭配草稿頭（draft head）部署，官方稱輸出超過每秒 200 tokens。
+代價是訓練 context 只拉到 128K，1M 要靠微調與推論時延伸。Base 的六項長 context 評測贏了四項，但領先幅度比考試與程式碼類小，HELMET-Rerank 與 InfiniteBench 還輸給 DeepSeek-V4-Flash-Base。Preview 在千帆上以 FP4 專家權重搭配草稿頭（draft head）部署，官方稱輸出超過每秒 200 tokens。
 
 ### 後訓練：自建工作空間與 RSI
 
@@ -105,14 +105,14 @@ ERNIE（文心）是百度的大型模型家族，中國市場的對話產品「
 
 讀法：
 
-- **14B 啟用跟 49B 啟用的 Hy4 同一級距。** Terminal-Bench 4.0 與 AutomationBench 略高於 Hy4 和 DeepSeek-V4.1-Flash-1017，DeepSWE 則落後。
+- **14B 啟用跟 49B 啟用的 Hy4 同一級距，互有勝負。** Terminal-Bench 4.0 與 AutomationBench 略高於 Hy4 和 DeepSeek-V4.1-Flash-1017；DeepSWE 落後，同表的 APEX-Agents 1.1 也只有 64.2，低於 Hy4 的 77.6。
 - **離閉源前沿還很遠。** Terminal-Bench 4.0 與 ProgramBench 都明顯輸 Claude Opus 5.5。
 - **評測條件是百度選的。** 每項各用不同的 harness（Claude Code、mini-swe-agent、Codex 等）與裁判模型；部分項目因為模型沒有視覺，圖片要靠另一家的模型轉述。
 - **跨廠商數字不一定對得上。** 同一份表引用的 Hy4 APEX-Agents 是 77.6，騰訊自己的 [Hy4 模型卡](https://huggingface.co/tencent/Hy4)寫 75.2。
 
 ### 官方：Base 對上同尺寸基礎模型
 
-[Base 公告](https://ernie.baidu.com/release/ernie-5-5-flash-base/)用同一套 harness、prompt 與 few-shot 跑四個基礎模型：MMLU-Pro 78.4（DeepSeek-V4-Flash-Base 69.2、Hy3-preview-Base 66.9）、HumanEval+ 82.3（69.5、78.0）。弱項是長 context 與中文知識：HELMET-Rerank 56.2、InfiniteBench 46.5、ChineseSimpleQA 73.0，都低於 DeepSeek-V4-Flash-Base 的 60.0、48.0、75.3。
+[Base 公告](https://ernie.baidu.com/release/ernie-5-5-flash-base/)用同一套 harness、prompt 與 few-shot 跑四個基礎模型：MMLU-Pro 78.4（DeepSeek-V4-Flash-Base 69.2、Hy3-preview-Base 66.9）、HumanEval+ 82.3（69.5、78.0）。長 context 六項贏四項（HELMET-RAG、HELMET-ICL、RepoQA、LongBench-v2），輸掉的是 HELMET-Rerank 56.2 與 InfiniteBench 46.5（DeepSeek-V4-Flash-Base 60.0、48.0）；中文知識 ChineseSimpleQA 73.0 也低於 DeepSeek 的 75.3。
 
 ### 閉源旗艦 ERNIE 5.1
 
@@ -135,7 +135,7 @@ Base 授權的「年營收」算法很寬：同一控制下的關係企業合併
 
 - **ERNIE 5.5 Flash Preview**：[百度新聞稿](https://www.prnewswire.com/news-releases/baidu-unveils-latest-ernie-models-amid-broader-full-stack-ai-lineup-and-debuts-token-exchange-to-power-intelligent-organizations-302937959.html)列每百萬 tokens 輸入人民幣 1 元、輸出 4 元、快取命中 0.04 元。[千帆活動頁](https://cloud.baidu.com/product/qianfan_home/model_3.html)顯示輸入分尖峰（8:00–22:00）與離峰計價，目前限時五折：尖峰 2 元降到 1 元、離峰 1 元降到 0.5 元。新聞稿另說明 OpenRouter 免費提供。
 - **ERNIE-Light-DT-1.0**：輸入每百萬 tokens 8 元、快取命中 0.8 元，主打長 context 的低成本呼叫。
-- **ERNIE 5.1**：在 ERNIE 官網與千帆提供，本文未整理其價格。
+- **ERNIE 5.1**：官方公告的使用管道是 ERNIE 官網與百度 AI Studio，本文未整理其價格。
 
 ### 自架
 

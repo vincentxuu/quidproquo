@@ -5,7 +5,7 @@ category: tech
 tags: [ai-agent, llm, baidu, open-source, model-family-ernie, moe, model-selection]
 lang: en
 type: deep-dive
-tldr: "Baidu's current ERNIE generation is ERNIE 5.5 Flash: a text-only MoE with 280B total parameters, 14B active and 1M context. The un-post-trained Base went open on November 5 under a custom license that excludes the EU, UK and South Korea; the post-trained Preview followed on November 11 with an API on Qianfan and a promise of Apache 2.0 weights. Baidu's own evaluations put it near Hy4 and DeepSeek-V4.1-Flash on agent tasks, but no third-party score exists yet. The closed flagship is still May's ERNIE 5.1."
+tldr: "Baidu's current ERNIE generation is ERNIE 5.5 Flash: a text-only MoE with 280B total parameters, 14B active and 1M context. The un-post-trained Base went open on November 5 under a custom license that excludes the EU, UK and South Korea; the post-trained Preview followed on November 11 with an API on Qianfan and a promise of Apache 2.0 weights. Baidu's own evaluations trade wins with Hy4 and DeepSeek-V4.1-Flash (ahead on Terminal-Bench 4.0 and AutomationBench, behind on DeepSWE and APEX-Agents), but no third-party score exists yet. The closed flagship is still May's ERNIE 5.1."
 description: "Baidu ERNIE model family: ERNIE 5.5 Flash Base and Preview specs and architecture (HCA + MLA-DSA, Multi-Router Latent MoE, ECHO), vendor evaluations, the two different licenses, Qianfan pricing, the ERNIE 4.5 → 5.0 → 5.1 → 5.5 timeline, the Unlimited OCR sub-line, and agent selection."
 series:
   name: "AI Model Families"
@@ -33,7 +33,7 @@ For how to read the benchmark numbers below, see the [AI model evaluation source
 |---|---|---|---|
 | ERNIE 5.5 Flash Preview (Qianfan `ERNIE-5.5-Flash-Preview`) | Post-trained model of the current generation | 280B total, 14B active; 1M context, 64K default output; text only; Baidu labels it a mid-post-training checkpoint | Qianfan API; free on OpenRouter; weights promised under Apache 2.0 |
 | ERNIE 5.5 Flash Base (`baidu/ERNIE-5.5-Flash-Base`) | Pre-trained weights | Same architecture, no mid- or post-training; completions only | Open weights (FP8 / BF16), ERNIE 5.5 Flash Base license |
-| ERNIE 5.1 | Closed flagship | A sub-network extracted from ERNIE 5.0, about one-third of 5.0's total parameters | ERNIE website, Baidu products and Qianfan |
+| ERNIE 5.1 | Closed flagship | A sub-network extracted from ERNIE 5.0, about one-third of 5.0's total parameters | ERNIE website, Baidu AI Studio |
 | ERNIE 4.5 series | Previous open weights | Ten models, from a 0.3B dense model to a 424B-A47B multimodal MoE | Open weights, Apache 2.0 |
 | Unlimited OCR 2 (`baidu/Unlimited-OCR-2`) | Long-document OCR | 3.34B, built for cross-page parsing of documents hundreds of pages long | Open weights, MIT |
 
@@ -74,7 +74,7 @@ From the [ERNIE 5.5 Flash Base announcement](https://ernie.baidu.com/release/ern
 - **ECHO**: instead of a separate MTP module, the backbone's last layer is reused to predict upcoming tokens and also serves as the speculative-decoding drafter.
 - **Training**: 33.5T tokens with the Muon optimizer and FP8 mixed precision; training context was extended gradually to 128K, with 1M supported for fine-tuning and inference.
 
-The trade-off is that long-context ability comes mostly from inference-time extension rather than native training, and Base's long-context scores are indeed more conservative than its exam and code scores. On Qianfan, Preview runs with FP4 expert weights plus a draft head, and Baidu claims more than 200 output tokens per second.
+The trade-off is that the training context only reaches 128K, so 1M depends on extension during fine-tuning and inference. Base wins four of its six long-context benchmarks, but by smaller margins than on exams and code, and it loses HELMET-Rerank and InfiniteBench to DeepSeek-V4-Flash-Base. On Qianfan, Preview runs with FP4 expert weights plus a draft head, and Baidu claims more than 200 output tokens per second.
 
 ### Post-training: purpose-built workspaces and RSI
 
@@ -105,14 +105,14 @@ From the [Preview announcement appendix](https://ernie.baidu.com/release/ernie-5
 
 How to read it:
 
-- **14B active lands in the same tier as the 49B-active Hy4.** Terminal-Bench 4.0 and AutomationBench edge out Hy4 and DeepSeek-V4.1-Flash-1017, while DeepSWE trails.
+- **14B active lands in the same tier as the 49B-active Hy4, with mixed results.** Terminal-Bench 4.0 and AutomationBench edge out Hy4 and DeepSeek-V4.1-Flash-1017; DeepSWE trails, and APEX-Agents 1.1 in the same table is only 64.2, below Hy4's 77.6.
 - **The closed frontier is still far ahead.** Terminal-Bench 4.0 and ProgramBench both lose clearly to Claude Opus 5.5.
 - **Baidu chose the evaluation setup.** Each benchmark uses a different harness (Claude Code, mini-swe-agent, Codex and others) and judge model; because the model has no vision, some tasks relied on another vendor's model to describe images.
 - **Cross-vendor numbers do not always match.** The same table quotes Hy4 at 77.6 on APEX-Agents, while Tencent's own [Hy4 model card](https://huggingface.co/tencent/Hy4) says 75.2.
 
 ### Vendor-reported: Base against base models of similar size
 
-The [Base announcement](https://ernie.baidu.com/release/ernie-5-5-flash-base/) runs four base models through the same harness, prompts and few-shot examples: MMLU-Pro 78.4 (DeepSeek-V4-Flash-Base 69.2, Hy3-preview-Base 66.9) and HumanEval+ 82.3 (69.5 and 78.0). The weak spots are long context and Chinese knowledge: HELMET-Rerank 56.2, InfiniteBench 46.5 and ChineseSimpleQA 73.0, all below DeepSeek-V4-Flash-Base's 60.0, 48.0 and 75.3.
+The [Base announcement](https://ernie.baidu.com/release/ernie-5-5-flash-base/) runs four base models through the same harness, prompts and few-shot examples: MMLU-Pro 78.4 (DeepSeek-V4-Flash-Base 69.2, Hy3-preview-Base 66.9) and HumanEval+ 82.3 (69.5 and 78.0). On long context it wins four of six (HELMET-RAG, HELMET-ICL, RepoQA, LongBench-v2) and loses HELMET-Rerank 56.2 and InfiniteBench 46.5 (DeepSeek-V4-Flash-Base: 60.0 and 48.0); on Chinese knowledge, ChineseSimpleQA 73.0 also trails DeepSeek's 75.3.
 
 ### The closed flagship, ERNIE 5.1
 
@@ -135,7 +135,7 @@ The Base license counts "annual revenue" broadly: affiliates under common contro
 
 - **ERNIE 5.5 Flash Preview**: [Baidu's press release](https://www.prnewswire.com/news-releases/baidu-unveils-latest-ernie-models-amid-broader-full-stack-ai-lineup-and-debuts-token-exchange-to-power-intelligent-organizations-302937959.html) lists RMB 1 per million input tokens, RMB 4 per million output tokens and RMB 0.04 for cache hits. The [Qianfan promotion page](https://cloud.baidu.com/product/qianfan_home/model_3.html) shows input priced by peak (8:00–22:00) and off-peak hours, currently at 50% off: peak RMB 2 down to 1, off-peak RMB 1 down to 0.5. The press release also says the model is free on OpenRouter.
 - **ERNIE-Light-DT-1.0**: RMB 8 per million input tokens and RMB 0.8 for cache hits, aimed at low-cost long-context calls.
-- **ERNIE 5.1**: offered on the ERNIE website and Qianfan; this post does not cover its pricing.
+- **ERNIE 5.1**: the official announcement points to the ERNIE website and Baidu AI Studio; this post does not cover its pricing.
 
 ### Self-hosting
 
