@@ -50,7 +50,7 @@ Ornith 1.5 comes in four scales, all MIT-licensed with weights on [Hugging Face]
 | Ornith 1.5-35B-A3B | MoE | 35B | ~3B | Efficiency champion, class leader |
 | Ornith 1.5-9B | Dense | 9B | 9B | Quantized mobile version available |
 
-The 9B offers an `Ornith-1.5-9B-Mobile` quantized variant that can run on iPhone and Android devices.
+Ornith says the 9B can run on iPhone and Android devices and mentions an `Ornith-1.5-9B-Mobile` quantized variant, but no such repo exists under the ornith-ai organization; the on-device options available are the GGUF and MLX 4/6/8-bit builds.
 
 ### 122B: a new size between 35B and 397B
 

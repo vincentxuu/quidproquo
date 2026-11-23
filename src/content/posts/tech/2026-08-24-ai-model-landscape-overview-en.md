@@ -47,6 +47,17 @@ As of November 2026, the closed frontier has turned over a full generation, and 
 | [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat-en) (Meituan) | Open | LongCat-2.5 | 1.6T open weights under MIT |
 | [Tencent Hy](/posts/tech/2026-11-23-ai-model-family-tencent-hy-en) (Tencent Hunyuan) | Open | Hy4, Hy4 flash | Strong on finance and office agents; custom license |
 | [ERNIE](/posts/tech/2026-11-23-ai-model-family-ernie-en) (Baidu) | Closed flagship + open | ERNIE 5.1 (API); 5.5 Flash Preview / Base | Low-cost 14B-active open weights; no third-party scores yet |
+| [StepFun Step](/posts/tech/2026-11-23-ai-model-family-stepfun-en) | Open + closed API | Step 5 Preview (600B / 27B active), Step 3.7 Flash; StepAudio 3 (API) | Long-horizon finance and research agents; the flagship moved to the custom StepFun Model License, while Flash stays Apache 2.0 |
+| [MiMo](/posts/tech/2026-11-23-ai-model-family-mimo-en) (Xiaomi) | Open | MiMo-V2.6-Pro (1.02T / 42B active), V2.6-Flash | MIT-licensed omni-modal 1M context; very cheap API, but slow and verbose |
+| [ByteDance Seed](/posts/tech/2026-11-23-ai-model-family-bytedance-seed-en) (Doubao) | Closed + research open weights | Seed2.1 Pro / Turbo / Lite; Seed-OSS-36B, UI-TARS | Main models only on Volcano Engine, BytePlus, and OpenRouter; scores are mostly self-reported |
+| [SenseNova](/posts/tech/2026-11-23-ai-model-family-sensenova-en) (SenseTime) | Closed + open | SenseNova 6.8 Flash / Flash Lite (API); Loop-9B | Office and design agents; Loop-9B is an Apache 2.0 looped architecture |
+| [MiniCPM](/posts/tech/2026-11-23-ai-model-family-minicpm-en) (ModelBest) | Open | MiniCPM5-2B / 1B, MiniCPM-V 4.7, MiniCPM-OCR 1.0 | On-device small models, all Apache 2.0; strongest at tool calling |
+| [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft-en) (MAI, Phi) | Closed + open | MAI Code 2 / Code 2 Flash, MAI Thinking 1; Phi-4-reasoning-vision-15B, Fara1.5 | MAI ships only through Copilot and Foundry, cheap but with self-reported scores only; Phi and other small models are MIT / Apache 2.0 |
+| [Amazon Nova](/posts/tech/2026-11-23-ai-model-family-amazon-nova-en) | Closed | Nova 2 Lite, Nova 2.5 Sonic; Chronos-2 (time-series weights) | AWS only; Premier, Canvas, and Reel were retired in 2026-09 |
+| [Granite](/posts/tech/2026-11-23-ai-model-family-granite-en) (IBM) | Open | Granite 4.2 (3B / 8B / 30B), Guardian 4.1, Vision 4.1 | Fully self-hostable for enterprises, a full set of Apache 2.0 sub-lines; low single-model scores |
+| [OLMo](/posts/tech/2026-11-23-ai-model-family-olmo-en) (Ai2) | Open | Olmo 3.1 32B Think / Instruct, Olmo 3 7B | Apache 2.0 weights with training data and checkpoints fully public; trails same-size Qwen 3 |
+| [Upstage Solar](/posts/tech/2026-11-23-ai-model-family-upstage-solar-en) | Closed API + open | Solar Pro 4, Mini 4 (API); Solar Open 2 (250B / 15B active) | Korean and Japanese document-heavy office agents at a low price; Open 2 uses the Apache 2.0-based Upstage Solar License |
+| [Korean models](/posts/tech/2026-11-23-ai-model-family-korea-models-en) (comparison) | Open + closed | K-EXAONE 2.0, A.X K2, Motif 3, Solar, Mi:dm K 3.0 Pro, HyperCLOVA X SEED | Licenses, prices, and scores across seven Korean vendors |
 | [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron-en) (NVIDIA) | Open | 3.5 Super VL, Bolt, Lightning | Open training data; tiered by deployment target |
 | [Llama](/posts/tech/2026-08-24-ai-model-family-llama-en) (Meta) | Open | Llama 4 Scout/Maverick (2025-04) | Largest deployment base, but no Llama 5; Meta's new models ship as Muse; conditional Community License |
 | [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral-en) | Open | Mistral Large 4, Small 4 | European sovereign deployment; Large 4 is the strongest Western open-weight model on coding and security |
@@ -141,7 +152,7 @@ Image generation is still where closed models lead most clearly: the top ten on 
 |---|---|---|---|---|
 | GPT Image 2.6 Sunburst (max) | 1263 | Closed | $211 | First place ([model card](/posts/daily/2026-11-07-model-openai-gpt-image-2-6-en)) |
 | GPT Image 2.6 Flare (max) | 1226 | Closed | $211 | The other tier of the same generation |
-| MAI-Image-2.7 | 1215 | Closed | $35 | Microsoft; cheapest in the top five |
+| MAI-Image-2.7 | 1215 | Closed | $35 | [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft-en); cheapest in the top five |
 | Kling Image 4.0 | 1181 | Closed | $63 | Kuaishou |
 | Nano Banana 2.1 | 1175 | Closed | $34 | Google |
 | Grok Imagine Image 2.0 | 1167 | Closed | $60 | SpaceXSI (formerly xAI) |
@@ -165,7 +176,7 @@ The biggest change in the second half of 2026 is OpenAI's exit: the Sora app clo
 | Wan 3.0 | 1175 | Closed API | $12.00 | Alibaba; up to 30 seconds at 1080P per generation |
 | Utopai X | 1171 | Closed | No API | — |
 | MiniMax H3 (768p) | 1163 | Open weights (custom license) | $4.80 | Top open-weight model |
-| Dreamina Seedance 2.5 | 1156 | Closed | $34.12 | ByteDance; most expensive near the top |
+| Dreamina Seedance 2.5 | 1156 | Closed | $34.12 | [ByteDance Seed](/posts/tech/2026-11-23-ai-model-family-bytedance-seed-en); most expensive near the top |
 | Gemini Omni Flash 1.2 | 1154 | Closed | $6.26 | Google |
 | FLUX 3 Max | 1151 | Closed | $17.40 | fal Research's post-trained FLUX 3 Video, billed only on fal ($8.70 promo rate through 11-22) |
 | HeyGen Video 1 | 1150 | Closed | $2.40 | First on the silent board |
@@ -201,7 +212,7 @@ Image editing—inpainting, reference-image composition, and style transfer—no
 | Model | AA Elo | Type | $/1M characters | Positioning |
 |---|---|---|---|---|
 | Eleven v4 / v4 Turbo | 1340 | Closed API | $80 / $40 | ElevenLabs; tied for first |
-| StepAudio 3 TTS | 1307 | Closed API | $14 | StepFun |
+| StepAudio 3 TTS | 1307 | Closed API | $14 | [StepFun](/posts/tech/2026-11-23-ai-model-family-stepfun-en) |
 | Qwen-Audio-3.1-TTS-Plus | 1298 | Closed API | $19.31 | Alibaba |
 | Simba 3.5 | 1293 | Closed API | $6.58 | Cheapest near the top |
 | Gemini 3.8 Flash TTS | 1282 | Closed API | $16.49 | Google |
@@ -218,7 +229,7 @@ Image editing—inpainting, reference-image composition, and style transfer—no
 |---|---|---|---|---|
 | Fun-Realtime-ASR-preview | 1.7% | Closed API | $2.82 | Alibaba; lowest error rate |
 | Scribe v3 | 1.9% | Closed API | $3.33 | ElevenLabs; launched 2026-11-10 |
-| MAI-Transcribe-2 | 2.0% | Closed API | $1.67 | Microsoft; about 340× real time |
+| MAI-Transcribe-2 | 2.0% | Closed API | $1.67 | [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft-en); about 340× real time |
 | Voxtral Small Transcribe 3 | 2.1% | API | $4.00 | Mistral |
 | Grok Voice Transcribe 2.0 | 2.3% | Closed API | $1.67 | SpaceXSI |
 | SOV-Transcribe-1 | 2.3% | Open, Apache-2.0 | — | Salesforce; best open-weight model |
@@ -264,7 +275,7 @@ Embeddings are the first RAG stage, turning text into vectors. [MTEB](https://hu
 | gemini-embedding-001 | Closed API | 68.4 | The newer gemini-embedding-2 is multimodal (text, images, video, audio, documents) |
 | [Cohere Embed 5](/posts/tech/2026-08-24-ai-model-family-cohere-en) Pro / Fast | Closed API | Not published | Strong on mixed image-text PDFs; $0.12 / $0.08 per million tokens |
 | voyage-4-large / 4 / 4-lite | Closed API | Not published | $0.12 / $0.06 / $0.02; voyage-code-4 for code |
-| [pplx-embed](/posts/tech/2026-10-09-ai-model-family-pplx-embed-en) | Open MIT + API | Retrieval subset only | Single-vector, contextual, and multi-vector lines |
+| [pplx-embed](/posts/tech/2026-10-09-ai-model-family-pplx-embed-en) | Open weights + API | Retrieval subset only | Main line v2-context (0.6B / 9B) puts text and images in one vector space, $0.02 / $0.12; 9B weights MIT, 0.6B has no license listed; v1 retires during 2027 |
 | BGE-M3 (BAAI) | Open, MIT | — | The old 2024 default, now surpassed by the models above |
 
 (Scores come from each model card and the MTEB multilingual board, November 2026. Some models trained on data that overlaps MTEB tasks, so treat the averages as a first filter.)
@@ -329,7 +340,7 @@ This belongs to agent frameworks, not model selection. Models understand instruc
 
 The 2026 ecosystem is highly specialized, and no model leads every use case. Claude Fable 5.2 leads the composite index and FrontierCode, Kimi K3.1 Pro leads Terminal-Bench 4.0, and GPT-6.2 Astra leads image-text reasoning; decision models beat language models outright on tool selection and cost, but fall a step behind on knowledge.
 
-The gap between open and closed actually widened in the second half of 2026. The strongest open-weight model, Kimi K3.1 Pro, scores 46.5 on the composite index, while the closed frontier sits between 60 and 65; and flagship open weights increasingly come with conditions (Kimi, Qwen, MiniMax, Muse Spark Open, GLM-5.3, and Tencent Hy4 all use custom licenses), while Qwen4-Max took its flagship back to closed. Open models' advantages concentrate in self-hosting, low prices, and specific tasks (long terminal tasks, documents, embeddings), and an open-weight model has reached the top three in video generation; closed models still lead in composite reasoning, PR quality, image generation, and speech.
+The gap between open and closed actually widened in the second half of 2026. The strongest open-weight model, Kimi K3.1 Pro, scores 46.5 on the composite index, while the closed frontier sits between 60 and 65; and flagship open weights increasingly come with conditions (Kimi, Qwen, MiniMax, Muse Spark Open, GLM-5.3, Tencent Hy4, and Step 5 Preview all use custom licenses), while Qwen4-Max took its flagship back to closed. Open models' advantages concentrate in self-hosting, low prices, and specific tasks (long terminal tasks, documents, embeddings), and an open-weight model has reached the top three in video generation; closed models still lead in composite reasoning, PR quality, image generation, and speech.
 
 This article is the map. The evolution, architecture, and version choices for each family belong in its own family article.
 
@@ -337,6 +348,7 @@ This article is the map. The evolution, architecture, and version choices for ea
 
 ## Update History
 
+- **2026-11-23** (family table): Added the StepFun, MiMo, ByteDance Seed, SenseNova, MiniCPM, Microsoft, Amazon Nova, Granite, OLMo, and Upstage Solar family posts published that day, plus the Korean models comparison, to the "Text Generation" table, with representative models, positioning, and licenses taken from each family post; linked MAI-Image-2.7, Dreamina Seedance 2.5, StepAudio 3 TTS, and MAI-Transcribe-2 in the image, video, TTS, and ASR tables to their family posts; rewrote the pplx-embed row around v2-context after that family post moved to the new generation, noting that the 0.6B weights have no license listed; and added Step 5 Preview to the custom-licensed flagships in "Overall".
 - **2026-11-23**: Rewrote the DeepSeek, GLM, Llama, Mistral, Grok, and Cohere rows of the "Text Generation" table to match that day's family-post updates (the GLM-5.3 flagship now uses the custom GLM-5.3 License, Grok's developer was renamed SpaceXSI, Mistral Medium 3.5 is deprecated and replaced by Small 4, and Cohere moves to Command A+), and removed the note that those family posts were still at October 2026. The image, video, TTS, ASR, music, embedding, and rerank sections now use Artificial Analysis and MTEB data from November 2026: image and video use AA v2.1 Elo (with different anchors from the old figures), the Sora API shutdown on 2026-09-24 is added, Eleven v4 replaces the old TTS leader, ASR uses AA-WER, harrier-oss-v1-27b replaces the old embedding leader, and rerankers are grouped by license and API, noting that jina-reranker-v3.5 weights are non-commercial; the OCR table now lists Unlimited OCR 2, and the image editing paragraph was rewritten. Sources for each figure were re-read from primary pages.
 - **2026-11-20**: Synced with the November family updates. The "Text Generation" table now lists each family's current workhorses and adds Muse, MiniMax, LongCat, and Nemotron; "Reasoning" was rewritten to reflect reasoning being folded back into main models and controlled by an effort parameter; the "Code Generation" Aider Polyglot table (stuck on 2025 models such as GPT-5 and Gemini 2.5 Pro) was replaced with Artificial Analysis's Terminal-Bench 4.0 and FrontierCode 2.0 from 2026-11-20; "VLMs" now uses Artificial Analysis's MMMU-Pro; a "Decision Models" subsection was added; "Agent" and "Overall" were rewritten with the new data, and the earlier conclusion that open models had matched or surpassed closed ones in most areas was changed to note that the gap widened in the second half of the year. The image, video, 3D, speech, music, embedding, rerank, OCR, and translation sections still use August 2026 data and were not re-verified this time.
 - 2026-08-24: First version.

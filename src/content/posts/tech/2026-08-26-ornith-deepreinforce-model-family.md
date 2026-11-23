@@ -50,7 +50,7 @@ Ornith 1.5 有四個規模，全部 MIT 授權、權重公開在 [Hugging Face](
 | Ornith 1.5-35B-A3B | MoE | 35B | ~3B | 效率怪物，同量級王者 |
 | Ornith 1.5-9B | Dense | 9B | 9B | 有量化版可跑手機 |
 
-9B 版本提供 `Ornith-1.5-9B-Mobile` 量化版，官方表示可以部署在 iPhone 和 Android 裝置上。
+官方說 9B 可以部署在 iPhone 和 Android 裝置上，並提到 `Ornith-1.5-9B-Mobile` 量化版，但 ornith-ai 組織下目前沒有這個 repo；手機端可用的是 GGUF 與 MLX 4／6／8-bit 量化版。
 
 ### 122B：35B 與 397B 之間的新尺寸
 

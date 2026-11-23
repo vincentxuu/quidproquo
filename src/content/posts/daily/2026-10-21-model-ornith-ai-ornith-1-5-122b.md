@@ -5,8 +5,8 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, ornith-ai, model-family-ornith]
 lang: zh-TW
-description: "DeepReinforce 悄悄在 HuggingFace 上架 Ornith-1.5 家族新尺寸 122B——MIT 授權、單張 80GB GPU 可跑、SWE-bench Verified 84.5%，訓練方法是模型自己生成任務、scaffold 與 rollout 的自我改進迴路"
-tldr: "Ornith-1.5-122B：122B 總參數 MoE（active 參數未公開）、262,144 tokens 原生 context（YaRN scaling factor 4.0 可延伸至約 1M）、MIT 授權，單張 80GB GPU 可部署；2026-10-16 上架 HuggingFace，沒有對應部落格公告，靠社群與 HF trending 才被注意到；SWE-bench Verified（non-hack）84.5%、CyberGym 80.0%，均領先同量級的 Qwen3.8-Flash-Next（125B）；訓練方法沿用 Ornith-1.0 的自我改進迴路，但從單純優化 scaffold／rollout 擴展成同時優化任務生成、scaffold 建構與 rollout 三個環節；尚無官方或第三方代管 API 定價。"
+description: "DeepReinforce 悄悄在 HuggingFace 上架 Ornith-1.5 家族新尺寸 122B——MIT 授權、模型卡稱單張 80GB GPU 可跑（實際只有約 78GB 的 NVFP4 版勉強放得下）、SWE-bench Verified 84.5%，訓練方法是模型自己生成任務、scaffold 與 rollout 的自我改進迴路"
+tldr: "Ornith-1.5-122B：122B 總參數 MoE（active 參數未公開）、262,144 tokens 原生 context（YaRN scaling factor 4.0 可延伸至約 1M）、MIT 授權，模型卡稱單張 80GB GPU 可部署，但 BF16 權重約 250GB、FP8 約 133GB，只有 NVFP4 版（約 78GB）接近單卡；2026-10-16 上架 HuggingFace，沒有對應部落格公告，靠社群與 HF trending 才被注意到；SWE-bench Verified（non-hack）84.5%、CyberGym 80.0%，均領先同量級的 Qwen3.8-Flash-Next（125B）；訓練方法沿用 Ornith-1.0 的自我改進迴路，但從單純優化 scaffold／rollout 擴展成同時優化任務生成、scaffold 建構與 rollout 三個環節；尚無官方或第三方代管 API 定價。"
 series:
   name: "AI Model Tracker"
   order: 54
@@ -40,8 +40,8 @@ glossary:
 
 - SWE-bench Verified（non-hack）達 84.5%，領先同量級的 Qwen3.8-Flash-Next（125B，82.8%）與 Qwen3.8-27B（76.8%）
 - 訓練方法是「自我改進迴路」：模型自己生成訓練任務、建構對應的 agent scaffold（工具、分解策略、orchestration）、再產生 solution rollout 做強化學習，不依賴固定的人工任務集或人工設計的 harness
-- 122B MoE 架構設計成可在單張 80GB GPU 上部署，比起同表內的 Beam-1.0（501B）、DeepSeek-V4-Flash-0731（284B）省下大量硬體需求
-- 另有量化的 Ornith-1.5-122B-Mobile 版本，可裝進手機等邊緣裝置
+- 模型卡稱 122B MoE 可在單張 80GB GPU 上服務，比起同表內的 Beam-1.0（501B）、DeepSeek-V4-Flash-0731（284B）省下大量硬體需求。對照權重大小：BF16 版約 250GB，10-20 補上的 FP8 版約 133GB、NVFP4 版約 78GB；要單卡跑只能用 NVFP4，留給 KV cache 的空間很少，實際多半要縮短 context 或改用兩張卡跑 FP8
+- 模型卡另提到可裝進手機的量化版 Ornith-1.5-122B-Mobile，但 ornith-ai 的 Hugging Face 組織沒有這個 repo
 
 ## Benchmark 表現
 
@@ -65,7 +65,7 @@ Ornith-1.0（2026-06 釋出）只有 9B／31B／35B MoE／397B MoE 四個尺寸�
 
 ## 對 Agent 開發的意義
 
-如果你在做需要自架、單卡部署的 coding agent：122B 可在單張 80GB GPU 上跑，硬體成本遠低於 Beam（501B）或 DeepSeek（284B），加上 SWE-bench Verified／CyberGym 都領先同量級對手，值得當成自架 coding agent 的候選底座來評估。
+如果你在做需要自架的 coding agent：122B 的硬體成本遠低於 Beam（501B）或 DeepSeek（284B）。單張 80GB GPU 只放得下 NVFP4 版（約 78GB），context 要縮短；FP8 版（約 133GB）需要兩張 80GB 卡。它在 SWE-bench Verified／CyberGym 都領先同量級對手，值得當成自架 coding agent 的候選底座來評估。
 
 如果你在做多 agent 系統或需要大量工具呼叫／MCP：MCP-Atlas 拿到 74.6 分，跟 501B 的 Beam 打平，BrowseComp 也有 78.5 分，代表這個量級的模型已經能處理相當份量的 agentic 工具呼叫場景；它的訓練方法本身（模型自己生成任務與 scaffold 再做 RL）也值得研究，而不只是把它當成現成模型來用。
 
@@ -75,9 +75,16 @@ Ornith-1.0（2026-06 釋出）只有 9B／31B／35B MoE／397B MoE 四個尺寸�
 
 這次學到「模型家族可能悄悄補規格」這件事：Ornith-1.5 在 8 月正式發布時只公布了 397B／35B／9B 三個尺寸，122B 這個版本是 10 月中直接上架 HuggingFace、沒有對應部落格公告，純粹靠 HF trending 榜單跟社群文章才被注意到。這提醒我「有沒有官方公告」在這個生態系裡不是模型值不值得追蹤的必要條件，追新模型除了盯廠商部落格，HuggingFace trending 本身就是一個不能漏看的訊號源。
 
+## 更新紀錄
+
+- 2026-11-23：模型卡「單張 80GB GPU 可服務」的說法對照權重大小改寫（BF16 約 250GB、FP8 約 133GB、NVFP4 約 78GB），自架建議改為單卡只能跑 NVFP4；模型卡提到的 Ornith-1.5-122B-Mobile 在 ornith-ai 組織下沒有對應 repo，改寫該項。
+
 ## 參考資料
 
 - [ornith-ai/Ornith-1.5-122B · Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B)
+- [ornith-ai/Ornith-1.5-122B-FP8 · Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B-FP8)
+- [ornith-ai/Ornith-1.5-122B-NVFP4 · Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B-NVFP4)
+- [ornith-ai 的 Hugging Face 組織頁](https://huggingface.co/ornith-ai)
 - [Ornith-1.5: From Self-Scaffolding to Self-Improvement（Ornith 官方部落格）](https://ornith.ai/ornith_1_5.html)
 - [MarkTechPost：DeepReinforce Releases Ornith-1.0](https://www.marktechpost.com/2026/06/25/deepreinforce-releases-ornith-1-0-an-open-source-coding-model-family-that-learns-its-own-rl-scaffolds/)
 - [explainx.ai：Ornith-1.5-122B — 84.5 SWE-bench Verified on One GPU?](https://explainx.ai/blog/ornith-1-5-122b-open-weights-mit-single-80gb-gpu-swe-bench-verified-84-5-claimed-vs-verified-2026)

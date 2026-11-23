@@ -5,8 +5,8 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, ornith-ai, model-family-ornith]
 lang: en
-description: "DeepReinforce quietly uploaded a new 122B size to the Ornith-1.5 family on HuggingFace — MIT license, runs on a single 80GB GPU, 84.5% SWE-bench Verified — trained with a self-improvement loop where the model generates its own tasks, scaffolds, and rollouts"
-tldr: "Ornith-1.5-122B: 122B total parameters (MoE, active parameter count undisclosed), 262,144-token native context (extendable to roughly 1M with YaRN scaling factor 4.0), MIT license, deployable on a single 80GB GPU; uploaded to HuggingFace on 2026-10-16 with no accompanying blog post, surfacing instead through community coverage and HF trending; scores 84.5% on SWE-bench Verified (non-hack) and 80.0% on CyberGym, both ahead of the similarly sized Qwen3.8-Flash-Next (125B); the training method carries over Ornith-1.0's self-improvement loop but extends it from optimizing scaffolds and rollouts alone to jointly optimizing task generation, scaffold construction, and rollouts; no official or third-party hosted API pricing exists yet."
+description: "DeepReinforce quietly uploaded a new 122B size to the Ornith-1.5 family on HuggingFace — MIT license, a single-80GB-GPU claim in the model card (only the roughly 78GB NVFP4 build comes close to fitting), 84.5% SWE-bench Verified — trained with a self-improvement loop where the model generates its own tasks, scaffolds, and rollouts"
+tldr: "Ornith-1.5-122B: 122B total parameters (MoE, active parameter count undisclosed), 262,144-token native context (extendable to roughly 1M with YaRN scaling factor 4.0), MIT license; the model card says it deploys on a single 80GB GPU, but the BF16 weights are about 250GB and FP8 about 133GB, so only the NVFP4 build (about 78GB) comes close to one card; uploaded to HuggingFace on 2026-10-16 with no accompanying blog post, surfacing instead through community coverage and HF trending; scores 84.5% on SWE-bench Verified (non-hack) and 80.0% on CyberGym, both ahead of the similarly sized Qwen3.8-Flash-Next (125B); the training method carries over Ornith-1.0's self-improvement loop but extends it from optimizing scaffolds and rollouts alone to jointly optimizing task generation, scaffold construction, and rollouts; no official or third-party hosted API pricing exists yet."
 series:
   name: "AI Model Tracker"
   order: 54
@@ -39,8 +39,8 @@ glossary:
 
 - Scores 84.5% on SWE-bench Verified (non-hack), ahead of the similarly sized Qwen3.8-Flash-Next (125B, 82.8%) and Qwen3.8-27B (76.8%)
 - Trained with a "self-improvement loop": the model generates its own training tasks, builds the matching agent scaffold (tools, decomposition strategy, orchestration), then produces solution rollouts for reinforcement learning — without relying on a fixed set of human-curated tasks or hand-designed harnesses
-- The 122B MoE architecture is built to run on a single 80GB GPU, requiring far less hardware than Beam-1.0 (501B) or DeepSeek-V4-Flash-0731 (284B) in the same comparison table
-- A quantized Ornith-1.5-122B-Mobile variant is also available for edge devices such as phones
+- The model card says the 122B MoE serves on a single 80GB GPU, requiring far less hardware than Beam-1.0 (501B) or DeepSeek-V4-Flash-0731 (284B) in the same comparison table. Check that against the weight sizes: the BF16 build is about 250GB, and the FP8 and NVFP4 builds added on 10-20 are about 133GB and 78GB; a single card only fits NVFP4, with little room left for the KV cache, so in practice you shorten the context or run FP8 on two cards
+- The model card also mentions a phone-deployable quantized Ornith-1.5-122B-Mobile, but no such repo exists under the ornith-ai Hugging Face organization
 
 ## Benchmark Results
 
@@ -64,7 +64,7 @@ The business models differ entirely: Ornith is a pure open-weight release with n
 
 ## What This Means for Agent Development
 
-If you're building a self-hosted, single-GPU coding agent: the 122B size runs on one 80GB GPU, far cheaper in hardware than Beam (501B) or DeepSeek (284B), and it leads similarly sized competitors on SWE-bench Verified and CyberGym — worth evaluating as a candidate base model for a self-hosted coding agent.
+If you're building a self-hosted coding agent: the 122B size is far cheaper in hardware than Beam (501B) or DeepSeek (284B). A single 80GB GPU only fits the NVFP4 build (about 78GB) with a shortened context; the FP8 build (about 133GB) needs two 80GB cards. It leads similarly sized competitors on SWE-bench Verified and CyberGym — worth evaluating as a candidate base model for a self-hosted coding agent.
 
 If you're building multi-agent systems or anything with heavy tool calling or MCP: Ornith scores 74.6 on MCP-Atlas, matching the 501B Beam, and 78.5 on BrowseComp, which shows a model at this size can already handle a meaningful share of agentic tool-calling workloads. The training method itself — having the model generate its own tasks and scaffolds before running RL — is worth studying on its own merits, not just treating this as an off-the-shelf model.
 
@@ -74,9 +74,16 @@ Where it doesn't fit: DeepReinforce hasn't published a full training methodology
 
 The lesson here is that a model family can quietly add a new size after the fact: Ornith-1.5 only announced 397B, 35B, and 9B when it formally launched in August, and the 122B size showed up directly on HuggingFace in mid-October with no accompanying blog post — it only got noticed through HF trending and community write-ups. That's a reminder that an official announcement isn't a prerequisite for a model being worth tracking in this ecosystem; watching HuggingFace trending itself is a signal source you can't afford to skip when following new releases.
 
+## Update Log
+
+- 2026-11-23: Rewrote the model card's "serves on a single 80GB GPU" claim against the weight sizes (BF16 about 250GB, FP8 about 133GB, NVFP4 about 78GB) and changed the self-hosting advice to note that a single card only runs NVFP4; the Ornith-1.5-122B-Mobile variant the model card mentions has no repo under the ornith-ai organization, so that item was rewritten.
+
 ## References
 
 - [ornith-ai/Ornith-1.5-122B on Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B)
+- [ornith-ai/Ornith-1.5-122B-FP8 on Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B-FP8)
+- [ornith-ai/Ornith-1.5-122B-NVFP4 on Hugging Face](https://huggingface.co/ornith-ai/Ornith-1.5-122B-NVFP4)
+- [ornith-ai organization on Hugging Face](https://huggingface.co/ornith-ai)
 - [Ornith-1.5: From Self-Scaffolding to Self-Improvement (official Ornith blog)](https://ornith.ai/ornith_1_5.html)
 - [MarkTechPost: DeepReinforce Releases Ornith-1.0](https://www.marktechpost.com/2026/06/25/deepreinforce-releases-ornith-1-0-an-open-source-coding-model-family-that-learns-its-own-rl-scaffolds/)
 - [explainx.ai: Ornith-1.5-122B — 84.5 SWE-bench Verified on One GPU?](https://explainx.ai/blog/ornith-1-5-122b-open-weights-mit-single-80gb-gpu-swe-bench-verified-84-5-claimed-vs-verified-2026)

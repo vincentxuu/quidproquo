@@ -47,6 +47,17 @@ glossary:
 | [LongCat](/posts/tech/2026-10-10-ai-model-family-longcat)（美團） | 開源 | LongCat-2.5 | MIT 授權的 1.6T 開放權重 |
 | [Tencent Hy](/posts/tech/2026-11-23-ai-model-family-tencent-hy)（騰訊混元） | 開源 | Hy4、Hy4 flash | 金融與辦公 agent 強，自訂授權 |
 | [ERNIE](/posts/tech/2026-11-23-ai-model-family-ernie)（百度文心） | 閉源旗艦＋開源 | ERNIE 5.1（API）；5.5 Flash Preview／Base | 14B 啟用的低價開放權重，尚無第三方評測 |
+| [StepFun Step](/posts/tech/2026-11-23-ai-model-family-stepfun)（階躍星辰） | 開源＋閉源 API | Step 5 Preview（600B／27B 啟用）、Step 3.7 Flash；StepAudio 3（API） | 長程金融與研究 agent；旗艦改用自訂 StepFun Model License，Flash 仍是 Apache 2.0 |
+| [MiMo](/posts/tech/2026-11-23-ai-model-family-mimo)（小米） | 開源 | MiMo-V2.6-Pro（1.02T／42B 啟用）、V2.6-Flash | MIT 授權的全模態 1M context，API 很便宜，但慢且輸出長 |
+| [ByteDance Seed](/posts/tech/2026-11-23-ai-model-family-bytedance-seed)（豆包） | 閉源＋研究用開源 | Seed2.1 Pro／Turbo／Lite；Seed-OSS-36B、UI-TARS | 主力只走火山引擎、BytePlus、OpenRouter，評測多為自報 |
+| [SenseNova](/posts/tech/2026-11-23-ai-model-family-sensenova)（商湯日日新） | 閉源＋開源 | SenseNova 6.8 Flash／Flash Lite（API）；Loop-9B | 辦公與設計 agent；Loop-9B 是 Apache 2.0 的 looped 架構 |
+| [MiniCPM](/posts/tech/2026-11-23-ai-model-family-minicpm)（面壁智能） | 開源 | MiniCPM5-2B／1B、MiniCPM-V 4.7、MiniCPM-OCR 1.0 | 端側小模型，全線 Apache 2.0，強項是工具呼叫 |
+| [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft)（MAI、Phi） | 閉源＋開源 | MAI Code 2／Code 2 Flash、MAI Thinking 1；Phi-4-reasoning-vision-15B、Fara1.5 | MAI 只走 Copilot 與 Foundry、價格低但只有自報分數；Phi 等小模型 MIT／Apache 2.0 |
+| [Amazon Nova](/posts/tech/2026-11-23-ai-model-family-amazon-nova) | 閉源 | Nova 2 Lite、Nova 2.5 Sonic；Chronos-2（時間序列權重） | 只在 AWS；Premier、Canvas、Reel 已在 2026-09 停用 |
+| [Granite](/posts/tech/2026-11-23-ai-model-family-granite)（IBM） | 開源 | Granite 4.2（3B／8B／30B）、Guardian 4.1、Vision 4.1 | 企業可完全自架、Apache 2.0 子線齊全，單模型分數偏低 |
+| [OLMo](/posts/tech/2026-11-23-ai-model-family-olmo)（Ai2） | 開源 | Olmo 3.1 32B Think／Instruct、Olmo 3 7B | 權重 Apache 2.0、訓練資料與 checkpoint 全公開，能力落後同尺寸 Qwen 3 |
+| [Upstage Solar](/posts/tech/2026-11-23-ai-model-family-upstage-solar) | 閉源 API＋開源 | Solar Pro 4、Mini 4（API）；Solar Open 2（250B／15B 啟用） | 韓日文件型辦公 agent、低單價；Open 2 用 Apache 2.0 為底的 Upstage Solar License |
+| [韓國模型群](/posts/tech/2026-11-23-ai-model-family-korea-models)（比較篇） | 開源＋閉源 | K-EXAONE 2.0、A.X K2、Motif 3、Solar、Mi:dm K 3.0 Pro、HyperCLOVA X SEED | 七家韓國廠商的授權、價格與分數對照 |
 | [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron)（NVIDIA） | 開源 | 3.5 Super VL、Bolt、Lightning | 開放訓練資料，依部署位置分層 |
 | [Llama](/posts/tech/2026-08-24-ai-model-family-llama)（Meta） | 開源 | Llama 4 Scout／Maverick（2025-04） | 部署量最大，但沒有 Llama 5，Meta 新模型改用 Muse；Community License 附條件 |
 | [Mistral](/posts/tech/2026-08-24-ai-model-family-mistral) | 開源 | Mistral Large 4、Small 4 | 歐洲主權部署；Large 4 是西方開放權重裡 coding 與資安最強的 |
@@ -143,7 +154,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 |---|---|---|---|---|
 | GPT Image 2.6 Sunburst (max) | 1263 | 閉源 | $211 | 第一名（[模型卡](/posts/daily/2026-11-07-model-openai-gpt-image-2-6)） |
 | GPT Image 2.6 Flare (max) | 1226 | 閉源 | $211 | 同代的另一檔 |
-| MAI-Image-2.7 | 1215 | 閉源 | $35 | Microsoft，前五名裡最便宜 |
+| MAI-Image-2.7 | 1215 | 閉源 | $35 | [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft)，前五名裡最便宜 |
 | Kling Image 4.0 | 1181 | 閉源 | $63 | 快手 |
 | Nano Banana 2.1 | 1175 | 閉源 | $34 | Google |
 | Grok Imagine Image 2.0 | 1167 | 閉源 | $60 | SpaceXSI（原 xAI） |
@@ -167,7 +178,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 | Wan 3.0 | 1175 | 閉源 API | $12.00 | 阿里；單次最長 30 秒、1080P |
 | Utopai X | 1171 | 閉源 | 無 API | — |
 | MiniMax H3 (768p) | 1163 | 開放權重（自訂授權） | $4.80 | 開放權重第一 |
-| Dreamina Seedance 2.5 | 1156 | 閉源 | $34.12 | ByteDance，前段班最貴 |
+| Dreamina Seedance 2.5 | 1156 | 閉源 | $34.12 | [ByteDance Seed](/posts/tech/2026-11-23-ai-model-family-bytedance-seed)，前段班最貴 |
 | Gemini Omni Flash 1.2 | 1154 | 閉源 | $6.26 | Google |
 | FLUX 3 Max | 1151 | 閉源 | $17.40 | fal Research 以 BFL 的 FLUX 3 Video 後訓練，只在 fal 計費（11-22 前促銷價 $8.70） |
 | HeyGen Video 1 | 1150 | 閉源 | $2.40 | 無音訊榜第一 |
@@ -203,7 +214,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 | 模型 | AA Elo | 類型 | $/百萬字元 | 定位 |
 |---|---|---|---|---|
 | Eleven v4／v4 Turbo | 1340 | 閉源 API | $80／$40 | ElevenLabs，並列第一 |
-| StepAudio 3 TTS | 1307 | 閉源 API | $14 | 階躍星辰 |
+| StepAudio 3 TTS | 1307 | 閉源 API | $14 | [階躍星辰](/posts/tech/2026-11-23-ai-model-family-stepfun) |
 | Qwen-Audio-3.1-TTS-Plus | 1298 | 閉源 API | $19.31 | 阿里 |
 | Simba 3.5 | 1293 | 閉源 API | $6.58 | 前段班最便宜 |
 | Gemini 3.8 Flash TTS | 1282 | 閉源 API | $16.49 | Google |
@@ -220,7 +231,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 |---|---|---|---|---|
 | Fun-Realtime-ASR-preview | 1.7% | 閉源 API | $2.82 | 阿里，錯字率最低 |
 | Scribe v3 | 1.9% | 閉源 API | $3.33 | ElevenLabs，2026-11-10 推出 |
-| MAI-Transcribe-2 | 2.0% | 閉源 API | $1.67 | Microsoft，約 340 倍即時速度 |
+| MAI-Transcribe-2 | 2.0% | 閉源 API | $1.67 | [Microsoft](/posts/tech/2026-11-23-ai-model-family-microsoft)，約 340 倍即時速度 |
 | Voxtral Small Transcribe 3 | 2.1% | API | $4.00 | Mistral |
 | Grok Voice Transcribe 2.0 | 2.3% | 閉源 API | $1.67 | SpaceXSI |
 | SOV-Transcribe-1 | 2.3% | 開源 Apache-2.0 | — | Salesforce，開放權重第一 |
@@ -266,7 +277,7 @@ RAG 系統的第一環——把文字轉成向量。[MTEB Leaderboard](https://h
 | gemini-embedding-001 | 閉源 API | 68.4 | 新版 gemini-embedding-2 改成多模態（文字、圖片、影片、音訊、文件） |
 | [Cohere Embed 5](/posts/tech/2026-08-24-ai-model-family-cohere) Pro／Fast | 閉源 API | 未公布 | 圖文混合 PDF 強；$0.12／$0.08 每百萬 token |
 | voyage-4-large／4／4-lite | 閉源 API | 未公布 | $0.12／$0.06／$0.02；程式碼另有 voyage-code-4 |
-| [pplx-embed](/posts/tech/2026-10-09-ai-model-family-pplx-embed) | 開源 MIT＋API | 只公布檢索子項 | 單向量、上下文、多向量三條線 |
+| [pplx-embed](/posts/tech/2026-10-09-ai-model-family-pplx-embed) | 開放權重＋API | 只公布檢索子項 | 主力 v2-context（0.6B／9B）文字與圖片同一向量空間，$0.02／$0.12；9B 權重 MIT，0.6B 未標授權；v1 2027 年內停用 |
 | BGE-M3 (BAAI) | 開源 MIT | — | 2024 年的舊預設，已被上表超過 |
 
 （分數取自各模型卡與 MTEB 多語榜，2026-11。有些模型的訓練資料涵蓋部分 MTEB 任務，平均分只能當初篩。）
@@ -331,7 +342,7 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 
 2026 年的模型生態已經按用途高度分化——沒有一個模型在所有用途都最強。Claude Fable 5.2 在綜合指數與 FrontierCode 第一，Kimi K3.1 Pro 在 Terminal-Bench 4.0 第一，GPT-6.2 Astra 在圖文推理第一；決策模型在工具選擇與成本上全面勝過語言模型，但知識題輸一截。
 
-開源與閉源的距離，在 2026 年下半年反而拉開了。開放權重最強的 Kimi K3.1 Pro 綜合指數 46.5，閉源前沿是 60 到 65；而且旗艦開放權重的授權越來越多附帶條件（Kimi、Qwen、MiniMax、Muse Spark Open、GLM-5.3、Tencent Hy4 都是自訂授權），Qwen4-Max 更是旗艦直接回到閉源。開源的優勢集中在可自架、低價與特定任務（終端長任務、文件、embedding），影片生成也有開放權重擠進前三；閉源仍領先綜合推理、PR 品質、影像生成與語音。
+開源與閉源的距離，在 2026 年下半年反而拉開了。開放權重最強的 Kimi K3.1 Pro 綜合指數 46.5，閉源前沿是 60 到 65；而且旗艦開放權重的授權越來越多附帶條件（Kimi、Qwen、MiniMax、Muse Spark Open、GLM-5.3、Tencent Hy4、Step 5 Preview 都是自訂授權），Qwen4-Max 更是旗艦直接回到閉源。開源的優勢集中在可自架、低價與特定任務（終端長任務、文件、embedding），影片生成也有開放權重擠進前三；閉源仍領先綜合推理、PR 品質、影像生成與語音。
 
 這篇是地圖。每個家族的演化故事、架構細節、版本選擇指南，在各自的家族篇裡。
 
@@ -339,6 +350,7 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 
 ## 更新紀錄
 
+- **2026-11-23**（家族表）：「文字生成」表加入當天新增的 StepFun、MiMo、ByteDance Seed、SenseNova、MiniCPM、Microsoft、Amazon Nova、Granite、OLMo、Upstage Solar 與韓國模型群比較篇，代表型號、定位與授權依各家族文；影像、影片、TTS、ASR 表的 MAI-Image-2.7、Dreamina Seedance 2.5、StepAudio 3 TTS、MAI-Transcribe-2 連到對應家族文；pplx-embed 一列依換代後的家族文改成 v2-context 主力，並標出 0.6B 權重未標授權；「整體來說」的自訂授權旗艦加上 Step 5 Preview。
 - **2026-11-23**：「文字生成」表的 DeepSeek、GLM、Llama、Mistral、Grok、Cohere 六列依當天更新的家族文改寫（GLM-5.3 旗艦授權改為自訂的 GLM-5.3 License、Grok 開發商改名 SpaceXSI、Mistral Medium 3.5 已 deprecated 換成 Small 4、Cohere 換成 Command A+），拿掉「家族文停在 2026-10」的註記。影像、影片、語音合成、語音辨識、音樂、Embedding、Rerank 各節換成 Artificial Analysis 與 MTEB 2026-11 的資料：影像與影片改用 AA v2.1 的 Elo（基準點與舊數字不同）、補上 Sora API 已於 2026-09-24 關閉、TTS 第一換成 Eleven v4、ASR 改用 AA-WER、Embedding 第一換成 harrier-oss-v1-27b、Rerank 改按授權與 API 分類並標出 jina-reranker-v3.5 權重不可商用；OCR 表換成 Unlimited OCR 2，影像編輯一段改寫。各數字的來源已重新讀過一手頁面。
 - **2026-11-20**：同步 11 月的家族更新。「文字生成」表改為各家目前主力，加入 Muse、MiniMax、LongCat、Nemotron；「推理」改寫為推理已併回主線、用強度參數控制；「程式碼生成」的 Aider Polyglot 表（停在 2025 年的 GPT-5、Gemini 2.5 Pro 等模型）換成 Artificial Analysis 2026-11-20 的 Terminal-Bench 4.0 與 FrontierCode 2.0；「VLM」改用 Artificial Analysis 的 MMMU-Pro；新增「決策模型」小節；「Agent」與「整體來說」依新數據改寫，原本「開源在多數用途已追上或超越閉源」的結論改為距離在下半年拉開。影像、影片、3D、語音、音樂、Embedding、Rerank、OCR、翻譯各節仍是 2026-08 的資料，這次沒有重新查證。
 - 2026-08-24：初版。
