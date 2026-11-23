@@ -22,7 +22,6 @@ const postSchema = z.object({
     math: z.boolean().default(false),
     type: z.enum(['debug', 'deep-dive', 'digest', 'guide', 'project']).optional(),
     difficulty: z.enum(['入門', '進階', '深度']).optional(),
-    readingTime: z.number().optional(),
     // Rendered as a visible FAQ section and emitted as FAQPage structured data.
     // Answers should stand alone — they are what answer engines quote.
     faq: z.array(z.object({

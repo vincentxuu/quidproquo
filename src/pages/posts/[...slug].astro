@@ -21,6 +21,7 @@ import { getYouTubeEmbedId } from '../../utils/youtube';
 import { stripEmojiText, INLINE_ICONS_KEY, INLINE_ICON_SPRITE_PX } from '../../plugins/rehypeNoEmoji';
 import { renderIconSprite } from '../../components/icons/render';
 import type { IconName } from '../../components/icons/koboyo';
+import { getReadingTime } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -59,7 +60,7 @@ const prevPost = primarySeriesNav ? primarySeriesNav.prev : chronologicalPrev
   ? { slug: chronologicalPrev.id, title: chronologicalPrev.data.title } : undefined;
 const nextPost = primarySeriesNav ? primarySeriesNav.next : chronologicalNext
   ? { slug: chronologicalNext.id, title: chronologicalNext.data.title } : undefined;
-const readingTime = post.data.readingTime ?? 1;
+const readingTime = getReadingTime(post);
 const isDailyBrief = /(?:^|\/)\d{4}-\d{2}-\d{2}-ai-agent-daily(?:-en)?$/.test(post.id);
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
@@ -435,7 +436,7 @@ const breadcrumbLD = {
             <span class="related-title">{p.data.title}</span>
             <span class="related-time">
               <Icons name="clock" size={14} />
-              {p.data.readingTime ?? 1} min
+              {getReadingTime(p)} min
             </span>
           </a>
         ))}

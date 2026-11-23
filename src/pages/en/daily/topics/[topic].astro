@@ -8,6 +8,7 @@ import { getSeriesHref } from '../../../../utils/series';
 import { getDailyPosts } from '../../../../utils/content';
 import { TOPIC_TAXONOMY, getTopicBySlug } from '../../../../data/topic-taxonomy';
 import paperIndex from '../../../../data/paper-index.json';
+import { getReadingTime } from '../../../../utils/readingTime';
 
 export function getStaticPaths() {
   return TOPIC_TAXONOMY.map(topic => ({
@@ -88,7 +89,7 @@ const relatedTopics = topic.relatedTopics
             tags={post.data.tags}
             description={post.data.description}
             tldr={post.data.tldr}
-            readingTime={post.data.readingTime}
+            readingTime={getReadingTime(post)}
             lang="en"
             type={post.data.type}
             pinned={post.data.pinned}

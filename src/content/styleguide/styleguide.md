@@ -69,7 +69,7 @@ h2 上方有一條分隔線（內文第一個 h2 不畫）；h3、h4 只有字�
 // astro.config.mjs（節錄）
 markdown: {
   processor: unified({
-    remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram],
+    remarkPlugins: [remarkMathOptIn, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram],
     rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages],
   }),
 },

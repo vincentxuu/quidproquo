@@ -8,6 +8,7 @@ import { getSeriesHref } from '../utils/series';
 import { getDailyPosts } from '../utils/content';
 import { TOPIC_TAXONOMY } from '../data/topic-taxonomy';
 import { DAILY_CHANNELS, getDailyChannelId } from '../data/daily-content-types';
+import { getReadingTime } from '../utils/readingTime';
 
 const t = useTranslations('zh-TW');
 const posts = await getDailyPosts('zh-TW');
@@ -66,7 +67,7 @@ const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Frida
                   tags={post.data.tags}
                   description={post.data.description}
                   tldr={post.data.tldr}
-                  readingTime={post.data.readingTime}
+                  readingTime={getReadingTime(post)}
                   lang="zh-TW"
                   type={post.data.type}
                   pinned={post.data.pinned}
