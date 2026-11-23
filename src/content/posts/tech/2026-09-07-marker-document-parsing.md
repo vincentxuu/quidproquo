@@ -1,93 +1,105 @@
 ---
-title: "Marker: Datalab's Open-Source, Apache 2.0 Pipeline Parser — Faster, CPU-Ready, More Accurate"
+title: "Marker：Datalab 開源、速度優先、可純 CPU 跑的文件解析管線"
 date: 2026-09-07
 category: tech
 tags: [document-parsing, pdf, marker, rag, open-source, apache-license]
 lang: zh-TW
-tldr: "Marker（Datalab 開源，Apache 2.0 授權，v2.0.0 於 2026-07-20 發布，39.5k stars）是一個以 Markdown 與 JSON 為輸出的 pipeline 式文件解析標準庫，支援 PDF、圖像、PPTX、DOCX、XLSX、HTML、EPUB，並提供可選的 LLM 增強（`--use_llm`，預設 `gemini-3.5-flash`）、可自訂格式邏輯與表格/公式/內嵌數學/連結/參考/程式碼區塊的完整處理、圖像提取與保存、標頭/頁尾移除，並可在純 CPU、GPU 或 MPS（Apple Silicon）環境運作。與 [Docling](/posts/tech/2026-09-06-docling-document-parsing) 同屬解析層，但授權路徑（`Apache 2.0` 代碼 + `AI Pubs Open Rail-M` 模型權重，有商業門檻 `$5M`）、輸出核心（`Markdown` 為主而非結構化 `JSON`）、解析引擎特點（`Pipeline` 式可替換階段，但 `VlmPipeline` 為可選的 `LLM` 增強而非固定 `VLM` 選項）、與 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing)（自訂協議、`Markdown` 為核心、`Hybrid` `effort` 參數）的差異形成解析層內三種不同取捨路徑。"
-description: "Marker 是 Datalab 開源、Apache 2.0 授權的 pipeline 式文件解析標準庫，以 Markdown 與 JSON 為核心輸出，支援可選 LLM 增強（預設 Gemini 3.5 Flash）、自訂格式邏輯、多格式輸入（PDF/圖像/PPTX/DOCX/XLSX/HTML/EPUB）、純 CPU/GPU/MPS 部署，並在 Marker 2 重寫後實現更快速度（平衡模式 `olmOCR-bench` 76.0%，5× MinerU pipeline 速度）與更高準確度（重建 20M-param 快速版面模型 + 重建 pdftext），適合需要寬鬆授權（Apache 2.0 代碼，但模型權重有 `AI Pubs Open Rail-M` 商業門檻 `$5M`）、快速解析與可自訂輸出邏輯的 RAG 與企業文件自動化場景。"
+tldr: "Marker 是 Datalab 開源的 PDF 轉 Markdown／JSON 管線，程式碼 Apache 2.0，模型權重另用修改版 OpenRAIL-M（Surya 2.5 門檻 500 萬美元、Indra OCR 2,000 萬美元，與 Datalab 競爭者一律需付費授權）。v2.2（2026-11）分 no_ocr、fast、balanced、vllm 四種模式：CPU 上用內建 ONNX 引擎、不必架 VLM 服務；GPU 上把表格、公式、CJK 與掃描頁交給 Surya 2.5。"
+description: "Marker 2.x 導讀：四種轉換模式怎麼選、可選的 LLM 增強、Datalab 自報 benchmark 該怎麼讀，以及程式碼與模型權重分開的授權結構，和 MinerU、Docling 的分工。"
 draft: false
 series:
-  name: "Document Parsing in Practice"
+  name: "文件解析實戰"
   order: 10
 ---
 
 > :globe: [English version](/posts/tech/2026-09-07-marker-document-parsing-en)
 
-There's no single path to making complex documents readable for LLMs. This series has covered the conversion layer ([anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown), [MarkItDown](/posts/ai/2026-04-18-markitdown-intro)), the extraction layer ([PyMuPDF / pdfplumber / Tika group](/posts/ai/2026-08-06-pdf-text-extraction-libraries)), the parsing-layer framework ([three-layer model](/posts/ai/2026-08-06-document-parsing-three-layers)), the tool comparison ([layout/OCR parsing](/posts/ai/2026-08-06-document-parsing-layout-ocr)), scanned-document benchmarks ([10 tools tested](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)), [Agentic Parsing](/posts/ai/2026-09-03-agentic-parsing-document-agents), and two deep-dives into specific parsing-layer tools: [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing) (structured Markdown with dedicated XML exports, custom license with commercial thresholds) and [Docling](/posts/tech/2026-09-06-docling-document-parsing) (structured JSON core, dedicated XML exports like `DocLang`/`USPTO`/`JATS`/`XBRL`/`DocTags`, pure `MIT`). This post introduces the third major parsing-layer option the framework mentioned but never fully explored: **Marker**.
+這個系列已經走過轉換層（[anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)、[MarkItDown](/posts/ai/2026-04-18-markitdown-intro)）、抽取層（[PyMuPDF／pdfplumber／Tika](/posts/ai/2026-08-06-pdf-text-extraction-libraries)）、[三層框架](/posts/ai/2026-08-06-document-parsing-three-layers)、[掃描實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)，以及解析層的 [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing) 與 [Docling](/posts/tech/2026-09-06-docling-document-parsing)。這篇補上解析層第三個常被拿來比的工具：**Marker**。
 
-[Marker](https://github.com/datalab-to/marker) is an open-source document parsing standard library started by the Datalab team (`Apache 2.0` code license, `v2.0.0` released 2026-07-20, `39.5k` stars, `2.8k` forks, `Python 3.10+`, `PyTorch`). It converts `PDF`, images, `PPTX`, `DOCX`, `XLSX`, `HTML`, and `EPUB` into Markdown, JSON, chunks, or HTML — with full formatting of tables, forms, equations, inline math, links, references, and code blocks — plus image extraction and preservation, header/footer removal, custom formatting logic, optional LLM-boosted accuracy (`--use_llm`, default `gemini-3.5-flash`), and deployment on CPU, GPU, or MPS (`Apple Silicon`). Unlike [Docling](/posts/tech/2026-09-06-docling-document-parsing), which centers on structured JSON (`DoclingDocument`) with dedicated XML exports (`DocLang`, `USPTO`, `JATS`, `XBRL`, `DocTags`) under pure `MIT` governance, Marker centers on Markdown and JSON output under `Apache 2.0`. Unlike [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing), which uses a custom open-source agreement (`MIT`-derived with commercial thresholds: `MAU > 100M` or revenue `> $20M USD`, plus attribution obligations and automatic termination clauses), Marker offers a simpler licensing story (`Apache 2.0` code) with a separate model-weight license (`AI Pubs Open Rail-M`: free for research, personal use, and startups under `$5M` funding/revenue; broader commercial licensing required beyond that threshold). The design trade-off is clear: **Marker prioritizes speed (`5×` faster pages/sec than MinerU's `pipeline` backend in `balanced mode`, per `MarkTechPost` 2026-07-24 benchmark comparison using `olmOCR-bench`), full CPU compatibility (`Marker 2` explicitly supports pure CPU with rebuilt 20M-param layout model and rebuilt 3× faster `pdftext`), and `Markdown`-first output; Docling prioritizes structured JSON with dedicated XML exports and pure `MIT`; MinerU prioritizes Markdown preservation with dedicated XML exports but carries a custom agreement.** These are not replacements but **three complementary paths within the same parsing layer**, each with a distinct licensing, output, speed, and deployment profile.
+[Marker](https://github.com/datalab-to/marker) 由 Datalab 開發，把 PDF、圖片、PPTX、DOCX、XLSX、HTML、EPUB 轉成 Markdown、JSON、HTML 或 RAG 用的 chunks，處理表格、表單、公式、行內數學、連結與程式碼區塊，並移除頁首頁尾。它和另外兩家的取捨很清楚：**Marker 把速度與 CPU 可用性放第一**，Docling 把結構化 JSON 與純 MIT 授權放第一，MinerU 把結構保留與本機文件庫放第一。本文以 2026-11 的 v2.2 為準。
 
-## What it's trying to solve
+## 它想解決什麼
 
-Marker's official description is direct: "Convert PDF to markdown + JSON quickly and accurately." It handles text extraction, layout analysis (`Surya OCR 2`, rebuilt 20M-param fast layout model, rebuilt `pdftext` — 3× faster), table recognition, equation formatting, form field identification, inline math, link/reference extraction, code block formatting, image extraction and preservation, header/footer/artifact removal, and optional LLM-boosted accuracy (`--use_llm`, default `gemini-3.5-flash`) — all through a single CLI command (`pip install marker-pdf`, `marker_single FILEPATH`). The design philosophy is pipeline-based like Docling: parsing is broken into stages that can be customized, but the optimization axis is different — **speed first (`Marker 2` is explicitly a rewrite focused on speed), CPU compatibility (`fully CPU-compatible` per official `v2.0.0` release notes, 2026-07-20), and `Markdown`/`JSON` as primary outputs**, with structured JSON being supplementary rather than the core design (unlike Docling's `DoclingDocument` as the unified structured representation).
+官方的一句話是「快速且準確地把 PDF 轉成 Markdown 與 JSON」。Marker 2 是一次以速度為目標的重寫：先用 `pdftext` 讀 PDF 本來就有的文字層，只在需要的地方（亂碼或掃描頁、公式、信心低的表格）才叫 VLM，而不是每一頁都丟給 VLM 做 OCR。
 
-This creates three clear divisions within the parsing layer covered in this series:
+這個設計對應一個常見的現實：多數企業 PDF 是電子原生的，文字層是好的，真正需要模型的只是少數頁面。把模型留給那些頁面，就能在 CPU 上跑出可用的速度。
 
-- **When pure `Apache 2.0` code licensing (without custom commercial thresholds or attribution obligations) is the primary requirement** (`Docling`: pure `MIT`; `MinerU`: custom agreement with `MAU`/revenue thresholds and attribution; `Marker`: `Apache 2.0` code with separate `AI Pubs Open Rail-M` model-weight license with its own `$5M` threshold). For organizations reviewing licensing risk, `Docling` (`MIT`) and `Marker` (`Apache 2.0` code) are simpler than `MinerU`'s custom agreement, but `Marker` adds the model-weight license dimension (`AI Pubs Open Rail-M`) that `Docling` does not have (Docling uses `GraniteDocling`, a fixed IBM model whose licensing is embedded in the `MIT` framework, without a separate model-weight license file).
-- **When `Markdown` + `JSON` as co-equal outputs is sufficient** (without dedicated `XML` exports like `DocLang`/`USPTO`/`JATS`/`XBRL`). Docling's core is structured JSON with dedicated XML exports; Marker treats Markdown and JSON as co-primary outputs with no dedicated XML export layer. For RAG workflows that embed Markdown chunks or feed JSON directly into structured pipelines without requiring patent/financial/article-specific XML formats, Marker's output profile is sufficient and faster.
-- **When maximum parsing speed on CPU is critical** (`Marker 2`'s explicit optimization target: `5×` faster pages/sec than `MinerU` `pipeline`, fully `CPU`-compatible, rebuilt for speed). For scenarios where `GPU` isn't available or batch throughput matters more than maximum structural depth, Marker's `pipeline` (optimized for speed) offers a distinct profile from both Docling's `pipeline` (low-resource default, but `VlmPipeline` requires `GPU`) and MinerU's `pipeline` (`PP-OCRv6` for accuracy, slower than `Marker 2` balanced mode).
+## 核心能力
 
-In short: if your pain point is "turn complex documents into structured, exchangeable data with dedicated format exports under pure `MIT` license," Docling remains the direct choice; if your pain point is "turn complex documents into clean Markdown/JSON quickly, with full CPU compatibility, simpler code licensing (`Apache 2.0`), and an optional LLM boost (`--use_llm` with your own prompt and model choice), accepting a separate model-weight license (`AI Pubs Open Rail-M`) for model weights," then Marker is the complementary — not replacement — option. The series framework ([three-layer model](/posts/ai/2026-08-06-document-parsing-three-layers)) explicitly positions all three (`MinerU`, `Docling`, `Marker`) as pipeline-based parsing-layer options; this article completes the dedicated introduction for `Marker`.
+### 輸入與輸出
 
-## Core capabilities (Verified via Groundlane: official `README`, `CHANGELOG.md` `v2.0.0` 2026-07-20, `LICENSE` `Apache 2.0`, `MarkTechPost` benchmark comparison 2026-07-24, `GitHub` repo info `39.5k` stars / `2.8k` forks, `PyPI` `v2.0.0` info)
+- **輸入**：`pip install marker-pdf` 處理 PDF；`marker-pdf[full]` 加上 DOCX、PPTX、XLSX、EPUB、HTML。
+- **輸出**：Markdown、JSON、HTML、chunks；可擷取並保存圖片。
+- **自訂**：可以替換 processor、renderer，或用 `TableConverter` 只抽表格。2.0 拿掉了原本的結構化抽取 converter，官方建議改用 `--use_llm` 或 Datalab 的付費 API。
 
-Claim-by-claim verification against authoritative sources (official `README` feature list, `CHANGELOG.md` release notes, `LICENSE` file, `PyPI` package metadata, `MarkTechPost` benchmark breakdown, `GitHub` repo statistics):
+### 四種轉換模式
 
-### Input format breadth (Verified: `README` feature list)
+v2.2 把模式擴成四種，不指定 `--mode` 時依硬體自動選：CUDA GPU 用 `balanced`，CPU 與 Apple Silicon 用 `fast`。
 
-- **Native digital documents**: `PDF`, images (`PNG`, `TIFF`, `JPEG`, ...), `PPTX`, `DOCX`, `XLSX`, `HTML`, `EPUB`. Confirmed: "Converts PDF, image, PPTX, DOCX, XLSX, HTML, EPUB files in all languages."
-- **Scanned PDF repair** (`Verified` via `README` description of `pipeline` architecture and benchmark references): `Pipeline` handles scanned PDFs through OCR stages; not as prominently documented as MinerU's `PP-OCRv6` upgrade, but `README` confirms "advanced PDF understanding" through pipeline stages.
-- **No video/audio/email/ODF/XBRL input** (`Verified` via comparison with Docling): Unlike Docling (`MP4`/`AVI`/`MOV`/`WAV`/`MP3`/`EML`/`MSG`/`ODF`/`XBRL`), Marker does not list these formats in its `README` feature list. The comparison table clearly separates format breadth.
+| 模式 | 做法 | 適合 |
+|---|---|---|
+| `no_ocr` | 只讀文字層，加上內建 Indra ONNX 做版面與閱讀順序，完全不跑 OCR | 電子原生 PDF、要最高 CPU 吞吐 |
+| `fast` | Indra ONNX 做版面、閱讀順序與行／頁 OCR，不需要外部 VLM 服務 | CPU、Apple Silicon 的預設 |
+| `balanced` | 乾淨的拉丁文字頁走 `pdftext` 加 ONNX；表格、公式、CJK 與非拉丁文字、掃描頁交給 Surya 2.5 VLM | GPU 的預設 |
+| `vllm` | 每一頁都用 Surya 2.5 VLM 做整頁 OCR | 品質差的掃描件、公式密集、多語混排 |
 
-### Core output (Verified: `README` feature list + benchmark references)
-
-- **Markdown and JSON co-primary**: `README` explicitly states: "Marker converts documents to markdown, JSON, chunks, and HTML quickly and accurately." Confirmed by `README` description and `PyPI` package description (`marker-pdf` `v2.0.0`, tags `markdown`, `json`, `pdf`, `ocr`).
-- **No dedicated XML exports** (`Verified` by absence in `README` feature list and comparison with Docling): Unlike Docling (`DocLang`, `USPTO`, `JATS`, `XBRL`, `DocTags`), Marker does not provide dedicated XML export formats. The output is Markdown (primary human-readable), JSON (structured machine-readable), chunks, and HTML.
-- **Chunking support** (`Verified`): `README` confirms `chunks` as output option, suitable for RAG chunking workflows.
-
-### Parsing engine: pipeline-style, optimized for speed (Verified: `README`, `CHANGELOG.md` `v2.0.0`, benchmark comparison)
-
-- **Pipeline architecture** (`Verified`): Confirmed by `README` description ("pipeline of separate steps: detect text, analyze layout, assemble Markdown, optionally call an LLM" — implied by `pipeline` design and benchmark comparison describing "pipeline of ML models"). Confirmed by comparison with Docling (`pipeline`-style) and contrast with MinerU (`Hybrid` `effort` parameter within single engine).
-- **`Marker 2` speed improvements** (`Verified`: `CHANGELOG.md` `v2.0.0` release notes, 2026-07-20): Confirmed: "faster, fully CPU-compatible, more accurate"; built on three new pieces (`Surya OCR 2`, `20M-param` fast layout model, rebuilt 3× faster `pdftext`).
-- **Benchmark performance** (`Verified`: `MarkTechPost` comparison, 2026-07-24; `README` `Performance` section references `olmOCR-bench`): Confirmed numerical claims (`76.0%` balanced mode on `olmOCR-bench`; `5×` faster pages/sec than `MinerU` `pipeline` backend). **Benchmark framework verified** (`post-verify` seven questions): different benchmark (`olmOCR-bench` vs `OmniDocBench v1.6`), different measurement dimension (`balanced mode` accuracy score vs `pages/sec` speed metric), different baseline comparison (`Marker` `pipeline` vs `MinerU` `pipeline`), clearly labeled as separate dimensions — `Misframed` risk resolved by clearly labeling these as different benchmarks and metrics (already applied in comparison table note: "本表為功能定位比較，非基於同一基準測試的效能排名").
-- **CPU compatibility** (`Verified`): `README` confirms "Works on GPU, CPU, or MPS"; `v2.0.0` release notes confirm "fully CPU-compatible."
+中文文件要注意：`balanced` 會把 CJK 頁面送進 VLM，所以中文為主的文件實際上更接近 `vllm` 的速度與資源需求，CPU 上的 `fast` 則不會走 VLM。
 
 ### 可選 LLM 增強
 
-Marker 提供 `--use_llm` 選項（預設 `gemini-3.5-flash`），可用自訂 prompt 和任意相容模型提升準確度。相比 Docling 的 `VlmPipeline`（綁定 `GraniteDocling` 258M）和 MinerU 的 `vlm-engine`（泛用介面接 `vLLM`/`LMDeploy`/`mlx`），Marker 在模型選擇上更彈性。
-
-此外，Marker 支援自訂格式邏輯（`ConfigParser`、自訂 renderer/processor），讓輸出可以依需求調整。
+`--use_llm` 讓 LLM 幫忙合併跨頁表格、處理行內數學、整理表單欄位。預設服務是 Gemini（`gemini-3.5-flash`），也可以換成 Claude、OpenAI 相容端點、Azure OpenAI、Vertex、OpenRouter 或本機 Ollama。這是 Marker 和 Docling、MinerU 最不一樣的地方：增強用的模型由你選，而不是綁在工具裡。代價是開了之後文件內容會送到你選的 LLM 服務。
 
 ### 部署與服務
 
-- **安裝**：`pip install marker-pdf`，需 Python ≥ 3.10、PyTorch
-- **部署模式**：GPU、CPU、MPS 三種環境皆可；提供 FastAPI REST API server（可選）和 MCP server
-- **CLI 介面**：`marker_single FILEPATH` 為主要進入點
-- **框架整合**：README 提及 LangChain/LlamaIndex 相容性，但整合文件不如 Docling 完整
+- **環境**：Python 3.10 以上與 PyTorch；GPU、CPU、MPS 都能跑。
+- **CLI**：`marker_single` 處理單檔，`marker` 處理資料夾（v2.2 加上 `--recursive` 與 `--skip_existing` 可續跑）；`--stdout` 直接輸出到標準輸出，方便接 agent 或 shell 管線；`--install_skill` 可安裝給 coding agent 用的 skill 檔。
+- **服務與介面**：`marker_server` 提供 FastAPI REST 服務，`marker_gui` 是 v2.2 新的瀏覽器檢視器，可以疊圖看版面區塊、閱讀順序與各階段耗時，取代舊的 Streamlit 介面。
 
-### 授權與商業使用
+### 先前版本
 
-- **程式碼授權**：Apache 2.0——可免費商用
-- **模型權重授權**：Modified AI Pubs Open Rail-M——研究、個人用途、營收/募資低於 $5M 的新創免費；超過門檻需另行購買商業授權
-- 與 Docling（純 MIT）和 MinerU（自訂協議，MAU > 100M 或營收 > $20M USD 需授權）是三種不同的授權路徑
+v2.0（2026-07）是重寫的起點，當時分 `balanced`、`fast` 與 `--disable_ocr` 三條路，VLM 是 Surya OCR 2。v2.1（2026-10）把預設 VLM 換成 Surya 2.5（要回 Surya 2 可設 `SURYA_MODEL_CHECKPOINT=datalab-to/surya-ocr-2`）。v2.2 加上 Indra ONNX 引擎與 `vllm` 模式，CPU 路徑不再需要另外架推論服務。
 
-### Benchmark 數據
+## Benchmark 怎麼讀
 
-Marker 2 在 MarkTechPost 2026-07-24 的比較中：
+Marker 的數字幾乎都由 Datalab 自己跑：
 
-- olmOCR-bench balanced mode 準確度 76.0%
-- 速度為 MinerU pipeline 後端的 5 倍
+- **v2.0 公告**：在 Ai2 的 [olmOCR-bench](https://github.com/allenai/olmocr) 上，`balanced` 總分 76.0%，吞吐量是 MinerU 3.x `pipeline` 後端的 5 倍以上（單張 B200 上 2.9 對 0.54 頁／秒）。benchmark 是第三方的，但分數是 Datalab 自己跑的；[MarkTechPost 的整理](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/)也明寫這一點。比較對象是 MinerU 的舊 `pipeline` 後端，不是 MinerU 4 的 `standard` 檔位。
+- **v2.2 公告**：在 Datalab 自己發布的 [OmniParseBench](https://huggingface.co/datasets/datalab-to/omni_parse_bench)（838 頁）上，`balanced` 88.9、`fast` 83.2，同表 Docling 74.9、PaddleOCR-VL 1.5 84.4。資料集與評分程式都出自 Datalab，屬於自家 benchmark。
 
-注意：速度與準確度使用不同基準測試（olmOCR-bench vs OmniDocBench），是不同維度的量測，不應合併為單一排名。
+好處是 repo 裡的 `benchmarks/` 可以重現這些數字，連競品的執行器都附上了；限制是文件組成與硬體都是他們選的。最可靠的做法是把這套 harness 拿來跑自己的文件。本系列[掃描實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)是 2026-08 用當時版本跑的，Marker 2.2 的新模式不在那次結果裡。
+
+## 授權與商業使用
+
+Marker 的授權分兩層，選型時要分開看：
+
+- **程式碼**：Apache 2.0，可商用。
+- **模型權重**：修改版 AI Pubs OpenRAIL-M，每個模型的 LICENSE 各自定門檻。`balanced`、`vllm` 用的 Surya 2.5（與 repo 的 `MODEL_LICENSE` 相同）：前一年營收或累計股權、債權募資超過 500 萬美元者，除個人與研究用途外需向 Datalab 購買授權。`no_ocr`、`fast` 用的 Indra OCR 權重門檻是 2,000 萬美元。兩份都另有一條：提供與 Datalab 競爭的產品或服務者不能使用。
+
+最後一條常被忽略：如果你在做文件解析 SaaS，即使是小新創也可能落在限制內。四種模式都會用到模型權重（`no_ocr` 也要用 Indra 做版面），所以「程式碼是 Apache 2.0」不等於整套可以自由商用；只在 CPU 跑 `fast` 的團隊門檻較寬，要用 GPU 路徑就以 500 萬美元為準。
+
+## 與 MinerU、Docling 的分工
+
+| | Marker | [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing) | [Docling](/posts/tech/2026-09-06-docling-document-parsing) |
+|---|---|---|---|
+| 授權 | 程式碼 Apache 2.0；權重有營收、募資與競爭者限制 | Apache 2.0 加附加條款（MAU 1 億／月營收 2,000 萬美元門檻、線上服務標示） | MIT；各 VLM preset 依其模型授權 |
+| 主要輸出 | Markdown、JSON、chunks | Markdown、JSON 等九種渲染目標 | 結構化 JSON（`DoclingDocument`），可匯出 DocLang、DocTags |
+| 速度與資源取捨 | 四種模式；CPU 有不跑 VLM 的路徑 | 四個檔位；`basic` 可在 CPU 跑 | 預設 pipeline 可純 CPU；另有多種 VLM preset |
+| 特色 | LLM 增強可自選服務 | 本機文件庫與 agent 分頁讀取 | 輸入格式最廣（含音訊、郵件、專利與財報 XML） |
+
+三者不是互相取代，而是解析層裡三條不同的取捨路徑。需要快、要在沒有 GPU 的機器上批次轉檔、能接受權重授權條件，Marker 最直接；授權要最乾淨，看 Docling；要讓 agent 在本機逐頁讀長文件，看 MinerU。
+
+## 更新紀錄
+
+- 2026-11-23：依 v2.1、v2.2 更新：四種轉換模式、Indra ONNX、Surya 2.5、`marker_gui` 與 agent 用 CLI 旗標；benchmark 改標為 Datalab 自報並補 OmniParseBench；補上模型權重授權的競爭者條款與 Surya、Indra 各自的門檻；修正 MarkTechPost 連結；中文版改為中文並修正系列名稱；移除查不到出處的 MCP server 與框架整合敘述。
 
 ## 參考資料
 
-- [Marker GitHub Repository](https://github.com/datalab-to/marker)
-- [Marker PyPI Package](https://pypi.org/project/marker-pdf/)
-- [Marker 2 vs MinerU vs Docling: Benchmark Comparison — MarkTechPost, 2026-07-24](https://www.marktechpost.com/2026/07/24/marker-2-vs-mineru-vs-docling/)
-- [olmOCR-bench Benchmark Suite](https://github.com/allenai/olmocr)
-- [MinerU 專文](/posts/tech/2026-09-05-mineru-ocr-doc-parsing)
-- [Docling 專文](/posts/tech/2026-09-06-docling-document-parsing)
-- [文件解析三層模型](/posts/ai/2026-08-06-document-parsing-three-layers)
-- [掃描文件 OCR 實測](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)
+- [datalab-to/marker — GitHub](https://github.com/datalab-to/marker)：README、`MODEL_LICENSE`、`benchmarks/`
+- [Marker v2.2.0 release note](https://github.com/datalab-to/marker/releases/tag/v2.2.0)：四種模式、Indra ONNX、OmniParseBench
+- [Marker v2.1.0 release note](https://github.com/datalab-to/marker/releases/tag/v2.1.0)：Surya 2.5
+- [Marker v2.0.0 release note](https://github.com/datalab-to/marker/releases/tag/v2.0.0) 與 [Datalab 部落格：Marker 2](https://www.datalab.to/blog/marker-2)
+- [marker-pdf — PyPI](https://pypi.org/project/marker-pdf/)
+- [Datalab Marker v2 vs MinerU, Docling, and Liteparse — MarkTechPost, 2026-07-24](https://www.marktechpost.com/2026/07/24/datalab-marker-v2-vs-mineru-docling-and-liteparse-benchmark-breakdown/)
+- [olmOCR-bench — allenai/olmocr](https://github.com/allenai/olmocr)
+- [OmniParseBench — Hugging Face](https://huggingface.co/datasets/datalab-to/omni_parse_bench)
+- [surya-ocr-2.5 — Hugging Face](https://huggingface.co/datalab-to/surya-ocr-2.5)

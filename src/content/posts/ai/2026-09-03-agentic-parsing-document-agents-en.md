@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [agentic-parsing, document-parsing, ocr, rag, multi-agent, vision-language-model]
 lang: en
-tldr: "Traditional document parsing runs a fixed pipeline regardless of input, but contracts, financial reports, and technical manuals each need different strategies. Agentic Parsing lets LLM agents observe a document and dynamically choose tools — AgenticOCR parses only the regions that matter (70%+ visual token savings), and ParseBench shows even the best method scores only 84.9% across 2,000 enterprise pages. No silver bullet."
+tldr: "Traditional document parsing runs a fixed pipeline regardless of input, but contracts, financial reports, and technical manuals each need different strategies. Agentic Parsing lets LLM agents observe a document and dynamically choose tools — AgenticOCR parses only the regions that matter (70%+ visual token savings), and on ParseBench even the best method scored only 84.9% on v1, and the November 2026 ParseBench 2 leader scores 90.93. No silver bullet."
 description: "A survey of Agentic Parsing: from fixed pipelines to agent-driven dispatch, covering AgenticOCR, ParseBench, DocLens, MADP, and other key papers, plus how it complements ColPali Visual RAG."
 series:
   name: "Document Parsing in Practice"
@@ -63,7 +63,7 @@ Results across 14 methods:
 
 | Method | Overall Score | Notes |
 |---|---|---|
-| LlamaParse Agentic | **84.9%** | Highest overall, but not best in every dimension |
+| LlamaParse Agentic (v1, Sep 2026) | **84.9%** | Highest overall, but not best in every dimension |
 | Other 13 methods | Varies | No consistently dominant approach |
 
 The five dimensions (tables, charts, content faithfulness, semantic formatting, visual grounding) show a "fragmented capability landscape" — every method has strengths and weaknesses. This validates the agentic approach: instead of searching for one tool that does everything, let the agent pick tools based on document characteristics.
@@ -100,7 +100,7 @@ According to the [Document Parsing Unveiled](https://arxiv.org/abs/2410.21169) (
 
 The core tradeoff in Agentic Parsing is spending more inference cost for higher parsing quality — each observe→decide→act cycle costs additional LLM tokens, but avoids the systematic failures that fixed pipelines exhibit on atypical documents.
 
-Current limitations are clear: the best ParseBench score is only 84.9%, with no method strong across all five dimensions. Agentic mode costs 10–45× more than Fast mode. Whether to use it depends on document value and diversity — high-value contracts and financial reports justify agent parsing, while high-volume uniform receipts are fine with a fixed pipeline.
+Current limitations are clear: at the time of writing (September 2026) the best ParseBench v1 score was only 84.9%, with no method strong across all five dimensions; on the November 2026 ParseBench 2 the leader scores 90.93, and every method still has weak spots (see the [commercial API comparison](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison-en)). Agentic mode costs 10–45× more than Fast mode. Whether to use it depends on document value and diversity — high-value contracts and financial reports justify agent parsing, while high-volume uniform receipts are fine with a fixed pipeline.
 
 The direction is clear: document parsing is shifting from "one pipeline for everything" to "agents dispatching tools by document." This mirrors the evolution of RAG from [fixed retrieval](/posts/ai/2026-03-12-corrective-rag-crag-en) to [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en).
 

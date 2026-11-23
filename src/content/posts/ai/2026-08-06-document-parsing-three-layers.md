@@ -70,10 +70,10 @@ PDF 是特例，它是唯一橫跨三層的格式。
 
 這一層又分兩種取向：
 
-- **pipeline 式**：[MinerU](https://github.com/opendatalab/MinerU)、[Marker](https://github.com/datalab-to/marker)、[Docling](https://github.com/docling-project/docling) 把版面偵測、OCR、表格識別串成多階段管線，每階段可替換、可除錯。Docling 特別強調輸出結構化 JSON 而不只是 Markdown。
+- **pipeline 式**：[MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing)、[Marker](/posts/tech/2026-09-07-marker-document-parsing)、[Docling](/posts/tech/2026-09-06-docling-document-parsing) 把版面偵測、OCR、表格識別串成多階段管線，每階段可替換、可除錯。Docling 特別強調輸出結構化 JSON 而不只是 Markdown。2026 年秋天三家都補了不做 OCR、主要讀 PDF 文字層的快速路徑（MinerU 4 的 `flash` 檔位、Marker 的 `no_ocr` 模式、Docling 的原生 PDF 管線），等於把抽取層包進解析工具裡；這反而印證了分層的判斷：有文字層的文件先走快路徑，真正要推斷結構的頁面才付模型的成本。
 - **端到端 VLM**：直接讓視覺語言模型看整頁、吐出 Markdown。[DeepSeek-OCR](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression) 那篇拆過這條路線的極端版本——它甚至反過來用「把文字渲染成圖片」做上下文壓縮。
 
-商業 API（LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、Reducto）也在這一層，邏輯是付費買準確度與免維護。付錢不代表自動勝出：[ParseBench](https://github.com/run-llama/ParseBench)（arXiv [2604.08538](https://arxiv.org/abs/2604.08538)，約 2,000 頁人工校驗的企業文件、五個能力維度）的 leaderboard 上，LlamaParse Agentic 總分 84.88 領先，Azure Document Intelligence 73.8——**同樣是付費方案，差距來自多步驟策略而非預算**。
+商業 API（LlamaParse、Azure Document Intelligence、Google Document AI、AWS Textract、Reducto）也在這一層，邏輯是付費買準確度與免維護。付錢不代表自動勝出：[ParseBench](https://github.com/run-llama/ParseBench)（arXiv [2604.08538](https://arxiv.org/abs/2604.08538)，約 2,000 頁人工校驗的企業文件、五個能力維度）的 leaderboard 上，LlamaParse Agentic 總分 84.88 領先，Azure Document Intelligence 73.8——**同樣是付費方案，差距來自多步驟策略而非預算**。（這是 2026-08 的 v1 分數；v1 後來重新計分，2026-11 的 ParseBench 2 由 LlamaParse Agentic Plus 以 90.93 居首，各家現況見[商業 API 橫評](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison)。）
 
 不過這份 benchmark 要跟 anydoc 那份用同一把尺看：**ParseBench 由 LlamaIndex（run-llama）製作，而榜首 LlamaParse 正是他們自家產品**。方法論公開、資料集與評測程式碼都上了 HuggingFace 跟 GitHub，這點比多數自評好；但「作者自己的產品拿第一」這個結構性偏誤依然存在。看它的 per-dimension 分數（表格、圖表、內容忠實度、語義格式、視覺定位）比看總分排名有用。
 
@@ -115,6 +115,10 @@ PDF 是特例，它是唯一橫跨三層的格式。
 選層比選工具重要一個數量級。層選對了，同層工具之間的差異多半是格式覆蓋率和 API 手感；層選錯了，再好的工具都在解錯的問題。
 
 這個系列沿著這三層往下走：轉換層是 [MarkItDown](/posts/ai/2026-04-18-markitdown-intro) 與 [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown)，抽取層是 [PyMuPDF / pdfplumber / Tika 那一組](/posts/ai/2026-08-06-pdf-text-extraction-libraries)（注意 PyMuPDF 的 AGPL 授權），解析層是 [MinerU / Marker / Docling 與 OCR-VLM](/posts/ai/2026-08-06-document-parsing-layout-ocr)（那一層真正的選型軸是授權，不是準確度）。最後用[掃描考古題實測 10 種工具](/posts/ai/2026-08-16-scanned-pdf-ocr-benchmark)驗證選型框架。
+
+## 更新紀錄
+
+- 2026-11-23：解析層 pipeline 式工具改連到本系列的 MinerU、Marker、Docling 專文，並補上三家 2026 秋天新增的文字層快速路徑。
 
 ## 參考資料
 

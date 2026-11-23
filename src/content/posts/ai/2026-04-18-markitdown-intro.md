@@ -51,7 +51,7 @@ pip install 'markitdown[all]'
 pip install 'markitdown[pdf,docx,pptx]'
 ```
 
-支援的 extras 包含：`pdf`、`docx`、`pptx`、`xlsx`、`xls`、`outlook`、`audio-transcription`、`youtube-transcription`、`az-doc-intel`。
+支援的 extras 包含：`pdf`、`docx`、`pptx`、`xlsx`、`xls`、`outlook`、`audio-transcription`、`youtube-transcription`、`az-doc-intel`、`az-content-understanding`。需要 Python 3.10～3.14。
 
 ## 使用方式
 
@@ -127,7 +127,7 @@ msg = client.messages.create(
 
 ## 限制
 
-- **PDF 掃描檔效果有限**：如果 PDF 是圖片掃描，基本文字擷取會失效，需要搭配 OCR 或 Azure Document Intelligence
+- **PDF 掃描檔效果有限**：如果 PDF 是圖片掃描，內建轉換器的文字擷取會失效。官方的 `markitdown-ocr` 外掛（`pip install markitdown-ocr`，用 `enable_plugins=True` 啟用）會把 PDF、DOCX、PPTX、XLSX 裡的圖片交給你指定的 LLM 視覺模型做 OCR；沒有傳 `llm_client` 時它不會報錯，只是靜默略過 OCR。不想把內容送給 LLM，就要改用雲端的 Azure 服務或其他 OCR 方案
 - **複雜排版結構難還原**：多欄位排版、巢狀表格等複雜格式，轉換結果可能跑掉
 - **媒體轉換需要系統依賴**：音訊轉文字需要 `ffmpeg`，OCR 需要對應函式庫
 
@@ -137,11 +137,17 @@ Azure Document Intelligence 後端對複雜 PDF 效果更好：
 md = MarkItDown(docintel_endpoint="https://<your-endpoint>.cognitiveservices.azure.com/")
 ```
 
+2026-05 的 v0.1.6 另外加入 Azure Content Understanding 後端（`--use-cu --cu-endpoint`），除了文件版面與 OCR，也能處理音訊、影片，並把抽出的欄位寫成 YAML front matter。兩個 Azure 後端都是按次計費的雲端 API。
+
 ## 整體來說
 
 MarkItDown 的定位很清晰：格式轉換的瑞士刀，不做 chunking、不做 embedding、不做 parsing 以外的事。它把「把各種檔案變成 LLM 可以讀的東西」這個問題解決得夠好，然後讓你自己決定後續怎麼處理。
 
 適合場景：異質格式文件的批次處理、RAG pipeline 的前處理、快速把公司文件轉成可查詢的格式。不適合場景：需要精確還原 PDF 排版、處理大量掃描檔（需要另外接 OCR 方案）。
+
+## 更新紀錄
+
+- 2026-11-23：補上官方 `markitdown-ocr` 外掛與 Azure Content Understanding 後端、`az-content-understanding` extra 與 Python 3.10～3.14 需求。v0.1.8、v0.1.9（2026-09、10）以修補為主，其餘內容不變。
 
 ## 參考資料
 
@@ -149,3 +155,6 @@ MarkItDown 的定位很清晰：格式轉換的瑞士刀，不做 chunking、不
 - [MarkItDown PyPI — pip install markitdown 安裝說明](https://pypi.org/project/markitdown/)
 - [Anthropic Claude API — MarkItDown 搭配 LLM 文件前處理的整合方式](https://docs.anthropic.com/en/api/getting-started)
 - [Azure Document Intelligence — MarkItDown 複雜 PDF 處理後端](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview)
+- [markitdown-ocr 外掛說明 — GitHub](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-ocr)
+- [MarkItDown v0.1.6 release note — OCR 與 Content Understanding](https://github.com/microsoft/markitdown/releases/tag/v0.1.6)
+- [Azure Content Understanding — Microsoft Learn](https://learn.microsoft.com/azure/ai-services/content-understanding/)

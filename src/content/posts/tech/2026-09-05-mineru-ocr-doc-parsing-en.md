@@ -1,118 +1,122 @@
 ---
-title: "MinerU：從 PDF 到 Markdown 的開源文件解析引擎，為 RAG 與 LLM 訓練而生"
+title: "MinerU: An Open-Source Engine from PDF to Structured Markdown"
 date: 2026-09-05
 category: tech
 tags: [ocr, pdf, mineru, document-parsing, rag, open-source]
 lang: en
-tldr: "MinerU（OpenDataLab / opendatalab/MinerU）是一個開源文件解析引擎，把 PDF、圖像、DOCX、PPTX、XLSX 轉成結構化 Markdown 與 JSON，內建公式識別、表格提取與 109 語言 OCR，起源於 InternLM 前訓練階段，適合 RAG 前處理與知識庫建構。"
-description: "MinerU 是 OpenDataLab 開源的文件解析引擎，支援多格式輸入、結構化 Markdown/JSON 輸出、表格與公式識別、OCR 與掃描 PDF 修復，專為 LLM 訓練資料與 RAG 前處理設計。"
+tldr: "MinerU is OpenDataLab's open-source document parsing engine. Version 4.0 (September 2026) replaced the 3.x pipeline/vlm/hybrid backends with four quality tiers (flash, basic, standard, advanced), widened input to Office, OpenDocument, EPUB, OFD, and HTML, and added a local document library that agents can read page by page. The license is still the MinerU Open Source License, which carries commercial thresholds."
+description: "A guide to MinerU 4.x: four parsing tiers, native multi-format parsing, the local document library for agents, hardware requirements, license thresholds, and where it fits in RAG preprocessing."
 draft: false
 series:
-  name: "文件解析實戰"
+  name: "Document Parsing in Practice"
   order: 8
 ---
 
-每次要把一份學術論文、公司內部 PDF 報告、或掃描版合約丟進 RAG 流程，第一個卡關的點通常不是向量化，而是**文件解析**：文字被切斷、表格變成混亂的段落、公式被當成亂碼、掃描圖直接無法讀取。商業方案（如 Azure Document Intelligence）能解決一部分，但成本、隱私與格式鎖定讓人猶豫；開源方案（PaddleOCR、Tesseract）則常常在結構化輸出這一步缺席。
+> :globe: [中文版](/posts/tech/2026-09-05-mineru-ocr-doc-parsing)
 
-[MinerU](https://github.com/opendatalab/MinerU) 是 OpenDataLab 開源的一個**文件解析引擎**，目標很直接：把複雜文件（PDF、圖像、DOCX、PPTX、XLSX）轉成機器可讀的 Markdown 與 JSON，並在過程中保留表格結構、公式語意、圖文關聯，以及掃描文件的可讀性。它不是單純的 OCR，而是**從頁面解析到文件語意結構**的完整管線。
+When you feed academic papers, internal PDF reports, or scanned contracts into a RAG pipeline, the first thing that breaks is usually not embedding but document parsing: text gets cut, tables turn into shuffled paragraphs, formulas become garbage, and scanned images can't be read at all.
 
-## 它想解決什麼
+[MinerU](https://github.com/opendatalab/MinerU) is OpenDataLab's open-source document parsing engine. It turns PDFs, images, and Office files into Markdown and structured data that keep tables, formulas, and reading order. It is not plain OCR; it is a full pipeline from layout detection to document structure. Version 4.0 in September 2026 was a major rewrite. This post describes the current 4.2 line and covers the 3.x approach briefly under "Earlier versions."
 
-MinerU 的誕生背景很具體：在 [InternLM](https://internlm.org/) 的前訓練階段，團隊需要把大量科學文獻與技術文件轉成乾淨的訓練語料，但現有工具在**符號轉換**（公式、表格、圖文混排）上表現不穩定。MinerU 因此被設計成一個**專為大模型資料準備**的解析引擎，而非通用的文件轉檔工具。
+## What it's trying to solve
 
-這讓它的設計目標與一般 OCR 工具有明顯差異：
+MinerU came out of pretraining data preparation for [InternLM](https://internlm.org/): the team needed to turn large volumes of scientific literature into clean corpora, and existing tools were unreliable on formulas, tables, and mixed text and images. Its design goal has always been preserving structure, not just extracting text: tables become HTML, formulas become LaTeX, paragraphs keep their reading order.
 
-- **不是只提取文字，而是保留結構**：表格轉成 HTML、公式保留 LaTeX、段落維持閱讀順序。
-- **不是只處理數位原生 PDF，也處理掃描圖**：內建 OCR 與掃描修復，支援 109 種語言的文字檢測與識別。
-- **輸出不是純文字，而是多格式機器可讀資料**：Markdown（適合人讀與 LLM 讀）、JSON（適合結構化檢索與資料庫）、以及中間格式（適合後續處理）。
+Since 4.0 it goes one step further. It is no longer only a converter but a local document library where an agent can read page by page, search, and cite a specific block on a specific page.
 
-## 核心能力
+## Core capabilities
 
-從官方文件與 GitHub 說明來看，MinerU 的核心功能可以分成幾層：
+### Input and output
 
-### 輸入與輸出
+- **Input**: PDF, images, DOC/DOCX, PPT/PPTX, XLS/XLSX, RTF, ODT/ODS/ODP, EPUB, OFD, HTML/MHTML, CSV/TSV. Plain-text files (`.txt`, `.md`) are read directly, not parsed.
+- **Limit**: only PDFs and images can use all four tiers. Office, OpenDocument, EPUB, OFD, and HTML are always parsed locally at the `flash` tier (handled by the MIT-licensed [DocVortex](https://github.com/myhloli/docvortex), with no PDF conversion and no model download).
+- **Output**: one document model renders to nine targets: Markdown, HTML, LaTeX, DOCX, EPUB, PDF, Structured Content, and Content List V1/V2. Each CLI and API entry point exposes only a subset.
 
-- **支援格式**：PDF（含掃描）、圖像（PNG/JPG）、DOCX、PPTX、XLSX。
-- **輸出格式**：Markdown（含多模態與 NLP 兩種風格）、JSON（閱讀順序排序，含段落、表格、公式、圖像關聯）、HTML（表格專用）、以及中間解析格式（可再加工）。
+### Four parsing tiers
 
-### 結構化解析
+| Tier | What it does | Use for |
+|---|---|---|
+| `flash` | No inference models; reads the PDF text layer and digital documents directly | Preview and indexing; not a final reading quality |
+| `basic` | Small models for OCR, formulas, and tables; runs on CPU | Privacy-sensitive or low-resource local parsing |
+| `standard` | Small models plus a VLM for complex layouts (default) | Normal reading and complex documents |
+| `advanced` | Same models as standard, more inference compute | Difficult documents when you can wait |
 
-- **表格識別與提取**：自動偵測表格區域，轉成 HTML 結構，而非把表格內容當成亂序段落輸出。對需要從報表、論文數據表中提取資訊的 RAG 流程來說，這是關鍵差異。
-- **公式識別**：自動偵測數學公式區域，輸出為可讀的 LaTeX 或結構化表示，避免公式被當成亂碼文字。
-- **圖文關聯**：在輸出中保留圖像與周圍文字的關聯關係，讓後續處理知道「這張圖屬於哪個段落」或「這個公式對應哪段說明」。
+Small models (layout, OCR, formulas, tables) run on ONNX or Torch; the VLM engine can be llama.cpp, vLLM, LMDeploy, or mlx, configured separately. The VLM behind `standard` is MinerU2.5-Pro (1.2B); model-level details are in the [parsing-layer model post](/posts/ai/2026-08-06-document-parsing-layout-ocr).
 
-### OCR 與掃描修復
+### Local document library and agent reading
 
-- **OCR 引擎**：支援 109 種語言的文字檢測與識別，對中文、英文、日文、韓文等常見語言有覆蓋。
-- **掃描 PDF 修復**：自動偵測掃描或亂碼 PDF，啟用 OCR 管線進行文字還原，而非直接放棄或輸出空白。
-- **混合解析（Hybrid Parsing）**：在 3.3 與後續版本中，混合解析（數位原生 + 掃描混合）的準確度與效率有明顯優化，模型下載與快取機制也更穩定。
+- A command family (`mineru parse`, `read`, `search`, `find`, `watch`, `scan`) caches parse results locally.
+- `mineru parse` reads only the first 10 PDF pages by default and returns a continuation command, so long documents are read progressively instead of loaded into context at once.
+- Locators such as `doc:{id}/tier:{tier}/page:{page}/block:{block}` let you go back to a page, export a block as an image, and cite it verifiably.
 
-### 部署與運作
+### Deployment and services
 
-- **本機部署**：GitHub 提供完整安裝腳本與 Docker 支援，可在自己的機器上跑，不需要把敏感文件上傳到雲端。
-- **多 GPU 支援**：支援多 GPU 並行，對批量文件處理（如整批論文預處理）有實際幫助。
-- **API 與 SDK**：提供 Python 客戶端（官方核心支援）、Go SDK（見生態系 `MinerU-Ecosystem` repo）、以及線上 API（`mineru.net`），可依需求選擇本機或遠端服務。
-- **模型管理**：首次安裝會下載模型，後續有快取機制；版本更新（如 3.3、3.4）會自動處理模型升級與相容性。
+- **Local first**: parsing is local by default; documents are uploaded to the official service only when you pass `--remote` explicitly.
+- **Hardware**: the base package runs ONNX small models on CPU plus a llama.cpp VLM. Since 4.1 it picks an Intel, AMD, NVIDIA, or Apple Silicon GPU automatically; the project reports representative inference at about 2–3× CPU speed.
+- **Services**: the Python SDK, `mineru-kit parse` batch conversion, a multi-service Router, and a Gradio WebUI share one structured result model. The HTTP service is the V1 API (centered on `/v1/tasks` since 4.1).
+- **4.2 additions**: the WebUI links source regions and parsed results in both directions, Tagged PDF structure improves reading order, the local library's HTTP interface now requires a Bearer token, and URL inputs gained SSRF protection.
 
-## 與替代方案比較
+### Earlier versions (3.x)
 
-選擇文件解析工具時，通常不是「哪個最好」，而是「哪個最適合你的資料形態與輸出需求」。以下表格為**功能定位比較（非基於同一基準測試的效能排名）**，僅供參考：
+3.x switched between three backends, `pipeline`, `vlm`, and `hybrid`, with the CLI `mineru -p input.pdf -o output`. 4.0 replaced backend choice with tiers, moved the entry points to `mineru parse` or `mineru-kit parse`, moved configuration from `mineru.json` to `$MINERU_HOME/config.yaml`, and removed the old `/file_parse` and `/tasks` HTTP endpoints. Before following an older tutorial, read the official [3.x → 4.0 migration guide](https://opendatalab.github.io/MinerU/reference/migration_4/).
 
-| 工具 / 方案 | 核心定位 | 結構化輸出 | 公式與表格 | OCR 覆蓋 | 部署模式 | 適合場景 |
-|---|---|---|---|---|---|---|
-| **MinerU** | 文件解析（PDF/圖像 → Markdown/JSON） | 高（保留結構與語意） | 公式識別、表格 HTML | 109 語言、掃描修復 | 本機 / Docker / API | RAG 前處理、LLM 訓練資料、知識庫建構 |
-| **PaddleOCR** | 文字檢測與識別（OCR 為主） | 低（純文字為主，結構需額外處理） | 無內建公式處理 | 中文、英文為主 | 本機 / 雲端 | 快速文字提取、掃描文件轉文字 |
-| **Tesseract** | 傳統 OCR 引擎 | 低（純文字輸出，無結構） | 無 | 多語言但準確度較低 | 本機 | 簡單掃描文件、預算有限場景 |
-| **Docling** | 文件理解與轉換（IBM 開源） | 中（支援 Markdown、HTML 輸出） | 有表格與公式支援 | 透過內建 OCR 或外部引擎 | 本機 / 雲端 | 企業文件自動化、通用文件轉檔 |
-| **GLM-OCR** | 大模型驅動 OCR | 中高（依模型能力） | 依模型實現 | 依模型實現 | 本機 / API（需 GPU） | 高精度需求、願意承擔模型成本的場景 |
+## Comparison with alternatives
 
-MinerU 的定位不是「最強 OCR」，而是**最完整的文件解析到機器可讀結構**。如果你只需要從一張掃描發票提取文字，PaddleOCR 或 Tesseract 夠用且更輕量；但如果你要把整份學術論文、技術手冊、或內部報告轉成可被 LLM 直接理解與檢索的結構化資料，MinerU 的表格、公式與圖文關聯保留能力會明顯減少後續清洗成本。
+This is a positioning comparison, not a performance ranking on one benchmark:
 
-值得注意的是，MinerU 仍在快速演進中（3.3、3.4 版本在 2026 年持續發布，OCR 能力與混合解析效能有明顯提升）。這意味著它的準確度與功能邊界會隨版本變化，每次引用具體數據或功能時，建議確認對應的版本號與發布日期，而非把某個版本的表現當成永久特性。
+| Tool | Core role | Structured output | License | Fits |
+|---|---|---|---|---|
+| **MinerU** | PDF/images → structured Markdown and JSON; Office formats via native parsing | High (HTML tables, LaTeX formulas, nine render targets) | MinerU Open Source License (Apache 2.0 plus commercial thresholds) | RAG preprocessing, training corpora, agents reading long documents |
+| **[Docling](/posts/tech/2026-09-06-docling-document-parsing-en)** | Structured JSON (`DoclingDocument`) at the core | High (DocLang and DocTags export; reads USPTO, JATS, XBRL XML) | MIT | Structured data exchange, permissive licensing |
+| **[Marker](/posts/tech/2026-09-07-marker-document-parsing-en)** | Speed-first Markdown/JSON pipeline | Medium-high | Code Apache 2.0; model weights carry thresholds | CPU batch jobs, fast conversion |
+| **PaddleOCR / Tesseract** | Text recognition | Low (you rebuild structure) | Apache 2.0 | Scans where only text matters |
 
-## 適用情境
+MinerU is not trying to be the strongest OCR. It turns documents into machine-readable structure. If you only need text from one scanned invoice, a lightweight OCR engine is enough; if you need whole papers or manuals turned into data an LLM can retrieve over, keeping tables, formulas, and reading order is what pays for the extra cost.
 
-根據官方定位與實際功能，MinerU 最適合以下幾類工作：
+## Use cases
 
-### RAG 前處理與知識庫建構
+### RAG preprocessing and knowledge bases
 
-把企業內部 PDF 報告、產品手冊、法規文件轉成結構化 Markdown 與 JSON，再餵給向量資料庫。表格保留為 HTML 讓檢索時可以提取完整數據、公式保留為 LaTeX 讓技術文件可被準確理解、圖文關聯讓多模態檢索（圖像 + 文字）成為可能。
+Convert PDF reports and product manuals into structured Markdown and JSON before they reach the vector store. Validate parse quality on representative samples first, then decide on chunking and indexing.
 
-### LLM 訓練資料清洗
+### LLM training data cleaning
 
-在預訓練或微調階段，需要大量乾淨的技術文獻與文件資料。MinerU 的中間解析格式與多輸出選項，讓資料工程師可以在「原始解析」與「最終訓練語料」之間做更細緻的轉換與篩選，而非直接從混亂 PDF 跳到純文字。
+Results carry a versioned schema, so data engineers can filter traceably between raw parses and final corpora instead of flattening PDFs into plain text.
 
-### 學術文獻與技術文件整理
+### Agents reading long documents
 
-對研究者或工程師來說，從 PDF 提取結構化內容（含表格數據、公式、圖表描述）可以大幅減少手動整理時間。特別是需要把多份論文的數據表整合成比較表格時，結構化輸出比純文字提取省下大量後處理時間。
+The 4.0 library and locators let an agent read page by page, search, and cite specific blocks, which suits contracts and specifications that need clause-by-clause checking.
 
-### 掃描文件數位化
+### Digitizing scanned documents
 
-對有大量紙本文件（合約、發票、歷史檔案）的組織，MinerU 的掃描修復與 OCR 管線可以在本機完成，不需要把敏感文件上傳到第三方雲端服務，對隱私與合規有實際價值。
+For sensitive contracts or historical archives, the `basic` tier can run OCR locally on a machine without a GPU, so originals never go to a third party.
 
-## 部署與實際限制
+## Deployment and practical limits
 
-實際使用 MinerU 前，有幾個現實限制值得先知道：
+- **Python**: 4.1 and later require Python 3.11–3.14.
+- **Hardware**: `basic` (ONNX) needs about 0.8 GB of models and 2 GB of RAM; `standard`/`advanced` need about 2–3 GB of models and 8–16 GB of RAM. They run on CPU, but the project recommends Vulkan or a GPU with 8 GB+ VRAM. Older AMD and vendor-accelerator adaptations remain only on `mineru<4`.
+- **Format support is not quality**: Office, EPUB, and similar formats only get `flash` native parsing; text inside embedded images is not OCR'd.
+- **Telemetry**: anonymous usage telemetry in the local library is on by default (it excludes document content and file names). Check and disable it with `mineru telemetry status` if that matters for your deployment.
+- **Frequent breaking changes**: both 4.0 and 4.1 changed the HTTP API; servers, Routers, SDKs, and clients have to be upgraded together. Pin versions for long-running use.
+- **Verify accuracy yourself**: official benchmarks reflect specific test sets. Non-English, non-standard layouts and heavy text-image mixes still need spot checks.
 
-- **首次安裝成本**：模型下載與環境設定需要時間與網路，首次安裝體驗不如輕量 OCR 工具（如 Tesseract）的「下載即用」快速。
-- **處理速度與資源**：高精度解析需要 GPU 加速（特別是混合解析與大模型輔助的場景），純 CPU 運作可行但速度明顯下降。對批量處理來說，多 GPU 並行是實用選項，但也增加部署複雜度。
-- **準確度邊界**：官方的後處理框架 `MinerU-Popo` 在公開基準測試（如 ViDoRe V3、MMDA）上相較於直接使用預訓練模型（如 Qwen3-VL 系列）的輸出顯示有提升，但這些數據是特定測試集（表格提取指標 TEDS、文件速度 Doc/s、各維度分數）上的後處理結果，不是 MinerU 核心解析引擎與 VLM 在同任務上的直接對比；實際文件（特別是非英文、非標準排版、或高度圖文混排的文件）的準確度仍需逐份驗證。
-- **版本演進**：功能與模型在快速更新中（3.3、3.4 版本在 2026 年持續發布），長期使用時需要追蹤版本相容性與模型升級策略，而非假設某個版本的行為會永久不變。
-- **商業與本機的選擇**：GitHub 開源版與 `mineru.net` 線上 API 提供不同部署模式，本機版適合隱私敏感場景，API 版適合快速驗證與小規模使用，但兩者在模型能力與功能完整度上可能存在差異，引用時應明確標註使用的來源與版本。
+## Overall trade-offs
 
-## 整體取捨
+MinerU's value is moving document parsing from "extract text" to "keep structure," and since 4.0, adding a layer that lets agents read progressively and cite. For quick text extraction it is too heavy. For turning complex documents into searchable, traceable structured data that must stay on your own machines, it is a complete open-source option.
 
-MinerU 的核心價值不在於「取代所有 OCR 工具」，而在於**把文件解析從「提取文字」提升到「保留語意結構」**。對只需要快速文字提取的場景，它可能過於複雜且資源密集；但對需要把複雜文件轉成機器可讀、可檢索、可再加工的結構化資料的場景（特別是 RAG、LLM 訓練、知識管理），它提供了一個完整且可本機部署的解決方案。
+Check the license before you choose it. The [MinerU Open Source License](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md) builds on Apache 2.0, but if you and your affiliates together exceed 100 million MAU or USD 20 million in monthly revenue, you need a separate commercial license; if you offer an online service built on MinerU, you must say so in the interface or public documentation; breaching either term terminates the license automatically. Most teams never hit the thresholds, but the attribution duty applies to everyone.
 
-它的開源許可為基於 Apache 2.0 的自訂協議（MinerU Open Source License，見 `LICENSE.md`），含商業使用門檻（MAU > 1 億 或 月收入 > 2,000 萬美元需另行授權）與線上服務標識義務，並非純 Apache 2.0；社群仍在持續演進（OpenDataLab、InternLM 生態系），功能邊界會隨 3.3、3.4 等版本擴展，但同時也要求使用者對版本、模型與部署環境有基本掌握，而非把它當成「裝好就忘記」的黑盒工具。
+## Update Log
 
-如果你正在建構一個需要大量文件預處理的知識系統，或正在為 LLM 準備高品質訓練語料，MinerU 值得花時間試用一週，確認它對你的文件類型與精度需求的實際表現，再決定是否納入長期流程。
+- 2026-11-23: Rewritten for MinerU 4.0–4.2: four parsing tiers replacing pipeline/vlm/hybrid, wider input formats, nine output targets, the local document library for agents, Python 3.11–3.14, telemetry on by default. 3.x moved to "Earlier versions." Dropped the "109 languages" claim, which 4.x documentation no longer makes. This English version replaces an earlier draft that had been published untranslated.
 
-## 參考資料
+## References
 
-- [MinerU — GitHub Repo (opendatalab/MinerU)](https://github.com/opendatalab/MinerU) — 原始碼、安裝說明與版本發行紀錄（含 3.3、3.4 版本更新）
-- [MinerU — 官方文件](https://opendatalab.github.io/MinerU) — 核心功能、輸入輸出格式、OCR 覆蓋與部署指南
-- [MinerU — Open API 文件](https://mineru.net/apiManage/docs) — 線上 API 使用說明
-- [MinerU-Ecosystem — GitHub (opendatalab/MinerU-Ecosystem)](https://github.com/opendatalab/MinerU-Ecosystem) — SDK、API 與生態系整合
-- [MinerU-Popo — GitHub (opendatalab/MinerU-Popo)](https://github.com/opendatalab/MinerU-Popo) — 後處理 OCR 輸出的輕量框架，含基準測試比較數據（ViDoRe V3、MMDA）
-- [MinerU — License (LICENSE.md)](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md) — 基於 Apache 2.0 的自訂協議（MinerU Open Source License），含商業使用門檻（MAU > 1 億 / 月收入 > 2,000 萬美元）與線上服務標識義務、自動終止條款（2026 版）
+- [opendatalab/MinerU — GitHub](https://github.com/opendatalab/MinerU): README and release notes
+- [MinerU 4.0.0 release note](https://github.com/opendatalab/MinerU/releases/tag/mineru-4.0.0-released): tiers, formats, library, migration
+- [MinerU 4.1.0 release note](https://github.com/opendatalab/MinerU/releases/tag/mineru-4.1.0-released): automatic GPU acceleration, Tasks API, Python 3.11–3.14
+- [MinerU 4.2.0 release note](https://github.com/opendatalab/MinerU/releases/tag/mineru-4.2.0-released): WebUI traceability, Tagged PDF, Bearer token
+- [MinerU documentation](https://opendatalab.github.io/MinerU/): [tiers and runtimes](https://opendatalab.github.io/MinerU/usage/tiers/), [output formats](https://opendatalab.github.io/MinerU/reference/output_files/), [3.x → 4.0 migration](https://opendatalab.github.io/MinerU/reference/migration_4/)
+- [MinerU Open Source License (LICENSE.md)](https://github.com/opendatalab/MinerU/blob/master/LICENSE.md)
+- [MinerU2.5-Pro-2605-1.2B — Hugging Face](https://huggingface.co/opendatalab/MinerU2.5-Pro-2605-1.2B): the VLM used by the standard tier
+- [DocVortex — GitHub](https://github.com/myhloli/docvortex): native parser for Office and similar formats (MIT)

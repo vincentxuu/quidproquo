@@ -70,10 +70,10 @@ What they share: **the structure is not in the file and must be inferred from vi
 
 Two approaches split this layer:
 
-- **Pipeline-based**: [MinerU](https://github.com/opendatalab/MinerU), [Marker](https://github.com/datalab-to/marker), and [Docling](https://github.com/docling-project/docling) chain layout detection, OCR, and table recognition into multi-stage pipelines where each stage is swappable and debuggable. Docling in particular emphasizes structured JSON output rather than just Markdown.
+- **Pipeline-based**: [MinerU](/posts/tech/2026-09-05-mineru-ocr-doc-parsing-en), [Marker](/posts/tech/2026-09-07-marker-document-parsing-en), and [Docling](/posts/tech/2026-09-06-docling-document-parsing-en) chain layout detection, OCR, and table recognition into multi-stage pipelines where each stage is swappable and debuggable. Docling in particular emphasizes structured JSON output rather than just Markdown. In autumn 2026 all three added a fast path that skips OCR and mainly reads the PDF text layer (MinerU 4's `flash` tier, Marker's `no_ocr` mode, Docling's native PDF pipeline), effectively folding the extraction layer into the parsing tools. That supports the layering argument: documents with a text layer take the fast path first, and only pages whose structure really has to be inferred pay for a model.
 - **End-to-end VLM**: hand a whole page to a vision-language model and get Markdown back. The [DeepSeek-OCR post](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression-en) dissects the extreme version of this route — one that inverts the idea entirely, rendering *text into images* for context compression.
 
-Commercial APIs (LlamaParse, Azure Document Intelligence, Google Document AI, AWS Textract, Reducto) also sit here, trading money for accuracy and zero maintenance. Paying does not automatically win: on the [ParseBench](https://github.com/run-llama/ParseBench) leaderboard (arXiv [2604.08538](https://arxiv.org/abs/2604.08538); ~2,000 human-verified enterprise document pages across five capability dimensions), LlamaParse Agentic leads with an overall 84.88 against Azure Document Intelligence's 73.8 — **both paid, with the gap coming from multi-step strategy rather than budget**.
+Commercial APIs (LlamaParse, Azure Document Intelligence, Google Document AI, AWS Textract, Reducto) also sit here, trading money for accuracy and zero maintenance. Paying does not automatically win: on the [ParseBench](https://github.com/run-llama/ParseBench) leaderboard (arXiv [2604.08538](https://arxiv.org/abs/2604.08538); ~2,000 human-verified enterprise document pages across five capability dimensions), LlamaParse Agentic leads with an overall 84.88 against Azure Document Intelligence's 73.8 — **both paid, with the gap coming from multi-step strategy rather than budget**. (These are the August 2026 v1 scores; v1 has since been re-scored, and on ParseBench 2 (November 2026) LlamaParse Agentic Plus leads at 90.93. See the [commercial API comparison](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison-en) for current standings.)
 
 That benchmark deserves the same scrutiny as anydoc's, though: **ParseBench is built by LlamaIndex (run-llama), and the leader, LlamaParse, is their own product**. The methodology is public and both dataset and evaluation code are published on HuggingFace and GitHub, which is better than most self-evaluations — but the structural bias of "the author's own product wins" is still there. Its per-dimension scores (tables, charts, content faithfulness, semantic formatting, visual grounding) are more useful than the overall ranking.
 
@@ -115,6 +115,10 @@ In practice this tree should be a fallback chain rather than a one-shot decision
 Picking the layer matters an order of magnitude more than picking the tool. Get the layer right and the differences within it are mostly format coverage and API ergonomics. Get it wrong and the best tool in the world is solving the wrong problem.
 
 This series works down the ladder. The conversion layer is [MarkItDown](/posts/ai/2026-04-18-markitdown-intro-en) and [anydoc](/posts/ai/2026-08-06-anydoc-rust-document-markdown-en); the extraction layer is [PyMuPDF / pdfplumber / Tika and friends](/posts/ai/2026-08-06-pdf-text-extraction-libraries-en) (watch PyMuPDF's AGPL license); the parsing layer is [MinerU / Marker / Docling and the OCR-VLMs](/posts/ai/2026-08-06-document-parsing-layout-ocr-en), where the real selection axis turns out to be licensing rather than accuracy.
+
+## Update Log
+
+- 2026-11-23: The pipeline-based parsing tools now link to this series' MinerU, Marker, and Docling posts, and the text-layer fast paths all three added in autumn 2026 are noted.
 
 ## References
 
