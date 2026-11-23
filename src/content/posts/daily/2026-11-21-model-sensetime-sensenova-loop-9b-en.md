@@ -84,7 +84,7 @@ caption: Figures from SenseTime's official Hugging Face model card. Scale: basel
 
 | Benchmark | Score (stable) | Predecessor (Preview) | Best competitor (Qwen3.8-27B) |
 |---|---|---|---|
-| GAIA | 69.90 | 37.86 | Not available |
+| GAIA | 69.90 | 37.86 | 66.99 |
 | Terminal-Bench 2.1 | 59.55 | 40.45 | Not available |
 | AutomationBench | 36.67 | 14.33 | 36.67 (tied) |
 | AIDABench | 65.31 | Not available | 65.01 |

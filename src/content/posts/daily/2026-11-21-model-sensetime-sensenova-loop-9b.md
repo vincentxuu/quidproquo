@@ -84,7 +84,7 @@ caption: 數字取自 SenseTime 官方 HuggingFace 模型卡。換算：基線 y
 
 | Benchmark | 分數（正式版） | 前代（Preview） | 競品最強（Qwen3.8-27B） |
 |---|---|---|---|
-| GAIA | 69.90 | 37.86 | 未提供 |
+| GAIA | 69.90 | 37.86 | 66.99 |
 | Terminal-Bench 2.1 | 59.55 | 40.45 | 未提供 |
 | AutomationBench | 36.67 | 14.33 | 36.67（打平） |
 | AIDABench | 65.31 | 未提供 | 65.01 |
