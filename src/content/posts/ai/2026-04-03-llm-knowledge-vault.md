@@ -72,7 +72,7 @@ wiki 會越長越肥。加入 confidence decay——90 天沒被用到的知識�
 | 編譯流程 | LLM 增量編譯 wiki | Session 結束時自動掃描歸檔 | `/post` skill 把對話轉成結構化文章 |
 | 索引方式 | LLM 自維護 index，不需 RAG | 未特別說明 | Cloudflare Vectorize 語義索引 |
 | 前端瀏覽 | Obsidian + Marp slides | Obsidian | Astro SSG 公開網站 |
-| 外部資料處理 | Obsidian Web Clipper | 未特別說明 | Browser Rendering API → 分塊 → D1 |
+| 外部資料處理 | Obsidian Web Clipper | 未特別說明 | Browser Run（舊名 Browser Rendering）API → 分塊 → D1 |
 | 品質維護 | LLM health checks | Vault Governance（孤立筆記、過時內容） | OpenSpec workflow 生命週期 |
 | 時間維度 | ✗ 無衰減 | ✓ Confidence decay（90 天降權） | ✗ 無衰減 |
 | Session 連續性 | ✗ 不需要（知識在檔案裡） | ✓ PreCompact/PostCompact hooks | ✓ Claude Code hooks |
@@ -123,6 +123,10 @@ Gist 下方的討論串也催生了多個進階提案，值得關注：
 - **Reflection layer**——讓系統分析自身 wiki 結構的後設認知層
 
 這些提案呼應了本文「社群經驗庫模式」的觀察：社群正在把 Karpathy 的原始框架往更完整的知識管理系統方向推進。
+
+## 更新紀錄
+
+- 2026-11-23：Cloudflare Browser Rendering 已於 2026-04 改名 Browser Run，表格改用新名稱。
 
 ## 參考資料
 

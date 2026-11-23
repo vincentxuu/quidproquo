@@ -188,7 +188,7 @@ The slides list five challenges: it needs **very high-quality** data, it's sensi
 The slides expand on evaluation along two lines:
 
 - **Benchmarks**: MMLU for general knowledge, ARC-Challenge for basic reasoning, GSM8K for math, HumanEval for code. The slides note that to compare across models, it's recommended to train on the test task first, citing [Dominguez-Olmedo et al.](https://arxiv.org/abs/2407.07890): whether a model was trained on the test task confounds evaluation
-- **"Real-life" feel**: sites like Chatbot Arena (now [LMArena](https://lmarena.ai/leaderboard)) let users vote in A/B tests between two anonymous models' answers. The upside is that it puts a number on "vibes." The problems include a cold start from unequal exposure of models, being easy to rig, users being unable to judge things like factuality, non-representative personal preferences, and penalizing safety refusals
+- **"Real-life" feel**: sites like Chatbot Arena (later LMArena, now [Arena](https://arena.ai/leaderboard)) let users vote in A/B tests between two anonymous models' answers. The upside is that it puts a number on "vibes." The problems include a cold start from unequal exposure of models, being easy to rig, users being unable to judge things like factuality, non-representative personal preferences, and penalizing safety refusals
 
 The slides conclude: "evaluation is a hard problem in itself!" Order 8 of this series, [on evaluation](/posts/ai/2026-09-29-cme295-llm-evaluation-en), is devoted to it.
 
@@ -304,6 +304,7 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-11-23: LMArena was renamed Arena in 2026-01 and moved to arena.ai; links and names updated.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 - 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 4; topic and date match the post, so nothing needed correcting.
@@ -328,7 +329,7 @@ Checked: 2026-10-10.
 - [Micikevicius et al., Mixed Precision Training (2017)](https://arxiv.org/abs/1710.03740)
 - [Wei et al., Finetuned Language Models Are Zero-Shot Learners (2021)](https://arxiv.org/abs/2109.01652)
 - [Dominguez-Olmedo et al., Training on the Test Task Confounds Evaluation and Emergence (2024)](https://arxiv.org/abs/2407.07890)
-- [LMArena Leaderboard](https://lmarena.ai/leaderboard)
+- [Arena Leaderboard (formerly LMArena)](https://arena.ai/leaderboard)
 - [Hu et al., LoRA: Low-Rank Adaptation of Large Language Models (2021)](https://arxiv.org/abs/2106.09685)
 - [Schulman et al., LoRA Without Regret (Thinking Machines, 2025)](https://thinkingmachines.ai/blog/lora/)
 - [Dettmers et al., QLoRA: Efficient Finetuning of Quantized LLMs (2023)](https://arxiv.org/abs/2305.14314)

@@ -5,7 +5,7 @@ type: guide
 category: tech
 tags: [nvidia, dgx-spark, gpu, ai-hardware, blackwell, edge-ai, llm]
 lang: zh-TW
-tldr: "NVIDIA DGX Spark 搭載 GB10 Grace Blackwell Superchip，128GB 統一記憶體，提供 1 petaFLOP FP4 算力，售價約 $3,999 美元起。適合開發者在本地跑 200B 參數模型、fine-tune 70B 模型，是目前最容易入手的 NVIDIA AI 開發平台。"
+tldr: "NVIDIA DGX Spark 搭載 GB10 Grace Blackwell Superchip，128GB 統一記憶體，提供 1 petaFLOP FP4 算力，NVIDIA Marketplace 現價 $6,950 美元（4TB）。適合開發者在本地跑 200B 參數模型、fine-tune 70B 模型，是目前最容易入手的 NVIDIA AI 開發平台。"
 description: "NVIDIA DGX Spark 是一台搭載 Grace Blackwell 超級晶片的桌上型 AI 電腦，以迷你體積提供 1 petaFLOP 算力。本文介紹其規格、定位、與 DGX Station 的差異，以及適合哪些使用場景。"
 draft: false
 ---
@@ -59,7 +59,8 @@ DGX Spark 的定價經歷了幾次變化：
 - **GTC 2025 發表時**：$3,000 美元（Project DIGITS 時期）
 - **2025 年 10 月正式發售**：Founders Edition $3,999 美元
 - **2026 年 2 月調漲**：$4,699 美元（NVIDIA 表示因 128GB LPDDR5x 供應吃緊）
-- **OEM 版本**：ASUS Ascent GX10 約 $3,000 美元起（1TB 儲存）
+- **其後再次調漲**：2026-11 [NVIDIA Marketplace](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/) 售價 $6,950 美元（128GB／4TB）
+- **OEM 版本**：同一頁上 ASUS Ascent GX10 1TB 版 $5,999、4TB 版 $7,999；另有只透過 OEM 販售的 64GB 版（ASUS GX10 64GB $5,599）
 
 除了 NVIDIA 自己賣，Acer、ASUS、Dell、GIGABYTE、HP、Lenovo、MSI 等 OEM 都有推出自家版本。
 
@@ -71,13 +72,13 @@ DGX Spark 的定價經歷了幾次變化：
 |---|---|---|
 | 晶片 | GB10 Grace Blackwell | GB300 Grace Blackwell Ultra |
 | AI 算力 | 1 petaFLOP | 20 petaFLOP |
-| 記憶體 | 128GB 統一記憶體 | 784GB（288GB HBM3e + 496GB LPDDR5X） |
+| 記憶體 | 128GB 統一記憶體 | 748GB coherent memory |
 | 記憶體頻寬 | 273 GB/s | 8 TB/s（GPU）+ 396 GB/s（CPU） |
 | 最大模型 | 200B（單機）/ 405B（雙機） | 1T 參數 |
 | 多使用者 | 單使用者 | MIG 最多 7 個分區 |
 | 網路 | 10GbE ConnectX-7 | 800Gb/s ConnectX-8 SuperNIC |
 | 體積 | NUC 大小（1.2kg） | 塔式機殼 |
-| 價格 | ~$3,999–$4,699 | 預估五位數美元 |
+| 價格 | $6,950（2026-11 Marketplace） | 預估五位數美元 |
 
 **結論**：DGX Spark 是個人開發者和小團隊的選擇；DGX Station 是實驗室和企業級的東西——20 倍算力、6 倍記憶體，但價格也是完全不同量級。
 
@@ -95,13 +96,19 @@ DGX Spark 最適合這些場景：
 
 ## 小結
 
-DGX Spark 代表的趨勢是 **AI 算力的民主化**。過去要跑大模型，你的選項是租雲端 GPU 或買一台幾十萬的工作站。現在用不到 15 萬台幣的價格，就能在桌上放一台跑得動 200B 模型的機器。
+DGX Spark 代表的趨勢是 **AI 算力的民主化**。過去要跑大模型，你的選項是租雲端 GPU 或買一台幾十萬的工作站。現在用二十多萬台幣的價格，就能在桌上放一台跑得動 200B 模型的機器。
 
 它不是完美的——273 GB/s 的記憶體頻寬是瓶頸，記憶體不可升級，跑 training 的能力也有限。但作為一台本地推論和 fine-tune 的開發機，DGX Spark 在 2025–2026 年的 AI 硬體市場裡，找到了一個很精準的定位。
+
+## 更新紀錄
+
+- 2026-11-23：售價更新為 NVIDIA Marketplace 現價 $6,950（原寫 $3,999 起、$4,699），補上 OEM 現價與 64GB 版；DGX Station 記憶體依官方產品頁改為 748GB。
 
 ## 參考資料
 
 - [NVIDIA DGX Spark 官方產品頁面](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+- [NVIDIA Marketplace — Personal AI Supercomputers](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/)
+- [NVIDIA DGX Station 官方產品頁面](https://www.nvidia.com/en-us/products/workstations/dgx-station/)
 - [NVIDIA Newsroom — DGX Spark Arrives for World's AI Developers](https://nvidianews.nvidia.com/news/nvidia-dgx-spark-arrives-for-worlds-ai-developers)
 - [NVIDIA Blog — DGX Spark and DGX Station Power Open-Source and Frontier Models](https://blogs.nvidia.com/blog/dgx-spark-and-station-open-source-frontier-models/)
 - [NVIDIA DGX Spark 硬體規格文件](https://docs.nvidia.com/dgx/dgx-spark/hardware.html)

@@ -37,11 +37,11 @@ Self-hosted inference tools roughly fall into three layers. Some cover only one;
 └─────────────────────────────────────────────────────────┘
 ```
 
-**Execution engines** handle "load the model into memory and run one forward pass." llama.cpp runs GGUF-quantized models on CPU or Apple Silicon; TensorRT-LLM compiles models into optimized NVIDIA GPU kernels. This layer determines single-inference speed and hardware compatibility.
+**Execution engines** handle "load the model into memory and run one forward pass." llama.cpp runs GGUF-quantized models on CPU or Apple Silicon; TensorRT-LLM provides optimized NVIDIA GPU kernels (since [v1.3.0](https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0) the TensorRT engine-build path is gone and PyTorch is the only backend). This layer determines single-inference speed and hardware compatibility.
 
 **Serving engines** handle "how to schedule when multiple requests arrive simultaneously." vLLM uses [PagedAttention](https://arxiv.org/abs/2309.06180) to manage KV cache in non-contiguous blocks and continuous batching so requests of different lengths don't wait on each other. SGLang uses [RadixAttention](https://arxiv.org/abs/2312.07104) to share prefix cache across multi-turn conversations. This layer determines throughput, latency, and GPU memory utilization. [CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference) provides the theoretical framework for prefill/decode trade-offs and batching strategies.
 
-**Model management platforms** handle "where models come from, how they're deployed, and what the API looks like." Ollama wraps llama.cpp with a model registry and CLI. Xinference integrates vLLM, Transformers, llama.cpp, and more, providing a Web UI and OpenAI-compatible API. Triton uses a model repository to manage models across multiple formats. This layer determines deployment workflow, model lifecycle, and team collaboration complexity.
+**Model management platforms** handle "where models come from, how they're deployed, and what the API looks like." Ollama wraps a llama.cpp-based engine (MLX by default on Apple Silicon) with a model registry and CLI. Xinference integrates vLLM, Transformers, llama.cpp, and more, providing a Web UI and OpenAI-compatible API. Triton uses a model repository to manage models across multiple formats. This layer determines deployment workflow, model lifecycle, and team collaboration complexity.
 
 Most selection mistakes aren't about picking the wrong tool — they're about picking the wrong layer. Throwing a management platform at a throughput problem, or setting up a full Triton deployment just to try one model, are both common misfires.
 
@@ -49,7 +49,7 @@ Most selection mistakes aren't about picking the wrong tool — they're about pi
 
 ### llama.cpp — Execution Engine
 
-[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) is a C/C++ LLM inference engine supporting CPU, Apple Silicon (Metal), NVIDIA (CUDA), and AMD (ROCm), using the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) quantization format. It's the core behind Ollama and one of Xinference's available backends.
+[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) is a C/C++ LLM inference engine supporting CPU, Apple Silicon (Metal), NVIDIA (CUDA), and AMD (ROCm), using the [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) quantization format. It's what Ollama runs on for NVIDIA, AMD, and CPU (on Apple Silicon, supported models default to MLX since Ollama [0.40](https://github.com/ollama/ollama/releases/tag/v0.40.0)), and one of Xinference's available backends.
 
 Good for: local development, non-NVIDIA environments (Mac, AMD, CPU-only), embedded deployments. If you don't have NVIDIA GPUs, this is usually where you start.
 
@@ -57,13 +57,13 @@ Not for: high-concurrency production serving. llama.cpp's built-in HTTP server s
 
 ### Ollama — Management Platform + Execution Engine
 
-[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) wraps llama.cpp in a Docker-style CLI and model registry: `ollama pull llama3` downloads a model, `ollama run` starts an interactive chat, with automatic handling of quantization formats and GPU detection.
+[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) wraps a llama.cpp-based engine (MLX on Apple Silicon) in a Docker-style CLI and model registry: `ollama pull gemma4` downloads a model, `ollama run` starts an interactive chat, with automatic handling of quantization formats and GPU detection.
 
 Good for: personal development, prototyping, single-user localhost scenarios. Its value is "from zero to a working local LLM in three minutes."
 
 An alternative at the same layer is [LM Studio](https://lmstudio.ai/) — also built on llama.cpp, but with a desktop GUI and a built-in OpenAI-compatible local server. Choose it if you prefer a graphical interface for switching models and tweaking parameters.
 
-Not for: shared inference services. Both Ollama and LM Studio operate at single-process scheduling — no KV cache paging, no distributed deployment, and GPU memory management relies on llama.cpp's basic configuration. When you need to serve ten concurrent users at five requests per second, it's time to move to a serving engine.
+Not for: shared inference services. Both Ollama and LM Studio operate at single-process scheduling — no KV cache paging, no distributed deployment, and GPU memory management relies on the basic configuration of the underlying llama.cpp or MLX engine. When you need to serve ten concurrent users at five requests per second, it's time to move to a serving engine.
 
 ### vLLM — Serving Engine
 
@@ -155,6 +155,10 @@ If you're new to self-hosted inference, here's the recommended reading order fro
 5. [SGLang](/posts/tech/2026-08-22-sglang-inference-server), [Triton](/posts/tech/2026-08-22-triton-inference-server), [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference): advanced options for specific needs
 
 On the security side, the [Xinference CVE-2026-61539 analysis](/posts/daily/2026-08-24-security-xinference-eval-injection-rce) is worth reading as a case study — it demonstrates what happens when model output is treated as trusted input in an inference server.
+
+## Update Log
+
+- 2026-11-23: TensorRT-LLM 1.3.0 (2026-11) removed the TensorRT backend, so the execution-engine description is rewritten; Ollama 0.40 (2026-09) runs supported models on MLX by default on Apple Silicon, correcting the claim that llama.cpp is Ollama's core; the example model `llama3` is replaced with `gemma4` (since Ollama 0.32, `ollama launch` shows a deprecation warning for Llama 3.x and other older models).
 
 ## References
 

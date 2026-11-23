@@ -53,7 +53,7 @@ return result;
 
 | 類型 | 判斷方式 | 代表例子 | 適合用途 |
 |---|---|---|---|
-| 週期額度 | 官方明寫 daily、monthly 或 billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits)、[SerpAPI](https://serpapi.com/pricing)、[Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/)、[TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | 可持續的小流量服務 |
+| 週期額度 | 官方明寫 daily、monthly 或 billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits)、[SerpAPI](https://serpapi.com/pricing)、[Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/)、[TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | 可持續的小流量服務 |
 | 餘額補回 | 把餘額補到上限，不是固定再加一筆 | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing)、[Exa](https://exa.ai/pricing?tab=api) | 成本封頂的搜尋原型 |
 | 持續限速 | 沒有每月額度池，只限制 RPM／QPS | [Jina Reader](https://jina.ai/en-US/reader/) | 低流量正文讀取 |
 | 一次性試用 | 註冊或試用額度用完不恢復 | [Serper](https://serper.dev/)、[You.com API](https://you.com/docs/administration/billing)、[Hyperbrowser](https://www.hyperbrowser.ai/pricing) | API 驗證與短期基準測試 |
@@ -104,7 +104,7 @@ Parallel 則是另一種風險：每月贈送額度是真的，但必須綁卡�
 | [Diffbot](https://www.diffbot.com/pricing) | 每個 billing period 10,000 credits | 新 billing period 開始時重置；不同 API 消耗不同；Free 用盡回 429 |
 | [Bright Data Free Tier](https://docs.brightdata.com/general/account/billing-and-pricing/free-tier) | Free Tier 每月 5,000 credits，每月 1 日 renew | Web Unlocker、SERP、Web Scraper、Scraper Studio 與 Browser API（每 MB 5 credits）共用；[MCP](https://brightdata.com/pricing/mcp-server) 的每月 5,000 requests 官方寫明是同一池；proxy 不在免費池內，另給一次性 2 美元、7 天試用 |
 | [Browserless](https://www.browserless.io/pricing) | 每月 1,000 units、2 concurrent browsers、單次最多 2 分鐘 | 每個 browser connection 每 30 秒 1 unit；住宅代理 6 units/MB、資料中心代理 2 units/MB、成功 CAPTCHA 10 units；rollover 與 Free 耗盡行為未公開 |
-| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | Workers Free 每個 UTC day 10 browser minutes；3 concurrency | 用完回 429，下一個 UTC day 恢復；Paid 含每月 10 小時，之後 0.09 美元／小時，session concurrency 另計 |
+| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/) | Workers Free 每個 UTC day 10 browser minutes；3 concurrency | 用完回 429，下一個 UTC day 恢復；Paid 含每月 10 小時，之後 0.09 美元／小時，session concurrency 另計 |
 | [ZenRows](https://www.zenrows.com/pricing) | 每月 5,000 credits；5 concurrency | 免卡、monthly refresh、不 rollover、Free 不可 top-up；Fetch 1、JS 5、premium proxy 10、兩者並用 25 credits |
 
 Browserless 很適合說明為什麼不能只看表面額度。它的 1,000 units 不是 1,000 個任意請求。連線時間、代理流量與 CAPTCHA 都可能從同一單位換算，所以短時間連線與高流量工作負載的實際容量差很多。
@@ -161,7 +161,7 @@ TinyFish 的付費邊界也比較清楚：Search 與 Fetch 在每日額度內免
 
 ## 更新紀錄
 
-- 2026-11-23：依官方定價頁全面重查。Exa 改為註冊 10 美元、每月重設回 10 美元；Brave 註明沒有獨立免費方案並改預付；You.com 註冊額度拆成 10＋90 美元、keyless MCP 多了 extract 與 discover；TinyFish Search／Fetch 新增每小時與每日免費上限，移到週期額度；Valyu 改為每月 credits、移到週期額度；Browser Use Cloud 取消每月免費 task、移到一次性；Bright Data 免費池納入 Browser API 且官方確認與 MCP 同池；Browserless 單次 session 上限改為 2 分鐘；Serper 補上付費單價與 credits 效期；Perplexity 補一次性註冊 credit 與 Fast Search。
+- 2026-11-23：依官方定價頁全面重查。Exa 改為註冊 10 美元、每月重設回 10 美元；Brave 註明沒有獨立免費方案並改預付；You.com 註冊額度拆成 10＋90 美元、keyless MCP 多了 extract 與 discover；TinyFish Search／Fetch 新增每小時與每日免費上限，移到週期額度；Valyu 改為每月 credits、移到週期額度；Browser Use Cloud 取消每月免費 task、移到一次性；Bright Data 免費池納入 Browser API 且官方確認與 MCP 同池；Browserless 單次 session 上限改為 2 分鐘；Serper 補上付費單價與 credits 效期；Perplexity 補一次性註冊 credit 與 Fast Search；Cloudflare 連結改用 Browser Run 的新文件路徑。
 - 2026-08-30：重排閱讀順序，先提供三種起步情境，再保留完整額度表作為查詢資料；同步降低正文的一般英文術語密度，並拆開速率限制與 API 免費額度的差別。
 - 2026-08-29：補入 TinyFish Search/Fetch 的持續限速免費層、$0 Wallet 邊界、Agent/Browser 付費邊界與 429 處理差異。
 - 2026-08-22：將週期額度、持續限速與一次性 trial 分表，補入 Search、browser 與 scraping 服務。
@@ -199,8 +199,8 @@ TinyFish 的付費邊界也比較清楚：Search 與 Fetch 在每日額度內免
 - [Bright Data MCP Pricing](https://brightdata.com/pricing/mcp-server)
 - [Browserless Pricing](https://www.browserless.io/pricing)
 - [Browserless Unit Consumption](https://docs.browserless.io/overview/unit-consumption)
-- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-rendering/pricing/)
-- [Cloudflare Browser Rendering Limits](https://developers.cloudflare.com/browser-rendering/platform/limits/)
+- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-run/pricing/)
+- [Cloudflare Browser Run Limits](https://developers.cloudflare.com/browser-run/limits/)
 - [ZenRows Pricing](https://www.zenrows.com/pricing)
 - [Browser Use Cloud Pricing](https://browser-use.com/pricing)
 - [Jina Reader](https://jina.ai/en-US/reader/)

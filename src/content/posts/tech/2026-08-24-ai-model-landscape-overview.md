@@ -351,6 +351,7 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 
 ## 更新紀錄
 
+- **2026-11-23**（連結）：LMArena 已改名 Arena，參考資料連結改到 arena.ai。
 - **2026-11-23**（家族表）：「文字生成」表加入當天新增的 StepFun、MiMo、ByteDance Seed、SenseNova、MiniCPM、Microsoft、Amazon Nova、Granite、OLMo、Upstage Solar 與韓國模型群比較篇，代表型號、定位與授權依各家族文；影像、影片、TTS、ASR 表的 MAI-Image-2.7、Dreamina Seedance 2.5、StepAudio 3 TTS、MAI-Transcribe-2 連到對應家族文；pplx-embed 一列依換代後的家族文改成 v2-context 主力，並標出 0.6B 權重未標授權；「整體來說」的自訂授權旗艦加上 Step 5 Preview。
 - **2026-11-23**：「文字生成」表的 DeepSeek、GLM、Llama、Mistral、Grok、Cohere 六列依當天更新的家族文改寫（GLM-5.3 旗艦授權改為自訂的 GLM-5.3 License、Grok 開發商改名 SpaceXSI、Mistral Medium 3.5 已 deprecated 換成 Small 4、Cohere 換成 Command A+），拿掉「家族文停在 2026-10」的註記。影像、影片、語音合成、語音辨識、音樂、Embedding、Rerank 各節換成 Artificial Analysis 與 MTEB 2026-11 的資料：影像與影片改用 AA v2.1 的 Elo（基準點與舊數字不同）、補上 Sora API 已於 2026-09-24 關閉、TTS 第一換成 Eleven v4、ASR 改用 AA-WER、Embedding 第一換成 harrier-oss-v1-27b、Rerank 改按授權與 API 分類並標出 jina-reranker-v3.5 權重不可商用；OCR 表換成 Unlimited OCR 2，影像編輯一段改寫。各數字的來源已重新讀過一手頁面。
 - **2026-11-20**：同步 11 月的家族更新。「文字生成」表改為各家目前主力，加入 Muse、MiniMax、LongCat、Nemotron；「推理」改寫為推理已併回主線、用強度參數控制；「程式碼生成」的 Aider Polyglot 表（停在 2025 年的 GPT-5、Gemini 2.5 Pro 等模型）換成 Artificial Analysis 2026-11-20 的 Terminal-Bench 4.0 與 FrontierCode 2.0；「VLM」改用 Artificial Analysis 的 MMMU-Pro；新增「決策模型」小節；「Agent」與「整體來說」依新數據改寫，原本「開源在多數用途已追上或超越閉源」的結論改為距離在下半年拉開。影像、影片、3D、語音、音樂、Embedding、Rerank、OCR、翻譯各節仍是 2026-08 的資料，這次沒有重新查證。
@@ -361,7 +362,7 @@ Function calling 不是一個獨立的模型類別，而是各大 LLM 的能力�
 - [AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources) — 怎麼判斷一個模型好不好用
 - [OpenRouter Rankings](https://openrouter.ai/rankings) — AI model API 實際用量排名（截至 2026-08-23）
 - [Artificial Analysis](https://artificialanalysis.ai) — 品質、價格、速度綜合比較（文字 / 影像 / 影片 / 語音）
-- [LMArena](https://lmarena.ai) — 文字和影像模型的人類偏好 ELO 排名
+- [Arena（原 LMArena）](https://arena.ai) — 文字和影像模型的人類偏好 ELO 排名
 - [AA-Image-T2I v2.1](https://artificialanalysis.ai/image/leaderboard/text-to-image)、[AA-Video-T2V v2.1](https://artificialanalysis.ai/video/leaderboard/text-to-video)、[Text to Speech](https://artificialanalysis.ai/text-to-speech/leaderboard)、[Speech to Text](https://artificialanalysis.ai/speech-to-text)、[Music](https://artificialanalysis.ai/music/leaderboard/instrumental) — Artificial Analysis 的影像、影片、語音與音樂榜（2026-11-23）
 - [OpenAI API Deprecations](https://developers.openai.com/api/docs/deprecations) — Sora 2 與 Videos API 於 2026-09-24 關閉
 - [Wan3.0 officially launched — Alibaba Cloud](https://www.alibabacloud.com/en/news/product/video-generation-model-wan30-officially-launched-nsb) — Wan 3.0 規格與 API

@@ -33,7 +33,7 @@ Slide 3 gives two blunt reasons:
 - Using the ChatGPT web page for NLP tasks means copying and pasting by hand, which is slow
 - Testing data on the web page runs into "Too many requests in 1 hour. Try again later."
 
-Once your data runs past a dozen rows, and you want accuracy numbers or a prompt comparison, you need code. For picking a model, the slides point to the [Chatbot Arena leaderboard](https://lmarena.ai/?leaderboard).
+Once your data runs past a dozen rows, and you want accuracy numbers or a prompt comparison, you need code. For picking a model, the slides point to the [Chatbot Arena leaderboard](https://arena.ai/leaderboard) (now called Arena).
 
 ## The 2024 price table is history now
 
@@ -148,6 +148,7 @@ Checked: 2026-10-10.
 
 ## Update Log
 
+- 2026-11-23: LMArena was renamed Arena in 2026-01 and moved to arena.ai; links and names updated.
 - 2026-10-11: Added an invented conceptual example and comprehension check while preserving the original materials and video-verification scope.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.

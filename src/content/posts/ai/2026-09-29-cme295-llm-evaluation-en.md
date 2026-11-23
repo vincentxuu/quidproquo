@@ -218,7 +218,7 @@ Once you have a pile of scores, the slides suggest three ways to read them:
 - **Read the Pareto frontier**: quality vs. cost/latency, quality vs. safety, quality vs. context length. You are choosing a trade-off, not a champion.
 - **Beware of data contamination**: clues to the test may already be in the training set. The slides list three precautions: put an identifiable canary string in benchmark files (as [BIG-bench](https://github.com/google/BIG-bench/blob/main/docs/doc.md) does), use a blocklist when the model has tools, and evaluate on newer test versions.
 
-The slides end with Goodhart's law: "When a measure becomes a target, it ceases to be a good measure." The lesson they draw is not to over-index on benchmarks, to complement them with organic signals like [Chatbot Arena](https://lmarena.ai/), and to "just try a few models out yourself."
+The slides end with Goodhart's law: "When a measure becomes a target, it ceases to be a good measure." The lesson they draw is not to over-index on benchmarks, to complement them with organic signals like [Chatbot Arena](https://arena.ai/) (now called Arena), and to "just try a few models out yourself."
 
 ## Back to the models you use
 
@@ -336,6 +336,7 @@ Checked: 2026-11-23.
 
 ## Update Log
 
+- 2026-11-23: LMArena was renamed Arena in 2026-01 and moved to arena.ai; links and names updated.
 - 2026-11-23: The 2026 Lecture 7 recording and slides are out. Rewrote "What changes in 2026" from a page-by-page comparison of the two decks and the recording: pass@k added to rule-based metrics, the judge-tuning loop, six best practices down to five, time horizon added to the agent part, the benchmark part rebuilt around a composite index, benchmaxxing, agent cheating and Arena-style Elo, and a new section on building evals for your own agent. Added links to the 2026 recording and slides.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
@@ -365,5 +366,5 @@ Checked: 2026-11-23.
 - [Chen et al., Evaluating Large Language Models Trained on Code (2021)](https://arxiv.org/abs/2107.03374)
 - [Google, Gemini 3 launch post (2025)](https://blog.google/products/gemini/gemini-3/)
 - [BIG-bench docs (canary string)](https://github.com/google/BIG-bench/blob/main/docs/doc.md)
-- [LMArena (Chatbot Arena)](https://lmarena.ai/)
+- [Arena (formerly LMArena / Chatbot Arena)](https://arena.ai/)
 - [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

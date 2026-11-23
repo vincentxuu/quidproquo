@@ -337,7 +337,7 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 
 - **[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)**：獨立測量，72 小時更新週期，314+ 模型，有速度（tokens/sec）和價格比較，可以按模型大小篩選，追蹤性價比特別好用
 - **[LiveBench](https://livebench.ai/)**：每月從最新 arXiv 論文和新聞出新題目，避免 benchmark gaming，數學、程式、推理都有覆蓋
-- **[LMArena](https://lmarena.ai/)**（原 Chatbot Arena）：群眾盲測 A/B 比較，產生 Elo 評分。比 benchmark 更接近「實際用起來的感覺」
+- **[Arena](https://arena.ai/)**（原 LMArena、Chatbot Arena；[2026-01 改名](https://arena.ai/blog/lmarena-is-now-arena)）：群眾盲測 A/B 比較，產生 Elo 評分。比 benchmark 更接近「實際用起來的感覺」
 - **[LiveBench](https://livebench.ai/)**：每月從最新 arXiv 論文和新聞出新題目，避免 benchmark gaming
 
 ### 即時追蹤
@@ -356,7 +356,7 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 - **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**：Reddit 上最活躍的本地模型社群，第一手的跑分、量化版本、實測心得大多從這裡出來
 - **[Hugging Face Daily Papers](https://huggingface.co/papers)** 的留言區也常有模型作者和社群的深度討論
 
-建議策略：用 LLM Stats 追新發布 → Hugging Face Trending 看社群反應 → Artificial Analysis / LMArena 比較數字 → r/LocalLLaMA 看實測回饋。但最終還是要用你自己的資料測——benchmark 和實際表現不一定一致。
+建議策略：用 LLM Stats 追新發布 → Hugging Face Trending 看社群反應 → Artificial Analysis / Arena 比較數字 → r/LocalLLaMA 看實測回饋。但最終還是要用你自己的資料測——benchmark 和實際表現不一定一致。
 
 ## 整體來說
 
@@ -371,6 +371,10 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 最大的結構性變化：選模型的決策正在從「開源 vs 閉源」轉向「自建 vs 託管」。技術能力不再是瓶頸，運維能力才是。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：LMArena 已於 2026-01 改名 Arena、網址搬到 arena.ai，連結與名稱跟著更新。
 
 ## 參考資料
 
@@ -395,7 +399,7 @@ Benchmark 和實際表現不一定一致。用你自己的資料跑一輪，比�
 - [gpt-oss — OpenAI](https://openai.com/index/introducing-gpt-oss/)
 - [Mistral Small 4 — Mistral AI](https://mistral.ai/news/mistral-small-4)
 - [Devstral 2 — Mistral AI](https://mistral.ai/news/devstral-2-vibe-cli)
-- [LMArena Leaderboard](https://lmarena.ai/)
+- [Arena Leaderboard（原 LMArena）](https://arena.ai/leaderboard)
 - [Artificial Analysis LLM Leaderboard](https://artificialanalysis.ai/leaderboards/models)
 - [LiveBench](https://livebench.ai/)
 - [LLM Stats — AI Model Releases](https://llm-stats.com)

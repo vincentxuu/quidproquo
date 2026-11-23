@@ -208,7 +208,6 @@ Workers AI 上的 Gemma 旁系有兩個，都已經收在本站的 [Workers AI �
 
 - 2026-11-23：Gemma 3 12B 的模型頁已從目錄撤下，改寫狀態說明；補 2026-11-20 停用波（含當初建議替代品 `kimi-k2.6`）；embedding 改介紹取代 `embeddinggemma-300m` 的 `embeddinggemma-2`（$0.0017 per M）。Gemma 4 的 context、價格與能力對官方模型頁核對，無變動。
 - 2026-09-19：新增「Gemma 4 家族定位」章節：Workers AI 只上了核心 Gemma 4 的 26B MoE（31B 走 AI Studio / Gemini API）；Gemma 4 授權改為 Apache 2.0（前代是 Gemma Terms of Use）；補 SEA-LION 與 embeddinggemma 的定位與站內連結。全文範例與價格（256K、$0.10 / $0.30、Vision / Function calling / Reasoning）已對官方模型頁核對，無變動。
-
 - 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
 
 ## 參考資料

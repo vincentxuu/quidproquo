@@ -339,7 +339,7 @@ Open-source models iterate extremely fast, and by the time this article is publi
 
 - **[Artificial Analysis](https://artificialanalysis.ai/leaderboards/models)**: Independent measurement, 72-hour update cycle, 314+ models, includes speed (tokens/sec) and price comparisons, filterable by model size -- especially useful for tracking cost-effectiveness
 - **[LiveBench](https://livebench.ai/)**: Monthly new questions from latest arXiv papers and news, avoids benchmark gaming, covers math, code, and reasoning
-- **[LMArena](https://lmarena.ai/)** (formerly Chatbot Arena): Crowd-sourced blind A/B comparisons producing Elo ratings. Closer to "how it actually feels to use" than benchmarks
+- **[Arena](https://arena.ai/)** (formerly LMArena and Chatbot Arena; [renamed 2026-01](https://arena.ai/blog/lmarena-is-now-arena)): Crowd-sourced blind A/B comparisons producing Elo ratings. Closer to "how it actually feels to use" than benchmarks
 - **[LiveBench](https://livebench.ai/)**: Monthly new questions from latest arXiv papers and news, avoids benchmark gaming
 
 ### Real-Time Tracking
@@ -358,7 +358,7 @@ Open-source models iterate extremely fast, and by the time this article is publi
 - **[r/LocalLLaMA](https://reddit.com/r/LocalLLaMA)**: The most active local model community on Reddit; first-hand benchmarks, quantized versions, and hands-on reviews mostly originate here
 - The comment sections on **[Hugging Face Daily Papers](https://huggingface.co/papers)** also frequently feature in-depth discussions between model authors and the community
 
-Recommended strategy: Track new releases with LLM Stats -> check community reaction on Hugging Face Trending -> compare numbers on Artificial Analysis / LMArena -> read hands-on feedback on r/LocalLLaMA. But ultimately, you still need to test with your own data -- benchmarks and real-world performance don't always align.
+Recommended strategy: Track new releases with LLM Stats -> check community reaction on Hugging Face Trending -> compare numbers on Artificial Analysis / Arena -> read hands-on feedback on r/LocalLLaMA. But ultimately, you still need to test with your own data -- benchmarks and real-world performance don't always align.
 
 ## The Big Picture
 
@@ -373,6 +373,10 @@ Five structural trends defined the open-source LLM landscape in Q1 2026:
 The biggest structural shift: Model selection decisions are moving from "open-source vs closed-source" to "self-hosted vs managed." Technical capability is no longer the bottleneck -- operational capability is.
 
 ---
+
+## Update Log
+
+- 2026-11-23: LMArena was renamed Arena in 2026-01 and moved to arena.ai; links and names updated.
 
 ## References
 
@@ -397,7 +401,7 @@ External resources:
 - [gpt-oss -- OpenAI](https://openai.com/index/introducing-gpt-oss/)
 - [Mistral Small 4 -- Mistral AI](https://mistral.ai/news/mistral-small-4)
 - [Devstral 2 -- Mistral AI](https://mistral.ai/news/devstral-2-vibe-cli)
-- [LMArena Leaderboard](https://lmarena.ai/)
+- [Arena Leaderboard (formerly LMArena)](https://arena.ai/leaderboard)
 - [Artificial Analysis LLM Leaderboard](https://artificialanalysis.ai/leaderboards/models)
 - [LiveBench](https://livebench.ai/)
 - [LLM Stats -- AI Model Releases](https://llm-stats.com)

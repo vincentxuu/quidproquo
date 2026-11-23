@@ -74,7 +74,7 @@ All three approaches share the goal of "managing knowledge with LLMs," but they'
 | Compilation Flow | LLM incrementally compiles wiki | Auto-scan and archive at session end | `/post` skill converts conversations to structured articles |
 | Indexing Method | LLM self-maintains index, no RAG needed | Not specifically described | Cloudflare Vectorize semantic indexing |
 | Frontend Browsing | Obsidian + Marp slides | Obsidian | Astro SSG public website |
-| External Data Handling | Obsidian Web Clipper | Not specifically described | Browser Rendering API → chunking → D1 |
+| External Data Handling | Obsidian Web Clipper | Not specifically described | Browser Run (formerly Browser Rendering) API → chunking → D1 |
 | Quality Maintenance | LLM health checks | Vault Governance (orphan notes, stale content) | OpenSpec workflow lifecycle |
 | Time Dimension | No decay | Confidence decay (90-day downweight) | No decay |
 | Session Continuity | Not needed (knowledge in files) | PreCompact/PostCompact hooks | Claude Code hooks |
@@ -125,6 +125,10 @@ The discussion thread below the Gist also spawned several advanced proposals wor
 - **Reflection layer** — a meta-cognitive layer that lets the system analyze its own wiki structure
 
 These proposals echo the "community experience vault model" observations in this post: the community is pushing Karpathy's original framework toward a more complete knowledge management system.
+
+## Update Log
+
+- 2026-11-23: Cloudflare Browser Rendering was renamed Browser Run in 2026-04; the table now uses the new name.
 
 ## References
 

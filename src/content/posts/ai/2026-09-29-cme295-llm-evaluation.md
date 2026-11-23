@@ -218,7 +218,7 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 - **看 Pareto 前緣**：品質對上成本或延遲、品質對上安全、品質對上 context 長度，選的是取捨，不是冠軍。
 - **小心資料污染**：題目線索可能早就在訓練資料裡。投影片列了三種預防：在 benchmark 檔案放可識別的 canary 字串（[BIG-bench](https://github.com/google/BIG-bench/blob/main/docs/doc.md) 的做法）、模型可以用工具時，用 blocklist 擋掉題目來源、改用新版本測試。
 
-投影片最後引了 Goodhart 定律：「When a measure becomes a target, it ceases to be a good measure.」它給的結論是不要過度看重 benchmark，要搭配像 [Chatbot Arena](https://lmarena.ai/) 這樣的真人偏好排名，以及「自己試幾個模型」。
+投影片最後引了 Goodhart 定律：「When a measure becomes a target, it ceases to be a good measure.」它給的結論是不要過度看重 benchmark，要搭配像 [Chatbot Arena](https://arena.ai/)（現在叫 Arena）這樣的真人偏好排名，以及「自己試幾個模型」。
 
 ## 連回你用的模型
 
@@ -336,6 +336,7 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evalu
 
 ## 更新紀錄
 
+- 2026-11-23：LMArena 已於 2026-01 改名 Arena、網址搬到 arena.ai，連結與名稱跟著更新。
 - 2026-11-23：2026 版第 7 講錄影與投影片已上架，依兩版投影片逐頁對照與錄影改寫「2026 版改了什麼」：記下規則式指標新增 pass@k、評審調整流程、原則由六條改五條、agent 段新增 time horizon，以及 benchmark 整段改以綜合指數、benchmaxxing、agent 作弊與 Arena 的 Elo 重寫，並新增替自己的 agent 建評估的段落；補上 2026 錄影與投影片入口。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
@@ -365,5 +366,5 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evalu
 - [Chen et al., Evaluating Large Language Models Trained on Code (2021)](https://arxiv.org/abs/2107.03374)
 - [Google, Gemini 3 發表文 (2025)](https://blog.google/products/gemini/gemini-3/)
 - [BIG-bench 文件（canary 字串）](https://github.com/google/BIG-bench/blob/main/docs/doc.md)
-- [LMArena（Chatbot Arena）](https://lmarena.ai/)
+- [Arena（原 LMArena、Chatbot Arena）](https://arena.ai/)
 - [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

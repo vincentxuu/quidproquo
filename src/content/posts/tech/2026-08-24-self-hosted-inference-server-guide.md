@@ -37,11 +37,11 @@ draft: false
 └─────────────────────────────────────────────────────────┘
 ```
 
-**執行引擎**負責「把模型載進記憶體、跑一次 forward pass」。llama.cpp 把 GGUF 量化模型跑在 CPU 或 Apple Silicon 上；TensorRT-LLM 把模型編譯成 NVIDIA GPU 最佳化的 kernel。這一層決定的是單次推論的速度與硬體相容性。
+**執行引擎**負責「把模型載進記憶體、跑一次 forward pass」。llama.cpp 把 GGUF 量化模型跑在 CPU 或 Apple Silicon 上；TensorRT-LLM 為 NVIDIA GPU 提供最佳化的 kernel（[1.3.0 版](https://github.com/NVIDIA/TensorRT-LLM/releases/tag/v1.3.0)起移除 TensorRT engine 編譯路徑，PyTorch 成為唯一 backend）。這一層決定的是單次推論的速度與硬體相容性。
 
 **服務引擎**負責「多個請求同時進來時怎麼排程」。vLLM 用 [PagedAttention](https://arxiv.org/abs/2309.06180) 把 KV cache 切成非連續區塊管理、用 continuous batching 讓不同長度的請求不必互等；SGLang 用 [RadixAttention](https://arxiv.org/abs/2312.07104) 在多輪對話間共享 prefix cache。這一層決定的是吞吐量、延遲與 GPU 記憶體利用率。[CS336 Lecture 10](/posts/ai/2026-08-22-cs336-inference) 對 prefill/decode 的拆解與 batching 的取捨有完整的理論推導。
 
-**模型管理平台**負責「模型從哪裡來、怎麼部署、API 長什麼樣」。Ollama 包了 llama.cpp 加上模型倉庫和 CLI；Xinference 整合 vLLM、Transformers、llama.cpp 等多個後端，提供 Web UI 和 OpenAI 相容 API；Triton 用 model repository 管理多種格式的模型。這一層決定的是部署流程、模型生命週期與團隊協作的複雜度。
+**模型管理平台**負責「模型從哪裡來、怎麼部署、API 長什麼樣」。Ollama 包了 llama.cpp 系引擎（Apple Silicon 上預設改跑 MLX）加上模型倉庫和 CLI；Xinference 整合 vLLM、Transformers、llama.cpp 等多個後端，提供 Web UI 和 OpenAI 相容 API；Triton 用 model repository 管理多種格式的模型。這一層決定的是部署流程、模型生命週期與團隊協作的複雜度。
 
 多數選型的錯誤不是「選錯工具」，而是「選錯層級」——吞吐量不夠的問題丟給管理平台解決，或反過來，只是想跑一個模型試用卻架了完整的 Triton。
 
@@ -49,7 +49,7 @@ draft: false
 
 ### llama.cpp — 執行引擎
 
-[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) 是用 C/C++ 寫的 LLM 推論引擎，支援 CPU、Apple Silicon（Metal）、NVIDIA（CUDA）與 AMD（ROCm），用 [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) 格式做量化。它是 Ollama 的核心、也是 Xinference 的可選後端之一。
+[llama.cpp](/posts/ai/2026-04-01-llama-cpp-local-llm-inference) 是用 C/C++ 寫的 LLM 推論引擎，支援 CPU、Apple Silicon（Metal）、NVIDIA（CUDA）與 AMD（ROCm），用 [GGUF](https://github.com/ggerganov/ggml/blob/master/docs/gguf.md) 格式做量化。它是 Ollama 在 NVIDIA、AMD 與 CPU 上的底層（Apple Silicon 從 Ollama [0.40](https://github.com/ollama/ollama/releases/tag/v0.40.0) 起，支援的模型預設改跑 MLX），也是 Xinference 的可選後端之一。
 
 適合場景：本機開發測試、沒有 NVIDIA GPU 的環境（Mac、AMD、純 CPU）、嵌入式部署。如果你的硬體不是 NVIDIA 的，多數時候會從這裡開始。
 
@@ -57,13 +57,13 @@ draft: false
 
 ### Ollama — 管理平台 + 執行引擎
 
-[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) 把 llama.cpp 包進 Docker 風格的 CLI 和模型倉庫：`ollama pull llama3` 就能下載模型，`ollama run` 啟動互動對話，背後自動處理量化格式和 GPU 偵測。
+[Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) 把 llama.cpp 系引擎（Apple Silicon 上為 MLX）包進 Docker 風格的 CLI 和模型倉庫：`ollama pull gemma4` 就能下載模型，`ollama run` 啟動互動對話，背後自動處理量化格式和 GPU 偵測。
 
 適合場景：個人開發、原型驗證、只需要 `localhost` 上跑一兩個模型的情境。它的價值在於「三分鐘內從零到一個能用的本地 LLM」。
 
 同一層級的替代選項是 [LM Studio](https://lmstudio.ai/)——同樣底層用 llama.cpp，但提供桌面 GUI 和內建的 OpenAI 相容 local server。偏好圖形介面、或想在 GUI 裡直接切換模型和調參數的人會選它。
 
-不適合場景：多人共用的推論服務。Ollama 和 LM Studio 的排程都是單一行程等級的，沒有 KV cache paging、沒有分散式部署，GPU 記憶體管理依賴 llama.cpp 的基本配置。當你開始需要「同時服務十個人、每秒處理五個請求」，就該往服務引擎移動。
+不適合場景：多人共用的推論服務。Ollama 和 LM Studio 的排程都是單一行程等級的，沒有 KV cache paging、沒有分散式部署，GPU 記憶體管理依賴底層 llama.cpp 或 MLX 的基本配置。當你開始需要「同時服務十個人、每秒處理五個請求」，就該往服務引擎移動。
 
 ### vLLM — 服務引擎
 
@@ -155,6 +155,10 @@ draft: false
 5. [SGLang](/posts/tech/2026-08-22-sglang-inference-server)、[Triton](/posts/tech/2026-08-22-triton-inference-server)、[Ray Serve](/posts/tech/2026-08-22-ray-serve-inference)：特定需求時的進階選項
 
 安全層面，[Xinference CVE-2026-61539 分析](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)可以當案例讀——它示範了「模型輸出被當成可信輸入」在推論伺服器上會造成什麼後果。
+
+## 更新紀錄
+
+- 2026-11-23：TensorRT-LLM 1.3.0（2026-11）移除 TensorRT backend，改寫執行引擎說明；Ollama 0.40（2026-09）起 Apple Silicon 預設跑 MLX，修正「Ollama 核心是 llama.cpp」的說法；範例模型 `llama3` 換成 `gemma4`（Ollama 0.32 起 `ollama launch` 會對 Llama 3.x 等舊模型顯示淘汰警告）。
 
 ## 參考資料
 

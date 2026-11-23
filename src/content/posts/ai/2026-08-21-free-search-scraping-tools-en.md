@@ -53,7 +53,7 @@ Use [SearXNG](/posts/ai/2026-08-21-searxng-complete-guide-en) to discover public
 
 | Model | How to identify it | Examples | Best use |
 |---|---|---|---|
-| Recurring allowance | The provider explicitly says daily, monthly, or billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits), [SerpAPI](https://serpapi.com/pricing), [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/), [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Sustainable low-volume services |
+| Recurring allowance | The provider explicitly says daily, monthly, or billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits), [SerpAPI](https://serpapi.com/pricing), [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/), [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Sustainable low-volume services |
 | Balance top-up | The remaining balance is restored to a ceiling instead of incremented by a fixed amount | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing), [Exa](https://exa.ai/pricing?tab=api) | Search prototypes with a bounded allowance |
 | Persistent rate limit | There is no monthly credit pool, only an RPM or QPS ceiling | [Jina Reader](https://jina.ai/en-US/reader/) | Low-volume content reading |
 | One-time trial | Signup or trial credits do not return after exhaustion | [Serper](https://serper.dev/), [You.com API](https://you.com/docs/administration/billing), [Hyperbrowser](https://www.hyperbrowser.ai/pricing) | API validation and short benchmarks |
@@ -103,7 +103,7 @@ Parallel has a different risk. Its recurring grant is real, but the account must
 | [Diffbot](https://www.diffbot.com/pricing) | 10,000 credits per billing period | Resets when a new billing period begins; APIs consume different amounts; Free exhaustion returns 429 |
 | [Bright Data Free Tier](https://docs.brightdata.com/general/account/billing-and-pricing/free-tier) | 5,000 Free Tier credits per month, renewed on the first day of the month | Web Unlocker, SERP, Web Scraper, Scraper Studio, and Browser API (5 credits per MB) share the pool; the official [MCP plan](https://brightdata.com/pricing/mcp-server) states its 5,000 monthly requests are the same shared allowance; proxies are outside the free pool and get a one-time $2, 7-day trial instead |
 | [Browserless](https://www.browserless.io/pricing) | 1,000 units per month, 2 concurrent browsers, and sessions up to 2 minutes | A browser connection costs 1 unit per 30 seconds; residential proxy traffic costs 6 units/MB, datacenter proxy traffic 2 units/MB, and a successful CAPTCHA 10 units; rollover and exhaustion behavior are not published |
-| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | 10 browser minutes per UTC day on Workers Free; concurrency 3 | Exhaustion returns 429 until the next UTC day; Paid includes 10 hours per month, then costs $0.09/hour, with session concurrency tracked separately |
+| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/) | 10 browser minutes per UTC day on Workers Free; concurrency 3 | Exhaustion returns 429 until the next UTC day; Paid includes 10 hours per month, then costs $0.09/hour, with session concurrency tracked separately |
 | [ZenRows](https://www.zenrows.com/pricing) | 5,000 credits per month; concurrency 5 | No card, monthly refresh, no rollover, and no Free top-up; Fetch costs 1, JavaScript 5, premium proxy 10, and both together 25 credits |
 
 Browserless demonstrates why headline quota is not enough. Its 1,000 units do not mean 1,000 arbitrary requests: connection time, proxy bandwidth, and CAPTCHA solving can all draw from the same unit system. A short session and a high-bandwidth job therefore have very different practical capacities.
@@ -160,7 +160,7 @@ The most sustainable free plan is not the one with the largest headline number. 
 
 ## Update Log
 
-- 2026-11-23: Rechecked every plan against official pricing pages. Exa now grants $10 at signup and resets the free balance to $10 monthly; Brave has no standalone free plan and is now prepaid; You.com's signup credit is split into $10 + $90 and the keyless MCP adds extract and discover tools; TinyFish Search/Fetch gained hourly and daily free caps and moved to recurring allowances; Valyu switched to monthly credits and moved to recurring allowances; Browser Use Cloud dropped its monthly free tasks and moved to one-time credits; Bright Data's free pool now includes Browser API and is officially shared with MCP; Browserless sessions now run up to 2 minutes; Serper gained paid unit prices and credit validity; Perplexity gained the one-time signup credit and Fast Search.
+- 2026-11-23: Rechecked every plan against official pricing pages. Exa now grants $10 at signup and resets the free balance to $10 monthly; Brave has no standalone free plan and is now prepaid; You.com's signup credit is split into $10 + $90 and the keyless MCP adds extract and discover tools; TinyFish Search/Fetch gained hourly and daily free caps and moved to recurring allowances; Valyu switched to monthly credits and moved to recurring allowances; Browser Use Cloud dropped its monthly free tasks and moved to one-time credits; Bright Data's free pool now includes Browser API and is officially shared with MCP; Browserless sessions now run up to 2 minutes; Serper gained paid unit prices and credit validity; Perplexity gained the one-time signup credit and Fast Search; Cloudflare links now use the Browser Run documentation paths.
 - 2026-08-30: Reordered the article to put three starting scenarios first, keep the complete allowance tables as lookup material, and separate rate-limited access from free API allowances.
 - 2026-08-29: Added TinyFish Search/Fetch's persistent free rate limit, $0 Wallet boundary, Agent/Browser paid boundary, and 429 handling distinction.
 - 2026-08-22: Separated recurring allowances, persistent rate limits, and one-time trials; added Search, browser, and scraping services.
@@ -198,8 +198,8 @@ The most sustainable free plan is not the one with the largest headline number. 
 - [Bright Data MCP Pricing](https://brightdata.com/pricing/mcp-server)
 - [Browserless Pricing](https://www.browserless.io/pricing)
 - [Browserless Unit Consumption](https://docs.browserless.io/overview/unit-consumption)
-- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-rendering/pricing/)
-- [Cloudflare Browser Rendering Limits](https://developers.cloudflare.com/browser-rendering/platform/limits/)
+- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-run/pricing/)
+- [Cloudflare Browser Run Limits](https://developers.cloudflare.com/browser-run/limits/)
 - [ZenRows Pricing](https://www.zenrows.com/pricing)
 - [Browser Use Cloud Pricing](https://browser-use.com/pricing)
 - [Jina Reader](https://jina.ai/en-US/reader/)

@@ -27,7 +27,7 @@ The common endpoint names answer different questions:
 | A known site, unknown page inventory | `map` | A URL list | Scope review and crawl allowlists |
 | Follow links and retrieve site content | `crawl` | An asynchronous job with page results | Documentation and knowledge-base imports |
 
-`extract` needs a qualification. Firecrawl still exposes a multi-page structured extraction endpoint, but the official [extractor decision guide](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor) marks it as “Use `/agent` instead.” For one known URL, use `scrape` in JSON mode. For cross-page discovery and extraction, new projects should evaluate `agent` instead of treating `/extract` as the default because an older tutorial does.
+`extract` needs a qualification. This multi-page structured extraction endpoint is deprecated and officially [scheduled for removal on 2026-12-10](https://docs.firecrawl.dev/features/extract); the [extractor decision guide](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor) also marks it as “Use `/agent` instead.” For one known URL, use `/v2/scrape` in JSON mode; wildcard, multi-page, or web-search extraction moves to `/v2/agent`. Do not copy `/extract` examples from older tutorials, and migrate existing code before the removal date (see the official [Migrating from /extract](https://docs.firecrawl.dev/migrating-from-extract) guide).
 
 ## Scrape: keep source material before transforming it
 
@@ -127,7 +127,7 @@ Do not omit `limit`. According to the official [Billing documentation](https://d
 
 At the check date, base billing is one credit per scraped or crawled page and one credit per map call. JSON format adds four credits per page. A request can still be charged when Firecrawl infrastructure successfully processes it but the target returns `403` or `404`. Inspect `metadata.statusCode` before retrying instead of treating every empty result as transient.
 
-Free accounts currently receive 1,000 credits. The official [Rate Limits](https://docs.firecrawl.dev/rate-limits) page lists 10 scrape and map requests per minute, two crawl requests per minute, and two concurrent browsers for the Free plan. Plans change; production capacity must come from the dashboard and queue status, not a snapshot copied from this article.
+The Free plan gives 1,000 credits per month with no card required; Firecrawl converts that to 1,000 scraped pages or 500 searches drawn from the same balance. The official [Rate Limits](https://docs.firecrawl.dev/rate-limits) page lists 10 scrape and map requests per minute, two crawl requests per minute, and two concurrent browsers for the Free plan. Plans change; production capacity must come from the dashboard and queue status, not a snapshot copied from this article.
 
 At minimum, separate these error classes:
 
@@ -157,11 +157,18 @@ The [Crawl4AI complete guide](/posts/ai/2026-08-21-crawl4ai-complete-guide-en) s
 
 A useful first decision is small and repeatable: choose 20 fixed URLs and record Firecrawl status, Markdown, and credit use; run the same set through the crawler you already operate. Compare missing pages, latency, manual intervention, and operations time—not merely whether both produced Markdown.
 
+## Update Log
+
+- 2026-11-23: `/extract` is deprecated and will be removed on 2026-12-10; migration advice rewritten (single page via `/v2/scrape` JSON mode, multi-page via `/v2/agent`); the free allowance now states “per month” and the 1,000 pages / 500 searches conversion.
+
 ## References
 
 - [Firecrawl Advanced Scraping Guide](https://docs.firecrawl.dev/advanced-scraping-guide)
 - [Firecrawl Python quickstart](https://docs.firecrawl.dev/quickstarts/python)
 - [Choosing the Data Extractor](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor)
+- [Firecrawl Extract (deprecation notice)](https://docs.firecrawl.dev/features/extract)
+- [Migrating from /extract](https://docs.firecrawl.dev/migrating-from-extract)
+- [Firecrawl Pricing](https://www.firecrawl.dev/pricing)
 - [Firecrawl Billing](https://docs.firecrawl.dev/billing)
 - [Firecrawl Rate Limits](https://docs.firecrawl.dev/rate-limits)
 - [Open source or Firecrawl Cloud](https://docs.firecrawl.dev/contributing/open-source-or-cloud)
