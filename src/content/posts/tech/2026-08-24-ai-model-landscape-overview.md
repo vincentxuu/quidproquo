@@ -56,6 +56,7 @@ glossary:
 | [Amazon Nova](/posts/tech/2026-11-23-ai-model-family-amazon-nova) | 閉源 | Nova 2 Lite、Nova 2.5 Sonic；Chronos-2（時間序列權重） | 只在 AWS；Premier、Canvas、Reel 已在 2026-09 停用 |
 | [Granite](/posts/tech/2026-11-23-ai-model-family-granite)（IBM） | 開源 | Granite 4.2（3B／8B／30B）、Guardian 4.1、Vision 4.1 | 企業可完全自架、Apache 2.0 子線齊全，單模型分數偏低 |
 | [OLMo](/posts/tech/2026-11-23-ai-model-family-olmo)（Ai2） | 開源 | Olmo 3.1 32B Think／Instruct、Olmo 3 7B | 權重 Apache 2.0、訓練資料與 checkpoint 全公開，能力落後同尺寸 Qwen 3 |
+| [K2](/posts/tech/2026-11-23-ai-model-family-k2)（MBZUAI IFM） | 開源 | K2 Horizon 375B-A23B、MoVA-36B-A4B、32B／7B／3.7B／0.9B；Jais 3（阿拉伯語） | 權重 Apache 2.0、資料與各階段 checkpoint 公開，全開放路線中少數有 MoE 旗艦（375B）的一家；Artificial Analysis 375B 18 分，託管只有 IFM API |
 | [Upstage Solar](/posts/tech/2026-11-23-ai-model-family-upstage-solar) | 閉源 API＋開源 | Solar Pro 4、Mini 4（API）；Solar Open 2（250B／15B 啟用） | 韓日文件型辦公 agent、低單價；Open 2 用 Apache 2.0 為底的 Upstage Solar License |
 | [韓國模型群](/posts/tech/2026-11-23-ai-model-family-korea-models)（比較篇） | 開源＋閉源 | K-EXAONE 2.0、A.X K2、Motif 3、Solar、Mi:dm K 3.0 Pro、HyperCLOVA X SEED | 七家韓國廠商的授權、價格與分數對照 |
 | [Nemotron](/posts/tech/2026-10-10-ai-model-family-nemotron)（NVIDIA） | 開源 | 3.5 Super VL、Bolt、Lightning | 開放訓練資料，依部署位置分層 |

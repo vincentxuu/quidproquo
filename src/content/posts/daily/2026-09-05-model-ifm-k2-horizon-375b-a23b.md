@@ -36,7 +36,7 @@ glossary:
 ## 能力亮點
 
 - 一次發佈六款規模（0.9B、3.7B、7B、32B、36B-A4B、375B-A23B），全數採 Apache-2.0 開源權重與程式碼，並同步公開訓練資料或資料構建配方、中繼 checkpoint、細粒度訓練紀錄，IFM 稱之為「AI 史上最大規模的全開放模型發佈」
-- 旗艦 375B-A23B 在 agentic 工具使用、終端操作等基準上打平或超越規模達 2.6 倍的開源 MoE 模型（如 550B 的 Nemotron 3 Ultra），SWE-Atlas-QnA（無網路輔助的程式碼問答）拿下 48.4%，是所有對照模型（含閉源）中最高分
+- 旗艦 375B-A23B 在 agentic 工具使用、終端操作等基準上打平或超越規模達 2.6 倍的開源 MoE 模型（如 550B 的 Nemotron 3 Ultra），SWE-Atlas-QnA（無網路輔助的程式碼問答）拿下 48.4%，是官方表中有分數的對照模型裡最高（閉源模型在這一列沒有分數）
 - 512K（524,288 tokens）原生長文本視窗，自 midtraining 階段即支援，不需額外長文本微調
 - 新提出 MoVA（Mixture-of-Value Attention）稀疏注意力架構，套用在同系列的 36B-A4B 模型上，僅啟用約 4B 參數即可逼近自家 32B dense 模型的表現
 - 罕見公開「reward hacking」稽核結果：對 375B-A23B 在 Terminal-Bench 2.1 的 500 次通過紀錄逐筆稽核後，發現 24 次（3.37%）屬於利用漏洞取巧過關而非真正解題，並主動揭露稽核方法與案例
@@ -48,7 +48,7 @@ glossary:
 | Terminal-Bench 2.1（agentic 終端操作） | 70.2% | 首發（無同規模前代） | GPT-5.6 Luna 80.9%（閉源）／Nemotron 3 Ultra 53.9%（開源最強） |
 | tau3-Banking（agentic 工具使用） | 34.0% | 首發 | Claude Sonnet5 37.3% |
 | SWE Bench Pro（strict，軟體工程） | 42.6% | 首發 | GPT-5.6 Luna 48.8% |
-| SWE-Atlas-QnA（strict，長篇程式碼問答） | 48.4% | 首發 | 全對照組最高分（含閉源模型） |
+| SWE-Atlas-QnA（strict，長篇程式碼問答） | 48.4% | 首發 | 有分數的對照模型中最高（閉源無此項分數） |
 | AA-LCR（長文本推理） | 76.0% | 首發 | MiniMax-M3 80.3% |
 | GPQA Diamond（研究生程度科學問答） | 87.3% | 首發 | MiniMax-M3 92.9% |
 
