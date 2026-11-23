@@ -140,7 +140,7 @@ The first three are problems at the other end, and switching agents usually won'
 
 In Taiwan, Mastercard Agent Pay has completed a first demonstration transaction; LINE Shopping is connecting through UCP, but its shopping assistant isn't planned until 2027.
 
-The merchant is the seller of record, and payment protocols keep a record of who authorized what. Those rules at the other end directly decide who is responsible when something goes wrong. Next: responsibility.
+The merchant is the seller of record, and payment protocols keep a record of who authorized what. Those rules at the other end directly decide who is responsible when something goes wrong. [Next: responsibility](/posts/ai/2026-11-20-who-is-liable-en).
 
 ## References
 
