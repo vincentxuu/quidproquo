@@ -88,7 +88,7 @@ The costs are documented too: people who drove a route with turn-by-turn navigat
 
 So the point isn't "don't hand things off," it's choosing what to hand off. Liao's advice to Vox: "Choose to use agents for tasks that you can tolerate the consequences of errors."
 
-MIT's Pattie Maes, in the same article, pointed to another cost. If everyone hands their tasks to agents, the world fills with more AI-generated messages, emails and bookings; the people forced to deal with them are on the other end. Order 22 of this series covers that side.
+MIT's Pattie Maes, in the same article, pointed to another cost. If everyone hands their tasks to agents, the world fills with more AI-generated messages, emails and bookings; the people forced to deal with them are on the other end. [Order 22](/posts/ai/2026-11-20-the-other-end-en) of this series covers that side.
 
 ## Dividing the work: what to hand off and what to keep
 

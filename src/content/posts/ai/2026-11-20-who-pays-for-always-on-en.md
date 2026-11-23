@@ -156,7 +156,7 @@ Subscription products mostly don't let you adjust these. What you can do is tell
 
 In Taiwan, Grok Bot, Tasks in Gemini and Hark can be subscribed to directly, priced in US dollars; self-hosted OpenClaw and Hermes are billed at whatever rates your chosen model API charges.
 
-The user pays, but where an always-on agent gets stuck is often not on your end. Next, the other end: how websites and businesses deal with agents, and why agents so often stall at the last step.
+The user pays, but where an always-on agent gets stuck is often not on your end. [Next, the other end](/posts/ai/2026-11-20-the-other-end-en): how websites and businesses deal with agents, and why agents so often stall at the last step.
 
 ## References
 

@@ -88,7 +88,7 @@ Oh 等人在 2026 年提出 [Proactivity-Gym](https://harryoh99.github.io/founda
 
 所以重點不是「不要交出去」，而是挑對的東西交。Liao 給 Vox 的建議是：「Choose to use agents for tasks that you can tolerate the consequences of errors.」
 
-MIT 的 Pattie Maes 在同一篇報導裡提醒了另一個代價。每個人都把事情丟給 agent，世界上會有越來越多 AI 產生的訊息、信件和預約；最後被迫應付它們的，是另一端的人。系列的 order 22 會講這一端。
+MIT 的 Pattie Maes 在同一篇報導裡提醒了另一個代價。每個人都把事情丟給 agent，世界上會有越來越多 AI 產生的訊息、信件和預約；最後被迫應付它們的，是另一端的人。系列的 [order 22](/posts/ai/2026-11-20-the-other-end) 會講這一端。
 
 ## 替自己分配：哪些交出去、哪些留著
 

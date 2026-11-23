@@ -156,7 +156,7 @@ draft: false
 
 在台灣，Grok Bot、Tasks in Gemini、Hark 能直接訂閱，價格以美元計；自架的 OpenClaw、Hermes 接哪家模型 API，就照那家的計價。
 
-錢由使用者出，但常駐 agent 卡關的地方，常常不在你這一端。下一篇看另一端：網站和商家怎麼接 agent，為什麼它常常做到最後一步就卡住。
+錢由使用者出，但常駐 agent 卡關的地方，常常不在你這一端。[下一篇](/posts/ai/2026-11-20-the-other-end)看另一端：網站和商家怎麼接 agent，為什麼它常常做到最後一步就卡住。
 
 ## 參考資料
 
