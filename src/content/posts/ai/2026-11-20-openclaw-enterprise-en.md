@@ -161,7 +161,7 @@ Plus two points from OpenAI's post that are easy to miss:
 
 OCE can be self-hosted anywhere, with no regional restriction.
 
-This is the last post on route 2: companies managing agents on their own infrastructure. Next, route 3 begins with the same open-source core, now run by individuals on their own machines: how to choose a self-hosted always-on agent.
+This is the last post on route 2: companies managing agents on their own infrastructure. Next, route 3 begins with the same open-source core, now run by individuals on their own machines: [how to choose a self-hosted always-on agent](/posts/ai/2026-11-20-self-hosted-always-on-agents-en).
 
 ## References
 
