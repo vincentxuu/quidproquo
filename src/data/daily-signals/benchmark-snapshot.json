@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-23",
+  "date": "2026-11-24",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,11 +8,11 @@
     { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 27.42, "ci": "[24.46%, 30.38%]" },
-    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 18.63, "ci": "[16.60%, 20.65%]" },
-    { "rank": 3, "model": "Gemini 4 Neon (High)", "score": 18.41, "ci": "[15.90%, 20.93%]" },
-    { "rank": 4, "model": "Gemini 4 Carbon (High)", "score": 16.10, "ci": "[15.41%, 16.79%]" },
-    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 15.56, "ci": "[12.66%, 18.46%]" }
+    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 27.44, "ci": "[24.44%, 30.44%]" },
+    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 19.12, "ci": "[17.05%, 21.18%]" },
+    { "rank": 3, "model": "Gemini 4 Neon (High)", "score": 18.29, "ci": "[15.78%, 20.79%]" },
+    { "rank": 4, "model": "Gemini 4 Carbon (High)", "score": 16.13, "ci": "[15.44%, 16.82%]" },
+    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 15.21, "ci": "[12.31%, 18.11%]" }
   ],
   "aa_agentic_index_top3": [
     { "rank": 1, "model": "Gemini 4 Neon (Antigravity CLI, xhigh)", "org": "Google", "score": 59 },
@@ -27,5 +27,5 @@
     { "rank": 5, "model": "Claude Opus 5.5", "org": "Anthropic", "score": 58.1, "version": "4.1" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-23：Groundlane MCP 本次連線被拒（簽入失敗），改用 Bash curl 直連官方資料源 + Exa（雲端 MCP fallback，依全域規則跳過 Keenable／You.com 屬允許降級）查證，四個常態追蹤榜單皆與 2026-11-22 快照逐位元相同，未達 Step 4 顯著變動門檻。SWE-bench Verified：Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（4,091,442 bytes），python3 -I 解析 180 筆 Verified 結果，前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與昨日逐位元相同。Arena Agent：改用 Bash curl 直連 datasets-server.huggingface.co（本次未被 proxy 擋下，200 成功，與 10-10 notes 記錄的「Bash curl 打該 host 會被 403」不同，可能是 proxy 規則已鬆動，下次接手者仍應先試 curl 再退回 Groundlane/Exa）查 lmarena-ai/leaderboard-dataset，agent 子集 latest split，leaderboard_publish_date 仍是 2026-11-18（未推進），top5 分數與排序逐位元相同（Fable 5.2 Max 27.42／Opus 5.5 Max 18.63／Gemini 4 Neon High 18.41／Gemini 4 Carbon High 16.10／Sonnet 5.5 Max 15.56）。CursorBench 4.1（Exa web_search 交叉比對 cursor.com 官方頁、benchleader.com、benchmarkalmanac.com、aistatslive.com 等多個獨立鏡射站）：53 組設定前 5 名仍是 Gemini 4 Neon(xhigh) 65.4／Gemini 4 Carbon(high) 61.5／Gemini 4 Hydrogen(xhigh) 61.4／Fable 5.2(max) 61.3／Opus 5.5(max) 58.1，與昨日快照同一順位。Artificial Analysis Coding Agent Index v2.1（Exa web_search 交叉比對 atlas.village.dev、myaidaily.net、benchlm.ai、orcarouter.ai 四篇，皆標註 2026-11-19～20 擷取）：41 組完整設定中第一仍是 Gemini 4 Neon(Antigravity CLI, xhigh) 58.6，第二群為 Fable 5.2(xhigh) 58.5／Devin Fusion CLI 58.4／Fable 5.2(high) 58.2／Opus 5.5(max) 58.2（並列「58」區間），第三為 Muse Wonder Full(max) 54.5，與昨日快照順位、分差在四捨五入誤差內一致，非顯著變動。morphllm.com/leaderboard 本次（Exa web_fetch_exa）仍回 CRAWL_NOT_FOUND（404），維持既有 Q-023 阻塞，無新進展。"
+  "notes": "2026-11-24：Groundlane MCP 本次連線再度被拒（簽入失敗，連續第二天），改用 Bash curl 直連官方資料源 + Exa（雲端 MCP fallback）查證，四個常態追蹤榜單皆未達 Step 4 顯著變動門檻。SWE-bench Verified：Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（4,091,442 bytes），python3 -I 解析 180 筆 Verified 結果，前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與昨日逐位元相同。Arena Agent：Bash curl 直連 datasets-server.huggingface.co（連續第二天成功，200）查 lmarena-ai/leaderboard-dataset，agent 子集 latest split，leaderboard_publish_date 從 2026-11-18 推進到 2026-11-22（新批次），分數全面微調：Fable 5.2 Max 27.42%→27.44%（+0.02pp）、Opus 5.5 Max 18.63%→19.12%（+0.49pp）、Gemini 4 Neon High 18.41%→18.29%（-0.12pp）、Gemini 4 Carbon High 16.10%→16.13%（+0.03pp）、Sonnet 5.5 Max 15.56%→15.21%（-0.35pp），前 5 名排序與第 1 名皆未變、單一模型變動未逾 2pp，不觸發。CursorBench 4.1（Exa web_search 交叉比對 cursor.com 官方頁、benchleader.com、honeyhive.ai 等多個獨立鏡射站）：53 組設定前 5 名仍是 Gemini 4 Neon(xhigh) 65.4／Gemini 4 Carbon(high) 61.5／Gemini 4 Hydrogen(xhigh) 61.4／Fable 5.2(max) 61.3／Opus 5.5(max) 58.1，與昨日快照同一順位，changelog 仍停在 11-18 無新版本。Artificial Analysis Coding Agent Index v2.1（Exa web_search 交叉比對 benchlm.ai、orcarouter.ai）：41 組完整設定中第一仍是 Gemini 4 Neon(Antigravity CLI, xhigh) 58.6，第二群為 Fable 5.2(xhigh) 58.5／Devin Fusion CLI 58.4／Fable 5.2(high) 58.2／Opus 5.5(max) 58.2，第三為 Muse Wonder Full(max) 54.5，與昨日快照順位一致；另一來源 atlas.village.dev 同時顯示一個只含 21 筆、排除 Claude Code 大多數列的精簡表（Neon 58.6／Carbon 55.5／Wonder Full 54.5...），與 benchlm.ai 41 筆完整表不一致，判斷為不同篩選口徑的鏡射頁、非官方排名異動，仍採用與歷史快照定義一致的 benchlm.ai 41 筆表為準。morphllm.com/leaderboard 本次（Exa web_fetch_exa）仍回 CRAWL_NOT_FOUND（404），維持既有 Q-023 阻塞，無新進展。"
 }
