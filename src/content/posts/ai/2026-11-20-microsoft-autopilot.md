@@ -148,7 +148,7 @@ Autopilot 跟 Cowork、Code 一樣用用量計費，不在固定的每人訂閱�
 
 在台灣，個人用不到；企業要先加入 Frontier，並確認自己的租戶符合資格。
 
-身分管住的是「誰在做」。下一篇的 Salesforce long-horizon agents 處理另一件事：一份跨好幾週的計畫，怎麼管住「做到哪了、什麼時候偏離要回來問人」。
+身分管住的是「誰在做」。下一篇的 [Salesforce long-horizon agents](/posts/ai/2026-11-20-salesforce-long-horizon-agents) 處理另一件事：一份跨好幾週的計畫，怎麼管住「做到哪了、什麼時候偏離要回來問人」。
 
 ## 參考資料
 

@@ -148,7 +148,7 @@ If your company is evaluating Autopilot or any agent that works under its own id
 
 In Taiwan, individuals can't use it; companies need to join Frontier and confirm their tenant is eligible.
 
-Identity pins down "who is doing it." Next, Salesforce's long-horizon agents tackle something else: for a plan that runs over weeks, how to keep track of "how far along is it, and when has it drifted enough to come back and ask a human."
+Identity pins down "who is doing it." Next, [Salesforce's long-horizon agents](/posts/ai/2026-11-20-salesforce-long-horizon-agents-en) tackle something else: for a plan that runs over weeks, how to keep track of "how far along is it, and when has it drifted enough to come back and ask a human."
 
 ## References
 
