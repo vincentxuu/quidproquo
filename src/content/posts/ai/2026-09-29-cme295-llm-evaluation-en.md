@@ -8,7 +8,7 @@ lang: en
 series:
   name: "Reading Stanford CME295"
   order: 8
-tldr: "CME295 Lecture 8 starts from the fact that human rating is slow and expensive and BLEU/ROUGE can't recognize a paraphrase. It covers how LLM-as-a-Judge works, three biases (position, verbosity, self-enhancement) and six best practices, splits agent failures into tool prediction, tool execution and response generation, and closes with what MMLU, AIME, SWE-bench, HarmBench and τ-bench each measure, plus pass^k and Goodhart's law."
+tldr: "CME295 Lecture 8 starts from the fact that human rating is slow and expensive and BLEU/ROUGE can't recognize a paraphrase. It covers how LLM-as-a-Judge works, three biases (position, verbosity, self-enhancement) and six best practices, splits agent failures into tool prediction, tool execution and response generation, and closes with what MMLU, AIME, SWE-bench, HarmBench and τ-bench each measure, plus pass^k and Goodhart's law. The 2026 edition keeps the judge and agent parts, rebuilds the benchmark part around a composite index, benchmaxxing and Arena-style Elo, and adds a practical section on building evals for your own agent."
 description: "A guide to Stanford CME295 Lecture 8: human rating and Cohen's kappa, the limits of BLEU/ROUGE/METEOR, pointwise and pairwise LLM-as-a-Judge, biases and remedies, fact-decomposition scoring, failure modes of agent tool calls, common benchmarks, pass^k, data contamination, Goodhart's law, and what changes in the 2026 edition."
 draft: false
 glossary:
@@ -33,6 +33,8 @@ glossary:
 > :globe: [中文版](/posts/ai/2026-09-29-cme295-llm-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
+
+If you are following the 2026 edition, open the [Lecture 7 recording](https://www.youtube.com/watch?v=uoSynlTDyMs) and [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf). The judge and agent parts are broadly the same as this post, but the factuality-scoring section is gone and the benchmark part is replaced entirely; this post keeps the content of 2025 Lecture 8, and the differences are covered in "What changes in 2026" at the end.
 
 This post covers Lecture 8, "LLM evaluation," of the 2025 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) (November 21, 2025). The main source is the [170-page slide deck](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf); the recording is on [YouTube](https://www.youtube.com/watch?v=8fNP4N46RRo). Everything below is based on what is on the slides.
 
@@ -229,9 +231,64 @@ Almost everything in this lecture carries straight into production work:
 
 ## What changes in 2026
 
-The 2026 slides haven't been released yet, so this comparison is based on the two syllabi only. The topic list for 2026 Lecture 7, "LLM evaluation," is: LLM-as-a-judge overview, best practices and benefits, biases and pitfalls, **agent evaluation**, and **benchmarks**. The first three match the 2025 syllabus exactly; the last two are new to the list.
+The 2026 counterpart of this lecture is Lecture 7, "LLM evaluation" (taught November 13, 2026), and both the [slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf) and the [recording](https://www.youtube.com/watch?v=uoSynlTDyMs) are now up. The deck is 170 pages, same as 2025, but reorganized into six parts: motivation, rule-based metrics, LLM-as-a-Judge, agent evaluation, benchmarks, and best practices. What follows compares the two decks page by page, with notes from the recording. In short: the judge and agent parts mostly carry over, the benchmark part is replaced wholesale, and a new closing part covers how to build evals for your own agent.
 
-The 2025 slides, however, already include agent tool-call failure modes, τ-bench, and a full benchmark section; the 2025 syllabus simply didn't list them. So the 2026 change may be promoting those two parts to named topics and expanding them, rather than adding them from scratch. The actual content will be clear once the 2026 slides go up (the lecture is scheduled for November 13, 2026). The 2026 agents lecture also expands to MCP, context compaction, harness optimization and coding agents, and agent evaluation may be revised to match.
+### Opening and rule-based metrics: pass@k moves in
+
+- **A new framing up front.** The 2025 deck split "evaluation" into output quality and system performance and covered only the former. The 2026 deck instead lists three families of metrics (reliability, quality, and product, the last including user outcome, adoption and engagement), then four challenges: many kinds of tasks, quality with many dimensions, many good answers to the same prompt, and systems that keep getting more complex (an agent loops many times).
+- **Cohen's kappa stays.** The recording adds a rule of thumb: agreement is good once kappa gets to around 0.8. The slides drop the mention of Krippendorff's alpha.
+- **Rule-based metrics split into two kinds.** The new kind is "reasoning-based": run test cases for code, compare against the ground truth for math. pass@k, which 2025 covered in [Lecture 6](/posts/ai/2026-09-29-cme295-llm-reasoning-en), moves here, with the unbiased estimator from [Chen et al.](https://arxiv.org/abs/2107.03374) and three metrics side by side: pass@k when checking is easy and you can afford the latency, pass@1 when only a single generation matters, and cons@k, whether the majority vote over k attempts is right (cited from DeepSeek-R1), which the recording says is for when you can't verify answers at inference time. The recording also ties pass@k to temperature: at temperature 0 more attempts change nothing, raising it lets the model explore other solutions, and raising it too far makes answers sloppy, so there is a sweet spot.
+- The other kind, "natural language-based," is BLEU, METEOR and ROUGE, with the same three limitations as in 2025.
+
+### LLM-as-a-Judge: a tuning loop, and five practices instead of six
+
+- **Four benefits instead of two**: no reference needed, paraphrase handled natively, a new task only needs a new prompt, and rationales make scores interpretable.
+- **The pointwise/pairwise page is gone.** Pairwise comparison shows up later, in the benchmark and Arena parts.
+- **New: "Tune LLM-as-a-Judge" in four steps.** Hand-label a small batch of outputs, set a baseline with a simple prompt, hill-climb the prompt (look at what the judge misses or wrongly flags, change the prompt, rerun), then freeze the final prompt. The recording is more concrete: label about 10 question–answer pairs to start, measure the judge against the labels with precision and recall, set a target (say, recall on failures above 90%), and hand the loop to a coding agent, since almost no one runs it by hand anymore. This turns the "calibrate with human ratings" practice into a procedure.
+- **Six best practices become five.** "Crisp guidelines" is dropped, and "low temperature" becomes "make it reproducible": lower the temperature, or sample several times and take a majority vote (self-consistency). The three biases and their remedies are unchanged.
+- **Factuality scoring is gone.** The 2025 list of evaluation dimensions (task performance and alignment) and the weighted decomposition in "Factuality: split a passage into individual facts" above do not appear in the 2026 deck.
+- **One new direction.** The last page of the judge part mentions "decision models" and asks whether a decision really needs generated text. In the recording, these models skip text and output calibrated probabilities over the answer options, which could change the best practices above; details are left for the last lecture.
+
+### Agent evaluation: same three failure stages, plus time horizon
+
+The table in "When an agent fails, which step failed?" above carries over almost page for page, down to the bear-finding example. The one new page is METR's (Model Evaluation & Threat Research) "X% time horizon": how long a task, measured in human-expert time, an agent can complete with X% success. The recording looks at the 50% line and how it grows over time, a sign that models hold up better over long ReAct loops and recover from mistakes.
+
+### Benchmarks: rewritten from scratch
+
+This is the biggest change. MMLU, AIME, PIQA, SWE-bench, HarmBench, τ-bench, pass^k, the Gemini 3 score table and the three contamination precautions from 2025 are all gone from the 2026 deck. The new version is built around three ideas.
+
+**1. Use a composite index as the map.** The deck uses the Artificial Analysis Intelligence Index v5.0.1 as its skeleton, splitting "intelligence" into four categories at 25% each:
+
+| Category | Components (weight) | The one the deck examines |
+|---|---|---|
+| General | AA-Omniscience 15%, HLE-Diamond 10% | AA-Omniscience: 6,000 questions across 42 topics, only 10% public; no tools; a wrong answer costs 1 point, declining costs 0; an LLM judge grades against the gold answer |
+| Knowledge (knowledge work) | AA-Briefcase 15%, AutomationBench-AA 5%, GDP.pdf 5% | AA-Briefcase: weeks-long white-collar scenarios (data science, product management, banking operations, and more) with piles of emails, Slack messages and reports that deliberately contradict each other; no internet, up to 500 turns; an LLM judge marks each rubric item pass or fail, and presentation quality is judged pairwise between two deliverables |
+| Coding | FrontierCode 2.0 15%, Terminal-Bench 4.0 10% | Terminal-Bench 4.0: 66 terminal tasks with a Docker environment, internet access and 8 hours per task, graded by hidden tests with no LLM judge |
+| Science | Terminal-Bench-Science 15%, CritPt v2 10% | Terminal-Bench-Science: 70 research tasks in the same setup; for example, recovering an asteroid's position and velocity from observations, accepted only within an error threshold |
+
+The table ties the earlier parts together: knowledge questions use an LLM judge, the hard-to-define "good presentation" uses pairwise comparison, and code and science tasks that can be written as tests use deterministic checks. The recording is explicit: knowledge work is the hardest to evaluate and the LLM judge is only a proxy; when a deterministic check is possible, use it instead of a judge.
+
+**2. Scores get gamed, and the index changes in response.** The deck calls the "great scores, disappointing in use" pattern "benchmaxxing" and lists three possible causes: optimizing for public metrics, a mismatch with what users expect, and losing good practices from traditional machine learning. The evidence is MaxxBench: tweak a coding benchmark's task statements slightly (a different timestamp format, lowercase file names) and every model's score drops sharply while the ranking reshuffles. The causes the deck lists include the model imagining constraints the task didn't ask for, betting that new rules won't be tested, reward hacking on the tests, and using network access to call other models. Remedies come in three forms: SWE-Bench Pro keeps part of its tasks private, companies build internal benchmarks they don't publish (the deck names Databricks, DoorDash and Ramp), or, the other way around, a company open-sources a benchmark for its own domain so model providers optimize for it (Harvey's legal agent benchmark). The index side responds to how users feel too: from v4.2 (September 2026) to v5.0.1 (November), some components were swapped and some kept, several were upgraded, and the weights were redistributed.
+
+**3. Benchmarks need checking too.** 2025 talked about test items leaking into training data; in 2026 that concern folds into the benchmaxxing discussion above, and this part turns to the quality of the items themselves and about agents cheating. Items can have typos, contradict each other, or be unsolvable, and the deck introduces LLM-driven auditing of benchmarks (BenchGuard). Agents take shortcuts, which the deck lays out as symptom → remedy: digging through git history for the answer → a fresh repo each time; searching by task ID → randomized IDs; downloading answers from GitHub/GitLab → blocked addresses; any other suspicious pattern → scan the logs and seal the leak, marked "far from a solved problem." The deck also recommends METR's investigation of the OpenAI / Hugging Face hacking incident, which happened during an evaluation.
+
+Cost and the Pareto frontier remain, with the trade-off axes now quality vs. cost, time, output tokens and context length. Goodhart's law remains too, with the same conclusion: don't over-index on benchmarks.
+
+### Real-life feel: from rating scales to Elo
+
+In 2025 the deck ended by recommending Chatbot Arena and trying a few models yourself. In 2026 it derives why Arena is designed the way it is: have people rate 1–5 and average (nuanced, but noisy and hard on an absolute scale) → a binary pass rate (easier, still absolute) → pairwise win rate (easiest, but depends on who you were compared against) → an Elo score that accounts for opponent strength. This derivation was not covered in class; it is only on the slides. The deck lists four limitations: expensive, slow, subjective, and converged scores can hide artifacts. The recording adds that ordinary users can't always tell which answer is correct, and some questions shouldn't be left to them.
+
+### New closing part: building evals for your own agent
+
+The last part is a practical guide with no 2025 counterpart. The recording calls the mindset eval-driven: build the eval first, then use the judge-tuning loop to hill-climb prompts, tools and design. The deck's steps:
+
+- **Start from four questions**: Where is my agent strong or weak? Did it regress this week? Does it match what users want? How do I make progress?
+- **Metrics**: break the system's objective into quantifiable dimensions, at the component level (what has to work for the design to hold) and the trajectory level (what the end user cares about); find failure modes first, then quantify them.
+- **Data in three tiers**: P0, the crucial cases, about 10; P1, generally supported cases, about 100; P2, nice-to-haves, about 1,000. Sources are expert-written, user logs (which reflect the real distribution), and synthetic data ("usually not great," per the deck).
+- **Three kinds of graders**: deterministic program logic, an LLM judge, and an agent judge (for cases that need their own investigation). The recording's advice is to use deterministic checks wherever you can, since LLM and agent judges are hard to tune.
+- **Knobs once results are in**: swap the model or reasoning effort, hill-climb prompts, skills and tools, or fix the grader or the data; usually a combination.
+
+Each question maps to a source: general evaluations for strengths and weaknesses, P0 cases for regressions, logs for alignment with users, and forward-looking benchmarks such as ARC Prize for direction.
 
 ## Self-check
 
@@ -253,32 +310,41 @@ These questions are adapted from Section IV, "LLM evaluation," of the [2025 fina
 
 ## Course video sources
 
-The videos below come from Stanford Online’s official CME295 Autumn 2025 playlist; on 2026-10-10 the lecture title and video ID were checked live against the playlist and match.
+The first video comes from Stanford Online’s official CME295 Autumn 2025 playlist (Lecture 8); on 2026-10-10 the lecture title and video ID were checked live and match. The second is the Autumn 2026 recording listed for Lecture 7, "LLM evaluation," on the official 2026 syllabus; on 2026-11-23 it was checked live against the syllabus link and matches.
 
 ```youtube
 url: https://www.youtube.com/watch?v=8fNP4N46RRo
 title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
 ```
 
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
+```youtube
+url: https://www.youtube.com/watch?v=uoSynlTDyMs
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evaluation
+```
 
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 8, LLM Evaluation (page date 2025-11-21, length 1:49:25). Its chapters are inter-rater agreement, rule-based metrics (METEOR/BLEU/ROUGE), LLM-as-a-judge and its biases (position, verbosity, self-enhancement), factuality, agent evaluation, and benchmarks (MMLU, AIME/PIQA, SWE-bench, HarmBench, Tau-Bench), consistent with the post's topic. The post cites only the slides and does not relay spoken remarks.
+Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo), [Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evaluation](https://www.youtube.com/watch?v=uoSynlTDyMs)
+
+Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The video is Autumn 2025 Lecture 8, LLM Evaluation (page date 2025-11-21, length 1:49:25). Its chapters are inter-rater agreement, rule-based metrics (METEOR/BLEU/ROUGE), LLM-as-a-judge and its biases (position, verbosity, self-enhancement), factuality, agent evaluation, and benchmarks (MMLU, AIME/PIQA, SWE-bench, HarmBench, Tau-Bench), consistent with the post's topic. The body of the post cites only the 2025 slides and does not relay spoken remarks. uoSynlTDyMs is Autumn 2026 Lecture 7, LLM Evaluation (1:44:59); it has no human-made captions, so a machine transcript of the whole lecture was read and compared page by page with the 2026 slides. The spoken notes in "What changes in 2026" all come from this recording.
 
 Course and recording entries:
 
 - [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
+- [2026 syllabus](https://cme295.stanford.edu/syllabus/)
 - [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 
-Checked: 2026-10-10.
+Checked: 2026-11-23.
 
 ## Update Log
 
+- 2026-11-23: The 2026 Lecture 7 recording and slides are out. Rewrote "What changes in 2026" from a page-by-page comparison of the two decks and the recording: pass@k added to rule-based metrics, the judge-tuning loop, six best practices down to five, time horizon added to the agent part, the benchmark part rebuilt around a composite index, benchmaxxing, agent cheating and Arena-style Elo, and a new section on building evals for your own agent. Added links to the 2026 recording and slides.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked live against the Stanford Online CME295 Autumn 2025 playlist; lecture and video ID match, so the status is now videos included.
 - 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 8; topic and date match the post, so nothing needed correcting.
 
 ## References
 
+- [2026 Lecture 7 recording](https://www.youtube.com/watch?v=uoSynlTDyMs)
+- [2026 Lecture 7 slides (PDF)](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf)
 - [CME 295 2025 syllabus](https://cme295.stanford.edu/syllabus/2025/) / [2026 syllabus](https://cme295.stanford.edu/syllabus/)
 - [2025 Lecture 8 slides (PDF)](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)
 - [2025 Lecture 8 recording](https://www.youtube.com/watch?v=8fNP4N46RRo)
