@@ -44,14 +44,14 @@ Oxlint 預設啟用高訊號的 correctness 規則，把明顯錯誤、可疑或
 
 ## Type-aware linting 怎麼接 TypeScript 7
 
-Oxlint 的一般規則在 Rust 執行；需要型別的規則則透過 `oxlint-tsgolint`，用 TypeScript 7 的 Go compiler 建立 program，再把 diagnostics 回傳給 Oxlint。官方現況支援 61 條 typescript-eslint type-aware 規則中的 59 條。啟用方式是安裝額外套件後加上 `--type-aware`；實驗性的 `--type-check` 還能把 compiler diagnostics 合併進同一個命令。
+Oxlint 的一般規則在 Rust 執行；需要型別的規則交給另外安裝的 type-aware backend 建立 TypeScript program，再把 diagnostics 回傳給 Oxlint。backend 現在有兩個：`oxlint-tsgolint` 用 TypeScript 7.0 的 Go 實作；`tsrs` 是以 TypeScript 7.1 為基礎的 Rust port，裝了 `tsrs` 時 Oxlint 會自動改用它。兩者共用同一組 CLI flag 與設定，官方現況支援 62 條 typescript-eslint type-aware 規則中的 60 條。啟用方式是安裝其中一個 backend 後加上 `--type-aware`；`--type-check` 還能把 compiler diagnostics 合併進同一個命令。
 
 ```bash
-pnpm add -D oxlint oxlint-tsgolint
+pnpm add -D oxlint oxlint-tsgolint   # 或改裝 Rust backend：pnpm add -D oxlint tsrs
 pnpm exec oxlint --type-aware
 ```
 
-這裡有明確代價。type-aware mode 必須解析 `tsconfig` 與 dependency graph，速度不會等同 syntax-only lint；monorepo 也要先建好相依 package 的 `.d.ts`。它要求 TypeScript 7，舊的 compiler option 可能得先遷移。不要拿 syntax-only 的官方跑分推論 type-aware CI 也會快同樣倍數。
+這裡有明確代價。type-aware mode 必須解析 `tsconfig` 與 dependency graph，速度不會等同 syntax-only lint；monorepo 也要先建好相依 package 的 `.d.ts`。不論用哪個 backend，都照 TypeScript 7 的設定規則走，`tsconfig` 裡的 `baseUrl` 這類舊選項不支援，TypeScript 6.0 起棄用或 7.0 移除的設定要先遷移。不要拿 syntax-only 的官方跑分推論 type-aware CI 也會快同樣倍數。
 
 ## ESLint plugin 相容已經很廣，但仍有邊界
 
@@ -64,6 +64,10 @@ Oxlint 除了原生內建 plugin，也能載入 ESLint v9 相容的 JavaScript p
 大型 monorepo、lint 已成為 CI 熱點、規則多半落在主流 plugin 範圍時，Oxlint 的回報很直接。新專案也可以用 correctness-first 設定，避免先背一整個 ESLint dependency tree。若 repo 依賴自製 parser、processor、framework template rule 或冷門 plugin，保留 ESLint 仍是合理選擇。
 
 AI 時代再多一個判準：agent 需要快而穩定的局部回饋。`oxlint path/to/file.ts` 夠快，適合放進每次修改後的自我檢查；但規則名稱與 autofix 行為若和 repo 現況不同，速度只會讓錯誤方向更快發生。先做 shadow run，比對 diagnostics、誤報、漏報與 fix diff，再決定是否把品質閘門交出去。
+
+## 更新紀錄
+
+- 2026-11-23：type-aware linting 新增 Rust 寫的 `tsrs` backend（以 TypeScript 7.1 為基礎），不再只有 `oxlint-tsgolint` 一條路；支援規則數從 61 條中的 59 條更新為 62 條中的 60 條。
 
 ## 參考資料
 

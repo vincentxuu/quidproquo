@@ -5,8 +5,8 @@ category: tech
 type: deep-dive
 tags: [kafka, event-streaming, distributed-systems, message-queue, data-pipeline, ai-agent]
 lang: zh-TW
-tldr: "Kafka 的核心是依 partition 排序、依 retention 保存的分散式 log；consumer group 用 offset 分工，exactly-once 只在 Kafka transaction 能涵蓋的邊界內成立。"
-description: "從 partition、consumer group、offset、replication 與 transaction 解讀 Apache Kafka，並比較傳統訊息佇列與 Redpanda 的適用邊界。"
+tldr: "Kafka 的核心是依 partition 排序、依 retention 保存的分散式 log；consumer group 用 offset 分工，exactly-once 只在 Kafka transaction 能涵蓋的邊界內成立。Kafka 4.2 起 share group 已可用於 production，讓 Kafka 也能當逐筆 ack 的工作佇列，代價是放棄 partition 內的順序。"
+description: "從 partition、consumer group、offset、replication 與 transaction 解讀 Apache Kafka，並比較 share group、傳統訊息佇列與 Redpanda 的適用邊界。"
 series:
   name: "AI 時代的技術選擇"
   order: 25
@@ -15,7 +15,7 @@ draft: false
 
 > :globe: [English version](/posts/tech/2026-08-22-apache-kafka-event-streaming-en)
 
-[Apache Kafka](https://kafka.apache.org/42/design/design/) 常被放進「訊息佇列」清單，但它的核心資料結構不是一封信被拿走就消失的 queue，而是可保留、可重播的分散式 commit log。producer 把 record append 到 topic partition，consumer 保存自己讀到哪個 offset；資料是否刪除由 retention policy 決定，不由某個 consumer 是否讀過決定。
+[Apache Kafka](https://kafka.apache.org/44/design/design/) 常被放進「訊息佇列」清單，但它的核心資料結構不是一封信被拿走就消失的 queue，而是可保留、可重播的分散式 commit log。producer 把 record append 到 topic partition，consumer 保存自己讀到哪個 offset；資料是否刪除由 retention policy 決定，不由某個 consumer 是否讀過決定。
 
 這個差別決定了 Kafka 適合事件串流、CDC、稽核軌跡與多下游資料管線，也決定了它通常比背景工作佇列更難營運。
 
@@ -23,7 +23,7 @@ draft: false
 
 topic 會切成多個 partition。Kafka 只保證單一 partition 內的順序，不保證整個 topic 的全域順序。producer 若用訂單 ID 當 key，同一張訂單通常會落到同一 partition，事件順序得以保留。沒有 key 或 key 分布不均，則可能得到無法預期的分配或 hot partition。
 
-consumer group 是一個邏輯訂閱者。傳統 consumer group 裡，同一 partition 同一時間只交給 group 內一個 consumer；因此增加 consumer 超過 partition 數量，不會繼續增加平行度。不同 group 各自持有 offset，可以讓風控、通知與分析各讀一次相同事件，而不用複製三份資料。
+consumer group 是一個邏輯訂閱者。傳統 consumer group 裡，同一 partition 同一時間只交給 group 內一個 consumer；因此增加 consumer 超過 partition 數量，不會繼續增加平行度（下一節的 share group 是例外）。不同 group 各自持有 offset，可以讓風控、通知與分析各讀一次相同事件，而不用複製三份資料。
 
 ```text
 orders topic
@@ -35,6 +35,16 @@ orders topic
 ```
 
 offset 是下一筆要讀的位置，不是 broker 對每則訊息維護的 ack 狀態。consumer 能把 offset 往回移，修好程式後重跑歷史事件；這是 Kafka 和傳統 queue 最關鍵的分界。
+
+## Share group：Kafka 也能當工作佇列
+
+Kafka 4.2（2026-02）宣布 [share group](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)（KIP-932，Queues for Kafka）可以用在 production。它是另一種消費模型：同一個 partition 可以同時分給 share group 裡的多個 consumer，broker 逐筆追蹤狀態，不再只靠一個 offset。
+
+- consumer 拿到一筆 record 時取得有時限的 lock（預設 30 秒），期間別人拿不到。處理完 accept；處理不了可以 release 讓它重送、reject 標成無法處理，或 renew 延長 lock。lock 到期沒回應，record 會自動放回去。
+- 每筆 record 有 delivery count，重送超過上限（預設 5 次）就封存不再送，用來擋住一直處理失敗的毒訊息。
+- 交付語意是 at-least-once，handler 一樣要冪等。
+
+代價是順序。[KafkaShareConsumer 文件](https://kafka.apache.org/44/javadoc/org/apache/kafka/clients/consumer/KafkaShareConsumer.html) 寫得很直接：share group 換來更彈性的分工，犧牲的是 record ordering；只有同一批拿到的 record 依 offset 遞增，批與批之間、尤其發生重送時，不保證順序。所以要保序的事件（同一張訂單的狀態變化）繼續用 consumer group；彼此獨立、只在乎吞吐的工作（逐筆轉檔、送通知、跑 embedding），才適合 share group，而且 consumer 數不再被 partition 數綁住。
 
 ## 可靠性不是只設 `acks=all`
 
@@ -52,7 +62,7 @@ Kafka transaction 可以把輸出 topic 的 record 與輸入 consumer offset 放
 
 現代 Kafka 已用 KRaft controller quorum 管理 cluster metadata，不再需要 ZooKeeper。這少了一套分散式系統，但 partition 數、replica placement、磁碟容量、consumer lag、rebalance、schema evolution 與跨區複寫仍要被管理。
 
-Kafka 適合多個獨立 consumer 需要重播、保留時間長、吞吐高，而且團隊願意維護資料平台的情境。只有幾個背景工作、每筆處理完即可刪除時，RabbitMQ、SQS、BullMQ 或 Cloudflare Queues 通常更直接。需要 Kafka client 生態但不想維護 JVM broker，可評估 Redpanda 或託管 Kafka；那是營運模型選擇，不是事件模型改變。
+Kafka 適合多個獨立 consumer 需要重播、保留時間長、吞吐高，而且團隊願意維護資料平台的情境。share group 讓「同一份事件流，另外分一群 worker 逐筆處理」不必再額外接一套 queue，所以已經在跑 Kafka 的團隊，背景工作可以先評估 share group。反過來，只有幾個背景工作、每筆處理完即可刪除、也沒有其他事件串流需求時，為了 share group 去架 Kafka 不划算，RabbitMQ、SQS、BullMQ 或 Cloudflare Queues 通常更直接。需要 Kafka client 生態但不想維護 JVM broker，可評估 Redpanda 或託管 Kafka；那是營運模型選擇，不是事件模型改變。
 
 ## AI 系統該怎麼用
 
@@ -60,8 +70,15 @@ Kafka 很適合保存 agent run event、tool call、模型回應 metadata 與 ev
 
 導入前先寫出三件事：需要重播多久、哪個 key 必須保序、重複處理會造成什麼副作用。答不出來時，Kafka 的 partition 與 transaction 只會把模糊需求變成昂貴設定。
 
+## 更新紀錄
+
+- 2026-11-23：新增 share group 一節（Kafka 4.2 起可用於 production，逐筆 ack、可多個 consumer 讀同一 partition、不保證順序），修正「consumer 數超過 partition 數不增加平行度」只適用傳統 consumer group，並改寫何時改用 RabbitMQ／SQS 的段落；文件連結改指向 4.4。
+
 ## 參考資料
 
-- [Apache Kafka design](https://kafka.apache.org/42/design/design/)
-- [Apache Kafka consumer groups](https://kafka.apache.org/42/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html)
-- [Apache Kafka KRaft operations](https://kafka.apache.org/42/operations/kraft/)
+- [Apache Kafka design](https://kafka.apache.org/44/design/design/)
+- [Apache Kafka consumer groups](https://kafka.apache.org/44/javadoc/org/apache/kafka/clients/consumer/KafkaConsumer.html)
+- [Apache Kafka KRaft operations](https://kafka.apache.org/44/operations/kraft/)
+- [Apache Kafka 4.2.0 release announcement（share group production-ready）](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)
+- [KafkaShareConsumer](https://kafka.apache.org/44/javadoc/org/apache/kafka/clients/consumer/KafkaShareConsumer.html)
+- [KIP-932: Queues for Kafka](https://cwiki.apache.org/confluence/spaces/KAFKA/pages/255070434/KIP-932+Queues+for+Kafka)

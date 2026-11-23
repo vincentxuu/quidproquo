@@ -6,7 +6,7 @@ type: deep-dive
 tags: [aws, fargate, ecs, containers, cloud-computing]
 lang: en
 tldr: "Fargate removes container-host operations, but task definitions, ECS services, VPCs, IAM, scaling, deployment, and observability remain your system."
-description: "AWS Fargate and ECS responsibility boundaries, tasks, services, networking, IAM, storage, scaling, and Lambda/App Runner tradeoffs."
+description: "AWS Fargate and ECS responsibility boundaries, tasks, services, networking, IAM, storage, scaling, and tradeoffs against Lambda, ECS Express Mode, and EC2."
 series:
   name: "Technology Choices in the AI Era"
   order: 51
@@ -35,15 +35,22 @@ Tasks are replaceable, so local disk is ephemeral. The [storage documentation](h
 
 After choosing a CPU/memory combination, monitor utilization, OOMs, startup, deployment failures, target response, and queue depth. Validate scale-in protection, minimum healthy percentage, circuit breakers, and rollback through failure injection.
 
-## Fargate, Lambda, App Runner, or EC2
+## Fargate, Lambda, ECS Express Mode, or EC2
 
-Fargate fits standard containers, persistent services or workers, sidecars, deep VPC integration, and teams that do not want hosts. Lambda fits short bursty events; App Runner requires less setup for a simple HTTP service; ECS on EC2 can suit steady high utilization, unusual hardware, or host control.
+Fargate fits standard containers, persistent services or workers, sidecars, deep VPC integration, and teams that do not want hosts. Lambda fits short bursty events, and multi-step long-running flows should first be checked against [Lambda durable functions](/posts/tech/2026-08-22-aws-lambda-compute-en); ECS on EC2 can suit steady high utilization, unusual hardware, or host control.
+
+For a simple HTTP service with minimal setup, App Runner used to be the suggestion, but it closed to new customers on April 30, 2026 (see the [App Runner post](/posts/tech/2026-08-22-aws-app-runner-en)). The current equivalent is [ECS Express Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html): provide an image and two IAM roles, and it builds an ECS service on Fargate with an ALB, auto scaling, and networking. It is not a separate platform; what it creates are the tasks and services this post describes, so adding a sidecar or changing deployment means editing those resources directly.
 
 Fargate delegates host responsibility rather than eliminating platform engineering. Stop a task, break an image pull, exhaust subnet addresses, and disable NAT or an endpoint. Confirm deployment, alarms, and rollback recover the service.
+
+## Update history
+
+- 2026-11-23: App Runner closed to new customers on April 30, 2026; the selection section now compares against ECS Express Mode and links to Lambda durable functions.
 
 ## References
 
 - [Amazon ECS task definition differences for Fargate](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-tasks-services.html)
 - [Fargate task networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-networking.html)
 - [Fargate task ephemeral storage](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-task-storage.html)
+- [Amazon ECS Express Mode](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/express-service-overview.html)
 - [Choosing an AWS container service](https://docs.aws.amazon.com/decision-guides/latest/containers-on-aws-how-to-choose/choosing-aws-container-service.html)

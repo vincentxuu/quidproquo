@@ -152,7 +152,7 @@ One of them lands very close to home. On 2026-08-06 Cloudflare launched **Kitesu
 | **The backend contract layer** | tRPC, oRPC, ts-rest, Zodios, Hono RPC; on the OpenAPI side openapi-typescript, Stainless, Speakeasy; cross-language gRPC / Connect, Protobuf / Buf, GraphQL and Codegen | Entirely empty |
 | **Data access** | Kysely | Drizzle and Prisma now have dedicated posts |
 | **Auth and authorization** | Better Auth, plus the authorization model for an agent acting on a user's behalf | Entirely empty |
-| **Compute on the big three clouds** | AWS Lambda / Fargate / App Runner, Google Cloud Run / GKE, Azure Container Apps / App Service | Only AI certification prep posts, nothing on choosing the platforms |
+| **Compute on the big three clouds** | AWS Lambda / Fargate / App Runner (closed to new customers since April 30, 2026; new projects should use ECS Express Mode), Google Cloud Run / GKE, Azure Container Apps / App Service | Only AI certification prep posts, nothing on choosing the platforms |
 | **GPU and inference-specific clouds** | CoreWeave, Lambda Labs, RunPod, Nebius, Crusoe, Replicate, Hugging Face | Entirely empty |
 | **Second-tier clouds and on-prem** | DigitalOcean, Hetzner, Vultr, Linode, Scaleway, OVHcloud, Oracle OCI; on-prem Proxmox, OpenStack | Entirely empty |
 | **Managed PaaS** | Vercel, Netlify, Render, Railway, Fly.io, Koyeb, Deno Deploy, DigitalOcean App Platform | The Cloudflare line is covered thoroughly, the rest is empty |
@@ -216,6 +216,7 @@ These criteria exist to support a decision, not to replace one. A library can sc
 
 ## Update history
 
+- 2026-11-23: Noted in the roadmap that App Runner closed to new customers on April 30, 2026, and new projects should use ECS Express Mode.
 - 2026-08-22: Re-audited the roadmap against the actual post inventory and marked Tavily, Linkup, Crawl4AI, Apify, Meilisearch, Qdrant, Pagefind, Jina Reader, Hugging Face, Serper, SerpAPI, Brave Search API, CopilotKit, and assistant-ui as covered by dedicated posts.
 - 2026-08-21: Updated the series through order 20, added the twelve later reading paths, and reconciled the roadmap's covered and uncovered items.
 

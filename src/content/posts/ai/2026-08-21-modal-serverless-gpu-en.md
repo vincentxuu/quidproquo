@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [modal, serverless-gpu, sandbox, gpu, ai-agent, cost]
 lang: en
-tldr: "Modal is a per-second-billed serverless GPU platform that also treats agent sandboxes as a first-class primitive (company-reported: over 1 billion sandboxes launched, more than a third of revenue). The selection question isn't how convenient it is — it's your GPU utilization. Verified 2026-08-21: Modal's A100 80GB works out to $2.50/hr against RunPod's $1.59/hr for the same card, so above 64% utilization renting your own is cheaper. But on the same day, H100 SXM is $3.95/hr on Modal against $3.99 on Lambda — on that card the premium is gone."
+tldr: "Modal is a per-second-billed serverless GPU platform that also treats agent sandboxes as a first-class primitive (company-reported: over 1 billion sandboxes launched, more than a third of revenue). The selection question isn't how convenient it is — it's your GPU utilization. At November 2026 prices, Modal's A100 80GB works out to $2.50/hr against $2.19/hr for the same card on RunPod Secure Cloud, so renting your own only wins above 88% utilization (56% against Community Cloud at $1.39/hr). On H100 SXM and B200, Modal is cheaper than both RunPod Secure Cloud and Lambda — the premium is negative."
 description: "Modal from a technology-selection angle: what the serverless GPU layer and the agent sandbox layer each solve, how the cost math works against bare GPU providers, why cold starts are the real technical battleground, why the sandbox layer becomes mandatory once an agent runs untrusted code, and the honest limits — lock-in, no self-hosting, concurrency caps."
 series:
   name: "Technology Choices in the AI Era"
@@ -58,26 +58,30 @@ This site has already brushed against Modal: the post on [internal AI coding age
 
 Rent a GPU machine and the bill is unrelated to whether you use it; Modal bills only while the container is alive. So the decision collapses into one number: **what fraction of the day your GPU is actually computing.**
 
-Verified on three vendor sites on 2026-08-21, normalized to dollars per GPU-hour (Modal lists per-second prices; multiplied by 3600 here):
+November 2026 prices from the three vendors, normalized to dollars per GPU-hour (Modal lists per-second prices; multiplied by 3600 here). RunPod has two tiers: Secure Cloud runs in RunPod's partner data centers, while Community Cloud is cheaper capacity from third-party hosts with different reliability and compliance terms, so decide which one you can accept before comparing. Lambda uses the per-GPU price of its 8-GPU instances:
 
-| GPU | [Modal](https://modal.com/pricing) (per-second, as /hr) | [RunPod](https://www.runpod.io/pricing) Pod | [Lambda](https://lambda.ai/service/gpu-cloud#pricing) on-demand |
-|---|---|---|---|
-| H100 SXM 80GB | $3.95 | $3.29 | $3.99 |
-| A100 SXM 80GB | $2.50 | $1.59 | $2.79 |
-| L40S 48GB | $1.95 | $0.99 | — |
-| B200 180GB | $6.25 | $6.79 | $6.69 |
+| GPU | [Modal](https://modal.com/pricing) (per-second, as /hr) | [RunPod](https://www.runpod.io/pricing) Pod Secure Cloud | RunPod Pod Community Cloud | [Lambda](https://lambda.ai/service/gpu-cloud#pricing) on-demand (8-GPU) |
+|---|---|---|---|---|
+| H100 SXM 80GB | $3.95 | $4.39 | $2.69 | $4.59 |
+| A100 SXM 80GB | $2.50 | $2.19 | $1.39 | $3.19 |
+| L40S 48GB | $1.95 | $1.09 | $0.79 | — |
+| B200 180GB | $6.25 | $7.99 | $5.98 | $7.69 |
 
-The point of this table isn't "Modal is more expensive." It's that **the premium swings violently by card**. A100 against RunPod is 1.57x, L40S is 1.97x — but H100 against Lambda is 0.99x. On the same day, Modal's H100 is cheaper than Lambda's.
+The point of this table isn't "Modal is more expensive." It's that **the premium swings violently by card and by the competitor's tier**. Against RunPod Secure Cloud, A100 is 1.14x and L40S is 1.79x, while Modal is cheaper on H100 and B200; against Lambda, H100 is only 0.86x. Switch to Community Cloud and A100 becomes 1.80x, a much wider gap.
 
 Converted into break-even utilization (Modal price × utilization = the competitor's full-month price):
 
 | Comparison | Break-even utilization |
 |---|---|
-| A100 vs RunPod | 64% |
-| L40S vs RunPod | 51% |
-| H100 vs Lambda | 101% (above 100%, meaning Modal always wins on this card) |
+| A100 vs RunPod Secure | 88% |
+| A100 vs RunPod Community | 56% |
+| L40S vs RunPod Secure | 56% |
+| L40S vs RunPod Community | 41% |
+| H100 vs RunPod Community | 68% |
+| H100 vs Lambda, RunPod Secure | Above 100% (Modal always wins on this card) |
+| B200 vs Lambda, RunPod Secure | Above 100% (same) |
 
-**What to do**: pull up last month's GPU monitoring and compute "seconds with utilization > 0 ÷ seconds the machine was powered on." Below 50%, serverless almost certainly wins. Above 80% with steady traffic, you're paying a premium for idle time. In between, it depends on the card — the table above says the H100 carries no premium and the A100 does.
+**What to do**: pull up last month's GPU monitoring and compute "seconds with utilization > 0 ÷ seconds the machine was powered on." Below 40%, serverless almost certainly wins. Above 90% with steady traffic, you're paying a premium for idle time. In between, pick the competitor's tier first, then the card: if you need data-center-grade machines, Modal costs you nothing extra on H100 and B200, and A100 only pays to rent yourself above 88%; if Community Cloud is acceptable, A100 and L40S should be rented directly once you pass roughly 50%.
 
 ## 4. Second criterion: are you buying the price gap or the software layer
 
@@ -85,7 +89,7 @@ The math above hides an assumption: that both sides deliver the same thing. They
 
 A bare GPU provider hands you a booted machine and the rest is yours: building container images, caching model weights, writing the autoscaler, reclaiming idle capacity, scheduling across regions. That's exactly what Modal sells — the [four autoscaler parameters](https://modal.com/docs/guide/scale) (`min_containers`, `max_containers`, `buffer_containers`, `scaledown_window`) are a whole team's worth of work you would otherwise build yourself.
 
-So the real question isn't "who's cheaper," it's: **is the saved price gap enough to pay someone to maintain that layer?** One A100 costs $654 more per month on Modal ($2.50 − $1.59, running all 720 hours). Three cards is roughly one engineer's monthly salary in Taiwan; thirty cards and building it yourself is obviously right. That is the only arithmetic this criterion needs.
+So the real question isn't "who's cheaper," it's: **is the saved price gap enough to pay someone to maintain that layer?** One A100 running all 720 hours costs $223 more per month on Modal than on RunPod Secure Cloud ($2.50 − $2.19), or $799 more than on Community Cloud ($2.50 − $1.39). The former takes nine or ten cards to reach one engineer's monthly salary in Taiwan; the latter takes about three. Past thirty cards, building it yourself is obviously right on either tier. That is the only arithmetic this criterion needs.
 
 ## 5. Cold starts: the actual technical battleground
 
@@ -123,13 +127,17 @@ Competition in this layer is still pushing prices down. [Cloudflare made Sandbox
 
 ## Overall
 
-Modal's core trade-off is: **a proprietary abstraction and a 0–50% price premium in exchange for an entire GPU infrastructure team's work.**
+Modal's core trade-off is: **a proprietary abstraction and a premium that varies by card (from negative to nearly 80% against data-center-grade competitors, and higher against Community Cloud) in exchange for an entire GPU infrastructure team's work.**
 
 The cases where it fits are easy to recognize: spiky traffic, GPU utilization persistently below 50%, nobody on the team who wants to maintain an autoscaler, or you're building agents and need GPU sandboxes — that last one currently has few substitutes.
 
 The cases where it doesn't fit are equally easy: GPUs saturated nearly around the clock (go get a long-term contract from RunPod or Lambda), sandboxes that only run tests and lint (E2B and Cloudflare Sandboxes are cheaper), or compliance that forbids code leaving your own datacenter (which rules Modal out outright).
 
 One last note for anyone doing the selection: the price tables here will probably be wrong in three months. **What's worth keeping isn't the numbers, it's the formula — your utilization times Modal's price, against the competitor's full-month price.** That formula doesn't expire.
+
+## Update history
+
+- 2026-11-23: Recalculated the price table and break-even points. Modal's own prices are unchanged, but RunPod Secure Cloud raised prices (A100 SXM $1.59→$2.19, H100 SXM $3.29→$4.39, L40S $0.99→$1.09, B200 $6.79→$7.99) and so did Lambda's 8-GPU instances (H100 $3.99→$4.59, A100 $2.79→$3.19, B200 $6.69→$7.69). The A100 break-even against RunPod moved from 64% to 88%; added a RunPod Community Cloud column with its break-even points.
 
 ## References
 
@@ -147,8 +155,8 @@ One last note for anyone doing the selection: the price tables here will probabl
 - [Building with Modal and the OpenAI Agents SDK (Modal blog, 2026-04-15)](https://modal.com/blog/building-with-modal-and-the-openai-agent-sdk) (the unsafe-prompt demonstration, the GPU-sandbox uniqueness claim, filesystem snapshot branching)
 - [Sandbox clients — OpenAI Agents SDK docs](https://openai.github.io/openai-agents-python/sandbox/clients/) (the seven hosted backends, the Modal resource-sizing section)
 - [openai-agents-python modal_runner.py example source](https://github.com/openai/openai-agents-python/blob/main/examples/sandbox/extensions/modal_runner.py) (the `gpu` field on `ModalSandboxClientOptions`)
-- [RunPod pricing page](https://www.runpod.io/pricing) (verified 2026-08-21: Pod and Serverless hourly rates)
-- [Lambda GPU Cloud pricing](https://lambda.ai/service/gpu-cloud#pricing) (verified 2026-08-21: H100 / A100 / B200 on-demand rates)
+- [RunPod pricing page](https://www.runpod.io/pricing) (November 12, 2026 version: Pod hourly rates for Secure Cloud and Community Cloud)
+- [Lambda GPU Cloud pricing](https://lambda.ai/service/gpu-cloud#pricing) (November 2026 version: per-GPU on-demand rates for 8-GPU H100 / A100 / B200 instances)
 - [E2B pricing page](https://e2b.dev/pricing) (verified 2026-08-21: per-second vCPU and memory rates, per-plan concurrency caps)
 - [E2B Sandbox lifecycle docs](https://e2b.dev/docs/sandbox) (1-hour and 24-hour ceilings, pause and resume)
 - [Agents have their own computers with Sandboxes GA (Cloudflare blog, 2026-04-13)](https://blog.cloudflare.com/sandbox-ga/) (Active CPU Pricing, 15,000 concurrent lite instances, snapshots on R2)

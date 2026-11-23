@@ -27,13 +27,18 @@ Large legacy repositories can use JSON or SARIF reports as baselines so CI block
 
 Assume a committed secret has been cloned, cached, indexed, or logged. Revoke or rotate it, inspect provider audit records, identify exposure and use, update dependent services, and only then consider history rewriting. Rewriting affects forks, open PRs, and commit SHAs and cannot recall copied credentials.
 
-Scanner output may contain secret material, so redact CI output and restrict artifact retention and logs. Pin the tool version or action digest, use minimal tokens, and verify shallow clones cover the intended commit range. The upstream project now describes Gitleaks as feature complete with future security fixes, so include maintenance status and migration options in adoption.
+Scanner output may contain secret material, so redact CI output and restrict artifact retention and logs. Pin the tool version or action digest, use minimal tokens, and verify shallow clones cover the intended commit range. The upstream project now describes Gitleaks as feature complete: no new features will be merged and future releases are security patches only, and the original author has moved to the successor project [Betterleaks](https://github.com/betterleaks/betterleaks) (MIT, maintained by the people who made Gitleaks; v1 is the current stable line, with v2 in development). Existing Gitleaks setups can keep running, but new rules and sources (such as secret validity checks and container image scanning) will only land in Betterleaks. When evaluating a migration, note that Betterleaks can read `.gitleaks.toml`, but auto-loading config from a scanned repository requires an explicit `--unsafe-auto-load-config`, and filtering logic is written in Expr rather than copied over from `[[allowlist]]` blocks.
 
 gitleaks specializes in secret detection; Semgrep Secrets adds semantic analysis and validation; GitHub secret scanning offers partner alerts and push protection; zizmor finds workflow paths that expose tokens. Short-lived credentials, OIDC workload identity, and least privilege remain the strongest layer because leaked values expire quickly.
+
+## Update history
+
+- 2026-11-23: Named Betterleaks as the Gitleaks successor project and added configuration differences to watch when migrating.
 
 ## References
 
 - [Gitleaks repository and documentation](https://github.com/gitleaks/gitleaks)
+- [Betterleaks repository](https://github.com/betterleaks/betterleaks)
 - [Gitleaks configuration](https://github.com/gitleaks/gitleaks#configuration)
 - [Creating a baseline](https://github.com/gitleaks/gitleaks#creating-a-baseline)
 - [GitHub secret scanning concepts](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)
