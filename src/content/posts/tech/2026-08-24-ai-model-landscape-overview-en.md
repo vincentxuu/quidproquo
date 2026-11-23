@@ -167,7 +167,7 @@ The biggest change in the second half of 2026 is OpenAI's exit: the Sora app clo
 | MiniMax H3 (768p) | 1163 | Open weights (custom license) | $4.80 | Top open-weight model |
 | Dreamina Seedance 2.5 | 1156 | Closed | $34.12 | ByteDance; most expensive near the top |
 | Gemini Omni Flash 1.2 | 1154 | Closed | $6.26 | Google |
-| FLUX 3 Max | 1151 | Closed | $8.70 | Black Forest Labs |
+| FLUX 3 Max | 1151 | Closed | $17.40 | fal Research's post-trained FLUX 3 Video, billed only on fal ($8.70 promo rate through 11-22) |
 | HeyGen Video 1 | 1150 | Closed | $2.40 | First on the silent board |
 | Pika H3 Flex | 1125 | Open weights | $2.10 | Lowest price near the top |
 | Kling 3.0 1080p (Pro) | 1000 | Closed | $10.08 | Kuaishou; this board's Elo anchor |
@@ -205,29 +205,31 @@ Image editing—inpainting, reference-image composition, and style transfer—no
 | Qwen-Audio-3.1-TTS-Plus | 1298 | Closed API | $19.31 | Alibaba |
 | Simba 3.5 | 1293 | Closed API | $6.58 | Cheapest near the top |
 | Gemini 3.8 Flash TTS | 1282 | Closed API | $16.49 | Google |
-| Fish Audio Drama 3 | 1277 | Open weights (research license) | $15 | Top open-weight model |
+| Fish Audio Drama 3 | 1277 | Open weights (custom license) | $15 | Top open-weight model |
 | Kokoro 82M | 1060 | Open, Apache-2.0 | $0.65 | Cheapest on the board; self-hostable |
 
 (Elo comes from the [Artificial Analysis Text to Speech Leaderboard](https://artificialanalysis.ai/text-to-speech/leaderboard), 2026-11-23. The board compares each provider's built-in voices and doesn't test voice cloning.)
 
-**Selection advice**: For the best API quality, Eleven v4 Turbo ties v4 at half the price; to cut costs, Simba 3.5 is $6.58 per million characters. For self-hosting, Fish Audio Drama 3 has the best quality, but its weights are under a research license, so read the terms before commercial use; for an open model you can use commercially as is, Kokoro 82M (Apache-2.0). For each family's history and voice cloning, see the [speech and audio family post](/posts/tech/2026-08-26-ai-model-family-speech-audio-en).
+**Selection advice**: For the best API quality, Eleven v4 Turbo ties v4 at half the price; to cut costs, Simba 3.5 is $6.58 per million characters. For self-hosting, Fish Audio Drama 3 has the best quality, but its weights are under the Fish Audio Community License: free commercial use only below $500K annual revenue, and hosted services need a separate agreement; for an open model you can use commercially as is, Kokoro 82M (Apache-2.0). For each family's history and voice cloning, see the [speech and audio family post](/posts/tech/2026-08-26-ai-model-family-speech-audio-en).
 
 ### Automatic Speech Recognition (ASR)
 
 | Model | AA-WER | Type | $/1K minutes | Positioning |
 |---|---|---|---|---|
 | Fun-Realtime-ASR-preview | 1.7% | Closed API | $2.82 | Alibaba; lowest error rate |
+| Scribe v3 | 1.9% | Closed API | $3.33 | ElevenLabs; launched 2026-11-10 |
 | MAI-Transcribe-2 | 2.0% | Closed API | $1.67 | Microsoft; about 340× real time |
 | Voxtral Small Transcribe 3 | 2.1% | API | $4.00 | Mistral |
 | Grok Voice Transcribe 2.0 | 2.3% | Closed API | $1.67 | SpaceXSI |
-| Voxtral Small | 2.8% | Open, Apache-2.0 | $4.00 | Tied for best open-weight model |
-| Nemotron 3.5 Transcribe | 2.8% | Open weights | $2.00 | NVIDIA; tied for best open-weight model |
+| SOV-Transcribe-1 | 2.3% | Open, Apache-2.0 | — | Salesforce; best open-weight model |
+| Voxtral Small | 2.8% | Open, Apache-2.0 | $4.00 | Tied for second-best open-weight model |
+| Nemotron 3.5 Transcribe | 2.8% | Open weights | $2.00 | NVIDIA; tied for second-best open-weight model |
 | Whisper Large v3 | 4.1–4.5% | Open | From $1.50 | The old baseline with the widest tool support |
 | Parakeet TDT 0.6B V3 | 4.5% | Open weights | $1.50 | Fastest, about 640× real time |
 
 (AA-WER v2.2 from [Artificial Analysis Speech to Text](https://artificialanalysis.ai/speech-to-text), 2026-11-23: mostly English, non-streaming transcription that mixes voice-agent conversations, European Parliament speeches, and earnings calls; prices are for the providers listed on the board.)
 
-**Selection advice**: For the most accurate API, use Fun-Realtime-ASR-preview or MAI-Transcribe-2, the latter faster and cheaper. For self-hosting, Voxtral Small is the most accurate Apache-2.0 model, and Parakeet TDT 0.6B V3 suits large batch jobs; Whisper Large v3 has the most mature ecosystem but now trails on accuracy. The board is mostly English, so test Chinese or other languages on your own recordings.
+**Selection advice**: For the most accurate API, use Fun-Realtime-ASR-preview or Scribe v3; MAI-Transcribe-2 is slightly less accurate but faster and cheaper. For self-hosting, SOV-Transcribe-1 is the most accurate Apache-2.0 model (seven European languages only); for more languages use Voxtral Small, and Parakeet TDT 0.6B V3 suits large batch jobs; Whisper Large v3 has the most mature ecosystem but now trails on accuracy. The board is mostly English, so test Chinese or other languages on your own recordings.
 
 ### Music Generation
 

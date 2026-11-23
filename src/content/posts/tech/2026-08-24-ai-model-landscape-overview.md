@@ -169,7 +169,7 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 | MiniMax H3 (768p) | 1163 | 開放權重（自訂授權） | $4.80 | 開放權重第一 |
 | Dreamina Seedance 2.5 | 1156 | 閉源 | $34.12 | ByteDance，前段班最貴 |
 | Gemini Omni Flash 1.2 | 1154 | 閉源 | $6.26 | Google |
-| FLUX 3 Max | 1151 | 閉源 | $8.70 | Black Forest Labs |
+| FLUX 3 Max | 1151 | 閉源 | $17.40 | fal Research 以 BFL 的 FLUX 3 Video 後訓練，只在 fal 計費（11-22 前促銷價 $8.70） |
 | HeyGen Video 1 | 1150 | 閉源 | $2.40 | 無音訊榜第一 |
 | Pika H3 Flex | 1125 | 開放權重 | $2.10 | 前段班單價最低 |
 | Kling 3.0 1080p (Pro) | 1000 | 閉源 | $10.08 | 快手；本榜的 Elo 基準點 |
@@ -207,29 +207,31 @@ coding 能力是 Agent 開發者最關心的維度。舊版本文用的 Aider Po
 | Qwen-Audio-3.1-TTS-Plus | 1298 | 閉源 API | $19.31 | 阿里 |
 | Simba 3.5 | 1293 | 閉源 API | $6.58 | 前段班最便宜 |
 | Gemini 3.8 Flash TTS | 1282 | 閉源 API | $16.49 | Google |
-| Fish Audio Drama 3 | 1277 | 開放權重（研究授權） | $15 | 開放權重第一 |
+| Fish Audio Drama 3 | 1277 | 開放權重（自訂授權） | $15 | 開放權重第一 |
 | Kokoro 82M | 1060 | 開源 Apache-2.0 | $0.65 | 全榜最便宜，可自架 |
 
 （Elo 來自 [Artificial Analysis Text to Speech Leaderboard](https://artificialanalysis.ai/text-to-speech/leaderboard)，2026-11-23。這張榜比的是各家內建的聲音，不測聲音複製。）
 
-**選型建議**：要 API 品質最高，Eleven v4 Turbo 與 v4 同分、價格一半；要壓成本，Simba 3.5 每百萬字元 $6.58。要自架，Fish Audio Drama 3 品質最高，但權重是研究授權，商用前先讀條款；要能直接商用的開源，Kokoro 82M（Apache-2.0）。各家演化與聲音複製見[語音與音訊家族文](/posts/tech/2026-08-26-ai-model-family-speech-audio)。
+**選型建議**：要 API 品質最高，Eleven v4 Turbo 與 v4 同分、價格一半；要壓成本，Simba 3.5 每百萬字元 $6.58。要自架，Fish Audio Drama 3 品質最高，但權重是 Fish Audio Community License：年營收 50 萬美元以下才可免費商用，託管服務要另簽約；要能直接商用的開源，Kokoro 82M（Apache-2.0）。各家演化與聲音複製見[語音與音訊家族文](/posts/tech/2026-08-26-ai-model-family-speech-audio)。
 
 ### 語音辨識 (ASR)
 
 | 模型 | AA-WER | 類型 | $/千分鐘 | 定位 |
 |---|---|---|---|---|
 | Fun-Realtime-ASR-preview | 1.7% | 閉源 API | $2.82 | 阿里，錯字率最低 |
+| Scribe v3 | 1.9% | 閉源 API | $3.33 | ElevenLabs，2026-11-10 推出 |
 | MAI-Transcribe-2 | 2.0% | 閉源 API | $1.67 | Microsoft，約 340 倍即時速度 |
 | Voxtral Small Transcribe 3 | 2.1% | API | $4.00 | Mistral |
 | Grok Voice Transcribe 2.0 | 2.3% | 閉源 API | $1.67 | SpaceXSI |
-| Voxtral Small | 2.8% | 開源 Apache-2.0 | $4.00 | 開放權重並列第一 |
-| Nemotron 3.5 Transcribe | 2.8% | 開放權重 | $2.00 | NVIDIA，開放權重並列第一 |
+| SOV-Transcribe-1 | 2.3% | 開源 Apache-2.0 | — | Salesforce，開放權重第一 |
+| Voxtral Small | 2.8% | 開源 Apache-2.0 | $4.00 | 開放權重並列第二 |
+| Nemotron 3.5 Transcribe | 2.8% | 開放權重 | $2.00 | NVIDIA，開放權重並列第二 |
 | Whisper Large v3 | 4.1～4.5% | 開源 | $1.50 起 | 工具支援最廣的舊基線 |
 | Parakeet TDT 0.6B V3 | 4.5% | 開放權重 | $1.50 | 最快，約 640 倍即時速度 |
 
 （AA-WER v2.2 來自 [Artificial Analysis Speech to Text](https://artificialanalysis.ai/speech-to-text)，2026-11-23，以英文為主的非串流轉錄，混合語音 agent 對話、歐洲議會演講與財報電話會議；價格以榜上列出的服務商為準。）
 
-**選型建議**：要 API 準確率最高，Fun-Realtime-ASR-preview 或 MAI-Transcribe-2，後者更快更便宜。要自架，Voxtral Small 是 Apache-2.0 裡最準的，Parakeet TDT 0.6B V3 適合大量批次；Whisper Large v3 生態最成熟，但準確率已落後一截。這張榜以英文為主，中文或其他語言要用自己的錄音測。
+**選型建議**：要 API 準確率最高，Fun-Realtime-ASR-preview 或 Scribe v3；MAI-Transcribe-2 稍差但更快更便宜。要自架，SOV-Transcribe-1 是 Apache-2.0 裡最準的（只支援七種歐洲語言），多語言改用 Voxtral Small，Parakeet TDT 0.6B V3 適合大量批次；Whisper Large v3 生態最成熟，但準確率已落後一截。這張榜以英文為主，中文或其他語言要用自己的錄音測。
 
 ### 音樂生成
 
