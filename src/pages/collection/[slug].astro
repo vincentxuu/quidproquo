@@ -1,0 +1,436 @@
+---
+export const prerender = true;
+import "../../styles/collection.css";
+
+import PostLayout from '../../layouts/PostLayout.astro';
+import {
+  getCollection,
+  getWorksByType,
+  getWorkMeta,
+  getPosterStyle,
+  getStatusLabel,
+  getThemeVideo,
+  spotifyTrackId,
+  type CollectionWork,
+  type ThemeSong,
+} from '../../lib/collection';
+
+export function getStaticPaths() {
+  return getCollection().map((work) => ({
+    params: { slug: work.slug },
+    props: { work: work as CollectionWork },
+  }));
+}
+
+const { work } = Astro.props;
+const meta = getWorkMeta(work.slug);
+
+const typeLabels = { anime: '動漫', film: '電影', drama: '戲劇' } as const;
+const tierLabels = { favorite: '真愛', loved: '很喜歡', watched: '看過' } as const;
+const sourceLabels = { tmdb: 'TMDB', anilist: 'AniList', mal: 'MyAnimeList' } as const;
+
+// 上一部／下一部：依評分排行的順序
+const ranked = [...getCollection()].sort((a, b) => b.rating - a.rating || b.year - a.year);
+const idx = ranked.findIndex((w) => w.slug === work.slug);
+const prev = idx > 0 ? ranked[idx - 1] : null;
+const next = idx < ranked.length - 1 ? ranked[idx + 1] : null;
+const sameType = getWorksByType(work.type).filter((w) => w.slug !== work.slug);
+
+const watches = work.watches ?? [];
+const deepScenes = work.deep.scenes ?? [];
+const deepCharacters = work.deep.characters ?? [];
+// 場景：站主寫了看法的在前，其餘 favoriteScenes 補在後面
+const sceneList = [
+  ...deepScenes,
+  ...work.favoriteScenes
+    .filter((s) => !deepScenes.some((d) => d.title === s))
+    .map((title) => ({ title, take: '', ref: undefined, spoiler: false })),
+];
+// 全寬區塊依出現順序編號（沒資料的區塊不佔號）
+let sectionCount = 0;
+const sectionNo = () => String(++sectionCount).padStart(2, '0');
+// 站主挑的角色：用角色名對上演員牆
+const picked = new Map(deepCharacters.map((c) => [c.name, c]));
+const cast = meta?.cast ?? [];
+const themes = meta?.themes ?? [];
+const themeLabel = { op: 'OP', ed: 'ED' } as const;
+// 主題曲多時（例如每集換 ED）先列前幾首，其餘收合
+const THEME_VISIBLE = 4;
+// MAL 的集數：「1-13」→ 第 1-13 集；「14-」（播到最後）→ 第 14 集起
+const formatEpisodes = (eps: string) => (/-\s*$/.test(eps) ? `第 ${eps.replace(/-\s*$/, '')} 集起` : `第 ${eps} 集`);
+// 動漫系列依季分組；只有一季（或沒有季資料）時不分組
+const seasonList = meta?.seasonList ?? [];
+const themeGroups =
+  seasonList.length > 1
+    ? seasonList
+        .map((s, i) => ({ label: s.title, year: s.year, airing: s.status === 'RELEASING', themes: themes.filter((t) => t.season === i) }))
+        .filter((g) => g.themes.length > 0)
+    : [{ label: null, year: null, airing: false, themes }];
+const videoCount = themes.filter((t) => getThemeVideo(work.slug, t.title)).length;
+// 後面的季沿用前季的歌（如總集篇、最終回特別片尾）：標「沿用」並指出首次出現的年份
+const songKey = (title: string) => title.replace(/\s*\(.*$/, '').toLowerCase().replace(/[^\p{L}\p{N}]/gu, '');
+const firstSeason = new Map<string, number>();
+for (const t of themes) if (!firstSeason.has(songKey(t.title))) firstSeason.set(songKey(t.title), t.season ?? 0);
+const reusedFrom = (t: ThemeSong) => {
+  const first = firstSeason.get(songKey(t.title)) ?? 0;
+  return seasonList.length > 1 && first < (t.season ?? 0) ? seasonList[first] : null;
+};
+
+// 規格表：有值才列
+const formatRuntime = (min: number) => (min >= 60 ? `${Math.floor(min / 60)} 小時 ${min % 60} 分` : `${min} 分`);
+const directorLabel = work.type === 'film' ? '導演' : work.type === 'drama' ? '主創' : '導演';
+const studioLabel = work.type === 'anime' ? '製作' : '電視台';
+const specs: [string, string][] = [
+  ['類型', typeLabels[work.type]],
+  ['年份', String(work.year)],
+  ['原名', work.originalTitle],
+  ...(meta?.directors.length ? [[directorLabel, meta.directors.map((d) => d.name).join('、')] as [string, string]] : []),
+  ...(meta?.studios.length ? [[studioLabel, meta.studios.join('、')] as [string, string]] : []),
+  ...(meta?.seasons ? [['季數', `${meta.seasons} 季`] as [string, string]] : []),
+  ...(meta?.episodes ? [['集數', `${meta.episodes} 集`] as [string, string]] : []),
+  ...(meta?.runtime
+    ? [[work.type === 'film' ? '片長' : '單集', formatRuntime(meta.runtime)] as [string, string]]
+    : []),
+  ['狀態', getStatusLabel(work.status, 'zh-TW')],
+  ['收藏等級', tierLabels[work.tier]],
+  ['推薦給', work.audience || '—'],
+  ['排行', `第 ${idx + 1} / ${ranked.length}`],
+];
+const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabels, string][]) : [];
+---
+
+<PostLayout
+  title={`${work.title} — 收藏館 — quidproquo`}
+  lang="zh-TW"
+  description={work.oneLiner || work.synopsis}
+  bodyClass="is-collection"
+>
+  <div class="collection-scope">
+    <article class="work">
+      <a class="work-backlink" href="/collection">← 收藏館</a>
+
+      <!-- 1. 劇照橫幅 Hero -->
+      <header class:list={['work-hero', meta?.backdrop && 'work-hero--backdrop']}>
+        <div class="work-hero-banner" aria-hidden="true">
+          {meta?.backdrop ? <img src={meta.backdrop} alt="" /> : work.poster && <img class="is-blur" src={work.poster} alt="" />}
+        </div>
+        <div class="work-hero-poster" style={getPosterStyle(work.slug)}>
+          {work.poster ? <img src={work.poster} alt={`${work.title} 海報`} /> : <b>{work.title}</b>}
+        </div>
+        <div class="work-hero-text">
+          <p class="collection-eyebrow">{typeLabels[work.type]} · {work.year} · {tierLabels[work.tier]}</p>
+          <h1>{work.title}</h1>
+          {work.originalTitle !== work.title && <p class="work-hero-original">{work.originalTitle}</p>}
+          {meta?.tagline && <p class="work-hero-tagline">{meta.tagline}</p>}
+          <ul class="work-badges" aria-label="類型標籤">
+            {work.genres.map((g) => <li class="work-badge">{g}</li>)}
+          </ul>
+        </div>
+      </header>
+
+      <div class="work-layout">
+        <div class="work-main">
+          <!-- 2. 我的評價 -->
+          <section class="work-section work-verdict">
+            <h2>我的評價</h2>
+            <div class="work-verdict-body">
+              {work.rating > 0 ? (
+                <p class="spotlight-rating"><b>{work.rating}</b><span>/ 10</span></p>
+              ) : (
+                <p class="work-hero-unrated">尚未評分</p>
+              )}
+              {work.oneLiner && <blockquote class="work-oneliner">{work.oneLiner}</blockquote>}
+            </div>
+            {work.review && <p class="work-review">{work.review}</p>}
+            {watches.length > 0 && (
+              <div class="work-watches">
+                <h3>觀看紀錄 <span>{watches.length > 1 ? `看過 ${watches.length} 次` : '看過 1 次'}</span></h3>
+                <ol>
+                  {watches.map((w) => (
+                    <li><time datetime={w.date}>{w.date}</time>{w.note && <span>{w.note}</span>}</li>
+                  ))}
+                </ol>
+              </div>
+            )}
+          </section>
+
+          <section class="work-section work-synopsis">
+            <h2>簡介</h2>
+            <p>{work.synopsis}</p>
+          </section>
+
+          {work.deep.meaning && (
+            <section class="work-section">
+              <h2>這部對我的意義</h2>
+              <p>{work.deep.meaning}</p>
+            </section>
+          )}
+
+          {work.postSlugs.length > 0 && (
+            <section class="work-section work-posts">
+              <h2>延伸文章</h2>
+              <ul>
+                {work.postSlugs.map((post) => (
+                  <li><a href={`/posts/${post}`}>{post}</a></li>
+                ))}
+              </ul>
+            </section>
+          )}
+        </div>
+
+        <!-- 3. 規格表 -->
+        <aside class="work-info" aria-label="作品資料">
+          <h2>作品資料</h2>
+          <dl>
+            {specs.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          </dl>
+          {sources.length > 0 && (
+            <p class="work-sources">
+              資料來源：
+              {sources.map(([k, url], i) => (
+                <>{i > 0 && '、'}<a href={url} target="_blank" rel="noopener noreferrer">{sourceLabels[k]}</a></>
+              ))}
+              {meta && <span>（{meta.fetchedAt}）</span>}
+            </p>
+          )}
+        </aside>
+      </div>
+
+      <!-- 4. 角色與演員：全寬底色帶，直式頭像卡 -->
+      {cast.length > 0 && (
+        <section class="work-band work-band--cast">
+          <div class="collection-section-header">
+            <span class="collection-section-no">{sectionNo()}</span>
+            <h2>{work.type === 'anime' ? '角色與聲優' : '角色與演員'}</h2>
+            <span class="collection-section-count">{cast.length} 位</span>
+          </div>
+          <ul class="cast-grid">
+            {cast.map((c) => {
+              const pick = c.character ? picked.get(c.character) : undefined;
+              return (
+                <li class:list={['cast-card', pick && 'cast-card--picked']}>
+                  <span class="cast-avatar">
+                    {c.image ? <img src={c.image} alt="" loading="lazy" /> : <span>{(c.character ?? c.name ?? '?').slice(0, 1)}</span>}
+                  </span>
+                  <b class="cast-name">{c.character ?? '—'}</b>
+                  {c.characterRomaji && c.characterRomaji !== c.character && <small>{c.characterRomaji}</small>}
+                  {c.name && <small class="cast-actor">{work.type === 'anime' ? 'CV ' : ''}{c.name}</small>}
+                  {pick && <em class="cast-take">{pick.take}</em>}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      )}
+
+      <!-- 5. 最愛場景：大編號橫列 -->
+      {sceneList.length > 0 && (
+        <section class="work-band">
+          <div class="collection-section-header">
+            <span class="collection-section-no">{sectionNo()}</span>
+            <h2>最愛場景</h2>
+            <span class="collection-section-count">{sceneList.length} 幕</span>
+          </div>
+          <ol class="work-scenes">
+            {sceneList.map((scene, i) => (
+              <li class="work-scene">
+                <span class="work-scene-no" aria-hidden="true">{String(i + 1).padStart(2, '0')}</span>
+                <div class="work-scene-body">
+                  {scene.ref && <span class="work-scene-ref">{scene.ref}</span>}
+                  {scene.spoiler ? (
+                    <details class="work-spoiler">
+                      <summary>有雷，點開看「{scene.title}」</summary>
+                      <p class="work-scene-take">{scene.take}</p>
+                    </details>
+                  ) : (
+                    <>
+                      <p class="work-scene-title">{scene.title}</p>
+                      {scene.take && <p class="work-scene-take">{scene.take}</p>}
+                    </>
+                  )}
+                </div>
+              </li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      <!-- 6. 主題曲：唱片封套＋曲目表（依季分組；按了才載入 YouTube／Spotify 播放器） -->
+      {themes.length > 0 && (
+        <section class="work-band">
+          <div class="collection-section-header">
+            <span class="collection-section-no">{sectionNo()}</span>
+            <h2>主題曲</h2>
+            <span class="collection-section-count">{themes.length} 首</span>
+          </div>
+          <div class="soundtrack">
+            <div class="soundtrack-sleeve">
+              <span class="soundtrack-cover" style={getPosterStyle(work.slug)}>
+                {work.poster && <img src={work.poster} alt="" loading="lazy" />}
+              </span>
+              <p class="soundtrack-label">Soundtrack</p>
+              <p class="soundtrack-title">{work.title}</p>
+              <p class="soundtrack-meta">
+                {themeGroups.length > 1 && `${themeGroups.length} 季 · `}OP {themes.filter((t) => t.type === 'op').length} · ED {themes.filter((t) => t.type === 'ed').length}
+              </p>
+              {videoCount > 0 && <p class="soundtrack-note">{videoCount} 首可在頁面上直接播放</p>}
+            </div>
+            <div class="soundtrack-tracks">
+              {themeGroups.map((group, gi) => {
+                const list = (shown: ThemeSong[], offset: number) => (
+                  <ol class="theme-list">
+                    {shown.map((t, i) => {
+                      const video = getThemeVideo(work.slug, t.title);
+                      const spotifyId = spotifyTrackId(t.spotify);
+                      const reused = reusedFrom(t);
+                      return (
+                        <li class:list={['theme-track', reused && 'theme-track--reused']}>
+                          <span class="theme-no">{String(offset + i + 1).padStart(2, '0')}</span>
+                          <span class="theme-text">
+                            <b>{t.title}</b>
+                            <small><span class="theme-type">{themeLabel[t.type]}</span>{reused && <span class="theme-reused">沿用 {reused.year}</span>}{t.artist}{t.episodes && ` · ${formatEpisodes(t.episodes)}`}</small>
+                          </span>
+                          <span class="theme-actions">
+                            {video && (
+                              <a
+                                class="theme-play theme-play--primary"
+                                href={`https://www.youtube.com/watch?v=${video.id}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-embed="youtube"
+                                data-id={video.id}
+                                aria-expanded="false"
+                                aria-label={`播放 ${t.title}（YouTube）`}
+                              >
+                                播放
+                              </a>
+                            )}
+                            {spotifyId && (
+                              <a
+                                class="theme-play"
+                                href={t.spotify!}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                data-embed="spotify"
+                                data-id={spotifyId}
+                                aria-expanded="false"
+                                aria-label={`在 Spotify 試聽 ${t.title}`}
+                              >
+                                Spotify
+                              </a>
+                            )}
+                          </span>
+                          <div class="theme-embed" hidden></div>
+                        </li>
+                      );
+                    })}
+                  </ol>
+                );
+                // 單季：前幾首直接列，其餘收合；多季：每季一個收合區，第一季預設展開
+                if (!group.label) {
+                  return (
+                    <>
+                      {list(group.themes.slice(0, THEME_VISIBLE), 0)}
+                      {group.themes.length > THEME_VISIBLE && (
+                        <details class="theme-more">
+                          <summary>其他 {group.themes.length - THEME_VISIBLE} 首</summary>
+                          {list(group.themes.slice(THEME_VISIBLE), THEME_VISIBLE)}
+                        </details>
+                      )}
+                    </>
+                  );
+                }
+                return (
+                  <details class="theme-season" open={gi === 0}>
+                    <summary>
+                      <span class="theme-season-year">{group.year}</span>
+                      <span class="theme-season-title">{group.label}{group.airing && <em class="theme-season-airing">播出中</em>}</span>
+                      <span class="theme-season-count">{group.themes.length} 首</span>
+                    </summary>
+                    {list(group.themes, 0)}
+                  </details>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
+
+      <!-- 7. 同類型（橫向捲動）＋ 上下部 -->
+      {sameType.length > 0 && (
+        <section class="work-related">
+          <div class="collection-section-header">
+            <span class="collection-section-no">{sectionNo()}</span>
+            <h2>同類型收藏</h2>
+            <span class="collection-section-count">{typeLabels[work.type]} · {sameType.length} 部</span>
+          </div>
+          <div class="work-related-grid">
+            {sameType.map((w) => (
+              <a class="work-related-card" href={`/collection/${w.slug}`}>
+                <span class="work-related-poster" style={getPosterStyle(w.slug)}>
+                  {w.poster && <img src={w.poster} alt="" loading="lazy" />}
+                </span>
+                <b>{w.title}</b>
+                <small>{w.year}{w.rating > 0 ? ` · ★ ${w.rating}` : ''}</small>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <nav class="work-pager" aria-label="上一部與下一部">
+        {prev ? (
+          <a href={`/collection/${prev.slug}`}><small>← 排行上一部</small><b>{prev.title}</b></a>
+        ) : <span />}
+        {next ? (
+          <a class="work-pager-next" href={`/collection/${next.slug}`}><small>排行下一部 →</small><b>{next.title}</b></a>
+        ) : <span />}
+      </nav>
+    </article>
+  </div>
+</PostLayout>
+
+<script>
+  // 主題曲播放器：按下才建立 iframe（不先載入 YouTube／Spotify 的腳本與 cookie），同時只開一個
+  const SRC = {
+    youtube: (id: string) => `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`,
+    spotify: (id: string) => `https://open.spotify.com/embed/track/${id}?utm_source=generator&theme=0`,
+  } as const;
+  type Kind = keyof typeof SRC;
+
+  function close(track: Element) {
+    const box = track.querySelector<HTMLElement>('.theme-embed');
+    if (box) {
+      box.replaceChildren();
+      box.hidden = true;
+      delete box.dataset.kind;
+    }
+    track.classList.remove('is-playing');
+    track.querySelectorAll('[data-embed]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+  }
+
+  document.addEventListener('click', (event) => {
+    const btn = (event.target as Element).closest<HTMLAnchorElement>('.theme-track [data-embed]');
+    if (!btn) return;
+    event.preventDefault();
+    const track = btn.closest('.theme-track')!;
+    const box = track.querySelector<HTMLElement>('.theme-embed')!;
+    const kind = btn.dataset.embed as Kind;
+    const wasOpen = box.dataset.kind === kind;
+    document.querySelectorAll('.theme-track.is-playing').forEach(close);
+    if (wasOpen) return;
+
+    const frame = document.createElement('iframe');
+    frame.src = SRC[kind](btn.dataset.id!);
+    frame.title = btn.getAttribute('aria-label') ?? '';
+    frame.loading = 'lazy';
+    frame.allow = 'autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.className = `theme-frame theme-frame--${kind}`;
+    box.dataset.kind = kind;
+    box.replaceChildren(frame);
+    box.hidden = false;
+    track.classList.add('is-playing');
+    btn.setAttribute('aria-expanded', 'true');
+  });
+</script>

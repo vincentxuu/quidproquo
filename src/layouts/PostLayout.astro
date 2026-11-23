@@ -27,6 +27,8 @@ interface Props {
   hasTranslation?: boolean;
   hreflangEn?: string;
   hreflangZh?: string;
+  /** 額外 body class（如 is-collection 換頁面基調） */
+  bodyClass?: string;
 }
 const {
   title,
@@ -42,6 +44,7 @@ const {
   hasTranslation,
   hreflangEn,
   hreflangZh,
+  bodyClass,
 } = Astro.props;
 const isArticle = !!articleDate;
 const lang = langProp ?? getLangFromUrl(Astro.url);
@@ -108,7 +111,7 @@ const pageTitle =
     }
   </script>
 </head>
-<body class:list={{ "is-article": isArticle }}>
+<body class:list={{ "is-article": isArticle, ...(bodyClass ? { [bodyClass]: true } : {}) }}>
   <div class="progress-bar" id="progress-bar"></div>
   <a href="#main-content" class="skip-nav">Skip to content</a>
   <header>
@@ -121,6 +124,7 @@ const pageTitle =
       <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
       <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
       <a href="/english" class="nav-link">{t('nav.english')}</a>
+      {lang !== 'en' && <a href="/collection" class="nav-link">{t('nav.collection')}</a>}
       <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'} class="nav-link">{lang === 'en' ? 'Vocabulary' : '單字庫'}</a>
       <a href="/account" class="nav-link">{lang === 'en' ? 'My space' : '私人空間'}</a>
       <div class="nav-right">

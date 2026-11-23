@@ -1,0 +1,1839 @@
+{
+  "_readme": "由 scripts/collection-meta.mjs 產生，勿手改。客觀資料（片長、集數、製作、演員角色、主題曲、橫幅）來自 TMDB 公開頁、AniList、MyAnimeList；動漫沿 AniList 續集關聯收集各季，themes[].season 是 seasonList 的索引；站主手寫內容在 media-collection.json。",
+  "works": {
+    "attack-on-titan": {
+      "fetchedAt": "2026-11-22",
+      "source": {
+        "anilist": "https://anilist.co/anime/16498",
+        "mal": "https://myanimelist.net/anime/16498"
+      },
+      "ids": {
+        "anilist": 16498,
+        "mal": 16498
+      },
+      "backdrop": "/images/collection/attack-on-titan-backdrop.jpg",
+      "tagline": null,
+      "runtime": 24,
+      "episodes": 87,
+      "seasons": 6,
+      "seasonList": [
+        {
+          "title": "Attack on Titan",
+          "native": "進撃の巨人",
+          "year": 2013,
+          "episodes": 25,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 16498,
+            "mal": 16498
+          }
+        },
+        {
+          "title": "Attack on Titan Season 2",
+          "native": "進撃の巨人 Season２",
+          "year": 2017,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 20958,
+            "mal": 25777
+          }
+        },
+        {
+          "title": "Attack on Titan Season 3",
+          "native": "進撃の巨人 Season３",
+          "year": 2018,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 99147,
+            "mal": 35760
+          }
+        },
+        {
+          "title": "Attack on Titan Season 3 Part 2",
+          "native": "進撃の巨人 Season３ Part.2",
+          "year": 2019,
+          "episodes": 10,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 104578,
+            "mal": 38524
+          }
+        },
+        {
+          "title": "Attack on Titan Final Season",
+          "native": "進撃の巨人 The Final Season",
+          "year": 2021,
+          "episodes": 16,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 110277,
+            "mal": 40028
+          }
+        },
+        {
+          "title": "Attack on Titan Final Season Part 2",
+          "native": "進撃の巨人 The Final Season Part 2",
+          "year": 2022,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 131681,
+            "mal": 48583
+          }
+        }
+      ],
+      "studios": [
+        "WIT STUDIO",
+        "MAPPA"
+      ],
+      "directors": [
+        {
+          "name": "荒木哲郎",
+          "role": "Chief Director",
+          "id": {
+            "anilist": 100088
+          }
+        },
+        {
+          "name": "肥塚正史",
+          "role": "Director",
+          "id": {
+            "anilist": 118905
+          }
+        },
+        {
+          "name": "林祐一郎",
+          "role": "Director",
+          "id": {
+            "anilist": 115016
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "梶裕貴",
+          "character": "エレン・イェーガー",
+          "characterRomaji": "Eren Yeager",
+          "order": 0,
+          "role": "MAIN",
+          "id": {
+            "anilist": 40882
+          },
+          "image": "/images/collection/people/attack-on-titan-01.jpg"
+        },
+        {
+          "name": "石川由依",
+          "character": "ミカサ・アッカーマン",
+          "characterRomaji": "Mikasa Ackerman",
+          "order": 1,
+          "role": "MAIN",
+          "id": {
+            "anilist": 40881
+          },
+          "image": "/images/collection/people/attack-on-titan-02.png"
+        },
+        {
+          "name": "井上麻里奈",
+          "character": "アルミン・アルレルト",
+          "characterRomaji": "Armin Arlert",
+          "order": 2,
+          "role": "MAIN",
+          "id": {
+            "anilist": 46494
+          },
+          "image": "/images/collection/people/attack-on-titan-03.png"
+        },
+        {
+          "name": "神谷浩史",
+          "character": "リヴァイ",
+          "characterRomaji": "Levi",
+          "order": 3,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 45627
+          },
+          "image": "/images/collection/people/attack-on-titan-04.png"
+        },
+        {
+          "name": "小林ゆう",
+          "character": "サシャ・ブラウス",
+          "characterRomaji": "Sasha Blouse",
+          "order": 4,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 45887
+          },
+          "image": "/images/collection/people/attack-on-titan-05.jpg"
+        },
+        {
+          "name": "細谷佳正",
+          "character": "ライナー・ブラウン",
+          "characterRomaji": "Reiner Braun",
+          "order": 5,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 46484
+          },
+          "image": "/images/collection/people/attack-on-titan-06.png"
+        },
+        {
+          "name": "下野紘",
+          "character": "コニー・スプリンガー",
+          "characterRomaji": "Connie Springer",
+          "order": 6,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 46486
+          },
+          "image": "/images/collection/people/attack-on-titan-07.png"
+        },
+        {
+          "name": "橋詰知久",
+          "character": "ベルトルト・フーバー",
+          "characterRomaji": "Bertolt Hoover",
+          "order": 7,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 46488
+          },
+          "image": "/images/collection/people/attack-on-titan-08.jpg"
+        }
+      ],
+      "themes": [
+        {
+          "type": "op",
+          "title": "Guren no Yumiya (紅蓮の弓矢)",
+          "artist": "Linked Horizon",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/7FzhSDmKqNyIOK3FcwiqHo",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Jiyuu no Tsubasa (自由の翼)",
+          "artist": "Linked Horizon",
+          "episodes": "14-25",
+          "spotify": "https://open.spotify.com/track/2VtK9Fj9OS11cYb0cCvLwK",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Utsukushiki Zankoku na Sekai (美しき残酷な世界)",
+          "artist": "Yoko Hikasa",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/1LmIptfyl5QZANQYxuwvhK",
+          "youtube": "hgQyXxkwlRM",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "great escape",
+          "artist": "Cinema Staff",
+          "episodes": "14-25",
+          "spotify": "https://open.spotify.com/track/0iXYLrcgvd9u6ATFMIHMpD",
+          "youtube": "mWIaFbHG44s",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Shinzou wo Sasageyo! (心臓を捧げよ！)",
+          "artist": "Linked Horizon",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/5bIZNB6e83zaYYFHOe1YHz",
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "Yuugure no Tori (夕暮れの鳥)",
+          "artist": "Shinsei Kamattechan",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/79xW4zeNFlcp5VKyvWk3cC",
+          "youtube": "akKQ3N6Lk2I",
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Red Swan",
+          "artist": "YOSHIKI feat. HYDE",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/4GNMgGyZcgnE4nEdYFWJGn",
+          "youtube": "oYQmw6axrdQ",
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Akatsuki no Chinkonka (暁の鎮魂歌)",
+          "artist": "Linked Horizon",
+          "episodes": "2-12",
+          "spotify": "https://open.spotify.com/track/6CcVsaoKsG4WvkZWZBvyTn",
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "op",
+          "title": "Shoukei to Shikabane no Michi (憧憬と屍の道)",
+          "artist": "Linked Horizon",
+          "episodes": "1-5, 7, 9-10",
+          "spotify": "https://open.spotify.com/track/1rxLfrpsIR0x2wqI6vFNdP",
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "ed",
+          "title": "Name of Love",
+          "artist": "Cinema Staff",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/1h1E93CLB36dBweLtfeHpj",
+          "youtube": "Sj1xs2PH-9M",
+          "season": 3
+        },
+        {
+          "type": "ed",
+          "title": "T-KT",
+          "artist": "Hiroyuki Sawano",
+          "episodes": "10",
+          "spotify": null,
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "op",
+          "title": "Boku no Sensou (僕の戦争)",
+          "artist": "Shinsei Kamattechan (神聖かまってちゃん)",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 4
+        },
+        {
+          "type": "ed",
+          "title": "Shougeki (衝撃)",
+          "artist": "Yuuko Andou (安藤裕子)",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/2GeK108DTmnSEfwwCR85mp",
+          "youtube": "Ccidm4djKaM",
+          "season": 4
+        },
+        {
+          "type": "op",
+          "title": "The Rumbling",
+          "artist": "SiM",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/5JJKkuYGj99dfws5MiiJSR",
+          "youtube": "OBqw818mQ1E",
+          "season": 5
+        },
+        {
+          "type": "ed",
+          "title": "Akuma no Ko (悪魔の子)",
+          "artist": "Ai Higuchi (ヒグチアイ)",
+          "episodes": "eps 1-6",
+          "spotify": "https://open.spotify.com/track/2TVFbLCdzrX0RdhWNWJmdp",
+          "youtube": "WPl10ZrhCtk",
+          "season": 5
+        },
+        {
+          "type": "ed",
+          "title": "Akuma no Ko (Instrumental) (悪魔の子 (Instrumental))",
+          "artist": "Ai Higuchi (ヒグチアイ)",
+          "episodes": "ep 7",
+          "spotify": null,
+          "youtube": null,
+          "season": 5
+        }
+      ]
+    },
+    "haikyu": {
+      "fetchedAt": "2026-11-22",
+      "source": {
+        "anilist": "https://anilist.co/anime/20464",
+        "mal": "https://myanimelist.net/anime/20583"
+      },
+      "ids": {
+        "anilist": 20464,
+        "mal": 20583
+      },
+      "backdrop": "/images/collection/haikyu-backdrop.jpg",
+      "tagline": null,
+      "runtime": 24,
+      "episodes": 85,
+      "seasons": 5,
+      "seasonList": [
+        {
+          "title": "HAIKYU!!",
+          "native": "ハイキュー!!",
+          "year": 2014,
+          "episodes": 25,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 20464,
+            "mal": 20583
+          }
+        },
+        {
+          "title": "HAIKYU!! 2nd Season",
+          "native": "ハイキュー!! セカンドシーズン",
+          "year": 2015,
+          "episodes": 25,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 20992,
+            "mal": 28891
+          }
+        },
+        {
+          "title": "HAIKYU!! 3rd Season",
+          "native": "ハイキュー!! 烏野高校 VS 白鳥沢学園高校",
+          "year": 2016,
+          "episodes": 10,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 21698,
+            "mal": 32935
+          }
+        },
+        {
+          "title": "HAIKYU!! TO THE TOP",
+          "native": "ハイキュー!! TO THE TOP",
+          "year": 2020,
+          "episodes": 13,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 106625,
+            "mal": 38883
+          }
+        },
+        {
+          "title": "HAIKYU!! TO THE TOP Part 2",
+          "native": "ハイキュー!! TO THE TOP 2",
+          "year": 2020,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 113538,
+            "mal": 40776
+          }
+        }
+      ],
+      "studios": [
+        "Production I.G"
+      ],
+      "directors": [
+        {
+          "name": "満仲勧",
+          "role": "Director",
+          "id": {
+            "anilist": 113823
+          }
+        },
+        {
+          "name": "佐藤雅子",
+          "role": "Director",
+          "id": {
+            "anilist": 126654
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "村瀬歩",
+          "character": "日向翔陽",
+          "characterRomaji": "Shouyou Hinata",
+          "order": 0,
+          "role": "MAIN",
+          "id": {
+            "anilist": 64769
+          },
+          "image": "/images/collection/people/haikyu-01.png"
+        },
+        {
+          "name": "石川界人",
+          "character": "影山飛雄",
+          "characterRomaji": "Tobio Kageyama",
+          "order": 1,
+          "role": "MAIN",
+          "id": {
+            "anilist": 64771
+          },
+          "image": "/images/collection/people/haikyu-02.png"
+        },
+        {
+          "name": "入野自由",
+          "character": "菅原孝支",
+          "characterRomaji": "Koushi Sugawara",
+          "order": 2,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67321
+          },
+          "image": "/images/collection/people/haikyu-03.png"
+        },
+        {
+          "name": "日野聡",
+          "character": "澤村大地",
+          "characterRomaji": "Daichi Sawamura",
+          "order": 3,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67323
+          },
+          "image": "/images/collection/people/haikyu-04.png"
+        },
+        {
+          "name": "林勇",
+          "character": "田中龍之介",
+          "characterRomaji": "Ryuunosuke Tanaka",
+          "order": 4,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67325
+          },
+          "image": "/images/collection/people/haikyu-05.jpg"
+        },
+        {
+          "name": "岡本信彦",
+          "character": "西谷夕",
+          "characterRomaji": "Yuu Nishinoya",
+          "order": 5,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67327
+          },
+          "image": "/images/collection/people/haikyu-06.jpg"
+        },
+        {
+          "name": "内山昂輝",
+          "character": "月島蛍",
+          "characterRomaji": "Kei Tsukishima",
+          "order": 6,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67329
+          },
+          "image": "/images/collection/people/haikyu-07.png"
+        },
+        {
+          "name": "増田俊樹",
+          "character": "縁下力",
+          "characterRomaji": "Chikara Ennoshita",
+          "order": 7,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 67331
+          },
+          "image": "/images/collection/people/haikyu-08.png"
+        }
+      ],
+      "themes": [
+        {
+          "type": "op",
+          "title": "Imagination (イマジネーション)",
+          "artist": "SPYAIR",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/0hIn8Jp4UDAwzTRlH31muj",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Ah Yeah!!",
+          "artist": "Sukima Switch",
+          "episodes": "15-25",
+          "spotify": "https://open.spotify.com/track/3LXpZ28ebxPHH1aUc9167L",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Tenchi Gaeshi (天地ガエシ)",
+          "artist": "NICO Touches the Walls",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/2BeBpYyKEcbk0EbZ1S5OhM",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Ah Yeah!!",
+          "artist": "Sukima Switch",
+          "episodes": "14",
+          "spotify": "https://open.spotify.com/track/3LXpZ28ebxPHH1aUc9167L",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "LEO",
+          "artist": "tacica",
+          "episodes": "15-25",
+          "spotify": "https://open.spotify.com/track/2LIG7ArCZBd3lySwBEGd0q",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "I'm A Believer (アイム・ア・ビリーバー)",
+          "artist": "SPYAIR",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/2gVEP5chQzs7pHEemZpMBO",
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "FLY HIGH!!",
+          "artist": "BURNOUT SYNDROMES",
+          "episodes": "14-25",
+          "spotify": "https://open.spotify.com/track/3YOZLPRiTuYgItSGO41gPT",
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "Climber (クライマー)",
+          "artist": "Galileo Galilei",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/0var06tEoXUqS76RScrCCP",
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "Hatsunetsu (発熱)",
+          "artist": "tacica",
+          "episodes": "14-25",
+          "spotify": "https://open.spotify.com/track/4Ud0x5ZkP50dWDDIXAKzLH",
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Hikari Are (ヒカリアレ)",
+          "artist": "BURNOUT SYNDROMES",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/5WLaJoYalaASb9JB7Yk5U6",
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Mashi Mashi (マシ・マシ)",
+          "artist": "NICO Touches the Walls",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/6c6WreivKNC4zXb00lUJtI",
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "op",
+          "title": "PHOENIX",
+          "artist": "BURNOUT SYNDROMES",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/7yMCljF3pdi6zn9Qz98L2m",
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "ed",
+          "title": "Kessen Spirit (決戦スピリット)",
+          "artist": "CHiCO with HoneyWorks",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/0ga108tnC9yVAWiH3mCsO0",
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "op",
+          "title": "Toppakou (突破口)",
+          "artist": "SUPER BEAVER",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/481beimUiUnMUzSbOAFcUT",
+          "youtube": "AT2tulhSprE",
+          "season": 4
+        },
+        {
+          "type": "ed",
+          "title": "One Day",
+          "artist": "SPYAIR",
+          "episodes": "1-11",
+          "spotify": "https://open.spotify.com/track/4VKImVpGSJ60yBqjiKDPvZ",
+          "youtube": "IdUUam2H1y0",
+          "season": 4
+        },
+        {
+          "type": "ed",
+          "title": "Imagination",
+          "artist": "SPYAIR",
+          "episodes": "12",
+          "spotify": "https://open.spotify.com/track/2myR1tzmscTcGc3gBGcSov",
+          "youtube": "wDIUyyQqQ_M",
+          "season": 4
+        }
+      ]
+    },
+    "ace-of-diamond": {
+      "fetchedAt": "2026-11-22",
+      "source": {
+        "anilist": "https://anilist.co/anime/18689",
+        "mal": "https://myanimelist.net/anime/18689"
+      },
+      "ids": {
+        "anilist": 18689,
+        "mal": 18689
+      },
+      "backdrop": "/images/collection/ace-of-diamond-backdrop.jpg",
+      "tagline": null,
+      "runtime": 24,
+      "episodes": 191,
+      "seasons": 5,
+      "seasonList": [
+        {
+          "title": "Ace of the Diamond",
+          "native": "ダイヤのA",
+          "year": 2013,
+          "episodes": 75,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 18689,
+            "mal": 18689
+          }
+        },
+        {
+          "title": "Ace of the Diamond Second Season",
+          "native": "ダイヤのA～Second Season～",
+          "year": 2015,
+          "episodes": 51,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 21085,
+            "mal": 30230
+          }
+        },
+        {
+          "title": "Ace of the Diamond act II",
+          "native": "ダイヤのA actⅡ",
+          "year": 2019,
+          "episodes": 52,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 105749,
+            "mal": 38731
+          }
+        },
+        {
+          "title": "Ace of the Diamond act II -Second Season-",
+          "native": "ダイヤのA actII -Second Season-",
+          "year": 2026,
+          "episodes": 13,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 177634,
+            "mal": 58877
+          }
+        },
+        {
+          "title": "Diamond no Ace act II: Second Season Part 2",
+          "native": "ダイヤのA actⅡ -Second Season- 第2クール",
+          "year": 2026,
+          "episodes": null,
+          "status": "RELEASING",
+          "ids": {
+            "anilist": 213658,
+            "mal": 64505
+          }
+        }
+      ],
+      "studios": [
+        "Production I.G",
+        "MADHOUSE",
+        "OLM"
+      ],
+      "directors": [
+        {
+          "name": "増原光幸",
+          "role": "Director",
+          "id": {
+            "anilist": 106017
+          }
+        },
+        {
+          "name": "大庭秀昭",
+          "role": "Director",
+          "id": {
+            "anilist": 119886
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "逢坂良太",
+          "character": "沢村栄純",
+          "characterRomaji": "Eijun Sawamura",
+          "order": 0,
+          "role": "MAIN",
+          "id": {
+            "anilist": 22998
+          },
+          "image": "/images/collection/people/ace-of-diamond-01.png"
+        },
+        {
+          "name": "島﨑信長",
+          "character": "降谷暁",
+          "characterRomaji": "Satoru Furuya",
+          "order": 1,
+          "role": "MAIN",
+          "id": {
+            "anilist": 30266
+          },
+          "image": "/images/collection/people/ace-of-diamond-02.png"
+        },
+        {
+          "name": "櫻井孝宏",
+          "character": "御幸一也",
+          "characterRomaji": "Kazuya Miyuki",
+          "order": 2,
+          "role": "MAIN",
+          "id": {
+            "anilist": 30267
+          },
+          "image": "/images/collection/people/ace-of-diamond-03.png"
+        },
+        {
+          "name": "花江夏樹",
+          "character": "小湊春市",
+          "characterRomaji": "Haruichi Kominato",
+          "order": 3,
+          "role": "MAIN",
+          "id": {
+            "anilist": 69295
+          },
+          "image": "/images/collection/people/ace-of-diamond-04.png"
+        },
+        {
+          "name": "森田成一",
+          "character": "丹波光一郎",
+          "characterRomaji": "Kouichirou Tanba",
+          "order": 4,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 30268
+          },
+          "image": "/images/collection/people/ace-of-diamond-05.png"
+        },
+        {
+          "name": "小野賢章",
+          "character": "轟雷市",
+          "characterRomaji": "Raichi Todoroki",
+          "order": 5,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 88303
+          },
+          "image": "/images/collection/people/ace-of-diamond-06.png"
+        },
+        {
+          "name": "梶裕貴",
+          "character": "成宮鳴",
+          "characterRomaji": "Mei Narumiya",
+          "order": 6,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 89310
+          },
+          "image": "/images/collection/people/ace-of-diamond-07.png"
+        },
+        {
+          "name": "竹内栄治",
+          "character": "太田一義",
+          "characterRomaji": "Kazuyoshi Oota",
+          "order": 7,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 89374
+          },
+          "image": "/images/collection/people/ace-of-diamond-08.jpg"
+        }
+      ],
+      "themes": [
+        {
+          "type": "op",
+          "title": "Go EXCEED!!",
+          "artist": "Tom-H@ck featuring Masayoshi Oishi",
+          "episodes": "1-25",
+          "spotify": "https://open.spotify.com/track/0BHMtxgh15XvgYi6yUyMxj",
+          "youtube": "Pf1rqYWhUB4",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Perfect HERO",
+          "artist": "Tom-H@ck featuring Masayoshi Oishi",
+          "episodes": "26-51",
+          "spotify": "https://open.spotify.com/track/21B2FVTHzScbltxS8X5WcP",
+          "youtube": "eZdnlkdidVw",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Hashire! Mirai (疾走れ！ミライ)",
+          "artist": "Glay",
+          "episodes": "52-75",
+          "spotify": null,
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Seek Diamonds",
+          "artist": "Yoko Hikasa",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/1ozrX1wXY2tuRMYMxZ0mr5",
+          "youtube": "rSj5O5biEXw",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Glory! (グローリー！)",
+          "artist": "Suzuko Mimori",
+          "episodes": "14-25",
+          "spotify": "https://open.spotify.com/track/4kILeGyrrkWQPasxB9V99J",
+          "youtube": "sm5XG1oJ6dY",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Mirai e Tsunage (未来へつなげ)",
+          "artist": "DOP (Diamond no Ace Ouen Project: Wakaba, Haruno Yoshikawa, Takako Fujiwara, Sachiko Umemoto, Yui Natsukawa with AOP)",
+          "episodes": "26-37",
+          "spotify": "https://open.spotify.com/track/1b8UT60P96Td1KuY0FtiOt",
+          "youtube": "_eEvRYHZna0",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "CLOUD NINE",
+          "artist": "Seidou High School Basebal Club (Ryota Ohsaka, Nobunaga Shimazaki, Natsuki Hanae)",
+          "episodes": "38-51",
+          "spotify": "https://open.spotify.com/track/69XfcvQ6V6JqsHRyoTNa69",
+          "youtube": "1NOxz99IQqM",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "PROMISED FIELD",
+          "artist": "Seidou High School Basebal Club (Ryota Ohsaka, Nobunaga Shimazaki, Natsuki Hanae)",
+          "episodes": "52-63",
+          "spotify": "https://open.spotify.com/track/5SQgyy66JZ5npsXWTPuR84",
+          "youtube": "5hVAmQtoYIE",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "FINAL VICTORY",
+          "artist": "Seidou High Baseball Club (Ryota Ohsaka, Nobunaga Shimazaki, Natsuki Hanae)",
+          "episodes": "64-75",
+          "spotify": "https://open.spotify.com/track/5MkPJR3Y4mhkDByQZ3qXBb",
+          "youtube": "ah1Ui9XBvXc",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Go EXCEED!!",
+          "artist": "Tom-H@ck featuring Masayoshi Oishi",
+          "episodes": "1",
+          "spotify": "https://open.spotify.com/track/0BHMtxgh15XvgYi6yUyMxj",
+          "youtube": "Pf1rqYWhUB4",
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Perfect HERO",
+          "artist": "Tom-H@ck featuring Masayoshi Oishi",
+          "episodes": "2",
+          "spotify": "https://open.spotify.com/track/21B2FVTHzScbltxS8X5WcP",
+          "youtube": "eZdnlkdidVw",
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Hashire! Mirai (疾走れ！ミライ)",
+          "artist": "Glay",
+          "episodes": "3",
+          "spotify": null,
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "HEROES",
+          "artist": "Glay",
+          "episodes": "4-26",
+          "spotify": "https://open.spotify.com/track/1unOFM2AvR2SWp9lwVeznF",
+          "youtube": "IfpgRh1Ov_E",
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Sora ga Aozora de aru Tame ni (空が青空であるために)",
+          "artist": "Glay",
+          "episodes": "27-51",
+          "spotify": "https://open.spotify.com/track/6wfYng9wQprhKrpSJlvkqL",
+          "youtube": "agF2190uQjk",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "Glory! (グローリー！)",
+          "artist": "Suzuko Mimori",
+          "episodes": "1",
+          "spotify": null,
+          "youtube": "sm5XG1oJ6dY",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "CLOUD NINE",
+          "artist": "Seidou High School Basebal Club (Ryota Osaka, Nobunaga Shimazaki, Natsuki Hanae)",
+          "episodes": "2",
+          "spotify": "https://open.spotify.com/track/69XfcvQ6V6JqsHRyoTNa69",
+          "youtube": "1NOxz99IQqM",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "FINAL VICTORY",
+          "artist": "Seidou High Baseball Club (Ryota Osaka, Nobunaga Shimazaki, Natsuki Hanae)",
+          "episodes": "3",
+          "spotify": "https://open.spotify.com/track/5MkPJR3Y4mhkDByQZ3qXBb",
+          "youtube": "ah1Ui9XBvXc",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "KIMERO!!",
+          "artist": "OxT",
+          "episodes": "4-13",
+          "spotify": "https://open.spotify.com/track/1XzPqGEBJP6qFFa8HwtYdm",
+          "youtube": "XeY92DYug1c",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "BLUE WINDING ROAD",
+          "artist": "Seidou High School Baseball Club (Ryota Osaka, Nobunaga Shimazaki, Natsuki Hanae, Yoshitsugu Matsuoka, Aoi Shouta)",
+          "episodes": "14-26",
+          "spotify": "https://open.spotify.com/track/02plkuviiNJOmu7gfZY8fu",
+          "youtube": "O_lJ6d2qedw",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "BLOOM OF YOUTH",
+          "artist": "OxT",
+          "episodes": "27-39",
+          "spotify": "https://open.spotify.com/track/7utUlBXMC9kCYMPesIxRC2",
+          "youtube": "oYiQV2ua1CQ",
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "BRAND NEW BLUE",
+          "artist": "Eijun Sawamura (Ryota Osaka) featuring Masayoshi Oishi",
+          "episodes": "40-51",
+          "spotify": "https://open.spotify.com/track/2NyURsNegTGlzi618qS4l3",
+          "youtube": "gVBbjJxv23w",
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "Hajimari no Uta (はじまりのうた)",
+          "artist": "GLAY",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/2unAcJcDXtwB74bGM4p18F",
+          "youtube": "Ws2ElPz8Gk0",
+          "season": 2
+        },
+        {
+          "type": "op",
+          "title": "Ryuusei no Howl (流星のHOWL)",
+          "artist": "GLAY",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/43hEfWPDGwDS4YRy2lSLte",
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Ryuusei no Howl (流星のHOWL)",
+          "artist": "GLAY",
+          "episodes": "45",
+          "spotify": null,
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Golden After School (ゴールデンアフタースクール)",
+          "artist": "OxT",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/5CoX3aCqEvdgYGUWHoui00",
+          "youtube": "92jSNjGMX3E",
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Kodou Escalation (鼓動エスカレーション)",
+          "artist": "Maaya Uchida",
+          "episodes": "14-29",
+          "spotify": "https://open.spotify.com/track/5eFquxdAzQMxxK1ZQDPeWe",
+          "youtube": "IMmaFnTT4V0",
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Chance! (チャンス！)",
+          "artist": "Suzuko Mimori",
+          "episodes": "30-39",
+          "spotify": "https://open.spotify.com/track/7EBWdb33mVVGm5FcLRHWgU",
+          "youtube": "MNzIIZzqAVU",
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Everlasting Dream",
+          "artist": "OxT",
+          "episodes": "40-44, 46-52",
+          "spotify": "https://open.spotify.com/track/471Z7XDFGSGEgq4Kz8yVIf",
+          "youtube": "N-Wg7IAzvE4",
+          "season": 2
+        },
+        {
+          "type": "op",
+          "title": "Let's Go Crazy",
+          "artist": "Baby Canta",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "ed",
+          "title": "NUMBER",
+          "artist": "SUPER★DRAGON",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 3
+        },
+        {
+          "type": "op",
+          "title": "NEVER SAY NEVER AGAIN",
+          "artist": "GLAY",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 4
+        },
+        {
+          "type": "ed",
+          "title": "ROAD TO BE BLUE",
+          "artist": "OxT",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 4
+        }
+      ]
+    },
+    "jujutsu-kaisen": {
+      "fetchedAt": "2026-11-22",
+      "source": {
+        "anilist": "https://anilist.co/anime/113415",
+        "mal": "https://myanimelist.net/anime/40748"
+      },
+      "ids": {
+        "anilist": 113415,
+        "mal": 40748
+      },
+      "backdrop": "/images/collection/jujutsu-kaisen-backdrop.jpg",
+      "tagline": null,
+      "runtime": 24,
+      "episodes": 59,
+      "seasons": 3,
+      "seasonList": [
+        {
+          "title": "JUJUTSU KAISEN",
+          "native": "呪術廻戦",
+          "year": 2020,
+          "episodes": 24,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 113415,
+            "mal": 40748
+          }
+        },
+        {
+          "title": "JUJUTSU KAISEN Season 2",
+          "native": "呪術廻戦 第2期",
+          "year": 2023,
+          "episodes": 23,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 145064,
+            "mal": 51009
+          }
+        },
+        {
+          "title": "JUJUTSU KAISEN Season 3: The Culling Game Part 1",
+          "native": "呪術廻戦 死滅回游 前編",
+          "year": 2026,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 172463,
+            "mal": 57658
+          }
+        }
+      ],
+      "studios": [
+        "MAPPA"
+      ],
+      "directors": [
+        {
+          "name": "Seong-Hu Park",
+          "role": "Director",
+          "id": {
+            "anilist": 123074
+          }
+        },
+        {
+          "name": "御所園翔太",
+          "role": "Director",
+          "id": {
+            "anilist": 131334
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "内田雄馬",
+          "character": "伏黒恵",
+          "characterRomaji": "Megumi Fushiguro",
+          "order": 0,
+          "role": "MAIN",
+          "id": {
+            "anilist": 126635
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-01.png"
+        },
+        {
+          "name": "榎木淳弥",
+          "character": "虎杖悠仁",
+          "characterRomaji": "Yuuji Itadori",
+          "order": 1,
+          "role": "MAIN",
+          "id": {
+            "anilist": 127212
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-02.png"
+        },
+        {
+          "name": "中村悠一",
+          "character": "五条悟",
+          "characterRomaji": "Satoru Gojou",
+          "order": 2,
+          "role": "MAIN",
+          "id": {
+            "anilist": 127691
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-03.png"
+        },
+        {
+          "name": "瀬戸麻沙美",
+          "character": "釘崎野薔薇",
+          "characterRomaji": "Nobara Kugisaki",
+          "order": 3,
+          "role": "MAIN",
+          "id": {
+            "anilist": 133700
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-04.png"
+        },
+        {
+          "name": "櫻井孝宏",
+          "character": "夏油傑",
+          "characterRomaji": "Suguru Getou",
+          "order": 4,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 133699
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-05.png"
+        },
+        {
+          "name": "諏訪部順一",
+          "character": "宿儺",
+          "characterRomaji": "Sukuna",
+          "order": 5,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 133701
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-06.png"
+        },
+        {
+          "name": "島﨑信長",
+          "character": "真人",
+          "characterRomaji": "Mahito",
+          "order": 6,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 133702
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-07.png"
+        },
+        {
+          "name": "津田健次郎",
+          "character": "七海建人",
+          "characterRomaji": "Kento Nanami",
+          "order": 7,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 133704
+          },
+          "image": "/images/collection/people/jujutsu-kaisen-08.png"
+        }
+      ],
+      "themes": [
+        {
+          "type": "op",
+          "title": "KAIKAIKITAN (廻廻奇譚)",
+          "artist": "Eve",
+          "episodes": "1-13",
+          "spotify": "https://open.spotify.com/track/2gSkvrwfCXCgqeugzezn97",
+          "youtube": "1tk1pqwrOys",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "VIVID VICE",
+          "artist": "Who-ya Extended",
+          "episodes": "14-",
+          "spotify": "https://open.spotify.com/track/4R6yPy83vDEZtwJsBavUfo",
+          "youtube": "EU6I8TxU6Z4",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "LOST IN PARADISE",
+          "artist": "ALI ft. AKLO",
+          "episodes": "2-13",
+          "spotify": "https://open.spotify.com/track/7kRKlFCFLAUwt43HWtauhX",
+          "youtube": "KnakQRoQRzk",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "give it back",
+          "artist": "Cö shu Nie",
+          "episodes": "14-",
+          "spotify": "https://open.spotify.com/track/6aHFdm58mPF4YPJX3FgI0z",
+          "youtube": "QJ8P-81gYA8",
+          "season": 0
+        },
+        {
+          "type": "op",
+          "title": "Ao no Sumika (青のすみか)",
+          "artist": "Tatsuya Kitani (キタニタツヤ)",
+          "episodes": "1-5",
+          "spotify": null,
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "SPECIALZ",
+          "artist": "King Gnu",
+          "episodes": "6-16,18-23",
+          "spotify": null,
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "Akari (燈)",
+          "artist": "Soushi Sakiyama (崎山蒼志)",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "ed",
+          "title": "more than words",
+          "artist": "Hitsujibungaku (羊文学)",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 1
+        },
+        {
+          "type": "op",
+          "title": "AIZO",
+          "artist": "King Gnu",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 2
+        },
+        {
+          "type": "ed",
+          "title": "Yoake no Uta (よあけのうた)",
+          "artist": "jo0ji",
+          "episodes": null,
+          "spotify": null,
+          "youtube": null,
+          "season": 2
+        }
+      ]
+    },
+    "chainsaw-man": {
+      "fetchedAt": "2026-11-22",
+      "source": {
+        "anilist": "https://anilist.co/anime/127230",
+        "mal": "https://myanimelist.net/anime/44511"
+      },
+      "ids": {
+        "anilist": 127230,
+        "mal": 44511
+      },
+      "backdrop": "/images/collection/chainsaw-man-backdrop.jpg",
+      "tagline": null,
+      "runtime": 25,
+      "episodes": 12,
+      "seasons": null,
+      "seasonList": [
+        {
+          "title": "Chainsaw Man",
+          "native": "チェンソーマン",
+          "year": 2022,
+          "episodes": 12,
+          "status": "FINISHED",
+          "ids": {
+            "anilist": 127230,
+            "mal": 44511
+          }
+        }
+      ],
+      "studios": [
+        "MAPPA"
+      ],
+      "directors": [
+        {
+          "name": "中山竜",
+          "role": "Director",
+          "id": {
+            "anilist": 133512
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "戸谷菊之介",
+          "character": "デンジ",
+          "characterRomaji": "Denji",
+          "order": 0,
+          "role": "MAIN",
+          "id": {
+            "anilist": 130102
+          },
+          "image": "/images/collection/people/chainsaw-man-01.png"
+        },
+        {
+          "name": "ファイルーズあい",
+          "character": "パワー",
+          "characterRomaji": "Power",
+          "order": 1,
+          "role": "MAIN",
+          "id": {
+            "anilist": 137079
+          },
+          "image": "/images/collection/people/chainsaw-man-02.png"
+        },
+        {
+          "name": "楠木ともり",
+          "character": "マキマ",
+          "characterRomaji": "Makima",
+          "order": 2,
+          "role": "MAIN",
+          "id": {
+            "anilist": 137080
+          },
+          "image": "/images/collection/people/chainsaw-man-03.png"
+        },
+        {
+          "name": "坂田将吾",
+          "character": "早川アキ",
+          "characterRomaji": "Aki Hayakawa",
+          "order": 3,
+          "role": "MAIN",
+          "id": {
+            "anilist": 137081
+          },
+          "image": "/images/collection/people/chainsaw-man-04.png"
+        },
+        {
+          "name": "井澤詩織",
+          "character": "ポチタ",
+          "characterRomaji": "Pochita",
+          "order": 4,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 170266
+          },
+          "image": "/images/collection/people/chainsaw-man-05.png"
+        },
+        {
+          "name": "伊瀬茉莉也",
+          "character": "姫野",
+          "characterRomaji": "Himeno",
+          "order": 5,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 144596
+          },
+          "image": "/images/collection/people/chainsaw-man-06.png"
+        },
+        {
+          "name": "津田健次郎",
+          "character": "岸辺",
+          "characterRomaji": "Kishibe",
+          "order": 6,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 144593
+          },
+          "image": "/images/collection/people/chainsaw-man-07.png"
+        },
+        {
+          "name": "高橋花林",
+          "character": "東山コベニ",
+          "characterRomaji": "Kobeni Higashiyama",
+          "order": 7,
+          "role": "SUPPORTING",
+          "id": {
+            "anilist": 144594
+          },
+          "image": "/images/collection/people/chainsaw-man-08.png"
+        }
+      ],
+      "themes": [
+        {
+          "type": "op",
+          "title": "KICK BACK",
+          "artist": "Kenshi Yonezu (米津玄師)",
+          "episodes": null,
+          "spotify": "https://open.spotify.com/track/3khEEPRyBeOUabbmOPJzAG",
+          "youtube": "cl8QwcqTc6I",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "CHAINSAW BLOOD",
+          "artist": "Vaundy",
+          "episodes": "1",
+          "spotify": "https://open.spotify.com/track/3lUOzabhWYyRImRszpJGOU",
+          "youtube": "KzdlGdSqays",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Zanki (残機)",
+          "artist": "ZUTOMAYO (ずっと真夜中でいいのに。)",
+          "episodes": "2",
+          "spotify": "https://open.spotify.com/track/1XeOqgzh2fZhmgxnmyiIJ8",
+          "youtube": "OMhVQLBNyGs",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Hawatari 2-oku Centi (刃渡り2億センチ)",
+          "artist": "Maximum the Hormone (マキシマム ザ ホルモン)",
+          "episodes": "3",
+          "spotify": "https://open.spotify.com/track/2rTmZHTXWo9YfIRAxbdkpG",
+          "youtube": "bo8b5OkP_KM",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Jouzai (錠剤)",
+          "artist": "TOOBOE",
+          "episodes": "4",
+          "spotify": "https://open.spotify.com/track/04niDJQ3mzjkwzvid0Otoi",
+          "youtube": "jRK3iWhQOqE",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "In the Backroom (インザバックルーム)",
+          "artist": "syudou",
+          "episodes": "5",
+          "spotify": "https://open.spotify.com/track/1fmCImjjMs4pHmQGDmtCc9",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Dainou-teki na Rendez-vous (大脳的なランデブー)",
+          "artist": "Kanaria",
+          "episodes": "6",
+          "spotify": "https://open.spotify.com/track/2peXRsKoFZMyy30Zi3dhLH",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Chu, Tayousei (ちゅ、多様性。)",
+          "artist": "ano",
+          "episodes": "7",
+          "spotify": "https://open.spotify.com/track/5KLL3cZEyuSJRvyS84o4Df",
+          "youtube": "EXTXw2u5tMM",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "first death",
+          "artist": "TK from Ling tosite sigure (TK from 凛として時雨)",
+          "episodes": "8",
+          "spotify": "https://open.spotify.com/track/0ky07Oq85l9zx7e427XGgC",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "Deep down",
+          "artist": "Aimer",
+          "episodes": "9",
+          "spotify": "https://open.spotify.com/track/42IF4VUNaIGc1oD74rHa8O",
+          "youtube": "TaGIqycpQzA",
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "DOGLAND",
+          "artist": "PEOPLE 1",
+          "episodes": "10",
+          "spotify": "https://open.spotify.com/track/6CMjaUiyl7WLPop2AoLbn6",
+          "youtube": null,
+          "season": 0
+        },
+        {
+          "type": "ed",
+          "title": "VIOLENCE (バイオレンス)",
+          "artist": "Ziyoou-vachi (女王蜂)",
+          "episodes": "11",
+          "spotify": "https://open.spotify.com/track/5UIFfwovmONqXqzHmscIj5",
+          "youtube": null,
+          "season": 0
+        }
+      ]
+    },
+    "coach-carter": {
+      "fetchedAt": "2026-11-23",
+      "source": {
+        "tmdb": "https://www.themoviedb.org/movie/7214"
+      },
+      "backdrop": "/images/collection/coach-carter-backdrop.jpg",
+      "tagline": "It begins on the streets. It ends here.",
+      "runtime": 136,
+      "episodes": null,
+      "seasons": null,
+      "studios": [],
+      "directors": [
+        {
+          "name": "Thomas Carter",
+          "role": "Director",
+          "id": {
+            "tmdb": 52038
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "Samuel L. Jackson",
+          "character": "Ken Carter",
+          "order": 0,
+          "id": {
+            "tmdb": 2231
+          },
+          "image": "/images/collection/people/coach-carter-01.jpg"
+        },
+        {
+          "name": "Rob Brown",
+          "character": "Kenyon Stone",
+          "order": 1,
+          "id": {
+            "tmdb": 10689
+          },
+          "image": "/images/collection/people/coach-carter-02.jpg"
+        },
+        {
+          "name": "Robert Ri'chard",
+          "character": "Damien Carter",
+          "order": 2,
+          "id": {
+            "tmdb": 52037
+          },
+          "image": "/images/collection/people/coach-carter-03.jpg"
+        },
+        {
+          "name": "Rick Gonzalez",
+          "character": "Timo Cruz",
+          "order": 3,
+          "id": {
+            "tmdb": 53184
+          },
+          "image": "/images/collection/people/coach-carter-04.jpg"
+        },
+        {
+          "name": "Nana Gbewonyo",
+          "character": "Junior Battle",
+          "order": 4,
+          "id": {
+            "tmdb": 74307
+          },
+          "image": "/images/collection/people/coach-carter-05.jpg"
+        },
+        {
+          "name": "Antwon Tanner",
+          "character": "Worm",
+          "order": 5,
+          "id": {
+            "tmdb": 93602
+          },
+          "image": "/images/collection/people/coach-carter-06.jpg"
+        },
+        {
+          "name": "Channing Tatum",
+          "character": "Jason Lyle",
+          "order": 6,
+          "id": {
+            "tmdb": 38673
+          },
+          "image": "/images/collection/people/coach-carter-07.jpg"
+        },
+        {
+          "name": "Ashanti",
+          "character": "Kyra",
+          "order": 7,
+          "id": {
+            "tmdb": 57172
+          },
+          "image": "/images/collection/people/coach-carter-08.jpg"
+        }
+      ],
+      "themes": []
+    },
+    "pacific-rim": {
+      "fetchedAt": "2026-11-23",
+      "source": {
+        "tmdb": "https://www.themoviedb.org/movie/68726"
+      },
+      "backdrop": "/images/collection/pacific-rim-backdrop.jpg",
+      "tagline": "To fight monsters, we created monsters.",
+      "runtime": 131,
+      "episodes": null,
+      "seasons": null,
+      "studios": [],
+      "directors": [
+        {
+          "name": "Guillermo del Toro",
+          "role": "Director",
+          "id": {
+            "tmdb": 10828
+          }
+        }
+      ],
+      "cast": [
+        {
+          "name": "Charlie Hunnam",
+          "character": "Raleigh Becket",
+          "order": 0,
+          "id": {
+            "tmdb": 56365
+          },
+          "image": "/images/collection/people/pacific-rim-01.jpg"
+        },
+        {
+          "name": "Rinko Kikuchi",
+          "character": "Mako Mori",
+          "order": 1,
+          "id": {
+            "tmdb": 18054
+          },
+          "image": "/images/collection/people/pacific-rim-02.jpg"
+        },
+        {
+          "name": "Idris Elba",
+          "character": "Stacker Pentecost",
+          "order": 2,
+          "id": {
+            "tmdb": 17605
+          },
+          "image": "/images/collection/people/pacific-rim-03.jpg"
+        },
+        {
+          "name": "Max Martini",
+          "character": "Herc Hansen",
+          "order": 3,
+          "id": {
+            "tmdb": 94864
+          },
+          "image": "/images/collection/people/pacific-rim-04.jpg"
+        },
+        {
+          "name": "Clifton Collins Jr.",
+          "character": "Tendo Choi",
+          "order": 4,
+          "id": {
+            "tmdb": 5365
+          },
+          "image": "/images/collection/people/pacific-rim-05.jpg"
+        },
+        {
+          "name": "Ron Perlman",
+          "character": "Hannibal Chau",
+          "order": 5,
+          "id": {
+            "tmdb": 2372
+          },
+          "image": "/images/collection/people/pacific-rim-06.jpg"
+        },
+        {
+          "name": "Charlie Day",
+          "character": "Dr. Newton Geiszler",
+          "order": 6,
+          "id": {
+            "tmdb": 95101
+          },
+          "image": "/images/collection/people/pacific-rim-07.jpg"
+        },
+        {
+          "name": "Burn Gorman",
+          "character": "Dr. Hermann Gottlieb",
+          "order": 7,
+          "id": {
+            "tmdb": 39659
+          },
+          "image": "/images/collection/people/pacific-rim-08.jpg"
+        }
+      ],
+      "themes": []
+    }
+  }
+}
