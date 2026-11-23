@@ -16,7 +16,8 @@
 
 ---
 
-## Q-052 ⏳ 待拍板：兩個既有全站紅燈擋住 2026-11-11 LongCat-2.5 模型卡 commit
+## Q-052 ✅ 已解決（2026-11-23）：兩個既有全站紅燈擋住 2026-11-11 LongCat-2.5 模型卡 commit
+- 結案（2026-11-23）：series-plan 與 lang-parity 兩個紅燈已不再出現（`check:series-plan` 27 個受管系列齊全；完整 `pnpm verify` 全綠）。LongCat-2.5 模型卡已改以 2026-11-15 上線（commit `5fb9a3c5b`）。補充所述 2026-11-12 arxiv digest（`src/content/posts/daily/2026-11-12-ai-agent-arxiv-digest{,-en}.md`）不在 repo、工作目錄也沒有，未提交即遺失；要補需重跑該日 routine。
 - 登錄：2026-11-11（來源：daily-digest-model-card routine 執行 `git commit` 時發現）
 - 做什麼：本次 routine 寫完 LongCat-2.5 模型卡（中英雙版＋daily-log，3 個新檔，皆已 `git add` 暫存），`git commit` 觸發 pre-commit `pnpm verify:staged` 噴紅兩項，與本次新增／修改的檔案無關：
   1. **`series-plan (staged)`**：「`.work/series-plans/daodao-community-ops.md` 缺：研究筆記檔案 `.work/research/daodao-community-ops/research-note.md` 不存在」。Q-051 已把規劃表本體 commit 進 repo（2026-11-11，commit `cf3215a`），但規劃表第 5 行寫著「研究筆記：`.work/research/daodao-community-ops/research-note.md`（索引；案例在 `cases.md`，理論與實證在 `frameworks.md`）」，這個路徑目前整個 `.work/research/daodao-community-ops/` 資料夾都不存在——Q-051 只解決了「規劃表檔案本身缺失」，沒解決「規劃表引用的研究筆記缺失」，是同一系列的下一層缺口，不是新問題重複登錄。
@@ -77,14 +78,16 @@
 - 本次產出：《AI 日報 — 2026-11-11》中英雙版，series order 88。主題「模型護城河保鮮期壓縮到 24 小時」（Claude Fable 5.2 登頂次日被 Gemini 4 Carbon 追平並砍半成本），五力分析框架貫穿深度分析；含 1 張 NEAR AI 攻擊鏈循序圖（中英座標相同）。Stage 1 當日（2026-11-11）無其他 routine 產出可引用，僅 Stage 2 signals JSON（33 條）可用，依規則略過「今日 Digest 一覽」段落；Step 4e 全球區域補掃經 Groundlane `web_search`／`web_fetch` 新增日韓（Korea Deep Learning 與南韓 IBK 的 PoC）與東南亞（新加坡 CSA／GovTech／IMDA 個人 agent 風險指引）兩筆經查證的區域事件。已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`（初版撞 4 處「用戶」已修正為「使用者」）／`check:series-order`／`check:diagram-geometry` 全部通過，無 blocking issue；`diagram-preview` 因環境無瀏覽器被 skip（`/opt/pw-browsers` 下找不到 `chrome-headless-shell`），改用 `check:diagram-geometry` 做幾何驗證替代。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-11-ai-agent-daily{,-en}.md`、`.work/daily-log/2026-11-11/daily-digest-report.md` 已 `git add` 暫存在本機 `main` 分支（工作目錄乾淨、未推送），等 Q-051 解除後直接 `git commit` 補上，不需重做內容或重跑查證。
 
-## Q-050 ⏳ 待拍板：剩 46 篇課程影片查核過期，卡在既有 process-leak（CI 仍擋 deploy）
+## Q-050 ⏳ 剩一項：CME295 第 4、5 講依錄影改寫（課程影片查核與 process-leak 已解決）
+- 更新（2026-11-23）：卡住的 process-leak 已在 commit `88a82a9c0`、`a56786f41` 修完（79 篇，no-emoji baseline 同步清空），`check:course-videos` 通過（僅提醒 2 篇查核日期 7 天內過期）。剩下的工作只有下方「另一件」的 CME295 兩講。
 - 登錄：2026-11-09（來源：對話）
 - 進度：2026-11-09 已逐門即時重查 40 門課，820 篇更新查核日期（commit 4c94a500a）。剩下 46 篇的查核日期也已在工作區改好、重查結論相同，但這些文章原本就有 process-leak（「附錄：數字與查證方式」「這一篇可以確認與不能確認的」「逐頁核對清單」整節，少數另有 404／查不到句型），暫存後被 pre-commit 逐篇擋下，所以沒有 commit。清單：`node scripts/check-process-leak.mjs $(git diff --name-only -- src/content/posts)`。
 - 要拍板：照 writing-guide「查證過程不寫進正文」把那些整節移到 `.work/<slug>/evidence.md`、會影響讀者的限制併回正文，是約 46 篇的內容改動（刪讀者看得到的整節）。修完這 46 篇，`check:course-videos` 才會全綠，deploy 才會解除阻擋。
 - 另一件：CME295 2026 第 4、5 講（`cme295-rl-with-llms`、`cme295-llm-systems`）原錄影已上架，文章是課前預寫版，承諾上架後依錄影與 2026 投影片更新。要用 post-update 依字幕改寫正文，再把錄影移到導言、狀態改「已附影片」。
 - 接手第一步：工作區那 46 篇已改好日期，先逐篇處理 process-leak，再一起 commit。
 
-## Q-047 ⏳ 待拍板：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
+## Q-047 ✅ 已解決：commit 2026-11-03 AI 日報格式優化被 pre-existing red check 阻擋
+- 結案（2026-11-23 確認）：日報表格化、三層監督機制圖、英文版與 daily-digest-report 模板已在 commit `5f0f27e29` 提交；兩個紅燈現在都不存在。
 - 登錄：2026-11-04（來源：與使用者對話，日報格式優化任務）
 - 做什麼：commit 已 staged 的 4 個檔案（src/content/posts/daily/2026-11-03-ai-agent-daily.md zh-TW、2026-11-03-ai-agent-daily-en.md、.agents/skills/daily-digest-report/SKILL.md、.claude/skills/daily-digest-report/SKILL.md），內容為日報表格化＋三層監督機制圖＋en 版同步＋daily-digest-report 模板表格化。
 - 為什麼現在不能做：pre-commit 跑 `pnpm verify:staged` 紅 2 燈，但兩者都是 pre-existing 且與 staged 內容無關：(1) `check:diagram-geometry` command not found —— package.json 未註冊該 script（verify.mjs 引用但未定義）；(2) 系列順序 20 個 blocking issues 全為舊文章（stanford-cs329z 等）， staged 檔案 `series.order: 80` 與 origin/main 相同，不在其中。修這兩者屬 Tier 2 治理腳本 / >20 檔批次改動，需使用者拍板。
