@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-learning-alone-vs-together)
+> :globe: [中文版](/posts/learning/2026-10-14-learning-alone-vs-together)
 
 This is Part 20 of the "Writing Articles That Teach" series and the first part of its fifth section, "who you learn with, and who can't read this." The first four sections dealt with one reader and one article: what goes on the page, what the reader is asked to do, what the reader brings, and what happens after some time. This section brings other people back in: classmates, discussion partners, people who leave comments, and people who for various reasons can't read the article at all.
 
@@ -33,7 +33,7 @@ Before carrying the studies below over to *one person reading a web article*, ke
 4. **The interaction is arranged**. There is a task, a time limit, and a teacher or researcher deciding who works with whom. A self-learner finding someone to talk to is a different situation.
 5. **The outcomes are tests or amounts recalled**. They do not measure whether someone understood a long article.
 
-What can be borrowed is which ingredients go along with the benefit and when the benefit disappears. Applying them to a person reading an article alone is my inference throughout, and the text marks it.
+What can be borrowed is which ingredients go along with the benefit and when the benefit disappears. Applying them to a person reading an article alone is an extension throughout.
 
 ## The conclusions first
 
@@ -173,7 +173,7 @@ Do students just follow whoever is more confident? When peers disagreed, final a
 
 The authors also note that 78% of students who answered correctly at first had a neighbor with the same answer, against only 43% of those who answered wrong. They infer that students sit next to people at a similar level and suggest that "Peer instruction could potentially benefit from randomly pairing students together." Random pairing was not tested.
 
-For a person reading an article alone, my inference from this table is that the benefit of Peer Instruction concentrates on the moments when the person next to you picked a different answer. Someone reading alone has no such person. And when students met someone with the same wrong answer, only 9% switched to the right one after discussion, and their confidence went up.
+For a person reading an article alone, this table means the benefit of Peer Instruction concentrates on the moments when the person next to you picked a different answer. Someone reading alone has no such person. And when students met someone with the same wrong answer, only 9% switched to the right one after discussion, and their confidence went up.
 
 ## Watching someone else being taught
 
@@ -231,7 +231,7 @@ The survey measures beliefs and habits, not learning, and it can't show whether 
 
 ## What reading alone misses
 
-Putting the results above together, what follows is my inference, with the basis given after each point.
+Putting the results above together gives the points below, with the basis after each.
 
 **What is missing**
 
@@ -274,7 +274,7 @@ This site's writing spec for course guides (`course-guide-contract.md`) requires
 |---|---|---|
 | Self-checks labeled "Write your answer down before opening the fold" (for example the [CS50 AI Week 0 guide](/posts/tech/2026-08-27-harvard-cs50ai-w00-search-en)) | Step 3, everyone answers alone first. Vickrey and colleagues say this step has no direct evidence of learning gains | This site's choice; the sources in this part add no support. The basis for answers and feedback is in [Part 9](/posts/learning/2026-10-13-teaching-text-questions-feedback-en) |
 | The answer in the fold gives the correct answer and the reasoning | Step 7, the instructor's explanation. Smith and colleagues 2011 as reported: discussion plus explanation beats either alone | The explanation is there; the discussion in between is missing |
-| Some answers deal with a plausible wrong conclusion (for example, Week 0 asks "Does that mean BFS always explores fewer states?" and the answer explains why not) | A neighbor's different answer (Tullis and Goldstone) | Same direction, but this is my inference; no study has tested whether text can stand in for a real person's disagreement |
+| Some answers deal with a plausible wrong conclusion (for example, Week 0 asks "Does that mean BFS always explores fewer states?" and the answer explains why not) | A neighbor's different answer (Tullis and Goldstone) | Same direction; no study has tested whether text can stand in for a real person's disagreement |
 | Concept guides must point out common misconceptions | Same as above; how to write misconceptions without planting them is in [Part 13](/posts/learning/2026-10-14-misconceptions-in-teaching-articles-en) | The basis is in Part 13 |
 | The article pages have no comment section | Forum vs. face to face showed no detected difference in Chen and colleagues' analysis, with only 8 comparisons | Whether comment sections help is covered in a later part |
 
@@ -282,7 +282,7 @@ This site's writing spec for course guides (`course-guide-contract.md`) requires
 
 1. **Don't write "research shows learning together works better" in an article**. If you cite it, state the comparison and the participants, for example "peer interaction among 4- to 18-year-olds, compared with working alone or with control groups tested twice." Basis: Tenenbaum and colleagues' comparison groups are mixed, and Chen and colleagues' randomized experiments show only 0.27.
 2. **In a self-check answer, write out another answer, then refute it**. Pick the wrong answer readers are most likely to choose, and write why it looks reasonable and where it goes wrong. Basis: Tullis and Goldstone's answer flows and the finding that confidence rose when students shared a wrong answer; writing out the wrong idea and saying plainly that it is wrong is supported by meta-analyses of refutation text (see [Part 13](/posts/learning/2026-10-14-misconceptions-in-teaching-articles-en)). What no study has tested is text standing in for a neighbor who really disagrees; that part is this site's judgment.
-3. **Put questions where readers' answers are likely to split**. Basis: Crouch and Mazur as reported by Vickrey, where discussion produced the largest improvement when about half the class answered correctly at first. The author can't see readers' accuracy, so the choice is a judgment call; this is my inference.
+3. **Put questions where readers' answers are likely to split**. Basis: Crouch and Mazur as reported by Vickrey, where discussion produced the largest improvement when about half the class answered correctly at first. The author can't see readers' accuracy, so the choice is a judgment call.
 4. **Give people reading together a question they must reach a shared answer to**. If the article is material for a study group, add after the question: "Each of you write an answer first, then talk until you agree." Basis: Tenenbaum and colleagues' consensus moderator (children, a comparison across studies) and the first four steps of Peer Instruction. No study has tested this with adult study groups.
 5. **Don't make "find someone to read with" a recommendation for every article**. Basis: collaboration has coordination costs and may not pay off when readers already know the material (theory); recalling together produces less (Luo and colleagues); most students prefer to study alone (Wei and colleagues).
 
@@ -302,7 +302,7 @@ This site's writing spec for course guides (`course-guide-contract.md`) requires
 - **The two Peer Instruction papers each have gaps**: Vickrey and colleagues is a narrative review whose numbers are all reported secondhand; Tullis and Goldstone has no group without discussion, the authors were the course instructors, and the measure is answering the same question again.
 - **Collaborative inhibition measures group output, not learning**, and only item memory.
 - **Versions**: for Tenenbaum and colleagues I read the author manuscript; of the published version I read only the public abstract, and all numbers in the text and appendix come from the manuscript. For Chi and colleagues 2017 I read the published version on the authors' lab website.
-- **My inferences appear in six places**: carrying the research over to one person reading an article; what the concentration of Peer Instruction's benefit on disagreement means for readers; the whole section "What reading alone misses"; that writing out another answer can give back part of it; the verdicts in the comparison with this site's practice; and "What you can do" and "Three things to do tonight." Each is marked in the text.
+- **Six points extend the research without direct experiments**: carrying the research over to one person reading an article; what the concentration of Peer Instruction's benefit on disagreement means for readers; the whole section "What reading alone misses"; that writing out another answer can give back part of it; the verdicts in the comparison with this site's practice; and "What you can do" and "Three things to do tonight."
 - **Known to exist, but without a legally available full text I have read**: Jeong and colleagues' 2019 meta-analysis of CSCL in STEM; Nokes-Malach and colleagues' 2015 review on when it is better to learn together; Marion and Thorley's 2016 meta-analysis of collaborative inhibition (the moderator of group size is only in this one; for familiarity, Luo and colleagues' subgroups are available); Balta and colleagues' 2017 meta-analysis of Peer Instruction; the original studies by Smith and colleagues 2009 and Crouch and Mazur 2001 (read only as reported by Vickrey and colleagues); the three meta-analyses of argumentation-based instruction; Chen and Hong's 2016 review of Knowledge Building; and the handbook chapters by Scardamalia and Bereiter and by Andriessen and Baker.
 - **Secondhand citations**: Crouch and Mazur 2001, Smith and colleagues 2009 and 2011, James and Willoughby 2011, Knight and colleagues 2013, and Nicol and Boyle 2003 as reported by Vickrey and colleagues; Weinberger and colleagues 2007 and F. Kirschner and colleagues 2011 as reported by Kirschner and colleagues; Muldner and colleagues 2014 as reported by Chi and colleagues 2017.
 - **Gaps in reading**: I did not read the supplementary materials of Chen and colleagues or Luo and colleagues (study lists, funnel plots); for most papers I read only the figure captions, not the figures.

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-prior-knowledge-reader-level)
+> :globe: [中文版](/posts/learning/2026-10-14-prior-knowledge-reader-level)
 
 This is part 12 of the series "Writing Articles That Teach," and the first post in its third section, "what readers bring with them." The first two sections covered what goes on the page and what to ask readers to do. Many of their conclusions carried the same caveat: it depends on the reader's level. This post first gathers those caveats, then turns to prior knowledge itself.
 
@@ -98,7 +98,7 @@ The examples behind the three determinants are all memory experiments. Brod desc
 
 Incongruent prior knowledge (what readers already believe that is wrong) gets its own post later in the series. The Simonsmeier meta-analysis also included studies that measured incorrect knowledge, but they make up only 3% of all effect sizes, and none has gain data.
 
-Applying this framework to writing, my inference is: whether readers have the relevant knowledge is outside the author's control; whether it gets activated is something the author can nudge at the top, for example by first saying what problem the post solves, or pointing to where readers have seen something similar. This is inferred from a secondhand account of one memory experiment; nobody has tested it on teaching articles.
+Applying this framework to writing: whether readers have the relevant knowledge is outside the author's control; whether it gets activated is something the author can nudge at the top, for example by first saying what problem the post solves, or pointing to where readers have seen something similar. This is inferred from a secondhand account of one memory experiment; nobody has tested it on teaching articles.
 
 ## The same assistance, opposite effects at different levels
 
@@ -174,7 +174,7 @@ Tommy Mullaney and Justin Reich's [2015 study](https://doi.org/10.1145/2724660.2
 
 Another finding the authors call incidental: in every week, a group of students spent most of their time in the first two chapters, and for many students, that was the only part they saw. The authors give no proportion for this group.
 
-This is a study of course pacing, not of how to write a single article. The two runs also differed in more than release pattern (the authors call it "a bundle of changes"), and the outcomes were certificate rates and activity, with no learning test. I take it as a direction: readers of a series mostly will not read in order, so each post should state its own prerequisites and link back to earlier ones. This is my inference.
+This is a study of course pacing, not of how to write a single article. The two runs also differed in more than release pattern (the authors call it "a bundle of changes"), and the outcomes were certificate rates and activity, with no learning test. It can serve as a direction: readers of a series mostly will not read in order, so each post should state its own prerequisites and link back to earlier ones.
 
 ### Google's technical writing course: what readers need, minus what they have
 
@@ -212,7 +212,7 @@ The following results point in different directions, or seem to conflict but act
 
 **Does prior knowledge predict how much is learned?** In the Simonsmeier meta-analysis, the average correlation between prior knowledge and normalized gain is close to zero. In the Tetzlaff meta-analysis, prior knowledge decides the direction of the effect of assistance. They ask different questions: the first is how far prior knowledge and learning gains move together across all kinds of instruction; the second is the interaction between prior knowledge and instructional design. Simonsmeier's authors also use expertise reversal to explain how cognitive demand moderated stability.
 
-**A Matthew effect under written instruction versus assistance for novices.** In Simonsmeier's exploratory analysis, among learning with written instruction, people with more prior knowledge learned more (normalized-gain correlation .22). In Tetzlaff's analysis, high-assistance materials helped learners with low prior knowledge learn more. The first is a cross-study correlation with no manipulation of materials; the second compares two designs within the same study. One way both could hold: written materials may favor those who know more (.22 is an exploratory cross-study moderator result, and the data is mostly long-term learning by schoolchildren), while high-assistance designs can narrow that gap. This is my inference; no study has compared them directly.
+**A Matthew effect under written instruction versus assistance for novices.** In Simonsmeier's exploratory analysis, among learning with written instruction, people with more prior knowledge learned more (normalized-gain correlation .22). In Tetzlaff's analysis, high-assistance materials helped learners with low prior knowledge learn more. The first is a cross-study correlation with no manipulation of materials; the second compares two designs within the same study. One way both could hold: written materials may favor those who know more (.22 is an exploratory cross-study moderator result, and the data is mostly long-term learning by schoolchildren), while high-assistance designs can narrow that gap. No study has compared them directly.
 
 **Brod's plain-language reading of the meta-analysis.** The first paragraph of Brod's commentary says this means knowledge at the start does not actually determine how much a student learns from a given task. Simonsmeier's authors explicitly object to reading an average near zero as meaning that prior knowledge does not predict learning. Brod's sentence is prefaced with "it suggests," and later the commentary walks it back, saying the distribution is wide and there is no need to overturn the old claim that prior knowledge determines what a student will learn, so the commentary's overall position is consistent with the meta-analysis; quoting that one sentence alone overstates it.
 
@@ -230,11 +230,11 @@ Each item below states its basis; where no study tested it directly, I say it is
 
 2. **Write prerequisites as what readers need to be able to do, not just subject names.** For example, instead of "requires linear algebra," write "you should be able to multiply two matrices and know the shape of the result." Basis: Google's equation is framed around what the audience needs "to do a task," and the unit says roles are not enough and knowledge fades over time (industry practice). This points the same way as part 5's suggestion to first explain, in the prerequisite section, the terms that will keep coming up.
 
-3. **When unsure whether readers know something, explain it.** Basis: the practical implication Tetzlaff and colleagues draw from the asymmetry (when in doubt, providing assistance is better than withholding it); the asymmetry comes from comparing two averages and was not tested separately. Mapping "assistance" onto one more sentence of explanation or one more intermediate step in an article is my inference.
+3. **When unsure whether readers know something, explain it.** Basis: the practical implication Tetzlaff and colleagues draw from the asymmetry (when in doubt, providing assistance is better than withholding it); the asymmetry comes from comparing two averages and was not tested separately. Mapping "assistance" onto one more sentence of explanation or one more intermediate step in an article is an extension.
 
 4. **Give experienced readers a way out as a signpost, so they don't have to read to the end to find out they could skip.** For example, start a section that fills in basics with "If you already know NumPy broadcasting, skip to the next section," or put the basics in a collapsible section. This is a choice this site makes: Tetzlaff and colleagues mention letting learners choose assistance, but give no evidence; I found no research at all on the effect of collapsible sections or skip signposts in long web articles.
 
-5. **Have every post in a series state its own prerequisites and link back to the post that taught them.** Basis: in Mullaney and Reich's course data, learners use all the flexibility and don't follow the recommended order (an observation of course pacing, not of single articles). Extending this to article series is my inference.
+5. **Have every post in a series state its own prerequisites and link back to the post that taught them.** Basis: in Mullaney and Reich's course data, learners use all the flexibility and don't follow the recommended order (an observation of course pacing, not of single articles). Extending this to article series is an extension.
 
 6. **After writing, have someone unfamiliar with the topic read the opening and the first section and circle words they don't understand.** Basis: the "curse of knowledge" exercise in Google's course (industry practice, no research). [Part 4](/posts/learning/2026-10-14-notation-jargon-terminology-en) also suggested a test read by someone unfamiliar with the field, from a different set of sources.
 
@@ -258,7 +258,7 @@ Each item below states its basis; where no study tested it directly, I say it is
 - **Brod's framework has not been tested**, and the three examples supporting it are secondhand accounts I did not read in the original.
 - **None of the practice sources measures effects.** The Google and MDN guides cite no research; Kim and Ko did not measure learning outcomes; Mullaney and Reich compare two runs of one humanities course, with no learning test.
 - **Conclusions I cannot write**: whether readers can accurately judge from a prerequisite note whether a post is for them; the effect of collapsible explanations, skip signposts, and tiered entry points in long web articles; whether low-cohesion text works better for experienced adult readers; whether people with more prior knowledge learn new material faster. For the first two I found no research; for adult cohesion research I only have one sentence relayed in McNamara 2011; for the last, I could only read the abstract of the experimental study.
-- **My inferences and this site's choices**: the author can nudge activation of relevant knowledge at the top; a Matthew effect under written instruction and assistance for novices can coexist; mapping assistance onto one more sentence of explanation or one more step; readers of a series don't read in order; the specific wording of items 2, 4, and 6 under what you can do; the two entries labeled "a choice this site makes" in the spec table. Each is marked in the text.
+- **Extensions beyond the research, and this site's choices**: the author can nudge activation of relevant knowledge at the top; a Matthew effect under written instruction and assistance for novices can coexist; mapping assistance onto one more sentence of explanation or one more step; readers of a series don't read in order; the specific wording of items 2, 4, and 6 under what you can do; the two entries labeled "a choice this site makes" in the spec table.
 - **Read only in abstract, not listed in the references**: McNamara and colleagues (1996) on cohesion (per McNamara 2011's account, the sample was adolescents).
 - **Known to exist, but no legally public full text found**: Scheiter and Gerjets (2007), the review on reader-chosen paths ([DOI](https://doi.org/10.1007/s10648-007-9046-3); the publisher's page is paywalled).
 - **Secondhand**: Bransford and Johnson (1972), Castel and colleagues (2007), and the whale classification example as described by Brod; I read none of the originals.

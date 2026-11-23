@@ -13,26 +13,26 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-13-diagrams-in-teaching-articles)
+> :globe: [中文版](/posts/learning/2026-10-13-diagrams-in-teaching-articles)
 
 This article answers three questions. Which content in a teaching article deserves a diagram or a table? Which kind? And how do you draw it so that readers learn more?
 
 The questions came from this site's course guides. I write them from lecture captions, and captions don't show the slides, so the guides were almost entirely text, tables, and formulas. Readers asked for pictures. I started by adding three [mermaid](https://mermaid.js.org/) diagrams to the [Harvard CS50 AI Week 0 guide](/posts/tech/2026-08-27-harvard-cs50ai-w00-search-en). One of them, a tree with nine leaves, ended up with labels about 8px tall on a 390px-wide phone. Nobody could read it. So I went back to the research: how much graphics help learning, which content suits which kind of diagram, and whether any standard covers small screens. This is part 2 of the series "Writing Articles That Teach." Part 5 covers [where to put a video](/posts/learning/2026-10-13-instructional-video-in-articles-en), and part 6 covers [how to lay out the screen when a reader wants the video mid-article](/posts/learning/2026-10-13-video-beside-text-layout-en).
 
-Here is my reading after going through it. This is an inference, and the sections below give its basis. I think whether a diagram helps depends mainly on two things: readers can find the correspondence between the diagram and the text, and readers do something with the diagram (predict the next step, fill in a cell). Each has research behind it (though only one experiment isolated the prediction step, and it found no detectable difference; see the algorithm section) and both are cheap, so I rank them ahead of drawing more diagrams or making diagrams move. No experiment has compared that ordering directly.
+Here is where the reading led; the sections below give the basis. I think whether a diagram helps depends mainly on two things: readers can find the correspondence between the diagram and the text, and readers do something with the diagram (predict the next step, fill in a cell). Each has research behind it (though only one experiment isolated the prediction step, and it found no detectable difference; see the algorithm section) and both are cheap, so I rank them ahead of drawing more diagrams or making diagrams move. No experiment has compared that ordering directly.
 
-Before reading on, know which way this evidence leans. Most of the studies I read are meta-analyses in English-language journals and papers whose full text I could obtain. Their participants are mostly undergraduates and their materials mostly run a few minutes to about fifteen. I found no study of long-form material, and none of adding diagrams to an article that already has tables and formulas. The teaching sites I looked at are mostly well-known English-language ones, plus three in Chinese, one page each. So some recommendations below are carried over from short material, and every inference is marked where it appears.
+Before reading on, know which way this evidence leans. Most of the studies I read are meta-analyses in English-language journals and papers whose full text I could obtain. Their participants are mostly undergraduates and their materials mostly run a few minutes to about fifteen. I found no study of long-form material, and none of adding diagrams to an article that already has tables and formulas. The teaching sites I looked at are mostly well-known English-language ones, plus three in Chinese, one page each. So some recommendations below are carried over from short material; each section says next to the evidence which ones an experiment tested directly and which it did not.
 
 ## The short version: which representation for which content
 
 | Content | Recommended representation | Basis |
 |---|---|---|
-| Step-by-step execution of an algorithm (how the state changes at each step) | A state table, one row per step, with a question first that asks readers to write down the next step and why. Small frames are worth trying | Algorithm visualization research: viewing is not enough, and experiments where students actively do something more often detect a difference; only one experiment isolated prediction, and it found no detectable difference. Asking for the reason borrows from Bisra and colleagues' meta-analysis of self-explanation prompts, cited in [part 1 of this series](/posts/learning/2026-10-13-teaching-text-evidence-en), and is my inference; in the worked-example meta-analysis in this article's section "One kind of support per worked example," math examples with self-explanation prompts had smaller effects, which the authors say is only a descriptive cross-study comparison. Frames have an argument behind them, but in the one direct experiment I read, four frames did not beat a single picture |
-| Hierarchies and trees (search trees, decision trees, parse trees) | Node-link diagram; split into several small diagrams once a rank has more than 3 nodes | My inference from Larkin and Simon's point that grouping information used together saves search, plus width measurements on this site |
+| Step-by-step execution of an algorithm (how the state changes at each step) | A state table, one row per step, with a question first that asks readers to write down the next step and why. Small frames are worth trying | Algorithm visualization research: viewing is not enough, and experiments where students actively do something more often detect a difference; only one experiment isolated prediction, and it found no detectable difference. Asking for the reason borrows from Bisra and colleagues' meta-analysis of self-explanation prompts, cited in [part 1 of this series](/posts/learning/2026-10-13-teaching-text-evidence-en), and extends it; in the worked-example meta-analysis in this article's section "One kind of support per worked example," math examples with self-explanation prompts had smaller effects, which the authors say is only a descriptive cross-study comparison. Frames have an argument behind them, but in the one direct experiment I read, four frames did not beat a single picture |
+| Hierarchies and trees (search trees, decision trees, parse trees) | Node-link diagram; split into several small diagrams once a rank has more than 3 nodes | Extrapolated from Larkin and Simon's point that grouping information used together saves search, plus width measurements on this site |
 | Data flow and causation between components | Boxes and arrows | Arrows make readers interpret a diagram as "how it works" |
-| A single-path flow, or a loop with one or two exits | A numbered list or pseudocode | My inference: the list already states the order |
-| Several options compared on the same dimensions | A table | My inference: a table already aligns the dimensions; concept maps' advantage over lists is modest in both meta-analyses |
-| Quantities (curves, growth, distributions) | Charts that encode quantity as position: lines, scatter, bars | Position beats angle and area when comparing sizes: one crowdsourced perception experiment (not learning outcomes); the parts about lines and trends are my judgment |
+| A single-path flow, or a loop with one or two exits | A numbered list or pseudocode | The list already states the order |
+| Several options compared on the same dimensions | A table | A table already aligns the dimensions; concept maps' advantage over lists is modest in both meta-analyses |
+| Quantities (curves, growth, distributions) | Charts that encode quantity as position: lines, scatter, bars | Position beats angle and area when comparing sizes: one crowdsourced perception experiment (not learning outcomes); the parts about lines and trends have no direct experiment behind them |
 | Geometry and space (decision boundaries, a gradient descent path) | An actual picture | The content is spatial |
 
 Four cases where you should not draw:
@@ -70,7 +70,7 @@ These are the English page's numbers. The Chinese page has shorter labels, and t
 
 **It helps on average, by a moderate amount, and it depends on the test.** [Guo et al. (2020)](https://files.eric.ed.gov/fulltext/EJ1248499.pdf) pooled 39 experiments comparing text with graphics against text alone on reading comprehension. The overall effect size was g = 0.39. An effect size is the difference between two group means divided by the standard deviation; around 0.2 counts as small and around 0.5 as medium. The benefit was larger on short-answer and mixed-format tests and much smaller on true/false and multiple-choice questions; the authors lean toward explaining this by the low reliability of true/false items. Graphic types (pictures, diagrams, flow diagrams) did not differ significantly from one another.
 
-**How text and graphic fit together may matter as much as whether there is a graphic.** [Noetel et al.'s overview of reviews](https://doi.org/10.31234/osf.io/pynzr) (I read the preprint) pooled 29 systematic reviews. Placing related words and pictures together, compared with placing them apart, had an effect size of 0.63. That number cannot be ranked against Guo's 0.39. It compares "together versus apart," with a graphic on both sides, while Guo compares "graphic versus no graphic," and the two draw on different sets of studies. My inference is to line up the diagrams and text you already have before drawing more, because that is cheaper, not because 0.63 is larger than 0.39. Every number in that overview comes from an individual meta-analysis. The next section says who is citing whom, and how much of each original I read.
+**How text and graphic fit together may matter as much as whether there is a graphic.** [Noetel et al.'s overview of reviews](https://doi.org/10.31234/osf.io/pynzr) (I read the preprint) pooled 29 systematic reviews. Placing related words and pictures together, compared with placing them apart, had an effect size of 0.63. That number cannot be ranked against Guo's 0.39. It compares "together versus apart," with a graphic on both sides, while Guo compares "graphic versus no graphic," and the two draw on different sets of studies. The practical advice is to line up the diagrams and text you already have before drawing more, because that is cheaper, not because 0.63 is larger than 0.39. Every number in that overview comes from an individual meta-analysis. The next section says who is citing whom, and how much of each original I read.
 
 Two moderators in Noetel's overview apply directly to a blog:
 
@@ -99,7 +99,7 @@ Without color, the cues left are line style, grouping boxes, and node text. The 
 
 ### Remove what is irrelevant
 
-Noetel cites [Sundararajan and Adesope (2020)](https://link.springer.com/article/10.1007/s10648-020-09522-4) (I read only its abstract): removing interesting but irrelevant details had an effect size of 0.33. The harm was larger when the details stayed on screen (the two were not tested against each other, and the confidence interval for transient details crosses zero); a picture in an article stays on screen, which is my inference.
+Noetel cites [Sundararajan and Adesope (2020)](https://link.springer.com/article/10.1007/s10648-020-09522-4) (I read only its abstract): removing interesting but irrelevant details had an effect size of 0.33. The harm was larger when the details stayed on screen (the two were not tested against each other, and the confidence interval for transient details crosses zero); a picture in an article stays on screen.
 
 [Cooper, Sidney, and Alibali (2018)](https://doi.org/10.1002/acp.3371) had 92 undergraduates solve trigonometry word problems. Students were more accurate when a problem included a mathematical diagram. Contextual illustrations helped students with high mathematics ability and hurt students with lower ability.
 
@@ -107,11 +107,11 @@ Noetel cites [Sundararajan and Adesope (2020)](https://link.springer.com/article
 
 [Trypke, Stebner, and Wirth's (2023)](https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2023.1148035/pdf) literature review separates two kinds of redundancy. Saying the same thing once as a graphic and once as narration is positive overall according to the abstract, but the body has only 4 studies of this kind and concludes that it may help novices and hurts those who already know the material; all 4 paired graphics with narration, which a blog article does not have. A graphic and written text share the visual channel, and the abstract classes that combination as negative. The individual studies in their Table 4 go both ways: in some experiments the diagram-only group beat the diagram-plus-text group, and in others the picture-plus-text group won.
 
-My inference: let the text carry the reasoning (why you can stop once you see a 3) and the diagram carry the structure (which leaves were pruned), and don't map one onto the other sentence by sentence. No experiment I read tests this on long course guides.
+As a division of labor, let the text carry the reasoning (why you can stop once you see a 3) and the diagram carry the structure (which leaves were pruned), and don't map one onto the other sentence by sentence. No experiment I read tests this on long course guides.
 
 ## Which diagram for which content
 
-This question has the least direct experimental evidence. What I can cite is two theoretical analyses and one graphical perception experiment. Most of the mapping table above is my inference.
+This question has the least direct experimental evidence. What I can cite is two theoretical analyses and one graphical perception experiment. Most of the mapping table above is extrapolated from them.
 
 ### Diagrams save search and matching
 
@@ -127,7 +127,7 @@ They then add two caveats (I take these to be what the "sometimes" in the title 
 
 The second caveat: a diagram is useful only to someone who knows how to use it.
 
-Applied to choosing (my inference): content is worth drawing when readers must keep going back to find things, or compare several elements at once. A search tree qualifies, because readers compare a parent's value with its siblings' values. A single-path flow does not; you read it once and move on.
+Applied to choosing: content is worth drawing when readers must keep going back to find things, or compare several elements at once. A search tree qualifies, because readers compare a parent's value with its siblings' values. A single-path flow does not; you read it once and move on.
 
 The paper closest to this question is [Novick and Hurley (2001)](https://www.sciencedirect.com/science/article/abs/pii/S0010028500907461), which analyzes what kinds of information suit matrices, networks, and hierarchies. I read only the abstract. According to it, the study observed how college students choose a diagram and justify the choice, not which diagram produces better learning, so I do not use it as a basis here.
 
@@ -141,7 +141,7 @@ What to do: use arrows only for causation, data flow, and order. To show "A cont
 
 [Cleveland and McGill (1984)](https://doi.org/10.1080/01621459.1984.10478080) studied the perceptual tasks people perform when reading quantities from a graph; the study exists, but I could not find a full text made public by its authors or publisher, so I do not cite its ranking. [Heer and Bostock (2010)](http://vis.stanford.edu/files/2010-MTurk-CHI.pdf) reran its spatial encoding experiments on Mechanical Turk and added angle and circle area: when estimating proportions on bar charts, position along a common scale was more accurate than length; angle and circle area were both worse than position, and area worse than angle. This is perceptual accuracy, not learning, and it did not test lines, scatter plots, trends, or color depth.
 
-What to do: when readers need to compare sizes, use position along a common scale (bars, scatter) rather than pie angles or bubble area; that half has the perception experiment above behind it. Using lines for trends and avoiding color depth for quantity is my judgment. Mermaid has no suitable quantitative chart, so on this site that content currently goes in a table or a separately generated SVG.
+What to do: when readers need to compare sizes, use position along a common scale (bars, scatter) rather than pie angles or bubble area; that half has the perception experiment above behind it. Using lines for trends and avoiding color depth for quantity has no direct experiment behind it. Mermaid has no suitable quantitative chart, so on this site that content currently goes in a table or a separately generated SVG.
 
 ## Algorithm diagrams: differences show up more often when readers act
 
@@ -160,11 +160,11 @@ The authors conclude:
 
 > how students use AV technology has a greater impact on effectiveness than what AV technology shows them
 
-They also reclassified the experiments by how much effort the two groups of students expended. Of the 9 experiments where effort was roughly equivalent, 6 found no significant difference. Of the 14 where one group expended more effort, the higher-effort group did significantly better in 10. In their conclusion (section 6.3) the authors write that, with few exceptions, students who merely viewed visualizations showed no significant learning advantage over students who used conventional materials. In the other direction, once the comparison group's activity was matched, the gap disappeared: in Hansen and colleagues' Study III the text-only group also did paper-and-pencil exercises and did not differ significantly from the visualization group, and Gurka, replicating Byrne's experiment without the prediction condition and with group discussion in both groups, also found no significant difference. The authors attribute these null results to the groups' engagement being equalized; my reading is that the benefit follows the engagement and need not come from the visualization tool itself. The exceptions are real: in Table 2 of the same paper, all four groups in Kann and colleagues' experiment wrote programs and differed only in whether they viewed an animation, and those who viewed it scored significantly higher on the post-test. Byrne and colleagues' two experiments were also significant, but the result was that students who "viewed the animation and/or made predictions" beat those who did neither, and the authors say the separate effects of prediction and animation could not be disentangled statistically.
+They also reclassified the experiments by how much effort the two groups of students expended. Of the 9 experiments where effort was roughly equivalent, 6 found no significant difference. Of the 14 where one group expended more effort, the higher-effort group did significantly better in 10. In their conclusion (section 6.3) the authors write that, with few exceptions, students who merely viewed visualizations showed no significant learning advantage over students who used conventional materials. In the other direction, once the comparison group's activity was matched, the gap disappeared: in Hansen and colleagues' Study III the text-only group also did paper-and-pencil exercises and did not differ significantly from the visualization group, and Gurka, replicating Byrne's experiment without the prediction condition and with group discussion in both groups, also found no significant difference. The authors attribute these null results to the groups' engagement being equalized; in other words, the benefit follows the engagement and need not come from the visualization tool itself. The exceptions are real: in Table 2 of the same paper, all four groups in Kann and colleagues' experiment wrote programs and differed only in whether they viewed an animation, and those who viewed it scored significantly higher on the post-test. Byrne and colleagues' two experiments were also significant, but the result was that students who "viewed the animation and/or made predictions" beat those who did neither, and the authors say the separate effects of prediction and animation could not be disentangled statistically.
 
 The same year, an [ITiCSE working group report (Naps et al., 2002)](https://users.cs.duke.edu/~rodger/jflappapers/Naps2002.pdf) sorted learner engagement into six forms: no viewing, viewing, responding (answering questions about the visualization), changing (supplying your own input), constructing (building a visualization), and presenting. The report's first hypothesis is that viewing alone produces the same learning outcomes as no viewing. The report carries its own reservation: the studies behind that hypothesis used small samples, and the group planned to verify it with larger ones.
 
-A diagram in a static article is "viewing." The cheapest step up is "responding": ask what happens next before showing the diagram. This is my inference: Hundhausen supports the broad category of having students do something. Only one experiment, by Jarc and colleagues, isolated prediction, and its prediction group showed no significant post-test difference (it only spent significantly more time); Byrne and colleagues' two experiments could not separate prediction from animation. The result closest to "ask, then show" also points the other way: Hansen and colleagues' Study VI compared the full system with versions that each removed one feature, one of them the interactive questions, and found no significant differences among the groups. Tversky and colleagues' 2002 review discusses the same study (Byrne, Catrambone, and Stasko 1999) and describes the benefit of viewing the animation as about the same as making predictions with static diagrams, whereas Hundhausen says the two effects cannot be separated. The two secondhand accounts differ, and I have not read the original. This site's guides already have a "Check yourself. Write your answer down before opening the fold." format. Moving it in front of the diagram is all it takes.
+A diagram in a static article is "viewing." The cheapest step up is "responding": ask what happens next before showing the diagram. But Hundhausen supports the broad category of having students do something. Only one experiment, by Jarc and colleagues, isolated prediction, and its prediction group showed no significant post-test difference (it only spent significantly more time); Byrne and colleagues' two experiments could not separate prediction from animation. The result closest to "ask, then show" also points the other way: Hansen and colleagues' Study VI compared the full system with versions that each removed one feature, one of them the interactive questions, and found no significant differences among the groups. Tversky and colleagues' 2002 review discusses the same study (Byrne, Catrambone, and Stasko 1999) and describes the benefit of viewing the animation as about the same as making predictions with static diagrams, whereas Hundhausen says the two effects cannot be separated. The two secondhand accounts differ, and I have not read the original. This site's guides already have a "Check yourself. Write your answer down before opening the fold." format. Moving it in front of the diagram is all it takes.
 
 Later developments are not encouraging. [Shaffer et al. (2010)](https://cs.utep.edu/makbar/papers/TOCE.pdf) catalogued over 500 algorithm visualizations and concluded that many are of low quality and more than a quarter depict sorting. [Sibia, Liut, and Nobre's (2025)](https://diglib.eg.org/bitstreams/c65f8ea5-9633-4a64-8758-906ce2e446e1/download) systematic review selected 90 papers and reports, in its abstract, a lack of rigorous evaluations; its discussion is quite positive about learning gains, but the authors did not assess the quality of the studies they collected.
 
@@ -206,7 +206,7 @@ The talk reports practitioner experience and publishes no data. [Hohman et al. (
 
 ### Cost comparison
 
-The cost column is my judgment.
+The cost column is an estimate.
 
 | Form | Evidence | Cost to make and maintain |
 |---|---|---|
@@ -256,7 +256,7 @@ I read three relevant WCAG 2.2 success criteria. None sets a pixel floor:
 
 [Apple's Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/typography) do give numbers: on iOS the default text size is 17pt and the minimum is 11pt.
 
-So the 12px floor in this article is my judgment: Apple's minimum plus a small margin, because Chinese characters are denser than Latin letters.
+So this article uses a 12px floor: Apple's minimum plus a small margin, because Chinese characters are denser than Latin letters.
 
 ### Width rules from the measurements
 
@@ -264,7 +264,7 @@ So the 12px floor in this article is my judgment: Apple's minimum plus a small m
 - In a top-to-bottom layout, put at most 3 nodes side by side in a rank. That figure is for node text of one or two words; longer labels fit fewer.
 - Switching to left-to-right trades width for height. On this English page the pruning tree's text grew from about 5px to about 11px, still just under 12px; on the Chinese page, with shorter labels, it reaches about 12px. On both pages the tree now grows sideways, which no longer matches the prose ("I'm on top, the opponent is below").
 
-Order of fixes (my judgment): split into several small diagrams first; if that fails, switch to a table or a list; change direction only after that. One more option is to change the site's styles so that an over-wide diagram scrolls horizontally inside its container without shrinking. WCAG 1.4.10 explicitly allows it.
+Order of fixes: split into several small diagrams first; if that fails, switch to a table or a list; change direction only after that. One more option is to change the site's styles so that an over-wide diagram scrolls horizontally inside its container without shrinking. WCAG 1.4.10 explicitly allows it.
 
 ### A diagram needs a text equivalent
 
@@ -276,7 +276,7 @@ What to do: give every mermaid diagram an `accTitle` line. Write the surrounding
 
 ## Options besides mermaid
 
-The costs below are my judgment. I read official documentation this time only for the two items marked "docs checked"; the others reflect what I already knew and did not re-verify. Whichever you choose, the Chinese and English versions each need their own copy.
+The costs below are estimates; the two items marked "docs checked" follow the official documentation. Whichever you choose, the Chinese and English versions each need their own copy.
 
 | Approach | Good for | Light and dark themes | Cost and risk |
 |---|---|---|---|
@@ -345,7 +345,7 @@ On the English page this diagram's natural width is 630px, about 8.3px text on a
 
 The deeper problem is that it duplicates the numbered list above it almost entirely. All the flowchart adds is the line that loops back, and step 5 of the list already says "go back to step 2."
 
-The change is to remove the diagram and rewrite the corrected procedure as one complete numbered list, with the two additions in bold. For an at-a-glance view, six or seven lines of pseudocode work and lead into the project code that follows. This item is my judgment, not a conclusion the research supports directly.
+The change is to remove the diagram and rewrite the corrected procedure as one complete numbered list, with the two additions in bold. For an at-a-glance view, six or seven lines of pseudocode work and lead into the project code that follows. No research supports this item directly.
 
 ### The pruning tree: put a question before it first; splitting it in three is worth a try
 

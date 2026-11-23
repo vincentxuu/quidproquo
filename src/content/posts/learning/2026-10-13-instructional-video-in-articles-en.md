@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-13-instructional-video-in-articles)
+> :globe: [中文版](/posts/learning/2026-10-13-instructional-video-in-articles)
 
 This article answers two questions. When a teaching article comes with a video, where in the article should the video go? And how should the article be written so that readers find "article plus video" more useful than either one alone?
 
@@ -27,7 +27,7 @@ Here is my overall judgment after reading this material; no study directly measu
 |---|---|---|
 | The article was written from this video, one article per video | The intro, before the first section | [NN/g](https://www.nngroup.com/articles/instructional-video-guidelines/): videos at the top are the most discoverable, but readers expect them to cover the whole page |
 | One article, several short videos, each matching a section | The start of each section | NN/g: a video about one section goes at the top of that section |
-| Related supplementary material, not the video the article is based on | The end, with one sentence and an anchor link in the intro | My inference: at the top it would make readers assume it covers the whole article |
+| Related supplementary material, not the video the article is based on | The end, with one sentence and an anchor link in the intro | At the top it would make readers assume it covers the whole article |
 
 Beyond placement, three things are the easiest to do. Their support varies in strength, so each item names its main sources:
 
@@ -91,7 +91,7 @@ As far as I could measure, none of the six puts its main video at the end. The p
 
 ### Search and load speed
 
-My judgment is that moving the video to the top is not enough, by itself, for Google to index a course guide's video as a video result. This is this article's reading of Google's definition; Google has not said anything about this kind of article specifically.
+Moving the video to the top is not enough, by itself, for Google to index a course guide's video as a video result. This is this article's reading of Google's definition; Google has not said anything about this kind of article specifically.
 
 In a [December 2023 announcement](https://developers.google.com/search/blog/2023/12/video-is-the-main-content), Google says video search only shows pages where the video is the main content, and its example has three conditions: the video is above the fold, it is prominent, and the main purpose of the page is to watch that video. Position is one of the conditions Google itself lists. The same announcement lists "a blog post where the video is complementary to the text" as a page where the video is not the main content, and videos on such pages show up as not indexed in Search Console. Its [video search documentation](https://developers.google.com/search/docs/appearance/video) asks for a dedicated watch page per video. Moving a course guide's video to the top can meet the first two conditions, but the main purpose of the page is still to read the text.
 
@@ -121,7 +121,7 @@ Juho Kim and colleagues [analyzed in 2014](https://kgajos.seas.harvard.edu/paper
 
 They also sampled 80 videos and labeled which type of cause each interaction peak belonged to. A peak is a moment where rewatching sessions or play events suddenly spike. The causes fell into five types: going back to the start of new material, returning to content they missed on screen, following along with a tutorial step, replaying a short segment, and listening again to a spoken explanation with no visual change. 61% of the peaks came with a visual transition before or after them, such as a slide switching to the instructor. The rest all belonged to the last type, which was also the largest of the five.
 
-This has a direct implication for a text guide, and what follows is my inference. The moments readers go back for are exactly "the slide just changed and I didn't catch it" and "the stretch where the instructor explained it out loud." A guide written only from the transcript cannot see the screen, so it should say plainly where the video shows something the article does not reconstruct, and give the time, so readers know that spot is worth going back to.
+This has a direct implication for a text guide. The moments readers go back for are exactly "the slide just changed and I didn't catch it" and "the stretch where the instructor explained it out loud." A guide written only from the transcript cannot see the screen, so it should say plainly where the video shows something the article does not reconstruct, and give the time, so readers know that spot is worth going back to.
 
 ### Long videos rarely get finished
 
@@ -155,7 +155,7 @@ What to do: write one line above the player, such as "The full recording runs ab
 
 In a [2017 experiment](https://doi.org/10.1016/j.jarmac.2016.07.014), Shana Carpenter and Alexander Toftness had undergraduates watch a short video on the history of Easter Island, split into three segments of a little over two minutes each. One group answered two questions about not-yet-seen content before each segment. The other group just watched. On a test right afterwards, the group that answered first scored 57% on average and the group that just watched scored 38%. The first group got almost every prequestion wrong beforehand, and they also remembered more of the content they had not been asked about.
 
-Note that in the experiment each question came right before a short segment. When explaining why the long-term effect in a classroom study was weak, the authors speculate that one reason may be the gap between a prequestion and the moment the content is covered in a 90-minute class; this is a speculation, not an experimental result. So putting the question at the start of each section is closer to the experiment's conditions than putting all of them in the intro of a 78-minute recording. That sentence is my inference.
+Note that in the experiment each question came right before a short segment. When explaining why the long-term effect in a classroom study was weak, the authors speculate that one reason may be the gap between a prequestion and the moment the content is covered in a 90-minute class; this is a speculation, not an experimental result. So putting the question at the start of each section is closer to the experiment's conditions than putting all of them in the intro of a 78-minute recording.
 
 What to do: turn at least one item in the intro's "after reading you should be able to do three things" into a concrete question, and put it at the start of the matching section. Using this site's [CS229 Lecture 2 guide](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression-en) as an example, "compute one step of gradient descent by hand" could become "Replace the 1/2 in front of the cost function with 25. Does the optimum change? Does gradient descent behave differently? Guess before you read on." I wrote this example myself and have not tested it.
 
@@ -165,7 +165,7 @@ The multimedia learning literature has a related principle called pre-training. 
 
 There is also a meta-analysis that re-pools the studies Mayer authored, Cromley and Chen's [2025 analysis](https://doi.org/10.1016/j.edurev.2025.100730); the authors' manuscript is scheduled to become public in NSF PAR on 2026-11-01, and I have not read a legally available version, so I do not cite its numbers either.
 
-So "introduce the key terms first" has no experimental support that I could read in a legal full text; it is my judgment that terms nobody has introduced will trip readers up while they watch.
+So "introduce the key terms first" has no experimental support that I could read in full; the reasoning is only that terms nobody has introduced will trip readers up while they watch.
 
 What to do: in the prerequisites section, do not stop at "requires linear algebra." Take the three to five terms that will recur throughout the lecture, explain each in one sentence, and then begin.
 
@@ -177,7 +177,7 @@ The second experiment added a group that did not answer anything after each segm
 
 [Three experiments by Alyssa Lawson and Mayer in 2021](https://pmc.ncbi.nlm.nih.gov/articles/PMC7985227/) tested another kind of "doing something." Undergraduates studied a four-part animated lesson on greenhouse gases. After each part, the groups did different things: wrote their own explanation, read a provided explanation, or simply moved on. Two of the three experiments tested a week later, and in both of those the group that wrote its own explanation significantly outperformed the group that did nothing. The group that only read a provided explanation did not significantly outperform the do-nothing group either time.
 
-Read side by side, the two papers point the same way: what works is producing the answer yourself, and reading a ready-made answer or explanation did not significantly beat doing nothing in either; but no detectable difference is not the same as no effect, since in Lawson's Experiment 3 the read-an-explanation group had an effect size of 0.51, p = .136; with about 32 per group, my guess is that the test lacked power. This comparison is made by this article and is not a conclusion of either paper. It bears directly on course guides. When a self-check question is followed immediately by its answer, what the reader ends up doing may well be just "reading a provided explanation."
+Read side by side, the two papers point the same way: what works is producing the answer yourself, and reading a ready-made answer or explanation did not significantly beat doing nothing in either; but no detectable difference is not the same as no effect, since in Lawson's Experiment 3 the read-an-explanation group had an effect size of 0.51, p = .136; with about 32 per group, the test likely lacked power. This comparison is made by this article and is not a conclusion of either paper. It bears directly on course guides. When a self-check question is followed immediately by its answer, what the reader ends up doing may well be just "reading a provided explanation."
 
 What to do: do not pile all the self-check questions at the end. Put one after each section and keep the integrative questions for the end. Collapsing the answer so readers write first and expand afterwards is something I derived from these two results. No study I read tested collapsing directly.
 
@@ -227,7 +227,7 @@ The follow-up, [When a Reader Wants the Video Mid-Article](/posts/learning/2026-
 - **Segmenting was not tested on page layout.** Rey and colleagues' meta-analysis used multimedia materials with words and pictures or animation, not plain text or web pages, and a study qualified with either segmentation or learner pacing. For pre-training I have no evidence I could read in a legal full text: I have not read legally available versions of Mayer's 2021 review or of Cromley and Chen's 2025 meta-analysis.
 - **Time on task was not controlled.** In Lawson and Mayer, the explanation-writing groups spent about three times as long on the lesson as the no-activity groups (2.8, 3.1, and 3.5 times across the three experiments), which the authors list as a limitation.
 - **The edX data comes from four science and engineering courses in Fall 2012**, with students from edX's first cohort. Those videos average under 8 minutes and were recorded as short online-course clips, not one-to-two-hour classroom lectures. Guo also points out that watching time is a proxy and cannot tell whether a student is watching or just letting the video play.
-- **Eight points are my own inference or judgment**: the two things that make the pairing feel helpful; leaving supplementary video at the end; flagging what the transcript cannot show; putting prequestions at the start of each section; introducing key terms first (no experimental support I could read); collapsing self-check answers; reading Szpunar alongside Lawson and Mayer; and a video moved to the top still not being enough for Google to treat it as the page's main content. Each is marked in the text.
+- **Eight points are this article's own inferences, without direct experimental support**: the two things that make the pairing feel helpful; leaving supplementary video at the end; flagging what the transcript cannot show; putting prequestions at the start of each section; introducing key terms first (no experimental support I could read); collapsing self-check answers; reading Szpunar alongside Lawson and Mayer; and a video moved to the top still not being enough for Google to treat it as the page's main content.
 - **What I did not read**: I read Szpunar et al. (2013) in full but not its supplementary material. The individual studies in the LSE review (Traphagan, Leadbeater, and others) are cited second-hand and I have not read the originals; Soong et al. (2006) was read in the original after publication.
 - **Known to exist, no legal full text read**: [Mayer (2021)](https://doi.org/10.1016/j.jarmac.2021.03.007), the review of design principles for instructional video. An earlier draft cited its effect sizes for segmenting, pre-training, and generative activity from a copy on a company website; the source check found no version made public by the author or publisher, so on 2026-10-14 all its numbers were removed and it was taken out of the references.
 

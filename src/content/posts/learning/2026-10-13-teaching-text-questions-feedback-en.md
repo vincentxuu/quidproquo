@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-13-teaching-text-questions-feedback)
+> :globe: [中文版](/posts/learning/2026-10-13-teaching-text-questions-feedback)
 
 This article belongs to the series "Writing Articles That Teach." It covers the second half of the text itself: whether to put questions in an article, how to give the answers, how to handle wording and tone, and what stands behind the frameworks writers commonly use. The first half (examples, explanations, learning objectives, reader level) is in [part 1](/posts/learning/2026-10-13-teaching-text-evidence-en). The two can be read separately. The last section checks this site's course-guide spec clause by clause and uses conclusions from part 1; the table gives each one in a sentence.
 
@@ -27,9 +27,9 @@ The site's [Learning How to Learn](/posts/learning/2026-08-04-learning-how-to-le
 |---|---|---|
 | Ask one question after each section | A [meta-analysis of classroom quizzing](https://doi.org/10.1037/bul0000309), g = 0.50; quizzed content gained more, and unquizzed content gained some (the difference was not tested directly) | Moderate to strong; classroom settings differ from a web article |
 | Ask for explanation and application, not only facts | The prequestion meta-analysis: conceptual questions gave a small benefit for unasked content, which the authors call modest; for questions asked after reading, I found no synthesis with a legally available full text | Weak |
-| Give the reason with the answer | A [meta-analysis of feedback](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.03087/full): high-information feedback has the largest effect size; mapping that onto "answer plus reason" is my inference | Moderate |
+| Give the reason with the answer | A [meta-analysis of feedback](https://www.frontiersin.org/articles/10.3389/fpsyg.2019.03087/full): high-information feedback has the largest effect size; mapping that onto "answer plus reason" is an extension | Moderate |
 | Give the answer immediately or later | One meta-analysis directly comparing immediate and delayed feedback: no detectable difference on average, and few studies with delays of a day or more; another read only as an abstract asks a different question | Undetermined |
-| Gate on a readability score | Formulas explain a quarter to a third of teachers' difficulty judgments | My judgment: not a threshold |
+| Gate on a readability score | Formulas explain a quarter to a third of teachers' difficulty judgments | Not a threshold |
 | Put definitions in a tooltip on the jargon term | One experiment: self-rated fluency did not recover; learning was not measured, and whether readers opened the definitions was not recorded | Weak |
 | Conversational tone ("you") | Two meta-analyses, one read only as an abstract and one without a legally available version yet | Undetermined |
 | Remove interesting but irrelevant content | A [dissertation meta-analysis](https://rex.libraries.wsu.edu/esploro/outputs/doctoral/SEDUCTIVE-DETAILS-A-META-REGRESSION-AND-EMPIRICAL/99900581709501842): groups whose material included such content did worse, mostly in laboratory studies | Moderate; the bias test was significant and the size is uncertain |
@@ -45,13 +45,13 @@ Inserting a question every few paragraphs of a text is studied under the name ad
 
 The closest is the classroom quizzing meta-analysis in the next paragraph. When the exam repeated a quiz question, the effect size was 0.51; when the question was rephrased, 0.56; for content the quizzes did not cover, 0.32. The last cell is smaller, but the paper does not test the difference between those cells directly. The prequestions covered in part 1 show a sharper gap: 0.66 for asked content and 0.01 for unasked.
 
-So choosing the questions amounts to choosing, on the reader's behalf, what is most likely to be remembered. That is my inference: one study is about classroom quizzes and the other about prequestions, and neither is about questions inserted after a passage in a web article.
+So choosing the questions amounts to choosing, on the reader's behalf, what is most likely to be remembered. But one study is about classroom quizzes and the other about prequestions, and neither is about questions inserted after a passage in a web article.
 
 The level of the question matters too, though the evidence is weaker. In the 2025 prequestion meta-analysis cited in part 1, conceptual questions that require inference gave a small benefit for unasked content (g = 0.34) and factual questions gave none; the authors call the effect modest. For questions asked after reading, I found no synthesis comparing higher-order and factual questions that I could read in a legal full text, so I draw no conclusion on that point.
 
 Those numbers come from Chunliang Yang and colleagues' [2021 meta-analysis](https://doi.org/10.1037/bul0000309) ([full text on a co-author's site](https://www.rongjunyu.org/_files/ugd/7b277c_23e6331e6f8f4144b7586a97d08f7190.pdf)), which includes only studies of classroom teaching; quizzing raised achievement overall by g = 0.50. Against restudying the advantage was 0.33. Against strategies such as concept mapping and note-taking it was small, which the authors describe as only marginally better. Whether quizzes were high-stakes or low-stakes made no difference. Quizzes taken outside class, unsupervised, had smaller effects than those taken in class, a difference that is only marginally significant. The analysis explicitly excluded laboratory studies and online distance courses, so it still sits some distance from "a reader working through a web article alone."
 
-What to do: the question after each section should ask about the one thing you most want readers to take away from it. Use "explain why" and "what happens if this condition changes" forms, not definition recall alone. The question-type half of this is my inference, and there is evidence against it: in the few studies [Pan and Carpenter](https://link.springer.com/article/10.1007/s10648-023-09814-5) review, prequestions requiring complex inference tended not to help (those are prequestions, not questions after a section).
+What to do: the question after each section should ask about the one thing you most want readers to take away from it. Use "explain why" and "what happens if this condition changes" forms, not definition recall alone. The question-type half has evidence against it: in the few studies [Pan and Carpenter](https://link.springer.com/article/10.1007/s10648-023-09814-5) review, prequestions requiring complex inference tended not to help (those are prequestions, not questions after a section).
 
 ### Whether to make readers answer first
 
@@ -71,7 +71,7 @@ Benedikt Wisniewski, Klaus Zierer, and John Hattie's [2020 meta-analysis](https:
 
 Four caveats go with these three numbers. They pool controlled experiments with pre-post studies, and the latter show larger effects and are, by the authors' own account, less reliable. Only about a third of all the effect sizes were assigned to one of the three kinds. The kind was coded from the abstracts of the primary studies. And the bias test was significant, with no corrected estimate given.
 
-"High-information" in this analysis is defined as the content of corrective feedback plus information at the self-regulation level. In their discussion the authors interpret it as telling students not only what was wrong but why, and how to avoid it next time. Mapping that onto "a sentence or two of reasoning after the answer" is my inference.
+"High-information" in this analysis is defined as the content of corrective feedback plus information at the self-regulation level. In their discussion the authors interpret it as telling students not only what was wrong but why, and how to avoid it next time. Mapping that onto "a sentence or two of reasoning after the answer" is an extension.
 
 In Yang and colleagues' classroom meta-analysis, studies with feedback after quizzes had larger effect sizes than those without. That comparison is about whether feedback was given; it does not distinguish what the feedback contained. There is also a [meta-analysis](https://eric.ed.gov/?id=EJ1081708) that compares feedback types in computer-based materials specifically (Van der Kleij et al. 2015). I read only its abstract, which points toward feedback with an explanation beating the correct answer alone.
 
@@ -95,7 +95,7 @@ Formulas such as Flesch–Kincaid estimate difficulty from words per sentence an
 
 Three things limit how far this goes. The criterion is teacher judgment, not measured comprehension, and the teacher ratings themselves are noisy. The excerpts are English reading material intended for school classrooms, each under 230 words. And in the authors' own model, what best predicted the teachers' judgments were word-level features such as how common and how concrete the words are.
 
-I found no synthesis of whether rewriting to a formula improves comprehension, and read no counterpart for Chinese technical writing. So my judgment is not to use a readability score as a pass mark; the study itself makes no such recommendation.
+I found no synthesis of whether rewriting to a formula improves comprehension, and read no counterpart for Chinese technical writing. So this site does not use a readability score as a pass mark; the study itself makes no such recommendation.
 
 ### Jargon: adding a definition may not be enough
 
@@ -106,7 +106,7 @@ Olivia Bullock and colleagues' [2019 experiment](https://comm.osu.edu/sites/comm
 
 The experiment measured how smooth reading felt. It did not measure comprehension or learning, and the participants were not students. The jargon versions packed 10 jargon terms into each three-sentence passage, a very high density. The experiment did not record how many people actually moved the pointer over a term to see its definition, so "the tooltip did not help" could mean readers saw it and still struggled, or that most never looked.
 
-What is established: in this experiment, the versions with plain wording in place of jargon read more smoothly. Some articles on this site use a hover glossary. My practice is to explain key terms in plain words in the body where they first appear; the only basis for it is the one experiment above. The compromise of keeping the term and adding a plain sentence beside it was not tested in that experiment and is my inference.
+What is established: in this experiment, the versions with plain wording in place of jargon read more smoothly. Some articles on this site use a hover glossary. My practice is to explain key terms in plain words in the body where they first appear; the only basis for it is the one experiment above. The compromise of keeping the term and adding a plain sentence beside it was not tested in that experiment.
 
 ### Conversational tone
 
@@ -122,7 +122,7 @@ Educational psychology calls content that readers find interesting but that is i
 
 The dissertation's publication bias tests were also significant. In addition, 50 of the 54 comparisons were run in laboratories; the 4 run in classrooms gave −0.15, with no detectable difference, and the 17 studies rated high in quality gave −0.24. What can be said is the direction: interesting but irrelevant content did not help learning. How large the effect is in real classrooms or when reading an article is uncertain.
 
-This site's spec has a rule that moves verification history (login tests, page-by-page checks, subtitle corrections) out of the body. The original reason was that readers could not get through it. Mapping that rule onto this research is my inference: the studies tested anecdotes and decorative pictures, not audit logs.
+This site's spec has a rule that moves verification history (login tests, page-by-page checks, subtitle corrections) out of the body. The original reason was that readers could not get through it. Mapping that rule onto this research needs a discount: the studies tested anecdotes and decorative pictures, not audit logs.
 
 ### Typeface and screens
 
@@ -132,7 +132,7 @@ Whether a slightly hard-to-read typeface makes people learn better was once a po
 
 The screen-versus-paper comparison has fuller evidence. Pablo Delgado and colleagues' [2018 meta-analysis](https://doi.org/10.1016/j.edurev.2018.09.003) compared reading the same text in both media; comprehension on paper was better than on screen (g = −0.21), and the authors consider that size educationally meaningful. The gap appears for informational text and for mixed informational and narrative text; the 7 comparisons using narrative alone show none, and the authors caution that this cell has few comparisons. It is larger under time limits and small when readers pace themselves, where the confidence interval crosses zero. The paper advantage was larger in comparisons that required scrolling, but the difference from comparisons without scrolling was not significant, and the authors list it for future research.
 
-A web article cannot change the fact that its readers use a screen. Self-paced readers may be affected less; that is my inference from applying a cross-study moderator result to web readers.
+A web article cannot change the fact that its readers use a screen. Self-paced readers may be affected less, applying a cross-study moderator result to web readers.
 
 ### Non-native readers and translation
 
@@ -177,10 +177,10 @@ The spec for this site's course guides lives in `course-guide-contract.md`. The 
 | "Work through one example, derivation, or counterexample"; a complete example needs conditions, reasoning or computation, a result, and what the result means | Math worked examples g = 0.48 (Barbieri et al. 2023); the IES guide recommends alternating examples with problems the learner solves | Supported, for math and science problem solving; the spec does not say to follow the example with a problem |
 | "Point out common misconceptions" | Stating a misconception and refuting it beats text that does not refute (two meta-analyses) | Supported |
 | Concept guides include "an explanation question or variation problem the reader can judge"; hands-on tutorials need "variation practice and a success criterion" | Self-explanation g = 0.55 (Bisra et al. 2018, excluding studies that paired it with feedback); the IES guide: in mathematics problem solving, varied problems after the concept is taught are better, at the cost of harder study | Supported, and already in the spec |
-| "Self-checks need an answer or a criterion, not just 'think about it'" | High-information feedback has the largest effect size (Wisniewski et al. 2020) | Supported; "give the reason with the answer" is my inference |
+| "Self-checks need an answer or a criterion, not just 'think about it'" | High-information feedback has the largest effect size (Wisniewski et al. 2020) | Supported; "give the reason with the answer" is an extension |
 | "One question at the end of each main section, with an answer or criterion" (new, not yet committed) | Classroom quizzing g = 0.50, with larger gains on quizzed content (Yang et al. 2021); I could not read a legal full text of the classic review of inserted questions (Hamaker 1986) | Indirect support; classroom research that explicitly excluded laboratory and online courses |
 | The scope card records "reader prerequisites"; "prerequisites the series has not taught get a reachable bridge link" | Assistance helps learners with low prior knowledge and hurts those with high (Tetzlaff et al. 2025) | Direction supported; nobody has tested links as the form |
-| Verification history goes in .work, not in the body | Groups with irrelevant content did worse (Sundararajan 2018 dissertation) | Adjacent support; the mapping is my inference |
+| Verification history goes in .work, not in the body | Groups with irrelevant content did worse (Sundararajan 2018 dissertation) | Adjacent support; the mapping is an extension |
 | Separate concept guides, hands-on tutorials, and overviews by role (the rationale cites Diátaxis) | The Diátaxis website cites no research | Convention |
 | An independent reviewer checks that objectives, mechanism, examples, and practice align (the rationale cites the CMU alignment page) | The CMU page cites no research; I have not read the experimental studies of backward design | Undetermined |
 
@@ -205,7 +205,7 @@ Research has no answer yet on five things, and I suggest the spec leave them unr
 - Whether to tell readers on the question itself to answer first.
 - Rewriting an objective as a question for the reader to guess at. One laboratory's experiments (Sana et al.) support it, but the original authors say it is too early to recommend. The prequestion meta-analysis supports prequestions themselves and did not test turning objectives into questions; it also found that when the control group received related activities such as learning objectives, the relative effect of prequestions on unasked content was −0.23; however, the control-type moderator as a whole reached only p = .07, and the authors say in the text that the types did not differ significantly.
 
-And three things my judgment is to leave out of the spec: a conversational-tone requirement, a readability-score threshold, and a Bloom verb-to-level table. The reasons for the first two are in the subsections above; a verb list can serve as a tool for finding wording, but the lists disagree with each other and are not fit for prescribing levels.
+And three things stay out of the spec: a conversational-tone requirement, a readability-score threshold, and a Bloom verb-to-level table. The reasons for the first two are in the subsections above; a verb list can serve as a tool for finding wording, but the lists disagree with each other and are not fit for prescribing levels.
 
 As of 2026-10-14, none of the five has been written into the spec or checked with a trial reader.
 
@@ -213,7 +213,7 @@ As of 2026-10-14, none of the five has been written into the spec or checked wit
 
 Pick a teaching article you have written and change it as follows. It takes about an hour:
 
-1. Move two of the self-check questions from the end of the article to the sections they belong to, and rewrite them as "why" or "what if this condition changed" (the question type is my inference; see the section on inserted questions).
+1. Move two of the self-check questions from the end of the article to the sections they belong to, and rewrite them as "why" or "what if this condition changed" (the evidence on question type cuts both ways; see the section on inserted questions).
 2. Add a sentence or two of reasoning to each answer.
 3. Find the three terms readers are least likely to know, and confirm that each has a plain-language explanation in the body where it first appears, not only in a tooltip or a glossary at the end.
 
@@ -221,7 +221,7 @@ Then have someone who has not read the article try it, and see whether they can 
 
 ## Limits of this evidence
 
-- **No study directly tested self-learners reading long web articles**. Carrying results from classrooms, computer-based materials, and short laboratory texts over to web guides is my inference.
+- **No study directly tested self-learners reading long web articles**. Carrying results from classrooms, computer-based materials, and short laboratory texts over to web guides, as below, is an extension.
 - **No synthesis of inserted questions that I could read in a legal full text**. For the classic one, Hamaker's 1986 review, I found no full text made public by the author or publisher. Recent meta-analyses concentrate on prequestions and classroom quizzing; none deals specifically with questions placed in the middle of an article.
 - **The classroom meta-analysis describes a different setting from a web article**. It excluded laboratory studies and online distance courses, and unsupervised quizzes outside class had smaller effects (a marginally significant difference). In an unsupervised web article, readers can skip every question; whether readers actually answer is covered in [part 10](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en): the large-sample answer logs come only from MOOCs, and no study measured readers of public articles.
 - **The feedback meta-analysis covers a very wide range**, with high heterogeneity, pooled study designs, and a significant bias test left uncorrected; the authors say themselves that the overall figure is an average.
@@ -232,7 +232,7 @@ Then have someone who has not read the article try it, and see whether they can 
 - **In the screen-versus-paper meta-analysis**, the great majority of participants come from four large-scale studies; the authors recalculated without those four and got almost the same result. The moderator analyses compare across studies.
 - **There is only one second-language experiment**, with undergraduates who had good English, reading short texts.
 - **Sampling bias is described at the top**: English-language literature, college students, short materials, studies with accessible full text. I searched no Chinese or Japanese literature.
-- **Nine points are my inferences**: carrying research results over to web guides; that choosing the questions decides what is most likely to be remembered; using "why" and "what if" question types after each section; mapping "answer plus reason" onto high-information feedback; putting plain wording for key terms in the body; not using readability scores as a threshold; that self-paced readers are less affected by the screen; that verification history is equivalent to interesting-but-irrelevant content; and using the IES worked-example recommendation for concept explanations. Each is marked in the text.
+- **Nine points extend the research without direct experiments**: carrying research results over to web guides; that choosing the questions decides what is most likely to be remembered; using "why" and "what if" question types after each section; mapping "answer plus reason" onto high-information feedback; putting plain wording for key terms in the body; not using readability scores as a threshold; that self-paced readers are less affected by the screen; that verification history is equivalent to interesting-but-irrelevant content; and using the IES worked-example recommendation for concept explanations.
 - **Read as abstracts only and left out of the references**: the feedback study by Van der Kleij et al. (2015), Ginns et al. (2013) on conversational tone, Sundararajan and Adesope (2020) on irrelevant content, and Xie et al. (2018) on hard-to-read typefaces.
 - **Known to exist, no legal full text read**: [Hamaker (1986)](https://doi.org/10.3102/00346543056002212), the review of inserted questions. An earlier draft cited its numbers from a third-party copy online; the source check found no version made public by the author or publisher, so on 2026-10-14 all its numbers were removed and it was taken out of the references. [Cromley and Chen (2025)](https://doi.org/10.1016/j.edurev.2025.100730), the meta-analysis re-pooling Mayer-authored studies: the accepted manuscript I first read was obtained through a search service before its public date; it is scheduled to become public in [NSF PAR](https://par.nsf.gov/biblio/10637927) on 2026-11-01, and I will restore the citation only once that version matches. Its numbers were removed on 2026-10-14.
 - **Not read**: the 18 experimental studies of backward design that Uluçınar mentions. **Cited secondhand**: the before-versus-after comparison studies described by Pan and Carpenter.

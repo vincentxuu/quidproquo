@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-13-video-beside-text-layout)
+> :globe: [中文版](/posts/learning/2026-10-13-video-beside-text-layout)
 
 The [previous article](/posts/learning/2026-10-13-instructional-video-in-articles-en) covered where a video goes on the page and how to write the article around it. One of its conclusions was that every section should link to the matching time in the video. Doing that raised the next question at once: a reader is in section seven and clicks that section's time link. What should the screen do?
 
@@ -62,7 +62,7 @@ How much of each I read also differs: for Papeos, the whole body and the appendi
 
 ### Video Digests (2014): each chapter carries its own player
 
-[Video Digests](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf) by Amy Pavel and colleagues cuts a lecture video into chapters and sections. The paper describes the layout this way: each chapter consists of an embedded video player, a chapter title and a sequence of sections, and each section has a short text summary and a representative keyframe; clicking a section plays the video from that segment. My inference: each chapter has its own player, so the reader never leaves the chapter they are in. Its browsing experiment is covered in the previous article and not repeated here.
+[Video Digests](http://vis-ucb-maneesh.stanford.edu/papers/videodigests/videodigests_small.pdf) by Amy Pavel and colleagues cuts a lecture video into chapters and sections. The paper describes the layout this way: each chapter consists of an embedded video player, a chapter title and a sequence of sections, and each section has a short text summary and a representative keyframe; clicking a section plays the video from that segment. In other words, each chapter has its own player, so the reader never leaves the chapter they are in. Its browsing experiment is covered in the previous article and not repeated here.
 
 ### LectureScape (2014): player in the middle, clickable transcript in the right sidebar
 
@@ -111,7 +111,7 @@ The same participants then took the authors' side and designed how they would wa
 
 For mental demand the paper reports only the test across all three conditions, not a pairwise comparison of Papeos against paper plus video. Temporal demand, effort, frustration and self-rated performance did not differ significantly across the three conditions. The interaction logs show that participants switched between formats significantly more often with Papeos than with paper plus video; in the latter condition most of them still watched the whole video first and spent the remaining time on the paper alone, just as in the preliminary session.
 
-What this means for this site is my reading: putting the video somewhere else and leaving the reader to do the cross-referencing works about as well as having no video, and the two formats only get used in alternation once the video is tied to where the reader is. The study did not compare "video beside the text" with "video floating in a corner", so it cannot be used to rule out a floating player directly.
+What this means for this site: putting the video somewhere else and leaving the reader to do the cross-referencing works about as well as having no video, and the two formats only get used in alternation once the video is tied to where the reader is. The study did not compare "video beside the text" with "video floating in a corner", so it cannot be used to rule out a floating player directly.
 
 Limitations the authors list: the study used only systems papers from HCI, covered one section of each paper, and ran 90 minutes per session.
 
@@ -145,7 +145,7 @@ Educational psychology has a related idea called split attention: when text and 
 
 **A review of reviews supports the principle.** The [overview](https://doi.org/10.31234/osf.io/pynzr) by Noetel and colleagues, which pooled 29 systematic reviews (I read the preprint), ranks spatial and temporal contiguity among the principles with the largest benefits. It cites the 2018 meta-analysis by Schroeder and Cenkci: across 58 effect sizes, placing related text and pictures close together led to better learning than placing them apart, with an effect of g = 0.63. That figure is as cited by Noetel; I could not obtain the full text of the original paper.
 
-The same overview reports a moderator that bears directly on web pages. Design principles mattered more when the material was system-paced (g = 0.41, a lecture for example) than when it was learner-paced (g = 0.27, a website for example), and the difference was significant (p = 0.02). The authors' explanation is that learners who control the pace can more easily use their own strategies to manage load. Someone reading an article who can pause the video at will is in the second group, so the difference a layout makes may be smaller than in classroom studies. That last sentence is my inference.
+The same overview reports a moderator that bears directly on web pages. Design principles mattered more when the material was system-paced (g = 0.41, a lecture for example) than when it was learner-paced (g = 0.27, a website for example), and the difference was significant (p = 0.02). The authors' explanation is that learners who control the pace can more easily use their own strategies to manage load. Someone reading an article who can pause the video at will is in the second group, so the difference a layout makes may be smaller than in classroom studies.
 
 **Recent experiments have not replicated it reliably.** In a 2024 [experiment](https://pure.tudelft.nl/ws/portalfiles/portal/213485394/Applied_Cognitive_Psychology_-_2024_-_Zhang_-_Does_presentation_size_of_instructional_materials_influence_the.pdf), Zhang, de Koning and Paas had 146 university students study a text-and-picture lesson on the nephron in four groups: text and picture separated or integrated, crossed with a large or small presentation size. On the retention test, the comprehension test and self-rated extraneous cognitive load there were no effects of format, size or their interaction, and the Bayesian analysis leaned toward "no difference". The authors note that their two earlier studies with the same material found the effect in one and not in the other, and say the conditions under which it appears still need to be worked out.
 
@@ -174,7 +174,7 @@ The limits of this data are plain. CafeMedia sells ad inventory, measures whethe
 
 There is also a meta-analysis of interaction features in videos (Ploetzner, 2022, Interactive Learning Environments). I read only the abstract and could not obtain the full text, so I note only that the study exists and do not report its results.
 
-My inference: time links are for letting readers find the place. That is the designed purpose of navigation tools, which Navarrete's review describes, but the experiments it covers measured learning outcomes, not how fast or how reliably readers found their place; learning more still depends on the reader working out an answer, and the basis for that is the pause-and-explain experiments read for the [previous article](/posts/learning/2026-10-13-instructional-video-in-articles-en), with no new full-text evidence in this one.
+Time links are for letting readers find the place. That is the designed purpose of navigation tools, which Navarrete's review describes, but the experiments it covers measured learning outcomes, not how fast or how reliably readers found their place; learning more still depends on the reader working out an answer, and the basis for that is the pause-and-explain experiments read for the [previous article](/posts/learning/2026-10-13-instructional-video-in-articles-en), with no new full-text evidence in this one.
 
 ## What this site does now
 
@@ -201,7 +201,7 @@ This layout is closest to LectureScape (video and text each have their own area 
 
 When the window is not wide enough the earlier behavior stays: scroll to the player. The difference is a "↩ Back to where I was reading" button at the bottom of the screen, which scrolls back to where the link was clicked and then removes itself. If the player is already on screen when the link is clicked, nothing scrolls.
 
-This half has no research behind it. I considered keeping the player pinned at the top of the phone screen, which is what the TED transcript page measured above does: in a 390 × 844 window a full-width 16:9 player is 219px tall, and with the 56px navigation bar above it the area that never moves is 275px, about 33% of the screen, already over the 30% line from Better Ads. That line was drawn for ads; applying it to a video the reader summoned is my inference. TED puts the transcript in a panel the reader can dismiss, and the body of an article here cannot be dismissed, so I chose the more conservative option for now.
+This half has no research behind it. I considered keeping the player pinned at the top of the phone screen, which is what the TED transcript page measured above does: in a 390 × 844 window a full-width 16:9 player is 219px tall, and with the 56px navigation bar above it the area that never moves is 275px, about 33% of the screen, already over the 30% line from Better Ads. That line was drawn for ads; no research says whether it applies to a video the reader summoned. TED puts the transcript in a panel the reader can dismiss, and the body of an article here cannot be dismissed, so I chose the more conservative option for now.
 
 ### Four things the implementation holds to
 
@@ -227,7 +227,7 @@ Checked the same way, all seven Harvard CS50 AI lecture videos allow embedding, 
 - **The floating-player data is from the ad industry** and measures close rates, not learning.
 - **The phone approach has no research source.** Of the sites measured, only TED keeps the player pinned in a narrow window, and that was measured by narrowing a desktop browser.
 - **Each real site was measured on one page only.** Coursera and edX could not be measured because they need a login, and YouTube's transcript panel never loaded in the automated browser.
-- **Five inferences are mine**: that with a player in each Video Digests chapter the reader never leaves the chapter; that the Papeos result means "tie the video to where the reader is"; that readers who control the pace are less affected by layout; that the 30% line Better Ads drew for ads can be used to judge a video the reader summoned; and that time links are for finding the place while learning comes from answering. Each is marked where it appears.
+- **Five points extend the research without direct experiments**: that with a player in each Video Digests chapter the reader never leaves the chapter; that the Papeos result means "tie the video to where the reader is"; that readers who control the pace are less affected by layout; that the 30% line Better Ads drew for ads can be used to judge a video the reader summoned; and that time links are for finding the place while learning comes from answering.
 - **Three papers whose full text I could not obtain**: Schroeder and Cenkci (2018), Kueker and Moore (2023), Ploetzner (2022). I tried the publisher pages, the open-access locations registered in OpenAlex, and Exa, and got only abstracts. For the first I use Noetel's citation of its figure; for the other two I state only that they exist, without results, and they are not in the reference list. Noetel et al. was read as a preprint.
 - **Switching between several videos was not tested**; I only read the code.
 - **This site's measurements were taken in desktop Chrome only** (windows of 1440 × 900, 1199 × 900 and 390 × 844). How often readers actually click, and how long they watch, has not been measured.
