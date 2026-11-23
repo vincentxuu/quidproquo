@@ -26,7 +26,7 @@ quidproquo 是 [quidproquo.cc](https://quidproquo.cc) 的原始碼——以 Astr
 | 框架 | Astro 7（SSR，`output: server`）、TypeScript、React islands、Tailwind CSS 4 |
 | 執行環境 | Cloudflare Workers（`@astrojs/cloudflare`、Node.js 相容）、Durable Objects |
 | 資料庫 | D1（SQLite）：文章、分塊、詞彙表、單字本、agent session、skills／MCP／plugins |
-| 搜尋 | Vectorize（Workers AI embedding）＋ D1 關鍵字搜尋＋ Cloudflare AI Search，以加權 RRF 融合 |
+| 搜尋 | Vectorize（Workers AI embedding）＋ D1 關鍵字搜尋＋ Cloudflare AI Search，以加權 RRF 融合；建構後另產生 Pagefind 靜態索引（404 頁使用） |
 | AI | Workers AI、LangChain／LangGraph adapters、Vercel AI SDK、Langfuse 追蹤 |
 | 非同步 | Cloudflare Queues（agent 執行，含 DLQ）、cron triggers |
 | 儲存 | R2（圖片、agent 記憶、artifact）、KV（session、rate limit、深度研究狀態） |
@@ -69,7 +69,7 @@ pnpm sync:prod   # 文章同步到正式環境 D1
 
 | 指令 | 用途 |
 | --- | --- |
-| `pnpm build` | 建構正式版本至 `./dist/`（含 cron entry、渲染檢查與 OG 圖片產生） |
+| `pnpm build` | 建構正式版本至 `./dist/`（含 cron entry、渲染檢查、Pagefind 索引與 OG 圖片產生） |
 | `pnpm preview` | 本地預覽正式建構結果 |
 | `pnpm lint` | oxlint 靜態分析 |
 | `pnpm test` | Vitest 測試 |
@@ -192,3 +192,7 @@ Astro SSR on Cloudflare Workers    Access／session 認證、rate limiting、i18
 - [Cloudflare 部署維運手冊](docs/cloudflare-deployment-runbook.md)
 - [Skill package 開發指南](docs/skill-package-development-guide.md)
 - [架構決策紀錄](docs/adr/)
+
+## 授權
+
+MIT，見 [`LICENSE`](LICENSE)。

@@ -33,7 +33,7 @@ quidproquo is the source of [quidproquo.cc](https://quidproquo.cc), a personal b
 | **Framework** | Astro 7 (SSR, `output: server`), TypeScript, React islands, Tailwind CSS 4 |
 | **Runtime** | Cloudflare Workers (`@astrojs/cloudflare`, Node.js compat), Durable Objects |
 | **Database** | D1 (SQLite) — posts, chunks, glossary, vocabulary, agent sessions, skills / MCP / plugins |
-| **Search** | Vectorize (Workers AI embeddings) + D1 keyword search + Cloudflare AI Search, fused with weighted RRF |
+| **Search** | Vectorize (Workers AI embeddings) + D1 keyword search + Cloudflare AI Search, fused with weighted RRF; Pagefind static index built post-build (used by the 404 page) |
 | **AI** | Workers AI, LangChain / LangGraph adapters, Vercel AI SDK, Langfuse tracing |
 | **Async** | Cloudflare Queues (agent runs, with DLQ), cron triggers |
 | **Storage** | R2 (images, agent memory, artifacts), KV (sessions, rate limits, deep-research state) |
@@ -127,7 +127,7 @@ pnpm sync:prod           # Sync posts to production D1
 
 | Command | Purpose |
 |---------|---------|
-| `pnpm build` | Production build to `./dist/` (cron entry, rendered-post check, OG images) |
+| `pnpm build` | Production build to `./dist/` (cron entry, rendered-post check, Pagefind index, OG images) |
 | `pnpm preview` | Preview production build locally |
 | `pnpm lint` | oxlint static analysis |
 | `pnpm test` | Vitest test suite |
@@ -260,4 +260,4 @@ This is a personal project, so there is no formal contribution process. Bug repo
 
 ## License
 
-MIT — see [`LICENSE`](LICENSE) (or add one if missing).
+MIT — see [`LICENSE`](LICENSE).
