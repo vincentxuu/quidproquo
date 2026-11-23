@@ -173,7 +173,7 @@ Then check two things:
 
 Devin Bots are available at devin.ai/bots, billed in US dollars; teams in Taiwan should confirm availability when signing up.
 
-Next, Perplexity teammates also take on work that spans weeks, but for knowledge workers instead of engineering teams: the feedback signal shifts from tests to human review.
+Next, [Perplexity teammates](/posts/ai/2026-11-20-perplexity-teammates-en) also take on work that spans weeks, but for knowledge workers instead of engineering teams: the feedback signal shifts from tests to human review.
 
 ## References
 

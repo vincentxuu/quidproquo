@@ -173,7 +173,7 @@ Fortune 引述的說法是，每個 bot 可以有自己的預算，跟它交出�
 
 Devin Bots 在 devin.ai/bots 申請，費用以美元計；台灣團隊能不能用，申請時直接確認。
 
-下一篇的 Perplexity teammates 同樣是接手跨週的工作，但對象從工程團隊換成知識工作者：回饋訊號不再是測試，而是人的審閱。
+下一篇的 [Perplexity teammates](/posts/ai/2026-11-20-perplexity-teammates) 同樣是接手跨週的工作，但對象從工程團隊換成知識工作者：回饋訊號不再是測試，而是人的審閱。
 
 ## 參考資料
 
