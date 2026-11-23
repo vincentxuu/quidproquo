@@ -120,11 +120,9 @@ Back to the opening question. Most modern LLMs encode position with RoPE because
 
 **Try this**: open the `config.json` of an open-weight model you use and find `rope_theta` and `rope_scaling`. If `rope_scaling` is set, match it against the table above and work out how many times longer the advertised context is than the training length.
 
-## What this guide can and cannot confirm
+## What this guide leaves out
 
-Confirmed: the structure of the 64 slides, each slide's title, the labels on the figures and the cited sources. Every paper title and abstract was checked on arXiv, and the video title and uploader were checked via YouTube oEmbed.
-
-Not confirmed: I did not transcribe the video, so examples and numbers the lecturer only said aloud are not included. NTK-Aware and Dynamic Scaling come from Reddit posts. The slides only reuse their charts, and I did not independently verify those numbers.
+This guide follows the 64 slides; examples and numbers the lecturer only said aloud in the video are not included. NTK-Aware and Dynamic Scaling come from Reddit posts. The slides only reuse their charts, and the numbers on them come from the posters' own tests.
 
 ## Further reading
 
@@ -157,6 +155,7 @@ Content check: verified against the video transcript (2026-10-10): video Ll-wk8x
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

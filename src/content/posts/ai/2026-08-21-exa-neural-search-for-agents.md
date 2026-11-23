@@ -61,9 +61,9 @@ agent 用搜尋：拿到的結果直接進 context window。成本是**token**�
 
 **第三是控制新鮮度與形狀。** `maxAgeHours` 決定要不要現爬：`24` 是快取超過一天就重爬、`0` 是永遠現爬、`-1` 是只吃快取。`outputSchema` 可以叫它直接回你要的 JSON（巢狀深度上限 2、屬性總數上限 10），`category` 可以把搜尋限制在 `company` / `people` / `publication` / `news` / `personal site` / `financial report`。還有一條容易寫錯的：`includeDomains` 本身就吃路徑前綴（`exa.ai/blog`）和子網域萬用字元（`*.substack.com`），文件明講不要再在 query 裡塞 `site:`。
 
-## 錢怎麼算（2026-08-21 實查）
+## 錢怎麼算（2026-08-21 的價格）
 
-定價是最會過期的東西，以下全部是 2026-08-21 從 [exa.ai/pricing](https://exa.ai/pricing) 讀到的。沒有訂閱制、沒有最低消費，儲值後按次扣。
+定價是最會過期的東西，以下全部是 [exa.ai/pricing](https://exa.ai/pricing) 在 2026-08-21 的價格。沒有訂閱制、沒有最低消費，儲值後按次扣。
 
 | 端點 | 基本價（含前 10 筆結果） | 超過 10 筆的部分 | AI 頁面摘要 |
 |---|---|---|---|

@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-20-ai-interview-daily-en)
+> :globe: [English version](/posts/daily/2026-11-20-ai-interview-daily-en)
 
 ## 今日主題
 
@@ -46,19 +46,19 @@ Naive 實作每次 merge 完都重新掃一遍全部語料算 pair 頻率,對小
 {
   "title": "BPE 訓練迴圈：count → merge → repeat",
   "lang": "zh-TW",
-  "width": 820,
+  "width": 640,
   "height": 460,
   "nodes": [
-    {"id": "init", "label": "初始化\n每個詞拆成最小符號序列\n（byte-level：0–255）", "x": 280, "y": 50, "w": 340, "h": 70},
-    {"id": "count", "label": "統計相鄰 pair 頻率\n（依詞頻加權）", "x": 280, "y": 160, "w": 340, "h": 70},
-    {"id": "merge", "label": "合併出現最多次的 pair\n記錄這條 merge 規則", "x": 280, "y": 270, "w": 340, "h": 70, "tone": "accent"},
-    {"id": "stop", "label": "停止條件：vocab size 到門檻\n或 merge 次數到上限？", "x": 280, "y": 380, "w": 340, "h": 60}
+    {"id": "init", "label": "初始化\n每個詞拆成最小符號序列\n（byte-level：0–255）", "x": 230, "y": 50, "w": 300, "h": 70},
+    {"id": "count", "label": "統計相鄰 pair 頻率\n（依詞頻加權）", "x": 230, "y": 160, "w": 300, "h": 70},
+    {"id": "merge", "label": "合併出現最多次的 pair\n記錄這條 merge 規則", "x": 230, "y": 270, "w": 300, "h": 70, "tone": "accent"},
+    {"id": "stop", "label": "停止條件：vocab size 到門檻\n或 merge 次數到上限？", "x": 230, "y": 380, "w": 300, "h": 60}
   ],
   "edges": [
     {"from": "init", "to": "count", "step": 1},
     {"from": "count", "to": "merge", "step": 2},
     {"from": "merge", "to": "stop", "step": 3},
-    {"from": "stop", "to": "count", "step": 4, "label": "未達門檻，\n回頭統計頻率", "via": [[480, 380], [480, 160]], "labelAt": [480, 320], "tone": "warn"}
+    {"from": "stop", "to": "count", "step": 4, "label": "未達門檻，\n回頭統計頻率", "via": [[420, 380], [420, 160]], "labelAt": [420, 320], "tone": "warn"}
   ],
   "steps": [
     "先把語料裡每個詞拆成最小符號序列；byte-level BPE 固定從 UTF-8 的 256 個 byte 值出發，保證任何輸入都有起始符號可用。",

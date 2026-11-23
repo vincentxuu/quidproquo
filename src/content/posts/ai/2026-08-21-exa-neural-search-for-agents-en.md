@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-exa-neural-search-for-agents)
+:globe: [中文版](/posts/ai/2026-08-21-exa-neural-search-for-agents)
 
 The first eleven posts in this series covered things other people use that I did not. This one inverts that. This blog's `CLAUDE.md` carries an explicit rule about web-fetch priority: `stealth_fetch` first, then `mcp__claude_ai_Exa__*`, then Tavily / linkup / jina, and only then the built-in `WebFetch`. Sixteen of the 38 skills in this repo reference exa directly in their instructions, while only four existing posts mention it in passing — across zero dedicated articles. Every primary source in this post was pulled with Exa's own `web_fetch_exa` after Firecrawl ran out of credits mid-research. Used daily, never written about. So let's write about it.
 
@@ -61,9 +61,9 @@ An agent using a search engine puts the results straight into a context window. 
 
 **Third, control over freshness and shape.** `maxAgeHours` decides whether to livecrawl: `24` recrawls anything cached longer than a day, `0` always livecrawls, `-1` serves cache only. `outputSchema` makes it return the JSON you want (max nesting depth 2, max 10 total properties), and `category` restricts search to `company` / `people` / `publication` / `news` / `personal site` / `financial report`. One easy mistake: `includeDomains` already accepts path prefixes (`exa.ai/blog`) and subdomain wildcards (`*.substack.com`), and the docs explicitly say not to duplicate that with a `site:` operator in the query.
 
-## What It Costs (Verified 2026-08-21)
+## What It Costs (as of 2026-08-21)
 
-Pricing is the fastest thing to go stale. Everything below was read from [exa.ai/pricing](https://exa.ai/pricing) on 2026-08-21. There is no subscription and no minimum spend — you load credits and get charged per request.
+Pricing is the fastest thing to go stale. Everything below comes from [exa.ai/pricing](https://exa.ai/pricing) as of 2026-08-21. There is no subscription and no minimum spend — you load credits and get charged per request.
 
 | Endpoint | Base price (up to 10 results) | Each result above 10 | AI page summaries |
 |---|---|---|---|

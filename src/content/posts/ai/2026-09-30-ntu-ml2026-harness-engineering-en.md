@@ -128,11 +128,9 @@ Slide 63 returns to the three levers and the closing line: **sometimes a model f
 
 **Try this**: take a task one of your agents has failed. Before switching models, add the three sections from the opening demo: [CONTEXT] for the environment, [INSTRUCTIONS] for what to look at before acting, and [DONE-WHEN] for a verifiable completion condition. Run it again and compare.
 
-## What this guide can and cannot confirm
+## What this guide leaves out
 
-Confirmed: the structure of the 63 slides, each slide's title and on-slide text, and the cited papers and posts (arXiv titles and abstracts, both Anthropic posts and the emotions paper were checked), plus the titles of the YouTube videos embedded in the slides.
-
-Not confirmed: I did not transcribe the video, so most of what the lecturer only said aloud is not included (except where noted below). The PinchBench demo is described only from the slide's dialogue box and score charts, and I did not look up PinchBench itself. AutoDream appears on the slide only as a name and an illustration; in the video Lee says it is an unreleased feature seen after the Claude Code source leak, used to organize past memories during idle time, and I do not speculate beyond that. OpenAI's harness engineering page returned 403 when I checked, so I can only confirm that the slides cite it.
+This guide follows the 63 slides; apart from AutoDream below, what the lecturer only said aloud in the video is not included. The PinchBench demo is described only from the slide's dialogue box and score charts. AutoDream appears on the slide only as a name and an illustration; in the video Lee says it is an unreleased feature seen after the Claude Code source leak, used to organize past memories during idle time, and this guide does not speculate beyond that. For OpenAI's harness engineering post, this guide covers only what the slides quote from it.
 
 ## Further reading
 
@@ -165,6 +163,7 @@ Content check: verified against the video transcript (2026-10-10): video R6fZR_9
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. Added that the first AGENTS.md study only measured speed and tokens, noted the spoken PinchBench starting score, and added Lee's explanation of AutoDream; everything else matches.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

@@ -13,7 +13,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-09-who-may-down-a-drone-en)
+> :globe: [English version](/posts/policy/2026-08-09-who-may-down-a-drone-en)
 
 [反制那篇](/posts/tech/2026-08-07-counter-drone-why-hard)最後留了一句話：「法源其實夠，但執行是分裂的。」
 
@@ -23,7 +23,7 @@ series:
 
 ## 先做窮舉：法規裡「無人機」出現在 19 部，「反制無人機」出現在 1 部
 
-在猜之前先數。全國法規資料庫的整合查詢，範圍限「中央法規 → 法條內容」：
+在猜之前先數。全國法規資料庫的整合查詢，範圍限「中央法規 → 法條內容」（檢索連結列在文末參考資料）：
 
 | 關鍵字 | 命中法規數 |
 |---|---|
@@ -228,23 +228,9 @@ series:
 
 另外提醒不要混淆兩部特別條例：本文引的是**保衛國家安全及強化不對稱戰力計畫採購特別條例**（已公布施行）；另有一部 **2,100 億元的國防自主無人載具採購特別條例**仍卡在協商，見[國防預算那篇](/posts/investing/2026-08-06-drone-defense-budget-map)。
 
-## 查證方式（可重跑）
+## 更新紀錄
 
-負面結論要能重跑，所以把查詢寫出來。查詢日期 2026-08-09，全國法規資料庫整合查詢，範圍「中央法規 → 法條內容」：
-
-```
-https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=無人機
-  → 19 部法規
-
-https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=反制無人機
-  → 1 部（保衛國家安全及強化不對稱戰力計畫採購特別條例）
-
-單一法規條文檢索：
-https://law.moj.gov.tw/LawClass/LawSearchContent.aspx?pcode=K0060111&kw=無人機
-  → 電信管理法：查無資料
-```
-
-警械種類的 31 項出自行政院公報上的內政部公告原文（113-07-08 台內警字第 11308725692 號），不是二手整理；連結在下方參考資料。
+- 2026-11-23：「查證方式」一節的檢索連結移到參考資料。
 
 ## 參考資料
 
@@ -263,6 +249,12 @@ https://law.moj.gov.tw/LawClass/LawSearchContent.aspx?pcode=K0060111&kw=無人�
 - [無線電頻率使用管理辦法 第 36 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060123&flno=36)（任何發射足以妨害合法無線電通信者均為干擾行為）與[第 30 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060123&flno=30)（不得對無線電助航造成妨害性干擾）
 - [電信管制射頻器材製造輸入及申報作業管理辦法 第 3 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060146&flno=3)（第一級含「限制遙控無人機」器材）與[第 8 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060146&flno=8)（使用目的第 9 款與應檢附文件）
 - [保衛國家安全及強化不對稱戰力計畫採購特別條例 第 5 條](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=F0020007&flno=5)（「軟、硬殺混合反制無人機系統」）
+
+**一手：法規檢索**（全國法規資料庫，範圍「中央法規 → 法條內容」）
+
+- [整合查詢「無人機」](https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=%E7%84%A1%E4%BA%BA%E6%A9%9F)（19 部法規）
+- [整合查詢「反制無人機」](https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=%E5%8F%8D%E5%88%B6%E7%84%A1%E4%BA%BA%E6%A9%9F)（1 部：保衛國家安全及強化不對稱戰力計畫採購特別條例）
+- [電信管理法條文檢索「無人機」](https://law.moj.gov.tw/LawClass/LawSearchContent.aspx?pcode=K0060111&kw=%E7%84%A1%E4%BA%BA%E6%A9%9F)（查無資料）
 
 **一手：機關公告與新聞稿**
 

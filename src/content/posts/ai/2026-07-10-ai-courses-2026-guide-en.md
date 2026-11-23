@@ -19,7 +19,7 @@ description: "A 2026 survey of AI courses organized into four tiers — AI-curio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-10-ai-courses-2026-guide)
+> :globe: [中文版](/posts/ai/2026-07-10-ai-courses-2026-guide)
 
 In the first half of 2026, three frontier labs independently decided that teaching you to use AI was part of the product. OpenAI Academy launched three core courses in June. Anthropic reorganized its entire Academy into Claude Academy, sorted by product. Google shipped a new AI Professional Certificate. Around the same time, Stanford ran a for-credit course on how to direct coding agents, with the creator of Claude Code on the guest list.
 
@@ -38,7 +38,7 @@ A note on method. Every number below comes from an official page I actually fetc
 
 Prices and languages come from **current official pages**, never from old blog posts. This matters more than it sounds. The AWS announcement introducing subscriptions lists $299/year and 12 languages — but that post is from 2022. The current pricing page says $449 and the current FAQ says 17 languages. The widely circulated Google Cloud post about free badges is from 2023. **Citing an official source is not the same as citing the current state.** Always check the date.
 
-Three items remain marked "unverified," and not because I didn't look hard enough — they are **structurally unavailable**: OpenAI Academy's per-course syllabus sits behind a login on Gradual; the Maven paid cohort page shows Sold out and lists no price; NVIDIA's self-paced course pages don't state a language.
+Three pieces of information are **structurally unavailable** on public pages: OpenAI Academy's per-course syllabus sits behind a login on Gradual; the Maven paid cohort page shows Sold out and lists no price; NVIDIA's self-paced course pages don't state a language.
 
 ## Tier 1: AI-curious — you don't know what to do with it yet
 
@@ -60,7 +60,7 @@ All three issue completion certificates, but OpenAI explicitly states these are 
 
 The path ends at *directing agents*, not *writing better prompts*. That ordering is itself a signal: OpenAI considers the 2026 baseline skill to have moved from prompting to workflow design and delegation.
 
-Whether course content is localized: **unverified**. I confirmed only that the help documentation exists in Traditional Chinese variants; the Academy site itself and every public course page are in English. The per-lesson syllabus requires a Gradual login, which I did not get past.
+Whether course content is localized: **not visible from public pages**. The help documentation exists in Traditional Chinese variants, but the Academy site itself and every public course page are in English; the per-lesson syllabus requires a Gradual login.
 
 ### Claude Academy (formerly Anthropic Academy)
 
@@ -197,7 +197,7 @@ The guest speaker list is faintly absurd: **Boris Cherney (creator of Claude Cod
 
 Its biggest difference from OpenAI Academy and Claude Academy is **vendor neutrality**: one course covering Cursor, Claude Code, Windsurf, and Warp together rather than one vendor's product. Assignments include hand-building a coding agent and an MCP server from scratch.
 
-The same material has a [paid cohort version on Maven](https://maven.com/the-modern-software-developer/ai-course), "AI Software Development: From First Prompt to Production Code": 4 weeks, 8 live sessions, 14 lessons, 4 projects, private Discord, completion certificate, now on its third cohort. **Price unverified** — the page shows Sold out with no figure listed.
+The same material has a [paid cohort version on Maven](https://maven.com/the-modern-software-developer/ai-course), "AI Software Development: From First Prompt to Production Code": 4 weeks, 8 live sessions, 14 lessons, 4 projects, private Discord, completion certificate, now on its third cohort. **Price not listed** — the page shows Sold out with no figure.
 
 Discount the reputation signals. The 4.9 rating (50 reviews) on the Maven page is the course's own page, not a neutral third party. There's a Reddit r/theprimeagen thread, but the site blocks scraping, so the comments are unavailable — meaning I also can't claim the reception is uniformly good. Marketing lines like "the world's first course of its kind" and "10x productivity" are marketing claims, independently unverified.
 
@@ -263,7 +263,7 @@ Short courses give a completion marker. **Specializations on Coursera cost money
 
 [**NVIDIA Deep Learning Institute**](https://www.nvidia.com/en-us/training/) is hybrid: most popular self-paced courses are free (for example Find the Bottleneck: Optimize AI Pipelines With Nsight Systems, 3 hours), while instructor-led workshops cost money, typically 8 hours a session (Building AI Agents with Multimodal Models). Some courses grant a DLI certificate; paid certification exams are separate. The platform is active — the site was advertising SIGGRAPH training sessions in July 2026.
 
-NVIDIA also runs a network of officially authorized DLI partners delivering workshops in local languages — worth checking whether one operates in your region, since the curriculum and certificate are the same as the English original. Whether the self-paced courses on learn.nvidia.com have localized interfaces is **unverified**; the current course pages don't state a language.
+NVIDIA also runs a network of officially authorized DLI partners delivering workshops in local languages — worth checking whether one operates in your region, since the curriculum and certificate are the same as the English original. Whether the self-paced courses on learn.nvidia.com have localized interfaces is **not stated**: the current course pages don't list a language.
 
 [**AWS Skill Builder**](https://aws.amazon.com/training/digital) is freemium: the free tier has **500+ on-demand digital courses** (the homepage separately claims "1,000+ free learning resources" and "900+ free self-paced courses" — three numbers, three ways of counting), while an individual subscription is **$29/month or $449/year** (the annual adds expert-led Digital Classrooms), and team plans are also $449 per seat per year. Subscriptions include Builder Labs and certification prep.
 

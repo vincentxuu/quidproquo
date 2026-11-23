@@ -25,7 +25,7 @@ glossary:
     context: "CS224U 用它給「這個對齊假說有多成立」一個分級的分數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-causal-abstraction-iit-das-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -186,9 +186,9 @@ DAS 的做法是**凍結模型參數，只學一個旋轉矩陣 R**。先把目�
 
 **怎麼做**：今晚打開 `iit_equality.ipynb`，只跑到「Evaluation」那一節為止。它只 import repo 內的模組（`torch_deep_neural_classifier`、`torch_deep_neural_classifier_iit`、`iit`、`utils`）加上 PyTorch 與 scikit-learn，不需要下載資料或預訓練模型。你會親眼看到準確率 0.99 的網路拿到約 0.5 的 IIA。再往下跑 IIT 那節，看同一個數字變成 1.00。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講次表的閱讀清單、投影片內容、影片 36–37 的講述、notebook 的程式與存檔輸出。你重跑時，數字會隨隨機種子與環境略有差異。不能確認：Quiz 4 的題目（Canvas 需登入）、教室錄影裡的延伸討論。DAS 論文在投影片上標為「Ms., Stanford University」，是 2023 年上課時的稿件狀態；本文不評論它之後的發表版本。
+notebook 的數字取自存檔輸出，你重跑時會隨隨機種子與環境略有差異。Quiz 4 的題目在 Canvas 上，需要登入；教室錄影裡的延伸討論沒有收進來。DAS 論文在投影片上標為「Ms., Stanford University」，是 2023 年上課時的稿件狀態；這篇不評論它之後的發表版本。
 
 延伸閱讀：站上 [CS224N 的 interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)走的是 agentic interpretability 與概念發現的路線，可以對照。
 
@@ -222,6 +222,7 @@ title: Stanford XCS224U: Analysis NLU, Part 5: Distributed Alignment Search (DAS
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對記號。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

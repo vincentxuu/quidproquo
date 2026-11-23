@@ -26,7 +26,7 @@ glossary:
     context: "這是 Flash Attention 能一次掃描就算完 softmax 與 weighted sum 的核心技巧。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -150,11 +150,9 @@ Colab 裡做了三件事：
 - **怎麼做**：打開範例 Colab，把 `SEQ_LENS` 延長到 8192，自己看加速倍率有沒有繼續上升；再把 `B`、`H` 調小，觀察短序列時 Flash Attention 還划不划算。
 - **延伸閱讀**：站上的 [Stanford CS336 推論導讀](/posts/ai/2026-08-22-cs336-inference)從 roofline 角度談 memory-bound，[CME295 LLM 系統導讀](/posts/ai/2026-09-29-cme295-llm-systems)也整理了 Flash Attention 與推論最佳化。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講義第 1–28 頁的結構與文字、影片的逐字字幕（YouTube 上的 zh-TW 字幕）、範例 Colab 的程式與存檔輸出、引用論文的標題（在 arXiv 核對過）。
-
-不能確認：真實模型示範用的是哪一個模型。字幕裡老師口述的是 Yi-34B，Colab 存檔程式碼寫的是 `google/gemma-3-4b-it`，兩者不一致，本文不下定論，只寫趨勢。講課當場的秒數與 Colab 存檔輸出不一致（存檔裡最長的那次沒有 OOM），因此真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，文字依字幕轉述。
+真實模型示範用的是哪一個模型，課堂與 Colab 說法不同：老師口述的是 Yi-34B，Colab 存檔程式碼寫的是 `google/gemma-3-4b-it`。講課當場的秒數也和 Colab 存檔輸出對不上（存檔裡最長的那次沒有 OOM）。所以真實模型那段只寫趨勢，不寫秒數。投影片第 11–27 頁多為動畫圖，那幾頁的內容依老師口述整理。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW2：讓 AI Agent 當 AI 工程師](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)｜下一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 
@@ -182,6 +180,7 @@ title: 影片：加快語言模型生成速度 (1/2)：Flash Attention
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。真實模型示範的模型名稱字幕（Yi-34B）與 Colab 程式碼（gemma-3-4b-it）不一致，已改為並列說明；其餘與字幕相符。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

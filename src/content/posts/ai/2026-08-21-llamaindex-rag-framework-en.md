@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-llamaindex-rag-framework)
+:globe: [中文版](/posts/ai/2026-08-21-llamaindex-rag-framework)
 
 This site has published thirty-odd posts on RAG techniques — [chunking strategies](/posts/ai/2026-03-12-chunking-strategies-en), [HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en), [CRAG](/posts/ai/2026-03-12-corrective-rag-crag-en), [GraphRAG](/posts/ai/2026-03-12-graph-rag-en), [hybrid search and RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) — and not one on frameworks. The practical question after the techniques is: what do I bolt all of this onto? This post covers the leading candidate.
 
@@ -115,7 +115,7 @@ There is a middle path the ecosystem explicitly supports: **use Workflows withou
 
 ## 5. What actually happens on Traditional Chinese text
 
-I ran this section myself, because I could not find existing data on it. Setup: `llama-index-core` 0.14.24 plus `tiktoken`, with the Chinese and English bodies of this site's [llms.txt post](/posts/tech/2026-08-21-llms-txt-en) as the corpus (code fences and link URLs stripped). The conclusion in one line: **the defaults are all tuned for English, and they fail silently**.
+This section reports my own test. Setup: `llama-index-core` 0.14.24 plus `tiktoken`, with the Chinese and English bodies of this site's [llms.txt post](/posts/tech/2026-08-21-llms-txt-en) as the corpus (code fences and link URLs stripped; Chinese 2,573 characters / 2,176 tokens, English 5,543 characters / 1,234 tokens). The conclusion in one line: **the defaults are all tuned for English, and they fail silently**.
 
 The first problem is that the token math doesn't carry over. `SentenceSplitter` counts tokens with `tiktoken`'s `gpt-3.5-turbo` encoding — that is, `cl100k_base`. Write the same `chunk_size=1024` and Traditional Chinese fits under a third of the characters English does:
 
@@ -182,17 +182,19 @@ Evaluate LlamaIndex as "a RAG framework" and you will be evaluating the part it 
 
 Whether it's worth adopting isn't a property of the framework; it's a property of your axis of change. If your uncertainty is "what do I connect to," it buys you reversibility. If your uncertainty is "how should retrieval itself think," it's one more layer. And either way, for Traditional Chinese you have to change the defaults yourself.
 
-## Appendix: verification method and dates
+## Appendix: dates and scope of the figures
 
-All figures verified 2026-08-21.
+All figures in this post are a snapshot from 2026-08-21. PyPI weekly downloads use the `last_week` field from pypistats.
 
-- **PyPI downloads**: `pypistats.org/api/packages/<pkg>/recent`, `last_week` field.
-- **Release history**: the `releases` object of `pypi.org/pypi/llama-index/json`. Earliest release 0.4.4 on 2023-02-16; 504 releases to date; latest 0.14.24 on 2026-08-19. `llama-index-workflows` first shipped 0.1.0 on 2025-06-10 and is now 2.23.2 (2026-08-17).
-- **npm downloads and publish times**: `api.npmjs.org/downloads/point/last-week/<pkg>` and `registry.npmjs.org/<pkg>`. `llamaindex` latest is 0.12.1, published 2025-12-02T08:59:24Z; `@llamaindex/core` is 0.6.23, published 2026-03-09.
-- **GitHub figures**: `api.github.com/repos/<owner>/<repo>`. `run-llama/llama_index` was created 2022-11-02, license MIT; the `archived` field is `true` for both `run-llama/LlamaIndexTS` and `run-llama/workflows-ts`.
-- **Integration package count**: fetched the full `pypi.org/simple/` index and ran `grep -o 'llama-index-[a-z0-9-]*' | sort -u | wc -l`, giving 950; counting each prefix separately gives readers 193, llms 123, vector-stores 100, embeddings 74. This counts package names on PyPI carrying that prefix, which is not the same as the number officially maintained.
-- **Traditional Chinese chunking test**: `llama-index-core` 0.14.24 plus `tiktoken`, corpus being the Chinese and English bodies of this site's llms.txt post (code fences and link URLs removed): Chinese 2,573 characters / 2,176 tokens, English 5,543 characters / 1,234 tokens. The Punkt test took the first 400 characters of the Chinese corpus with newlines removed and called `globals_helper.punkt_tokenizer.span_tokenize()`, which returned a single span.
-- **`CHUNKING_REGEX`**: read from `llama-index-core/llama_index/core/node_parser/text/sentence.py` on the main branch; the default tokenizer comes from `get_tokenizer(model_name="gpt-3.5-turbo")` in `core/utils.py` of the same repo.
+- **Release history**: the earliest `llama-index` release is 0.4.4 on 2023-02-16; the latest is 0.14.24 on 2026-08-19. `llama-index-workflows` first shipped 0.1.0 on 2025-06-10 and is now 2.23.2 (2026-08-17).
+- **npm**: `llamaindex` latest is 0.12.1, published 2025-12-02T08:59:24Z; `@llamaindex/core` is 0.6.23, published 2026-03-09.
+- **GitHub**: `run-llama/llama_index` was created 2022-11-02, license MIT; `run-llama/LlamaIndexTS` and `run-llama/workflows-ts` are both archived.
+- **Integration package count**: 950 is the number of package names on PyPI carrying the `llama-index-` prefix, which is not the same as the number officially maintained. By prefix: readers 193, llms 123, vector-stores 100, embeddings 74.
+- **`CHUNKING_REGEX`**: from `llama-index-core/llama_index/core/node_parser/text/sentence.py` on the main branch; the default tokenizer comes from `get_tokenizer(model_name="gpt-3.5-turbo")` in `core/utils.py` of the same repo.
+
+## Update log
+
+- 2026-11-23: Rewrote the appendix as the dates and scope of the figures; the test corpus character and token counts moved to section 5.
 
 ## References
 

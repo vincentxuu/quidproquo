@@ -22,7 +22,7 @@ glossary:
     context: "投影片引用 Geoffrey Huntley 的文章，並畫出每輪重開 context、只帶上一輪摘要的變體。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -128,11 +128,9 @@ gemma-4-E2B-it 的反應是：「沒有提供 parser.py……我自己寫一個�
 
 **怎麼做**：拿你手邊一個 agent 失敗過的任務，先不要換模型，照開場的格式替它補三段：[CONTEXT] 寫環境、[INSTRUCTIONS] 寫「動手前先看什麼」、[DONE-WHEN] 寫可驗證的完成條件，再跑一次比較。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講義 63 頁的結構、每頁標題與圖上文字、引用的論文與文章（arXiv 論文的標題與摘要、Anthropic 兩篇文章、emotions 研究原文都核對過），以及投影片內嵌的 YouTube 影片標題。
-
-不能確認：本文沒有逐字聽寫影片，老師口頭補充的內容多數沒有寫進來（下面註明的除外）。PinchBench 的示範只根據投影片上的對話框與分數圖轉述，PinchBench 本身沒有另外查證。AutoDream 在投影片上只有名稱與一張插圖；影片中老師說它是 Claude Code 原始碼外流後被看到、尚未釋出的功能，用於閒置時整理過往記憶，本文不再延伸推測。OpenAI 的 harness engineering 頁面在核對時回傳 403，只能確認投影片有引用。
+這篇依講義 63 頁整理，老師在影片裡口頭補充的內容，除了下面的 AutoDream，都沒有收進來。PinchBench 的示範只根據投影片上的對話框與分數圖轉述。AutoDream 在投影片上只有名稱與一張插圖；影片中老師說它是 Claude Code 原始碼外流後被看到、尚未釋出的功能，用於閒置時整理過往記憶，這篇不再往外推測。投影片引用的 OpenAI harness engineering 文章，這篇只寫到投影片引用的部分。
 
 ## 延伸閱讀
 
@@ -165,6 +163,7 @@ title: 影片：Harness Engineering：有時候語言模型不是不夠聰明，
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。補註 AGENTS.md 第一篇研究只量速度與 token、PinchBench 起始分數口述差異，並補上影片中對 AutoDream 的說明；其餘與字幕相符。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

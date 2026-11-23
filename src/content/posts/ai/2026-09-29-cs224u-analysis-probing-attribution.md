@@ -28,7 +28,7 @@ glossary:
         url: "http://proceedings.mlr.press/v70/sundararajan17a.html"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -155,9 +155,9 @@ notebook 的內容依序是：InputXGradients 的兩種實作（純 PyTorch 與 
 
 **怎麼做**：今晚想先摸一次，就只跑 notebook 的前兩段（InputXGradients 與 sensitivity 反例）。只需要 PyTorch 和 captum，不用下載任何資料，就能親眼看到 inputs × gradients 給出兩個 0、IG 給出約 1。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講次表、投影片內容、三支影片的講述、notebook 在 GitHub 上的現況。不能確認：Quiz 4 考什麼（Canvas 需登入），以及 2023 年課堂上的額外討論（教室錄影在 Panopto）。
+Quiz 4 的題目在 Canvas 上，需要登入才看得到。2023 年課堂上的額外討論只在教室錄影（Panopto）裡，這篇沒有收進來。
 
 延伸閱讀：站上 CS224N 系列也有一篇 [interpretability 導讀](/posts/ai/2026-08-22-cs224n-interpretability)，談的是 Been Kim 的 agentic interpretability，跟這裡的 probing／IG 路線互補。
 
@@ -191,6 +191,7 @@ title: Stanford XCS224U: NLU I Analysis Methods for NLU, Part 2: Probing I Sprin
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。依官方播放清單逐講核對影片 ID 與講次，確認無誤，影片標題改用原標題。
 - 2026-10-10：依字幕核對影片內容。未發現與字幕不符之處，僅加上核對記號。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

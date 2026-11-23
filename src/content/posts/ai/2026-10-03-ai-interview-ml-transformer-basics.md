@@ -50,13 +50,13 @@ glossary:
         url: "https://arxiv.org/abs/1812.11118"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
+> :globe: [English version](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics-en)
 
 面試問到 [Transformer](https://arxiv.org/abs/1706.03762)，很少是要你重畫一次論文的架構圖，真正拉開差距的是後面那一串追問：為什麼 attention 要除以 √d_k、[RoPE](https://arxiv.org/abs/2104.09864) 怎麼讓內積只剩相對距離、[Adam](https://arxiv.org/abs/1412.6980) 和 [AdamW](https://arxiv.org/abs/1711.05101) 到底差在哪、AUC 很高為什麼還不能上線。這些問題的答案都在機制裡，背結論撐不過第二個「為什麼」。
 
 這篇把 ML 基礎與 Transformer／NLP 的底層概念整理成可以順著講下去的稿。前半是偏差變異、正則化、損失函數、優化器、評估指標、資料洩漏與交叉驗證；後半是 self-attention、位置編碼、正規化層、架構選擇、tokenization、embedding、長上下文與 MoE。每一節照「概念 → 機制或比較 → 面試怎麼答」展開，最後附三題 [numpy](https://numpy.org/) 手寫題，程式都實際執行過。
 
-這是「AI Engineer 面試準備」系列的一篇。想先看整體地圖，可以從[總覽](/posts/ai/2026-08-20-ai-engineer-interview-overview)開始；站上較早的 [ML 基礎](/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals)、[深度學習](/posts/ai/2026-08-20-ai-engineer-interview-deep-learning)、[NLP 與 LLM](/posts/ai/2026-08-20-ai-engineer-interview-nlp-llm) 三篇著重考法與直覺，本篇則補上機制與出處。文中的論文數字都對照過原文；標「推算」的是由公式自行算出、再用程式驗算的數字；查不到一手來源的說法會直接註明，不寫成事實。
+這是「AI Engineer 面試準備」系列的一篇。想先看整體地圖，可以從[總覽](/posts/ai/2026-08-20-ai-engineer-interview-overview)開始；站上較早的 [ML 基礎](/posts/ai/2026-08-20-ai-engineer-interview-ml-fundamentals)、[深度學習](/posts/ai/2026-08-20-ai-engineer-interview-deep-learning)、[NLP 與 LLM](/posts/ai/2026-08-20-ai-engineer-interview-nlp-llm) 三篇著重考法與直覺，本篇則補上機制與出處。文中的論文數字都對照過原文；標「推算」的是由公式自行算出、再用程式驗算的數字；沒有一手來源的說法會直接註明，不寫成事實。
 
 ---
 
@@ -119,7 +119,7 @@ softmax 搭配 cross-entropy 時，對 logits 的梯度簡單到只剩「預測�
 
 LLM 的預訓練損失就是對下一個 token 的 cross-entropy，perplexity 則是平均 cross-entropy 取指數。數值上，不要先算 softmax 再取 log，要用 log-softmax 或 logsumexp，後面的手寫題 1 會示範原因。
 
-類別不平衡時可以換損失：[Focal loss](https://arxiv.org/abs/1708.02002) 提出於密集物件偵測，降低已分類良好樣本的權重，避免大量容易的負樣本壓過訓練。「分類不用 MSE，因為梯度會飽和」是常見說法，本文沒有對照一手來源，答題時當補充，主論述放在概似意義與 `p − y` 這個梯度上。
+類別不平衡時可以換損失：[Focal loss](https://arxiv.org/abs/1708.02002) 提出於密集物件偵測，降低已分類良好樣本的權重，避免大量容易的負樣本壓過訓練。「分類不用 MSE，因為梯度會飽和」是常見說法，沒有一手來源支撐，答題時當補充，主論述放在概似意義與 `p − y` 這個梯度上。
 
 **面試怎麼答**：先說兩者都是負對數概似，只是分布假設不同（高斯對 MSE、類別分布對 cross-entropy）。再說 softmax 加 cross-entropy 的梯度是 `p − y`。最後補數值穩定：用 log-softmax。
 
@@ -164,7 +164,7 @@ F-beta 的一般式是 `(1+β²)tp / ((1+β²)tp + fp + β²fn)`，β 大於 1 �
 不平衡資料上，[Saito 與 Rehmsmeier](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432) 指出 ROC 圖的視覺解讀可能具欺騙性，PR 圖看的是預測為正的樣本中真正例的比例，更能反映未來的分類表現。處理不平衡資料的工具箱，由便宜到貴：
 
 1. 先換指標，改看 precision、recall、PR 曲線；切分資料用 stratified，各折保持類別比例。
-2. 類別權重（成本敏感學習）與調整決策門檻，都是通用做法，本文沒有逐一對照單一一手來源。
+2. 類別權重（成本敏感學習）與調整決策門檻，都是通用做法，沒有對應的單一一手來源。
 3. 重新取樣：[SMOTE](https://arxiv.org/abs/1106.1813) 對少數類合成新的樣本，並搭配多數類的欠取樣。
 4. 換損失，例如前面提過的 focal loss。
 
@@ -182,7 +182,7 @@ scikit-learn 文件有個很好用的示範：200 筆樣本、10,000 個隨機�
 
 - **時間洩漏**：時間序列不能用隨機 shuffle 的 KFold，要用 `TimeSeriesSplit`，以「未來」的觀測當測試。
 - **群組洩漏**：同一個人（病患）的多筆樣本分到兩邊，模型可以學到「人」的特徵，用 `GroupKFold`。
-- **目標洩漏**：特徵本身含有標籤資訊，例如事後才知道的欄位。這是常見定義，本文未對照單一一手來源。
+- **目標洩漏**：特徵本身含有標籤資訊，例如事後才知道的欄位。這是常見定義，沒有對應的單一一手來源。
 
 **面試怎麼答**：定義一句話，再給 `Pipeline` 與隨機標籤兩個具體做法。被問「標準化要在交叉驗證之內還是之外」，答之內，用 Pipeline，否則驗證折的平均與變異會漏進訓練。被問推薦系統與時間序列怎麼切，答按時間切，訓練在前、測試在後。
 
@@ -198,7 +198,7 @@ scikit-learn 文件有個很好用的示範：200 筆樣本、10,000 個隨機�
 
 兩個容易忽略的細節：資料若按類別排序要先 shuffle，但資料不是 i.i.d.（例如按時間排序的新聞）時，shuffle 反而造成分數虛高；比較模型時，CV 的切分要固定（給 splitter 整數的 `random_state`）。
 
-超參數搜尋時又拿同一份 CV 分數挑最佳，那個分數會偏樂觀；常被提到的處理方式是巢狀交叉驗證（nested CV），本文沒有查證其細節，只在此點名。
+超參數搜尋時又拿同一份 CV 分數挑最佳，那個分數會偏樂觀；常被提到的處理方式是巢狀交叉驗證（nested CV），這裡只點名，不展開細節。
 
 **面試怎麼答**：先答 CV 之後仍需要測試集，因為 CV 用來選模型與超參數，最終泛化估計要在沒碰過的資料上做一次。再依資料性質選切法：分類用 stratified、時間序列用時間切、同一個體用 group。
 
@@ -272,7 +272,7 @@ q_mᵀ k_n = x_mᵀ W_qᵀ · R_{Θ,n−m} · W_k x_n    # 因為 R_mᵀ R_n = R
 
 RoPE 超出訓練長度仍會退化。[Position Interpolation](https://arxiv.org/abs/2306.15595) 的做法是把輸入位置索引線性縮小到原始視窗大小，而不是外推，因為外推可能造成災難性的高注意力分數；論文用它把 LLaMA 的視窗擴到最多 32768，只需微調約一千步以內。
 
-**面試怎麼答**：答 RoPE 的關鍵是旋轉矩陣滿足 `R_mᵀ R_n = R_{n−m}`，所以內積只剩相對位移。「怎麼把 4K 的模型擴到 32K」，答位置內插加短時間微調。其他延伸方法本文沒有查證，不展開。
+**面試怎麼答**：答 RoPE 的關鍵是旋轉矩陣滿足 `R_mᵀ R_n = R_{n−m}`，所以內積只剩相對位移。「怎麼把 4K 的模型擴到 32K」，答位置內插加短時間微調。其他延伸方法這裡不展開。
 
 ### LayerNorm、RMSNorm 與 Pre-LN
 

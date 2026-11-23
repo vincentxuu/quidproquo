@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-20-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-11-20-ai-interview-daily)
 
 ## Today's Focus
 
@@ -46,19 +46,19 @@ A naive implementation rescans the entire corpus and recounts pair frequencies a
 {
   "title": "The BPE training loop: count, merge, repeat",
   "lang": "en",
-  "width": 900,
+  "width": 640,
   "height": 460,
   "nodes": [
-    {"id": "init", "label": "Initialize\nSplit each word into base symbols\n(byte-level: 0-255)", "x": 320, "y": 50, "w": 420, "h": 70},
-    {"id": "count", "label": "Count adjacent pair frequencies\n(weighted by word frequency)", "x": 320, "y": 160, "w": 420, "h": 70},
-    {"id": "merge", "label": "Merge the most frequent pair\nRecord this merge rule", "x": 320, "y": 270, "w": 420, "h": 70, "tone": "accent"},
-    {"id": "stop", "label": "Stop condition: vocab-size target\nor merge-count limit reached?", "x": 320, "y": 380, "w": 420, "h": 60}
+    {"id": "init", "label": "Initialize\nSplit each word into base symbols\n(byte-level: 0-255)", "x": 210, "y": 50, "w": 300, "h": 70},
+    {"id": "count", "label": "Count adjacent pair frequencies\n(weighted by word frequency)", "x": 210, "y": 160, "w": 300, "h": 70},
+    {"id": "merge", "label": "Merge the most frequent pair\nRecord this merge rule", "x": 210, "y": 270, "w": 300, "h": 70, "tone": "accent"},
+    {"id": "stop", "label": "Stop condition: vocab-size target\nor merge-count limit reached?", "x": 210, "y": 380, "w": 300, "h": 60}
   ],
   "edges": [
     {"from": "init", "to": "count", "step": 1},
     {"from": "count", "to": "merge", "step": 2},
     {"from": "merge", "to": "stop", "step": 3},
-    {"from": "stop", "to": "count", "step": 4, "label": "Not reached yet,\nback to counting", "via": [[560, 380], [560, 160]], "labelAt": [560, 320], "tone": "warn"}
+    {"from": "stop", "to": "count", "step": 4, "label": "Not reached yet,\nback to counting", "via": [[400, 380], [400, 160]], "labelAt": [400, 320], "tone": "warn"}
   ],
   "steps": [
     "First split each word in the corpus into base symbols. Byte-level BPE always starts from the 256 UTF-8 byte values, guaranteeing a starting symbol for any input.",

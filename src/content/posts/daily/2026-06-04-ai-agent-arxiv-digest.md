@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 11
 ---
-> 🌏 [English version](/posts/daily/2026-06-04-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-04-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -67,7 +67,7 @@ series:
 
 ### 深入要點
 
-- **GAIATrace 規模**：MiroThinker 完成 103 個任務，耗費 1,491 次主模型呼叫 + 591 次子模型呼叫；OWL 完成 165 個任務，耗費 2,669 次主模型呼叫 + 2,737 次子模型呼叫 **⚠️**（數字來自論文，但兩套被研究的系統均為論文作者自家產品，存在選擇性展示之疑）
+- **GAIATrace 規模**：MiroThinker 完成 103 個任務，耗費 1,491 次主模型呼叫 + 591 次子模型呼叫；OWL 完成 165 個任務，耗費 2,669 次主模型呼叫 + 2,737 次子模型呼叫 **:warning:**（數字來自論文，但兩套被研究的系統均為論文作者自家產品，存在選擇性展示之疑）
 - **OWL 平均每任務**約 16 次主模型呼叫 + 17 次子模型呼叫，是目前最具體的多模型 Agent 成本基準
 - **Vidur-Agent** 是原有 LLM inference simulator Vidur 的 Agent 擴充版，支援在模擬硬體環境下重播軌跡、比較不同排程策略
 - **GAIA benchmark** 是 agentic AI 最常用的通用任務評測集，由 Meta 等機構提出，任務難度分三級
@@ -110,7 +110,7 @@ Agent 記憶是長期任務的核心瓶頸，這篇直指現有固定架構的�
 
 #### 問題
 
-你的 Agent 在長期任務中常因為「查不到正確的歷史記憶」失敗，而你每次都得手動去改記憶邏輯。任務越多樣、記憶庫越大，這個維護成本就越高，原本設計好的流水線可能完全無法應付新型失敗模式。
+你的 Agent 在長期任務中常因為「找不到正確的歷史記憶」失敗，而你每次都得手動去改記憶邏輯。任務越多樣、記憶庫越大，這個維護成本就越高，原本設計好的流水線可能完全無法應付新型失敗模式。
 
 #### 方法
 
@@ -126,7 +126,7 @@ MemPro 把整個 MCR pipeline 視為「一支可運行的程式」，而非固�
 - **進化對象不只是 prompt**：MemPro 同時修改可執行程式碼（如記憶庫的索引策略、過濾邏輯），比純 prompt-tuning 有更大的適應空間
 - **Failure-mode guided editing**：改動不是隨機的，而是根據診斷出的具體失敗模式定向修改，讓進化效率比隨機搜索高
 - **與 MemEvolve（2512.18746）的關係**：MemEvolve 是 meta-evolution 方向的相關工作，MemPro 在 pipeline 程式化這個維度上走得更遠
-- **Limitation**：版本樹管理本身有計算成本；Evolving Agent 也是 LLM，診斷品質受底層模型能力限制；論文未見與 MemGPT 等主流記憶系統在公開 benchmark 上的直接定量比較 **⚠️**
+- **Limitation**：版本樹管理本身有計算成本；Evolving Agent 也是 LLM，診斷品質受底層模型能力限制；論文未見與 MemGPT 等主流記憶系統在公開 benchmark 上的直接定量比較 **:warning:**
 - **與 LangGraph/AutoGen 的關聯**：MemPro 的進化機制理論上可作為外掛記憶層，但整合工程量與 API 相容性尚不清楚
 - **落地門檻**：需要自行維護版本樹基礎設施，以及設計評估各版本好壞的自動化測試套件
 
@@ -153,7 +153,7 @@ MemPro 把整個 MCR pipeline 視為「一支可運行的程式」，而非固�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 如果你正在評估或設計 Agent 的持續學習與記憶能力，這篇提供了更嚴謹的方法論；若只想了解現況，看 TL;DR 和深入要點就夠。
 
 ### 領域背景
@@ -182,7 +182,7 @@ AgentCL 引入「**controlled task stream**」：刻意設計讓前面任務的�
 - **Naive vs. controlled stream 的關鍵發現**：論文發現 naive stream 對不同記憶設計的區分能力有限；controlled stream 能更清楚地分辨設計的「塑性（plasticity）」——即記憶架構從過去任務中真正學習的能力
 - **三個評測領域**：coding（程式問題串流）、deep research（多步研究任務）、language understanding/reasoning（語言推理）
 - **與論文二（MemPro）的關聯**：AgentCL 的框架未來可以直接用來評估 MemPro 類「自我演化記憶系統」的效果，兩篇配合使用更完整
-- **Limitation**：controlled stream 需要人工策劃，規模化成本較高；目前評測主要基於英文任務；論文結果數字尚未在搜尋可及範圍內完整揭露 **⚠️**
+- **Limitation**：controlled stream 需要人工策劃，規模化成本較高；目前評測主要基於英文任務；論文結果數字尚未在搜尋可及範圍內完整揭露 **:warning:**
 - **對 LangGraph/AutoGen 開發者的啟示**：這篇的設計原則可直接作為「Agent 記憶模組 A/B 測試」的方法論——用 controlled stream 來驗證記憶升級是否真的帶來 transfer gain
 
 ### Reviewer 一句話評

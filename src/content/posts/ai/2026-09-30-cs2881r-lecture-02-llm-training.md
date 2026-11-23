@@ -25,7 +25,7 @@ glossary:
         url: "https://arxiv.org/abs/2412.16339"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -182,9 +182,9 @@ Barak 的講評比結果更值得記：
 
 **怎麼做**：下次你的 RL 或 prompt 最佳化跑不動，先照這組學生的最後一步做：放一個保證有效的選項（例如「輸出 42」），確認管線能學到它，再回頭懷疑資料或獎勵。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：課站列出的講題與閱讀清單、錄影內容（依自動字幕）、投影片前幾張的文字、LessWrong 摘要與實驗文、實驗 repo 的存在與結構。不能確認：投影片後段每一張的細節（PowerPoint Online 只擷取到前幾張的文字）；錄影裡 Barak 口頭提到的 position paper 究竟是哪一篇；課站列了「Mid training」這個子題，但錄影與摘要都沒有展開，本文因此不寫。課站 Resources 裡有一條標成「Qwen GSPO link」的連結指向 arXiv 2309.12284，與標題不符，本文不引用。
+錄影內容依自動字幕整理，投影片只收進前幾張的文字，後段每一張的細節沒有收進來。錄影裡 Barak 口頭提到的 position paper，這篇沒有對到具體篇目。課站列了「Mid training」這個子題，但錄影與摘要都沒有展開，這篇因此不寫。課站 Resources 裡有一條標成「Qwen GSPO link」的連結指向 arXiv 2309.12284，與標題不符，這篇不引用。
 
 延伸閱讀：RL 數學與 RLHF 的完整推導，站上有 [CS336 SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)、[CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr)、[CME295 preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning)、[CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms)，以及 [CS285 的 policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。
 
@@ -215,6 +215,7 @@ title: AI Safety (CS 2881) Lecture 2- Modern LLM training and safety training
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官方 Fall 2025 課表與 YouTube 播放清單即時核對，本講錄影存在，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。抽查的說法都能在字幕找到，未發現需要更正的地方。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

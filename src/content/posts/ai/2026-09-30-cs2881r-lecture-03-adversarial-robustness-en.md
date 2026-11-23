@@ -175,9 +175,9 @@ They closed with an idea for multi-turn attacks. In rock-paper-scissors, a model
 - Barak announced two logistics items at the start: the October 23 lecture would switch to anti-scheming, with a speaker from Redwood; and the mini-project would be announced the next week, in groups of 2–4.
 - The next lecture, [L4](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs-en), asks what we want the model to follow before we worry about attacks at all.
 
-## What this post can and cannot confirm
+## What this post leaves out
 
-Confirmed: the lecture topic, guest list, and reading list on the course site; Barak's and Carlini's segments in the recording (via auto-generated captions); the LessWrong summary and experiment write-up; the existence of the experiment repo. Not confirmed: the original content of Keri Warr's talk (no recording; the summary omits parts under the Chatham House Rule and attributes nothing); specific numbers on Carlini's slides (the course site doesn't publish them, so this post only gives magnitudes he said aloud); the number of candidate attacks in the experiment (700 or about a thousand).
+Barak's and Carlini's segments follow the recording's auto-generated captions. Keri Warr's talk has no recording, and the LessWrong summary omits parts under the Chatham House Rule and attributes nothing, so this post covers only what the summary says. The course site doesn't publish Carlini's slides, so this post only gives the magnitudes he said aloud.
 
 Further reading on this site: [the harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en) and [the OpenClaw threat model](/posts/ai/2026-03-28-openclaw-threat-model-en) look at prompt-injection defenses from an implementation angle, a useful contrast with the CaMeL approach.
 
@@ -206,6 +206,7 @@ Content check: verified against the video transcript (2026-10-10): I read the fu
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Checked the video content against its transcript. Corrected how long adversarial examples have been observed to transfer (twenty years to fifteen); the other spot-checked claims were found in the captions.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

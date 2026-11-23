@@ -19,7 +19,7 @@ description: "2026 年 AI 課程總覽，依不懂 AI、vibe coding、上 produc
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-10-ai-courses-2026-guide-en)
+> :globe: [English version](/posts/ai/2026-07-10-ai-courses-2026-guide-en)
 
 2026 年上半年，三家前沿模型公司不約而同把「教你用 AI」變成產品的一部分。OpenAI Academy 在 6 月上線了三門核心課程，Anthropic 把整個 Academy 重組成按產品分艙的 Claude Academy，Google 推出了新的 AI Professional Certificate。同一時間，Stanford 開了一門專門教「怎麼指揮 coding agent」的正式學分課，講者名單包含 Claude Code 的創造者本人。
 
@@ -38,7 +38,7 @@ draft: false
 
 價格與語言一律以**現行官方頁面**為準，不採信舊部落格。這件事比想像中重要：AWS 那篇宣布訂閱制的官方公告寫著年繳 $299、支援 12 種語言，但那是 2022 年的文章——現行定價頁是 $449，現行 FAQ 是 17 種語言。Google Cloud 那篇廣為流傳的「免費徽章」公告，則發布於 2023 年。**引用官方來源不等於引用到現況**，日期一定要看。
 
-全文剩三處標記「未能確認」，都不是查得不夠，是**結構性拿不到**：OpenAI Academy 的逐課大綱藏在需要登入的 Gradual 平台後面；Maven 那門付費 cohort 的頁面顯示 Sold out、不列金額；NVIDIA 自學課程頁不標語言。
+有三項資訊在公開頁面上**結構性拿不到**：OpenAI Academy 的逐課大綱藏在需要登入的 Gradual 平台後面；Maven 那門付費 cohort 的頁面顯示 Sold out、不列金額；NVIDIA 自學課程頁不標語言。
 
 ## 第一層：不懂 AI——還不知道能拿它做什麼
 
@@ -60,7 +60,7 @@ draft: false
 
 路徑的終點是「指揮 agent」而不是「寫更好的 prompt」，這個編排本身就是訊號：OpenAI 認為 2026 年的基礎技能已經從 prompting 移動到 workflow 設計與 agent 委派。
 
-課程內容是否有中文版：**未能確認**。只確認了說明文件有繁中與港繁版本，Academy 站本體與所有公開課程頁都是英文。逐課大綱需登入 Gradual 才看得到，我沒有抓到。
+課程內容是否有中文版：**公開頁面看不出來**。說明文件有繁中與港繁版本，但 Academy 站本體與所有公開課程頁都是英文；逐課大綱要登入 Gradual 才看得到。
 
 ### Claude Academy（原 Anthropic Academy）
 
@@ -199,7 +199,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 它跟 OpenAI Academy、Claude Academy 最大的差異是**廠商中立**：同一門課裡同時教 Cursor、Claude Code、Windsurf、Warp，而不是只教自家產品。作業裡包含從零手刻一個 coding agent 和一個 MCP server。
 
-同一套內容另有 [Maven 上的付費 cohort 版](https://maven.com/the-modern-software-developer/ai-course)「AI Software Development: From First Prompt to Production Code」：4 週、8 場 live session、14 堂課、4 個專案，附私人 Discord 社群與結業證書，已辦到第三梯。**價格未能確認**——頁面顯示 Sold out，未列金額。
+同一套內容另有 [Maven 上的付費 cohort 版](https://maven.com/the-modern-software-developer/ai-course)「AI Software Development: From First Prompt to Production Code」：4 週、8 場 live session、14 堂課、4 個專案，附私人 Discord 社群與結業證書，已辦到第三梯。**價格未公開**——頁面顯示 Sold out，未列金額。
 
 風評要打個折。Maven 頁上的 4.9 分（50 則）是課程自家頁面的評價，不是中立第三方；Reddit r/theprimeagen 雖有討論串，但站方擋掉抓取，留言內容取不到，因此也不能反過來宣稱風評一面倒好。課程行銷語言裡的「世界第一門這類課」「10x productivity」屬 marketing claim，未經獨立查證。
 
@@ -265,7 +265,7 @@ Guest speaker 名單相當誇張：**Boris Cherney（Claude Code 創造者）**�
 
 [**NVIDIA Deep Learning Institute**](https://www.nvidia.com/en-us/training/) 採混合制：多數熱門的 self-paced 課程免費（例如 Find the Bottleneck: Optimize AI Pipelines With Nsight Systems，3 小時），instructor-led workshop 則收費，常見 8 小時一場（例如 Building AI Agents with Multimodal Models）。部分課程可拿 DLI 證書，付費認證考試另計。平台活躍，官網掛著 2026 年 7 月的 SIGGRAPH 訓練場次。
 
-繁中讀者這裡有個少見的好消息：NVIDIA 在台灣有官方授權的 DLI 合作夥伴（[麗臺科技](https://www.leadtek.com/cht/courses/DLI)自 2017 年起），開設**中文授課**的公開班與企業包班，通過測驗一樣拿 NVIDIA 官方證書。至於 learn.nvidia.com 上的自學課程有沒有繁中介面，現行課程頁未標語言，**未能確認**。
+繁中讀者這裡有個少見的好消息：NVIDIA 在台灣有官方授權的 DLI 合作夥伴（[麗臺科技](https://www.leadtek.com/cht/courses/DLI)自 2017 年起），開設**中文授課**的公開班與企業包班，通過測驗一樣拿 NVIDIA 官方證書。至於 learn.nvidia.com 上的自學課程有沒有繁中介面，現行課程頁未標語言，**看不出來**。
 
 [**AWS Skill Builder**](https://aws.amazon.com/training/digital) 是 freemium：免費層有 **500 多門隨選數位課程**（首頁另稱「1,000+ 免費學習資源」與「900+ 免費自學課程」，三個數字口徑不一，看你怎麼算），付費個人訂閱 **$29 美元/月或 $449 美元/年**（年繳版多了 Digital Classrooms 的專家授課），團隊方案同樣是每席每年 $449。訂閱含 Builder Labs 與認證備考。
 
@@ -373,7 +373,7 @@ CS50's Introduction to Artificial Intelligence with Python 值得單獨提，因
 
 ### 不是教材，是索引：csdiy.wiki
 
-最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**⭐75.1k、7,988 forks、100+ 貢獻者**，最後更新 2026-08）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
+最後一個要單獨講，因為它跟上面全部是不同物種。[**csdiy.wiki**](https://csdiy.wiki/)（[`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning)，**★75.1k、7,988 forks、100+ 貢獻者**，最後更新 2026-08）不教你任何東西，它做的是**把各校公開課整理成可比較的條目**：大學、先修、程式語言、難度星級、預估時數，加上教材與作業的實際連結。中英雙語，每篇條目都有 `.en` 版。
 
 它在 AI 這塊的覆蓋，剛好補上本文最大的空白——**Stanford 以外的大學課**：
 

@@ -26,7 +26,7 @@ glossary:
     context: "HW10 PDF 第 22 頁把 realtime 定義為輸出延遲短，full-duplex 定義為同時聽與說。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -140,11 +140,9 @@ PDF 第 22 頁給了兩個定義：**Realtime** 是輸出延遲短；**Full-Dupl
 - **今晚就能做**：跑完 Detokenizer 那一格後，把 `num_quantizers` 從 8 改成 2、4、16、32，各聽一次英文語音和音樂，記下 PESQ。你會親耳聽到 RVQ 的「一層層補殘差」是什麼意思。
 - **延伸閱讀**：想看 cascade 架構在產品上怎麼做，站上的 [LiveKit Voice Agents](/posts/ai/2026-08-22-livekit-voice-agents)拆解了 STT → LLM → TTS 的串流管線與插話處理，剛好可以和 Moshi 的 full-duplex 對照。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：hw10.pdf 全文與內嵌連結、Colab 的 markdown 與程式（模型 ID、層的來源、UMAP 流程、decode 用的層數、音檔清單）、課程頁的公告日與助教名單、助教影片與延伸影片的標題與上傳者（YouTube oEmbed）、六篇論文的標題與摘要（arXiv API 核對）。
-
-不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。作業 repo 的 Model A、Model B 各是什麼模型，本文刻意不寫，因為那就是 Q2 的答案。Q9 的配分 PDF 沒有標。官方解答沒有公開。
+助教影片沒有字幕，影片中額外的提示沒有收進來。作業 repo 的 Model A、Model B 各是什麼模型，這篇刻意不寫，因為那就是 Q2 的答案。PDF 沒有標 Q9 的配分。官方解答沒有公開。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)｜這是系列最後一篇
 
@@ -172,6 +170,7 @@ title: 助教影片：ML 2026 Spring HW10 Spoken Language Model
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但影片沒有可取得的字幕，影片口述內容未核對；本文對作業的說明僅依 PDF 與 Colab。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

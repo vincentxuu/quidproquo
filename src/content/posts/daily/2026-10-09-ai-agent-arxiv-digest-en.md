@@ -46,7 +46,7 @@ A vision-based web agent can be hijacked into clicking an attacker-chosen elemen
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI/cs.CL, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | University of Utah |
 | Community signal | Not found on HF Daily Papers (checked against the 2026-10-07/10-08 listings) or Papers with Code; code is publicly released on GitHub (MoonTea0416/WebMirage) |
 | Credibility | Pass — formally defines an end-to-end "grounding-to-execution" threat model, uses a role-slot abstraction and webpage recomposition to model candidate-element competition, aligns the optimization target to the actually-executed browser command via CodeQL dataflow analysis, and includes full ablations and defense testing |
@@ -106,7 +106,7 @@ An attacker only needs to embed an optimized malicious prompt in a community-sha
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | Duke University |
 | Community signal | Not found on HF Daily Papers or Papers with Code; the paper does not provide a public code link of its own (the malicious packages were built in a controlled local PyPI mirror and not released) |
 | Credibility | Pass — formally defines the "package hallucination attack" threat model, proposes an evolutionary search framework that uses a trajectory-level signal to address sparse feedback and self-attributed refinement to address dilution in long rule files, systematically evaluates across 3 coding benchmarks, 8 agent frameworks (including Claude Code and Cursor), and 13 backbone LLMs, and explains attack effectiveness via attention analysis |
@@ -166,7 +166,7 @@ Secure-CUA uses "bounded endorsement" to lock down both the action-generation an
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | University of Wisconsin–Madison + Google + Google DeepMind |
 | Community signal | Not found on HF Daily Papers or Papers with Code; the authors state evaluation code will be made public, but it is not released yet |
 | Credibility | Pass — formally defines two security requirements, "generation integrity" and "grounding integrity," proves by induction under an ideal execution model that satisfying both at every step protects the entire execution trace (full proof in Appendix A), and backs this with a large-scale benign-condition empirical evaluation of utility cost |

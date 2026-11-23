@@ -182,9 +182,9 @@ Barak's comments are worth more than the results:
 
 **What to do**: the next time your RL or prompt optimization stalls, copy this team's last step. Add an option that is guaranteed to work (like "output 42"), confirm the pipeline learns it, and only then start suspecting your data or reward.
 
-## What this post can and cannot confirm
+## What this post leaves out
 
-Confirmed: the lecture topics and reading list on the course site, the recording (via auto-generated captions), the text on the first several slides, the LessWrong summary and experiment write-up, and the existence and structure of the experiment repo. Not confirmed: the details of each later slide (PowerPoint Online only yielded text from the first few); which position paper Barak meant in the recording; the course site lists "Mid training" as a subtopic, but neither the recording nor the summary develops it, so this post leaves it out. One Resources entry on the course site labeled "Qwen GSPO link" points to arXiv 2309.12284, which doesn't match the label, so this post does not cite it.
+The recording is summarized from its auto-generated captions, and only the text of the first several slides is included; details of the later slides are not. The position paper Barak mentions aloud in the recording is not matched to a specific title here. The course site lists "Mid training" as a subtopic, but neither the recording nor the summary develops it, so this post leaves it out. One Resources entry on the course site labeled "Qwen GSPO link" points to arXiv 2309.12284, which doesn't match the label, so this post does not cite it.
 
 Further reading on this site for the full RL and RLHF math: [CS336 SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en), [CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr-en), [CME295 preference tuning](/posts/ai/2026-09-29-cme295-preference-tuning-en), [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en), and [CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
@@ -215,6 +215,7 @@ Content check: verified against the video transcript (2026-10-10): I read the fu
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official Fall 2025 schedule and YouTube playlist were checked live and list this lecture’s recording, so the status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The spot-checked claims were all found in the captions; nothing needed correcting.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

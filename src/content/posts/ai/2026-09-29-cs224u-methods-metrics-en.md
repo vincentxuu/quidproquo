@@ -181,9 +181,9 @@ The notebook's version string is "CS224u, Stanford, Spring 2023," and Potts is t
 
 Its structure mirrors the slides. Each metric follows a fixed format: definition, bounds, value encoded, weaknesses, and a sklearn or NLTK implementation. At the end it points to scikit-learn's [model evaluation guide](https://scikit-learn.org/stable/modules/model_evaluation.html) for clustering, ranking, inter-annotator agreement, and other metrics the notebook doesn't cover.
 
-## What this post can and can't confirm
+## What this post leaves out
 
-Confirmed: the schedule, slides 1–41, videos 39–41, the notebook, and the grading language in projects.md. The 0.81 weighted F1 is my own calculation from the slide's formula and numbers; the slides don't print the final value. Not confirmed: what Quiz 4 contains (Canvas requires a login) and the content of Kawin Ethayarajh's guest lecture "Real-world NLP assessments" in the same unit, which has no slide link on the schedule and no video in the playlist.
+The 0.81 weighted F1 is calculated from the slide's formula and numbers; the slides don't print the final value. Quiz 4 is on Canvas, which requires a login. Kawin Ethayarajh's guest lecture "Real-world NLP assessments" in the same unit has no slide link on the schedule and no video in the playlist, so this post doesn't cover it.
 
 Further reading: the site's [CS224N benchmark and evaluation guide](/posts/ai/2026-08-22-cs224n-benchmark-evaluation-en) covers benchmark design in the LLM era and makes a good next read.
 
@@ -217,6 +217,7 @@ Course and recording entries:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 - 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

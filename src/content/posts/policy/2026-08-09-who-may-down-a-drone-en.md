@@ -23,7 +23,7 @@ The test says the line needs changing. **It is not a question of whether authori
 
 ## Counting first: 'drone' appears in 19 instruments, 'counter-drone' in 1
 
-Before guessing, count. The Laws & Regulations Database of the Republic of China (Taiwan), integrated search, scope restricted to *central regulations → article text*:
+Before guessing, count. The Laws & Regulations Database of the Republic of China (Taiwan), integrated search, scope restricted to *central regulations → article text* (the search links are in the references):
 
 | Keyword | Instruments matched |
 |---|---|
@@ -228,23 +228,9 @@ The clause analysis here is static, but two items carry deadlines and need re-ch
 
 Also, do not confuse the two special acts: this post cites the **Special Act on Procurement for the Plan to Defend National Security and Strengthen Asymmetric Capabilities** (promulgated and in force). A separate **NT$210bn Special Act on Procurement of Indigenous Defence Unmanned Vehicles** is still stuck in negotiation — see [the defence budget post](/posts/investing/2026-08-06-drone-defense-budget-map-en).
 
-## How to reproduce the searches
+## Update log
 
-Negative findings only count if they can be re-run, so here are the queries. Run on 2026-08-09 against the Laws & Regulations Database integrated search, scope "central regulations → article text":
-
-```
-https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=無人機
-  → 19 instruments
-
-https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=反制無人機
-  → 1 instrument (the asymmetric-capabilities procurement special act)
-
-Single-statute article search:
-https://law.moj.gov.tw/LawClass/LawSearchContent.aspx?pcode=K0060111&kw=無人機
-  → Telecommunications Management Act: no results
-```
-
-The 31-entry instrument list is taken from the Ministry of the Interior's own announcement text in the Executive Yuan Gazette (2024-07-08, Tai-Nei-Jing No. 11308725692), not from a secondary summary; the link is in the references.
+- 2026-11-23: Moved the search links from the reproduction section into the references.
 
 ## References
 
@@ -263,6 +249,12 @@ The 31-entry instrument list is taken from the Ministry of the Interior's own an
 - [Regulations for Administration of Radio Frequency Use, Article 36](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060123&flno=36) (any emission sufficient to impair lawful radio communications is interference) and [Article 30](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060123&flno=30) (no harmful interference to radio navigation aids)
 - [Regulations Governing Manufacture, Import and Reporting of Controlled Telecom RF Equipment, Article 3](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060146&flno=3) (Class 1 includes drone-restricting equipment) and [Article 8](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=K0060146&flno=8) (purpose subpara 9 and required documentation)
 - [Special Act on Procurement for Defending National Security and Strengthening Asymmetric Capabilities, Article 5](https://law.moj.gov.tw/LawClass/LawSingle.aspx?pcode=F0020007&flno=5) ("combined soft-kill/hard-kill counter-drone systems")
+
+**Primary: database searches** (Laws & Regulations Database, scope "central regulations → article text")
+
+- [Integrated search for 無人機 ("drone")](https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=%E7%84%A1%E4%BA%BA%E6%A9%9F) (19 instruments)
+- [Integrated search for 反制無人機 ("counter-drone")](https://law.moj.gov.tw/Law/LawSearchResult.aspx?cur=Ld&ty=ONEBAR&kw=%E5%8F%8D%E5%88%B6%E7%84%A1%E4%BA%BA%E6%A9%9F) (1 instrument: the asymmetric-capabilities procurement special act)
+- [Telecommunications Management Act article search for 無人機](https://law.moj.gov.tw/LawClass/LawSearchContent.aspx?pcode=K0060111&kw=%E7%84%A1%E4%BA%BA%E6%A9%9F) (no results)
 
 **Primary: agency announcements and press releases**
 

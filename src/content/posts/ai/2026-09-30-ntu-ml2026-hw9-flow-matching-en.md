@@ -26,7 +26,7 @@ glossary:
     context: "HW9 convergence standards: Flow Matching ≤ 0.10, MeanFlow one-step ≤ 0.40."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -149,11 +149,9 @@ The question says not to report exact metric values; base the answer on what the
 - **Something to try tonight**: after running the Colab, put Flow Matching's 1-step, 5-step, and 50-step plots side by side and trace the spiral with your finger. You'll see directly why large Euler steps drift off a curved path, which is exactly why Rectified Flow tries to straighten it.
 - **Related reading**: the site's full flow-matching course guide is the [MIT 6.S184 series](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en); the [CME295 Diffusion LLM guide](/posts/ai/2026-09-29-cme295-diffusion-llms-en) moves diffusion to text; and [Berkeley CS189 HW2](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching-en) has a flow-matching problem you can work alongside this one.
 
-## What this post could and couldn't verify
+## What this post leaves out
 
-Verified: the full text and embedded links of hw9.pdf; the Colab's markdown and code (data generation, network structure, training target, convergence standards, comparison settings); the release date and TA list on the course page; the titles and uploaders of the TA video and the three prerequisite videos (YouTube oEmbed); and the titles of the four assigned papers and the papers the PDF cites (arXiv API). The PDF links Flow Matching, Rectified Flow, and MeanFlow on OpenReview; this post links the same papers' arXiv pages instead.
-
-Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. The saved Colab contains some execution output; this post deliberately quotes none of those values so they don't become answers. No official answers have been released.
+The TA video has no captions, so any extra hints in it are not included. The saved Colab contains some execution output; this post deliberately quotes none of those values so they don't become answers. No official answers have been released. The PDF links Flow Matching, Rectified Flow, and MeanFlow on OpenReview; this post links the same papers' arXiv pages instead.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Can AI Improve Itself? (Part 2)](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en) | Next: [HW10: Spoken Language Model](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model-en)
 
@@ -181,6 +179,7 @@ Video transcript: attempted on 2026-10-10, but no transcript could be obtained f
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

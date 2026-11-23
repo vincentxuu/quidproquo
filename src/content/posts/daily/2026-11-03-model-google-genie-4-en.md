@@ -17,7 +17,7 @@ glossary:
     def: "An AI system that generates an environment the user can actually act inside, frame by frame, rather than playing back a fixed video — keyboard input and text prompts change what happens next"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-model-google-genie-4)
+> :globe: [中文版](/posts/daily/2026-11-03-model-google-genie-4)
 
 ## Model Info
 
@@ -104,14 +104,14 @@ step: If there is, go back to decomposing; only once every step succeeds is the 
   <text class="dg-edge dg-text--warn" x="428" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">no</text>
   <text class="dg-edge dg-text--warn" x="534" y="216" text-anchor="start" dominant-baseline="central" data-step="3">re-render</text>
   <text class="dg-edge" x="300" y="346" text-anchor="start" dominant-baseline="central" data-step="4">yes</text>
-  <text class="dg-edge" x="128" y="80" text-anchor="middle" dominant-baseline="central" data-step="5">step left</text>
+  <text class="dg-edge" x="112" y="398" text-anchor="middle" dominant-baseline="central" data-step="5">step left</text>
   <text class="dg-edge dg-text--accent" x="428" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">no</text>
 </svg>
 ```
 
 ## Benchmarks
 
-⚠️ The official announcement includes no benchmark scores or quantitative comparison against other world models, and as of 2026-10-28 no independent third-party evaluation or score reproduction had surfaced either (source: DataCamp's writeup on Genie 4). The table below lists verifiable capability and limitation differences instead — it is not a quantitative benchmark:
+:warning: The official announcement includes no benchmark scores or quantitative comparison against other world models, and as of 2026-10-28 no independent third-party evaluation or score reproduction had surfaced either (source: DataCamp's writeup on Genie 4). The table below lists verifiable capability and limitation differences instead — it is not a quantitative benchmark:
 
 | Dimension | Genie 3 (released 2025-08) | Genie 4 (released 2026-10-27) |
 |---|---|---|

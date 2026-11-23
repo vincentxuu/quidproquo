@@ -17,7 +17,7 @@ glossary:
     def: "逐格生成使用者可實際操作、而非固定播放的影片的 AI 系統，鍵盤輸入與文字提示會改變接下來發生的事"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-model-google-genie-4-en)
+> :globe: [English version](/posts/daily/2026-11-03-model-google-genie-4-en)
 
 ## 模型資訊
 
@@ -104,14 +104,14 @@ step: 還有步驟就回到拆解；所有步驟都完成才算任務完成
   <text class="dg-edge dg-text--warn" x="428" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">否</text>
   <text class="dg-edge dg-text--warn" x="534" y="216" text-anchor="start" dominant-baseline="central" data-step="3">重新渲染</text>
   <text class="dg-edge" x="300" y="346" text-anchor="start" dominant-baseline="central" data-step="4">是</text>
-  <text class="dg-edge" x="128" y="80" text-anchor="middle" dominant-baseline="central" data-step="5">有下一步驟</text>
+  <text class="dg-edge" x="112" y="398" text-anchor="middle" dominant-baseline="central" data-step="5">有下一步驟</text>
   <text class="dg-edge dg-text--accent" x="428" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">否</text>
 </svg>
 ```
 
 ## Benchmark 表現
 
-⚠️ 官方公告未附任何 benchmark 分數或與其他世界模型的量化比較，截至 2026-10-28 也未見第三方獨立評測或分數重現（來源：DataCamp 對 Genie 4 的整理）。以下改列可驗證的能力/限制差異，不是量化基準：
+:warning: 官方公告未附任何 benchmark 分數或與其他世界模型的量化比較，截至 2026-10-28 也未見第三方獨立評測或分數重現（來源：DataCamp 對 Genie 4 的整理）。以下改列可驗證的能力/限制差異，不是量化基準：
 
 | 項目 | Genie 3（2025-08 發布） | Genie 4（2026-10-27 發布） |
 |---|---|---|

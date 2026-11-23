@@ -186,9 +186,9 @@ The last point ties back to the COGS/ReCOGS discussion in the [compositionality 
 
 **What to do**: tonight, open `iit_equality.ipynb` and run it only through the "Evaluation" section. It imports only repo modules (`torch_deep_neural_classifier`, `torch_deep_neural_classifier_iit`, `iit`, `utils`) plus PyTorch and scikit-learn, and needs no dataset or pretrained model downloads. You'll watch a 0.99-accuracy network get an IIA of about 0.5. Then run the IIT section and watch the same number go to 1.00.
 
-## What this post can and can't confirm
+## What this post leaves out
 
-Confirmed: the schedule's reading list, the slide content, videos 36–37, and the notebook's code and saved outputs. Your numbers will vary slightly with random seeds and environment when you rerun it. Not confirmed: Quiz 4's questions (Canvas requires a login) and any extended classroom discussion. The slides list the DAS paper as "Ms., Stanford University," its manuscript status at the time of the course; this post doesn't evaluate later published versions.
+The notebook numbers come from its saved outputs; yours will vary slightly with random seeds and environment when you rerun it. Quiz 4 is on Canvas, which requires a login, and extended classroom discussion in the recordings is not included. The slides list the DAS paper as "Ms., Stanford University," its manuscript status at the time of the course; this post doesn't evaluate later published versions.
 
 Further reading: the site's [CS224N interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) follows the agentic interpretability and concept discovery line, which makes a useful contrast.
 
@@ -222,6 +222,7 @@ Course and recording entries:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 - 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 
