@@ -95,6 +95,15 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 
 11 月 17 日同一天又有三件事：Cognition 推出替工程團隊扛長期責任的 [Devin Bots](https://devin.ai/blog/introducing-devin-bots)，微軟的 [Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/) 開始對 Frontier 企業客戶推出，Google 則把 Spark 改名 [Tasks in Gemini](https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/)，在美、日、韓、加、澳、印六國免費開放。
 
+## 前身：只會提醒、不會動手的那十年
+
+「不等你開口」不是 2026 年才有的想法。
+
+- **Google Now（2012）**：[Google 在 2012 年 I/O 推出](https://android.googleblog.com/2012/)，說它「gets you just the right information at just the right time」。它用你的搜尋紀錄、位置紀錄和行事曆，推算你什麼時候需要什麼：出門前告訴你路況、航班延誤時通知你，以卡片的形式自己跳出來。2017 年 Google Now 這個名字收掉，改成 Google Feed，[2018 年再改名 Discover](https://blog.google/products-and-platforms/products/search/introducing-google-discover/)，變成一條個人化的內容動態。
+- **iOS 9 的主動建議（2015）**：[Apple 在 iOS 9 加入 proactive assistance](https://www.apple.com/newsroom/2015/06/08Apple-Previews-iOS-9/)。它依使用習慣建議要開的 app 和要聯絡的人，也依路況提醒你何時該出發去赴約。Apple 強調這些都在裝置上處理，不上雲端。
+
+拿四個條件來看，它們在背景跑、也記得你的習慣，但只做到「提醒」：最後一步一定是你自己按。2026 年這一批的差別在第四個條件：它們會代你對外做事，寄信、下單、改設定。這也是為什麼審批、憑證這些問題，到現在才變成主角。
+
 ## 四條路線：看它在哪台電腦上跑
 
 產品很多，但讀者真正要做的決定是：**這個 agent 跑在誰的電腦上，誰替它負責。** 依這點分成四條路線：
@@ -153,6 +162,7 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 
 ## 更新紀錄
 
+- 2026-11-23：新增「前身」一節（Google Now、iOS 9 主動建議），說明它們跟 2026 年這批差在會不會代你動手。
 - 2026-11-20：修正 Muse 的開放地區（美、加、日、新加坡，原寫只在美國）；台灣可用性表補上 Hark Pro。
 
 ## 參考資料
@@ -171,3 +181,6 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 - [科技巨擘掀代理式AI大戰　競逐全天候個人助理](https://www.cna.com.tw/news/ait/202609270039.aspx)（中央社，2026-09-27）
 - [LINE Taiwan "LINE CONVERGE 2026" Report](https://www.lycorp.co.jp/en/story/20261113/converge_2026.html)（LY Corporation，2026-11-13）
 - [openclaw/openclaw](https://github.com/openclaw/openclaw)、[NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent)（GitHub）
+- [Android @ I/O: the playground is open](https://android.googleblog.com/2012/)（Official Android Blog，2012-06-27）
+- [Apple Previews iOS 9](https://www.apple.com/newsroom/2015/06/08Apple-Previews-iOS-9/)（Apple，2015-06-08）
+- [Introducing Google Discover](https://blog.google/products-and-platforms/products/search/introducing-google-discover/)（Google，2018-09-24）

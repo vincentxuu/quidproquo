@@ -135,7 +135,7 @@ Japan's Agent i states that chat history isn't used to train AI, and it runs on 
 
 In Taiwan, only LINE's features apply to you, and none are live yet; Agent i, Kanana Space and Naver's agent have no Taiwan versions for now.
 
-The four routes are about where these agents are designed to stop and wait for your approval. Next, cases where they didn't stop: no attack, and they still did things you didn't ask for.
+The four routes are about where these agents are designed to stop and wait for your approval. [Next](/posts/ai/2026-11-20-overreaching-agents-en), cases where they didn't stop: no attack, and they still did things you didn't ask for.
 
 ## References
 

@@ -95,6 +95,15 @@ Google was first. At [I/O on May 19, 2026](https://blog.google/innovation-and-ai
 
 November 17 brought three more on a single day. Cognition launched [Devin Bots](https://devin.ai/blog/introducing-devin-bots), which take on long-running responsibilities for engineering teams. Microsoft began rolling out [Autopilot](https://www.microsoft.com/en-us/copilot/blog/2026/11/17/copilot-at-microsoft-ignite-expanding-whats-possible-with-intelligence-built-for-work/) to Frontier enterprise customers. And Google renamed Spark to [Tasks in Gemini](https://blog.google/innovation-and-ai/products/gemini-app/tasks-in-gemini-free-new-features/) and made it free in six countries: the US, Japan, Korea, Canada, Australia and India.
 
+## Predecessors: a decade of assistants that reminded but didn't act
+
+"Without waiting for you to ask" isn't a 2026 idea.
+
+- **Google Now (2012)**: [launched at Google I/O 2012](https://android.googleblog.com/2012/), billed as something that "gets you just the right information at just the right time." It used your search history, location history and calendar to work out what you'd need and when: traffic before you left, a flight delay as it happened, as cards that appeared on their own. In 2017 the Google Now name was retired in favor of the Google Feed, which [became Discover in 2018](https://blog.google/products-and-platforms/products/search/introducing-google-discover/), a personalized content feed.
+- **iOS 9 proactive assistance (2015)**: [Apple added proactive assistance in iOS 9](https://www.apple.com/newsroom/2015/06/08Apple-Previews-iOS-9/), suggesting apps to open and people to contact based on your habits, and telling you when to leave for appointments based on traffic. Apple stressed that this was processed on the device, not in the cloud.
+
+Against the four tests, these ran in the background and remembered your habits, but stopped at reminding: the last step was always yours. What sets the 2026 wave apart is the fourth test: these agents act for you, sending email, placing orders and changing settings. That's why approval and credentials have only now become the central questions.
+
 ## Four routes: whose computer does it run on?
 
 There are many products, but the decision a reader actually faces is this: **whose computer is the agent running on, and who answers for it?** That splits the field into four routes:
@@ -153,6 +162,7 @@ The security post already published, *[Choosing a personal AI assistant: hosted 
 
 ## Update log
 
+- 2026-11-23: Added a "Predecessors" section (Google Now, iOS 9 proactive assistance) on how they differ from the 2026 wave in whether they act for you.
 - 2026-11-20: Corrected Muse availability (US, Canada, Japan, Singapore; previously said US-only); added Hark Pro to the Taiwan availability table.
 
 ## References
@@ -171,3 +181,6 @@ The security post already published, *[Choosing a personal AI assistant: hosted 
 - [Tech giants race for always-on personal AI agents](https://www.cna.com.tw/news/ait/202609270039.aspx) (CNA, 2026-09-27, in Chinese)
 - [LINE Taiwan "LINE CONVERGE 2026" Report](https://www.lycorp.co.jp/en/story/20261113/converge_2026.html) (LY Corporation, 2026-11-13)
 - [openclaw/openclaw](https://github.com/openclaw/openclaw), [NousResearch/hermes-agent](https://github.com/NousResearch/hermes-agent) (GitHub)
+- [Android @ I/O: the playground is open](https://android.googleblog.com/2012/) (Official Android Blog, 2012-06-27)
+- [Apple Previews iOS 9](https://www.apple.com/newsroom/2015/06/08Apple-Previews-iOS-9/) (Apple, 2015-06-08)
+- [Introducing Google Discover](https://blog.google/products-and-platforms/products/search/introducing-google-discover/) (Google, 2018-09-24)
