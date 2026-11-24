@@ -881,3 +881,11 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目，不重複論證。
 - 接手第一步：同上方 Q-054 原始條目。series plan 修好後，下方列出的檔案可以直接 `git commit` 補上，不需重做內容或重新查證。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0.md`、`src/content/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0-en.md`、`.work/daily-log/2026-11-25/daily-digest-framework.md`，皆已 `git add` 留在暫存區未 commit。內容已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry`／`check:diagram-text`／`check:no-emoji`（新檔皆 0 blocking；diagram-preview 因容器無瀏覽器被 skip，前兩支靜態檢查已過），與本次紅燈無關。
+
+### Q-054 補充：daily-digest-tool routine（2026-11-25）同樣撞上 understanding-benchmarks 缺規劃表紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-tool routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因，不另開新編號）
+- 做什麼：本次 routine 選定並寫完工具推薦文 `agentscan`（SonawaneMayur/agentscan，開源 CLI，掃 MCP 設定檔的寫死金鑰／未鎖版本套件／明文傳輸，MIT；事件驅動理由：作者當天發佈 84,813 份公開 MCP 設定檔實測報告，3.3% repo 洩漏真金鑰），中英雙版 + daily-log，series `AI Tool of the Day` order 89。`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 噴出與上方 Q-054 完全相同的錯誤：「系列 understanding-benchmarks 沒有規劃表 `.work/series-plans/understanding-benchmarks.md`」。其餘 18 項檢查（含 `check:references`／`check:post-quality`／`check:glossary`／`process-leak`／`check:tw`／`check:series-order`／`check:lang-parity`／`check:diagram-geometry`／`check:diagram-text`／`check:seo-smoke`／`check:no-emoji` 等）全綠，`check:course-videos` 僅有與本次無關的 pre-existing 警告。
+- 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-tool routine 能處理或繞過的範圍。
+- 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-tool-agentscan.md`、`src/content/posts/daily/2026-11-25-tool-agentscan-en.md`、`.work/daily-log/2026-11-25/daily-digest-tool.md`，皆已 `git add` 留在暫存區未 commit。
