@@ -137,7 +137,7 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 | Tasks in Gemini | 有條件 | 要 Google AI Pro 或 Ultra；[說明頁](https://support.google.com/gemini/answer/17094710?hl=en)只排除歐洲經濟區、奈及利亞、瑞士、英國，免費開放的六國不含台灣 |
 | OpenAI Dots | 有條件 | ChatGPT Pro，或逐步開放中的部分 Plus 帳號；排除歐洲經濟區、瑞士、英國 |
 | Grok Bot | 有條件 | X Subscription 的 Premium 以上；官方文件沒有列地區限制 |
-| Meta Muse | 不能 | 開放美國、加拿大、[日本](https://k-tai.watch.impress.co.jp/docs/news/2150682.html)、[新加坡](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/)，台灣還沒有 |
+| Meta Muse | 不能 | 開放美國、加拿大、[日本](https://k-tai.watch.impress.co.jp/docs/news/2150682.html)、[新加坡](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/)、[墨西哥](https://www.infobae.com/tecno/2026/11/05/muse-la-ia-de-meta-llega-a-mexico-para-hacer-tareas-del-trabajo-y-la-casa-es-el-primer-pais-latino-en-tenerla/)、[澳洲](https://www.mediaweek.com.au/meta-launches-muse-ai-agent-in-australia)，台灣還沒有 |
 | Hark Pro | 有條件 | [台灣 App Store 有上架](https://apps.apple.com/tw/app/hark-pro/id6772362941)、有新台幣方案；官方示範幾乎都是美國網站，沒有公布支援國家 |
 | Claude Duet | 不能 | 研究預覽只開放美國帳號，採候補名單 |
 | OpenClaw、Hermes Agent | 能 | 開源，自己裝；模型費用自付 |
@@ -162,6 +162,7 @@ caption: 只標出系列有專篇的主要個人與企業產品；開源的 Open
 
 ## 更新紀錄
 
+- 2026-11-24：Muse 的開放地區補上墨西哥（11 月 5 日）與澳洲（11 月 17 日）。
 - 2026-11-23：新增「前身」一節（Google Now、iOS 9 主動建議），說明它們跟 2026 年這批差在會不會代你動手。
 - 2026-11-20：修正 Muse 的開放地區（美、加、日、新加坡，原寫只在美國）；台灣可用性表補上 Hark Pro。
 

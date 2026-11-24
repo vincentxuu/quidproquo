@@ -137,7 +137,7 @@ This table only says yes, no or conditional. Plans, prices and how to sign up li
 | Tasks in Gemini | Conditional | Requires Google AI Pro or Ultra; the [help page](https://support.google.com/gemini/answer/17094710?hl=en) excludes only the EEA, Nigeria, Switzerland and the UK, and Taiwan isn't one of the six free countries |
 | OpenAI Dots | Conditional | ChatGPT Pro, or some Plus accounts as the rollout continues; excludes the EEA, Switzerland and the UK |
 | Grok Bot | Conditional | Premium or higher on The X Subscription; the official docs list no regional restriction |
-| Meta Muse | No | Live in the US, Canada, [Japan](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese) and [Singapore](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/); not yet in Taiwan |
+| Meta Muse | No | Live in the US, Canada, [Japan](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese), [Singapore](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/), [Mexico](https://www.infobae.com/tecno/2026/11/05/muse-la-ia-de-meta-llega-a-mexico-para-hacer-tareas-del-trabajo-y-la-casa-es-el-primer-pais-latino-en-tenerla/) (in Spanish) and [Australia](https://www.mediaweek.com.au/meta-launches-muse-ai-agent-in-australia); not yet in Taiwan |
 | Hark Pro | Conditional | [Listed on the Taiwan App Store](https://apps.apple.com/tw/app/hark-pro/id6772362941) with NT$ plans; official demos are almost all US sites, and no supported-country list is published |
 | Claude Duet | No | The research preview is US-only, via a waitlist |
 | OpenClaw, Hermes Agent | Yes | Open source, install it yourself; you pay for the model |
@@ -162,6 +162,7 @@ The security post already published, *[Choosing a personal AI assistant: hosted 
 
 ## Update log
 
+- 2026-11-24: Added Mexico (November 5) and Australia (November 17) to Muse's availability.
 - 2026-11-23: Added a "Predecessors" section (Google Now, iOS 9 proactive assistance) on how they differ from the 2026 wave in whether they act for you.
 - 2026-11-20: Corrected Muse availability (US, Canada, Japan, Singapore; previously said US-only); added Hark Pro to the Taiwan availability table.
 

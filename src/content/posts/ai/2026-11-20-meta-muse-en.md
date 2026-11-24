@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [ai-agent, always-on-agent, meta, muse]
 lang: en
-tldr: "Meta Muse runs in the background on a cloud VM of your own and pushes suggestions without being asked, which puts it at L3 on the always-on ladder. Payments go through single-use Stripe Link cards, each one approved by you; but choose \"Always allow\" and that approval carries forward, which is how a Marketplace seller's home address reached a stranger. The terms say you bear all risk of financial loss and must set your own transaction limits, and cap Meta's liability at $250 or what you paid in the last 12 months. It's available in the US, Canada, Japan and Singapore, not Taiwan."
+tldr: "Meta Muse runs in the background on a cloud VM of your own and pushes suggestions without being asked, which puts it at L3 on the always-on ladder. Payments go through single-use Stripe Link cards, each one approved by you; but choose \"Always allow\" and that approval carries forward, which is how a Marketplace seller's home address reached a stranger. The terms say you bear all risk of financial loss and must set your own transaction limits, and cap Meta's liability at $250 or what you paid in the last 12 months. It's available in the US, Canada, Japan, Singapore, Mexico and Australia, not Taiwan."
 description: "Meta's always-on agent Muse: how far it pushes a goal on its own, where it stops to ask, the two ways it pays, speaking to strangers in your name, training on by default, and what to set up before handing over a payment method."
 series:
   name: "Always-On AI Agents"
@@ -34,7 +34,7 @@ This post is about Muse: what you accept before handing it a payment method and 
 
 Meta [launched Muse on September 8, 2026](https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/), running on its own Muse Spark model. You reach it through iOS, Android, muse.ai or WhatsApp, and talking to it works like messaging a person.
 
-- **Availability**: the US first, then Canada, [Japan on October 23](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese) and [Singapore on October 27](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/). Japanese integrations with Mercari, Money Forward ME and Ticket Pia are planned.
+- **Availability**: the US first, then Canada, [Japan on October 23](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (in Japanese) and [Singapore on October 27](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/), [Mexico on November 5](https://www.infobae.com/tecno/2026/11/05/muse-la-ia-de-meta-llega-a-mexico-para-hacer-tareas-del-trabajo-y-la-casa-es-el-primer-pais-latino-en-tenerla/) (in Spanish) and [Australia on November 17](https://www.mediaweek.com.au/meta-launches-muse-ai-agent-in-australia). Japanese integrations with Mercari, Money Forward ME and Ticket Pia are planned.
 - **Price**: the free tier has a weekly usage limit; [past it you can subscribe or buy more usage](https://www.meta.com/help/subscriptions/28153473374286914/). [Per TechCrunch](https://techcrunch.com/2026/11/12/muse-can-now-place-calls-to-u-s-businesses-if-you-pay/), plans are $20 a month for 500 million Muse tokens a week, or $100 a month for 3 billion.
 - **Scale**: Meta says it has over 10 million users (company-reported). Vox cites a third-party estimate of more than 8 million downloads in the first month and calls it the current market leader among personal agents.
 
@@ -169,9 +169,14 @@ On the conflict test, Muse explained afterwards: "My mistake was treating your c
 - You can't accept a clause that puts all financial loss on you.
 - You don't want your conversations used for training by default and won't go change the setting.
 
-It isn't available in Taiwan; it's live in the US, Canada, Japan and Singapore.
+It isn't available in Taiwan; it's live in the US, Canada, Japan, Singapore, Mexico and Australia.
 
 Most of what Muse does happens inside its VM, and you have to go look to see what it's doing in the browser. Next up, [Hark Pro](/posts/ai/2026-11-20-hark-pro-en) takes the opposite approach and puts the agent's screen in front of you.
+
+
+## Update log
+
+- 2026-11-24: Added Mexico (November 5) and Australia (November 17) to the availability list.
 
 ## References
 
@@ -182,6 +187,8 @@ Most of what Muse does happens inside its VM, and you have to go look to see wha
 - [How to buy additional Muse tokens](https://www.meta.com/help/subscriptions/28153473374286914/) (Meta Help Center)
 - [Muse Supplemental Terms of Service](https://agent.meta.ai/terms) (Meta, effective 2026-11-17)
 - [Muse Is Now Available in Singapore](https://about.fb.com/news/2026/10/muse-is-now-available-in-singapore-the-worlds-first-personal-ai-agent-built-for-everyone/) (Meta, 2026-10-27)
+- [Muse, la IA de Meta, llega a México](https://www.infobae.com/tecno/2026/11/05/muse-la-ia-de-meta-llega-a-mexico-para-hacer-tareas-del-trabajo-y-la-casa-es-el-primer-pais-latino-en-tenerla/) (Infobae, 2026-11-05, in Spanish)
+- [Meta launches Muse AI agent in Australia](https://www.mediaweek.com.au/meta-launches-muse-ai-agent-in-australia) (Mediaweek, 2026-11-18)
 - [Meta、パーソナルAIエージェント「Muse」を日本で提供](https://k-tai.watch.impress.co.jp/docs/news/2150682.html) (K-Tai Watch, 2026-10-23, in Japanese)
 - [Meta's AI agent Muse gives out user's home address without permission](https://www.theguardian.com/technology/2026/sep/28/metas-ai-agent-muse-home-address) (The Guardian, 2026-09-28)
 - [We all want to offload our most tedious tasks. But what do we lose in the process?](https://www.vox.com/advice/506547/muse-instinct-chatgpt-dots-ai-personal-agent) (Vox, 2026-10-16)
