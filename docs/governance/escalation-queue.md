@@ -897,3 +897,11 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目——補規劃表需要真正跑 `series-curriculum-design`，不是本次定價 routine 能代寫的範圍。
 - 接手第一步：同上方 Q-054 原始條目。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-25-pricing-openai-gpt-5-6-sol-chatgpt-codex-retirement.md`、`src/content/posts/daily/2026-11-25-pricing-openai-gpt-5-6-sol-chatgpt-codex-retirement-en.md`、`.work/daily-log/2026-11-25/daily-digest-pricing.md`，皆已 `git add` 留在暫存區未 commit，等 Q-054 解除後直接補 commit，不需重新查證或重寫內容。
+
+### Q-054 補充：daily-digest-ai-interview routine（2026-11-25）同樣撞上 understanding-benchmarks 缺規劃表紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-ai-interview routine，scheduled task，執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因，不另開新編號。本次 session 工作目錄一開始乾淨，`git pull origin main` 為 fast-forward，`pnpm install --frozen-lockfile` 正常完成）
+- 做什麼：本次 routine 寫完 2026-11-25 AI Engineer 面試日練（星期三 ML System Design，`interview-focus.json` 權重全 1、無加練覆寫；主題收在線上 A/B 測試——離線/線上指標落差四分法、CUPED 變異數縮減、SRM 偵測與 peeking 陷阱、雙邊市場 interference、guardrail 非劣性檢定，練習題改寫自 hack2interview.com 整理的 Snowflake 面試題「設計 feed ranking 模型上線的 A/B 測試」），中英雙版 + daily-log，series order 98。含 1 張流程圖（A/B 測試設計六步流程，中英座標相同只換文字；英文版因文字較長把三個節點從雙行改三行、整體 height 從 780 調到 830 才通過 `check:diagram-text`）。`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 噴出與上方 Q-054 完全相同的錯誤：「系列 understanding-benchmarks 沒有規劃表 `.work/series-plans/understanding-benchmarks.md`」。其餘項目（`check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-text`／`check:no-emoji`／`lint`）皆已單獨跑過確認 0 blocking；`diagram-preview` 因容器內建瀏覽器版本（chromium-1243）跟腳本預期的 `chromium_headless_shell-1208` 不符被判定無瀏覽器自動跳過，`check:diagram-text` 已過 0 error。
+- 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-ai-interview routine 能處理或繞過的範圍。
+- 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-ai-interview-daily.md`、`src/content/posts/daily/2026-11-25-ai-interview-daily-en.md`、`.work/daily-log/2026-11-25/daily-digest-ai-interview.md`，皆已 `git add` 留在暫存區未 commit。
