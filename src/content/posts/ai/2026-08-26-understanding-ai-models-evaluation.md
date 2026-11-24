@@ -1,5 +1,5 @@
 ---
-title: "模型成績單怎麼看：Benchmark、Arena Elo、還有那些數字背後的陷阱"
+title: "模型成績單怎麼看：Benchmark、Arena 排名、還有那些數字背後的陷阱"
 date: 2026-08-26
 category: ai
 type: deep-dive
@@ -8,14 +8,14 @@ lang: zh-TW
 series:
   name: "認識 AI 模型"
   order: 10
-tldr: "模型發布時貼的 benchmark 數字有三個常見陷阱：只秀贏的（cherry-picking）、訓練資料混入考題（contamination）、大家都考 90 分以上就沒鑑別力（saturation）。最抗操弄的訊號是 Chatbot Arena 的 Elo 排名——真人盲測投票，模型廠商無法控制題目。"
-description: "LLM 評估入門：MMLU、HumanEval、GSM8K 等常見 benchmark 各測什麼、Chatbot Arena Elo 為什麼更可靠、以及讀 benchmark 表格要注意的三個陷阱。"
+tldr: "模型發布時貼的 benchmark 數字有三個常見陷阱：只秀贏的（cherry-picking）、訓練資料混入考題（contamination）、大家都考 90 分以上就沒鑑別力（saturation）。Arena（原 Chatbot Arena）的真人盲測投票，題目最難被事先背下來，但它有自己的偏誤：廠商可以私下測多個版本，只公開最好的那個。"
+description: "LLM 評估入門：MMLU、HumanEval、GSM8K 等常見 benchmark 各測什麼、Arena 真人投票排名能補上什麼又有哪些偏誤，以及讀 benchmark 表格要注意的三個陷阱。"
 draft: false
 glossary:
   - term: "MMLU"
     def: "Massive Multitask Language Understanding，涵蓋 57 個學科的選擇題 benchmark，測模型的廣泛知識"
   - term: "Chatbot Arena"
-    def: "LMSys 維護的匿名模型對戰平台，真人盲測投票產生 Elo 排名，是目前最抗操弄的 LLM 評估方式"
+    def: "匿名模型對戰平台，真人盲測投票，再用 Bradley-Terry 模型把投票算成分數與名次。起於 UC Berkeley 的 LMSYS 研究計畫，2025 年起由 Arena Intelligence 公司經營，2026 年改名 Arena"
 ---
 
 > :globe: [English version](/posts/ai/2026-08-26-understanding-ai-models-evaluation-en)
@@ -65,11 +65,17 @@ Perplexity 的好處是不需要額外的測試題目，直接用一段文本就
 
 Benchmark 有個根本問題：它測的是「標準答案」，但現實中很多任務沒有標準答案。你問模型「幫我寫一封道歉信」，哪個版本比較好？這沒有選擇題可以評分。
 
-**Chatbot Arena**（由 LMSys 維護）用了一個簡單的方法：讓真人盲測。使用者輸入一個問題，系統同時把問題送給兩個匿名模型，使用者看到兩個回答後投票選比較好的那個。使用者不知道自己在跟哪個模型對話。
+**[Arena](https://arena.ai)**（原名 Chatbot Arena，起於 UC Berkeley 的 LMSYS 研究計畫，現在由 Arena Intelligence 公司經營）用了一個簡單的方法：讓真人盲測。使用者輸入一個問題，系統同時把問題送給兩個匿名模型，使用者看到兩個回答後投票選比較好的那個。使用者不知道自己在跟哪個模型對話。
 
-大量投票累積下來，用 Elo 評分系統（跟西洋棋排名一樣）算出每個模型的分數。**Elo 分數越高，表示越多真人覺得它的回答比較好**。
+大量投票累積下來，平台用 Bradley-Terry 模型（早期用西洋棋的 Elo，現在仍常被叫成 Elo 分數）算出每個模型的分數和信賴區間。**分數越高，表示真人投票時越常選它的回答**。
 
-這個方法最大的優勢：**模型廠商無法控制題目**。在傳統 benchmark 上，廠商可以針對題目優化（甚至不小心把題目混進訓練資料）。但 Arena 的題目來自全球使用者，每天都不一樣，沒辦法事先準備。
+這個方法最大的優勢：**題目不在廠商手上**。傳統 benchmark 的題目是固定、公開的，廠商可以針對題目優化，甚至不小心把題目混進訓練資料。Arena 的題目來自全球使用者，每天都不一樣，沒辦法事先背下來。
+
+但它有自己的偏誤。第一，廠商可以在發布前私下測很多個版本，只公開分數最好的那個：[The Leaderboard Illusion](https://arxiv.org/abs/2504.20879) 統計到 Llama 4 發布前一個月，最多有 27 個 Meta 模型在平台上私測。從一堆有雜訊的分數裡挑最高的，期望值一定偏高。Arena [回應](https://arena.ai/blog/our-response)說所有廠商都能這樣測；之後平台替匿名測試過的模型加上「preliminary」標記，發布後收夠新的投票才拿掉（[changelog](https://arena.ai/company/leaderboard-changelog)），但沒有禁止只公開最好的那個。
+
+第二，真人投票會被回答的風格影響，回答越長越容易被選；平台現在預設顯示[控制風格後](https://arena.ai/blog/style-control)的分數。
+
+所以 Arena 量的是「真人在日常提問上比較常選誰」。它補得上 benchmark 量不到的東西，但它的分數一樣要先弄清楚是怎麼算出來的，才能拿來比。
 
 ## 怎麼讀 Benchmark 表格
 
@@ -103,7 +109,7 @@ HellaSwag 就是一個典型的例子。幾年前它是區分模型能力的重�
 
 1. **不要只看一個 benchmark 選模型**。每個 benchmark 測的是不同能力。你的應用場景最接近哪個 benchmark，那個分數才值得參考。要寫程式？看 HumanEval。要做通識問答？看 MMLU。
 
-2. **Chatbot Arena 的 Elo 是最抗操弄的訊號**。如果你只能看一個指標，看 Arena Elo。它的題目來自真人、匿名投票、持續更新，廠商最難動手腳。
+2. **把 Arena 當成 benchmark 的對照，不是裁判**。它的題目來自真人、持續更新，最難被事先背下來，適合拿來檢查「benchmark 分數高的模型，用起來是不是也被偏好」。看名次時先看信賴區間有沒有重疊，新上榜的模型留意有沒有「preliminary」標記。
 
 3. **自己的 eval 最重要**。Benchmark 告訴你模型的一般能力，但你的應用有自己的特殊需求。花時間建一套自己的測試題，用你自己的資料、你自己的任務來比較模型，比盯著公開 benchmark 有用得多。
 
@@ -113,6 +119,10 @@ HellaSwag 就是一個典型的例子。幾年前它是區分模型能力的重�
 
 我們已經知道怎麼評估模型了。但到目前為止，我們討論的模型都是先訓練好、再拿來用。現實中還有一個關鍵步驟：[fine-tuning](/posts/ai/2026-08-26-understanding-ai-models-finetuning-vs-rag)——拿已經訓練好的模型，再用特定資料微調，讓它專精某個領域。
 
+## 更新紀錄
+
+- 2026-11-24：改寫 Arena 段落與實際建議第 2 點。平台已改名 Arena、由公司經營，計分方式更正為 Bradley-Terry 模型；拿掉「最抗操弄」的說法，補上私測挑最佳與風格偏誤。標題、tldr、description、術語同步更新，並補上對應參考資料。更深入的討論見〈[benchmark 分數能信多少](/posts/ai/2026-11-24-understanding-benchmarks-overview)〉系列。
+
 ## 參考資料
 
 - Hendrycks, D. et al. (2021). [Measuring Massive Multitask Language Understanding](https://arxiv.org/abs/2009.03300). ICLR 2021.
@@ -120,4 +130,9 @@ HellaSwag 就是一個典型的例子。幾年前它是區分模型能力的重�
 - Cobbe, K. et al. (2021). [Training Verifiers to Solve Math Word Problems](https://arxiv.org/abs/2110.14168). arXiv:2110.14168.
 - Chen, M. et al. (2021). [Evaluating Large Language Models Trained on Code](https://arxiv.org/abs/2107.03374). arXiv:2107.03374.
 - Chiang, W. et al. (2024). [Chatbot Arena: An Open Platform for Evaluating LLMs by Human Preference](https://arxiv.org/abs/2403.04132). arXiv:2403.04132.
+- Singh, S. et al. (2025). [The Leaderboard Illusion](https://arxiv.org/abs/2504.20879). arXiv:2504.20879.
+- Arena. (2025). [Our Response to 'The Leaderboard Illusion' Writeup](https://arena.ai/blog/our-response).
+- Arena. (2024). [Does Style Matter? Disentangling style and substance in Chatbot Arena](https://arena.ai/blog/style-control).
+- Arena. (2026). [LMArena is now Arena](https://arena.ai/blog/lmarena-is-now-arena).
+- Arena. [Leaderboard Changelog](https://arena.ai/company/leaderboard-changelog).
 - Oren, Y. et al. (2024). [Proving Test Set Contamination in Black-Box Language Models](https://arxiv.org/abs/2310.17623). ICLR 2024.
