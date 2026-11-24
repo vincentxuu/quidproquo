@@ -29,6 +29,14 @@
   2. 兩項補齊、`pnpm check:series-plan` 轉綠後，本次 routine 暫存的 5 項改動（`src/content/posts/daily/2026-11-25-ai-agent-arxiv-digest{,-en}.md`、`.research/daily-arxiv-screening/2026-11-25.json`、`src/data/daily-signals/seen-arxiv-ids.txt`、`.work/daily-log/2026-11-25/daily-digest-arxiv.md`）可以直接 `git commit` 補上，不需重新選案、重新查證或重寫內容——內容已完整寫好並留在工作目錄（已 `git add`，未 commit）。
   3. **risk note**：這是雲端 remote execution 容器（非使用者本機），session 結束或容器被回收時，未 commit 的暫存變更可能直接遺失（不像 Q-053 最後發現的「本機未 commit＋雲端 session 看不到使用者磁碟」那種可恢復情況）。若隔天接手前容器已被回收，需要重跑本次選案與撰稿（候選篩選紀錄、文章全文、daily-log 都已經記錄在這個條目與 `.work/daily-log/2026-11-25/daily-digest-arxiv.md` 裡，但原始 markdown 全文需要重寫，不是空殼可以補）。
 
+### Q-054 補充：daily-digest-security routine（2026-11-25，MONAI Label Cairn 0-day）也撞上同一紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-security routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因——`understanding-benchmarks` 系列缺規劃表，不另開新編號）
+- 本次產出：資安警報《Cairn 自主 AI agent 在 MONAI Label 自行發現 0-day，CISA 列入 KEV》中英雙版，series order 86，含攻擊鏈循序圖 1 張（中英座標相同，只換文字）。已單獨跑過 `pnpm check:references`（0 WARN）／`pnpm check:lang-parity`／`pnpm check:tw`（0 blocking）／`pnpm check:series-order`（order 86 無撞號）／`pnpm check:diagram-geometry`／`pnpm check:diagram-text`（中英各 1 張圖，皆 0 錯誤）全部通過；`diagram-preview` 因環境無瀏覽器被 `--skip-if-no-browser` 跳過，`check:diagram-text` 已過。
+- 為什麼現在不能做：同上方 Q-054 原始條目——`.work/series-plans/understanding-benchmarks.md` 需要真正跑過 `series-curriculum-design` skill 替該系列排課程弧線並取得使用者確認，不是本次資安警報 routine 能代寫或杜撰確認日期去騙過檢查的內容。
+- 接手第一步：同上方 Q-054 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-security-monai-label-cairn-zero-day-cisa-kev{,-en}.md`、`.work/daily-log/2026-11-25/daily-digest-security.md`，皆已 `git add` 留在暫存區未 commit，等 Q-054 解除後直接 `git commit` 補上，不需重新查證或重寫內容。
+
 ---
 
 ## Q-052 ✅ 已解決（2026-11-23）：兩個既有全站紅燈擋住 2026-11-11 LongCat-2.5 模型卡 commit
