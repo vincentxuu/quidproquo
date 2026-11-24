@@ -873,3 +873,11 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目——補規劃表與兩份審稿紀錄需要真正跑 `series-curriculum-design` 與 `post-verify`→`post-review`→`post-polish`，不是任何 daily-digest routine 能代寫的範圍。
 - 接手第一步：同上方 Q-054 原始條目，另外對 `2026-11-24-benchmark-anatomy` 與 `2026-11-24-understanding-benchmarks-overview` 兩篇文章跑完整 `post-verify`→`post-review`→`post-polish` 補審稿紀錄。解除後跑 `pnpm verify` 全站確認 `check:series-plan` 0 error，再回來補 commit 下方列出的被擋產出。
 - 被擋下的本次產出：`src/data/daily-signals/benchmark-snapshot.json`（已更新為 2026-11-25 快照，四個常態追蹤榜單皆無顯著變動，值已確認正確）留在工作目錄未 commit（已用 `git stash` 暫存為 `wip: benchmark-snapshot 2026-11-25 blocked by Q-054`，內容可隨時重新產生不怕遺失）。
+
+### Q-054 補充：daily-digest-framework routine（2026-11-25）也撞上同一紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-framework routine，scheduled task，執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因，不另開新編號）
+- 做什麼：本次 routine 寫完 `框架更新｜Pydantic AI v2.73.0`（中英雙版 + daily-log，series order 72），`git commit` 噴紅內容與上方完全相同（`understanding-benchmarks` 缺規劃表）。
+- 為什麼現在不能做：同上方 Q-054 原始條目，不重複論證。
+- 接手第一步：同上方 Q-054 原始條目。series plan 修好後，下方列出的檔案可以直接 `git commit` 補上，不需重做內容或重新查證。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0.md`、`src/content/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0-en.md`、`.work/daily-log/2026-11-25/daily-digest-framework.md`，皆已 `git add` 留在暫存區未 commit。內容已單獨跑過 `check:references`／`check:lang-parity`／`check:tw`／`check:series-order`／`check:diagram-geometry`／`check:diagram-text`／`check:no-emoji`（新檔皆 0 blocking；diagram-preview 因容器無瀏覽器被 skip，前兩支靜態檢查已過），與本次紅燈無關。
