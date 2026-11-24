@@ -905,3 +905,11 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-ai-interview routine 能處理或繞過的範圍。
 - 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-25-ai-interview-daily.md`、`src/content/posts/daily/2026-11-25-ai-interview-daily-en.md`、`.work/daily-log/2026-11-25/daily-digest-ai-interview.md`，皆已 `git add` 留在暫存區未 commit。
+
+### Q-054 補充：daily-digest-product-interview routine（2026-11-25）同樣撞上 understanding-benchmarks 缺規劃表紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-product-interview routine，scheduled task，執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因，不另開新編號）
+- 做什麼：本次 routine 依星期三固定主題寫完 `Product Builder 面試日練 — 2026-11-25：Strategy & Execution`（中英雙版 + daily-log，series order 98；`interview-focus.json` 權重全為 1，未觸發加練覆寫）。核心框架用 YC Lightcone 的七個護城河（改寫自 Hamilton Helmer《7 Powers》）+ April Dunford 定位五要素；練習題為基礎模型公司功能重疊的策略威脅情境；案例為 Webflow CEO Linda Tong 2026-11 訪談談挑選客群與治理護城河。`git commit` 時 `pnpm verify:staged` 的 `series-plan (staged)` 噴出與上方 Q-054 完全相同的錯誤：「系列 understanding-benchmarks 沒有規劃表 `.work/series-plans/understanding-benchmarks.md`」。其餘 18 項檢查（含 `check:references`／`check:post-quality`／`check:glossary`／`process-leak`／`check:tw`（修掉 4 處「用戶」、1 處「品類」後 0 blocking）／`check:series-order`／`check:lang-parity`／`check:diagram-geometry`／`check:diagram-text`／`check:seo-smoke`／`check:no-emoji` 等）全綠，`check:course-videos` 僅有與本次無關的 pre-existing 警告；本文無 diagram 區塊，diagram-preview 未跑。
+- 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-product-interview routine 能處理或繞過的範圍。
+- 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-product-builder-interview-daily.md`、`src/content/posts/daily/2026-11-25-product-builder-interview-daily-en.md`、`.work/daily-log/2026-11-25/daily-digest-product-interview.md`，皆已 `git add` 留在暫存區未 commit。
