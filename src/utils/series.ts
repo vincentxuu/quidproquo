@@ -1074,6 +1074,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'understanding-benchmarks',
+    category: 'ai-agents',
+    names: { 'zh-TW': '認識 benchmark', en: 'Understanding AI Benchmarks' },
+    descriptions: {
+      'zh-TW': '模型發布表上的每個分數是怎麼量出來的、為什麼會失真、主要的 benchmark 各自在量什麼，以及怎麼自己建一個量得準的評測。',
+      en: 'How each score on a model release table is measured, why it gets distorted, what the major benchmarks actually measure, and how to build an evaluation of your own that measures what you mean.',
+    },
+  },
+  {
     slug: 'ai-native-sdlc-playbook',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI-Native SDLC Playbook', en: 'AI-Native SDLC Playbook' },
