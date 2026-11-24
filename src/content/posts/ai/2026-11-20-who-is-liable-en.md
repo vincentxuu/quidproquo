@@ -137,7 +137,7 @@ In short: what you can rely on is the merchant's return policy, your card issuer
 
 In Taiwan, no specific law yet allocates liability for agent transactions; with overseas products, responsibility is set mainly by the vendor's terms and your card issuer.
 
-Vendor terms and banks put the loss on you. That's the reason behind the next and final post in this series: start read-only, and use single-use cards when money is involved.
+Vendor terms and banks put the loss on you. That's the reason behind [the next and final post in this series](/posts/ai/2026-11-20-start-read-only-en): start read-only, and use single-use cards when money is involved.
 
 ## References
 

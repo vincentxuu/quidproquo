@@ -130,7 +130,7 @@ They aren't worse; they solve a different problem. If what you want is "every Mo
 
 ## What you can use in Taiwan right now
 
-This table only says yes, no or conditional. Plans, prices and how to sign up live in the final post, *Start read-only*, because that's the part that changes often and should be maintained in one place.
+This table only says yes, no or conditional. Plans, prices and how to sign up live in the final post, [*Start read-only*](/posts/ai/2026-11-20-start-read-only-en), because that's the part that changes often and should be maintained in one place.
 
 | Product | In Taiwan | Condition |
 |---|---|---|
@@ -155,7 +155,7 @@ Team and enterprise products (Devin Bots, Autopilot and so on) depend on your co
 ## How to read this series
 
 - **Front to back**: start with the next post, *Anatomy and the three-level ladder*. It makes every product post easier to read, because each one comes down to "what does it do when it wakes?"
-- **One route only**: if you only want to self-host, read the two route-3 posts plus *Start read-only*.
+- **One route only**: if you only want to self-host, read the two route-3 posts plus [*Start read-only*](/posts/ai/2026-11-20-start-read-only-en).
 - **One product only**: every product post opens with a small table showing which of the four tests it passes.
 
 The security post already published, *[Choosing a personal AI assistant: hosted Duet, Muse, Dots and Grok Bot versus self-hosted OpenClaw and Hermes](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)*, joins the series in the shared-problems section. It follows one phishing email through five layers — computer, credentials, approval, data, model — and shows who stops it at each.
