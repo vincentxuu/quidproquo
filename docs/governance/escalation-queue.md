@@ -889,3 +889,11 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-tool routine 能處理或繞過的範圍。
 - 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-25-tool-agentscan.md`、`src/content/posts/daily/2026-11-25-tool-agentscan-en.md`、`.work/daily-log/2026-11-25/daily-digest-tool.md`，皆已 `git add` 留在暫存區未 commit。
+
+### Q-054 補充：daily-digest-pricing routine（2026-11-25）也撞上同一紅燈
+
+- 登錄：2026-11-25（來源：daily-digest-pricing routine 執行 `git commit` 時被 `series-plan (staged)` 擋下；與上方 Q-054 是同一個根因，不另開新編號）
+- 本次產出：《定價追蹤｜GPT-5.6 Sol／Terra 12/23 退出 ChatGPT 與 Codex，API 定價表完全沒列入退役》中英雙版，series order 41，含 1 張時間軸圖解（ChatGPT／Codex 產品層 12/23 退役 vs. API 定價頁未列入退役、促銷 11/30 到期新價未定）。已單獨跑過 `pnpm check:references`（0 WARN）／`pnpm check:lang-parity`／`pnpm check:tw`（0 blocking）／`pnpm check:series-order`（order 41 無撞號）／`pnpm check:diagram-geometry`／`pnpm check:diagram-text`（中英各 1 張圖，皆 0 錯誤）／`pnpm check:no-emoji` 全部通過，與本次紅燈無關；`diagram-preview` 因環境無瀏覽器（`/opt/pw-browsers` 缺腳本要的 `chrome-headless-shell`）被 `--skip-if-no-browser` 跳過。
+- 為什麼現在不能做：同上方 Q-054 原始條目——補規劃表需要真正跑 `series-curriculum-design`，不是本次定價 routine 能代寫的範圍。
+- 接手第一步：同上方 Q-054 原始條目。
+- 被擋下的本次產出：`src/content/posts/daily/2026-11-25-pricing-openai-gpt-5-6-sol-chatgpt-codex-retirement.md`、`src/content/posts/daily/2026-11-25-pricing-openai-gpt-5-6-sol-chatgpt-codex-retirement-en.md`、`.work/daily-log/2026-11-25/daily-digest-pricing.md`，皆已 `git add` 留在暫存區未 commit，等 Q-054 解除後直接補 commit，不需重新查證或重寫內容。
