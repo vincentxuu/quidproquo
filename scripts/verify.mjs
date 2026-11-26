@@ -235,8 +235,11 @@ function stagedPlan() {
     || /^docs\/.+\.md$/.test(p)
     || p.startsWith('.work/')
     || p === 'progress.txt';
+  // 依賴與 CI 設定：不改原始碼，完整 verify（含 astro check）在 CI 跑；本機只跑 lint，
+  // 免得每次升版都在 pre-commit 卡半小時（2026-11-26 astro 升版卡 28 分鐘）。
+  const isDepsOrCi = (p) => p === 'package.json' || p === 'pnpm-lock.yaml' || p.startsWith('.github/');
   const fullReason =
-    entries.find((e) => !isSafe(e.path))?.path
+    entries.find((e) => !isSafe(e.path) && !isDepsOrCi(e.path))?.path
     ?? entries.find((e) => isPost(e.path) && (e.status === 'D' || e.status === 'R'))?.path;
   const posts = entries.filter((e) => isPost(e.path) && e.status !== 'D').map((e) => e.path);
   const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
@@ -272,6 +275,7 @@ function stagedPlan() {
       'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry', 'check:diagram-text'), courseVideosStep);
     steps.push(['check:no-emoji (staged)', `pnpm exec tsx scripts/check-no-emoji.ts ${quote(posts)}`]);
   }
+  if (entries.some((e) => isDepsOrCi(e.path))) steps.push(...pick('lint (oxlint)'));
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));
   }
