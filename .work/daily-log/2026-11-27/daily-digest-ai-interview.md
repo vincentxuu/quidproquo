@@ -1,0 +1,1 @@
+產出 2026-11-27-ai-interview-daily（zh-TW + en），星期五主題 Coding：手刻簡化版 continuous batching scheduler，練習題來源為 FastPrep 收錄的 Anthropic Fellow Program project coding 題「Inference Engine Scheduler」。加權設定全為 1，無加練覆寫。diagram-preview 未跑：無瀏覽器（`/opt/pw-browsers` 缺 chrome-headless-shell），check:diagram-text 已過（0 錯誤）。
