@@ -4,7 +4,7 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
-import { createSessionManager } from '@/lib/agent/session-manager'
+import { getWaitUntil, startRoutineRun } from '@/lib/agent/routine-run'
 
 export const GET: APIRoute = async ({ cookies, params }) => {
   const auth = await requireAdmin(cookies)
@@ -50,7 +50,7 @@ export const DELETE: APIRoute = async ({ cookies, params }) => {
   return json({ ok: true })
 }
 
-export const POST: APIRoute = async ({ cookies, params, request }) => {
+export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
   const e = env as unknown as Env
@@ -59,18 +59,13 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const routine = await e.DB.prepare('SELECT * FROM routines WHERE id = ?').bind(params.id).first() as Record<string, unknown> | null
   if (!routine) return json({ error: 'not found' }, 404)
 
-  const sessions = createSessionManager(e.DB)
-  const session = await sessions.create({
-    instruction: String(routine.instructions ?? ''),
-    model: routine.model ? String(routine.model) : undefined,
-    repo: routine.repo ? String(routine.repo) : undefined,
-    trigger: 'manual',
-    routineId: String(params.id),
-  })
+  const { sessionId, run } = await startRoutineRun(e, {
+    id: String(params.id),
+    instructions: String(routine.instructions ?? ''),
+    model: routine.model ? String(routine.model) : null,
+    repo: routine.repo ? String(routine.repo) : null,
+  }, { trigger: 'manual' })
+  getWaitUntil(locals)?.(run)
 
-  await e.DB.prepare(
-    'UPDATE routines SET last_run_id = ?, last_run_at = ?, last_run_status = ?, updated_at = ? WHERE id = ?',
-  ).bind(session.id, Date.now(), 'running', Date.now(), params.id).run()
-
-  return json({ sessionId: session.id, routineId: params.id })
+  return json({ sessionId, routineId: params.id })
 }

@@ -85,6 +85,8 @@ export default {
     const agentScheduledUrl = baseUrl + '/api/admin/sessions/scheduled'
 
     const isWeeklyCrawl = event.cron === '0 2 * * SUN'
+    // 後台建立的 routine 存在 D1，每 15 分鐘檢查一次哪些到期
+    const isRoutineTick = event.cron === '*/15 * * * *'
     const scheduledPipelineTasks = {
       '0 4 * * SUN': [
         { pipelineId: 'series-suggestions' },
@@ -105,6 +107,9 @@ export default {
 
       if (isWeeklyCrawl) {
         tasks.push(postWithSecret(crawlUrl, secret))
+      }
+      if (isRoutineTick) {
+        tasks.push(postWithSecret(agentScheduledUrl, secret, { routinesOnly: true }))
       }
       for (const task of scheduledPipelines) {
         tasks.push(postWithSecret(pipelineUrl, secret, {
@@ -132,6 +137,7 @@ export default {
       cron: event.cron,
       retention: Boolean(secret),
       crawl: isWeeklyCrawl,
+      routines: isRoutineTick,
       pipelines: scheduledPipelines.map((pipeline) => pipeline.pipelineId),
       agents: scheduledAgents.map((entry) => entry.agentId),
       stages: stages.length,

@@ -18,6 +18,7 @@ import { loadServers, discoverTools } from '../../lib/mcp-proxy/registry'
 import { callTool as mcpCallTool } from '../../lib/mcp-proxy/client'
 import type { McpServerConfig, McpToolDefinition } from '../../lib/mcp-proxy/types'
 import { dispatchRoutineNotification } from '../../lib/notification/routine-hook'
+import { recordRoutineRunStatus } from '../../lib/agent/routine-run'
 
 type StartRunOptions = {
   skill?: string
@@ -454,15 +455,22 @@ export class AgentSessionDO extends DurableObject<Env> {
       }
       const sessionId = body.sessionId ?? url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
       const prompt = body.prompt ?? 'hello'
-      await this.startRun(sessionId, prompt, {
-        skill: body.skill,
-        mode: body.mode,
-        model: body.model,
-        repo: body.repo,
-        branch: body.branch,
-        runnerProvider: body.runner_provider,
-        trigger: 'manual',
-      })
+      try {
+        await this.startRun(sessionId, prompt, {
+          skill: body.skill,
+          mode: body.mode,
+          model: body.model,
+          repo: body.repo,
+          branch: body.branch,
+          runnerProvider: body.runner_provider,
+          trigger: 'manual',
+        })
+      } catch (error) {
+        // The caller may have stopped waiting, so the failure is recorded here too.
+        await createSessionManager(this.env.DB).transition(sessionId, 'failed').catch(() => {})
+        await recordRoutineRunStatus(this.env.DB, sessionId, 'failed').catch(() => {})
+        throw error
+      }
       return Response.json({ sessionId })
     }
     if (url.pathname.endsWith('/approve') && request.method === 'POST') {
@@ -759,6 +767,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
 
     await mgr.transition(session.id, 'done')
+    await recordRoutineRunStatus(this.env.DB, session.id, 'done').catch(() => {})
     await dispatchRoutineNotification(this.env.DB, this.env, session.id)
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }
@@ -884,6 +893,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     }
 
     await mgr.transition(session.id, 'done')
+    await recordRoutineRunStatus(this.env.DB, session.id, 'done').catch(() => {})
     await dispatchRoutineNotification(this.env.DB, this.env, session.id)
 
     const resultEvent: SessionEvent = { type: 'result', content: 'Session complete', totalTokens: 0, totalCostUsd: 0 }

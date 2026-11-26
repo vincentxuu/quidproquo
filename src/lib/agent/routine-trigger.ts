@@ -1,4 +1,5 @@
-import { createSessionManager, type CreateSessionInput } from './session-manager'
+import type { Env } from '../config/env'
+import { startRoutineRun, type WaitUntil } from './routine-run'
 
 interface RoutineRow {
   id: string
@@ -22,8 +23,8 @@ interface TriggerResult {
   error?: string
 }
 
-export function createRoutineTrigger(db: D1Database) {
-  const sessions = createSessionManager(db)
+export function createRoutineTrigger(env: Env, waitUntil?: WaitUntil) {
+  const db = env.DB
 
   async function findDueRoutines(now: number): Promise<RoutineRow[]> {
     const result = await db
@@ -43,28 +44,17 @@ export function createRoutineTrigger(db: D1Database) {
 
   async function triggerRoutine(routine: RoutineRow): Promise<TriggerResult> {
     try {
-      const input: CreateSessionInput = {
-        instruction: routine.instructions,
-        model: routine.model ?? undefined,
-        repo: routine.repo ?? undefined,
-        trigger: 'routine',
-        routineId: routine.id,
-      }
-      const session = await sessions.create(input)
-
+      // Advance next_run_at before starting so an overlapping tick cannot fire the same slot twice.
       const nextRunAt = routine.cron ? computeNextRun(routine.cron, routine.stagger_seconds) : null
-
       await db
-        .prepare(
-          `UPDATE routines
-           SET last_run_id = ?, last_run_at = ?, last_run_status = 'running',
-               next_run_at = ?, updated_at = ?
-           WHERE id = ?`,
-        )
-        .bind(session.id, Date.now(), nextRunAt, Date.now(), routine.id)
+        .prepare('UPDATE routines SET next_run_at = ?, updated_at = ? WHERE id = ?')
+        .bind(nextRunAt, Date.now(), routine.id)
         .run()
 
-      return { routineId: routine.id, sessionId: session.id, status: 'triggered' }
+      const { sessionId, run } = await startRoutineRun(env, routine, { trigger: 'routine' })
+      waitUntil?.(run)
+
+      return { routineId: routine.id, sessionId, status: 'triggered' }
     } catch (err) {
       return {
         routineId: routine.id,
