@@ -231,6 +231,25 @@ if (existsSync(SERVER_WRANGLER)) {
       wranglerConfig.env = hydrateEnvConfig(wranglerConfig, sourceConfig.env)
     }
   }
+  // Inject the Sandbox container and its binding into the production config only:
+  // astro dev refuses to start when a container binding is present (escalation Q-026),
+  // and adding it after env hydration keeps the preview env without containers.
+  // The image path is relative to dist/server/wrangler.json.
+  wranglerConfig.containers = [
+    {
+      class_name: 'AgentSandbox',
+      image: '../../sandbox/Dockerfile',
+      instance_type: 'basic',
+      max_instances: 3,
+    },
+  ]
+  wranglerConfig.durable_objects = {
+    ...(wranglerConfig.durable_objects ?? {}),
+    bindings: [
+      ...((wranglerConfig.durable_objects?.bindings ?? []).filter((b) => b.name !== 'SANDBOX')),
+      { name: 'SANDBOX', class_name: 'AgentSandbox' },
+    ],
+  }
   wranglerConfig.main = '../cron-entry.js'
   wranglerConfig.no_bundle = false
   wranglerConfig.rules = [
