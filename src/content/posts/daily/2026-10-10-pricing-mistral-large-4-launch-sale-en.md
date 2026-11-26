@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale)
+> :globe: [中文版](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale)
 
 ## Summary
 
@@ -70,7 +70,7 @@ The thing worth flagging: the sale price lands Large 4 right between DeepSeek V4
 
 ## Time-Sensitive Notice
 
-⏰ **Promo end date**: Not announced. Neither Mistral Studio's billing page nor OpenRouter's "50% off" tag carries a deadline. Third-party trackers (Artificial Analysis, OpenRouter) that checked in the days after launch likewise found no published end date. Anyone budgeting against this model right now should run the numbers at both the sale price and the standard price.
+:clock: **Promo end date**: Not announced. Neither Mistral Studio's billing page nor OpenRouter's "50% off" tag carries a deadline. Third-party trackers (Artificial Analysis, OpenRouter) that checked in the days after launch likewise found no published end date. Anyone budgeting against this model right now should run the numbers at both the sale price and the standard price.
 
 ## Today's Takeaway
 

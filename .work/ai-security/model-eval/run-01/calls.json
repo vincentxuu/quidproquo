@@ -1,0 +1,431 @@
+[
+  {
+    "label": "hypothesis-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.482,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 23563,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 102,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-clean-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 5.854,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20560,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 27,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-hostile-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 5.55,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20590,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 24,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-0-vulnerable-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.414,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20615,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 44,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-0-vulnerable-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 8.268,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20652,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 79,
+      "reasoning_output_tokens": 18
+    }
+  },
+  {
+    "label": "loop-0-vulnerable-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 8.427,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20689,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 94,
+      "reasoning_output_tokens": 22
+    }
+  },
+  {
+    "label": "loop-0-fixed-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 9.312,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 23606,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 45,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-0-fixed-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 8.193,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20652,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 89,
+      "reasoning_output_tokens": 25
+    }
+  },
+  {
+    "label": "loop-0-fixed-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 9.334,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20678,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 121,
+      "reasoning_output_tokens": 43
+    }
+  },
+  {
+    "label": "loop-0-fixed-v1-3",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.306,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20704,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 73,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "patch-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.144,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20605,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 43,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "hypothesis-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.454,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20572,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 99,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-clean-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.279,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20560,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 27,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-hostile-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 5.775,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20590,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 24,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-1-vulnerable-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.219,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20615,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 56,
+      "reasoning_output_tokens": 13
+    }
+  },
+  {
+    "label": "loop-1-vulnerable-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 8.232,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 23643,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 81,
+      "reasoning_output_tokens": 19
+    }
+  },
+  {
+    "label": "loop-1-vulnerable-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.969,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20689,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 104,
+      "reasoning_output_tokens": 14
+    }
+  },
+  {
+    "label": "loop-1-fixed-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.804,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 23606,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 42,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-1-fixed-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.698,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20652,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 80,
+      "reasoning_output_tokens": 16
+    }
+  },
+  {
+    "label": "loop-1-fixed-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.328,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20678,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 91,
+      "reasoning_output_tokens": 14
+    }
+  },
+  {
+    "label": "loop-1-fixed-v1-3",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.116,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20704,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 72,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "patch-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.011,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20605,
+      "cached_input_tokens": 18816,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 43,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "hypothesis-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.428,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20572,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 96,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-clean-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.301,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20560,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 27,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "injection-hostile-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 5.078,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20590,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 24,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "loop-2-vulnerable-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.419,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20615,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 73,
+      "reasoning_output_tokens": 11
+    }
+  },
+  {
+    "label": "loop-2-vulnerable-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.89,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20652,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 83,
+      "reasoning_output_tokens": 20
+    }
+  },
+  {
+    "label": "loop-2-vulnerable-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 9.419,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 23680,
+      "cached_input_tokens": 23424,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 98,
+      "reasoning_output_tokens": 22
+    }
+  },
+  {
+    "label": "loop-2-fixed-v1-0",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.276,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20615,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 56,
+      "reasoning_output_tokens": 13
+    }
+  },
+  {
+    "label": "loop-2-fixed-v1-1",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 9.563,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20652,
+      "cached_input_tokens": 20480,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 89,
+      "reasoning_output_tokens": 25
+    }
+  },
+  {
+    "label": "loop-2-fixed-v1-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 8.181,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20678,
+      "cached_input_tokens": 0,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 106,
+      "reasoning_output_tokens": 27
+    }
+  },
+  {
+    "label": "loop-2-fixed-v1-3",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 7.412,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20704,
+      "cached_input_tokens": 11904,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 77,
+      "reasoning_output_tokens": 0
+    }
+  },
+  {
+    "label": "patch-2",
+    "requested_model": "gpt-6.1-sol",
+    "seconds": 6.577,
+    "exit": 0,
+    "usage": {
+      "input_tokens": 20605,
+      "cached_input_tokens": 11904,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 43,
+      "reasoning_output_tokens": 0
+    }
+  }
+]

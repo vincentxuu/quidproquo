@@ -13,11 +13,11 @@ description: "Final checkpoint for Harvard CS1810 Spring 2026: the final checkli
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
+> :warning: **Version**: The 2026 final date and weekly topics come from the [course schedule (Google Sheet)](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The final-review materials live in [cs181-web's `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static), and on inspection they are all **2025 versions**: the final review is headed `CS 1810 Spring 2025`, and the other PDFs were generated in May–June 2025. Checked 2026-09-29.
 
 ## TL;DR
 
@@ -134,12 +134,13 @@ Official sources:
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

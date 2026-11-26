@@ -13,7 +13,7 @@ description: "A complete guide to Stanford CS161 Winter 2026 Lecture 16: flows, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-16-max-flow-ford-fulkerson)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
@@ -89,12 +89,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-16-max-flow-and-the-ford-fulkerson-algorithm)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed that the official lecture page links recordings to a Panopto sign-in page and found no public recording of the same term; status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

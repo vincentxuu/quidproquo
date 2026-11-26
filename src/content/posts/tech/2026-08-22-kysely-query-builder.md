@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-kysely-query-builder-en)
+> :globe: [English version](/posts/tech/2026-08-22-kysely-query-builder-en)
 
 [Kysely](https://kysely.dev/docs/intro) 是 TypeScript 的 type-safe SQL query builder。它不要求把資料庫包裝成帶生命週期的 entity，也不假裝 SQL 不存在。你提供資料庫 schema 型別，builder 就在 `select`、`join`、alias 與 expression 間推導參數和結果。
 

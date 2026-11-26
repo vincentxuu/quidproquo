@@ -14,7 +14,7 @@ series:
   order: 6
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-cloudflare-r2-object-storage)
+:globe: [中文版](/posts/tech/2026-03-27-cloudflare-r2-object-storage)
 
 If your app runs on Cloudflare Workers and you need somewhere to store images, S3 works — but you have to manage an AWS account, configure CORS, and keep an eye on egress fees (AWS charges for data transferred out of S3, and those bills can get nasty at scale). R2 solves all of this: S3-compatible API, zero egress fees, running on the Cloudflare network.
 

@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-09-tool-bankmcp-en)
+> :globe: [English version](/posts/daily/2026-09-09-tool-bankmcp-en)
 
 ## 工具資訊
 
@@ -85,11 +85,11 @@ create_watch(type: "single_debit_over", account: "日常", threshold: 10000)
 
 | | BankMCP | 手動對帳單截圖丟給 LLM | 傳統記帳 App（人工輸入） |
 |---|---|---|---|
-| 資料唯讀、不落地保存交易明細 | ✅ | ❌（截圖內容進了對話紀錄） | 視 App 而定 |
-| 銀行密碼只在銀行官網輸入 | ✅ | ❌（帳密可能被要求貼進聊天視窗） | ✅ |
-| 自架、金鑰自己保管 | ✅ | — | ❌（多數是雲端 SaaS） |
-| MCP 原生，Agent 可自主查詢 | ✅ | ❌ | ❌ |
-| 支援背景監控規則 + webhook 通知 | ✅ | ❌ | 部分 |
+| 資料唯讀、不落地保存交易明細 | ✓ | ✗（截圖內容進了對話紀錄） | 視 App 而定 |
+| 銀行密碼只在銀行官網輸入 | ✓ | ✗（帳密可能被要求貼進聊天視窗） | ✓ |
+| 自架、金鑰自己保管 | ✓ | — | ✗（多數是雲端 SaaS） |
+| MCP 原生，Agent 可自主查詢 | ✓ | ✗ | ✗ |
+| 支援背景監控規則 + webhook 通知 | ✓ | ✗ | 部分 |
 
 ## 注意事項
 

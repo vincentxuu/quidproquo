@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-google-cloud-model-armor-en)
+> :globe: [English version](/posts/tech/2026-08-22-google-cloud-model-armor-en)
 
 [Google Cloud Model Armor](https://docs.cloud.google.com/model-armor/overview) 是放在生成式 AI request/response path 的 runtime screening service。Template 可啟用 prompt injection/jailbreak、harmful content、malicious URI、malware 與 Sensitive Data Protection 等 filters，並設定 confidence threshold 與 `INSPECT_ONLY` 或 `INSPECT_AND_BLOCK`。
 

@@ -13,7 +13,7 @@ description: "A guide to Tonai-kabe on Mt. Gozaisho, Mie: the scale of its grani
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-gozaisho)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-gozaisho)
 
 Gozaisho (御在所, ございしょ) refers to Mt. Gozaisho (御在所岳), the main peak of the Suzuka Mountains, in Komono, Mie-gun, Mie Prefecture. It stands 1,212 m high. When climbers say "Gozaisho" they mostly mean Tonai-kabe (藤内壁, とうないかべ), the granite crag on the mountain's north face. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%BE%A1%E5%9C%A8%E6%89%80/) describes it as "藤内壁は御在所岳北面に広がる美しい花崗岩の岩場で、アルパインのゲレンデとして現在も良く登られ" (a beautiful granite crag spread across the north face of Mt. Gozaisho, still well climbed as an alpine training ground).
 

@@ -19,7 +19,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l07-scaling-rules-optimization)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l07-scaling-rules-optimization)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion-en)
+> :globe: [English version](/posts/daily/2026-09-04-security-unit42-ai-agent-orchestrated-intrusion-en)
 
 ## 事件概述
 

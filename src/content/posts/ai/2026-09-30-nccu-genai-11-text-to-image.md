@@ -25,7 +25,7 @@ glossary:
     context: "GenAI11 第 17–40 頁；Euler a、DPM++ 2M Karras、UniPC、DDIM 都是排程器。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-11-text-to-image-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

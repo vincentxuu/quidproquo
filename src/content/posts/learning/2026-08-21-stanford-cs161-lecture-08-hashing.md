@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing-en)
+> :globe: [English version](/posts/learning/2026-08-21-stanford-cs161-lecture-08-hashing-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
@@ -228,12 +228,13 @@ Lecture 9 開始進入 graph algorithms。Adjacency list 中「某 vertex 的 ne
 
 - [官方課程／講次來源](https://stanford-cs161.github.io/winter2026/lectures/#lecture-8-hashing)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方講次頁的錄影連結導向 Panopto 登入頁，查無同期公開錄影，維持原狀態。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

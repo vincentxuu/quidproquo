@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
+> :globe: [中文版](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
 
 ## Model Information
 
@@ -44,7 +44,7 @@ series:
 | Terminal-Bench v2.1 | 80% | 78% | No directly comparable figure provided |
 | τ³-Banking | 27% | 25% | No directly comparable figure provided |
 
-⚠️ AA Intelligence Index and GDPval-AA v2 scores come from independent testing by Artificial Analysis (Meta provided access before the official release). Terminal-Bench v2.1 and τ³-Banking scores are from Meta's official announcement and await independent reproduction.
+:warning: AA Intelligence Index and GDPval-AA v2 scores come from independent testing by Artificial Analysis (Meta provided access before the official release). Terminal-Bench v2.1 and τ³-Banking scores are from Meta's official announcement and await independent reproduction.
 
 ## Comparison with Previous Generation and Competitors
 

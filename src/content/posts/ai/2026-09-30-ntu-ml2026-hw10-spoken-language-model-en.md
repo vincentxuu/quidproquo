@@ -26,7 +26,7 @@ glossary:
     context: "HW10 PDF page 22 defines realtime as short output latency and full-duplex as listening and talking at the same time."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -140,11 +140,9 @@ The options mix in several mechanisms that sound plausible but aren't in the pap
 - **Something to try tonight**: after running the detokenizer cell, change `num_quantizers` from 8 to 2, 4, 16, and 32, listen to the English speech and the music each time, and note the PESQ. You'll hear what "each RVQ layer fills in the residual" means.
 - **Related reading**: to see how a cascade architecture works in a product, the site's [LiveKit Voice Agents](/posts/ai/2026-08-22-livekit-voice-agents-en) breaks down a streaming STT → LLM → TTS pipeline and interruption handling, a useful contrast with Moshi's full-duplex design.
 
-## What this post could and couldn't verify
+## What this post leaves out
 
-Verified: the full text and embedded links of hw10.pdf; the Colab's markdown and code (model IDs, layer sources, UMAP procedure, number of layers used for decoding, audio file list); the release date and TA list on the course page; the titles and uploaders of the TA video and the extra videos (YouTube oEmbed); and the titles and abstracts of the six papers (arXiv API).
-
-Not verified: the TA video has no captions to pull, so this post doesn't transcribe it and any extra hints in it are missing. This post deliberately doesn't say which models Model A and Model B are in the homework repo, because that is the answer to Q2. The PDF gives no weight for Q9. No official answers have been released.
+The TA video has no captions, so any extra hints in it are not included. This post deliberately doesn't say which models Model A and Model B are in the homework repo, because that is the answer to Q2. The PDF gives no weight for Q9. No official answers have been released.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en) | This is the last post in the series
 
@@ -172,6 +170,7 @@ Video transcript: attempted on 2026-10-10, but no transcript could be obtained f
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

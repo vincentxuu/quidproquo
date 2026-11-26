@@ -11,7 +11,7 @@ series:
   order: 46
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-30-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-30-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### paperclip ⭐ 94.5k
+### paperclip ★ 94.5k
 
 [GitHub](https://github.com/paperclipai/paperclip)　·　TypeScript／Node.js　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### Orca ⭐ 81.6k
+### Orca ★ 81.6k
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### Hindsight ⭐ 42.8k
+### Hindsight ★ 42.8k
 
 [GitHub](https://github.com/vectorize-io/hindsight)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### CLI-Anything ⭐ 51k
+### CLI-Anything ★ 51k
 
 [GitHub](https://github.com/HKUDS/CLI-Anything)　·　Python　·　Apache-2.0
 
@@ -63,7 +63,7 @@ series:
 
 ---
 
-### security-audit-skill ⭐ 23.2k
+### security-audit-skill ★ 23.2k
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 

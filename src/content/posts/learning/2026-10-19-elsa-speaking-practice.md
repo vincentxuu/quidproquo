@@ -9,11 +9,11 @@ description: "介紹 ELSA Speak 的發音練習與 AI 對話、Free／Pro／Prem
 tldr: "ELSA 適合把發音問題拆小練習；買之前分清發音課與完整 AI 對話權限，練完再用自己的話和真人確認，別把 App 分數當成口說能力證明。"
 series:
   name: "英文口說練習"
-  order: 10
+  order: 28
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-elsa-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-elsa-speaking-practice-en)
 
 你知道想說什麼，對方卻常問「你剛才說哪個字？」這時，[ELSA Speak](https://tw.elsaspeak.com/elsa-premium/)這類會指出發音問題的 App，可能比再背一份單字表更貼近需要。它以 AI 分析說話，提供發音練習、回饋與情境對話，讓你在下班後自己反覆練。
 

@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-22-tool-cairn-incident-en)
+> :globe: [English version](/posts/daily/2026-08-22-tool-cairn-incident-en)
 
 ## 工具資訊
 
@@ -72,12 +72,12 @@ npx @nouman-amjad/cairn dashboard
 
 | | Cairn | HolmesGPT | 人工排查 |
 |---|---|---|---|
-| 自然語言問診斷 | ✅ | ✅ | — |
-| 修復動作需人核准 | ✅（approval 狀態機） | 需自行接 Slack/PR 流程把關 | ✅（本來就是人做） |
-| 內建成本分流 router | ✅（本機 8B ↔ 前沿模型） | 依你設定的 LLM provider | — |
-| 24/7 背景值守模式 | ❌（目前是問答式） | ✅（Operator mode） | ❌ |
-| 需要 Kubernetes | ❌ | ❌ | — |
-| 評估套件 | ✅（30 情境 + 7 項門檻指標隨附） | 有（150+ 場景比較不同 LLM） | — |
+| 自然語言問診斷 | ✓ | ✓ | — |
+| 修復動作需人核准 | ✓（approval 狀態機） | 需自行接 Slack/PR 流程把關 | ✓（本來就是人做） |
+| 內建成本分流 router | ✓（本機 8B ↔ 前沿模型） | 依你設定的 LLM provider | — |
+| 24/7 背景值守模式 | ✗（目前是問答式） | ✓（Operator mode） | ✗ |
+| 需要 Kubernetes | ✗ | ✗ | — |
+| 評估套件 | ✓（30 情境 + 7 項門檻指標隨附） | 有（150+ 場景比較不同 LLM） | — |
 
 Cairn 更年輕、範圍更聚焦（做好「問答式根因分析 + 核准後執行」這一段），HolmesGPT 生態更成熟、整合面更廣（Slack/Teams/PagerDuty/Jira 都有現成整合）。如果你只是想先在本機評估「LLM 讀 metrics 找根因」這件事準不準,Cairn 的評估套件門檻比較低。
 

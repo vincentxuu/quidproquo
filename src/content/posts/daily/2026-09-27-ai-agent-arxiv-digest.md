@@ -11,7 +11,7 @@ series:
   order: 126
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-27-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -48,17 +48,17 @@ RPMem 用兩階段架構把每次對話 session 編碼成與模型無關的潛�
 | Venue | arXiv preprint(未經同行審查,cs.CL 主分類、cs.AI 跨列) |
 | 引用速度 | Semantic Scholar 查得 citationCount 0;發布於 2026-09-20(v2 於 09-22 修訂),7 天,尚無引用資料 |
 | 機構 | Fudan University + Alibaba(Qwen Business Unit) |
-| 社群反應 | 未見於 HuggingFace Daily Papers;論文聲稱程式碼開源於 github.com/Quark-Medical/rpmem,但本輪查證該連結回傳 404,尚未確認上線 |
+| 社群反應 | 未見於 HuggingFace Daily Papers;論文聲稱程式碼開源於 github.com/Quark-Medical/rpmem,但截稿時該 repo 尚未公開 |
 | 可信度 | 通過 — Table 1 在 3 個基準(PERMA/PersonaMem-v2/PrefEval)、對照 6 種基準方法(Full Context、RAG、Rolling Summary、Mem0、LightMem、SFT、Metis-9B)全部給出具體數字;Table 2 用雙重消融分別驗證「記憶壓縮目標」與「跨 session 整合規則」兩個設計元件;第 7 節 Limitations 明確承認學到的整合策略跨場景遷移未驗證 |
 | 證據成熟度 | 較完整 — 3 基準 × 5 骨幹(Qwen3-4B/8B、Ministral-3-8B、Qwen3.5-9B/35B-A3B)泛化測試,另附部署效率(Table 3:64 次累積 session 後更新僅需 0.043 秒)與通用能力保留測試(Table 4) |
-| 可復現性 | 未提供(目前狀態) — 論文本文聲稱程式碼已釋出於 github.com/Quark-Medical/rpmem,但查證時該 repo 回傳 404,無法確認已公開 |
+| 可復現性 | 未提供(目前狀態) — 論文本文聲稱程式碼已釋出於 github.com/Quark-Medical/rpmem,但截稿時該 repo 尚未公開 |
 | 為什麼選這篇 | 直接 — 直接處理長程 Agent 部署最常遇到的痛點:換底座模型後,累積的記憶能不能繼續用 |
 | 方向新意 | 實質增量 — 現有參數化記憶方法(Doc-to-LoRA、SHINE、MemoryLLM、M+、Metis)都綁定特定骨幹,RPMem 是第一個把記憶解耦到「可換骨幹仍可解碼」的做法 |
 | 今日重要性 | 高 — 生產環境的 Agent 平台經常升級或更換底層模型,這篇直接回答「累積的記憶能不能保留」這個實務問題 |
 | 實務連結 | 明確 — 可與 LangGraph、CrewAI 等現有記憶模組對照,思考記憶層是否該與模型版本解耦 |
 | 編輯信心 | 高 — 但由於程式碼連結目前無法驗證,論述應限定在論文自報的數字,不宣稱「已被外部復現」 |
 | 閱讀建議 | 必讀 — 正在設計長程 Agent 記憶架構、且在意模型可替換性的團隊 |
-| 主要限制 | 論文聲稱開源但截稿時 repo 連結回傳 404;另外學到的跨 session 整合策略,遷移到需求差異很大的新場景時效果如何,作者自陳仍待研究 |
+| 主要限制 | 論文聲稱開源但截稿時 repo 尚未公開;另外學到的跨 session 整合策略,遷移到需求差異很大的新場景時效果如何,作者自陳仍待研究 |
 
 ### 領域背景
 
@@ -72,7 +72,7 @@ RPMem 用兩階段架構把每次對話 session 編碼成與模型無關的潛�
 
 ### 深入要點
 
-- PERMA 基準:RPMem 以 Qwen3-8B 達 85.52%,贏 Metis-9B 5.32 個百分點、贏 Full Context 12.98 個百分點 ⚠️(作者自測,尚待外部復現)
+- PERMA 基準:RPMem 以 Qwen3-8B 達 85.52%,贏 Metis-9B 5.32 個百分點、贏 Full Context 12.98 個百分點 :warning:(作者自測,尚待外部復現)
 - 跨 5 種骨幹泛化:整體比對照組提升 5.95–20.41 個百分點,MMLU/GSM8K/IFEval 通用能力僅下降 1.43–3.81 個百分點
 - 部署效率:累積 64 個 session 後,RPMem 寫入一次記憶只要 0.043 秒,比 rank concatenation 快約 22 倍、比 Mem0 快約 292 倍
 - 消融實驗:記憶壓縮目標從 hard label 換成完整機率分布貢獻 16.45 個百分點,跨 session 整合從固定規則換成學習型閘門再貢獻 31.31 個百分點
@@ -218,7 +218,7 @@ Ruoqi Guo, Yi Liu, Gelei Deng et al.（Griffith University + Nanyang Technologic
 
 - [RPMem: Learning Long-Term Recurrent Parametric Memory Across Sessions for LLM Agents](https://arxiv.org/abs/2609.23466)
 - [RPMem — alphaxiv](https://www.alphaxiv.org/abs/2609.23466)
-- [RPMem — 程式碼(查證時回傳 404)](https://github.com/Quark-Medical/rpmem/tree/main)
+- [RPMem — 程式碼(截稿時尚未公開)](https://github.com/Quark-Medical/rpmem/tree/main)
 - [Beyond Accuracy: How Procedural Traces Shift the Decision Criterion of LLM Overseers](https://arxiv.org/abs/2609.18204)
 - [Beyond Accuracy — alphaxiv](https://www.alphaxiv.org/abs/2609.18204)
 - [Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures](https://arxiv.org/abs/2609.29429)

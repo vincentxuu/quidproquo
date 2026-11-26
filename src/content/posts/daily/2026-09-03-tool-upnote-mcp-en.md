@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-03-tool-upnote-mcp)
+> :globe: [中文版](/posts/daily/2026-09-03-tool-upnote-mcp)
 
 ## Tool Info
 
@@ -84,9 +84,9 @@ Claude picks the right tool on its own — you don't have to name which one to c
 
 | | upnote-mcp | Manual copy-paste into UpNote | Cloud note MCPs (Notion / Evernote style) | UpNote's own URL scheme |
 |---|---|---|---|---|
-| Runs locally, no account or API key | ✅ | ✅ | ❌ (needs account + API key) | ✅ |
-| Can search/summarize existing notes | ✅ | ❌ (fully manual) | ✅ | ❌ (create-only, no read) |
-| Can edit existing notes | ❌ (UpNote's own automation limit) | ✅ | Usually ✅ | ❌ |
+| Runs locally, no account or API key | ✓ | ✓ | ✗ (needs account + API key) | ✓ |
+| Can search/summarize existing notes | ✓ | ✗ (fully manual) | ✓ | ✗ (create-only, no read) |
+| Can edit existing notes | ✗ (UpNote's own automation limit) | ✓ | Usually ✓ | ✗ |
 | Requires MCP client setup | Yes | No | Yes | N/A (not MCP) |
 
 ## Caveats

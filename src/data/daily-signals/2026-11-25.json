@@ -1,0 +1,615 @@
+{
+  "date": "2026-11-25",
+  "generatedAt": "2026-11-25T02:30:00Z",
+  "routineId": "J",
+  "signalCount": 34,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Anthropic launches Claude Ship, letting AI agents review, fix, and approve code changes",
+      "source": "techcrunch",
+      "sourceUrl": "https://techcrunch.com/2026/11/23/anthropic-launches-claude-ship-letting-ai-agents-review-fix-and-approve-code-changes",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Anthropic 推出 Claude Ship，一套自動化 code review、修復與核准的 AI agent 套件，Code Review 已 GA，PR Steward 與 Claude Approvals 進入 beta。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "technology.org"
+      ]
+    },
+    {
+      "id": "sig-002",
+      "title": "GPT-6 Cyber: Advancing the frontier of aligned cybersecurity agents",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/en/index/introducing-gpt-6-cyber",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 發佈 GPT-6 Cyber，在 ExploitGym 等資安 benchmark 上較前代大幅提升，已用於 Linux、Firefox 等真實專案的漏洞挖掘與驗證。",
+      "relevance": 0.9,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-003",
+      "title": "OpenAI and Cisco introduce Shirudo, an open source project to safeguard agentic AI",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/introducing-shirudo/",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 與 Cisco 聯合發起開源專案 Shirudo，目標是防範針對 agentic AI 的攻擊，提供可共用的安全防護元件。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "marketscreener"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "Introducing Muse in the UK: a personal AI agent you control",
+      "source": "meta-newsroom",
+      "sourceUrl": "https://about.fb.com/news/2026/11/introducing-muse-in-the-uk-a-personal-ai-agent-you-control/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 在英國推出個人 AI agent Muse，可代操 email、行程與購物，強調使用者對存取權限與記憶的控制，並將延伸到 Meta 的 AI 眼鏡。",
+      "relevance": 0.9,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "theguardian"
+      ]
+    },
+    {
+      "id": "sig-005",
+      "title": "UK FCA warns AI agents offering financial services could trigger regulation, as Meta launches Muse",
+      "source": "reuters",
+      "sourceUrl": "https://www.reuters.com/business/finance/ai-agents-could-trigger-financial-regulation-tech-firms-uk-watchdog-says-2026-11-24/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "英國金融監管機構 FCA 警告，提供金融服務的 AI agent 可能觸發金融監管，時機正好與 Meta 在英推出 Muse 重疊，要求業者提早與監管機構溝通。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "euronext",
+        "yahoo-news"
+      ]
+    },
+    {
+      "id": "sig-006",
+      "title": "Amazon says hackers' AI agents found and exploited a 0-day with little human input",
+      "source": "arstechnica",
+      "sourceUrl": "https://arstechnica.com/security/2026/11/amazon-says-hackers-ai-agents-found-and-exploited-0-day-with-little-human-input",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Amazon 威脅情報報告指出，攻擊者用開源滲透測試框架 Cairn 的 AI agent，幾乎無人工介入就在一台東亞大學伺服器上發現並利用一個醫學影像 AI 應用的 0-day，取得完整控制權。",
+      "relevance": 0.95,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "mezha.net"
+      ]
+    },
+    {
+      "id": "sig-007",
+      "title": "CVE-2026-44336: PraisonAI MCP tools/call path-traversal leads to RCE via Python .pth injection",
+      "source": "ox-radar",
+      "sourceUrl": "https://ox.security/ox-radar/cve/CVE-2026-44336",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "PraisonAI 的 MCP tools/call 介面存在路徑遍歷漏洞，可透過 Python .pth 注入達成遠端程式碼執行，4.6.34 以前版本受影響。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-008",
+      "title": "CVE-2026-130164: Hermes Agent missing key validation for Bot Desktop screen environment file",
+      "source": "cloudflare-radar",
+      "sourceUrl": "https://radar.cloudflare.com/zero-wire/cves/CVE-2026-130164",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "NousResearch 的 hermes-agent 在非本機終端後端缺少金鑰驗證，影響 0.21.6 以上、0.23.2 以下版本。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-009",
+      "title": "Introducing SWE-2.1: Cognition's major upgrade over SWE-2, trained on Kimi K3",
+      "source": "cognition-blog",
+      "sourceUrl": "https://cognition.com/blog/swe-2-1",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "cognition-devin"
+      ],
+      "section": "B1",
+      "ring": 1,
+      "summary": "Cognition 發布 SWE-2.1，以 Kimi K3 為基礎做純強化學習訓練，在 FrontierCode 2.0、Terminal-Bench 4.1 等 benchmark 上有明顯進步，資安漏洞挖掘與利用能力同步提升。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-010",
+      "title": "Baidu releases ERNIE 5.5 Flash Preview weights under Apache 2.0",
+      "source": "ai-oriens",
+      "sourceUrl": "https://ai-oriens.com/en/news/ernie-5-5-flash-preview-weights",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "baidu"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "百度依先前承諾開源 ERNIE 5.5 Flash Preview 權重（Apache 2.0），含 4-bit 版本，但底層 base model 仍受百度自有授權限制；20 項內部 benchmark 中僅 3 項第一。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "sig-011",
+      "title": "Google DeepMind unveils open-source gBench to assess real-world AI model performance",
+      "source": "digitaltoday",
+      "sourceUrl": "https://digitaltoday.co.kr/en/view/130129/google-deepmind-unveils-open-source-gbench-to-assess-real-world-ai-model-performance",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "Google DeepMind 開源 gBench 評測框架，涵蓋 6 大領域、86 項評測工具，支援 OpenAI 相容 API 與 vLLM/Ollama，可自動啟動本地 vLLM server。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-012",
+      "title": "Ant Group's Ling-3.2-air: 124B open model with 5.5B active parameters targets office work",
+      "source": "i10x",
+      "sourceUrl": "https://i10x.ai/news/ant-ling-3-2-air-open-weights-124b-workflow-automation",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "螞蟻集團發佈 MIT 授權的多模態開源模型 Ling-3.2-air，124B 參數中僅 5.5B 啟用，主打辦公文件與工作流自動化，可單機部署。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-013",
+      "title": "Tencent releases Hy3-FP8, a 295B MoE model rivaling flagship open-source models",
+      "source": "huggingface",
+      "sourceUrl": "https://huggingface.co/tencent/Hy3-FP8",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "騰訊 Hy 團隊發佈 295B 參數（21B 活躍）MoE 模型 Hy3，透過 270 名專家的盲測評估稱優於 GLM-5.1，尤其在前端開發與 CI/CD 任務上表現突出。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-014",
+      "title": "EU AI Act Article 50(2) watermarking deadline set for 2 December 2026",
+      "source": "mean.ceo",
+      "sourceUrl": "https://mean.ceo/tpost/ai-act-watermark-deadline",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "歐盟 AI Act 第 50(2) 條要求生成式 AI 輸出需可機器辨識標記，Digital Omnibus 給予 2026 年 8 月前上市系統到 12 月 2 日的過渡期，僅限標記義務。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "Australian parliamentary inquiry urges legal accountability for AI agents",
+      "source": "afr",
+      "sourceUrl": "https://afr.com/politics/federal/push-to-hold-companies-legally-liable-for-their-ai-agents-20261124-p61gt3",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "澳洲跨黨派國會聯合委員會（JSCAI）提出 46 項建議，要求部署 AI agent 的企業須對其行為負法律責任，並大幅增加 AI Safety Institute 經費。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "dailyaibrief",
+        "nvi.com.au",
+        "news24.com.au"
+      ]
+    },
+    {
+      "id": "sig-016",
+      "title": "Malaysia's AI Governance Bill to introduce incident reporting mechanism",
+      "source": "urgent.news",
+      "sourceUrl": "https://urgent.news/2026/11/24/ai-governance-bill-will-introduce-incident-reporting-mechanism-to",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "馬來西亞《人工智慧治理法案》將建立事件回報機制，協助政府識別新興風險模式並建立對應防護措施。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-017",
+      "title": "India's MeitY drafts consultation paper for sectoral AI regulation",
+      "source": "economictimes",
+      "sourceUrl": "https://economictimes.indiatimes.com/tech/newsletters/morning-dispatch/indias-ai-rules-take-shape-euler-motors-eyes-fresh-funding/articleshow/136117195.cms",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度電子資訊科技部（MeitY）推動去中心化的 AI 法律框架，讓各領域監管機構依安全、技能與風險緩解等原則自訂規則。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-018",
+      "title": "Reversa raises €750K pre-seed to automate regulatory work with AI agents",
+      "source": "reversa",
+      "sourceUrl": "https://reversa.ai/news/reversa-pre-seed-round-itnig",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "西班牙法規科技公司 Reversa 完成由 Itnig 領投的 75 萬歐元 pre-seed，產品用 AI agent 幫企業與公部門處理法規遵循工作。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "globallegalpost",
+        "dealroom"
+      ]
+    },
+    {
+      "id": "sig-019",
+      "title": "Kaszek raises $650M fund to back Latin America's AI startups",
+      "source": "dealroom",
+      "sourceUrl": "https://dealroom.co/news/175348-kaszek-raises-650m-fund-to-back-latin-america-s-ai-startups/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "拉美最大創投 Kaszek 募得 6.5 億美元新基金，含 4000 萬美元用於算力額度、人才招募與法規協助，並與阿根廷、巴西政府合作設立大學 AI 研究中心。",
+      "relevance": 0.65,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "emergent.sh"
+      ]
+    },
+    {
+      "id": "sig-020",
+      "title": "Brazil crime-fighting AI startup Pax expands to three more regions",
+      "source": "usnews",
+      "sourceUrl": "https://www.usnews.com/news/world/articles/2026-11-24/brazil-crime-fighting-ai-startup-pax-expanding-to-three-more-regions",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "巴西警用 AI 工具公司 Pax 取得 4000 萬美元種子輪後，將試點擴展到另外三個地區。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "Dukhan Bank signs agreement with Anthropic to build enterprise AI capability with Claude",
+      "source": "zawya",
+      "sourceUrl": "https://www.zawya.com/en/press-release/companies-news/dukhan-bank-signs-an-agreement-with-anthropic-to-build-enterprise-ai-capability-with-claude-2498818",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "enterprise-deployment",
+      "companies": [
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "卡達 Dukhan Bank 與 Anthropic 簽約，計劃在全行導入 Claude，是中東金融業採用 agentic AI 的又一案例。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "UAE Cabinet targets 50% of government operations to use autonomous agentic AI within two years",
+      "source": "instagram-arabianbusiness",
+      "sourceUrl": "https://www.instagram.com/p/DgHR1g7IYdW/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "unverified",
+      "category": "enterprise-deployment",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "阿聯政府目標兩年內讓 50% 的政府部門、服務與作業導入自主 agentic AI 模型，呼應杜拜同步核准的 City AI Agent。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "Dubai approves City AI Agent as Mira launches",
+      "source": "artificial.ae",
+      "sourceUrl": "https://artificial.ae/daily/2026-11-24",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "杜拜核准市政用 City AI Agent，同日 Mira 平台上線，中東城市治理導入 agentic AI 的又一步。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-024",
+      "title": "Workday to enter Saudi market, waiting on AWS infrastructure",
+      "source": "fastcompanyme",
+      "sourceUrl": "https://fastcompanyme.com/technology/the-ai-revolution-has-a-business-model-problem-workday-thinks-it-knows-the-answer/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "Workday 計劃進入沙烏地市場，待 AWS 當地基礎設施完成後在沙國與 UAE 設點。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Singapore FinTech Festival surfaces debate on how much authority AI agents should hold",
+      "source": "disrupts",
+      "sourceUrl": "https://disrupts.disruptsmedia.com/fintech/singapore-fintech-festival-ai-agent-authority-question",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "新加坡金融科技節第三天的討論聚焦：金融服務中的 AI agent 該被賦予多大自主決策權，是業界目前的監管斷層點。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "台灣群環智行攜手 IBM Bob，推動產業從 AI 走向導入 Agent 行動",
+      "source": "yam",
+      "sourceUrl": "https://n.yam.com/Article/20261124209913",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "ibm"
+      ],
+      "section": "A1",
+      "ring": 3,
+      "summary": "台灣群環智行與 IBM Bob 合作，強調企業導入 AI agent 的重點是直接帶入應用場景，讓 agent 處理任務、企業只管結果。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-027",
+      "title": "Community debate: Africa should help shape AI agent governance standards, not be an afterthought",
+      "source": "instagram",
+      "sourceUrl": "https://www.instagram.com/p/DgIPYEgCHZG/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "unverified",
+      "category": "community-signal",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "上週一場關於「Global South 的 Agentic AI」的討論指出，AI agent 標準制定應納入非洲觀點，而非事後補充。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-028",
+      "title": "Introducing the Amazon Bedrock Trusted Access API with Anthropic's Enterprise Frontier Safeguards",
+      "source": "aws-ml-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/machine-learning/introducing-the-amazon-bedrock-trusted-access-api-with-anthropics-enterprise-frontier-safeguards-and-enterprise-data-controls/",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon",
+        "anthropic"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "AWS 推出 Bedrock Trusted Access API，整合 Anthropic 的企業級前沿安全防護與資料控制機制，強化金融與受監管產業的部署信任。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "AWS Lambda now supports GPU instances for Event Functions on Lambda Managed Instances",
+      "source": "aws-news-blog",
+      "sourceUrl": "https://aws.amazon.com/blogs/aws/aws-lambda-now-supports-gpu-instances-for-event-functions-on-lambda-managed-instances/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "amazon"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "AWS Lambda 新增 GPU 實例支援，讓事件驅動函式可直接跑機器學習推論、媒體處理等負載，由 Lambda 託管生命周期與自動擴展。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "Microsoft Ignite 2026: Azure Catalyst agentic modernization and the new Microsoft IQ context platform",
+      "source": "azure-blog",
+      "sourceUrl": "https://azure.microsoft.com/en-us/blog/introducing-azure-catalyst-agentic-modernization-and-new-ai-infrastructure-innovations/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "微軟在 Ignite 2026 發佈 Azure Catalyst agentic 現代化工具與 Microsoft IQ 企業情境管理平台，讓組織的內部知識能被每個 agent 使用。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "Alibaba Cloud's Qoder cuts cache costs, nearly doubling tasks per credit",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/same-credits-nearly-double-the-tasks-a-technical-breakdown-of-qoders-durability-optimization_603811",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "阿里雲 Qoder 透過模型快取與 session 路由優化，在同樣 Credit 下讓可執行任務量接近翻倍。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-032",
+      "title": "RoboTrack: a new benchmark and models for point tracking in real-world robotic manipulation",
+      "source": "allenai-blog",
+      "sourceUrl": "https://allenai.org/blog/robotrack",
+      "publishedDate": "2026-11-23",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "ai2-allen-institute"
+      ],
+      "section": "",
+      "ring": 2,
+      "summary": "Ai2 推出 RoboTrack，提供點追蹤 benchmark、合成訓練資料集與兩個模型，改善機器人在真實操作任務中的物件追蹤能力。",
+      "relevance": 0.5,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "huggingface"
+      ]
+    },
+    {
+      "id": "sig-033",
+      "title": "Perplexity and Intelligence",
+      "source": "openai-blog",
+      "sourceUrl": "https://openai.com/index/perplexity-and-intelligence/",
+      "publishedDate": "2026-11-22",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "OpenAI 發文討論 Perplexity 與模型智能之間的關係，延伸其對搜尋型 agent 產品定位的看法。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-034",
+      "title": "Prepare market data for forecasting with NVIDIA Megatron Core",
+      "source": "nvidia-developer-blog",
+      "sourceUrl": "https://developer.nvidia.com/blog/prepare-market-data-for-forecasting-with-nvidia-megatron-core/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 2,
+      "summary": "NVIDIA 說明如何用 Megatron Core 處理逐微秒時間戳的市場交易資料，為 AI 市場預測模型做資料前處理。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    }
+  ]
+}

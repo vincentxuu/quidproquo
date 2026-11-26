@@ -20,11 +20,11 @@ glossary:
     context: "The core formula of HW4 Problem 1: softmax(QKᵀ/√dk)V."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/pdf/ipynb`, due 2026-04-03) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), all opened on 2026-09-29. The course as a whole is **A3** (homework, notebooks, sections and section solutions are public), but there are no recordings for the current term, no homework solutions, and Gradescope requires enrollment. The [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) says slides live in a Google Drive folder, but the CSV export carries no links. I did not get the 2026 Transformers lecture slides, so this post makes no claims about what was said in lecture.
+> :warning: **Version and access**: Based on [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) (`hw4_release.tex/pdf/ipynb`, due 2026-04-03) and the [Section 6 notes](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf), all opened on 2026-09-29. The course as a whole is **A3** (homework, notebooks, sections and section solutions are public), but there are no recordings for the current term, no homework solutions, and Gradescope requires enrollment. The [official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) says slides live in a Google Drive folder, but the CSV export carries no links. I did not get the 2026 Transformers lecture slides, so this post makes no claims about what was said in lecture.
 
 This is post 6 of the [Harvard CS181 weekly guide](/posts/tech/2026-08-27-harvard-cs181-overview-en). The previous post is the [midterm checkpoint](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint-en); this one opens HW4, the first assignment after the midterm.
 
@@ -131,12 +131,13 @@ Official sources:
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

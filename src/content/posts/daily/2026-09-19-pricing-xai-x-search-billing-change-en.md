@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change)
+> :globe: [中文版](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change)
 
 ## Summary of Changes
 
@@ -58,7 +58,7 @@ The more interesting part of this change isn't the dollar amount — it's the di
 
 ## Expiration Notice
 
-⏰ **Effective date**: 2026-09-21 12:00 PT. From that point, `x_search` bills under the new model ($5 per 1,000 posts, $10 per 1,000 profiles). `web_search`, `code_execution`, and other tools stay at their existing flat rates.
+:clock: **Effective date**: 2026-09-21 12:00 PT. From that point, `x_search` bills under the new model ($5 per 1,000 posts, $10 per 1,000 profiles). `web_search`, `code_execution`, and other tools stay at their existing flat rates.
 
 ## Takeaway
 

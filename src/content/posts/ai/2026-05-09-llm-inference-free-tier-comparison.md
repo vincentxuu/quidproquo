@@ -14,6 +14,12 @@ draft: false
 
 下面數字都是直接抓官方 pricing 頁交叉比對。查不到的明說「未查到」，不為了補滿表格而瞎掰。
 
+## 工具內免費模型，與免費 API 是兩件事
+
+如果只是想先問問題、整理文字，OpenCode 2 本身就提供在工具裡使用的免費模型。進入 `/models`，選 OpenCode 供應商下的模型，例如 Big Pickle，再到[官方模型表](https://opencode.ai/v2/docs/console/models)確認 Input 與 Output 都是 Free，不必先接 OpenRouter。
+
+這類免費聊天模型要求從 OpenCode 使用。要把 LLM 接進自己的程式，則可另外評估 OpenRouter 的 `:free` 版本或 `openrouter/free`；兩種入口都不代表無限額度。[OpenCode 2 介紹](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent)說明了目前安裝與模型入口。
+
 ## 三梯隊怎麼分
 
 關鍵差別是免費資源**是持續補充還是一次性 / 嚴格上限**：
@@ -122,10 +128,11 @@ Gemini 3 系列原廠管道，120 萬 context 直接給。
 ### (c) 嚴格 rate limit（無大量 token quota）
 
 **[OpenRouter](https://openrouter.ai/)**
-- `:free` 模型 20 RPM；累積 buy <$10 → 50 RPD；buy ≥$10 → **1000 RPD**
-- 不綁卡能用 free 模型（DeepSeek-V3、Llama 3.3 70B、Qwen3 等）
-- 付費直接轉發各家成本，零 markup
-- Catch：`:free` 模型 context 與 throughput 較差、會 fallback、prompt 可能被 provider 收集
+- 選目錄裡仍在提供的 `:free` 版本，確認輸入與輸出價格都是 0；`openrouter/free` 則會從符合能力的免費模型中自動選用。
+- 官方免費版本限制表列為每分鐘 20 次；累積購買 credits 未達 10 時，每日 50 次；達 10 時，每日 1,000 次。實際適用政策與帳號狀態請看 [Limits](https://openrouter.ai/docs/api/reference/limits)。
+- 給 coding agent 使用還要確認支援 `tools`。不是每個模型都有免費版，可用名單也可能變動。
+- 一個 agent 任務可能發出多次模型請求，每日請求上限不等於每日任務數。額度或容量用完就等待，或試其他免費模型。
+- 付費推論價格與購買額度的費用分開看，付費前請看 [Pricing](https://openrouter.ai/pricing)；選模型與路由方式見 [OpenRouter 介紹](/posts/ai/2026-08-22-openrouter-model-routing)。
 
 **[GitHub Models](https://github.com/marketplace/models)**
 - Copilot Free/Pro：Low 模型 15 RPM / 150 RPD；High 模型 10 RPM / 50 RPD；Embedding 15 RPM / 150 RPD；多數 8K input / 4K output 上限
@@ -316,7 +323,17 @@ OpenRouter `:free` + HF Inference Providers PRO + Vercel AI Gateway $5/月，是
 
 ---
 
+從安裝、找免費模型到第一次生活提問，可以接著看[免費 LLM 入門教學：OpenCode 2 與 OpenRouter](/posts/ai/2026-11-01-free-llm-opencode2-openrouter)。
+
+## 更新紀錄
+
+- 2026-11-01：更新 OpenRouter 條目，補上 OpenCode 2 工具內免費模型與外部 API 的差異；其他服務商維持各節既有資料。
+
 ## 參考資料
+
+- [OpenCode 2 Console models](https://opencode.ai/v2/docs/console/models)
+- [OpenRouter Free Models Router](https://openrouter.ai/docs/guides/routing/routers/free-router)
+- [OpenRouter Free Variant](https://openrouter.ai/docs/guides/routing/model-variants/free)
 
 - [Cerebras Inference Rate Limits](https://inference-docs.cerebras.ai/support/rate-limits)
 - [Cerebras Inference Pricing](https://inference-docs.cerebras.ai/support/pricing)
@@ -325,7 +342,7 @@ OpenRouter `:free` + HF Inference Providers PRO + Vercel AI Gateway $5/月，是
 - [Cloudflare Workers AI Pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Google Gemini API Pricing](https://ai.google.dev/pricing)
 - [Google Gemini API Rate Limits](https://ai.google.dev/gemini-api/docs/rate-limits)
-- [OpenRouter API Limits](https://openrouter.ai/docs/api-reference/limits)
+- [OpenRouter API Limits](https://openrouter.ai/docs/api/reference/limits)
 - [GitHub Models Prototyping Limits](https://docs.github.com/en/github-models/use-github-models/prototyping-with-ai-models)
 - [Hugging Face Inference Providers Pricing](https://huggingface.co/docs/inference-providers/pricing)
 - [Vercel AI Gateway Pricing](https://vercel.com/docs/ai-gateway/pricing)

@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-23-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -59,7 +59,7 @@ Progress in tool-use capability has mostly come from post-training — SFT and R
 ### Key Details
 
 - MidTool-Mix: 20.3B-token mid-training corpus mixing web, PDF, code, and synthesized agentic trajectories
-- On Qwen3-4B-Base / Qwen3-8B-Base, MidTool mid-training + SFT/RL post-training consistently outperforms baselines without mid-training on BFCL, τ²-Bench, and MCP Universe ⚠️(author-tested, same-source comparison, pending external replication)
+- On Qwen3-4B-Base / Qwen3-8B-Base, MidTool mid-training + SFT/RL post-training consistently outperforms baselines without mid-training on BFCL, τ²-Bench, and MCP Universe :warning:(author-tested, same-source comparison, pending external replication)
 - On MCP-Universe, mid-trained 4B/8B models surpass officially released Qwen3 models
 - Data and models are released (Hugging Face collection: MidTool/midtool-release)
 - Barrier to adoption: building a 20.3B-token corpus and running mid-training requires substantial compute — smaller teams may find it hard to replicate the full pipeline, but the "web+PDF+code+synthetic" data composition approach can be adapted at smaller scale
@@ -103,7 +103,7 @@ More and more agent systems let agents generalize skills from completed tasks, s
 
 ### Key Details
 
-- Task-level skills on average pull agent performance below the no-memory baseline; sub-task-level skills on average raise performance above baseline ⚠️(author-tested, averages with per-task variance)
+- Task-level skills on average pull agent performance below the no-memory baseline; sub-task-level skills on average raise performance above baseline :warning:(author-tested, averages with per-task variance)
 - Text-format skills systematically outperform code-format skills in transfer
 - Skill utility score = combined effect of specificity and abstractness; neither alone predicts transfer success
 - Sub-task-level + text-format skills systematically score higher on utility
@@ -149,7 +149,7 @@ Loading reusable skill documents into a limited context window is now the primar
 
 ### Key Details
 
-- On a contamination-controlled BigCodeBench variant, BPS achieves 0.73 task success rate vs. 0.20–0.52 from published skill routers, text retrievers, and executor-embedded selection mechanisms ⚠️(author-tested, single benchmark, pending external replication and broader validation)
+- On a contamination-controlled BigCodeBench variant, BPS achieves 0.73 task success rate vs. 0.20–0.52 from published skill routers, text retrievers, and executor-embedded selection mechanisms :warning:(author-tested, single benchmark, pending external replication and broader validation)
 - BPS achieves the above using ~72% of the tokens of the strongest baseline router (28% savings)
 - Background data: as skill libraries grow, misselection can drop pass rates by up to 21%; on 13 of 87 benchmark tasks, selecting skills actually performs worse than using no skills at all (these figures are cited from prior work, not from this paper's experiments)
 - BPS's core assumption is that the utility function is monotone submodular — whether this holds across all real-world skill libraries is not individually verified

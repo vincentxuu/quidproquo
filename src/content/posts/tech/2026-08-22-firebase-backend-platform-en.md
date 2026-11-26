@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-firebase-backend-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-firebase-backend-platform)
 
 [Firebase](https://firebase.google.com/docs) is not one database. Google's app-backend suite includes Authentication, Cloud Firestore, Realtime Database, Cloud Storage, Cloud Functions, Hosting, Cloud Messaging, App Check, Analytics, and Remote Config. It gives mobile and web clients rapid identity and realtime data while coupling architecture to several product contracts.
 
@@ -22,6 +22,8 @@ draft: false
 Cloud Firestore centers on collections, documents, indexed queries, and snapshot listeners. Realtime Database is one JSON tree suited to presence and simple synchronized state. “Realtime” alone is not a reason to mix them; choose from query patterns, transactions, offline behavior, placement, and billing units.
 
 Firestore requires indexes and often denormalizes data around reads. Listener updates, fan-out reads, and retries increase operations, so model costs with realistic documents, subscriptions, and traffic rather than stored gigabytes alone. Cross-document invariants need transactions, batched writes, or a trusted backend.
+
+For relational data Firebase now has a third option: [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect), renamed from Data Connect in 2026-04. It runs on Cloud SQL for PostgreSQL, defines the schema and pre-deployed queries and mutations in GraphQL, and generates type-safe client SDKs; the [rename](https://firebase.blog/posts/2026/04/whats-new-sql-connect/) also added realtime query updates, offline caching, and native SQL. Authorization does not use Security Rules; Firebase Auth conditions attach to the predefined operations, and clients cannot send arbitrary SQL.
 
 ## Security Rules authorize the public API
 
@@ -35,9 +37,16 @@ Cloud Functions handles HTTP and callable requests plus Auth, Firestore, Storage
 
 The [Local Emulator Suite](https://firebase.google.com/docs/emulator-suite) tests Auth, Firestore, Rules, and Functions together. Cover allows and denials, roles and tenants, and attacker-crafted queries and writes. Production limits, latency, IAM, and some product behavior still differ.
 
-Firebase fits mobile-first products, realtime and offline clients, push messaging, and prototypes that accept Google's managed ecosystem. Compare Supabase or Nhost for SQL, joins, and RLS; Convex for function-first reactive backends; Appwrite or PocketBase for more hosting control. Before launch test rule coverage, billing alerts, index migrations, export and restore, regional failure, and project isolation.
+Firebase fits mobile-first products, realtime and offline clients, push messaging, and prototypes that accept Google's managed ecosystem. When you need SQL and joins, first check whether SQL Connect is enough; compare Supabase or Nhost when you want to write SQL directly and use RLS and PostgreSQL tooling; Convex for function-first reactive backends; Appwrite or PocketBase for more hosting control. Before launch test rule coverage, billing alerts, index migrations, export and restore, regional failure, and project isolation.
+
+## Update history
+
+- 2026-11-23: Added Firebase SQL Connect (formerly Data Connect, on Cloud SQL for PostgreSQL) and the realtime updates, offline cache, and native SQL added in 2026-04, and redrew the boundary with Supabase and Nhost.
 
 ## References
+
+- [Firebase SQL Connect](https://firebase.google.com/docs/sql-connect)
+- [Realtime PostgreSQL: From Data Connect to SQL Connect](https://firebase.blog/posts/2026/04/whats-new-sql-connect/)
 
 - [Firebase documentation](https://firebase.google.com/docs)
 - [Cloud Firestore data model](https://firebase.google.com/docs/firestore/data-model)

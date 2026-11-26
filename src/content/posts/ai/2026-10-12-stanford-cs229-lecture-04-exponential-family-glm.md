@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-04-exponential-family-glm-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 4 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 3 章與第 2.3 節；沒看到板書與投影片畫面，講者用手指著講的地方靠前後文與講義還原。
 

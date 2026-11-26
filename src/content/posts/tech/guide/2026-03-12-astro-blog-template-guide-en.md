@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [中文版](/posts/tech/guide/2026-03-12-astro-blog-template-guide)
+:globe: [中文版](/posts/tech/guide/2026-03-12-astro-blog-template-guide)
 
 ## TL;DR
 
@@ -31,7 +31,7 @@ So before switching templates, there's one question you need to answer: **What p
 
 ### Just Writing Posts, Want Easy Maintenance
 
-Go with [AstroPaper](https://github.com/satnaing/astro-paper) (⭐ 4200+).
+Go with [AstroPaper](https://github.com/satnaing/astro-paper) (★ 4200+).
 
 The tradeoff here is precision over breadth. Dark mode, fuzzy search (Fuse.js), RSS, sitemap — it covers the essentials without bloat. The biggest advantage is **clear structure** — each component does one thing, there are no weird abstraction layers, and you can find and change what you need directly. The downside is a fairly fixed layout; differentiating the visual design requires touching more files.
 
@@ -43,7 +43,7 @@ It comes with [Pagefind](https://pagefind.app/) full-text search built in, which
 
 ### Website + Blog Hybrid
 
-Go with [AstroWind](https://github.com/onwidget/astrowind) (⭐ 5400+).
+Go with [AstroWind](https://github.com/onwidget/astrowind) (★ 5400+).
 
 Landing page, feature sections, pricing, FAQ, blog — the full suite, with a PageSpeed score of 100. The tradeoff: this template was designed for "company site + blog," so using it as a pure blog is overkill. That said, each page is an independent component, so stripping out the parts you don't need isn't difficult, and if you ever need product pages you can expand in place.
 

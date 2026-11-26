@@ -13,7 +13,7 @@ description: "小川山（Ogawayama）岩場介紹：岩質與規模、各來源
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-ogawayama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-ogawayama-en)
 
 小川山（おがわやま，Ogawayama）在長野縣南佐久郡川上村，是一大片散在溪谷裡的花崗岩岩峰。[ROCKTOPO](https://www.rocktopo.net/areas/4) 在這區登錄 1,055 條路線，抱石另外拆成[小川山ボルダー](https://www.rocktopo.net/areas/240)一頁、611 題。Mountain Project 頁面的標題是「Japan's Yosemite that gave birth to free climbing in Japan」（[Mountain Project](https://www.mountainproject.com/area/107002294/ogawayama)），營地官網也寫它「『日本のヨセミテ』とも呼ばれる」（[廻り目平營地](https://mawarime-daira.com/activity/)）。
 

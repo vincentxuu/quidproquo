@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-azure-container-apps-en)
+> :globe: [English version](/posts/tech/2026-08-22-azure-container-apps-en)
 
 [Azure Container Apps](https://learn.microsoft.com/azure/container-apps/overview) 是不直接暴露 Kubernetes control plane 的 serverless container 平台。它支援 HTTP/TCP ingress、background app、event/schedule/on-demand jobs、revision、traffic split、Dapr 與 KEDA scaling，適合想用 container 與微服務能力、卻不想營運 AKS 的團隊。
 

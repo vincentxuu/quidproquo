@@ -11,7 +11,7 @@ series:
   order: 57
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-security-mcp-filesystem-capability-laundering-en)
+> :globe: [English version](/posts/daily/2026-10-18-security-mcp-filesystem-capability-laundering-en)
 
 ## 事件概述
 

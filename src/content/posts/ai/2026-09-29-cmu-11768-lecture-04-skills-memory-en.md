@@ -24,7 +24,7 @@ glossary:
     context: "Most memory methods in this post start from trajectories and then decide how much detail to keep."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-04-skills-memory)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -343,7 +343,7 @@ The closing slide (not covered in the recording) lays out four tensions: exact e
 
 ## Further reading
 
-- [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en)
+- [Reading Stanford CS329Z Lecture 6: ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 7: MemGPT](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en)
 - [The Skill Management Revolution for LLM Agents: From Voyager to MUSE-Autoskill](/posts/ai/2026-06-06-llm-agent-skill-lifecycle-en)
 - [Memory and Skills in Hermes Agent](/posts/ai/2026-08-18-hermes-agent-memory-skills-en)
 - [Agent Memory Systems: From RAG to Read-Write Memory](/posts/ai/2026-03-19-agent-memory-systems-en)

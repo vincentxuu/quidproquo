@@ -10,7 +10,7 @@ description: "A critical reading of Anthropic's Founder's Playbook: the four-sta
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-18-anthropic-founders-playbook)
+> :globe: [中文版](/posts/ai/2026-05-18-anthropic-founders-playbook)
 
 Anthropic released a 35-page eBook on 2026-05-14 titled *The Founder's Playbook: Building an AI-Native Startup*, reorganizing the traditional startup four stages (Idea -> MVP -> Launch -> Scale) around 2026's agentic AI capabilities. This document doubles as a sales piece for Chat / Cowork / Claude Code / Claude Security -- it's part of the same downmarket campaign as Claude for Small Business (launched 5/13). The document is worth reading, but it contains one recommendation that directly contradicts Anthropic's own safety documentation -- follow it and you'll face an enforcement action before your first enterprise contract.
 

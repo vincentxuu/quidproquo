@@ -25,7 +25,7 @@ glossary:
     context: "JMGA 報名文件要求外國人附在留卡影本。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-asia-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-asia-en)
 
 [IFMGA](https://ifmga.net/member-associations/member-associations) 在亞洲的會員只有三個：日本、尼泊爾、吉爾吉斯。喬治亞在歐亞交界，也放進這篇。台灣、韓國、中國都不是會員，也沒有候選協會。
 

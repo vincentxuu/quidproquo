@@ -25,7 +25,7 @@ glossary:
     context: "MIT 6.S184 notes Example 35; with [mask] as the noise, it becomes a masked diffusion language model (Example 39)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-05-discrete-diffusion)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

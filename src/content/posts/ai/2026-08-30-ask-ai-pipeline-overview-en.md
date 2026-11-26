@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-pipeline-overview)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-pipeline-overview)
 
 > **Optional companion reading:** Beginners can read this article directly. For background concepts, pair it with [Three Generations of RAG: From Naive to Modular](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution-en) and [Modular RAG Pipeline: Designing RAG as a Composable DAG](/posts/ai/2026-03-12-modular-rag-pipeline-architecture-en).
 

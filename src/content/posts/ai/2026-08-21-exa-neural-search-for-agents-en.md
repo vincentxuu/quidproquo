@@ -5,15 +5,15 @@ category: ai
 type: deep-dive
 tags: [exa, web-search, ai-agent, mcp, neural-search, developer-tools]
 lang: en
-tldr: "Exa turns every indexed web page into an embedding and retrieves by vector similarity instead of keyword matching. Official pricing as checked on 2026-08-21: $7 / 1k requests for /search (first 10 results included), $1 / 1k pages for /contents, $12–15 / 1k for the deep tiers, with $20 in free credits for new accounts. This blog's CLAUDE.md puts Exa first among cloud fetch tools, 16 of its 38 skills reference it directly, and only four existing posts mention it in passing — with zero dedicated posts. This is that post."
-description: "A deep dive on the Exa search API: how neural retrieval differs mechanically from keyword search, the embedding index and in-house vector database, why agent workflows need a different shape of search, pricing and latency tiers verified 2026-08-21, plus the real limits — no self-hosting, per-request billing, and vendor-reported numbers."
+tldr: "Exa turns every indexed web page into an embedding and retrieves by vector similarity instead of keyword matching. Official pricing as of 2026-11: $7 / 1k requests for /search `auto` and $4 / 1k for the `lite` type added in 2026-10 (first 10 results included), $1 / 1k pages for /contents, $12–15 / 1k for the deep tiers; the free balance resets to $10 on the first of each month. This blog's CLAUDE.md puts Exa first among cloud fetch tools, 16 of its 38 skills reference it directly, and only four existing posts mention it in passing — with zero dedicated posts. This is that post."
+description: "A deep dive on the Exa search API: how neural retrieval differs mechanically from keyword search, the embedding index and in-house vector database, why agent workflows need a different shape of search, pricing and search-type tiers as of 2026-11, plus the real limits — no self-hosting, per-request billing, and vendor-reported numbers."
 series:
   name: "Technology Choices in the AI Era"
   order: 12
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-exa-neural-search-for-agents)
+:globe: [中文版](/posts/ai/2026-08-21-exa-neural-search-for-agents)
 
 The first eleven posts in this series covered things other people use that I did not. This one inverts that. This blog's `CLAUDE.md` carries an explicit rule about web-fetch priority: `stealth_fetch` first, then `mcp__claude_ai_Exa__*`, then Tavily / linkup / jina, and only then the built-in `WebFetch`. Sixteen of the 38 skills in this repo reference exa directly in their instructions, while only four existing posts mention it in passing — across zero dedicated articles. Every primary source in this post was pulled with Exa's own `web_fetch_exa` after Firecrawl ran out of credits mid-research. Used daily, never written about. So let's write about it.
 
@@ -47,7 +47,7 @@ On the serving side they wrote their own vector database. The [2024-12 engineeri
 
 Note that this describes the system as of late 2024. [Exa 2.0 (2025-10)](https://exa.ai/blog/exa-api-2-0) says the vector database got new clustering algorithms and lexical compression, and the embedding model was retrained for over a month on 144 H200s. Read those numbers as "this is the shape of their approach," not "these are today's parameters."
 
-One more thing: the current docs **no longer expose `neural` or `keyword` as selectable types**. `type` now controls latency and depth (`auto` / `fast` / `instant` / `deep-lite` / `deep` / `deep-reasoning`), with a single note that "some older docs and payloads still use legacy search-type names." Plenty of tutorials online still teach `type="neural"`; copying them will fail.
+One more thing: the current docs **no longer expose `neural` or `keyword` as selectable types**. `type` now controls cost, latency, and depth. Since [Exa 3.0](https://exa.ai/blog/exa-3) on 2026-10-19 the recommended types are `lite` / `auto` / `deep` (plus `deep-lite`); `instant`, `fast`, and `deep-reasoning` are now legacy — still callable, at unchanged prices. Plenty of tutorials online still teach `type="neural"`; copying them will fail.
 
 ## Agents Need a Different Shape of Search Than People Do
 
@@ -57,24 +57,26 @@ An agent using a search engine puts the results straight into a context window. 
 
 **First, token efficiency.** The docs recommend `highlights` over full text for agent workflows, claiming a 10x token reduction with no added latency — highlights chunk the page and pick the passages matching your query. The change is small: `{"contents": {"highlights": true}}`, switching to `text` with a `maxCharacters` cap only when you genuinely need the whole page.
 
-**Second, latency tiers.** The docs list `instant` at roughly 250 ms, `fast` at roughly 450 ms, `auto` at about a second, and the deep tiers from 4 to 40 seconds. Those are documented figures; this site has not benchmarked them. The point of tiers is that different nodes in one agent should use different ones — `instant` for grounding mid-conversation, `deep` for the research pass before writing a report.
+**Second, cost and latency tiers.** The current pricing page lists latency only for the deep tiers: `deep-lite` around 4 seconds, `deep` 4–15 seconds, `deep-reasoning` 12–40 seconds. Regular search splits into `lite` ($4 / 1k, same index as `auto` but less retrieval compute) and `auto` ($7 / 1k). Those are official figures; this site has not benchmarked them. The point of tiers is that different nodes in one agent should use different ones — `lite` for high-frequency, cost-sensitive grounding mid-conversation, `auto` for ordinary queries, `deep` for the research pass before writing a report.
 
 **Third, control over freshness and shape.** `maxAgeHours` decides whether to livecrawl: `24` recrawls anything cached longer than a day, `0` always livecrawls, `-1` serves cache only. `outputSchema` makes it return the JSON you want (max nesting depth 2, max 10 total properties), and `category` restricts search to `company` / `people` / `publication` / `news` / `personal site` / `financial report`. One easy mistake: `includeDomains` already accepts path prefixes (`exa.ai/blog`) and subdomain wildcards (`*.substack.com`), and the docs explicitly say not to duplicate that with a `site:` operator in the query.
 
-## What It Costs (Verified 2026-08-21)
+## What It Costs (as of 2026-11)
 
-Pricing is the fastest thing to go stale. Everything below was read from [exa.ai/pricing](https://exa.ai/pricing) on 2026-08-21. There is no subscription and no minimum spend — you load credits and get charged per request.
+Pricing is the fastest thing to go stale. Everything below comes from [exa.ai/pricing](https://exa.ai/pricing?tab=api) as of 2026-11. There is no subscription and no minimum spend — you load credits and get charged per request.
 
 | Endpoint | Base price (up to 10 results) | Each result above 10 | AI page summaries |
 |---|---|---|---|
-| `/search` | $7 / 1k requests | $1 / 1k results | $1 / 1k pages |
+| `/search` (`lite`) | $4 / 1k requests | $1 / 1k results | — |
+| `/search` (`auto`; legacy `fast`) | $7 / 1k requests | $1 / 1k results | $1 / 1k pages |
+| `/search` (legacy `instant`) | $4 / 1k requests | $1 / 1k results | $1 / 1k pages |
 | `/answer` | $5 / 1k requests | — | — |
-| `/monitors` | $15 / 1k requests | $1 / 1k results | $1 / 1k pages |
+| `/monitors` | $2 / 1k requests | $1 / 1k results | $1 / 1k pages |
 | `/contents` | $1 / 1k pages, per content type | — | $1 / 1k pages |
 
-The deep tiers price separately: `deep-lite` and `deep` are both $12 / 1k requests, `deep-reasoning` is $15 / 1k. The Agent API lets you fix an `effort` level for a predictable per-request price, from $0.012 (`minimal`) to $1.00 (`xhigh`); `auto` meters actual usage against a $5 default cap per run.
+The deep tiers price separately: `deep-lite` and `deep` are both $12 / 1k requests, `deep-reasoning` (legacy) is $15 / 1k. The Agent API lets you fix an `effort` level for a predictable per-request price, from $0.012 (`minimal`) to $1.00 (`xhigh`); `auto` meters actual usage against a $5 default cap per run.
 
-Free allowance: new accounts get $20 (which Exa converts to roughly 2,800 searches), and the Free Tier adds $10 in credits monthly. The MCP path is looser still — `https://mcp.exa.ai/mcp` works without a key, returns 429 when you exhaust the free rate limit, and that is when you add `x-api-key` to the headers.
+Free allowance: the Free Tier gives $10 on the day you sign up (up to 2,500 `lite` searches by Exa's count) and resets the free balance to $10 on the first of every month, with no payment method required; completing onboarding in the dashboard adds a one-time $10. The MCP path is looser still — `https://mcp.exa.ai/mcp` works without a key, returns 429 when you exhaust the free rate limit, and that is when you add `x-api-key` to the headers.
 
 One billing detail worth remembering: "per content type" on `/contents` means one page requested with both `text` and `highlights` bills as two pages. Also, pulling contents through `/search` is **free for the first 10 results** — the docs themselves recommend using `/search` with contents for search-shaped use cases rather than searching first and calling `/contents` separately.
 
@@ -127,14 +129,19 @@ The flip side: if your queries are genuinely keyword-shaped — a specific error
 
 Exa is betting on a specific premise: the primary user of search is shifting from humans to agents, and agents want something different — not ten links to choose from, but precise data that fits a token budget, with controllable freshness and a specifiable return shape. That bet shows up in every corner of the API, from `highlights` to `outputSchema` to `maxAgeHours`.
 
-As a selection call: if your agent mostly does research, comparison, or finding the thing you can describe but cannot name, Exa is the most direct next step, and $20 of free credit is enough to judge it against your own query mix in an afternoon. If you need self-hosting, pure keyword lookup, or high-frequency calls squeezed to the last cent, this is not your tool.
+As a selection call: if your agent mostly does research, comparison, or finding the thing you can describe but cannot name, Exa is the most direct next step, and the monthly $10 of free credit is enough to judge it against your own query mix in an afternoon. If you need self-hosting, pure keyword lookup, or high-frequency calls squeezed to the last cent, this is not your tool.
 
 And if you are like this site — using it mostly as the thing that can actually fetch a page, rather than as a search engine — that is entirely reasonable too. Just remember that what you are paying for is something else.
+
+## Update Log
+
+- 2026-11-23: Exa 3.0 (2026-10-19) added the `lite` search type ($4 / 1k) and moved `instant`, `fast`, and `deep-reasoning` to legacy; `/monitors` dropped from $15 to $2 / 1k; the free allowance is now a $10 balance reset on the first of each month (plus a one-time $10 onboarding bonus), replacing the old $20 for new accounts; latency tiers now follow the current pricing page.
 
 ## References
 
 - [Exa official site](https://exa.ai/)
-- [Exa Pricing (verified 2026-08-21)](https://exa.ai/pricing)
+- [Exa Pricing](https://exa.ai/pricing?tab=api)
+- [Introducing Exa 3.0 (Exa Blog, 2026-10-19)](https://exa.ai/blog/exa-3)
 - [Exa docs index, llms.txt](https://exa.ai/docs/llms.txt)
 - [Exa Search API guide](https://exa.ai/docs/reference/search-api-guide)
 - [Exa Search best practices (parameters and search types)](https://exa.ai/docs/reference/search-best-practices)

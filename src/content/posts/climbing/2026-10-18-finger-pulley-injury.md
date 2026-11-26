@@ -26,7 +26,7 @@ glossary:
     context: "受傷手指的研究顯示它能減少弓弦；預防用途沒有證據支持。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-finger-pulley-injury-en)
+> :globe: [English version](/posts/climbing/2026-10-18-finger-pulley-injury-en)
 
 你在岩館抓一顆很小的 crimp，腳一滑，手指根部「啪」一聲。可能當下就痛，也可能還能爬完這條，回家才腫起來。
 

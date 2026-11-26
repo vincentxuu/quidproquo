@@ -13,7 +13,7 @@ description: "巴勒摩（Palermo）岩場介紹：Monte Pellegrino 各岩區與
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-palermo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-palermo-en)
 
 巴勒摩（Palermo）是西西里的首府，城北有兩座石灰岩山。Monte Pellegrino 就在市區裡，往 Mondello 海灘的路上一路都是岩壁；再往北，Monte Gallo 從海面直接拔起，伸成 Capo Gallo 岬角。[Mountain Project](https://www.mountainproject.com/area/107611547/palermo-area) 說 Pellegrino 是「the most important rock climbing area in southern Italy」，Gallo 則是「similar to the Dolomites」。
 

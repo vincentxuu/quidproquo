@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-native-mcp-authorization-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-native-mcp-authorization-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-context-compaction)處理長 session 的 context 壓力。接下來要把外部 capability 接進 coding agent 的 native loop：[Looplane](https://github.com/vincentxuu/looplane) 支援 MCP，但專案裡出現 `.mcp.json`，不代表裡面的 command 會立刻執行。
 

@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-26-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -113,13 +113,13 @@ Today's GitHub Digest covers OpenHuman (local-first personal memory brain, early
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-github-digest-en)
-- 📄 [Model Card | Wan3.0](/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
-- 📄 [Security Alert | NVIDIA NemoClaw DNS Rebinding Model Poisoning](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
-- 📄 [Framework Update | Haystack 3.1.0](/posts/daily/2026-08-26-framework-haystack-3.1.0-en)
-- 📄 [Funding Brief | Stability AI Series B $76M](/posts/daily/2026-08-26-funding-stability-ai-en)
-- 📄 [Tool Pick | agent-manager](/posts/daily/2026-08-26-tool-agent-manager-en)
+- :file: [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-github-digest-en)
+- :file: [Model Card | Wan3.0](/posts/daily/2026-08-26-model-alibaba-wan3-0-en)
+- :file: [Security Alert | NVIDIA NemoClaw DNS Rebinding Model Poisoning](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning-en)
+- :file: [Framework Update | Haystack 3.1.0](/posts/daily/2026-08-26-framework-haystack-3.1.0-en)
+- :file: [Funding Brief | Stability AI Series B $76M](/posts/daily/2026-08-26-funding-stability-ai-en)
+- :file: [Tool Pick | agent-manager](/posts/daily/2026-08-26-tool-agent-manager-en)
 
 ## Tomorrow's Watch
 

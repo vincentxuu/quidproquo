@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut-en)
+> :globe: [English version](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut-en)
 
 ## 變更摘要
 
@@ -68,7 +68,7 @@ series:
 
 ## 時效提醒
 
-⏰ **促銷到期日**：OpenAI 官方註明「至少到 2026-11-21」（8/21 起算約三個月），屆時 Sol 標準價可能回到 $5.00/$30.00，或延長促銷——目前官方頁面只承諾下限日期，沒有承諾到期後的確切走向，建議 11 月前重新確認。
+:clock: **促銷到期日**：OpenAI 官方註明「至少到 2026-11-21」（8/21 起算約三個月），屆時 Sol 標準價可能回到 $5.00/$30.00，或延長促銷——目前官方頁面只承諾下限日期，沒有承諾到期後的確切走向，建議 11 月前重新確認。
 
 ## 今日收穫
 

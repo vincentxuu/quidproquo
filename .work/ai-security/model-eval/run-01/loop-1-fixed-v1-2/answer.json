@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "S-1",
+  "verdict": "inconclusive",
+  "reason": "N-1 confirms normal access; N-2 returns 403, confirming same-tenant owner enforcement for that request. Use the final request on S-1 to test cross-tenant access; its exact response is required for a verdict."
+}

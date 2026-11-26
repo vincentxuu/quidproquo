@@ -9,11 +9,11 @@ description: "A Taiwan-focused guide to Tandem language exchange, reciprocal pra
 tldr: "Tandem suits learners willing to help someone practice Chinese and spend time finding partners. Agree on goals, availability, and reciprocity before buying calling or discovery tools."
 series:
   name: "English Speaking Practice"
-  order: 13
+  order: 31
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-tandem-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-tandem-speaking-practice)
 
 You want someone to speak English with, without necessarily taking a lesson every time. If you are also willing to help that person practice Chinese, [Tandem](https://tandem.net/) can help you find a language-exchange partner. Each person offers a language they know in return for practice in another.
 

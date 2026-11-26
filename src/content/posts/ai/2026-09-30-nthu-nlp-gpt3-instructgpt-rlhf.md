@@ -29,7 +29,7 @@ glossary:
     context: "投影片把它列為 Llama-2 和 InstructGPT 的差異之一，用來加速推論。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-gpt3-instructgpt-rlhf-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

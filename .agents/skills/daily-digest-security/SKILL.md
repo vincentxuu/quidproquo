@@ -27,10 +27,11 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B7") 
 # Step 6: 依「輸出格式」撰寫警報
 # Step 7: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
+# E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -133,7 +134,7 @@ web_fetch url: "https://incidentdatabase.ai/"
 - 新聞報導（The Hacker News、BleepingComputer）
 - CVE / NVD 記錄
 
-只有 1 個來源的事件 → 在文中標注「⚠️ 單一來源，待驗證」。
+只有 1 個來源的事件 → 在文中標注「單一來源，待驗證」。
 
 ---
 
@@ -184,6 +185,7 @@ tags: [ai-agent, security, daily, {attack-type}]
 lang: zh-TW
 description: "一句話概述事件和影響"
 tldr: "事件 + 影響範圍 + 防禦做法的 2-3 句話摘要"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Security Alert"
   order: N
@@ -311,13 +313,14 @@ series:
 
 ## 品質檢查清單（撰寫完成後逐項確認）
 
-- [ ] 事件有至少 2 個獨立來源（或標注 ⚠️ 單一來源）
+- [ ] 事件有至少 2 個獨立來源（或標注「單一來源」）
 - [ ] 攻擊面分析**不包含**可直接利用的 payload
 - [ ] 攻擊面對應到 OWASP LLM Top 10 的哪一項
 - [ ] 防禦做法有「立即動作」和「長期架構」兩層
 - [ ] 提到了 watchlist B7 中相關的安全工具
+- [ ] 推薦或引用 watchlist 廠商／工具前已確認其現況（被收購、更名、停止維護者要註明現屬哪家，並查 watchlist 條目的 `note` 欄）。例：Invariant Labs 已於 2025-06-24 被 Snyk 收購，其 mcp-scan 現為 snyk/agent-scan，應寫「Snyk（前 Invariant Labs）的 Agent Scan」，不要當獨立廠商推薦
 - [ ] 基本資訊表完整（類型、範圍、嚴重度、CVE、來源）
 - [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

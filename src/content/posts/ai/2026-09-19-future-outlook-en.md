@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-future-outlook)
+> :globe: [中文版](/posts/ai/2026-09-19-future-outlook)
 
 This is the final article. The previous 14 articles went deep: landscape, training, architecture, tools, evaluation, applications.
 

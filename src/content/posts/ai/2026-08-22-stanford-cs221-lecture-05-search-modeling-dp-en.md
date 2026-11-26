@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-05-search-modeling-dp)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

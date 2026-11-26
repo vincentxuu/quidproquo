@@ -10,7 +10,7 @@ description: "Better Agent Terminal is a cross-platform desktop tool built by to
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-13-better-agent-terminal-intro)
+:globe: [中文版](/posts/tech/2026-04-13-better-agent-terminal-intro)
 
 When you're juggling three or four projects at once, iTerm or Windows Terminal tabs spiral out of control fast — each project spawns its own cluster of tabs (server, tests, git), and you're constantly trying to remember which window belongs to which repo. Add Claude Code to your daily workflow and things get worse: the agent eats up yet another dedicated terminal, turning your desktop into a chaos of overlapping windows.
 

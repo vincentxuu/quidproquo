@@ -31,7 +31,7 @@ glossary:
     context: "ADL LLM Adaptation 講義第 9–11 頁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -445,7 +445,7 @@ r × (d + k) = 4 × 2048 = 8,192 個。完整微調是 1024 × 1024 = 1,048,576 
 - [CS224N 第 8 堂：從 instruction tuning、RLHF 到 DPO](/posts/ai/2026-08-22-cs224n-post-training)
 - [CS224N 第 9 堂：Prompting、LoRA 與參數高效微調](/posts/ai/2026-08-22-cs224n-efficient-adaptation)
 - [CME295 第 5 堂：SFT 教不會「別這樣回答」，RLHF 與 DPO 怎麼補上負面訊號](/posts/ai/2026-09-29-cme295-preference-tuning)
-- [CME295 2026 第 4 堂：SFT、PPO、GRPO、on-policy distillation 其實是同一條 policy gradient](/posts/ai/2026-09-29-cme295-rl-with-llms)
+- [CME295 2026 第 4 堂：LLM 的強化學習：PPO、GRPO、on-policy distillation 各補上哪一個缺口](/posts/ai/2026-09-29-cme295-rl-with-llms)
 
 下一堂：[第 8 堂 RAG](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3)
 

@@ -13,7 +13,7 @@ description: "A guide to Stanford CS224U's (Spring 2023) Presenting your researc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-presenting-research)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-presenting-research)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

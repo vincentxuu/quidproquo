@@ -26,6 +26,28 @@
 - 結論沒有明顯超出實驗族群、任務、資料或設定。
 - 資料來源、評估方式與主要限制可辨認。
 - 關鍵數字能回到表格、圖或正文，不靠新聞稿或二手摘要轉述。
+- 隱含前提已寫出：結論成立需要、但論文沒有檢驗的那一個前提（見下節）。
+
+### 隱含前提
+
+上面幾項檢查的是「主張有沒有超出實驗」；這一項檢查的是「實驗本身站在什麼沒驗證過的地基上」。逐篇寫出**最關鍵的一個**隱含前提，並回答：這個前提錯了，核心主張還剩多少？
+
+Agent 論文常見的隱含前提：
+
+| 類型 | 例子 | 在正文找什麼 |
+|---|---|---|
+| 評分者可靠 | 用 LLM-as-judge 打分，假設它和人類判斷一致 | 有沒有人工標註的一致性數據（agreement、κ） |
+| 環境代表真實 | 遊戲、模擬器或 benchmark 分數能外推到真實工作負載 | 有沒有真實任務或跨環境的遷移實驗 |
+| 對照公平 | baseline 由作者自己重跑，設定與調參預算相當 | baseline 的來源、prompt 與調參是否公開 |
+| 資料未污染 | 測試集不在模型訓練資料內 | 有沒有污染檢查或時間切分 |
+| 成本不計 | 效能提升不需要額外的 token、呼叫次數或延遲 | 有沒有回報成本與延遲 |
+
+規則：
+
+- 只寫一個，挑「錯了影響最大」的那個；論文已明確檢驗過的不算隱含前提。
+- 前提錯了核心主張就不成立，且正文沒有任何佐證時，最多判「有條件通過」。
+- 這不是新的判定關卡，不另外產生總分；它決定的是可信度判定與文章語氣的強度。
+- 同一批候選共享的隱含前提，是 Step 5d 分群的依據之一。
 
 判定只有三種：
 
@@ -140,6 +162,8 @@ Presentation 不顯示在讀者文章，也不能代替可信度：寫得清楚�
       "editorialConfidence": "high | medium | low | not-assessed",
       "editorialConfidenceReason": "why the article's claim strength is supportable",
       "primaryLimitation": "the single limitation that most constrains interpretation",
+      "hiddenAssumption": "the one untested premise the core claim depends on | none-found | not-assessed",
+      "hiddenAssumptionImpact": "what remains of the core claim if the premise is false",
       "presentation": "clear | mixed | unclear | not-assessed",
       "presentationReason": "whether method, experiments, claim boundaries, and limitations can be understood accurately",
       "relevance": "direct | indirect | not-assessed",
@@ -179,8 +203,10 @@ Presentation 不顯示在讀者文章，也不能代替可信度：寫得清楚�
 |---|---|
 | 通過，且結果直接支持主張 | 「研究在 X 設定下顯示……」 |
 | 有條件通過 | 「作者在 X 設定下觀察到……；目前仍待 Y 驗證」 |
-| 僅作者自測、未外部複現 | 明確標示 `⚠️ 作者自測，尚未外部複現` |
+| 僅作者自測、未外部複現 | 明確標示 `作者自測，尚未外部複現` |
 
 避免把預印本寫成已被學界確認的定論。`Reviewer 一句話評` 必須同時指出可取之處、證據邊界與下一個應驗證的問題。
+
+隱含前提不加新欄位：它是最影響判斷的限制時，寫進「主要限制」；否則寫進 `Reviewer 一句話評` 的「下一個應驗證的問題」。用白話寫出前提本身，例如「分數靠 GPT-4 當評審，論文沒有回報它和人類評分的一致性」，不要只寫「依賴 LLM-as-judge」。
 
 讀者文章每篇在 TL;DR 後顯示一個「編輯判斷」表格，欄位固定為 14 欄：Venue、引用速度、機構、社群反應、可信度、證據成熟度、可復現性、為什麼選這篇、方向新意、今日重要性、實務連結、編輯信心、閱讀建議、主要限制。標籤後必須補一句具體依據，不能只放形容詞。可復現性只描述公開 code、data、config、outputs 或預註冊是否足以重跑；缺少跨模型、多 seed 或外部複驗屬於證據成熟度／主要限制，不放進可復現性。

@@ -30,7 +30,7 @@ glossary:
     context: "相對的是硬確保（hard catch）：靠近地面或岩階時，要盡快把人停住。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-gym-lead-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-17-gym-lead-climbing-en)
 
 上攀爬熟了，你在岩館看到隔壁的人拖著繩子往上爬，邊爬邊把繩子掛進牆上的快扣。那就是先鋒（lead climbing）。想跟著學，櫃檯會再問一次：「你有先鋒確保卡嗎？」
 

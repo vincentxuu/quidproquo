@@ -13,7 +13,7 @@ description: "A guide to OpenClaw Gateway configuration: JSON5 and strict valida
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-gateway-config)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-gateway-config)
 
 The Gateway reads an **optional JSON5 config** from `~/.openclaw/openclaw.json`, falling back to safe defaults when the file is missing.
 
@@ -86,7 +86,7 @@ To orient yourself in a long field list, remember this split:
 openclaw onboard        # full onboarding
 openclaw configure      # config wizard
 openclaw config get agents.defaults.workspace
-openclaw config set agents.defaults.heartbeat.every "2h"
+openclaw config set agents.defaults.timeoutSeconds 3600
 openclaw config unset plugins.entries.brave.config.webSearch.apiKey
 ```
 
@@ -104,6 +104,7 @@ In practice that means two habits: when the Gateway will not start after a confi
 
 ## Changelog
 
+- 2026-11-20: The `config set` example used `agents.defaults.heartbeat.every`, which was removed when heartbeat migrated into scheduled jobs; it now uses `agents.defaults.timeoutSeconds`.
 - 2026-08-18: Substantially revised against the current official docs. Added: **strict validation refusing to boot** (unknown keys, bad types, invalid values, with `$schema` the only root exception) and the four diagnostic commands that still work, the fact that last-known-good is **not** auto-restored on startup or reload (only `doctor --fix`), rejected writes saved as `.rejected.<timestamp>`, candidates containing redacted placeholders never being promoted, the three anti-clobber shapes (dropping `gateway.mode`, losing `meta`, shrinking by more than half), the regular-file requirement and how atomic writes replace a symlink target, the `gateway.mode=local` startup guard, hybrid reload's atomic snapshot swap, the two-bucket rule, and the Control UI's schema-generated form with `uiHints` common/advanced tiering.
 
 ## References

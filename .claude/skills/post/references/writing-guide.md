@@ -34,6 +34,14 @@
 ## tldr / description 原則
 
 - `tldr`：1-2 句、含名詞與數字，讀者用來決定要不要點進來。數字必須跟讀者的決策有關（規模、版本、價格、時數），不是審查工作量（讀了幾堂、跑了幾支、覆核幾條）
+- `tldr` 寫資訊型摘要（informative），不寫指示型摘要（indicative）：寫出答案本身，不預告文章談什麼。第一句就是讀者要的結論（BLUF），不拿鉤子、懸念或論點代替
+- 取材順序：先從文章的決策段（「我會怎麼選」、選型表、限制、數字結果）拿；開頭導言與「整體來說」是論點，不是 tldr 的來源
+- 不寫這幾型（`check:post-quality` 會警告）：
+  - 自指：「本篇／這篇／本文」「整理／介紹／帶你」
+  - 否定式對比：「不是 X，是 Y」「不只…更…」——Y 若是答案就直接寫 Y
+  - 意義抬高：「真正／關鍵在／重點是／本質上」
+- 檢法：遮掉正文，只看 tldr，讀者能不能照著做決定，或說出結論？只能說出「這篇在談什麼」就是失敗
+- tldr 被退回時，先寫一句「讀者讀完要做什麼決定」，再回決策段重寫；不要在原句上換講法。本站踩過：Cloudflare Agents SDK 入口文的 tldr 連退三輪，三版分別是指示型、鉤子、否定式對比，答案一直在「我會怎麼選」那節（2026-10-28）
 - `description`：SEO meta，1-2 句，描述「這篇講什麼」而不是「這篇有多好」
 - 不要兩個欄位寫一樣
 
@@ -101,11 +109,13 @@ start: 91
 - 課程文章有嵌入就要把開頭「影片狀態」標成「已附影片」；`pnpm check:course-videos` 對所有課程系列檢查嵌入、狀態行、中英一致與查核日期（已逐講查證的系列另登錄在 `scripts/config/course-videos.json`）。
 - 實作在 `src/plugins/remarkYoutubeEmbed.ts`，輸出 `youtube-nocookie.com`、`loading="lazy"`。
 
-## 圖解（mermaid）
+## 圖解
 
-> 新圖先看 `../../diagram/SKILL.md` 選圖型：大多數圖用 ```` ```diagram ```` 手寫 SVG（顏色跟著深淺色、可逐步播放）。mermaid 留給節點超過 9 個、手排不划算的依賴圖或關係圖。
+多步驟流程、分支決策、元件關係、定位比較、層級或時間順序，畫成圖，不要全塞成文字段落。**一律先跑 `../../diagram/SKILL.md` 選圖型並照它的流程畫**：預設用 ```` ```diagram ```` 手寫 SVG（顏色跟著深淺色、可逐步播放、有 `diagram-preview.ts` 自動檢查）。
 
-多步驟流程、分支決策、元件之間的依賴關係，優先用 mermaid 畫，不要全塞成文字段落。用 `mermaid` fence：
+### mermaid（只留給大型依賴圖）
+
+節點超過 9 個、手排不划算的依賴圖或關係圖才用 mermaid；其他情況用 `diagram`。用 `mermaid` fence：
 
 ````markdown
 ```mermaid
@@ -143,7 +153,7 @@ flowchart TB
 
 > 只有方框和箭頭的逐步請求流程用這個（JSON 自動排線，寫起來最快）。其他圖型，或需要逐步播放但不只方框箭頭的圖，用 `../../diagram/SKILL.md` 的 `diagram` 區塊加 `step:`。驗證一律可用 `pnpm exec tsx scripts/diagram-preview.ts <文章.md>`。
 
-讀者要「跟著資料走一遍」才看得懂的流程（請求怎麼流過各元件、迴圈在哪裡回頭、兩種架構的控制流差在哪），用 `flow-diagram` fence 畫成逐步亮起的 SVG。結構關係、分類、依賴圖仍用 mermaid；flow-diagram 只用在**步驟順序本身就是重點**的地方，一篇一到兩張就夠。
+讀者要「跟著資料走一遍」才看得懂的流程（請求怎麼流過各元件、迴圈在哪裡回頭、兩種架構的控制流差在哪），用 `flow-diagram` fence 畫成逐步亮起的 SVG。結構關係、分類、依賴圖用 `diagram`（節點超過 9 個的依賴圖才用 mermaid）；flow-diagram 只用在**步驟順序本身就是重點**的地方，一篇一到兩張就夠。
 
 範例：`src/content/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution.md` 的「三個世代之後：Agentic RAG」（RAG vs Agentic RAG 並排兩張）。
 
@@ -230,6 +240,8 @@ flowchart TB
 | 技術堆疊 / 堆疊 | 技術棧 / 棧 | 樂詞網「電子計算機名詞」與「兩岸對照名詞」：stack＝堆疊；「棧/栈」是中國譯法 |
 | 部落格 / 稽核 / 基本工資 / 保全 | 博客 / 審計 / 最低工資 / 保安 | |
 | 說明 / 做法 / 成效 | 賦能 / 抓手 / 閉環 / 對標 / 復盤 / 顆粒度 | 中國商業黑話，一律不用 |
+| 範本 / 樣板，或直接寫出指的內容 | 模板 | [taiwan.md](https://taiwan.md/terminology/%E6%A8%A1%E6%9D%BF/) 列為兩岸分歧詞（2026-11-20 查；樂詞網當天 502，待重查）。當抽象標籤用時（「敘事模板」）換詞也看不懂，要寫出那套講法本身。`check:tw` 提示不擋 |
+| 註腳 | 腳註 / 腳注 | 微軟台灣 Word 介面「插入註腳」「章節附註」（2026-11-20 查）。站內以「註腳」為主。`check:tw` 提示不擋 |
 
 ### 攀岩用語
 
@@ -275,6 +287,7 @@ flowchart TB
 
 ### 其他慣例
 
+- 原始稿不放 emoji（`pnpm check:no-emoji` 擋 commit）。要圖示就寫 shortcode：`:globe:`、`:warning:`、`:question:`、`:red-circle:` 等，完整清單在 `src/plugins/rehypeNoEmoji.ts` 的 `SHORTCODES`；是／否寫 `✓`／`✗`，星等寫 `★`／`☆`，網站會畫成同一套 koboyo 圖示。寫完不確定就跑 `pnpm emoji:fix <檔案>` 自動換。code 區塊裡的 emoji 不算
 - 金額用「4,000 萬美元」，不要「$4,000 萬」——幣別跟在單位後面
 - 法條、報告名稱第一次出現給原文，不要自創中譯後就再也不附原文
 
@@ -502,7 +515,9 @@ bash .agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh <post.md>
 - [ ] 標題與 tldr 沒有放工作量數字；評測發現合併一節、約 15–20%
 - [ ] 引用的外部資源都在 `## 參考資料` 列出
 - [ ] 論文 / 工具名稱**第一次出現**時是可點擊連結（inline，不是只在文末）；比較表第一欄的名稱都有連結
-- [ ] 有 mermaid 圖：已渲染檢視過，節點文字短、沒有自訂顏色、每條實線都有來源
+- [ ] 逐節問過「這段畫成圖會不會更快懂」；有流程、分支、元件關係、定位比較、層級或時間順序的段落已依 `diagram` skill 畫圖（1–3 張，圖型配合內容）
+- [ ] 有 `diagram`／`flow-diagram` 圖：中英兩版 `diagram-preview.ts` 全 ✓，淺色、深色、手機三張截圖看過；圖上沒有正文沒寫的主張
+- [ ] 有 mermaid 圖：節點超過 9 個才用、已渲染檢視過，節點文字短、沒有自訂顏色、每條實線都有來源
 - [ ] `pnpm check:references` 全綠
 - [ ] `pnpm lint` 全綠
 - [ ] `pnpm astro check` 全綠

@@ -121,14 +121,14 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.65.0](/posts/daily/2026-09-10-framework-mastra-1.65.0)
-- 📄 [框架更新｜Pydantic AI v2.42.0](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0)
-- 📄 [資安警報｜Google GTIG 揭露：自主多代理人框架 6 小時內完成入侵](/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft)
-- 📄 [工具推薦｜ToolHive](/posts/daily/2026-09-10-tool-toolhive)
-- 📄 [AI Engineer 面試日練 — 2026-09-10：LLM & Agent Engineering](/posts/daily/2026-09-10-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-10：AI Product Design](/posts/daily/2026-09-10-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-10](/posts/daily/2026-09-10-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.65.0](/posts/daily/2026-09-10-framework-mastra-1.65.0)
+- :file: [框架更新｜Pydantic AI v2.42.0](/posts/daily/2026-09-10-framework-pydantic-ai-2.42.0)
+- :file: [資安警報｜Google GTIG 揭露：自主多代理人框架 6 小時內完成入侵](/posts/daily/2026-09-10-security-gtig-autonomous-agent-credential-theft)
+- :file: [工具推薦｜ToolHive](/posts/daily/2026-09-10-tool-toolhive)
+- :file: [AI Engineer 面試日練 — 2026-09-10：LLM & Agent Engineering](/posts/daily/2026-09-10-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-10：AI Product Design](/posts/daily/2026-09-10-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-funding-vals-ai)
+> :globe: [中文版](/posts/daily/2026-08-16-funding-vals-ai)
 
 ## Funding Details
 

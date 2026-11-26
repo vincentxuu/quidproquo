@@ -10,7 +10,7 @@ tldr: "砂岩有裂隙可以放保護，龍洞傳攀 325 條、運攀 209 條；
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 14
+  order: 15
 glossary:
   - term: "四稜砂岩"
     aliases: ["Szeleng Sandstone"]
@@ -25,7 +25,7 @@ glossary:
     context: "壽山與太魯閣的攀岩規定都是這種寫法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en)
+> :globe: [English version](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en)
 
 你在岩館會先鋒了，也看過幾篇戶外攀岩的文章，想挑一個台灣的岩場去。問題是：你會的是運攀，到了岩場發現路線上沒有 bolt；或者找到一個岩場，才知道那裡是國家公園，攀岩要申請，甚至根本不能爬。
 

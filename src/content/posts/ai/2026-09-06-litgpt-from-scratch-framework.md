@@ -13,7 +13,7 @@ description: "深度解析 LitGPT 框架：20+ 個 LLM 的從零重寫與無抽�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
+> :globe: [English version](/posts/ai/2026-09-06-litgpt-from-scratch-framework-en)
 
 系列前八篇講的都是「把某一個模型訓出來」：[MiniMind](/posts/ai/2026-09-06-minimind-train-llm-from-scratch) 訓 64M 的教材模型、[YuLan-Mini](/posts/ai/2026-09-06-yulan-mini-data-efficient-pretraining) 訓 21B、[OLMo 3](/posts/ai/2026-09-06-olmo3-llm360-fully-open-pretraining) 訓 32B。這篇換一個維度——不看模型，看訓練骨架。[LitGPT](https://github.com/Lightning-AI/litgpt)（Lightning AI，截至本文約 13,600 stars）不推出自己的旗艦模型，而是把 Llama 3、Qwen2.5、Phi 4、Gemma 2 等 20+ 個主流 LLM 逐一從零重寫，配上 `litgpt pretrain` / `finetune` / `evaluate` / `serve` 的完整命令列。看完前面幾篇想動手、又不想每一行都自己寫的人，這是中間那條路。
 
@@ -28,7 +28,7 @@ draft: false
 
 ## 設計哲學：無抽象，但不等於玩具
 
-README 列的三個勾勾值得原樣引："From scratch implementations ✅ No abstractions ✅ Beginner friendly"，除錯那一欄寫的是 "Easy debugging with no abstraction layers and single file implementations"。跟 [transformers](https://github.com/huggingface/transformers) 的 Trainer 對比：後者把模型藏在 config 與 callback 之間，出問題要穿過好幾層才看得到真正的程式碼；LitGPT 每個模型一份單檔實作，訓練腳本直接讀——[CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 課程反覆強調「先讀懂你訓的東西」，LitGPT 是把這個要求做成預設。
+README 列的三個勾勾值得原樣引："From scratch implementations ✓ No abstractions ✓ Beginner friendly"，除錯那一欄寫的是 "Easy debugging with no abstraction layers and single file implementations"。跟 [transformers](https://github.com/huggingface/transformers) 的 Trainer 對比：後者把模型藏在 config 與 callback 之間，出問題要穿過好幾層才看得到真正的程式碼；LitGPT 每個模型一份單檔實作，訓練腳本直接讀——[CS336](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch) 課程反覆強調「先讀懂你訓的東西」，LitGPT 是把這個要求做成預設。
 
 「無抽象」容易被誤讀成「要自己造輪子」，實際剛好相反：分散式與效能基建是現成的——FSDP（PyTorch 原生的全分片資料並行）、[Flash Attention 2](https://github.com/Dao-AILab/flash-attention)（Dao-AILab 的 kernel）、4-bit / 8-bit 量化（[bitsandbytes](https://github.com/TimDettmers/bitsandbytes)）、LoRA / QLoRA / Adapter。這些沒有一樣是 LitGPT 的發明；它的增量是把基建接好——改一個 `--devices 8` 就上多卡，而不是自己包 DDP。
 

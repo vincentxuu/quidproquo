@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 7
 ---
-> 🌏 [English version](/posts/daily/2026-05-31-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-31-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -126,11 +126,11 @@ Dynamic Tiered AgentRunner 提出三個核心機制：
 ### 深入要點
 
 - 架構來源：多租戶企業供應鏈管理 SaaS 平台，有實際 production deployment 背景，不是 lab 設計
-- Risk-Adaptive Tiering 宣稱達到 Pareto 最優（安全與效率同時改善），但論文未提供量化數據 **⚠️**
+- Risk-Adaptive Tiering 宣稱達到 Pareto 最優（安全與效率同時改善），但論文未提供量化數據 **:warning:**
 - Separation of Powers 四角色有物理邊界隔離，設計上可防止 prompt injection 跨角色滲透
 - Verifier-Recovery 不同於 retry loop：Verifier 有獨立驗收標準，Recovery 有 fallback policy，不是無限重試
 - LangGraph 關聯：conditional edges + human-in-the-loop 可直接實現 Separation of Powers；Risk Tier 可映射到 subgraph 選擇邏輯
-- Limitation：偏系統設計文件性質，缺乏與 naive agent 架構的對照實驗，量化安全收益數字幾乎沒有 **⚠️**
+- Limitation：偏系統設計文件性質，缺乏與 naive agent 架構的對照實驗，量化安全收益數字幾乎沒有 **:warning:**
 - 落地門檻：概念直接可用，但多租戶環境下的物理隔離需要容器化 / 沙箱基礎設施支持
 
 ### Reviewer 一句話評
@@ -156,7 +156,7 @@ Dynamic Tiered AgentRunner 提出三個核心機制：
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 概念新穎值得了解，但落地路徑尚不清晰；適合對 agent safety / governance 有興趣的架構師略讀，短期內較難直接實作。
 
 ### 領域背景

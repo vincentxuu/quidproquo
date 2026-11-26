@@ -28,10 +28,11 @@ cat src/data/agent-watchlist.json | head -100
 # Step 6: 依「輸出格式」撰寫文章
 # Step 7: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
+# E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -171,6 +172,7 @@ tags: [ai-agent, github, open-source, daily]
 lang: zh-TW
 description: "一句話，今天 GitHub 上 AI/Agent 最值得注意的趨勢"
 tldr: "3-5 行重點"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Agent GitHub Digest"
   order: N
@@ -189,7 +191,7 @@ series:
 
 ## Trending Repos
 
-### {repo-name} ⭐ {total_stars} (+{daily_gain})
+### {repo-name} ★ {total_stars} (+{daily_gain})
 
 [GitHub]({repo_url})　·　{language}　·　{license}
 
@@ -245,7 +247,7 @@ series:
 
 ## Trending Repos
 
-### mcp-notion-server ⭐ 1,240 (+380)
+### mcp-notion-server ★ 1,240 (+380)
 
 [GitHub](https://github.com/example/mcp-notion-server)　·　TypeScript　·　MIT
 
@@ -256,7 +258,7 @@ series:
 
 ---
 
-### agent-sandbox ⭐ 2,130 (+520)
+### agent-sandbox ★ 2,130 (+520)
 
 [GitHub](https://github.com/example/agent-sandbox)　·　Rust + Python　·　Apache-2.0
 
@@ -267,7 +269,7 @@ series:
 
 ---
 
-### crewai-flows ⭐ 890 (+210)
+### crewai-flows ★ 890 (+210)
 
 [GitHub](https://github.com/example/crewai-flows)　·　Python　·　MIT
 
@@ -305,4 +307,4 @@ series:
 - [ ] description 和 tldr 已填寫
 - [ ] series order 正確
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

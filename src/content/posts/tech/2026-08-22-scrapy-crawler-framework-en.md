@@ -10,7 +10,7 @@ description: "A component-by-component guide to Scrapy's Engine, Scheduler, Down
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-scrapy-crawler-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-scrapy-crawler-framework)
 
 [Scrapy](https://docs.scrapy.org/en/latest/) is a Python framework for crawling websites and extracting structured data. It is more than a thin wrapper around “send one HTTP request, then parse one HTML page.” It is an asynchronous processing pipeline with explicit boundaries for scheduling, downloading, parsing, cleaning, and storage. Those boundaries begin to matter when a one-page script becomes a scheduled crawler that must handle failures, rate limits, and resumable jobs.
 

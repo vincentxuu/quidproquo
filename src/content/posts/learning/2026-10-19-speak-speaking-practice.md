@@ -9,11 +9,11 @@ description: "介紹 Speak 台灣 AI 口說課程、Premium 與 Premium Plus 功
 tldr: "Speak 適合想先降低開口壓力、每天短練的人；用試用期確認辨識和回饋，再看是否需要 Plus 的客製課程額度，並安排真人追問。"
 series:
   name: "英文口說練習"
-  order: 9
+  order: 27
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speak-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-speak-speaking-practice-en)
 
 你可能知道英文怎麼寫，卻在會議輪到自己時說不出來。直接找老師練習又很緊張，希望先在沒人看的地方，把同一段話說熟一點。[Speak](https://www.speak.com/tw/)提供的正是這種手機上的 AI 口說練習：先學表達，再開口回答，接著進入模擬情境。
 

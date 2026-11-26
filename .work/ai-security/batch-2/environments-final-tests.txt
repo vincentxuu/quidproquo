@@ -1,0 +1,17 @@
+PASS valid offline record: accepted
+PASS missing scope: ['target needs nonempty text']
+PASS missing success criterion: ['finding needs nonempty text']
+PASS missing version: ['version needs nonempty text']
+PASS missing automation rule: ['automation_rule needs nonempty text']
+PASS forbidden automation: ['automated run requires explicit automation allowance']
+PASS unknown automation: ['automation must be explicitly allowed or forbidden', 'automated run requires explicit automation allowance']
+PASS empty action set: ['allowed_actions needs a nonempty list of action names']
+PASS negative cost: ['max_cost_usd must be a finite nonnegative number']
+PASS boolean request limit: ['max_requests must be a positive integer']
+PASS infinite cost: ['max_cost_usd must be a finite nonnegative number']
+PASS blank initial state: ['initial_state needs nonempty text']
+PASS malformed mode: ['mode must be manual or automated']
+PASS identical controls: ['controls and finding must describe distinct outcomes']
+PASS manual run with automation forbidden: accepted
+PASS non-object input: ['manifest must be an object']
+16 cases passed; no network actions performed

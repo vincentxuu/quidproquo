@@ -7,14 +7,17 @@ tags: [sandbox, firecracker, gvisor, docker, e2b, cloudflare, ai-agent]
 lang: en
 tldr: "A sandbox is not a single package but a spectrum—Namespace, cgroups, seccomp, gVisor, and Firecracker stacked by trust boundary; local OS sandboxes bound blast radius, cloud microVMs bound multi-tenancy, and the choice hinges on trust and ops cost."
 description: "Using Anthropic sandbox-runtime, gVisor, Firecracker, nsjail, Hades, E2B, Daytona, Modal, Cloudflare, and AWS Lambda MicroVMs as examples, this guide breaks down the four pillars, isolation tiers, and trade-offs behind execution environments and sandbox design."
+series:
+  name: "Sandbox Series"
+  order: 2
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-execution-environment-sandbox-comparison)
+> :globe: [中文版](/posts/tech/2026-08-30-execution-environment-sandbox-comparison)
 
 Before letting a model run code for you, answer a more important question than model quality: where does the code run, what can it see, and whom can it touch. This post turns a long Q&A on sandboxes into a comparable spectrum, enriched with how major execution environments actually work today.
 
-You will get three things: the four pillars and three build patterns of sandbox design, where each of [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime), [Firecracker](https://github.com/firecracker-microvm/firecracker), [gVisor](https://gvisor.dev/), [E2B](https://e2b.dev/), and [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) sits and what it trades off, and a decision tree you can use tonight.
+You will get three things: the four pillars and three build patterns of sandbox design, where each of [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime), [Firecracker](https://github.com/firecracker-microvm/firecracker), [gVisor](https://gvisor.dev/), [E2B](https://e2b.dev/), and [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) sits and what it trades off, and a decision tree you can use tonight.
 
 ## What a sandbox is: aligning on the term
 
@@ -114,7 +117,7 @@ Not every sandbox needs a container. A recurring theme in the notes is "add a bo
 
 ### Anthropic sandbox-runtime (ASRT)
 
-[Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) (`@anthropic-ai/sandbox-runtime`, Apache-2.0, open-sourced 2025-10-20) is fully documented in [Claude Code](https://code.claude.com/docs/en/sandbox-environments) as "OS-level limits without requiring a container."
+[Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime) (`@anthropic-ai/sandbox-runtime`, Apache-2.0, open-sourced 2025-10-20) is fully documented in [Claude Code](https://code.claude.com/docs/en/sandbox-environments) as "OS-level limits without requiring a container."
 
 Its design is dual-track:
 
@@ -236,13 +239,17 @@ Local OS sandboxes answer "how big is the blast radius," cloud microVMs and mana
 
 ## Overall
 
-A sandbox is not a "whether to do it" question but "at which layer, how tight, and who operates it." Container Namespace / cgroups / seccomp gets you started quickly, [gVisor](https://gvisor.dev/) trades minimal changes for a much stronger boundary, [Firecracker](https://github.com/firecracker-microvm/firecracker) and [Kata Containers](https://katacontainers.io/) trade hardware virtualization for the closest-to-VM guarantees, [Anthropic sandbox-runtime](https://github.com/anthropic-experimental/sandbox-runtime) and [nsjail](https://github.com/google/nsjail) add "boundary around any process without a container," while [E2B](https://e2b.dev/), [Daytona](https://www.daytona.io/), [Modal](https://modal.com/), [Vercel Sandbox](https://vercel.com/docs/sandbox), [Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/), and [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) productize those primitives so teams do not need to become virtualization experts first.
+A sandbox is not a "whether to do it" question but "at which layer, how tight, and who operates it." Container Namespace / cgroups / seccomp gets you started quickly, [gVisor](https://gvisor.dev/) trades minimal changes for a much stronger boundary, [Firecracker](https://github.com/firecracker-microvm/firecracker) and [Kata Containers](https://katacontainers.io/) trade hardware virtualization for the closest-to-VM guarantees, [Anthropic sandbox-runtime](https://github.com/anthropics/sandbox-runtime) and [nsjail](https://github.com/google/nsjail) add "boundary around any process without a container," while [E2B](https://e2b.dev/), [Daytona](https://www.daytona.io/), [Modal](https://modal.com/), [Vercel Sandbox](https://vercel.com/docs/sandbox), [Cloudflare Sandboxes](https://developers.cloudflare.com/sandbox/), and [AWS Lambda MicroVMs](https://aws.amazon.com/lambda/lambda-microvms/) productize those primitives so teams do not need to become virtualization experts first.
 
 If you want to act tonight, do three things: funnel all untrusted execution through a single entry point with no network by default, replace per-task credentials with short-lived revocable tokens injected via proxy, and enforce explicit resource limits and a destroy policy per sandbox. Isolation tiers can be upgraded gradually, but without these three, no layer can make up for it.
 
+## Update Log
+
+- 2026-11-23: The Anthropic sandbox-runtime repository moved to `anthropics/sandbox-runtime`, and links now point there; the E2B, Modal, Vercel, Cloudflare, and Lambda MicroVMs sections were unchanged against the official docs (see the Cloudflare Sandboxes post for the Sandbox SDK 1.0 changes).
+
 ## References
 
-- [Anthropic sandbox-runtime (GitHub)](https://github.com/anthropic-experimental/sandbox-runtime)
+- [Anthropic sandbox-runtime (GitHub)](https://github.com/anthropics/sandbox-runtime)
 - [Anthropic sandbox-runtime (npm)](https://www.npmjs.com/package/@anthropic-ai/sandbox-runtime)
 - [Claude Code — Sandbox environments](https://code.claude.com/docs/en/sandbox-environments)
 - [Anthropic — Code execution tool (sandboxed containers)](https://docs.anthropic.com/en/docs/agents-and-tools/tool-use/code-execution-tool)

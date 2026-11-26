@@ -13,7 +13,7 @@ description: "A guide to Lecture 1 of NTU Yun-Nung Chen's Applied Deep Learning,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-ml-dl-introduction)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "以 MIT Course 6-4 正式學位要求、2025–2026 實際開課�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -26,6 +26,8 @@ draft: false
 3. **OCW、Open Learning Library 與歷史課站**通常最適合自學，卻可能使用舊課號或前一年的內容。
 
 這篇把三層拆開。目標不是假裝校外讀者能「線上讀完 MIT 學位」，而是排出一條真的打得開、知道缺什麼的 AI／ML 路線。本站的 [6.S191 完整導讀](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning)已經深入單一課程；這篇處理它在整個 MIT 骨架裡的位置。
+
+本文的課程可用性判斷最後實質更新於 **2026-10-01**（6.5940 Fall 2026 由 A0 改為 A2，補 Fall 2024 完整範圍）與 **2026-10-10**（影片狀態查核）。表格中標註「截至 2026-09-30」的進度（如 6.5940 L1–L6、Lab 0–1）為當日快照，現在可能已釋出更多講次。
 
 ## 先讀懂兩個編號：6-4 不是 6.4
 
@@ -131,6 +133,7 @@ Spring 2026 的 Computer Vision 實際以 special subject **6.S058** 開課，�
 
 效率系統則看 Song Han 的 6.5940。Fall 2025 因他休假停開，Fall 2026 恢復並正在上課，截至 2026-09-30 只放出 L1–L6 與 Lab 0–1。要現在完整走一輪，應以 Fall 2024 為主幹：23 講投影片、23 支錄影與 Lab 0–5 全部公開，從 pruning、quantization、NAS、distillation 一路做到 LLM 部署與分散式訓練，課頁承諾的成果是把 Llama2-7B 部署到自己的筆電。先修是 6.191 與 6.390。本站的 [6.5940 導讀系列](/posts/ai/2026-09-30-mit-65940-course-overview)以 Fall 2024 為主線，每篇另附 Fall 2026 對照。
 
+<!-- process-leak: topic -->
 ## CSDIY 可以確認什麼，不能確認什麼
 
 CSDIY 很適合回答「自學社群曾把哪個版本整理成可走的路線」，但不適合單獨回答「MIT 今年有沒有開」或「現在匿名點進去是否仍可用」。

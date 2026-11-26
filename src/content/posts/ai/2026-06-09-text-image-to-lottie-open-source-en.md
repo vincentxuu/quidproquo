@@ -10,7 +10,7 @@ description: "A landscape overview of open-source tools for generating Lottie ve
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-06-09-text-image-to-lottie-open-source)
+:globe: [中文版](/posts/ai/2026-06-09-text-image-to-lottie-open-source)
 
 Lottie is Airbnb's JSON-based vector animation format, introduced in 2015 and now the de facto standard for lightweight UI animations on iOS, Android, and the web. Yet for years there were no good open-source tools to turn a plain text description or a single image into a ready-to-run Lottie animation.
 
@@ -91,7 +91,7 @@ Results on MMLottieBench (from [arXiv:2603.02138](https://arxiv.org/abs/2603.021
 
 On the text-image-to-Lottie task, OmniLottie is **52× faster** than AniClipart (88s vs 1212s) with a 93.3% success rate.
 
-**Limitations**: inference requires ~15 GB VRAM (⚠️ this figure comes from AnimTOON's comparison table, not officially confirmed), output frame rate is only 8 fps, and training code is not yet open-sourced.
+**Limitations**: inference requires ~15 GB VRAM (:warning: this figure comes from AnimTOON's comparison table, not officially confirmed), output frame rate is only 8 fps, and training code is not yet open-sourced.
 
 ---
 
@@ -101,7 +101,7 @@ On the text-image-to-Lottie task, OmniLottie is **52× faster** than AniClipart 
 
 The training dataset is larger: **LottieImage-15M** (15 million static images) + **LottieAnimation-660K** (660k animations), using a two-stage training strategy — learn statics first, then learn motion.
 
-**⚠️ Important**: as of 2026-06-09, inference code and model weights **have not been released** (the open-source plan checkbox on GitHub remains unchecked). This one is paper-only for now.
+**:warning: Important**: as of 2026-06-09, inference code and model weights **have not been released** (the open-source plan checkbox on GitHub remains unchecked). This one is paper-only for now.
 
 ---
 
@@ -157,10 +157,10 @@ These tools produce static Lottie output (shapes are preserved; animation must b
 | | [LottieFiles Motion Copilot](https://lottiefiles.com/) | [Rive](https://rive.app/) | [Lottielab](https://www.lottielab.com/) |
 |---|---|---|---|
 | Input | Text (within editor) | Visual editing | Visual editing |
-| Skeletal animation | No | ✅ with mesh deformation | No |
-| Runtime interactivity | Limited | ✅ (mouse, sliders) | Limited |
+| Skeletal animation | No | ✓ with mesh deformation | No |
+| Runtime interactivity | Limited | ✓ (mouse, sliders) | Limited |
 | Open source | No | Player is open source | No |
-| LLM-generatable format | ✅ (JSON) | ❌ (binary .riv) | ✅ (JSON) |
+| LLM-generatable format | ✓ (JSON) | ✗ (binary .riv) | ✓ (JSON) |
 
 Rive is far ahead on skeletal animation and runtime interactivity, but its `.riv` format is binary — LLMs cannot generate it directly. This is where the Lottie open-source ecosystem has an inherent advantage: JSON is naturally AI-friendly.
 

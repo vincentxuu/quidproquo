@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-18-tool-aislopmeter)
+> :globe: [中文版](/posts/daily/2026-10-18-tool-aislopmeter)
 
 ## Tool Info
 
@@ -88,11 +88,11 @@ In MCP mode, just tell your AI:
 
 | | AI Slop Meter | Lighthouse / PageSpeed | Manual QA checklist |
 |---|---|---|---|
-| Scores "AI-built look" specifically | ✅ | ❌ (performance/SEO metrics only) | Depends on the reviewer |
-| Gives a fix prompt ready to hand to an AI | ✅ | ❌ | ❌ |
-| Can scan localhost / a project folder | ✅ | Partial | ✅, but manually |
-| No API key, runs locally | ✅ | ✅ | — |
-| Can gate a PR in CI | ✅ (GitHub Action) | ✅ | Needs its own process |
+| Scores "AI-built look" specifically | ✓ | ✗ (performance/SEO metrics only) | Depends on the reviewer |
+| Gives a fix prompt ready to hand to an AI | ✓ | ✗ | ✗ |
+| Can scan localhost / a project folder | ✓ | Partial | ✓, but manually |
+| No API key, runs locally | ✓ | ✓ | — |
+| Can gate a PR in CI | ✓ (GitHub Action) | ✓ | Needs its own process |
 
 ## Caveats
 

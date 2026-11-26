@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-cli-ergonomics-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-cli-ergonomics-en)
 
 ## 設計問題：肌肉記憶是最大的既有資產
 

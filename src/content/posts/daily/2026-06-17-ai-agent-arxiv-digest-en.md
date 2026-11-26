@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 24
 ---
-> 🌏 [中文版](/posts/daily/2026-06-17-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-17-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -73,7 +73,7 @@ Dramatically improves the feasibility of including compact models in the MCP age
 ### Key Details
 
 - **Typed workflow graph**: each node is an MCP tool call, edges represent data dependencies; strong typing makes errors easier to localize
-- **Key numbers (MCP-Bench, 250 tools, live MCP servers)**: execution feasibility from **3% → 17-24%**, a 5-8x average improvement; zero-shot CoT / in-context learning / distillation fine-tuning all land at 3-5% ⚠️ (the 3% baseline means current compact models can barely complete real MCP tasks)
+- **Key numbers (MCP-Bench, 250 tools, live MCP servers)**: execution feasibility from **3% → 17-24%**, a 5-8x average improvement; zero-shot CoT / in-context learning / distillation fine-tuning all land at 3-5% :warning: (the 3% baseline means current compact models can barely complete real MCP tasks)
 - **Inference-only approach**: no fine-tuning needed, pluggable into any MCP-supporting agent runtime (e.g., LangGraph, AutoGen)
 - **Cost trade-off**: evolutionary search requires multiple tool executions, noticeably increasing inference latency; worthwhile for high-precision needs, but requires careful evaluation for high-throughput scenarios
 - **Limitation 1**: whether evolutionary search remains robust when tool catalogs change frequently has not been validated
@@ -103,7 +103,7 @@ Agent workflows don't need to be regenerated each time (expensive), nor limited 
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 The architectural thinking is inspiring, but assumes you already have workflow optimization infrastructure. Without it, upfront investment is high — grasping the "precompute-and-reuse" concept is sufficient.
 
 ### Background
@@ -130,17 +130,17 @@ A practical cost optimization for multi-tenant agent platforms (different users,
 
 ### Key Details
 
-- **Highest average score across 5 benchmarks**: beats the strongest automated baseline by **4.26%**, strongest handcrafted design by **14.92%** (specific benchmark names not fully disclosed in the abstract ⚠️ — read the full paper to confirm)
+- **Highest average score across 5 benchmarks**: beats the strongest automated baseline by **4.26%**, strongest handcrafted design by **14.92%** (specific benchmark names not fully disclosed in the abstract :warning: — read the full paper to confirm)
 - **DiverseFlow's diversity-steering mechanism**: actively detects under-covered queries and biases search in their direction — solving the problem of traditional random search getting trapped in local optima
 - **Matching is cheaper than Generation**: the compute cost of routing (selecting which workflow) is far lower than generation (writing a new workflow), which is the core source of cost savings
 - **Offline compute trade-off**: the three stages require upfront offline computation, suited for scenarios with relatively stable query patterns; for frequent novel query types, the portfolio needs periodic updates
-- **Portfolio size scaling**: how many workflows is optimal? Not explicitly answered in the abstract ⚠️
+- **Portfolio size scaling**: how many workflows is optimal? Not explicitly answered in the abstract :warning:
 - **LangGraph relevance**: FlowBank can serve as an upstream workflow optimization layer, selecting the best workflow for LangGraph to execute — the two are complementary
 - **Limitation**: requires workflow search infrastructure (e.g., Monte Carlo Tree Search or LLM-based search); performance on long-tail queries (novel types not covered by precomputation) is not sufficiently discussed
 
 ### Reviewer's Take
 
-"Different queries need different workflows" is a clear insight, and 14.92% over handcrafted is convincing; the three-stage design is logically rigorous. The weakness is that the 5 benchmark details and DiverseFlow's diversity mechanism require the full paper for complete evaluation — the information basis is thin ⚠️. The direction is right, but don't commit based on numbers alone.
+"Different queries need different workflows" is a clear insight, and 14.92% over handcrafted is convincing; the three-stage design is logically rigorous. The weakness is that the 5 benchmark details and DiverseFlow's diversity mechanism require the full paper for complete evaluation — the information basis is thin :warning:. The direction is right, but don't commit based on numbers alone.
 
 ### Your Take-Away
 

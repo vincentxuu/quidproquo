@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-edge-platform-overview-en)
 
 Cloudflare 很容易被理解成 CDN 或 DNS 服務，但如果你真的把產品搬上去，看到的會是一套 app platform：[Workers](https://developers.cloudflare.com/workers/) 跑程式，[D1](https://developers.cloudflare.com/d1/) 放 SQL 資料，[KV](https://developers.cloudflare.com/kv/) 做全球 key-value，[R2](https://developers.cloudflare.com/r2/) 放 object，[Durable Objects](https://developers.cloudflare.com/durable-objects/) 處理狀態和協調，再加上 Queues、Workflows、Cache Rules、Smart Shield、Images、Email Service、Turnstile、Observability、Browser Run、Containers。
 
@@ -68,12 +68,16 @@ Cloudflare 很容易被理解成 CDN 或 DNS 服務，但如果你真的把產�
 
 Cloudflare 很適合邊緣入口、serverless API、小型到中型產品、global cache、R2 object workflow、AI app glue code。但不是每個 workload 都該搬：
 
-- 需要長時間常駐 TCP service。
+- 需要長時間常駐 TCP service。2026-11 起 Workers 可以經 Spectrum 收 [inbound TCP](https://developers.cloudflare.com/changelog/post/2026-11-19-inbound-tcp/)、Containers 可跑雙向 gRPC，但仍是 public beta，而且要 Pro 以上的 zone。
 - 需要大型 VM、GPU、持久 block storage。
 - 資料庫依賴複雜 transaction、extension、stored procedure。
 - 團隊已經有成熟 Kubernetes / cloud ops，而且 Cloudflare 只會增加一層。
 
 這條系列的目標不是把所有東西都塞到 Cloudflare。它要幫你判斷哪些產品部件放上去會變簡單，哪些部件該留在原本的 infra。
+
+## 更新紀錄
+
+- 2026-11-23：「什麼時候不要硬搬」的 TCP 項補上 inbound TCP 的 public beta 現況
 
 ## 參考資料
 

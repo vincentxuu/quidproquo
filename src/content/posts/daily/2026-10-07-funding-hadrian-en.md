@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-funding-hadrian)
+> :globe: [中文版](/posts/daily/2026-10-07-funding-hadrian)
 
 ## Deal Terms
 

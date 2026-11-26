@@ -95,7 +95,7 @@
 | 證照 | 狀態 | 理由 |
 |---|---|---|
 | Professional Machine Learning Engineer | 已寫 | |
-| **Professional Agentic Architect（新）** | **建議選入，GA 後寫** | beta 報名已關閉，**GA 報名 2026-11-02 開放**。官方頁面列的 beta 規格：3 小時、約 80 題選擇題、零售價 $200、效期 1 年、僅英文、無先修，建議 3 年以上雲端經驗含 1 年以上 agentic 方案。考低程式碼建 agent、coding agent、自訂 agent、評估與部署、安全與治理 |
+| **Professional Agentic Architect（新）** | **已寫（2026-11-13，order 31，`2026-11-13-google-agentic-architect-prep-guide` zh/en）** | GA 已於 2026-11-02 開放報名（2026-11-13 查證：官網、blog、FAQ 三方）；GA 規格：2 小時、50-60 題選擇題、$200、英文、無先修、效期 1 年；beta（9/8-9/30）規格：3 小時、約 80 題、$120。建議 3 年以上雲端經驗含 1 年以上 agentic 方案。考低程式碼建 agent、coding agent、自訂 agent、評估與部署、安全與治理 |
 | Generative AI Leader | 已排除 | 官方定位無需技術經驗 |
 
 **Professional Agentic Architect 對既有文章的影響（2026-10-08 查證後更正）**：B1（多 agent 架構）開場只說「PMLE 不是多 agent 考點」，沒有說 Google 沒有 agent 認證，**該段仍正確、不用改**。真正過期的是 PMLE 備考路徑開頭的「Google 的 AI 認證只有兩張」與 AWS 怎麼選的「Google 生態只有 PMLE 一張」，兩處中英版已改寫並加更新紀錄。官方 exam guide（`services.google.com/fh/files/misc/professional_agentic_architect_exam_guide_english.pdf`）五章權重約 13 / 17 / 33 / 22 / 15，第 3.3 節考 MCP 與 A2A 編排、多 agent 交接（平行、循序、圖狀），所以寫這張時可以把它加進 B1 當第六張對照對象；考試分選擇題與實作 lab 兩段。
@@ -135,6 +135,13 @@
 - Google：15 張，AI 相關三張，和 §0.7 相同。
 - Anthropic 4 張、NVIDIA 12 張，都和先前相同。
 - **今天才第一次查的五家**，都有本系列沒評估過的 AI 認證：Databricks 四張（含新的 Context Engineer Associate）、Snowflake 三張、IBM 六張、Oracle 七張、Salesforce 一張。完整清單在查核回報裡，尚未決定選入或排除。**使用者 2026-10-08 指示：微軟其餘 11 張加 AB-410，以及這五家共 21 張，先緩緩，不要主動動工。**
+
+### 0.9 本 session 新增進度（2026-11-13）：Google Professional Agentic Architect 發佈
+
+**2026-11-13**：Professional Agentic Architect 正式版（GA）開放報名後（GA 報名 2026-11-02、宣布 2026-11-11、頁面列 GA 規格至 2026-11-12），依「GA 後寫」的規劃補完缺口，正式發佈為系列第 31 篇。
+
+- 新文：[`2026-11-13-google-agentic-architect-prep-guide`](src/content/posts/ai/2026-11-13-google-agentic-architect-prep-guide.md)（zh/en，order 31），五章權重約 13 / 17 / 33 / 22 / 15，hybrid 兩部分（Pearson 選擇題 + Google Skills labs，過 labs 才有 credential；GA labs 2 個月期限）。
+- 既有文章跟進（本次補）：PMLE 兩篇補 GA 時間線；總表文 Google 一節補「能報名的三張」；AWS which-one 補上第二張；B1 補 GA 狀態。
 
 ### 下一步（新 session 從這裡接）
 

@@ -20,7 +20,7 @@ glossary:
     definition: "把前輪助手的推理內容保留在對話歷史裡再繼續跑，Laguna 在 agent 場景建議的用法，中斷保留會讓後續步驟不再生推理。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-laguna-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-laguna-en)
 
 2026 年 7 月 21 日，[Poolside](https://www.poolside.ai/models) 發佈 [Laguna S 2.1](https://poolside.ai/blog/introducing-laguna-s-2-1)——一個 118B 總參數、每 token 只啟動 8B 的 MoE，context 開到 1M，在 [Terminal-Bench 2.1](https://trajectories.poolside.ai/) 拿下 70.2%、[DeepSWE](https://trajectories.poolside.ai/?benchmark=deep-swe) 拿下 40.4%。從開始訓練到發文不到九週，而且預訓練資料和兩個月前的小模型完全同一份。這是「AI 模型家族」系列的第二十一篇，追蹤 Laguna 從 [M.1 / XS.2](https://poolside.ai/blog/introducing-laguna-s-2-1) 雙發到 XS 2.1 再到 S 2.1 的完整路徑。
 
@@ -30,17 +30,19 @@ glossary:
 
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
-| Laguna XS 2.1 | 本機迭代 | 33B／3B，256K context | OpenMDW-1.1 權重；託管端點 |
-| Laguna S 2.1 | 長程 coding | 118B／8B，1M context | 權重；OpenRouter 免費／付費端點 |
+| Laguna XS 2.1 | 本機迭代 | 33B／3B，256K context | OpenMDW-1.1 權重；Poolside API |
+| Laguna S 2.1 | 長程 coding | 118B／8B，1M context | OpenMDW-1.1 權重；Poolside API |
 | M.1／XS.2 | 前代對照 | 歷史版本，不與現行混讀 | 官方歷史模型文件 |
 
 ### 兩種尺寸，一種哲學
 
 看懂 Laguna 要先接受它的預設：**模型不是拿來聊天的，是拿來在 agent harness 裡跑幾百步的**。官方文件對 [M.1](https://docs.poolside.ai/release-notes/models) 和 [XS.2](https://docs.poolside.ai/release-notes/models) 寫了同一句話：放在 [Poolside Agent 工作流](https://docs.poolside.ai/cli/pool) 裡用，不要當純聊天模型。S 2.1 和 XS 2.1 也一樣，支援的模式都是 Agentic + Chat，但最佳表現都在自家 [pool](https://poolside.ai/get-started) 這個 terminal coding agent 裡。
 
-**XS 線（跑本機）**：[XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) 是 33B 總參數、3B 啟動，256K context（精確值 262,144）。官方說法是「compact enough to run on a Mac with 36 GB of RAM」，[Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) 上 BF16 之外還有 FP8、NVFP4、INT4，外加 [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) 草稿模型，實測吞吐翻倍。定價沿用 XS.2 的 $0.10 / $0.20 / $0.05 每 1M input / output / cache-read tokens。
+**XS 線（跑本機）**：[XS 2.1](https://poolside.ai/blog/introducing-laguna-xs-2-1) 是 33B 總參數、3B 啟動，256K context（精確值 262,144）。官方說法是「compact enough to run on a Mac with 36 GB of RAM」，[Hugging Face](https://huggingface.co/poolside/Laguna-XS-2.1) 上 BF16 之外還有 FP8、NVFP4、INT4，外加 [DFlash](https://huggingface.co/poolside/Laguna-XS-2.1-DFlash) 草稿模型，實測吞吐翻倍。
 
-**S 線（撐長程）**：[S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) 是 118B 總參數、8B 啟動，1M context（精確值 1,048,576）。官方定位是「Frontier-class reasoning at mid-size cost」，小到能塞進一台 [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1)，強到在 Terminal-Bench 2.1 贏過一票 500B 以上的開源模型。[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1) 上免費端點給 256K context，付費專屬端點才給完整 1M，價格是 $0.10 / $0.20 / $0.01（2026-07 公告）。
+**S 線（撐長程）**：[S 2.1](https://huggingface.co/poolside/Laguna-S-2.1) 是 118B 總參數、8B 啟動，1M context（精確值 1,048,576）。官方定位是「Frontier-class reasoning at mid-size cost」，小到能塞進一台 [NVIDIA DGX Spark](https://poolside.ai/blog/introducing-laguna-s-2-1)，強到在 Terminal-Bench 2.1 贏過一票 500B 以上的開源模型。官方文件估算 FP8 權重約需 192 GB GPU 記憶體（XS 2.1 約 96 GB），這是規劃起點，不是最低需求。
+
+**託管入口**：兩款都走 [Poolside API](https://docs.poolside.ai/api/overview)（OpenAI 相容，base URL `https://inference.poolside.ai/v1`，model ID `poolside/laguna-s-2.1`、`poolside/laguna-xs-2.1`）。登入 [Poolside Platform](https://docs.poolside.ai/get-started/log-in) 會發一把免費的開發者 API key；想先試手感，[chat.poolside.ai](https://chat.poolside.ai/) 不用註冊。Poolside 沒有公開託管價目表，正式用量的價格要向 Poolside 確認。發佈時列出的 OpenRouter 免費與付費端點已經下架，不要再拿它當入口。
 
 兩個尺寸都不支援 vision，純文字進文字出。這不是疏忽，是刻意：Laguna 把所有複雜度都押在「讀 repo、改檔、跑測試、驗證」的迴圈上。
 
@@ -129,7 +131,7 @@ XS 2.1 的對位則是 30B 級：SWE-bench Verified 70.9% 贏過 Cohere North Mi
 
 Laguna 家族現行兩款都掛 [OpenMDW-1.1](https://openmdw.ai/)， fully permissive，商用不用另外要授權。S 2.1 首日就給 BF16、FP8、INT4、NVFP4，官方另做 GGUF 和 MLX 轉換；XS 2.1 則是 BF16、FP8、NVFP4、INT4。M.1 時代還是 Apache 2.0，2.1 世代全面切到 OpenMDW，這是跟著 [NVIDIA 和 Linux Foundation](https://poolside.ai/blog/introducing-laguna-xs-2-1) 的方向走。
 
-部署生態是首日齊全派：[vLLM](https://github.com/vllm-project/vllm)、[SGLang](https://github.com/sgl-project/sglang)、[Ollama](https://ollama.com/library/laguna-s-2-1)（`ollama run laguna-s-2.1`）、llama.cpp、MLX、NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559)，外加 [Baseten](https://www.baseten.co/library/laguna-s-21/)、[OpenRouter](https://openrouter.ai/poolside/laguna-s-2-1)、[Vercel AI Gateway](https://vercel.com/ai-gateway/models?q=laguna)。Agent 側則進了 [Kilo](https://kilocode.ai)、[Hermes Agent](https://hermes-agent.nousresearch.com/)、pi、[OpenCode](https://opencode.ai/)、[OpenClaw](https://openclaw.ai/) 和 [Cline](https://cline.bot/)。每個發佈分數都有完整 trajectory 公開在 [trajectories.poolside.ai](https://trajectories.poolside.ai/)，這點比多數只貼數字的廠商有誠意。
+部署生態是首日齊全派：[vLLM](https://github.com/vllm-project/vllm)、[SGLang](https://github.com/sgl-project/sglang)、[Ollama](https://ollama.com/library/laguna-s-2-1)（`ollama run laguna-s-2.1`）、llama.cpp、MLX、NVIDIA [TensorRT-LLM](https://github.com/NVIDIA/TensorRT-LLM/pull/13559)，託管則有 Poolside 自家 API 與 [Baseten](https://www.baseten.co/library/laguna-s-21/) 的模型庫部署（發佈時的 OpenRouter 與 Vercel AI Gateway 上架都已撤下）。Agent 側則進了 [Kilo](https://kilocode.ai)、[Hermes Agent](https://hermes-agent.nousresearch.com/)、pi、[OpenCode](https://opencode.ai/)、[OpenClaw](https://openclaw.ai/) 和 [Cline](https://cline.bot/)。每個發佈分數都有完整 trajectory 公開在 [trajectories.poolside.ai](https://trajectories.poolside.ai/)，這點比多數只貼數字的廠商有誠意。
 
 ## Agent 使用與選型
 
@@ -152,15 +154,17 @@ Laguna 的賭注不是「更大的預訓練」，而是「**更會工作的行�
 
 ## 更新紀錄
 
+- 2026-11-23：S 2.1 與 XS 2.1 在 OpenRouter 的免費與付費端點都已下架，Vercel AI Gateway 也不再列出 Laguna；版本矩陣與部署段的入口改成 Poolside API（Poolside Platform 免費開發者金鑰）、chat.poolside.ai 與 Baseten。移除原本引自 OpenRouter 上架頁的價格（S 2.1 的 $0.10／$0.20／$0.01 與 XS 2.1 的 $0.10／$0.20／$0.05），Poolside 沒有公開託管價目表。補上官方 FP8 GPU 記憶體估算。模型世代沒有變動，Poolside 仍以 S 2.1 與 XS 2.1 為現行型號。
 - 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 
 - [Poolside 官方：Introducing Laguna S 2.1（2026-07-21）](https://poolside.ai/blog/introducing-laguna-s-2-1)
 - [Poolside 官方：Introducing Laguna XS 2.1（2026-07-02）](https://poolside.ai/blog/introducing-laguna-xs-2-1)
-- [Poolside 官方：Models（S 2.1 / XS 2.1 規格與定價）](https://www.poolside.ai/models)
+- [Poolside 官方：Models（S 2.1 / XS 2.1 規格）](https://www.poolside.ai/models)
 - [Poolside 文件：Model release notes（M.1 / XS.2 / XS 2.1 / S 2.1）](https://docs.poolside.ai/release-notes/models)
 - [Hugging Face：poolside/Laguna-S-2.1](https://huggingface.co/poolside/Laguna-S-2.1)
 - [Hugging Face：poolside/Laguna-XS-2.1](https://huggingface.co/poolside/Laguna-XS-2.1)
-- [OpenRouter：poolside/laguna-s-2.1](https://openrouter.ai/poolside/laguna-s-2-1)
+- [Poolside 文件：Poolside API（base URL、model ID、驗證）](https://docs.poolside.ai/api/overview)
+- [Poolside 文件：Supported models（參數、GPU 記憶體估算、授權）](https://docs.poolside.ai/get-started/supported-models)
 - [trajectories.poolside.ai：S 2.1 完整評測軌跡](https://trajectories.poolside.ai/)

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 19
 ---
-> 🌏 [English version](/posts/daily/2026-06-12-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-12-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -70,7 +70,7 @@ T1-Bench 基於 Capital One 內部的 T1 工具對話資料集，構建了橫跨
 - 資料來源：Capital One 內部的 T1 工具對話資料集（arxiv 2505.16986），金融業真實場景，比一般合成資料有更高的業務真實性
 - 25 個業務領域，設有難度分層，「交叉場景」設計刻意製造領域跳轉壓力，暴露現有模型的系統性弱點
 - 12 個模型全面評估，涵蓋最新私有與開源模型，提供可複現的跨模型基線比較
-- **⚠️** 具體模型分數差距未能從公開摘要取得，建議直接讀原文 Evaluation 章節確認數字
+- **:warning:** 具體模型分數差距未能從公開摘要取得，建議直接讀原文 Evaluation 章節確認數字
 - 與 AgencyBench（2601.11044，百萬 token 長文脈 benchmark）互補：T1-Bench 考深度跨域推理，AgencyBench 考超長上下文持續能力
 - Limitation：場景根植金融客服業，通用性需跨領域驗證；以英語為主，多語言場景尚未涵蓋
 - 落地門檻低：benchmark 可直接整合為 agent CI/CD 管道中的 regression test suite，不需額外基礎設施
@@ -124,7 +124,7 @@ VISTA 的貢獻在 meta 層次：不只是測 agent，還測「你的測試方�
 
 ### 深入要點
 
-- 6 個模擬品質指標涵蓋對話真實感、任務覆蓋率、failure mode 挖掘能力等維度（**⚠️** 各指標具體定義和計算方式需讀原文確認）
+- 6 個模擬品質指標涵蓋對話真實感、任務覆蓋率、failure mode 挖掘能力等維度（**:warning:** 各指標具體定義和計算方式需讀原文確認）
 - 在電商購物和教育客服兩個領域進行驗證，結果顯示比現有方法「更真實且更全面」
 - Hybrid 設計是技術亮點：大多數 agent 測試框架只能模擬 API 互動，VISTA 也支援模擬 GUI 層面的使用者行為，對以 web app 為主介面的 agent 特別有實用價值
 - Columbia 大學 + [Arklex.ai](http://Arklex.ai) 合作出品——Arklex 是 agent 框架新創，這個工具很可能整合進其商業 agent 開發流程，有實際落地動機
@@ -186,7 +186,7 @@ VISTA 的貢獻在 meta 層次：不只是測 agent，還測「你的測試方�
 - 關鍵命題：agentic software 中，「除錯（debug）」的對象不再是程式碼行，而是 agent 的推理路徑——這對 observability 工具鏈有深遠影響
 - 與同期論文 AOS（2606.01508，6/11 日報已讀）方向呼應：AOS 說「agent 需要新 OS」，這篇說「agent 代表新的軟體本體」，兩篇可當一套互補的概念框架來讀
 - 作者來自金融科技投資機構（非學術圈），視角更偏產業實踐，論述風格偏工程師直覺而非學術嚴謹
-- **⚠️** 作者非學術機構，論文尚處 preprint 狀態，同儕審查水準未經確認
+- **:warning:** 作者非學術機構，論文尚處 preprint 狀態，同儕審查水準未經確認
 - Limitation：偏概念框架，缺乏具體 benchmark 或案例研究支撐核心論點；同期做類似概念整理的論文已有數篇，差異化貢獻主要在「程式碼為工具而非目的」這個角度
 - 落地方式：可作為規劃 agent 平台 observability 架構的討論框架，幫助釐清要追蹤「推理路徑」而非只追蹤「程式執行路徑」
 

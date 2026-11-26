@@ -12,7 +12,7 @@ series:
   order: 83
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-15-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-15-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Existing skill evolution methods (self-reflection, single-turn QA evaluation) al
 ### Deep Dive
 
 - Tested on 6 categories of cloud services, 9 production skills, 98 skill reference files
-- Outperforms self-reflection baseline by 23.0 points, single-turn QA evolution by 15.4 points ⚠️ (Tencent self-evaluated; awaiting external replication)
+- Outperforms self-reflection baseline by 23.0 points, single-turn QA evolution by 15.4 points :warning: (Tencent self-evaluated; awaiting external replication)
 - Core insight on evolution gradients: single-turn feedback information drops sharply after the first round; multi-turn follow-ups sustain new signal
 - Governance layer actively repairs two issue types: factual degradation (incorrect information introduced during evolution) and structural bloat (skills growing longer and more redundant with each edit)
 - Adoption threshold: requires building a multi-turn user simulation pipeline; smaller teams can start by mining follow-up patterns from existing conversation logs
@@ -148,7 +148,7 @@ Most existing Agent memory systems freeze after development — memory schema, o
 ### Deep Dive
 
 - LOCOMO conversational memory accuracy 94.03%, PersonaMem persona memory 70.63%
-- MindSkillEvolve improves SpreadsheetBench by 9.2 percentage points over the initial skill baseline ⚠️ (Huawei self-evaluated; awaiting external replication)
+- MindSkillEvolve improves SpreadsheetBench by 9.2 percentage points over the initial skill baseline :warning: (Huawei self-evaluated; awaiting external replication)
 - Unified memory structure: entity-property-time, covering four memory types: events, preferences, facts, and experiences
 - "Dreaming" mechanism: scans all memories offline, merges redundant records, and flags conflicting ones — analogous to memory consolidation during human sleep
 - Implicit correction feedback: when users correct the Agent, the system automatically traces back and fixes the corresponding memory entries

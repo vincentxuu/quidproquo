@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 25
 ---
-> 🌏 [中文版](/posts/daily/2026-06-18-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-18-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ Agent framework design has long been considered "art, not science." HarnessX tur
 - Core architecture: nine-dimension behavior pipeline, Processors composed with pipe operators, 7 major Processor categories
 - AEGIS 4-stage pipeline: Digester (compress traces) → Planner (propose modification plans) → Evolver (generate candidate Harnesses) → Critic (score and filter)
 - Five benchmarks: ALFWorld, GAIA, WebShop, τ³-Bench, SWE-bench Verified
-- Average improvement **+14.5%**, max **+44.0%** (paper's numbers) ⚠️ (which specific benchmark reached +44% is not clearly broken out in search results)
+- Average improvement **+14.5%**, max **+44.0%** (paper's numbers) :warning: (which specific benchmark reached +44% is not clearly broken out in search results)
 - GitHub public numbers: Qwen 9B on GAIA from 33% → 47% (pure Harness evolution), reaching **55.77%** after co-evolution (64% relative improvement); GPT-5 from 62% → **84%**
 - SWE-bench by model: Qwen3-235B +19.3%, Qwen3-32B +4.4%, Claude Opus 4.6 +2.6% (stronger models gain less, as expected)
 - Additional tools: Light-Memory plugin (time decay + daily compression), IM Gateway (Feishu/Slack/Discord/Telegram), VERL distributed RL integration
@@ -79,7 +79,7 @@ Agent framework design has long been considered "art, not science." HarnessX tur
 
 ### Reviewer's One-Line Take
 
-Engineering ambition is impressive, and the idea of automatic Harness evolution is compelling — but +14.5% is an average across 5 vastly different benchmarks, and the +44.0% source is opaque ⚠️. Overall a substantive systems paper, but readers should reproduce on their own target tasks rather than using the paper's averages for decision-making.
+Engineering ambition is impressive, and the idea of automatic Harness evolution is compelling — but +14.5% is an average across 5 vastly different benchmarks, and the +44.0% source is opaque :warning:. Overall a substantive systems paper, but readers should reproduce on their own target tasks rather than using the paper's averages for decision-making.
 
 ### Your Take-Away
 
@@ -127,14 +127,14 @@ This paper provides both theoretical justification and security warnings for imp
 - Core quantity: R(i|k) = Agent i's trust score on skill k, borrowing statistical evidence from related skills via Ising coupling
 - Phase diagram three conditions (all required simultaneously): high Agent heterogeneity + sparse per-skill data + high inter-skill correlation → only then is conditional trust worth enabling
 - Experiment scale: 14 real Agents from the AppWorld benchmark, validating that real Agent pools fall within the "beneficial zone" and that the per-skill best Agent does change by skill
-- Security attack: attacker inflates scores on one skill at low cost, then infiltrates the target skill via β coupling, routing regret jumps from 0 to **0.94** ⚠️ (internal paper test, not third-party verified)
+- Security attack: attacker inflates scores on one skill at low cost, then infiltrates the target skill via β coupling, routing regret jumps from 0 to **0.94** :warning: (internal paper test, not third-party verified)
 - Tool CIVT (Conditional Information Value Test): can pre-determine whether the current Agent pool meets the conditions for enabling conditional trust
 - Limitation: model assumes skill correlations are known and fixed; in reality skill boundaries are fuzzy; 14 Agents is a small scale, conclusions need larger-scale validation
 - Relation to mainstream frameworks: LangGraph / AutoGen routing currently uses global trust or manual rules; this paper provides a theoretically grounded upgrade path
 
 ### Reviewer's One-Line Take
 
-Theoretical framework is clear, formalizing the global vs. conditional trust trade-off has reference value for multi-agent routing system design — but 14 Agents from AppWorld is too small a scale, and the routing regret 0.94 attack conclusion needs larger-scale reproduction to be convincing ⚠️. A good starting point, not a conclusion.
+Theoretical framework is clear, formalizing the global vs. conditional trust trade-off has reference value for multi-agent routing system design — but 14 Agents from AppWorld is too small a scale, and the routing regret 0.94 attack conclusion needs larger-scale reproduction to be convincing :warning:. A good starting point, not a conclusion.
 
 ### Your Take-Away
 
@@ -184,11 +184,11 @@ This paper transforms Agent privacy from a "static compliance problem" into a "d
 - Technically borrows the budget concept from differential privacy, but applied at the semantic inference layer rather than the database query layer
 - Existing solution gap comparison: contextual-integrity filters only check single outputs; information-flow controls don't track cumulative inference; posterior-leakage monitors only observe without intervening — OCELOT claims to be the first to control all three at runtime
 - Limitation: setting budget ε requires domain knowledge; too strict and it prevents the Agent from completing tasks; computing posterior updates requires compute resources, introducing latency for real-time Agents
-- Quantitative experiment details (interception rate, task completion rate trade-off) not found in public search results ⚠️; readers should consult the original paper
+- Quantitative experiment details (interception rate, task completion rate trade-off) not found in public search results :warning:; readers should consult the original paper
 
 ### Reviewer's One-Line Take
 
-Problem definition is solid, and formalizing cumulative inference leakage is a genuine contribution — but from available information, the paper lacks publicly available quantitative experiment numbers (e.g., interception rate, task success rate trade-off), making it impossible to assess the budget mechanism's feasibility in real Agent tasks ⚠️. Readers should bring critical eyes and check the original data directly.
+Problem definition is solid, and formalizing cumulative inference leakage is a genuine contribution — but from available information, the paper lacks publicly available quantitative experiment numbers (e.g., interception rate, task success rate trade-off), making it impossible to assess the budget mechanism's feasibility in real Agent tasks :warning:. Readers should bring critical eyes and check the original data directly.
 
 ### Your Take-Away
 

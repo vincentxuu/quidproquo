@@ -32,7 +32,7 @@ glossary:
     context_en: "macOS Screen Sharing is a built-in VNC server."
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk-en)
+> :globe: [English version](/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk-en)
 
 出門只帶一台輕薄筆電或 iPad，要連回桌上那台 Mac 拿檔案、跑編譯、開會共享桌面，臨時用 [Chrome 遠端桌面](https://remotedesktop.google.com/) 堪用，長期每天連會被卡頓、斷線、休眠與解析度問題折磨。這篇把 Mac 遠端的四種主流方案攤開比較，給出不付費也能長期工作的首選：[Tailscale](https://tailscale.com/) + 內建螢幕共享（完全免費），並整理 5 分鐘設定步驟與三個一定會踩的坑。想更順再考慮付費的 [Jump Desktop](https://jumpdesktop.com/)。
 

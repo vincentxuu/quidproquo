@@ -12,7 +12,7 @@ draft: false
 description: "Separate what ICL, SFT, reward models, and RLHF each change, with worked examples and answered variations."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

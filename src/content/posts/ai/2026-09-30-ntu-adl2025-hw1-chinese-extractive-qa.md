@@ -22,7 +22,7 @@ glossary:
     context: "投影片建議直接改 HuggingFace 的 multiple choice 範例來做。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-hw1-chinese-extractive-qa-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

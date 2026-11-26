@@ -19,7 +19,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-l11-representation-reconstruction-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-l11-representation-reconstruction-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

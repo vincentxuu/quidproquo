@@ -26,7 +26,7 @@ glossary:
     context: "Lattice 把它列為練 project 的工具之一，常用來預掛第一、二支快扣。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-redpoint-projecting-tactics-en)
+> :globe: [English version](/posts/climbing/2026-10-19-redpoint-projecting-tactics-en)
 
 上個月你 onsight 一條 5.11b，在第五支快扣後面的 crux 掉了。今天回來，你掛在繩子上把 crux 拆開，三個動作各試了兩次，終於知道左腳要踩哪裡。下來休了十分鐘就再上，結果在第三支快扣就爆了，比上次掉得還低。
 

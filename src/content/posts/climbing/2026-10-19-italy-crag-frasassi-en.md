@@ -13,7 +13,7 @@ description: "A guide to the Gola della Rossa and Gola di Frasassi crags: rock, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-frasassi)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-frasassi)
 
 The Gola della Rossa and the Gola di Frasassi are two limestone gorges in the interior of the province of Ancona in Marche, both inside the [Gola della Rossa e di Frasassi Regional Nature Park](https://www.parcogolarossa.it/). The park is best known for the Frasassi caves; for climbers, it is one of the largest groups of crags in Marche.
 

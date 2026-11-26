@@ -5,8 +5,8 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, deepseek, model-family-deepseek]
 lang: zh-TW
-description: "DeepSeek 用新架構把 KV cache 壓到 890 bytes/token，Terminal-Bench 與 DeepSWE 雙雙超越 Claude Opus 5，官方同時宣布 9/14 起 V4-Pro 流量全數改路由到這顆更便宜的新模型"
-tldr: "DeepSeek-V4.1-Flash（API 呼叫用 model ID：deepseek-flash）：552B 總參數 MoE，僅 8B（prefill）／16B（decode）啟用參數，1M context、384K 最大輸出；定價 Input $0.30／Output $1.20（尖峰，離峰對半），MIT 開源；DeepSWE v1.1 74.2 分超越 Claude Opus 5 的 74.0，Terminal-Bench 2.1 90.6 分同樣超車；9/14 起 V4-Pro 全數流量改路由到此模型，等於尖峰定價直接降 77%"
+description: "DeepSeek 用新架構把 KV cache 壓到 890 bytes/token，Terminal-Bench 與 DeepSWE 雙雙超越 Claude Opus 5；官方原訂 9/14 起把 V4-Pro 流量改路由到這顆更便宜的新模型，後來改為繼續提供 V4-Pro"
+tldr: "DeepSeek-V4.1-Flash（API 呼叫用 model ID：deepseek-flash）：552B 總參數 MoE，僅 8B（prefill）／16B（decode）啟用參數，1M context、384K 最大輸出；定價 Input $0.30／Output $1.20（尖峰，離峰對半），MIT 開源；DeepSWE v1.1 74.2 分超越 Claude Opus 5 的 74.0，Terminal-Bench 2.1 90.6 分同樣超車；發佈公告原訂 9/14 起把 V4-Pro 流量改路由到此模型，更新日誌後來改為應使用者要求繼續提供 V4-Pro、計費不變"
 series:
   name: "AI Model Tracker"
   order: 19
@@ -15,7 +15,7 @@ glossary:
     def: "DeepSeek（深度求索）開發的旗艦大型語言模型家族，分 Flash（輕量）與 Pro（旗艦）兩線，2026 年起加入多模態與更激進的 KV cache 壓縮技術"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en)
+> :globe: [English version](/posts/daily/2026-09-11-model-deepseek-deepseek-v4-1-flash-en)
 
 ## 模型資訊
 
@@ -31,7 +31,7 @@ glossary:
 | 發布日 | 2026-09-10 |
 | 官方公告 | [Models & Pricing — DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing) |
 | HuggingFace | [deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash) |
-| 家族 | DeepSeek V4.x（接替 V4-Flash-0731 與 V4-Pro-0813，9/14 起 V4-Pro 全數流量改路由至此） |
+| 家族 | DeepSeek V4.x（接替 V4-Flash-0731；V4-Pro-0813 原訂 9/14 起改路由至此，後來改為繼續提供） |
 
 ## 能力亮點
 
@@ -50,7 +50,7 @@ glossary:
 | CyberGym (Pass@1) | 88.1 | 76.7 | GPT-5.6 Sol／GLM-5.3：84.5 |
 | GPQA Diamond (Pass@1) | 90.9 | 89.9 | GPT-5.6 Sol：94.1 |
 
-⚠️ 以上皆為 DeepSeek 官方以 DeepSeek Harness（Minimal 模式，`temperature=1.0`、`top_p=0.95`，最大推理強度）或各 benchmark 官方 scaffold 自測，發布當日數據，尚無獨立第三方複現。
+:warning: 以上皆為 DeepSeek 官方以 DeepSeek Harness（Minimal 模式，`temperature=1.0`、`top_p=0.95`，最大推理強度）或各 benchmark 官方 scaffold 自測，發布當日數據，尚無獨立第三方複現。
 
 ## 與前代/競品比較
 
@@ -58,13 +58,13 @@ glossary:
 
 跟 Claude Opus 5、GPT-5.6 Sol 等閉源模型比，DeepSeek-V4.1-Flash 在 agentic 類 benchmark（Terminal-Bench、DeepSWE、AutomationBench）全面領先，但純推理與知識類仍有落差：GPQA Diamond 90.9 分落後 GPT-5.6 Sol 的 94.1，Humanity's Last Exam 只有 36.8 分（Opus 5 為 56.3）。這是一個「重 agentic、輕通用推理」的定位。
 
-定價策略上最激進的動作是官方直接讓 V4-Pro 退場：9 月 14 日 12:00（北京時間）起，所有打到 `deepseek-v4-pro` 的請求會全數改路由到 V4.1-Flash 並按 Flash 價計費，尖峰 input 從 $1.32 降到 $0.30（降 77%）、output 從 $3.96 降到 $1.20（降 70%），等於官方直接把旗艦定位讓給新模型，還順便替既有使用者大幅降價。
+定價策略上最激進的動作是官方宣布讓 V4-Pro 退場：發佈公告寫 9 月 14 日 12:00（北京時間）起，所有打到 `deepseek-v4-pro` 的請求會全數改路由到 V4.1-Flash 並按 Flash 價計費，尖峰 input 從 $1.32 降到 $0.30（降 77%）、output 從 $3.96 降到 $1.20（降 70%），等於把旗艦定位讓給新模型。這個計畫後來撤回：DeepSeek 更新日誌改為應使用者要求，9/14 之後繼續提供 V4 Pro API、計費方式不變，定價頁也仍單獨列出 `deepseek-v4-pro`。想用 Flash 的價格，要自己把 model 換成 `deepseek-flash`。
 
 ## 對 Agent 開發的意義
 
 CED 架構把 decoder KV cache 從 encoder 投影出來，是這次對 agent 開發最直接的影響：長 context、多輪工具呼叫的 agent session，KV cache 成長速度大幅趨緩，1M context 配合 384K 最大輸出，讓「一次讀完整個大型 codebase」變得更划算。
 
-- 如果你在做 coding agent 或 CLI agent：DeepSWE v1.1 74.2 分已經超過 Claude Opus 5，且啟用參數只有 8B/16B，值得優先評估把後端 model 換成 `deepseek-flash`，尤其是原本掛在 V4-Pro 上的工作負載——9/14 之後流量會自動遷移，等於免費拿到一次效能升級
+- 如果你在做 coding agent 或 CLI agent：DeepSWE v1.1 74.2 分已經超過 Claude Opus 5，且啟用參數只有 8B/16B，值得優先評估把後端 model 換成 `deepseek-flash`，尤其是原本掛在 V4-Pro 上的工作負載——V4-Pro 在 9/14 後仍繼續提供、流量不會自動遷移，要換得自己改 model 名稱
 - 如果你在做需要長時間維持 session 的多步驟自動化 agent：AutomationBench 54.8 分同組最高，加上 KV cache 壓縮帶來的成本優勢，適合需要反覆呼叫工具、來回驗證結果的長流程任務
 - 不適合：純推理或知識密集型場景（Humanity's Last Exam 只有 36.8 分，遠落後 Opus 5 的 56.3），以及對準確率要求極高的高難度競賽型 coding 任務（Terminal-Bench 3.0／4.0 僅 30.0／31.2 分，明顯落後 Opus 5 的 43.3／51.8）
 
@@ -72,9 +72,14 @@ CED 架構把 decoder KV cache 從 encoder 投影出來，是這次對 agent 開
 
 以前預設「省下啟用參數」等於犧牲能力，這次的 DeepSWE 數字打破這個假設——DeepSeek 靠架構設計（CED＋CSA2＋FP4 KV cache）把啟用參數從 13B 壓到 8B/16B，agentic benchmark 反而全面超車前代、甚至追平 Claude Opus 5。這提醒我評估 MoE 模型時，「啟用參數量」本身不是能力的代理指標，KV cache 如何跨層共用、稀疏索引怎麼設計，往往比單純的參數量數字更能決定 agentic 任務的實際表現。
 
+## 更新紀錄
+
+- 2026-11-23：修正 V4-Pro 退場的說法。發佈公告原訂 9/14 起把 `deepseek-v4-pro` 的請求改路由到 V4.1-Flash，但 DeepSeek 更新日誌後來改為應使用者要求繼續提供 V4 Pro API、計費方式不變，定價頁也仍列出 `deepseek-v4-pro`；原本「流量會自動遷移」的建議一併改掉。
+
 ## 參考資料
 
 - [Models & Pricing — DeepSeek API Docs](https://api-docs.deepseek.com/quick_start/pricing)
+- [Change Log — DeepSeek API Docs](https://api-docs.deepseek.com/updates/)
 - [HuggingFace model card: deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
 - [DeepSeek-V4.1-Flash Technical Report (PDF, via HuggingFace)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/DeepSeek_V41_Tech_Report.pdf)
 - [What Is DeepSeek-V4.1-Flash? — Apidog](https://apidog.com/blog/what-is-deepseek-v4-1-flash)

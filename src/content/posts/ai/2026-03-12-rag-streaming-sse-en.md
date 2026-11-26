@@ -14,7 +14,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-streaming-sse)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-streaming-sse)
 
 The standard RAG request flow is: query → pipeline execution → LLM finishes generating → return complete response. The user stares at a blank screen for 5-8 seconds before seeing the first character.
 

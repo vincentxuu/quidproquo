@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory-en)
 
 用 Claude Code 用到第二週，你會發現專案根目錄和家目錄都長出了奇怪的東西：`.claude/settings.local.json`、`~/.claude.json`、`~/.claude/projects/` 底下一堆不記得誰寫的 markdown。這篇把 Anthropic 官方文件裡最常需要理解的兩層目錄講清楚——每個檔是誰寫的、該不該 commit、跟其他檔誰覆蓋誰；plugin cache、transcript、snapshot、debug log 這類應用程式資料只點到為止。這是[上一篇 agentic loop](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) 之後最值得先搞懂的一篇，因為系列後面所有擴充機制的檔案都落在這張地圖上。
 

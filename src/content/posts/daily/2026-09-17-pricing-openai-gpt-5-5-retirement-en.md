@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement)
+> :globe: [中文版](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement)
 
 ## Summary of Changes
 
@@ -58,7 +58,7 @@ OpenAI's own API documentation is explicit: GA models get at least six months' n
 
 ## Expiration Notice
 
-⚠️ **Shutdown date**: 2026-10-14. GPT-5.5 will be removed from ChatGPT, ChatGPT Work, and Codex across all plans (consumer, Business, Enterprise, Edu). Direct calls to `gpt-5.5` through the OpenAI API are unaffected. Codex (ChatGPT sign-in) migration guide: [GPT-5.5 retirement | ChatGPT Learn](https://learn.chatgpt.com/codex/models#gpt-55-retirement).
+:warning: **Shutdown date**: 2026-10-14. GPT-5.5 will be removed from ChatGPT, ChatGPT Work, and Codex across all plans (consumer, Business, Enterprise, Edu). Direct calls to `gpt-5.5` through the OpenAI API are unaffected. Codex (ChatGPT sign-in) migration guide: [GPT-5.5 retirement | ChatGPT Learn](https://learn.chatgpt.com/codex/models#gpt-55-retirement).
 
 ## Takeaway
 

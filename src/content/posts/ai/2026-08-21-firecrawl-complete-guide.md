@@ -10,7 +10,7 @@ description: "從 Firecrawl v2 的 Scrape、Crawl、Map 與 JSON Schema 抽取�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-firecrawl-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-firecrawl-complete-guide-en)
 
 [Firecrawl](https://docs.firecrawl.dev/advanced-scraping-guide) 是一套 Web Data API。給它一個 URL，可以拿回 Markdown、連結、HTML、截圖或結構化 JSON；給它一個網域，還能先列 URL，或直接把多個頁面爬回來。它和一般爬蟲函式庫最大的差別，不是多了一個 Markdown converter，而是把瀏覽器、快取、proxy、工作佇列與 API 服務一起包起來。
 
@@ -27,7 +27,7 @@ draft: false
 | 知道網站，不知道有哪些頁 | `map` | URL 清單 | 先盤點範圍、建立 crawl allowlist |
 | 要沿連結取得整站內容 | `crawl` | 非同步 job 與逐頁結果 | 文件站、知識庫匯入 |
 
-`extract` 需要特別說明。Firecrawl 目前仍保留多頁結構化抽取端點，但官方的[抽取選擇指南](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor)已標示「改用 `/agent`」。已知單一 URL 時，用 `scrape` 的 JSON mode；要跨頁探索與抽取時，新專案應先評估 `agent`，不要看到舊教學就把 `/extract` 當預設入口。
+`extract` 需要特別說明。這個多頁結構化抽取端點已列為 deprecated，官方公告 [2026-12-10 移除](https://docs.firecrawl.dev/features/extract)，[抽取選擇指南](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor)也標示「改用 `/agent`」。已知單一 URL 時，用 `/v2/scrape` 的 JSON mode；萬用字元、跨頁或搭配網頁搜尋的抽取改用 `/v2/agent`。舊教學裡的 `/extract` 範例不要再照抄，既有程式要在移除前遷移（官方有 [Migrating from /extract](https://docs.firecrawl.dev/migrating-from-extract) 指南）。
 
 ## Scrape：先取得可保存的原始內容
 
@@ -127,7 +127,7 @@ curl -X POST https://api.firecrawl.dev/v2/crawl \
 
 查核日的基礎計價是 scrape 與 crawl 每頁 1 credit，map 每次呼叫 1 credit；JSON format 另外加每頁 4 credits。Firecrawl 基礎設施成功處理請求時，即使目標站回 `403` 或 `404` 仍可能計費，因此重試前要看 `metadata.statusCode`，不能把所有空結果都當暫時性錯誤。
 
-免費帳號目前提供 1,000 credits。
+Free 方案每月提供 1,000 credits，不用綁卡；官方換算是 1,000 頁 scrape 或 500 次搜尋，兩者共用同一份額度。
 
 依官方 [Rate Limits](https://docs.firecrawl.dev/rate-limits)，Free plan 的 scrape 與 map 各為每分鐘 10 次。crawl 為每分鐘 2 次，並有 2 個 concurrent browsers。這些數字會隨方案調整；production 不要把文章裡的快照寫死成容量設定，應從 dashboard 與 queue status 觀察實際限制。
 
@@ -159,11 +159,18 @@ Firecrawl 主專案採 [AGPL-3.0](https://github.com/firecrawl/firecrawl/blob/ma
 
 最小決策動作很簡單：先選 20 個固定 URL，保存 Firecrawl scrape 的 status、Markdown 與 credits；同一批再用現有 crawler 跑一次。比較缺頁、延遲、人工介入與維運時間，而不是只比「哪個輸出了 Markdown」。
 
+## 更新紀錄
+
+- 2026-11-23：`/extract` 已 deprecated、2026-12-10 移除，改寫遷移建議（單頁用 `/v2/scrape` JSON mode、跨頁用 `/v2/agent`）；免費額度補上「每月」與 1,000 頁／500 次搜尋的換算。
+
 ## 參考資料
 
 - [Firecrawl Advanced Scraping Guide](https://docs.firecrawl.dev/advanced-scraping-guide)
 - [Firecrawl Python quickstart](https://docs.firecrawl.dev/quickstarts/python)
 - [Choosing the Data Extractor](https://docs.firecrawl.dev/developer-guides/usage-guides/choosing-the-data-extractor)
+- [Firecrawl Extract（deprecation 公告）](https://docs.firecrawl.dev/features/extract)
+- [Migrating from /extract](https://docs.firecrawl.dev/migrating-from-extract)
+- [Firecrawl Pricing](https://www.firecrawl.dev/pricing)
 - [Firecrawl Billing](https://docs.firecrawl.dev/billing)
 - [Firecrawl Rate Limits](https://docs.firecrawl.dev/rate-limits)
 - [Open source or Firecrawl Cloud](https://docs.firecrawl.dev/contributing/open-source-or-cloud)

@@ -13,7 +13,7 @@ description: "A guide to Rocca Sbarua: the granitic gneiss, its style and size, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-rocca-sbarua)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-rocca-sbarua)
 
 Rocca Sbarua sits above Pinerolo, near Turin: a string of granitic gneiss buttresses and towers on the south side of Monte Freidur, in the municipality of Frossasco. [Versante Sud](https://www.versantesud.it/en/shop/catalogue/rocca-sbarua_1479/) notes that "Sbarua" means fear in Piedmontese dialect. Rifugio Melano, the hut at the foot of the walls, is open all year and is where everyone meets.
 

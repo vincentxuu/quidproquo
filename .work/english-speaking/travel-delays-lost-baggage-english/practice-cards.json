@@ -1,0 +1,146 @@
+[
+  {
+    "id": "travel-delay-hours",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "廣播說班機延誤，你向同行朋友說明延誤多久。",
+    "zh": "我的班機延誤兩小時。",
+    "en": "My flight is delayed by two hours.",
+    "swap": "把兩小時換成三小時：My flight is delayed by three hours.",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "把廣播中的 This flight 換成 My flight，保留 is delayed by + 時間的骨架。",
+    "evidenceType": "adapted",
+    "contextEvidenceType": "adapted",
+    "support": "This flight is delayed by two hours because of bad weather.",
+    "sources": [
+      {
+        "title": "British Council：Travelling abroad",
+        "url": "https://learnenglishteens.britishcouncil.org/skills/listening/a2-listening/travelling-abroad",
+        "supports": "把廣播中的 This flight 換成 My flight，保留 is delayed by + 時間的骨架。",
+        "evidenceType": "adapted",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "travel-depart-estimate",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "航空公司人員剛說班機延誤，你追問預計起飛時間。",
+    "zh": "你們預計飛機什麼時候起飛？",
+    "en": "When do you expect the plane to leave?",
+    "swap": "把飛機換成火車：When do you expect the train to leave?",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "問目前的預估，不把回答當成已確定的起飛時間。",
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "So, when do you expect the plane to leave?",
+    "sources": [
+      {
+        "title": "Oxford Online English：Airport English",
+        "url": "https://www.oxfordonlineenglish.com/airport-english",
+        "supports": "問目前的預估，不把回答當成已確定的起飛時間。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "travel-next-flight",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "原班機已取消，你向航空公司人員問下一班。",
+    "zh": "下一班還有位子的航班是什麼時候？",
+    "en": "When’s the next available flight?",
+    "swap": "換成火車：When’s the next available train?",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "available 在這裡是可以安排的航班；這句是詢問，不是已經完成改票。",
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "When’s the next available flight?",
+    "sources": [
+      {
+        "title": "Oxford Online English：Airport English",
+        "url": "https://www.oxfordonlineenglish.com/airport-english",
+        "supports": "available 在這裡是可以安排的航班；這句是詢問，不是已經完成改票。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "travel-lost-bag",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "下機後發現隨身包包不見了，你向服務台說明。",
+    "zh": "我的包包不見了。",
+    "en": "I’ve lost my bag.",
+    "swap": "把包包換成手機：I’ve lost my phone.",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "這句沒有說明是自己遺失，還是托運行李沒到；下一句補清楚狀況。",
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "I’ve lost my bag.",
+    "sources": [
+      {
+        "title": "Oxford Online English：Baggage Reclaim",
+        "url": "https://www.oxfordonlineenglish.com/baggage-reclaim-listening-lesson-a1-a2",
+        "supports": "這句沒有說明是自己遺失，還是托運行李沒到；下一句補清楚狀況。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "travel-left-on-plane",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "你回想隨身包包最後出現的位置，向服務人員補充。",
+    "zh": "我想我把它留在飛機上了。",
+    "en": "I think I left it on the plane.",
+    "swap": "把飛機換成公車：I think I left it on the bus.",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "I think 保留不確定性；left it on the plane 說的是把東西留在機上。",
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "I think I left it on the plane.",
+    "sources": [
+      {
+        "title": "Oxford Online English：Baggage Reclaim",
+        "url": "https://www.oxfordonlineenglish.com/baggage-reclaim-listening-lesson-a1-a2",
+        "supports": "I think 保留不確定性；left it on the plane 說的是把東西留在機上。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "travel-get-bag-back",
+    "scenario": "travel",
+    "family": "airport",
+    "context": "已向服務台說明遺失物，你想知道是否有機會取回。",
+    "zh": "我還拿得回來嗎？",
+    "en": "Will I be able to get it back?",
+    "swap": "把 it 換成 my bag：Will I be able to get my bag back?",
+    "articlePath": "/posts/learning/2026-10-25-travel-delays-lost-baggage-english/",
+    "alternatives": [],
+    "usageNote": "get it back 是拿回原來的物品；這個問句不預設一定找得到。",
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Will I be able to get it back?",
+    "sources": [
+      {
+        "title": "Oxford Online English：Baggage Reclaim",
+        "url": "https://www.oxfordonlineenglish.com/baggage-reclaim-listening-lesson-a1-a2",
+        "supports": "get it back 是拿回原來的物品；這個問句不預設一定找得到。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  }
+]

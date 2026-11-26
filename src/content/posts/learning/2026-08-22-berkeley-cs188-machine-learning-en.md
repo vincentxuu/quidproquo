@@ -14,7 +14,7 @@ description: "A guide to rational decisions, machine learning, deep learning, LL
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs188-machine-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

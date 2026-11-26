@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-23-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-23-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 2,289
+### CopilotKit/OpenBot ★ 2,289
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### browser-use/macos-harness ⭐ 8（剛發布，成長中）
+### browser-use/macos-harness ★ 8（剛發布，成長中）
 
 [GitHub](https://github.com/browser-use/macos-harness)　·　Python　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### anomalyco/opencode（原 sst/opencode）⭐ ~199,000
+### anomalyco/opencode（原 sst/opencode）★ ~199,000
 
 [GitHub](https://github.com/anomalyco/opencode)　·　TypeScript
 

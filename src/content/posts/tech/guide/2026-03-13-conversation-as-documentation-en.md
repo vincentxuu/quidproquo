@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [中文版](/posts/tech/guide/2026-03-13-conversation-as-documentation)
+:globe: [中文版](/posts/tech/guide/2026-03-13-conversation-as-documentation)
 
 Every time I solve a problem, I know I should write it down. But most of the time I don't — because that means gathering my thoughts, opening an editor, coming up with a title, filling out frontmatter. Just the setup is enough to make me give up.
 

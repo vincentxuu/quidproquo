@@ -13,7 +13,7 @@ description: "聖維托洛卡波（San Vito lo Capo）岩場介紹：岩質與�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-san-vito-lo-capo-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-san-vito-lo-capo-en)
 
 聖維托洛卡波（San Vito lo Capo）是西西里島西北角[特拉帕尼（Trapani）](https://westofsicily.com/en/useful-information/how-to-get-there/by-bus)省的海邊小鎮，鎮西是一整排面海的石灰岩崖。[theCrag](https://www.thecrag.com/en/climbing/italy/trapani) 在這區登錄 1,306 條路線，開頭寫它是「by far the most popular climbing area in Sicily」；西西里官方旅遊網站 [VisitSicily](http://visitsicily.info/en/climbing-and-dws-in-sicily) 稱它是「Sicily's sport climbing capital」。
 

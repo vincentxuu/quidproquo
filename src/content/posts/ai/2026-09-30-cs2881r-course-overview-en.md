@@ -22,7 +22,7 @@ glossary:
         url: "https://arxiv.org/abs/2506.11613"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-course-overview)
 
 **Video status: Videos included.** The intro embeds the Lecture 1 recording (2 h 26 min); each lecture's recording is in its own post. [Source details](#course-video-sources)
 
@@ -146,7 +146,7 @@ Fall 2026 is running now with a new set of topics (Cyber Capabilities, RL for Po
 - RL foundations: [Berkeley CS285 Spring 2026 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en)
 - Interpretability: [CS224U analysis methods: probing and attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution-en)
 - Prompt injection and agent security in practice: [The harness layer of agent security](/posts/ai/2026-08-10-agent-security-harness-layer-en)
-- LLM-as-judge: [Stanford CS329Z Week 8: judges and guardrails](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
+- LLM-as-judge: [Stanford CS329Z Lecture 14: judges](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) and [Lecture 15: guardrails](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en)
 - Other Harvard courses: [Harvard AI/ML course map](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
 

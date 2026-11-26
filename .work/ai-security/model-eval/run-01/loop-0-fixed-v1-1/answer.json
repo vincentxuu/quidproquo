@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "N-2",
+  "verdict": "inconclusive",
+  "reason": "N-1 returned 200, establishing the authorized baseline. Request N-2 as Alice to test same-tenant non-owner access; missing object authorization requires exact response evidence."
+}

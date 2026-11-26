@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol-en)
+> :globe: [English version](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol-en)
 
 ## 異動摘要
 
@@ -24,11 +24,11 @@ Arena（前身 LMSYS Chatbot Arena）Agent 類別排行榜最新一次官方發�
 
 | 排名 | 模型 | 分數 | 10-08 分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | Claude Opus 5.5（Max） | 17.89% | 未上榜（🆕 effort 版本） | — |
-| 🥈 | GPT-6.1 Sol（Max） | 13.81% | 11.72%（5） | ↑3 |
-| 🥉 | GPT-6 Sol（Max） | 12.60% | 未進前 10（🆕） | — |
-| 4 | Gemini 4 Argon（High） | 12.37% | 未進前 10（🆕） | — |
-| 5 | GPT-6 Astra（Max） | 12.34% | 13.09%（🥈） | ↓3 |
+| 1 | Claude Opus 5.5（Max） | 17.89% | 未上榜（ effort 版本） | — |
+| 2 | GPT-6.1 Sol（Max） | 13.81% | 11.72%（5） | ↑3 |
+| 3 | GPT-6 Sol（Max） | 12.60% | 未進前 10（NEW） | — |
+| 4 | Gemini 4 Argon（High） | 12.37% | 未進前 10（NEW） | — |
+| 5 | GPT-6 Astra（Max） | 12.34% | 13.09%（2） | ↓3 |
 
 來源：[Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset)（`agent` 子集、`latest` split，`category=overall`）· 官方發布日期：2026-10-12 · 抓取日期：2026-10-14
 
@@ -44,7 +44,7 @@ GPT-6 Sol（Max）這次直接從「上一批次連前 10 都沒進」跳進第�
 
 ### 方法論面
 
-⚠️ 跟前幾篇一樣的提醒：Arena 這裡的分數是自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同批次的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級的相對變化。
+:warning: 跟前幾篇一樣的提醒：Arena 這裡的分數是自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同批次的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級的相對變化。
 
 信賴區間這次又是大範圍重疊：第一名 Opus 5.5（Max）的 95% CI 是 `[13.65%, 22.13%]`，第二名 GPT-6.1 Sol（Max）是 `[11.48%, 16.15%]`，第五名 GPT-6 Astra（Max）是 `[9.88%, 14.81%]`——第一名的區間下界（13.65%）仍落在第二到第五名區間的中段，統計上無法明確分出前五名的真正勝負順序。這次還多一層要注意的地方：Claude Opus 5.5（High）整批消失，查證後沒找到 Anthropic 官方停用「High」效力層級的公告（OpenRouter 的 5.5 遷移指南與使用者討論都顯示 High 仍是可選設定），比較可能是 Arena 這批抽樣沒抓到足夠的「High」版本對局量，掉到前 52 名榜單之外，而不是產品端真的下架了這個選項——這點目前只能算是合理推測，沒有獨立來源佐證，之後若查到官方說法會再更新。
 

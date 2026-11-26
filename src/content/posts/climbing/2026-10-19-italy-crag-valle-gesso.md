@@ -13,7 +13,7 @@ description: "Valle Gesso 抱石區介紹：San Giacomo、Sant'Anna、Pian della
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-valle-gesso-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-valle-gesso-en)
 
 Valle Gesso 在皮埃蒙特大區 Cuneo 南邊，是從 Borgo San Dalmazzo 往海洋阿爾卑斯山（Alpi Marittime）深處延伸的山谷。往上分成兩支：Entracque 方向的 Vallone di San Giacomo，和 Valdieri 方向、通往 Sant'Anna di Valdieri 與 Terme di Valdieri 的那一支。兩邊都散著大量巨石，[MadBoulder](https://www.madboulder.org/valle-gesso) 稱這裡是「a premier alpine bouldering destination in Italy」，義大利一流的高山抱石區。
 

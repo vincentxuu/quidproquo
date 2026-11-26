@@ -13,7 +13,7 @@ tldr: "五家參考專案裡沒有任何一家在 harness 層強制「宣告的�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-verification-gate-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-verification-gate-en)
 
 ## 設計問題
 

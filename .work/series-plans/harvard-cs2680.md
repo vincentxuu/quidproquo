@@ -2,7 +2,7 @@
 
 規劃日期：2026-10-21
 使用者確認：2026-10-21（弧線、堂次用投影片編號 1–8、第 3／8 堂篇內分兩半、斷崖橋接）
-狀態：已確認，第一批 order 0＋1 撰寫中；Part II（10/19 起的 serving 堂次）投影片公開後另補規劃
+狀態：Part I order 0–11 全部完成（0–7 已上線；8–11 於 2026-10-23 待 push）；Part II（10/19 起的 serving 堂次）投影片公開後另補規劃
 研究筆記：`.work/research/harvard-cs2680/research-note.md`（逐堂拆解見同目錄 `lectures-01-04.md`、`lectures-05-08.md`）
 
 目標讀者：會用 LLM API 或 coding agent（Claude Code、Codex）、想從「用 agent」走到「自己設計並優化 agent」的工程師。不假設修過研究所系統課，碰到分散式系統、資料庫、統計、serving 名詞時文章內補橋接。

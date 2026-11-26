@@ -26,7 +26,7 @@ glossary:
     context: "ADL Sequence Modeling 投影片第 9–10 頁，用三句話的小語料示範。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

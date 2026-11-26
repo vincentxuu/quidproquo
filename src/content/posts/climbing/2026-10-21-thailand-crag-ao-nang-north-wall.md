@@ -13,7 +13,7 @@ description: "Ao Nang North Wall 攀岩指南：六個子區與 103 條路線、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-ao-nang-north-wall-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-ao-nang-north-wall-en)
 
 在泰國 wanting 一面「不用想太多」的岩壁，North Wall 是最直接的答案：它就在 Ao Nang 市區裡，從海灘走到停車場五分鐘，停下來再走一分鐘就面對岩壁。全鈦栓、有廁所、有裝備可租、收費透明。
 

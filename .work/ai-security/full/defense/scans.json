@@ -1,0 +1,443 @@
+[
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：20\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  68 字｜可疑指令分類器適合增加阻擋與告…\n  60 字｜自架雲端副本可以用相同案例，但…\n  合計 2 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  2 / 20 段（10%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-injection-defenses.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-injection-defenses-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：22\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  合計 0 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  3 / 22 段（13%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-rag-permissions.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-rag-permissions-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：22\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  合計 0 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  1 / 22 段（4%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-tool-authorization.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-tool-authorization-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：21\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  68 字｜MCP 2026-07-28 授權安全要求要求 serve…\n  合計 1 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  1 / 21 段（4%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n  6 個｜系列前面的身分篇引用 2025-11-25 版…\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-mcp-trust.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-mcp-trust-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-output-handling.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：22\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  合計 0 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  0 / 22 段（0%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-output-handling.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-output-handling-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：21\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  67 字｜工單工具的參數政策寫得再好，若…\n  60 字｜程式在暫存目錄建立合成檔案，先…\n  64 字｜實際驗收至少分三步：工作輸入可…\n  合計 3 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  2 / 21 段（9%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-sandbox-credentials-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  },
+  {
+    "command": [
+      "pnpm",
+      "check:tw",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression.md"
+    ],
+    "exit": 0,
+    "output": "\n> quidproquo@0.0.1 check:tw /Users/xiaoxu/Projects/quidproquo\n> node scripts/check-tw-terms.mjs src/content/posts/ai/2026-10-22-ai-security-security-regression.md\n\n\nchecked 1 zh-TW post file(s): 0 blocking, 0 to review.\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/post-polish/scripts/register-scan.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression.md"
+    ],
+    "exit": 0,
+    "output": "正文段落數：24\n\n── 1. 長句（氣口）：兩個句號之間超過 60 字\n  70 字｜你會執行修補前後的真 HTTP 對照，…\n  合計 1 句\n\n── 2. 但書密度：含轉折詞的段落佔比\n  3 / 24 段（12%）\n\n── 3. 引述區塊（正文，不含語言導覽列）\n0\n  0\n\n── 4. 數字密度：單段 4 個以上數字\n\n── 5. 研究者姓名當段落主詞\n0\n  0\n\n── 6. 建議讀者做的事，有沒有配具體動作\n  「怎麼做」段落數：0\n  （人工核對：每個判 ✅／建議照做的項目都該有一段）\n\n── 7. 模板化轉折句型（同篇反覆會有 AI 感）\n  合計 0 處\n\n── 8. 一般英文術語密度（中文散文，人工判讀）\n  合計 0 次\n  （品牌、API 欄位、官方 UI／計價單位可保留；開頭、建議、結論的一般敘述優先用自然中文）\n"
+  },
+  {
+    "command": [
+      "bash",
+      ".agents/skills/writing-phrase-ledger/scripts/scan-ledger.sh",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression.md"
+    ],
+    "exit": 0,
+    "output": "Phrase ledger scan: src/content/posts/ai/2026-10-22-ai-security-security-regression.md\n\n── 模板化轉折\n\n── 台灣中文高風險用詞\n\n── 標題中的壓縮分類語氣\n"
+  },
+  {
+    "command": [
+      "node",
+      "scripts/check-process-leak.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression-en.md"
+    ],
+    "exit": 0,
+    "output": ""
+  },
+  {
+    "command": [
+      "node",
+      ".agents/skills/post/scripts/check-github-line-links.mjs",
+      "src/content/posts/ai/2026-10-22-ai-security-security-regression-en.md"
+    ],
+    "exit": 0,
+    "output": "\nchecked 0 anchored link(s), 0 problem(s). 題意是否相同需人工對照上面兩行。\n"
+  }
+]

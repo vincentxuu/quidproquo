@@ -22,7 +22,7 @@ glossary:
     context: "本文用它說明「表現好」和「理解」為什麼要分開量。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

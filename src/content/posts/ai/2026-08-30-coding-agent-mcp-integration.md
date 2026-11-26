@@ -13,7 +13,7 @@ description: "對照五家 MCP client 的生命週期、工具註冊與 approval
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-mcp-integration-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-mcp-integration-en)
 
 上一篇談 [OS 級沙箱](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing)。這篇先拆 MCP 的設計問題，再核對 looplane 現在的 native client baseline。
 

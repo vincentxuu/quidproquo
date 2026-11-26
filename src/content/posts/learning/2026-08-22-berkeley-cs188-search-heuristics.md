@@ -14,7 +14,7 @@ description: "以 Berkeley CS188 Spring 2026 Project 1 為主線，整理搜尋�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-search-heuristics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

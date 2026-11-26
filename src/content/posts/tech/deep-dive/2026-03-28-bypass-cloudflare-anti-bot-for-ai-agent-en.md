@@ -13,7 +13,7 @@ description: "A hands-on comparison of three approaches to bypass Cloudflare ant
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent)
 
 AI agents need to browse the web for information, but more and more sites are protected by Cloudflare's anti-bot systems. Standard Playwright gets blocked outright. This post documents the full journey from discovering the problem to shipping an MCP server.
 

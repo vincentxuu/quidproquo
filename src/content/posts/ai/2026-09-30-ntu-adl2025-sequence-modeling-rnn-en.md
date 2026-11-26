@@ -25,7 +25,7 @@ glossary:
     context: "ADL Sequence Modeling deck, slides 9–10, demonstrated on a three-sentence corpus."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-sequence-modeling-rnn)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

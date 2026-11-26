@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-containers-workers-runtime)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-containers-workers-runtime)
 
 Workers are a strong fit for HTTP APIs, edge rendering, webhooks, lightweight background jobs, and glue code around data bindings. They are not a universal runtime. Once a workload needs a full filesystem, a specific binary, more memory or disk, parallel CPU cores, or an existing container image, plain Workers begin to feel constrained.
 
@@ -95,6 +95,36 @@ The easy detail to miss is Durable Objects. Cloudflare Containers are not a Work
 
 That explains why named containers, stateful services, session routing, and load balancing are possible. The Worker remains the control plane, and the container is a runtime segment in the data plane.
 
+### Since September 2026: Pick a Scheduling Policy First
+
+The example above uses the `Container` class from `@cloudflare/containers`, and its `containers` entry has no `scheduling_policy`, which means the `default` policy: the whole application shares one image and one `instance_type` from Wrangler, and Cloudflare rolls out changes. On 2026-09-30 Cloudflare added the `durable_object` scheduling policy (public beta), and the docs now mark the `default` policy as deprecated. The current get-started guide uses the new form:
+
+```jsonc
+{
+  "containers": [
+    {
+      "class_name": "MyContainer",
+      "scheduling_policy": "durable_object",
+      "images": {
+        "base": { "dockerfile": "./Dockerfile" }
+      }
+    }
+  ]
+}
+```
+
+The Durable Object then chooses the image and instance size each time it starts a container through `ctx.container`:
+
+```ts
+this.ctx.container.start({
+  image: this.ctx.container.images.base,
+  instance: "lite",
+  enableInternet: false,
+});
+```
+
+Image and size move from application-level configuration to per-`start()` arguments, and a deploy no longer restarts running instances. These instances have independent lifecycles and do not take part in application-wide rollouts. The scheduling policy is immutable: moving an existing `default` application means creating a replacement application, as described in the official [migration guide](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/); changing the setting alone does nothing. New projects should start on `durable_object`, and one Wrangler config can hold both policies.
+
 ## Deploy: Wrangler Handles Worker and Image Together
 
 Containers require Docker for local build and push. The get started guide says Docker must be running locally during deployment. `wrangler deploy` uploads the Worker, builds and pushes the container image with Docker, and updates container instances on Cloudflare's network.
@@ -143,9 +173,11 @@ Container CPU, memory, and disk are set by instance type. The official limits pa
 | standard-3 | 2 | 8 GiB | 16 GB |
 | standard-4 | 4 | 12 GiB | 20 GB |
 
-Custom instance types are also possible, with boundaries: vCPU minimum 1 and maximum 4, memory maximum 12 GiB, disk maximum 20 GB, at least 3 GiB memory per vCPU, and a disk-to-memory ratio limit.
+Custom instance types are also possible. With the `durable_object` policy, the minimums are 1/16 vCPU, 256 MiB memory, and 2 GB disk, and the maximums follow the per-instance account limits (4 vCPU, 12 GiB memory, 20 GB disk). The docs note that different constraints usually mean the application is still on the legacy `default` policy.
 
-Account-level limits include 6 TiB concurrent memory, 1,500 concurrent vCPU, 30 TB concurrent disk, and 50 GB total image storage. Image size is related to instance disk space.
+Account-level limits include 60 TiB concurrent memory, 15,000 concurrent vCPU, 300 TB concurrent disk, and 50 GB total image storage; image size equals instance disk space. The docs state that all of these are defaults and can be raised through your account team or support.
+
+The `durable_object` policy also supports container snapshots (public beta): `snapshotContainer()` saves the writable root filesystem, and passing the snapshot back to `start()` restores the files, without memory or running processes. A snapshot can be up to 20 GB and is kept for 30 days from creation or the most recent restore.
 
 These numbers make Containers useful for bursty heavy work, while also showing why they should not replace every request handler. If the instance type is too large, provisioned memory and disk affect cost.
 
@@ -157,7 +189,7 @@ Containers are available on the Workers Paid plan. The official pricing page say
 - CPU: 375 vCPU-minutes per month included, then $0.000020 per additional vCPU-second.
 - Disk: 200 GB-hours per month included, then $0.00000007 per additional GB-second.
 
-Billing starts when a request is sent to the container or when it is manually started. Billing stops after the instance goes to sleep. Memory and disk are based on provisioned resources for the instance type; CPU is based on active usage.
+Billing starts when a request is sent to the container or when it is manually started. Billing stops after the instance goes to sleep. Memory and disk are based on provisioned resources for the instance type; CPU is based on active usage. Snapshots are free during the public beta; Cloudflare says pricing will come with general availability.
 
 Network egress is priced separately. The pricing page lists $0.025 per GB for North America and Europe, $0.05 per GB for Oceania, Korea, and Taiwan, and $0.04 per GB everywhere else, with included monthly allotments. A Containers app also incurs Workers and Durable Objects pricing, and logs integrate with Workers Logs pricing.
 
@@ -201,12 +233,18 @@ I would avoid Containers at first when:
 
 Containers raise the ceiling of the Cloudflare Edge Platform, but they also bring deployment, resource sizing, cost, and observability complexity. Their place near the end of the series is intentional: use Workers and bindings for most product work first; bring in Containers for the remaining work that truly needs a Linux runtime.
 
+## Update Log
+
+- 2026-11-23: Added the `durable_object` scheduling policy introduced in September 2026 (the `default` policy is now deprecated) and container snapshots; updated account limits to 60 TiB concurrent memory, 15,000 vCPU, and 300 TB disk (previously 6 TiB, 1,500, and 30 TB); changed custom instance minimums to the new policy's 1/16 vCPU, 256 MiB, and 2 GB; pointed reference links to current doc paths.
+
 ## References
 
 - [Cloudflare Containers](https://developers.cloudflare.com/containers/)
 - [Containers get started](https://developers.cloudflare.com/containers/get-started/)
 - [Containers limits and instance types](https://developers.cloudflare.com/containers/platform/limits/)
 - [Containers pricing](https://developers.cloudflare.com/containers/platform/pricing/)
-- [Container class reference](https://developers.cloudflare.com/containers/reference/container-class/)
-- [Durable Object Container API](https://developers.cloudflare.com/durable-objects/api/container/)
+- [Durable Object Container API](https://developers.cloudflare.com/containers/api/durable-object-container/)
+- [Containers scheduling policies](https://developers.cloudflare.com/containers/configuration/scheduling-policy/)
+- [Migrate to the Durable Object scheduling policy](https://developers.cloudflare.com/containers/guides/migrate-to-durable-object-scheduling-policy/)
+- [Containers snapshots](https://developers.cloudflare.com/containers/guides/snapshots/)
 - [Containers examples](https://developers.cloudflare.com/containers/examples/)

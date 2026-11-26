@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-26-claude-code-hooks-skills-agents-md)
 
 CI runs on GitHub Actions, and you only find out lint failed or types are broken after you push. One round-trip takes five to ten minutes, and fixing a single typo triggers another full run. The problem isn't bad CI design — it's that checks happen too late.
 

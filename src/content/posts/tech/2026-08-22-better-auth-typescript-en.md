@@ -10,7 +10,7 @@ tldr: "Better Auth trades a managed identity platform for an in-app library and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-better-auth-typescript)
+> :globe: [中文版](/posts/tech/2026-08-22-better-auth-typescript)
 
 Better Auth is not another login API that moves your users into a vendor dashboard. It is an authentication and authorization framework embedded in a TypeScript application: routes execute in your service, core identity tables live in your database, and plugins add advanced capabilities. Its documentation describes it as a framework-agnostic TypeScript framework, not a hosted identity service ([Better Auth Introduction](https://better-auth.com/docs/introduction)).
 

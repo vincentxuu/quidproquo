@@ -11,7 +11,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-03-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-03-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### caveman ⭐ 108,980（GitHub Trending 日榜第 2）
+### caveman ★ 108,980（GitHub Trending 日榜第 2）
 
 [GitHub](https://github.com/JuliusBrussee/caveman)　·　Go　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### context-mode ⭐ 24,974（GitHub Trending 日榜第 10）
+### context-mode ★ 24,974（GitHub Trending 日榜第 10）
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　License: Other（非標準授權，使用前建議先確認條款內容）
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### codegraph ⭐ 72,902（GitHub Trending 日榜第 13）
+### codegraph ★ 72,902（GitHub Trending 日榜第 13）
 
 [GitHub](https://github.com/colbymchenry/codegraph)　·　Rust 核心（GitHub 語言統計顯示 C，應是打包進去的執行環境）　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### openrig ⭐ 4,170（GitHub Trending 日榜第 15）
+### openrig ★ 4,170（GitHub Trending 日榜第 15）
 
 [GitHub](https://github.com/mvschwarz/openrig)　·　TypeScript　·　Apache-2.0
 
@@ -63,7 +63,7 @@ series:
 
 ---
 
-### drawio-mcp ⭐ 5,561
+### drawio-mcp ★ 5,561
 
 [GitHub](https://github.com/jgraph/drawio-mcp)　·　JavaScript　·　Apache-2.0
 

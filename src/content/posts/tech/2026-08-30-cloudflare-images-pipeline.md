@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-images-pipeline-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-images-pipeline-en)
 
 圖片一多，網站就會開始長出奇怪的維運工作：縮圖、裁切、WebP/AVIF、retina 尺寸、社群預覽圖、使用者上傳、快取失效、原圖權限。你可以在 build 時先產生所有尺寸，也可以把圖片丟到 S3/R2 再寫一層處理服務。[Cloudflare Images](https://developers.cloudflare.com/images/) 提供第三種路：在 Cloudflare edge 動態轉換、最佳化、快取圖片，必要時連圖片 storage 也交給 Cloudflare。
 
@@ -61,7 +61,7 @@ https://imagedelivery.net/abc123/083eb7b2-5392-4565-b69e-aff66acddd00/public
 - cache hit：直接回已最佳化的版本，不回 origin，也不重做 transformation。
 - cache miss：抓原圖，套用 `width`、`format`、`quality`、`fit` 等參數，快取轉換結果，再回 browser。
 
-同一張原圖、同一組參數，會被視為同一個 unique transformation。這點很重要：`width=800,format=auto` 和 `width=1200,format=auto` 是兩個版本；`quality=80` 和 `quality=85` 也會拆開。參數太自由，成本和 cache fragmentation 都會變差。
+同一張原圖、同一組參數，會被視為同一個 unique transformation。這點很重要：`width=800,format=auto` 和 `width=1200,format=auto` 是兩個版本。[計費](https://developers.cloudflare.com/images/pricing/)判斷 unique 時會排除 `format` 與 `quality`，所以 `quality=80` 和 `quality=85` 只算一次，但在 edge cache 裡仍是兩份。參數太自由，成本和 cache fragmentation 都會變差。
 
 我會把尺寸收斂成一小組：
 
@@ -158,7 +158,7 @@ export default {
 };
 ```
 
-如果圖片是公開內容，URL interface 最簡單；如果圖片有權限、租戶、浮水印或 plan 差異，Worker 才值得放進管線。
+如果圖片是公開內容，URL interface 最簡單；如果圖片有權限、租戶或 plan 差異，Worker 才值得放進管線。浮水印不一定要 Worker：2026-11 起 URL interface 也能直接加邊框與 overlay（logo 或文字浮水印），參數結構也和 Worker 的 `cf.image` 統一了，舊寫法照常可用（見 [changelog](https://developers.cloudflare.com/changelog/post/2026-11-18-consistent-optimization-interfaces/)）。
 
 ## Limits：原圖和 Hosted Images 的限制不同
 
@@ -174,7 +174,7 @@ GIF/WebP animation 的限制看所有 frame 的總 megapixels。超過 50 MP 的
 
 格式支援也要看方向：
 
-- input：PNG、JPEG、GIF、WebP、SVG、HEIC，AVIF input 需要 Enterprise。
+- input：PNG、JPEG、GIF、WebP、SVG、HEIC、TIFF（只取第一頁，2026-11 起），AVIF input 需要 Enterprise。
 - output：PNG、JPEG、GIF、WebP、SVG、AVIF。
 - SVG 不會 resize，Cloudflare 會用 `svg-hush` 做 sanitization，移除 script、外部連結、跨來源資源引用等風險。
 
@@ -194,7 +194,7 @@ Free plan 目前每月包含 5,000 個 unique transformations。超過後，不�
 幾個成本判斷：
 
 - 同一張圖的不同尺寸是不同 unique transformation。
-- 同一張圖的不同 quality/fit 也會拆成不同 transformation。
+- 同一張圖的不同 `fit` 也會拆成不同 transformation；`format` 與 `quality` 不同則只算一個。
 - `format=auto` 不會因為 AVIF/WebP/JPEG 產生多個 billable transformations。
 - R2 + Images transformations 的成本要把 R2 storage/operations 和 Images transformed 加總。
 - Hosted Images delivery URL 計 Images Delivered，不計 Images Transformed；但透過 Images binding 最佳化 hosted image 會計 Images Transformed。
@@ -235,6 +235,10 @@ Images 的價值在「把圖片規格收斂成可維護的交付管線」。如�
 - OpenNext / Next image optimization 若走 Cloudflare Images，要確認支援格式和額外成本。
 
 Cloudflare Images 在 Edge Platform 裡補的是媒體管線：原圖放哪、怎麼轉、怎麼交付、怎麼計費。它和 R2、Cache Rules、Smart Shield 配在一起，才會從「圖片可以快一點」變成「產品的圖片系統不用自己養」。
+
+## 更新紀錄
+
+- 2026-11-23：修正計費規則（`format` 與 `quality` 不計入 unique transformation）；input 格式補 TIFF；URL interface 可直接加 overlay 浮水印
 
 ## 參考資料
 

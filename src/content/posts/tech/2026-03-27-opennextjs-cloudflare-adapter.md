@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en)
+:globe: [English version](/posts/tech/2026-03-27-opennextjs-cloudflare-adapter-en)
 
 Cloudflare Workers 跑的是 V8 isolate，不是標準 Node.js 環境。Next.js 本身依賴不少 Node.js API（`fs`、`crypto`、`net`、`http`），所以直接部署到 Workers 行不通。`@opennextjs/cloudflare` 是一個 adapter，把 Next.js build 的輸出轉換成 Cloudflare Workers 能跑的格式。
 
@@ -97,7 +97,7 @@ npx @opennextjs/cloudflare migrate
 }
 ```
 
-三個容易漏掉的欄位：`nodejs_compat` 是 Next.js 能跑的前提；`WORKER_SELF_REFERENCE` 這個 service binding 是 adapter 內部要用的；`images` binding 開了才有圖片最佳化。`main` 與 `assets` 不要自己改。
+三個容易漏掉的欄位：Node.js 相容層是 Next.js 能跑的前提（`compatibility_date` 在 2026-08-04 之後已預設開啟，留著 `nodejs_compat` 也無妨，更早的日期則一定要加）；`WORKER_SELF_REFERENCE` 這個 service binding 是 adapter 內部要用的；`images` binding 開了才有圖片最佳化。`main` 與 `assets` 不要自己改。
 
 `package.json` 的 scripts：
 
@@ -165,9 +165,9 @@ Cloudflare 邊緣節點
 
 這個 adapter 不是萬能的，有明確的限制：
 
-**真正不支援的：**
+**真正不支援或還不穩的：**
 - **Edge runtime**：`export const runtime = "edge";` 必須全部移除
-- Next.js 15.2 引進的 **Node Middleware** 目前還不支援
+- Next.js 15.2 引進的 **Node Middleware**（Next.js 16 改名為 `proxy.ts`）：`@opennextjs/cloudflare` 1.20.3（2026-08）起有實驗性支援，正式上線前要自己驗過
 
 **已經支援、但舊文章常寫成不支援的：**
 - `next/image` 的圖片最佳化——透過 `IMAGES` binding（背後是 Cloudflare Images）或自訂 loader 都行。有幾個相容性缺口要知道：只吃 PNG / JPEG / WEBP / AVIF / GIF / SVG，其他格式原樣回傳不做處理；`minimumCacheTTL` 設定無效；而且圖片最佳化本身[會另外計費](https://opennext.js.org/cloudflare/howtos/image)
@@ -218,6 +218,7 @@ export default { /* ... */ };
 
 ## 更新紀錄
 
+- 2026-11-23：Node Middleware（`proxy.ts`）從「不支援」改為 1.20.3 起實驗性支援；補註 Node.js 相容層在 compatibility date 2026-08-04 之後預設開啟
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料

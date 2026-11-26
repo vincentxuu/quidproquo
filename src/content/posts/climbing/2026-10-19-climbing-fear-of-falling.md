@@ -26,7 +26,7 @@ glossary:
     context: "墜落練習的道理多半從這裡借來，但攀岩本身還沒有直接的對照實驗。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-fear-of-falling-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-fear-of-falling-en)
 
 你看過有人在快扣上方一公尺放手，笑著盪回牆上，然後想：我也去摔幾次，應該就不怕了。結果第一次就從快扣上方兩公尺掉下去，撞牆的那一下讓你接下來一個月都不敢爬到快扣上方。
 

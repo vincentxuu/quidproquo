@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [agentic-parsing, document-parsing, ocr, rag, multi-agent, vision-language-model]
 lang: zh-TW
-tldr: "傳統文件解析用固定 pipeline 一體適用，但合約、財報、技術手冊各需不同策略。Agentic Parsing 讓 LLM agent 觀察文件後動態選工具——AgenticOCR 只解析需要的區域（視覺 token 省 70%+）、ParseBench 2,000 頁企業文件實測最佳方案也只拿 84.9%，沒有銀彈。"
+tldr: "傳統文件解析用固定 pipeline 一體適用，但合約、財報、技術手冊各需不同策略。Agentic Parsing 讓 LLM agent 觀察文件後動態選工具——AgenticOCR 只解析需要的區域（視覺 token 省 70%+）、ParseBench 企業文件實測的最佳方案在 v1 只拿 84.9%，2026-11 的 ParseBench 2 榜首也只有 90.93，沒有銀彈。"
 description: "整理 Agentic Parsing 的設計思路：從固定 pipeline 到 agent 動態調度，涵蓋 AgenticOCR、ParseBench、DocLens、MADP 等關鍵論文，以及與 ColPali Visual RAG 的互補關係。"
 series:
   name: "文件解析實戰"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
+> :globe: [English version](/posts/ai/2026-09-03-agentic-parsing-document-agents-en)
 
 文件解析的前幾篇聊了[三層階梯](/posts/ai/2026-08-06-document-parsing-three-layers)、[文字抽取](/posts/ai/2026-08-06-pdf-text-extraction-libraries)、[模型推斷結構](/posts/ai/2026-08-06-document-parsing-layout-ocr)。結論都指向同一件事：沒有一條固定 pipeline 能通吃所有文件。這篇要介紹的 Agentic Parsing，就是把「選哪條路」的決策交給 agent。
 
@@ -63,7 +63,7 @@ ParseBench（[arXiv:2604.08538](https://arxiv.org/abs/2604.08538)，LlamaIndex�
 
 | 方法 | 整體分數 | 特點 |
 |---|---|---|
-| LlamaParse Agentic | **84.9%** | 最高，但非所有維度最強 |
+| LlamaParse Agentic（v1，2026-09） | **84.9%** | 最高，但非所有維度最強 |
 | 其他 13 種 | 各有擅長 | 沒有全面領先者 |
 
 五個維度（表格、圖表、內容忠實度、語意格式、視覺定位）呈現「破碎的能力分布」——每個方法都有強項和弱項。這說明 agentic 的路線本身是對的：與其找一個全能工具，不如讓 agent 根據文件特性選工具。
@@ -89,7 +89,7 @@ Agentic Parsing 走另一條路：保留文字，但讓 agent 選最佳解析方
 | 面向 | ColPali / Visual RAG | Agentic Parsing |
 |---|---|---|
 | 表格保留 | 100%（圖片就是原始結構） | 依 parser 品質，需後處理 |
-| 文字可搜尋 | ❌（BM25 不可用） | ✅ |
+| 文字可搜尋 | ✗（BM25 不可用） | ✓ |
 | 儲存成本 | ~100× | 正常 |
 | 需要 GPU | 是 | 部分方法不需要 |
 | 適合場景 | 表格密集、版面複雜 | 混合文件、需要文字語意 |
@@ -100,7 +100,7 @@ Agentic Parsing 走另一條路：保留文字，但讓 agent 選最佳解析方
 
 Agentic Parsing 的核心取捨是用更多推理成本換取更高的解析品質——agent 每做一次「觀察→決策→行動」循環，就多花一些 LLM token，但能避免固定 pipeline 在非典型文件上的系統性失敗。
 
-目前的限制很明確：ParseBench 最好的方案也只有 84.9%，五個維度沒有全能選手。Agentic 模式的成本是 Fast 模式的 10-45 倍。要不要用，取決於文件的價值和多樣性——高價值合約和財報值得用 agent 解析，大量格式統一的收據用固定 pipeline 就夠了。
+目前的限制很明確：寫作時（2026-09）ParseBench v1 最好的方案也只有 84.9%，五個維度沒有全能選手；2026-11 的 ParseBench 2 榜首是 90.93，各家仍各有弱項（見[商業 API 橫評](/posts/ai/2026-09-16-commercial-document-parsing-api-comparison)）。Agentic 模式的成本是 Fast 模式的 10-45 倍。要不要用，取決於文件的價值和多樣性——高價值合約和財報值得用 agent 解析，大量格式統一的收據用固定 pipeline 就夠了。
 
 方向是確定的：文件解析正在從「一條 pipeline 跑到底」變成「agent 根據文件調度工具」。這跟 RAG 從 [固定 retrieval](/posts/ai/2026-03-12-corrective-rag-crag) 到 [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop) 的演進是同一個模式。
 

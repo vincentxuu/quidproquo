@@ -26,7 +26,7 @@ glossary:
     context: "This is the core trick that lets Flash Attention finish softmax and the weighted sum in one pass."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-flash-attention)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-flash-attention)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -150,11 +150,9 @@ His conclusion: Flash Attention gets a several-fold speed-up just by carrying da
 - **Try it**: open the demo Colab, extend `SEQ_LENS` to 8192, and check whether the speed-up keeps growing. Then shrink `B` and `H` and see whether Flash Attention still pays off for short sequences.
 - **Related on this site**: the [Stanford CS336 inference guide](/posts/ai/2026-08-22-cs336-inference-en) covers memory-bound workloads from a roofline angle, and the [CME295 LLM systems guide](/posts/ai/2026-09-29-cme295-llm-systems-en) also covers Flash Attention and inference optimization.
 
-## What this post could and could not verify
+## What this post leaves out
 
-Verified: the structure and text of slides 1–28, the video transcript (from the zh-TW captions on YouTube), the demo Colab's code and saved outputs, and the titles of cited papers (checked on arXiv).
-
-Not verified: which model the real-model demo used. The instructor says Yi-34B in the transcript, while the saved Colab code names `google/gemma-3-4b-it`; the two disagree, so this post draws no conclusion and reports trends only. The timings in the lecture do not match the saved Colab output (the longest saved run did not hit OOM), so the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content is paraphrased from the transcript.
+The lecture and the Colab disagree on which model the real-model demo used: the instructor says Yi-34B, while the saved Colab code names `google/gemma-3-4b-it`. The timings in the lecture also don't match the saved Colab output (the longest saved run did not hit OOM). So the real-model section reports trends only, not seconds. Slides 11–27 are mostly animated figures, so their content follows the instructor's narration.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW2: An AI Agent as an AI Engineer](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en) | Next: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en)
 
@@ -182,6 +180,7 @@ Content check: verified against the video transcript (2026-10-10): video vXb2QYO
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The transcript names Yi-34B for the real-model demo while the Colab code names gemma-3-4b-it; the post now states both. Everything else matches.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

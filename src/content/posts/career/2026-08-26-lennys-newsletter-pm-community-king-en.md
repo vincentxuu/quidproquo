@@ -13,7 +13,7 @@ description: "The complete arc of Lenny Rachitsky's creator journey: from a Ukra
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-lennys-newsletter-pm-community-king)
+> :globe: [中文版](/posts/career/2026-08-26-lennys-newsletter-pm-community-king)
 
 Lenny Rachitsky spent six years turning a solo Substack newsletter into the most influential media brand in product management — 1.2 million subscribers, a podcast pulling 100–200K downloads per episode, a 40K-member Slack community, and an annual summit that sells out instantly. He has never hired a single full-time employee.
 

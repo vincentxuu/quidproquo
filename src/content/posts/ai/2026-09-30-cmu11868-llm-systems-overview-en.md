@@ -22,7 +22,7 @@ glossary:
     context: "The Fall 2026 Logistics page says normal queue waits exceed 24 hours and deadlines will not be extended because of them."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu11868-llm-systems-overview)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
@@ -219,12 +219,13 @@ Official sources:
 
 - [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

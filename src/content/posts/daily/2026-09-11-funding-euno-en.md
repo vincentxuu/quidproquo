@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-11-funding-euno)
+> :globe: [中文版](/posts/daily/2026-09-11-funding-euno)
 
 ## Funding Details
 

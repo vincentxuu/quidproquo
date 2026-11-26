@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-06-drone-industry-job-map)
+> :globe: [中文版](/posts/career/2026-08-06-drone-industry-job-map)
 
 "The drone industry is hot — should I go into it?" can't be answered as asked, because **the drone industry is not one job market, it's five.** A Layer 2 propulsion engineer and a Layer 3 flight control firmware engineer share almost nothing in required skills, substitutability, or pay structure. The products just look similar.
 

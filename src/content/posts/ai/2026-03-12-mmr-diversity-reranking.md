@@ -14,7 +14,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-mmr-diversity-reranking-en)
+> :globe: [English version](/posts/ai/2026-03-12-mmr-diversity-reranking-en)
 
 Cross-Encoder Reranking 之後，排名第 1 到第 5 的文件可能都是關於同一條路線的描述——從不同文件來源重複提到龍洞某條 5.11a 的路線。這些文件對查詢都很相關，但作為 context 送進 LLM 是一種浪費：重複的資訊不會讓回答更好，反而佔用 context 視窗。
 

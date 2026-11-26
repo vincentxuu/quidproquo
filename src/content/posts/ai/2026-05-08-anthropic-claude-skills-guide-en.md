@@ -10,7 +10,7 @@ description: "Breaking down Anthropic's official guide 'The Complete Guide to Bu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-08-anthropic-claude-skills-guide)
+> :globe: [中文版](/posts/ai/2026-05-08-anthropic-claude-skills-guide)
 
 It gets tedious telling Claude every single conversation that "our company presentations use sans-serif, citations must follow APA, and PR titles can't exceed 70 characters." Anthropic's official guide released in January 2026 consolidates this setup pattern into one concept: **a Skill is a folder** -- you set it up once, and Claude automatically loads it whenever needed. This post covers the Skill structure, three-layer loading mechanism, frontmatter rules, and what to watch out for when writing your own Skill.
 

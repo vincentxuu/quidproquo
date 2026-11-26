@@ -9,11 +9,11 @@ description: "介紹 Wimbledon School of English 一般英語班、總課時與�
 tldr: "WSE 適合能安排海外時間、願意在團班與生活中主動開口的人；四週預算要把住宿與生活支出一起算，取消規則則要取得對應訂單的書面版本。"
 series:
   name: "英文口說練習"
-  order: 11
+  order: 29
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-wimbledon-school-english-speaking-practice-en)
 
 想請一段假去英國練英文，真正需要安排的是每天怎麼上課、下課和誰說話，以及整趟花多少。[Wimbledon School of English（WSE）](https://wimbledon-school.ac.uk/english-courses/general-english-courses/general-english)位於倫敦西南的 Wimbledon，提供一般英語、商務與考試等課程，也能安排住宿。本文聚焦成人一般英語團班。
 

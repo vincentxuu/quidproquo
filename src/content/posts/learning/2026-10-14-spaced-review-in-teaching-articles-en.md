@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-spaced-review-in-teaching-articles)
+> :globe: [中文版](/posts/learning/2026-10-14-spaced-review-in-teaching-articles)
 
 This is part 17 of the series "Writing Articles That Teach," in its fourth section, "after some time has passed." [Part 16](/posts/learning/2026-10-14-spaced-practice-in-real-courses-en) looked at how much of the benefit of distributed practice remains once it leaves the lab and goes into real courses. This post goes one step further: if spaced review works, can people who write articles build it into the article itself, so readers come back and answer again days or weeks later?
 

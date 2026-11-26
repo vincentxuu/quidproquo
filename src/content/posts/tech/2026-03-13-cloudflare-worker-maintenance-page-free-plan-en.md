@@ -14,7 +14,7 @@ series:
   order: 10
 ---
 
-🌏 [中文版](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan)
+:globe: [中文版](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan)
 
 ## TL;DR
 

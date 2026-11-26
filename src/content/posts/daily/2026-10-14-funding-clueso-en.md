@@ -12,7 +12,7 @@ series:
   order: 88
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-funding-clueso)
+> :globe: [中文版](/posts/daily/2026-10-14-funding-clueso)
 
 ## Deal Terms
 

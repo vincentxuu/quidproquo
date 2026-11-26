@@ -11,7 +11,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack-en)
+> :globe: [English version](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack-en)
 
 ## 事件概述
 

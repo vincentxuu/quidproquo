@@ -37,7 +37,7 @@ export interface ChatModelResponse {
  * surface we actually call.
  */
 export interface ChatModel {
-  invoke(input: BaseMessageLike[]): Promise<ChatModelResponse>
+  invoke(input: BaseMessageLike[], options?: { signal?: AbortSignal }): Promise<ChatModelResponse>
 }
 
 type Env = {
@@ -51,7 +51,6 @@ type Env = {
   OPENROUTER_API_KEY?: string
   OPENCODE_API_KEY?: string
   NVIDIA_API_KEY?: string
-  CEREBRAS_API_KEY?: string
   OLLAMA_API_KEY?: string
   OLLAMA_CLOUD_API_KEY?: string
   ANTHROPIC_API_KEY?: string
@@ -92,7 +91,7 @@ function resolveRoute(
 type InvokableModel = { invoke: (...args: any[]) => Promise<unknown>; bindTools?: (...args: any[]) => unknown }
 function adapt(model: InvokableModel): ChatModel {
   const adapted: ChatModel & Record<string, unknown> = {
-    invoke: (input) => (model.invoke as (i: BaseMessageLike[]) => Promise<ChatModelResponse>).call(model, input),
+    invoke: (input, options) => (model.invoke as (i: BaseMessageLike[], options?: { signal?: AbortSignal }) => Promise<ChatModelResponse>).call(model, input, options),
   }
   if (typeof model.bindTools === 'function') {
     // [skip-harness] langchain's bindTools returns a model with the same shape
@@ -185,11 +184,6 @@ export function createRawModel(
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://integrate.api.nvidia.com/v1')
   }
 
-  if (route.provider === 'cerebras') {
-    const apiKey = apiKeys.cerebras || apiKeys.CEREBRAS_API_KEY || e.CEREBRAS_API_KEY
-    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.cerebras.ai/v1')
-  }
-
   if (route.provider === 'ollama_cloud') {
     const apiKey = apiKeys.ollama_cloud || apiKeys.OLLAMA_API_KEY || apiKeys.OLLAMA_CLOUD_API_KEY || e.OLLAMA_API_KEY || e.OLLAMA_CLOUD_API_KEY
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://ollama.com/v1')
@@ -277,7 +271,6 @@ function defaultModelForProvider(provider: ModelProvider): string {
     openrouter: 'nvidia/nemotron-3-super-120b-a12b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'deepseek-ai/deepseek-r1',
-    cerebras: 'gpt-oss-120b',
   }
   return defaults[provider] ?? 'deepseek-v4-flash'
 }

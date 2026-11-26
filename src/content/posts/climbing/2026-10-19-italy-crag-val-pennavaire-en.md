@@ -13,7 +13,7 @@ description: "A guide to Val Pennavaire (Oltrefinale): the scale and style of it
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-val-pennavaire)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-val-pennavaire)
 
 Val Pennavaire is in western Liguria, a dozen or so minutes' drive inland from the coastal town of Albenga. It is a narrow, wooded valley, and the crags are tucked into the trees in patches. It first appeared in a guidebook called *Oltrefinale* ("beyond Finale"), so many climbers still call it Oltrefinale, or simply "Albenga".
 

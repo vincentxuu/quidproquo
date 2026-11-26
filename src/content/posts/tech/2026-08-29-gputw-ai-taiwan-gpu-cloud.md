@@ -10,7 +10,7 @@ description: "介紹 GPUtw.ai 的產品定位、GPU 目錄、範本、Vault、AP
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud-en)
 
 [GPUtw.ai](https://gputw.ai/en) 是台灣在地的 GPU 雲端平台。它提供可短租的 GPU 執行個體，主打台灣機房、中文支援、預付點數、按秒計費、可開統編，以及給研究者和小團隊使用的 Jupyter、ComfyUI、Ollama、vLLM、Unsloth 等範本。
 

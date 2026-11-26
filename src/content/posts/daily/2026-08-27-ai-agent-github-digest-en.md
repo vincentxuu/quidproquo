@@ -12,7 +12,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-27-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-27-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's biggest signal isn't a single feature — it's scale. DeepSeek's open-so
 
 ## Trending Repos
 
-### deepseek-ai/deepseek-harness ⭐ 197.7k
+### deepseek-ai/deepseek-harness ★ 197.7k
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ Today's biggest signal isn't a single feature — it's scale. DeepSeek's open-so
 
 ---
 
-### PrimeIntellect-ai/prime-agent ⭐ 18.6k
+### PrimeIntellect-ai/prime-agent ★ 18.6k
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　TypeScript + Python　·　MIT
 
@@ -42,7 +42,7 @@ Today's biggest signal isn't a single feature — it's scale. DeepSeek's open-so
 
 ---
 
-### liqiwa/mcp-radar ⭐ 1
+### liqiwa/mcp-radar ★ 1
 
 [GitHub](https://github.com/liqiwa/mcp-radar)　·　Python　·　MIT
 

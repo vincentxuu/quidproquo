@@ -13,7 +13,7 @@ description: "Batch trajectory generation in Hermes Agent — toolset distributi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-batch-research)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-batch-research)
 
 Post 11 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 

@@ -17,6 +17,7 @@ export const ui = {
     'nav.tags': '標籤',
     'nav.interview': '面試準備',
     'nav.english': '英文口說',
+    'nav.collection': '收藏館',
     'nav.search': '搜尋',
     'nav.toggle-theme': '切換深色模式',
     'site.tagline': 'AI、技術、產品，攀岩、衝浪、咖啡，以及其他一切。',
@@ -49,6 +50,7 @@ export const ui = {
     'daily.filter.arxiv': 'Arxiv',
     'daily.filter.github': 'GitHub',
     'daily.filter.weekly': '週回顧',
+    'daily.filter.monthly': '月報',
     'daily.empty': '尚無日報。',
   },
   en: {
@@ -59,6 +61,7 @@ export const ui = {
     'nav.tags': 'Tags',
     'nav.interview': 'Interview Prep',
     'nav.english': 'Spoken English',
+    'nav.collection': 'Collection',
     'nav.search': 'Search',
     'nav.toggle-theme': 'Toggle dark mode',
     'site.tagline': 'Tech, climbing, surfing, coffee, and everything else.',
@@ -91,6 +94,7 @@ export const ui = {
     'daily.filter.arxiv': 'Arxiv',
     'daily.filter.github': 'GitHub',
     'daily.filter.weekly': 'Weekly',
+    'daily.filter.monthly': 'Monthly',
     'daily.empty': 'No daily digest yet.',
   },
 } as const;

@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-24-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Chenchen Lin, Wenhao Yuan, Xuehe Wang et al.(University of Hong Kong)　·　arx
 
 ### 深入要點
 
-- 在 MemoryAgentBench 上(DeepSeek-V4-Flash backbone),CAMA 整體分數 67.3,對比最強基線 MADAM-RAG 的 63.4;LongMemEval F1 59.1 vs 54.3;LOCOMO F1 53.8 vs 49.5 ⚠️(作者自測,對比自建基線)
+- 在 MemoryAgentBench 上(DeepSeek-V4-Flash backbone),CAMA 整體分數 67.3,對比最強基線 MADAM-RAG 的 63.4;LongMemEval F1 59.1 vs 54.3;LOCOMO F1 53.8 vs 49.5 :warning:(作者自測,對比自建基線)
 - 專門衡量「假多數偵測」能力的 CMR 指標(越高越好),CAMA 在 MemoryAgentBench 上拿下 71.2,比 MADAM-RAG 的 60.7 高出約 10 個百分點;衡量殘留冗餘的 RS 指標(越低越好)則從 15.3 降到 7.8
 - 消融實驗顯示拿掉「證據解耦」模組傷害最大(MemoryAgentBench 整體分數從 67.3 掉到 58.4),證實這是核心機制而非錦上添花
 - 效率上,CAMA 每消耗 1000 token 帶來的準確率提升(ΔAcc/kToken)達 1.10,優於次佳基線 MADAM-RAG 的 0.42——多花的計算主要用在辨識獨立證據,而非重複聚合相關記憶
@@ -103,7 +103,7 @@ Mengru Wang, Haozhe Luo, Zhenqian Xu et al.(Zhejiang University)　·　arxiv: 2
 
 ### 深入要點
 
-- 在 Gemini-3-Flash-Preview 與 Qwen3-30B-A3B-Instruct-2507 上,所有測試過的記憶框架在 MemTrapBench 上都輸給無記憶基線,即使是表現最好的方法也掉超過 10 個百分點 ⚠️(作者自測)
+- 在 Gemini-3-Flash-Preview 與 Qwen3-30B-A3B-Instruct-2507 上,所有測試過的記憶框架在 MemTrapBench 上都輸給無記憶基線,即使是表現最好的方法也掉超過 10 個百分點 :warning:(作者自測)
 - 控制實驗顯示效能下降是被「會誘發陷阱的記憶語意」驅動,而不只是因為上下文變長本身
 - 作者提出的緩解方法 AdaptiveMem(prompt-based,指示模型在用記憶前先辨識潛在陷阱)在 Gemini-3-Flash-Preview 上把 LightMem 的 MemTrapBench 表現拉高 14.9 個百分點,同時不犧牲一般記憶 benchmark 的表現
 - AdaptiveMem 不用改記憶框架的底層架構,可以直接以 prompt 形式插入不同記憶系統,落地門檻低

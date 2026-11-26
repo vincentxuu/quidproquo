@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-one-person-media-company-overview)
+> :globe: [中文版](/posts/career/2026-08-26-one-person-media-company-overview)
 
 In 2014, Ben Thompson started running Stratechery full-time from an apartment in Taipei, charging readers $15/month. Substack didn't exist yet. "Making a living writing a solo newsletter" sounded like a joke.
 

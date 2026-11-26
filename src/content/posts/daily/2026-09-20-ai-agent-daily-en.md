@@ -12,7 +12,7 @@ series:
   order: 36
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-20-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-20-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -138,14 +138,14 @@ Australian AI infrastructure company Firmus is seeking an ASX IPO of up to A$5B 
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-github-digest-en)
-- 📄 [Framework Update: Microsoft Agent Framework python-1.19.0](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
-- 📄 [Model Card: Qwen-Image-2.1](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
-- 📄 [Security Alert: Plugin4Shell](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
-- 📄 [Funding Brief: Comp AI Series A $34M](/posts/daily/2026-09-20-funding-comp-ai-en)
-- 📄 [Funding Brief: Kastle Series A $24M](/posts/daily/2026-09-20-funding-kastle-en)
-- 📄 [Funding Brief: Raindrop Series A $35M](/posts/daily/2026-09-20-funding-raindrop-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-20](/posts/daily/2026-09-20-ai-agent-github-digest-en)
+- :file: [Framework Update: Microsoft Agent Framework python-1.19.0](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0-en)
+- :file: [Model Card: Qwen-Image-2.1](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
+- :file: [Security Alert: Plugin4Shell](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce-en)
+- :file: [Funding Brief: Comp AI Series A $34M](/posts/daily/2026-09-20-funding-comp-ai-en)
+- :file: [Funding Brief: Kastle Series A $24M](/posts/daily/2026-09-20-funding-kastle-en)
+- :file: [Funding Brief: Raindrop Series A $35M](/posts/daily/2026-09-20-funding-raindrop-en)
 
 ## Watching Tomorrow
 

@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-04-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-04-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### github/spec-kit ⭐ 133,294 (+224)
+### github/spec-kit ★ 133,294 (+224)
 
 [GitHub](https://github.com/github/spec-kit)　·　Python　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### stablyai/orca ⭐ 60,787 (+812)
+### stablyai/orca ★ 60,787 (+812)
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### KeygraphHQ/shannon ⭐ 47,684 (+117)
+### KeygraphHQ/shannon ★ 47,684 (+117)
 
 [GitHub](https://github.com/KeygraphHQ/shannon)　·　TypeScript　·　AGPL-3.0
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### ChromeDevTools/chrome-devtools-mcp ⭐ 50,823 (+148)
+### ChromeDevTools/chrome-devtools-mcp ★ 50,823 (+148)
 
 [GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp)　·　TypeScript　·　Apache-2.0
 

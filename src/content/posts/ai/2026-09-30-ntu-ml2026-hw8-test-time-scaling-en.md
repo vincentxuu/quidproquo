@@ -26,7 +26,7 @@ glossary:
     context: "HW8 calls DeepThinkLLM.deepthink() from the official deepconf package in offline mode."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

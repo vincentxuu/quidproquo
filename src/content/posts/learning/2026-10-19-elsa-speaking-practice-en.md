@@ -9,11 +9,11 @@ description: "Compare ELSA Speak pronunciation and AI conversation practice, Fre
 tldr: "ELSA can help isolate pronunciation difficulties. Check conversation entitlements before buying, then use your own words with a real listener instead of treating an app score as proof of speaking ability."
 series:
   name: "English Speaking Practice"
-  order: 10
+  order: 28
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-elsa-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-elsa-speaking-practice)
 
 You know what you want to say, but people keep asking which word you meant. An app offering specific pronunciation feedback, such as [ELSA Speak](https://tw.elsaspeak.com/elsa-premium/), may address that problem more directly than another vocabulary list. It analyzes speech with AI and offers pronunciation exercises, feedback, and scenario conversations for independent practice.
 

@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)
 
 這是「Claude Code 深入介紹」系列的入口篇。如果你還在猶豫要不要用它、想先比較各家 coding agent，先看[先前那篇 Agent CLI 選型指南](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent)；這篇假設你已經決定要用，想搞懂它**底下到底在跑什麼**——因為後續每個進階功能（hooks、MCP、多代理、自動化）都建立在同一套機制上。
 

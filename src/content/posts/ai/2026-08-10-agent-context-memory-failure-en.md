@@ -13,7 +13,7 @@ description: "Three mechanisms behind agent failure: the architectural limits of
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-agent-context-memory-failure)
+> :globe: [中文版](/posts/ai/2026-08-10-agent-context-memory-failure)
 
 [Part 2](/posts/ai/2026-08-10-model-component-harness-system-en) concluded that reliability comes from the engineering around the model. This part covers the largest piece of that "around": what the model actually sees on each turn.
 

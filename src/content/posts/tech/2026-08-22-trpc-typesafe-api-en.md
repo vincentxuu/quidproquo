@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-trpc-typesafe-api)
+> :globe: [中文版](/posts/tech/2026-08-22-trpc-typesafe-api)
 
 [tRPC](https://trpc.io/docs/) has a simple core: the server exports an `AppRouter` type, and the client uses it to infer procedure paths, inputs, outputs, and errors. There is no separate IDL or required code-generation step. TypeScript inference connects both sides.
 
@@ -49,9 +49,9 @@ The wire format is not one conventional REST resource per procedure. The [HTTP R
 
 tRPC v11 now includes [`@trpc/openapi`](https://trpc.io/docs/openapi). It statically analyzes router TypeScript types without executing application code and emits OpenAPI 3.1. Queries become GET operations, mutations become POST operations, and tools such as Hey API can generate clients.
 
-The boundaries matter: the package remains alpha, subscriptions are excluded, and GET input is one JSON query parameter rather than conventional independent parameters. If the server uses a transformer such as SuperJSON, external clients need the same serializer or values such as Date, Map, and BigInt become incorrect.
+The boundaries matter: the package remains alpha and its APIs may change without notice; since 11.29.0-alpha (November 2026) it requires TypeScript 7.1-beta or later, so projects still on TypeScript 6 or earlier must stay on `@trpc/openapi@11.28.2-alpha`; subscriptions are excluded, and GET input is one JSON query parameter rather than conventional independent parameters. If the server uses a transformer such as SuperJSON, external clients need the same serializer or values such as Date, Map, and BigInt become incorrect.
 
-OpenAPI improves documentation, agent tool discovery, and external clients. It does not automatically turn the existing tRPC wire contract into the most conventional REST surface. If stable paths, status codes, language-neutral schemas, and gateway interoperability are primary requirements, oRPC, ts-rest, or an OpenAPI-first design is usually more direct.
+OpenAPI improves documentation, agent tool discovery, and external clients. It does not automatically turn the existing tRPC wire contract into the most conventional REST surface. If stable paths, status codes, language-neutral schemas, and gateway interoperability are primary requirements, oRPC or an OpenAPI-first design is usually more direct; ts-rest, which also preserves REST semantics, stopped being maintained in October 2026 and is not recommended for new projects.
 
 ## AI coding amplifies both sides
 
@@ -62,6 +62,10 @@ A concrete CI check is to export OpenAPI and run a breaking-change diff against 
 ## When to choose tRPC
 
 tRPC remains a low-friction default when one team owns a monorepo, both sides use TypeScript, and the main consumer is its own web application. For multi-language SDKs, external developers, or independent release cadences, making OpenAPI or Protobuf the source of truth is usually more stable than reconstructing a public contract later.
+
+## Update Log
+
+- 2026-11-23: The OpenAPI section now notes that `@trpc/openapi` requires TypeScript 7.1-beta from 11.29.0-alpha onward; removed ts-rest, unmaintained since October 2026, from the public-API alternatives.
 
 ## References
 

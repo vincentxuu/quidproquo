@@ -10,7 +10,7 @@ description: "A first-hand breakdown of how the Codex agent loop works based on 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-21-openai-codex-agent-loop)
+> :globe: [中文版](/posts/ai/2026-04-21-openai-codex-agent-loop)
 
 OpenAI engineer Michael Bolin published a detailed technical article in January 2026 explaining how the agent loop behind Codex CLI works. This post distills the most interesting engineering design decisions: prompt construction order, multi-turn conversation management, cost control through prompt caching, and what happens when the context window is about to overflow. If you're building your own AI agent, these design patterns are worth studying carefully.
 

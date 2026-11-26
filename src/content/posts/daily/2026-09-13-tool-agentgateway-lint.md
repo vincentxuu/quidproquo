@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-13-tool-agentgateway-lint-en)
+> :globe: [English version](/posts/daily/2026-09-13-tool-agentgateway-lint-en)
 
 ## 工具資訊
 
@@ -117,11 +117,11 @@ agentgateway-lint config.yaml --format badge > badge.json
 
 | | agentgateway-lint | agentgateway 內建驗證 | 通用 YAML linter（如 yamllint） |
 |---|---|---|---|
-| 檢查格式是否合法 | ✅ | ✅ | ✅（僅格式層級） |
-| 懂 agentgateway 專屬欄位語意（binds/backends/mcp…） | ✅ | ✅ | ❌ |
-| 檢查 CORS／auth／rate limit 等安全語意 | ✅ | ❌ | ❌ |
-| 可當 CI 分級門檻（`--min-grade`） | ✅ | 不支援，只有能不能載入 | 需自行寫規則 |
-| 核心功能零依賴 | ✅（JSON 全支援，YAML 基本語法內建 reader） | — | 依實作而定 |
+| 檢查格式是否合法 | ✓ | ✓ | ✓（僅格式層級） |
+| 懂 agentgateway 專屬欄位語意（binds/backends/mcp…） | ✓ | ✓ | ✗ |
+| 檢查 CORS／auth／rate limit 等安全語意 | ✓ | ✗ | ✗ |
+| 可當 CI 分級門檻（`--min-grade`） | ✓ | 不支援，只有能不能載入 | 需自行寫規則 |
+| 核心功能零依賴 | ✓（JSON 全支援，YAML 基本語法內建 reader） | — | 依實作而定 |
 
 ## 注意事項
 

@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, model-release, daily, xiaomi, model-family-mimo]
 lang: zh-TW
 description: "小米開源 MiMo-V2.6-Pro——1.02T MoE 原生全模態模型，Artificial Analysis 開源模型榜稱冠，定價僅閉源旗艦的 1/20 到 1/60"
-tldr: "MiMo-V2.6-Pro：2026-09-21 開源，Model ID（OpenRouter）`xiaomi/mimo-v2.6-pro`；1.02T 總參數／42B 活化 MoE，1,048,576 tokens context window，原生支援 text／image／video／audio；API 定價 input $0.435／output $0.87 per 1M tokens（cached input $0.0036），同系列 Flash 版 $0.14／$0.28；MIT License 開源；AutomationBench v1.0.6 拿下 53.1 分小勝 Claude Opus 5 的 50.3、Terminal Bench 2.1 89.9 分也小幅超車 Opus 5 的 89.1；Artificial Analysis Intelligence Index 46.32 分是目前開源模型最高分；但 Terminal Bench 4.0（34.9 vs Opus 5 的 49.0）與資安類 ExploitBench（47.9 vs GPT-5.6 Sol 的 78.5）明顯落後閉源旗艦"
+tldr: "MiMo-V2.6-Pro：2026-09-21 開源，Model ID（OpenRouter）`xiaomi/mimo-v2.6-pro`；1.02T 總參數／42B 活化 MoE，1,048,576 tokens context window，原生支援 text／image／video／audio；API 定價 input $0.435／output $0.87 per 1M tokens（cached input $0.0036），同系列 Flash 版 $0.14／$0.28；MIT License 開源；AutomationBench v1.0.6 拿下 53.1 分小勝 Claude Opus 5 的 50.3、Terminal Bench 2.1 89.9 分也小幅超車 Opus 5 的 89.1；發佈時 Artificial Analysis Intelligence Index（v4.3）46.32 分是開源模型最高分（後來指數改版，現行 v5.0.1 給 Pro 30 分，兩版不能直接比）；但 Terminal Bench 4.0（34.9 vs Opus 5 的 49.0）與資安類 ExploitBench（47.9 vs GPT-5.6 Sol 的 78.5）明顯落後閉源旗艦"
 series:
   name: "AI Model Tracker"
   order: 32
@@ -15,7 +15,7 @@ glossary:
     def: "小米自研的大型語言模型家族，涵蓋 Pro／Flash／UltraSpeed 等不同規格版本"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
+> :globe: [English version](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro-en)
 
 ## 模型資訊
 
@@ -36,7 +36,7 @@ glossary:
 ## 能力亮點
 
 - 原生「全模態」設計：text、image、video、audio 共用同一個模型與 1M context window，官方主打電腦操作型 agent 可以在單一模型迴圈內讀螢幕截圖／影片、推理、決定下一步動作，不必額外拼裝 OCR 或 ASR 工具鏈
-- Artificial Analysis Intelligence Index 拿下 46.32 分，是該獨立評測榜上目前排名最高的開源／開放權重模型，領先 GLM-5.3（45 分，最高推理設定）與 Kimi K3（44 分）
+- 發佈時 Artificial Analysis Intelligence Index（當時的 v4.3）拿下 46.32 分，是該獨立評測榜上排名最高的開源／開放權重模型（後來改版到 v5.0.1，現行 Pro 為 30 分、同級中位數 23，評測組成不同，不能和 46.32 直接比），領先 GLM-5.3（45 分，最高推理設定）與 Kimi K3（44 分）
 - Agentic 任務對比 Claude Opus 5 互有領先：AutomationBench v1.0.6 以 53.1 分小勝 Opus 5 的 50.3、Terminal Bench 2.1 以 89.9 分小勝 89.1，Agents' Last Exam 兩者同為 31.6 分打平
 - 訓練端採「Groupwise Agentic Grading」自我改進迴圈（GRS 建立任務專屬評分標準、GAR 對通過的軌跡重新分配優勢值），官方稱記錄到的確認 reward-hacking 軌跡比例兩個版本都低於 2%
 
@@ -51,7 +51,7 @@ glossary:
 | DeepSWE v1.1（code agent） | 71.9 | 19.0 | Claude Opus 5 74.0（全場最高） |
 | ExploitBench（資安） | 47.9 | 16.6 | GPT-5.6 Sol 78.5（全場最高） |
 
-⚠️ 以上均為小米官方技術報告自測數據（比較對象為 Claude Opus 5、GPT-5.6 Sol、Claude Fable 5，非最新一代 Claude Fable 5.1／GPT-6 Astra）。Artificial Analysis Intelligence Index 的 46.32 分則是第三方獨立評測，該榜單上仍有多個閉源旗艦模型排名高於 MiMo-V2.6-Pro。
+:warning: 以上均為小米官方技術報告自測數據（比較對象為 Claude Opus 5、GPT-5.6 Sol、Claude Fable 5，非最新一代 Claude Fable 5.1／GPT-6 Astra）。Artificial Analysis Intelligence Index 的 46.32 分則是第三方獨立評測（v4.3；現行 v5.0.1 為 30 分），該榜單上仍有多個閉源旗艦模型排名高於 MiMo-V2.6-Pro。
 
 ## 與前代/競品比較
 
@@ -75,6 +75,7 @@ MiMo-V2.6-Pro 的技術報告老實揭露了一個少見的細節：訓練中曾
 ## 參考資料
 
 - [Xiaomi MiMo：MiMo-V2.6 系列官方頁面](https://mimo.xiaomi.com/mimo-v2-6)
+- [Artificial Analysis：MiMo-V2.6-Pro 模型頁](https://artificialanalysis.ai/models/mimo-v2-6-pro)
 - [HuggingFace：XiaomiMiMo/MiMo-V2.6-Pro-RL 模型卡與技術報告](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL)
 - [SiliconANGLE：Xiaomi introduces Mimo-V2.6 series open-source AI model family](https://siliconangle.com/2026/09/22/xiaomi-introduces-mimo-v2-6-series-open-source-ai-model-family/)
 - [Winbuzzer：Xiaomi's MiMo V2.6 Model Debuts With Unprecedented Efficiency Gains](https://winbuzzer.com/2026/09/24/xiaomi-mimo-v2-6-downloadable-ai-low-cost-apis-a004-xcxwbn/)

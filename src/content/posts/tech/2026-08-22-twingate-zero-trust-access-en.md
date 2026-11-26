@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-twingate-zero-trust-access)
+> :globe: [中文版](/posts/tech/2026-08-22-twingate-zero-trust-access)
 
 [Twingate](https://www.twingate.com/docs/how-twingate-works/) is managed Zero Trust Network Access. Administrators define Resources by FQDN, IP, CIDR, and ports, then grant groups and security policies. Unlisted traffic is denied by default, making least privilege more direct than placing a VPN user on an entire subnet.
 

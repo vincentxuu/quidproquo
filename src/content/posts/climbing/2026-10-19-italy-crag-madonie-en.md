@@ -13,7 +13,7 @@ description: "A guide to the Caltavuturo crags: size, aspect and summer suitabil
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-madonie)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-madonie)
 
 Caltavuturo is a small inland town in Palermo province on the western edge of the Madonie mountains, below a limestone ridge called Rocca di Sciara. Most Sicilian crags are by the sea, good in winter and too hot in summer; [UKC's Sicily guide](https://www.ukclimbing.com/articles/destinations/sicily-14498) says the Caltavuturo district is the most mountainous part of the island and "the most suitable during the hot Sicilian summers".
 

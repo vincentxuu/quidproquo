@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-netlify-web-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-netlify-web-platform)
 
 [Netlify](https://docs.netlify.com/) grew from static and Jamstack hosting into a web platform. Git builds, global delivery, Functions, Deno-based Edge Functions, background and scheduled functions, Blobs, Database, Forms, and Image CDN share one site and deploy workflow.
 
@@ -33,9 +33,20 @@ Adapters compile framework routes into function and edge artifacts. Inspect depl
 
 Static files and deploy-scoped caches follow deployment versions; [Blobs](https://docs.netlify.com/build/data-and-storage/netlify-blobs/) and Database persist. Deliberately choose deploy-specific or cross-deploy stores, tenant keys, consistency, backup, and deletion. Preview access to production blobs still requires authorization.
 
-Netlify fits content and frontend-heavy sites, atomic deploys, preview collaboration, and modest serverless or edge logic. Compare Vercel for deep Next.js integration and Render for containers, private networks, workers, disks, and backend topologies. Roll back a deploy while keeping the new schema, redeliver background work, and test runtime regions and cache invalidation.
+## Netlify Server adds a long-lived backend
+
+[Netlify Server](https://docs.netlify.com/build/server), announced in 2026-11, is another runtime: a long-lived process that keeps connection pools and caches between requests, holds WebSocket and SSE connections open, and scales to zero when idle. Every branch deploy and Deploy Preview runs its own copy of the backend, and rolling back a deploy rolls back its server too. It has [explicit limits](https://docs.netlify.com/build/server/limits/): a request runs for at most 30 minutes (2 hours on Pro and above), outbound connections close after 60 seconds idle, instances are replaced at least every 8 hours, and memory and local disk are not durable. Netlify says the new experience is rolling out gradually, so confirm your account has it before planning around it.
+
+Netlify fits content and frontend-heavy sites, atomic deploys, preview collaboration, and modest serverless or edge logic. Compare Vercel for deep Next.js integration. For WebSockets, connection pools, or a few minutes of background work, try Netlify Server first; for arbitrary containers, private networks, resident workers, persistent disks, and full backend topologies, Render is still the comparison. Roll back a deploy while keeping the new schema, redeliver background work, and test runtime regions and cache invalidation.
+
+## Update history
+
+- 2026-11-23: Added a Netlify Server section (long-lived server, WebSocket and SSE, a backend per preview, and its limits) and redrew the boundary with Render.
 
 ## References
+
+- [Netlify Server](https://docs.netlify.com/build/server)
+- [Netlify Server limits](https://docs.netlify.com/build/server/limits/)
 
 - [Netlify documentation](https://docs.netlify.com/)
 - [Netlify deploy overview](https://docs.netlify.com/deploy/deploy-overview/)

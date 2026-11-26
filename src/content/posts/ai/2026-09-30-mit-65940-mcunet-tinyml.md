@@ -26,7 +26,7 @@ glossary:
     context: "L10 投影片第 51–72 頁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

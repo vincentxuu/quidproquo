@@ -10,7 +10,7 @@ description: "asgeirtj/system_prompts_leaks organizes the raw system prompts of 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-19-system-prompts-leaks-archive)
+> :globe: [中文版](/posts/ai/2026-05-19-system-prompts-leaks-archive)
 
 According to a Washington Post feature story published on May 11, 2026, the system prompts of three major AI assistants "range from 2,300 to 27,000 words" ([Washington Post](https://www.washingtonpost.com/technology/interactive/2026/chatbots-hidden-rules-system-prompts/)). All of them are instructions that vendors secretly feed to the model before you press Enter. You can't see them, you can't change them, but these words directly determine the AI's personality, refusal boundaries, emoji policy, and tool-call priority order.
 

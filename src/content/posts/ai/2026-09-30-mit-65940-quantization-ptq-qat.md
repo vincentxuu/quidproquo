@@ -26,7 +26,7 @@ glossary:
     context: "QAT 能運作的關鍵技巧。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-quantization-ptq-qat-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

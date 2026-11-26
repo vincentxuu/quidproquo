@@ -13,7 +13,7 @@ description: "以五個成熟 coding agent 的原始碼為證，分析 prompt �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-prompt-versioning-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-prompt-versioning-en)
 
 ## 設計問題：prompt 改動怎麼審？
 

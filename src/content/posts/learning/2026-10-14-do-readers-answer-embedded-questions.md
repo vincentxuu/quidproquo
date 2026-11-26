@@ -6,14 +6,14 @@ type: deep-dive
 tags: [learning-science, retrieval-practice, self-learning, course-guide, blog]
 lang: zh-TW
 description: "整理內嵌題目有多少人作答、多少人略過或先看答案的研究：影片內測驗、跳出式複習題、可略過的摘要任務、有學分的互動教科書、教師自學電子書、自選測驗或重讀的實驗、作業抄襲的紀錄分析，以及計分、題型、提示、擺放位置各有多少證據，並回答摺疊區塊外的提示會不會洩題。"
-tldr: "量到「題目出現時有沒有人答」的大樣本紀錄只來自 MOOC：影片播到題目的位置時在播放器裡出題，開始看那支影片的人約七成四作答；跳出的複習題，選擇題約七成、要打數字的約四成。隨機分派下，要打字的任務做的人約是只要勾選的一半。我讀到的研究裡沒有一篇量過公開文章的讀者，本站的流量統計是匯總的，量不到誰作答。"
+tldr: "量到「題目出現時有沒有人答」的大樣本紀錄只來自 MOOC：影片播到題目的位置時在播放器裡出題，開始看那支影片的人約七成四作答；跳出的複習題，選擇題約七成、要打數字的約四成。隨機分派下，要寫三句摘要的人，約是讀現成摘要並勾「已讀」的人的一半。我讀到的研究裡沒有一篇量過公開文章的讀者，本站的流量統計是匯總的，量不到誰作答。"
 series:
   name: "教學文章怎麼寫"
   order: 10
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en)
+> :globe: [English version](/posts/learning/2026-10-14-do-readers-answer-embedded-questions-en)
 
 這是「教學文章怎麼寫」系列的第 10 篇，屬於第二部分「要讀者做什麼」。[第 8 篇](/posts/learning/2026-10-14-active-learning-evidence)查了「做中學」的證據量的是什麼，[第 9 篇](/posts/learning/2026-10-13-teaching-text-questions-feedback)談文章裡的題目怎麼出、答案怎麼給。這兩篇有一個沒有明說的前提：讀者會作答。這篇回頭查這個前提。
 

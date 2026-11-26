@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only)
+> :globe: [中文版](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only)
 
 ## Summary of Changes
 
@@ -67,8 +67,8 @@ The three major agent-model vendors are now converging on the same free-tier str
 
 ## Expiration Notice
 
-⏰ **Free-tier model restriction takes effect**: 2026-10-09. From that date, the free Gemini App (personal accounts) only offers Flash-Lite.
-⏰ **AI Plus loses Pro access**: Date varies by account. Google notifies each Plus subscriber individually by email — it is not a single cutover on 10/9.
+:clock: **Free-tier model restriction takes effect**: 2026-10-09. From that date, the free Gemini App (personal accounts) only offers Flash-Lite.
+:clock: **AI Plus loses Pro access**: Date varies by account. Google notifies each Plus subscriber individually by email — it is not a single cutover on 10/9.
 
 ## Takeaway
 

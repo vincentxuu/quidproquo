@@ -10,7 +10,7 @@ description: "Analyzing AI Agent caching architecture from Claude Code's source 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-03-react-agent-cache-design)
+> :globe: [中文版](/posts/ai/2026-04-03-react-agent-cache-design)
 
 While designing a ReAct Agent for NobodyClimb, I spent considerable time studying Claude Code's caching mechanisms. A seemingly simple question — "How should an Agent's cache be designed?" — turned out to be far more complex: Claude Code internally uses over 18 different caches, and none of them are the "semantic cache" I originally envisioned.
 

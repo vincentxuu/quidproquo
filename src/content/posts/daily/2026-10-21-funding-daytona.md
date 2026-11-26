@@ -12,7 +12,7 @@ series:
   order: 97
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-funding-daytona-en)
+> :globe: [English version](/posts/daily/2026-10-21-funding-daytona-en)
 
 ## 融資資訊
 

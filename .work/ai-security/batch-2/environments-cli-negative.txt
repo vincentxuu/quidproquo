@@ -1,0 +1,2 @@
+FAIL: automated run requires explicit automation allowance
+exit code: 1

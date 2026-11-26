@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-websocket-protocol)
+> :globe: [中文版](/posts/tech/2026-08-22-websocket-protocol)
 
 [WebSocket](https://datatracker.ietf.org/doc/html/rfc6455) upgrades an HTTP connection into a persistent full-duplex message channel carrying text, binary, ping/pong, and close frames. The browser API is intentionally small, leaving message envelopes, versions, errors, acknowledgements, authorization, reconnects, and replay to applications.
 
@@ -31,7 +31,11 @@ Ping/pong detects half-open connections, but browser code cannot emit protocol p
 
 MDN notes that stable `WebSocket` does not apply backpressure. If producers outrun consumers, buffers, memory, and CPU can grow unchecked. Observe `bufferedAmount`, cap per-connection queues, coalesce cursor or presence updates, and drop explicitly disposable events; durable events belong in a log. `WebSocketStream` uses Streams backpressure but remains non-standard with limited support.
 
-Horizontal scaling requires connection affinity, room directories, cross-node fan-out, deployment draining, and a presence consistency model. WebSocket provides no ordering across reconnects, exactly-once behavior, or durable history. Socket.IO adds event and recovery abstractions; SSE simplifies one-way push; Ably manages channels; PartyKit and Durable Objects use a room coordinator to reduce distributed-state complexity.
+Horizontal scaling requires connection affinity, room directories, cross-node fan-out, deployment draining, and a presence consistency model. WebSocket provides no ordering across reconnects, exactly-once behavior, or durable history. Socket.IO adds event and recovery abstractions; SSE simplifies one-way push; Ably manages channels; [PartyServer (formerly PartyKit)](/posts/tech/2026-08-22-partykit-realtime-rooms-en) and Durable Objects use a room coordinator to reduce distributed-state complexity.
+
+## Update Log
+
+- 2026-11-23: The hosted PartyKit platform shut down on 2026-10-23, so the comparison now points to its successor, PartyServer.
 
 ## References
 

@@ -13,7 +13,7 @@ description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-headless-ci-mode-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-headless-ci-mode-en)
 
 上一篇談了[工具集設計](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy)，這篇換一個場景：同一個 agent，從你的終端機搬進 CI pipeline 之後會發生什麼事。
 

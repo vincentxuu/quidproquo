@@ -10,7 +10,7 @@ description: "Three bugs fixed in an AI agent's attachment tooling: binary forma
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-18-llm-tool-description-hard-rules)
+:globe: [中文版](/posts/tech/2026-05-18-llm-tool-description-hard-rules)
 
 ## TL;DR
 

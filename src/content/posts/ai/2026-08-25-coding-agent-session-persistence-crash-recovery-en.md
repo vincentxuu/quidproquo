@@ -13,7 +13,7 @@ description: "Comparing session persistence across pi, omp, opencode, codex, and
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery)
 
 Evidence scope for this post: **pi** (badlogic/pi-mono), **omp** (can1357/oh-my-pi), **opencode** (sst/opencode), **codex** (openai/codex Rust workspace), and **claude-code** (community-decompiled v2.1.88; symbol names may differ from the original), compared against my own **looplane**. Every citation below was read in my local clones.
 

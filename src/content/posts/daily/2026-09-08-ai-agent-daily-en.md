@@ -108,11 +108,11 @@ Europe is fully covered above (OpenAI's EU AI Act disclosure, the UK ARIA leader
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-08](/posts/daily/2026-09-08-ai-agent-arxiv-digest-en)
-- 📄 [Model Card | MiniCPM5-2B](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b-en)
-- 📄 [Tool Recommendation | jmeter-mcp-server](/posts/daily/2026-09-08-tool-jmeter-mcp-server-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-08: Deep Learning & NLP](/posts/daily/2026-09-08-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-08: Metrics & Analytics](/posts/daily/2026-09-08-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-08](/posts/daily/2026-09-08-ai-agent-arxiv-digest-en)
+- :file: [Model Card | MiniCPM5-2B](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b-en)
+- :file: [Tool Recommendation | jmeter-mcp-server](/posts/daily/2026-09-08-tool-jmeter-mcp-server-en)
+- :file: [AI Engineer Interview Daily — 2026-09-08: Deep Learning & NLP](/posts/daily/2026-09-08-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-08: Metrics & Analytics](/posts/daily/2026-09-08-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

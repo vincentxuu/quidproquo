@@ -15,7 +15,7 @@ glossary:
     def: "The compression/decoding module most mainstream diffusion models (Stable Diffusion, FLUX, etc.) use to squeeze a high-resolution image into a low-dimensional \"latent space\" before generation and decode it back to pixels afterward — it cuts compute cost substantially but loses some detail in the process"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-12-model-speridlabs-iris-3b)
+> :globe: [中文版](/posts/daily/2026-10-12-model-speridlabs-iris-3b)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | Monocular depth AbsRel (5-dataset zero-shot mean) | 0.071 | Native latent FLUX.2 Klein (tied) / converted-to-pixel FLUX.2 Klein (trails Iris-3B) | Marigold V2 protocol |
 | 4x restoration LPIPS/PSNR (DIV2K) | 0.292/20.68 | Native latent FLUX.2 Klein fine-tune (neither pixel-space version beats it) | Self-reported |
 
-⚠️ All numbers above are self-reported by Sperid Labs; no independent third-party reproduction has surfaced yet. The paper's own headline finding is itself a negative result: dropping the VAE showed no significant advantage on either depth estimation or image restoration.
+:warning: All numbers above are self-reported by Sperid Labs; no independent third-party reproduction has surfaced yet. The paper's own headline finding is itself a negative result: dropping the VAE showed no significant advantage on either depth estimation or image restoration.
 
 ## Comparison with Predecessor/Competitors
 

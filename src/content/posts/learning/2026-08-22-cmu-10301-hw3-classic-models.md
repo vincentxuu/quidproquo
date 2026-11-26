@@ -10,7 +10,7 @@ tldr: "HW3 是純 written 作業，以 decision tree 回顧，再比較 K-NN、P
 description: "導讀 CMU 10-301/601 Spring 2026 HW3 的四類模型比較與自學驗收。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 3 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw3-classic-models-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw3-classic-models-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw3.zip) 完整題名是 **Homework 3: Decision Trees, K-NN, Perceptron, Regression**，是純 written 作業。主要題組是 decision tree revisited、regression tree、k-nearest neighbors、perceptron 與 linear regression；題內再處理 overfitting、error rates 與 model selection。ZIP 只有 PDF、LaTeX template 與題目圖檔，沒有 starter code、dataset 或 reference output。
 

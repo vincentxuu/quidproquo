@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-30-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-30-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -138,15 +138,15 @@ Mistral 與沙烏地阿拉伯 HUMAIN 宣布數億歐元規模的主權 AI 合作
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-github-digest)
-- 📄 [模型卡｜BreezeBlue Breeze TTS 2](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2)
-- 📄 [定價追蹤｜OpenAI Assistants API 正式停用](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset)
-- 📄 [框架更新｜Pydantic AI 2.36.0](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0)
-- 📄 [資安警報｜Claude Code Auto Mode 被繞過](/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing)
-- 📄 [工具推薦｜proton-safe-mcp](/posts/daily/2026-08-30-tool-proton-safe-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-08-30：本週回顧與行為面試](/posts/daily/2026-08-30-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-30：Behavioral & Weekly Review](/posts/daily/2026-08-30-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-30](/posts/daily/2026-08-30-ai-agent-github-digest)
+- :file: [模型卡｜BreezeBlue Breeze TTS 2](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2)
+- :file: [定價追蹤｜OpenAI Assistants API 正式停用](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset)
+- :file: [框架更新｜Pydantic AI 2.36.0](/posts/daily/2026-08-30-framework-pydantic-ai-2.36.0)
+- :file: [資安警報｜Claude Code Auto Mode 被繞過](/posts/daily/2026-08-30-security-claude-code-automode-module-shadowing)
+- :file: [工具推薦｜proton-safe-mcp](/posts/daily/2026-08-30-tool-proton-safe-mcp)
+- :file: [AI Engineer 面試日練 — 2026-08-30：本週回顧與行為面試](/posts/daily/2026-08-30-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-30：Behavioral & Weekly Review](/posts/daily/2026-08-30-product-builder-interview-daily)
 
 ## 明日關注
 

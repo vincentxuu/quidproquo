@@ -29,7 +29,7 @@ glossary:
     context: "Prompt Tuning adds them only at the input layer; Prefix Tuning adds them at every layer."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-peft)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-peft)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

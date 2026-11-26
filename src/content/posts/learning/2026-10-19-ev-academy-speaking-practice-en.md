@@ -9,11 +9,11 @@ description: "Compare EV Academy’s adult ESL and Power Speaking 6/8, accommoda
 tldr: "EV offers residential study with a high proportion of private lessons. Choose a sustainable workload, then obtain a written quote for the exact campus, course, room, and dates."
 series:
   name: "English Speaking Practice"
-  order: 12
+  order: 30
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-ev-academy-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-ev-academy-speaking-practice)
 
 If you want to devote a block of leave to English and have teachers prompting you to speak daily, a residential school in the Philippines is one option. [EV Academy](https://www.evenglish.net/) in Cebu City combines private and group classes, concentrating study and everyday life into one trip.
 

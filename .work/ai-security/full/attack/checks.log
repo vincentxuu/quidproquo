@@ -1,0 +1,143 @@
+[
+  {
+    "mode": "surface",
+    "build": "vulnerable-v1",
+    "requests": 2,
+    "finding": null,
+    "effect": null,
+    "stop": null,
+    "audit_events": 1,
+    "pass": true
+  },
+  {
+    "mode": "surface",
+    "build": "fixed-v1",
+    "requests": 2,
+    "finding": null,
+    "effect": null,
+    "stop": null,
+    "audit_events": 1,
+    "pass": true
+  },
+  {
+    "mode": "hypotheses",
+    "build": "vulnerable-v1",
+    "requests": 5,
+    "finding": null,
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "hypotheses",
+    "build": "fixed-v1",
+    "requests": 5,
+    "finding": null,
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "verify",
+    "build": "vulnerable-v1",
+    "requests": 5,
+    "finding": "confirmed_unauthorized_read",
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "verify",
+    "build": "fixed-v1",
+    "requests": 5,
+    "finding": "attack_blocked",
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "injection",
+    "build": "vulnerable-v1",
+    "requests": 3,
+    "finding": null,
+    "effect": "content_returned",
+    "stop": null,
+    "audit_events": 2,
+    "pass": true
+  },
+  {
+    "mode": "injection",
+    "build": "fixed-v1",
+    "requests": 3,
+    "finding": null,
+    "effect": "denied_without_content",
+    "stop": null,
+    "audit_events": 2,
+    "pass": true
+  },
+  {
+    "mode": "loop",
+    "build": "vulnerable-v1",
+    "requests": 5,
+    "finding": null,
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "loop",
+    "build": "fixed-v1",
+    "requests": 4,
+    "finding": null,
+    "effect": null,
+    "stop": "candidate_disproved; no repeated attack",
+    "audit_events": 3,
+    "pass": true
+  },
+  {
+    "mode": "chain",
+    "build": "vulnerable-v1",
+    "requests": 5,
+    "finding": "confirmed_unauthorized_read",
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "mode": "chain",
+    "build": "fixed-v1",
+    "requests": 5,
+    "finding": "attack_blocked",
+    "effect": null,
+    "stop": "minimal_evidence_collected",
+    "audit_events": 4,
+    "pass": true
+  },
+  {
+    "guard_tests": [
+      {
+        "case": "scope",
+        "result": "out_of_scope"
+      },
+      {
+        "case": "budget",
+        "result": "budget_exhausted"
+      },
+      {
+        "case": "unverified_target",
+        "result": "health_not_verified"
+      },
+      {
+        "case": "argument",
+        "result": "invalid_tool_arguments"
+      }
+    ],
+    "pass": true
+  }
+]

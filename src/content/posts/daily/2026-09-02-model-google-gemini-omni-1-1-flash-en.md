@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind's natively multimodal video generation and editing model family, processing text, image, audio, and video as combined input and output"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash)
+> :globe: [中文版](/posts/daily/2026-09-02-model-google-gemini-omni-1-1-flash)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | Max cumulative extension length | 40 seconds (4 × 10s) | No documented cumulative cap; extension only referenced the final second | Wan3.0: 30 seconds in a single generation (no multi-turn chaining mechanism) |
 | Max output resolution | 4K (upscaled) | 720p only; no 1080p/4K option | Veo 3.1 Fast 4K, priced the same at $0.30/sec |
 
-⚠️ Arena Elo scores are live blind-vote figures from the Artificial Analysis leaderboard (snapshotted late August 2026) that shift weekly as new votes come in — they are not vendor self-reported numbers. Scene-extension, resolution, and pricing specs come from Google's official announcement and documentation.
+:warning: Arena Elo scores are live blind-vote figures from the Artificial Analysis leaderboard (snapshotted late August 2026) that shift weekly as new votes come in — they are not vendor self-reported numbers. Scene-extension, resolution, and pricing specs come from Google's official announcement and documentation.
 
 ## Comparison with Predecessor/Competitors
 

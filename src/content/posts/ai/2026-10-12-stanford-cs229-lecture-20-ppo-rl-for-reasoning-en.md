@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 20 recording published by Stanford Online, with notation checked against Chapter 21 (Policy Gradient and its Variants) and Chapter 18 (Reasoning in LLMs) of the 2026 main lecture notes. I did not see the board, so the equations written on it are reconstructed from what is said in the transcript and from the notes.
 

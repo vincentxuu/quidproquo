@@ -13,7 +13,7 @@ description: "A selection guide for installing OpenClaw locally — who the inst
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-install-local)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-install-local)
 
 The install commands live in the official [Install](https://docs.openclaw.ai/install/) page and are always current, so this article does not restate them. It answers the two things that page does not spell out: **how the six methods differ and which one you should pick**, and **where installation actually stops halfway**.
 

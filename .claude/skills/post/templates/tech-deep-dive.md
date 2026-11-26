@@ -31,7 +31,7 @@ draft: false
 
 ## 整體架構（如果適合）
 
-{{mermaid flowchart 說明各工具如何組合（見 writing-guide.md §圖解）；畫不出來或太複雜再退回 ASCII}}
+{{用 ```diagram 架構圖說明各工具如何組合（依 ../../diagram/SKILL.md 選圖型，見 writing-guide.md §圖解）；節點超過 9 個的依賴圖才用 mermaid}}
 
 ## 限制與評測發現
 

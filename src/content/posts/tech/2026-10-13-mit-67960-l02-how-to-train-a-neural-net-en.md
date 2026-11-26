@@ -21,7 +21,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net)
+> :globe: [中文版](/posts/tech/2026-10-13-mit-67960-l02-how-to-train-a-neural-net)
 
 **Video status: Videos included.** [Video source and notes](#lecture-video-source)
 

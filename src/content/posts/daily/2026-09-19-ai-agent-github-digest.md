@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### alibaba/open-code-review ⭐ 36,974
+### alibaba/open-code-review ★ 36,974
 
 [GitHub](https://github.com/alibaba/open-code-review)　·　Go　·　Apache-2.0
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### cloudflare/security-audit-skill ⭐ 14,418
+### cloudflare/security-audit-skill ★ 14,418
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### microsoft/skills ⭐ 3,032
+### microsoft/skills ★ 3,032
 
 [GitHub](https://github.com/microsoft/skills)　·　TypeScript　·　MIT
 

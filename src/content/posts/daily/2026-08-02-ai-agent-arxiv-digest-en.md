@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 70
 ---
-> 🌏 [中文版](/posts/daily/2026-08-02-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-02-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -122,7 +122,7 @@ Under exact temporal overlap, 40.2% of repos had co-active agent PR pairs, and 7
 ### Deep Dive
 
 - Data comes from real GitHub repos, not simulations, ensuring high representativeness; AIDev-pop covers multiple coding agents including Copilot and Devin-class tools
-- **⚠️ Title caveat**: The title includes "Merge Conflict Rates" but the paper doesn't directly quantify actual conflict occurrence or resolution rates — the core contribution is "frequency and structure analysis"
+- **:warning: Title caveat**: The title includes "Merge Conflict Rates" but the paper doesn't directly quantify actual conflict occurrence or resolution rates — the core contribution is "frequency and structure analysis"
 - 99.5% of co-active pairs are same-agent (self-collision); cross-agent collisions occurred in only 122 of 2,807 repos
 - Deployment fix: adding a pre-flight check at the agent task queue layer ("does this repo have any of my unmerged PRs?") would directly solve most self-conflicts
 - Implication for platform builders: agent memory needs to extend beyond conversation history to infrastructure operation history (PR status, deployment state)
@@ -179,7 +179,7 @@ The five vulnerability classes are widely recognized attack surfaces in cybersec
 - **Four defenses**: containment (sandbox isolation), privilege separation (least-privilege principle), provenance (origin tracking), responder access (responder control)
 - **Dual-use problem**: defensive artifacts themselves can be exploited by attackers to detect sandbox boundaries — this contradiction has no simple solution
 - The July 2026 HuggingFace/OpenAI incidents serve as a bounded case study, but details in the paper are limited; full public reports are still pending
-- **⚠️ Note**: This is a review paper, not original experimental research; single author from a non-top-tier institution; some arguments lack quantitative data — cross-validate recommended
+- **:warning: Note**: This is a review paper, not original experimental research; single author from a non-top-tier institution; some arguments lack quantitative data — cross-validate recommended
 - MCP connection: privilege separation maps to MCP's tool permission scoping; provenance maps to trace/logging middleware design
 - Deployment barrier: persistent C2 ("can the agent leave a backdoor inside the sandbox?") is the hardest to defend against, requiring stateless execution design
 

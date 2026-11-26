@@ -22,7 +22,7 @@ glossary:
     context: "HW1 的 TODO3 與 TODO7 用它畫 family 子類詞彙的分布。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

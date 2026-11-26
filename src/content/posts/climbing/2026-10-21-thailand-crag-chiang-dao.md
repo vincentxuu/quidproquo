@@ -13,7 +13,7 @@ description: "清道 Chiang Dao 攀岩指南：Pha Daeng 主牆、Pit Stop、Whi
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-chiang-dao-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-chiang-dao-en)
 
 清道（Chiang Dao）在清邁正北，是一座海拔近 2,000 公尺的石灰岩山，山下就是清道鎮。攀岩集中在山體東南側的一片岩壁群，theCrag 在 2026 年 10 月 21 日收錄 61 條路線、級數 5b 到 8a+，其中主牆 Padaeng（又名 Main Wall）就有 30 條。
 

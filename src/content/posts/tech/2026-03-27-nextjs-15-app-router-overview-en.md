@@ -10,7 +10,7 @@ description: "A practical introduction to the core concepts of Next.js 15 App Ro
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-nextjs-15-app-router-overview)
+:globe: [中文版](/posts/tech/2026-03-27-nextjs-15-app-router-overview)
 
 Next.js 15 + App Router isn't a minor iteration on Next.js — it's an architectural shift: from "render on the client first" to "render on the server first, let the client handle only interactivity." This shift changes more than just performance characteristics; it changes how you think about data flow entirely.
 

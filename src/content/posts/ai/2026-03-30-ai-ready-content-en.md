@@ -14,7 +14,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-30-ai-ready-content)
+> :globe: [中文版](/posts/ai/2026-03-30-ai-ready-content)
 
 In 2025, a new question emerged: **Can your website be found inside ChatGPT?**
 

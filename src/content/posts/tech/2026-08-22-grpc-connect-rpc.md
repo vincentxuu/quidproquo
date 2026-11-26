@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-grpc-connect-rpc-en)
+> :globe: [English version](/posts/tech/2026-08-22-grpc-connect-rpc-en)
 
 [gRPC](https://grpc.io/docs/what-is-grpc/introduction/) 從 `.proto` 定義 service、method 與 message，再產生各語言 client stub 和 server interface。它把跨語言合約放在獨立 IDL，不依賴 TypeScript inference；[Connect](https://connectrpc.com/docs/introduction/) 沿用同一份 Protobuf，提供更貼近標準 HTTP library 的實作，並同時支援 gRPC、gRPC-Web 與 Connect protocol。
 

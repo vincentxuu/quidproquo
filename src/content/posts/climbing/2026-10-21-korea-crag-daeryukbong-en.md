@@ -13,7 +13,7 @@ description: "Upper and lower wall route choices, aspect, Oncheonjang transport 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-daeryukbong)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-daeryukbong)
 
 A day on granite sport routes need not mean leaving Busan for Ulsan. Daeryuk-bong has upper and lower walls on Geumjeongsan, giving a city-based trip a short-route option rather than another multipitch summit.
 

@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [English version](/posts/tech/guide/2026-03-12-astro-blog-template-guide-en)
+:globe: [English version](/posts/tech/guide/2026-03-12-astro-blog-template-guide-en)
 
 ## TL;DR
 
@@ -32,7 +32,7 @@ Astro 沒有。每個模板就是一份完整的專案原始碼，換模板等�
 
 ### 只寫文章，要好維護
 
-選 [AstroPaper](https://github.com/satnaing/astro-paper)（⭐ 4200+）。
+選 [AstroPaper](https://github.com/satnaing/astro-paper)（★ 4200+）。
 
 這個模板的取捨是：功能精準，但不多。深色模式、模糊搜尋（Fuse.js）、RSS、sitemap，夠用了。
 最大優點是**結構清晰**——每個 component 做一件事，沒有奇怪的抽象層，想改什麼直接找到改。
@@ -48,7 +48,7 @@ Astro 5 + Tailwind v4，依賴都是最新的，維護不會有過時包的問�
 
 ### 網站 + 部落格混合
 
-選 [AstroWind](https://github.com/onwidget/astrowind)（⭐ 5400+）。
+選 [AstroWind](https://github.com/onwidget/astrowind)（★ 5400+）。
 
 有 landing page、feature section、pricing、FAQ、blog 全套，PageSpeed 100 分。
 取捨是：這個模板的設計目標是「公司官網 + 部落格」，純部落格用起來有點殺雞用牛刀。

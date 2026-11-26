@@ -1,0 +1,6 @@
+{
+  "fixture_revision": "analyst-v1",
+  "provenance": "Synthetic scenario author labels fixed independently of classifier. Labels are not passed to triage. C04 is an attack with deliberately incomplete observations; C07 is an operational error. Author-designed malicious attempts count as positive even when blocked. Independently reproduced benign client mistakes are excluded from the positive class.",
+  "labels": {"C01":"malicious","C02":"malicious","C03":"malicious","C04":"malicious","C05":"benign","C06":"benign","C07":"benign","C08":"benign"},
+  "reasons": {"C01":"Alice reads Carol's S-1","C02":"Alice reads Bob's N-2","C03":"author-designed malicious attempt, blocked","C04":"blocked attack but incomplete logging","C05":"owner access","C06":"owner access","C07":"synthetic database timeout, no intrusion","C08":"verified stale client ticket link, E-204 plus E-205 trusted client defect reproduction"}
+}

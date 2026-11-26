@@ -13,7 +13,7 @@ description: "赤壁攀岩指南：比較路線級數與走法版本、束草公
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-jeokbyeok-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-jeokbyeok-en)
 
 赤壁（적벽，Jeokbyeok，也常拼 Juk-byuk）就在雪嶽山飛仙臺旁，和將軍峰是鄰居。看舊指南時，最容易犯的錯是被「5.8」或「5.9」吸引，漏掉後面的 A1、A4。
 

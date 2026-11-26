@@ -14,7 +14,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
+> :globe: [中文版](/posts/ai/2026-03-12-bge-m3-embedding-model-selection)
 
 Search quality in a RAG system depends heavily on the embedding model you choose. A good model pulls semantically similar queries and documents close together in vector space; a bad one turns vector search into a lottery.
 

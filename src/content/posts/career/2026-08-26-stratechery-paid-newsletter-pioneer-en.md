@@ -13,7 +13,7 @@ description: "The complete story of Stratechery founder Ben Thompson: from a sma
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer)
+> :globe: [中文版](/posts/career/2026-08-26-stratechery-paid-newsletter-pioneer)
 
 In April 2014, Ben Thompson went full-time on Stratechery from his apartment in Taipei. Substack wouldn't exist for another four years. The idea that someone could make a living writing a newsletter by themselves struck most people as wishful thinking.
 

@@ -17,7 +17,7 @@ glossary:
     def: "OpenAI 模型 API 參數，可調整推理深度（none／low／medium／high／xhigh／max），效果越高通常延遲與成本也越高"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna-en)
+> :globe: [English version](/posts/daily/2026-09-25-model-openai-gpt-6-sol-luna-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | OSWorld 2.0（電腦操作，xhigh effort） | GPT-6 Sol | 60.5% | 未公開 | Claude Opus 5 60.3%（medium effort，Sol 成本低約 80%） |
 | 內部模擬部署 misalignment flag（severity≥3 次數，越低越好） | GPT-6 Sol | 42 次 | GPT-5.6 Sol 66 次 | - |
 
-⚠️ 以上除 OSWorld 2.0 沿用 OpenAI 公開版本編號外，均為 OpenAI 官方自測與自選競品評測條件（各自最高 effort 設定），尚待第三方獨立複現；misalignment flag 數字來自 OpenAI 內部模擬部署，非公開 benchmark。
+:warning: 以上除 OSWorld 2.0 沿用 OpenAI 公開版本編號外，均為 OpenAI 官方自測與自選競品評測條件（各自最高 effort 設定），尚待第三方獨立複現；misalignment flag 數字來自 OpenAI 內部模擬部署，非公開 benchmark。
 
 ## 與前代/競品比較
 

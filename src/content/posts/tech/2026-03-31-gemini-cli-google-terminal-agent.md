@@ -13,7 +13,7 @@ description: "Gemini CLI 的設計、免費額度為何曾是業界最激進的�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
+:globe: [English version](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)
 
 Gemini CLI 是 Google 開源的終端機 AI agent，採 ReAct（Reason and Act）迴圈，結合內建工具與 MCP server 完成任務。它一度是這個賽道免費額度最誇張的選項——**然後在 2026 年 6 月 18 日對所有個人帳號停止服務**。
 
@@ -32,12 +32,12 @@ Gemini CLI 是 Google 開源的終端機 AI agent，採 ReAct（Reason and Act�
 
 | 路徑 | 是否還能用 |
 |---|---|
-| Google 帳號免費層（Gemini Code Assist for Individuals） | ❌ 2026/06/18 起停止服務 |
-| Google AI Pro / Ultra 訂閱 | ❌ 同日停止 |
-| Gemini Code Assist Standard / Enterprise 授權 | ✅ 不受影響 |
-| 透過 Google Cloud 存取 | ✅ 不受影響 |
-| 付費 Gemini / Gemini Enterprise Agent Platform API key | ✅ 不受影響 |
-| Gemini Code Assist for GitHub（個人版） | ❌ 6/18 起停止新安裝，7/17 完全關閉 |
+| Google 帳號免費層（Gemini Code Assist for Individuals） | ✗ 2026/06/18 起停止服務 |
+| Google AI Pro / Ultra 訂閱 | ✗ 同日停止 |
+| Gemini Code Assist Standard / Enterprise 授權 | ✓ 不受影響 |
+| 透過 Google Cloud 存取 | ✓ 不受影響 |
+| 付費 Gemini / Gemini Enterprise Agent Platform API key | ✓ 不受影響 |
+| Gemini Code Assist for GitHub（個人版） | ✗ 6/18 起停止新安裝，7/17 完全關閉 |
 
 官方在停服後另外發了一份 deprecation 說明，FAQ 直接回答了這題：**「我有 Gemini Code Assist Standard 或 Enterprise 訂閱，會受影響嗎？不會，用 Standard/Enterprise 訂閱存取 IDE 擴充與 Gemini CLI 維持不變。」** 企業端也確實還在收到新功能——Gemini Code Assist 的 release notes 在 2026-08-10 還為 Standard/Enterprise 推出 Release Channels。
 

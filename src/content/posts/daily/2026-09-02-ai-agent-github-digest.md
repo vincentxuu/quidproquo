@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-02-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-02-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### openclaw/openclaw ⭐ 388,497
+### openclaw/openclaw ★ 388,497
 
 [GitHub](https://github.com/openclaw/openclaw)　·　TypeScript　·　MIT（部分檔案除外）
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### NVIDIA/SkillSpector ⭐ 15,531
+### NVIDIA/SkillSpector ★ 15,531
 
 [GitHub](https://github.com/NVIDIA/SkillSpector)　·　Python　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### stablyai/orca ⭐ 59,083
+### stablyai/orca ★ 59,083
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### VectifyAI/PageIndex ⭐ 35,476
+### VectifyAI/PageIndex ★ 35,476
 
 [GitHub](https://github.com/VectifyAI/PageIndex)　·　Python　·　MIT
 

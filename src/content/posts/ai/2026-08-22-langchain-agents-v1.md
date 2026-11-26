@@ -10,7 +10,7 @@ description: "介紹 LangChain v1 Agents 的執行模型、工具、structured o
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-langchain-agents-v1-en)
+> :globe: [English version](/posts/ai/2026-08-22-langchain-agents-v1-en)
 
 [LangChain v1 Agents](https://docs.langchain.com/oss/python/langchain/agents) 是建立 tool-calling agent 的高階入口。`create_agent` 接收模型、工具與 instructions，產生一個會反覆呼叫模型和工具，直到模型給出最終答案或達到停止條件的 agent loop。
 

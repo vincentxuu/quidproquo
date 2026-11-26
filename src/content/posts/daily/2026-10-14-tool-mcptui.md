@@ -12,7 +12,7 @@ series:
   order: 54
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-tool-mcptui-en)
+> :globe: [English version](/posts/daily/2026-10-14-tool-mcptui-en)
 
 ## 工具資訊
 
@@ -81,12 +81,12 @@ mcptui call convert_temperature '{"value": 100, "from_scale": "C", "to_scale": "
 
 | | mcptui | 官方 MCP Inspector | 直接接 Claude Desktop / Cursor 手動測 |
 |---|---|---|---|
-| 需要 Node.js / 瀏覽器 | ❌,純終端機 | ✅ 需要兩者 | ❌ |
-| 測試會消耗 LLM token | ❌ | ❌ | ✅ 每次呼叫都要經過 agent |
-| 改一個工具要重啟整個 app | ❌ | ❌ | ✅ |
-| 自動讀取既有 agent 設定(Claude Desktop／Cursor／`mcp.json`) | ✅ | ❌ | — |
-| 可寫進 CI 腳本的 headless 模式 | ✅（`mcptui call` / `mcptui list`） | 有 CLI 模式但主介面仍是網頁 | ❌ |
-| 即時查看原始 JSON-RPC 封包 | ✅ | ✅ | ❌ |
+| 需要 Node.js / 瀏覽器 | ✗,純終端機 | ✓ 需要兩者 | ✗ |
+| 測試會消耗 LLM token | ✗ | ✗ | ✓ 每次呼叫都要經過 agent |
+| 改一個工具要重啟整個 app | ✗ | ✗ | ✓ |
+| 自動讀取既有 agent 設定(Claude Desktop／Cursor／`mcp.json`) | ✓ | ✗ | — |
+| 可寫進 CI 腳本的 headless 模式 | ✓（`mcptui call` / `mcptui list`） | 有 CLI 模式但主介面仍是網頁 | ✗ |
+| 即時查看原始 JSON-RPC 封包 | ✓ | ✓ | ✗ |
 
 ## 注意事項
 

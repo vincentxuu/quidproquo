@@ -1,0 +1,40 @@
+
+> quidproquo@0.0.1 verify /private/tmp/quidproquo-japan-crags-expansion-20261026
+> node scripts/verify.mjs
+
+
+=== pnpm verify ===
+✅ astro check (types)
+✅ lint (oxlint)
+✅ check:references
+✅ check:post-quality
+✅ check:tw (台灣用語 A 級)
+✅ check:chat-style
+✅ check:glossary
+✅ check:series-order
+✅ course title regression tests
+✅ course title gate
+✅ course layout regression tests
+✅ course source layout gate
+✅ process-leak regression tests
+✅ process-leak (全站計數)
+✅ series-plan regression tests
+✅ check:series-plan
+✅ check:lang-parity
+✅ grade conversion regression tests
+✅ check:grades
+✅ crag coverage regression tests
+✅ check:crag-coverage
+✅ diagram geometry regression tests
+✅ check:diagram-geometry
+✅ check:course-videos
+✅ check:seo-smoke
+✅ visual baselines regression tests
+✅ visual baselines (-linux)
+✅ skills-sync (.agents ↔ .claude)
+✅ skill-anchors (章節連結)
+✅ daily-skill timezones
+✅ progress.txt protocol
+✅ durable_objects export
+✅ cron-entry imports
+=== verify: all green ===

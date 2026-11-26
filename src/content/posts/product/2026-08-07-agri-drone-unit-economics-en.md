@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-07-agri-drone-unit-economics)
+> :globe: [中文版](/posts/product/2026-08-07-agri-drone-unit-economics)
 
 [The industry map](/posts/tech/2026-08-06-drone-industry-map-en) called agriculture "the most mature, most boring, most profitable" of the four demand blocks, because it is "one of the few applications that needs no BVLOS, has clear per-aircraft daily output, and a payback period you can actually compute."
 

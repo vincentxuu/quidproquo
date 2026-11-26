@@ -13,7 +13,7 @@ description: "A guide to Pian Schiavaneis (Cogoi/Cogui): rock and route counts b
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-pian-schiavaneis)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-pian-schiavaneis)
 
 Pian Schiavaneis sits at the top of Val di Fassa in Trentino, beside the SS242 from Canazei to Passo Sella, right under the west face of Sass Pordoi. [Planetmountain](https://www.planetmountain.com/en/crags/pian-schiavaneis.html) says it looks like an insignificant boulder at first, yet it has become "the Dolomites' crucible of modern sports climbing, a playground for all and testing ground for the best". The databases also call it Cogoi ([falesia.it](https://www.falesia.it/crag/845/pian-schiavaneis-cogoi.html)) or Cogui ([UKC](https://www.ukclimbing.com/logbook/crags/cogui-10972)).
 

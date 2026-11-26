@@ -10,7 +10,7 @@ tldr: "HW7 builds on HW5 backpropagation to address deep-model architecture and 
 description: "The transition, implementation boundary, and self-assessment for CMU 10-301/601 Spring 2026 HW7 Deep Learning."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 7 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw7-deep-learning)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw7-deep-learning)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw7.zip) is titled **Homework 7: Deep Learning** and contains written plus programming work. Written sections cover CNNs, RNNs, Transformers and AutoDiff, and empirical questions. Programming implements an RNN cell, self-attention, hybrid language model, validation, and generation on a TinyStories subset. The ZIP supplies `rnn.py`, public tests/test data, a tokenizer, tiny train/validation stories, loss/metric references, a Colab notebook, and an environment file.
 

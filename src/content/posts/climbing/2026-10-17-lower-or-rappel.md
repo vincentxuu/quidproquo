@@ -30,7 +30,7 @@ glossary:
     context: "龍洞的羊角多為鈦合金，TOCC 提醒長巷佈告欄有一批 316 不鏽鋼羊角已出現磨損凹痕。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-lower-or-rappel-en)
+> :globe: [English version](/posts/climbing/2026-10-17-lower-or-rappel-en)
 
 在岩館，爬到頂端喊一聲「Take」，確保者就放你下來。頂端的繩子本來就掛好了，你不用碰任何東西。
 
@@ -200,9 +200,13 @@ AAC 2012 那篇還引了年度事故報告的統計：約 30% 的攀登事故發
 
 ## 下一步
 
-運攀的頂端操作到這裡告一段落。下一篇是[難度與保護評等](/posts/climbing/2026-10-17-grades-and-protection-ratings)：5.10a、6a、E1 5b、R／X 各在說什麼，接著進入傳統攀登。
+下一篇是[垂降怎麼做](/posts/climbing/2026-10-24-how-to-rappel)：把一次垂降拆成八個步驟，從到站扣上自己、先裝摩擦套結再延伸垂降器、負重測試與夥伴互檢，一路到把繩子拉下來。
 
 想排出自己的學習順序與要上的課，見[學習路徑與常見事故](/posts/climbing/2026-10-17-sport-to-trad-learning-path)。
+
+## 更新紀錄
+
+- 2026-10-24：「下一步」改連到新的第 8 篇〈垂降怎麼做〉
 
 ## 參考資料
 

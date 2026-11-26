@@ -9,11 +9,11 @@ description: "用師大進修推廣學院三個成人英語班，說明程度、
 tldr: "師大推廣適合能固定到課、喜歡同儕互動的人；先挑對程度與老師，再確認班級人數、教材費和整期可出席的日期。"
 series:
   name: "英文口說練習"
-  order: 5
+  order: 23
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-ntnu-extension-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-ntnu-extension-speaking-practice-en)
 
 如果你下班後很難自動打開英文教材，固定每週去一個地方，和同一群人說英文，可能比較容易持續。[國立臺灣師範大學進修推廣學院的英語系列](https://www.sce.ntnu.edu.tw/home/course/list.php?series=G)，就是這種有班期、有課綱的成人進修選擇。
 

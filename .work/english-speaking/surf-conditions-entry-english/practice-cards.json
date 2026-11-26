@@ -1,0 +1,152 @@
+[
+  {
+    "id": "surf-waves",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "你剛到海邊，想問今天的浪況。",
+    "zh": "今天的浪怎麼樣？",
+    "en": "How are the waves today?",
+    "swap": "把今天換成今天早上：How are the waves this morning?",
+    "usageNote": "問整體浪況，沒有只限定浪高。回答不等於適合自己下水的判定。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": true,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Drops 衝浪主題直接列出 How are the waves today?。",
+    "sources": [
+      {
+        "title": "Drops：衝浪英語問句",
+        "url": "https://languagedrops.com/word/en/english/tagalog/translate/how_are_the_waves_today/",
+        "supports": "Drops 衝浪主題直接列出 How are the waves today?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "surf-water-cold",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "準備和教練討論今天的狀況，你想先問水溫感受。",
+    "zh": "今天水冷嗎？",
+    "en": "Is the water cold today?",
+    "swap": "把今天換成今天早上：Is the water cold this morning?",
+    "usageNote": "問水溫感受，與問浪高或海流不同。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Drops 衝浪主題直接列出 Is the water cold today?。",
+    "sources": [
+      {
+        "title": "Drops：衝浪英語問句",
+        "url": "https://languagedrops.com/word/en/english/tagalog/translate/how_are_the_waves_today/",
+        "supports": "Drops 衝浪主題直接列出 Is the water cold today?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "surf-here-often",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "岸邊一位浪人願意和你聊天，你想了解他熟不熟這個浪點。",
+    "zh": "你常在這裡衝浪嗎？",
+    "en": "Do you surf here a lot?",
+    "swap": "先問這句，再接：How are the waves today?",
+    "usageNote": "問平常是否常來，不是問今天已經衝了多久。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Surfvey ビーチ編直接列出 Do you surf here a lot?。",
+    "sources": [
+      {
+        "title": "Surfvey：ビーチ編",
+        "url": "https://wave.surfvey.com/learning-surftrip-english-conversation/beach/",
+        "supports": "Surfvey ビーチ編直接列出 Do you surf here a lot?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "surf-ask-paddle-out",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "你在岸上向教練或願意回答的人客氣地請教划出去的位置。",
+    "zh": "嗨，我可以請教一下從哪裡划出去嗎？",
+    "en": "Hey, mind if I ask where the paddle-out is?",
+    "swap": "先說到 mind if I ask，停一下，再接 where the paddle-out is。",
+    "usageNote": "paddle-out 指划出去的位置或路徑；問句本身不保證任何路徑安全。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "WB Surf Camp Ask a Local 段的完整示範：Hey, mind if I ask where the paddle-out is?",
+    "sources": [
+      {
+        "title": "WB Surf Camp：Surfing New Breaks",
+        "url": "https://wbsurfcamp.com/surfing-new-breaks-how-to-read-the-lineup-before-you-paddle-out/",
+        "supports": "WB Surf Camp Ask a Local 段的完整示範：Hey, mind if I ask where the paddle-out is?",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "surf-sit-position",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "你正在和教練討論水中等浪的位置，想確認眼前這一處。",
+    "zh": "在這裡等浪合適嗎？",
+    "en": "Is this a good spot to sit?",
+    "swap": "先在心裡指出一個位置，再說完整問句。",
+    "usageNote": "此處 sit 是衝浪上下文的等浪位置，不是問岸邊有沒有椅子；請教練依現場說明。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Iguana Surf Instructor tips 的 Ask simple questions 段直接列出 Is this a good spot to sit?。",
+    "sources": [
+      {
+        "title": "Iguana Surf：Surf Talk 101",
+        "url": "https://iguanasurf.net/blog/surf-talk-best-surfing-costa-rica/",
+        "supports": "Iguana Surf Instructor tips 的 Ask simple questions 段直接列出 Is this a good spot to sit?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  },
+  {
+    "id": "surf-currents-question",
+    "scenario": "surf",
+    "family": "surf",
+    "context": "你還在岸上，向教練詢問這裡有沒有需要留意的海流。",
+    "zh": "有沒有需要我特別留意的海流？",
+    "en": "Are there any currents I should watch out for?",
+    "swap": "先說 Are there any currents，再接 I should watch out for。",
+    "usageNote": "這句是索取資訊，不表示已能辨識或應對海流。",
+    "alternatives": [],
+    "articlePath": "/posts/learning/2026-10-25-surf-conditions-entry-english/",
+    "reuseExistingId": false,
+    "evidenceType": "direct",
+    "contextEvidenceType": "adapted",
+    "support": "Surfvey ビーチ編直接列出 Are there any currents I should watch out for?。",
+    "sources": [
+      {
+        "title": "Surfvey：ビーチ編",
+        "url": "https://wave.surfvey.com/learning-surftrip-english-conversation/beach/",
+        "supports": "Surfvey ビーチ編直接列出 Are there any currents I should watch out for?。",
+        "evidenceType": "direct",
+        "contextEvidenceType": "adapted"
+      }
+    ]
+  }
+]

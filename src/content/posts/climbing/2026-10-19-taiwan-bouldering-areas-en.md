@@ -26,7 +26,7 @@ glossary:
     context: "Both faces of the Scar Rock at Chung Tai Chan Monastery in Beitou are slabs."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-taiwan-bouldering-areas)
+> :globe: [中文版](/posts/climbing/2026-10-19-taiwan-bouldering-areas)
 
 The usual first step to finding outdoor bouldering in Taiwan is an Instagram search. You see someone laying pads under a big boulder and start asking: where is that? How do I get there? How many pads do I need?
 

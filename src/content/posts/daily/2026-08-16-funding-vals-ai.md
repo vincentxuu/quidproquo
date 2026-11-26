@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-16-funding-vals-ai-en)
+> :globe: [English version](/posts/daily/2026-08-16-funding-vals-ai-en)
 
 ## 融資資訊
 

@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637d-351d-7420-baee-5b8d00d65ab2"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"S-1\",\"verdict\":\"inconclusive\",\"reason\":\"N-1 returned 200 as the normal baseline; N-2 returned 403, enforcing same-tenant ownership. Use the final request to test cross-tenant access to S-1; its exact response is required to assess that boundary.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20678,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":121,"reasoning_output_tokens":43}}

@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-05-gaussian-discriminant-analysis)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 5 recording published by Stanford Online, with formula notation matched to Chapter 4, "Generative learning algorithms," of the 2026 main notes. I did not see the board or the slides, so where the lecturer points at the screen I only include what the surrounding talk lets me reconstruct.
 

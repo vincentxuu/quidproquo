@@ -13,11 +13,11 @@ description: "A preparation guide for the Google Professional Machine Learning E
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-google-pmle-prep-guide)
+> :globe: [中文版](/posts/ai/2026-08-18-google-pmle-prep-guide)
 >
 > This is a preparation path built from official material, not an exam-day account — I have not sat this exam. Every "what it tests" points back to the [official exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf), and every "how to prepare" points to an official learning path or Google Cloud documentation. No leaked questions. Verified 2026-08-18.
 
-Among Google's AI certifications, only one is open for registration today and proves anything to an engineer: Professional Machine Learning Engineer (PMLE). The new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers building, orchestrating, and governing agents; its beta registration is closed and general availability registration opens November 2, 2026. Another, Generative AI Leader, is described by Google itself as being "for anyone in any job role, with or without hands-on technical experience" — too low a bar to differentiate anyone who writes code.
+Among Google's AI certifications, only one is open for registration today and proves anything to an engineer: Professional Machine Learning Engineer (PMLE). The new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers building, orchestrating, and governing agents; its beta registration is closed and general availability (GA) registration opened November 2, 2026. Another, Generative AI Leader, is described by Google itself as being "for anyone in any job role, with or without hands-on technical experience" — too low a bar to differentiate anyone who writes code.
 
 PMLE is in an unusual state right now: **the name hasn't changed, the price hasn't changed, the landing page looks the same, but the exam guide has been rewritten.** A banner sits at the top of the certification page:
 
@@ -185,6 +185,7 @@ Given how often Google renames things, expect another vocabulary shift in two ye
 
 - 2026-10-08: The old URL for the official exam guide is dead (404). All links now point to the official PDF that the certification page's "View exam guide" leads to; the six domain weights are unchanged.
 - 2026-10-08: The opening used to say Google "has exactly two AI certifications". Google has since added Professional Agentic Architect (GA registration opens 2026-11-02); the sentence is rewritten with a link. PMLE's exam guide and preparation advice are unchanged.
+- 2026-11-13: Professional Agentic Architect has gone GA (registration opened November 2, 2026), so the opening now states the GA timeline correctly; PMLE's exam guide and preparation advice are unchanged, and the agent-specific preparation path now lives in its own post (series order 31).
 
 ## References
 

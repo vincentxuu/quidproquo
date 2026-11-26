@@ -14,7 +14,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-prompt-engineering)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-prompt-engineering)
 
 Your RAG search is working well, the context is accurate, but the LLM's answers are still underwhelming. The problem is usually in the prompt design — how you combine context and instructions to tell the LLM how to respond.
 

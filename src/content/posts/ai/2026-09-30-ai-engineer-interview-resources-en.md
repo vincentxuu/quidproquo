@@ -21,7 +21,7 @@ glossary:
     context: "Here it refers to Cursor's two-day on-site trial and to long take-homes at other companies."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ai-engineer-interview-resources)
+> :globe: [中文版](/posts/ai/2026-09-30-ai-engineer-interview-resources)
 
 The repo [pallavi-shekhar/ai-engineering-interview-questions-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) was created on September 19, 2026, and had 1.5k stars nine days later. It lists about 600 "real interview questions" across 35 companies, and not one of them cites a source. It is not an outlier: of the 12 popular AI interview repos reviewed here, only 2 link sources for their questions or interview loops.
 
@@ -72,18 +72,18 @@ flowchart TD
 
 | Repo | ★ | Last commit | Sources | Answers | 2026 formats | Notes |
 |---|---|---|---|---|---|---|
-| [alexeygrigorev/ai-engineering-field-guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) | 5.7k | 2026-09-23 | ✅ footnoted | ❌ | take-homes, AI-allowed rounds | Interview chapters mostly last updated Feb–Jun 2026 |
-| [ombharatiya/AI-Engineer-Interview-Questions](https://github.com/ombharatiya/AI-Engineer-Interview-Questions) | 149 | 2026-08-25 | ✅ company pages | ✅ every question | AI-collaboration rounds, work trials, FDE | Built in large batches over 6 weeks |
-| [alirezadir/AIMLInterviews](https://github.com/alirezadir/AIMLInterviews) | 9.8k | 2026-09-23 | author's experience | 🟡 code solutions | agent design, evals | No AI-allowed interview coverage yet |
-| [amitshekhariitbhu/ai-engineering-interview-questions](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) | 3.2k | 2026-09-29 | ❌ | 🟡 external articles | agents, harness | Answers link almost entirely to one education company |
-| [pallavi-shekhar/…-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) | 1.5k | 2026-09-29 | ❌ | 🟡 external articles | scenario questions | Maintained by the same company |
-| [llmgenai/LLMInterviewQuestions](https://github.com/llmgenai/LLMInterviewQuestions) | 1.9k | 2025-02-12 | ❌ | ❌ paid course | ❌ | No updates in over a year |
-| [KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub) | 1.1k | 2026-02-09 | ❌ | ✅ short | ❌ | Promotes the author's book |
-| [KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub) | 645 | 2025-12-21 | ❌ | ✅ short | ❌ | Uploaded once, never maintained |
-| [wdndev/llm_interview_note](https://github.com/wdndev/llm_interview_note) | 15.2k | 2026-06 | ❌ | 🟡 uneven | ❌ | Simplified Chinese; core content from 2023–24 |
-| [km1994/LLMs_interview_notes](https://github.com/km1994/LLMs_interview_notes) | 2.6k | 2024-12-26 | ❌ | ❌ external platform | 🟡 o1 chapter | Simplified Chinese; questions only in the repo |
-| [khangich/machine-learning-interview](https://github.com/khangich/machine-learning-interview) | 12.8k | 2023-08-31 | author's experience | ❌ | ❌ | No LLM content; abandoned |
-| [chiphuyen/ml-interviews-book](https://github.com/chiphuyen/ml-interviews-book) | 4.8k | 2025-03-21 | book | ❌ answer files are empty | ❌ | Classic ML; substantive work ended in 2023 |
+| [alexeygrigorev/ai-engineering-field-guide](https://github.com/alexeygrigorev/ai-engineering-field-guide) | 5.7k | 2026-09-23 | ✓ footnoted | ✗ | take-homes, AI-allowed rounds | Interview chapters mostly last updated Feb–Jun 2026 |
+| [ombharatiya/AI-Engineer-Interview-Questions](https://github.com/ombharatiya/AI-Engineer-Interview-Questions) | 149 | 2026-08-25 | ✓ company pages | ✓ every question | AI-collaboration rounds, work trials, FDE | Built in large batches over 6 weeks |
+| [alirezadir/AIMLInterviews](https://github.com/alirezadir/AIMLInterviews) | 9.8k | 2026-09-23 | author's experience | :yellow-circle: code solutions | agent design, evals | No AI-allowed interview coverage yet |
+| [amitshekhariitbhu/ai-engineering-interview-questions](https://github.com/amitshekhariitbhu/ai-engineering-interview-questions) | 3.2k | 2026-09-29 | ✗ | :yellow-circle: external articles | agents, harness | Answers link almost entirely to one education company |
+| [pallavi-shekhar/…-company-wise](https://github.com/pallavi-shekhar/ai-engineering-interview-questions-company-wise) | 1.5k | 2026-09-29 | ✗ | :yellow-circle: external articles | scenario questions | Maintained by the same company |
+| [llmgenai/LLMInterviewQuestions](https://github.com/llmgenai/LLMInterviewQuestions) | 1.9k | 2025-02-12 | ✗ | ✗ paid course | ✗ | No updates in over a year |
+| [KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/LLM-Interview-Questions-and-Answers-Hub) | 1.1k | 2026-02-09 | ✗ | ✓ short | ✗ | Promotes the author's book |
+| [KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub](https://github.com/KalyanKS-NLP/RAG-Interview-Questions-and-Answers-Hub) | 645 | 2025-12-21 | ✗ | ✓ short | ✗ | Uploaded once, never maintained |
+| [wdndev/llm_interview_note](https://github.com/wdndev/llm_interview_note) | 15.2k | 2026-06 | ✗ | :yellow-circle: uneven | ✗ | Simplified Chinese; core content from 2023–24 |
+| [km1994/LLMs_interview_notes](https://github.com/km1994/LLMs_interview_notes) | 2.6k | 2024-12-26 | ✗ | ✗ external platform | :yellow-circle: o1 chapter | Simplified Chinese; questions only in the repo |
+| [khangich/machine-learning-interview](https://github.com/khangich/machine-learning-interview) | 12.8k | 2023-08-31 | author's experience | ✗ | ✗ | No LLM content; abandoned |
+| [chiphuyen/ml-interviews-book](https://github.com/chiphuyen/ml-interviews-book) | 4.8k | 2025-03-21 | book | ✗ answer files are empty | ✗ | Classic ML; substantive work ended in 2023 |
 
 "2026 formats" means AI-allowed or AI-collaboration interviews, work trials, [FDE](https://www.tryexponent.com/guides/openai-forward-deployed-engineer-interview) scenario questions, agent/harness design, and eval design. The two most-starred repos (wdndev and khangich) haven't kept up with any of these.
 

@@ -10,7 +10,7 @@ description: "A practical guide to Bright Data's Proxy Networks, Web Unlocker, B
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-bright-data-web-scraping)
+> :globe: [中文版](/posts/tech/2026-08-22-bright-data-web-scraping)
 
 [Bright Data](https://docs.brightdata.com/introduction) is not simply a more powerful crawling framework. It is a set of services that progressively manages network egress, anti-bot handling, browser execution, and data extraction. The important question is not only how difficult a site is to crawl, but how much control your team wants to retain and how much operational responsibility it wants to outsource.
 

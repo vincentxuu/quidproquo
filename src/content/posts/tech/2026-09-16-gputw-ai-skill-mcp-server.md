@@ -10,7 +10,7 @@ description: "介紹 GPUtw AI Skill V1.1.0-beta.1 的架構、MCP 工具清單�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server-en)
+> :globe: [English version](/posts/tech/2026-09-16-gputw-ai-skill-mcp-server-en)
 
 [GPUtw AI Skill](https://github.com/GPUtw-ai/GPUtw-Skill) 是 [GPUtw.ai](https://gputw.ai/en) 官方推出的 AI 編碼助理技能包。它做的事很直接：把 GPUtw 的 REST API 文件和操作邏輯打包成一份 Agent Skill，讓 Claude Code、OpenAI Codex CLI、Google Gemini CLI、Cursor、GitHub Copilot 這些 AI 助理能讀懂 GPUtw 的 GPU 目錄、部署執行個體、監控狀態、搬資料，不需要使用者自己查 API 文件再手寫 curl。
 

@@ -13,7 +13,7 @@ description: "A teaching guide based on public Spring 2026 materials: RNN Langua
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-rnn-lm-autodiff)
 
 **Video status: recordings require sign-in or course authorization.** This guide uses public slides and assignments; numerical examples are site-authored, not a lecture transcript.
 

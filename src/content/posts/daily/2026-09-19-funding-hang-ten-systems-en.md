@@ -12,7 +12,7 @@ series:
   order: 42
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-funding-hang-ten-systems)
+> :globe: [中文版](/posts/daily/2026-09-19-funding-hang-ten-systems)
 
 ## Funding Details
 

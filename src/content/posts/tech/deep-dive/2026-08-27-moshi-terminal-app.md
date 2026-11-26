@@ -10,7 +10,7 @@ description: "介紹 Moshi：一款 local-first 的終端機 app（含手機版�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-27-moshi-terminal-app-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-27-moshi-terminal-app-en)
 
 在手機上遙控正在跑的 AI coding agent，現在至少有三種路子：Anthropic 自己出的 Claude Code Remote Control、開源的 relay 型 client（例如 Happy），還有像 [Moshi](https://getmoshi.app/) 這種「乾脆給你一個真的終端機」的做法。Moshi 是 2026 年初上線的 iOS/iPadOS/Android/macOS app，賣點不是聊天介面，而是透過 SSH、Mosh、ET 直接連進你自己控制的機器，開一個跟你在桌機上用的一模一樣的 shell。
 
@@ -70,10 +70,10 @@ Pro（$7.99/mo、$69.99/yr、或 $199 一次買斷，2026-08 查證，訂閱定�
 
 | 功能 | Free | Pro |
 |---|---|---|
-| Mosh 傳輸（弱網/切換網路/鎖螢幕不斷線） | ❌ | ✅ |
-| tmux/Zellij/Herdr 深度整合 | ❌ | ✅ |
-| Diff viewer、Browser preview | ❌ | ✅ |
-| Image paste | ❌ | ✅ |
+| Mosh 傳輸（弱網/切換網路/鎖螢幕不斷線） | ✗ | ✓ |
+| tmux/Zellij/Herdr 深度整合 | ✗ | ✓ |
+| Diff viewer、Browser preview | ✗ | ✓ |
+| Image paste | ✗ | ✓ |
 | Inbox 動作 | 前 5 次試用 | 無限 |
 | Cloud 語音辨識額度 | 3 分鐘/月 | 60 分鐘/月 |
 

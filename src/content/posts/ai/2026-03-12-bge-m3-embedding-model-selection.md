@@ -14,7 +14,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
+> :globe: [English version](/posts/ai/2026-03-12-bge-m3-embedding-model-selection-en)
 
 RAG 系統的搜尋品質，很大一部分取決於 Embedding 模型的選擇。一個好的 Embedding 模型讓語義相近的查詢和文件在向量空間距離接近，差的模型讓向量搜尋變成彩票。
 

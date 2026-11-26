@@ -13,7 +13,7 @@ description: "拉古薩與莫迪卡（Ragusa／Modica）岩場介紹：Cava d'Is
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-ragusa-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-ragusa-en)
 
 拉古薩（Ragusa）省在西西里東南角，和[錫拉庫薩](/posts/climbing/2026-10-19-italy-crag-siracusa)同在伊布雷高原上。這裡的石灰岩高原被許多「cava」（峽谷）切開，當地人在谷裡打了一處又一處的單段運攀岩場。最有名的是 Modica 與 Ispica 之間長長的 Cava d'Ispica，谷壁上還留著古代的穴居與墓穴。
 

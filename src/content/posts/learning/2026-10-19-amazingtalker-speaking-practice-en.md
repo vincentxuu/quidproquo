@@ -9,11 +9,11 @@ description: "Choose an AmazingTalker English tutor and understand individual pr
 tldr: "AmazingTalker lets you choose a tutor and buy a small number of lessons. Test the regular teaching, then check booking deadlines and refund calculations before buying a larger package."
 series:
   name: "English Speaking Practice"
-  order: 8
+  order: 26
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-amazingtalker-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-amazingtalker-speaking-practice)
 
 If you want to practise spoken English without first buying a large fixed course, [AmazingTalker](https://tw.amazingtalker.com/tutors/english) offers one-to-one online tutoring with individually selected teachers and lessons or packages. You can look for everyday conversation, travel, interviews or business English, then agree on your level and materials.
 

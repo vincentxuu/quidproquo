@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-ci-cd-github-actions)
 
 [The previous post in this series](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide) covered headless mode: the `-p` flag that runs Claude Code without the interactive UI, exiting when done. CI integration is that capability wired to triggers: GitHub Actions and GitLab CI/CD are the two paths the official docs explicitly support. This post covers how to install it, how to trigger it, and how to swap cloud backends in enterprise environments.
 

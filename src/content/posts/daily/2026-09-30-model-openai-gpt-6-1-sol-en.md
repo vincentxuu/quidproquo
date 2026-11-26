@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI's large language model family; Sol is the mid-priced tier below flagship Astra, aimed at everyday complex work"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol)
+> :globe: [中文版](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol)
 
 ## Model Details
 
@@ -49,7 +49,7 @@ glossary:
 | OSWorld 2.0 offline set (max effort) | +7pp over GPT-6 Sol (at under half the cost) | 60.5% (xhigh effort, see the 2026-09-25 model card) | 2.1pp behind GPT-6 Astra (at roughly 1/7 of Astra's cost) |
 | Factual-error rate (low effort, lower is better) | 7.7% | 11.4% | Within 1.9pp of GPT-6 Astra (Astra costs 5x+ more) |
 
-⚠️ All figures are OpenAI's own benchmarking under vendor-chosen reasoning-effort settings and competitor comparisons, pending independent reproduction. Most rows are the relative gaps OpenAI published, not both models' absolute scores — Astra's and Opus 5.5's exact numbers weren't fully disclosed in this announcement.
+:warning: All figures are OpenAI's own benchmarking under vendor-chosen reasoning-effort settings and competitor comparisons, pending independent reproduction. Most rows are the relative gaps OpenAI published, not both models' absolute scores — Astra's and Opus 5.5's exact numbers weren't fully disclosed in this announcement.
 
 ## Versus the Predecessor and Competitors
 

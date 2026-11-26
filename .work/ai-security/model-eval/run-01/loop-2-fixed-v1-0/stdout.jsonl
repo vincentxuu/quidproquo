@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637f-6542-7d02-a8e1-d5a2b2cdcb8b"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"N-1\",\"verdict\":\"inconclusive\",\"reason\":\"Establish Alice's authorized baseline; no response evidence is available yet.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20615,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":56,"reasoning_output_tokens":13}}

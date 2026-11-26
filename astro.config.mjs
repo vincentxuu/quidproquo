@@ -7,13 +7,16 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
-import { remarkReadingTime } from './src/plugins/remarkReadingTime.ts';
+import { devCacheIsolation } from './src/plugins/viteDevCache.ts';
 import { remarkYoutubeEmbed } from './src/plugins/remarkYoutubeEmbed.ts';
 import { remarkVideoPractice } from './src/plugins/remarkVideoPractice.ts';
 import { remarkVideoGallery } from './src/plugins/remarkVideoGallery.ts';
 import { remarkFlowDiagram } from './src/plugins/remarkFlowDiagram.ts';
 import { remarkDiagram } from './src/plugins/remarkDiagram.ts';
 import { remarkMathOptIn } from './src/plugins/remarkMathOptIn.ts';
+import { remarkCallout } from './src/plugins/remarkCallout.ts';
+import { rehypeFootnoteLabel } from './src/plugins/rehypeFootnoteLabel.ts';
+import { rehypeNoEmoji } from './src/plugins/rehypeNoEmoji.ts';
 import rehypeKatex from 'rehype-katex';
 
 // Rehype plugin: external links open in new tab
@@ -58,6 +61,8 @@ function rehypeLazyImages() {
 
 function isPublicSitemapPage(page) {
   const { pathname } = new URL(page);
+  // /styleguide/ is an internal component fixture (noindex), not a page to list.
+  if (pathname.replace(/\/$/, '') === '/styleguide') return false;
   return pathname !== '/admin' && !pathname.startsWith('/admin/');
 }
 
@@ -66,6 +71,30 @@ export default defineConfig({
   output: 'server',
   // 已發佈文章換檔名時，舊網址一律留一條 301，外站連過來才不會 404。
   redirects: {
+    // Stanford CS329Z：一週一篇改為一堂一篇，舊週文轉到該週第一堂（2026-10-29）。
+    '/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems': { destination: '/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems', status: 301 },
+    '/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en': { destination: '/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents-en', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents', status: 301 },
+    '/posts/ai/2026-09-10-stanford-cs329z-week11-proactive-demos-en': { destination: '/posts/ai/2026-09-10-stanford-cs329z-lecture-18-proactive-agents-en', status: 301 },
+    // Agent 隔離邊界：移除重複附錄，保留原文導讀（2026-10-26）。
+    '/posts/ai/2026-10-24-agent-isolation-retelling-check': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading', status: 301 },
+    '/posts/ai/2026-10-24-agent-isolation-retelling-check-en': { destination: '/posts/ai/2026-10-24-agent-isolation-openai-red-team-reading-en', status: 301 },
     // 出國攀岩裝備 v2：重疊篇併入新篇或「攀岩裝備」系列（2026-10-19）。
     '/posts/climbing/2026-10-19-dynamic-rope-triple-rating': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination',
     '/posts/climbing/2026-10-19-dynamic-rope-triple-rating-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
@@ -73,12 +102,17 @@ export default defineConfig({
     '/posts/climbing/2026-10-19-multipitch-rope-systems-en': '/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en',
     '/posts/climbing/2026-10-19-climbing-travel-packing': '/posts/climbing/2026-10-19-climbing-travel-luggage',
     '/posts/climbing/2026-10-19-climbing-travel-packing-en': '/posts/climbing/2026-10-19-climbing-travel-luggage-en',
-    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-19-climbing-harness-helmet',
-    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-19-climbing-harness-helmet-en',
-    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-19-climbing-rope-belay-device',
-    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-19-climbing-rope-belay-device-en',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet': '/posts/climbing/2026-10-24-climbing-harness',
+    '/posts/climbing/2026-10-19-climbing-shoes-harness-helmet-en': '/posts/climbing/2026-10-24-climbing-harness-en',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware': '/posts/climbing/2026-10-24-climbing-belay-device',
+    '/posts/climbing/2026-10-19-climbing-belay-hardware-en': '/posts/climbing/2026-10-24-climbing-belay-device-en',
     '/posts/climbing/2026-10-19-climbing-gear-care-retirement': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement',
     '/posts/climbing/2026-10-19-climbing-gear-care-retirement-en': '/posts/climbing/2026-10-19-climbing-gear-inspection-retirement-en',
+    // 攀岩裝備：一個裝備一篇，合併篇拆開（2026-10-24）。
+    '/posts/climbing/2026-10-19-climbing-harness-helmet': '/posts/climbing/2026-10-24-climbing-harness',
+    '/posts/climbing/2026-10-19-climbing-harness-helmet-en': '/posts/climbing/2026-10-24-climbing-harness-en',
+    '/posts/climbing/2026-10-19-climbing-rope-belay-device': '/posts/climbing/2026-10-24-climbing-rope',
+    '/posts/climbing/2026-10-19-climbing-rope-belay-device-en': '/posts/climbing/2026-10-24-climbing-rope-en',
     // Bug Bounty: consolidate duplicate rewrite paths into topic-correct original URLs.
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope',
     '/posts/tech/2026-10-15-bug-bounty-zero-01-rules-and-scope-en': '/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en',
@@ -347,12 +381,13 @@ export default defineConfig({
   },
   adapter: cloudflare({
     platformProxy: { enabled: true },
-    remoteBindings: false,
+    // CI visual checks run without Cloudflare credentials; production bindings are unchanged.
+    remoteBindings: !process.env.CI,
     inspectorPort: false,
     prerenderEnvironment: 'node',
   }),
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [devCacheIsolation(), tailwindcss()],
     ssr: {
       external: ['@lanefoundry/gatelane-sdk'],
       // Vite's SSR dep optimizer periodically re-bundles this module (imported by
@@ -396,11 +431,23 @@ export default defineConfig({
     },
   ],
   markdown: {
+    // github-dark 的註解色 #6A737D 在程式碼底色上對比只有約 3:1（低於 WCAG 4.5:1），
+    // /styleguide/ 的對比測試抓到（2026-11-19）；只把這個顏色提亮成 #8B949E，其他語法色不動。
+    shikiConfig: {
+      transformers: [{
+        name: 'readable-comments',
+        span(node) {
+          const style = node.properties?.style;
+          if (typeof style === 'string' && /#6a737d/i.test(style)) node.properties.style = style.replace(/#6a737d/gi, '#8B949E');
+        },
+      }],
+    },
     processor: unified({
       smartypants: false,
       // remarkMathOptIn 必須排第一：它替 frontmatter 有 math: true 的文章重新解析，後面的 plugin 才看得到數學節點。
-      remarkPlugins: [remarkMathOptIn, remarkReadingTime, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram],
-      rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages],
+      remarkPlugins: [remarkMathOptIn, remarkYoutubeEmbed, remarkVideoPractice, remarkVideoGallery, remarkFlowDiagram, remarkDiagram, remarkCallout],
+      // rehypeNoEmoji 必須排最後：站上不顯示 emoji，標題 id 與目錄也要用清掉後的文字產生。
+      rehypePlugins: [rehypeKatex, rehypeExternalLinks, rehypeLazyImages, rehypeFootnoteLabel, rehypeNoEmoji],
     }),
   },
   experimental: {

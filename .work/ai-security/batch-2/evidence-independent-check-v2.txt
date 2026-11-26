@@ -1,0 +1,1 @@
+PASS: 14 cases; prior control semantics retained; predeclared fixed expectation rejects vulnerable observation; reverse mismatch rejected; matched fixed denial accepted; unknown build raises ValueError; default zero file side effects; JSON files and directory overwrite rejection checked.

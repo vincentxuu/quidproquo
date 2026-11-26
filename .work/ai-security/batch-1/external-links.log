@@ -1,0 +1,7 @@
+
+> quidproquo@0.0.1 check:links /Users/xiaoxu/Projects/quidproquo
+> node scripts/check-external-links.mjs src/content/posts/ai/2026-10-22-ai-security-overview.md src/content/posts/ai/2026-10-22-ai-security-overview-en.md src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization.md src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization-en.md
+
+Checking 12 external link(s) across 4 file(s)（預設只掃 14 天內改過的，加 --all 掃全站）...
+
+OK: no broken external links among 12 checked.

@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-dynamic-workflows-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-dynamic-workflows-en)
 
 用過 [sub-agents 平行執行](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)的人大概都撞過同一道牆：叫 Claude 開五個 subagent 掃五個目錄，它做得到；但你想把同樣的掃描每週跑一次、或換個參數再跑一次，就得從頭再指揮一遍。Claude 逐回合決定開幾個 agent、結果落在 context window 裡——整個編排過程沒有留下任何可以重跑的東西。
 

@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset)
+> :globe: [中文版](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset)
 
 ## Summary
 
@@ -76,7 +76,7 @@ Worth flagging: GPT-5.6 Sol is currently running on promotional pricing, with Op
 
 ## Deadline Alert
 
-⚠️ **Shutdown date**: 2026-10-23. o1, o1-pro, o3-mini, o4-mini, `gpt-4-0613`, `gpt-4-turbo-2024-04-09`, `gpt-4-1106-preview`, `gpt-4.1-nano`, `gpt-4o-2024-05-13`, `gpt-image-1`, and their fine-tuned variants are all removed from the API. Migration guide: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations).
+:warning: **Shutdown date**: 2026-10-23. o1, o1-pro, o3-mini, o4-mini, `gpt-4-0613`, `gpt-4-turbo-2024-04-09`, `gpt-4-1106-preview`, `gpt-4.1-nano`, `gpt-4o-2024-05-13`, `gpt-image-1`, and their fine-tuned variants are all removed from the API. Migration guide: [OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations).
 
 ## Takeaway
 

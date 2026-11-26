@@ -16,7 +16,7 @@ description: "Stanford CME295: Transformers & Large Language Models 系列導讀
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -128,24 +128,25 @@ flowchart LR
 ## 這個系列怎麼讀
 
 - **order 1 到 9**：照 2025 版九講逐篇寫。每篇結尾有兩段固定內容：「2026 版改了什麼」，以及從 2025 考卷挑出的「自我檢測」題（只寫題意，附原 PDF 連結）。
-- **order 10 到 13**：2026 版新增的四講先寫成「課前預寫版」，根據 2026 課表、2025 投影片與原始論文整理，影片上架後再對照更新：[LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)（10 月 30 日）、[LLM 的強化學習](/posts/ai/2026-09-29-cme295-rl-with-llms)（10 月 16 日）、[AI Agents](/posts/ai/2026-09-29-cme295-ai-agents)（11 月 6 日）、[Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)（11 月 20 日）。
+- **order 10 到 13**：2026 版新增的四講。[LLM 系統](/posts/ai/2026-09-29-cme295-llm-systems)（10 月 30 日）、[LLM 的強化學習](/posts/ai/2026-09-29-cme295-rl-with-llms)（10 月 16 日）與 [AI Agents](/posts/ai/2026-09-29-cme295-ai-agents)（11 月 6 日）已依錄影與 2026 投影片改寫；[Diffusion LLM](/posts/ai/2026-09-29-cme295-diffusion-llms)（11 月 20 日）仍是依 2026 課表、2025 投影片與原始論文整理的課前預寫版，影片上架後再對照更新。
 - **先修**：線性代數和機器學習基礎。缺機器學習基礎的話，可以先讀 [Stanford CS 課程地圖](/posts/learning/2026-08-20-stanford-cs-course-map)裡排在前面的課。
 
 今晚能做的一件事：打開 [2025 版播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)的第 1 講，配著[投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture1.pdf)看前 30 分鐘的 tokenization 段落，再來讀本系列第 1 篇。
 
 ## 課程影片來源
 
-本篇是系列總覽，不對應單一講次，所以不嵌入單支影片。2025 版九講錄影在下列 Stanford Online 播放清單，2026-10-10 已即時確認共 9 支且講次對應；2026 版官方課表目前只上架第 1、2 講錄影，其餘標示 “Coming soon”。各講錄影見對應的逐講導讀。
+本篇是系列總覽，不對應單一講次，所以不嵌入單支影片。2025 版九講錄影在下列 Stanford Online 播放清單，2026-10-10 已即時確認共 9 支且講次對應；2026 版官方課表在 2026-11-09 即時重查時已上架第 1–5 講錄影，第 6 講只有投影片，其餘標示 “Coming soon”。各講錄影見對應的逐講導讀。
 
 課程與錄影入口：
 
 - [2025 版 YouTube 播放清單](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
+- 2026-11-09：重查影片狀態。2026 版官方課表已上架第 1–5 講錄影，更新總覽的上架進度。
 - 2026-10-11：補上 2026 版第 2 堂錄影與投影片入口，說明與 2025 版導讀的堂次對應。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認 2025 播放清單共 9 支、2026 課表目前只上架第 1、2 講；維持僅附官方入口，補上 2026 課表連結。

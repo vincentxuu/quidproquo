@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, model-release, daily, xiaomi, model-family-mimo]
 lang: en
 description: "Xiaomi open-sources MiMo-V2.6-Pro, a 1.02T MoE natively omnimodal model that tops the open-weight field on Artificial Analysis while pricing at 1/20 to 1/60 of closed flagships"
-tldr: "MiMo-V2.6-Pro shipped open-weight on 2026-09-21, model ID (OpenRouter) `xiaomi/mimo-v2.6-pro`; a 1.02T-total / 42B-activated MoE with a 1,048,576-token context window natively handling text, image, video, and audio; API pricing is $0.435 input / $0.87 output per 1M tokens (cached input $0.0036), with the sibling Flash variant at $0.14/$0.28; MIT-licensed; it edges out Claude Opus 5 on AutomationBench v1.0.6 (53.1 vs 50.3) and Terminal Bench 2.1 (89.9 vs 89.1); it also leads the open-weight field on the Artificial Analysis Intelligence Index at 46.32; but it clearly trails closed flagships on Terminal Bench 4.0 (34.9 vs Opus 5's 49.0) and the security-focused ExploitBench (47.9 vs GPT-5.6 Sol's 78.5)"
+tldr: "MiMo-V2.6-Pro shipped open-weight on 2026-09-21, model ID (OpenRouter) `xiaomi/mimo-v2.6-pro`; a 1.02T-total / 42B-activated MoE with a 1,048,576-token context window natively handling text, image, video, and audio; API pricing is $0.435 input / $0.87 output per 1M tokens (cached input $0.0036), with the sibling Flash variant at $0.14/$0.28; MIT-licensed; it edges out Claude Opus 5 on AutomationBench v1.0.6 (53.1 vs 50.3) and Terminal Bench 2.1 (89.9 vs 89.1); at launch it also led the open-weight field on the Artificial Analysis Intelligence Index (v4.3) at 46.32 (the index has since been revised, and the current v5.0.1 gives Pro 30; the two versions can't be compared directly); but it clearly trails closed flagships on Terminal Bench 4.0 (34.9 vs Opus 5's 49.0) and the security-focused ExploitBench (47.9 vs GPT-5.6 Sol's 78.5)"
 series:
   name: "AI Model Tracker"
   order: 32
@@ -15,7 +15,7 @@ glossary:
     def: "Xiaomi's in-house large language model family, spanning Pro, Flash, and UltraSpeed variants"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
+> :globe: [中文版](/posts/daily/2026-09-27-model-xiaomi-mimo-v2-6-pro)
 
 ## Model Info
 
@@ -36,7 +36,7 @@ glossary:
 ## Highlights
 
 - Natively "omnimodal": text, image, video, and audio share one model and a 1M-token context window. Xiaomi pitches this for computer-use agents that read a screenshot or video, reason, and decide the next action inside a single model loop, without stitching together separate OCR or ASR tools
-- Scores 46.32 on the Artificial Analysis Intelligence Index, currently the highest-ranked open-weight model on that independent leaderboard, ahead of GLM-5.3 (45, at its highest reasoning setting) and Kimi K3 (44)
+- At launch, scored 46.32 on the Artificial Analysis Intelligence Index (then v4.3), the highest-ranked open-weight model on that independent leaderboard (the index has since moved to v5.0.1, where Pro scores 30 against a peer median of 23; the evaluation mix differs, so the two numbers can't be compared directly), ahead of GLM-5.3 (45, at its highest reasoning setting) and Kimi K3 (44)
 - Trades blows with Claude Opus 5 on agentic tasks: 53.1 vs 50.3 on AutomationBench v1.0.6, 89.9 vs 89.1 on Terminal Bench 2.1, and a tie at 31.6 on Agents' Last Exam
 - Trains with "Groupwise Agentic Grading," a self-improvement loop (GRS builds task-specific rubrics, GAR redistributes advantage across passing rollouts); Xiaomi reports confirmed reward-hacking trajectories stayed under 2% for both models
 
@@ -51,7 +51,7 @@ glossary:
 | DeepSWE v1.1 (code agent) | 71.9 | 19.0 | Claude Opus 5 — 74.0 (highest overall) |
 | ExploitBench (security) | 47.9 | 16.6 | GPT-5.6 Sol — 78.5 (highest overall) |
 
-⚠️ All figures above are from Xiaomi's own technical report (compared against Claude Opus 5, GPT-5.6 Sol, and Claude Fable 5 — not the newer Claude Fable 5.1 / GPT-6 Astra generation). The Artificial Analysis Intelligence Index score of 46.32 is an independent third-party measurement; several closed models still rank above MiMo-V2.6-Pro on that leaderboard overall.
+:warning: All figures above are from Xiaomi's own technical report (compared against Claude Opus 5, GPT-5.6 Sol, and Claude Fable 5 — not the newer Claude Fable 5.1 / GPT-6 Astra generation). The Artificial Analysis Intelligence Index score of 46.32 is an independent third-party measurement (v4.3; 30 on the current v5.0.1); several closed models still rank above MiMo-V2.6-Pro on that leaderboard overall.
 
 ## Versus the previous generation and competitors
 
@@ -75,6 +75,7 @@ The MiMo-V2.6-Pro technical report includes an unusually candid detail: during t
 ## References
 
 - [Xiaomi MiMo: MiMo-V2.6 series official page](https://mimo.xiaomi.com/mimo-v2-6)
+- [Artificial Analysis: MiMo-V2.6-Pro model page](https://artificialanalysis.ai/models/mimo-v2-6-pro)
 - [Hugging Face: XiaomiMiMo/MiMo-V2.6-Pro-RL model card and technical report](https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-RL)
 - [SiliconANGLE: Xiaomi introduces Mimo-V2.6 series open-source AI model family](https://siliconangle.com/2026/09/22/xiaomi-introduces-mimo-v2-6-series-open-source-ai-model-family/)
 - [Winbuzzer: Xiaomi's MiMo V2.6 Model Debuts With Unprecedented Efficiency Gains](https://winbuzzer.com/2026/09/24/xiaomi-mimo-v2-6-downloadable-ai-low-cost-apis-a004-xcxwbn/)

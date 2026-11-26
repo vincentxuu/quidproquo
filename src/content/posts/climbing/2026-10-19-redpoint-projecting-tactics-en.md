@@ -26,7 +26,7 @@ glossary:
     context: "Lattice lists it as a projecting tool; it's often used to pre-clip the first one or two bolts."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-redpoint-projecting-tactics)
+> :globe: [中文版](/posts/climbing/2026-10-19-redpoint-projecting-tactics)
 
 Last month you tried to onsight a 5.11b and fell at the crux after the fifth quickdraw. Today you're back. Hanging on the rope, you break the crux down, try each of its three moves twice, and finally find where your left foot goes. You lower, rest ten minutes and go again. You pump out at the third quickdraw, lower than last time.
 

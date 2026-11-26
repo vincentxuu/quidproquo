@@ -22,11 +22,11 @@ glossary:
     context: "HW6 Problem 4 Part 2c uses it to define the first term of N_cached."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/.pdf`), week 11 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 9](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf) (headed Spring 2026). "Autoregressive Models" is a new lecture in 2026; **the 2024 scribe notes have nothing matching it**, and there are no public recording links listed for the corresponding lectures. Section 9 covers the autoregressive factorization, teacher forcing, and decoding strategies such as greedy and sampling, but **does not cover KV caching or speculative decoding**; background for those parts comes only from the problem text. Homework solutions are not public; Section 9 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
+> :warning: **Edition and access**: Based on [CS1810 Spring 2026 HW6](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw6) (`hw6_release.tex/.pdf`), week 11 of the [official schedule](https://harvard-ml-courses.github.io/cs181-web/schedule), and [Section 9](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09.pdf) (headed Spring 2026). "Autoregressive Models" is a new lecture in 2026; **the 2024 scribe notes have nothing matching it**, and there are no public recording links listed for the corresponding lectures. Section 9 covers the autoregressive factorization, teacher forcing, and decoding strategies such as greedy and sampling, but **does not cover KV caching or speculative decoding**; background for those parts comes only from the problem text. Homework solutions are not public; Section 9 has a [solution PDF](https://harvard-ml-courses.github.io/cs181-web/static/sec09/sec09_soln.pdf). Access grade **A3**, same as the [series overview](/posts/tech/2026-08-27-harvard-cs181-overview-en).
 
 This is part 11 of the [Harvard CS181 Weekly Guides](/posts/tech/2026-08-27-harvard-cs181-overview-en). Previous: [HW5 (Part 2): SimCLR Contrastive Learning and GANs](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en). Next: [HW6 (Part 2): HMMs and the Kalman Filter](/posts/tech/2026-09-29-harvard-cs181-hw6-hmm-kalman-en).
 
@@ -139,12 +139,13 @@ Official sources:
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

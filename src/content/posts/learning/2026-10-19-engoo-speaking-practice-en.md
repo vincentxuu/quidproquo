@@ -9,11 +9,11 @@ description: "A guide to Engoo Taiwan’s Standard, mixed, and Premium access, p
 tldr: "Engoo suits learners willing to choose tutors and materials for regular short lessons. Test the feedback first, then buy an allowance you can finish every 30 days."
 series:
   name: "English Speaking Practice"
-  order: 7
+  order: 25
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-engoo-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-engoo-speaking-practice)
 
 You want regular English conversation without having to invent a topic every time. [Engoo Taiwan](https://engoo.com.tw/) offers 25-minute private online lessons: choose a tutor and bring platform materials or a news topic. A short session can be easier to fit into an evening after work.
 

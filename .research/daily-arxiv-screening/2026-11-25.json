@@ -1,0 +1,144 @@
+{
+  "date": "2026-11-25",
+  "status": "published",
+  "selectedCount": 3,
+  "candidateSources": {
+    "layerA": "backfill 2026-11-26：只保留當日入選的 3 篇（2026-11-20 提交的 cs.AI 論文）；原始三層候選池與落選紀錄隨 2026-11-25 的容器一起遺失（Q-054），無法還原",
+    "layerB": [
+      "arXiv abs 與 HTML 全文",
+      "Semantic Scholar（429 限流，未取得）",
+      "HuggingFace Daily Papers（未查證這三篇）"
+    ],
+    "layerC": "未重建"
+  },
+  "toolDegradation": [
+    "補寫於 2026-11-26（原因同 Q-054）；使用 Groundlane MCP web_fetch 讀 arXiv 摘要頁與 HTML 全文",
+    "Semantic Scholar 對三篇皆回 429，引用資料未取得"
+  ],
+  "generatedAt": "2026-11-26T00:00:00Z",
+  "candidates": [
+    {
+      "arxivId": "2611.28202",
+      "title": "AutoPILOT: A Visual Agent Harness for Real-Time Gameplay",
+      "source": [
+        "backfill-from-Q-054"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "未取得（Semantic Scholar 429 限流）",
+      "institution": "UIUC / Georgia Tech / Northwestern",
+      "communitySignals": [
+        "未查證 HF Daily Papers / Papers with Code"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Sec 5.2 main results table with paired episodes (111 vs 2)",
+        "Table 4 ablations and cost",
+        "Table 5 budget scaling"
+      ],
+      "evidenceMaturity": "較完整",
+      "evidenceMaturityReason": "三種基準線、即時與暫停兩種時鐘、拆掉巨集與控制器的消融、放寬預算對照、GameWorld 第二基準",
+      "reproducibility": "部分產物",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "中",
+      "editorialConfidenceReason": "遊戲內差距大且有消融，外推到遊戲以外需保守",
+      "primaryLimitation": "評測全是作者自建的瀏覽器遊戲；GPT-6.1 Sol 三個種子，其他模型每題一次",
+      "hiddenAssumption": "AFK-Bench 的 120 款瀏覽器遊戲與像素規則式控制器能代表真實的即時互動環境",
+      "hiddenAssumptionImpact": "若不能外推，核心主張退縮為「在瀏覽器遊戲內，一次呼叫多步執行優於單步」，仍有消融支撐",
+      "presentation": "清楚",
+      "presentationReason": "方法、協定、預算與消融交代完整",
+      "relevance": "direct",
+      "novelty": "實質增量",
+      "todayImportance": "高",
+      "practicalLink": "推測",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "SELECTED — 能力/方法角度：把「模型輸出怎麼變成動作」獨立成鷹架變因，同模型 38.3% 到 68.6%"
+    },
+    {
+      "arxivId": "2611.28244",
+      "title": "Demystifying the Autoresearch Harness: How Context and Skills Shape Self-Evolving Agents",
+      "source": [
+        "backfill-from-Q-054"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint",
+      "citationCount": null,
+      "citationVelocity": "未取得（Semantic Scholar 429 限流）",
+      "institution": "HKUST / Univ. of Tokyo / NTU / NVIDIA AI Technology Center",
+      "communitySignals": [
+        "未查證 HF Daily Papers / Papers with Code"
+      ],
+      "credibility": "conditional-pass",
+      "credibilityEvidence": [
+        "Table 1 main results across 3 models x 2 benchmarks",
+        "Sec 5.1 new-best rate and context usage analysis",
+        "Sec 6 MLEvolver vs AIDE and OpenEvolve"
+      ],
+      "evidenceMaturity": "初步",
+      "evidenceMaturityReason": "單變因對照、三模型兩基準方向一致；但表格未附誤差範圍，消融只用 10 個 MLE-Bench 競賽與 50 題 KernelBench，每機制一種實作",
+      "reproducibility": "部分產物",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "中",
+      "editorialConfidenceReason": "方向一致但缺誤差範圍，敘述收在已測設定內",
+      "primaryLimitation": "差距小的格子（如 gpt-6-sol MLE-Bench +1.6%）可能在雜訊內；結論依賴特定參數（刪除門檻 5、合併相似度 0.8）",
+      "hiddenAssumption": "一種摘要實作與一組參數能代表整類機制（摺疊、刪除）",
+      "hiddenAssumptionImpact": "若名次對實作與參數敏感，核心結論退縮為「在測過的設定下摺疊優於壓縮合併」",
+      "presentation": "清楚",
+      "presentationReason": "設定、公式與結果表交代完整",
+      "relevance": "direct",
+      "novelty": "實質增量",
+      "todayImportance": "中",
+      "practicalLink": "明確",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "SELECTED — 評測/極限角度：以乾淨對照拆出記憶機制各自的貢獻，並組出 MLEvolver"
+    },
+    {
+      "arxivId": "2611.28341",
+      "title": "When Tools Fail, Agents Fabricate: Silent Failure and Verification-First Oversight in Tool-Using LLM Agents",
+      "source": [
+        "backfill-from-Q-054"
+      ],
+      "sourceCount": 1,
+      "daysSinceFirstSeen": 0,
+      "topicGate": "pass",
+      "venue": "arXiv preprint（作者註記 NeurIPS 2026 Workshop: Who Verifies the Agents?）",
+      "citationCount": null,
+      "citationVelocity": "未取得（Semantic Scholar 429 限流）",
+      "institution": "Carnegie Mellon University",
+      "communitySignals": [
+        "未查證 HF Daily Papers / Papers with Code"
+      ],
+      "credibility": "pass",
+      "credibilityEvidence": [
+        "Table 3-7 baseline, fault type, retries, content, monitor results",
+        "Sec 5 judge agreement kappa 0.91 vs 0.58",
+        "Sec 7 limitations stated by authors"
+      ],
+      "evidenceMaturity": "初步",
+      "evidenceMaturityReason": "4 個 Agent、30 任務、9 種故障、2,100 次帶故障執行，以標準答案評分並報告評審一致性",
+      "reproducibility": "完整產物",
+      "reproducibilityEvidence": [],
+      "editorialConfidence": "中",
+      "editorialConfidenceReason": "效果方向一致，但監督者模型比受測 Agent 都強",
+      "primaryLimitation": "只測 4 個 Agent；故障由中介層注入；監督者與評審為強力專有模型",
+      "hiddenAssumption": "存在比 Agent 更強、成本可接受的監督者模型，且注入的故障代表真實工具故障",
+      "hiddenAssumptionImpact": "若沒有更強的監督者，監督效果與成本未知；故障類型與持續性的結論仍成立",
+      "presentation": "清楚",
+      "presentationReason": "方法、指標、限制交代完整",
+      "relevance": "direct",
+      "novelty": "實質增量",
+      "todayImportance": "高",
+      "practicalLink": "明確",
+      "decision": "selected",
+      "rejectionCategory": null,
+      "reason": "SELECTED — 應用/安全角度：指出捏造主因是靜默吞入，並量到驗證式監督者的效益與盲區"
+    }
+  ]
+}

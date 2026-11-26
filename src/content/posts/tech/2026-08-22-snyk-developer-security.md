@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-snyk-developer-security-en)
+> :globe: [English version](/posts/tech/2026-08-22-snyk-developer-security-en)
 
 [Snyk](https://docs.snyk.io/scan-with-snyk) 把多種 application security 分析放進同一平台：Open Source 做 dependency vulnerability/license SCA，Code 做 source static analysis，Container 盤點 final image 內 OS/application packages，IaC 掃 Terraform、Kubernetes、CloudFormation 等設定與部分 deployed cloud state。
 

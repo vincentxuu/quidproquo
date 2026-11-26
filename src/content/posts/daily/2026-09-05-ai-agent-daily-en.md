@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-05-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -135,16 +135,16 @@ Today's three Arxiv papers ([full digest](/posts/daily/2026-09-05-ai-agent-arxiv
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-github-digest-en)
-- 📄 [Framework Changelog: Agno 3.0.6](/posts/daily/2026-09-05-framework-agno-3.0.6-en)
-- 📄 [Framework Changelog: Mastra @mastra/core@1.64.0](/posts/daily/2026-09-05-framework-mastra-1.64.0-en)
-- 📄 [Funding Alert: Gimlet Labs Series B $300M](/posts/daily/2026-09-05-funding-gimlet-labs-en)
-- 📄 [Model Card: K2 Horizon 375B-A23B](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
-- 📄 [Security Alert: Grafana's Official MCP Server Auth Bypass Chained into SSRF](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing-en)
-- 📄 [Tool Pick: KRU](/posts/daily/2026-09-05-tool-kru-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-05: Paper Reading](/posts/daily/2026-09-05-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-05: Technical PM](/posts/daily/2026-09-05-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-05](/posts/daily/2026-09-05-ai-agent-github-digest-en)
+- :file: [Framework Changelog: Agno 3.0.6](/posts/daily/2026-09-05-framework-agno-3.0.6-en)
+- :file: [Framework Changelog: Mastra @mastra/core@1.64.0](/posts/daily/2026-09-05-framework-mastra-1.64.0-en)
+- :file: [Funding Alert: Gimlet Labs Series B $300M](/posts/daily/2026-09-05-funding-gimlet-labs-en)
+- :file: [Model Card: K2 Horizon 375B-A23B](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b-en)
+- :file: [Security Alert: Grafana's Official MCP Server Auth Bypass Chained into SSRF](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing-en)
+- :file: [Tool Pick: KRU](/posts/daily/2026-09-05-tool-kru-en)
+- :file: [AI Engineer Interview Daily — 2026-09-05: Paper Reading](/posts/daily/2026-09-05-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-05: Technical PM](/posts/daily/2026-09-05-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

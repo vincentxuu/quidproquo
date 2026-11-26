@@ -1,0 +1,6 @@
+/* Keep the upstream navigation and reading controls; hide authoring tools. */
+#editorModeButtons, #editorModeSeparator, #openFile, #secondaryOpenFile { display: none !important; }
+:root { --toolbar-bg-color: #f5f6f7; --body-bg-color: #e5e7eb; }
+@media (prefers-color-scheme: dark) {
+  :root { --toolbar-bg-color: #24272b; --body-bg-color: #191b1e; }
+}

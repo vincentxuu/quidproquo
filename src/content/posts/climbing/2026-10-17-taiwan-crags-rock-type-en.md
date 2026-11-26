@@ -10,7 +10,7 @@ tldr: "Sandstone has cracks you can protect: Long Dong has 325 trad and 209 spor
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 14
+  order: 15
 glossary:
   - term: "Szeleng Sandstone"
     aliases: ["四稜砂岩"]
@@ -25,7 +25,7 @@ glossary:
     context: "Both Shoushan's and Taroko's climbing rules are written this way."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-taiwan-crags-rock-type)
+> :globe: [中文版](/posts/climbing/2026-10-17-taiwan-crags-rock-type)
 
 You can lead in the gym, you've read a few articles about outdoor climbing, and you want to pick a crag in Taiwan. The catch: you know how to sport climb, and you arrive to find no bolts on the route. Or you find a crag only to learn it's in a national park where climbing needs a permit, or isn't allowed at all.
 

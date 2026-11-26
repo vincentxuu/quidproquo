@@ -12,7 +12,7 @@ series:
   order: 57
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-17-tool-coop-anything)
+> :globe: [中文版](/posts/daily/2026-10-17-tool-coop-anything)
 
 ## Tool Info
 
@@ -77,11 +77,11 @@ and a write-up back to the repo.
 
 | | Co-op Anything | Hunting for old mods on forums yourself | Nucleus Co-op | REA / ida-pro-mcp |
 |---|---|---|---|---|
-| Automatically detects engine and matching modding tools | ✅ | You look it up yourself | ❌ | ❌ |
-| Tracks how far existing co-op mods got, and whether they're alive | ✅ (directory of 208 projects) | You look it up, results vary | ❌ | ❌ |
-| Automated QA (bots play-test inside the game) | ✅ | ❌ | ❌ | ❌ |
-| Real sync of enemies, world state, and story | Depends on the game; only needed on the from-zero path | Depends on that specific mod | ❌ (same-PC split screen only, no network sync) | Need to wire it up yourself |
-| Closed-binary reverse-engineering | Pairs with REA | — | — | ✅ |
+| Automatically detects engine and matching modding tools | ✓ | You look it up yourself | ✗ | ✗ |
+| Tracks how far existing co-op mods got, and whether they're alive | ✓ (directory of 208 projects) | You look it up, results vary | ✗ | ✗ |
+| Automated QA (bots play-test inside the game) | ✓ | ✗ | ✗ | ✗ |
+| Real sync of enemies, world state, and story | Depends on the game; only needed on the from-zero path | Depends on that specific mod | ✗ (same-PC split screen only, no network sync) | Need to wire it up yourself |
+| Closed-binary reverse-engineering | Pairs with REA | — | — | ✓ |
 
 ## Caveats
 

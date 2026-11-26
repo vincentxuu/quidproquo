@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-tool-mcpgawk)
+> :globe: [中文版](/posts/daily/2026-10-08-tool-mcpgawk)
 
 ## Tool Info
 
@@ -78,11 +78,11 @@ mcpgawk changes
 
 | | mcpgawk | Manual periodic review | Typical cloud MCP scanner |
 |---|---|---|---|
-| Detects "changed after approval" (rug-pull) | ✅ `--track` | ❌ Nobody re-reviews every time | Partial |
-| Actually blocks the call, not just a report | ✅ `guard install` | ❌ | ❌ Mostly report-only |
-| Inventory/scan results uploaded to the cloud | ❌ (local only) | — | Usually yes |
-| CI integration | ✅ GitHub Action | ❌ | Depends on vendor |
-| Free to use | ✅ Core scan/guard features | ✅ | Mostly paid |
+| Detects "changed after approval" (rug-pull) | ✓ `--track` | ✗ Nobody re-reviews every time | Partial |
+| Actually blocks the call, not just a report | ✓ `guard install` | ✗ | ✗ Mostly report-only |
+| Inventory/scan results uploaded to the cloud | ✗ (local only) | — | Usually yes |
+| CI integration | ✓ GitHub Action | ✗ | Depends on vendor |
+| Free to use | ✓ Core scan/guard features | ✓ | Mostly paid |
 
 ## Things to Watch For
 

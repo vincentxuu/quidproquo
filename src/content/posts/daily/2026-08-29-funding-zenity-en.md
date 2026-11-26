@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-funding-zenity)
+> :globe: [中文版](/posts/daily/2026-08-29-funding-zenity)
 
 ## Funding Details
 

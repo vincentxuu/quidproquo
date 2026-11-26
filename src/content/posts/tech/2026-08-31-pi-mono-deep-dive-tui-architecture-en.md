@@ -13,7 +13,7 @@ description: "Deep dive into pi-tui terminal UI library: from low-level renderin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-tui-architecture)
 
 ## TL;DR
 

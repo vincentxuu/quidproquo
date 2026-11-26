@@ -13,7 +13,7 @@ description: "A selection guide to Anthropic's four certifications (CCAO-F, CCDV
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-19-claude-certifications-which-one)
+> :globe: [中文版](/posts/ai/2026-08-19-claude-certifications-which-one)
 >
 > This is a selection guide built from official sources, not an exam-day account — I have not sat any of these exams. Every "what it tests" points back to the four official exam guides and certification pages; no braindumps. Verified 2026-08-19.
 

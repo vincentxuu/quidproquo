@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-ask-ai-source-gating)
+> :globe: [中文版](/posts/ai/2026-08-30-ask-ai-source-gating)
 
 > **Optional companion reading:** Beginners can read this article directly. For background concepts, pair it with [Self-Reflection + LLM-as-Judge: Having AI Evaluate Its Own Answers](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en) and [RAG Guardrails: Adding a Defense Layer to Inputs and Outputs](/posts/ai/2026-03-12-rag-guardrails-en).
 

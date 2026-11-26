@@ -16,7 +16,7 @@ additionalSeries:
     order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control-en)
+> :globe: [English version](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control-en)
 
 [Cloudflare AI Search](/posts/tech/2026-08-29-cloudflare-ai-search-guide) 已經把一條 RAG 管線包好：資料來源、Markdown 轉換、chunking、embedding、Vectorize、BM25、rerank、Workers binding。那為什麼還要直接碰 [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/)？
 
@@ -243,7 +243,7 @@ Vectorize pricing 目前照兩個維度計費：
 - **queried vector dimensions**：查詢時掃過的 vector 數加 query vector，再乘以 dimensions。
 - **stored vector dimensions**：儲存的 vector 數乘以 dimensions。
 
-官方 pricing 頁目前寫，Workers Free 每月包含 3000 萬 queried vector dimensions 與 500 萬 stored vector dimensions；Workers Paid 每月包含前 5000 萬 queried vector dimensions 與 1000 萬 stored vector dimensions，超出後按量計價。Cloudflare 也明確說，不按 CPU、memory、active index hours 或 index 數收費，空 index 不算 stored dimensions。
+官方 pricing 頁目前寫，Workers Free 每月包含 3000 萬 queried vector dimensions 與 500 萬 stored vector dimensions；Workers Paid 每月包含前 5000 萬 queried vector dimensions 與 1000 萬 stored vector dimensions，超出後按量計價。Cloudflare 也明確說，不按 CPU、memory 或 active index hours 收費，空 index 不算 stored dimensions。index 數則有上限而非完全不計：Workers Free 最多 100 個；Workers Paid 前 50,000 個內含，超過的每個每月 $0.10。
 
 這讓小型 RAG 很便宜，但也讓設計決策變得具體：
 
@@ -261,7 +261,7 @@ Vectorize pricing 目前照兩個維度計費：
 | 情境 | 選擇 |
 |---|---|
 | 想快速把文件變成可查詢知識庫 | AI Search |
-| 來源是 R2、網站或上傳檔，管線規則可以接受平台預設 | AI Search |
+| 來源是 R2、網站、上傳檔或 D1（beta），管線規則可以接受平台預設 | AI Search |
 | 需要自己控制 chunking、overlap、索引版本 | Vectorize |
 | 需要複雜 metadata filter、tenant 權限、產品線 scope | Vectorize |
 | 要把 BM25、Vectorize、reranker、fallback 串成自己的 retrieval stack | Vectorize |
@@ -269,6 +269,8 @@ Vectorize pricing 目前照兩個維度計費：
 | 主要目標是讓 Agent 多一個知識庫搜尋工具 | 先 AI Search，再視品質改 Vectorize |
 
 比較直接的判斷方式：如果 retrieval 對你來說只是功能，先用 AI Search。如果 retrieval 已經是產品品質的主要來源，Vectorize 值得拿出來自己設計。
+
+成本也要一起比：AI Search 在 2026-10 GA，2026-12-01 起按 ingestion token、儲存 GB-月與查詢次數計費（每月有內含量，它內部呼叫的 Workers AI embedding 與 rerank 已算在 AI Search 價格裡），細節見 [AI Search Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)。自己組 Vectorize 則是 Vectorize 維度費加上 Workers AI embedding 費，兩邊的計價軸不同，要用自己的語料量與查詢量各算一次。
 
 ## production 前的檢查清單
 
@@ -287,6 +289,10 @@ Vectorize pricing 目前照兩個維度計費：
 
 Vectorize 的角色很清楚：它不是 RAG 的全部，只是 retrieval stack 裡最核心的一塊向量索引。當你要的是低維運，AI Search 先贏；當你要的是可解釋、可調、可評測的 retrieval，Vectorize 才值得成為主角。
 
+## 更新紀錄
+
+- 2026-11-23：修正「不按 index 數收費」：Workers Free 上限 100 個 index，Workers Paid 前 50,000 個內含、之後每個每月 $0.10；AI Search 資料來源補上 D1（beta），並補 AI Search 2026-10 GA、2026-12-01 起計費後與 Vectorize 的成本比較方式。
+
 ## 參考資料
 
 - [Cloudflare Vectorize — Overview](https://developers.cloudflare.com/vectorize/)
@@ -297,4 +303,5 @@ Vectorize 的角色很清楚：它不是 RAG 的全部，只是 retrieval stack 
 - [Cloudflare Vectorize — Query vectors](https://developers.cloudflare.com/vectorize/best-practices/query-vectors/)
 - [Cloudflare Vectorize — Limits](https://developers.cloudflare.com/vectorize/platform/limits/)
 - [Cloudflare Vectorize — Pricing](https://developers.cloudflare.com/vectorize/platform/pricing/)
+- [Cloudflare AI Search — Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)
 - [Cloudflare AI Search 怎麼用：資料來源、混合檢索與 Workers 綁定的完整解析](/posts/tech/2026-08-29-cloudflare-ai-search-guide)

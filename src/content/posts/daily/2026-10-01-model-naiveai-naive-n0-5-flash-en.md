@@ -15,7 +15,7 @@ glossary:
     def: "The debut model series from Beijing startup NaiveAI (founded by Tsinghua's Dai Jifeng), built around a training and inference pipeline it says AI systems designed autonomously under human direction"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash)
+> :globe: [中文版](/posts/daily/2026-10-01-model-naiveai-naive-n0-5-flash)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | NL2Repo-Bench | 71.9 | None (NaiveAI's debut model) | Tops NaiveAI's own chart, ahead of DeepSeek V4.1 Flash's 64.0 |
 | ProgramBench | 17.5 | None (NaiveAI's debut model) | Claude Opus 5 at 37.0; DeepSeek V4.1 Flash at 20.3 (tied last of 7 charted) |
 
-⚠️ All figures come from NaiveAI's own published charts, benchmarked with Claude Code 2.1.207 as the harness; competitor scores are copied from each vendor's own published pages and leaderboards rather than reproduced in the same test environment, and none of it has been independently verified yet.
+:warning: All figures come from NaiveAI's own published charts, benchmarked with Claude Code 2.1.207 as the harness; competitor scores are copied from each vendor's own published pages and leaderboards rather than reproduced in the same test environment, and none of it has been independently verified yet.
 
 ## Versus the Predecessor and Competitors
 

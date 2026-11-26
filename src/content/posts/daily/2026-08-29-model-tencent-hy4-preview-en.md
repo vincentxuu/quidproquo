@@ -15,7 +15,7 @@ glossary:
     def: "Tencent's large language model family; the Hy series (Hy3, Hy4, etc.) is its latest generation of open-source flagship models"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-29-model-tencent-hy4-preview)
+> :globe: [中文版](/posts/daily/2026-08-29-model-tencent-hy4-preview)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | GPQA Diamond | 92.3% | — | Sakana Fugu-Ultra: 95.5% |
 | HLE (Humanity's Last Exam) | 55.4% | — | Claude Opus 5: 64.7% |
 
-⚠️ The scores above come from Tencent's own Benchmark Appendix in the official Hy4-preview model card — self-reported. The "Reference" column and BenchLM's composite score (79.2/100, ranked #9/140 in Agentic at the 94th percentile, #11/146 in Coding at the 93rd percentile) come from a third-party aggregator and await independent reproduction. Hy3 preview's own self-reported numbers separately include SWE-bench Verified 74.4% and BrowseComp 67.1%, but Hy4 preview's public appendix reports SWE-bench Pro and Multilingual instead — two different subsets — so most metrics besides Terminal-Bench can't be lined up directly across generations.
+:warning: The scores above come from Tencent's own Benchmark Appendix in the official Hy4-preview model card — self-reported. The "Reference" column and BenchLM's composite score (79.2/100, ranked #9/140 in Agentic at the 94th percentile, #11/146 in Coding at the 93rd percentile) come from a third-party aggregator and await independent reproduction. Hy3 preview's own self-reported numbers separately include SWE-bench Verified 74.4% and BrowseComp 67.1%, but Hy4 preview's public appendix reports SWE-bench Pro and Multilingual instead — two different subsets — so most metrics besides Terminal-Bench can't be lined up directly across generations.
 
 ## Comparison with Predecessor/Competitors
 

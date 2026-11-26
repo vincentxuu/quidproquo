@@ -18,7 +18,7 @@ glossary:
     context: "CMU 11-868 L01 把它列為 LLM 系統的核心主張，標題寫「LLM needs Model-Algorithm-System Co-design」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-intro-why-llm-systems-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -134,11 +134,12 @@ L01 沒有真的算出 100B 模型要多少資源，它只把問題丟出來。�
 
 - [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-11：補上自編推理例子與理解檢查，保留來源限制及原作業範圍。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。

@@ -13,7 +13,7 @@ description: "An overview of OpenClaw's channel system: the plugin-based install
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-overview)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-channels-overview)
 
 OpenClaw can reach you on the chat apps you already use, each connecting through the Gateway. This article covers **the rules every channel shares**; the next three cover individual channels.
 

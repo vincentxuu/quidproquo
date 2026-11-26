@@ -25,7 +25,7 @@ glossary:
     context: "阿根廷、智利都用這個名稱。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-south-america-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-south-america-en)
 
 [IFMGA](https://ifmga.net/member-associations/member-associations) 在南美有五個會員：阿根廷、智利、秘魯、玻利維亞、厄瓜多。這五國放在一起，因為它們共用一個特徵：上課語言都是西班牙文（智利、玻利維亞官方沒寫，推測），而且其中三國是 **No Ski 協會**。
 

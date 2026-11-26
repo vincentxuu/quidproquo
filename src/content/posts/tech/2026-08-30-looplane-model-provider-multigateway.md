@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-model-provider-multigateway-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-model-provider-multigateway-en)
 
 上一篇追完 Looplane 自家的 native loop；這篇往下一層看 `ModelProvider` Protocol 怎麼把多種 protocol adapter 收斂成同一個介面，以及同一個 adapter 怎麼被 `ModelGateway` 開成對外服務。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-redis-streams-en)
+> :globe: [English version](/posts/tech/2026-08-22-redis-streams-en)
 
 [Redis Streams](https://redis.io/docs/latest/develop/data-types/streams/) 是 Redis 裡的 append-only log。`XADD` 加入帶 ID 的 entry，`XRANGE` 按區間讀歷史，`XREAD` 等待新資料；consumer group 則讓多個 worker 分工並保存未確認狀態。它解決 Redis Pub/Sub subscriber 離線就漏訊息的問題，但仍受 Redis persistence、memory 與 cluster 模型約束。
 

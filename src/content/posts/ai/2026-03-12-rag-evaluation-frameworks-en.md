@@ -14,7 +14,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-evaluation-frameworks)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-evaluation-frameworks)
 
 Evaluating RAG system quality is a hard problem: you can feel that the answers are bad, but you can't articulate which component is at fault — did the retriever fetch the wrong documents, or did the LLM extract incorrect information from the right documents?
 

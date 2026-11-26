@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-tool-localmem-mcp)
+> :globe: [中文版](/posts/daily/2026-08-24-tool-localmem-mcp)
 
 ## Tool Info
 

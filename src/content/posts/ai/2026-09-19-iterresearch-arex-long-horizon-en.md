@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-iterresearch-arex-long-horizon)
+> :globe: [中文版](/posts/ai/2026-09-19-iterresearch-arex-long-horizon)
 
 Last articles covered how to train agents from scratch. This article tackles a different question: **once trained, how does an agent stay effective over long research sessions?**
 

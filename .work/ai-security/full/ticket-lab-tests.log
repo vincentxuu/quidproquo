@@ -1,0 +1,3 @@
+PASS vulnerable-v1: 9 actual HTTP authorization cases, health, operator audit, UTC and redaction
+PASS fixed-v1: 9 actual HTTP authorization cases, health, operator audit, UTC and redaction
+PASS: 18 actual HTTP cases across vulnerable and fixed targets

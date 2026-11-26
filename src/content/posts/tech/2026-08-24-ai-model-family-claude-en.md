@@ -1,12 +1,12 @@
 ---
-title: "Claude——From AI Safety Lab to SWE-bench Champion, the Strongest Closed-Source Agent Choice"
+title: "Claude——From AI Safety Lab to Fable 5.2 and the Four Claude 5.5 Tiers: the Closed-Model Workhorse for Agents"
 date: 2026-08-24
 category: tech
 tags: [ai-agent, llm, claude, anthropic, model-family-claude, constitutional-ai, agentic-coding, model-selection]
 lang: en
 type: deep-dive
-tldr: "Claude is Anthropic's closed-source LLM family, known for Constitutional AI training, agent capabilities, and coding performance. In July 2026, Opus 5 scored 96% on SWE-bench Verified to claim the coding crown, while Fable 5 led general capability at 83% on LiveBench. Four tiers (Fable / Opus / Sonnet / Haiku) span $1–$10, making this the only family in the series with zero open weights."
-description: "Complete Claude model family guide: evolution from Claude 1 (2023) to Fable 5 (2026), API platform vs consumer app split, Constitutional AI & agent architecture, four-tier pricing comparison, SWE-bench/LiveBench benchmarks, and selection guide for agent developers"
+tldr: "Claude is Anthropic's closed LLM family, known for Constitutional AI training, agent capabilities and coding. Between September and November 2026 it moved to a new generation: Opus 5.5 ($4/$20) is Anthropic's recommended default, Sonnet 5.5 ($2/$10) and Haiku 5.5 ($0.10/$0.50 for short prompts) cover the fast and high-volume tiers, and Fable 5.2 ($8/$40) handles the hardest reasoning and long-horizon agent work. All four have 1M context and 128K output. Fable 5.2 ranks first on Artificial Analysis's composite index; Mythos 5.2, the same underlying model, is available only to organizations in Anthropic's cyber or life-sciences verification programs."
+description: "Complete Claude model family guide: evolution from Claude 1 (2023) to Fable 5.2 and the Claude 5.5 series (2026), the API platform vs consumer product lines, Constitutional AI and agent architecture, positioning and pricing of the Fable/Opus/Sonnet/Haiku tiers, Mythos limited access, legacy retirement dates, and a selection guide for agent developers"
 series:
   name: "AI Model Families"
   order: 7
@@ -19,255 +19,231 @@ glossary:
     aliases: ["Model Context Protocol"]
     definition: "Anthropic's tool integration standard protocol, allowing LLMs to uniformly call external tools and data sources—dubbed the USB-C interface for AI models"
   - term: "Adaptive Thinking"
-    definition: "Claude's dynamic reasoning mechanism—the model automatically decides reasoning depth based on problem complexity, answering simple questions fast and thinking deeply on complex ones"
+    definition: "Claude's dynamic reasoning mechanism—the model decides how much to think based on the effort setting and problem complexity; always on for Fable 5.2 and Opus 5.5"
   - term: "Claude Code"
     definition: "CLI coding agent launched with Claude 3.7 Sonnet (Feb 2025), deeply integrating file I/O, Git operations, and multi-file editing workflows"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-24-ai-model-family-claude)
+> :globe: [中文版](/posts/tech/2026-08-24-ai-model-family-claude)
 
-In March 2023, when OpenAI's GPT-4 had just launched, Anthropic quietly released Claude the same week—a language model with "safety" as its core design philosophy. Three and a half years later, in July 2026, Claude Opus 5 hit 96% on SWE-bench Verified to become the strongest coding model, while Claude Fable 5 led the general capability rankings at 83% on LiveBench. This is the seventh family deep-dive in the "AI Model Families" series, tracing Claude's complete evolution from Claude 1 to Fable 5.
+In March 2023, the same week OpenAI launched GPT-4, Anthropic quietly released Claude—a language model built around "safety" as its core design philosophy. Three and a half years later, in 2026, Claude went through two generations in half a year: Fable 5, Sonnet 5 and Opus 5 launched in June and July; from September, Opus 5.5, Sonnet 5.5 and Haiku 5.5 formed the Claude 5.5 series; and on November 9 Fable 5.2 took over the top tier. This is the seventh deep-dive in the "AI Model Families" series, tracing Claude's full evolution from Claude 1 to Fable 5.2.
 
-For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources). This is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) series.
+For how to read the benchmark numbers cited here, see our [AI model evaluation sources guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) series.
 
 ## Family positioning and model matrix
 
-| Model / line | Positioning | Key difference | Access |
+Based on Claude's official models overview and pricing pages as of 2026-11-20:
+
+| Model / line | Role | Key difference | Access |
 |---|---|---|---|
-| Claude Fable 5 / Opus 5 | Complex reasoning / coding | Long-running agents and high-quality work | Anthropic API / authorized clouds |
-| Claude Sonnet 5 | Daily coding | Quality and cost balance | Anthropic API / authorized clouds |
-| Claude Haiku 4.5 | Fast classification / extraction | Lightweight low-cost tier | Anthropic API / authorized clouds |
+| Claude Fable 5.2 | The hardest reasoning and long-horizon agent work | $8/$40, #1 on the composite index | Anthropic API / authorized clouds |
+| Claude Opus 5.5 | Anthropic's recommended default for long-running agentic coding and knowledge work | $4/$20 | Anthropic API / authorized clouds |
+| Claude Sonnet 5.5 | Balance of speed and intelligence for well-scoped everyday work | $2/$10 | Anthropic API / authorized clouds |
+| Claude Haiku 5.5 | High-volume, low-latency classification, extraction, routing | $0.10/$0.50 up to 100K | Anthropic API / authorized clouds |
+| Claude Mythos 5.2 | Same underlying model as Fable 5.2 with looser cyber and life-science safeguards | Same price as Fable 5.2 | Only for organizations in verification programs |
 
 
+### Two Product Lines: API Platform vs Consumer Claude, Plus Four Inference Tiers
+The key to understanding Claude's 2026 moves is splitting it into two parallel lines, plus a four-tier inference table:
 
-### Two Product Lines: API Platform vs Consumer Claude, Plus Four Reasoning Tiers
-To understand Claude's 2026 moves, split it into two parallel lines plus a four-tier reasoning table:
+**API platform line** (developer / enterprise): all inference runs through Anthropic's official API or authorized clouds—Amazon Bedrock, Google Cloud, Microsoft Foundry, and Anthropic's own Claude Platform on AWS. This line drives developer and enterprise revenue and carries Claude Code, MCP, and agent workflows.
 
-**API Platform Line** (developer / enterprise): All inference runs via Anthropic's official API or authorized clouds—AWS Bedrock, Google Cloud Vertex AI, Microsoft Foundry. This line owns developer and enterprise revenue, and carries Claude Code, MCP, and all agent workflows.
+**Consumer Claude app line**: claude.ai and the desktop/mobile apps for end users, packaging the same models into chat, writing, and analysis products. This line doesn't release weights or offer self-hosting.
 
-**Consumer Claude App Line**: claude.ai plus desktop/mobile apps for end users, packaging the same models into chat, writing, and analysis products. This line offers no open weights and no self-host option.
+In between is the inference-tier split. In June 2026 Claude grew from three tiers to four by adding Fable; Fable and Mythos are the same underlying model, differing only in safeguards and access eligibility. In the Claude 5.5 generation, the four tiers look like this (Claude API standard prices per 1M tokens):
 
-In between sits the reasoning-tier split—June 2026 expanded from three to four tiers, adding Mythos (with Fable 5 as the public face):
-
-| Item | Fable 5 | Opus 5 | Sonnet 5 | Haiku 4.5 |
+| Item | Fable 5.2 | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 |
 |---|---|---|---|---|
-| Positioning | Strongest reasoning, long-horizon agents | Complex coding, enterprise workloads | Daily coding, high throughput | Fast response, low cost |
-| Input ($/MTok) | $10 | $5 | $2 | $1 |
-| Output ($/MTok) | $50 | $25 | $10 | $5 |
-| Cache hit | $1 | $0.50 | $0.20 | $0.10 |
-| Batch API | $5/$25 | $2.50/$12.50 | $1/$5 | $0.50/$2.50 |
-| Context | 1M | 1M | 1M | 200K |
-| Max output | 128K | 128K | 128K | 64K |
-| Adaptive thinking | Always on | Default on | Default on | — |
-| Latency | Slowest | Medium | Fast | Fastest |
+| Role | Hardest reasoning, long-horizon agents | Default workhorse, long-running coding and knowledge work | Everyday work, fastest Sonnet | High volume, low latency |
+| Input | $8 | $4 | $2 | $0.10 (≤100K) / $0.50 (>100K) |
+| Output | $40 | $20 | $10 | $0.50 / $2.50 |
+| Cache hit | $0.20 | $0.20 | $0.10 | $0.01 / $0.05 |
+| Batch API | 50% of standard | 50% | 50% | 50% |
+| Context / max output | 1M / 128K | 1M / 128K | 1M / 128K | 1M / 128K |
+| Adaptive thinking | Always on | Always on | Adjustable | Adjustable |
+| Default effort | high | medium | high | medium |
+| Relative latency | Moderate | Moderate | Fast | Fastest |
 
-Two pricing details worth remembering. First, **five Opus generations at the same price**: from Opus 4.5 to Opus 5, all at $5/$25; only retired Opus 4.1 ($15/$75) differed—if you're on old Opus for "reproducibility," you're not saving money. Second, **Sonnet 5's "price-cut upgrade"**: dropped from Sonnet 4.6's $3/$15 to $2/$10 permanently (the planned 8/31 reversion to $3/$15 was cancelled), making it the best value in the Claude ecosystem. Also, Fast mode runs Opus 5 at 2.5x speed for $10/$50—exactly Fable 5's standard price. Anyone using Opus 5 fast mode should try Fable 5 standard first.
+Three pricing details are worth remembering. First, **cache hits are especially cheap**: on most Claude models a cache hit costs 10% of the input price, 5% on Opus 5.5 and Sonnet 5.5, and only 2.5% on Fable 5.2; since most agentic cost is cache reads, this affects the bill more than the headline price. Second, **Haiku 5.5 is priced in two bands by prompt length**, and the unit price is 5x above 100K. Third, the tokenizer used since Claude 4.7 produces about 30% more tokens for the same text, so when moving from older models a lower unit price doesn't mean a proportionally lower bill.
 
 
-### Sub-lines & Ecosystem: A Table of All Claude Models
-"Small family" is Claude's most underestimated trait—it has almost no independent vision/speech/embedding lines; sub-lines are just service tiers on the same base:
+### Sub-lines and Ecosystem: How Many Models Claude Actually Has
+"A small family" is Claude's most underrated trait—it has almost no separate vision, speech, or embedding model lines; its sub-lines are mostly different service tiers of the same base:
 
-| Sub-line | Representative | Positioning |
+| Sub-line | Representative versions (2026-11) | Role |
 |---|---|---|
-| Flagship reasoning | Claude Fable 5 | Highest intelligence tier, complex reasoning & long-horizon planning |
-| High-end | Claude Opus 5 | High-quality coding / agentic |
-| Mid-range | Claude Sonnet 5 | Balance quality & cost, default recommendation |
-| Lightweight | Claude Haiku 4.5 | High speed, low cost, classification / extraction |
-| Terminal Agent | Claude Code | CLI coding agent |
-| Open standard | MCP (Model Context Protocol) | Open protocol, lets agents plug external tools |
-| Enterprise product | Claude for Work / Teams | Enterprise permissions & governance |
+| Top tier | Claude Fable 5.2 | Hardest reasoning and long-horizon planning; can also act as Advisor or Orchestrator for other models |
+| Limited access | Claude Mythos 5.2 | Same underlying model as Fable, limited to cyber and life-science verification programs |
+| Default workhorse | Claude Opus 5.5 | Long-running coding / agentic work |
+| Mid-tier | Claude Sonnet 5.5 | Well-scoped everyday work, documents and slides |
+| Lightweight | Claude Haiku 5.5 | Classification, extraction, routing; also suited as a subagent |
+| Terminal agent | Claude Code | Command-line coding agent |
+| Open standard | MCP (Model Context Protocol) | Open-source protocol for connecting agents to external tools |
+| Enterprise product | Claude for Work / Teams | Enterprise permissions and governance |
 
 Two observations:
 
-**MCP is Claude's most underestimated ecosystem lever.** Anthropic open-sourced Model Context Protocol; it's now the de facto standard for agents to plug external tools—even if you don't run Claude, your agent infrastructure likely sits on MCP. This extends Claude's influence beyond a single model.
+**MCP is Claude's most underrated ecosystem lever.** Anthropic open-sourced the Model Context Protocol, and it's now the de facto standard for connecting agents to external tools—even if you don't run Claude, your agent infrastructure is likely built on MCP. This extends Claude's influence beyond any single model.
 
-**Product line is highly concentrated at the API layer.** Unlike Qwen's Coder/VL/Omni/Image sub-lines or DeepSeek's V3/R1/Coder parallel tracks, Claude's sub-lines are almost all the same base model at different service tiers (Fable/Opus/Sonnet/Haiku), with no independent vision, speech, or embedding specialist models. This makes its ecosystem narrower than open-source families, but the product experience is more consistent.
+**The product line is concentrated at the API layer.** Unlike Qwen's Coder/VL/Omni/Image sub-lines or Gemini's dedicated image, video, and speech models, Claude's sub-lines are almost all service tiers of the same capability set, with no separate image-generation, speech, or embedding lines. That makes its ecosystem narrower than other large families, but the product experience more consistent.
 
 ## Family evolution
 
 ### Family Evolution Timeline
-| Version | Date | Key Facts |
-|---|---|---|
-| Claude 1 | 2023-03 | First public model, 9K context, Constitutional AI training |
-| Claude 2 | 2023-07 | 100K context, first large public release, cited Universal Declaration of Human Rights principles |
-| Claude 2.1 | 2023-11 | 200K context, system prompts, tool use experiments |
-| Claude 3 Opus/Sonnet/Haiku | 2024-03 | Three-tier product line established, multimodal (vision) |
-| Claude 3.5 Sonnet | 2024-06 | Sonnet quality surpassed prior Opus, Artifacts feature |
-| Claude 3.5 Sonnet (new) | 2024-10 | Computer Use public beta |
-| Claude 3.7 Sonnet | 2025-02 | First hybrid reasoning model, Claude Code launched |
-| Claude 4 Opus/Sonnet | 2025-05 | Agent coding generation, MCP standardization |
-| Claude 4.5 Sonnet/Haiku/Opus | 2025-09~11 | Sonnet first surpassed Opus baseline |
-| Claude 4.6 Opus/Sonnet | 2026-02 | Agent Teams, 1M context |
-| Claude 4.7 Opus | 2026-04 | New tokenizer, adaptive thinking |
-| Claude 4.8 Opus | 2026-05 | Dynamic Workflows, effort control |
-| Claude Fable 5 | 2026-06 | Mythos tier first public, LiveBench #1 (83%) |
-| Claude Sonnet 5 | 2026-06 | Strongest agentic Sonnet, $2/$10 pricing |
-| Claude Opus 5 | 2026-07 | SWE-bench Verified 96%, coding champion |
+| Version | Date | Key facts | What it changed for model selection |
+|---|---|---|---|
+| Claude 1 | 2023-03 | First public model, 9K context, Constitutional AI training | Safety and refusal boundaries became Claude's selling point |
+| Claude 2 / 2.1 | 2023-07 / 2023-11 | 100K → 200K context, system prompts, tool-use experiments | Long-document analysis became an early Claude strength |
+| Claude 3 Opus/Sonnet/Haiku | 2024-03 | Three-tier lineup established, multimodal (vision) | Picking a model by price tier began, rather than "just Claude" |
+| Claude 3.5 Sonnet | 2024-06 / 2024-10 | Sonnet surpassed the previous Opus; Artifacts, Computer Use beta | The mid-priced Sonnet became most people's default |
+| Claude 3.7 Sonnet | 2025-02 | First hybrid reasoning model, Claude Code launched | Reasoning depth became adjustable; coding agents got an official tool |
+| Claude 4 / 4.5 | 2025-05–11 | Agentic coding generation, MCP standardized | Claude became one of the main options for agentic coding |
+| Claude 4.6 / 4.7 / 4.8 Opus | 2026-02–05 | 1M context, new tokenizer, adaptive thinking, effort control | 1M context and the effort parameter became standard; Opus pricing dropped to $5/$25 and held for several generations |
+| Claude Fable 5 / Sonnet 5 / Opus 5 | 2026-06–07 | Fable tier added (Mythos as the limited version); Sonnet 5 at $2/$10; Opus 5 SWE-bench Verified 96% | The lineup went from three tiers to four; Sonnet 5's promotional price became permanent ([pricing note](/posts/daily/2026-08-17-pricing-anthropic-sonnet-5-price-freeze-en)) |
+| Claude Fable 5.1 | 2026-09-01 | Artificial Analysis Intelligence Index 66, cache hits cut to $0.25 | The top tier improved in score and cache cost at once ([model card](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)) |
+| Claude Opus 5.5 | 2026-09-22 | $4/$20; Anthropic says it matches Fable 5.1 on most work at 40% lower cost than Opus 5 | The default moved from Sonnet / Opus 5 to Opus 5.5; the first Opus price cut in several generations ([model card](/posts/daily/2026-09-25-model-anthropic-claude-opus-5-5-en)) |
+| Claude Sonnet 5.5 | 2026-09-28 | Same unit price, Terminal-Bench 4.0 from 10.3% to 70.6% | A big capability jump in the everyday tier; savings came from fewer tokens rather than lower prices ([pricing analysis](/posts/daily/2026-09-30-pricing-anthropic-claude-sonnet-5-5-flat-pricing-en)) |
+| Claude Haiku 5.5 | 2026-10-07 | 1M context, first Haiku with adjustable effort, about 75% lower average cost | Small models became viable for computer use and subagents ([model card](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5-en)) |
+| Claude Fable 5.2 / Mythos 5.2 | 2026-11-09 | $8/$40, 20% cheaper and 30% faster output than 5.1 | The current selection baseline; see the sections below ([model card](/posts/daily/2026-11-14-model-anthropic-claude-fable-5-2-en)) |
 
-Three and a half years, 15 milestones. Claude's evolution has one clear through-line: **gradual release from safety research to agent capabilities**. 3.7 Sonnet introduced reasoning, 4.0 introduced agents, 4.6 brought 1M context, 5.0 pushed all capabilities to the limit, and June 2026 added the Mythos tier with Fable 5, expanding the product line from three tiers to four.
+Three and a half years, many milestones. Claude's arc is clear: **from safety research to the gradual release of agent capabilities**. 3.7 Sonnet introduced reasoning, 4.0 introduced agents, 4.6 introduced 1M context, and the 5 generation added a Fable tier for four tiers. The 5.5 generation focused on lower prices and higher speed: Opus 5.5 and Fable 5.2 each cut unit prices by 20% with much cheaper caching, and Haiku 5.5 cut prices sharply.
 
 ## Architecture and training trade-offs
 
 ### Architecture: From Safety Research to Agent Capability
 #### Constitutional AI
 
-Claude has used Constitutional AI since day one. The core idea: instead of massive human annotation to judge "what's a good answer," use a **constitution** (set of principles) to let the model self-critique and self-correct.
+Claude has been trained with Constitutional AI from day one. The core idea: instead of relying on large amounts of human labeling to judge "what's a good answer," it uses a set of **constitutional principles** to let the model critique and revise itself.
 
-Training has two phases:
+Training happens in two stages:
 
-1. **Supervised phase**: Model generates an answer, then critiques it against the constitution, produces a corrected version; these corrected versions are used for fine-tuning
-2. **RLAIF phase** (RL from AI Feedback): Model evaluates two answers per the constitution to train a reward model, then RL reinforces the preferred behavior
+1. **Supervised learning stage**: the model generates answers, critiques them against the constitution, produces revised versions, and is fine-tuned on those
+2. **RLAIF stage** (RL from AI Feedback): the model judges which of two answers better follows the constitution, that preference trains a reward model, and RL reinforces it
 
-The advantage is scalability—no expensive human annotation needed, yet precise behavior control. Claude 2's constitution referenced the Universal Declaration of Human Rights, which is why Claude's refusal boundaries are set by Anthropic and enterprises cannot relax them.
+The advantage is scalability—no expensive human labeling, yet precise control over behavior. Claude 2's constitution drew on principles from documents like the Universal Declaration of Human Rights, which is also why Claude's refusal boundaries are set by Anthropic and can't be loosened by enterprises on their own.
 
-#### Adaptive Thinking
+#### Same Underlying Model, Split into Fable and Mythos by Access
 
-Introduced in Claude 4.7, default in Claude 5. Adaptive Thinking lets the model auto-decide reasoning depth per problem complexity:
+Anthropic's Fable 5.2 announcement states that "Claude Fable and Claude Mythos are the same underlying model." Fable carries stronger cybersecurity and biology safeguards, which lets it be offered to all users; Mythos is only for organizations that pass the Life Sciences or Cyber Verification Program, for security or biomedical research. This mirrors OpenAI splitting Rosalind and Cyber out of the same weights. The safeguards extend downward too: Opus 5.5's biology and cyber capabilities were rated comparable to Mythos 5.1, so it ships with safeguards similar to Fable 5.1's, and Sonnet 5.5 is the first Sonnet to launch with cyber safeguards.
 
-- Simple question ("1+1=?"): direct answer, zero extra thinking tokens
-- Complex question ("fix this bug"): auto-activates deep reasoning
+#### Adaptive Thinking and Effort
 
-Unlike DeepSeek-R1's fixed reasoning path, Adaptive Thinking is dynamic—no manual selector needed. Fable 5 locks it always-on; Opus 5 and Sonnet 5 default on.
+Introduced in Claude 4.7 and made the default in Claude 5. Adaptive Thinking lets the model decide reasoning depth from problem complexity and the effort setting, replacing the old manual budget_tokens mode (deprecated from Opus 4.6 / Sonnet 4.6 and not accepted on later models). In the 5.5 generation, thinking is always on for Fable 5.2 and Opus 5.5 and adjustable on Sonnet 5.5 and Haiku 5.5; default effort differs by model (high for Fable and Sonnet, medium for Opus and Haiku), so check the effort setting when migrating from older models.
+
+#### Multi-model Collaboration: Advisor and Orchestrator
+
+The Fable 5.2 announcement recommends starting most coding and knowledge work on Opus 5.5, then moving up to Fable or down to Sonnet or Haiku as needed. Fable 5.2 can also act as an Advisor (Haiku, Sonnet, or Opus consult it on harder problems) or an Orchestrator (delegating simpler tasks to smaller models). The Haiku 5.5 announcement positions it as a coding subagent for Opus 5.5 and Sonnet 5.5.
 
 #### MCP (Model Context Protocol)
 
-Released November 2024 as a tool integration standard. MCP lets Claude call external tools and data sources via a unified protocol—think USB-C for AI models. It's now the de facto industry standard—OpenAI, Google, Microsoft all support or have announced support. For agent developers, this is Claude's biggest ecosystem leverage.
+The tool-integration standard released in November 2024. MCP lets Claude call external tools and data sources through one protocol—something like a USB-C port for AI models. It's become the de facto industry standard, with OpenAI, Google, and Microsoft supporting or announcing support. For agent developers, this is where Claude's ecosystem influence spills over the most.
 
 #### Claude Code
 
-Launched February 2025 alongside Claude 3.7 Sonnet. Claude Code lets developers collaborate with Claude directly in the terminal: file I/O, Git operations, multi-file edits. By 2026 it's become one of Anthropic's most important products—not just a model wrapper but a deep integration of agent workflows.
+The CLI coding tool launched with Claude 3.7 Sonnet in February 2025. Claude Code lets developers work with Claude directly in the terminal, with file I/O, Git operations, and multi-file editing. By 2026 it's one of Anthropic's most important products—not just a model wrapper, but deeply integrated into agent workflows.
 
 ## Evaluation and alternatives
 
-### Performance Position: Coding & Agentic Leader, But Highest Pricing
-**SWE-bench Verified** (real software engineering tasks):
+### Performance Position
+Headline numbers from each Claude 5.5 generation announcement, all Anthropic self-reported or third-party evaluations cited by Anthropic:
 
-| Model | Score | Pricing (output/MTok) |
-|---|---|---|
-| **Claude Opus 5** | **96%** | $25 |
-| Claude Mythos 5 | 95.5% | $50 |
-| Claude Fable 5 | 95% | $50 |
-| DeepSeek V4 Pro 0813 | 96.4% | $0.87 |
-| Claude Opus 4.8 | 88.6% | $25 |
-| Kimi K3 | 93.4% | — |
-
-Claude Opus 5 leads SWE-bench Verified at 96% (Vals AI independent test: 97%). DeepSeek V4 Pro nearly matches at 96.4% but output pricing is 1/28 of Claude's.
-
-**SWE-bench Pro** (harder software engineering tasks):
-
-| Model | Score |
+| Model | Headline official numbers |
 |---|---|
-| **Claude Mythos 5** | **80.3%** |
-| Claude Fable 5 | 80% |
-| Claude Opus 5 | 79.2% |
+| Claude Fable 5.2 | FrontierSWE v2 69.9% (GPT-6 Astra 65.5%, Gemini 4 Carbon 61.2%); Terminal-Bench-Science 0.1 74.6% (Mythos 5.2 75.3%); OSWorld 2.1 89.3%; AutomationBench 51.4% (Gemini 4 Carbon 53.9%); FrontierCode 2.0 49.1% (xhigh); RoboDojo Sim 64.9% |
+| Claude Opus 5.5 | Terminal-Bench 4.0 66.4% (GPT-6 Astra 57.9%); GDPval-AA v2.1 1846 Elo; AutomationBench 40.0% (GPT-6 Astra 41.4%); Anthropic acknowledges it still trails GPT-6 Astra on AutomationBench and Terminal-Bench-Science |
+| Claude Sonnet 5.5 | Terminal-Bench 4.0 70.6% (Sonnet 5 10.3%); GDPval-AA v2.1 1844, just 2 points below Opus 5.5; OSWorld 2.1 80.1% |
+| Claude Haiku 5.5 | OSWorld 2.1 72.4% (Haiku 4.5 15.7%, GPT-6 Luna 48.9%); Terminal-Bench 4.0 39.2% (GPT-6 Luna 16.4%) |
 
-**LiveBench** (general capability):
+Against third parties and competitor announcements:
 
-| Model | Overall | Coding |
-|---|---|---|
-| **Claude Fable 5** | **83.0%** | 86.0% |
-| GPT-5.6 Sol | 81.1% | 83.9% |
-| Claude Opus 5 | 80.1% | 81.4% |
-| Claude Sonnet 5 | 76.0% | 80.7% |
+| Source | Result |
+|---|---|
+| Artificial Analysis Intelligence Index | Fable 5.2 ranks first at 65, GPT-6.2 Astra 62, Gemini 4 Neon 61 (compiled in the [Neon model card](/posts/daily/2026-11-20-model-google-gemini-4-neon-en)) |
+| OpenAI's GPT-6.2 announcement | On Agents' Last Exam, GPT-6.2 Astra scores 5.5 points above Fable 5.2 at about 5% of the cost, though Fable 5.2's result excludes nine tasks that used a fallback model |
+| Google's Gemini 4 announcements | On AutomationBench, Gemini 4 Neon scores 56.3% and Carbon 53.9%, both above Fable 5.2's 51.4% |
 
-**Versus competitors**:
-
-| Metric | Claude Fable 5 | GPT-5.6 Sol | DeepSeek V4 Pro |
-|---|---|---|---|
-| LiveBench overall | **83.0%** | 81.1% | 77.4% |
-| SWE-bench Verified | 95% | ~95% | 96.4% |
-| Output pricing ($/MTok) | $50 | ~$30 | $0.87 |
-| Context | 1M | 1M | 1M |
-| Open source | ✗ | ✗ | ✓ MIT |
-
-Claude leads on coding and agentic tasks, but at the highest price. DeepSeek nearly matches SWE-bench Verified at 1/28 the cost—beyond raw benchmarks, buying Claude means agentic stability and enterprise support.
+Two cautions. First, Anthropic itself wrote in the Opus 5.5 announcement that at these capability levels benchmark margins have become a less reliable guide to real-world differences, and that the gap between Opus 5.5 and Fable 5.1 in their own use is narrower than the scores suggest. Second, each vendor highlights benchmarks it leads: Claude is strong on FrontierSWE, OSWorld and Terminal-Bench-Science; OpenAI emphasizes cost per task; Google emphasizes AutomationBench. Cross-vendor comparisons need the same benchmark at the same effort setting.
 
 
-### Position Against Competitors
-Placing Claude in the 2026 landscape:
+### Competitive Position
+Placing Claude in the late-2026 landscape:
 
-- **vs GPT-5.6**: Claude leads on coding (SWE-bench Verified 95%) and agentic reliability; GPT wins on browser tasks (BrowseComp 90.4%) and long-horizon agents (Agents' Last Exam). The two closed-source titans—choice depends on the specific task
-- **vs Gemini 3.1**: Gemini leads on scientific reasoning (GPQA 94.1%) and native multimodality; Claude is more stable on coding and text tasks
-- **vs DeepSeek V4**: DeepSeek hits 96.4% on SWE-bench Verified at 1/28 the price, MIT license allows self-host. Claude's edge is holistic agentic stability and enterprise support, not pure benchmarks
-- **vs Qwen3.8 / Kimi K3**: Both offer 2T-class open weights; Claude quality still leads but price is tens of times higher, and no self-host
-- **vs Llama 4 / Mistral**: Both allow self-host (Community License, Apache/Modified MIT); Claude leads on agentic stability and tooling ecosystem (MCP), but lowest openness, highest price
-- **vs GLM**: GLM pursues open-source + domestic compliance; Claude is more mature on English coding and international toolchain integration
+- **vs. GPT**: Fable 5.2 leads GPT-6.2 Astra on the composite index; Astra's advantage is a much lower cost per task (same $8/$40 price, but OpenAI says it uses fewer tokens). Opus 5.5 vs. GPT-6.2 Sol is $4/$20 vs. $2/$10. See the [GPT family](/posts/tech/2026-08-24-ai-model-family-gpt-en)
+- **vs. Gemini**: Gemini 4 Neon ($3/$15) leads on the Coding Agent Index and AutomationBench, while Claude is stronger on FrontierSWE, computer use and the composite index; Gemini's native video/audio input is something Claude lacks. See the [Gemini family](/posts/tech/2026-08-24-ai-model-family-gemini-en)
+- **vs. open models (DeepSeek / Qwen / Kimi / GLM)**: open models can be self-hosted at unit prices one to two orders of magnitude lower; Claude's advantages are agentic reliability, the Claude Code and MCP ecosystem, and enterprise support, but it can't be self-hosted
 
 ## Licensing, pricing, and deployment
 
-### License Trap: Commercial API Only, Zero Open Weights
-Claude is the **only family in this series with zero open weights**—commercial API only, no downloadable weights, no Apache/MIT license. Its "license" is Anthropic's Terms of Service and Acceptable Use Policy. Three catches:
+### The Licensing Trap: Commercial API Only, No Open Weights
+Claude is one of the few families in the series with no open weights at all—commercial API only, no downloadable weights, no Apache/MIT license. Its "license" is Anthropic's Terms of Service and Acceptable Use Policy. That brings four caveats:
 
-- **No self-host**: All inference must go through Anthropic API or authorized clouds (AWS Bedrock, GCP Vertex). Data-sovereignty-sensitive sectors (healthcare, defense) needing fully on-prem deployment: Claude is a non-starter
-- **Terms can change**: Anthropic reserves the right to adjust pricing, rate limits, acceptable-use scope anytime. 2024 saw developer backlash over a policy shift
-- **Safety filter unremovable**: Constitutional AI's refusal boundaries are set by Anthropic; enterprises cannot relax them—material limitation for agent scenarios needing gray-area content
+- **No self-hosting**: all inference must go through Anthropic's API or authorized clouds. Data-sovereignty-sensitive industries needing fully on-premises deployment can't use Claude
+- **Terms can change**: Anthropic reserves the right to adjust pricing, rate limits, and acceptable use at any time
+- **Safety filtering can't be switched off by you**: refusal boundaries are set by Anthropic. The only way to loosen cyber or biology restrictions is to apply to a verification program for Mythos or verified Opus 5.5 access, not a setting you control
+- **Lifespans differ by platform**: the official deprecation dates apply only to Anthropic-operated platforms (Claude API, Claude Platform on AWS, Anthropic-managed Google Cloud, Microsoft Foundry); Amazon Bedrock and Google-managed Google Cloud set their own dates. For example, Sonnet 4 retired from the Claude API on 2026-06-15, four months before Bedrock
 
-Versus Qwen (Apache 2.0 / custom), Llama 4 (Community License, at least downloadable), DeepSeek (MIT), Mistral (Apache/Modified MIT), Claude's "openness" is the lowest in the series. If your deployment depends on "I control the model," Claude is off the table—this line matters more than benchmark scores.
+Retirement and migration dates to watch:
+
+- **Sonnet 4.5** retires from Anthropic-operated platforms on 2026-11-30, with Sonnet 5.5 as the recommended replacement ([retirement notice](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement-en))
+- **Opus 4.8's fast mode** is deprecated, with Opus 5.5 fast mode as the recommended replacement ([sunset notice](/posts/daily/2026-11-09-pricing-anthropic-claude-opus-4-8-fast-mode-sunset-en))
+- **Haiku 4.5**'s retirement commitment was "not sooner than 2026-10-15," a date that has passed, so a deprecation could be announced at any time
+- **New models' commitments**: Fable 5.2, Opus 5.5, Sonnet 5.5 and Haiku 5.5 are all "not sooner than one year after release," and Anthropic commits to at least 60 days' notice before retirement
 
 
-### Claude 5 Series: Fable 5 and Opus 5—How to Choose
-June–July 2026's 5th-gen four-tier lineup serves distinct roles:
+### The Claude 5.5 Generation: Choosing Between Fable, Opus, Sonnet, and Haiku
+See the four-tier comparison table above for pricing and specs. Other billing rules:
 
-| Item | Fable 5 | Opus 5 | Sonnet 5 | Haiku 4.5 |
-|---|---|---|---|---|
-| Positioning | Strongest reasoning, long-horizon agents | Complex coding, enterprise workloads | Daily coding, high throughput | Fast response, low cost |
-| Input ($/MTok) | $10 | $5 | $2 | $1 |
-| Output ($/MTok) | $50 | $25 | $10 | $5 |
-| Context | 1M | 1M | 1M | 200K |
-| Max output | 128K | 128K | 128K | 64K |
-| Adaptive thinking | Always on | Default on | Default on | — |
-| Recommended use | Long-horizon planning, hardest reasoning | Agentic coding first choice | Default recommended, balance cost | Classification/extraction, high throughput |
+- **Fast mode**: up to 2.5x output speed. Fable 5.2 fast mode is $16/$80; Opus 5.5 also offers fast mode; it's still a research preview on Opus 5 and deprecated on Opus 4.8
+- **US-only inference**: on Claude 4.6 and later, setting `inference_geo: "us"` multiplies all token prices by 1.1
+- **Batch API**: the Message Batches API is 50% of standard; Opus 5.5, Sonnet 5.5 and Haiku 5.5 can output up to 300K tokens with a beta header
+- **Older models still listed**: Fable 5.1 and Fable 5 stay at $10/$50, so you must switch the model ID manually to get Fable 5.2's lower price; Opus 5 $5/$25, Sonnet 5 $2/$10, Haiku 4.5 $1/$5
 
-Pricing and specs from [Claude official model overview](https://platform.claude.com/docs/en/about-claude/models/overview) and [Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing).
+Pricing and specs come from the [Claude models overview](https://platform.claude.com/docs/en/about-claude/models/overview) and [Claude Pricing](https://platform.claude.com/docs/en/about-claude/pricing).
 
 ## Agent integration and selection
 
-### What This Means for Agent Developers
-- **Multi-step autonomous agents** → Claude's agentic capabilities (tool use, computer use, multi-step planning) are the most stable across all models. BrowseComp, OSWorld, and other agent benchmarks show persistent Claude leadership
-- **Long-horizon coding agents** → Opus 5 and Fable 5 sustain multi-hour autonomous coding sessions without context loss
-- **Enterprise-grade tool integration** → MCP protocol is already industry standard; Claude's MCP support is the most native
-- **Safety-sensitive scenarios** → Constitutional AI's alignment quality is best among all frontier models; Opus 5 certified by Anthropic as "most aligned model"
-- **High-throughput / cost-sensitive production** → Sonnet 5 at $10/MTok is good value, but DeepSeek V4 Flash at $0.28 is another magnitude; clear bug fixes can use DeepSeek V4 Pro (SWE-bench 96.4%, cost 1/28)
-- **Local deployment** → Claude is closed-source, no self-host. Need local? Look at Qwen or DeepSeek
-
-The most pragmatic mix-and-match strategy is **pick the model per task**:
-
-| Task | Recommended Model | Reason |
-|---|---|---|
-| Complex agent orchestration | Claude Opus 5 / Fable 5 | Strongest agentic capability |
-| Daily coding agent | Claude Sonnet 5 | Quality sufficient, 60% cost savings |
-| Clear bug fix | DeepSeek V4 Pro | SWE-bench 96.4%, cost 1/28 |
-| High-throughput classification/summary | DeepSeek V4 Flash | $0.14 input, 2,500 concurrent |
-| Local deployment | Qwen3.8-27B | Apache 2.0, self-hostable |
+### What It Means for Agent Developers
+- **Not sure which to use** → start with Opus 5.5: Anthropic recommends starting most work there, moving up to Fable if it falls short or down to Sonnet/Haiku if it costs too much
+- **Hardest reasoning, long-horizon agents, scientific research** → Fable 5.2: #1 on the composite index, leading on FrontierSWE, Terminal-Bench-Science and OSWorld; can also act as an Advisor for other models
+- **Well-scoped everyday coding, documents and slides** → Sonnet 5.5: $2/$10, Terminal-Bench 4.0 70.6%, faster than Opus
+- **High-volume classification, extraction, routing, coding subagents** → Haiku 5.5: $0.10/$0.50 for short prompts; note the price is 5x above 100K
+- **Security or biomedical research** → apply to the Cyber or Life Sciences Verification Program to use Mythos 5.2 or Opus 5.5 with relaxed safeguards
+- **Enterprise tool integration** → MCP is already the industry standard, and Claude's MCP support is the most native
+- **Still on Sonnet 4.5 or Opus 4.8 fast mode** → migrate per the retirement schedule; the newer tokenizer produces about 30% more tokens, so estimate the real bill on your own requests
+- **Local deployment** → Claude is closed and can't be self-hosted. For local deployment, look at Qwen or DeepSeek
 
 ## Limitations and trade-offs
 
-Claude cannot be self-hosted, and enterprises cannot relax its safety refusal boundaries. High-quality agents carry higher token costs and dependence on service terms.
+Claude can't be self-hosted, and enterprises can't loosen its refusal boundaries themselves—the only route is a verification program. Official benchmarks are mostly self-reported, and each vendor picks the items it leads; Anthropic itself admits benchmark margins are unreliable at this capability level. High-quality agents come with higher token costs and dependence on the terms of service, and retirement dates differ across cloud platforms, so check the platform you actually call.
 
 ### Overall
-Claude's story is "how safety research became commercial moat." Anthropic started from AI safety, built a technical wall around model alignment with Constitutional AI, then converted model capabilities into developer tools via MCP and Claude Code. The 2026 four-tier lineup—Fable (strongest reasoning), Opus (coding), Sonnet (daily), Haiku (fast)—covers every price band from $1 to $10.
+Claude's story is "how safety research became a commercial edge." Anthropic started from AI safety, built an alignment moat with Constitutional AI, then turned model capability into developer tools with MCP and Claude Code. The 2026 four-tier lineup spans every price band from Haiku 5.5's $0.10 to Fable 5.2's $40.
 
-For agent developers, Claude is currently the first choice for tool use and multi-step autonomous tasks. Opus 5's 96% on SWE-bench Verified nearly matches DeepSeek V4 Pro, but the agentic benchmark gap remains clear. If you're building agents that need to run autonomously for hours, Claude's reliability is unmatched—just remember this reliability can't be bought via self-host, nor locked in with an open-source license.
+The theme of the 5.5 generation is cheaper tiers catching up with the previous top tier: Opus 5.5 reaches Fable 5.1 level at 20% lower prices; Sonnet 5.5 comes close to Opus 5.5 on some evaluations; Haiku 5.5 costs about 75% less. For agent developers the pragmatic approach is to default to Opus 5.5, send the hardest tasks to Fable 5.2, and hand high-volume execution to Sonnet or Haiku. That capability still can't be bought with self-hosting, or locked in with an open license.
 
 
 ## Update history
 
+- **2026-11-20**: Added the Claude 5.5 generation (Fable 5.1, Opus 5.5, Sonnet 5.5, Haiku 5.5, Fable 5.2 / Mythos 5.2). Rewrote the version matrix, four-tier pricing table, sub-line table, evaluation, retirement dates and selection guide based on Claude's official models overview, pricing page, deprecations page and announcements as of 2026-11-20; added the Fable/Mythos shared underlying model, Advisor/Orchestrator collaboration, and caching and tokenizer billing details. The Claude 5 generation moved to history: the Fable 5 / Opus 5 SWE-bench and LiveBench comparison tables and selection table left the main text, and the figures from that time are in the daily model cards linked from the timeline; each timeline row now notes what it changed for model selection. Corrected errors: the article called Claude the "only" family in the series without open weights, now "one of the few"; the claim that Opus 5 was certified as "the most aligned model" had no source and now cites the Opus 5.5 announcement's automated behavioral audit; Haiku 4.5 is no longer the current lightweight tier.
 - **2026-10-11**: Reorganized the article into the shared family format and added a matrix derived from existing content. Existing versions, prices, and source dates were retained; no new fact-check was performed.
 
 ## References
 
-- [Anthropic Official](https://www.anthropic.com)
+- [Introducing Claude Fable 5.2 and Claude Mythos 5.2 — Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-2)
+- [Introducing Claude Opus 5.5 — Anthropic](https://www.anthropic.com/claude-opus-5-5)
+- [Introducing Claude Sonnet 5.5 — Anthropic](https://www.anthropic.com/claude-sonnet-5-5)
+- [Introducing Claude Haiku 5.5 — Anthropic](https://www.anthropic.com/claude-haiku-5-5)
+- [Claude Fable 5.1 and Mythos 5.1 — Anthropic](https://www.anthropic.com/claude-fable-and-mythos-5-1)
 - [Claude Models Overview — Claude Platform Docs](https://platform.claude.com/docs/en/about-claude/models/overview)
 - [Claude Pricing — Claude Platform Docs](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Model deprecations — Claude Platform Docs](https://platform.claude.com/docs/en/about-claude/model-deprecations)
 - [Introducing Claude Opus 5](https://www.anthropic.com/news/claude-opus-5)
 - [Introducing Claude Sonnet 5](https://www.anthropic.com/news/claude-sonnet-5)
 - [Claude Fable 5 and Claude Mythos 5](https://www.anthropic.com/news/claude-fable-5-mythos-5)
 - [Constitutional AI: Harmlessness from AI Feedback (arXiv:2212.08073)](https://arxiv.org/abs/2212.08073)
+- [Anthropic](https://www.anthropic.com)
 - [Claude Model History — ClaudeKit Guide](https://getclaudekit.com/blog/models/claude-model-history)
-- [SWE-bench Verified Leaderboard](https://www.swebench.com)
-- [LiveBench Leaderboard](https://livebench.ai)
-- [Vals AI SWE-bench Results](https://www.vals.ai/benchmarks/swebench)
 - [Anthropic Wikipedia](https://en.wikipedia.org/wiki/Anthropic)
 - [Claude (AI) Wikipedia](https://en.wikipedia.org/wiki/Claude_(AI))
-- [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources) — this site
-- [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview) — this site
+- [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en) — this site
+- [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) — this site

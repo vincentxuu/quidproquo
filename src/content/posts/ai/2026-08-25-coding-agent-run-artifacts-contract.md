@@ -13,7 +13,7 @@ description: "對照 codex、omp、pi、opencode、claude-code 五家原始碼�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract-en)
 
 上一篇講了[測試一個會動的 agent](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent)，這篇處理測試之後的問題：run 跑完（或跑一半死掉）之後，留下什麼？
 

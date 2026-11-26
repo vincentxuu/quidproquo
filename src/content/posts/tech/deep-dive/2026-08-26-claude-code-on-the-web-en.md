@@ -13,7 +13,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web)
 
 The previous post covered [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide-en): the program runs on your machine, the browser is just a remote. This post covers the other half — **cloud execution**, where the code never runs on your machine at all. Both share the claude.ai/code interface; the difference is where the session executes. Drawing that boundary precisely is this post's main job.
 

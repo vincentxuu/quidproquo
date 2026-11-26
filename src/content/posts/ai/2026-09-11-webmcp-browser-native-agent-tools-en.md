@@ -10,7 +10,7 @@ description: "A deep dive into WebMCP's two APIs (Declarative HTML annotations /
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-11-webmcp-browser-native-agent-tools)
+> :globe: [中文版](/posts/ai/2026-09-11-webmcp-browser-native-agent-tools)
 
 AI agents interacting with web pages today have bad options. Screenshot-based approaches burn thousands of tokens per image and break on redesigns. DOM parsing falls apart on pages cluttered with ads and tracking scripts. Building a dedicated backend MCP server adds another layer of infrastructure. WebMCP takes a different approach: websites **declare** what they can do, and agents call those capabilities directly.
 

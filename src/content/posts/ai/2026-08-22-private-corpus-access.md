@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-private-corpus-access-en)
+> :globe: [English version](/posts/ai/2026-08-22-private-corpus-access-en)
 
 私有語料進了搜尋索引，不代表它已經可以安全地被查詢。真正麻煩的是：使用者的群組剛被移除、文件剛改成機密、來源剛刪除一頁時，關鍵字索引、向量索引、快取與摘要副本不會在同一瞬間更新。
 

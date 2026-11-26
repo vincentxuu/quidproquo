@@ -22,7 +22,7 @@ glossary:
     context: "Silbernagel 2007 年的阿基里斯腱研究用的就是這種方法；攀岩界常用的版本來自 Hooper's Beta 與 The Climbing Doctor。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-return-to-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-18-return-to-climbing-en)
 
 五週前，你在一個小點上用全封閉抓的時候，無名指根部痛了一下。醫師說是滑車輕微拉傷，可以慢慢回去爬。現在手指不痛了，你很想直接回去試那條卡了一個月的路線。
 

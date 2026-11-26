@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-12-tool-mcp-bi)
+> :globe: [中文版](/posts/daily/2026-09-12-tool-mcp-bi)
 
 ## Tool Info
 
@@ -87,11 +87,11 @@ python3 scripts/verify-superset.py ./target/release/mcp-bi
 
 | | mcp-bi | Handing an agent a dashboard screenshot | A single-platform BI MCP (e.g. Metabase-only) |
 |---|---|---|---|
-| Switch BI platforms without touching agent code | ✅ (12 unified tools) | — | ❌ (switching platforms means switching MCP servers) |
-| Charts returned with underlying statistics | ✅ `bi_render_chart` returns PNG + numbers together | ❌ the model guesses from the image | Depends on the implementation |
-| Try the tool interface without real credentials | ✅ default `memory` fixture | — | Usually requires a real account first |
+| Switch BI platforms without touching agent code | ✓ (12 unified tools) | — | ✗ (switching platforms means switching MCP servers) |
+| Charts returned with underlying statistics | ✓ `bi_render_chart` returns PNG + numbers together | ✗ the model guesses from the image | Depends on the implementation |
+| Try the tool interface without real credentials | ✓ default `memory` fixture | — | Usually requires a real account first |
 | Real-world verification across commercial platforms | Partial: Superset tested against a live instance; the other 5 are implementation-from-docs only, untested against a real tenant | — | Usually just the one platform it targets, so verification is more concentrated |
-| Read-only, no dashboard write/edit capability | ✅ (`writes_allowed = "none"`) | — | Depends on the implementation |
+| Read-only, no dashboard write/edit capability | ✓ (`writes_allowed = "none"`) | — | Depends on the implementation |
 
 ## Caveats
 

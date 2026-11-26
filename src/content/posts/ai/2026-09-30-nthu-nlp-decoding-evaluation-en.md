@@ -24,7 +24,7 @@ glossary:
     context: "The slides show 'the the the the the the' getting only 1/6."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

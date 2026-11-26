@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-azure-app-service)
+> :globe: [中文版](/posts/tech/2026-08-22-azure-app-service)
 
 [Azure App Service](https://learn.microsoft.com/azure/app-service/overview) is a PaaS for web apps, REST APIs, and mobile backends. It supports .NET, Java, Node.js, Python, PHP, and Windows or Linux custom containers. Its abstraction is a hosted website platform, not a general container orchestrator.
 

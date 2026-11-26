@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-15-product-builder-interview-daily)
+> :globe: [中文版](/posts/daily/2026-09-15-product-builder-interview-daily)
 
 ## Today's Topic
 

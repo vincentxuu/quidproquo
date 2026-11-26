@@ -13,7 +13,7 @@ description: "Where seven companies converge on agent reliability, four producti
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-model-component-harness-system)
+> :globe: [中文版](/posts/ai/2026-08-10-model-component-harness-system)
 
 [Part 1](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en) drew the workflow/agent line and left one thread hanging: compounding error means "a few more steps" is not linearly harder. This part covers the industry's shared answer to that.
 

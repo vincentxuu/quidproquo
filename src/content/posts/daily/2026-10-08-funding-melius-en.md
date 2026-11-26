@@ -12,7 +12,7 @@ series:
   order: 76
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-funding-melius)
+> :globe: [中文版](/posts/daily/2026-10-08-funding-melius)
 
 ## Deal Terms
 

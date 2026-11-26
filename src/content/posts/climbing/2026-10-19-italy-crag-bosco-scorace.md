@@ -13,7 +13,7 @@ description: "斯科拉切森林（Bosco Scorace）抱石區介紹：砂岩岩�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-bosco-scorace-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-bosco-scorace-en)
 
 斯科拉切森林（Bosco Scorace）在西西里西部特拉帕尼省（Trapani）的內陸，介於 Ummari 和 Buseto Palizzolo 兩個小村之間。西西里的攀岩多半是海邊的石灰岩運攀，這裡則是一片長滿尤加利、橡樹與栓皮櫟的林地，散布著砂岩巨石。[UKC 的西西里指南](https://www.ukclimbing.com/articles/destinations/sicily-14498)說「If you are a boulderer, the best place is Bosco Scorace」。
 

@@ -35,7 +35,7 @@ glossary:
     context: "技法第 9 堂用「缺體重就改看身高」說明 C&RT 怎麼處理缺值。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-decision-tree-random-forest-gbdt-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [209_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/209_handout.pdf) 與四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 

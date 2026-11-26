@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-25-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-25-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -114,13 +114,13 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-github-digest)
-- 📄 [框架更新｜Agno 3.0.0](/posts/daily/2026-08-25-framework-agno-3.0.0)
-- 📄 [融資速報｜Rundoo Series B $30M](/posts/daily/2026-08-25-funding-rundoo)
-- 📄 [模型卡｜GLM-5.3](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
-- 📄 [資安警報｜Claude Mythos 5 社交工程事件](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering)
-- 📄 [工具推薦｜mcp-guardrail](/posts/daily/2026-08-25-tool-mcp-guardrail)
+- :file: [AI Agent Arxiv Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-25](/posts/daily/2026-08-25-ai-agent-github-digest)
+- :file: [框架更新｜Agno 3.0.0](/posts/daily/2026-08-25-framework-agno-3.0.0)
+- :file: [融資速報｜Rundoo Series B $30M](/posts/daily/2026-08-25-funding-rundoo)
+- :file: [模型卡｜GLM-5.3](/posts/daily/2026-08-25-model-zhipu-glm-5-3)
+- :file: [資安警報｜Claude Mythos 5 社交工程事件](/posts/daily/2026-08-25-security-aisi-mythos5-agent-social-engineering)
+- :file: [工具推薦｜mcp-guardrail](/posts/daily/2026-08-25-tool-mcp-guardrail)
 
 ## 明日關注
 

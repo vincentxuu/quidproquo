@@ -13,7 +13,7 @@ description: "The full story of Dense Discovery founder Kai Brach: from web desi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-26-dense-discovery-deliberate-small)
+> :globe: [中文版](/posts/career/2026-08-26-dense-discovery-deliberate-small)
 
 Every other case in this series chases numbers — millions of subscribers, eight-figure revenue, acquisition exit prices. Kai Brach's Dense Discovery is the one that deliberately went the other way.
 

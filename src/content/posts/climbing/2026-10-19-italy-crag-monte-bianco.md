@@ -13,7 +13,7 @@ description: "白朗峰義大利側（Courmayeur）的高山花崗岩多段介�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-monte-bianco-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-monte-bianco-en)
 
 白朗峰（義大利文 Monte Bianco）的義大利側在奧斯塔谷（Valle d'Aosta）最西端的 Courmayeur。對攀岩者來說，這裡有兩種完全不同的去法：搭 [Skyway Monte Bianco](https://www.montebianco.com/en/info/cableway-access-schedules) 纜車上到 3,466 公尺的 Punta Helbronner，再走冰河去爬 Mont Blanc du Tacul 東南側那一排紅色花崗岩塔。另一種是開進 Val Ferret 谷底，沿冰磧走進冰斗爬長路線。
 
@@ -110,7 +110,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | Cric e Croc | 6b+ | 5.10d | 約 150 m | Rognon Vaudano | Planetmountain：裂隙加技術性 slab，在 Dente del Gigante 下方 |
 | [Dromi](https://www.planetmountain.com/it/itinerari/dromi-petit-greuvetta.html) | 最難 6b+，必要 6a | 5.10d | 600 m | Petit Greuvetta（Val Ferret） | 1996 年首攀；下段 12 mm 膨脹螺栓，上段裂隙保護少；從 Lavachey 走 2 小時 |
 | Bonne Ethique | 最難 6c+ | 5.11c | 多段 | Trident du Tacul | Planetmountain 標 ED；第 4 段 6c+ 看手指粗細 |
-| [Calcul du Roi](https://www.planetmountain.com/it/itinerari/calcul-du-roi-roi-du-siam-petit-capucin.html) | 6c（或 6a+/A0），必要 6a | 5.11a/b | 300 m，10 段 | Roi du Siam（Petit Capucin） | ⚠️ 2024 年 7 月發現第 3 站上方有懸空岩板，Planetmountain 頁面強烈建議不要爬 |
+| [Calcul du Roi](https://www.planetmountain.com/it/itinerari/calcul-du-roi-roi-du-siam-petit-capucin.html) | 6c（或 6a+/A0），必要 6a | 5.11a/b | 300 m，10 段 | Roi du Siam（Petit Capucin） | :warning: 2024 年 7 月發現第 3 站上方有懸空岩板，Planetmountain 頁面強烈建議不要爬 |
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 

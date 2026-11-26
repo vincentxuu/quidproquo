@@ -13,7 +13,7 @@ description: "Champorcher 抱石區介紹：岩質說法不一（蛇紋岩或花
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-champorcher-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-champorcher-en)
 
 Champorcher 是奧斯塔谷下游往南分出去的一條支谷，谷口在 Hône，離 Bard 堡壘很近。抱石區在上山往 Champorcher 村的路上，岔進 Val de la Legne 之後，巨石沿著溪流和冷杉林分布。2013 年 Niccolò Ceria 在這裡首登 The Ghost Ship（8B+）時，在 [Planetmountain](https://www.planetmountain.com/en/news/climbing/niccolo-ceria-drifts-up-the-ghost-ship-at-champorcher.html) 寫道，這裡「might be the best bouldering area in the entire Valle d'Aosta」，可能是整個奧斯塔谷最好的抱石區。那顆最有名的巨石就在路邊，車可以直接停在下面。
 

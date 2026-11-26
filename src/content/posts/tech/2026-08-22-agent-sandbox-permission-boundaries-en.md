@@ -10,10 +10,13 @@ description: "AI agent sandbox threat models, container, VM, and isolate boundar
 series:
   name: "Technology Choices in the AI Era"
   order: 121
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 21
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-agent-sandbox-permission-boundaries)
+> :globe: [中文版](/posts/tech/2026-08-22-agent-sandbox-permission-boundaries)
 
 An AI agent that can execute shells, Python, browsers, MCP tools, or cloud APIs is an untrusted workload processing attacker-controlled instructions. Prompt injection need not break a model persona: a repository README, web page, email, or tool result can simply induce a privileged action.
 

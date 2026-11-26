@@ -10,8 +10,8 @@ tldr: "字節跳動開源(MIT)的 UI 自動化框架。UI 動作只靠截圖餵�
 description: "深入介紹 Midscene.js:純視覺 UI 自動化的設計取捨、三類 API 與兩種自動化風格、多模型策略、快取機制、從 MCP 轉向 Skills 的生態變動,以及與 Stagehand、browser-use 的差異。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 5
+  name: "AI 瀏覽器自動化"
+  order: 10
 glossary:
   - term: "VLM"
     aliases: ["視覺語言模型", "Vision-Language Model"]

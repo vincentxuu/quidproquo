@@ -12,7 +12,7 @@ series:
   order: 57
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-11-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-11-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -160,15 +160,15 @@ Australia's assistant minister proposed replacing fixed capability lists with de
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Pydantic AI 2.55.0](/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0-en)
-- 📄 [Funding Brief｜TypeSafe AI Series A $870M](/posts/daily/2026-10-11-funding-typesafe-ai-en)
-- 📄 [Funding Brief｜Ghost's $11M Seed](/posts/daily/2026-10-11-funding-ghost-en)
-- 📄 [Funding Brief｜Meticulous Series A $15M](/posts/daily/2026-10-11-funding-meticulous-en)
-- 📄 [Tool Recommendation｜Opengeni](/posts/daily/2026-10-11-tool-opengeni-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-11: Weekly Review & Behavioral](/posts/daily/2026-10-11-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-11: Behavioral & Weekly Review](/posts/daily/2026-10-11-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-11](/posts/daily/2026-10-11-ai-agent-github-digest-en)
+- :file: [Framework Update｜Pydantic AI 2.55.0](/posts/daily/2026-10-11-framework-pydantic-ai-2.55.0-en)
+- :file: [Funding Brief｜TypeSafe AI Series A $870M](/posts/daily/2026-10-11-funding-typesafe-ai-en)
+- :file: [Funding Brief｜Ghost's $11M Seed](/posts/daily/2026-10-11-funding-ghost-en)
+- :file: [Funding Brief｜Meticulous Series A $15M](/posts/daily/2026-10-11-funding-meticulous-en)
+- :file: [Tool Recommendation｜Opengeni](/posts/daily/2026-10-11-tool-opengeni-en)
+- :file: [AI Engineer Interview Daily — 2026-10-11: Weekly Review & Behavioral](/posts/daily/2026-10-11-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-11: Behavioral & Weekly Review](/posts/daily/2026-10-11-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

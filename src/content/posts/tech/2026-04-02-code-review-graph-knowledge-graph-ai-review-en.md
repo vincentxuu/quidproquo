@@ -10,7 +10,7 @@ description: "A look at code-review-graph's core concept, architecture, tech sta
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-02-code-review-graph-knowledge-graph-ai-review)
+:globe: [中文版](/posts/tech/2026-04-02-code-review-graph-knowledge-graph-ai-review)
 
 What's the biggest waste in AI code review? Feeding the entire repo to an LLM every single time. You change one function, and the AI has to read hundreds of files just to give you feedback. That's exactly what code-review-graph sets out to fix — by building a structural map of your codebase so that, when a change happens, only the genuinely affected parts get extracted.
 

@@ -12,7 +12,7 @@ series:
   order: 39
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-funding-aiuc-en)
+> :globe: [English version](/posts/daily/2026-09-18-funding-aiuc-en)
 
 ## 融資資訊
 

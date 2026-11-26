@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-09-tool-bankmcp)
+> :globe: [中文版](/posts/daily/2026-09-09-tool-bankmcp)
 
 ## Tool Info
 
@@ -86,11 +86,11 @@ create_watch(type: "single_debit_over", account: "Everyday", threshold: 10000)
 
 | | BankMCP | Screenshotting a statement to an LLM | Traditional budgeting app (manual entry) |
 |---|---|---|---|
-| Read-only, no persisted transaction data | ✅ | ❌ (the screenshot content enters the chat log) | Depends on the app |
-| Bank password entered only on the bank's own site | ✅ | ❌ (credentials may end up pasted into chat) | ✅ |
-| Self-hosted, you hold your own keys | ✅ | — | ❌ (mostly cloud SaaS) |
-| MCP-native, agent can query autonomously | ✅ | ❌ | ❌ |
-| Background monitoring rules + webhook alerts | ✅ | ❌ | Partial |
+| Read-only, no persisted transaction data | ✓ | ✗ (the screenshot content enters the chat log) | Depends on the app |
+| Bank password entered only on the bank's own site | ✓ | ✗ (credentials may end up pasted into chat) | ✓ |
+| Self-hosted, you hold your own keys | ✓ | — | ✗ (mostly cloud SaaS) |
+| MCP-native, agent can query autonomously | ✓ | ✗ | ✗ |
+| Background monitoring rules + webhook alerts | ✓ | ✗ | Partial |
 
 ## Things to Watch Out For
 

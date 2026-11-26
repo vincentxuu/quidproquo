@@ -17,7 +17,7 @@ glossary:
     def: "A US AI startup previously known for reinforcement-learning agentic-coding research; Beam is its first open-weight model series"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-18-model-reflection-beam-1-0)
+> :globe: [中文版](/posts/daily/2026-10-18-model-reflection-beam-1-0)
 
 ## Model Overview
 
@@ -49,9 +49,9 @@ glossary:
 | SWE-bench Verified | 81.6% | No predecessor to compare | Inkling 77.6%, Nemotron 3 Ultra 70.7% (GLM/Kimi/Qwen were not reported on this bench) |
 | Terminal-Bench v2.1 | 80.1% | No predecessor to compare | DeepSeek V4.1 Flash 90.6%, Kimi K3 88.3%, GLM 5.3 88.2% |
 | SWE-bench Pro v1 | 66.1% | No predecessor to compare | Qwen 3.8 Max 67.7%, GLM 5.2 62.1% |
-| AIME 2026 | 97.7% | No predecessor to compare | ⚠️ No competitor score was published on the same benchmark |
+| AIME 2026 | 97.7% | No predecessor to compare | :warning: No competitor score was published on the same benchmark |
 
-⚠️ All figures are Reflection's own self-reported evaluations. The "best competitor" column is pulled from the comparison chart in Reflection's October 5 early-access blog post; its evaluation settings differ slightly from the final October 16 model card, so treat the numbers as indicative rather than independently reproduced. The FP8 and NVFP4 checkpoints score 80.2% and 80.7% on SWE-bench Verified respectively — within 1.5 points of BF16.
+:warning: All figures are Reflection's own self-reported evaluations. The "best competitor" column is pulled from the comparison chart in Reflection's October 5 early-access blog post; its evaluation settings differ slightly from the final October 16 model card, so treat the numbers as indicative rather than independently reproduced. The FP8 and NVFP4 checkpoints score 80.2% and 80.7% on SWE-bench Verified respectively — within 1.5 points of BF16.
 
 ## Versus Predecessor / Competitors
 

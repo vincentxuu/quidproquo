@@ -13,7 +13,7 @@ description: "pi-mono (renamed to earendil-works/pi) is a minimal coding agent m
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-series-overview)
 
 ## TL;DR
 
@@ -126,23 +126,23 @@ session-backends/sqlite-node
 
 | Order | Title | Focus Question | Status | Est. Length |
 |---|---|---|---|---|
-| 0 | **Series Overview & Project Tour** (this post) | What is this project? How to read the series? | ✅ Published | — |
-| 1 | **pi from a CLI User's Perspective** | How to install/use? 4 modes? How sessions persist? | 🔄 Writing | ~2500 words |
-| 2 | **Monorepo Architecture & Core Abstractions** | How do 7 packages divide work? Why one-way deps? | ⏳ Planned | ~3000 words |
-| 3 | **pi-ai: Unified Multi-Provider LLM API** | 15+ providers under one interface? Lazy loading? Unified streaming? | ⏳ Planned | ~3500 words |
-| 4 | **Agent Loop: Double-Loop & Event Flow** | Why double while? Steering vs Follow-up? Interrupt handling? | ⏳ Planned | ~4000 words |
-| 5 | **Session Tree: Append-only, Branching, Compaction** | Tree storage? Branching without history mutation? Compaction triggers? | ⏳ Planned | ~3500 words |
-| 6 | **Tool System: Definition, Execution, Parallel/Sequential, Hooks** | Tool definition shape? Before/After hook interception? | ⏳ Planned | ~3000 words |
-| 7 | **Extension System: Hooks, Custom Tools, UI Components, Lifecycle** | What can extensions do? How loaded? How access TUI? | ⏳ Planned | ~4000 words |
-| 8 | **TUI Architecture: Differential Rendering, Component Tree, Layout Engine** | Flicker-free how? Virtual DOM Diff? What is CSI 2026? | ⏳ Planned | ~3500 words |
-| 9 | **Model Catalog, Provider Factory, OAuth & Credential Sync** | Model data generation? Provider lazy loading? OAuth flow? | ⏳ Planned | ~3000 words |
-| 10 | **Remote Session: Client/Server, Protocol, RPC, WebSocket** | Remote session sync? JSON-RPC definition? Reconnection? | ⏳ Planned | ~3000 words |
-| 11 | **Telemetry: Vendor-neutral Contracts, Schema, Conformance** | Why not OpenTelemetry? Schema definition? Conformance tests? | ⏳ Planned | ~2500 words |
-| 12 | **Compaction Deep Dive: Strategy, Token Estimation, Branch Summary, Structured Compaction** | Token estimation? Cut point finding? Extension customization? | ⏳ Planned | ~3500 words |
-| 13 | **Agent Harness, Skills, System Prompt Assembly** | System prompt composition? Skills loading? Prompt templates? | ⏳ Planned | ~2500 words |
-| 14 | **Testing, Quality Gates, Supply-chain Hardening** | Faux provider? Browser smoke? Pinned deps? Shrinkwrap? | ⏳ Planned | ~3000 words |
-| 15 | **Containerization, Sandbox, Permission Model** | Gondolin? Docker? OpenShell? Why no built-in permission? | ⏳ Planned | ~2500 words |
-| 16 | **Release Process, Lockstep Versioning, Binary Build, Trusted Publishing** | Single version publish? Binary build? npm OIDC flow? | ⏳ Planned | ~3000 words |
+| 0 | **Series Overview & Project Tour** (this post) | What is this project? How to read the series? | ✓ Published | — |
+| 1 | **pi from a CLI User's Perspective** | How to install/use? 4 modes? How sessions persist? | :refresh: Writing | ~2500 words |
+| 2 | **Monorepo Architecture & Core Abstractions** | How do 7 packages divide work? Why one-way deps? | :hourglass: Planned | ~3000 words |
+| 3 | **pi-ai: Unified Multi-Provider LLM API** | 15+ providers under one interface? Lazy loading? Unified streaming? | :hourglass: Planned | ~3500 words |
+| 4 | **Agent Loop: Double-Loop & Event Flow** | Why double while? Steering vs Follow-up? Interrupt handling? | :hourglass: Planned | ~4000 words |
+| 5 | **Session Tree: Append-only, Branching, Compaction** | Tree storage? Branching without history mutation? Compaction triggers? | :hourglass: Planned | ~3500 words |
+| 6 | **Tool System: Definition, Execution, Parallel/Sequential, Hooks** | Tool definition shape? Before/After hook interception? | :hourglass: Planned | ~3000 words |
+| 7 | **Extension System: Hooks, Custom Tools, UI Components, Lifecycle** | What can extensions do? How loaded? How access TUI? | :hourglass: Planned | ~4000 words |
+| 8 | **TUI Architecture: Differential Rendering, Component Tree, Layout Engine** | Flicker-free how? Virtual DOM Diff? What is CSI 2026? | :hourglass: Planned | ~3500 words |
+| 9 | **Model Catalog, Provider Factory, OAuth & Credential Sync** | Model data generation? Provider lazy loading? OAuth flow? | :hourglass: Planned | ~3000 words |
+| 10 | **Remote Session: Client/Server, Protocol, RPC, WebSocket** | Remote session sync? JSON-RPC definition? Reconnection? | :hourglass: Planned | ~3000 words |
+| 11 | **Telemetry: Vendor-neutral Contracts, Schema, Conformance** | Why not OpenTelemetry? Schema definition? Conformance tests? | :hourglass: Planned | ~2500 words |
+| 12 | **Compaction Deep Dive: Strategy, Token Estimation, Branch Summary, Structured Compaction** | Token estimation? Cut point finding? Extension customization? | :hourglass: Planned | ~3500 words |
+| 13 | **Agent Harness, Skills, System Prompt Assembly** | System prompt composition? Skills loading? Prompt templates? | :hourglass: Planned | ~2500 words |
+| 14 | **Testing, Quality Gates, Supply-chain Hardening** | Faux provider? Browser smoke? Pinned deps? Shrinkwrap? | :hourglass: Planned | ~3000 words |
+| 15 | **Containerization, Sandbox, Permission Model** | Gondolin? Docker? OpenShell? Why no built-in permission? | :hourglass: Planned | ~2500 words |
+| 16 | **Release Process, Lockstep Versioning, Binary Build, Trusted Publishing** | Single version publish? Binary build? npm OIDC flow? | :hourglass: Planned | ~3000 words |
 
 ### Suggested Reading Orders
 

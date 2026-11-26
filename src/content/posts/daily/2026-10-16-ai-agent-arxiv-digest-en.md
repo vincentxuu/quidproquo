@@ -11,7 +11,7 @@ series:
   order: 145
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-16-ai-agent-arxiv-digest)
+> :globe: [繁體中文版](/posts/daily/2026-10-16-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ Static vulnerability scanning can tell you whether a skill contains suspicious c
 
 ### Deep-Dive Points
 
-- Half the listings show evidence of shell-execution capability; 35% filesystem read, 31% each for filesystem write and network egress, 13% credential access; seven in ten carry at least one privileged capability ⚠️ (self-built, self-operated scanner at Metano Labs, no third-party validation)
+- Half the listings show evidence of shell-execution capability; 35% filesystem read, 31% each for filesystem write and network egress, 13% credential access; seven in ten carry at least one privileged capability :warning: (self-built, self-operated scanner at Metano Labs, no third-party validation)
 - Of 6,061 listings whose frontmatter parses, only 770 declare anything at all, and the declaration vocabulary "cannot express" credential or environment access
 - Among listings that do declare, 59% understate what their bundle can do; ClawHub declares roughly twice as often as skillsmp, but under-declares on 88% of its declarations against 31%
 - The human-review cohort is only 410 listings (91 flagged, 319 not), drawn from a single marketplace, and review was still in progress at measurement time
@@ -192,7 +192,7 @@ Choosing which LLM an agent should use is currently decided by one of two leader
 ### Deep-Dive Points
 
 - The pilot measures 15 open-weight models (0.6B–27B, from Qwen, Gemma, Llama, Ministral, and GLM) on two multi-step tasks with measured GPU energy
-- Order task: Llama 3.2 3B is greenest from 3 to about 100 steps, then Qwen3 8B takes over; at 20 steps the greenest model uses a tenth of the largest model's energy, but by 100 steps that relationship flips to a 4x gap the other way ⚠️ (author's own pilot, 15 runs per model)
+- Order task: Llama 3.2 3B is greenest from 3 to about 100 steps, then Qwen3 8B takes over; at 20 steps the greenest model uses a tenth of the largest model's energy, but by 100 steps that relationship flips to a 4x gap the other way :warning: (author's own pilot, 15 runs per model)
 - Tools task: the greenest model switches hands earlier (at 4, 20, 30, and 50–60 steps), and only 6 of 15 models even complete a 50-step task
 - Predicted and observed crossovers broadly agree: of 88 observed crossovers, 72 fall inside the formula's 95% confidence interval
 - Adoption bar: applying the framework requires a team to actually measure per-step reliability and energy, not just read a leaderboard score

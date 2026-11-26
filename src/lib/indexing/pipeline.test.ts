@@ -115,6 +115,31 @@ describe('embedPosts', () => {
     vi.mocked(embedDocuments).mockClear()
   })
 
+  it('caps a legacy large request to one small checkpointed batch', async () => {
+    const state = makeDatabase({ pending: Array.from({ length: 30 }, (_, i) => ({ chunk_id: String(i).padStart(3, '0'), desired_embedding_hash: 'hash', embedded_hash: null })) })
+    Object.assign(workerEnv, state, { AI: {} })
+    expect(await embedPosts(500)).toMatchObject({ vectors: 20, hasMore: true })
+    expect(vi.mocked(embedDocuments).mock.calls[0][1]).toHaveLength(20)
+    expect(state.pending.filter(row => row.embedded_hash === 'hash')).toHaveLength(20)
+  })
+
+  it('bounds combined contextual input and leaves unprocessed chunks pending', async () => {
+    const state = makeDatabase({ pending: [0, 1, 2].map(i => ({ chunk_id: String(i), desired_embedding_hash: 'hash', embedded_hash: null, content: 'x'.repeat(10000) })) })
+    Object.assign(workerEnv, state, { AI: {} })
+    expect(await embedPosts(20)).toMatchObject({ vectors: 2, hasMore: true })
+    expect(await embedPosts(20)).toMatchObject({ vectors: 1, hasMore: false })
+  })
+
+  it('reports an oversized single chunk without sending it to AI or marking it indexed', async () => {
+    const state = makeDatabase({ pending: [{ chunk_id: 'oversized', desired_embedding_hash: 'hash', embedded_hash: null, content: 'x'.repeat(25000) }] })
+    Object.assign(workerEnv, state, { AI: {} })
+    const result = await embedPosts(20)
+    expect(result).toMatchObject({ vectors: 0, hasMore: true })
+    expect(result.errors[0]).toContain('oversized')
+    expect(embedDocuments).not.toHaveBeenCalled()
+    expect(state.pending[0].embedded_hash).toBeNull()
+  })
+
   it('drains queued deletes before selecting pending embeddings', async () => {
     const state = makeDatabase({
       queue: ['old-1', 'old-2'],

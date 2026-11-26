@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-tool-agentgateway-lint)
+> :globe: [中文版](/posts/daily/2026-09-13-tool-agentgateway-lint)
 
 ## Tool Info
 
@@ -117,11 +117,11 @@ agentgateway-lint config.yaml --format badge > badge.json
 
 | | agentgateway-lint | agentgateway's built-in validation | A generic YAML linter (e.g. yamllint) |
 |---|---|---|---|
-| Checks the config is well-formed | ✅ | ✅ | ✅ (structural level only) |
-| Understands agentgateway-specific fields (binds/backends/mcp…) | ✅ | ✅ | ❌ |
-| Checks security semantics (CORS/auth/rate limit) | ✅ | ❌ | ❌ |
-| Usable as a CI grade gate (`--min-grade`) | ✅ | Not supported — only load-or-fail | Requires writing your own rules |
-| Core functionality has zero dependencies | ✅ (JSON fully supported; a built-in reader handles basic YAML) | — | Depends on the implementation |
+| Checks the config is well-formed | ✓ | ✓ | ✓ (structural level only) |
+| Understands agentgateway-specific fields (binds/backends/mcp…) | ✓ | ✓ | ✗ |
+| Checks security semantics (CORS/auth/rate limit) | ✓ | ✗ | ✗ |
+| Usable as a CI grade gate (`--min-grade`) | ✓ | Not supported — only load-or-fail | Requires writing your own rules |
+| Core functionality has zero dependencies | ✓ (JSON fully supported; a built-in reader handles basic YAML) | — | Depends on the implementation |
 
 ## Caveats
 

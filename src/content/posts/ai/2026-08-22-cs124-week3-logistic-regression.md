@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 3 週導讀：文字分類的特徵
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week3-logistic-regression-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week3-logistic-regression-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 3 週。上一週把文字切成 token、學會數次數；這一週要對整段文字下判斷：這則影評是正面還是負面？這封信是不是垃圾信？
 

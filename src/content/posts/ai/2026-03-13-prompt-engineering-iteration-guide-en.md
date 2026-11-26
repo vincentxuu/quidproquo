@@ -10,7 +10,7 @@ description: "A systematic iteration methodology for Prompt Engineering: the thr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
+> :globe: [中文版](/posts/ai/2026-03-13-prompt-engineering-iteration-guide)
 
 Most people write prompts like this: think of an instruction → feed it to the model → the result is wrong → rephrase it → keep guessing back and forth.
 

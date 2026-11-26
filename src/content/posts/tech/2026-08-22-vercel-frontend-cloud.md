@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-vercel-frontend-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-vercel-frontend-cloud-en)
 
 [Vercel](https://vercel.com/docs/deployments/overview) 是 framework-aware frontend cloud。它讀懂 Next.js 等 framework 的 static asset、route、middleware、SSR 與 function build output。每個 commit 會建立 immutable deployment，再由 production alias 或 preview URL 指向其中一版。
 

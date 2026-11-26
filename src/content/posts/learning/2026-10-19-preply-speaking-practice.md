@@ -9,11 +9,11 @@ description: "介紹 Preply 一對一英文課的選師、個別報價、付費�
 tldr: "Preply 適合想跟固定老師持續練習的人；先用任務試課，再確認每 28 天的支出、預約期限與取消方式，避免買了課卻沒有排進行事曆。"
 series:
   name: "英文口說練習"
-  order: 6
+  order: 24
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-preply-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-preply-speaking-practice-en)
 
 工作會議裡，你可能說得出自己的想法，對方一問「為什麼選這個方案」，回答就散掉了。[Preply](https://preply.com/zh/online/english-tutors) 提供的練習方式，是挑一位線上老師，讓他持續聽你的表達、追問，再依目標安排一對一課程。
 

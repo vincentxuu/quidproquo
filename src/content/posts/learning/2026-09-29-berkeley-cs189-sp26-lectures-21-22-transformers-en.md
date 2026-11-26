@@ -23,7 +23,7 @@ glossary:
     context: "Lec 22 uses it to explain why images and text need positional encodings."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-21-22-transformers)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

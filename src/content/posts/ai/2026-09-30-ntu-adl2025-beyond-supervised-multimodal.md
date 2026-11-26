@@ -26,7 +26,7 @@ glossary:
     context: "ADL Beyond Supervised Learning 講義第 60–70 頁；CLIP 把它用在圖片與文字之間。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

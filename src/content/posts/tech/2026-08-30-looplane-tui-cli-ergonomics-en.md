@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-tui-cli-ergonomics)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-tui-cli-ergonomics)
 
 The first thing a Looplane user meets is the terminal interface. This is where you enter a task, choose a runtime, watch model and tool activity, approve actions when necessary, and receive a successful or failed result. This article stays at that visible interaction boundary. Prompts, workspaces, tool policy, journals, and provider protocols belong to later articles.
 

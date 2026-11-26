@@ -26,7 +26,7 @@ glossary:
     context: "If a single token in the prefix differs, nothing after it can be reused."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -148,11 +148,9 @@ The slide puts question marks in the training column for Sliding Window and Stre
 - **Papers**: for MLA, the attention section of [DeepSeek-V2](https://arxiv.org/abs/2405.04434). For attention sinks, [StreamingLLM](https://arxiv.org/abs/2309.17453). For pruning, [Scissorhands](https://arxiv.org/abs/2305.17118) and [H2O](https://arxiv.org/abs/2306.14048).
 - **Related on this site**: the [Stanford CS336 inference guide](/posts/ai/2026-08-22-cs336-inference-en), the [CME295 LLM systems guide](/posts/ai/2026-09-29-cme295-llm-systems-en), and [TurboQuant+](/posts/ai/2026-04-01-turboquant-plus-kv-cache-compression-en), which shrinks the KV Cache through quantization.
 
-## What this post could and could not verify
+## What this post leaves out
 
-Verified: the text and figures of slides 29–55 (the Gemma 2 table, the OpenAI pricing screenshot, and the Don't Break the Cache chart were read directly from the slide images), the video transcript (from the zh-TW captions on YouTube), and the titles of cited papers (checked on arXiv).
-
-Not verified: the captions mishear the head count as 30 and name a different model for the pricing example; this post uses the numbers on the slides (32 heads, gpt-5.4 prices). The slide only shows a screenshot of the pricing table, and this post did not check OpenAI's current prices, so check the official page for real numbers. In the summary table, the "Other cost" cells for GQA, MLA, Sliding Window, and StreamingLLM are blank on the slide.
+The captions mishear the head count as 30 and name a different model for the pricing example; this post uses the numbers on the slides (32 heads, gpt-5.4 prices). The pricing table on the slide is a screenshot of prices at the time; check OpenAI's official page for current prices. In the summary table, the "Other cost" cells for GQA, MLA, Sliding Window, and StreamingLLM are blank on the slide.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 1: Flash Attention](/posts/ai/2026-09-30-ntu-ml2026-flash-attention-en) | Next: [HW3: LLM Fast Inference](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
 
@@ -180,6 +178,7 @@ Content check: verified against the video transcript (2026-10-10): video fDQaadK
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The transcript matches the post; only a note was added that the spoken Don't Break the Cache figure differs slightly from the chart.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

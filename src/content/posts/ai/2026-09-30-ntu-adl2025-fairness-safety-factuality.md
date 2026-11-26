@@ -26,7 +26,7 @@ glossary:
     context: "ADL 投影片第 25 頁介紹 FactScore、LongFact 的長文事實性評估流程。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-fairness-safety-factuality-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

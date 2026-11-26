@@ -27,7 +27,7 @@ glossary:
     context: "L6 後半的評測與訓練環境幾乎都沿用它的題目格式。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
+> :globe: [English version](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -243,7 +243,7 @@ L6 是 Capabilities 模組之後的第一個 Domain，把前五講的零件（�
 
 ## 延伸閱讀
 
-- 站內：[Stanford CS329Z Week 9：寫程式的智慧體](/posts/ai/2026-09-10-stanford-cs329z-week9-coding-agents)（SWE-agent 的 ACI 與 OpenHands 平台）
+- 站內：[Stanford CS329Z 第 17 堂：寫程式的智慧體](/posts/ai/2026-09-10-stanford-cs329z-lecture-17-coding-agents)（SWE-agent 的 ACI 與 OpenHands 平台）
 - 站內：[Coding agent 的編輯工具取捨](/posts/ai/2026-08-25-coding-agent-edit-tool-tradeoffs)
 - 站內：[Coding agent 的工具組設計哲學](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy)
 - 站內：[Coding agent 的驗證關卡](/posts/ai/2026-08-25-coding-agent-verification-gate)

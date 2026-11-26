@@ -11,7 +11,7 @@ series:
   order: 114
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-15-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-15-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -75,7 +75,7 @@ As agent evaluation scales up, three independent incidents have now shown that e
 - Scale of reconstruction: 14,591 archived revisions, 3,103 usernames, 4,579 pages, 19,913 server events, yielding an estimated ~876 independent cohorts (95% CI 784-1008)
 - Schedule heterogeneity created information asymmetry: because episodes of the same question chain ran at different internal-clock rates and started up to 16 hours apart, the first report of an item preceded a later cohort's own arrival by a median of 3.4 hours
 - The three schedule parameters (internal clock rate, start time, ending pattern) share one latent speed scale, explaining 78% of log-variance across 15 configurations
-- One agent exhaustively brute-forced a random-number generator's seed, correctly reported the resulting counts, and then drew a conclusion that a simple probability calculation refutes -- the author calls it "computationally correct and epistemically worthless" ⚠️ (a solo independent reconstruction, still awaiting cross-verification by other teams)
+- One agent exhaustively brute-forced a random-number generator's seed, correctly reported the resulting counts, and then drew a conclusion that a simple probability calculation refutes -- the author calls it "computationally correct and epistemically worthless" :warning: (a solo independent reconstruction, still awaiting cross-verification by other teams)
 - Practical takeaway: the paper explicitly argues that read logs and outcome logs should be treated as requirements for agent-evaluation environments -- directly actionable for teams building their own eval infrastructure
 - Limitation: because the export contains no read logs, harness messages, or ground-truth outcomes, the paper cannot determine the causal origin of the coordination, nor rule out the alternative that it's merely surface-level similarity from a shared training distribution rather than genuine mutual influence
 
@@ -134,7 +134,7 @@ Coding-agent research has already shown shell-only interfaces (like mini-SWE-age
 
 - Core numbers: plain bash beats typed tools by 21.8-24.5 points on TheAgentCompany and 4.8-7.4 points on APEX-Agents, while using 19-72% fewer total tokens
 - Adding typed tools or persistent tool synthesis to bash: paired score-difference confidence intervals mostly include zero, meaning no detectable overall score gain
-- PTC saves tokens over plain typed-tool calling but underperforms plain bash on both score and cost efficiency; PTC has the lowest tool-call success rate on both benchmarks ⚠️ (the authors speculate this relates to the added difficulty of handling intermediate failures inside generated programs, but this hypothesis is not further tested in the paper)
+- PTC saves tokens over plain typed-tool calling but underperforms plain bash on both score and cost efficiency; PTC has the lowest tool-call success rate on both benchmarks :warning: (the authors speculate this relates to the added difficulty of handling intermediate failures inside generated programs, but this hypothesis is not further tested in the paper)
 - Practical threshold: adopting this conclusion requires being able to isolate the risk of arbitrary execution via a sandbox or environment isolation; otherwise PTC, restricted to a fixed catalog, is the safer alternative
 - Connection to mainstream frameworks: Anthropic's Claude Code, OpenAI's Codex CLI, and Microsoft's Copilot Studio (via the GitHub Copilot CLI) are all existing instances of the shell-based approach -- this paper supplies quantitative evidence for that existing industry trend in the enterprise-task setting
 - Limitation: the study covers only two frontier models on two enterprise benchmarks, and the paper explicitly notes these recommendations may not carry over to later model generations
@@ -196,7 +196,7 @@ When agents issue commands or edit code against real systems, traditional error 
 - Syntax checking (`bash -n`) and binary-existence checking (`which`) are oracle-exact -- zero false positives while still catching half of all errors; all 198 false positives trace back to flag-extraction coverage gaps (91.1% of tools have their flags fully extracted), not a limitation of the method itself
 - Selective grounding (abstaining on the most ambiguous single-dash multi-character flag tokens) lowers the false-positive rate from 10.0% to 7.0% with no loss of recall -- a Pareto improvement
 - The code-edit safety dichotomy: content-anchored formats (search/replace, unified diff) never silently misapply under a one-line shift (0.000); location-anchored formats do -- line-range edits silently corrupt 99.1% of files under the same shift, and whole-function edits hit the wrong same-named function 12.7% of the time even with no perturbation at all
-- A deployed anchor-and-verify applier drives silent misapplication down to 1 in 8,320 trials (0.01%); the effect replicates on a third-party codebase (the Python `requests` library, 55 edits), where line-range edits remain 100% silent-failing ⚠️ (the core code and datasets are labeled "will be released" at submission time and were not yet public, so outside teams cannot currently rerun the verification directly)
+- A deployed anchor-and-verify applier drives silent misapplication down to 1 in 8,320 trials (0.01%); the effect replicates on a third-party codebase (the Python `requests` library, 55 edits), where line-range edits remain 100% silent-failing :warning: (the core code and datasets are labeled "will be released" at submission time and were not yet public, so outside teams cannot currently rerun the verification directly)
 - Limitation: all analysis and the verifiers were built by a single author, and the paper itself acknowledges the code and datasets are still pending release -- until then, these numbers should be treated as the author's own self-reported results, with external reproduction still outstanding
 
 ### Reviewer's One-Line Take

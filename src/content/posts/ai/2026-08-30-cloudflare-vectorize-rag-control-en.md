@@ -16,7 +16,7 @@ additionalSeries:
     order: 21
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-vectorize-rag-control)
 
 [Cloudflare AI Search](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en) gives you a managed RAG pipeline: data sources, Markdown conversion, chunking, embeddings, Vectorize, BM25, reranking, and a Workers binding. So why use [Cloudflare Vectorize](https://developers.cloudflare.com/vectorize/) directly?
 
@@ -243,7 +243,7 @@ Vectorize pricing is currently based on two metrics:
 - **Queried vector dimensions**: vectors searched plus the query vector, multiplied by dimensions.
 - **Stored vector dimensions**: stored vector count multiplied by dimensions.
 
-The current official pricing page says Workers Free includes 30 million queried vector dimensions per month and 5 million stored vector dimensions. Workers Paid includes the first 50 million queried vector dimensions per month and 10 million stored vector dimensions, then usage-based billing. Cloudflare also states that Vectorize is not billed by CPU, memory, active index hours, or number of indexes, and empty indexes do not count as stored dimensions.
+The current official pricing page says Workers Free includes 30 million queried vector dimensions per month and 5 million stored vector dimensions. Workers Paid includes the first 50 million queried vector dimensions per month and 10 million stored vector dimensions, then usage-based billing. Cloudflare also states that Vectorize is not billed by CPU, memory, or active index hours, and empty indexes do not count as stored dimensions. Index count is capped rather than entirely free: Workers Free allows 100 indexes; Workers Paid includes the first 50,000, and each additional index costs $0.10 per month.
 
 That keeps small RAG systems cheap, but it makes design choices concrete:
 
@@ -261,7 +261,7 @@ My split:
 | Situation | Pick |
 |---|---|
 | You want to make documents searchable quickly | AI Search |
-| Your source is R2, a website, or uploaded files, and platform defaults are acceptable | AI Search |
+| Your source is R2, a website, uploaded files, or D1 (beta), and platform defaults are acceptable | AI Search |
 | You need custom chunking, overlap, or index versions | Vectorize |
 | You need complex metadata filters, tenant authorization, or product scope | Vectorize |
 | You want to build your own BM25 + Vectorize + reranker + fallback retrieval stack | Vectorize |
@@ -269,6 +269,8 @@ My split:
 | You mainly want a knowledge-base search tool for an Agent | Start with AI Search, move to Vectorize if quality requires it |
 
 The blunt test: if retrieval is just a feature, start with AI Search. If retrieval is a major source of product quality, design it directly with Vectorize.
+
+Compare cost on the same footing. AI Search went GA in October 2026 and bills from 2026-12-01 on ingestion tokens, storage GB-months, and query counts, with monthly included usage; the Workers AI embedding and reranking calls it makes are included in AI Search pricing. See [AI Search Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/). Building on Vectorize means Vectorize dimension charges plus Workers AI embedding charges. The two bill on different axes, so run both against your own corpus size and query volume.
 
 ## Production Checklist
 
@@ -287,6 +289,10 @@ Before launch, I would check:
 
 Vectorize has a precise role: it is not the whole RAG system; it is the central vector index inside your retrieval stack. When low operations work matters most, AI Search wins first. When retrieval must be explainable, tunable, and measurable, Vectorize deserves to be the main primitive.
 
+## Update Log
+
+- 2026-11-23: Corrected "not billed by number of indexes": Workers Free caps at 100 indexes, and Workers Paid includes 50,000 before charging $0.10 per additional index per month. Added D1 (beta) as an AI Search data source, and added how to compare costs now that AI Search went GA in October 2026 with billing starting 2026-12-01.
+
 ## References
 
 - [Cloudflare Vectorize — Overview](https://developers.cloudflare.com/vectorize/)
@@ -297,4 +303,5 @@ Vectorize has a precise role: it is not the whole RAG system; it is the central 
 - [Cloudflare Vectorize — Query vectors](https://developers.cloudflare.com/vectorize/best-practices/query-vectors/)
 - [Cloudflare Vectorize — Limits](https://developers.cloudflare.com/vectorize/platform/limits/)
 - [Cloudflare Vectorize — Pricing](https://developers.cloudflare.com/vectorize/platform/pricing/)
+- [Cloudflare AI Search — Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)
 - [How to Use Cloudflare AI Search: Data Sources, Hybrid Retrieval, and Workers Bindings](/posts/tech/2026-08-29-cloudflare-ai-search-guide-en)

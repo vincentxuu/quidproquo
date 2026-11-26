@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/product/2026-08-06-drone-business-models-en)
+> :globe: [English version](/posts/product/2026-08-06-drone-business-models-en)
 
 [產業地圖](/posts/tech/2026-08-06-drone-industry-map)說價值集中在第 3 層與第 5 層，[台灣供應鏈那篇](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)說台灣站在第 2 層。這篇補上為什麼——**因為賣機體這件事，在商業模式的四個選項裡是最差的一個。**
 

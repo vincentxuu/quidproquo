@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-modular-rag-pipeline-architecture)
+> :globe: [中文版](/posts/ai/2026-03-12-modular-rag-pipeline-architecture)
 
 A lot of RAG systems are built the same way: one big function that sequentially runs query parsing, vector search, reranking, and generation, with a tangle of if-else branches in between. This works fine when the system is simple, but as you add more steps — HyDE, Multi-Query, CRAG, Self-Reflection — that big function turns into an unmaintainable ball of mud.
 

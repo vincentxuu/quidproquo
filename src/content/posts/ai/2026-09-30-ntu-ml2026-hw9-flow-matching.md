@@ -26,7 +26,7 @@ glossary:
     context: "HW9 的收斂標準：Flow Matching ≤ 0.10，MeanFlow 1 步 ≤ 0.40。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -149,11 +149,9 @@ loss 是 MSE(u, u_target)，而且 target 會先 `detach()`，當成固定的標
 - **今晚就能做**：跑完 Colab 後，把 Flow Matching 的 1 步、5 步、50 步三張圖並排，再用手指沿著螺旋描一次。你會很直觀地看到「路徑彎曲時，大步 Euler 為什麼會走偏」，這正是 Rectified Flow 想把路徑拉直的理由。
 - **延伸閱讀**：站上完整的 flow matching 課程導讀是 [MIT 6.S184 系列](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview)；[CME295 Diffusion LLM 導讀](/posts/ai/2026-09-29-cme295-diffusion-llms)把 diffusion 搬到文字生成；[Berkeley CS189 HW2](/posts/learning/2026-09-29-berkeley-cs189-sp26-hw2-regression-gmm-flow-matching)也有一題 flow matching 可以對照著做。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：hw9.pdf 全文與內嵌連結、Colab 的 markdown 與程式（資料生成、網路結構、訓練目標、收斂標準、比較設定）、課程頁的公告日與助教名單、助教影片與三支先備影片的標題與上傳者（YouTube oEmbed）、四篇指定論文與 PDF 引用論文的標題（arXiv API 核對）。PDF 裡 Flow Matching、Rectified Flow、MeanFlow 連到 OpenReview，本文改用同一篇論文的 arXiv 頁。
-
-不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。Colab 存檔裡有部分執行輸出，本文刻意不引用任何數值，避免變成答案。官方解答沒有公開。
+助教影片沒有字幕，影片中額外的提示沒有收進來。Colab 存檔裡有部分執行輸出，這篇刻意不引用任何數值，避免變成答案。官方解答沒有公開。PDF 裡 Flow Matching、Rectified Flow、MeanFlow 連到 OpenReview，這篇改連同一篇論文的 arXiv 頁。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [AI 自我成長（下）](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)｜下一篇 [HW10：Spoken Language Model](/posts/ai/2026-09-30-ntu-ml2026-hw10-spoken-language-model)
 
@@ -181,6 +179,7 @@ title: 助教影片：ML 2026 Spring HW9 - Flow Matching
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但影片沒有可取得的字幕，影片口述內容未核對；本文對作業的說明僅依 PDF 與 Colab。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

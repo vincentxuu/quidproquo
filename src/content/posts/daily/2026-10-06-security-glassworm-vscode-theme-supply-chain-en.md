@@ -11,7 +11,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain)
+> :globe: [中文版](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain)
 
 ## What happened
 

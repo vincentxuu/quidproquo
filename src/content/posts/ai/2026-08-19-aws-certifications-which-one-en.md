@@ -13,7 +13,7 @@ description: "A guide to choosing among AWS's three AI certifications (AIF-C01 /
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-19-aws-certifications-which-one)
+> :globe: [中文版](/posts/ai/2026-08-19-aws-certifications-which-one)
 >
 > This is a selection guide built from official material, not an exam-day account — I have not sat these exams. Every "what it tests" points back to the official exam guides and every spec points back to the official certification pages. No leaked questions. Last checked 2026-09-12.
 
@@ -110,7 +110,7 @@ Two global rules worth repeating: **none of the three offers a "take a course in
 → None of these three is the direct answer. The closest thing in the AWS line is the agentic AI content in AIP-C01's domain 2 (7 skill statements inside that 26%); for the cross-vendor comparison see [what multi-agent architecture certifications actually share](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains-en).
 
 **Your company isn't primarily on AWS**
-→ Pick the cloud first, then the certification. Google's ecosystem has one technical AI exam open for registration today, [PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide-en) (the new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) opens GA registration on November 2, 2026), and its rules — especially the retake penalties — differ sharply from AWS's.
+→ Pick the cloud first, then the certification. Google's ecosystem has two technical AI exams open for registration today, [PMLE](/posts/ai/2026-08-18-google-pmle-prep-guide-en) and the new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) (which opened GA registration on November 2, 2026), and their rules — especially the retake penalties — differ sharply from AWS's.
 
 ## What may change (re-check before you register)
 
@@ -129,6 +129,7 @@ Two global rules worth repeating: **none of the three offers a "take a course in
 
 - 2026-10-08: Added a link to the MLA-C02 preparation path, now published.
 - 2026-10-08: "Google's ecosystem has exactly one relevant exam" now reads "one technical AI exam open for registration today", with Google's new Professional Agentic Architect noted. The conclusions about the three AWS exams are unchanged.
+- 2026-11-13: Updated "Google's ecosystem has one technical AI exam open for registration today" to two technical AI exams open for registration today; the Professional Agentic Architect is now GA.
 - 2026-09-12: Updated MLA specifications, exam scope, code relationship, renewal table, and decision paths after English MLA-C02 beta registration opened.
 
 ## References

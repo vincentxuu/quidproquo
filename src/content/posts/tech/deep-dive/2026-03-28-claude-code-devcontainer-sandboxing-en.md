@@ -11,9 +11,12 @@ draft: false
 series:
   name: "Claude Code Deep Dives"
   order: 30
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 5
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-devcontainer-sandboxing)
 
 This is the security installment of the [Claude Code Deep Dives](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) series. The previous post covered [permissions and auto mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode-en), which answers "which actions ask you first." This one answers a different question: **once an action is already running, what can it touch**.
 

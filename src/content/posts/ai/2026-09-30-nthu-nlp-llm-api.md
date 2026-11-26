@@ -18,7 +18,7 @@ glossary:
     context: "助教課用它把 NLI 分類結果固定成 {\"result\": \"NEUTRAL\"} 這種格式。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-llm-api-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-llm-api-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -33,7 +33,7 @@ glossary:
 - 用 ChatGPT 網頁版做 NLP 任務，要手動複製貼上，很慢
 - 在網頁上測資料，會碰到「Too many requests in 1 hour. Try again later.」
 
-換句話說，只要你的資料超過十幾筆，要算正確率、要比較 prompt，就需要程式呼叫。選模型的部分，投影片指向 [Chatbot Arena 排行榜](https://lmarena.ai/?leaderboard)。
+換句話說，只要你的資料超過十幾筆，要算正確率、要比較 prompt，就需要程式呼叫。選模型的部分，投影片指向 [Chatbot Arena 排行榜](https://arena.ai/leaderboard)（現在叫 Arena）。
 
 ## 2024 年的價格表，現在只能當歷史
 
@@ -148,6 +148,7 @@ title: W12 週四錄影（Fall 2025）
 
 ## 更新紀錄
 
+- 2026-11-23：LMArena 已於 2026-01 改名 Arena、網址搬到 arena.ai，連結與名稱跟著更新。
 - 2026-10-11：補上自編概念例子與理解檢查，保留原教材與影片核對範圍。
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。

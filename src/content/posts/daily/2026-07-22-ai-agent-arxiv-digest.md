@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 59
 ---
-> 🌏 [English version](/posts/daily/2026-07-22-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-22-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -78,7 +78,7 @@ Dyserve 在接到請求時：
 - 延遲結果：比最強 baseline 低 1.1–6.8 倍；多租戶突發流量下 burst tail latency 低 2.5 倍
 - SLO goodput 恢復：過載計畫從 18% 提升到 67%，接近理論最佳靜態計畫的 6.5% 誤差範圍內
 - 工具失敗恢復：event-driven recovery 恢復 84%，flat retry baseline 只有 55%
-- ⚠️ 系統依賴預先測量的「skill-conditioned offline profiles」，profile 蒐集成本論文未充分討論，可能是落地的隱性門檻
+- :warning: 系統依賴預先測量的「skill-conditioned offline profiles」，profile 蒐集成本論文未充分討論，可能是落地的隱性門檻
 - 與現有框架的關係：定位在 LangGraph/AutoGen 之下、vLLM 之上，是一個新的中間層抽象
 - 落地限制：需要 workflow 有明確 DAG 結構和節點任務類型標籤，對 free-form dynamic workflow 支援有限
 
@@ -139,7 +139,7 @@ AgentLocate 分兩層定位失敗：
 - 輕量 fine-tuning 迴圈：利用新 attribution 結果持續改善 judge，是一個自我強化的設計
 - 實驗在兩個互補 benchmark 上評估，覆蓋不同任務類型、agent 組態和 trajectory 長度
 - 結果：在 agent 歸因和步驟歸因兩個任務上均優於現有方法，token 用量和執行時間也更有效率
-- ⚠️ 可取得的摘要資料中缺乏具體量化數字（精準度、召回率等），數值細節需查閱原文
+- :warning: 可取得的摘要資料中缺乏具體量化數字（精準度、召回率等），數值細節需查閱原文
 - 與現有框架的關聯：可與任何有 trajectory logging 的框架整合（LangSmith、LangGraph run tracking、AutoGen conversation history）
 - 落地門檻：需要結構化的 agent execution log；pipeline 若尚無 trace/logging 基礎設施需先補齊
 
@@ -166,7 +166,7 @@ AgentLocate 分兩層定位失敗：
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 做全球化 B2B/B2C 產品的 PM 和工程師值得看：這篇給你量化證據，說明「agent 多語言化不是小問題」。純做單語言產品的讀者可以先跳過。
 
 ### 領域背景
@@ -195,7 +195,7 @@ PolyWorkBench 建立了 67 個任務，涵蓋 5 個真實工作領域：**Commer
 - 評估三層設計值得借鑑：structural grading 評格式、executable verification 驗功能正確性、LLM semantic assessment 補語意層——比單純 LLM judge 更可靠
 - 測試了 state-of-the-art LLM agents，均呈現顯著衰退，最強模型也未能在多語言設定下維持單語言水準（具體數字請查原文）
 - 根本原因分析：模型在多語言推理時傾向「內部英文化」，但 workflow 要求輸出特定非英語，造成語言一致性失分
-- ⚠️ 67 個任務規模偏小，benchmark 的統計顯著性有限；作者機構（騰訊微信 AI）可能對評估設計有特定偏向，需保持警覺
+- :warning: 67 個任務規模偏小，benchmark 的統計顯著性有限；作者機構（騰訊微信 AI）可能對評估設計有特定偏向，需保持警覺
 - 與現有框架的關係：現有 agent framework 普遍缺乏多語言 workflow 的原生支援，這篇研究揭示了一個明確的框架改進方向
 - 落地啟示：如果你的產品有多語言需求，現在就需要在 eval pipeline 裡加入多語言場景測試，不能等模型「自然跟上」
 

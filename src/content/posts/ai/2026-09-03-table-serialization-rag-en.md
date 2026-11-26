@@ -13,7 +13,7 @@ series:
   order: 52
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-table-serialization-rag)
+> :globe: [中文版](/posts/ai/2026-09-03-table-serialization-rag)
 
 Tables are structured data, but embedding models consume text. Serialize the same table as Markdown, CSV, JSON, or key-value pairs, and you get four entirely different vectors — and benchmark data now shows which formats help RAG find the right rows.
 

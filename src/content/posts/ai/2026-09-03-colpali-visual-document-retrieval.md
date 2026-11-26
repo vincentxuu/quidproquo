@@ -13,7 +13,7 @@ series:
   order: 49
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
+> :globe: [English version](/posts/ai/2026-09-03-colpali-visual-document-retrieval-en)
 
 傳統 RAG pipeline 處理文件的路徑是 OCR → 文字擷取 → chunking → embedding。這條路徑在純文字文件上運作良好，但在表格、圖表、複雜版面的 PDF 上，每一步都在丟失資訊。ColPali 提出一個根本不同的做法：跳過整條文字管線，直接把頁面當圖片處理。
 
@@ -122,7 +122,7 @@ Particula 的評測數據最直觀：金融 PDF（大量表格和圖表）上，
 | 向量數/文件 | ~200（每 token） | ~1,030（每 patch） | 儲存 ~5× |
 | 向量維度 | 128 | 128 | 相同 |
 | 索引大小 vs Bi-Encoder | ~200× | ~1,030× | 明顯更大 |
-| 全文搜尋（BM25） | ✅ 可用 | ❌ 無文字 | 混合檢索不可用 |
+| 全文搜尋（BM25） | ✓ 可用 | ✗ 無文字 | 混合檢索不可用 |
 | 推論硬體 | CPU 可跑 | 需要 GPU | 基礎設施成本 |
 | Ingestion 速度 | 快 | 慢（VLM 推論） | 大量文件入庫耗時 |
 

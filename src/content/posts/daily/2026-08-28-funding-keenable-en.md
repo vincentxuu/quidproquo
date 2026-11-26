@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-funding-keenable)
+> :globe: [中文版](/posts/daily/2026-08-28-funding-keenable)
 
 ## Funding Details
 

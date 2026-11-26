@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 20
 ---
-> 🌏 [English version](/posts/daily/2026-06-13-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-13-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -75,7 +75,7 @@ HORMA（Hierarchical Organize-and-Retrieve Memory Agent）把工作記憶拆成�
 - 和 LangGraph 整合：可實作為 custom memory node，替代原生的 ConversationSummaryMemory
 - 和 AutoGen 整合：兩個子 Agent 可作為 ConversableAgent 的專用角色插入多 Agent workflow
 - 落地門檻：需要沙箱環境提供 Bash 工具存取權限；在雲端 Agent 平台中需要額外的安全邊界設計
-- 量化 benchmark 結果在可取得的摘要中未明確列出 **⚠️**——採用前建議讀原文實驗部分驗證
+- 量化 benchmark 結果在可取得的摘要中未明確列出 **:warning:**——採用前建議讀原文實驗部分驗證
 
 ### Reviewer 一句話評
 
@@ -132,7 +132,7 @@ Agent RL 訓練效率是目前的大瓶頸。TRACE 不改模型架構、不換�
 - 和 Tree Search 方法（如 2509.21240）的區別：Tree Search 是 inference 時找最佳路徑；TRACE 是 training 時聰明分配學習資源，兩者互補
 - Shared generalizable predictor 可跨任務泛化，是架構上的關鍵選擇，大幅降低部署複雜度
 - 限制：需要任務能做 prefix continuation（從中途繼續跑），對需要完整 session 才能驗證結果的任務較難直接套用
-- 機構：確認包含清華大學 Xiangyang Ji，其他作者機構未在摘要中列出 **⚠️**
+- 機構：確認包含清華大學 Xiangyang Ji，其他作者機構未在摘要中列出 **:warning:**
 - 和 OpenRLHF / TRL 等 training 框架的整合：TRACE 的 budget allocator 原則上可作為 rollout scheduler 插入現有框架
 
 ### Reviewer 一句話評
@@ -187,7 +187,7 @@ Agent RL 訓練效率是目前的大瓶頸。TRACE 不改模型架構、不換�
 - 關鍵數據：最強模型 pass^1 約 **57%**、pass^4 約 **38%**——代表如果你的 Agent 需要連續四次對話都正確，接近六成機率失敗
 - 測試 9 個配置，跨 5 個模型家族：GPT-5.4、Claude Sonnet 4.6、Gemini 2.5 Flash、DeepSeek V4 Flash、Qwen3-32B、GPT-5 mini
 - "Steep reliability cliff"（可靠度斷崖）：pass^1 到 pass^4 差約 19 個百分點，顯示多輪保持一致性對當前模型極為困難
-- 兩位作者，其中一位為獨立研究者，scope 集中在推薦場景 **⚠️**——通用 Agent 場景的泛化能力需自行評估
+- 兩位作者，其中一位為獨立研究者，scope 集中在推薦場景 **:warning:**——通用 Agent 場景的泛化能力需自行評估
 - 開源：GitHub nbharaths/tau-rec，RecSys 2026 Resource Track 投稿，可直接取用
 - Catalog Predicates 方法類似 SQL 謂詞評估，結果可重複、可自動化
 - RTE 的「約束延後揭露」類似 LangGraph 的 interrupt / human-in-the-loop 模式，設計 Agent 測試時可直接借鑑這個思維

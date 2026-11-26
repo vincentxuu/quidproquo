@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
+> :globe: [中文版](/posts/daily/2026-08-23-pricing-openai-gpt-5-6-sol-official-price-cut)
 
 ## Summary of Changes
 
@@ -68,7 +68,7 @@ This cut compresses the Sol-to-Terra output price gap from 2.5x ($30 vs $12) to 
 
 ## Expiration Notice
 
-⏰ **Promo expiration**: OpenAI's official page states "at least through 2026-11-21" (approximately three months from 8/21). After that, Sol's standard price may revert to $5.00/$30.00 or the promo may be extended — the official page only commits to a minimum end date with no guidance on what happens after. Recommend re-checking before November.
+:clock: **Promo expiration**: OpenAI's official page states "at least through 2026-11-21" (approximately three months from 8/21). After that, Sol's standard price may revert to $5.00/$30.00 or the promo may be extended — the official page only commits to a minimum end date with no guidance on what happens after. Recommend re-checking before November.
 
 ## Takeaway
 

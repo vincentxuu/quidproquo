@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-context-compaction)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-context-compaction)
 
 The [state-first journal article](/posts/tech/2026-08-30-looplane-state-first-event-journaling-en) explained durable run state. A long session also accumulates messages and tool observations. Looplane has two different pressure paths, and treating both as the same automatic summary would blur their contracts.
 

@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-21-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -101,14 +101,14 @@ Stripe's OpenRouter and Ramp's router.com acquisitions are covered in the deep a
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-github-digest)
-- 📄 [AI Engineer Interview Prep — 2026-08-21: Coding (ML From-Scratch)](/posts/daily/2026-08-21-ai-interview-daily)
-- 📄 [Product Builder Interview Prep — 2026-08-21: Growth & Experimentation](/posts/daily/2026-08-21-product-builder-interview-daily)
-- 📄 [Funding Alert | Callosum $100M Seed](/posts/daily/2026-08-21-funding-callosum)
-- 📄 [Funding Alert | Twin1 AI $20M Seed](/posts/daily/2026-08-21-funding-twin1-ai)
-- 📄 [Security Alert | Splunk MCP Server RCE](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
-- 📄 [Tool Pick | claude-scope](/posts/daily/2026-08-21-tool-claude-scope)
+- :file: [AI Agent Arxiv Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-21](/posts/daily/2026-08-21-ai-agent-github-digest)
+- :file: [AI Engineer Interview Prep — 2026-08-21: Coding (ML From-Scratch)](/posts/daily/2026-08-21-ai-interview-daily)
+- :file: [Product Builder Interview Prep — 2026-08-21: Growth & Experimentation](/posts/daily/2026-08-21-product-builder-interview-daily)
+- :file: [Funding Alert | Callosum $100M Seed](/posts/daily/2026-08-21-funding-callosum)
+- :file: [Funding Alert | Twin1 AI $20M Seed](/posts/daily/2026-08-21-funding-twin1-ai)
+- :file: [Security Alert | Splunk MCP Server RCE](/posts/daily/2026-08-21-security-splunk-mcp-server-toolkit-rce)
+- :file: [Tool Pick | claude-scope](/posts/daily/2026-08-21-tool-claude-scope)
 
 ## Tomorrow's Watch
 

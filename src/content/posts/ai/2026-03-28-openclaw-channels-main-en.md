@@ -13,7 +13,7 @@ description: "The real setup traps in OpenClaw's three main chat channels: Whats
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-main)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-channels-main)
 
 These three are the most-used channels. The setup steps are all in the official docs, so this article picks out **the one thing per channel that stops you cold** — and what they have in common is that getting them wrong produces no error, just silence.
 

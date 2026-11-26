@@ -13,7 +13,7 @@ description: "A guide to Frea: rock and tiered layout, route counts from each so
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-frea)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-frea)
 
 Frea sits at the very top of Val Gardena in South Tyrol, beside the road down from Passo Gardena towards Selva, on the edge of the Sella massif (Val Gardena tourist board). [UKC](https://ukclimbing.com/logbook/crags/frea-10802) calls it "one of the most renowned sports crags in the Dolomites"; [Planetmountain](https://www.planetmountain.com/en/crags/frea.html) says that driving up from Val Gardena, the cliff of "particularly compact dolomite" on your right just below the pass is Frea.
 

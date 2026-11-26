@@ -14,6 +14,12 @@
 
 ## 全球通用
 
+### 依主題分類的共用研究池
+
+跨研究重用的公開來源見 [分類共用研究池](research-pool.md)：`.research/pool/climbing/`保存來源、每次觀察與搜尋紀錄，`crags`為岩場與路線，另有裝備、技巧與安全、訓練與傷害子題。頻道、影片、網站與指南書放在同一主題下，以來源類型區分；不是固定頻道白名單。
+
+城山首批回填包含具名影片候選、已確認handle的頻道、作者頁與指南書入口。找片前可跑 `node scripts/research-pool.mjs search --category climbing --topic crags --query '<原文路線名>'`，再以YouTube站內跨頻道搜尋補漏。已有影片也要比較不同作者；未確認頻道身份的名稱保留在run待查，不猜連結。候選／metadata／全片核對狀態分開記，舊片不能當現況與下降依據。
+
 | 來源 | 網址 | 類型 | 可撐 | 分級 | 已知陷阱 |
 |---|---|---|---|---|---|
 | Mountain Project 國際難度對照表 | https://www.mountainproject.com/international-climbing-grades | 換算表 | 難度換算 | 本站換算基準 | 只是近似；`scripts/climbing-grade-convert.mjs` 照它實作，不要各篇手算 |

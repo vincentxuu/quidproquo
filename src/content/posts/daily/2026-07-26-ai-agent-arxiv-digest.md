@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 63
 ---
-> 🌏 [English version](/posts/daily/2026-07-26-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-26-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -118,12 +118,12 @@ EvoAgentBench 從 agent 的實際執行 trace 中萃取結構化的「能力單�
 
 #### 為什麼重要
 
-研究發現，對自動化能力編碼方法而言，**負遷移（negative transfer）才是常態**：一個主流方法在非目標任務上回歸 −12.3 分 ⚠️。這直接告訴 agent 平台開發者：在沒有能力邊界控管機制之前，「自動從歷史學習」功能可能是在挖坑。
+研究發現，對自動化能力編碼方法而言，**負遷移（negative transfer）才是常態**：一個主流方法在非目標任務上回歸 −12.3 分 :warning:。這直接告訴 agent 平台開發者：在沒有能力邊界控管機制之前，「自動從歷史學習」功能可能是在挖坑。
 
 ### 深入要點
 
 - Ability Graph 的核心概念：把「如何解決問題的操作程序」跟「解決了什麼問題的資訊」分開存儲，前者才是真正可遷移的
-- 關鍵數據：主流自動能力編碼法在 cross-domain 任務上平均 **−12.3 分**（⚠️ 此為作者自測，需關注使用的 baseline 是否具代表性）
+- 關鍵數據：主流自動能力編碼法在 cross-domain 任務上平均 **−12.3 分**（:warning: 此為作者自測，需關注使用的 baseline 是否具代表性）
 - 正確傳遞 ability 時效果顯著提升，但「正確傳遞」目前幾乎沒有自動化方法能穩定做到
 - 對 LangGraph/AutoGen 的啟示：在 memory store 中加入「能力標注」層，區分「程序性記憶」（procedural）vs「陳述性記憶」（declarative）
 - MCP 的關聯：MCP tool definitions 本質上是 ability 的一種外顯形式，EvoAgentBench 的框架可以套用來評估 agent 的 tool selection 品質
@@ -179,7 +179,7 @@ PERFOPT-Bench 提供 12 個任務，每個任務包含：一個功能正確但�
 
 - 12 個任務涵蓋不同類型的效能問題（記憶體、演算法複雜度、I/O、快取行為）
 - 評分系統需通過隱藏正確性測試 + 可重現的 speedup 量測，防止 agent 靠 trick 刷分
-- 重要警告：**raw speedup 不能直接當 benchmark score**，因為部分大幅加速來自 benchmark-specific shortcut，例如繞過某個特定的計算步驟 ⚠️
+- 重要警告：**raw speedup 不能直接當 benchmark score**，因為部分大幅加速來自 benchmark-specific shortcut，例如繞過某個特定的計算步驟 :warning:
 - 7 個 agent stack 測試，結果顯示「優化效果依任務類型分布，沒有全面最優解」
 - 對 LangGraph / AutoGen 生態的啟示：profiling 工具的整合品質（agent 能不能正確解讀 profiler 輸出）是效能優化能力的關鍵瓶頸
 - 限制：目前只測 C 語言，Python、Java、Go 的效能優化特性完全不同，可遷移性待驗證

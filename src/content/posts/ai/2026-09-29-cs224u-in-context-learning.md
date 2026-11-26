@@ -32,7 +32,7 @@ glossary:
     context: "Mina Lee 客座投影片引用 Dang et al. 2023 的區分。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-in-context-learning-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-in-context-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

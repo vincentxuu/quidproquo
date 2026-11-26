@@ -26,7 +26,7 @@ glossary:
     context: "Lecture 10 slides, pages 51–72."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-mcunet-tinyml)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

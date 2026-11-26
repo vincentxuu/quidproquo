@@ -14,7 +14,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-contextual-retrieval)
+> :globe: [中文版](/posts/ai/2026-03-12-contextual-retrieval)
 
 RAG systems typically index long documents by splitting them into small chunks, embedding each one, and storing them in a vector database. This approach has a fundamental flaw: **once split, each chunk loses the context it had within the original document.**
 

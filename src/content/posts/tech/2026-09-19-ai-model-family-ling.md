@@ -1,225 +1,229 @@
 ---
-title: "百靈（Ling）——從萬億旗艦到 5.1B 高效執行節點，Ant Group 的三線 AGI 棋局"
+title: "百靈（Ling）——560B／25B 的 Ling 3.1 成為主力，Ring 併入混合推理，醫療與語音線各自開枝"
 date: 2026-09-19
 category: tech
 type: deep-dive
-tags: [ai-agent, llm, ant-group, model-family-ling, moe, open-source, agent, finance]
+tags: [ai-agent, llm, ant-group, model-family-ling, moe, open-source, agent, finance, healthcare]
 lang: zh-TW
-description: "螞蟻集團百靈大模型家族完整介紹：2025→2026 演化時間線、Ling/Ring/Ming 三大系列雙軌策略、從 Ling 1.0 到 Ling 3.0 的架構躍遷、Ling-3.0-flash-Fin 金融增強模型，以及 Agent 開發者的選型指南"
-tldr: "百靈以 Ling 執行、Ring 深度推理、Ming 多模態分工，主軸是同樣算力下的智效比；選型先看任務、部署預算與模態需求。"
+description: "螞蟻集團百靈（Ant Ling／inclusionAI）模型家族：Ling-3.1-flash（560B 總參數／25B 啟用、1M context、MIT）與原生多模態的 Ling-3.2-flash 成為主力，Ring 思考模型線 API 下架改由混合推理 Ling 承接，LingSante 醫療線與 Ming-3.0 語音線，以及授權、價格、停用時程與 Agent 選型"
+tldr: "百靈目前的主力是 Ling-3.1-flash：560B 總參數、每 token 啟用 25B、1M context，思考可開關，MIT 權重在 Hugging Face。2026-11-05 上線的 Ling-3.2-flash 同尺寸、原生吃圖像與影片，目前只有 API（OpenRouter 有免費端點），權重官方說即將開放。Ring 思考模型已在 2026-11-15 從官方 API 下架，官方建議改用 Ling-3.1-flash。要省錢、高頻任務仍可用 124B／5.1B 的 Ling-3.0-flash；醫療有 LingSante-3.1，語音有 Ming-3.0。"
 series:
   name: "AI 模型家族"
   order: 20
 glossary:
   - term: "百靈（Ling）"
-    def: "螞蟻集團自主開發並開源的大型語言模型家族，包含 Ling（非思考）、Ring（思考）、Ming（多模態）三大系列，以 MoE 架構實現高效推理"
+    def: "螞蟻集團自主開發並開源的大型語言模型家族，以 MoE 架構為主；目前在官方 API 上的是 Ling 3.x 系列，另有 Ming 全模態／語音線與 LingSante 醫療線"
   - term: "Ring"
-    def: "百靈家族中的思考模型系列，專注深度推理與數學證明，Ring-2.6-1T 在 IMO 2025 和 CMO 2025 達到金牌水平"
+    def: "百靈過去的思考模型線（Ring-1T 到 Ring-2.6-1T）；官方 API 已於 2026-11-15 全數下架，建議改用可開關思考的 Ling-3.1-flash，權重仍在 Hugging Face"
   - term: "Ming"
-    def: "百靈家族中的全模態模型系列，支持文字、圖像、音頻、影片的跨模態理解與生成，Ming-flash-omni-2.0 為最新旗艦"
+    def: "百靈的全模態與語音模型線：Ming-flash-omni-2.0 是全模態旗艦，2026 年 9–10 月推出 Ming-3.0 的語音理解、語音合成與語音辨識模型"
   - term: "KDA"
-    def: "Kimi Delta Attention，從 Lightning Attention 升級的線性注意力變體，引入細粒度對角門控於 Delta Rule 狀態更新，精確保留長序列關鍵資訊"
+    def: "Kimi Delta Attention，線性注意力變體，在 Delta Rule 狀態更新加入細粒度對角門控；Ling 3.x 以 KDA 層為主、穿插少量 Gated MLA 全域注意力層"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-ling-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-ling-en)
 
-2025 年 3 月，螞蟻集團在非 A100/H100 的異構計算平台上驗證了 MoE 大模型的工程可行性——這是百靈家族的起點。十五個月後，它交出了一個涵蓋 7.9B 到 1T 參數、橫跨文本、推理與全模態的開源矩陣。2026 年 9 月 9 日外灘大會上，家族再添一名成員：Ling-3.0-flash-Fin，首個金融增強模型。
+百靈（Ant Ling，Hugging Face 上的組織名是 inclusionAI）是螞蟻集團的開源模型家族。2026 年秋天它換了一代：主力從 124B 的 Ling-3.0-flash 換成 560B 總參數、每 token 啟用 25B 的 Ling-3.1-flash，思考模式可開可關，原本獨立的 Ring 思考模型線因此從官方 API 退場。這篇給要在 agent 工作流裡選開放權重模型的人：讀完可以決定用 3.1 還是 3.0、要不要等 3.2 的權重，以及醫療、語音這兩條分支適不適合你。
 
-這是「AI 模型家族」系列的第二十篇家族深度介紹，追溯百靈從萬億旗艦到 5.1B 高效執行節點的完整演進路徑，以及它「規劃-執行分離」的 AGI 佈局。
-
-怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
+這是「AI 模型家族」系列的第二十篇家族深度介紹。怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
 
 ## 家族定位與版本矩陣
 
+以 Ant Ling 官方文件的選型表、停用頁與 Hugging Face 模型卡為準：
+
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
-| Ling | 執行／工具使用 | tiny、flash、VL、Fin 按任務分工 | 開放權重；Ant Ling 文件 |
-| Ring | 深度推理／規劃 | 萬億思考模型線 | 開放權重 |
-| Ming | 全模態 | 語音、音樂、音頻等統一架構 | 家族官方文件／模型來源 |
+| Ling-3.1-flash（含 `-1019` 後訓練更新） | 主力：長流程 agent、辦公、軟體開發 | 560B 總參數／25B 啟用，1M context，思考可開關 | MIT 權重（HF、ModelScope）；官方 API `Ling-3.1-flash`；OpenRouter `inclusionai/ling-3.1-flash` |
+| Ling-3.2-flash | 原生多模態：視覺理解、多模態長程 agent、3D、醫療影像 | 同為 560B／25B、1M，原生吃圖像、文字、影片 | 只有 API：官方 `Ling-3.2-flash`、OpenRouter `inclusionai/ling-3.2-flash:free`；權重尚未公開 |
+| Ling-3.0-flash | 低成本、高頻、低延遲 | 124B／5.1B 啟用，256K | MIT 權重；官方 API；OpenRouter 付費端點 |
+| Ling-3.0-flash-VL | 低成本視覺語言 | 124B／5.5B，圖像＋影片輸入，256K | MIT 權重；官方 API；OpenRouter 付費端點 |
+| Ling-3.0-tiny | 端側、本地離線 | 7.9B／1.3B | MIT 權重；官方 API；OpenRouter 付費端點 |
+| LingSante-3.1-flash／-3.1-air-VL | 醫療研究與評測 | 前者基於 Ling-3.1-flash（560B／25B、1M），後者基於 Ling-3.0-flash-VL（124B／5.5B，文字＋圖像） | MIT 權重；flash 版另有 Computrix API |
+| Ming-3.0 語音模型 | 語音理解、語音合成、語音辨識 | audio-flash 126B／6.5B、audio-tiny 9.3B／2.7B、tts-0.5B、tts-tiny、asr-tiny | MIT 權重；asr-tiny、tts-0.5B、audio-flash 有官方 API |
 
-### 三條產品線：Ling 執行、Ring 思考、Ming 多模態
+### 從三線到一條混合推理主線
 
-看懂百靈家族的架構關鍵，是把它拆成三條平行線（外加一條實驗線）：
+2025 年到 2026 年中，百靈用三條線分工：Ling 不思考、負責執行；Ring 是萬億級思考模型、負責規劃與深度推理；Ming 負責全模態。Ling 3.0 開始，思考模式變成同一個模型的開關（官方文件說 Ling-3.0-flash 可以在思考與非思考之間切換），Ling 3.1 把這條路走完：官方停用頁把 Ling-1T、Ring-1T、Ling/Ring-2.5-1T、Ling/Ring-2.6-1T 與 Ling-2.6-flash 的替代模型全部指向 Ling-3.1-flash。
 
-**Ling 系列**（非思考/通用）：從 Ling-mini 到 Ling-3.0-flash 的全尺寸矩陣，以 MoE 架構實現「旗艦智能、Flash 效率」。這條線負責執行——高速推理、工具呼叫、高頻 Agent 任務。Ling-3.0-flash 的定位是「規劃-執行分離」範式中的執行節點。
+結果是選型問題變簡單了：通用文字任務先看 Ling-3.1-flash；要省錢或要低延遲退到 Ling-3.0-flash；要看圖看影片用 Ling-3.2-flash（API）或 Ling-3.0-flash-VL（可自架）。Ring 的權重還在 Hugging Face，但已經不是官方維護的服務。
 
-**Ring 系列**（思考/推理）：從 Ring-1T 到 Ring-2.6-1T 的萬億思考模型，專注深度推理、數學證明和長程自主執行。Ring 2.5-1T 在 IMO 2025 拿到 35/42（金牌標準）、CMO 2025 拿到 105/126（超越中國國家隊切線）。這條線負責「規劃」——複雜問題的多步推演。
+### 垂直分支：金融、醫療、語音
 
-**Ming 系列**（全模態）：統一文字、圖像、音頻、影片的跨模態理解與生成。Ming-flash-omni-2.0 是業界首個在同一架構中統一語音、音樂與音頻的模型。
+百靈的另一個特色是把同一個底座做成領域版本：
 
-**LLaDA 系列**（實驗）：擴散模型實驗線，包含 LLaDA-MoE、LLaDA 2.0/2.1/2.2，探索非自回歸生成路徑。
-
-三線並行的邏輯是：**Ling 負責「快且省」，Ring 負責「深且嚴」，Ming 負責「全且通」**。三者共用底層訓練基礎設施與架構創新（混合線性注意力、MoE 路由優化），但推理時各司其職。
-
-### 家族矩陣與選型
-
-#### Ling 3.0 核心模型
-
-| 面向 | Ling-3.0-tiny | Ling-3.0-flash | Ling-3.0-flash-VL | Ling-3.0-flash-Fin |
-|---|---|---|---|---|
-| 總參數 | 7.9B | 124B | 124B | 124B |
-| 活躍參數 | 1.3B | 5.1B | **5.5B** | 5.1B |
-| 定位 | 純本地離線 | 生產級 Agent 執行 | 視覺語言 | 金融增強 Agent |
-| 輸入 | 文字 | 文字 | **圖像 + 影片 + 文字** | 文字 |
-| Context | 256K | 256K → 1M | 256K | 256K → 1M |
-| 開源 | 是 | 是 | 是（MIT） | 是（MIT） |
-| 適用場景 | 個人知識管理、離線 | 高預 Agent、coding | 視覺理解、多模態推理 | 投研、財報、估值 |
-| AA Intelligence Index | N/A | 38 | **42** | 41 |
-
-#### Ling 3.0-flash 衍生版本（Hugging Face）
-
-| 版本 | 說明 | 權重大小 |
-|---|---|---|
-| `Ling-3.0-flash` | BF16 基座 | 127.5B 參數（含 3.1B MTP head） |
-| `Ling-3.0-flash-fp8` | 序列化 block-FP8 量化 | 約 66B |
-| `Ling-3.0-flash-fp4` | MXFP4 壓縮量化 | 約 33B |
-| `Ling-3.0-flash-int4` | 對稱 W4 壓縮（僅路由專家） | 約 16B |
-| `Ling-3.0-flash-dspark` | 投机解碼 draft 模型（加速用） | 1B |
-| `Ling-3.0-flash-base-midtrain` | 預訓練中期檢查點 | 127B |
-
-同樣的量化與衍生版本也提供給 `Ling-3.0-flash-Fin`（含 `-fp4` 版本）與 `Ling-3.0-tiny`（含 `-fp8` 版本）。
-
-#### 完整 Ling 3.0 矩陣（含量化和衍生版）
-
-| 品項 | 授權 | 取得方式 |
-|---|---|---|
-| Ling-3.0-flash（BF16） | MIT | Hugging Face `inclusionAI/Ling-3.0-flash` |
-| Ling-3.0-flash-fp8 | MIT | 同上，權重頁量化列表 |
-| Ling-3.0-flash-fp4 | MIT | 同上 |
-| Ling-3.0-flash-int4 | MIT | 同上 |
-| Ling-3.0-flash-dspark | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-dspark` |
-| Ling-3.0-flash-VL | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-VL` |
-| Ling-3.0-flash-Fin | MIT | Hugging Face `inclusionAI/Ling-3.0-flash-Fin` |
-| Ling-3.0-flash-Fin-fp4 | MIT | 同上 |
-| Ling-3.0-tiny | MIT | Hugging Face `inclusionAI/Ling-3.0-tiny` |
-| Ling-3.0-tiny-fp8 | MIT | 同上 |
-| API（OpenRouter） | 限免 / 付費 | `inclusionai/ling-3.0-flash:free`、`:fin:free`、`:vl:free`、`/tiny` |
-
-#### 架構細節
-
-所有 Ling 3.0-flash 系列共享同一基礎架構：
-
-- **42 層 Transformer**：35 層 KDA（Kimi Delta Attention）+ 7 層 Gated MLA（比例 5:1）
-- **512 個路由專家 + 1 個共享專家**，每 token 啟用 **8 個專家**（MoE 1/64 稀疏比）
-- **Hidden size 2560**，Expert intermediate size 768
-- **詞彙表 157,184**
-- **3.1B MTP（多 token 預測）head**，使完整檢查點達 127.5B 參數
-- **上下文訓練階段**：8K → 32K → 256K
-- **SGLang HiCache + Mooncake 分層快取**，長輸入 TTFT 減少 60–80%
-- 支援 vLLM 0.25.0+（含 Bailing V3 原生支援）
-
-#### 選型邏輯
-
-**要本地離線、小型任務——tiny。要高速 Agent 執行、coding、一般推理——flash。要視覺理解、多模態推理——flash-VL。要金融領域專業——flash-Fin。要推測解碼加速——搭配 dspark draft 模型。**
+- **金融**：Ling-3.0-flash-Fin（2026-09-09，124B／5.1B，MIT），細節見[模型卡](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin)。目前官方 API 的可用清單沒有列它，OpenRouter 端點也已經沒有，要用得下載權重自架
+- **醫療**：Ling-3.0-flash-Sante（2026-10-19，124B／5.1B）之後，2026-11-19 推出 LingSante-3.1-flash（換到 3.1 底座）與 LingSante-3.1-air-VL（多模態，模型卡說是螞蟻醫療團隊第一個開源的多模態醫療模型）。兩份模型卡都寫明這是研究模型、不是醫療器材
+- **語音**：Ming-3.0 拆成理解（audio-flash、audio-tiny）、合成（tts-0.5B、tts-tiny）與辨識（asr-tiny）三種，小尺寸的 tts-tiny 與 asr-tiny 用的是 Ling 3.0 tiny 的骨幹
 
 ## 家族演化
 
-### 家族演化時間線
+| 時間 | 版本 | 關鍵事實 | 改變了什麼選型 |
+|---|---|---|---|
+| 2025-03 | Ling 1.0 | 在非 A100／H100 的異構算力上驗證 MoE 大模型 | 國產算力自架成為賣點 |
+| 2025-10-09 | Ling-1T、Ring-1T | 萬億參數非思考與思考模型同步開源 | 「Ling 執行、Ring 規劃」的雙模型組合成形；官方 API 已於 2026-06-15 下架 |
+| 2025-10 | Ling 2.0 系列 | FP8 端到端訓練、1M context | 萬億級開源模型可以拿來做長文件 |
+| 2026-02 | Ling-2.5-1T、Ring-2.5-1T、Ming-flash-omni-2.0 | Ling 2.5 改用混合線性注意力；Ring 2.5 官方稱 IMO 2025、CMO 2025 金牌水準；Ming 2.0 統一語音、音樂與音訊 | 長程推理的吞吐變便宜；API 已於 2026-09-30 下架 |
+| 2026-04～05 | Ling-2.6-1T、Ling-2.6-flash、Ring-2.6-1T | 2.6-flash 為 104B／7.4B；Ring-2.6-1T API 提供 high／xhigh 推理強度 | 萬億旗艦與思考模型的最後一代；API 已於 2026-11-15 下架 |
+| 2026-07-23 | Ling-3.0-flash | 124B／5.1B，原生混合線性架構（KDA：MLA 5:1），思考可開關 | 百億級模型逼近前代萬億旗艦，單節點可部署 |
+| 2026-08～09 | Ling-3.0-tiny、Ling-3.0-flash-VL、Ling-3.0-flash-Fin | 7.9B／1.3B 端側版；124B／5.5B 視覺語言版；金融增強版 | 同一底座開始分出端側、視覺與垂直領域版本（Fin 見[模型卡](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin)） |
+| 2026-09～10 | Ming-3.0 語音模型 | audio-flash／tiny（09-03）、tts-0.5B／tiny（09-22）、asr-tiny（10-14），10-19 上官方 API | 語音辨識、合成與理解有了可自架的專用小模型 |
+| 2026-09-30 | Ling-3.1-flash（API 首發） | 560B／25B；免費體驗期間服務長度 256K | 主力尺寸從百億級跳到五百億級 |
+| 2026-10-15 | Ling-3.1-flash 開源 | MIT 權重；HF repo 建於 10-13，另有 base 版（10-25） | 目前的選型基準，見下方各節 |
+| 2026-10-27 | Ling-3.1-flash-1019 | 同架構的後訓練更新，官方引用 AA Intelligence Index v4.3.2 從 41 升到 44 | 自架建議直接用這一版 |
+| 2026-11-05 | Ling-3.2-flash | 560B／25B、1M，原生多模態；上線前兩週限免 | 多模態不必再退到 124B 的 VL 版，但目前只有 API |
+| 2026-11-19 | LingSante-3.1-flash、LingSante-3.1-air-VL | 醫療線換到 3.1 底座，並推出多模態醫療版 | 醫療研究可以直接拿 MIT 權重做評測 |
 
-| 時間 | 版本 | 關鍵意義 |
-|---|---|---|
-| 2025-03 | Ling 1.0 | 在非高端異構計算平台上驗證 MoE LLM 工程可行性，完成國產算力平台適配 |
-| 2025-09 | Ring-1T-preview | 史上首個開源萬億參數思考模型 |
-| 2025-10-09 | Ling-1T + Ring-1T | 萬億旗艦非思考模型 + 思考模型同步開源，Ling/Ring/Ming 三系列正式成形 |
-| 2025-10 | Ling 2.0 系列 | 首度突破萬億參數規模，FP8 端到端訓練，1M context |
-| 2026-02 | Ling-2.5-1T + Ring-2.5-1T | Ling 2.5：混合線性注意力、AIME 2026 僅用 5,890 token 達前沿效果；Ring 2.5：IMO 2025/CMO 2025 雙金 |
-| 2026-02 | Ming-flash-omni-2.0 | 業界首個統一語音、音樂與音頻的單一架構全模態模型 |
-| 2026-04 | Ling-2.6-1T | 萬億旗艦「快思考」：MLA + Linear Attention 混合架構，AIME 2026 領先，SWE-bench Verified 達開源前列 |
-| 2026-04 | Ling-2.6-flash | 104B/7.4B，OpenRouter 匿名版「Elephant Alpha」連續多日 Trending 榜首 |
-| 2026-05 | Ring-2.6-1T | 萬億級深度思考模型，適合複雜推理與長程自主執行 |
-| 2026-07-23 | Ling-3.0-flash | 124B/5.1B，原生混合線性架構，KDA + MLA 5:1，對照 1T 旗艦效能 |
-| 2026-08 | Ling-3.0-tiny | 7.9B/1.3B，純本地部署，無雲端依賴 |
-| 2026-08 | Ling-3.0-flash-VL | 124B/5.5B，視覺語言模型，AA Intelligence Index 42，支援圖像與影片輸入 |
-| 2026-08 | Ling-3.0-flash-Fin | 124B/5.1B，金融增強，MIT 開源，聯合中金開發 FinFIRST 評測基準 |
-| 2026-09-09 | 外灘大會 | Ling-3.0-flash-Fin 正式宣布開源，全面量產 BF16/FP8/FP4/INT4 |
-
-一年半、十二個里程碑。百靈的演化有一條清晰的主線：**先以萬億參數證明技術上限，再用架構創新壓縮到高效小模型，最後以垂直領域版本（Fin）開拓場景深度**——規模不是目的，「智效比」才是。
+主線是：**先用萬億參數證明上限，再用混合線性架構把同等能力壓到百億級（3.0），然後在 3.1 把尺寸放回五百億級、把思考與非思考合進同一個模型**。Ring 的退場是這條路的結果，不是放棄推理。
 
 ## 架構與訓練取捨
 
-### 架構演進：從混合線性到原生混合線性
+### Ling 3.1：更高比例的線性注意力
 
-百靈家族的架構躍遷可以濃縮為一條線：
+[Ling-3.1-flash 模型卡](https://huggingface.co/inclusionAI/Ling-3.1-flash)寫明結構：72 層中 63 層是 KDA（Kimi Delta Attention，線性時間複雜度）、9 層是 Gated MLA，比例 7:1；前 4 層是 dense 層；MoE 部分 512 個路由專家每 token 選 8 個，外加 1 個共享專家；hidden size 4096，詞彙表 157,184。
 
-**Ling 1.0（2025-03）**：在非高端異構計算平台上驗證 MoE 可行性，完成國產算力平台適配。這是工程驗證階段，架構本身還在摸索。
+跟 Ling 3.0（42 層、KDA：MLA 5:1、hidden 2560）相比有兩個變化：
 
-**Ling 2.0（2025-10）**：首度突破萬億參數，引入 FP8 端到端訓練。訓練效率大幅提升，實現跨領域泛化。上下文窗口達到 1M。
+- **線性注意力比例更高**：每 8 層只留 1 層全域注意力。官方部落格的說法是 KDA 負責長序列擴展、Gated MLA 保留全域通路，1M context 因此不需要讓每一層都付二次方成本。代價是全域檢索能力集中在少數層，長文件裡的精準回查仍要用自己的資料驗證
+- **專家稀疏度不變、尺寸放大**：啟用比例維持 8/512（1/64），但每個專家變寬、層數變多，總參數從 124B 變成 560B、啟用從 5.1B 變成 25B。單 token 計算量約是 3.0 的五倍，換來的是長流程任務的穩定度
 
-**Ling 2.5（2026-02）**：混合線性注意力架構（Hybrid Linear Attention）登場——將注意力層以 1:7 比例混搭 MLA 和 Lightning Linear Attention。顯著提升長程推理場景的吞吐能力：32K+ Token 長文本生成時，訪存規模降低 10 倍以上，生成吞吐提升 3 倍以上。
+### 思考可開關，不再分兩個模型
 
-**Ling 2.6（2026-04）**：「快思考」路線確立。Ling-2.6-1T 捨棄業界普遍追求的「慢思考」多步推理模式，轉而以極低 Token 開銷直達結果。在 AIME 2026 上顯著領先其他非思考模型，SWE-bench Verified、TAU2-Bench、BFCL-V4 均達開源前列。Ling-2.6-flash 以 104B/7.4B 在 Agent 相關基準上達到同尺寸 SOTA。
+Ling 3.1 是「hybrid reasoning」模型：推論時用 `chat_template_kwargs: {"enable_thinking": true}` 開啟思考，模型卡建議 agent 任務開著、取樣參數 `temperature=1.0`、`top_p=0.95`、`top_k=20`。官方部落格也承認 RL 讓任務成功率上升的同時，思維鏈長度與互動輪數變長，會拉高回應時間與 token 成本。
 
-**Ling 3.0（2026-07）**：從「混合線性」升級為**原生混合線性設計**。核心創新是 KDA（Kimi Delta Attention）從 Lightning Attention 脫胎換骨——引入細粒度對角門控（diagonal gating）於 Delta Rule 狀態更新，長序列記憶更新更精確。MoE 專家啟用比從上一代的 1/32 壓縮到 **1/64**，模型容量不變但計算效率大幅提升。KDA 與 MLA 層以 **5:1** 比例交替，在長上下文效率與狀態記憶之間取得平衡。
+### 部署取捨：BF16 要 8 張 H200
 
-這條路徑的意義是：百靈不是在「放大模型」，而是在**「壓縮智能」**——每次世代都用更少的活躍參數達到同等甚至超越更大模型的效能。
+官方 BF16 權重約 574GB。模型卡的 SGLang 範例是 8×H200（TP8＋EP8）或 4×GB300；開源部落格說 routed experts 用 MXFP4、dense 層用 block-FP8 後，權重從約 534GB 降到 292GB，Hopper 上可從 8 卡降到 4 卡。Hugging Face 上 inclusionAI 目前只為醫療版放了 MXFP4 repo（`LingSante-3.1-flash-MXFP4`），通用版的量化檔主要來自社群（GGUF、EXL3、MLX 等）。
+
+### Ling-3.2-flash：架構未公開
+
+官方只公開 560B 總參數、25B 啟用、1M context，以及「從架構層面原生融合視覺與語言、不依賴外掛視覺模組」。層數、視覺編碼器與訓練資料都沒有公開，權重也還沒放出，本文不推測它跟 3.1 的關係。
 
 ## 評測與競品比較
 
-### 與競品的位置
+以下數字都來自官方模型卡、部落格或官方帳號公告，條件不同的分數不混表比較。
 
-百靈在 2026 年的位置可以用兩個維度描述：
+### Ling-3.1-flash（官方引用與自報）
 
-**開源領先**：Ling-3.0-flash 在多個核心基準上「對照甚至超越參數規模 2-3 倍的行業領先模型」。獨立評測（[frangelbarrera/Ling-3-flash-evaluation](https://github.com/frangelbarrera/Ling-3-flash-evaluation)，845 次 API 呼叫、12 個測試階段）給出 7.0/10 的綜合評分，在 jailbreak resistance（20/20 = 100%）和安全性（10/10 間接注入未被執行）上表現突出。
+| 指標 | 數值 | 來源與條件 |
+|---|---|---|
+| Artificial Analysis Intelligence Index v4.3.2 | 41（原版）→ 44（`-1019`） | `-1019` 模型卡引用 |
+| Artificial Analysis Intelligence Index v5 | 30（`-1019`） | 同上；v4 與 v5 尺度不同，不能直接相減 |
+| AA-Briefcase | 1397 → 1524 | 同上 |
+| AutomationBench-AA | 62% → 68% | 同上 |
+| CritPt／SciCode | 18%→26%／54%→57% | 同上 |
+| 輸出速度 | 約 210 token/s | 開源部落格引用 Artificial Analysis |
 
-**對照中國開源**：Ling 2.5-1T 在 AIME 2026 上僅用 5,890 token 就能達到前沿思考模型 15k–23k token 的效果——這個 token 效率在同期 DeepSeek V4、Kimi K2.5、GPT-5.2 之間屬於領先級。
+官方部落格另外公開三個長時間執行的案例，對照組是 Claude Fable 5 與 GLM-5.3-Flash：從零寫 Lua 到 x86-64 的編譯器，約 17 小時後通過 178／182 項測試（97.8%，Fable 5 為 99.0%、GLM-5.3-Flash 95.9%）；把 C 圖像庫重寫成 Rust，加速 8.015 倍，高於 GLM-5.3-Flash 的 1.396 倍、遠低於 Fable 5 的 27.31 倍。這些是官方自選的任務，能看出它能跑十幾小時不崩，但不是公開 benchmark。
 
-不足之處也很明確：**封閉前沿（Claude、GPT）全面領先**，Ling 在 SWE-bench 等頂級編程基準上仍有差距（Ring-2.6-1T 的 Terminal-Bench 2.1 57.5 vs GPT-5.4 的更高分數）。另外，flash-Fin 雖然在金融基準上領先，但通用基準（AA Intelligence Index 41）仍低於頂級閉源模型。
+### Ling-3.2-flash（官方帳號公告）
+
+Ant Ling 的發佈貼文列出三項對 Claude Opus 5（max）的比較：OmniDocBench 1.5 92.21 對 90.56、ZEROBench（Sub）43.71 對 39.52、Vision2Web 85.86 對 80.20。這三項都是文件理解與視覺任務，是廠商自選的勝場，沒有第三方重測。
+
+### LingSante-3.1
+
+模型卡說它在開源模型的複雜醫療推理上領先，但結果只以圖片呈現、沒有可複製的數字表；Artificial Analysis 已收錄 LingSante-3.1-flash，因為沒有公開 API，還沒有 Intelligence Index 分數。模型卡也明說 benchmark 與模擬環境的結果不代表臨床有效性。
+
+### 跟競品的位置
+
+- **對上中國開放模型（GLM-5.3、DeepSeek V4.x、Kimi 等）**：Ling-3.1-flash 的賣點是價格與 MIT 授權，官方長程案例對 GLM-5.3-Flash 互有勝負，綜合指數本文沒有可在同條件下並列的數字
+- **對上閉源前沿**：官方自己的長程案例顯示跟 Claude Fable 5 仍有差距，極限效能優化差距最大
+- **3.1 對上 3.0**：3.1 能力強、但每 token 啟用量約五倍；官方選型表仍把 3.0-flash 定位為高 TPS、低成本的高頻任務模型
 
 ## 授權、價格與部署
 
-本篇未整理完整供應商費率表與各計費單位的日期快照；矩陣區分權重與託管途徑，上量前需比較實際服務費率。
+### 授權
 
-### 開源策略與生態
+Ling-3.0／3.1 系列、LingSante、Ming-3.0 語音模型在 Hugging Face 的授權欄都是 MIT（Ling-3.1-flash repo 沒有另附 LICENSE 檔，以 metadata 為準）。Ling-3.2-flash 目前沒有權重，只能依各 API 平台的服務條款使用。醫療版的模型卡另外列出使用限制：不能獨立做診斷、處方或分流決策，處理病歷要符合當地隱私與醫療法規。
 
-百靈的開源策略有三個特點：
+### API 價格（每百萬 token）
 
-**第一，授權乾淨**。從 Ling-1T 到 Ling-3.0-flash-Fin，幾乎所有模型都掛 Apache 2.0 或 MIT 授權。對比 Qwen 3.8-Max 的自訂條款和 Llama 的 Community License，百靈的授權對商業使用者更友善。
+官方定價頁（Ant Ling，人民幣）：
 
-**第二，國產算力適配**。從 Ling 1.0 開始就強調在非 A100/H100 異構計算平台上的運行能力。Ling-3.0-flash 已獲華為昇騰 0 Day 支持（全新算子編程框架 CANN PyPTO）。這降低了國內開發者的自架門檻。
+| 模型 | 輸入 | 輸出 | 快取讀取 | 目前優惠 |
+|---|---|---|---|---|
+| Ling-3.2-flash | ¥2.00 | ¥6.00 | ¥0.40 | 上線前兩週限免已結束 |
+| Ling-3.1-flash | ¥2.00 | ¥6.00 | ¥0.40 | 2.5 折：¥0.50／¥1.50／¥0.10 |
+| Ling-3.0-flash、Ling-3.0-flash-VL | ¥0.50 | ¥1.50 | ¥0.10 | 2.8 折：¥0.14／¥0.42／¥0.028 |
 
-**第三，框架生態完善**。SGLang、vLLM、TokenSpeed、llama.cpp、transformers 全支援。百靈已驗證與 Claude Code、Kilo Code、Qwen Code、Hermes Agent、OpenClaw 等主流 Agent 框架的相容性。
+OpenRouter（美元，2026-11-23 的模型 API）：
+
+| Model ID | 端點 | Input | Output | Context |
+|---|---|---|---|---|
+| `inclusionai/ling-3.2-flash:free` | Ant Digital | $0 | $0 | 1M |
+| `inclusionai/ling-3.1-flash` | Novita | $0.06 | $0.18 | 1M |
+| `inclusionai/ling-3.0-flash` | Novita／DeepInfra | $0.021／$0.06 | $0.063／$0.18 | 262K／131K |
+| `inclusionai/ling-3.0-flash-vl` | DeepInfra | $0.06 | $0.18 | 131K |
+| `inclusionai/ling-3.0-tiny` | Ant Digital | $0.015 | $0.045 | 262K |
+
+官方定價頁列的 OpenRouter 價格是 3.1-flash 原價 $0.30／$0.90、優惠 $0.075／$0.225，3.2-flash $0.30／$0.90，跟 OpenRouter API 目前顯示的不完全一致，實際以 OpenRouter 頁面為準。舊的 `ling-3.0-flash:free` 與 `ling-3.0-flash-fin` 在 OpenRouter 已經沒有端點；OpenRouter 上的 3.2 免費端點只列文字與圖片輸入，影片輸入要走官方 API。
+
+### 已停用的型號
+
+Ant Ling 停用頁（到期後該 Model ID 的 API 呼叫會回錯誤）：
+
+| 型號 | 停用日期（UTC+8） | 官方建議替代 |
+|---|---|---|
+| Ling-2.6-1T、Ring-2.6-1T、Ling-2.6-flash | 2026-11-15 | Ling-3.1-flash |
+| Ling-2.5-1T、Ring-2.5-1T | 2026-09-30 | Ling-3.1-flash |
+| Ling-1T、Ring-1T | 2026-06-15 | Ling-3.1-flash |
+
+停用只影響官方 API；Hugging Face 上的權重仍可下載。
+
+### 部署
+
+自架建議用 SGLang（官方提供 day-0 映像檔，含 MTP 推測解碼）或 vLLM（`--tool-call-parser ling3 --reasoning-parser ling3`）。官方 API 同時相容 OpenAI 與 Anthropic 協定，文件附 Claude Code、Kilo Code、OpenClaw、Hermes Agent 的接法。Ling-3.0-flash 已有華為昇騰的適配，3.1 的國產算力支援本文引用來源沒有提到。
 
 ## Agent 使用與選型
 
-### 對 Agent 開發者的意義
+- **長流程 coding agent、辦公自動化、搜尋 agent** → Ling-3.1-flash（自架用 `-1019`），思考開著跑；先確認你的 GPU 預算能放 8×H200 或量化後的 4 卡
+- **高頻、低延遲、大量批次處理** → Ling-3.0-flash：官方 API 價格約是 3.1 原價的四分之一，關掉思考後延遲更低
+- **要看圖看影片的 agent（GUI 自動化、文件理解、截圖轉網頁）** → 只用 API 的話選 Ling-3.2-flash；要自架就先用 Ling-3.0-flash-VL，等 3.2 權重
+- **端側、離線、隱私敏感** → Ling-3.0-tiny（7.9B／1.3B）
+- **醫療研究、醫療 agent 評測** → LingSante-3.1-flash（文字）或 LingSante-3.1-air-VL（影像報告、皮膚、餐點、GUI 掛號流程），一律加人工覆核
+- **金融投研** → Ling-3.0-flash-Fin 權重自架，或直接用 Ling-3.1-flash（官方說 3.1 在金融也有提升），兩者在自家題目上比一次
+- **語音** → Ming-3.0-asr-tiny（中英＋方言辨識、支援熱詞）、Ming-3.0-tts-0.5B（7 種語言＋四川話、粵語，零樣本音色複製）、Ming-3.0-audio-flash（音訊理解與推理）
+- **還在呼叫 Ring 或 Ling 2.x 的 API** → 已經停用，改成 `Ling-3.1-flash` 並開啟思考，重跑自己的評測；Ring 的 xhigh 推理強度沒有對應的參數
 
-如果你在做**視覺/多模態 Agent**（圖像分析、影片理解、視覺推理）：Ling-3.0-flash-VL 是開源生態中最高效的視覺語言模型——124B/5.5B 架構、AA Intelligence Index 42、256K context，支援單次請求最多 40 張圖像與影片輸入。
-
-如果你在做**高頻 Agent 工作流**（coding agent、搜尋 agent、工具呼叫密集的場景）：Ling-3.0-flash 是目前開源中最具「智效比」的選擇之一——5.1B 活躍參數達到 1T 旗艦的效能，TTFT 減少 60–80%，單一節點即可部署。搭配 Ling-3.0-tiny 還能做「大帶小」的架構：flash 負責規劃，tiny 負責本地執行。
-
-如果你在做**金融相關 Agent**（投研、財報分析、估值建模）：Ling-3.0-flash-Fin 是目前開源生態中最完整的金融增強模型，MIT 授權加上 FinFIRST 基準開源，讓你能自架、測試、驗證整套流程。
-
-如果你在做**深度推理任務**（數學證明、代碼正確性驗證）：Ring-2.6-1T 是比 Ling 更合適的選擇——它專為「慢思考」設計，IMO/CMO 金牌的推理嚴謹度不是 Ling 系列能比擬的。
-
+最小的選型驗證：用 20–50 題自家 agent 任務，分別跑 Ling-3.1-flash 思考開／關與 Ling-3.0-flash，記錄成功率、平均輸出 token、工具呼叫輪數與單題成本。3.1 的優勢在長流程，題目要包含多輪工具呼叫，否則看不出差別。
 
 ## 限制與取捨
 
-不適合：追求榜首效能（封閉模型全面領先）、需要語音/全模態輸出（Ling 系列處理文字與視覺，Ming 系列才是全模態旗艦）、需要 100% 生產級可靠性（官方明確聲明 flash-Fin「不構成投資建議」）。
-
-### 整體來說
-
-百靈家族的核心賭注是「**智效比勝於絕對規模**」——不是在比誰的參數更大，而是在比同樣的計算資源下誰的能力更強。從 Ling 1.0 的工程驗證，到 3.0 的原生混合線性架構，這條路徑越走越清晰：1/64 的 MoE 專家啟用比、KDA 的精確長序列記憶、「規劃-執行分離」的三線並行。
-
-Flash-Fin 的意義不只是一個金融模型，而是「百靈策略」的第一次垂直落地——把通用高效架構 + 領域微調 + 開源評測基準打包成一個完整方案。Flash-VL 則是同一策略在多模態領域的落地：把原生混合線性架構 + 視覺編碼器 + 高效推理打包成開源方案。後續觀察重點是：這套策略是否會複製到法律、醫療、工程等其他垂直領域，以及 Ling-3.0 系列是否會推出語音/影片生成的完整全模態版本填補 Ming 與 flash-VL 之間的空白。
+- **3.2 還不能自架**：Ling-3.2-flash 只有 API，架構細節與權重都未公開；官方只說權重「即將開放」
+- **評測幾乎都是官方自報**：AA 分數由模型卡引用，長程案例與 3.2 的勝場都是官方自選；醫療版的數字只有圖片
+- **3.1 的硬體門檻高**：BF16 要 8 張 H200 等級的 GPU，量化後也要 4 張；不是單機工作負載
+- **思考變長**：官方承認 RL 後思維鏈與互動輪數增加，帳單與延遲要用自己的工作負載估
+- **價格標示不一**：官方文件與 OpenRouter API 對同一模型列的價格不同，優惠結束後也會回到原價
+- **醫療版不是醫療器材**：兩份 LingSante 模型卡都禁止獨立做診斷、處方與分流
+- **Ring 的位置**：思考模型線不再有官方服務，需要萬億級思考模型的團隊只能自架舊權重
 
 ## 更新紀錄
 
+- 2026-11-23：換代到 Ling 3.1 世代。矩陣、架構、評測、價格與選型改寫為 Ling-3.1-flash（2026-09-30 API、10-15 開源、10-27 `-1019` 更新）與 Ling-3.2-flash（11-05，只有 API）；新增 LingSante-3.1 醫療線、Ming-3.0 語音線與官方停用表（Ring 全線與 Ling 2.x 已從官方 API 下架）。Ling 3.0 世代降為歷史與低成本選項，原本的 3.0 衍生版本表與 Fin 細節移出正文，Fin 見時間線連結的每日模型卡。修正錯誤：移除已失效的 OpenRouter `ling-3.0-flash:free`、`:fin:free`、`:vl:free` 端點；「三線並行、Ring 負責規劃」改為現況；「幾乎所有模型 Apache 2.0 或 MIT」改為逐模型標示授權；詞彙表的 Ring 說明原寫 Ring-2.6-1T 拿 IMO 金牌，正文來源寫的是 Ring 2.5，已改寫。
 - 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 
+- [Ant Ling 文件：Ling 模型系列與選型表](https://developer.ant-ling.com/zh-CN/docs/models/ling/) — 3.2／3.1／3.0 規格、演進表
+- [Ant Ling 文件：定價](https://developer.ant-ling.com/zh-CN/docs/models/price/) — 官方與 OpenRouter、ZenMux 價格
+- [Ant Ling 文件：下架](https://developer.ant-ling.com/zh-CN/docs/models/deprecation/) — Ring、Ling 2.x 停用日期與替代模型
+- [Ant Ling 文件：更新日誌](https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/) — Ling-3.2-flash、Ming-3.0 API 上線日期
+- [Ant Ling 部落格：Ling-3.1-flash 面向真實世界任務的模型升級（2026-09-30）](https://developer.ant-ling.com/zh-CN/blogs/ling-3.1-flash)
+- [Ant Ling 部落格：Ling-3.1-flash 正式開源（2026-10-15）](https://developer.ant-ling.com/zh-CN/blogs/ling-3.1-flash-open-source)
+- [Ant Ling：Introducing Ling-3.2-flash（LinkedIn，2026-11-06）](https://www.linkedin.com/posts/ant-ling_antling-multimodalai-opensourceai-activity-7524272962829471744-O2DN)
+- [Hugging Face：inclusionAI/Ling-3.1-flash](https://huggingface.co/inclusionAI/Ling-3.1-flash)
+- [Hugging Face：inclusionAI/Ling-3.1-flash-1019](https://huggingface.co/inclusionAI/Ling-3.1-flash-1019)
+- [Hugging Face：inclusionAI/LingSante-3.1-flash](https://huggingface.co/inclusionAI/LingSante-3.1-flash)
+- [Hugging Face：inclusionAI/LingSante-3.1-air-VL](https://huggingface.co/inclusionAI/LingSante-3.1-air-VL)
+- [Hugging Face：inclusionAI/Ming-3.0-audio-flash](https://huggingface.co/inclusionAI/Ming-3.0-audio-flash)
+- [Hugging Face：inclusionAI/Ming-3.0-tts-0.5B](https://huggingface.co/inclusionAI/Ming-3.0-tts-0.5B)
+- [Hugging Face：inclusionAI/Ming-3.0-asr-tiny](https://huggingface.co/inclusionAI/Ming-3.0-asr-tiny)
+- [Hugging Face：inclusionAI/Ling-3.0-flash](https://huggingface.co/inclusionAI/Ling-3.0-flash)
+- [OpenRouter：inclusionai 模型列表](https://openrouter.ai/inclusionai)
+- [Artificial Analysis：LingSante-3.1-flash](https://artificialanalysis.ai/models/lingsante-3-1-flash-1119)
 - [Ant Group 官方：Ant Group Unveils Ling AI Model Family and Launches Ling-1T（2025-10-09）](https://www.antgroup.com/en/news-media/press-releases/1759982400000)
 - [Ant Group 官方：Ant Group Releases Ling-2.5-1T and Ring-2.5-1T（2026-02-16）](https://secure.businesswire.com/news/home/20260215551663/en/Ant-Group-Releases-Ling-2.5-1T-and-Ring-2.5-1T-Evolving-Its-Open-Source-AI-Model-Family)
-- [Ant Group 官方：Open-Sources Ling-3.0-flash-Fin for Real-World Financial Workflows（2026-09-09）](https://www.antgroup.com/en/news-media/press-releases/1788944400000)
-- [Ant Ling 官方文件：模型家族](https://developer.ant-ling.com/zh-CN/docs/models)
-- [Ant Ling 官方文件：Ling-3.0-flash 發佈](https://developer.ant-ling.com/zh-CN/blogs/ling-3.0-flash-release)
-- [Hugging Face：inclusionAI/Ling-3.0-flash](https://huggingface.co/inclusionAI/Ling-3.0-flash)
-- [Hugging Face：inclusionAI/Ling-3.0-flash-VL](https://huggingface.co/inclusionAI/Ling-3.0-flash-VL)
-- [Hugging Face：Ling 3.0 Collection（含全部量化版）](https://huggingface.co/collections/inclusionAI/ling-30)
-- [Hugging Face：Ling 3.0 Fin Collection](https://huggingface.co/collections/inclusionAI/ling-30-fin)
-- [OpenRouter：inclusionai 模型列表](https://openrouter.ai/inclusionai)
-- [LLM Timeline：Ant Group（27 models, 2025-2026）](https://llmtimeline.org/ant-group)
-- [frangelbarrera/Ling-3-flash-evaluation：獨立評測](https://github.com/frangelbarrera/Ling-3-flash-evaluation)
-- [vLLM Recipes：Ling-3.0-flash（含架構細節）](https://recipes.vllm.ai/inclusionAI/Ling-3.0-flash)
-- [雷峰網：連續發布兩款萬億參數模型，螞蟻 AI 來勢洶洶](https://www.leiphone.com/category/ai/L6tQCmiyhpWnqvRk.html)
 - [Ant Group 官方：Ant Group Unveils Ling-3.0-Flash（BusinessWire，2026-07-27）](https://www.businesswire.com/news/home/20260726584441/en/)
+- [Ant Group 官方：Open-Sources Ling-3.0-flash-Fin for Real-World Financial Workflows（2026-09-09）](https://www.antgroup.com/en/news-media/press-releases/1788944400000)
+- [Ant Ling 文件：Ling-3.0-flash 發佈](https://developer.ant-ling.com/zh-CN/blogs/ling-3.0-flash-release)
+- [AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources) — 本站
+- [AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview) — 本站

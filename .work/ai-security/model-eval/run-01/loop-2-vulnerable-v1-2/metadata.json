@@ -1,0 +1,13 @@
+{
+  "label": "loop-2-vulnerable-v1-2",
+  "requested_model": "gpt-6.1-sol",
+  "seconds": 9.419,
+  "exit": 0,
+  "usage": {
+    "input_tokens": 23680,
+    "cached_input_tokens": 23424,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 98,
+    "reasoning_output_tokens": 22
+  }
+}

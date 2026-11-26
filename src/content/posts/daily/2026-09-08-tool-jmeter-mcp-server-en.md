@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-08-tool-jmeter-mcp-server)
+> :globe: [中文版](/posts/daily/2026-09-08-tool-jmeter-mcp-server)
 
 ## Tool Info
 
@@ -91,11 +91,11 @@ The README itself maintains a comparison table against eight other public "JMete
 
 | | jmeter-mcp-server | Common pattern among similar projects |
 |---|---|---|
-| `.jmx` round-trip (import *and* export) | ✅ | Usually one-directional generation only, or execute-only |
-| Incremental editing by node ID | ✅ | ❌ — most regenerate the whole plan from parameters |
-| Async execution, doesn't block on long runs | ✅ | ❌ — most wait synchronously for completion |
-| Automated test suite (166 tests, incl. real JMeter runs) | ✅ | ❌ — most projects have no test suite |
-| Actually invokes Apache JMeter | ✅ | Some reimplement HTTP load-testing logic themselves, with no real JMeter underneath |
+| `.jmx` round-trip (import *and* export) | ✓ | Usually one-directional generation only, or execute-only |
+| Incremental editing by node ID | ✓ | ✗ — most regenerate the whole plan from parameters |
+| Async execution, doesn't block on long runs | ✓ | ✗ — most wait synchronously for completion |
+| Automated test suite (166 tests, incl. real JMeter runs) | ✓ | ✗ — most projects have no test suite |
+| Actually invokes Apache JMeter | ✓ | Some reimplement HTTP load-testing logic themselves, with no real JMeter underneath |
 
 ## Things to Watch Out For
 

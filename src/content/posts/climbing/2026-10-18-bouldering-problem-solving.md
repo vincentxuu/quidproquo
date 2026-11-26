@@ -30,7 +30,7 @@ glossary:
     definition: "爬完或放棄時，沿著牆上的點爬下來，而不是從高處跳到墊子上。有些岩館會裝專門給人下攀的點。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-bouldering-problem-solving-en)
+> :globe: [English version](/posts/climbing/2026-10-18-bouldering-problem-solving-en)
 
 你在一條抱石題目上，第五次掉在同一手。爬回起點、拍粉、再衝一次，還是掉在那裡。
 

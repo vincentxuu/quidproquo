@@ -21,7 +21,7 @@ glossary:
     definition: "A multinational association founded in 2016 that became a full IFMGA member in 2019, training guides for Eastern and South-Eastern European countries that have no IFMGA association of their own."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe)
 
 These six associations share a post because they show several ways a state can bring guide training into its institutions. Spain puts it inside the national sports-education system, so guides first earn a state qualification. Slovakia and Slovenia write guiding into law (Slovenia in a dedicated guide law, Slovakia in its Mountain Rescue Act). The Czech Republic lists guiding as a trade that needs proof of qualification. Poland has its own state mountain-guide licence, separate from IFMGA certification. The last one, EEMGA, is the opposite case: a multinational association that opens a path for countries without their own, and the only one in this group taught in English, which makes it the most likely entry point for Taiwanese readers.
 

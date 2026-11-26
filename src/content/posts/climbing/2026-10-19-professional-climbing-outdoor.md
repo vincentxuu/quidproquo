@@ -26,7 +26,7 @@ glossary:
     definition: "事先練習過路線，最後一次從頭到尾不掉、不休息地爬完。戶外的困難路線幾乎都是紅點完成。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-professional-climbing-outdoor-en)
+> :globe: [English version](/posts/climbing/2026-10-19-professional-climbing-outdoor-en)
 
 2026 年 10 月 10 日下午，Jakob Schubert 在法國 Verdon 峽谷完攀一條叫 DNA 的路線，YouTube 上大約 18 萬人在看他直播（[Climbing.com](https://www.climbing.com/news/dna-repeat/)）。沒有裁判、沒有獎牌、沒有獎金，但這次攀爬讓 DNA 成為世界上第一條被確認的 9c。
 

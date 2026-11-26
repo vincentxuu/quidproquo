@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol-en)
+> :globe: [English version](/posts/daily/2026-10-14-pricing-anthropic-claude-sonnet-4-bedrock-eol-en)
 
 ## 變更摘要
 
@@ -71,7 +71,7 @@ Region 加價不是 Sonnet 4.6 單獨的規則——Anthropic 官方定價文件
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-10-14（今天）。Claude Sonnet 4（`anthropic.claude-sonnet-4-20250514-v1:0`）在所有 AWS region 下架，請求全面失敗。遷移指南：[Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)。
+:warning: **停用日期**：2026-10-14（今天）。Claude Sonnet 4（`anthropic.claude-sonnet-4-20250514-v1:0`）在所有 AWS region 下架，請求全面失敗。遷移指南：[Model deprecations](https://platform.claude.com/docs/en/about-claude/model-deprecations)。
 
 ## 今日收穫
 

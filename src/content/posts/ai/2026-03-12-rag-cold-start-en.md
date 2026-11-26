@@ -14,7 +14,7 @@ series:
   order: 44
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-cold-start)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-cold-start)
 
 RAG systems have a chicken-and-egg problem: no data means no answers, but data only accumulates through actual use.
 

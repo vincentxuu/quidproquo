@@ -15,7 +15,7 @@ description: "A complete guide to Carnegie Mellon's AI degree system: the mathem
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-cmu-ai-degree)
+> :globe: [中文版](/posts/learning/2026-08-21-cmu-ai-degree)
 
 At most universities, "AI curriculum" means a group of electives inside computer science. Stanford, MIT, and Berkeley all follow that pattern: finish a CS degree and take several AI courses along the way.
 

@@ -24,7 +24,7 @@ glossary:
         url: "https://arxiv.org/abs/1805.02867"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-distributed-efficient-inference)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

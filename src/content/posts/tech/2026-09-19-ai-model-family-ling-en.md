@@ -1,202 +1,229 @@
 ---
-title: "Ling — From Trillion-Parameter Flagships to 5.1B Execution Nodes, Ant Group's Three-Line AGI Strategy"
+title: "Ling — Ling 3.1 at 560B/25B Becomes the Workhorse, Ring Folds into Hybrid Reasoning, and Medical and Speech Lines Branch Out"
 date: 2026-09-19
 category: tech
 type: deep-dive
-tags: [ai-agent, llm, ant-group, model-family-ling, moe, open-source, agent, finance]
+tags: [ai-agent, llm, ant-group, model-family-ling, moe, open-source, agent, finance, healthcare]
 lang: en
-description: "Ant Group's Ling model family deep-dive: 2025→2026 evolution timeline, Ling/Ring/Ming three-series strategy, architecture journey from Ling 1.0 to Ling 3.0, Ling-3.0-flash-Fin finance model, and an Agent developer's selection guide"
-tldr: "Ling separates execution, Ring handles deep reasoning, and Ming covers multimodal tasks; the family prioritizes intelligence per unit of compute, so selection starts with workload, deployment budget, and modality."
+description: "Ant Group's Ling (Ant Ling / inclusionAI) model family: Ling-3.1-flash (560B total / 25B active, 1M context, MIT) and the natively multimodal Ling-3.2-flash are now the main models, the Ring reasoning line has been retired from the API in favor of hybrid-reasoning Ling, plus the LingSante medical line, Ming-3.0 speech models, licensing, pricing, retirement dates, and agent selection"
+tldr: "Ling's main model today is Ling-3.1-flash: 560B total parameters, 25B active per token, 1M context, switchable thinking, MIT weights on Hugging Face. Ling-3.2-flash, launched 2026-11-05, has the same size and natively takes images and video, but is API-only for now (OpenRouter has a free endpoint); Ant says weights are coming soon. The Ring reasoning models left the official API on 2026-11-15, and Ant recommends Ling-3.1-flash instead. For cheap, high-volume work the 124B/5.1B Ling-3.0-flash still applies; medical work has LingSante-3.1, speech has Ming-3.0."
 series:
   name: "AI Model Families"
   order: 20
 glossary:
   - term: "Ling"
-    def: "Ant Group's independently developed and open-sourced LLM family, including Ling (non-thinking), Ring (thinking), and Ming (multimodal) series, built on MoE architecture"
+    def: "Ant Group's independently developed, open-sourced LLM family, mostly MoE; the official API currently serves the Ling 3.x series, alongside the Ming omni-modal/speech line and the LingSante medical line"
   - term: "Ring"
-    def: "The reasoning-focused model line within the Ling family, achieving IMO 2025 gold (35/42) and CMO 2025 gold (105/126) with Ring-2.6-1T"
+    def: "Ling's former reasoning line (Ring-1T through Ring-2.6-1T); all Ring models left the official API on 2026-11-15, with Ling-3.1-flash (switchable thinking) as the recommended replacement; weights remain on Hugging Face"
   - term: "Ming"
-    def: "The multimodal model line in the Ling family, supporting text, image, audio, and video understanding and generation; Ming-flash-omni-2.0 is the latest flagship"
+    def: "Ling's omni-modal and speech line: Ming-flash-omni-2.0 is the omni-modal flagship, and Ming-3.0 added speech understanding, speech synthesis, and speech recognition models in September–October 2026"
   - term: "KDA"
-    def: "Kimi Delta Attention, an evolution of Lightning Attention with fine-grained diagonal gating in Delta Rule state updates for precise long-sequence memory retention"
+    def: "Kimi Delta Attention, a linear-attention variant with fine-grained diagonal gating in Delta Rule state updates; Ling 3.x stacks mostly KDA layers with a few Gated MLA global-attention layers"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-19-ai-model-family-ling)
+> :globe: [中文版](/posts/tech/2026-09-19-ai-model-family-ling)
 
-In March 2025, Ant Group validated the engineering feasibility of MoE large language models on non-A100/H100 heterogeneous computing platforms — this was the starting point of the Ling family. Fifteen months later, it delivered a matrix spanning 7.9B to 1T parameters across text, reasoning, and multimodal domains. On September 9, 2026 at the Bund Conference, the family gained a new member: Ling-3.0-flash-Fin, the first finance-enhanced model.
+Ling (Ant Ling; the Hugging Face organization is inclusionAI) is Ant Group's open-source model family. It changed generations in autumn 2026: the main model moved from the 124B Ling-3.0-flash to Ling-3.1-flash, with 560B total parameters and 25B active per token, and thinking can be switched on or off, so the separate Ring reasoning line has left the official API. This post is for people choosing an open-weight model for agent workflows: by the end you can decide between 3.1 and 3.0, whether to wait for 3.2 weights, and whether the medical and speech branches fit your work.
 
-This is the twentieth family deep-dive in the "AI Model Families" series, tracing Ling's complete evolution from trillion-parameter flagship to 5.1B efficient execution node, and its "planning-execution separation" AGI strategy.
-
-How to interpret the benchmark numbers cited in this article, please see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources).
+This is the twentieth family deep-dive in the "AI Model Families" series. For how to interpret the benchmark numbers cited here, see the [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en). This post is part of the [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) series.
 
 ## Family positioning and model matrix
 
+Based on Ant Ling's official selection table, retirement page, and Hugging Face model cards:
+
 | Model / product line | Positioning | Key difference | Access |
 |---|---|---|---|
-| Ling | Execution/tool use | tiny, flash, VL, and Fin by task | Open weights; Ant Ling documentation |
-| Ring | Deep reasoning/planning | Trillion-parameter reasoning line | Open weights |
-| Ming | Omnimodal | Unified speech, music, and audio architecture | Official family documentation/model sources |
+| Ling-3.1-flash (incl. the `-1019` post-training update) | Workhorse: long-horizon agents, office work, software development | 560B total / 25B active, 1M context, switchable thinking | MIT weights (HF, ModelScope); official API `Ling-3.1-flash`; OpenRouter `inclusionai/ling-3.1-flash` |
+| Ling-3.2-flash | Native multimodal: visual understanding, multimodal long-horizon agents, 3D, medical imaging | Also 560B / 25B, 1M; natively takes image, text, and video | API only: official `Ling-3.2-flash`, OpenRouter `inclusionai/ling-3.2-flash:free`; weights not yet public |
+| Ling-3.0-flash | Low-cost, high-volume, low-latency | 124B / 5.1B active, 256K | MIT weights; official API; OpenRouter paid endpoints |
+| Ling-3.0-flash-VL | Low-cost vision-language | 124B / 5.5B, image + video input, 256K | MIT weights; official API; OpenRouter paid endpoint |
+| Ling-3.0-tiny | On-device, local offline | 7.9B / 1.3B | MIT weights; official API; OpenRouter paid endpoint |
+| LingSante-3.1-flash / -3.1-air-VL | Medical research and evaluation | The former is built on Ling-3.1-flash (560B / 25B, 1M), the latter on Ling-3.0-flash-VL (124B / 5.5B, text + image) | MIT weights; the flash version also has a Computrix API |
+| Ming-3.0 speech models | Speech understanding, synthesis, recognition | audio-flash 126B / 6.5B, audio-tiny 9.3B / 2.7B, tts-0.5B, tts-tiny, asr-tiny | MIT weights; asr-tiny, tts-0.5B, and audio-flash have an official API |
 
-### Three Product Lines: Ling Executes, Ring Thinks, Ming Multimodal
+### From three lines to one hybrid-reasoning line
 
-The key to understanding the Ling family architecture is decomposing it into three parallel lines (plus one experimental line):
+From 2025 to mid-2026, Ling split work across three lines: Ling did non-thinking execution, Ring was the trillion-parameter reasoning model for planning and deep reasoning, and Ming covered omni-modal tasks. From Ling 3.0, thinking became a switch on the same model (the official docs say Ling-3.0-flash can switch between thinking and non-thinking modes), and Ling 3.1 finished the move: the official retirement page points Ling-1T, Ring-1T, Ling/Ring-2.5-1T, Ling/Ring-2.6-1T, and Ling-2.6-flash all to Ling-3.1-flash as the replacement.
 
-**Ling series** (non-thinking/general-purpose): A full-size matrix from Ling-mini to Ling-3.0-flash, built on MoE architecture to deliver "flagship intelligence, Flash efficiency." This line is responsible for **execution** — high-speed inference, tool calling, high-frequency agent tasks. Ling-3.0-flash is positioned as the execution node in the "planning-execution separation" paradigm.
+That makes selection simpler: start with Ling-3.1-flash for general text tasks; drop to Ling-3.0-flash for cost or latency; for images and video use Ling-3.2-flash (API) or Ling-3.0-flash-VL (self-hostable). Ring weights are still on Hugging Face, but Ant no longer runs them as a service.
 
-**Ring series** (thinking/reasoning): From Ring-1T to Ring-2.6-1T, trillion-parameter thinking models focused on deep reasoning, mathematical proof, and long-horizon autonomous execution. Ring-2.5-1T achieved IMO 2025: 35/42 (gold medal standard) and CMO 2025: 105/126 (surpassing China's national team cutoff). This line handles **planning** — multi-step reasoning for complex problems.
+### Vertical branches: finance, medical, speech
 
-**Ming series** (multimodal): Unified text, image, audio, and video understanding and generation. Ming-flash-omni-2.0 is the industry's first model to unify speech, music, and audio within a single architecture.
+Another Ling trait is turning the same base into domain versions:
 
-**LLaDA series** (experimental): Diffusion model experiments including LLaDA-MoE and LLaDA 2.0/2.1/2.2, exploring non-autoregressive generation paths.
-
-The logic is clear: **Ling handles "fast and efficient", Ring handles "deep and rigorous", Ming handles "complete and cross-modal"**. All three share underlying training infrastructure and architectural innovations (hybrid linear attention, MoE routing optimization), but serve distinct roles during inference.
-
-### Family Matrix and Selection Guide
-
-#### Ling 3.0 Core Models
-
-| Dimension | Ling-3.0-tiny | Ling-3.0-flash | Ling-3.0-flash-VL | Ling-3.0-flash-Fin |
-|---|---|---|---|---|
-| Total Parameters | 7.9B | 124B | 124B | 124B |
-| Active Parameters | 1.3B | 5.1B | **5.5B** | 5.1B |
-| Positioning | Local offline | Production agent execution | Vision-language | Finance-enhanced agent |
-| Input | Text | Text | **Image + Video + Text** | Text |
-| Context | 256K | 256K → 1M | 256K | 256K → 1M |
-| Open Source | Yes | Yes | Yes (MIT) | Yes (MIT) |
-| AA Intelligence Index | N/A | 38 | **42** | 41 |
-
-#### Ling 3.0-flash Derivative Versions (Hugging Face)
-
-| Version | Description | Size |
-|---|---|---|
-| `Ling-3.0-flash` | BF16 base checkpoint | 127.5B (incl. 3.1B MTP head) |
-| `Ling-3.0-flash-fp8` | Serialized block-FP8 quantization | ~66B |
-| `Ling-3.0-flash-fp4` | MXFP4 compressed quantization | ~33B |
-| `Ling-3.0-flash-int4` | Symmetric W4 (routed experts only) | ~16B |
-| `Ling-3.0-flash-dspark` | Speculative decoding draft model | 1B |
-| `Ling-3.0-flash-base-midtrain` | Pre-training mid-train checkpoint | 127B |
-
-Same quantization and derivative versions are available for `Ling-3.0-flash-Fin` (including `-fp4`) and `Ling-3.0-tiny` (including `-fp8`).
-
-#### Architecture Details
-
-All Ling 3.0-flash series share the same base architecture:
-
-- **42 Transformer layers**: 35 KDA (Kimi Delta Attention) + 7 Gated MLA (5:1 ratio)
-- **512 routed experts + 1 shared expert**, **8 experts activated per token** (MoE 1/64 sparsity)
-- **Hidden size 2560**, Expert intermediate size 768
-- **Vocabulary 157,184**
-- **3.1B MTP (multi-token prediction) head**, bringing the full checkpoint to 127.5B parameters
-- **Context training schedule**: 8K → 32K → 256K
-- **SGLang HiCache + Mooncake hierarchical caching**, TTFT reduced 60–80% for long inputs
-- **vLLM 0.25.0+** support with native Bailing V3 compatibility
-
-#### Selection Logic
-
-**Local offline, small tasks → tiny. Fast Agent execution, coding, general reasoning → flash. Vision understanding, multimodal reasoning → flash-VL. Financial domain → flash-Fin. Speculative decoding acceleration → pair with dspark draft model.**
+- **Finance**: Ling-3.0-flash-Fin (2026-09-09, 124B / 5.1B, MIT); details in the [model card](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en). The official API's list of available models does not include it, and its OpenRouter endpoint is gone, so using it means downloading the weights and self-hosting
+- **Medical**: after Ling-3.0-flash-Sante (2026-10-19, 124B / 5.1B), Ant released LingSante-3.1-flash (moved to the 3.1 base) and LingSante-3.1-air-VL (multimodal; its model card calls it the first open-source multimodal medical model from Ant's healthcare team) on 2026-11-19. Both model cards state these are research models, not medical devices
+- **Speech**: Ming-3.0 splits into understanding (audio-flash, audio-tiny), synthesis (tts-0.5B, tts-tiny), and recognition (asr-tiny); the small tts-tiny and asr-tiny use the Ling 3.0 tiny backbone
 
 ## Family evolution
 
-### Family Evolution Timeline
+| Date | Version | Key facts | What it changed for selection |
+|---|---|---|---|
+| 2025-03 | Ling 1.0 | MoE LLM validated on non-A100/H100 heterogeneous compute | Self-hosting on domestic Chinese compute became a selling point |
+| 2025-10-09 | Ling-1T, Ring-1T | Trillion-parameter non-thinking and thinking models open-sourced together | The "Ling executes, Ring plans" pairing took shape; official API retired 2026-06-15 |
+| 2025-10 | Ling 2.0 series | End-to-end FP8 training, 1M context | Trillion-scale open models became usable for long documents |
+| 2026-02 | Ling-2.5-1T, Ring-2.5-1T, Ming-flash-omni-2.0 | Ling 2.5 moved to hybrid linear attention; Ant said Ring 2.5 reached gold-medal level on IMO 2025 and CMO 2025; Ming 2.0 unified speech, music, and audio | Long-horizon reasoning throughput got cheaper; API retired 2026-09-30 |
+| 2026-04 to 05 | Ling-2.6-1T, Ling-2.6-flash, Ring-2.6-1T | 2.6-flash is 104B / 7.4B; the Ring-2.6-1T API offered high / xhigh reasoning effort | Last generation of trillion-scale flagship and reasoning models; API retired 2026-11-15 |
+| 2026-07-23 | Ling-3.0-flash | 124B / 5.1B, native hybrid linear architecture (KDA:MLA 5:1), switchable thinking | A hundred-billion-class model approached the previous trillion-scale flagship and fit on a single node |
+| 2026-08 to 09 | Ling-3.0-tiny, Ling-3.0-flash-VL, Ling-3.0-flash-Fin | 7.9B / 1.3B on-device; 124B / 5.5B vision-language; finance-enhanced | One base began branching into on-device, vision, and vertical versions (Fin: [model card](/posts/daily/2026-09-19-model-ant-group-ling-3-0-flash-fin-en)) |
+| 2026-09 to 10 | Ming-3.0 speech models | audio-flash / tiny (09-03), tts-0.5B / tiny (09-22), asr-tiny (10-14); official API from 10-19 | Speech recognition, synthesis, and understanding got self-hostable dedicated small models |
+| 2026-09-30 | Ling-3.1-flash (API launch) | 560B / 25B; served at 256K during the free trial | The main size jumped from the hundred-billion class to the five-hundred-billion class |
+| 2026-10-15 | Ling-3.1-flash open-sourced | MIT weights; HF repo created 10-13, plus a base model (10-25) | The current selection baseline; see sections below |
+| 2026-10-27 | Ling-3.1-flash-1019 | Post-training update on the same architecture; Ant cites AA Intelligence Index v4.3.2 rising from 41 to 44 | Self-hosters should use this version directly |
+| 2026-11-05 | Ling-3.2-flash | 560B / 25B, 1M, native multimodal; free for its first two weeks | Multimodal no longer requires dropping to the 124B VL model, but it is API-only for now |
+| 2026-11-19 | LingSante-3.1-flash, LingSante-3.1-air-VL | Medical line moved to the 3.1 base and added a multimodal medical model | Medical research can evaluate directly with MIT weights |
 
-| Date | Version | Significance |
-|---|---|---|
-| 2025-03 | Ling 1.0 | Validated MoE LLM engineering feasibility on non-high-end heterogeneous platforms; completed domestic computing platform adaptation |
-| 2025-09 | Ring-1T-preview | World's first open-source trillion-parameter thinking model |
-| 2025-10-09 | Ling-1T + Ring-1T | Trillion-parameter non-thinking + thinking models open-sourced simultaneously; Ling/Ring/Ming family formally established |
-| 2025-10 | Ling 2.0 | First breakthrough at trillion-parameter scale; FP8 end-to-end training; 1M context |
-| 2026-02 | Ling-2.5-1T + Ring-2.5-1T | Ling 2.5: Hybrid Linear Attention; AIME 2026 with only 5,890 tokens to match frontier performance; Ring 2.5: IMO 2025/CMO 2025 dual gold |
-| 2026-02 | Ming-flash-omni-2.0 | Industry's first model to unify speech, music, and audio in a single architecture |
-| 2026-04 | Ling-2.6-1T | Trillion-flagship "fast thinking": MLA + Linear Attention hybrid, AIME 2026 leading, SWE-bench Verified at open-source forefront |
-| 2026-04 | Ling-2.6-flash | 104B/7.4B; anonymous "Elephant Alpha" on OpenRouter topped Trending for consecutive days |
-| 2026-05 | Ring-2.6-1T | Trillion-parameter deep thinking model for complex reasoning and long-horizon autonomous execution |
-| 2026-07-23 | Ling-3.0-flash | 124B/5.1B; native hybrid linear architecture; KDA + MLA 5:1; matches 1T flagship performance |
-| 2026-08 | Ling-3.0-tiny | 7.9B/1.3B; fully local deployment; zero cloud dependency |
-| 2026-08 | Ling-3.0-flash-VL | 124B/5.5B; vision-language model; AA Intelligence Index 42; supports image and video input |
-| 2026-08 | Ling-3.0-flash-Fin | 124B/5.1B; finance-enhanced; MIT open-source; co-developed with CICC; FinFIRST benchmark |
-| 2026-09-09 | Bund Conference | Ling-3.0-flash-Fin officially announced open-source; full quantization lineup (BF16/FP8/FP4/INT4) released |
-
-Eighteen months, twelve milestones. Ling's evolution follows a clear thesis: **first prove technical ceiling with trillion parameters, then compress into highly efficient smaller models via architectural innovation, and finally carve out vertical depth (Fin) for domain-specific scenarios.** Scale is not the goal — intelligence-per-computation is.
+The through-line: **prove the ceiling with trillion parameters, compress comparable capability into the hundred-billion class with a hybrid linear architecture (3.0), then in 3.1 scale back up to the five-hundred-billion class and merge thinking and non-thinking into one model**. Ring's exit follows from that path; Ant has not dropped reasoning.
 
 ## Architecture and training trade-offs
 
-### Architecture Evolution: From Hybrid Linear to Native Hybrid Linear
+### Ling 3.1: a higher share of linear attention
 
-Ling's architectural evolution can be distilled into a single trajectory:
+The [Ling-3.1-flash model card](https://huggingface.co/inclusionAI/Ling-3.1-flash) gives the structure: of 72 layers, 63 are KDA (Kimi Delta Attention, linear time complexity) and 9 are Gated MLA, a 7:1 ratio; the first 4 layers are dense; the MoE part routes each token to 8 of 512 experts plus 1 shared expert; hidden size 4096, vocabulary 157,184.
 
-**Ling 1.0 (2025-03)**: Validated MoE feasibility on non-high-end heterogeneous platforms. This was the engineering validation phase — the architecture itself was still being figured out.
+Compared with Ling 3.0 (42 layers, KDA:MLA 5:1, hidden 2560), two things changed:
 
-**Ling 2.0 (2025-10)**: First breakthrough at trillion-parameter scale. Introduced FP8 end-to-end training. Training efficiency improved dramatically, enabling cross-domain generalization. Context window reached 1M tokens.
+- **More linear attention**: only 1 in every 8 layers keeps global attention. Ant's blog says KDA handles long-sequence scaling while Gated MLA keeps a global path, so 1M context does not require every layer to pay quadratic cost. The trade-off is that global retrieval is concentrated in a few layers; precise look-ups in long documents still need validation on your own data
+- **Same expert sparsity, larger size**: the activation ratio stays at 8/512 (1/64), but each expert is wider and there are more layers, taking total parameters from 124B to 560B and active from 5.1B to 25B. Per-token compute is about five times 3.0's, in exchange for steadier long-horizon task execution
 
-**Ling 2.5 (2026-02)**: Hybrid Linear Attention (HLA) architecture introduced — attention layers interleaved at a 1:7 ratio of MLA and Lightning Linear Attention. Significantly improved throughput for long-sequence reasoning: over 32K tokens, memory access reduced by 10× and generation throughput increased by 3×.
+### Switchable thinking instead of two models
 
-**Ling 2.6 (2026-04)**: "Fast thinking" paradigm established. Ling-2.6-1T abandoned the industry-wide pursuit of "slow thinking" multi-step reasoning in favor of reaching results with minimal token expenditure. On AIME 2026, it significantly outperformed other non-thinking models. Ling-2.6-flash achieved same-size SOTA on agent-related benchmarks (SWE-bench Verified, TAU2-Bench, BFCL-V4).
+Ling 3.1 is a "hybrid reasoning" model: thinking is enabled at inference with `chat_template_kwargs: {"enable_thinking": true}`. The model card recommends leaving it on for agent tasks, with sampling `temperature=1.0`, `top_p=0.95`, `top_k=20`. Ant's blog also acknowledges that while RL raised task success rates, chains of thought and interaction rounds got longer, which raises latency and token cost.
 
-**Ling 3.0 (2026-07)**: Upgraded from "hybrid linear" to **native hybrid linear design**. The core innovation is KDA (Kimi Delta Attention) — evolving from Lightning Attention with fine-grained diagonal gating in Delta Rule state updates for more precise retention of critical information in long sequences. The MoE expert activation ratio compressed from 1/32 in the previous generation to **1/64**, dramatically improving "efficiency leverage" without sacrificing model capacity. KDA and MLA layers alternate at a **5:1 ratio**, balancing long-context efficiency with state memory robustness.
+### Deployment trade-off: BF16 needs 8 H200s
 
-This trajectory matters because Ling is not "scaling up" — it is **compressing intelligence**. Each generation achieves equal or superior performance with fewer activated parameters.
+The official BF16 weights are about 574GB. The model card's SGLang example uses 8×H200 (TP8 + EP8) or 4×GB300; the open-source blog says that with MXFP4 for routed experts and block-FP8 for dense layers, weights shrink from about 534GB to 292GB, and Hopper deployment drops from 8 GPUs to 4. On Hugging Face, inclusionAI currently publishes an MXFP4 repo only for the medical model (`LingSante-3.1-flash-MXFP4`); quantized files for the general model come mainly from the community (GGUF, EXL3, MLX, and others).
+
+### Ling-3.2-flash: architecture not disclosed
+
+Ant has disclosed only 560B total parameters, 25B active, 1M context, and that vision and language are "natively fused at the architectural level, without relying on external vision modules." Layer counts, the vision encoder, and training data are not public, and neither are the weights, so this post does not speculate about how it relates to 3.1.
 
 ## Evaluation and alternatives
 
-### Position Against Competitors
+All numbers below come from official model cards, blogs, or Ant's own account announcements; scores measured under different conditions are not mixed in one table.
 
-Ling's position in 2026 can be described along two axes:
+### Ling-3.1-flash (officially cited and self-reported)
 
-**Open-source leadership**: Ling-3.0-flash "matches or surpasses industry-leading models with two to three times its parameter scale" across core benchmarks. Independent evaluation ([frangelbarrera/Ling-3-flash-evaluation](https://github.com/frangelbarrera/Ling-3-flash-evaluation), 845 API calls, 12 test phases) scored it 7.0/10, with standout security performance (100% jailbreak resistance, 100% indirect injection prevention).
+| Metric | Value | Source and conditions |
+|---|---|---|
+| Artificial Analysis Intelligence Index v4.3.2 | 41 (original) → 44 (`-1019`) | Cited in the `-1019` model card |
+| Artificial Analysis Intelligence Index v5 | 30 (`-1019`) | Same; v4 and v5 use different scales and cannot be subtracted |
+| AA-Briefcase | 1397 → 1524 | Same |
+| AutomationBench-AA | 62% → 68% | Same |
+| CritPt / SciCode | 18%→26% / 54%→57% | Same |
+| Output speed | ~210 tokens/s | Open-source blog, citing Artificial Analysis |
 
-**Competitive against Chinese open-source**: Ling-2.5-1T achieves frontier thinking-model results on AIME 2026 using only 5,890 tokens — matching models that typically require 15k–23k tokens. This token efficiency places it among the leaders alongside DeepSeek V4, Kimi K2.5, and GPT-5.2.
+Ant's blog also published three long-running cases, compared against Claude Fable 5 and GLM-5.3-Flash: a Lua-to-x86-64 compiler written from scratch passed 178 of 182 tests after about 17 hours (97.8%; Fable 5 99.0%, GLM-5.3-Flash 95.9%); rewriting a C image library in Rust reached an 8.015× speedup, above GLM-5.3-Flash's 1.396× and far below Fable 5's 27.31×. These are tasks Ant chose itself: they show the model can run for over ten hours without falling apart, but they are not public benchmarks.
 
-The limitation is equally clear: **closed frontier models (Claude, GPT) lead comprehensively**. Ling still trails on top-tier coding benchmarks (Ring-2.6-1T's Terminal-Bench 2.1 57.5 is behind GPT-5.4's scores). Additionally, flash-Fin's general benchmark (AA Intelligence Index 41) remains below top closed-source models.
+### Ling-3.2-flash (official account announcement)
+
+Ant Ling's launch post lists three comparisons against Claude Opus 5 (max): OmniDocBench 1.5 92.21 vs 90.56, ZEROBench (Sub) 43.71 vs 39.52, Vision2Web 85.86 vs 80.20. All three are document-understanding and vision tasks chosen by the vendor, with no third-party re-run.
+
+### LingSante-3.1
+
+The model card says it leads open-source models on complex medical reasoning, but results are shown only as images with no reproducible number table. Artificial Analysis lists LingSante-3.1-flash, but with no public API it has no Intelligence Index score yet. The model card also states that benchmark and simulated-environment results do not establish clinical effectiveness.
+
+### Position against alternatives
+
+- **Against Chinese open models (GLM-5.3, DeepSeek V4.x, Kimi, etc.)**: Ling-3.1-flash's selling points are price and the MIT license; Ant's long-horizon cases trade wins with GLM-5.3-Flash, and this post has no composite-index numbers measured under the same conditions to put side by side
+- **Against closed frontier models**: Ant's own long-horizon cases still show a gap to Claude Fable 5, largest on extreme performance optimization
+- **3.1 vs 3.0**: 3.1 is more capable but activates about five times as many parameters per token; Ant's selection table still positions 3.0-flash as the high-TPS, low-cost model for high-volume tasks
 
 ## Licensing, pricing, and deployment
 
-This article has not compiled a complete provider price table with dated billing units. The matrix distinguishes weight access and hosted routes; compare actual provider rates before scaling.
+### Licensing
 
-### Open Source Strategy and Ecosystem
+The Ling-3.0/3.1 series, LingSante, and the Ming-3.0 speech models all list MIT in their Hugging Face license field (the Ling-3.1-flash repo has no separate LICENSE file; the metadata is the reference). Ling-3.2-flash has no weights yet and can only be used under each API platform's terms of service. The medical model cards add usage limits: no independent diagnosis, prescribing, or triage decisions, and processing patient records must comply with local privacy and healthcare regulations.
 
-Ling's open source strategy has three defining characteristics:
+### API pricing (per 1M tokens)
 
-**First, clean licensing**. From Ling-1T to Ling-3.0-flash-Fin, nearly all models are under Apache 2.0 or MIT licenses. This compares favorably with Qwen 3.8-Max's custom terms and Llama's Community License — Ling's licensing is more business-friendly.
+Official pricing page (Ant Ling, RMB):
 
-**Second, domestic computing platform compatibility**. From Ling 1.0 onward, the family emphasizes running on non-A100/H100 heterogeneous platforms. Ling-3.0-flash received Huawei Ascend 0 Day support (with the new CANN PyPTO operator programming framework). This lowers the self-hosting barrier for domestic developers.
+| Model | Input | Output | Cache read | Current promotion |
+|---|---|---|---|---|
+| Ling-3.2-flash | ¥2.00 | ¥6.00 | ¥0.40 | The two-week free launch period has ended |
+| Ling-3.1-flash | ¥2.00 | ¥6.00 | ¥0.40 | 75% off: ¥0.50 / ¥1.50 / ¥0.10 |
+| Ling-3.0-flash, Ling-3.0-flash-VL | ¥0.50 | ¥1.50 | ¥0.10 | 72% off: ¥0.14 / ¥0.42 / ¥0.028 |
 
-**Third, mature framework ecosystem**. SGLang, vLLM, TokenSpeed, llama.cpp, and transformers are all supported. Ling has been validated against Claude Code, Kilo Code, Qwen Code, Hermes Agent, and OpenClaw frameworks.
+OpenRouter (USD, models API on 2026-11-23):
+
+| Model ID | Endpoint | Input | Output | Context |
+|---|---|---|---|---|
+| `inclusionai/ling-3.2-flash:free` | Ant Digital | $0 | $0 | 1M |
+| `inclusionai/ling-3.1-flash` | Novita | $0.06 | $0.18 | 1M |
+| `inclusionai/ling-3.0-flash` | Novita / DeepInfra | $0.021 / $0.06 | $0.063 / $0.18 | 262K / 131K |
+| `inclusionai/ling-3.0-flash-vl` | DeepInfra | $0.06 | $0.18 | 131K |
+| `inclusionai/ling-3.0-tiny` | Ant Digital | $0.015 | $0.045 | 262K |
+
+Ant's pricing page lists OpenRouter prices of $0.30 / $0.90 list and $0.075 / $0.225 promotional for 3.1-flash, and $0.30 / $0.90 for 3.2-flash, which do not fully match what the OpenRouter API currently shows; go by the OpenRouter page. The old `ling-3.0-flash:free` and `ling-3.0-flash-fin` no longer have endpoints on OpenRouter; the free 3.2 endpoint on OpenRouter lists only text and image input, so video input requires the official API.
+
+### Retired models
+
+Ant Ling retirement page (after the date, API calls to that model ID return an error):
+
+| Model | Retirement date (UTC+8) | Official replacement |
+|---|---|---|
+| Ling-2.6-1T, Ring-2.6-1T, Ling-2.6-flash | 2026-11-15 | Ling-3.1-flash |
+| Ling-2.5-1T, Ring-2.5-1T | 2026-09-30 | Ling-3.1-flash |
+| Ling-1T, Ring-1T | 2026-06-15 | Ling-3.1-flash |
+
+Retirement affects only the official API; weights on Hugging Face remain downloadable.
+
+### Deployment
+
+For self-hosting, Ant recommends SGLang (an official day-0 image with MTP speculative decoding) or vLLM (`--tool-call-parser ling3 --reasoning-parser ling3`). The official API is compatible with both the OpenAI and Anthropic protocols, and the docs include setup guides for Claude Code, Kilo Code, OpenClaw, and Hermes Agent. Ling-3.0-flash has Huawei Ascend support; the sources cited here do not mention domestic-compute support for 3.1.
 
 ## Agent integration and selection
 
-### Implications for Agent Development
+- **Long-horizon coding agents, office automation, search agents** → Ling-3.1-flash (use `-1019` if self-hosting), with thinking on; first confirm your GPU budget covers 8×H200 or 4 GPUs after quantization
+- **High-volume, low-latency, large batch jobs** → Ling-3.0-flash: official API list price is about a quarter of 3.1's, and latency drops further with thinking off
+- **Agents that need to see images and video (GUI automation, document understanding, screenshot-to-web)** → Ling-3.2-flash if API-only is fine; to self-host, use Ling-3.0-flash-VL until 3.2 weights arrive
+- **On-device, offline, privacy-sensitive** → Ling-3.0-tiny (7.9B / 1.3B)
+- **Medical research, medical agent evaluation** → LingSante-3.1-flash (text) or LingSante-3.1-air-VL (imaging reports, skin, meals, GUI appointment flows), always with human review
+- **Financial research** → self-host Ling-3.0-flash-Fin weights, or use Ling-3.1-flash directly (Ant says 3.1 also improved in finance); compare both on your own questions
+- **Speech** → Ming-3.0-asr-tiny (Chinese, English, and dialect recognition, with hotword support), Ming-3.0-tts-0.5B (7 languages plus Sichuanese and Cantonese, zero-shot voice cloning), Ming-3.0-audio-flash (audio understanding and reasoning)
+- **Still calling Ring or Ling 2.x APIs** → they are retired; switch to `Ling-3.1-flash` with thinking on and rerun your evaluations; there is no equivalent of Ring's xhigh reasoning effort
 
-If you are building **high-frequency agent workflows** (coding agents, search agents, tool-call-intensive scenarios): Ling-3.0-flash is one of the most compelling open-source options for "intelligence density per compute" — 5.1B activated parameters achieving 1T flagship performance, with 60–80% TTFT reduction and single-node deployability. Pair with Ling-3.0-tiny for a "big-small" architecture: flash handles planning, tiny handles local execution.
-
-If you are building **finance-related agents** (investment research, earnings analysis, valuation modeling): Ling-3.0-flash-Fin is the most complete finance-enhanced open-source model available. MIT licensing plus the FinFIRST benchmark open-source lets you self-host, test, and validate the entire pipeline.
-
-If you are doing **deep reasoning tasks** (mathematical proofs, code correctness verification): Ring-2.6-1T is a better fit than Ling — it's purpose-built for "slow thinking" with IMO/CMO gold-level reasoning rigor that the Ling series cannot match.
-
+Minimum selection check: run 20–50 of your own agent tasks on Ling-3.1-flash with thinking on and off and on Ling-3.0-flash, recording success rate, average output tokens, tool-call rounds, and cost per task. 3.1's advantage is in long-horizon work, so the task set needs multi-round tool calls or the difference won't show.
 
 ## Limitations and trade-offs
 
-Not recommended for: peak performance (closed models lead comprehensively), full-modality speech/audio output (Ling handles text and vision; Ming is the full-modality flagship), or production-grade reliability requiring 100% certainty (official documentation explicitly states flash-Fin's outputs "do not constitute investment advice" and require professional review).
-
-### Overall Assessment
-
-Ling's core bet is that **intelligence-per-computation beats absolute scale** — not who has the biggest parameters, but who delivers the highest intelligence for the same compute. From Ling 1.0's engineering validation to 3.0's native hybrid linear architecture, this path has become increasingly clear: 1/64 MoE expert activation, KDA's precise long-sequence memory, and "planning-execution separation" across three parallel lines.
-
-Flash-Fin's significance extends beyond a single finance model — it's the first vertical landing of the "Ling approach": take efficient general-purpose architecture + domain fine-tuning + open evaluation benchmarks, and package them as a complete solution. Flash-VL is the same playbook's landing in the multimodal domain: native hybrid linear architecture + vision encoder + efficient inference, packaged as open-source. The key things to watch: will this playbook be replicated in legal, medical, engineering, and other vertical domains, and will the Ling-3.0 series eventually fill the gap between flash-VL and Ming with a full-modality speech/video generation model?
+- **3.2 can't be self-hosted yet**: Ling-3.2-flash is API-only, with neither architecture details nor weights public; Ant says only that weights are "coming soon"
+- **Evaluations are almost all self-reported**: AA scores are cited in model cards, the long-horizon cases and 3.2's wins are vendor-chosen, and the medical models' numbers exist only as images
+- **3.1's hardware bar is high**: BF16 needs 8 H200-class GPUs, and 4 even after quantization; it is not a single-machine workload
+- **Longer thinking**: Ant acknowledges chains of thought and interaction rounds grew after RL; estimate cost and latency on your own workload
+- **Inconsistent price listings**: Ant's docs and the OpenRouter API list different prices for the same model, and prices return to list after promotions end
+- **The medical models are not medical devices**: both LingSante model cards forbid independent diagnosis, prescribing, and triage
+- **Ring's place**: the reasoning line no longer has an official service; teams that need a trillion-scale reasoning model can only self-host the old weights
 
 ## Update history
 
-- 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
+- 2026-11-23: Moved to the Ling 3.1 generation. Rewrote the matrix, architecture, evaluation, pricing, and selection around Ling-3.1-flash (API 2026-09-30, open-sourced 10-15, `-1019` update 10-27) and Ling-3.2-flash (11-05, API-only); added the LingSante-3.1 medical line, Ming-3.0 speech line, and the official retirement table (all Ring models and Ling 2.x have left the official API). The Ling 3.0 generation is now history and the low-cost option; the former 3.0 variant tables and Fin details moved out of the body, with Fin covered by the daily model card linked in the timeline. Corrections: removed the defunct OpenRouter `ling-3.0-flash:free`, `:fin:free`, and `:vl:free` endpoints; replaced "three parallel lines, Ring does planning" with the current state; replaced "almost all models are Apache 2.0 or MIT" with per-model licensing; the glossary entry for Ring previously said Ring-2.6-1T won IMO gold, while the body's source refers to Ring 2.5, and has been rewritten.
+- 2026-10-11: Reorganized format, model matrix, and selection sections, keeping existing sources and dates; no fresh fact-check was done.
 
 ## References
 
-- [Ant Group Official: Ant Group Unveils Ling AI Model Family and Launches Ling-1T (2025-10-09)](https://www.antgroup.com/en/news-media/press-releases/1759982400000)
-- [Ant Group Official: Ant Group Releases Ling-2.5-1T and Ring-2.5-1T (2026-02-16)](https://secure.businesswire.com/news/home/20260215551663/en/Ant-Group-Releases-Ling-2.5-1T-and-Ring-2.5-1T-Evolving-Its-Open-Source-AI-Model-Family)
-- [Ant Group Official: Open-Sources Ling-3.0-flash-Fin for Real-World Financial Workflows (2026-09-09)](https://www.antgroup.com/en/news-media/press-releases/1788944400000)
-- [Ant Ling Developer Docs: Model Family](https://developer.ant-ling.com/zh-CN/docs/models)
-- [Ant Ling Developer Docs: Ling-3.0-flash Release](https://developer.ant-ling.com/zh-CN/blogs/ling-3.0-flash-release)
-- [Hugging Face: inclusionAI/Ling-3.0-flash-Fin](https://huggingface.co/inclusionAI/Ling-3.0-flash-Fin)
-- [LLM Timeline: Ant Group (27 models, 2025-2026)](https://llmtimeline.org/ant-group)
-- [frangelbarrera/Ling-3-flash-evaluation: Independent Evaluation](https://github.com/frangelbarrera/Ling-3-flash-evaluation)
-- [vLLM Recipes: Ling-3.0-flash (architecture details)](https://recipes.vllm.ai/inclusionAI/Ling-3.0-flash)
-- [Leiphone: Consecutive Trillion-Parameter Models, Ant Group AI Surges](https://www.leiphone.com/category/ai/L6tQCmiyhpWnqvRk.html)
-- [Ant Group Official: Ant Group Unveils Ling-3.0-Flash (BusinessWire, 2026-07-27)](https://www.businesswire.com/news/home/20260726584441/en/)
+- [Ant Ling docs: Ling models and selection table](https://developer.ant-ling.com/en/docs/models/ling/) — 3.2 / 3.1 / 3.0 specs, evolution table
+- [Ant Ling docs: Pricing](https://developer.ant-ling.com/zh-CN/docs/models/price/) — official, OpenRouter, and ZenMux prices
+- [Ant Ling docs: Deprecation](https://developer.ant-ling.com/zh-CN/docs/models/deprecation/) — Ring and Ling 2.x retirement dates and replacements
+- [Ant Ling docs: Changelog](https://developer.ant-ling.com/zh-CN/docs/getting-started/changelog/) — Ling-3.2-flash and Ming-3.0 API launch dates
+- [Ant Ling blog: Ling-3.1-flash, a model upgrade for real-world tasks (2026-09-30)](https://developer.ant-ling.com/zh-CN/blogs/ling-3.1-flash)
+- [Ant Ling blog: Ling-3.1-flash officially open-sourced (2026-10-15)](https://developer.ant-ling.com/zh-CN/blogs/ling-3.1-flash-open-source)
+- [Ant Ling: Introducing Ling-3.2-flash (LinkedIn, 2026-11-06)](https://www.linkedin.com/posts/ant-ling_antling-multimodalai-opensourceai-activity-7524272962829471744-O2DN)
+- [Hugging Face: inclusionAI/Ling-3.1-flash](https://huggingface.co/inclusionAI/Ling-3.1-flash)
+- [Hugging Face: inclusionAI/Ling-3.1-flash-1019](https://huggingface.co/inclusionAI/Ling-3.1-flash-1019)
+- [Hugging Face: inclusionAI/LingSante-3.1-flash](https://huggingface.co/inclusionAI/LingSante-3.1-flash)
+- [Hugging Face: inclusionAI/LingSante-3.1-air-VL](https://huggingface.co/inclusionAI/LingSante-3.1-air-VL)
+- [Hugging Face: inclusionAI/Ming-3.0-audio-flash](https://huggingface.co/inclusionAI/Ming-3.0-audio-flash)
+- [Hugging Face: inclusionAI/Ming-3.0-tts-0.5B](https://huggingface.co/inclusionAI/Ming-3.0-tts-0.5B)
+- [Hugging Face: inclusionAI/Ming-3.0-asr-tiny](https://huggingface.co/inclusionAI/Ming-3.0-asr-tiny)
+- [Hugging Face: inclusionAI/Ling-3.0-flash](https://huggingface.co/inclusionAI/Ling-3.0-flash)
+- [OpenRouter: inclusionai models](https://openrouter.ai/inclusionai)
+- [Artificial Analysis: LingSante-3.1-flash](https://artificialanalysis.ai/models/lingsante-3-1-flash-1119)
+- [Ant Group: Ant Group Unveils Ling AI Model Family and Launches Ling-1T (2025-10-09)](https://www.antgroup.com/en/news-media/press-releases/1759982400000)
+- [Ant Group: Ant Group Releases Ling-2.5-1T and Ring-2.5-1T (2026-02-16)](https://secure.businesswire.com/news/home/20260215551663/en/Ant-Group-Releases-Ling-2.5-1T-and-Ring-2.5-1T-Evolving-Its-Open-Source-AI-Model-Family)
+- [Ant Group: Ant Group Unveils Ling-3.0-Flash (BusinessWire, 2026-07-27)](https://www.businesswire.com/news/home/20260726584441/en/)
+- [Ant Group: Open-Sources Ling-3.0-flash-Fin for Real-World Financial Workflows (2026-09-09)](https://www.antgroup.com/en/news-media/press-releases/1788944400000)
+- [Ant Ling docs: Ling-3.0-flash release](https://developer.ant-ling.com/zh-CN/blogs/ling-3.0-flash-release)
+- [AI Model Evaluation Sources Guide](/posts/tech/2026-08-24-ai-model-evaluation-sources-en) — this site
+- [AI Model Landscape Overview](/posts/tech/2026-08-24-ai-model-landscape-overview-en) — this site

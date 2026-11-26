@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing)
+> :globe: [中文版](/posts/daily/2026-09-05-security-grafana-mcp-ssrf-session-spoofing)
 
 ## Incident Overview
 

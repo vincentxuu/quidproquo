@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-private-corpus-access)
+> :globe: [中文版](/posts/ai/2026-08-22-private-corpus-access)
 
 Putting private content in a search index does not make it safe to query. The hard case is the moment after a user leaves a group, a document becomes confidential, or a source deletes a page: the keyword index, vector index, cache, and summary copies do not update at once.
 

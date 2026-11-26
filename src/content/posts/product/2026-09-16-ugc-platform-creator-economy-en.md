@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-ugc-platform-creator-economy)
+> :globe: [中文版](/posts/product/2026-09-16-ugc-platform-creator-economy)
 
 Think of creator platforms as three places to run a business.
 

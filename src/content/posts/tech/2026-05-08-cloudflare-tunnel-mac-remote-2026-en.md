@@ -10,7 +10,7 @@ description: "A complete 2026 guide to accessing your home Mac from outside: the
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026)
+:globe: [中文版](/posts/tech/2026-05-08-cloudflare-tunnel-mac-remote-2026)
 
 ## TL;DR
 

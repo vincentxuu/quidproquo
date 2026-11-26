@@ -13,7 +13,7 @@ description: "Stanford CS230（2025 秋季）Lecture 8 完整導讀：從 prompt
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs230-agents-prompts-rag-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -157,7 +157,7 @@ Katanforoosh 補充：LLM **極難控制**。他舉的例子——2016 年微軟
 
 > 「他本來是想讓模型講話像公司裡的人，**結果它真的變得像人——而不是照指令做事。**」
 
-**⚠️ 這個立場在下一篇會被正面挑戰。** Lecture 9 的客座講者 Laurence Moroney 說「未來兩三年開發者最需要的技能就是 fine-tuning」——兩人講的其實是不同市場，這條張力留到下一篇處理。
+**:warning: 這個立場在下一篇會被正面挑戰。** Lecture 9 的客座講者 Laurence Moroney 說「未來兩三年開發者最需要的技能就是 fine-tuning」——兩人講的其實是不同市場，這條張力留到下一篇處理。
 
 ## RAG
 
@@ -247,7 +247,7 @@ McKinsey 研究的一家金融機構，做一份信用風險備忘錄要**一到
 
 加入 GenAI agent 後**時間減少 20–60%**：關係經理直接與 agent 系統合作，agent 把專案拆成任務指派給專門 agent、收集分析、起草，兩位人類再一起審閱給回饋。
 
-> **⚠️ 這個案例是真的，但數字要小心。** McKinsey 確實有這個信用風險備忘錄的 agentic 案例，
+> **:warning: 這個案例是真的，但數字要小心。** McKinsey 確實有這個信用風險備忘錄的 agentic 案例，
 > 不過**它的網站擋掉我的擷取工具**，我只能從轉述查到內容，無法核對原文。而轉述版本和課堂說法有兩處出入：
 > 資料來源是**「至少十個」**不是十五個以上；20–60% 是**「生產力提升」**不是「時間減少」
 > （另有「信用周轉時間改善 30%」是分開的一個數字）。**生產力提升 60% 和時間減少 60% 不是同一件事。**
@@ -364,7 +364,7 @@ title: Stanford CS230 | Autumn 2025 | Lecture 8: Agents, Prompts, and RAG
 - [模型只是元件，harness 才是系統](/posts/ai/2026-08-10-model-component-harness-system) — 站上文章，模糊工程的工程版本
 - [Navigating the Jagged Technological Frontier](https://www.hbs.edu/faculty/Pages/item.aspx?num=64700) — Dell'Acqua et al., HBS Working Paper 24-013（2023/09，後刊於 Organization Science）。**鋸齒狀邊界的原始研究**：758 位 BCG 顧問、18 項任務；邊界內多完成 12.2% 的任務、快 25.1%、品質評分高 40%，**邊界外用 AI 答對的機率反而低 19%**
 - [Promptfoo](https://promptfoo.dev/) — 課堂點名團隊在用的 LLM eval 工具
-- [Embracing generative AI in credit risk](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/embracing-generative-ai-in-credit-risk) — McKinsey。信用風險備忘錄案例的出處。**注意：mckinsey.com 擋掉我的擷取工具，我沒能核對原文數字**，上面 ⚠️ 那段的出入是從轉述比對出來的
+- [Embracing generative AI in credit risk](https://www.mckinsey.com/capabilities/risk-and-resilience/our-insights/embracing-generative-ai-in-credit-risk) — McKinsey。信用風險備忘錄案例的出處。**注意：mckinsey.com 擋掉我的擷取工具，我沒能核對原文數字**，上面 :warning: 那段的出入是從轉述比對出來的
 - **Slack fine-tuning 那個笑話的出處**：OpenAI DevDay 2023 上 John Allard 的演講 "Maximizing LLM Performance"，投影片內容是**拿 14 萬則內部 Slack 訊息微調 GPT-3.5** 的結果。同期另有一篇獨立實驗（Ross Lazerowitz，同樣是 14 萬則）得到類似結果
 
 **仍未附連結**：關於長 context 取代 RAG 的那則討論——課堂只說「有這個論證」，沒有點名出處，我也無法定位到單一來源。

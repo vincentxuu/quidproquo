@@ -10,7 +10,7 @@ description: "A deep dive into Nous Research's Autoreason — a competitive eval
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-17-autoreason-self-refinement-knows-when-to-stop)
+> :globe: [中文版](/posts/ai/2026-04-17-autoreason-self-refinement-knows-when-to-stop)
 
 Having an LLM repeatedly revise its own output until it improves — the idea sounds intuitive, but in practice it breaks down easily. Autoreason is a paper from Nous Research that identifies three structural flaws in traditional self-refinement pipelines and proposes a "tournament"-based alternative. This article breaks down its mechanism design, experimental results, and applicability boundaries.
 

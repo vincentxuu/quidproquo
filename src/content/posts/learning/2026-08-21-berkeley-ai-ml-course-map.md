@@ -13,7 +13,7 @@ description: "以 Berkeley 官方學位要求、課程先修、2025–2026 實�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -22,6 +22,8 @@ draft: false
 這和 MIT 的 Course 6-4 很不一樣。MIT 有正式的 Artificial Intelligence and Decision Making 學位；Berkeley 比較像一張可自行組合的網。你可以從 CS188 進入搜尋、推理與規劃，也可以從 CS189 進入數學較重的機器學習，之後再接深度學習、自然語言處理、電腦視覺或強化學習。
 
 麻煩在於，課號和公開程度都會誤導人。CS185 與 CS285 是同一主題的大學部／研究所配對，CS180 與 CS280A 也是；但 CS C280 又是另一門研究所視覺課。某個學期曾公開的網址，隔年也可能變成 404。這篇因此同時檢查官方 prerequisites、2025–2026 實際課站，以及匿名讀者現在拿不拿得到講義、作業、程式碼與錄影。
+
+本文課程可用性判斷最後實質更新於 **2026-10-10**（影片狀態查核）與 **2026-09-30**（CS189 Spring 2026 課站重新上線後改判 A3）。各課公開程度會隨學期推進變動，自學前請再到官方課站確認一次匿名存取權限。
 
 ## 先打地基：61A、61B、70 與數學
 

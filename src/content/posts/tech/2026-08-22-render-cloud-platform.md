@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-render-cloud-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-render-cloud-platform-en)
 
 [Render](https://render.com/docs/service-types) 是 general-purpose PaaS，從 Git 或 container image 部署 Static Site、Web Service、Private Service、Background Worker、Cron/Workflow，並提供 Postgres、Key Value、private network、TLS、preview、health check 與 Blueprint IaC。
 

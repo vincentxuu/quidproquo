@@ -22,7 +22,7 @@ series:
 
 蓋茲基金會 9 月 21 日在紐約發布第 10 屆《Goalkeepers 報告》，主題為《Make This Matter: AI, Equity, and the Choice We Can't Delay》，宣布未來兩年至少投入 10 億美元，用於三個優先方向：開發能涵蓋世界各語言的 AI 工具、打造符合在地情境的系統、投資人才與可負擔的取用管道，其中 10% 資金專門用於建構「在地語言資料集」這類數位基礎建設。同一天，Anthropic、Google、Microsoft、Amazon、Mistral、NVIDIA 等 60 個組織聯合簽署承諾，宣示未來 5 年內要讓在地語言 AI 觸及全球約 34 億人。（[Goalkeepers 官方報告](https://goalkeepers.gatesfoundation.org/report/2026-report/) · [Semafor](https://www.semafor.com/article/09/21/2026/gates-foundation-commits-1b-to-local-language-ai-development-in-africa)）
 
-但調查媒體 TheDiggerNews 逐頁清點後發現，這份聚焦「AI 如何幫助全球南方」的 72 頁報告中，非洲人口最多、公認是非洲主要 AI 據點之一的奈及利亞，只出現兩次註腳提及；反倒是肯亞、獅子山、盧安達各自拿到專文級的來賓文章與案例故事。該媒體已向蓋茲基金會奈及利亞辦公室、聯邦衛生部、農業部與國家統計局提出質疑，追問為什麼一份聚焦健康、教育、農業 AI 應用的全球報告裡，完全看不到奈及利亞任何現行案例、試點或第一線聲音——報導也指出，這可能反映的是奈及利亞自身資料基礎建設過於薄弱（報告引用的最新小農收入數字已是七年前資料），而非單純是被基金會刻意忽略。（[TheDiggerNews 調查報導](https://www.thediggernews.com/2026/09/21/investigative-analysis-nigeria-africas-giant-nearly-invisible-in-gates-foundations-2026-ai-equity-report/) ⚠️ 僅見於單一調查媒體，待更多來源交叉驗證）
+但調查媒體 TheDiggerNews 逐頁清點後發現，這份聚焦「AI 如何幫助全球南方」的 72 頁報告中，非洲人口最多、公認是非洲主要 AI 據點之一的奈及利亞，只出現兩次註腳提及；反倒是肯亞、獅子山、盧安達各自拿到專文級的來賓文章與案例故事。該媒體已向蓋茲基金會奈及利亞辦公室、聯邦衛生部、農業部與國家統計局提出質疑，追問為什麼一份聚焦健康、教育、農業 AI 應用的全球報告裡，完全看不到奈及利亞任何現行案例、試點或第一線聲音——報導也指出，這可能反映的是奈及利亞自身資料基礎建設過於薄弱（報告引用的最新小農收入數字已是七年前資料），而非單純是被基金會刻意忽略。（[TheDiggerNews 調查報導](https://www.thediggernews.com/2026/09/21/investigative-analysis-nigeria-africas-giant-nearly-invisible-in-gates-foundations-2026-ai-equity-report/) :warning: 僅見於單一調查媒體，待更多來源交叉驗證）
 
 ### 肯亞政府談自主 Agent 落地：卡住的還是基礎建設老問題
 

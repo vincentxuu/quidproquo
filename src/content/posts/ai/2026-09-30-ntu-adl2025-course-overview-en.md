@@ -14,7 +14,7 @@ description: "Entry point for the series on NTU Professor Yun-Nung Chen's Applie
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-course-overview)
 
 **Video status: Videos included.** The intro embeds the Lecture 0 course introduction (29:36); each lecture's segmented videos are in its own post. [Source details](#course-video-sources)
 

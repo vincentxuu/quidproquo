@@ -10,7 +10,7 @@ description: "PM2 的核心功能介紹：daemon 模式、cluster 模式、log �
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-03-27-pm2-node-process-manager-en)
+> :globe: [English version](/posts/tech/2026-03-27-pm2-node-process-manager-en)
 
 Node.js 跑在 server 上，你不能用 `node index.js` 然後關掉 terminal 就結束——process 會跟著消失。PM2 是個 process manager，讓 Node.js 應用以 daemon 方式執行、掛掉自動重啟、多核 CPU 可以開 cluster，Log 集中管理。
 

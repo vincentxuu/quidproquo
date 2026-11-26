@@ -21,7 +21,7 @@ glossary:
     context: "Video 6.5's Mandarin subtitle, roughly \"humans needn't understand it as long as the machine does,\" refers to this."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

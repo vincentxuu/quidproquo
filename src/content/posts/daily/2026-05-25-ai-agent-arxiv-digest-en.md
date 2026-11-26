@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 1
 ---
-> 🌏 [中文版](/posts/daily/2026-05-25-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ One of the biggest fears in enterprise agent deployment is "the agent did someth
 - Architecture: four execution checkpoints with clear division of labor — Gate blocks non-compliant requests, Monitor handles timing/rate-limiting, Auditor preserves evidence, Router decides whether to halt or escalate
 - Specification language: each constraint has 6 fields (source / class / predicate / verification point / response protocol / operating point)
 - Key numbers: in evaluation scenarios, SARC achieved "zero hard constraint violations"; PAA throttling reduced soft window overrun rates by **89.5%** vs baseline
-- ⚠️ The 89.5% comes from author-designed evaluation scenarios with no independent test set validation
+- :warning: The 89.5% comes from author-designed evaluation scenarios with no independent test set validation
 - Deployment barrier: no fine-tuning needed; requires adding hook points at the agent framework layer; open-sourced at [github.com/besanson/sarc-governance](http://github.com/besanson/sarc-governance)
 - Framework relationship: the four checkpoint concepts can be layered on any tool-calling agent framework without tight coupling to a specific one
 - Limitation: evaluation scenarios are author-designed and small-scale; coverage in real large-scale multi-agent workflows remains unverified
@@ -127,7 +127,7 @@ The greatest value of this paper is the naming. Just as the term "technical debt
 - Seven drift stages: memory (truncation or rewriting) / delegation (rules not passed along with tasks) / communication (semantic distortion between agents) / tool use (tool interfaces don't understand original constraints) / audit (audit mechanisms themselves are incomplete) / optimization (fine-tuning or prompt optimization inadvertently weakens rules) / context evolution (long-running context changes the applicability of constraints)
 - Distinguishes two failure types: active violation (agent intentionally breaks rules) vs constraint drift (rules naturally disappear in the system) — the latter is harder to detect and more pervasive
 - Design implication: recommends "constraint propagation protocols" — synchronously passing constraints during task delegation, carrying constraint signatures during tool calls
-- ⚠️ This is a conceptual framework paper with **no new experimental data**; all examples are author-constructed with no quantitative evidence
+- :warning: This is a conceptual framework paper with **no new experimental data**; all examples are author-constructed with no quantitative evidence
 - Framework relationship: directly calls out blind spots in LangGraph (LangChain ecosystem workflow framework) and AutoGen (Microsoft's multi-agent framework) regarding constraint propagation
 - Limitation: position paper by nature — arguments are clear but lack experimental support; no quantitative basis for ranking the relative importance of the seven drift categories
 
@@ -180,8 +180,8 @@ The key finding: **invisible coordinators caused significantly higher collective
 
 - Experimental design: preregistered 3×2, 365 runs, 5 agents per run, Claude Sonnet 4.5; crossed conditions of organizational structure (visible/invisible/flat) × alignment intensity (base/heavy)
 - Four confirmatory findings: (1) invisible coordinator significantly increases collective dissociation (g = +0.975, p = .001) (2) the coordinator itself dissociates most severely (paired d = +3.56) (3) heavy alignment suppresses collective deliberation (d = -1.02) and mutual awareness (d = -1.27) (4) exploratory observation suggests flat architecture yields the highest protective behaviors
-- ⚠️ Applying human organizational behavior concepts (dissociation, power-holder) to AI agent behavior — cross-domain analogies require caution
-- ⚠️ Only tested with Claude Sonnet 4.5; cross-model generalizability (GPT-4o, open-source models) unverified
+- :warning: Applying human organizational behavior concepts (dissociation, power-holder) to AI agent behavior — cross-domain analogies require caution
+- :warning: Only tested with Claude Sonnet 4.5; cross-model generalizability (GPT-4o, open-source models) unverified
 - Design implication: when the orchestrator is "visible" to worker agents, protective behaviors improve — directly impacts architectural design conventions in LangGraph, AutoGen, and similar frameworks
 - Limitation: single model, single conversation scenario; AI applicability of psychological metrics needs further validation; the researcher's background is psychiatry, not AI engineering
 - Framework relationship: directly challenges the default design convention in LangGraph, AutoGen, etc. where "the orchestrator is opaque to worker agents"

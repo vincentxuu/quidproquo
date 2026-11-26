@@ -30,7 +30,7 @@ glossary:
     context: "攀岩者的肘內側痛有時是這個，卻被當成肌腱炎處理。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-elbow-wrist-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-elbow-wrist-en)
 
 抱石抱了一晚，回家拿手機滑了半小時，手肘內側開始悶痛，小指有點麻。或是最近練 mantle（雙手撐在岩點上、把身體往上推過去的動作），小指那側的手腕一撐就刺痛。岩友說：「高爾夫球肘啦，休息就好。」
 

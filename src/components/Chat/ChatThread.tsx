@@ -90,8 +90,8 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
 
   return (
     <AssistantRuntimeProvider runtime={runtime}>
-      <ThreadPrimitive.Root className="flex flex-1 flex-col overflow-hidden">
-        <Conversation className="flex-1" style={{ background: 'var(--bg-subtle)' }} aria-label={t('chat.log.aria')}>
+      <ThreadPrimitive.Root className="chat-thread-root flex min-h-0 flex-1 flex-col overflow-hidden">
+        <Conversation className="chat-thread-log min-h-0 flex-1" style={{ background: 'var(--bg-subtle)' }} aria-label={t('chat.log.aria')}>
           {/* scrollClassName 靜態給 overflow-y-auto：use-stick-to-bottom 要到 hydration 後的
               effect 才補 overflow:auto，在那之前 scrollbar-gutter 不生效，傳統捲軸的瀏覽器
               會看到內容左右跳 15px（視覺回歸也因此偶發紅燈）。 */}
@@ -104,7 +104,7 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
               />
             ))}
           </ConversationContent>
-          <ConversationScrollButton />
+          <ConversationScrollButton className="chat-scroll-button" aria-label={t('chat.action.latest')} />
         </Conversation>
         {beforeComposer}
         <div className="border-t px-3 pt-2 pb-1.5" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>

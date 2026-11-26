@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI 開發的大型語言模型家族，Sol 是旗艦 Astra 之下、鎖定日常複雜工作的中價位分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
+> :globe: [English version](/posts/daily/2026-09-30-model-openai-gpt-6-1-sol-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | OSWorld 2.0 offline set（max effort） | 高於 GPT-6 Sol +7pp（成本不到其一半） | 60.5%（xhigh effort，見 2026-09-25 模型卡） | 落後 GPT-6 Astra 2.1pp（成本僅約其 1/7） |
 | 事實錯誤率（low effort，越低越好） | 7.7% | 11.4% | 與 GPT-6 Astra 相差 &lt;1.9pp（Astra 成本逾 5 倍） |
 
-⚠️ 以上均為 OpenAI 官方自測與自選競品評測條件（各自設定的 reasoning effort），尚待第三方獨立複現；多數表格為官方公佈的「相對差距」而非雙方絕對分數，Astra／Opus 5.5 部分具體數字官方未在本次公告中完整列出。
+:warning: 以上均為 OpenAI 官方自測與自選競品評測條件（各自設定的 reasoning effort），尚待第三方獨立複現；多數表格為官方公佈的「相對差距」而非雙方絕對分數，Astra／Opus 5.5 部分具體數字官方未在本次公告中完整列出。
 
 ## 與前代/競品比較
 

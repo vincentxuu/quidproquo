@@ -21,13 +21,13 @@ draft: false
 
 | 後端 | 指令在哪跑 | 隔離 | 危險指令審批 |
 |---|---|---|---|
-| `local` | 你的機器 | 無 | ✅ 有 |
-| `ssh` | 遠端主機 | 網路邊界 | ✅ 有 |
-| `docker` | 單一長壽容器 | 完整（namespace、cap-drop、PID 限制） | ❌ 跳過 |
-| `singularity` | Apptainer 容器（`--containall`） | namespace | ❌ 跳過 |
-| `modal` | Modal 雲端沙箱 | 完整（雲端 VM） | ❌ 跳過 |
-| `daytona` | Daytona workspace | 完整（雲端容器） | ❌ 跳過 |
-| `vercel_sandbox` | Vercel Sandbox microVM | 完整（雲端 microVM） | ❌ 跳過 |
+| `local` | 你的機器 | 無 | ✓ 有 |
+| `ssh` | 遠端主機 | 網路邊界 | ✓ 有 |
+| `docker` | 單一長壽容器 | 完整（namespace、cap-drop、PID 限制） | ✗ 跳過 |
+| `singularity` | Apptainer 容器（`--containall`） | namespace | ✗ 跳過 |
+| `modal` | Modal 雲端沙箱 | 完整（雲端 VM） | ✗ 跳過 |
+| `daytona` | Daytona workspace | 完整（雲端容器） | ✗ 跳過 |
+| `vercel_sandbox` | Vercel Sandbox microVM | 完整（雲端 microVM） | ✗ 跳過 |
 
 第三欄是這篇最重要的一格，官方文件在安全章節寫得明白：**沙箱型後端一律跳過危險指令檢查，因為「容器就是邊界」**。
 

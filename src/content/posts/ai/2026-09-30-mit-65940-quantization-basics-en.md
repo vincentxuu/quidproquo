@@ -22,7 +22,7 @@ glossary:
     context: "6.5940 Lecture 5 places it next to FP32 and FP16 to show that exponent bits set range and fraction bits set precision."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-quantization-basics)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-quantization-basics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

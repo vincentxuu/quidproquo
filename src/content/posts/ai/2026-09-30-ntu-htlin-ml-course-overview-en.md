@@ -14,7 +14,7 @@ description: "Entry point for the series on NTU Professor Hsuan-Tien Lin's Machi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview)
 
 **Video status: Videos included.** The intro embeds the Course Introduction from Foundations Lecture 1 (11 minutes); each lecture's recordings are in its own post. [Source details](#course-video-sources)
 

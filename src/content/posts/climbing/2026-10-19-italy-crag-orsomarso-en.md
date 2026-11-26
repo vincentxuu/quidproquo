@@ -13,7 +13,7 @@ description: "A guide to the Orsomarso, Frascineto-Eianina and Acqua Rossa crags
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-orsomarso)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-orsomarso)
 
 The Pollino National Park (Parco Nazionale del Pollino) straddles Calabria and Basilicata and is the largest newly established protected area in Italy (192,565 hectares, according to the [park's website](https://www.parconazionalepollino.it/en)). This post covers three sport crags on the park's Calabrian side, in the province of Cosenza: Orsomarso (the Mercuri valley) on the Tyrrhenian side, and Frascineto-Eianina and Acqua Rossa above Cerchiara di Calabria on the Ionian side.
 

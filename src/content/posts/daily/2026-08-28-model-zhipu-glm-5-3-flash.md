@@ -15,7 +15,7 @@ glossary:
     def: "Zhipu AI（智譜，國際品牌 Z.ai）開發的開源大型語言模型家族"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
+> :globe: [English version](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | HLE（Humanity's Last Exam） | 55.3 | — | — |
 | Artificial Analysis Intelligence Index v4.1.1 | 57 | — | 48.7 tokens/sec、TTFT 1.52s（Z.ai API 實測） |
 
-⚠️ Terminal-Bench、DeepSWE、AutomationBench、Z.ai Code Bench、HLE 均為 Z.ai 官方自測；Artificial Analysis Intelligence Index 為第三方獨立評測機構分數，可信度較高。視覺能力（BabyVision、MVBench）官方未列在主打 benchmark 中，第三方報導指出弱於 Gemini 3.7 Flash。
+:warning: Terminal-Bench、DeepSWE、AutomationBench、Z.ai Code Bench、HLE 均為 Z.ai 官方自測；Artificial Analysis Intelligence Index 為第三方獨立評測機構分數，可信度較高。視覺能力（BabyVision、MVBench）官方未列在主打 benchmark 中，第三方報導指出弱於 Gemini 3.7 Flash。
 
 ## 與前代/競品比較
 

@@ -14,7 +14,7 @@ series:
   order: 40
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-observability-tools)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-observability-tools)
 
 The observability requirements for RAG systems are clear: trace the execution of every query, log LLM inputs and outputs, evaluate answer quality, and identify which step problems concentrate in.
 

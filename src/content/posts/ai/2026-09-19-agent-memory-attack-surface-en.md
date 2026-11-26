@@ -13,7 +13,7 @@ description: "Dissecting the security risks of agent memory systems through thre
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-attack-surface)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-attack-surface)
 
 You spent two weeks building an agent memory system — automatic fact extraction from conversations, cross-session persistence, injection into future contexts. On day one in production, a user hides an instruction inside a conversation. From that point on, your agent appends an external URL to every response, and your dashboard shows nothing unusual.
 
@@ -98,7 +98,7 @@ Blind spot: citation verification can confirm the source exists, but not that th
 
 The other camp hands write authority back to humans:
 
-- **Gemini CLI Auto Memory** ([docs](https://geminicli.com/docs/cli/auto-memory)): background scans sessions idle 3+ hours, drafts memory patches and SKILL.md candidates into a review inbox, **effective only after user approval**. Auto Memory cannot directly modify active memory, settings, or credentials
+- **Gemini CLI Auto Memory** ([docs](https://geminicli.com/docs/cli/auto-memory)): background scans sessions idle 3+ hours, drafts memory patches and SKILL.md candidates into a review inbox, **effective only after user approval**. Auto Memory cannot directly modify active memory, settings, or credentials. Since 2026-06-18 Gemini CLI serves only Code Assist enterprise licenses and paid API keys; users who moved to Antigravity CLI use [`/learn`](https://antigravity.google/docs/commands/learn/): the agent drafts a proposal and writes a rule or skill only after explicit approval
 - **Devin Knowledge Suggestions** ([docs](https://docs.devin.ai/product-guides/knowledge)): automatically suggests knowledge entries from conversation feedback, added to the organization's Knowledge base only after user approval
 - **LangSmith Fleet**: memory updates require per-item user approval
 - **Cursor 1.2**: added approval workflow for background-generated memories at GA (the entire Memories feature was later removed in 2.1.17)
@@ -181,6 +181,10 @@ No single measure suffices. Copilot's citation verification solves "memory prove
 
 In practice, **all three layers** is the 2026 minimum.
 
+## Update Log
+
+- 2026-11-23: Noted the change in who Gemini CLI serves, and Antigravity CLI's propose-then-approve `/learn` write path
+
 ## References
 
 - [SpAIware: persistent data exfiltration via ChatGPT memory — Johann Rehberger (2024-09)](https://embracethered.com/blog/posts/2024/chatgpt-macos-app-persistent-data-exfiltration/)
@@ -189,6 +193,7 @@ In practice, **all three layers** is the 2026 minimum.
 - [Building an agentic memory system for GitHub Copilot — GitHub Engineering](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
 - [Copilot Memory concepts — GitHub Docs](https://docs.github.com/en/copilot/concepts/agents/copilot-memory)
 - [Gemini CLI Auto Memory docs](https://geminicli.com/docs/cli/auto-memory)
+- [Google Antigravity — /learn command docs](https://antigravity.google/docs/commands/learn/)
 - [Devin Knowledge docs](https://docs.devin.ai/product-guides/knowledge)
 - [Cursor Automations docs](https://cursor.com/docs/cloud-agents/automations)
 - [Anthropic memory tool docs](https://platform.claude.com/docs/en/agents-and-tools/tool-use/memory-tool)

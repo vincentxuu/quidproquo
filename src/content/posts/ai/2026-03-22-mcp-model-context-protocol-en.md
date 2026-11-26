@@ -5,12 +5,12 @@ type: guide
 category: ai
 tags: [mcp, model-context-protocol, tool-use, agent, anthropic]
 lang: en
-tldr: "Every AI tool has its own calling format, making integration costly. MCP (Model Context Protocol) is an open standard proposed by Anthropic that unifies the communication protocol between AI Agents and external tools/data sources, enabling tools to be reused across Agents."
+tldr: "Every AI tool has its own calling format, making integration costly. MCP (Model Context Protocol) is an open standard proposed by Anthropic in 2024 and donated in 2025-12 to the Agentic AI Foundation under the Linux Foundation; it unifies the communication protocol between AI Agents and external tools/data sources, enabling tools to be reused across Agents. The current spec version is 2026-07-28: it drops the initialization handshake, makes the protocol stateless, and standardizes on Streamable HTTP for remote transport."
 description: "MCP's design philosophy, core architecture (Host/Client/Server), three primitives (Resources/Tools/Prompts), transport layer implementations, differences from Function Calling, and how to develop your own MCP Server."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-22-mcp-model-context-protocol)
+> :globe: [中文版](/posts/ai/2026-03-22-mcp-model-context-protocol)
 
 You spent three days hooking your AI Agent up to the Notion API.
 
@@ -90,15 +90,16 @@ Integration cost drops from O(N x M) to O(N + M):
 
 ## What Is MCP
 
-**Model Context Protocol (MCP)** is a standardized protocol open-sourced by Anthropic in November 2024 that defines how AI applications interact with external data sources and tools.
+**Model Context Protocol (MCP)** is a standardized protocol open-sourced by Anthropic in November 2024 that defines how AI applications interact with external data sources and tools. On 2025-12-09 Anthropic [donated MCP to the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation), a directed fund under the Linux Foundation co-founded by Anthropic, Block, and OpenAI; technical decisions stay with the existing maintainers through the SEP (Specification Enhancement Proposal) process.
 
 Key characteristics:
 
-- **Open standard**: MIT licensed, anyone can implement it
+- **Open standard**: anyone can implement it; licensing is moving from MIT to Apache-2.0, and all new code and spec contributions are Apache-2.0
 - **Language-agnostic**: The protocol itself is JSON-RPC 2.0, not bound to any programming language
-- **Bidirectional communication**: Not just request-response -- the server can push proactively
-- **Multiple transport layers**: Local stdio, remote HTTP+SSE
-- **Existing ecosystem**: Hundreds of community MCP Servers already available
+- **Bidirectional communication**: Not just request-response -- the server can report progress and push list-change notifications
+- **Multiple transport layers**: Local stdio, remote Streamable HTTP (the old HTTP+SSE is deprecated)
+- **Date-based versions**: the version string is the date of the last backwards-incompatible change; the [current version](https://modelcontextprotocol.io/specification/versioning) is `2026-07-28`
+- **Existing ecosystem**: per Anthropic's 2025-12 announcement, more than ten thousand active public MCP Servers, plus the official [MCP Registry](https://registry.modelcontextprotocol.io/)
 
 MCP's core philosophy is simple:
 
@@ -174,8 +175,8 @@ The Server is the component that actually interfaces with external resources. It
 An MCP Server typically focuses on a single service or domain. For example:
 
 - `@modelcontextprotocol/server-filesystem`: File system operations
-- `@modelcontextprotocol/server-github`: GitHub API
-- `@modelcontextprotocol/server-postgres`: PostgreSQL queries
+- [`github/github-mcp-server`](https://github.com/github/github-mcp-server): GitHub's own server for the GitHub API
+- `mcp-server-fetch`: fetches web pages and converts them into a model-friendly format
 
 ---
 
@@ -411,7 +412,7 @@ A typical interaction flow:
 
 ## Transport Layer
 
-MCP's transport layer is responsible for carrying JSON-RPC messages between Client and Server. Two primary methods are currently supported.
+MCP's transport layer is responsible for carrying JSON-RPC messages between Client and Server. The spec currently defines two: stdio and Streamable HTTP.
 
 ### stdio (Standard Input/Output)
 
@@ -451,20 +452,21 @@ MCP's transport layer is responsible for carrying JSON-RPC messages between Clie
 
 The Client executes this command, starts a subprocess, and communicates with it via stdin/stdout.
 
-### HTTP + SSE (Server-Sent Events)
+### Streamable HTTP
 
 ```
-┌──────────┐   HTTP POST      ┌──────────┐
-│          │ ───────────────→  │          │
-│  Client  │                   │  Server  │
-│          │ ←─────────────── │          │
-└──────────┘   SSE stream      └──────────┘
+┌──────────┐   HTTP POST /mcp          ┌──────────┐
+│          │ ───────────────────────→   │          │
+│  Client  │                            │  Server  │
+│          │ ←─────────────────────── │          │
+└──────────┘   JSON or SSE stream       └──────────┘
 ```
 
 **How it works**:
 
-- Client to Server: Sends requests via HTTP POST
-- Server to Client: Pushes responses and notifications via SSE (Server-Sent Events)
+- Client to Server: every request is an HTTP POST to the same endpoint
+- Server to Client: the response is a single JSON body, or an SSE stream when the server needs to send progress or log messages before the result
+- From 2026-07-28 the protocol is stateless: the `Mcp-Session-Id` session is gone and each request carries its own protocol version; a Client that wants list-change notifications opens a separate `subscriptions/listen` stream
 
 **Use cases**:
 
@@ -473,12 +475,12 @@ The Client executes this command, starts a subprocess, and communicates with it 
 - Cross-network access needed
 - Cloud service integrations
 
-**Important note**: In March 2025, the MCP spec added the **Streamable HTTP** transport, further superseding the original HTTP+SSE approach. Streamable HTTP allows a Server to handle both request-response and streaming through a single HTTP endpoint, simplifying the deployment architecture.
+**The old HTTP+SSE**: MCP's first remote transport was a two-endpoint design — POST requests to one, receive responses on a separate SSE stream. The [2025-03-26 revision](https://modelcontextprotocol.io/specification/2025-03-26/changelog) replaced it with Streamable HTTP, and the [2026-07-28 revision](https://modelcontextprotocol.io/specification/2026-07-28/changelog) formally classifies it as Deprecated; new implementations should not use it. Because it is stateless, a Streamable HTTP Server scales horizontally without sticky sessions.
 
 ### When to Use Which
 
 ```
-                                            stdio          HTTP+SSE / Streamable HTTP
+                                            stdio          Streamable HTTP
                                             ─────          ─────────────────────────
 Local CLI tools                              ✅ Recommended  ❌ Not needed
 Local IDE integration                        ✅ Recommended  ⚠️ Optional
@@ -544,8 +546,8 @@ Layer comparison:
 ├─────────────────────────────────────────────────────┤
 │  MCP (Protocol Layer)                                │
 │  ├── Tool discovery: Server auto-lists available Tools│
-│  ├── Capability negotiation: Client & Server handshake│
-│  ├── Lifecycle: Connection setup, maintain, teardown  │
+│  ├── Capability negotiation: both sides declare support│
+│  ├── Version negotiation: per-request, retry on mismatch│
 │  ├── Multi-Server management: Connect multiple Servers│
 │  └── Data exposure: Resources, Prompts               │
 ├─────────────────────────────────────────────────────┤
@@ -569,7 +571,7 @@ Layer comparison:
 | **Multi-tool management** | Self-maintained | Protocol-native multi-Server support |
 | **Data access** | No native support | Resources primitive |
 | **Prompt templates** | No native support | Prompts primitive |
-| **Lifecycle management** | None | Full connection lifecycle |
+| **Version and capability negotiation** | None | Protocol versions, capability declarations, and `server/discover` |
 | **Community ecosystem** | Each implements their own | Shared MCP Server ecosystem |
 
 **In short**: Function Calling enables the model to "call functions." MCP enables tools to "be used by any Agent in a unified way."
@@ -578,70 +580,77 @@ MCP and Function Calling are not replacements for each other. In practice, an MC
 
 ---
 
-## Protocol Lifecycle
+## Version Negotiation: From Handshake to Per-Request Versions
 
-MCP connections have a well-defined lifecycle. Understanding this flow is important for both development and debugging.
+MCP's version negotiation changed in 2026, and both styles still show up online, so here is the difference.
+
+**2025-11-25 and earlier (handshake)**: at the start of a connection the Client sends `initialize` (with its protocol version and capabilities), the Server replies with its supported version and capabilities, and the Client confirms with `notifications/initialized` before normal interaction begins. The whole connection shares the state negotiated in the handshake.
+
+**From 2026-07-28 (stateless)**: no handshake. Every request carries its protocol version, client capabilities, and identity in `_meta`; the Server accepts or rejects each request independently, and if it does not support the version it returns `UnsupportedProtocolVersionError` listing the versions it does support, so the Client can retry with one both sides speak.
 
 ```
 Client                                    Server
   │                                         │
-  │  ────── initialize ──────────────→      │  Phase 1: Initialization
-  │         (version, capabilities)          │
-  │  ←───── initialize response ─────      │  (Server returns supported capabilities)
+  │  ── server/discover (optional) ──→      │  Learn what the Server supports
+  │  ←── supportedVersions, capabilities ── │
   │                                         │
-  │  ────── initialized ────────────→      │  Phase 2: Confirmation
-  │         (notification)                   │
+  │  ── tools/call (_meta has version) ─→   │  Any request can go first
+  │  ←── result (resultType: complete) ──   │
   │                                         │
-  │  ←═══════════════════════════════      │  Phase 3: Normal Operation
-  │  ═══════════════════════════════→      │  (Bidirectional message exchange)
-  │  ←═══════════════════════════════      │
-  │                                         │
-  │  ────── shutdown ───────────────→      │  Phase 4: Shutdown
-  │                                         │
+  │  ── tools/call (unsupported version) →  │
+  │  ←── UnsupportedProtocolVersionError ─  │  Client retries with another version
 ```
 
-### Initialization Handshake
+### server/discover
+
+Servers must implement [`server/discover`](https://modelcontextprotocol.io/specification/2026-07-28/server/discover); Clients may call it first to get supported versions, capabilities, and identity in one round trip:
 
 ```json
-// Client → Server: initialize request
+// Client → Server
 {
   "jsonrpc": "2.0",
-  "id": 1,
-  "method": "initialize",
+  "id": "discover-1",
+  "method": "server/discover",
   "params": {
-    "protocolVersion": "2024-11-05",
-    "capabilities": {
-      "roots": { "listChanged": true }
-    },
-    "clientInfo": {
-      "name": "claude-desktop",
-      "version": "1.0.0"
+    "_meta": {
+      "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+      "io.modelcontextprotocol/clientInfo": {
+        "name": "ExampleClient",
+        "version": "1.0.0"
+      },
+      "io.modelcontextprotocol/clientCapabilities": {}
     }
   }
 }
 ```
 
 ```json
-// Server → Client: initialize response
+// Server → Client
 {
   "jsonrpc": "2.0",
-  "id": 1,
+  "id": "discover-1",
   "result": {
-    "protocolVersion": "2024-11-05",
+    "resultType": "complete",
+    "supportedVersions": ["2026-07-28"],
     "capabilities": {
-      "tools": { "listChanged": true },
-      "resources": { "subscribe": true },
-      "prompts": { "listChanged": true }
+      "tools": {},
+      "resources": {}
     },
-    "serverInfo": {
-      "name": "github-mcp-server",
-      "version": "0.1.0"
-    }
+    "_meta": {
+      "io.modelcontextprotocol/serverInfo": {
+        "name": "ExampleServer",
+        "version": "1.0.0"
+      }
+    },
+    "ttlMs": 3600000,
+    "cacheScope": "public"
   }
 }
 ```
 
-After the handshake completes, the Client knows which capabilities this Server supports (Tools, Resources, Prompts) and can begin normal interaction.
+With that, the Client knows which capabilities this Server supports (Tools, Resources, Prompts). `ttlMs` and `cacheScope` are caching hints new in 2026-07-28, so Clients don't have to ask again every time.
+
+The same revision replaced server-to-client requests (`sampling/createMessage`, `elicitation/create`, `roots/list`) with "Multi Round-Trip Requests": the Server returns an interim result with `resultType: "input_required"`, and the Client retries the original request with the missing information. Roots, Sampling, and Logging are now Deprecated. Old Clients and new Servers are not compatible with each other; a Server that wants to serve both must implement both behaviors, and the spec's [versioning and compatibility page](https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle) has the full matrix.
 
 ---
 
@@ -649,15 +658,18 @@ After the handshake completes, the Client knows which capabilities this Server s
 
 Theory covered, let's write one.
 
-We'll use TypeScript with the official SDK `@modelcontextprotocol/sdk` to build a simple weather query MCP Server.
+We'll use TypeScript with the official SDK to build a simple weather query MCP Server. The TypeScript SDK shipped v2 on 2026-07-27, splitting the single `@modelcontextprotocol/sdk` package into `@modelcontextprotocol/server`, `@modelcontextprotocol/client`, and others, and implementing the 2026-07-28 spec; the example below uses the v2 server package. The old v1 (`@modelcontextprotocol/sdk`) keeps getting bug and security fixes for at least six months after v2, and v1 projects can upgrade with the official codemod — see the [upgrade guide](https://ts.sdk.modelcontextprotocol.io/v2/migration/upgrade-to-v2).
 
 ### Project Initialization
+
+v2 requires Node.js 20 or later.
 
 ```bash
 mkdir weather-mcp-server
 cd weather-mcp-server
 npm init -y
-npm install @modelcontextprotocol/sdk zod
+npm pkg set type=module
+npm install @modelcontextprotocol/server zod
 npm install -D typescript @types/node
 npx tsc --init
 ```
@@ -666,16 +678,9 @@ npx tsc --init
 
 ```typescript
 // src/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-// Create MCP Server instance
-const server = new McpServer({
-  name: "weather-server",
-  version: "1.0.0",
-  description: "An MCP Server providing weather query capabilities",
-});
+import { McpServer } from "@modelcontextprotocol/server";
+import { serveStdio } from "@modelcontextprotocol/server/stdio";
+import * as z from "zod/v4";
 
 // Simulated weather data (in a real scenario you'd call an actual weather API)
 const weatherData: Record<string, { temp: number; condition: string; humidity: number }> = {
@@ -686,135 +691,147 @@ const weatherData: Record<string, { temp: number; condition: string; humidity: n
   "San Francisco": { temp: 20, condition: "Foggy", humidity: 70 },
 };
 
-// ─── Register Tool ───────────────────────────────────────────
+// Build the Server from a factory: called once per stdio connection or per HTTP request
+export function createWeatherServer(): McpServer {
+  const server = new McpServer({ name: "weather-server", version: "1.0.0" });
 
-server.tool(
-  "get_weather",
-  "Get real-time weather information for a given city",
-  {
-    city: z.string().describe("City name, e.g.: Taipei, Tokyo"),
-  },
-  async ({ city }) => {
-    const weather = weatherData[city];
+  // ─── Register Tool ───────────────────────────────────────────
 
-    if (!weather) {
+  server.registerTool(
+    "get_weather",
+    {
+      description: "Get real-time weather information for a given city",
+      inputSchema: z.object({
+        city: z.string().describe("City name, e.g.: Taipei, Tokyo"),
+      }),
+    },
+    async ({ city }) => {
+      const weather = weatherData[city];
+
+      if (!weather) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Weather data not found for "${city}". Supported cities: ${Object.keys(weatherData).join(", ")}`,
+            },
+          ],
+          isError: true,
+        };
+      }
+
       return {
         content: [
           {
-            type: "text" as const,
-            text: `Weather data not found for "${city}". Supported cities: ${Object.keys(weatherData).join(", ")}`,
+            type: "text",
+            text: [
+              `Weather in ${city}:`,
+              `  Temperature: ${weather.temp}°C`,
+              `  Condition: ${weather.condition}`,
+              `  Humidity: ${weather.humidity}%`,
+            ].join("\n"),
           },
         ],
       };
     }
+  );
 
-    return {
-      content: [
-        {
-          type: "text" as const,
-          text: [
-            `Weather in ${city}:`,
-            `  Temperature: ${weather.temp}°C`,
-            `  Condition: ${weather.condition}`,
-            `  Humidity: ${weather.humidity}%`,
-          ].join("\n"),
-        },
-      ],
-    };
-  }
-);
+  server.registerTool(
+    "compare_weather",
+    {
+      description: "Compare weather between two cities",
+      inputSchema: z.object({
+        city_a: z.string().describe("First city"),
+        city_b: z.string().describe("Second city"),
+      }),
+    },
+    async ({ city_a, city_b }) => {
+      const a = weatherData[city_a];
+      const b = weatherData[city_b];
 
-server.tool(
-  "compare_weather",
-  "Compare weather between two cities",
-  {
-    city_a: z.string().describe("First city"),
-    city_b: z.string().describe("Second city"),
-  },
-  async ({ city_a, city_b }) => {
-    const a = weatherData[city_a];
-    const b = weatherData[city_b];
+      if (!a || !b) {
+        const missing = [!a && city_a, !b && city_b].filter(Boolean).join(", ");
+        return {
+          content: [{ type: "text", text: `Data not found for the following cities: ${missing}` }],
+          isError: true,
+        };
+      }
 
-    if (!a || !b) {
-      const missing = [!a && city_a, !b && city_b].filter(Boolean).join(", ");
+      const tempDiff = a.temp - b.temp;
+      const warmer = tempDiff > 0 ? city_a : city_b;
+
       return {
         content: [
           {
-            type: "text" as const,
-            text: `Data not found for the following cities: ${missing}`,
+            type: "text",
+            text: [
+              `${city_a} vs ${city_b} weather comparison:`,
+              ``,
+              `| Metric | ${city_a} | ${city_b} |`,
+              `|--------|--------|--------|`,
+              `| Temp | ${a.temp}°C | ${b.temp}°C |`,
+              `| Condition | ${a.condition} | ${b.condition} |`,
+              `| Humidity | ${a.humidity}% | ${b.humidity}% |`,
+              ``,
+              `${warmer} is warmer, with a difference of ${Math.abs(tempDiff)}°C.`,
+            ].join("\n"),
           },
         ],
       };
     }
+  );
 
-    const tempDiff = a.temp - b.temp;
-    const warmer = tempDiff > 0 ? city_a : city_b;
+  // ─── Register Resource ───────────────────────────────────────
 
-    return {
-      content: [
+  server.registerResource(
+    "supported-cities",
+    "weather://cities",
+    {
+      title: "Supported cities",
+      description: "Cities this Server has weather data for",
+      mimeType: "application/json",
+    },
+    async (uri) => ({
+      contents: [
         {
-          type: "text" as const,
-          text: [
-            `${city_a} vs ${city_b} weather comparison:`,
-            ``,
-            `| Metric | ${city_a} | ${city_b} |`,
-            `|--------|--------|--------|`,
-            `| Temp | ${a.temp}°C | ${b.temp}°C |`,
-            `| Condition | ${a.condition} | ${b.condition} |`,
-            `| Humidity | ${a.humidity}% | ${b.humidity}% |`,
-            ``,
-            `${warmer} is warmer, with a difference of ${Math.abs(tempDiff)}°C.`,
-          ].join("\n"),
+          uri: uri.href,
+          mimeType: "application/json",
+          text: JSON.stringify(Object.keys(weatherData), null, 2),
         },
       ],
-    };
-  }
-);
+    })
+  );
 
-// ─── Register Resource ───────────────────────────────────────
+  // ─── Register Prompt ─────────────────────────────────────────
 
-server.resource(
-  "supported-cities",
-  "weather://cities",
-  async (uri) => ({
-    contents: [
-      {
-        uri: uri.href,
-        mimeType: "application/json",
-        text: JSON.stringify(Object.keys(weatherData), null, 2),
-      },
-    ],
-  })
-);
-
-// ─── Register Prompt ─────────────────────────────────────────
-
-server.prompt(
-  "travel_weather_check",
-  "Check weather conditions at a travel destination",
-  { destination: z.string().describe("Travel destination") },
-  ({ destination }) => ({
-    messages: [
-      {
-        role: "user" as const,
-        content: {
-          type: "text" as const,
-          text: `I'm planning a trip to ${destination}. Please check the local weather and give me outfit and itinerary suggestions.`,
+  server.registerPrompt(
+    "travel_weather_check",
+    {
+      description: "Check weather conditions at a travel destination",
+      argsSchema: z.object({
+        destination: z.string().describe("Travel destination"),
+      }),
+    },
+    ({ destination }) => ({
+      messages: [
+        {
+          role: "user" as const,
+          content: {
+            type: "text" as const,
+            text: `I'm planning a trip to ${destination}. Please check the local weather and give me outfit and itinerary suggestions.`,
+          },
         },
-      },
-    ],
-  })
-);
+      ],
+    })
+  );
+
+  return server;
+}
 
 // ─── Start Server ─────────────────────────────────────────
 
-async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Weather MCP Server is running on stdio");
-}
-
-main().catch(console.error);
+void serveStdio(createWeatherServer);
+console.error("Weather MCP Server is running on stdio");
 ```
 
 ### Setting Up Claude Desktop to Use This Server
@@ -839,35 +856,39 @@ Restart Claude Desktop, and you can ask "What's the weather in Taipei right now?
 A few noteworthy points:
 
 1. **`McpServer`** is the high-level API. The SDK also provides a low-level `Server` class, but `McpServer` suffices for most scenarios
-2. **Zod schema** defines parameter types; the SDK automatically converts them to JSON Schema
-3. **`StdioServerTransport`** communicates via stdin/stdout, suitable for local use
-4. **`console.error`** instead of `console.log` -- because stdout is reserved for MCP messages; logs go to stderr
-5. **Tool return format** is uniformly `{ content: [{ type, text }] }`, as required by the MCP specification
+2. **`registerTool` / `registerResource` / `registerPrompt`** are the v2 registration APIs, replacing v1's `server.tool()`, `server.resource()`, and `server.prompt()`
+3. **Zod schemas** are wrapped in `z.object()`; the SDK converts them to JSON Schema and validates arguments before your handler runs
+4. **`serveStdio(factory)`** owns the stdin/stdout transport and builds Server instances from the factory; this form serves both 2026-07-28 and older Clients
+5. **`console.error`** instead of `console.log` -- because stdout is reserved for MCP messages; logs go to stderr
+6. **Tool return format** is uniformly `{ content: [{ type, text }] }`; add `isError: true` on failure so the model can read the error and correct itself
 
-### Switching to HTTP+SSE
+### Switching to Streamable HTTP
 
-Just swap out the transport:
+Hand the same factory to `createMcpHandler` to serve over HTTP. On Node, add `@modelcontextprotocol/node`, adapt with `toNodeHandler`, and put Host/Origin checks in front to block DNS rebinding (the handler itself validates neither header, nor any token):
 
 ```typescript
-import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
-import express from "express";
+// src/http.ts (drop the serveStdio lines at the end of index.ts, or move the factory to its own file)
+import { createServer } from "node:http";
+import { createMcpHandler } from "@modelcontextprotocol/server";
+import {
+  toNodeHandler,
+  localhostHostValidation,
+  localhostOriginValidation,
+} from "@modelcontextprotocol/node";
+import { createWeatherServer } from "./index.js";
 
-const app = express();
+const handler = createMcpHandler(createWeatherServer);
+const nodeHandler = toNodeHandler(handler);
+const validateHost = localhostHostValidation();
+const validateOrigin = localhostOriginValidation();
 
-app.get("/sse", async (req, res) => {
-  const transport = new SSEServerTransport("/messages", res);
-  await server.connect(transport);
-});
-
-app.post("/messages", async (req, res) => {
-  // Handle messages from the Client
-  await transport.handlePostMessage(req, res);
-});
-
-app.listen(3001, () => {
-  console.log("MCP Server listening on http://localhost:3001");
-});
+createServer((req, res) => {
+  if (!validateHost(req, res) || !validateOrigin(req, res)) return;
+  void nodeHandler(req, res);
+}).listen(3001, "127.0.0.1");
 ```
+
+The factory runs once per HTTP request and instances share no state, so the endpoint scales horizontally as-is. Don't use the `SSEServerTransport` (HTTP+SSE) from older tutorials.
 
 ---
 
@@ -877,22 +898,19 @@ MCP's value lies not just in the protocol itself, but in the ecosystem built aro
 
 ### Official MCP Servers
 
-Anthropic and the community maintain a collection of commonly used MCP Servers:
+[modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) now maintains only a handful of reference implementations, meant to demonstrate the protocol rather than to run in production:
 
-| Server | Function | Category |
-|--------|----------|----------|
-| `server-filesystem` | File read/write, search, directory ops | System |
-| `server-github` | Issue, PR, Repository operations | Development |
-| `server-gitlab` | GitLab API operations | Development |
-| `server-postgres` | PostgreSQL queries | Database |
-| `server-sqlite` | SQLite queries | Database |
-| `server-slack` | Channel management, messaging | Communication |
-| `server-google-drive` | Google Drive file operations | Cloud |
-| `server-google-maps` | Maps and geolocation queries | Information |
-| `server-brave-search` | Brave Search | Search |
-| `server-fetch` | HTTP requests | Network |
-| `server-puppeteer` | Browser automation | Network |
-| `server-memory` | Persistent memory (knowledge graph) | AI |
+| Server | Function |
+|--------|----------|
+| `everything` | Test server exercising every protocol feature |
+| `fetch` | Fetches web pages and converts them for model consumption |
+| `filesystem` | File read/write, search, directory ops, with configurable allowed directories |
+| `git` | Read, search, and manipulate Git repos |
+| `memory` | Persistent memory as a knowledge graph |
+| `sequentialthinking` | Step-by-step thinking tool |
+| `time` | Time and timezone conversion |
+
+The early GitHub, GitLab, PostgreSQL, SQLite, Slack, Google Drive, Google Maps, Brave Search, Puppeteer, and other servers moved to [servers-archived](https://github.com/modelcontextprotocol/servers-archived) and are marked on npm as "Archived and unmaintained; no security guarantees." Most of those services now have vendor-maintained servers — for example GitHub's own [github-mcp-server](https://github.com/github/github-mcp-server) — so use those instead.
 
 ### Community Ecosystem
 
@@ -911,10 +929,11 @@ Beyond official Servers, the community has built numerous MCP Servers:
 
 Several channels for finding MCP Servers:
 
-1. **[MCP Server Registry](https://github.com/modelcontextprotocol/servers)**: Official GitHub repo listing all known Servers
+1. **[Official MCP Registry](https://registry.modelcontextprotocol.io/)**: community-maintained server directory with an API that clients and other directories sync from
 2. **npm / PyPI**: Search for `mcp-server-*` or `@modelcontextprotocol/*`
-3. **mcp.run**: Community-maintained MCP Server marketplace
-4. **Smithery**: Another MCP Server directory
+3. **[Smithery](https://smithery.ai/)**: a third-party MCP Server directory and hosting platform
+
+mcp.run, often listed in early guides, has since become a self-hosted enterprise MCP gateway (Turbo MCP) rather than a public marketplace.
 
 ---
 
@@ -1030,7 +1049,7 @@ However, this mechanism is not enforced by the MCP protocol -- it depends on the
 **Transport Layer Security**
 
 - stdio transport: Inter-process communication, naturally isolated, no network involved
-- HTTP+SSE: You need to add TLS, authentication, and authorization yourself
+- Streamable HTTP: add TLS yourself; authorization follows the OAuth flow defined in the spec (see "Limitations and Future Directions" below); local services must block DNS rebinding, and the spec requires HTTP 403 for invalid Origin headers
 
 ### Known Risks
 
@@ -1082,13 +1101,13 @@ Currently MCP has no native permission-level mechanism. An MCP Server is either 
 
 ### Current Limitations
 
-**Authentication Not Yet Standardized**
+**Authorization is specified, but implementations lag**
 
-The MCP specification currently does not define a standard authentication flow. Each MCP Server handles authentication on its own -- some use API keys, some use OAuth, some use nothing at all. The March 2025 spec update introduced preliminary support for the OAuth 2.0 authorization framework, but ecosystem adoption is still in its early stages.
+Authorization for the HTTP transport is in the spec, and every revision has changed it: [2025-03-26](https://modelcontextprotocol.io/specification/2025-03-26/changelog) added an OAuth 2.1-based authorization framework; [2025-06-18](https://modelcontextprotocol.io/specification/2025-06-18/changelog) classified MCP Servers as OAuth Resource Servers that point to their Authorization Server via Protected Resource Metadata, and required Clients to implement RFC 8707 Resource Indicators so malicious Servers can't obtain other services' tokens; [2025-11-25](https://modelcontextprotocol.io/specification/2025-11-25/changelog) recommended Client ID Metadata Documents for client registration; [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog) deprecated Dynamic Client Registration and requires Clients to validate `iss` in authorization responses. stdio doesn't use this; credentials usually come in through environment variables. The practical limit is that Servers and Clients adopt spec changes at different speeds, so the same Server's sign-in experience can vary a lot between Clients.
 
 **Server Discovery**
 
-There is no standardized Server discovery mechanism yet. You need to manually find and configure MCP Servers. The future may bring an auto-discovery protocol similar to DNS.
+The official [MCP Registry](https://registry.modelcontextprotocol.io/) solves "where do I find one," but installation and configuration are still manual in each Host, and the Registry doesn't vouch for a Server's security.
 
 **Performance Considerations**
 
@@ -1108,13 +1127,13 @@ This launches a Web UI where you can manually invoke Tools, read Resources, and 
 
 ### Future Directions
 
-**Standardized Authentication**
+**Extensions**
 
-OAuth 2.1 integration is in the pipeline, enabling MCP Servers to perform user authentication and authorization in a standard way.
+The 2026-07-28 revision added an `extensions` field to capability declarations, and non-core features now ship as official extensions — for example long-running tasks (`io.modelcontextprotocol/tasks`) and MCP Apps (`io.modelcontextprotocol/ui`). The core protocol gets smaller, and new features prove themselves in extensions first.
 
 **Remote MCP Server Hosting**
 
-Currently most MCP Servers run locally. The future may see hosting platforms that let you deploy MCP Servers to the cloud with one click, similar to how Vercel deploys web apps.
+Per Anthropic's 2025-12 announcement, AWS, Cloudflare, Google Cloud, and Microsoft Azure all offer infrastructure for deploying MCP Servers; with 2026-07-28 going stateless, remote Servers scale horizontally like ordinary HTTP services.
 
 **Permission Model**
 
@@ -1126,7 +1145,7 @@ MCP currently serves as a protocol between Agents and tools. It may expand in th
 
 **Marketplace**
 
-Similar to VS Code's Extension Marketplace, allowing users to install and manage MCP Servers with a single click.
+The official Registry is live; the next step is for Hosts to build one-click install and management on top of it, similar to VS Code's Extension Marketplace.
 
 ---
 
@@ -1152,13 +1171,27 @@ If you're developing AI Agents, now is a good time to start paying attention to 
 2. **Developers**: Package your commonly used internal tools as MCP Servers
 3. **Teams**: Evaluate unifying your AI tool integrations with MCP
 
-The protocol is still evolving rapidly, but the core architecture has stabilized. The cost of early adoption is low, but the potential efficiency gains are significant.
+The protocol is still evolving rapidly, but the core architecture — Host/Client/Server and the three primitives — hasn't changed; what changes is transport, version negotiation, and authorization detail. The 2026-07-28 revision is a large incompatible change, so when you inherit an older project, check which version it speaks first.
 
 ---
 
+## Changelog
+
+- 2026-11-23: Updated to the 2026-07-28 spec. Added MCP's 2025-12 donation to the Agentic AI Foundation and the move to Apache-2.0; the transport section now centers on Streamable HTTP, notes HTTP+SSE is deprecated, and that 2026-07-28 is stateless; "Protocol Lifecycle" is rewritten as version negotiation, covering the removal of the `initialize` handshake in favor of per-request `_meta` and `server/discover`, and the deprecation of Roots/Sampling/Logging; the code example now uses TypeScript SDK v2 (`@modelcontextprotocol/server`, `registerTool`, `serveStdio`, `createMcpHandler`); the official server list now shows the remaining reference implementations and marks GitHub, PostgreSQL, and others as archived; server discovery now points to the official MCP Registry; the authorization section is rewritten around the OAuth rules in each revision from 2025-03-26 to 2026-07-28.
+
 ## References
 
-- [MCP Official Specification](https://spec.modelcontextprotocol.io/)
+- [MCP Specification (2026-07-28)](https://modelcontextprotocol.io/specification/2026-07-28)
+- [MCP specification versioning](https://modelcontextprotocol.io/specification/versioning)
+- [2026-07-28 key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog)
+- [2025-11-25 key changes](https://modelcontextprotocol.io/specification/2025-11-25/changelog)
+- [2025-06-18 key changes](https://modelcontextprotocol.io/specification/2025-06-18/changelog)
+- [2025-03-26 key changes](https://modelcontextprotocol.io/specification/2025-03-26/changelog)
+- [Donating MCP to the Agentic AI Foundation (Anthropic)](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)
+- [Official MCP Registry](https://registry.modelcontextprotocol.io/)
+- [TypeScript SDK v1 → v2 upgrade guide](https://ts.sdk.modelcontextprotocol.io/v2/migration/upgrade-to-v2)
+- [MCP Servers (archived)](https://github.com/modelcontextprotocol/servers-archived)
+- [GitHub MCP Server](https://github.com/github/github-mcp-server)
 - [MCP GitHub Repository](https://github.com/modelcontextprotocol)
 - [Anthropic MCP Announcement](https://www.anthropic.com/news/model-context-protocol)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)

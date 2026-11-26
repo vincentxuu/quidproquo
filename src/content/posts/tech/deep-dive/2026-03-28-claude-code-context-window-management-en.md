@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-context-window-management)
 
 The previous post [took apart the agentic loop](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works): the harness does three things — provide tools, manage context, maintain the execution environment. This one goes deep on the second. The context window is the loop's memory; when it fills up, behavior starts to drift — skills fail to trigger, earlier instructions fade. To manage it well, first know what's actually inside.
 

@@ -13,7 +13,7 @@ description: "從設計哲學光譜、寫入權歸屬、遺忘機制、benchmark
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-agent-memory-2026-trends-en)
+> :globe: [English version](/posts/ai/2026-09-19-agent-memory-2026-trends-en)
 
 這是[「AI Agent 記憶工程」系列](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)的第十篇（order 9），也是收尾。前面九篇分別拆解了[短期 context 管理](/posts/ai/2026-08-21-context-full-seven-answers)、coding agent 和雲端平台的記憶設計、開源框架選型、[Mem0](/posts/ai/2026-08-22-mem0-agent-memory) 與 [OpenViking](/posts/ai/2026-08-22-openviking-agent-memory) 深潛、以及攻擊面。這篇不再介紹新系統，而是拉高一層看走勢：2026 年這個領域正在發生什麼，以及如果你現在要下注，該把籌碼放在哪裡。
 
@@ -40,7 +40,7 @@ OpenAI 的 Codex Memories 和 [Agents SDK sandbox memory](https://openai.github.
 
 2026 年有五個獨立的產品決策指向同一個方向：把記憶寫入的最後一步交還給人。
 
-- **Gemini CLI Auto Memory**（[官方文件](https://geminicli.com/docs/cli/auto-memory)）：agent 草擬記憶 patch 和 SKILL.md 候選，放進審核 inbox，使用者核准才生效
+- **Gemini CLI Auto Memory**（[官方文件](https://geminicli.com/docs/cli/auto-memory)）：agent 草擬記憶 patch 和 SKILL.md 候選，放進審核 inbox，使用者核准才生效（2026-06-18 起 Gemini CLI 只服務 Code Assist 企業授權與付費 API key；移到 Antigravity CLI 的使用者改用 [`/learn`](https://antigravity.google/docs/commands/learn/)，同樣是先出提案、核准後才寫成 rule 或 skill）
 - **LangSmith Fleet**（2026-01-13 GA）：記憶就是 `memories/` 資料夾裡的檔案，每次更新須使用者核准
 - **Devin Knowledge Suggestions**（[官方文件](https://docs.devin.ai/product-guides/knowledge)）：從對話回饋自動建議 Knowledge 條目，使用者核准才寫入
 - **Cursor 1.2**（[changelog](https://cursor.com/changelog/1-2)）：對背景產生的記憶加入核准流程（後來 2.1.17 直接移除了 Memories 功能）
@@ -135,6 +135,10 @@ OpenAI [cookbook（2026-05-01）](https://developers.openai.com/cookbook/example
 
 記憶不是一個可以「加上去」的功能。它是架構決策——決定了你的 agent 跨 session 的行為一致性、使用者信任、安全邊界、以及維運複雜度。2026 年的好消息是，業界終於開始在這些維度上趨同。壞消息是，還沒有人做對所有的事。
 
+## 更新紀錄
+
+- 2026-11-23：補充 Gemini CLI 的服務範圍變動，以及 Antigravity CLI 以 `/learn` 提案核准的寫入方式
+
 ## 參考資料
 
 - [Anthropic — Claude Code Memory 官方文件](https://code.claude.com/docs/en/memory)
@@ -146,6 +150,7 @@ OpenAI [cookbook（2026-05-01）](https://developers.openai.com/cookbook/example
 - [OpenAI — Dreaming: Better memory for ChatGPT（2026-06-04）](https://openai.com/index/chatgpt-memory-dreaming)
 - [OpenAI — Building reliable agents: memory & compaction（cookbook，2026-05-01）](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction)
 - [Google — Gemini CLI Auto Memory 官方文件](https://geminicli.com/docs/cli/auto-memory)
+- [Google Antigravity — /learn 指令文件](https://antigravity.google/docs/commands/learn/)
 - [GitHub Engineering — Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
 - [Cursor — 1.2 Changelog](https://cursor.com/changelog/1-2)
 - [Cognition — Devin Knowledge 官方文件](https://docs.devin.ai/product-guides/knowledge)

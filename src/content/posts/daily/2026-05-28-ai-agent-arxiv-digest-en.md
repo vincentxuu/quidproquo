@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 4
 ---
-> 🌏 [中文版](/posts/daily/2026-05-28-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-28-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,7 +68,7 @@ This design makes "scale out (spin up more agents)" a genuine capability multipl
 
 - **Architecture**: The hub plugs in without modifying individual agent internals — theoretically stackable on existing frameworks like LangGraph or AutoGen
 - **Training**: Hub read/write behavior is bootstrapped with SFT, then fine-tuned with end-to-end RL to ensure hub content positively impacts overall task completion
-- **Results**: Outperforms both "single agent with equivalent compute" and "parallel agents without sharing" baselines on multiple long-horizon benchmarks; specific improvement numbers not in abstract, check full paper **⚠️**
+- **Results**: Outperforms both "single agent with equivalent compute" and "parallel agents without sharing" baselines on multiple long-horizon benchmarks; specific improvement numbers not in abstract, check full paper **:warning:**
 - **LangGraph connection**: LangGraph's checkpoint/state mechanism is currently per-thread with no cross-agent sharing; AgentFugue's hub concept can be viewed as a cross-thread shared context store
 - **Adoption barrier**: The hub requires independent training — not zero-shot plug-and-play; fine-tuning costs are prohibitive for small teams
 - **Limitation**: Paper focuses on homogeneous peer agents; effectiveness with heterogeneous agents (specialized roles) remains unvalidated; hub write quality is highly dependent on training data
@@ -130,7 +130,7 @@ This transforms benchmark numbers from "we guess it's X%" to "it's definitely at
 - **Three labels**: Evidence Pass = sufficient artifacts confirm success; Evidence Fail = artifacts show failure; Unknown = insufficient artifacts to determine
 - **Result variety**: Evidence-supported scores may be lower than original (exposing false positives), the same (original had sufficient evidence), or "fuzzified" (some cases indeterminate)
 - **Impact scope**: Directly affects any scenario using interactive benchmarks to evaluate agents, especially WebArena, τ-bench, and similar benchmarks involving complex GUI or API operations
-- **Limitation**: Locked checklists require manual authoring — not fully automated; when the Unknown proportion is high, score ranges may be too wide to be useful **⚠️**
+- **Limitation**: Locked checklists require manual authoring — not fully automated; when the Unknown proportion is high, score ranges may be too wide to be useful **:warning:**
 - **Framework connection**: When evaluating LangGraph / AutoGen agents using off-the-shelf benchmarks, consider applying this paper's evidence layer design principles to re-examine outcome check completeness
 - **Publication**: University of Sydney, 2 authors, submitted 2026-05-11
 
@@ -186,7 +186,7 @@ This is the first known agentic system capable of end-to-end generation of a com
 
 - **Experimental setup**: Tested on 6 niche scenarios: predicted-output decoding, hybrid prompt caching, streaming ASR, constrained JSON decoding, multimodal inference, Apple Silicon (MLX) deployment
 - **Standard scenario results**: Llama-3.1-8B-Instruct on H100, VibeServe achieves near-parity with vLLM and SGLang
-- **Niche scenario results**: Significant advantages across 6 non-standard scenarios; specific performance multipliers not in abstract, check full paper **⚠️**
+- **Niche scenario results**: Significant advantages across 6 non-standard scenarios; specific performance multipliers not in abstract, check full paper **:warning:**
 - **Persistent state design**: Outer loop maintains issues list + memory + git history, preventing agent "amnesia" and enabling learning from failures
 - **Correctness gate**: Inner loop runs correctness tests before measuring performance, preventing optimization in wrong directions
 - **LangGraph/AutoGen connection**: The dual-loop architecture can be viewed as a concrete "reflection + execution" pattern, similar to LangGraph's supervisor-worker model but with persistent state

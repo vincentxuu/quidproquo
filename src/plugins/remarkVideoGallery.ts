@@ -1,6 +1,7 @@
 // src/plugins/remarkVideoGallery.ts
 import type { Root } from 'mdast';
 import { videoGalleries, type GalleryVideo } from '../data/climbing-videos';
+import { stripEmojiText } from './rehypeNoEmoji';
 
 /**
  * Remark plugin: turns a ```video-gallery fence into one player plus a sideways
@@ -64,8 +65,9 @@ function cardLabels(video: GalleryVideo, lang: GalleryLang) {
   return {
     route: escapeHtml(lang === 'en' ? video.routeEn : video.route),
     note: escapeHtml(lang === 'en' ? video.noteEn : video.note),
-    channel: escapeHtml(video.channel),
-    title: escapeHtml(video.title),
+    // 影片標題與頻道名照 YouTube 原文存；站上不顯示 emoji，輸出前清掉（屬性裡的 title 不經過 rehypeNoEmoji）。
+    channel: escapeHtml(stripEmojiText(video.channel)),
+    title: escapeHtml(stripEmojiText(video.title)),
   };
 }
 
@@ -79,14 +81,14 @@ export function renderVideoGallery({ lang, videos, layout }: VideoGallerySpec): 
   const nextLabel = lang === 'en' ? 'Next videos' : '下一組影片';
 
   const caption = first
-    ? `${playlist ? '' : `${escapeHtml(lang === 'en' ? first.routeEn : first.route)} · `}${escapeHtml(lang === 'en' ? first.noteEn : first.note)} · ${escapeHtml(first.channel)}`
+    ? `${playlist ? '' : `${escapeHtml(lang === 'en' ? first.routeEn : first.route)} · `}${escapeHtml(lang === 'en' ? first.noteEn : first.note)} · ${escapeHtml(stripEmojiText(first.channel))}`
     : '';
 
   const player = first
     ? [
         '<div class="video-gallery__player">',
         '<div class="video-gallery__frame">',
-        `<iframe data-video-gallery-player src="${escapeHtml(embedSrc(first.id))}" title="${escapeHtml(first.title)}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
+        `<iframe data-video-gallery-player src="${escapeHtml(embedSrc(first.id))}" title="${escapeHtml(stripEmojiText(first.title))}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>`,
         '</div>',
         `<p class="video-gallery__now" data-video-gallery-now aria-live="polite">${caption}</p>`,
         '</div>',
@@ -192,6 +194,23 @@ function renderInline(node: MdNode): string {
   }
 }
 
+// Column widths follow the header text, not the column position, so tables with or without a
+// sector column keep the notes wide. Notes (the last source column) takes whatever is left.
+const ROUTE_COLUMN_WIDTHS: [RegExp, number][] = [
+  [/^YDS$/i, 8], [/^(難度|Grade)/i, 11], [/^(長度|Length)/i, 12], [/^(子區|Sector)/i, 8],
+];
+const ROUTE_NAME_WIDTH = 15;
+const ROUTE_VIDEO_WIDTH = 16;
+
+function routeColumnWidths(labels: string[]): number[] {
+  const widths = labels.map((label, index) => index === 0 ? ROUTE_NAME_WIDTH
+    : index === labels.length - 1 ? 0
+    : ROUTE_COLUMN_WIDTHS.find(([pattern]) => pattern.test(label))?.[1] ?? 10);
+  const used = widths.reduce((sum, width) => sum + width, ROUTE_VIDEO_WIDTH);
+  if (widths.length > 1) widths[widths.length - 1] = Math.max(20, 100 - used);
+  return [...widths, ROUTE_VIDEO_WIDTH];
+}
+
 export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): string {
   const rows = table.children ?? [];
   const en = spec.lang === 'en';
@@ -207,7 +226,8 @@ export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): st
       const tag = index === 0 || cellIndex === 0 ? 'th' : 'td';
       const scope = tag === 'th' ? ` scope="${index === 0 ? 'col' : 'row'}"` : '';
       const label = index > 0 ? ` data-label="${escapeHtml(labels[cellIndex] ?? '')}"` : '';
-      return `<${tag}${scope}${label}>${renderInline(cell)}</${tag}>`;
+      const notes = cellIndex > 0 && cellIndex === labels.length - 1 ? ' class="route-videos__notes"' : '';
+      return `<${tag}${scope}${notes}${label}>${renderInline(cell)}</${tag}>`;
     }).join('');
     if (index === 0) return `<thead><tr>${original}<th scope="col">${videoHeading}</th></tr></thead>`;
     const thumb = matched.find(video => video.embed !== false) ?? matched[0];
@@ -216,7 +236,8 @@ export function renderRouteVideoTable(table: MdNode, spec: VideoGallerySpec): st
     const trigger = thumb ? `<div class="route-videos__entry"><span class="route-videos__poster"><img src="https://i.ytimg.com/vi/${thumb.id}/mqdefault.jpg" alt="" width="160" height="90" loading="lazy" decoding="async" draggable="false"></span><button type="button" class="route-videos__trigger" data-route-open aria-expanded="false" aria-label="${escapeHtml(en ? `Watch ${base}: ${matched.length} videos` : `觀看 ${base}：${matched.length} 支影片`)}">${en ? `View videos (${matched.length})` : `查看影片（${matched.length}）`}</button></div><noscript><a draggable="false" href="${escapeHtml(watchHref(thumb.id))}" target="_blank" rel="noopener noreferrer">${en ? 'Watch on YouTube' : '在 YouTube 觀看'}</a></noscript><template data-route-gallery>${gallery}</template>` : '—';
     return `<tr data-route-row data-route-name="${escapeHtml(base)}">${original}<td class="route-videos__video-cell" data-label="${videoHeading}">${trigger}</td></tr>`;
   });
-  return `<div class="route-videos" data-route-videos data-lang="${spec.lang}"><div class="route-videos__scroll"><table class="route-videos__table">${body[0] ?? ''}<tbody>${body.slice(1).join('')}</tbody></table></div><aside class="route-videos__panel" data-route-panel hidden aria-label="${en ? 'Route videos' : '路線影片'}"><header><strong data-route-heading></strong><button type="button" data-route-close>${en ? 'Close' : '關閉'}</button></header><div data-route-content></div></aside></div>`;
+  const colgroup = `<colgroup>${routeColumnWidths(labels).map(width => `<col style="width:${width}%">`).join('')}</colgroup>`;
+  return `<div class="route-videos" data-route-videos data-lang="${spec.lang}"><div class="route-videos__scroll"><table class="route-videos__table">${colgroup}${body[0] ?? ''}<tbody>${body.slice(1).join('')}</tbody></table></div><aside class="route-videos__panel" data-route-panel hidden aria-label="${en ? 'Route videos' : '路線影片'}"><header><strong data-route-heading></strong><button type="button" data-route-close>${en ? 'Close' : '關閉'}</button></header><div data-route-content></div></aside></div>`;
 }
 
 export function remarkVideoGallery() {

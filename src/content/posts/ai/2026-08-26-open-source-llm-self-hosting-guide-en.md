@@ -20,7 +20,7 @@ glossary:
     def: "Quantized model format used by llama.cpp, supporting multiple precision levels to run large models on consumer hardware"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide)
+> :globe: [中文版](/posts/ai/2026-08-26-open-source-llm-self-hosting-guide)
 
 [Ornith 35B-A3B](/posts/tech/2026-08-26-ornith-deepreinforce-model-family) scores 79.0 on SWE-bench, [MiniMax M2.5](/posts/tech/2026-08-26-minimax-model-family) hits 80.2% — open-source models now match closed-source on coding tasks. But "the model is strong enough" and "I can actually run it" are separated by real decisions: which serving framework, what GPU, how much quantization, and when self-hosting beats API calls. This is the decision guide.
 

@@ -19,7 +19,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-03-common-web-bugs-en)
 
 這是「從零開始的資安獵人」第 4 篇。[網站怎麼運作](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work)講了 HTTP、cookie 與 same-origin。這篇用那些基礎，看網站最常見的兩種洞：XSS 與 IDOR。第 13 篇[查證頂級獎金](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)時用到的 [Google 獎金表](https://bughunters.google.com/about/rules/google-friends/google-and-alphabet-vulnerability-reward-program-vrp-rules)，這篇會回頭把這兩類洞對到具體的格子。
 

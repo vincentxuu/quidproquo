@@ -10,7 +10,7 @@ description: "An introduction to the design of OpenAI's Codex App Server: why JS
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-21-openai-codex-app-server)
+> :globe: [中文版](/posts/ai/2026-04-21-openai-codex-app-server)
 
 OpenAI engineer Celia Chen published an article in February 2026 introducing the Codex App Server, explaining how they transformed the Codex agent harness from a TUI-specific implementation into a universal protocol shared across IDEs, Web, and desktop apps. This post distills the architectural decisions, the three conversation primitives, and the tradeoffs of different integration modes — useful reading for engineers interested in agent harness design.
 

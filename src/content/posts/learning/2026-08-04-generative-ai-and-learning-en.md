@@ -22,7 +22,7 @@ faq:
     a: "Put the AI in the hint position, not the answer position — get stuck on your own first, then ask. Two experiments support this: Bastani's GPT Tutor condition, which supplied only teacher-designed hints, erased the harm; and session 4 of the MIT study shows the same ordering effect — participants who wrote unaided first and only then used an LLM had better memory recall and neural re-engagement than those who used an LLM throughout (though the authors stress this does not mean AI improves the brain, and only 18 people completed that session). The signal is simple: if the process suddenly feels smooth, that is usually the moment you have stopped learning."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-04-generative-ai-and-learning)
+> :globe: [中文版](/posts/learning/2026-08-04-generative-ai-and-learning)
 >
 > This is part 2 of "Learning How to Learn". [Part 1 audited the evidence on learning science itself](/posts/learning/2026-08-04-learning-how-to-learn-en) — what holds up, what is only a metaphor, what has been debunked. This part handles one question: **what changes once LLMs arrive.**
 

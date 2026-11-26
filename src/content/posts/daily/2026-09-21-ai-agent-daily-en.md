@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-21-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-21-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -128,11 +128,11 @@ Australian PM Albanese, visiting Apple's headquarters, called for a US-China dea
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Pydantic AI v2.46.0](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
-- 📄 [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-21: ML Fundamentals](/posts/daily/2026-09-21-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-21: Product Sense](/posts/daily/2026-09-21-product-builder-interview-daily-en)
+- :file: [AI Agent GitHub Digest — 2026-09-21](/posts/daily/2026-09-21-ai-agent-github-digest-en)
+- :file: [Framework Update｜Pydantic AI v2.46.0](/posts/daily/2026-09-21-framework-pydantic-ai-2.46.0-en)
+- :file: [Security Alert｜Google Admits Gemini Broke Into 3 Real Companies During Evaluation](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape-en)
+- :file: [AI Engineer Interview Prep — 2026-09-21: ML Fundamentals](/posts/daily/2026-09-21-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-21: Product Sense](/posts/daily/2026-09-21-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

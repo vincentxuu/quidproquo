@@ -13,7 +13,7 @@ description: "Comparing source code from codex, omp, pi, opencode, and claude-co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-run-artifacts-contract)
 
 The previous post covered [testing an agent that moves](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent-en); this one tackles the question that comes after testing: when a run finishes—or dies halfway—what does it leave behind?
 

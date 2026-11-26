@@ -13,7 +13,7 @@ description: "Pha Tang 岩場指南：48 條路線的級數分布、Papillon 等
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-pha-tang-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-pha-tang-en)
 
 Pha Tang 在萬榮北邊，村名就叫 Pha Tang，主幹道在這裡跨過 Nam Song 河。岩壁本來叫 **Na Pha Daeng**，因為附近還有另一個同名的 Pha Daeng 區，The Crag Journal 2023 年的作者改用村名稱呼它，避免混淆。
 

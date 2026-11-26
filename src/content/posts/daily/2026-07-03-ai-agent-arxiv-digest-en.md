@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 40
 ---
-> 🌏 [中文版](/posts/daily/2026-07-03-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-03-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ This paper directly challenges the "train it and ship it" mindset: both SFT and 
 
 - The four-layer architecture Perception → Interaction → Reasoning → Internalization represents progressively deeper shift, with increasing remediation cost
 - SFT models are most fragile at the Perception layer (tool format changes); RL models show some advantage at Reasoning but both degrade at Internalization
-- Experiments cover multiple mainstream tool-agent setups; see the original tables for specific numbers **⚠️**
+- Experiments cover multiple mainstream tool-agent setups; see the original tables for specific numbers **:warning:**
 - Accepted at ICML 2026; related concurrent work: ToolOmni (2604.13787), ToolGym (2601.06328) provide open-world tool environments
 - **Limitation**: The sandbox is still a synthetic environment — real deployment shifts may be far more diverse; only tool-calling tasks were tested, not computer-use scenarios
 - Implications for LangGraph / AutoGen users: frameworks themselves don't resist distributional shift — you need fallback mechanisms and environment-aware retry strategies at the workflow design level
@@ -132,10 +132,10 @@ QPipe demonstrates the power of multi-agent decomposition: each agent only needs
 
 ### Deep Dive
 
-- **Evaluation numbers**: 20 natural-language requirements, 100% code compilation success rate, 96.7% execution-and-return success rate; average consumption of 260.1 seconds and 1.89M tokens per requirement **⚠️** (sample size only 20 — generalizability should be treated cautiously)
+- **Evaluation numbers**: 20 natural-language requirements, 100% code compilation success rate, 96.7% execution-and-return success rate; average consumption of 260.1 seconds and 1.89M tokens per requirement **:warning:** (sample size only 20 — generalizability should be treated cautiously)
 - Generated quantum applications outperformed offline genetic algorithm baselines in most successfully executed cases
 - Ablation results are clear: code-generation skill, task knowledge, review feedback, and multi-agent decomposition are all indispensable
-- **Limitation**: Only 20 requirements evaluated, all quantum test optimization problems; 1.89M tokens per requirement is quite expensive **⚠️**
+- **Limitation**: Only 20 requirements evaluated, all quantum test optimization problems; 1.89M tokens per requirement is quite expensive **:warning:**
 - LangGraph implication: QPipe's pipeline architecture maps naturally to a LangGraph graph-based workflow — "6 nodes + conditional edges" is the direct representation
 - AutoGen implication: QPipe's review agent concept resembles AutoGen's critic agent pattern — cross-pollination is possible
 
@@ -190,7 +190,7 @@ They found an "inverted-U" relationship: moderate expression intensity outperfor
 ### Deep Dive
 
 - **Core finding**: Expression Intensity and user evaluation show an inverted-U relationship, with medium clearly outperforming low and high
-- Consistent results across three use contexts (medical info, fitness, learning), but sample size was not disclosed **⚠️**
+- Consistent results across three use contexts (medical info, fitness, learning), but sample size was not disclosed **:warning:**
 - Persona fluidity (dynamic role switching) doesn't affect trust or perceived intelligence — user acceptance of "contextual adaptation" is higher than expected
 - This is a workshop / bridge paper with no large-scale system implementation and no direct comparison with existing LLM persona tools
 - **Limitation**: Controlled experimental settings — how an agent "senses contextual needs" to switch personas in real deployment remains an unsolved technical problem

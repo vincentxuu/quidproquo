@@ -150,12 +150,12 @@ function buildPrompt(
   today: string,
 ): string {
   const repoSection = repos.map(r =>
-    `- ${r.fullName} (⭐${r.stars}, ${r.language ?? 'unknown'}): ${r.description}\n  URL: ${r.url}`
+    `- ${r.fullName} (${r.stars} stars, ${r.language ?? 'unknown'}): ${r.description}\n  URL: ${r.url}`
   ).join('\n')
 
   const releaseSection = releases.length > 0
     ? releases.map(r =>
-      `- ${r.repo} ${r.release.tag_name} (⭐${r.stars})\n  URL: ${r.release.html_url}\n  Notes: ${(r.release.body ?? '').slice(0, 800)}`
+      `- ${r.repo} ${r.release.tag_name} (${r.stars} stars)\n  URL: ${r.release.html_url}\n  Notes: ${(r.release.body ?? '').slice(0, 800)}`
     ).join('\n')
     : '今日無重要框架更新。'
 

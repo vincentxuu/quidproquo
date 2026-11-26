@@ -1,0 +1,3 @@
+{
+  "patch": "def can_read(actor, ticket):\n    return actor is not None and actor['tenant'] == ticket['tenant'] and actor['id'] == ticket['owner']"
+}

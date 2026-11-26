@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-openapi-typescript-fetch)
+> :globe: [中文版](/posts/tech/2026-08-22-openapi-typescript-fetch)
 
 [openapi-typescript](https://openapi-ts.dev/introduction) converts OpenAPI 3.0 and 3.1 paths, components, requests, and responses into `.d.ts`. The output contains types only—no runtime classes, HTTP client, or dependency. The same project provides [openapi-fetch](https://openapi-ts.dev/openapi-fetch/) when requests are needed.
 
@@ -51,11 +51,15 @@ Remote schema URLs weaken reproducibility. A production pipeline should pin or d
 
 ## Comparing full SDK generators
 
-openapi-typescript preserves HTTP paths and the Fetch mental model with small, transparent output. Stainless and Speakeasy additionally generate resource methods, pagination, retries, publishing workflows, documentation, and multiple languages; they treat SDKs as products.
+openapi-typescript preserves HTTP paths and the Fetch mental model with small, transparent output. SDK generators such as Speakeasy and Fern additionally generate resource methods, pagination, retries, publishing workflows, documentation, and multiple languages; they treat SDKs as products. Stainless was in this category too, but after joining Anthropic in May 2026 it wound down its public SDK generator.
 
 The thin option does not design developer experience for you. Full generators add configuration, vendor workflows, and generated-repository governance. A private TypeScript app often needs only the thin client. Public Python, Go, and Java SDKs are not solved by a `.d.ts` file.
 
 Coding agents can follow `paths` accurately, but should modify only specification sources and application code, never generated output. A useful gate deletes one required field and confirms both typecheck and generated diff fail.
+
+## Update Log
+
+- 2026-11-23: Stainless wound down its public SDK generator in May 2026, so the full SDK generator comparison now names Speakeasy and Fern.
 
 ## References
 

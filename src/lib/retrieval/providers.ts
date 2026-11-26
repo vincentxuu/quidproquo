@@ -6,7 +6,6 @@ export const SUPPORTED_PROVIDERS = [
   'gemini',
   'cloudflare',
   'nvidia',
-  'cerebras',
   'openrouter',
   'opencode',
   'ollama_cloud',

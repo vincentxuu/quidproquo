@@ -20,7 +20,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-l14-generative-basics-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-l14-generative-basics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

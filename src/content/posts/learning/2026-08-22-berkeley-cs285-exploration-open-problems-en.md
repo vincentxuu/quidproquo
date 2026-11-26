@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

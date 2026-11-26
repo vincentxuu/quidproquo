@@ -26,7 +26,7 @@ glossary:
     context: "Lattice runs 3–4 week cycles and cuts total load by 40–60% in the final week."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-nutrition-recovery)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-nutrition-recovery)
 
 You've started hangboarding three times a week. A friend at the gym says, "Drop two kilos and you'll send that route." You start skipping dinner. The first two weeks feel easier. By week four your fingers never seem to recover and the loads on the board won't go up.
 

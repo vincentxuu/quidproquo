@@ -22,7 +22,7 @@ glossary:
     context: "HW2's Colab starter code is adapted from WecoAI's aideml project."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -125,11 +125,9 @@ A first violation means 0 on that assignment and the final grade multiplied by 0
 
 The rule is the teaching goal. Your deliverable isn't a classifier. It is **a set of prompts and a pipeline that make an agent reliably produce a classifier**.
 
-## What this post can and cannot confirm
+## After reading
 
-Confirmed: every rule and number in hw2.pdf, the structure and defaults of the Colab starter (read cell by cell), and that the dataset link still worked on 2026-09-30. The homework video's title and uploader were checked via YouTube oEmbed.
-
-Not confirmed: I did not transcribe the homework video and did not run the full pipeline on a T4, so there are no accuracy numbers of my own. Private baseline thresholds, the JudgeBoi leaderboard, and TA grading are not available outside NTU.
+The rules and numbers here follow hw2.pdf and the Colab starter; spoken hints in the homework video are not included. This post did not run the full pipeline on a T4, so it gives no accuracy numbers. Private baseline thresholds, the JudgeBoi leaderboard, and TA grading are not available outside NTU.
 
 **Try this**: open the Colab tonight and don't switch models yet. Do two things only: make `parse_exec_result` actually extract validation accuracy from the run output, and raise `steps` to 5. When it finishes, check which nodes in the Journal are marked buggy and which one is best. Get this step right, and every later prompt change will have feedback to look at.
 
@@ -161,6 +159,7 @@ Video transcript: attempted on 2026-10-10, but no transcript could be obtained f
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

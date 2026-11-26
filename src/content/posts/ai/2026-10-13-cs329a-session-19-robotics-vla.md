@@ -13,7 +13,7 @@ tldr: "VLA 在視覺語言模型上加一個動作模組；讓動作模組的梯
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla-en)
+> :globe: [English version](/posts/ai/2026-10-13-cs329a-session-19-robotics-vla-en)
 
 軟體 Agent 的動作是文字：一段程式、一次工具呼叫。機器人的動作是每秒幾十次的關節指令，而且做錯了不能重跑。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 19 堂由 [Physical Intelligence](https://www.physicalintelligence.company/) 的 Danny Driess 客座，題目是「Multimodal AI Agents in Robotics」。讀完本文，你應能說明 vision-language-action（VLA）模型怎麼從語言模型長出動作輸出、訓練時會出什麼問題，並能讀懂一張資料消融表。先備是知道視覺語言模型（VLM）能看圖答題，以及梯度會沿著網路往回傳。
 

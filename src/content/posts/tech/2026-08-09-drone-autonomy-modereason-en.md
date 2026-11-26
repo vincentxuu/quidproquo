@@ -13,7 +13,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-09-drone-autonomy-modereason)
+> :globe: [中文版](/posts/tech/2026-08-09-drone-autonomy-modereason)
 
 This is the last cell in the drone series' technical block, and the topic was originally written as "autonomy evolves: waypoint → learned → end-to-end."
 

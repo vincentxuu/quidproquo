@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-digitalocean-app-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-digitalocean-app-platform)
 
 [DigitalOcean App Platform](https://docs.digitalocean.com/products/app-platform/) is a managed PaaS that builds, deploys, and scales Git repositories or container images. It sits between Droplets and Kubernetes: the platform manages OS, routing, TLS, deployment, and container lifecycle; teams retain application, data, dependency, and capacity responsibilities.
 

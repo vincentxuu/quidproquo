@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-linkup-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-linkup-search-api-guide)
 
 [Linkup](https://docs.linkup.so/pages/documentation/get-started/introduction) is a web search API built for AI applications. It can return more than URLs: an application can receive search context for a model, an answer with sources, or an object that follows a JSON Schema. This guide combines orientation with implementation: select the search depth, select the output, then handle full-page content, retries, and cost.
 
@@ -60,15 +60,16 @@ print(response)
 
 ## Choosing fast, standard, or deep
 
-The [Search overview](https://docs.linkup.so/pages/documentation/endpoints/search/overview) documents three depths:
+The [Search overview](https://docs.linkup.so/pages/documentation/endpoints/search/overview) documents four depths:
 
 | Depth | Behavior | Good fit |
 |---|---|---|
-| `fast` (beta) | No LLM, query rewriting, or page reading | Low-latency, keyword-shaped lookups |
+| `flash` (alpha) | Ranked sources and snippets straight from Linkup's own index, no LLM, under 200ms | The most latency-sensitive calls where the query is already keyword-shaped |
+| `fast` | No LLM, query rewriting, or page reading, about 1s | Low-latency, keyword-shaped lookups |
 | `standard` | One agentic iteration, parallel sub-searches when useful, and one in-query URL | Most live Q&A and agent tool calls |
 | `deep` | Multiple search, scraping, and evaluation iterations; later steps can reuse earlier findings | Following leads across several pages |
 
-Use `standard` as the practical default. A query such as “NVIDIA Q4 2024 revenue” may fit `fast`. An instruction such as “find the official pricing page, read the product pages, then summarize the plans” needs `deep`. The official [best-practices guide](https://docs.linkup.so/pages/documentation/endpoints/search/best-practices) warns that `fast` treats the whole instruction as keywords; it does not understand “first A, then B.”
+Use `standard` as the practical default. A query such as “NVIDIA Q4 2024 revenue” may fit `fast`. An instruction such as “find the official pricing page, read the product pages, then summarize the plans” needs `deep`. The official [best-practices guide](https://docs.linkup.so/pages/documentation/endpoints/search/best-practices) warns that `fast` treats the whole instruction as keywords; it does not understand “first A, then B.” `flash` costs the same as `fast` and `standard`. From 2026-12-01, Search returns 10 results by default when `maxResults` is unset (previously 20); code that relied on the old default should set `maxResults` explicitly, and since Search is priced per call, the result count does not change the cost.
 
 For `standard` and `deep`, phrase the prompt as a retrieval task. Instead of “tell me about this company,” name the pages to find, fields to extract, and desired presentation. Put time windows in `fromDate` and `toDate`, and use `includeDomains` or `excludeDomains` for source control. `includeDomains` accepts up to 100 domains.
 
@@ -170,6 +171,10 @@ Linkup fits agents that want one API for ranked search context, sourced answers,
 
 Before production, add three guardrails: retain source URLs, distinguish balance exhaustion from concurrency when handling `429`, and verify regional processing plus ZDR as account or contract settings. Those controls matter more than an ornate search prompt.
 
+## Changelog
+
+- 2026-11-23: Added `flash` (alpha, launched September 2026) to the depth table and dropped the beta label from `fast`; noted that from 2026-12-01 Search returns 10 results by default when `maxResults` is unset (previously 20). The free top-up and per-depth prices were rechecked and are unchanged.
+
 ## References
 
 - [Linkup API introduction](https://docs.linkup.so/pages/documentation/get-started/introduction)
@@ -187,4 +192,4 @@ Before production, add three guardrails: retain source URLs, distinguish balance
 
 ---
 
-> This guide's free-tier details are summarized in [Free Search, Scraping, and Browser APIs: How to Choose](/posts/ai/2026-08-21-free-search-scraping-tools-en): Linkup is the "balance refill" route, refilling eligible accounts back to $20 monthly and returning 429 at zero. Related posts in the same series include [Keenable](/posts/ai/2026-08-29-keenable-agentic-search-en) (monthly quota route) and [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier) (sustained rate-limit route; this post is zh-TW only).
+> This guide's free-tier details are summarized in [Free Search, Scraping, and Browser APIs: How to Choose](/posts/ai/2026-08-21-free-search-scraping-tools-en): Linkup is the "balance refill" route, refilling eligible accounts back to $20 monthly and returning 429 at zero. Related posts in the same series include [Keenable](/posts/ai/2026-08-29-keenable-agentic-search-en) (monthly quota route) and [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier-en) (daily allowance plus per-minute rate limits).

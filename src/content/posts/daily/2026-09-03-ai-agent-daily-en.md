@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-03-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-03-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -131,15 +131,15 @@ Core-banking vendor Mambu launched Intelligent Core, unifying core banking, paym
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-03](/posts/daily/2026-09-03-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-03](/posts/daily/2026-09-03-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-03: LLM & Agent Engineering](/posts/daily/2026-09-03-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-03: AI Product Design](/posts/daily/2026-09-03-product-builder-interview-daily-en)
-- 📄 [Funding Brief: Capacity Series E](/posts/daily/2026-09-03-funding-capacity-en)
-- 📄 [Funding Brief: Wonderful Series C](/posts/daily/2026-09-03-funding-wonderful-en)
-- 📄 [Model Card: Muse Voice Transcribe](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
-- 📄 [Security Alert: GitSpawn Git Config RCE](/posts/daily/2026-09-03-security-gitspawn-git-config-rce-en)
-- 📄 [Tool Pick: upnote-mcp](/posts/daily/2026-09-03-tool-upnote-mcp-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-03](/posts/daily/2026-09-03-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-03](/posts/daily/2026-09-03-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-09-03: LLM & Agent Engineering](/posts/daily/2026-09-03-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-03: AI Product Design](/posts/daily/2026-09-03-product-builder-interview-daily-en)
+- :file: [Funding Brief: Capacity Series E](/posts/daily/2026-09-03-funding-capacity-en)
+- :file: [Funding Brief: Wonderful Series C](/posts/daily/2026-09-03-funding-wonderful-en)
+- :file: [Model Card: Muse Voice Transcribe](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
+- :file: [Security Alert: GitSpawn Git Config RCE](/posts/daily/2026-09-03-security-gitspawn-git-config-rce-en)
+- :file: [Tool Pick: upnote-mcp](/posts/daily/2026-09-03-tool-upnote-mcp-en)
 
 ## Tomorrow's Watch
 

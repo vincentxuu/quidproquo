@@ -27,7 +27,7 @@ glossary:
         url: "https://www.anthropic.com/engineering/harness-design-long-running-apps"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-01-digital-employee-reality-check)
+> :globe: [中文版](/posts/ai/2026-08-01-digital-employee-reality-check)
 
 By 2026 the "digital employee" is a formal enterprise software category. [OpenAI launched Frontier on February 5](https://techcrunch.com/2026/02/05/openai-launches-a-way-for-enterprises-to-build-and-manage-ai-agents), explicitly pitched as managing agents the way companies manage human employees. [Forrester's 2026 predictions](https://www.forrester.com/blogs/predictions-2026-ai-agents-changing-business-models-and-workplace-culture-impact-enterprise-software) say the top five HCM platforms will grow digital-employee management features. Meanwhile, [Gartner estimates only about 130 of the thousands of vendors claiming agentic capabilities actually have them](https://www.reuters.com/business/over-40-agentic-ai-projects-will-be-scrapped-by-2027-gartner-says-2025-06-25).
 

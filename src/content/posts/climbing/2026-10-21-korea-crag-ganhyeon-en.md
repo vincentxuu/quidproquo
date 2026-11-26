@@ -13,7 +13,7 @@ description: "Ganhyeon climbing guide: Seowonju transport, vehicle restrictions,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-korea-crag-ganhyeon)
+> :globe: [中文版](/posts/climbing/2026-10-21-korea-crag-ganhyeon)
 
 If you want to spend the day climbing rather than hiking uphill, Ganhyeon deserves a look. Slabs and cave projects share a riverside tourist setting, but the grades between them are unevenly represented. This guide helps you identify enough objectives, reach the entrance and avoid treating a route length as a lowering instruction.
 

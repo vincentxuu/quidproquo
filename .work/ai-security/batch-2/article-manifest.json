@@ -1,0 +1,34 @@
+[
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-overview.md",
+    "sha256": "3b29ce7e5b14aac42d0ed396abe0c1e3af2822696d1bc0203f06679521f01430"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-overview-en.md",
+    "sha256": "7ea3f5168c8f4881f8c55d350376b45046f13419adf86f2b33a1e0946ff2f7eb"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization.md",
+    "sha256": "5a1c3ea902abcae59f03dbcf94b7167b57ee439bb1ef946d82e87491f53a4384"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-identity-and-authorization-en.md",
+    "sha256": "9fb7512f242a751f7959d945caa5fa12e28086c1f0e9c5b05c697707039124c0"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence.md",
+    "sha256": "8d2ed5f1378b1948d3d32e044cb05234391ce025a661389d283898c7ffa12aa6"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-vulnerability-evidence-en.md",
+    "sha256": "1568423a45526610d56d25570163a3f4637ee8ba331d731485a677dc97905999"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-experiment-environments.md",
+    "sha256": "e54a6fab2aa2c2fa909e986a9b63c2c8e40e03baf7ea7a86daf4d542253cf1e4"
+  },
+  {
+    "path": "src/content/posts/ai/2026-10-22-ai-security-experiment-environments-en.md",
+    "sha256": "7a6e708d24ffcfab8f3810ef3a5b474c367674d6ebb6ab1f5b5492a9d72b18f0"
+  }
+]

@@ -28,13 +28,13 @@ NVIDIA 同時點名 Atlassian 和 Heidi 是目前使用 Nemotron 開源模型的
 
 紐西蘭最大在野黨工黨（Labour）發布 AI Action Plan，作為 2026 年大選政見的一部分，內容包括：成立 Office of AI 統籌跨部會 AI 政策、在內政部（Department of Internal Affairs）內設立線上安全監管機構、建立著作權框架讓創作者對訓練資料有控制權與報酬、為資料中心訂立明確規範。法律事務所 MinterEllisonRuddWatts 的分析指出,這套計畫大量借用澳洲阿爾巴內斯政府 7 月 15 日公布的 AI 治理架構,同樣以 Office of AI 為核心。工黨黨魁 Hipkins 對此並不迴避,直言與澳洲對齊可以為跨塔斯曼海（Tasman）營運的創意與商業社群帶來更多確定性。（[MinterEllisonRuddWatts](https://minterellison.co.nz/insights/labour-unveils-ai-action-plan-what-an-incoming-labour-government-would-do-on-ai) · [Labour 官方政見頁](https://www.labour.org.nz/election-policy-pages/ai-in-new-zealand-s-interests/)）
 
-⚠️ 這是在野黨的選舉政見，並非現任政府政策，能否落地取決於 2026 年紐西蘭大選結果。
+:warning: 這是在野黨的選舉政見，並非現任政府政策，能否落地取決於 2026 年紐西蘭大選結果。
 
 ### 阿得雷德新創 Metacognition AI 拿下 1000 萬澳幣種子輪
 
 Metacognition（Metacognition Pty Ltd）於 9 月 10 日宣布完成 1000 萬美元（約合 1500 萬澳幣，各報導幣別標示不一，以美元計）Pre-Seed 輪融資,由 Main Sequence Ventures 領投，用於打造機器人作業系統。創辦人 Anton van den Hengel、Stephen Gould、Paul Dalby 均出身澳洲學界背景。（[Seedtable](https://seedtable.com/companies/metacognition/funding-rounds/pre-seed-2026-09) · [Tech Startups](https://techstartups.com/2026/09/10/startup-funding-news-today-september-10-2026-metacognition-ai-dyu-sinapisai-wyre-ai-more)）
 
-⚠️ 兩份報導對融資金額幣別標示不一致（Datapile 標示 $10.0M 未註明幣別、Tech Startups 標示 A$10 million），實際到帳金額與幣別待官方公告進一步確認。
+:warning: 兩份報導對融資金額幣別標示不一致（Datapile 標示 $10.0M 未註明幣別、Tech Startups 標示 A$10 million），實際到帳金額與幣別待官方公告進一步確認。
 
 ## 深度分析
 

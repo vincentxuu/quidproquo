@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-permission-layering)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-permission-layering)
 
 The [tool-executor article](/posts/tech/2026-08-30-looplane-tool-isolation-en) covered mechanical path, argv, environment, and timeout limits. This is one coding-agent security boundary; permission policy answers a different question: who authorizes a schema-valid operation?
 

@@ -10,11 +10,11 @@ tldr: "這題現在其實是二選一：@playwright/mcp（跨瀏覽器、accessi
 description: "比較三種 Browser MCP 方案：Chrome 官方的 chrome-devtools-mcp、微軟的 @playwright/mcp、已封存的 @modelcontextprotocol/server-puppeteer，從維護狀態、頁面狀態回傳、瀏覽器支援與適用場景逐一對比。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 4
+  name: "AI 瀏覽器自動化"
+  order: 5
 ---
 
-> 🌏 [English version](/posts/tech/2026-06-20-browser-mcp-comparison-en)
+> :globe: [English version](/posts/tech/2026-06-20-browser-mcp-comparison-en)
 
 AI agent 要控制瀏覽器，過去常被拿出來比的是三條路線：[Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp)、微軟官方的 [@playwright/mcp](https://github.com/microsoft/playwright-mcp)、以及 MCP 官方倉庫的 [@modelcontextprotocol/server-puppeteer](/posts/tech/2026-06-20-puppeteer-mcp)。
 
@@ -41,17 +41,17 @@ AI agent 要控制瀏覽器，過去常被拿出來比的是三條路線：[Chro
 | 維護狀態 | Chrome 團隊，持續更新 | 微軟，持續更新 | **已封存（2025.5.12 後無更新）** |
 | 主要用途 | 診斷、除錯、效能分析 | 一般網頁自動化、E2E 測試 | —— |
 | 底層 | Puppeteer | Playwright | Puppeteer |
-| Auto-wait | ✅ | ✅ | ❌ |
+| Auto-wait | ✓ | ✓ | ✗ |
 | 頁面狀態回傳 | 快照（`take_snapshot`）或截圖 | accessibility tree（預設）或截圖 | 截圖（base64）|
 | 瀏覽器支援 | Chrome / Chrome for Testing | Chromium / Firefox / WebKit | Chromium only |
-| Attach 現有瀏覽器 | ✅ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✅ `--cdp-endpoint` / `--extension` | 有限 |
-| 效能 trace / Lighthouse | ✅ | ❌ | ❌ |
-| 記憶體 heap snapshot | ✅（`--memoryDebugging`） | ❌ | ❌ |
-| 擴充功能 / PWA 管理 | ✅ | ❌ | ❌ |
-| 網路攔截改寫 | ❌ 只能唯讀觀測 + 節流／URL 封鎖 | ✅（`--caps=network`，`browser_route`） | 需自己用 evaluate 兜 |
-| 斷言 / locator 產生 | ❌ | ✅（`--caps=testing`） | ❌ |
+| Attach 現有瀏覽器 | ✓ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✓ `--cdp-endpoint` / `--extension` | 有限 |
+| 效能 trace / Lighthouse | ✓ | ✗ | ✗ |
+| 記憶體 heap snapshot | ✓（`--memoryDebugging`） | ✗ | ✗ |
+| 擴充功能 / PWA 管理 | ✓ | ✗ | ✗ |
+| 網路攔截改寫 | ✗ 只能唯讀觀測 + 節流／URL 封鎖 | ✓（`--caps=network`，`browser_route`） | 需自己用 evaluate 兜 |
+| 斷言 / locator 產生 | ✗ | ✓（`--caps=testing`） | ✗ |
 | 控制 context 大小 | `--slim` | `--caps` 逐項開 | 工具集本來就只有 7 個 |
-| 預設回報使用統計 | ✅（`--no-usage-statistics` 關閉） | ❌ | ❌ |
+| 預設回報使用統計 | ✓（`--no-usage-statistics` 關閉） | ✗ | ✗ |
 
 ## 先釐清「CDP」這個詞
 
@@ -99,9 +99,12 @@ Playwright 本身的 auto-wait 邏輯（等元素 interactable 才操作）讓 a
 
 這題從「三種抽象層級選一個」變成「兩種目的選一個」。@playwright/mcp 負責讓 agent 把網頁操作對；chrome-devtools-mcp 負責讓 agent 說得出網頁為什麼慢、為什麼漏。server-puppeteer 則示範了另一件事：**MCP server 的生命週期比你以為的短**——選型時把「還有沒有人維護」放進評估表，比比較工具數量有用得多。
 
+如果你用的是 Claude Code、Codex 這類有 shell 的 coding agent，還有第三條路：不掛 MCP，改用 CLI＋skill。Playwright MCP 的 README 自己就這樣建議。這條路省在哪、該開哪些安全設定，見下一篇 [agent-browser 與 CLI＋skill 路線](/posts/ai/2026-11-19-agent-browser-cli)。
+
 ## 更新紀錄
 
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「瀏覽器自動化與 MCP」系列
+- 2026-11-19：結尾補上 CLI＋skill 路線的連結
 
 ## 參考資料
 

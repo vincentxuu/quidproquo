@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 58
 ---
-> 🌏 [中文版](/posts/daily/2026-07-21-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-21-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ For agent platform developers, this paper provides a directly actionable archite
 - A hierarchical skill system lets search sub-tasks be packaged as reusable skills, reducing prompt engineering overhead
 - Evaluation benchmarks: WideSearch and GISA, two open-domain information-seeking benchmarks
 - Results: +4.3 F1 on WideSearch, 24.3% reduction in end-to-end search time, best performance across all single- and multi-agent baselines
-- ⚠️ WideSearch is a dataset from an Ant Group-affiliated institution — there is a risk of home-field testing bias; GISA is an external benchmark and its results carry more weight
+- :warning: WideSearch is a dataset from an Ant Group-affiliated institution — there is a risk of home-field testing bias; GISA is an external benchmark and its results carry more weight
 - Limitation: the system requires a predefined schema structure; automatic schema generation for fully open-ended tasks is not deeply discussed
 
 ### Reviewer's One-liner
@@ -137,9 +137,9 @@ This is a complete demonstration of "agents executing highly structured professi
 - The resulting Hedges' g effect sizes closely match those from manually conducted meta-analyses on the same topic, indicating statistical correctness
 - The system supports heterogeneity analysis: automatically explores which factors cause effect sizes to vary across studies
 - It also supports risk-of-bias assessment (study bias risk scoring), approaching full PRISMA-compliant output
-- ⚠️ The paper presents only one case study (final N=8 papers), lacking large-scale benchmarks — generalizability remains unverified
+- :warning: The paper presents only one case study (final N=8 papers), lacking large-scale benchmarks — generalizability remains unverified
 - Relationship to existing frameworks: the pipeline architecture resembles LangGraph's sequential graph, but domain knowledge (PRISMA rules, Hedges' g calculations) is hardcoded into prompts — migrating to other domains requires redesign
-- ⚠️ Support for non-English literature and handling of unavailable full-text PDFs are not explicitly addressed
+- :warning: Support for non-English literature and handling of unavailable full-text PDFs are not explicitly addressed
 
 ### Reviewer's One-liner
 
@@ -197,10 +197,10 @@ The negotiation architecture uses a **hub-and-spoke** model: a formateur agent (
 - DPO here is used not to make the LLM "more helpful" but to make it "more stubborn" — a rare case of DPO applied to agent persona engineering, offering a counterintuitive application pattern
 - Per-party RAG ensures each agent's positions are grounded in facts (official party programs) rather than LLM inference or hallucination — a demonstration of RAG-grounded personas
 - The hub-and-spoke architecture routes all negotiation communication through the formateur agent, enabling complete audit trails — an auditable multi-agent design
-- ⚠️ Only one case study (2019 Flemish election); SFT/DPO training data sources and scale are described briefly
+- :warning: Only one case study (2019 Flemish election); SFT/DPO training data sources and scale are described briefly
 - Relevance to existing frameworks: DPO persona engineering applies to any scenario requiring agents to hold firm positions; RAG-grounded personas are a low-cost defense against LLM stance drift
 - Deployment barrier: quality DPO training pairs (positive vs. negative examples) are needed, and data preparation is the biggest challenge; the RAG component has a relatively lower barrier
-- ⚠️ The paper lacks quantitative controlled experiments (e.g., stance retention rates before vs. after DPO) — analysis is primarily qualitative, so conclusions should be extrapolated cautiously
+- :warning: The paper lacks quantitative controlled experiments (e.g., stance retention rates before vs. after DPO) — analysis is primarily qualitative, so conclusions should be extrapolated cautiously
 
 ### Reviewer's One-liner
 

@@ -30,7 +30,7 @@ glossary:
     context: "Lecture 17, pages 88–98. SPVConv swaps the voxel branch for sparse convolution."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

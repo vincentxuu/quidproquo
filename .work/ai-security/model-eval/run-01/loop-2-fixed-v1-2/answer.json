@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "S-1",
+  "verdict": "inconclusive",
+  "reason": "N-1 returned 200 as the authorized baseline; N-2 returned 403, enforcing the owner restriction in that case. Use the final request to test cross-tenant access to S-1; no response evidence exists yet for that case."
+}

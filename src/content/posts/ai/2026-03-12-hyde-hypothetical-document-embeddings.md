@@ -14,7 +14,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
+> :globe: [English version](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings-en)
 
 向量搜尋有個根本的不對稱問題：**使用者的查詢和資料庫中的文件，語言模式差距很大**。
 

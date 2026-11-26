@@ -1,0 +1,939 @@
+{
+  "run_id": "2026-10-24-joyama-watch",
+  "date": "2026-10-24",
+  "planned_requests": 14,
+  "completed_requests": 13,
+  "failed_requests": 1,
+  "missing_requests": [],
+  "complete": false,
+  "new_sources": 9,
+  "known_sources": 19,
+  "candidates": [
+    {
+      "id": "src_0877974c591f978f19a0",
+      "url": "https://www.yamareco.com/modules/yamareco/detail-5107670.html",
+      "title": "山行記録: 城山クライミング♪伊豆の攀子",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only."
+      ],
+      "aliases": [],
+      "published_at": "2023-01-19"
+    },
+    {
+      "id": "src_17c021b0c963e2f61c35",
+      "url": "https://www.rocktopo.net/rocks/396",
+      "title": "インナーウォール 3 | ROCKTOPO",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_5934859978e2ffbb0789",
+      "url": "https://tozanguchinavi.com/trailhead/trailhead-5364",
+      "title": "城山、葛城山、発端丈山の登山口、城山林道峠広場駐車スペース",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_5aa85adb3832c4e7c812",
+      "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+      "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [
+        "地上の星",
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators",
+        "query-wildcat",
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_6e95af706f1276cf9a4e",
+      "url": "https://pump-climbing.com/areaguidedata/japan08.html",
+      "title": "エリアガイド | クライミングジム & ボルダリング（pump-climbing）",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_c1e25c1fcfd5689b2519",
+      "url": "https://tozanguchi-p.com/joyama/",
+      "title": "【伊豆の国市】 城山登山口駐車場 | 登山口P",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only."
+      ],
+      "aliases": [],
+      "published_at": "2023-01-12"
+    },
+    {
+      "id": "src_dd663140a212ab820fd8",
+      "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+      "title": "ルート紹介:城山 | あかつきクライミングスクール",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [
+        "地上の星",
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators",
+        "query-wildcat",
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only."
+      ],
+      "aliases": [],
+      "published_at": "2025-12-09"
+    },
+    {
+      "id": "src_e252b865f0703486a47a",
+      "url": "https://eightdoor-equip.com/%E3%80%90%E5%BA%97%E4%B8%BB%E3%81%AE%E4%BC%91%E6%97%A5%E3%80%91%E4%BC%8A%E8%B1%86%E5%9F%8E%E5%B1%B1%E3%83%9E%E3%83%AB%E3%83%81%E3%83%94%E3%83%83%E3%83%81%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%9F%E3%83%B3/",
+      "title": "【店主の休日】伊豆城山マルチピッチクライミング",
+      "source_type": "web-page",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only."
+      ],
+      "aliases": [],
+      "published_at": "2026-03-23"
+    },
+    {
+      "id": "src_e52eeb3b441117db3a5f",
+      "url": "https://www.youtube.com/watch?v=HJJgorK6MF4",
+      "title": "\"Challengers\" 城山クライミング1Day",
+      "source_type": "video",
+      "known": false,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 1,
+      "source_route": null,
+      "query_routes": [
+        "地上の星"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only."
+      ],
+      "aliases": [
+        "https://m.youtube.com/watch?v=HJJgorK6MF4"
+      ],
+      "published_at": "2022-12-18"
+    },
+    {
+      "id": "src_08b9dd61ef8844a35cca",
+      "url": "https://www.youtube.com/watch?v=p-R4OPig3OU",
+      "title": "ヴァージンキラー(5.12a)@城山ワイルドボア",
+      "source_type": "video",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": false,
+      "request_ids": [
+        "channel-src_af62e14f18ca83ee28f5"
+      ],
+      "tools": [
+        "yt-dlp public channel uploads metadata"
+      ],
+      "coverages": [
+        "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered."
+      ],
+      "reasons": [
+        "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+      ],
+      "aliases": [],
+      "creator_source_id": "src_af62e14f18ca83ee28f5"
+    },
+    {
+      "id": "src_128403452bea61e0c1a5",
+      "url": "https://www.rocktopo.net/en/routes/5743",
+      "title": "リバイアサン | ROCKTOPO - Japan Climbing & Bouldering Guide",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_151b172e130862422487",
+      "url": "https://izugeopark.org/geosites/joyama/",
+      "title": "城山 | 南から来た火山の贈りもの | 伊豆半島ジオパーク公式サイト",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_2c6cdfa5bda93d5c48f6",
+      "url": "https://mousorosoro.info/2010/01/09/%e3%83%ac%e3%83%83%e3%83%89%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e3%81%ae%e6%9c%80%e7%b5%82%e5%85%b5%e5%99%a8%ef%bc%a0%e3%83%aa%e3%83%90%e3%82%a4%e3%82%a2%e3%82%b5%e3%83%b3/",
+      "title": "レッドポイントの最終兵器＠リバイアサン – もうそろそろリアルクライミングバムWITHわんこ　2nd",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": [],
+      "published_at": "2010-01-09T00:00:00.000Z"
+    },
+    {
+      "id": "src_51d1c6616b9ef19a16d8",
+      "url": "https://www.rocktopo.net/tw/routes/9705",
+      "title": "地上の星 | ROCKTOPO - 日本攀岩 & 抱石資訊",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "地上の星"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_5d7ea4e238da83911097",
+      "url": "https://www.rocktopo.net/areas/10/routes",
+      "title": "城山のルート一覧 | ROCKTOPO 日本のクライミング、ボルダリングの岩場情報・トポ",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "地上の星",
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat",
+        "query-inner-wall"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_8e88aa811799541c0891",
+      "url": "https://www.climbing-net.com/general/%E5%9F%8E%E5%B1%B1/",
+      "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net クライミングネット",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-inner-wall",
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review.",
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_92e83896865dc58e2efc",
+      "url": "https://tozanguchinavi.com/trailhead/trailhead-5367",
+      "title": "城山、葛城山、発端丈山の登山口、城山登山口の駐車場情報",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+      ],
+      "aliases": [],
+      "published_at": "2026-03-11T00:24:02.000Z"
+    },
+    {
+      "id": "src_a0ba69e3a40160a7cba9",
+      "url": "https://escalade.amebaownd.com/posts/58653346/",
+      "title": "梅の香り、凝灰岩、そして温泉 ♨️ 伊豆クライミングガイド",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+      ],
+      "aliases": [],
+      "published_at": "2026-03-18T00:00:00.000Z"
+    },
+    {
+      "id": "src_b03192d5fca744e53eb6",
+      "url": "http://tanamaste.blog109.fc2.com/blog-entry-1634.html",
+      "title": "タナログ　～国際山岳ガイド棚橋靖のブログ 伊豆・城山のマルチピッチクライミング",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+      ],
+      "aliases": [],
+      "published_at": "2026-03-17T00:00:00.000Z"
+    },
+    {
+      "id": "src_b8666e79c468c52e8bcb",
+      "url": "http://izujoyama.blog10.fc2.com/blog-entry-14.html",
+      "title": "新エリア　ワイルドキャットゴージの紹介 - 伊豆・城山 フリー クライミング ガイド ４００ ブログ",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "地上の星"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_c1c9bedb04cc7c861d0c",
+      "url": "https://www.youtube.com/watch?v=J16xpPsuzyg",
+      "title": "城山 トップ・オブ・ザ・ワールド 12B",
+      "source_type": "video",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": false,
+      "request_ids": [
+        "channel-src_a5f3919f8e40a361269c"
+      ],
+      "tools": [
+        "yt-dlp public channel uploads metadata"
+      ],
+      "coverages": [
+        "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered."
+      ],
+      "reasons": [
+        "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+      ],
+      "aliases": [],
+      "creator_source_id": "src_a5f3919f8e40a361269c"
+    },
+    {
+      "id": "src_cc2bd0e2d9cb2c555d72",
+      "url": "https://www.rocktopo.net/route_bundles/1",
+      "title": "静岡付近の星付き11a | ROCKTOPO 日本のクライミング",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "地上の星"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+      ],
+      "aliases": []
+    },
+    {
+      "id": "src_da7ebbea63bb46abb40e",
+      "url": "https://www.youtube.com/watch?v=88nJJ5L6rZQ",
+      "title": "トゥウェルブモンキー(5.12b)@城山ワイルドボア",
+      "source_type": "video",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": false,
+      "request_ids": [
+        "channel-src_af62e14f18ca83ee28f5"
+      ],
+      "tools": [
+        "yt-dlp public channel uploads metadata"
+      ],
+      "coverages": [
+        "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered."
+      ],
+      "reasons": [
+        "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+      ],
+      "aliases": [],
+      "creator_source_id": "src_af62e14f18ca83ee28f5"
+    },
+    {
+      "id": "src_de8a6eca10926fe23364",
+      "url": "https://blog.muraq.com/post/mt/free_climbing/2454",
+      "title": "城山 新ルート スタートレック【マルチピッチ クライミング】",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": "selected",
+      "decision": "selected",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "page-2"
+      ],
+      "tools": [
+        "Groundlane web_fetch (maxOutputChars 3000, output truncated)"
+      ],
+      "coverages": [
+        "Fetched bounded markdown; inspected title/author/publishedAt and the first pitches of the route report, truncated, not a full reading."
+      ],
+      "reasons": [
+        "Known author page re-observed via Groundlane fetch; page dated 2025-12-08, not evidence that conditions are current."
+      ],
+      "aliases": [],
+      "published_at": "2025-12-08"
+    },
+    {
+      "id": "src_e0ee2ad82b712e2bb765",
+      "url": "https://www.sotolover.com/2026/08/207129/",
+      "title": "伊豆・城山の新ルート「スター☆トレック」へ！風と岩幅3mの難所を越えるソロクライミング | soto lover - ソトラバ",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Secondary adaptation of TAKEMOVIE; compare primary video, not independent corroboration."
+      ],
+      "aliases": [],
+      "published_at": "2026-08-23T11:00:00.000Z"
+    },
+    {
+      "id": "src_e1bb808e7c7029fe5a61",
+      "url": "https://www.alpineclub.tokyo/vlog/1932/",
+      "title": "城山 クロスロード 5.10a｜ワイルドボアゴージ（Wild Boae Gorge） [ ALPINE CLUB TOKYO 公式チャンネル ] - ALPINE CLUB TOKYO",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+      ],
+      "aliases": [],
+      "published_at": "2026-05-29T12:00:00.000Z"
+    },
+    {
+      "id": "src_effd74b402d2b3c53e64",
+      "url": "https://www.alpineclub.tokyo/vlog/1810/",
+      "title": "スター・トレック 後編｜伊豆 城山東壁",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": "selected",
+      "decision": "selected",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-new-creators"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+      ],
+      "aliases": [],
+      "published_at": "2026-01-05T12:00:00.000Z"
+    },
+    {
+      "id": "src_fa43574e3e0729451e24",
+      "url": "https://www.rocktopo.net/areas/10",
+      "title": "城山 | ROCKTOPO 日本のクライミング",
+      "source_type": "web-page",
+      "known": true,
+      "previous_decision": null,
+      "decision": "candidate",
+      "priority": 3,
+      "source_route": null,
+      "query_routes": [
+        "地上の星",
+        "リバイアサン"
+      ],
+      "uncovered_route": false,
+      "outsider": true,
+      "request_ids": [
+        "query-wildcat",
+        "query-inner-wall",
+        "query-access-updates"
+      ],
+      "tools": [
+        "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)"
+      ],
+      "coverages": [
+        "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. "
+      ],
+      "reasons": [
+        "Search-result card title/URL/snippet from Groundlane; unread; not a video review.",
+        "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+      ],
+      "aliases": []
+    }
+  ],
+  "attempts": [
+    {
+      "request_id": "channel-src_962940642c98892efbc7",
+      "status": "ok",
+      "tool": "Exa web_search_exa (no author match) → yt-dlp public channel uploads metadata",
+      "coverage": "Initial Exa query “城山 のぼるきょじん” returned 4 generic or unrelated-location results, with no confirmed author match. Then Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_a5f3919f8e40a361269c",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 1,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_a8c3e2641b33c6f7435b",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_a9103198c32ef56cba4a",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_af62e14f18ca83ee28f5",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 2,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_b13a646f22293a4b0cf3",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_bdd4a8f00f39f0120f7c",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "channel-src_be1397cf597fc06da536",
+      "status": "ok",
+      "tool": "yt-dlp public channel uploads metadata",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "count": 0,
+      "error": null
+    },
+    {
+      "request_id": "query-new-creators",
+      "status": "ok",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "count": 8,
+      "error": null
+    },
+    {
+      "request_id": "query-wildcat",
+      "status": "ok",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "count": 8,
+      "error": null
+    },
+    {
+      "request_id": "query-inner-wall",
+      "status": "ok",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "count": 8,
+      "error": null
+    },
+    {
+      "request_id": "query-access-updates",
+      "status": "ok",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "count": 8,
+      "error": null
+    },
+    {
+      "request_id": "page-1",
+      "status": "failed",
+      "tool": "Groundlane web_fetch (DEADLINE_EXCEEDED, then 60s client timeout on retry) + Exa web_fetch_exa (earlier same-day run, no content)",
+      "coverage": "Two Groundlane attempts and one Exa attempt, all failed; nothing was read.",
+      "count": 0,
+      "error": "Groundlane web_fetch: DEADLINE_EXCEEDED at connect, retry timed out after 60s; Exa web_fetch_exa returned no content. Page not read this run."
+    },
+    {
+      "request_id": "page-2",
+      "status": "ok",
+      "tool": "Groundlane web_fetch (maxOutputChars 3000, output truncated)",
+      "coverage": "Fetched bounded markdown; inspected title/author/publishedAt and the first pitches of the route report, truncated, not a full reading.",
+      "count": 1,
+      "error": null
+    }
+  ]
+}

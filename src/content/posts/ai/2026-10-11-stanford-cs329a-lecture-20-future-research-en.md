@@ -13,7 +13,7 @@ tldr: "Diversity, verification, task selection, and efficiency are distinct bott
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research)
+> :globe: [中文版](/posts/ai/2026-10-11-stanford-cs329a-lecture-20-future-research)
 
 **Video status: Videos included.** Lecture text is available; caption type, listening checks, and the shadowing player still require verification.
 

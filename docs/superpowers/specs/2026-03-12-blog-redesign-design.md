@@ -1,5 +1,7 @@
 # Blog Redesign & Feature Expansion — Design Spec
 
+> **歷史文件。** 目前的設計正本是 [`docs/design-system.md`](../../design-system.md)，數值以 `src/styles/tokens.css` 為準。下方的 token 值（例如 `--brand-500 #4a7c59`、`--text-muted #a7c4a0`）是 2026-03 的舊值，已經跟實作不同，不要照抄。
+
 **Date:** 2026-03-12
 **Status:** Approved
 **Scope:** Full redesign of quidproquo.cc — visual overhaul + all features in one pass

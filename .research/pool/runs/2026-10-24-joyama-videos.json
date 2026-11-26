@@ -1,0 +1,517 @@
+{
+  "id": "2026-10-24-joyama-videos",
+  "categories": [
+    "climbing"
+  ],
+  "topics": [
+    "crags"
+  ],
+  "checked_at": "2026-10-24",
+  "scope": "Cross-channel route-video discovery at Joyama, no year/view-count threshold; not an exhaustive quality audit.",
+  "source_count": 166,
+  "observation_count": 166,
+  "search_count": 49,
+  "unresolved_entities": [
+    {
+      "entity_type": "channel",
+      "display_name": "ALPINE CLUB TOKYO",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Ivd2eJ2LRLE",
+        "KirXJMkgkU0",
+        "mg5MLPmZjvs",
+        "GLMZtR-dFak",
+        "1kKxNBCC7Js",
+        "8ox-v7_fuTY",
+        "KcF5DCRHrII",
+        "Hvtr8FURC1Y",
+        "0jSquYC2gOQ",
+        "2OnmYfMY1sQ",
+        "_Mt5qV5h2EM",
+        "NKUvZCYbGAg"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Carving My Way",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "6EnjkJ-IT0k",
+        "7MW7LSxv7wE"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "climb channel",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "qKYGq8PZqVk",
+        "uuFcuFKQJqo",
+        "Q_I5HVOkx2c"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "climber keikyu-tsurumi",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "bSJzBnTe8o8"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Climbing Channel",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "JeIu9NOGZ30"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Couzy Nakamura",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "sF3qQbuP8xc",
+        "VetCMPQAxN8",
+        "aS2A4CZvGNw",
+        "fHrRBvKOi24",
+        "l_fSDU7-QDM",
+        "6UPZZi1qC4Q",
+        "012TuyLiYik",
+        "TedZTQwHuqE"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "eworks01",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Q1nY8uCFG4Y"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "gamiken",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "L-wBmHcwJ3Q"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "halmy-climbing",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "i_x3zIK6W5o",
+        "07uhy4h_mhU",
+        "j-zqMY1gTio",
+        "gTo1KQLKKxg"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "HG-climbing-channel",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "3PEyaf2uLJM",
+        "9rBDRfiMkT4",
+        "ZWqXAVYNOyI",
+        "7kgQz2Ea_pA"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "hiro YoidoreYamaOyaji",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "f2HYExPQwUo"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Ibex",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "B-xCBAkXD8Q"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Jinok Park",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "unVr1Ekq4co"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "kaz n",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "AYe51ZbzjsE",
+        "_83pqycHgoc"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Kuro_a",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ezRq4wztNRw",
+        "ggqnz7WEN_M"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Makoto",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "QIs86Hh7_T0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "mizukunyama",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ffrzHj-qgjU"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "namelessclimber",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "lFPmSg028jU",
+        "K3_dZsIiV-4",
+        "-LignoellsU"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "naruto kintoki",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "-X854FqvcSk",
+        "FK-3MugkWGk"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "norinorinoriko 521",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "oweGtQd2usM"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "nossy21",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "0W0uzZqOZ1o"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "notonlyaclimbing",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "NN_jpbqqRZU"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "oyajikunn",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "tjgkhV2kTmU"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "sakaz436",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "yznr0UAWFEE",
+        "xSZ_PuKAFXw"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "shikahei",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Ah24BPfgQMM"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Stockroom LIVE LIFE ALIVE",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "_dP4D6U-ba4"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "tagayasuflat",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Y9744beV9T0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "TRAIL JUSTICE",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "TaxlVV3tUgE"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "xioix jaja",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "YQ2_LIlOKvA",
+        "HEOU_fxeT4k",
+        "IkFcrlAEAMM"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Yu Tomio",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "bZy31j9vj-c"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "yukiの山遊び",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "uPfA7jJbXbs"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "Yuma rock",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Z2zQ4Nz0R4U",
+        "UErMqlat4-A",
+        "FeIHIwPRMQg"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "そして、幼少期。",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "hQX6qMxUlGc"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "たむたむ",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ePYDQg3eKH0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "ちょっとずつ登る",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "DQKsjRZxl5E",
+        "Qxoks2-LC_Q",
+        "8Nd9TiG7vUM",
+        "DLO_nWoSAyA"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "のぼるきょじん",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "HSVXMgGYwkE"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "のぼるひと",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "dlI-z94c6oE"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "べーきゃんA",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ETrwK3RhBN0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "めざせ500イレブン+",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "IEzBvhKtiv4",
+        "lSJ7M6ljxcM",
+        "GdZfSM0wcMM",
+        "S3TrT6aVeqk",
+        "EzI1ocxKC7o",
+        "8ITswnjZ7uU",
+        "_b3XbByKxoU",
+        "Wnpb36YV2_A",
+        "w_xBvhgrMlQ",
+        "X4Kd_lDqfGc",
+        "l7NyTh0MrGo",
+        "i8S4Shce8b4",
+        "OjF6KT635Vw",
+        "45B-hXeq1Dk",
+        "rWAZVcN7Hok"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "キョーチャンネル",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "c1vKE4podfY",
+        "d1iL7QElDng",
+        "QuznZre-EL8"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "ゴブちゃんのクライミング日記",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "oXkUzLdkBaM",
+        "sX_G7VQ1A8Y"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "ジュニアダー（ダッチ）",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ERM4jirK3oA"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "タイトの全力闘魂ちゃんねる🔥",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "HLBYwNZqQtA"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "上野馨",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "ySVyI4rY9oo"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "木村三郎",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "XBdReu7EehA"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "湯川高之",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "jB8HttHBC30",
+        "Tma16-RCaTw",
+        "ts9leHOjvE8",
+        "FaWKyCjie7U"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "登るさぎこ",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "Z02rJtvCMF0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "登山系ユーチューバーshouチャンネル",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "4ccGhZIMIpw"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "登攀魂",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "p_cElesX_Ms",
+        "IJLrGxni-F0"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "相棒と見る世界",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "lAYwxEE6Qhw",
+        "IBbIss6dDlI",
+        "CHGc1WDHXPk",
+        "p75usZZP4b8"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "舐目太郎",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "J9ELP7QKaas"
+      ]
+    },
+    {
+      "entity_type": "channel",
+      "display_name": "超デスクワーカーの山行冒険記",
+      "reason": "No verified handle or channel ID retained; do not infer URL or merge names.",
+      "candidate_video_ids": [
+        "gxcS_3H_P8U"
+      ]
+    }
+  ],
+  "used_in": [
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama.md",
+    "src/content/posts/climbing/2026-10-12-japan-crag-joyama-en.md"
+  ],
+  "limitations": [
+    "No full-footage review.",
+    "Groundlane not mounted; Exa and CUA used.",
+    "Signed-in search can be personalized.",
+    "52 unresolved display names are not verified channel identities.",
+    "Publisher book link is reference-only; book not read."
+  ],
+  "evidence": [
+    {
+      "path": ".work/reviews/2026-10-12-japan-crag-joyama-addition.md",
+      "availability": "versioned"
+    },
+    {
+      "path": ".work/joyama-video-audit-20261024/",
+      "availability": "original shared workspace only; raw third-party responses not copied to pool"
+    }
+  ]
+}

@@ -6,6 +6,9 @@ tags: [podcast, self-learning, skill-development]
 lang: zh-TW
 description: "從 Max Schoening 的 Lenny’s Podcast 訪談理解 agency，搭配三段原站字幕跟讀、定位用短摘錄、改寫的英中理解提示與工作情境練習句。"
 tldr: "Agency 是相信自己能改變事情，並開始行動。讀完導讀，再用三段原音與原站英文字幕練跟讀，把觀念換成自己工作中說得出口的句子。"
+series:
+  name: "英文口說練習"
+  order: 3
 draft: false
 glossary:
   - term: "agency"
@@ -14,7 +17,7 @@ glossary:
     definition: "可塑的、可以改變的；本文指周遭的工具、流程與工作方式並非固定不變。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-10-agency-ai-shadowing-en)
+> :globe: [English version](/posts/learning/2026-10-10-agency-ai-shadowing-en)
 
 你已經有工具可以把想法做成原型，卻還在等別人告訴你：「這件事算不算我的工作？」[Max Schoening 在 Lenny’s Podcast 訪談](https://www.lennysnewsletter.com/p/why-cultivating-agency-matters-more)裡談到這種困境。技能變得更容易取得之後，什麼會讓一個人真的開始做事？
 

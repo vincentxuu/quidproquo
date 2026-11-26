@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
+> :globe: [English version](/posts/daily/2026-09-18-tool-codebase-memory-mcp-en)
 
 ## 工具資訊
 
@@ -88,11 +88,11 @@ codebase-memory-mcp config set auto_index true
 
 | | codebase-memory-mcp | 手動 grep/read 逐檔探索 | 單一語言 LSP 整合（如 Agent 內建的 tsserver/pyright 呼叫） |
 |---|---|---|---|
-| 跨語言統一查詢介面 | ✅（158 語言共用一套 MCP 工具） | ✅（但要自己想搜尋策略） | ❌（每種語言要接不同 LSP） |
-| 跨服務呼叫鏈（HTTP/gRPC/pub-sub） | ✅ | ❌ | ❌ |
+| 跨語言統一查詢介面 | ✓（158 語言共用一套 MCP 工具） | ✓（但要自己想搜尋策略） | ✗（每種語言要接不同 LSP） |
+| 跨服務呼叫鏈（HTTP/gRPC/pub-sub） | ✓ | ✗ | ✗ |
 | Token 消耗 | 低（官方基準：99.2% 減少） | 高，且隨 repo 大小線性增加 | 中，仍需多輪工具呼叫拼結果 |
-| 索引可 commit 給團隊共用 | ✅ | 不適用 | ❌ |
-| 免 API key、完全本地 | ✅ | ✅ | 依 LSP 實作而定 |
+| 索引可 commit 給團隊共用 | ✓ | 不適用 | ✗ |
+| 免 API key、完全本地 | ✓ | ✓ | 依 LSP 實作而定 |
 | 建構/維運複雜度 | 需理解共享 daemon 機制 | 無（零建置） | 需各語言個別設定 LSP server |
 
 ## 注意事項

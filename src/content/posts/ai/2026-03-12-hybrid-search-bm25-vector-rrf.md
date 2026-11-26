@@ -14,7 +14,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en)
+> :globe: [English version](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en)
 
 向量搜尋（Vector Search）已經是 RAG 系統的標配，但只用它有個根本問題：**對精確關鍵字的掌握能力不如 BM25**。
 

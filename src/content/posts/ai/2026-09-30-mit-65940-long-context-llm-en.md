@@ -26,7 +26,7 @@ glossary:
     context: "Lecture 15, pages 68–72, in the \"Beyond Transformers\" section."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-long-context-llm)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-long-context-llm)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-tool-isolation)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-tool-isolation)
 
 The previous article separated the native loop from the external CLI runtime. Either lane eventually reaches the same question: how does a path, argv, or write request land safely in a workspace? This article follows only Looplane's mechanical execution boundary: path, argv, environment, atomic writes, and timeout cleanup. Whether a call should be allowed, asked, or denied belongs to order 9; OS containment belongs to order 10; programs and transactions belong to order 11.
 

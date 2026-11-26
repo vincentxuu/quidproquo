@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 54
 ---
-> 🌏 [English version](/posts/daily/2026-07-17-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-17-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,8 +69,8 @@ Agentic commerce 是下一波電商浪潮，但目前大多數平台完全沒有
 
 - 實驗設計：5 個購物任務（搜尋、篩選、加入購物車、比較、結帳）、3 個 browser agent（GPT-4.1、Gemini-2.5 Flash、Grok-4 Fast）、共 300 次執行
 - 關鍵數據：agent-ready 網站 PASS 率 89.3%（134/150 次）vs. baseline 49.3%（74/150 次），提升約 1.8 倍
-- 論文僅 2 位作者，研究規模較小；實驗 baseline 是作者自行建置的網站，非真實電商平台，外部效度有疑慮 **⚠️**
-- 框架尚未量化「每個維度各自貢獻多少」（ablation study 不足），無法判斷哪個維度投資報酬率最高 **⚠️**
+- 論文僅 2 位作者，研究規模較小；實驗 baseline 是作者自行建置的網站，非真實電商平台，外部效度有疑慮 **:warning:**
+- 框架尚未量化「每個維度各自貢獻多少」（ablation study 不足），無法判斷哪個維度投資報酬率最高 **:warning:**
 - 和 MCP 的關聯：框架直接適用於 MCP browser tool 的 server 端設計；符合框架的網站可讓 Computer Use、Copilot 等工具效能大幅提升
 - CAPTCHA、二步驟驗證等 agent 障礙場景未討論，是明顯的 limitation
 - 落地門檻低：主要是 HTML 語意化和 [Schema.org](http://Schema.org) 最佳實踐，前端工程師一個 sprint 可實作核心項目
@@ -123,7 +123,7 @@ AWA-RL（Abstention-Aware Reinforcement Learning）的核心邏輯是：**對不
 ### 深入要點
 
 - 關鍵數據：相比不棄答的 baseline，精準度最高提升 10.3%（absolute），RA-F1 提升 2.9%
-- 「正確率犧牲邊際性」為論文自述，具體數值未在搜尋結果中完整披露，trade-off 實際幅度需看完整實驗表格才能判斷 **⚠️**
+- 「正確率犧牲邊際性」為論文自述，具體數值未在搜尋結果中完整披露，trade-off 實際幅度需看完整實驗表格才能判斷 **:warning:**
 - 主要在開放域 QA 任務上評測（如 PopQA、TriviaQA 類型的 benchmark）；是否適用於長對話、多步工具調用等複雜 agent 場景尚待驗證
 - Courage Factor 是超參數，實際部署需針對不同任務類型調校，增加了落地複雜度
 - AWA-RL 是訓練時的方法，不能直接插入 LangGraph/AutoGen 等 framework；但可啟發「fine-tune 自己的 agent 模型時如何設計棄答獎勵函數」
@@ -178,9 +178,9 @@ ABot-AgentOS 的核心是三個模組：（1）**Universal Multi-modal Graph Mem
 ### 深入要點
 
 - Memory benchmark 數據：LoCoMo 87.5（static）→ 88.7（自我進化版）、OpenEQA EM-EQA 59.9 → 60.4、Mem-Gallery 88.6 → 89.0、NExT-QA 76.5 Acc@All
-- 提升幅度偏小（LoCoMo 僅 +1.2），顯示改進存在但不算突破性 **⚠️**
-- EmbodiedWorldBench（16 場景、4 難度、200+ 任務）是作者自建 benchmark，缺乏第三方獨立評測，結果應謹慎解讀 **⚠️**
-- 作者機構資訊未完整披露，難以評估背後的工程資源規模，是不透明的扣分項 **⚠️**
+- 提升幅度偏小（LoCoMo 僅 +1.2），顯示改進存在但不算突破性 **:warning:**
+- EmbodiedWorldBench（16 場景、4 難度、200+ 任務）是作者自建 benchmark，缺乏第三方獨立評測，結果應謹慎解讀 **:warning:**
+- 作者機構資訊未完整披露，難以評估背後的工程資源規模，是不透明的扣分項 **:warning:**
 - Context-Isolated Skill 的隔離粒度和 context 切換延遲成本論文未詳細討論
 - Edge-Cloud 協作在真實機器人部署中依賴穩定網路，是明顯的落地限制
 - 和 LangGraph 的關聯：UMG-Mem 的五類節點設計（對話、視覺、空間、時間、任務軌跡）可啟發 LangGraph memory store 的 schema 設計；context isolation 對應 sub-graph 執行模式的更細緻版本

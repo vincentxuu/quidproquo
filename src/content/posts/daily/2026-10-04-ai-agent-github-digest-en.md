@@ -11,7 +11,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-04-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ A few breakout repos today all converge on the same job — watching your agents
 
 ## Trending Repos
 
-### AIHOT ⭐ 5,360
+### AIHOT ★ 5,360
 
 [GitHub](https://github.com/KKKKhazix/AIHOT)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ A few breakout repos today all converge on the same job — watching your agents
 
 ---
 
-### coucou ⭐ 3,180
+### coucou ★ 3,180
 
 [GitHub](https://github.com/Louis-CFM/coucou)　·　Swift　·　MIT
 
@@ -41,7 +41,7 @@ A few breakout repos today all converge on the same job — watching your agents
 
 ---
 
-### dots ⭐ 2,572
+### dots ★ 2,572
 
 [GitHub](https://github.com/feder-cr/dots)　·　Python　·　MIT
 

@@ -12,7 +12,7 @@ draft: false
 series: { name: "Berkeley CS288 導讀", order: 5 }
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-agents-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs288-agents-en)
 
 [15–18 組教材](https://cal-cs288.github.io/sp26/)把語言模型放進更長的決策迴圈：Embodied Perception、Inference-time Compute、Agent Reasoning、Embodied Agents。此時輸入可能含視覺或環境狀態，輸出也不只是文字，而是下一個工具呼叫或行動。
 

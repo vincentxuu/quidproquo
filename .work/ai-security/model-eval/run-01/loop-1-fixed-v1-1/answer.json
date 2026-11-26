@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "N-2",
+  "verdict": "inconclusive",
+  "reason": "N-1 provides a successful owner baseline. Reading Bob's N-2 as Alice tests owner authorization within north; an exact response is needed to determine whether unauthorized access succeeds."
+}

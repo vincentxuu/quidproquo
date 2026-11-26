@@ -13,7 +13,7 @@ description: "NVIDIA NCA-GENM（Generative AI Multimodal Associate）備考指�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-nvidia-nca-genm-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回 [NVIDIA 官方認證頁](https://www.nvidia.com/en-us/learn/certification/generative-ai-multimodal-associate/)與官方 Exam Study Guide，不含考古題。查證日期：2026-08-18。
 

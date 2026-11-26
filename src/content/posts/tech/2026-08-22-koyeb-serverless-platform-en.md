@@ -13,9 +13,11 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-koyeb-serverless-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-koyeb-serverless-platform)
 
 [Koyeb](https://www.koyeb.com/docs) deploys Git repositories or container images across selectable regions. CPU and GPU Instances, edge routing, TLS, a service mesh, autoscaling, and scale-to-zero place it between repository-first PaaS and regional container platforms.
+
+In 2026-02 Koyeb announced it was [being acquired by Mistral AI](https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure). The platform keeps running but will gradually become part of Mistral Compute, with the focus on inference, sandboxes, and serverless MCP servers. New users can only sign up for paid plans (the [pricing page](https://www.koyeb.com/pricing) now starts at Pro); existing organizations keep their plans. Count a product direction tied to Mistral as a long-term risk, and expect a higher bar for free trial runs than before.
 
 ## Do not conflate App, Service, and Instance
 
@@ -39,7 +41,14 @@ Treat Instance filesystems as ephemeral. Use platform volumes or external manage
 
 Koyeb fits teams wanting global APIs, CPU/GPU inference, previews, and scaling without operating a cluster. Compare Vercel or Netlify for frontend-only work, Railway or Render for multi-service developer experience, and Fly.io for programmable VM lifecycles. Test wake-from-zero, regional outage, maximum-replica exhaustion, dependency saturation, rollback, and state restore.
 
+## Update history
+
+- 2026-11-23: Added Koyeb's acquisition by Mistral AI, the paid-only signup for new users, and what it means for long-term selection.
+
 ## References
+
+- [Koyeb is Joining Mistral AI](https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure)
+- [Koyeb pricing](https://www.koyeb.com/pricing)
 
 - [Koyeb documentation](https://www.koyeb.com/docs)
 - [Koyeb applications](https://www.koyeb.com/docs/reference/apps)

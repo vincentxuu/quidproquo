@@ -2,7 +2,8 @@ import type { Message } from './types'
 import { MAX_RECENT_TURNS, MAX_TURN_CHARS, type ChatTurn } from '@/lib/conversation/recent-turns'
 
 /**
- * 逐字稿只存在讀者自己的瀏覽器（localStorage），不上傳、不進 D1。
+ * 預設逐字稿只存在讀者自己的瀏覽器（localStorage）。
+ * CloudChatHistory 在使用者明確儲存後才上傳並同步至私人 D1 紀錄。
  * 「新對話」是使用者手上的清除控制項（見 ChatWidget.handleNewChat）。
  */
 export const TRANSCRIPT_STORAGE_KEY = 'chat_transcript_v1'

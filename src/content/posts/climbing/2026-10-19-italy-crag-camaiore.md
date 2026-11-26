@@ -13,7 +13,7 @@ description: "卡馬約雷（Camaiore）岩場介紹：坎達拉上下兩區、P
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-camaiore-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-camaiore-en)
 
 卡馬約雷（Camaiore）是托斯卡尼（Toscana）北部海岸邊的小城，夾在維亞雷焦（Viareggio）和盧卡（Lucca）之間。城北的山谷有一整排石灰岩運攀岩場，背後是阿普安阿爾卑斯（Alpi Apuane）的大理石山脈。[Climb Europe](https://www.climb-europe.com/pages/rock-climbing-italy-tuscany) 直接寫它是「without doubt the best sport climbing area in Tuscany」。
 

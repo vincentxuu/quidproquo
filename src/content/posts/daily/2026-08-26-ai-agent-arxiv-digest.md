@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-26-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Yanze Jiang, Mingxuan Li, Yuhao Wang et al.（新加坡國立大學 National Uni
 ### 深入要點
 
 - 測試環境:WebShop、ALFWorld、τ³-Retail,搭配三種不同的 actor 模型
-- 九個評測設定(3 環境 × 3 actor)全數改善,勝過對照基準 ⚠️(作者自測,待外部複現)
+- 九個評測設定(3 環境 × 3 actor)全數改善,勝過對照基準 :warning:(作者自測,待外部複現)
 - 訓練資料來自「同前綴反事實分支」的成對比較,不需要標註最優解,只需要標註相對好壞
 - 落地門檻:需要能生成同前綴的反事實分支資料,對於沒有可重放模擬環境的真實部署場景會是挑戰
 - 與主流框架的關聯:可作為 LangGraph / AutoGen 執行迴圈中的一個輕量「側車」比較器,不需重寫 actor 邏輯
@@ -103,7 +103,7 @@ Agentic Search(讓 Agent 自主決定何時檢索、如何整合新資訊)比傳
 ### 深入要點
 
 - 測試場景:單跳與多跳 QA 資料集
-- 效果:同時提高推理準確率並「大幅減少」多餘的工具呼叫次數(論文摘要未給出單一具體百分比,以定性結論為主)⚠️(作者自測,待外部複現)
+- 效果:同時提高推理準確率並「大幅減少」多餘的工具呼叫次數(論文摘要未給出單一具體百分比,以定性結論為主):warning:(作者自測,待外部複現)
 - 核心機制:APS 動態調整檢索文件數量、ACI 動態校準 GRPO 訓練中的信心閾值
 - 落地門檻:需要團隊熟悉 conformal prediction 統計工具鏈,並整合進現有 GRPO / RL pipeline
 - 與主流框架的關聯:可視為對 RAG / Agentic Search 的 RL 微調流程的一個外掛式可信賴層
@@ -147,7 +147,7 @@ Yingzhe Tong, Leyu Dai, Songhui Guo（信息工程大學 Information Engineering
 
 ### 深入要點
 
-- 210 次 Stripe 供應商合約測試,結果全數符合預期結果 ⚠️(作者自測,待外部複現)
+- 210 次 Stripe 供應商合約測試,結果全數符合預期結果 :warning:(作者自測,待外部複現)
 - 兩個 SaaS 供應商、40 組「先終結再後續」排程、30 組重疊的 Stripe confirm/cancel 競爭情境、10 組 Stripe 當機復原排程,全部完成且沒有出現重複效果
 - 在「代理者完全被攻陷」的假設下,44 次攻擊全數被擋下,同時 44 次正常請求全數放行
 - 代價:嚴格的 exact-manifest 模式讓良性可用性下降 35.4–43.8 個百分點;換成較寬鬆的 Typed-3x 模式,在無安全事故的前提下比 Exact-1x 多完成 9–10 次良性任務

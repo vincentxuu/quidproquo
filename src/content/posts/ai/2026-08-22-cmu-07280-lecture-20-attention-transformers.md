@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-07280-lecture-20-attention-transformers-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-07280-lecture-20-attention-transformers-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -101,7 +101,7 @@ Attention weights 告訴我們某一 head 在該 forward pass 如何組合 value
 
 - [CMU 07-280 Spring 2026 官方課表與教材](https://www.cs.cmu.edu/~07280-s26/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 官方材料與讀取範圍
 
@@ -113,6 +113,7 @@ Recitation 的 minGPT notebook 位於外部環境；公開 PDF 可確認模型�
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

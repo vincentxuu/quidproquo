@@ -15,13 +15,13 @@ series:
 
 選 LLM 不是選「最強的那個」，是選「在你的限制條件下夠用的那個」。nobodyclimb 跑在 Cloudflare Workers 上，AI 推論也繼續留在 Cloudflare 生態系——在這個限制下，Gemma 系列一直是繁體中文最順的選項。
 
-> **模型狀態（2026-08）**：本文原本以 `@cf/google/gemma-3-12b-it` 為主角，它已在 2026-05-30 被 Workers AI 標為 deprecated（模型頁與定價仍在，但已在退場軌道上）。現在的對應選項是 `@cf/google/gemma-4-26b-a4b-it`，全文範例都已改成 Gemma 4。當初捨 Llama 選 Gemma 的三個理由在 Gemma 4 上一樣成立，所以那段判斷保留。
+> **模型狀態（2026-11）**：本文原本以 `@cf/google/gemma-3-12b-it` 為主角，它已在 2026-05-30 被 Workers AI 標為 deprecated，模型頁現在也已從目錄撤下（定價頁仍留著舊價格列）。現在的對應選項是 `@cf/google/gemma-4-26b-a4b-it`，全文範例都已改成 Gemma 4。當初捨 Llama 選 Gemma 的三個理由在 Gemma 4 上一樣成立，所以那段判斷保留。
 
 ## Cloudflare Workers AI 是什麼
 
 Cloudflare Workers AI 是 Cloudflare 的推論服務，讓你在 Workers 環境直接呼叫 hosted 模型，不需要管 GPU 基礎設施。計費按 token 用量。
 
-支援的模型涵蓋 text generation、embedding、image generation、speech-to-text 等類別。在 LLM 這塊，目前有 Gemma、Llama、Qwen、GLM、gpt-oss、Kimi 等主流開源模型。
+支援的模型涵蓋 text generation、embedding、image generation、speech-to-text 等類別。在 LLM 這塊，目前有 Gemma、Llama、Qwen、GLM、gpt-oss、DeepSeek 等主流開源模型。
 
 ```typescript
 // Workers 環境裡，binding 就是這樣用
@@ -47,7 +47,7 @@ nobodyclimb 早期用的是 `llama-3.1-8b-instruct`，後來換成當時的 `gem
 
 **Gemma 的多語言訓練**：Google 在 Gemma 的訓練資料裡有更完整的多語言覆蓋，中文（包含繁體）的比例比 Llama 3.1 的公開訓練設定更高。
 
-這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，Gemma 更適合。順帶一提，這兩個當初被拿來對比的模型 ID 都在 2026-05-30 那波被標為 deprecated——[官方用字](https://developers.cloudflare.com/workers-ai/changelog/)是 *will be deprecated*，模型頁與定價至今仍掛著，但它們已在退場軌道上，不該再拿來起新專案。
+這不是說 Llama 不好，而是在繁體中文 RAG 這個具體 use case 上，Gemma 更適合。順帶一提，這兩個當初被拿來對比的模型 ID 都在 2026-05-30 那波被標為 deprecated——[官方用字](https://developers.cloudflare.com/workers-ai/changelog/)是 *will be deprecated*，現在兩者的模型頁都已從目錄撤下，不該再拿來起新專案。
 
 ## 基本使用方式
 
@@ -122,7 +122,7 @@ const evaluation = JSON.parse(result.response);
 
 **CPU 時間限制**：Workers 有 CPU 時間上限（Paid plan 是 30 秒，但 AI 呼叫不計入 CPU 時間，計入 wall time）。pipeline 裡有多個 LLM 呼叫（HyDE + generation + judge），加起來可能超過 Workers 的執行時間限制。nobodyclimb 的解法是讓 judge 非同步寫入（不阻塞主流程），HyDE 只在複雜查詢啟用。
 
-**模型會被標為退場，版本也不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint，模型行為可能在沒有通知的情況下改變；更麻煩的是整個 model ID 會進入退場軌道。2026-05-30 那波一次把 18 個 ID 標為 deprecated，Llama 2/3/3.1 全系列、Mistral 7B、Gemma 3 12B 都在裡面。這代表 model ID 不該散在程式各處硬寫，要收斂成一個常數或設定值，換的時候只動一個地方；另外要有監控機制偵測輸出品質是否有異常。
+**模型會被標為退場，版本也不透明**：Cloudflare 管理模型版本，你不能鎖定特定 checkpoint，模型行為可能在沒有通知的情況下改變；更麻煩的是整個 model ID 會進入退場軌道。2026-05-30 那波一次把 18 個 ID 標為 deprecated，Llama 2/3/3.1 全系列、Mistral 7B、Gemma 3 12B 都在裡面；2026-11-20 又停用 24 個，請求直接回 HTTP 410，連 8 月才上架的 DeepSeek V4 與 GLM-5.3 Flash 都在名單上（完整名單見[選型指南](/posts/ai/2026-08-18-workers-ai-model-guide)）。這代表 model ID 不該散在程式各處硬寫，要收斂成一個常數或設定值，換的時候只動一個地方；另外要有監控機制偵測輸出品質是否有異常。
 
 **沒有 fine-tuning**：目前 Workers AI 上的 hosted 模型無法 fine-tune。領域適應只能靠 prompt engineering 和 RAG。
 
@@ -160,7 +160,7 @@ const evaluation = JSON.parse(result.response);
 
 ## 從 Gemma 3 遷移到 Gemma 4
 
-`@cf/google/gemma-3-12b-it` 在 2026-05-30 被標為 deprecated。Cloudflare 給的建議替代品有三個：`@cf/zai-org/glm-4.7-flash`（快速 tool calling）、`@cf/google/gemma-4-26b-a4b-it`（高效開源模型）、`@cf/moonshotai/kimi-k2.6`（agentic + vision，但需要付費方案）。從 Gemma 3 過來，最直接的就是 Gemma 4。
+`@cf/google/gemma-3-12b-it` 在 2026-05-30 被標為 deprecated。Cloudflare 給的建議替代品有三個：`@cf/zai-org/glm-4.7-flash`（快速 tool calling）、`@cf/google/gemma-4-26b-a4b-it`（高效開源模型）、`@cf/moonshotai/kimi-k2.6`（agentic + vision，但需要付費方案）。其中 `kimi-k2.6` 自己也在 2026-11-20 停用；那一波官方推薦的小模型替代是 Gemma 4 與 `@cf/qwen/qwen3.8-27b`。從 Gemma 3 過來，最直接的就是 Gemma 4。
 
 **架構變化：MoE**
 Gemma 4 採用 Mixture-of-Experts 架構。總參數 26B，但每次推論只啟動約 4B（a4b = active 4 billion）。實際推論速度比 Gemma 3 12B 更快，同時在多數任務上表現更好。
@@ -199,15 +199,15 @@ Gemma 4 是一個家族，不是單一模型。官方切法是兩群：E2B / E4B
 
 Workers AI 上的 Gemma 旁系有兩個，都已經收在本站的 [Workers AI 模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide)，這裡只給定位：
 
-- `embeddinggemma-300m`：從 Gemma 3 衍生的 300M embedding 小模型，100+ 語言——RAG 的向量端如果也想留在 Google 血統，可以看它
+- `@cf/google/embeddinggemma-2`：Google DeepMind 的多模態 embedding，文字、圖片、影片、音訊映到同一個 768 維空間，100+ 語言，$0.0017 per M input tokens——RAG 的向量端如果也想留在 Google 血統，可以看它。它取代了 2026-11-20 停用的前代 `embeddinggemma-300m`，舊模型建的向量要整批重建
 - `@cf/aisingapore/gemma-sea-lion-v4-27b-it`：AI Singapore 以 Gemma 為基座、針對東南亞語言預訓練與指令微調的變體（注意 model ID 前綴是 `@cf/aisingapore`，不是 `@cf/google`），128K context，$0.351 / $0.555 per M tokens——做東南亞市場值得評估，但繁中主力還是 Gemma 4 本體
 
 行動端那條線（E2B / E4B，以及前代 3n 的 PLE 記憶體技術）是另一個戰場，見本站[行動端小模型盤點](/posts/ai/2026-03-31-mobile-small-models)。一句話總結：留在 Workers AI 生態系做繁中 RAG，Gemma 4 26B 就是現在的答案；要更大（31B）、更小（E2B/E4B）、或特定語言（SEA-LION），才需要離開這個 ID。
 
 ## 更新紀錄
 
+- 2026-11-23：Gemma 3 12B 的模型頁已從目錄撤下，改寫狀態說明；補 2026-11-20 停用波（含當初建議替代品 `kimi-k2.6`）；embedding 改介紹取代 `embeddinggemma-300m` 的 `embeddinggemma-2`（$0.0017 per M）。Gemma 4 的 context、價格與能力對官方模型頁核對，無變動。
 - 2026-09-19：新增「Gemma 4 家族定位」章節：Workers AI 只上了核心 Gemma 4 的 26B MoE（31B 走 AI Studio / Gemini API）；Gemma 4 授權改為 Apache 2.0（前代是 Gemma Terms of Use）；補 SEA-LION 與 embeddinggemma 的定位與站內連結。全文範例與價格（256K、$0.10 / $0.30、Vision / Function calling / Reasoning）已對官方模型頁核對，無變動。
-
 - 2026-08-18：`gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，全文範例改為 `gemma-4-26b-a4b-it`，新增遷移章節與 GLM-4.7-Flash 對比。同時修正兩處事實：Gemma 3 在 Workers AI 的 context window 是 80,000 tokens（原寫 8192），以及 Gemma 3 有公開定價 $0.35 / $0.56 per M tokens（原寫沒有公開定價）。
 
 ## 參考資料
@@ -217,7 +217,8 @@ Workers AI 上的 Gemma 旁系有兩個，都已經收在本站的 [Workers AI �
 - [Workers AI Changelog：2026-05-30 模型汰換與建議替代品](https://developers.cloudflare.com/workers-ai/changelog/)
 - [Workers AI 定價](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Workers AI：gemma-4-26b-a4b-it 模型頁](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
-- [Workers AI：gemma-3-12b-it 模型頁（已標記 Deprecated）](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI：embeddinggemma-2 模型頁](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-2/)
+- [Planned model deprecations on Workers AI（2026-11-05）](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/)
 - [Workers AI：glm-4.7-flash 模型頁](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
 - [Google Gemma 官方文件](https://ai.google.dev/gemma/docs)
 - [Introducing Gemma 4（2026-04，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)

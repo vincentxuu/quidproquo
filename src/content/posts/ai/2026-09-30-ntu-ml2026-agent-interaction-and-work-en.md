@@ -13,7 +13,7 @@ description: "A guide to the second and third parts of the AI Agent unit in NTU 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-agent-interaction-and-work)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -88,11 +88,9 @@ My reading: this line and the Agents4Science retrospective and the ideation-exec
 
 Slide 60 advertises this semester's bonus assignment: the [Teaching Monster challenge](https://teaching.monster/) run by NTU AI-CoRE (the site returned an error on 2026-09-30); details are in the [series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en). Slide 61 asks students to preview the 2025 lecture ["Understanding how language models work inside, in one lecture"](https://youtu.be/8iFvM7WUUs8) (in Mandarin) ahead of the inference-speedup unit.
 
-## What this post can and cannot confirm
+## After reading
 
-Confirmed: the structure, screenshots, and cited sources of slides 34–61; the title and abstract of every paper in the tables (checked on arXiv). Video titles and uploaders were checked via YouTube oEmbed.
-
-Not confirmed: I did not transcribe the two videos, so verbal commentary and extra examples are not included. The Moltbook front-page numbers and the Agents4Science submission counts are as shown in the slide screenshots. For AAAI 2026's AI review policy, this post only quotes one line from the slides and did not check AAAI's official announcement.
+This post follows slides 34–61; the lecturer's spoken commentary and extra examples in the two videos are not included. The Moltbook front-page numbers and the Agents4Science submission counts are what the slide screenshots showed at the time, and today's figures will differ. AAAI 2026's AI review policy appears on the slides as a single line; read AAAI's official announcement before citing it.
 
 **Try this**: pick one piece of work you recently gave to AI and place it in tool / collaborator / agent. Then ask: if it moved one column right, **which decision** would still have to be yours? Write that decision down. It is the part of your job that won't be replaced.
 
@@ -129,6 +127,7 @@ Content check: verified against the video transcripts (2026-10-10): both videos 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. Both videos match what the post says; no body text needed changing.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

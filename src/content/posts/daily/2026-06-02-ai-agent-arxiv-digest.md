@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 9
 ---
-> 🌏 [English version](/posts/daily/2026-06-02-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-02-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ LangGraph、CrewAI、OpenAI Agents SDK 等框架的主流做法是：在 LLM 上
 
 - 核心架構：「subterranean agent」= 流程邏輯 fine-tune 進 weights；inference 時用 minimal system prompt，無需外部狀態機或流程圖注入
 - 測試案例：旅遊訂票（14 節點）、Zoom 客服（14 節點，含產品專屬知識）、保險理賠（55 節點、6 個決策樞紐）
-- 關鍵數據：compiled model 每對話成本比 in-context baseline 便宜 **128–462 倍** ⚠️（baseline 是同流程的 in-context prompt 版本，非直接對比 GPT-4o API 定價；actual savings 取決於 fine-tune infra 成本）
+- 關鍵數據：compiled model 每對話成本比 in-context baseline 便宜 **128–462 倍** :warning:（baseline 是同流程的 in-context prompt 版本，非直接對比 GPT-4o API 定價；actual savings 取決於 fine-tune infra 成本）
 - LoRA 失敗：rank 16–128 全都無法接近 full fine-tuning，說明 procedural workflow 任務需要全參數學習，常見的 PEFT 方法不適用
 - 成本節省隨流程複雜度增長：compiled model 的 prompt 大小是常數，而 in-context 版隨節點數線性增長——55 節點流程省更多
 - 限制：流程必須固定（不適合高度動態任務）；每次 SOP 改版都要重新 fine-tune；需要建構完整的訓練資料
@@ -131,9 +131,9 @@ Agentic CLEAR 在 observability layer 之上運作，接收 agent trace，然後
 - 動態 taxonomy：CLEAR 不用預設錯誤分類，而是從每個 domain 的 trace 資料歸納而來，提高跨域適用性
 - 規模：在 **4 個 benchmark、7 種 agentic settings、數萬次 LLM call** 上測試，覆蓋面算廣
 - UI 設計是主要賣點之一——強調「易用性」，目標是讓非 ML 工程師也能操作評估流程
-- 限制：自動分析本身也用 LLM，代表 eval 本身也可能出錯（LLM judge 偏見問題）；論文未報告具體準確率數字 **⚠️**
+- 限制：自動分析本身也用 LLM，代表 eval 本身也可能出錯（LLM judge 偏見問題）；論文未報告具體準確率數字 **:warning:**
 - 與 LangSmith / Phoenix / Arize 等工具的關係：定位是在 observability 上加一層「自動分析層」，可以共存而非取代
-- 論文沒有明確說明是否開源代碼，落地需要等待 IBM 公開或自行實作 **⚠️**
+- 論文沒有明確說明是否開源代碼，落地需要等待 IBM 公開或自行實作 **:warning:**
 - 對 agent 平台設計的啟示：eval 不應該只是 end-to-end pass rate，需要 trace-level 和 step-level 的細粒度指標
 
 ### Reviewer 一句話評
@@ -188,7 +188,7 @@ Agentic CLEAR 在 observability layer 之上運作，接收 agent trace，然後
 ### 深入要點
 
 - 五類記憶的區分有實際設計意義：不同類型的遷移邏輯不同（procedural 可能需要 re-verify，identity 涉及隱私保護）
-- 關鍵數據：在 Claude、GPT-4、Gemini 的 pilot study 中，Transfer Continuity Score 達 **0.83–0.92**，而無記憶 baseline 為 **0.28–0.45** ⚠️（pilot study 規模和任務設計未詳述，數字可信度待評）
+- 關鍵數據：在 Claude、GPT-4、Gemini 的 pilot study 中，Transfer Continuity Score 達 **0.83–0.92**，而無記憶 baseline 為 **0.28–0.45** :warning:（pilot study 規模和任務設計未詳述，數字可信度待評）
 - Python SDK 附 54 個通過測試，是少見有參考實作的協議論文
 - Merkle-DAG 的選擇借鑑 blockchain 概念，對記憶完整性有強保證，但增加系統複雜度
 - Memory injection attack 是新興威脅，本文的防護設計值得 agent 安全研究者關注

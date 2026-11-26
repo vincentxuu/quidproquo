@@ -29,7 +29,7 @@ glossary:
     context: "Prompt Tuning 只在輸入層加；Prefix Tuning 在每一層都加。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-peft-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-peft-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -14,7 +14,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
+> :globe: [中文版](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)
 
 Vector search has become the default choice for RAG systems, but relying on it alone has a fundamental limitation: **it's weaker than BM25 at handling exact keyword matches**.
 

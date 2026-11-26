@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-tool-isolation-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-tool-isolation-en)
 
 前一篇把 native loop 與 external CLI runtime 分成兩條 lane。無論走哪一條，最後都要回答同一題：path、argv 或寫入要求，怎麼在 workspace 裡安全落地？這篇只追 Looplane 的機械執行邊界——path、argv、env、atomic write 與 timeout。呼叫該 allow、ask 還是 deny，留到 order 9；作業系統 containment 與 tool program/transaction，分別留到 orders 10、11。
 

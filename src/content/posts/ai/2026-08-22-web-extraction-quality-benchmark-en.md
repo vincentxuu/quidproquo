@@ -13,7 +13,7 @@ description: "A reproducible web extraction benchmark for Crawl4AI, Firecrawl, J
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-web-extraction-quality-benchmark)
+> :globe: [中文版](/posts/ai/2026-08-22-web-extraction-quality-benchmark)
 
 > **Published benchmark specification.** The 20 URLs, output contract, scoring rubric, and failure labels are fixed. However, the environment on 2026-08-22 has no `FIRECRAWL_API_KEY`, and the four adapters have not completed one version-locked raw run. No raw artifacts means no ranking; the results table should wait for that run.
 

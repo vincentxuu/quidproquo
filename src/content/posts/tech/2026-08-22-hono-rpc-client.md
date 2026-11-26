@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-hono-rpc-client-en)
+> :globe: [English version](/posts/tech/2026-08-22-hono-rpc-client-en)
 
 [Hono RPC](https://hono.dev/docs/guides/rpc) 不是另一個 server protocol。Hono route 照常接收 HTTP request、回傳 Fetch `Response`；server 只要匯出 route 的 `typeof AppType`，client 的 `hc<AppType>()` 就能推導 path、validator input、response JSON 與 status code。
 

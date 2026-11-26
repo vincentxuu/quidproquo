@@ -14,7 +14,7 @@ description: "Berkeley CS188 Spring 2026 Bayes nets、HMM、exact inference、pa
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs188-bayes-ghostbusters-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

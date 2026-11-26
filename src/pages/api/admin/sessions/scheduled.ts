@@ -10,21 +10,29 @@ import { registerAgentDefinitions } from '@/lib/agent/registry'
 import { ConcurrencyExceededError } from '@/lib/agent/scheduler'
 import { scheduledAgentEntries, type ScheduledAgentEntry } from '@/lib/agent/scheduler/cron-registry'
 import { createRoutineTrigger } from '@/lib/agent/routine-trigger'
+import { getWaitUntil } from '@/lib/agent/routine-run'
 import { ensureAgentOsEnabled } from './_guard'
 
 interface ScheduledAgentRequestBody {
   agentId?: string
   cronExpression?: string
   input?: Record<string, unknown>
+  /** Fires only the routines that are due; sent by the 15-minute cron tick. */
+  routinesOnly?: boolean
 }
 
-export const POST: APIRoute = async ({ request, cookies }) => {
+export const POST: APIRoute = async ({ request, cookies, locals }) => {
   const source = await getRequestSource(cookies, request, env as unknown as Env)
   if (!source) return unauthorized()
   const disabled = ensureAgentOsEnabled()
   if (disabled) return disabled
 
   const body = await request.json().catch(() => ({})) as ScheduledAgentRequestBody
+  if (body.routinesOnly) {
+    const routineTrigger = createRoutineTrigger(env as unknown as Env, getWaitUntil(locals))
+    const routines = await routineTrigger.triggerDueRoutines()
+    return json({ ok: true, source, runs: [], routines })
+  }
   const entries = resolveEntries(body)
   if (entries.length === 0) return badRequest('agentId or cronExpression is required')
 
@@ -54,10 +62,7 @@ export const POST: APIRoute = async ({ request, cookies }) => {
     }
   }
 
-  const routineTrigger = createRoutineTrigger((env as unknown as Env).DB)
-  const routineResults = await routineTrigger.triggerDueRoutines()
-
-  return json({ ok: true, source, runs: results, routines: routineResults })
+  return json({ ok: true, source, runs: results })
 }
 
 function resolveEntries(body: ScheduledAgentRequestBody): ScheduledAgentEntry[] {

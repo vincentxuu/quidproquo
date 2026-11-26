@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-kysely-query-builder)
+> :globe: [中文版](/posts/tech/2026-08-22-kysely-query-builder)
 
 [Kysely](https://kysely.dev/docs/intro) is a type-safe SQL query builder for TypeScript. It does not turn database rows into lifecycle-aware entities or pretend SQL is absent. Supply database schema types and the builder infers parameters and results across selections, joins, aliases, and expressions.
 

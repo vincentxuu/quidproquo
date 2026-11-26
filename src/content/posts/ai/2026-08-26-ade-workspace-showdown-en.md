@@ -32,7 +32,7 @@ glossary:
         url: "https://www.ade-app.dev/docs/quickstart"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-ade-workspace-showdown)
+> :globe: [中文版](/posts/ai/2026-08-26-ade-workspace-showdown)
 
 The [previous post](https://github.com/omnigent-ai/omnigent) framed [Omnigent](https://github.com/omnigent-ai/omnigent) as a **control plane** above harnesses — unifying access, governance and cross-device Sessions. This one stays on the **workspace** layer. Four projects that all call themselves an ADE — [arul28/ADE](https://github.com/arul28/ADE), [superset-sh/superset](https://github.com/superset-sh/superset), [herdrdev/herdr](https://github.com/herdrdev/herdr) and [Kadro ADE](https://kadrotools.ai/ade)/[Orca](https://github.com/stablyai/orca) — solve the same local problem (run many agents in the same repo in parallel, keep them visible, merge cleanly), but with very different abstractions. Pick the right workspace and you won't need to fight worktree conflicts with Policies.
 

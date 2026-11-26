@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nestjs-application-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-nestjs-application-framework)
 
 [NestJS](https://docs.nestjs.com/) is a TypeScript-first Node.js application framework. HTTP runs on Express by default or a Fastify adapter. Controllers, Providers, Modules, dependency injection, and decorators organize the application, with similar concepts for GraphQL, WebSockets, and message transports.
 
@@ -39,6 +39,8 @@ Distributing authorization across every layer creates gaps. Lock global, control
 
 Decorator metadata can drive validation and OpenAPI, but TypeScript types disappear at runtime. Enable ValidationPipe, whitelist or reject unknown fields, and test nesting and coercion. Contract-test generated schemas and serialization. Do not expose persistence entities as DTOs.
 
+NestJS 12 (August 2026) adds a Standard Schema path: `@Body()`, `@Query()`, and `@Param()` accept a `schema` option (Zod, Valibot, ArkType, and others), `StandardSchemaValidationPipe` validates input, and `StandardSchemaSerializerInterceptor` validates and transforms responses, with the same schemas feeding OpenAPI. The `class-validator` DTO workflow remains supported; pick one as the source of truth rather than running both on the same route. v12 also ships core packages as ESM and requires Node.js 20.19+ or 22.12+; most CommonJS apps keep working, and `nest upgrade --dry-run` reports what an upgrade would change.
+
 ## Adapter abstraction is not total portability
 
 Nest can switch Express and Fastify, but `req.raw`, plugins, streams, uploads, and middleware semantics create real coupling. Run full HTTP tests before changing adapters.
@@ -46,6 +48,10 @@ Nest can switch Express and Fastify, but `req.raw`, plugins, streams, uploads, a
 Lifecycle hooks manage initialization and shutdown, but shutdown hooks must be enabled. On termination, stop traffic, drain connections, and close databases and consumers. Message handlers still need idempotency, retries, dead letters, and telemetry; Nest does not provide exactly-once delivery.
 
 NestJS fits medium and large TypeScript backends needing team conventions, DI and testing, and one architecture across HTTP, GraphQL, and messaging. Fastify, Hono, or Elysia is simpler for small APIs, while Express offers minimal middleware freedom. Test module boundaries, DI scopes, denied guards, DTO overposting, error contracts, adapter parity, graceful shutdown, and redelivery.
+
+## Update Log
+
+- 2026-11-23: Added NestJS 12 (August 2026) Standard Schema validation and serialization, ESM packages, and Node.js version requirements.
 
 ## References
 
@@ -55,3 +61,5 @@ NestJS fits medium and large TypeScript backends needing team conventions, DI an
 - [NestJS injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes)
 - [NestJS request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [NestJS lifecycle events](https://docs.nestjs.com/fundamentals/lifecycle-events)
+- [NestJS v12.0.0 release notes](https://github.com/nestjs/nest/releases/tag/v12.0.0)
+- [NestJS migration guide](https://docs.nestjs.com/migration-guide)

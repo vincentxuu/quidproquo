@@ -10,7 +10,7 @@ description: "從 tracing 到 datasets、experiments、evaluators，拆解 Arize
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-arize-phoenix-observability-evaluation-en)
 
 [Arize Phoenix](https://github.com/Arize-ai/phoenix) 最有價值的地方不是 trace viewer，而是它把四個本來容易斷掉的動作接成迴圈：看到 production trace 的失敗、把案例收進 dataset、對新版跑 experiment、再用 evaluator 判斷是否真的改善。
 

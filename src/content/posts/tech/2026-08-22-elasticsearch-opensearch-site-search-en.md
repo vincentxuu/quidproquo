@@ -10,7 +10,7 @@ description: "A comparison of Elasticsearch and OpenSearch for site search, cove
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-elasticsearch-opensearch-site-search)
+> :globe: [中文版](/posts/tech/2026-08-22-elasticsearch-opensearch-site-search)
 
 [Elasticsearch](https://www.elastic.co/elasticsearch) and [OpenSearch](https://opensearch.org/About/) are distributed search and analytics engines. Both can power full-text site search, filters, ranking, suggestions, and faceted navigation, as well as log and observability workloads.
 

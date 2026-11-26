@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-codeql-semantic-code-analysis)
+> :globe: [中文版](/posts/tech/2026-08-22-codeql-semantic-code-analysis)
 
 [CodeQL](https://codeql.github.com/docs/) treats source code as queryable data. Language extractors build a database of syntax, types, calls, control flow, and data-flow facts during source extraction or compilation. QL queries then find vulnerabilities, correctness bugs, and organization-specific patterns. Results can be emitted as SARIF for GitHub code scanning.
 

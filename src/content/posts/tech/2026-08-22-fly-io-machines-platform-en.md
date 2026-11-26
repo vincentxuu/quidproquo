@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-fly-io-machines-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-fly-io-machines-platform)
 
 [Fly.io Machines](https://fly.io/docs/machines/overview/) are lightweight VM primitives created, started, stopped, and destroyed through an API. `fly launch` and `fly deploy` provide a PaaS workflow, but the underlying model is “place container VMs in chosen regions,” not hide the entire topology.
 

@@ -13,7 +13,7 @@ description: "台大李宏毅《機器學習 2026 Spring》4/24 Self-Correction 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-self-correction-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -176,11 +176,9 @@ workflow 每題都硬插一句反思，不管答案對錯都逼模型多想。re
 - 這講的前身：2025 年[第七講「深度思考（Reasoning）」](https://youtu.be/bJFtcwLSNxI)，投影片在 workflow、ReVISE、RL 段都附了對應時間點。
 - **延伸閱讀**：reasoning model 與 GRPO 的完整介紹看 [CME295 第 6 講](/posts/ai/2026-09-29-cme295-llm-reasoning)；多抽答案、投票與 test-time scaling 的取捨看 [BrowseConf 與 test-time scaling](/posts/ai/2026-09-19-browseconf-test-time-scaling)；RL 本身從頭學看 [Berkeley CS285 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講義 65 頁的文字與主要圖表（benchmark 散點圖、RefineBench 曲線、CL／CS 表、verification 兩張圖、pass@k 圖都直接看了投影片影像）、影片的 zh-TW 字幕、影片與 2023／2025 相關錄影的標題與上傳者。
-
-不能確認：字幕把 TruthX 聽成「True Facts」，本文以投影片為準。老師提到「有一篇測過模型批判能力不比生成強的論文」，他說忘了放進投影片，本文找不到對應的引用，所以沒有附連結。MTI 的 62%→72% 與 RefineBench 用的模型名稱取自老師口述，本文沒有另外回原論文核對數字。
+字幕把 TruthX 聽成「True Facts」，這篇以投影片為準。老師提到「有一篇測過模型批判能力不比生成強的論文」，但他說忘了放進投影片，這篇沒有附它的連結。MTI 的 62%→72% 與 RefineBench 用的模型名稱取自老師口述，要引用這些數字請回原論文對照。
 
 系列導覽：上一篇 [HW5：微調而不遺忘](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting)｜下一篇 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)｜[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
@@ -208,6 +206,7 @@ title: 影片：AI 能自我修正嗎？從 decoding、workflow 到 reasoning �
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

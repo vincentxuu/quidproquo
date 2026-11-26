@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)
 
 The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) dispatched subagents in one line: "open a new context window to share the workload." This post unpacks the machinery behind that sentence — how they're defined, how they get triggered, where they run, and what tools they can use.
 

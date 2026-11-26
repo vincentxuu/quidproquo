@@ -1,0 +1,10 @@
+{"body": {"text": "North: printer repair", "ticket_id": "N-1"}, "case": "own_ticket", "status": 200}
+{"body": {"error": "forbidden"}, "case": "other_tenant", "status": 403}
+{"body": {"error": "forbidden"}, "case": "same_tenant_other_owner", "status": 403}
+{"body": {"error": "invalid_request"}, "case": "forged_identity", "status": 400}
+{"body": {"text": "North: laptop repair", "ticket_id": "N-2"}, "case": "other_owner_allowed", "status": 200}
+{"body": {"text": "South: billing query", "ticket_id": "S-1"}, "case": "second_tenant_allowed", "status": 200}
+{"body": {"error": "unauthenticated"}, "case": "missing_auth", "status": 401}
+{"body": {"error": "not_found"}, "case": "unknown_ticket", "status": 404}
+{"body": {"error": "invalid_request"}, "case": "invalid_id_type", "status": 400}
+PASS: 9 cases; denied responses contain no ticket content

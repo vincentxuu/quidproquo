@@ -13,7 +13,7 @@ description: "介紹神奈川縣湯河原幕岩：岩質、路線規模與難度
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-yugawara-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-yugawara-en)
 
 湯河原幕岩（ゆがわらまくいわ，Yugawara Makuiwa）位在神奈川縣（Kanagawa）足柄下郡湯河原町鍛冶屋的幕山公園裡，岩塊散在梅林上方的山坡。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%B9%95%E5%B2%A9/) 的概要寫它「日当たりが良く…暖かなエリアとして関東クライマーの冬の定番となっている」，晴天的冬季週末熱門路線要排隊。
 

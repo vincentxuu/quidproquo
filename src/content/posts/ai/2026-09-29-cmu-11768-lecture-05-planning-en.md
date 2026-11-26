@@ -23,7 +23,7 @@ glossary:
     context: "Used here to explain why one temporary error propagates through the rest of a long-horizon task."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-05-planning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -328,7 +328,7 @@ Four open problems:
 
 ## Further reading
 
-- [Reading Stanford CS329Z Week 5: One Agent or a Meeting — Multi-Agent Systems and the Three Optimization Axes](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en)
+- [Reading Stanford CS329Z Lecture 8: multi-agent systems](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en) and [Lecture 9: three optimization axes](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization-en)
 - [AI-Native SDLC Playbook L4: Plan Mode — Write the Plan Before Writing Code](/posts/ai/2026-09-12-ai-native-sdlc-playbook-04-plan-mode-en)
 - [Multi-Agent Error Propagation and Recovery](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery-en)
 

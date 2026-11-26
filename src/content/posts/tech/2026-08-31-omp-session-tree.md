@@ -267,11 +267,11 @@ getBranch(): SessionEntry[] {
 
 | 選擇目標 | 新 Leaf | Prefill Editor | 用途 |
 |---|---|---|---|
-| **User message** | `parentId`（根則 `null`） | ✅ 文字+圖片 | 從某個提問重來，編輯再送 |
-| **Custom_message (非 skill-prompt)** | `parentId` | ✅ 同上 | 同理 |
-| **Skill-prompt custom_message** | `targetId` | ❌ | 像普通節點 |
-| **Ask tool result** | 重開問答 UI | ❌ | 重新回答，舊答案變 sibling |
-| **其他** | `targetId` | ❌ | 純導航、觀察 context |
+| **User message** | `parentId`（根則 `null`） | ✓ 文字+圖片 | 從某個提問重來，編輯再送 |
+| **Custom_message (非 skill-prompt)** | `parentId` | ✓ 同上 | 同理 |
+| **Skill-prompt custom_message** | `targetId` | ✗ | 像普通節點 |
+| **Ask tool result** | 重開問答 UI | ✗ | 重新回答，舊答案變 sibling |
+| **其他** | `targetId` | ✗ | 純導航、觀察 context |
 
 ### Summary-on-Switch 流程
 
@@ -426,9 +426,9 @@ interface SessionStorage {
 
 | 實作 | 用途 | 持久化 |
 |---|---|---|
-| `FileSessionStorage` | 真實本地檔案 | ✅ |
-| `MemorySessionStorage` | In-memory map/chunk，**非持久 session**、**測試** | ❌ |
-| `IndexedSessionStorage` | **共享本地索引 + 有序遠端發布**（Redis/SQL-backed） | ✅（雙寫） |
+| `FileSessionStorage` | 真實本地檔案 | ✓ |
+| `MemorySessionStorage` | In-memory map/chunk，**非持久 session**、**測試** | ✗ |
+| `IndexedSessionStorage` | **共享本地索引 + 有序遠端發布**（Redis/SQL-backed） | ✓（雙寫） |
 
 ### 3. `IndexedSessionStorage`：本地索引 + 遠端有序發布
 

@@ -10,7 +10,7 @@ description: "拆解 Galileo 的 experiments、metrics、observability 與 runti
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-galileo-llm-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-galileo-llm-evaluation-en)
 
 [Galileo](https://docs.galileo.ai/what-is-galileo) 是 Galileo Technologies, Inc. 的 AI evaluation、observability 與 production guardrail 平台。它把一條實用工作流接在一起：用 dataset 做 experiment、用 metrics 評分、從 production traces 找失敗，再把成熟的評分規則變成線上 guardrail。
 

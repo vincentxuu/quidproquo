@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 3: why
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-full-cycle-dl-project)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

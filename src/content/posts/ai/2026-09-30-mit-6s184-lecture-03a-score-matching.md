@@ -25,7 +25,7 @@ glossary:
     context: "講義 Theorem 22 與 Example 23，DDPM 的 noise prediction loss 就是它的重新參數化。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-03a-score-matching-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

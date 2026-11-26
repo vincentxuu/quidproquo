@@ -30,7 +30,7 @@ glossary:
     context: "第 17 講第 88–98 頁；SPVConv 把 voxel 分支換成稀疏卷積。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-efficient-vision-gan-video-pointcloud-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

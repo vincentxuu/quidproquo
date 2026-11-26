@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-30-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's trending projects happen to all be patching up coding agents' ability to
 
 ## Trending Repos
 
-### ChromeDevTools/chrome-devtools-mcp ⭐ 50,162
+### ChromeDevTools/chrome-devtools-mcp ★ 50,162
 
 [GitHub](https://github.com/ChromeDevTools/chrome-devtools-mcp) · TypeScript · Apache-2.0
 
@@ -31,7 +31,7 @@ Today's trending projects happen to all be patching up coding agents' ability to
 
 ---
 
-### abhigyanpatwari/GitNexus ⭐ 46,399
+### abhigyanpatwari/GitNexus ★ 46,399
 
 [GitHub](https://github.com/abhigyanpatwari/GitNexus) · TypeScript · PolyForm Noncommercial
 
@@ -42,7 +42,7 @@ Today's trending projects happen to all be patching up coding agents' ability to
 
 ---
 
-### mksglu/context-mode ⭐ 20,243
+### mksglu/context-mode ★ 20,243
 
 [GitHub](https://github.com/mksglu/context-mode) · TypeScript · ELv2
 
@@ -53,7 +53,7 @@ Today's trending projects happen to all be patching up coding agents' ability to
 
 ---
 
-### google/skills ⭐ 18,974
+### google/skills ★ 18,974
 
 [GitHub](https://github.com/google/skills) · Python · Apache-2.0
 
@@ -64,7 +64,7 @@ Today's trending projects happen to all be patching up coding agents' ability to
 
 ---
 
-### livekit/agents ⭐ 13,560
+### livekit/agents ★ 13,560
 
 [GitHub](https://github.com/livekit/agents) · Python · Apache-2.0
 

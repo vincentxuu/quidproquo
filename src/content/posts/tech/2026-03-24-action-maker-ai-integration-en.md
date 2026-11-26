@@ -10,7 +10,7 @@ description: "From product requirements to architecture design to implementation
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-24-action-maker-ai-integration)
+:globe: [中文版](/posts/tech/2026-03-24-action-maker-ai-integration)
 
 ## TL;DR
 

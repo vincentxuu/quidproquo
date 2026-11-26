@@ -26,10 +26,11 @@ cat src/data/agent-watchlist.json | jq '.benchmarks[]'
 # Step 6: 依「輸出格式」撰寫異動報告
 # Step 7: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
+# E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -184,6 +185,7 @@ tags: [ai-agent, benchmark, daily, {benchmark-slug}]
 lang: zh-TW
 description: "一句話概述排名變動和意義"
 tldr: "誰變第一 + 分數多少 + 這代表什麼"
+  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 series:
   name: "AI Benchmark Watch"
   order: N
@@ -203,9 +205,9 @@ series:
 
 | 排名 | 模型/Agent | 分數 | 前次分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | {模型名} | {分數} | {前次} | {+/-} |
-| 🥈 | {模型名} | {分數} | {前次} | {+/-} |
-| 🥉 | {模型名} | {分數} | {前次} | {+/-} |
+| 1 | {模型名} | {分數} | {前次} | {+/-} |
+| 2 | {模型名} | {分數} | {前次} | {+/-} |
+| 3 | {模型名} | {分數} | {前次} | {+/-} |
 | 4 | ... | ... | ... | ... |
 | 5 | ... | ... | ... | ... |
 
@@ -223,7 +225,7 @@ series:
 
 ### 方法論面
  3. 這個 benchmark 的結果可靠嗎？（有無 data contamination 風險？eval gaming？）
- 4. ⚠️ 標注：自測結果 vs 獨立複現
+ 4. 標注：自測結果 vs 獨立複現
 
 ### 產業面
  5. 對 Agent 開發者意味著什麼？（該換模型嗎？成本效益如何？）
@@ -262,10 +264,10 @@ SWE-bench Verified 排行榜今天出現重大洗牌：DeepSeek Coder V3 以 74.
 
 | 排名 | 模型/Agent | 分數 | 前次分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | DeepSeek Coder V3 | 74.1% | 新上榜 | 🆕 |
-| 🥈 | Claude 4.5 Sonnet | 72.3% | 72.3% (🥇) | ↓1 |
-| 🥉 | Gemini Ultra 2 Coding | 72.0% | 70.5% (🥉) | — |
-| 4 | GPT-5 | 71.8% | 71.8% (🥈) | ↓2 |
+| 1 | DeepSeek Coder V3 | 74.1% | 新上榜 | NEW |
+| 2 | Claude 4.5 Sonnet | 72.3% | 72.3% (1) | ↓1 |
+| 3 | Gemini Ultra 2 Coding | 72.0% | 70.5% (3) | — |
+| 4 | GPT-5 | 71.8% | 71.8% (2) | ↓2 |
 | 5 | Claude 4 Opus | 68.9% | 68.9% (4) | ↓1 |
 
 來源：[swebench.com](https://www.swebench.com/) · 快照日期：2026-08-11
@@ -296,10 +298,10 @@ SWE-bench Verified 是目前最被信任的 coding agent benchmark——每個 t
 - [ ] 排名變化表完整（前 5 名、含前次分數和變化方向）
 - [ ] 分數精確到小數（如 74.1%，不寫 74%）
 - [ ] 來源有排行榜官網 URL
-- [ ] 自測結果標注 ⚠️
+- [ ] 自測結果已標注
 - [ ] 分析有技術面、方法論面、產業面三個層次
 - [ ] benchmark-snapshot.json 已更新
 - [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 五步完成（英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

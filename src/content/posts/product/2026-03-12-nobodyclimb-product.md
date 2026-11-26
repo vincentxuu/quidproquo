@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-🌏 [English version](/posts/product/2026-03-12-nobodyclimb-product-en)
+:globe: [English version](/posts/product/2026-03-12-nobodyclimb-product-en)
 
 「在攀岩的路上，我們都是小人物。」
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-learning-by-teaching-without-audience)
+> :globe: [中文版](/posts/learning/2026-10-14-learning-by-teaching-without-audience)
 
 This is Part 22 of the series "Writing Articles That Teach," in its fifth section, "who you learn with, and who can't read you." The earlier posts in this section covered [what a solitary reader misses](/posts/learning/2026-10-14-learning-alone-vs-together-en) (Part 20) and comment sections and communities. This one turns to the other end: the writer.
 
@@ -242,7 +242,7 @@ This site's course-guide spec is `.agents/skills/post/references/course-guide-co
 | The spec does not ask for prompts like "explain this to someone else after reading" | Such prompts correspond to teaching expectancy and explaining to an absent audience, which have effects in adults but unstable ones; self-explanation has stronger evidence | This site's choice, consistent with item 6 above |
 | The spec says nothing about how much the writer learns | Every study in this post asks exactly that | The spec's goal is for readers to learn, not writers; a choice this site made |
 
-One more point about how this site actually works. Many of the course guides are first drafted by AI agents from slides and captions; Part 29 will cover that process. All the studies above measure how much the person who does the explaining learns. If an agent does the explaining, the part of the benefit that comes from teaching others at least does not automatically go to the site's author; whether reviewing, editing, and checking a draft counts as teaching has not been studied. This is my inference.
+One more point about how this site actually works. Many of the course guides are first drafted by AI agents from slides and captions; Part 29 will cover that process. All the studies above measure how much the person who does the explaining learns. If an agent does the explaining, the part of the benefit that comes from teaching others at least does not automatically go to the site's author; whether reviewing, editing, and checking a draft counts as teaching has not been studied.
 
 ## Three things to do tonight
 
@@ -252,7 +252,7 @@ One more point about how this site actually works. Many of the course guides are
 
 ## Limits of this evidence
 
-- **No study has tested writing a public article for strangers.** The closest is writing an explanation or recording one for a fictional classmate in the lab. Extending the results to a guide several thousand words long, written over several days and revised repeatedly, is my inference. Lachner and colleagues themselves say every study used a "stripped down" version of explaining.
+- **No study has tested writing a public article for strangers.** The closest is writing an explanation or recording one for a fictional classmate in the lab. A guide several thousand words long, written over several days and revised repeatedly, is far from those conditions, and no one has tested whether the results hold there. Lachner and colleagues themselves say every study used a "stripped down" version of explaining.
 - **Materials are mostly short science exposition, participants mostly college students, tests mostly within a week.** In Kobayashi's meta-analysis, all delayed tests were within a week; most studies Lachner and colleagues compiled had only immediate tests.
 - **The researchers are concentrated.** Kobayashi's meta-analysis, the two reanalyses, the mechanisms review, and the commentary all come from one author; the three studies of watching someone being taught come from one research group.
 - **Heterogeneity is high.** I² in Kobayashi's meta-analysis ranges from 76% to 94%, and the author says the sources of heterogeneity remain largely unclear.
@@ -260,7 +260,7 @@ One more point about how this site actually works. Many of the course guides are
 - **My own observation**: several confidence intervals in Kobayashi's meta-analysis and perspective article are unusually narrow given such high heterogeneity (for example, 0.56 with I² = 93% has an interval of only [0.52, 0.61]); the methods section says only that results were weighted by sample size. I can't tell from the paper how they were computed, so in the main text I use the intervals only to judge whether they cross zero (if the true intervals are wider, the ones that cross zero still do). The subgroup difference tests (Japanese students versus others, face to face versus indirect, 0.50 versus 0.27) come from the same variance calculation and may also lean toward significance.
 - **Secondhand results**: the results of Roscoe and Chi 2008; Lachner and colleagues 2018, 2020, and 2021; Jacob and colleagues 2020 and 2021; Hoogerheide and colleagues 2016; Koh and colleagues 2018; Fiorella and Mayer 2014; and Muldner and colleagues 2014 were all read through reviews, meta-analyses, or reanalyses. I did not read the original studies.
 - **Known to exist, but no legal public full text read**: [Kobayashi's 2024 meta-analysis](https://doi.org/10.1007/s10648-024-09871-4). I do not cite its numbers or list it in the references.
-- **My inferences**: mapping indirect teaching in the studies to writing course guides; mapping swyx's claims to teaching expectancy and interaction; the seven items under "What you can do" and the three things to do tonight; the paragraph about AI-drafted guides. Each is marked in the text.
+- **Extensions beyond the research, without direct experiments**: mapping indirect teaching in the studies to writing course guides; mapping swyx's claims to teaching expectancy and interaction; the seven items under "What you can do" and the three things to do tonight; the paragraph about AI-drafted guides.
 
 ## Appendix: study designs and numbers
 

@@ -28,7 +28,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-07-ai-certification-prep-method)
+> :globe: [中文版](/posts/ai/2026-08-07-ai-certification-prep-method)
 
 Two things decide whether you pass a certification, and both happen before you open any study material: **which day you book the exam for**, and **which chapter you study first**. Most prep guides skip both and start teaching at chapter one.
 

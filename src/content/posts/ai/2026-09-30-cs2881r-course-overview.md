@@ -22,7 +22,7 @@ glossary:
         url: "https://arxiv.org/abs/2506.11613"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-course-overview-en)
 
 **影片狀態：已附影片。** 導言附第 1 講錄影（2 小時 26 分），各講錄影在各講導讀。[影片來源與說明](#課程影片來源)
 
@@ -146,7 +146,7 @@ Fall 2026 正在上，課表換了一批講題（Cyber Capabilities、RL for Pos
 - 強化學習基礎：[Berkeley CS285 Spring 2026 導讀](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview)
 - 可解釋性：[CS224U 分析方法：probing 與 attribution](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 - Prompt injection 與 agent 安全實務：[Agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)
-- LLM-as-judge：[Stanford CS329Z Week 8：模型當裁判與護欄](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
+- LLM-as-judge：[Stanford CS329Z 第 14 堂：模型當裁判](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[第 15 堂：護欄](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
 - Harvard 其他課：[Harvard AI／ML 課程地圖](/posts/learning/2026-08-22-harvard-ai-ml-course-map)
 
 ## 課程影片來源

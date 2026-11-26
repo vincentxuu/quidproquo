@@ -29,7 +29,7 @@ glossary:
     context: "The first technique in the quantization part of Lecture 13, representing weight-activation quantization."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-llm-deployment)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-llm-deployment)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

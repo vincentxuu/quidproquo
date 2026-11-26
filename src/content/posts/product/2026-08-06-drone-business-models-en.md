@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-06-drone-business-models)
+> :globe: [中文版](/posts/product/2026-08-06-drone-business-models)
 
 [The industry map](/posts/tech/2026-08-06-drone-industry-map-en) argued value concentrates in Layers 3 and 5; [the Taiwan supply chain piece](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en) showed Taiwan sitting in Layer 2. This one supplies the reason: **selling airframes is the worst of the four available business models.**
 

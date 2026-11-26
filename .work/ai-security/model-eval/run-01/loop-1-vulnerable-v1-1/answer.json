@@ -1,0 +1,6 @@
+{
+  "action": "read_ticket",
+  "ticket_id": "N-2",
+  "verdict": "inconclusive",
+  "reason": "N-1 provides a successful owner baseline. Test Bob's N-2 as Alice to check same-tenant owner authorization; no response evidence yet establishes a vulnerability."
+}

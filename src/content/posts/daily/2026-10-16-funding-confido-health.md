@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-funding-confido-health-en)
+> :globe: [English version](/posts/daily/2026-10-16-funding-confido-health-en)
 
 ## 融資資訊
 

@@ -22,7 +22,7 @@ glossary:
     context: "影片 6.5 的副標「人不懂沒關係機器懂就好」說的就是它。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-pretraining-prompt-learning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -5,7 +5,7 @@ type: deep-dive
 category: tech
 tags: [cloudflare, cloudflare-ai-search, rag, hybrid-search, vectorize, workers-ai]
 lang: en
-tldr: "Formerly AutoRAG, the managed search primitive: drop files into built-in storage or attach R2 and websites, auto-index with Markdown conversion plus vector and BM25, retrieve with hybrid, RRF, and reranking, and query from Workers via namespace or instance bindings, REST, or MCP."
+tldr: "Formerly AutoRAG, the managed search primitive, generally available since 2026-10-01 with billing from 2026-12-01: drop files into built-in storage or attach R2, websites, or D1 (beta), auto-index with Markdown conversion plus vector and BM25, retrieve with hybrid by default, RRF, and optional reranking, and query from Workers via namespace or instance bindings, REST, or MCP. Chinese content needs the trigram keyword tokenizer."
 description: "From data sources and indexing pipelines to model choices, retrieval tuning, and bindings — a complete breakdown of Cloudflare AI Search, its limits, and when to build on Vectorize instead."
 series:
   name: "Cloudflare AI Stack"
@@ -15,7 +15,7 @@ additionalSeries:
     order: 23
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)
+> :globe: [中文版](/posts/tech/2026-08-29-cloudflare-ai-search-guide)
 
 If every agent needs search, do you build the vector index, the chunking and sync pipeline, and the BM25 fusion yourself — or reach for a primitive? [Cloudflare AI Search](https://developers.cloudflare.com/ai-search/) is the latter: formerly [AutoRAG](https://blog.cloudflare.com/introducing-autorag-on-cloudflare/), now positioned as a managed search primitive. Create an instance, give it data, query it with natural language; the [R2](https://developers.cloudflare.com/r2/), [Vectorize](https://developers.cloudflare.com/vectorize/), and [Workers AI](https://developers.cloudflare.com/workers-ai/) plumbing is handled for you. This post covers how data gets in, how indexing runs, how to tune retrieval, and how to wire it from a Worker — so you can decide when to use the managed path and when to assemble your own.
 
@@ -31,17 +31,18 @@ How it differs from the usual alternatives:
 
 Good fits: documentation and knowledge-base search, research tools for agents, per-tenant or per-agent searchable context (e.g., past resolutions per customer in support). Poor fits: teams that need custom chunking, more than five metadata fields per instance, or pinned embedding versions for offline evaluation.
 
-## How data gets in: three sources and the indexing pipeline
+## How data gets in: four sources and the indexing pipeline
 
-AI Search ingests from three sources ([Data source](https://developers.cloudflare.com/ai-search/configuration/data-source/)):
+AI Search ingests from four sources ([Data source](https://developers.cloudflare.com/ai-search/configuration/data-source/)):
 
 1. **Built-in storage**: every instance ships with its own storage and vector index. Upload files via API and they are indexed — no R2 bucket to create first. This is the default since April 2026 and the right choice for dynamic per-agent instances.
 2. **R2 Bucket**: attach an existing R2 bucket as the source. AI Search syncs it continuously. Use it when your corpus already lives in R2.
-3. **Website**: attach a domain you own. AI Search crawls it with [Browser Rendering](https://developers.cloudflare.com/browser-rendering/) and supports `discover` and `sitemap` [Parse types](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/).
+3. **Website**: attach a domain you own. AI Search crawls it with [Browser Run](https://developers.cloudflare.com/browser-run/) (formerly Browser Rendering) and supports `discover` and `sitemap` [Parse types](https://developers.cloudflare.com/ai-search/configuration/data-source/website/parse-types/).
+4. **D1 database** (beta, since 2026-11-12): you provide a read-only SQL query, and AI Search indexes each returned row as a separate document, adding, updating, and removing rows on scheduled syncs. Use it to make articles, FAQs, or product data that already live in [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) searchable without exporting them to files first.
 
-File types are two-tiered: plain text (`.md`, `.json`, `.csv`, `.py`, `.go`, etc.) indexes directly; rich formats (`.pdf`, `.docx`, `.xlsx`, `.html`, `.png`/`.jpg`, etc.) go through [Markdown Conversion](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) first — image captioning there uses Workers AI vision models and is billed separately. The per-file limit is 4 MB; oversized files are not indexed and appear in error logs.
+File types are two-tiered: plain text (`.md`, `.json`, `.csv`, `.py`, `.go`, etc.) indexes directly; rich formats (`.pdf`, `.docx`, `.xlsx`, `.html`, `.png`/`.jpg`, etc.) go through [Markdown Conversion](https://developers.cloudflare.com/workers-ai/features/markdown-conversion/) first — images and scanned documents go through OCR, billed as image processing ingestion tokens. The per-file limit depends on format: 10 MiB for plain text, code, and PDFs with OCR enabled; 4 MiB for PDFs without OCR and other formats converted to Markdown. Oversized files are not indexed and appear in error logs.
 
-Indexing is automatic and continuous ([Automated indexing](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/)). R2 and Website sources resync on change; built-in storage indexes on upload. The ownership shift matters: built-in files live on AI Search-managed R2 and Vectorize — you no longer need a bucket in your account. The R2 bucket that early AutoRAG created for you is no longer written to and can be removed (see [Limits & pricing history](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)).
+Indexing is automatic ([Automated indexing](https://developers.cloudflare.com/ai-search/configuration/indexing/syncing/)). R2, Website, and D1 sources sync on a schedule, every 24 hours by default since 2026-11-02 (previously 6 hours), adjustable from 15 minutes to 24 hours; built-in storage indexes on upload. The ownership shift matters: built-in files live on AI Search-managed R2 and Vectorize — you no longer need a bucket in your account. The R2 bucket that early AutoRAG created for you is no longer written to and can be removed (see [Limits & pricing history](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)).
 
 ```ts
 // Built-in storage: upload and index
@@ -63,6 +64,8 @@ The pipeline is fixed; the models at each stage are configurable ([Models](https
 
 Providers are either [Workers AI](https://developers.cloudflare.com/workers-ai/) models or external models via [AI Gateway](https://developers.cloudflare.com/ai-gateway/) with your own OpenAI or Anthropic keys ([Bring your own keys](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/)). Attach a Gateway when creating the instance or switch it under Settings, then pick external models. "Smart Default" lets Cloudflare choose and auto-update; explicit selection pins a model but requires tracking the [Supported models](https://developers.cloudflare.com/ai-search/configuration/models/supported-models/) lifecycle (Production → Announcement → End of life).
 
+Since GA, the Workers AI embedding and reranking calls that AI Search makes are included in AI Search pricing and no longer appear on your Workers AI bill or in AI Gateway logs; generation, query rewriting, and external providers still go through your account and gateway.
+
 Trade-off: Smart Default saves ops but scores can drift on upgrade; pinning is reproducible but you must follow [Release notes](https://developers.cloudflare.com/ai-search/platform/release-note/) and deprecation notices. For Traditional Chinese, generation quality is often steadier with external models — the Gateway integration is the practical bridge.
 
 ## How to query: vector, keyword, and hybrid
@@ -71,11 +74,11 @@ Retrieval is where the recent release changed most ([Search modes](https://devel
 
 - **Vector-only**: strong on intent, weak on exact terms. Searching `ERR_CONNECTION_REFUSED timeout` may return generic networking docs instead of the page that literally contains the error code.
 - **Keyword-only (BM25)**: scores by term frequency, rarity, and document length — exact terms win, paraphrases lose.
-- **Hybrid**: runs both in parallel and fuses. Enable with `index_method: { vector: true, keyword: true }`; fusion is `rrf` (Reciprocal Rank Fusion, by rank not score, the default) or `max` (higher of the normalized scores). [Hybrid search docs](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/) recommend `rrf` for most cases. The DIY counterpart and formula are covered in [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en).
+- **Hybrid**: runs both in parallel and fuses. Instances created since GA use hybrid by default (`index_method: { vector: true, keyword: true }`); fusion is `rrf` (Reciprocal Rank Fusion, by rank not score, the default) or `max` (higher of the normalized scores). [Hybrid search docs](https://developers.cloudflare.com/ai-search/configuration/indexing/hybrid-search/) recommend `rrf` for most cases. The DIY counterpart and formula are covered in [Hybrid Search: BM25 + Vector + RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en).
 
 Tunable parameters (instance-level or per-request override):
 
-- `keyword_tokenizer`: `porter` (stemming, `running` matches `run`) or `trigram` (substring, `conf` matches `configuration`, better for code).
+- `keyword_tokenizer`: `porter` (stemming, `running` matches `run`) or `trigram` (substring, `conf` matches `configuration`, better for code). **Chinese, Japanese, and Korean content needs `trigram`**: `porter` splits on whitespace, so a Chinese query is treated as one exact phrase and the keyword leg usually returns nothing. Since 2026-10-16 `trigram` also matches full natural-language CJK questions; changing the tokenizer triggers a full reindex.
 - `keyword_match_mode`: `and` (all terms required) or `or` (any term).
 - `reranking`: cross-encoder rerank after fusion, e.g. `@cf/baai/bge-reranker-base`.
 - `query_rewrite`: rewrites the query for recall.
@@ -87,7 +90,7 @@ Tunable parameters (instance-level or per-request override):
 const instance = await env.AI_SEARCH.create({
   id: "my-instance",
   index_method: { vector: true, keyword: true },
-  indexing_options: { keyword_tokenizer: "porter" },
+  indexing_options: { keyword_tokenizer: "trigram" },  // trigram for CJK content
   retrieval_options: { keyword_match_mode: "or" },
   fusion_method: "rrf",
   reranking: true,
@@ -169,29 +172,43 @@ The recommended [Agents SDK](https://developers.cloudflare.com/agents/) pattern 
 
 ## Limits, pricing, and when not to use it
 
-Hard limits ([Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/), updated 2026-08-26):
+Hard limits ([Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)):
 
 | Limit | Workers Free | Workers Paid |
 |---|---|---|
-| Instances per account | 100 | 5,000 |
+| Instances per account | 100 | 5,000 by default, $0.10/month each beyond |
 | Namespaces per account | 100 | 100 |
 | Files per instance | 100,000 | 1,000,000 (500,000 with hybrid) |
-| Max file size | 4 MB | 4 MB |
-| Queries per month | 20,000 | Unlimited |
+| Max file size (plain text, code, OCR PDFs) | 10 MiB | 10 MiB |
+| Max file size (PDFs without OCR, other formats) | 4 MiB | 4 MiB |
+| Included queries per month | 1,000 semantic + 1,000 full-text | 1,000 semantic + 1,000 full-text (billed beyond) |
+| Pages per `discover` crawl | 100,000 | 100,000 |
 | Instances per cross-instance request | 10 | 10 |
 | Pages crawled per day | 500 | Unlimited |
 | Custom metadata fields | 5 per instance | 5 per instance |
 | Metadata per vector | 10 KiB (incl. overhead) | 10 KiB |
 | Filterable string prefix | First 64 bytes | First 64 bytes |
 
-Pricing: free within limits during open beta; [Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) and [AI Gateway](https://developers.cloudflare.com/ai-gateway/reference/pricing/) are billed separately. Storage, vector indexing, and website crawling via [Browser Rendering](https://developers.cloudflare.com/browser-rendering/) are included. Older invoices with separate R2/Vectorize line items are pre-migration history.
+Pricing: AI Search went GA on 2026-10-01. Usage-based billing was scheduled for 11-01 and then postponed to **2026-12-01**. Every account gets 5 million ingestion tokens, 10 GB-month of storage, 1,000 semantic queries, and 1,000 full-text queries per month; beyond that:
+
+| Usage | Price |
+|---|---|
+| Base ingestion | $0.75 per million tokens |
+| Image processing (including OCR) | an additional $0.50 per million tokens |
+| Storage | $2.00 per GB-month |
+| Semantic, vector, and hybrid queries | $0.75 per 1,000 queries |
+| Full-text queries | $0.10 per 1,000 queries |
+
+Ingestion tokens are counted on the final chunks with the `cl100k_base` tokenizer, so overlapping text is counted in every chunk it appears in; storage counts only the content AI Search keeps (uploaded files and Markdown extracted from sources), not the vector or keyword indexes. The R2, Vectorize, and [Browser Run](https://developers.cloudflare.com/browser-run/) usage AI Search runs on your behalf is not billed separately; generation, query rewriting, and the file summaries added on 2026-11-17 are billed through [Workers AI](https://developers.cloudflare.com/workers-ai/platform/pricing/) or the external provider. Older invoices with separate R2/Vectorize line items are pre-migration history.
+
+The pricing cuts differently for two kinds of usage: a FAQ-style instance with little content and many queries pays mostly for hybrid queries at $0.75 per thousand, while a large knowledge base with few queries pays mostly for ingestion and storage. Run your corpus through tiktoken once before estimating.
 
 When not to use it:
 
 - You need custom chunking, overlap, or multi-granularity indexing (AI Search chunking is fixed).
 - You need more than five filterable metadata fields or filtering on long strings (only the first 64 bytes are filterable).
 - You need pinned embedding/reranker versions for long-horizon evaluation (Smart Default drifts; explicit choices still face the [Model lifecycle](https://developers.cloudflare.com/ai-search/configuration/models/)).
-- Files frequently exceed 4 MB (e.g., scanned books) — pre-split before upload.
+- Files frequently exceed the limit (e.g., scanned books over 10 MiB) — pre-split before upload.
 
 Conversely, if the job is "hybrid search over a corpus with exact-term hits, dynamic per-tenant instances, and minimal ops," the managed trade is compelling. The same build-vs-buy note closes the on-site [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) piece: use managed to save ops, build on Vectorize for full control over filter extraction and degradation.
 
@@ -203,6 +220,7 @@ Start with one `ai_search` instance (minimal config), validate recall and `match
 
 ## Update Log
 
+- 2026-11-23: AI Search went GA on 2026-10-01 with billing postponed to 2026-12-01, so the pricing section is rewritten with included usage and rates; added D1 (beta) as a data source; new instances are hybrid by default; CJK content should use the `trigram` tokenizer; per-file limits are now 10 MiB / 4 MiB by format; default sync interval is 24 hours; the query rows in the limits table now show monthly included usage; Browser Rendering is now Browser Run.
 - 2026-08-30: Added the post to the Cloudflare AI Stack series and kept the Edge Platform reading path through additionalSeries.
 
 ## References
@@ -214,6 +232,10 @@ Start with one `ai_search` instance (minimal config), validate recall and `match
 - [Cloudflare AI Search — Models](https://developers.cloudflare.com/ai-search/configuration/models/)
 - [Cloudflare AI Search — Supported models](https://developers.cloudflare.com/ai-search/configuration/models/supported-models/)
 - [Cloudflare AI Search — Limits & pricing](https://developers.cloudflare.com/ai-search/platform/limits-pricing/)
+- [Cloudflare AI Search — D1 data source](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/)
+- [Cloudflare Changelog — AI Search is generally available (2026-10-01)](https://developers.cloudflare.com/changelog/post/2026-10-01-ai-search-generally-available/)
+- [Cloudflare Changelog — AI Search billing postponed to December 1, 2026 (2026-11-02)](https://developers.cloudflare.com/changelog/post/2026-11-02-billing-postponed-default-sync-interval/)
+- [Cloudflare Changelog — CJK keyword search (2026-10-16)](https://developers.cloudflare.com/changelog/post/2026-10-16-cjk-keyword-search/)
 - [Cloudflare AI Search — Workers binding](https://developers.cloudflare.com/ai-search/api/search/workers-binding/)
 - [Cloudflare AI Search — Workers binding migration](https://developers.cloudflare.com/ai-search/api/migration/workers-binding/)
 - [Cloudflare AI Search — REST API migration](https://developers.cloudflare.com/ai-search/api/migration/rest-api/)

@@ -15,7 +15,7 @@ glossary:
     def: "阿里巴巴通義千問（Tongyi Qianwen）開發的大型語言模型家族"
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next-en)
+> :globe: [English version](/posts/daily/2026-08-26-model-qwen-qwen3-8-flash-next-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | 真實工具使用（Toolathlon Verified Pass@1） | 73.5 | 67.1 | 50.6 | DeepSeek-V4-Flash-0731 70.3 |
 | 前緣 agent 任務（Agents' Last Exam Pass@1） | 24.3 | 20.4 | 13.2 | DeepSeek-V4-Flash-0731 25.2 |
 
-⚠️ 以上皆為 Qwen 官方模型卡自測結果（部分項目採 Claude Code／mini-SWE-agent 等第三方 harness 評測，但仍由 Qwen 團隊執行與彙整），截至發文尚未見獨立第三方複現或標準化排行榜收錄。
+:warning: 以上皆為 Qwen 官方模型卡自測結果（部分項目採 Claude Code／mini-SWE-agent 等第三方 harness 評測，但仍由 Qwen 團隊執行與彙整），截至發文尚未見獨立第三方複現或標準化排行榜收錄。
 
 ## 與前代/競品比較
 

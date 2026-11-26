@@ -1,6 +1,5 @@
 import type { Env } from '../config/env'
-import { verifySession } from './session'
-import type { CookieReader } from './admin'
+import { requireAdmin, type CookieReader } from './admin'
 
 export type PipelineRequestSource = 'admin' | 'cron'
 export const CRAWL_SECRET_HEADER = 'X-Crawl-Secret'
@@ -17,9 +16,14 @@ export async function getRequestSource(
   request: Request,
   env: Pick<Env, 'CRAWL_SECRET'>
 ): Promise<PipelineRequestSource | undefined> {
-  const token = cookies.get('session')?.value
-  if (token && await verifySession(token)) {
-    return 'admin'
+  const mutating = !['GET', 'HEAD', 'OPTIONS'].includes(request.method.toUpperCase())
+  const sameOrigin = request.headers.get('Origin') === new URL(request.url).origin
+    && request.headers.get('Sec-Fetch-Site') !== 'cross-site'
+  // Machine ingress skips browser middleware: enforce CSRF on its cookie branch.
+  // Explicit crawl-secret authentication below remains independent of Origin.
+  if (!mutating || sameOrigin) {
+    const auth = await requireAdmin(cookies, request)
+    if (auth.ok) return 'admin'
   }
 
   const secret = env.CRAWL_SECRET

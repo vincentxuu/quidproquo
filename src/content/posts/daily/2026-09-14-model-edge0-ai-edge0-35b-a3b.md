@@ -15,7 +15,7 @@ glossary:
     def: "開源串流 MoE 推理框架，用 SSD 專家卸載＋prerouter 預測式路由＋Recover-LoRA 蒸餾，讓大型 MoE 模型能在記憶體有限的裝置（如 Mac mini）上以極小記憶體佔用運行"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
+> :globe: [English version](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | IFBench | 57.9 | 61.7 | -3.8 |
 | **平均** | **79.2** | **83.2** | **-3.9** |
 
-⚠️ 以上均由 Edge0-AI 用 OpenCompass 自行測試（官方自測，未經第三方復現），對照組是同團隊、同設定下跑出的 fp16 base model 分數，並非 Qwen 官方公布的分數，可能因評測設定差異與其他來源不同。
+:warning: 以上均由 Edge0-AI 用 OpenCompass 自行測試（官方自測，未經第三方復現），對照組是同團隊、同設定下跑出的 fp16 base model 分數，並非 Qwen 官方公布的分數，可能因評測設定差異與其他來源不同。
 
 ## 與前代/競品比較
 

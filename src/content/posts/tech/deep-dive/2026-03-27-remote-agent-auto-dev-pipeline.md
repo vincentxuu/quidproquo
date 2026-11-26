@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-27-remote-agent-auto-dev-pipeline-en)
 
 上一篇寫了從 OpenSpec 到自動部署的八個階段。那套流程能跑，但有一個問題：每一步都要人類觸發。
 

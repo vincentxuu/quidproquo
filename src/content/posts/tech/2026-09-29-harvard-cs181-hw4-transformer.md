@@ -22,11 +22,11 @@ glossary:
     context: "HW4 Problem 1 的核心公式 softmax(QKᵀ/√dk)V。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/pdf/ipynb`，due 2026-04-03）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，全部於 2026-09-29 實際打開。本課整體為 **A3**（作業、notebook、section 與解答公開），但官方課表未列對應講次的公開錄影、沒有作業解答，Gradescope 需要選課。[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)寫講義投影片放在 Google Drive 資料夾，CSV 匯出不含連結，本篇沒有取得 2026 的 Transformers 講課投影片，講課內容一律不推測。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4)（`hw4_release.tex/pdf/ipynb`，due 2026-04-03）與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf)為準，全部於 2026-09-29 實際打開。本課整體為 **A3**（作業、notebook、section 與解答公開），但官方課表未列對應講次的公開錄影、沒有作業解答，Gradescope 需要選課。[官方課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ)寫講義投影片放在 Google Drive 資料夾，CSV 匯出不含連結，本篇沒有取得 2026 的 Transformers 講課投影片，講課內容一律不推測。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)的第 6 篇。上一篇是[期中檢核](/posts/tech/2026-09-29-harvard-cs181-midterm-checkpoint)，這篇進入期中後的第一份作業 HW4。
 
@@ -137,12 +137,13 @@ HW4 Problem 1 沒有處理 causal mask、KV cache 或長上下文的成本，這
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

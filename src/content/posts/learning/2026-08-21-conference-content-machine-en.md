@@ -10,7 +10,7 @@ description: "A breakdown of the system behind the @aiDotEngineer YouTube channe
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-conference-content-machine)
+> :globe: [中文版](/posts/learning/2026-08-21-conference-content-machine)
 
 There is a YouTube channel called [AI Engineer](https://www.youtube.com/@aiDotEngineer). It launched only in September 2023, passed 600,000 subscribers in under three years, and was still growing by 70,000 subscribers a month over the most recent 30 days. More remarkably, it **almost never misses an upload**. New videos appear every week, quality stays consistent, and the speakers include people at the level of Jensen Huang, Andrej Karpathy, and Greg Brockman.
 

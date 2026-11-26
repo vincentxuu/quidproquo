@@ -13,7 +13,7 @@ description: "彭納多莫（Pennadomo）岩場介紹：Cima Fumosa、Solitudine
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-pennadomo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-pennadomo-en)
 
 彭納多莫（Pennadomo）是阿布魯佐（Abruzzo）大區 Chieti 省的小村，在 Sangro 河谷中段、Bomba 湖（Lago di Bomba）旁邊。[Planetmountain](https://www.planetmountain.com/it/falesie/pennadomo.html) 的介紹由開發者 Giorgio Ferretti 撰寫，形容這個村子被「incredibili lame calcaree」（不可思議的石灰岩刀片）包圍，這些從丘陵裡直直冒出來的岩片，在地人叫「Lisce」。他從 1980 年代末開始打第一批路線，這裡也成了阿布魯佐攀岩史上很重要的一塊。
 

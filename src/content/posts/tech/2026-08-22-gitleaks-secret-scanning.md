@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-gitleaks-secret-scanning-en)
+> :globe: [English version](/posts/tech/2026-08-22-gitleaks-secret-scanning-en)
 
 [gitleaks](https://github.com/gitleaks/gitleaks) 是開源 secret scanner。`gitleaks git` 透過 `git log -p` 掃 commits/patches，`dir` 掃目前 files，`stdin` 接 pipeline input。Default rules 依 token prefix、regex、keyword 與 entropy 找 API keys、passwords 等；`.gitleaks.toml` 可擴充 internal credential format。
 
@@ -27,13 +27,18 @@ Pre-commit/pre-push 提供快速 developer feedback，但 hook 可被略過；PR
 
 Secret 一旦 commit 就應假設已被 clone、cache、indexed 或出現在 CI log。Incident sequence 是 revoke/rotate、查 provider audit、找 exposure window/usage、更新 dependent services，最後才決定用 `git filter-repo` 等改 history。History rewrite 會影響 forks、open PR 與 commit SHAs，而且無法撤回已複製的 credential。
 
-Scanner output 也含 secret material，CI 使用 `--redact`、限制 artifact retention 與 log access。Pin gitleaks version/action digest，使用最小 token，並測試 shallow clone 是否包含預期 commit range。上游目前將 Gitleaks 描述為 feature complete、未來以 security fixes 為主，採用時應把 maintenance status 與 alternative migration 納入評估。
+Scanner output 也含 secret material，CI 使用 `--redact`、限制 artifact retention 與 log access。Pin gitleaks version/action digest，使用最小 token，並測試 shallow clone 是否包含預期 commit range。上游目前將 Gitleaks 描述為 feature complete，不再合併新功能，之後只出 security patch；原作者已轉去維護後繼專案 [Betterleaks](https://github.com/betterleaks/betterleaks)（MIT，由 Gitleaks 原班人馬維護，目前穩定版是 v1，v2 開發中）。既有的 Gitleaks 導入可以繼續用，但新規則與新來源（例如 secret 有效性驗證、container image 掃描）只會出現在 Betterleaks。評估遷移時注意：Betterleaks 讀得到 `.gitleaks.toml`，但從被掃描的 repo 自動載入設定要明確加 `--unsafe-auto-load-config`，而且過濾邏輯改用 Expr 撰寫，不是原本的 `[[allowlist]]` 寫法照搬。
 
 gitleaks 專注 secret detection；Semgrep Secrets 加 semantic/validation；GitHub secret scanning 可做 provider partner alerts/push protection；zizmor 找 workflow 如何洩漏 token。最佳防線仍是 short-lived credentials、OIDC workload identity 與最小權限，讓漏出的值快速失效。
+
+## 更新紀錄
+
+- 2026-11-23：補上 Gitleaks 的具名後繼專案 Betterleaks 與遷移時要注意的設定差異。
 
 ## 參考資料
 
 - [Gitleaks repository and documentation](https://github.com/gitleaks/gitleaks)
+- [Betterleaks repository](https://github.com/betterleaks/betterleaks)
 - [Gitleaks configuration](https://github.com/gitleaks/gitleaks#configuration)
 - [Creating a baseline](https://github.com/gitleaks/gitleaks#creating-a-baseline)
 - [GitHub secret scanning concepts](https://docs.github.com/en/code-security/secret-scanning/introduction/about-secret-scanning)

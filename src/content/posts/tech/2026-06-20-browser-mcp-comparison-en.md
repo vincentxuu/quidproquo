@@ -10,11 +10,11 @@ tldr: "It's really a two-way choice now: @playwright/mcp (cross-browser, accessi
 description: "A comparison of three browser MCP approaches: Chrome's official chrome-devtools-mcp, Microsoft's @playwright/mcp, and the archived @modelcontextprotocol/server-puppeteer — covering maintenance status, page-state delivery, browser support, and when to use each."
 draft: false
 series:
-  name: "Browser Automation and MCP"
-  order: 4
+  name: "AI Browser Automation"
+  order: 5
 ---
 
-> 🌏 [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)
+> :globe: [中文版](/posts/tech/2026-06-20-browser-mcp-comparison)
 
 The three routes usually compared for giving an AI agent a browser are [Chrome DevTools MCP](/posts/tech/2026-06-20-chrome-devtools-mcp-en), Microsoft's [@playwright/mcp](https://github.com/microsoft/playwright-mcp), and the MCP repo's [@modelcontextprotocol/server-puppeteer](/posts/tech/2026-06-20-puppeteer-mcp-en).
 
@@ -41,17 +41,17 @@ What actually separates them now is **purpose**:
 | Maintenance | Chrome team, active | Microsoft, active | **Archived (nothing since 2025.5.12)** |
 | Primary purpose | Diagnosis, debugging, performance | General web automation, E2E testing | — |
 | Built on | Puppeteer | Playwright | Puppeteer |
-| Auto-wait | ✅ | ✅ | ❌ |
+| Auto-wait | ✓ | ✓ | ✗ |
 | Page state delivery | Snapshot (`take_snapshot`) or screenshot | Accessibility tree (default) or screenshot | Screenshot (base64) |
 | Browser support | Chrome / Chrome for Testing | Chromium / Firefox / WebKit | Chromium only |
-| Attach to running browser | ✅ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✅ `--cdp-endpoint` / `--extension` | Limited |
-| Performance trace / Lighthouse | ✅ | ❌ | ❌ |
-| Heap snapshots | ✅ (`--memoryDebugging`) | ❌ | ❌ |
-| Extension / PWA management | ✅ | ❌ | ❌ |
-| Request interception | ❌ read-only inspection + throttling / URL blocking | ✅ (`--caps=network`, `browser_route`) | Roll your own via evaluate |
-| Assertions / locator generation | ❌ | ✅ (`--caps=testing`) | ❌ |
+| Attach to running browser | ✓ `--browser-url` / `--ws-endpoint` / `--auto-connect` | ✓ `--cdp-endpoint` / `--extension` | Limited |
+| Performance trace / Lighthouse | ✓ | ✗ | ✗ |
+| Heap snapshots | ✓ (`--memoryDebugging`) | ✗ | ✗ |
+| Extension / PWA management | ✓ | ✗ | ✗ |
+| Request interception | ✗ read-only inspection + throttling / URL blocking | ✓ (`--caps=network`, `browser_route`) | Roll your own via evaluate |
+| Assertions / locator generation | ✗ | ✓ (`--caps=testing`) | ✗ |
 | Context-size control | `--slim` | Per-group `--caps` | Only 7 tools to begin with |
-| Usage statistics by default | ✅ (disable with `--no-usage-statistics`) | ❌ | ❌ |
+| Usage statistics by default | ✓ (disable with `--no-usage-statistics`) | ✗ | ✗ |
 
 ## Untangling the Word "CDP"
 
@@ -99,9 +99,12 @@ A minimal tool set (navigate, screenshot, click, fill, select, hover, evaluate),
 
 This question went from "pick one of three abstraction levels" to "pick one of two purposes". @playwright/mcp makes the agent get page operations right; chrome-devtools-mcp lets the agent explain why a page is slow or leaking. And server-puppeteer demonstrates a third thing: **MCP servers have shorter lifespans than you'd assume** — putting "is anyone still maintaining this" on the evaluation sheet is more useful than counting tools.
 
+If you use a coding agent with a shell, like Claude Code or Codex, there's a third route: skip MCP and use a CLI plus a skill. Playwright MCP's own README recommends it. What that route saves and which security settings to turn on are in the next post, [agent-browser and the CLI + skill route](/posts/ai/2026-11-19-agent-browser-cli-en).
+
 ## Changelog
 
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Browser Automation and MCP" series.
+- 2026-11-19: Added a link to the CLI + skill route at the end.
 
 ## References
 

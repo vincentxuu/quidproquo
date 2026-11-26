@@ -10,7 +10,7 @@ description: "ClickHouse 是開源的欄導向分析資料庫，設計給大量�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-clickhouse-analytics-database-en)
+:globe: [English version](/posts/tech/2026-03-27-clickhouse-analytics-database-en)
 
 PostgreSQL 拿來做 CRUD 無可挑剔。但如果你需要「統計過去 30 天所有使用者的學習行為事件、按類型彙整、算出各功能的使用率」，一個有幾百萬行的 events table 跑起來就開始痛了。
 

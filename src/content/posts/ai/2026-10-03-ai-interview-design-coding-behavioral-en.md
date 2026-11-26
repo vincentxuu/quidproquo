@@ -37,7 +37,7 @@ glossary:
     context: "Used here to handle document deletion in the knowledge base."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral)
 
 By the final round of an AI Engineer interview, nobody is testing whether you recognize a buzzword. They want three things: can you talk a system through on a whiteboard, can you write code that actually runs, and can you back it up with a real story. This post closes the "AI Engineer Interview Prep" series and gives each of those three a skeleton you can use as is.
 
@@ -318,7 +318,7 @@ flowchart LR
 
 ### Monitoring and failure handling
 
-If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Week 6 reading on the data flywheel](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en).
+If a guardrail metric crosses its line, roll back automatically. A data flywheel can go wrong in three places: feedback is selectively biased (only unhappy users press thumbs-down), user data raises privacy and consent issues, and treating the model's own output as ground truth creates an echo effect. So the labeling queue needs human review and de-identification. For the wider picture of flywheels, see the site's [Stanford CS329Z Lecture 11 reading on the data flywheel](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en).
 
 ### Wrap-up
 

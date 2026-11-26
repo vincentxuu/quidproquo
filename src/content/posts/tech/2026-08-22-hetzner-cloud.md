@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-hetzner-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-hetzner-cloud-en)
 
 [Hetzner Cloud](https://docs.hetzner.com/cloud/) 是精簡 IaaS：Cloud Server、private Network、Volume、Load Balancer、Firewall、Primary IP、snapshot/backup 與 API/Terraform。它很適合熟悉 Linux、想用透明 building blocks 控制成本的團隊，但不會替你營運 application platform。
 

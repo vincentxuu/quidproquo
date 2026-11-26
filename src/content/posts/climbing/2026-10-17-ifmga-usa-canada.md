@@ -26,7 +26,7 @@ glossary:
         url: "https://www.canada.ca/en/immigration-refugees-citizenship/services/work-canada/iec/eligibility.html"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-usa-canada-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-usa-canada-en)
 
 美國和加拿大放在同一篇，是因為兩國的制度長得很像，而且都和阿爾卑斯不一樣。在法國、瑞士、義大利，沒證照收費帶客違法，執照由國家或地方政府發（見 [法國、瑞士](/posts/climbing/2026-10-17-ifmga-france-switzerland) 與 [奧地利、德國、義大利](/posts/climbing/2026-10-17-ifmga-austria-germany-italy)）。美國的 [AMGA](https://www.amga.com/programs/mountain-guide-programs) 和加拿大的 [ACMG](https://acmg.ca/the-acmg-training-and-assessment-program-tap/) 是協會，證書由協會發。
 

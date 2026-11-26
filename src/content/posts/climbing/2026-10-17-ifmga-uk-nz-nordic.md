@@ -18,7 +18,7 @@ glossary:
     context: "本文四個協會都有這個階段，名稱略有不同（紐西蘭叫 Assistant Guide，挪威叫 tindeveglederaspirant）。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-uk-nz-nordic-en)
 
 這四國放在同一篇，是因為它們有兩個共同點。
 

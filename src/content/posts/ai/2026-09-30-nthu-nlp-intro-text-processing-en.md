@@ -25,7 +25,7 @@ glossary:
     context: "Used to fix the case where a query and a relevant document use different words, so their cosine similarity is low."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-intro-text-processing)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

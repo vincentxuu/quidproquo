@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-vitest-testing-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-vitest-testing-framework)
 
 [Vitest](https://vitest.dev/guide/) is a JavaScript and TypeScript test framework built on Vite. It offers familiar `describe`, `test`, `expect`, and mocking APIs, but resembling Jest is not the core value. Tests read `vite.config.*` by default and reuse aliases, transforms, and framework plugins. The test runner interprets source code much like the application does, removing a parallel configuration surface.
 
@@ -21,7 +21,7 @@ draft: false
 
 Frontend tests often waste time because a runner does not understand the application's module aliases, CSS modules, JSX transforms, or virtual modules. Teams recreate the bundler world in Jest configuration, then let the two configurations diverge during upgrades.
 
-Vitest brings Vite's module graph and transform pipeline into testing. Watch mode reruns tests affected by a change, while projects can separate Node, simulated DOM, and Browser Mode suites. This matters for coding agents: fast and deterministic red/green feedback often constrains a change more effectively than another paragraph of instructions.
+Vitest brings Vite's module graph and transform pipeline into testing. Watch mode reruns tests affected by a change, while `test.projects` (formerly called workspace, now replaced by projects) can separate Node, simulated DOM, and Browser Mode suites. Since Vitest 5, inline projects inherit the root config by default (`extends: true`), including `plugins` and `resolve.alias`; array options such as `setupFiles` are merged rather than overridden, so a project that must stay isolated needs an explicit `extends: false`. This matters for coding agents: fast and deterministic red/green feedback often constrains a change more effectively than another paragraph of instructions.
 
 ```ts
 import { describe, expect, test } from "vitest";
@@ -34,17 +34,21 @@ describe("total", () => {
 });
 ```
 
-CI should use `vitest run` rather than interactive watch mode. Coverage supports V8 and Istanbul providers. Choose based on instrumentation compatibility and reporting needs, and do not treat a coverage percentage as evidence of behavioral correctness.
+CI should use `vitest run` rather than interactive watch mode. Vitest 5 requires Node.js 22.12+ and Vite 6.4+, and `vite` is now a peer dependency, so Yarn users must add `vite` to `devDependencies` themselves. Coverage supports V8 and Istanbul providers. Choose based on instrumentation compatibility and reporting needs, and do not treat a coverage percentage as evidence of behavioral correctness.
 
 ## Mocking is convenient—and an easy way to test a fake system
 
 Vitest supports function, timer, module, and global mocks. Its Jest-like API makes migration approachable, but ESM module mocks are hoisted and factory timing differs from ordinary function calls. A test that mocks the database, network, clock, router, and framework runtime may prove only that its mocks agree.
+
+Vitest 5 changed the `clearMocks` default to `true`: before every test, the call history of every mock is cleared (implementations are kept). Tests that record calls in a setup file, at module top level, or in `beforeAll` and then assert on them inside a test will fail after upgrading; set `clearMocks` back to `false` to keep the old behavior.
 
 A more reliable split keeps pure logic in Node tests, browser-dependent interactions in Browser Mode or a minimal DOM simulation, and cross-page flows in Playwright. Mock only genuinely uncontrollable boundaries and preserve at least one integration path without the mock.
 
 ## Browser Mode is component testing, not an E2E replacement
 
 [Vitest Browser Mode](https://vitest.dev/guide/browser/) runs tests in real browsers through a Playwright or WebdriverIO provider. It catches false positives caused by incomplete jsdom or happy-dom simulations, including differences in focus, native events, and browser APIs. Tests still use the Vitest runner, mocking, and coverage, making the mode a good fit for components and browser-dependent modules.
+
+Vitest 5 also added a Trace View for Browser Mode: with `browser.traceView` enabled, every interaction and assertion is stored as a DOM snapshot, so a failure can be replayed step by step, including failures in CI.
 
 The documentation explicitly says Browser Mode is not a drop-in replacement for a standalone E2E runner. Browser startup costs more, and the unit under test is still usually a component or module. Authentication, navigation, backend integration, multiple tabs, and production deployments belong in Playwright, Cypress, or WebdriverIO end-to-end tests.
 
@@ -60,8 +64,15 @@ Vitest helps agents in two ways. Its adoption and Jest-compatible vocabulary mak
 
 Do not choose Vitest merely because an agent can write it. Check whether the repository exposes a stable command, test names describe behavior, failures locate the defect, and Browser Mode/E2E boundaries are explicit. The framework supplies a loop; the test contract determines whether that loop converges.
 
+## Update history
+
+- 2026-11-23: Vitest 5 (September 2026) is out; added the `clearMocks` default change to `true`, inline projects defaulting to `extends: true`, and the Browser Mode Trace View; workspace is now called `projects`; upgrading requires Node.js 22.12+ and Vite 6.4+, and `vite` is now a peer dependency.
+
 ## References
 
 - [Vitest getting started](https://vitest.dev/guide/)
+- [Vitest 5 announcement](https://vitest.dev/blog/vitest-5)
+- [Migrating to Vitest 5](https://vitest.dev/guide/migration)
+- [Test Projects](https://vitest.dev/guide/projects)
 - [Vitest 4 announcement](https://vitest.dev/blog/vitest-4)
 - [Why Browser Mode](https://vitest.dev/guide/browser/why)

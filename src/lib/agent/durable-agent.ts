@@ -23,6 +23,8 @@ export type LoopMessage = {
   toolCallId?: string
   toolName?: string
   toolCalls?: Array<{ id: string; name: string; input: unknown }>
+  /** Provider fields that must be sent back unchanged on the next turn (e.g. Gemini thought signatures). */
+  providerMetadata?: Record<string, unknown>
 }
 
 export type LoopState = {
@@ -54,6 +56,7 @@ export type LoopDeps = {
     content: string
     toolCalls?: Array<{ id: string; name: string; input: unknown }>
     stopReason: string
+    providerMetadata?: Record<string, unknown>
   }>
   syscall: (name: string, input: unknown) => Promise<unknown>
   persistMessage: (msg: LoopMessage) => Promise<void>
@@ -142,8 +145,10 @@ async function executeTool(
     const inp = input as Record<string, unknown>
     switch (toolName) {
       case 'Bash':
+        // The model sends a shell command line; run it through bash so arguments,
+        // pipes and redirects work. An argv array is executed as given.
         return deps.runner.exec(
-          Array.isArray(inp.command) ? inp.command : [String(inp.command ?? '')],
+          Array.isArray(inp.command) ? inp.command.map(String) : ['bash', '-c', String(inp.command ?? '')],
         )
       case 'Read':
         return deps.runner.readFile(String(inp.file_path ?? inp.path ?? ''))
@@ -216,6 +221,7 @@ export async function runLoop(
       role: 'assistant',
       content: res.content,
       ...(res.toolCalls?.length ? { toolCalls: res.toolCalls } : {}),
+      ...(res.providerMetadata ? { providerMetadata: res.providerMetadata } : {}),
     }
     state.messages.push(assistantMsg)
     await deps.persistMessage(assistantMsg)

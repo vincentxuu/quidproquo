@@ -27,7 +27,7 @@ glossary:
     context: "先鋒攀登時，攀爬者邊爬邊把繩子扣進沿途的快扣。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-08-climbing-beginner-guide-en)
+> :globe: [English version](/posts/climbing/2026-10-08-climbing-beginner-guide-en)
 
 第一次走進岩館的人，通常卡在同一個地方：牆上五顏六色的岩點、有人綁繩有人沒綁、標籤上寫著 V2 或 5.9，不知道自己該排哪一面牆。這篇把攀岩拆成幾個你馬上會遇到的選擇：有哪幾種爬法、難度怎麼看、第一次要花多少錢、會不會受傷。
 

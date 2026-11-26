@@ -13,7 +13,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-dynamic-workflows)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-dynamic-workflows)
 
 If you have used [sub-agents for parallel execution](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en), you have probably hit the same wall: asking Claude to spin up five subagents to scan five directories works fine, but running the same sweep every week — or rerunning it with different parameters — means directing the whole thing from scratch again. Claude decides turn by turn how many agents to spawn, results land in its context window, and nothing about the orchestration survives.
 

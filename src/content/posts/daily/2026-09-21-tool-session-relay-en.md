@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-21-tool-session-relay)
+> :globe: [中文版](/posts/daily/2026-09-21-tool-session-relay)
 
 ## Tool Info
 
@@ -90,10 +90,10 @@ Once connected, start a new conversation and ask the AI "why did we decide to us
 | | SessionRelay | claude-mem | Mem0 |
 |---|---|---|---|
 | Storage granularity | Full sessions, original text is retrievable | AI-compressed observation fragments | Vectorized fact/preference fragments |
-| Local-first, no cloud dependency | ✅ | Depends on the configured storage backend | Defaults to a cloud API; self-hosting needs a separate embedder and vector store |
-| Works across agent tools | ✅ five source adapters (Claude Code / Codex / Qoder / ZCode / Trae partial), plus a custom adapter SDK | Built primarily for Claude Code, with support claimed for tools like Codex and Gemini | Requires wiring `memory.add()` / `memory.search()` into each agent yourself |
-| Chinese full-text search | ✅ jieba tokenizer + SQLite FTS5, with optional local semantic search | Depends on summarization quality; no Chinese-specific tokenizer | Depends on the embedding model; no Chinese-specific tokenizer |
-| Team handoff export bundle | ✅ `.hop` protocol, SHA-256 verification + secret redaction by default | No equivalent mechanism | No equivalent mechanism |
+| Local-first, no cloud dependency | ✓ | Depends on the configured storage backend | Defaults to a cloud API; self-hosting needs a separate embedder and vector store |
+| Works across agent tools | ✓ five source adapters (Claude Code / Codex / Qoder / ZCode / Trae partial), plus a custom adapter SDK | Built primarily for Claude Code, with support claimed for tools like Codex and Gemini | Requires wiring `memory.add()` / `memory.search()` into each agent yourself |
+| Chinese full-text search | ✓ jieba tokenizer + SQLite FTS5, with optional local semantic search | Depends on summarization quality; no Chinese-specific tokenizer | Depends on the embedding model; no Chinese-specific tokenizer |
+| Team handoff export bundle | ✓ `.hop` protocol, SHA-256 verification + secret redaction by default | No equivalent mechanism | No equivalent mechanism |
 | Delete permission | Only the human user can run `forget`; MCP tools have no delete capability | No documented permission separation | Controlled by whatever the calling application implements |
 
 ## Caveats

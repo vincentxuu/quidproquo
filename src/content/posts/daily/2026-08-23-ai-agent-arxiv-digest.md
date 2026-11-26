@@ -12,7 +12,7 @@ series:
   order: 91
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-23-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -59,7 +59,7 @@ Fengqing Jiang, Yite Wang, Boyi Liu et al.(University of Washington, Snowflake)�
 ### 深入要點
 
 - MidTool-Mix:20.3B token 中期訓練語料,混合 web、PDF、程式碼與合成 agentic 軌跡
-- 在 Qwen3-4B-Base / Qwen3-8B-Base 上,經 MidTool 中期訓練 + SFT/RL 後訓練,在 BFCL、τ²-Bench、MCP Universe 上一致優於未做中期訓練的基線 ⚠️(作者自測,同源比較,需等外部複現)
+- 在 Qwen3-4B-Base / Qwen3-8B-Base 上,經 MidTool 中期訓練 + SFT/RL 後訓練,在 BFCL、τ²-Bench、MCP Universe 上一致優於未做中期訓練的基線 :warning:(作者自測,同源比較,需等外部複現)
 - 在 MCP-Universe 上,MidTool 中期訓練後的 4B/8B 模型超越 Qwen3 官方發布模型
 - 資料與模型已釋出(Hugging Face collection: MidTool/midtool-release)
 - 落地門檻:20.3B token 規模的語料建構與中期訓練需要相當算力,小團隊較難直接複製整條 pipeline,但可參考其「web+PDF+code+合成」的資料組成思路自建較小規模版本
@@ -103,7 +103,7 @@ Agent 把做過的任務歸納成「技能」存起來重用,聽起來理所當�
 
 ### 深入要點
 
-- 任務層級技能平均把 agent 表現拉到無記憶基線之下;子任務層級技能平均讓表現高於基線 ⚠️(作者自測,平均值,個別任務有波動)
+- 任務層級技能平均把 agent 表現拉到無記憶基線之下;子任務層級技能平均讓表現高於基線 :warning:(作者自測,平均值,個別任務有波動)
 - 文字型技能格式的遷移效果系統性優於程式碼型技能格式
 - 技能效用分數 = 特異性與抽象度的組合效果,單獨看任一項都無法預測遷移成敗
 - 子任務層級 + 文字格式的技能,在效用分數上系統性得分較高
@@ -149,7 +149,7 @@ Yu Chen, Ruishuo Chen, Xun Wang, Zhuoran Li, Longbo Huang(Tsinghua University, I
 
 ### 深入要點
 
-- 在受污染控制(contamination-controlled)的 BigCodeBench 變體上,BPS 拿下 0.73 任務成功率,對比已發布的技能路由器、文字檢索器、執行器自帶選擇機制的 0.20–0.52 ⚠️(作者自測,單一基準,需等外部複現與更多基準驗證)
+- 在受污染控制(contamination-controlled)的 BigCodeBench 變體上,BPS 拿下 0.73 任務成功率,對比已發布的技能路由器、文字檢索器、執行器自帶選擇機制的 0.20–0.52 :warning:(作者自測,單一基準,需等外部複現與更多基準驗證)
 - BPS 達到上述成績只用了最強對手路由器約 72% 的 token(省 28%)
 - 背景數據:技能庫變大時,選錯技能可讓通過率掉最多 21%;在 87 個基準任務中的 13 個上,選了技能反而讓表現低於完全不選技能的基線(此為作者引用既有研究的數字,非本篇實驗結果)
 - BPS 的核心假設是效益函數具單調次模性質,這個假設是否在所有真實技能庫上成立,論文未逐一驗證

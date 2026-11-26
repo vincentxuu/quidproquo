@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-ghost-ownership-not-just-hosting)
+> :globe: [中文版](/posts/product/2026-09-17-ghost-ownership-not-just-hosting)
 
 Imagine two ways to open a shop. The first is a counter inside a department store. Foot traffic, checkout, and membership systems are ready, but signage, customer journeys, and customer relationships follow the store's rules. The second is your own storefront. You control the address, design, customer book, and merchant account—and you also handle rent, security, and bringing people to the door.
 

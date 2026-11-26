@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 <!-- [skip-harness] -->
-> 🌏 [中文版](/posts/daily/2026-06-02-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-02-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ For agent platform developers, this paper offers a fundamental cost optimization
 
 - Core architecture: "subterranean agent" = workflow logic fine-tuned into weights; inference uses a minimal system prompt with no external state machine or flowchart injection
 - Test cases: travel booking (14 nodes), Zoom customer service (14 nodes, with product-specific knowledge), insurance claims (55 nodes, 6 decision hubs)
-- Key numbers: compiled model costs **128–462×** less per conversation than the in-context baseline ⚠️ (baseline is the in-context prompt version of the same workflow, not a direct comparison against GPT-4o API pricing; actual savings depend on fine-tuning infra cost)
+- Key numbers: compiled model costs **128–462×** less per conversation than the in-context baseline :warning: (baseline is the in-context prompt version of the same workflow, not a direct comparison against GPT-4o API pricing; actual savings depend on fine-tuning infra cost)
 - LoRA fails: ranks 16–128 all fall far short of full fine-tuning, showing that procedural workflow tasks require full parameter learning — common PEFT methods don't apply
 - Cost savings grow with workflow complexity: compiled model prompt size is constant, while in-context version grows linearly with node count — 55-node workflows save even more
 - Limitations: workflows must be fixed (not suitable for highly dynamic tasks); every SOP revision requires re-fine-tuning; complete training data must be constructed
@@ -132,9 +132,9 @@ For agent platform products, this provides a "pluggable eval module" concept: co
 - Dynamic taxonomy: CLEAR doesn't use preset error categories — it induces them from each domain's trace data, improving cross-domain applicability
 - Scale: tested across **4 benchmarks, 7 agentic settings, tens of thousands of LLM calls**, with reasonably broad coverage
 - UI design is a key selling point — emphasizes "usability," targeting non-ML engineers for evaluation workflows
-- Limitation: the automated analysis itself uses an LLM, meaning the eval itself can be wrong (LLM judge bias); the paper doesn't report specific accuracy numbers **⚠️**
+- Limitation: the automated analysis itself uses an LLM, meaning the eval itself can be wrong (LLM judge bias); the paper doesn't report specific accuracy numbers **:warning:**
 - Relation to LangSmith / Phoenix / Arize: positioned as an "automated analysis layer" on top of observability — complements rather than replaces
-- The paper doesn't clearly state whether the code will be open-sourced; deployment requires waiting for IBM to release it or implementing it yourself **⚠️**
+- The paper doesn't clearly state whether the code will be open-sourced; deployment requires waiting for IBM to release it or implementing it yourself **:warning:**
 - Implication for agent platform design: eval shouldn't be just end-to-end pass rates — trace-level and step-level fine-grained metrics are needed
 
 ### Reviewer's One-Liner
@@ -189,7 +189,7 @@ As MCP (Model Context Protocol) enables tool interoperability, agent memory inte
 ### Deep Dive
 
 - The five memory categories have practical design significance: different types require different migration logic (procedural may need re-verification, identity involves privacy protection)
-- Key numbers: in pilot studies with Claude, GPT-4, and Gemini, Transfer Continuity Score reached **0.83–0.92**, versus **0.28–0.45** for the no-memory baseline ⚠️ (pilot study scale and task design are not detailed; number credibility pending evaluation)
+- Key numbers: in pilot studies with Claude, GPT-4, and Gemini, Transfer Continuity Score reached **0.83–0.92**, versus **0.28–0.45** for the no-memory baseline :warning: (pilot study scale and task design are not detailed; number credibility pending evaluation)
 - Python SDK with 54 passing tests — a rare protocol paper that ships a reference implementation
 - Merkle-DAG borrows blockchain concepts, offering strong guarantees for memory integrity but adding system complexity
 - Memory injection attacks are an emerging threat; this paper's defense design deserves attention from agent security researchers

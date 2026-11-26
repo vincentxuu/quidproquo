@@ -23,7 +23,7 @@ glossary:
     context: "It became a standard framework for subsequent research on LLM factuality."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2023-nlp)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2023-nlp)
 
 2023 was the first full academic year after ChatGPT. Submissions to the top NLP conferences continued to climb, but the deeper change was not the submission count: LLMs had rewritten the field's research agenda. The central question was no longer "How can we gain a few more points on a benchmark?" It had been replaced by three more fundamental ones: Why can models do these things at all, as in the mechanism behind in-context learning? When do models mislead us, as in hallucination and factual verification? And can models be compromised, as in prompt injection and security?
 

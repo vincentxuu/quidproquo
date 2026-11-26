@@ -13,7 +13,7 @@ description: "A guide to the 4/24 Self-Correction lecture of NTU Hung-yi Lee's M
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-correction)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-correction)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -176,11 +176,9 @@ This closing section is the most open, with evidence on both sides:
 - The predecessor of this lecture: 2025 [Lecture 7 on deep thinking (reasoning)](https://youtu.be/bJFtcwLSNxI) (in Chinese). The slides link matching timestamps in the workflow, ReVISE, and RL sections.
 - **Further reading**: for a full treatment of reasoning models and GRPO, see [CME295 Lecture 6](/posts/ai/2026-09-29-cme295-llm-reasoning-en); for the trade-offs of sampling, voting, and test-time scaling, see [BrowseConf and test-time scaling](/posts/ai/2026-09-19-browseconf-test-time-scaling-en); to learn RL from the ground up, see the [Berkeley CS285 guide](/posts/learning/2026-08-22-berkeley-cs285-spring-2026-overview-en).
 
-## What this post could and couldn't verify
+## What this post leaves out
 
-Verified: the text and main figures of all 65 slides (the benchmark scatter plots, RefineBench curves, CL/CS tables, the two verification plots, and the pass@k plot were read directly from slide images), the video's zh-TW captions, and the titles and uploaders of the lecture video and the related 2023/2025 recordings.
-
-Not verified: the captions render TruthX as "True Facts"; this post follows the slides. Lee mentions a paper showing models critique no better than they generate but says he forgot to put it on the slides, and I couldn't identify it, so there's no link. MTI's 62%→72% and the model names used in RefineBench come from Lee's narration; I didn't check the numbers against the original papers.
+The captions render TruthX as "True Facts"; this post follows the slides. Lee mentions a paper showing models critique no better than they generate but says he forgot to put it on the slides, so this post has no link for it. MTI's 62%→72% and the model names used in RefineBench come from Lee's narration; check the original papers before citing those numbers.
 
 Series navigation: Previous [HW5: Finetuning without Forgetting](/posts/ai/2026-09-30-ntu-ml2026-hw5-finetuning-without-forgetting-en) | Next [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en) | [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 
@@ -208,6 +206,7 @@ Content check: verified against the video transcript (2026-10-10): video m3i2mk5
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

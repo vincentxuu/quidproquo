@@ -13,7 +13,7 @@ description: "Build a Web Retrieval Benchmark from a 30-case corpus: ground trut
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-web-retrieval-benchmark)
+> :globe: [中文版](/posts/ai/2026-08-21-web-retrieval-benchmark)
 
 > **Published benchmark specification.** The 30 fixed cases and harness are defined, but this environment lacks the endpoints and credentials required for three live channels. This article reports no success rates, latency, cost, or provider rankings. The first results should be added only after raw runs are archived.
 

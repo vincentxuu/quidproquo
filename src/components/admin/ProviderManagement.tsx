@@ -50,12 +50,12 @@ export interface ProviderMessages {
 
 const DEFAULT_PROVIDERS = [
   'groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare',
-  'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama',
+  'nvidia', 'openrouter', 'ollama_cloud', 'ollama',
 ]
 
 const PROVIDER_SECRET_FIELDS = [
   'GROQ_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
-  'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY', 'CEREBRAS_API_KEY',
+  'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY',
   'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID',
   'OLLAMA_API_KEY', 'OLLAMA_CLOUD_API_KEY', 'OLLAMA_API_BASE', 'OLLAMA_HOST', 'OLLAMA_URL',
   'JINA_API_KEY', 'JINA_SEARCH_API_KEY', 'TAVILY_API_KEY', 'FIRECRAWL_API_KEY',

@@ -10,7 +10,7 @@ description: "Anthropic and Cloudflare published back-to-back posts introducing 
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)
+:globe: [中文版](/posts/ai/2026-05-10-code-mode-mcp-runtime-pattern)
 
 My earlier post [MCP vs CLI vs API: The Real Boundaries of Agent Tool Interfaces](/posts/ai/2026-04-18-mcp-vs-cli-vs-api-agent-tool-interface-en) tackled the "positioning" question: API is the base layer, five wrapper types each suit different scenarios, and MCP's only defensible moat is "cross-host sharing." But that post left a more practical question unanswered — **even when you've picked the right interface, why does a single agent workflow routinely burn through 100K+ tokens?**
 

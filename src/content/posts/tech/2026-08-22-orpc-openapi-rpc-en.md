@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-orpc-openapi-rpc)
+> :globe: [中文版](/posts/tech/2026-08-22-orpc-openapi-rpc)
 
 [oRPC](https://orpc.dev/) addresses a common TypeScript API choice. Internal development wants function-like end-to-end types, while external consumers need conventional HTTP paths, OpenAPI documentation, and language-neutral clients. The same procedures can run through an RPCHandler or an OpenAPIHandler.
 
@@ -63,13 +63,17 @@ Contract-first is cleaner for public APIs and multiple repositories because the 
 
 ## Comparing tRPC and ts-rest
 
-tRPC flows the server router type directly to the client and has the largest mature ecosystem; its official OpenAPI package is currently alpha. ts-rest centers on a conventional REST contract and is a smaller incremental layer over existing frameworks. oRPC brings RPC, OpenAPI, native types, streaming, and multiple runtimes into a more comprehensive framework.
+tRPC flows the server router type directly to the client and has the largest mature ecosystem; its official OpenAPI package is currently alpha. ts-rest centers on a conventional REST contract and is a smaller incremental layer over existing frameworks, but it announced the end of maintenance in October 2026 and no longer receives bug or security fixes. oRPC brings RPC, OpenAPI, native types, streaming, and multiple runtimes into a more comprehensive framework.
 
 That completeness creates more governance surfaces. Teams must decide whether RPC and OpenAPI clients are both supported, which artifact is canonical, how serializers are versioned, and whether renaming a procedure changes its path. A useful test is one route containing a typed error and Date, exercised through RPCLink, curl, and a generated OpenAPI client.
 
 ## When to choose oRPC
 
-oRPC is well positioned when one TypeScript backend serves an internal frontend, external integrations, and AI tools from one procedure definition. tRPC is more mature when a monorepo only needs the shortest internal path. ts-rest is easier to explain when the requirement is a thin REST contract layer. With oRPC, commit and diff the OpenAPI artifact in CI instead of trusting inference alone.
+oRPC is well positioned when one TypeScript backend serves an internal frontend, external integrations, and AI tools from one procedure definition. tRPC is more mature when a monorepo only needs the shortest internal path. Teams that only needed a thin REST contract layer used to pick ts-rest; now that it is unmaintained, oRPC contract-first is the closest replacement. With oRPC, commit and diff the OpenAPI artifact in CI instead of trusting inference alone.
+
+## Update Log
+
+- 2026-11-23: ts-rest stopped being maintained in October 2026; the comparison now says so, and the "thin REST contract layer" recommendation now points to oRPC contract-first.
 
 ## References
 

@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-private-corpus-retrieval-eval-en)
+> :globe: [English version](/posts/ai/2026-08-22-private-corpus-retrieval-eval-en)
 
 這篇原本要用一份實際繁中 corpus，比較 lexical、vector 與 hybrid retrieval。檢查 repo 後，能確認的是：`docs/rag-golden-dataset.json` 有 20 題查詢，`docs/rag-golden-fixture.json` 有 4 題候選答案；目前沒有 benchmark script、逐題排名結果、延遲原始值，或能把結果連回固定 corpus snapshot 的 manifest。
 

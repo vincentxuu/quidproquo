@@ -29,7 +29,7 @@ glossary:
     context: "A1 Part 3 的 run_python 讓棋局搜尋可以一次跑完數百次 simulate_move。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
+> :globe: [English version](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -211,7 +211,7 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 ## 延伸閱讀
 
 - 系列前一篇：[L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)
-- 站內：[Stanford CS329Z Week 4：ReAct 與記憶](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)（ReAct 原論文與 MemGPT 導讀）
+- 站內：[Stanford CS329Z 第 6 堂：ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 7 堂：記憶](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)（ReAct 原論文與 MemGPT 導讀）
 - 站內：[Coding agent 的上下文壓縮](/posts/ai/2026-08-30-coding-agent-context-compaction)
 - 站內：[Coding agent 的 code mode](/posts/ai/2026-08-30-coding-agent-code-mode)（程式化工具呼叫的設計取捨）
 - 站內：[Coding agent 的 hooks、skills 與 plugins](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins)
@@ -224,11 +224,12 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

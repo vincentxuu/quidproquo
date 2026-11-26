@@ -32,7 +32,7 @@ glossary:
     context: "Mina Lee's guest slides cite this distinction from Dang et al. 2023."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-in-context-learning)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-in-context-learning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

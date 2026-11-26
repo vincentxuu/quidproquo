@@ -13,7 +13,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
+> :globe: [English version](/posts/policy/2026-08-09-police-drone-evidence-authority-en)
 
 [隱私那篇](/posts/policy/2026-08-07-drone-privacy-taiwan)的結論是：民用航空法的無人機專章從頭到尾沒有一條隱私條款，被飛過的人只能回頭找刑法。那篇處理的是私人拿無人機拍你。
 

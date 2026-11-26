@@ -9,11 +9,11 @@ description: "A Taiwan-focused guide to Speak’s AI speaking lessons, Premium t
 tldr: "Speak suits learners seeking low-pressure daily practice. Test recognition and feedback, check whether you need Plus allowances, and add human follow-up questions."
 series:
   name: "English Speaking Practice"
-  order: 9
+  order: 27
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-speak-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-speak-speaking-practice)
 
 You can write an explanation in English, but freeze when your turn arrives in a meeting. A private lesson feels intimidating too; you would prefer to rehearse without an audience first. [Speak](https://www.speak.com/tw/) offers phone-based AI speaking practice: learn an expression, answer aloud, then try a simulated situation.
 

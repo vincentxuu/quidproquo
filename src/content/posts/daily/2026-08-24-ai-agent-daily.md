@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-24-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-24-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -99,13 +99,13 @@ Xinference 因解析 Llama3 工具呼叫時直接對模型輸出呼叫 `eval()`�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-github-digest)
-- 📄 [模型卡｜Muse Spark 1.2](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
-- 📄 [資安警報｜Xinference 用 eval() 解析 LLM 工具呼叫](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
-- 📄 [工具推薦｜localmem-mcp](/posts/daily/2026-08-24-tool-localmem-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-08-24：ML Fundamentals](/posts/daily/2026-08-24-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-24：Product Sense](/posts/daily/2026-08-24-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-24](/posts/daily/2026-08-24-ai-agent-github-digest)
+- :file: [模型卡｜Muse Spark 1.2](/posts/daily/2026-08-24-model-meta-muse-spark-1-2)
+- :file: [資安警報｜Xinference 用 eval() 解析 LLM 工具呼叫](/posts/daily/2026-08-24-security-xinference-eval-injection-rce)
+- :file: [工具推薦｜localmem-mcp](/posts/daily/2026-08-24-tool-localmem-mcp)
+- :file: [AI Engineer 面試日練 — 2026-08-24：ML Fundamentals](/posts/daily/2026-08-24-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-24：Product Sense](/posts/daily/2026-08-24-product-builder-interview-daily)
 
 ## 明日關注
 

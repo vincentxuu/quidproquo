@@ -13,7 +13,7 @@ description: "介紹愛知縣豊田市的豊田の岩場：花崗岩抱石的規
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-toyota-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-toyota-en)
 
 豊田（とよだ，Toyota）不是單一岩場，而是愛知縣豊田市東側丘陵裡十幾處岩區的總稱。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E8%B1%8A%E7%94%B0/) 的說法是：「豊田市中心部より5、6キロほど東の丘陵地帯に点在する10数箇所の岩場を総称して『豊田の岩場』として語られることが通例である」。岩質是花崗岩，以抱石為主，大石頭上也有 bolt 與裂隙路線。核心在王滝渓谷（おうたきけいこく）上游的古美山（こみやま）一帶。
 

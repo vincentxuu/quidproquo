@@ -18,7 +18,7 @@ glossary:
     definition: "An MCP server connected via claude.ai, either Anthropic-hosted or self-hosted."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-31-claude-code-routine-connector-auth)
+> :globe: [中文版](/posts/ai/2026-08-31-claude-code-routine-connector-auth)
 
 ## TL;DR
 

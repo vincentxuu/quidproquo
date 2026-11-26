@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-18-tool-phinq-en)
+> :globe: [English version](/posts/daily/2026-08-18-tool-phinq-en)
 
 ## 工具資訊
 
@@ -101,11 +101,11 @@ if (allowed) await runTool();
 
 | | Phinq | 純靠 Prompt 交代規則 | 手動 code review |
 |---|---|---|---|
-| 執行期強制攔截（Agent 看不到被拒的呼叫） | ✅ | ❌（Agent 可能忽略指示） | ❌（事後才看得到） |
-| 防竄改稽核紀錄（雜湊鏈） | ✅ | ❌ | 需自建 |
-| 免人力即時盯著 | ✅（Telegram/Slack 通知） | ❌ | ❌ |
-| 支援任何 MCP server 直接包一層 | ✅（`phinq-mcp` gateway） | — | — |
-| 免費、開源 | ✅ MIT | — | — |
+| 執行期強制攔截（Agent 看不到被拒的呼叫） | ✓ | ✗（Agent 可能忽略指示） | ✗（事後才看得到） |
+| 防竄改稽核紀錄（雜湊鏈） | ✓ | ✗ | 需自建 |
+| 免人力即時盯著 | ✓（Telegram/Slack 通知） | ✗ | ✗ |
+| 支援任何 MCP server 直接包一層 | ✓（`phinq-mcp` gateway） | — | — |
+| 免費、開源 | ✓ MIT | — | — |
 
 ## 注意事項
 

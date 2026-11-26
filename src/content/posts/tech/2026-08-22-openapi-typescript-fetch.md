@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-openapi-typescript-fetch-en)
+> :globe: [English version](/posts/tech/2026-08-22-openapi-typescript-fetch-en)
 
 [openapi-typescript](https://openapi-ts.dev/introduction) 把 OpenAPI 3.0／3.1 的 paths、components、request 與 response 轉成 `.d.ts`。產物只有型別，沒有 runtime class、HTTP client 或額外 dependency。需要真正發 request 時，再搭配同專案的 [openapi-fetch](https://openapi-ts.dev/openapi-fetch/)。
 
@@ -51,11 +51,15 @@ const { data, error, response } = await client.GET('/users/{id}', {
 
 ## 跟完整 SDK generator 的差別
 
-openapi-typescript 保留 HTTP path 與 Fetch 心智模型，產物小、透明、可在 browser 與 Node 使用。Stainless、Speakeasy 會進一步產生 resource-oriented methods、pagination、retry、publishing、README 與多語言 package，適合把 SDK 當產品。
+openapi-typescript 保留 HTTP path 與 Fetch 心智模型，產物小、透明、可在 browser 與 Node 使用。Speakeasy、Fern 這類 SDK generator 會進一步產生 resource-oriented methods、pagination、retry、publishing、README 與多語言 package，適合把 SDK 當產品。Stainless 原本也在這一類，但 2026-05 併入 Anthropic 後已結束對外的 SDK generator 服務。
 
 前者不替你設計 developer experience，後者則增加 generator config、vendor workflow 與 generated repository 的治理成本。只有自家 TypeScript app 時，薄 client 往往夠；要公開 Python、Go、Java SDK 時，不能拿 `.d.ts` 假裝已解跨語言。
 
 AI agent 能直接沿 `paths` 找正確 input/output，但仍應限制它只修改 spec source 與 application code，不直接 patch generated output。最小守門動作是故意刪掉一個 required field，確認 typecheck 與 generated diff 都會紅。
+
+## 更新紀錄
+
+- 2026-11-23：Stainless 在 2026-05 結束對外的 SDK generator 服務，完整 SDK generator 的對照改為 Speakeasy、Fern。
 
 ## 參考資料
 

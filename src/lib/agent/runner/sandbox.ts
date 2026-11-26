@@ -8,6 +8,12 @@ import type {
   NetworkMode,
 } from './types'
 import type { SessionRecord } from '../session-manager'
+import { getSandbox } from '@cloudflare/sandbox'
+
+// A sleeping container loses /workspace, so the idle limit must outlast the longest
+// gap between commands in a run (one model call can take minutes with retries).
+// Runs destroy the container when they finish, so this only bounds abandoned runs.
+const SANDBOX_SLEEP_AFTER = '20m'
 
 export class SandboxProvider implements SandboxRunnerProvider {
   id = 'sandbox'
@@ -23,13 +29,11 @@ export class SandboxProvider implements SandboxRunnerProvider {
 
   async provision(session: SessionRecord, env?: EnvironmentConfig, branch?: string): Promise<RunnerHandle> {
     const networkMode: NetworkMode = env?.networkMode ?? 'trusted'
-    const ns = this.sandboxNamespace as {
-      idFromName: (name: string) => unknown
-      get: (id: unknown) => SandboxStub
-    }
-
-    const id = ns.idFromName(session.id)
-    const stub = ns.get(id)
+    const stub = getSandbox(
+      this.sandboxNamespace as Parameters<typeof getSandbox>[0],
+      session.id,
+      { sleepAfter: SANDBOX_SLEEP_AFTER },
+    ) as unknown as SandboxStub
 
     const handle = new SandboxHandle(session.id, stub, networkMode)
     this.handles.set(session.id, handle)
@@ -69,10 +73,17 @@ export class SandboxProvider implements SandboxRunnerProvider {
   }
 }
 
+/** The subset of the @cloudflare/sandbox Sandbox API this runner uses. */
 interface SandboxStub {
-  exec(argv: string[]): Promise<{ exitCode: number; stdout: string; stderr: string }>
-  readFile(path: string): Promise<string>
-  writeFile(path: string, contents: string): Promise<void>
+  exec(command: string): Promise<{ exitCode: number; stdout: string; stderr: string }>
+  readFile(path: string): Promise<{ content: string }>
+  writeFile(path: string, content: string): Promise<unknown>
+  destroy(): Promise<void>
+}
+
+/** The SDK runs a shell command string; quote each argv element for POSIX sh. */
+function toShellCommand(argv: string[]): string {
+  return argv.map((arg) => (/^[\w@%+=:,./-]+$/.test(arg) ? arg : `'${arg.replace(/'/g, `'\\''`)}'`)).join(' ')
 }
 
 class SandboxHandle implements RunnerHandle {
@@ -91,12 +102,12 @@ class SandboxHandle implements RunnerHandle {
   }
 
   async exec(command: string[]): Promise<ExecResult> {
-    const result = await this.stub.exec(command)
+    const result = await this.stub.exec(toShellCommand(command))
     return { stdout: result.stdout, stderr: result.stderr, exitCode: result.exitCode }
   }
 
   async readFile(path: string): Promise<string> {
-    return this.stub.readFile(path)
+    return (await this.stub.readFile(path)).content
   }
 
   async writeFile(path: string, content: string): Promise<void> {
@@ -104,8 +115,9 @@ class SandboxHandle implements RunnerHandle {
   }
 
   async glob(pattern: string): Promise<string[]> {
-    const result = await this.exec(['sh', '-c', `find /workspace -path '${pattern}' -type f 2>/dev/null`])
-    if (result.exitCode !== 0) return []
+    // find -path matches the whole path, so anchor relative patterns at the workspace root.
+    const absolute = pattern.startsWith('/') ? pattern : `/workspace/${pattern.replace(/^\.\//, '')}`
+    const result = await this.exec(['find', '/workspace', '-path', absolute, '-type', 'f'])
     return result.stdout.trim().split('\n').filter(Boolean)
   }
 
@@ -118,7 +130,29 @@ class SandboxHandle implements RunnerHandle {
     })
   }
 
+  /** Commits and pushes any workspace changes, then destroys the container; throws when saving fails. */
   async stop(): Promise<void> {
-    await this.exec(['sh', '-c', 'cd /workspace && git add -A && git diff --cached --quiet || git commit -m "auto-save" && git push 2>/dev/null || true'])
+    try {
+      await this.save()
+    } finally {
+      await this.stub.destroy().catch(() => {})
+    }
   }
+
+  private async save(): Promise<void> {
+    const status = await this.exec(['git', '-C', '/workspace', 'status', '--porcelain'])
+    if (status.exitCode !== 0) throw new Error(`workspace status failed: ${redact(status.stderr)}`)
+    if (!status.stdout.trim()) return
+
+    const commit = await this.exec(['sh', '-c', 'cd /workspace && git add -A && git commit -m "auto-save"'])
+    if (commit.exitCode !== 0) throw new Error(`auto-save commit failed: ${redact(commit.stderr || commit.stdout)}`)
+
+    const push = await this.exec(['git', '-C', '/workspace', 'push', 'origin', 'HEAD'])
+    if (push.exitCode !== 0) throw new Error(`auto-save push failed: ${redact(push.stderr || push.stdout)}`)
+  }
+}
+
+/** Strips credentials embedded in clone URLs from git output. */
+function redact(text: string): string {
+  return text.replace(/\/\/[^/@\s]+@/g, '//***@').trim().slice(0, 500)
 }

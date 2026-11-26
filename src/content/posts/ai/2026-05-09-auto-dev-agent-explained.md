@@ -100,7 +100,7 @@ daodao 有 8 個 repo，其中 2 個叫 `daodao-storage`（資料庫遷移腳本
 - 全暫停：在專案根放一個 `.automation-paused` 檔，所有 routine 立刻停
 - 單個 repo 暫停：放 `.automation-paused-<repo>` 只暫停那個 repo
 - 單張 issue 暫停：在 issue 上加 `automation:hold` label
-- 永久接管：在 issue 上加 `human-driving` label，系統自動退場、清掉自己加的 label、留 audit comment「🤝 已交接給人類」
+- 永久接管：在 issue 上加 `human-driving` label，系統自動退場、清掉自己加的 label、留 audit comment「 已交接給人類」
 
 PM、工程師、任何有 GitHub 寫權限的人都可以叫停。不需要工程師才能踩煞車。
 

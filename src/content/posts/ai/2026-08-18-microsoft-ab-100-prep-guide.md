@@ -13,7 +13,7 @@ description: "微軟 AB-100（Agentic AI Business Solutions Architect）備考�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-100)，不含考古題。查證日期：2026-10-08。現行 study guide 是「Skills measured as of **October 14, 2026**」那一版，變更紀錄標三條小改，三塊權重與 7 月版相同。
 

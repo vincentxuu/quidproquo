@@ -32,7 +32,7 @@ glossary:
         url: "https://omnigent.ai/docs/policies/os-sandbox"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-omnigent-meta-harness-en)
+> :globe: [English version](/posts/ai/2026-08-26-omnigent-meta-harness-en)
 
 同時開 4、5 個 agent 是常態：[Claude Code](https://code.claude.com/) 改程式、[Codex](https://developers.openai.com/codex) 跑測試、[Cursor](https://cursor.com/) 在編輯器裡補完，還有一個自己寫的資料分析 agent。痛點不在模型夠不夠聰明，而是每個 harness 都是孤島——自己的 session、自己的權限、自己的歷史，換一個工具就要重講上下文、重設護欄、再複製貼上一次。
 
@@ -113,9 +113,9 @@ tools:
 
 ### 官方三個範例，最適合抄的是第三個
 
-- **🐙 Polly**：多 agent coding orchestrator，自己不寫程式，只做規劃、把工作分給 Claude Code/Codex/Pi 的 sub-agent（平行 git worktree），再把 diff 路由給不同 vendor 的 reviewer，最後由你 merge。
-- **🟠🔵 Debby**：雙頭辯論，同一個問題同時送 Claude 與 GPT，並排呈現，`/debate` 讓兩邊互評幾輪再收斂。
-- **🔎 Deep Research**：單 agent + 一個 MCP 搜尋 server，規劃子查詢、抓全文、跨來源驗證後產生帶引用的報告。**結構最簡單，適合當模板抄。**
+- **Polly**：多 agent coding orchestrator，自己不寫程式，只做規劃、把工作分給 Claude Code/Codex/Pi 的 sub-agent（平行 git worktree），再把 diff 路由給不同 vendor 的 reviewer，最後由你 merge。
+- **:orange-circle::blue-circle: Debby**：雙頭辯論，同一個問題同時送 Claude 與 GPT，並排呈現，`/debate` 讓兩邊互評幾輪再收斂。
+- **:search: Deep Research**：單 agent + 一個 MCP 搜尋 server，規劃子查詢、抓全文、跨來源驗證後產生帶引用的報告。**結構最簡單，適合當模板抄。**
 
 ### 模型與 host 的選擇
 

@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw Sandboxing: Four Backends, Three Independent Switches, and Thinking You're Sandboxed When You Aren't"
+title: "OpenClaw Sandboxing: Five Backends, Three Independent Switches, and Thinking You're Sandboxed When You Aren't"
 date: 2026-03-28
 type: guide
 category: ai
@@ -8,12 +8,15 @@ lang: en
 series:
   name: "Reading the OpenClaw Docs"
   order: 17
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 16
 tldr: "Sandboxing is governed by three independent settings: mode (when it applies), scope (how many containers), and backend (where it runs). The most common failure is an expectation gap — `tools.exec.host` now defaults to auto, so 'unset means sandboxed' is no longer true, and the security audit has a check specifically for it."
-description: "A complete guide to OpenClaw sandboxing: the mode/scope/backend settings, capability differences across Docker, Podman, SSH, and OpenShell, the hardened Docker defaults, workspace access modes, and the Docker-out-of-Docker path trap."
+description: "A complete guide to OpenClaw sandboxing: the mode/scope/backend settings, capability differences across Docker, Podman, SSH, OpenShell, and Crabbox, the hardened Docker defaults, workspace access modes, and the Docker-out-of-Docker path trap."
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-sandbox)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-sandbox)
 
 OpenClaw can run tool execution inside a sandbox to reduce blast radius. The docs are refreshingly honest about what that means:
 
@@ -65,7 +68,7 @@ openclaw security audit
 openclaw security audit --deep   # attempts a live Gateway probe
 ```
 
-## What the four backends can do
+## What the five backends can do
 
 | | Docker / Podman | SSH | OpenShell |
 |---|---|---|---|
@@ -77,6 +80,8 @@ openclaw security audit --deep   # attempts a live Gateway probe
 | Packages and runtimes | Bake an image, or `setupCommand` | Provision on the remote host | Include in the source image, or install if policy permits |
 
 Workspace access is the same across all three: `none`, `ro`, `rw`.
+
+The fifth is `backend: "crabbox"`: `exec`, file tools, and media reads run on a throwaway cloud machine leased by [Crabbox](https://github.com/openclaw/crabbox), while the Gateway, agent loop, channels, and model credentials stay on the host. It suits a personal Gateway that must not run model-generated commands on the host and cannot or should not run Docker. The official [Crabbox backend docs](https://docs.openclaw.ai/gateway/sandboxing/crabbox-backend) say initial support covers only Daytona leases and requires Crabbox 0.83.2 or newer; each scope keeps one fixed lease ID, and only `openclaw sandbox recreate` releases it for a fresh machine. Provider credentials stay in the local Crabbox process and are not copied into the remote command environment.
 
 ## The Docker defaults are already hardened
 
@@ -137,6 +142,7 @@ In practice the highest-value action is not tightening every setting — it is *
 
 ## Changelog
 
+- 2026-11-23: Backends went from four to five with `crabbox` (tools run on a Crabbox-leased cloud machine; initial support is Daytona only and requires Crabbox 0.83.2 or newer); title and description updated to match.
 - 2026-08-18: Substantially revised against the current official docs. **Backends went from three to four** — Podman is now its own first-class backend. **Added the most important section**: `tools.exec.host` now defaults to `auto`, so "unset means sandboxed" no longer holds, and the security audit has dedicated runtime-expectation-drift and policy-drift checks. Added: the actual hardened Docker defaults (network none, readOnlyRoot, capDrop ALL, init and no-new-privileges, `openclaw-sandbox:bookworm-slim`), the `docker.gpus` option and Podman 5.0 requirement, the one-time reset caused by folding the workspace path into non-shared runtime identity, the fact that native plugins share the Gateway's trust boundary in-process, and the Docker-out-of-Docker host-path constraint with its `EACCES` heartbeat symptom.
 
 ## References

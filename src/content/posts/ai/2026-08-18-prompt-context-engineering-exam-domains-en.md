@@ -13,7 +13,7 @@ description: "A cross-certification breakdown of how prompting and context engin
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains)
+> :globe: [中文版](/posts/ai/2026-08-18-prompt-context-engineering-exam-domains)
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide, all listed at the end. Verified 2026-08-18.
 

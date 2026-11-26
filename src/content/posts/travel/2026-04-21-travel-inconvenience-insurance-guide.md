@@ -19,7 +19,7 @@ glossary:
         url: "/search?q=%E6%97%85%E9%81%8A%E4%B8%8D%E4%BE%BF%E9%9A%AA&mode=rag"
 ---
 
-🌏 [English version](/posts/travel/2026-04-21-travel-inconvenience-insurance-guide-en)
+:globe: [English version](/posts/travel/2026-04-21-travel-inconvenience-insurance-guide-en)
 
 出國前做功課研究不便險，發現這塊比想像中複雜，加上 2026 年 4 月剛好有新制上路，趁這次機會整理一遍。
 

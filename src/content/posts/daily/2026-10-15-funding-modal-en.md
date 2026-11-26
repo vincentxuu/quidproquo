@@ -12,7 +12,7 @@ series:
   order: 89
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-funding-modal)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-funding-modal)
 
 ## Funding Details
 

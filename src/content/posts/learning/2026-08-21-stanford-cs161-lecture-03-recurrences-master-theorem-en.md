@@ -13,7 +13,7 @@ description: "A reading of Stanford CS161 Winter 2026 Lecture 3: recurrences, re
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem)
+> :globe: [中文版](/posts/learning/2026-08-21-stanford-cs161-lecture-03-recurrences-master-theorem)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
@@ -237,12 +237,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://stanford-cs161.github.io/winter2026/lectures/#lecture-3-solving-recurrences-and-the-master-theorem)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Confirmed that the official lecture page links recordings to a Panopto sign-in page and found no public recording of the same term; status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

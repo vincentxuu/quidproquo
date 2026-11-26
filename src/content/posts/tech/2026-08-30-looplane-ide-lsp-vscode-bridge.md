@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)建立 embedding boundary。編輯器接上來時，[Looplane](https://github.com/vincentxuu/looplane) 沒有把整套 VS Code API 或 LSP 塞給模型。它只取兩種決策訊號：目前有哪些 diagnostics，以及使用者正在看哪些檔案與位置。
 

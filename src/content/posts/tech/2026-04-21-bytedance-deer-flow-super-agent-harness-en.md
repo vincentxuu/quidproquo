@@ -10,7 +10,7 @@ description: "DeerFlow is ByteDance's open-source super agent framework designed
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-04-21-bytedance-deer-flow-super-agent-harness)
+> :globe: [中文版](/posts/tech/2026-04-21-bytedance-deer-flow-super-agent-harness)
 
 Over the past year, agent frameworks have proliferated rapidly — but "running a 10-minute demo" and "running a 10-hour research task" are two entirely different problems. DeerFlow is ByteDance's answer to the latter: a complete harness that combines sandboxes, long-term memory, sub-agents, skills, and a messaging gateway. This post covers what it's designed for, the architectural choices it makes, and what it adds on top of raw LangGraph.
 

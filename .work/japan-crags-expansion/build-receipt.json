@@ -1,0 +1,6 @@
+{
+  "command": "NODE_OPTIONS=--max-old-space-size=8192 pnpm build",
+  "exit_code": 0,
+  "built_new_articles": 70,
+  "details": "Astro, Pagefind, cron entry and OG generation succeeded. Non-blocking Vite chunk-size and Pagefind zh-TW stemming advisories. See render-audit.json; no browser/playback acceptance claimed."
+}

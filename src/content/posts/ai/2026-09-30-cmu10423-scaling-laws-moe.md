@@ -22,7 +22,7 @@ glossary:
     context: "L16 投影片以 OLMoE 的做法為例，把它和 load balance loss 一起加進總 loss。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

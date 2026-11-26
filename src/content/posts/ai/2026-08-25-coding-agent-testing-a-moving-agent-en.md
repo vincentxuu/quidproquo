@@ -13,7 +13,7 @@ description: "Comparing testing strategies across codex, opencode, pi, omp, and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent)
 
 The [series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en) promised five sections per post with evidence at `repo/path/file.ext#symbolName`. This post covers the hardest kind of tests: tests for a system under test that misbehaves on purpose.
 

@@ -17,7 +17,7 @@ glossary:
     def: "美國 AI 新創，先前以強化學習代理（agentic coding）研究聞名，Beam 是其首個開放權重模型系列"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-18-model-reflection-beam-1-0-en)
+> :globe: [English version](/posts/daily/2026-10-18-model-reflection-beam-1-0-en)
 
 ## 模型資訊
 
@@ -49,9 +49,9 @@ glossary:
 | SWE-bench Verified | 81.6% | 無前代可比 | Inkling 77.6%、Nemotron 3 Ultra 70.7%（GLM/Kimi/Qwen 系列未在此項公布分數） |
 | Terminal-Bench v2.1 | 80.1% | 無前代可比 | DeepSeek V4.1 Flash 90.6%、Kimi K3 88.3%、GLM 5.3 88.2% |
 | SWE-bench Pro v1 | 66.1% | 無前代可比 | Qwen 3.8 Max 67.7%、GLM 5.2 62.1% |
-| AIME 2026 | 97.7% | 無前代可比 | ⚠️ 官方未提供同題庫競品分數 |
+| AIME 2026 | 97.7% | 無前代可比 | :warning: 官方未提供同題庫競品分數 |
 
-⚠️ 以上均為 Reflection 官方自測；「競品最強」欄取自官方 10/5 早鳥發表部落格內的比較圖（評測設定與 10/16 正式模型卡略有差異，分數僅供參考，非獨立複現）。FP8／NVFP4 版本在 SWE-bench Verified 分別為 80.2%／80.7%，與 BF16 差距在 1.5 個百分點內。
+:warning: 以上均為 Reflection 官方自測；「競品最強」欄取自官方 10/5 早鳥發表部落格內的比較圖（評測設定與 10/16 正式模型卡略有差異，分數僅供參考，非獨立複現）。FP8／NVFP4 版本在 SWE-bench Verified 分別為 80.2%／80.7%，與 BF16 差距在 1.5 個百分點內。
 
 ## 與前代/競品比較
 

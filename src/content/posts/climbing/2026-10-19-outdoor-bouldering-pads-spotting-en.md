@@ -30,7 +30,7 @@ glossary:
     context: "After a top out you still have to find a way down, which is a step the gym never asks of you."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-outdoor-bouldering-pads-spotting)
+> :globe: [中文版](/posts/climbing/2026-10-19-outdoor-bouldering-pads-spotting)
 
 In a bouldering gym you barely think about landing. The floor is one continuous, thick, flat mat, and missing it would take effort. [Gripped's guide to safer outdoor landings](https://gripped.com/indoor-climbing/bouldering-outside-5-tips-for-a-safer-landing) opens with the difference: outside you have the one or two pads you carried in, and the ground has roots, rocks and slopes.
 

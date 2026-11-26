@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en)
 
 系列前面幾篇講過 Claude Code 內建的工具集（見[系列入口](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)），但內建工具再強也只碰得到你的檔案系統和終端機。當你發現自己一直在「從 issue tracker 複製文字貼進對話」、「把監控面板的數字抄給它」，那就是該接 MCP server 的訊號。[官方文件的說法](https://code.claude.com/docs/en/mcp)是：接上之後，Claude 可以直接讀取並操作那個系統，而不是靠你貼上的二手資訊工作。
 

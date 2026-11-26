@@ -12,7 +12,7 @@ draft: false
 description: "A complete worked example and answered variations for Efficient Inference: FlashAttention, KV Caches, and Speculative Decoding."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-18-efficient-inference)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

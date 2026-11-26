@@ -16,7 +16,7 @@ additionalSeries:
     order: 22
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-cloudflare-agents-runtime-en)
+> :globe: [English version](/posts/ai/2026-08-30-cloudflare-agents-runtime-en)
 
 很多「agent app」其實只是 HTTP endpoint 加上一段 while loop：收到訊息、呼叫模型、選工具、再回覆。demo 很快，但產品一上線就會碰到同一批問題：使用者斷線怎麼辦？同一個 user 的 session 要怎麼找回？工具呼叫跑到一半失敗怎麼恢復？WebSocket、email、Slack、webhook 這些入口要怎麼接到同一個狀態？
 
@@ -31,11 +31,13 @@ additionalSeries:
 | 層 | 負責什麼 | 例子 |
 |---|---|---|
 | Communication channels | 使用者和系統怎麼進來 | chat、voice、email、Slack、webhooks |
-| Agent harness | agent loop 怎麼跑 | Project Think、自己寫 planning/tool loop |
-| Agents SDK runtime | durable identity、state、connection、schedule、recovery | Agent class、sessions、WebSockets、fibers、SQLite |
-| Tools | agent 能操作什麼 | Browser、Sandbox、AI Search、MCP、Payments |
+| Agent harness | agent loop 怎麼跑 | Pi harness、Think、OpenCode，或自己寫 planning/tool loop |
+| Agents SDK runtime | durable identity、state、connection、schedule、recovery | Durable Object、Lifecycle、capabilities（State、WebSockets、Scheduler、MCP client）、SQLite |
+| Tools | agent 能操作什麼 | Workspace、Browser、Web fetch / search、Sandbox、AI Search、MCP、Payments |
 
 這四層要分開看。Chat UI 只是 channel；model provider 只是推理來源；tools 只是能力；runtime 才決定 agent 是否能跨 request、跨連線、跨時間維持狀態。
+
+現行官方文件把 runtime 寫得更細：每個 agent 是一個 Durable Object，裡面跑 Agents SDK 的 Lifecycle，再用 `.use()` 掛上 capabilities；harness 本身也是一個 capability，get started 改從 Pi harness 開始（Pi Durable 仍標 experimental）。下面用的 `Agent` class 是預先裝好 Lifecycle 與一組 capabilities 的 preset，chat、email、Slack 這些 channel 範例仍以它為基礎。
 
 ## Agent instance：一個可定位的小型 server
 
@@ -121,7 +123,9 @@ Agents 支援 WebSockets，也有 client-side SDK：`AgentClient`、`useAgent()`
 
 Agents 的 tools 層把 Cloudflare AI Stack 其他服務接進來：
 
-- Browser：讓 agent 用 Browser Run 操作網頁、截圖、抽資料。
+- Workspace：Cloudflare Computer 提供的 durable filesystem 與程式執行環境。
+- Web fetch / Web search：讀網頁與文件（自動轉 Markdown）、透過 Cloudflare Web Search API 搜尋。
+- Browser：讓 agent 用 Browser Run 操作網頁、截圖、抽資料；persistent browser 可以讓分頁與登入狀態跨回合保留。
 - Sandbox：讓 agent 執行程式或分析 artifact。
 - AI Search：讓 agent 查 managed RAG 資料來源。
 - MCP：讓 agent 接外部工具與服務。
@@ -167,7 +171,7 @@ Agents 專案的 Wrangler config 會包含 Durable Object bindings、`exports`�
 }
 ```
 
-官方 configuration 文件也提醒，Agents 需要 `nodejs_compat`；新 Agents 建議使用 SQLite storage；`exports` 用來宣告 Agent class 和 durable-object storage。這些設定不是樣板細節，實際上就是 agent runtime 的依賴。
+官方設定文件也提醒，Agents 需要 `nodejs_compat`；新 Agents 建議使用 SQLite storage；`exports` 用來宣告 Agent class 和 durable-object storage。這些設定不是樣板細節，實際上就是 agent runtime 的依賴。
 
 ## 什麼時候該用 Agents
 
@@ -195,11 +199,17 @@ Cloudflare AI Stack 的閱讀順序可以這樣看：
 
 Agents 是把前面那些服務接成產品的 runtime。它不是取代 Workers；它把 Workers、Durable Objects、WebSockets、AI models、tools 和 observability 包成一個可以長期存在的 agent 單位。
 
+## 更新紀錄
+
+- 2026-11-23：依現行官方文件更新四層表：runtime 改寫為 Durable Object＋Lifecycle＋capabilities，harness 例子改為 Pi、Think、OpenCode（原寫 Project Think），tools 補 Workspace、Web fetch、Web search 與 persistent browser；參考連結改到現行文件路徑（原 Agents API 與 configuration 頁已併入其他頁）。
+
 ## 參考資料
 
 - [Cloudflare Agents](https://developers.cloudflare.com/agents/)
-- [Agents API](https://developers.cloudflare.com/agents/runtime/agents-api/)
-- [Agents configuration](https://developers.cloudflare.com/agents/runtime/operations/configuration/)
+- [Agent class](https://developers.cloudflare.com/agents/agent-class/)
+- [Add Agents to an existing project](https://developers.cloudflare.com/agents/getting-started/add-to-existing-project/)
+- [Agents tools：Web search](https://developers.cloudflare.com/agents/tools/web-search/)
+- [Agents tools：Workspace](https://developers.cloudflare.com/agents/tools/filesystem/)
 - [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/)
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)
 - [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/)

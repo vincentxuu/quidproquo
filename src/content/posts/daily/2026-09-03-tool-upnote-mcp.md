@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-03-tool-upnote-mcp-en)
+> :globe: [English version](/posts/daily/2026-09-03-tool-upnote-mcp-en)
 
 ## 工具資訊
 
@@ -84,9 +84,9 @@ Claude 會自動選用對應工具——不需要你手動指定要呼叫哪一�
 
 | | upnote-mcp | 手動複製貼上進 UpNote | 雲端筆記 MCP（Notion / Evernote 類） | UpNote 官方 URL scheme |
 |---|---|---|---|---|
-| 本機執行、免帳號免 API key | ✅ | ✅ | ❌（需帳號＋API key） | ✅ |
-| 可搜尋／摘要既有筆記 | ✅ | ❌（純手動） | ✅ | ❌（只能建立，不能讀） |
-| 可編輯既有筆記 | ❌（UpNote 自動化本身的限制） | ✅ | 通常 ✅ | ❌ |
+| 本機執行、免帳號免 API key | ✓ | ✓ | ✗（需帳號＋API key） | ✓ |
+| 可搜尋／摘要既有筆記 | ✓ | ✗（純手動） | ✓ | ✗（只能建立，不能讀） |
+| 可編輯既有筆記 | ✗（UpNote 自動化本身的限制） | ✓ | 通常 ✓ | ✗ |
 | 需要額外設定 MCP client | 需要 | 不需要 | 需要 | 不適用（非 MCP） |
 
 ## 注意事項

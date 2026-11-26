@@ -17,7 +17,7 @@ glossary:
     def: "A public, standardized benchmark for document-parsing ability (layout, text, tables, formulas, reading order) that third parties can independently reproduce"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-model-tencent-youtu-parsing-omni)
+> :globe: [中文版](/posts/daily/2026-10-10-model-tencent-youtu-parsing-omni)
 
 ## Model Info
 
@@ -51,7 +51,7 @@ glossary:
 | ChemOCR (chemical structure recognition, Tani@1.0) | 54.2 | Not tested | DeepSeek-OCR 2 (3B) 49.6 (but that model's Avg. Sim. of 74.9 is slightly ahead of this model's 74.6) |
 | PDMX-Synth (music-score recognition, CER) | 22.73 | Not tested | LEGATO (a specialized optical music recognition model) 23.30 (this model narrowly ahead) |
 
-⚠️ OmniDocBench and OmniParsingBench are public, standardized leaderboards that third parties can independently reproduce. ChemOCR and PDMX-Synth are self-reported results from the official technical report; neither is this model's primary use case (chemistry diagrams and sheet music, respectively) — they're included to show cross-domain generalization from a single model, not peak performance in a specialty.
+:warning: OmniDocBench and OmniParsingBench are public, standardized leaderboards that third parties can independently reproduce. ChemOCR and PDMX-Synth are self-reported results from the official technical report; neither is this model's primary use case (chemistry diagrams and sheet music, respectively) — they're included to show cross-domain generalization from a single model, not peak performance in a specialty.
 
 ## Comparison with Predecessor/Competitors
 

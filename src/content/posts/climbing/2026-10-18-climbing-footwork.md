@@ -34,7 +34,7 @@ glossary:
     context: "很多攀岩鞋在腳背加了橡膠，就是為了勾腳。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-footwork-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-footwork-en)
 
 在岩館最容易分辨誰爬得好的方法，是聽聲音。有些人一路往上，腳踩上去幾乎沒有聲音；有些人每一步都「咚」一聲，腳還要在點上蹭兩下才站穩。
 

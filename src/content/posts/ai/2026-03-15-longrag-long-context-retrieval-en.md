@@ -14,7 +14,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-15-longrag-long-context-retrieval)
+> :globe: [中文版](/posts/ai/2026-03-15-longrag-long-context-retrieval)
 
 The core assumption of traditional RAG is that LLM context windows are limited, so we must split documents into small pieces and only feed the most relevant fragments into the model.
 

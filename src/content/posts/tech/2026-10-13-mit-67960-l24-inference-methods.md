@@ -22,7 +22,7 @@ series:
   order: 28
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-mit-67960-l24-inference-methods-en)
+> :globe: [English version](/posts/tech/2026-10-13-mit-67960-l24-inference-methods-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

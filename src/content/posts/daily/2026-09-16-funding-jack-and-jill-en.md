@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-16-funding-jack-and-jill)
+> :globe: [中文版](/posts/daily/2026-09-16-funding-jack-and-jill)
 
 ## Funding Details
 

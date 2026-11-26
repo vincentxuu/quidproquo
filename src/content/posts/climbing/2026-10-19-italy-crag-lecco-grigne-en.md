@@ -13,7 +13,7 @@ description: "A guide to climbing around Lecco and the Grigne: rock, scale, aspe
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-lecco-grigne)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-lecco-grigne)
 
 Lecco sits where the south-eastern arm of Lake Como ends, backed by two limestone massifs, the Grigne and the Resegone. The [Lecco tourist board](https://leccotourism.it/en/climbing-in-lecco) says the area has "over a hundred equipped crags and thousands of routes" and calls it "one of the undisputed capitals of sport climbing in northern Italy". Riccardo Cassin, Walter Bonatti and the Ragni di Lecco all learned their trade on these walls.
 

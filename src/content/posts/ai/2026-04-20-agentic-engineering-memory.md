@@ -111,7 +111,7 @@ Context Layer  → 外部可配置的指令與記憶  ← 大多數人說的「�
 
 ## LangMem 能解決什麼？
 
-LangMem 是開源函式庫（Apache 2.0，免費），本質是**向量 DB + 自動摘要的封裝**。
+LangMem 是開源函式庫（MIT 授權，免費），本質是**向量 DB + 自動摘要的封裝**。要留意它的維護狀態：最後一個功能版是 0.0.30（2025-10），之後 repo 只剩依賴更新，新專案選它之前要評估長期維護風險。
 
 它幫你解決的：
 - 語意搜尋（內建向量 store，可換後端）
@@ -131,7 +131,7 @@ LangMem 是開源函式庫（Apache 2.0，免費），本質是**向量 DB + 自
 ```
 100 users × 3 sessions/天 × ~1K tokens/次
 = 300K tokens/天
-≈ Claude Haiku 約 $0.1/天
+≈ Claude Haiku 5.5（輸入 $0.10／百萬 tokens）約 $0.03/天，輸出另計
 ```
 
 用便宜模型做記憶萃取、貴的模型做主要任務，是標準做法。
@@ -155,7 +155,7 @@ LangMem 是開源函式庫（Apache 2.0，免費），本質是**向量 DB + 自
 > 「記憶不是插件，它是 harness 本身的一部分。」
 
 問題在這裡：
-- 用 **Claude Managed Agents**（Anthropic API）→ 記憶完全在 Anthropic 伺服器，你看不到、帶不走
+- 用 **Claude Managed Agents**（Anthropic API）→ 記憶存在 Anthropic 伺服器上的 memory store；現在可以透過 API 或 Console 逐筆讀寫、匯入匯出，但儲存與執行仍綁在 Anthropic 平台（不適用 ZDR）
 - 用 **Codex**（OpenAI）→ 壓縮摘要加密，無法在 OpenAI 生態外使用
 - 用**開源 harness**（LangGraph + 自建 store）→ 記憶完全在你手上
 
@@ -180,9 +180,17 @@ Agentic Engineering 的記憶問題，不是選一個記憶函式庫就結束的
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：LangMem 授權更正為 MIT，補上維護狀態（最後功能版 0.0.30）；記憶萃取成本改用 Claude Haiku 5.5 現行價格重算；Claude Managed Agents 的記憶改寫為 memory store 現況（可經 API 讀寫與匯出）。
+
 ## 參考資料
 
 - [Agentic Engineering: How Swarms of AI Agents Are Redefining Software Engineering](https://www.langchain.com/blog/agentic-engineering-redefining-software-engineering)
 - [Your harness, your memory — Harrison Chase](https://www.langchain.com/blog/your-harness-your-memory)
 - [Continual learning for AI agents — Harrison Chase](https://www.langchain.com/blog/continual-learning-for-ai-agents)
 - [Building effective agents — Anthropic](https://www.anthropic.com/research/building-effective-agents)
+- [LangMem GitHub](https://github.com/langchain-ai/langmem)
+- [LangMem on PyPI](https://pypi.org/project/langmem/)
+- [Claude API 定價](https://platform.claude.com/docs/en/about-claude/pricing)
+- [Claude Managed Agents — Using agent memory](https://platform.claude.com/docs/en/managed-agents/memory)

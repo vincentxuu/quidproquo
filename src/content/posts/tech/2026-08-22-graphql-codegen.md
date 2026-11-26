@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-graphql-codegen-en)
+> :globe: [English version](/posts/tech/2026-08-22-graphql-codegen-en)
 
 [GraphQL](https://graphql.org/learn/) 讓 client 以 query 選取需要的 field，server 由單一 schema 暴露 types、fields 與 operations。只把整份 schema 轉成 TypeScript types 還不夠；真正的 response shape 取決於每一條 query。這正是 [GraphQL Code Generator](https://the-guild.dev/graphql/codegen/docs/getting-started) 的工作：把 schema 和 documents 一起編譯成 variables、result、typed document 與 resolver types。
 

@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-10-tool-ai-agent-gateway-en)
+> :globe: [English version](/posts/daily/2026-10-10-tool-ai-agent-gateway-en)
 
 ## 工具資訊
 
@@ -102,11 +102,11 @@ curl -X PUT http://localhost:8081/api/v1/profiles/$PROFILE_ID/tools \
 
 | | AI Agent Gateway | 憑證直接貼進每份 MCP 設定 | 泛用雲端秘密管理（Vault／AWS Secrets Manager） |
 |---|---|---|---|
-| 呼叫端完全看不到後端真實憑證 | ✅ 從加密金鑰庫注入 | ❌ 憑證就在設定檔裡 | 部分——秘密存中心化，但誰能用哪個秘密仍要自己接線 |
-| 工具層級的存取控制（哪把 key 能呼叫哪個工具） | ✅ profile 強制在每次 `tools/call` | ❌ 全有或全無 | ❌ 不是 MCP 協定層的概念 |
-| LLM 呼叫也走同一層治理 | ✅ Anthropic/Bedrock/OpenAI/Gemini 統一代理 | ❌ | ❌ 通常只管密鑰，不代理流量 |
-| 內建存取日誌 + 成本追蹤 | ✅ console 內建 | ❌ 要自己接各服務的 log | 部分——看秘密存取紀錄，不含 LLM 呼叫明細 |
-| 開箱即用、無須自架 | ❌ 要自己跑 Postgres + Go 服務 | ✅ | ✅（雲端代管） |
+| 呼叫端完全看不到後端真實憑證 | ✓ 從加密金鑰庫注入 | ✗ 憑證就在設定檔裡 | 部分——秘密存中心化，但誰能用哪個秘密仍要自己接線 |
+| 工具層級的存取控制（哪把 key 能呼叫哪個工具） | ✓ profile 強制在每次 `tools/call` | ✗ 全有或全無 | ✗ 不是 MCP 協定層的概念 |
+| LLM 呼叫也走同一層治理 | ✓ Anthropic/Bedrock/OpenAI/Gemini 統一代理 | ✗ | ✗ 通常只管密鑰，不代理流量 |
+| 內建存取日誌 + 成本追蹤 | ✓ console 內建 | ✗ 要自己接各服務的 log | 部分——看秘密存取紀錄，不含 LLM 呼叫明細 |
+| 開箱即用、無須自架 | ✗ 要自己跑 Postgres + Go 服務 | ✓ | ✓（雲端代管） |
 
 ## 注意事項
 

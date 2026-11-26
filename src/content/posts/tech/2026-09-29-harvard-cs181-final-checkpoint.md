@@ -13,11 +13,11 @@ description: "Harvard CS1810 Spring 2026 期末檢核：final checklist 十一�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-final-checkpoint-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本**：2026 期末日期與週表以 [課站 schedule（Google Sheet）](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準；期末複習材料放在 [cs181-web 的 `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static)，實際打開後全是 **2025 版**（final review 標頭 `CS 1810 Spring 2025`，其餘 PDF 產生於 2025 年 5–6 月）。本篇 2026-09-29 查核。
+> :warning: **版本**：2026 期末日期與週表以 [課站 schedule（Google Sheet）](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準；期末複習材料放在 [cs181-web 的 `static/`](https://github.com/harvard-ml-courses/cs181-web/tree/main/static)，實際打開後全是 **2025 版**（final review 標頭 `CS 1810 Spring 2025`，其餘 PDF 產生於 2025 年 5–6 月）。本篇 2026-09-29 查核。
 
 ## TL;DR
 
@@ -134,12 +134,13 @@ Checklist 也寫明哪些**不考**，例如 SVM dual 與 KKT 推導、二階最
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

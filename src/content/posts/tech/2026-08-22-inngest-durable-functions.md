@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-inngest-durable-functions-en)
+> :globe: [English version](/posts/tech/2026-08-22-inngest-durable-functions-en)
 
 [Inngest](https://www.inngest.com/docs/learn/how-functions-are-executed) 是事件驅動的 durable execution 平台。你仍然用 TypeScript、Python 或 Go 寫一般 function，把資料庫、API 與模型呼叫放進 `step.run()`；Inngest 在每個 step 後保存結果，處理重試、sleep、事件等待與 flow control。
 
@@ -59,11 +59,18 @@ Agent loop 天生包含模型呼叫、工具呼叫、等待與動態分支。把
 
 ## 什麼時候選 Inngest
 
-事件驅動產品、serverless 團隊、TypeScript 為主，而且想快速取得 retry、wait、observability 與 flow control，Inngest 是很短的導入路徑。只有單一步驟背景工作時，queue 更簡單；需要嚴格服務狀態模型、keyed single-writer，可看 Restate；要同時經營 task queue、DAG 與 dynamic durable task，可比較 Hatchet；已有大型跨語言 workflow 平台需求，Temporal 的生態與治理模型更成熟。
+事件驅動產品、serverless 團隊、TypeScript 為主，而且想快速取得 retry、wait、observability 與 flow control，Inngest 是很短的導入路徑。只有單一步驟背景工作時，queue 更簡單；需要嚴格服務狀態模型、keyed single-writer，可看 Restate；要同時經營 task queue、DAG 與 dynamic durable task，可比較 Hatchet；已有大型跨語言 workflow 平台需求，Temporal 的生態與治理模型更成熟。整套跑在 AWS 上的團隊，另可比較 2025-12 GA 的 [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)：同樣是「從頭重跑、已完成 step 回填」的 checkpoint/replay 模型，單次執行最長一年，等待期間不計運算費，差別是狀態與控制面都留在 Lambda 裡，不經第三方 hosted control plane。
 
 真正的選擇不是 SDK 語法，而是你是否接受「函式重跑、step 結果回填」這份 execution contract，以及 hosted control plane 的資料邊界。
 
+## 更新紀錄
+
+- 2026-11-23：選型段補上 AWS Lambda durable functions（2025-12 GA）作為 AWS 團隊的對照。
+
 ## 參考資料
+
+- [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+- [Lambda durable functions 發布公告](https://aws.amazon.com/about-aws/whats-new/2025/12/lambda-durable-multi-step-applications-ai-workflows/)
 
 - [Inngest: How functions are executed](https://www.inngest.com/docs/learn/how-functions-are-executed)
 - [Inngest flow control](https://www.inngest.com/docs/guides/flow-control)

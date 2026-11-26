@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-02-supervised-learning-linear-regression)
 
 **Video status: Videos included.** This article is written from the English transcript of the Spring 2026 Lecture 2 recording published by Stanford Online, with formula notation checked against Chapter 1, "Linear regression", of the 2026 main lecture notes. A transcript does not show the slides or the handwriting on screen, so where the lecturer points at the screen, this article covers only what the surrounding speech and the notes make it possible to reconstruct.
 

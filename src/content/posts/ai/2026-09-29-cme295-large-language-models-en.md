@@ -30,7 +30,7 @@ glossary:
     context: "This lecture introduces it by contrasting zero-shot and few-shot prompting."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-large-language-models)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-large-language-models)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

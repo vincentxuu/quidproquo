@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-tool-audio-studio-mcp-en)
+> :globe: [English version](/posts/daily/2026-10-20-tool-audio-studio-mcp-en)
 
 ## 工具資訊
 
@@ -82,11 +82,11 @@ claude mcp add --scope user --transport http audio-studio http://127.0.0.1:8765/
 
 | | Audio Studio MCP | 雲端 AI 音樂生成（如 Suno） | 免版稅音效庫（如 Epidemic Sound） |
 |---|---|---|---|
-| 本機執行、不用 API key | ✅ | ❌ | ❌（訂閱制） |
-| Agent 內一句話直接生成 | ✅ | ❌（需另開網頁） | ❌（需搜尋瀏覽） |
-| 可重現（同 seed 同結果） | ✅ | ❌ | — |
-| 可編輯既有片段（延長／重上色） | ✅ | 部分支援 | ❌ |
-| 商用授權免再確認 | ❌（需讀 Stability AI 社群授權） | 依方案而定 | ✅（訂閱期內） |
+| 本機執行、不用 API key | ✓ | ✗ | ✗（訂閱制） |
+| Agent 內一句話直接生成 | ✓ | ✗（需另開網頁） | ✗（需搜尋瀏覽） |
+| 可重現（同 seed 同結果） | ✓ | ✗ | — |
+| 可編輯既有片段（延長／重上色） | ✓ | 部分支援 | ✗ |
+| 商用授權免再確認 | ✗（需讀 Stability AI 社群授權） | 依方案而定 | ✓（訂閱期內） |
 
 ## 注意事項
 

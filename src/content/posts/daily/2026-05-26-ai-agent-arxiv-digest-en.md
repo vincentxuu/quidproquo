@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 2
 ---
-> 🌏 [中文版](/posts/daily/2026-05-26-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-05-26-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -116,7 +116,7 @@ For agent platforms, LLM API cost is a major expense. Switching to FH + Lazy Rep
 
 ### Deep Dive
 
-- **KQA Pro Saves the Most Tokens**: With 27 tools and complex schemas, FH saves 2.7–4.7x input tokens vs SH, with accuracy at parity ⚠️ (the paper describes it as parity without reporting absolute accuracy numbers)
+- **KQA Pro Saves the Most Tokens**: With 27 tools and complex schemas, FH saves 2.7–4.7x input tokens vs SH, with accuracy at parity :warning: (the paper describes it as parity without reporting absolute accuracy numbers)
 - **HotpotQA Effect Is Milder**: With 2 simple tools, token savings are 1.4–1.9x
 - **More Tools = More FH Value**: Tool schemas are re-read every step in SH but only once in FH — tool count is the token-saving multiplier
 - **Lazy Replanning Is the Critical Companion**: Pure FH without replanning tends to fail hard when a tool errors out; Lazy Replanning gives FH fault tolerance
@@ -146,7 +146,7 @@ Borrowing the "successor representation" matrix from neuroscience, this paper us
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Novel theoretical framework, but experimental scale is small (single 7B model, single task type). Engineers should understand the core concepts and wait for larger-scale validation before going deep.
 
 ### Domain Background
@@ -170,9 +170,9 @@ This is the first work attempting to make multi-agent topology selection theoret
 ### Deep Dive
 
 - **Three Failure Modes Mapped**: High ρ(M) → drift (messages amplified and distorted); small Δ(M) → slow consensus convergence; high κ(M) → vulnerability to noise or prompt injection attacks
-- **Topology Property Predictions**: Mesh has the highest κ(M) (most fragile); Chain has the smallest Δ(M) (slowest consensus); Star is most stable on most metrics, but its bottleneck is central node quality ⚠️ (theoretical derivation, only partially validated experimentally)
+- **Topology Property Predictions**: Mesh has the highest κ(M) (most fragile); Chain has the smallest Δ(M) (slowest consensus); Star is most stable on most metrics, but its bottleneck is central node quality :warning: (theoretical derivation, only partially validated experimentally)
 - **Closed-Form Formulas Are a Strength**: The M matrices for Chain/Star/Mesh have analytic solutions — no simulation needed, extremely low computation cost, could become a real-time diagnostic tool
-- **Small Experimental Scale**: Only uses Qwen2.5-7B-Instruct (7B parameters), one state-tracking task, 100 trials; generalization to larger models and diverse tasks is unknown ⚠️
+- **Small Experimental Scale**: Only uses Qwen2.5-7B-Instruct (7B parameters), one state-tracking task, 100 trials; generalization to larger models and diverse tasks is unknown :warning:
 - **Two Authors, Theory-Heavy**: This is early theoretical exploration, not a mature engineering solution — treat conclusions with caution regarding generalizability
 - **Potential Integration with AutoGen/CrewAI**: This diagnostic framework could theoretically embed into orchestration platforms as a pre-deployment tool, but no implementation exists yet
 

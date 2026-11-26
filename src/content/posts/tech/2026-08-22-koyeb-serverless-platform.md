@@ -13,9 +13,11 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-koyeb-serverless-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-koyeb-serverless-platform-en)
 
 [Koyeb](https://www.koyeb.com/docs) 是把 Git repository 或 container image 部署到多個 region 的 PaaS。它同時提供 CPU/GPU Instances、edge routing、TLS、service mesh、autoscaling 與 scale-to-zero，定位介於 repository-first PaaS 和可選區域的 container platform。
+
+2026-02 Koyeb 宣布[被 Mistral AI 收購](https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure)，平台照常運作，但會逐步併成 Mistral Compute 的一部分，重心放在 inference、sandbox 與 serverless MCP server。新使用者只能註冊付費方案（[定價頁](https://www.koyeb.com/pricing)目前從 Pro 起跳），既有組織的方案不變。評估時要把「產品方向跟著 Mistral 走」算進長期風險，免費試跑的門檻也比以前高。
 
 ## App、Service、Instance 不要混在一起
 
@@ -39,7 +41,14 @@ Instance filesystem 應視為 ephemeral；需要持久資料時使用平台 volu
 
 Koyeb 適合需要快速 global API、CPU/GPU inference、preview 與自動伸縮，而不想先維護 cluster 的團隊。純 frontend 比較 Vercel/Netlify；偏 multi-service developer UX 比較 Railway/Render；需要 programmable VM lifecycle 比較 Fly.io。驗收需涵蓋 scale-from-zero、region outage、超出 max replicas、dependency saturation、rollback 與 state restore。
 
+## 更新紀錄
+
+- 2026-11-23：補上 Koyeb 被 Mistral AI 收購、新使用者只能選付費方案，以及對長期選型的影響。
+
 ## 參考資料
+
+- [Koyeb is Joining Mistral AI](https://www.koyeb.com/blog/koyeb-is-joining-mistral-ai-to-build-the-future-of-ai-infrastructure)
+- [Koyeb pricing](https://www.koyeb.com/pricing)
 
 - [Koyeb documentation](https://www.koyeb.com/docs)
 - [Koyeb applications](https://www.koyeb.com/docs/reference/apps)

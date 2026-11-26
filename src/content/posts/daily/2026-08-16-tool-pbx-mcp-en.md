@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-tool-pbx-mcp)
+> :globe: [中文版](/posts/daily/2026-08-16-tool-pbx-mcp)
 
 ## Tool Info
 
@@ -92,11 +92,11 @@ export PBX_MCP_ALLOW_WRITE=true
 
 | | pbx-mcp | Direct Asterisk/FreeSWITCH CLI | Custom Agent scripts calling AMI/ESL |
 |---|---|---|---|
-| Unified Asterisk + FreeSWITCH interface | ✅ | ❌ (separate command sets) | Must implement both yourself |
-| MCP-native, no Agent code changes | ✅ | ❌ | ❌ |
-| Write tools don't exist by default (not just blocked) | ✅ | — | Must implement yourself |
-| Command allowlist + shell metacharacter filtering | ✅ | — | Must implement yourself |
-| No extra protocol client installation needed | ✅ (built-in AMI/ESL clients) | — | Requires additional packages |
+| Unified Asterisk + FreeSWITCH interface | ✓ | ✗ (separate command sets) | Must implement both yourself |
+| MCP-native, no Agent code changes | ✓ | ✗ | ✗ |
+| Write tools don't exist by default (not just blocked) | ✓ | — | Must implement yourself |
+| Command allowlist + shell metacharacter filtering | ✓ | — | Must implement yourself |
+| No extra protocol client installation needed | ✓ (built-in AMI/ESL clients) | — | Requires additional packages |
 
 ## Caveats
 

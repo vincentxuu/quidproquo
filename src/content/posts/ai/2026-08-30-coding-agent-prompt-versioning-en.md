@@ -13,7 +13,7 @@ description: "Evidence from the source of five mature coding agents on four appr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-prompt-versioning)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-prompt-versioning)
 
 ## The design problem: how do you review a prompt change?
 

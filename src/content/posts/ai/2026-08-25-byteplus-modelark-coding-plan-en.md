@@ -10,7 +10,7 @@ description: "An introduction to BytePlus ModelArk Coding Plan: pricing, quotas,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-byteplus-modelark-coding-plan)
+> :globe: [中文版](/posts/ai/2026-08-25-byteplus-modelark-coding-plan)
 
 BytePlus is ByteDance's international cloud-services brand, and ModelArk is its AI model inference platform. Coding Plan is ModelArk's subscription for AI-assisted development: one monthly fee covers models from several vendors and works directly in tools such as Claude Code and Cursor, without requiring you to manage multiple API keys or inference endpoints.
 

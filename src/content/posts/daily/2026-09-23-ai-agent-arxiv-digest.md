@@ -11,7 +11,7 @@ series:
   order: 122
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-23-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-09-23-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -74,7 +74,7 @@ Peng Xia, Rujun Han, Zifeng Wang et al.(Google Cloud AI Research + Stanford Univ
 
 - 在涵蓋 coding、agentic workspace、engineering design 三個網域的八個基準上測試,包括 SWE-bench Verified、JobBench、GDPval、APEX-Agents 與 Frontier-Eng
 - RRSI 在 evolve split 上最多拿下 14.1 分增益,在五個 out-of-distribution held-out 基準上最多拿下 4.7 分增益,且產生的鷹架比未正規化的演化少花 30% policy token
-- 對照組裡表現最強的既有方法(TTHE)在 evolve set 上分數最高,但 OOD 平均反而比完全不改的起點(H0)低 1.7 分 ⚠️(作者自測,尚未外部複現);另一個對照方法(Meta-Harness)OOD 只多拿 0.9 分
+- 對照組裡表現最強的既有方法(TTHE)在 evolve set 上分數最高,但 OOD 平均反而比完全不改的起點(H0)低 1.7 分 :warning:(作者自測,尚未外部複現);另一個對照方法(Meta-Harness)OOD 只多拿 0.9 分
 - RRSI 本身是所有被評估方法裡 evolve-set 增益最小的一個,卻是唯一 OOD 平均贏過起點超過 1 分的方法:43.6 分對 39.7 分
 - 落地門檻:需要一套能自動提出並執行鷹架編輯的既有 pipeline(如 meta-harness 類工具),RRSI 是在這之上加正規化規則,不是從零建置的新系統
 - Limitation(作者自述):只處理鷹架層優化、骨幹模型權重維持凍結;效果仍依賴有限的 evolve set 品質與正規化超參數選擇;更廣泛的驗證仍待涵蓋差異更大的 agent 架構、工具生態與更長時間的自我改進過程

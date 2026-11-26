@@ -10,7 +10,7 @@ description: "TanStack Query (formerly React Query) is the most mature server st
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-tanstack-query-server-state)
+:globe: [中文版](/posts/tech/2026-03-27-tanstack-query-server-state)
 
 Many React developers default to `useState` + `useEffect` for managing API data: fetch the data, handle loading state, catch errors, store in state. There's nothing inherently wrong with this approach — but you'll quickly find yourself needing deduplication of repeated fetches, data caching, background refresh, pagination, and more. Each of these becomes something you have to build yourself.
 

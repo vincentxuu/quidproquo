@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-modular-rag-pipeline-architecture-en)
+> :globe: [English version](/posts/ai/2026-03-12-modular-rag-pipeline-architecture-en)
 
 很多 RAG 系統是這樣設計的：一個大函數，裡面依序執行查詢解析、向量搜尋、重排序、生成，中間夾一堆 if-else。這樣的設計在系統簡單時沒問題，但當步驟越來越多（HyDE、Multi-Query、CRAG、Self-Reflection...），這個大函數就變成了一個難以維護的泥球。
 

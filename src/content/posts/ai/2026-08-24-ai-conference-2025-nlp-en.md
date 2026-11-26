@@ -23,7 +23,7 @@ glossary:
     context: "EMNLP 2025 Findings accepted almost as many papers as the Main Track's 1,811."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2025-nlp)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2025-nlp)
 
 The most visible change at NLP conferences in 2025 was scale. ACL submissions rose 90%, from 4,407 to 8,360; EMNLP grew 34%, from 6,105 to 8,174. The deeper change concerned identity: when almost every paper relates to LLMs, where is the boundary between NLP conferences and ML venues such as NeurIPS, ICML, and ICLR?
 

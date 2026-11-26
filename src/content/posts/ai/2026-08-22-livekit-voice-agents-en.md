@@ -10,7 +10,7 @@ description: "A lifecycle and selection-focused guide to LiveKit Voice Agents: W
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-livekit-voice-agents)
+> :globe: [中文版](/posts/ai/2026-08-22-livekit-voice-agents)
 
 [LiveKit](https://livekit.io/) began as a WebRTC media server before the Agents SDK grew on top. That history distinguishes it from a typical voice-agent API. Users, AI agents, phones, and services are room participants; audio, video, and data tracks first travel through a realtime media layer. STT, LLM, and TTS are replaceable processing nodes inside an agent session.
 

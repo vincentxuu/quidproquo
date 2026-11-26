@@ -1,7 +1,9 @@
 import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import { initGatelane } from '../../lib/gatelane'
-import { verifySession } from '../../lib/auth/session'
+import { requireAdmin } from '../../lib/auth/admin'
+import { accessConfigured, requireAccessIdentity } from '../../lib/auth/access'
+import { resolveChatScope } from '../../lib/personal/chat'
 import { checkAndIncrementRateLimit } from '../../lib/auth/rate-limit'
 import { runPipeline } from '../../lib/conversation/pipeline'
 import { agentFromStage, getStepKind, getStepLabel } from '../../lib/conversation/step-labels'
@@ -77,12 +79,16 @@ function sseEvent(type: string, data: unknown): string {
 
 export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   initGatelane()
-  const sessionToken = cookies.get('session')?.value
-  const isAdmin = sessionToken ? await verifySession(sessionToken) : false
+  const usesAccess = accessConfigured()
   const startedAt = Date.now()
 
   const body = await request.json() as ChatBody
-  const { message, thread_id = crypto.randomUUID() } = body
+  const { message, thread_id: clientThreadId = crypto.randomUUID() } = body
+  let scope: Awaited<ReturnType<typeof resolveChatScope>>
+  try { scope = await resolveChatScope(request, clientThreadId, { configured: usesAccess, authenticate: requireAccessIdentity }) }
+  catch (error) { return error instanceof Response ? error : new Response('Login unavailable', { status: 503 }) }
+  const thread_id = scope.threadId
+  const isAdmin = (await requireAdmin(cookies, request)).ok
   let requestPolicy: ReturnType<typeof resolveChatRequestPolicy>
   try {
     requestPolicy = resolveChatRequestPolicy({
@@ -125,7 +131,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   if (requestedEngine && ['langgraph', 'manual', 'agent'].includes(requestedEngine)) {
     ragConfig.pipelineEngine = requestedEngine
   }
-  const checkpointSummary = await loadLatestCheckpoint(thread_id)
+  const checkpointSummary = scope.ownerId ? await loadLatestCheckpoint(thread_id) : undefined
   // 最近幾輪由前端逐字稿帶上來；只驗證、裁切、渲染成純文字，內容不落 D1
   const recentTurns = parseRecentTurns(body.history)
   const recentTurnsText = renderRecentTurns(recentTurns)
@@ -142,7 +148,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
   // agent 引擎的答案風格不同，快取分開放，避免 A/B 時互相污染；帶文章脈絡時再依文章分開
   const cacheNamespace = await pageCacheNamespace(ragConfig.pipelineEngine === 'agent' ? 'agent' : undefined, pageContext)
   // 同一句追問在不同上下文是不同問題（「那正2呢？」），再把最近的對話併進快取命名空間
-  const cacheScope = await recentTurnsCacheNamespace(cacheNamespace, recentTurns)
+  const cacheScope = await recentTurnsCacheNamespace(`${cacheNamespace ?? 'public'}-${thread_id}`, recentTurns)
   const cached = bypassSemanticCache
     ? null
     : await lookupSemanticCache(message, ragConfig.semanticCacheThreshold, cacheScope).catch(() => null)
@@ -156,7 +162,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         send('done', {
           usage: { input: 0, output: 0 },
           confidence: cached.confidence,
-          thread_id,
+          thread_id: clientThreadId,
           cached: true,
         })
         controller.close()
@@ -342,7 +348,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         send('done', {
           usage: state.token_usage,
           confidence: state.critique?.confidence ?? 1,
-          thread_id,
+          thread_id: clientThreadId,
           cached: false,
           ...(remainingQuota !== null ? { remaining: remainingQuota } : {}),
         })
@@ -405,7 +411,7 @@ export const POST: APIRoute = async ({ request, cookies, clientAddress }) => {
         if (!bypassSemanticCache && state.final_response?.trim()) {
           await storeSemanticCache(message, state.final_response ?? '', state.critique?.confidence ?? 0, cacheScope).catch(() => {})
         }
-        await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
+        if (scope.ownerId) await maybeSaveCheckpoint(state, ragConfig.checkpointThresholdRatio).catch(() => {})
         await persistTraceSteps(traceId, thread_id, state, traceScope, stepSpanMapping).catch(() => {})
 
       } catch (err) {

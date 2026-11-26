@@ -13,7 +13,7 @@ description: "Antigravity CLI's positioning, installation and SSH auth, async su
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)
+:globe: [中文版](/posts/tech/2026-05-21-antigravity-cli-google-terminal-agent)
 
 Antigravity CLI is the terminal AI agent Google announced at I/O on May 19, 2026. The story isn't just "another coding CLI" — it's a strategic move: Google folded the previously standalone Gemini CLI into "Antigravity," a four-surface platform where the terminal, desktop app, SDK, and IDE all run on **the same agent harness**. This post explains what it is, how to install it, what the migration from Gemini CLI looks like, and whether you should switch now.
 

@@ -13,7 +13,7 @@ description: "釐清 agent、workflow、RAG、MCP 四個常被混用的概念：
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en)
+> :globe: [English version](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en)
 
 這是「Agent 生產線」系列的第一篇。整個系列的材料來自把 [ByteByteGo](https://blog.bytebytego.com/) 2025–2026 年約六十篇 agent 相關文章讀完，再回查十九份它引用的一手來源。第一篇先把四個最常被混用的詞分開——因為後面六篇談的所有工程取捨，都建立在這幾條界線上。
 
@@ -62,7 +62,7 @@ Anthropic 列的五種，切分軸一致：
 4. **orchestrator-workers**——一個主導者動態拆任務、派給 worker、彙整結果
 5. **evaluator-optimizer**——一個產生、一個評分，來回迭代
 
-> ⚠️ 站內另有一篇〈Top AI Agentic Workflow Patterns〉也講「五種模式」（Reflection / Tool Use / ReAct / Planning / Multi-Agent），但**切分軸完全不同、沒有標任何出處，而且把 Tool Use 這種「能力」跟編排模式並列**。兩篇之間沒有交叉引用。要用就用有出處的那一套。
+> :warning: 站內另有一篇〈Top AI Agentic Workflow Patterns〉也講「五種模式」（Reflection / Tool Use / ReAct / Planning / Multi-Agent），但**切分軸完全不同、沒有標任何出處，而且把 Tool Use 這種「能力」跟編排模式並列**。兩篇之間沒有交叉引用。要用就用有出處的那一套。
 
 ## Agent、RAG、MCP：三個問題，不是三個競品
 

@@ -13,7 +13,7 @@ description: "拉斯特（Laste）岩場介紹：四塊巨岩的岩質、規模�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-laste-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-laste-en)
 
 拉斯特（Laste）在威尼托大區貝盧諾省（Belluno）北部的 Agordino 山谷，屬於洛卡皮耶托雷（Rocca Pietore）市，靠近 Caprile 與 Val Pettorina 谷口。岩場圍著 Ronch 小村旁的四塊巨岩，抬頭就是奇維塔山（Civetta）的西北壁。[CAI 的 Lo Scarpone](https://www.loscarpone.cai.it/dettaglio/fuga-dal-caldo-cinque-falesie-per-arrampicare-nelle-dolomiti-orientali/) 說它「probabilmente la falesia più emblematica delle Dolomiti Venete」（大概是威尼托多洛米蒂最具代表性的岩場）。
 

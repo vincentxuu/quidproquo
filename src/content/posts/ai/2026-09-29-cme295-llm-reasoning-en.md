@@ -30,7 +30,7 @@ glossary:
     context: "The main metric on reasoning benchmarks; k=1 looks at a single generation."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-llm-reasoning)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-llm-reasoning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/product/2026-08-07-drone-inspection-taiwan)
+> :globe: [中文版](/posts/product/2026-08-07-drone-inspection-taiwan)
 
 After [agricultural spraying](/posts/product/2026-08-07-agri-drone-unit-economics-en) and [disaster response](/posts/product/2026-08-07-drone-sar-value-en), I had planned to combine inspection, logistics, and surveying into one piece called "three applications stuck behind the same door" — because [the industry map](/posts/tech/2026-08-06-drone-industry-map-en) said inspection had "steady demand, stuck on compliance," and [the BVLOS piece](/posts/tech/2026-08-06-bvlos-three-jurisdictions-en) established that Taiwan has no BVLOS framework at all.
 

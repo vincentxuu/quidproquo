@@ -1,0 +1,354 @@
+{
+  "requests": [
+    {
+      "request_id": "channel-src_962940642c98892efbc7",
+      "query": "https://www.youtube.com/channel/UC_ujkeIBtfa036cG75rxaiw/videos",
+      "tool": "Exa web_search_exa (no author match) → yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Initial Exa query “城山 のぼるきょじん” returned 4 generic or unrelated-location results, with no confirmed author match. Then Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "channel-src_a5f3919f8e40a361269c",
+      "query": "https://www.youtube.com/channel/UCSJQJUt6eksJjSAZSPQ4XCw/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": [
+        {
+          "url": "https://www.youtube.com/watch?v=J16xpPsuzyg",
+          "title": "城山 トップ・オブ・ザ・ワールド 12B",
+          "source_type": "video",
+          "creator_source_id": "src_a5f3919f8e40a361269c",
+          "reason": "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+        }
+      ]
+    },
+    {
+      "request_id": "channel-src_a8c3e2641b33c6f7435b",
+      "query": "https://www.youtube.com/@mikkokurata3506/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "channel-src_a9103198c32ef56cba4a",
+      "query": "https://www.youtube.com/channel/UCJcbtaetzJseAjG_wumrIpw/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "channel-src_af62e14f18ca83ee28f5",
+      "query": "https://www.youtube.com/channel/UCIN9YYiRsGO6R8cjMLNhcmA/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": [
+        {
+          "url": "https://www.youtube.com/watch?v=p-R4OPig3OU",
+          "title": "ヴァージンキラー(5.12a)@城山ワイルドボア",
+          "source_type": "video",
+          "creator_source_id": "src_af62e14f18ca83ee28f5",
+          "reason": "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=88nJJ5L6rZQ",
+          "title": "トゥウェルブモンキー(5.12b)@城山ワイルドボア",
+          "source_type": "video",
+          "creator_source_id": "src_af62e14f18ca83ee28f5",
+          "reason": "Upload-list title matches a configured place term; footage, exact location and publication date need review."
+        }
+      ]
+    },
+    {
+      "request_id": "channel-src_b13a646f22293a4b0cf3",
+      "query": "https://www.youtube.com/channel/UCFjcrY-QhSpHb2HsmMlTOQQ/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "channel-src_bdd4a8f00f39f0120f7c",
+      "query": "https://www.youtube.com/channel/UCUMb8YzVPO6KPjFlWSAlKHQ/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "channel-src_be1397cf597fc06da536",
+      "query": "https://www.youtube.com/channel/UCzQPmLmu9WkW4DDlrF-TQMA/videos",
+      "tool": "yt-dlp public channel uploads metadata",
+      "status": "ok",
+      "coverage": "Inspected 12 newest upload titles (limit12); retained configured place-term matches only. Older uploads, footage and audio not covered.",
+      "results": []
+    },
+    {
+      "request_id": "query-new-creators",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "status": "ok",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "results": [
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
+        {
+          "url": "https://www.yamareco.com/modules/yamareco/detail-5107670.html",
+          "title": "山行記録: 城山クライミング♪伊豆の攀子",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2023-01-19"
+        },
+        {
+          "url": "https://pump-climbing.com/areaguidedata/japan08.html",
+          "title": "エリアガイド | クライミングジム & ボルダリング（pump-climbing）",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.alpineclub.tokyo/vlog/1810/",
+          "title": "遂に公開！スター・トレック 後編｜伊豆 城山東壁｜マルチピッチクライミング [ ALPINE CLUB TOKYO 公式チャンネル ] - ALPINE CLUB TOKYO",
+          "source_type": "web-page",
+          "published_at": "2026-01-05T12:00:00.000Z",
+          "reason": "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+        },
+        {
+          "url": "https://www.alpineclub.tokyo/vlog/1932/",
+          "title": "城山 クロスロード 5.10a｜ワイルドボアゴージ（Wild Boae Gorge） [ ALPINE CLUB TOKYO 公式チャンネル ] - ALPINE CLUB TOKYO",
+          "source_type": "web-page",
+          "published_at": "2026-05-29T12:00:00.000Z",
+          "reason": "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+        },
+        {
+          "url": "https://www.sotolover.com/2026/08/207129/",
+          "title": "伊豆・城山の新ルート「スター☆トレック」へ！風と岩幅3mの難所を越えるソロクライミング | soto lover - ソトラバ",
+          "source_type": "web-page",
+          "published_at": "2026-08-23T11:00:00.000Z",
+          "reason": "Secondary adaptation of TAKEMOVIE; compare primary video, not independent corroboration."
+        },
+        {
+          "url": "http://tanamaste.blog109.fc2.com/blog-entry-1634.html",
+          "title": "タナログ　～国際山岳ガイド棚橋靖のブログ 伊豆・城山のマルチピッチクライミング",
+          "source_type": "web-page",
+          "published_at": "2026-03-17T00:00:00.000Z",
+          "reason": "Route report outside the weekly channel rotation; check original content and embedded videos before adoption."
+        }
+      ]
+    },
+    {
+      "request_id": "query-wildcat",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "status": "ok",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "results": [
+        {
+          "url": "https://www.rocktopo.net/areas/10",
+          "title": "城山 | ROCKTOPO 日本のクライミング、ボルダリングの岩場情報・トポ",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
+        {
+          "url": "https://m.youtube.com/watch?v=HJJgorK6MF4",
+          "title": "\"Challengers\" 城山クライミング1Day",
+          "source_type": "video",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2022-12-18"
+        },
+        {
+          "url": "https://www.rocktopo.net/tw/routes/9705",
+          "title": "地上の星 | ROCKTOPO - 日本攀岩 & 抱石資訊",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "https://www.rocktopo.net/route_bundles/1",
+          "title": "静岡付近の星付き11a | ROCKTOPO 日本のクライミング",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "https://www.rocktopo.net/areas/10/routes",
+          "title": "城山のルート一覧 | ROCKTOPO 日本のクライミング、ボルダリングの岩場情報・トポ",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "http://izujoyama.blog10.fc2.com/blog-entry-14.html",
+          "title": "新エリア　ワイルドキャットゴージの紹介 - 伊豆・城山 フリー クライミング ガイド ４００ ブログ",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        }
+      ]
+    },
+    {
+      "request_id": "query-inner-wall",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "status": "ok",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "results": [
+        {
+          "url": "https://www.rocktopo.net/areas/10",
+          "title": "城山 | ROCKTOPO 日本のクライミング、ボルダリング...",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.rocktopo.net/rocks/396",
+          "title": "インナーウォール 3 | ROCKTOPO",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.climbing-net.com/iwaba_detail/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://www.akatsuki-climbing.com/%E3%83%AB%E3%83%BC%E3%83%88%E7%B4%B9%E4%BB%8B%E5%9F%8E%E5%B1%B1/",
+          "title": "ルート紹介:城山 | あかつきクライミングスクール",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2025-12-09"
+        },
+        {
+          "url": "https://www.rocktopo.net/en/routes/5743",
+          "title": "リバイアサン | ROCKTOPO - Japan Climbing & Bouldering Guide",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "https://mousorosoro.info/2010/01/09/%e3%83%ac%e3%83%83%e3%83%89%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e3%81%ae%e6%9c%80%e7%b5%82%e5%85%b5%e5%99%a8%ef%bc%a0%e3%83%aa%e3%83%90%e3%82%a4%e3%82%a2%e3%82%b5%e3%83%b3/",
+          "title": "レッドポイントの最終兵器＠リバイアサン – もうそろそろリアルクライミングバムWITHわんこ　2nd",
+          "source_type": "web-page",
+          "published_at": "2010-01-09T00:00:00.000Z",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "https://www.rocktopo.net/areas/10/routes",
+          "title": "城山のルート一覧 | ROCKTOPO 日本のクライミング、ボルダリングの岩場情報・トポ",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        },
+        {
+          "url": "https://www.climbing-net.com/general/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net クライミングネット",
+          "source_type": "web-page",
+          "reason": "Route/sector search match from highlights; confirm exact route and content; not yet a video review."
+        }
+      ]
+    },
+    {
+      "request_id": "query-access-updates",
+      "tool": "Groundlane web_search (auto fusion, providers that responded: you/brave; tavily/exa unavailable) + Exa web_search_exa (earlier same-day run, results retained)",
+      "status": "ok",
+      "coverage": "Groundlane top 4 result cards (title/URL/snippet) plus the earlier Exa top 4 for the same query; no full reading or video viewing. Dates are provider labels, unverified; broad search not restricted to known channels. ",
+      "results": [
+        {
+          "url": "https://www.climbing-net.com/general/%E5%9F%8E%E5%B1%B1/",
+          "title": "城山 | 山と溪谷社のクライミング・ボルダリング総合サイト CLIMBING-net（注意点）",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://tozanguchinavi.com/trailhead/trailhead-5364",
+          "title": "城山、葛城山、発端丈山の登山口、城山林道峠広場駐車スペース",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review."
+        },
+        {
+          "url": "https://tozanguchi-p.com/joyama/",
+          "title": "【伊豆の国市】 城山登山口駐車場 | 登山口P",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2023-01-12"
+        },
+        {
+          "url": "https://eightdoor-equip.com/%E3%80%90%E5%BA%97%E4%B8%BB%E3%81%AE%E4%BC%91%E6%97%A5%E3%80%91%E4%BC%8A%E8%B1%86%E5%9F%8E%E5%B1%B1%E3%83%9E%E3%83%AB%E3%83%81%E3%83%94%E3%83%83%E3%83%81%E3%82%AF%E3%83%A9%E3%82%A4%E3%83%9F%E3%83%B3/",
+          "title": "【店主の休日】伊豆城山マルチピッチクライミング",
+          "source_type": "web-page",
+          "reason": "Search-result card title/URL/snippet from Groundlane; unread; not a video review. Provider date label only.",
+          "published_at": "2026-03-23"
+        },
+        {
+          "url": "https://tozanguchinavi.com/trailhead/trailhead-5367",
+          "title": "城山、葛城山、発端丈山の登山口、城山登山口の駐車場情報",
+          "source_type": "web-page",
+          "published_at": "2026-03-11T00:24:02.000Z",
+          "reason": "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+        },
+        {
+          "url": "https://izugeopark.org/geosites/joyama/",
+          "title": "城山 | 南から来た火山の贈りもの | 伊豆半島ジオパーク公式サイト",
+          "source_type": "web-page",
+          "reason": "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+        },
+        {
+          "url": "https://www.rocktopo.net/areas/10",
+          "title": "城山 | ROCKTOPO 日本のクライミング",
+          "source_type": "web-page",
+          "reason": "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+        },
+        {
+          "url": "https://escalade.amebaownd.com/posts/58653346/",
+          "title": "梅の香り、凝灰岩、そして温泉 ♨️ 伊豆クライミングガイド",
+          "source_type": "web-page",
+          "published_at": "2026-03-18T00:00:00.000Z",
+          "reason": "Access/current-condition candidate; requires primary-source and current-date verification before article use."
+        }
+      ]
+    },
+    {
+      "request_id": "page-1",
+      "query": "https://blog.hohta.com/archives/4870",
+      "tool": "Groundlane web_fetch (DEADLINE_EXCEEDED, then 60s client timeout on retry) + Exa web_fetch_exa (earlier same-day run, no content)",
+      "status": "failed",
+      "coverage": "Two Groundlane attempts and one Exa attempt, all failed; nothing was read.",
+      "error": "Groundlane web_fetch: DEADLINE_EXCEEDED at connect, retry timed out after 60s; Exa web_fetch_exa returned no content. Page not read this run.",
+      "results": []
+    },
+    {
+      "request_id": "page-2",
+      "query": "https://blog.muraq.com/post/mt/free_climbing/2454",
+      "tool": "Groundlane web_fetch (maxOutputChars 3000, output truncated)",
+      "status": "ok",
+      "coverage": "Fetched bounded markdown; inspected title/author/publishedAt and the first pitches of the route report, truncated, not a full reading.",
+      "results": [
+        {
+          "url": "https://blog.muraq.com/post/mt/free_climbing/2454",
+          "title": "城山 新ルート スタートレック【マルチピッチ クライミング】 - MuRaの山ブログ",
+          "source_type": "web-page",
+          "published_at": "2025-12-08",
+          "reason": "Known author page re-observed via Groundlane fetch; page dated 2025-12-08, not evidence that conditions are current."
+        }
+      ]
+    }
+  ]
+}

@@ -9,11 +9,11 @@ description: "把英文口說課接成課前錄音、課中回饋、課後重說
 tldr: "每週選一個真的會用到的任務，先錄原本說法，帶回饋重說，再換條件確認能否用出來；課表與筆記都圍繞同一個卡點。"
 series:
   name: "英文口說練習"
-  order: 14
+  order: 32
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speaking-practice-review-routine-en)
+> :globe: [English version](/posts/learning/2026-10-19-speaking-practice-review-routine-en)
 
 口說課上得很開心，老師也幫你改了幾句。隔天同事問到類似的事，你卻又回到原本的說法。這時候可以先改複習流程：把一堂課接到下一次真正開口，而不只把課堂筆記收進資料夾。
 

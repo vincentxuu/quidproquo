@@ -16,16 +16,16 @@ draft: false
 
 ## Ollama 是什麼
 
-Ollama 是一個開源平台（MIT 授權），用於在本地機器上運行大型語言模型。底層是 llama.cpp 推理引擎，上層包了一套 Docker 風格的 CLI 和 REST API。
+Ollama 是一個開源平台（MIT 授權），用於在本地機器上運行大型語言模型。它最早直接包 llama.cpp 推理引擎；現在 NVIDIA、AMD 與 CPU 仍走以 llama.cpp／GGML 為基礎的引擎，Apple Silicon 上支援的模型架構則從 0.40 版（2026-09）起預設改跑 Apple 的 MLX。上層包了一套 Docker 風格的 CLI 和 REST API。
 
 核心設計哲學：**像管理容器一樣管理模型**。模型權重、設定和運行環境打包成一個叫 Modelfile 的單元，模型層像容器映像一樣快取，共享層不需重複下載。
 
 ```bash
 # 這一行做了三件事：下載模型、配置 GPU、啟動互動對話
-ollama run llama3.2
+ollama run gemma4
 ```
 
-截至 2026 Q1，每月下載量達 5200 萬次。GitHub 上超過 10 萬顆星。
+截至 2026 Q1，每月下載量達 5200 萬次；GitHub 上到 2026-11 約 18.8 萬顆星。
 
 ---
 
@@ -34,14 +34,15 @@ ollama run llama3.2
 Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台：
 
 - **一行指令管理模型** — `ollama run`、`ollama pull`、`ollama rm`
-- **自動 GPU 偵測** — NVIDIA CUDA、AMD ROCm、Apple Metal 全自動
+- **自動 GPU 偵測** — NVIDIA CUDA、AMD ROCm、Vulkan、Apple Silicon（MLX／Metal）全自動
 - **自動 VRAM 管理** — 多模型同時載入，超過 VRAM 自動溢出到 RAM
 - **OpenAI 相容 API** — `localhost:11434/v1/` 可直接替換 OpenAI endpoint
 - **Modelfile 系統** — 類似 Dockerfile 的設定檔
-- **多模態** — 支援視覺模型（Gemma 3、Llama 3.2 Vision、LLaVA）
+- **多模態** — 支援視覺模型（Gemma 4、Qwen3.8、Qwen3-VL）
 - **結構化輸出** — JSON Schema 約束回應格式
 - **工具呼叫** — function calling 支援
 - **Embedding** — 內建 embedding 端點
+- **決策模型** — `/v1/systemone` 回傳選項、機率與分數而不是文字（0.35 起）
 
 ---
 
@@ -49,15 +50,17 @@ Ollama 不只是一個 CLI 工具，它是一個完整的本地 LLM 運行平台
 
 完整清單在 [ollama.com/library](https://ollama.com/library)，這裡列主要的：
 
-**通用對話**：Llama 3.1/3.2/4（Meta）、Mistral/Mixtral（Mistral AI）、Qwen 2.5/3（Alibaba）、Gemma 2/3（Google）、Phi-3/4（Microsoft）、GPT-OSS（OpenAI 開源模型）
+**通用對話（本機能跑的現行世代）**：Qwen3.8 27B 與 Qwen3.5 0.8B～122B（Alibaba）、Gemma 4 E2B／E4B／12B／26B／31B（Google）、GPT-OSS 20B／120B（OpenAI 開源模型）、Inkling 2 Mini（Thinking Machines Lab）、LFM3（Liquid AI）、Nemotron 3.5 Bolt（NVIDIA）
 
-**推理**：DeepSeek R1、DeepSeek-v3.1（多種蒸餾大小）
+**大型開放權重（多半要多卡或改用 Ollama Cloud）**：DeepSeek V4.1 Flash、GLM-5.3-Flash、Qwen3.8 Flash-Next、Kimi K3.1 Pro
 
-**程式碼**：Qwen 2.5-Coder、CodeLlama、Qwen3-Coder
+**程式碼**：Qwen3-Coder、Devstral Small 2
 
-**視覺**：Gemma 3（官方推薦）、Llama 3.2 Vision、LLaVA
+**視覺**：Gemma 4、Qwen3.8、Qwen3-VL
 
-**Embedding**：embeddinggemma、qwen3-embedding、all-minilm（官方推薦三選一）
+**Embedding**：embeddinggemma、embeddinggemma-2、qwen3-embedding、nomic-embed-text
+
+Llama 3.x、Qwen2.5、Mistral 這些舊模型仍在 library 裡，但 0.32 起用 `ollama launch` 把它們接到 coding agent 時會先跳出過時警告。各家族的現況與選型見 [AI 模型總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)。
 
 不在官方 library 裡的模型，只要是 GGUF 格式就能手動匯入。
 
@@ -115,7 +118,7 @@ class Country(BaseModel):
     languages: list[str]
 
 response = chat(
-    model='llama3.2',
+    model='gemma4',
     messages=[{'role': 'user', 'content': '介紹台灣'}],
     format=Country.model_json_schema(),
 )
@@ -141,44 +144,39 @@ response = ollama.web_search("Ollama 最新版本")
 
 ### Ollama Cloud
 
-2025 年 9 月上線的雲端託管服務：
+2025 年 9 月上線的雲端託管服務，[定價頁](https://ollama.com/pricing)目前分成：
 
-- **Pro**：$20/月
-- **Max**：$100/月
+- **Pay as you go**：$0 月費，按 token 計費，3 個併發請求
+- **Pro**：$20/月，含 $60 用量額度
+- **Max**：$100/月，含 $300 用量額度、10 個併發請求
+- **Team**：$500/月，不限人數，含 $1,000 共用額度（early access）
+- **Enterprise**：洽詢
 
-適合不想管硬體但又想用 Ollama 生態系統的人。Cloud 模型以完整 context 容量運行。不過目前缺乏公開的 rate limit、per-token 計費、和企業 SLA 文件，還在早期階段。
+每個雲端模型都標了每百萬 token 的輸入、快取輸入與輸出價格，平日 UTC 12:00–18:00 以外與週末有離峰價。適合不想管硬體但又想用 Ollama 生態系統的人，也是在本機跑不動的大模型（例如 DeepSeek V4.1 Flash、GLM-5.3）的退路。Cloud 模型以完整 context 容量運行。
 
-### TUI 互動介面 + AI 工具啟動器（0.18.3）
+### 互動 agent 與工具啟動器（0.18 → 0.32）
 
-這是最大的定位轉變。從 0.18 開始，直接在終端機輸入 `ollama`（不帶任何參數）會進入一個互動式 TUI 選單：
+這是最大的定位轉變。0.18 版起，直接在終端機輸入 `ollama`（不帶任何參數）會進入一個互動式選單，可以聊天或一鍵啟動 Claude Code、Codex 這類 coding 工具。0.32 版（2026-07）再往前一步，`ollama` 預設直接進入 Ollama 自己的 agent：
 
 ```
-Ollama 0.18.3
+❯ ollama
+Ollama 0.32.0
 
-▸ Run a model
-    Start an interactive chat with a model
-
-  Launch Claude Code
-    Anthropic's coding tool with subagents
-
-  Launch Codex
-    OpenAI's open-source coding agent
-
-  Launch OpenClaw
-    Personal AI with 100+ skills
-
-  Launch Visual Studio Code
-    Microsoft's open-source AI code editor
-
-  Launch Cline (not installed)
-    Install with: npm install -g cline
-
-↑/↓ navigate • enter launch • → configure • esc quit
+▸ Chat, Code, & Work (glm-5.2:cloud)
+    Chat with models, code, search the web, and delegate real work
 ```
 
-Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。官方文件列出 18 個整合工具：Claude Code、Codex、Cline、OpenClaw、VS Code、JetBrains、Xcode、Zed、Roo Code、OpenCode、Droid、Pi、Goose、Marimo、n8n、NemoClaw、Onyx 等。沒安裝的工具會顯示安裝指令。
+啟動器選單同時精簡成最熱門的幾個整合，其他工具改用 `ollama launch <名稱>` 叫出來，例如 `ollama launch claude`、`ollama launch openclaw`。官方文件的整合清單到 2026-11 有 26 個：Claude Code、Claude Desktop、Codex、ChatGPT、Copilot CLI、Cline、OpenClaw、Hermes、VS Code、JetBrains、Xcode、Zed、Roo Code、OpenCode、Droid、Pi、Goose、Marimo、n8n、NemoClaw、Onyx 等。桌面端也接上了：0.23 起支援 Claude Desktop，0.34 起 macOS 上可以在 ChatGPT Desktop 裡直接用 Ollama 的模型。
 
-這個設計很聰明——Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的 launcher 等於是在搶佔開發者工作流的入口位置。
+Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發工具的統一入口**。Ollama 已經是開發者跑本地 LLM 的預設選擇，把自己變成 AI 工具的入口等於是在搶佔開發者工作流的位置。
+
+### Apple Silicon 改跑 MLX（0.19 → 0.40）
+
+0.19 版（2026-03）開始在 Apple Silicon 上以預覽形式改用 Apple 的機器學習框架 MLX，直接利用統一記憶體架構；0.40 版（2026-09）起，MLX 支援的模型架構在 Apple Silicon 上預設就跑 MLX，包括 Qwen3.8、Qwen3.5／3.6、Gemma 4 與 embeddinggemma-2。不需要改任何指令，`ollama run` 會自己選引擎。同時 `OLLAMA_NUM_PARALLEL` 在 MLX 上未設定時會依記憶體自動決定，不再固定是 1。
+
+### 決策模型（0.35）
+
+0.35 版加入 `/v1/systemone` 端點與「決策模型」（Nimble、Tev1、Clef 等）：送進情境與一個或多個問題，回傳的是選項、機率與分數，而不是一段文字。適合工單分類、模型路由、內容分類這類要結構化判斷的工作，比叫一個聊天模型再解析輸出更穩。
 
 ---
 
@@ -191,7 +189,7 @@ Ollama 不再只是「本地 LLM runner」，而是變成了一個 **AI 開發�
 brew install ollama
 ```
 
-Apple Silicon 自動啟用 Metal GPU 加速，不需額外設定。
+Apple Silicon 自動啟用 GPU 加速（支援的模型走 MLX，其餘走 Metal），不需額外設定。
 
 ### Linux
 
@@ -244,11 +242,11 @@ Ollama 的行為幾乎全靠環境變數控制。這些是你遲早會用到的�
 | 變數 | 用途 | 預設值 |
 |------|------|--------|
 | `OLLAMA_CONTEXT_LENGTH` | 全域 context window 大小 | 依 VRAM 自動決定 |
-| `OLLAMA_NUM_PARALLEL` | 每個模型的最大並行請求數 | `1` |
+| `OLLAMA_NUM_PARALLEL` | 每個模型的最大並行請求數 | `1`（Apple Silicon 的 MLX 依記憶體自動決定） |
 | `OLLAMA_MAX_LOADED_MODELS` | 同時載入記憶體的模型數 | GPU 數量 × 3（或 CPU 模式 3） |
 | `OLLAMA_MAX_QUEUE` | 請求佇列上限，超過回 503 | `512` |
 | `OLLAMA_KEEP_ALIVE` | 模型閒置後保留在記憶體的時間 | `5m` |
-| `OLLAMA_FLASH_ATTENTION` | 啟用 Flash Attention（省記憶體） | 未啟用 |
+| `OLLAMA_FLASH_ATTENTION` | 強制開（`1`）或關（`0`）Flash Attention（省記憶體） | 後端與裝置支援時自動啟用 |
 | `OLLAMA_KV_CACHE_TYPE` | KV Cache 量化類型 | `f16`（可選 `q8_0` 半記憶體、`q4_0` 四分之一） |
 
 `OLLAMA_KEEP_ALIVE` 支援多種格式：`"10m"`、`"24h"`、`0`（用完立刻卸載）、負數（永不卸載）。`OLLAMA_NUM_PARALLEL` 的記憶體開銷 = 並行數 × context length，設太高會爆記憶體。
@@ -276,14 +274,14 @@ sudo systemctl daemon-reload && sudo systemctl restart ollama
 
 ```bash
 ollama serve                          # 啟動 server（port 11434）
-ollama run llama3.2                   # 下載 + 啟動互動對話
-ollama run llama3.2 "解釋 TCP 三次握手"  # 單次提問
-ollama pull qwen2.5:14b               # 只下載，不啟動
+ollama run gemma4                     # 下載 + 啟動互動對話
+ollama run gemma4 "解釋 TCP 三次握手"    # 單次提問
+ollama pull qwen3.8:27b               # 只下載，不啟動
 ollama list                           # 列出已下載的模型
 ollama ps                             # 看哪些模型正在記憶體裡
-ollama show llama3.2                  # 模型資訊（架構、量化、授權）
+ollama show gemma4                    # 模型資訊（架構、量化、授權）
 ollama rm mistral                     # 刪除模型
-ollama stop llama3.2                  # 從記憶體卸載
+ollama stop gemma4                    # 從記憶體卸載
 ```
 
 互動模式裡可以即時調參數：
@@ -308,7 +306,7 @@ Ollama 在 `localhost:11434` 提供兩套 API。
 ```bash
 # 多輪對話
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2",
+  "model": "gemma4",
   "messages": [{"role": "user", "content": "什麼是 RAG？"}],
   "stream": false
 }'
@@ -345,7 +343,7 @@ curl http://localhost:11434/api/embed -d '{
 
 ```bash
 curl http://localhost:11434/api/chat -d '{
-  "model": "llama3.2",
+  "model": "gemma4",
   "messages": [{"role": "user", "content": "寫一首詩"}],
   "stream": false,
   "options": {
@@ -374,7 +372,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="llama3.2",
+    model="gemma4",
     messages=[{"role": "user", "content": "用 Python 寫一個 binary search"}],
 )
 print(response.choices[0].message.content)
@@ -399,11 +397,13 @@ print(response.choices[0].message.content)
 
 ### GPU 支援
 
-**NVIDIA**（最完整）：CUDA compute capability 5.0+，RTX 4090（24 GB）是消費級首選，RTX 4060（8 GB）是預算選擇。
+**NVIDIA**（最完整）：CUDA compute capability 5.0+、驅動 550 以上（compute capability 5.0～6.2 的舊卡要 570 以上）。RTX 5090（32 GB）與 RTX 4090（24 GB）是消費級首選，8 GB 的卡只適合小模型。
 
-**AMD**：Linux 上透過 ROCm 支援，Windows 實驗性。RX 7900 XTX（24 GB）不錯，但部分顯卡可能需要 `HSA_OVERRIDE_GFX_VERSION` 環境變數。
+**AMD**：Linux 與 Windows 都透過 ROCm 支援，兩邊都要 ROCm v7 驅動；Windows 目前列的是 RX 7000 系列與 Radeon PRO W7000 系列，Linux 另外支援 RX 9070／9060、Ryzen AI Max 等。RX 7900 XTX（24 GB）不錯，清單外的顯卡可能需要 `HSA_OVERRIDE_GFX_VERSION` 環境變數，或改走 Vulkan。
 
-**Apple Silicon**：Metal API 自動啟用。統一記憶體架構的優勢是所有系統 RAM 都可供 GPU 使用，M 系列晶片配 32 GB+ 記憶體跑本地 LLM 體驗很好。
+**Vulkan**：Windows 與 Linux 上額外的 GPU 支援管道，安裝後預設啟用，Intel GPU 與 ROCm 不支援的 AMD 顯卡可以靠它跑。
+
+**Apple Silicon**：自動啟用，0.40 起支援的模型預設跑 MLX。統一記憶體架構的優勢是所有系統 RAM 都可供 GPU 使用，M 系列晶片配 32 GB+ 記憶體跑本地 LLM 體驗很好；例如 Qwen3.8 27B 在 Ollama 上的 4-bit 版約 18 GB。
 
 ### Context Length 與 VRAM 的關係
 
@@ -423,7 +423,7 @@ OLLAMA_CONTEXT_LENGTH=64000 ollama serve
 
 # 單次請求層級（透過 options.num_ctx）
 curl http://localhost:11434/api/chat -d '{
-  "model": "qwen3",
+  "model": "qwen3.8",
   "messages": [...],
   "options": {"num_ctx": 64000}
 }'
@@ -438,8 +438,8 @@ Ollama 自動把部分層溢出到系統 RAM。好處是不會崩潰，壞處是
 ```bash
 # 確認 GPU/CPU 分配狀態
 ollama ps
-# NAME       SIZE    PROCESSOR    CONTEXT
-# llama3.2   4.9 GB  100% GPU     8192
+# NAME             SIZE      PROCESSOR    CONTEXT
+# gemma4:latest    9.6 GB    100% GPU     131072
 ```
 
 `PROCESSOR` 欄顯示 `100% GPU` 是理想狀態。如果看到 `50% GPU / 50% CPU`，代表模型部分在 CPU 上跑，效能會大幅下降。解法：換更小的模型、降低 context length、啟用 KV cache 量化、或升級硬體。
@@ -451,7 +451,7 @@ ollama ps
 Modelfile 是 Ollama 的殺手級功能之一。語法類似 Dockerfile：
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 
 PARAMETER temperature 0.7
 PARAMETER num_ctx 8192
@@ -468,7 +468,7 @@ ollama create my-code-assistant -f ./Modelfile
 ollama run my-code-assistant
 
 # 查看任何模型的 Modelfile
-ollama show --modelfile llama3.2
+ollama show --modelfile gemma4
 ```
 
 ### 全部指令
@@ -478,7 +478,7 @@ ollama show --modelfile llama3.2
 | `FROM` | 基礎模型（必填）。可以是模型名稱、本地 GGUF 路徑、safetensors 目錄 |
 | `SYSTEM` | 系統提示，注入到 template 的 `{{ .System }}` |
 | `PARAMETER` | 推理參數（見下方完整列表） |
-| `TEMPLATE` | 自訂 prompt 模板（Go template 語法，變數：`{{ .System }}`、`{{ .Prompt }}`、`{{ .Response }}`） |
+| `TEMPLATE` | 自訂 prompt 範本（Go template 語法，變數：`{{ .System }}`、`{{ .Prompt }}`、`{{ .Response }}`） |
 | `ADAPTER` | 套用 LoRA adapter（safetensors 目錄或 GGUF 檔案） |
 | `MESSAGE` | 預填對話歷史，指定 role（system/user/assistant）引導模型行為 |
 | `LICENSE` | 宣告授權條款 |
@@ -494,7 +494,7 @@ ollama show --modelfile llama3.2
 | `top_k` | 限制候選 token 數，越小越確定 | 40 |
 | `top_p` | Nucleus sampling 閾值 | 0.9 |
 | `min_p` | 最低機率門檻 | 0.0 |
-| `repeat_penalty` | 重複懲罰 | 1.1 |
+| `repeat_penalty` | 重複懲罰 | 1.0（停用） |
 | `repeat_last_n` | 重複偵測的回看範圍 | 64 |
 | `seed` | 隨機種子（搭配固定 temperature 可重現輸出） | 0 |
 | `stop` | 停止序列（可重複多次設定多個） | — |
@@ -502,7 +502,7 @@ ollama show --modelfile llama3.2
 ### 進階範例：用 MESSAGE 預填對話
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 SYSTEM """你是台灣的法律顧問，專精勞基法。用繁體中文回答。"""
 PARAMETER temperature 0.3
 PARAMETER num_ctx 8192
@@ -546,7 +546,7 @@ FROM /path/to/safetensors/directory
 或匯入 LoRA adapter（用 Unsloth、MLX 等工具微調後的產物）：
 
 ```dockerfile
-FROM llama3.2
+FROM gemma4
 ADAPTER /path/to/adapter/directory
 ```
 
@@ -577,7 +577,7 @@ ollama push myuser/my-model
 | | Ollama | llama.cpp | LM Studio | vLLM |
 |---|---|---|---|---|
 | 介面 | CLI + REST API | 純 CLI | GUI + API | Server API |
-| 安裝 | 一行指令 | 需編譯 | 安裝包 | pip install |
+| 安裝 | 一行指令 | 預編譯檔或自行編譯 | 安裝包 | pip install |
 | 開源 | MIT | MIT | 否（免費） | Apache 2.0 |
 | 適合 | 開發者、API 整合 | 極致效能控制 | 初學者、GUI 偏好 | 生產高吞吐量 |
 | GPU 管理 | 自動 | 完全手動 | GUI 控制 | 自動最佳化 |
@@ -589,24 +589,24 @@ ollama push myuser/my-model
 - 需要最大效能控制和自訂 → **llama.cpp**
 - 要上生產環境、高並發 → **vLLM**
 
-Ollama 和 LM Studio 底層都是 llama.cpp。Ollama 贏在自動 VRAM 管理和開發者友善的 API，LM Studio 贏在 UI 和模型發現體驗。
+Ollama 和 LM Studio 都以 llama.cpp 為基礎，在 Mac 上也都能改走 MLX。Ollama 贏在自動 VRAM 管理和開發者友善的 API，LM Studio 贏在 UI 和模型發現體驗。
 
 ---
 
 ## 生態系統
 
-Ollama 官方文件列出 18 個整合工具，加上社群生態已經相當完整：
+Ollama 官方文件列出 26 個整合工具，加上社群生態已經相當完整：
 
 | 類型 | 工具 |
 |------|------|
 | Web UI | OpenWebUI（最像 ChatGPT 的本地介面） |
-| AI Coding | Claude Code、Codex、Cline、Roo Code、OpenCode、Droid、Pi、Goose |
+| AI Coding | Claude Code、Codex、Copilot CLI、Cline、Roo Code、OpenCode、Droid、Pi、Goose |
 | IDE | VS Code、JetBrains、Xcode、Zed |
 | 自動化 | n8n、Marimo |
-| 個人助理 | OpenClaw、NemoClaw、Onyx |
+| 桌面 App 與個人助理 | Claude Desktop、ChatGPT、Hermes、OpenClaw、NemoClaw、Onyx |
 | RAG 框架 | LangChain、LlamaIndex |
 
-常見搭配：Ollama + OpenWebUI 做本地聊天介面，Ollama + LangChain 做本地 RAG，Ollama + Claude Code/Codex 用本地模型做 coding agent。0.18 版的 TUI launcher 讓這些工具的切換變得更無縫。
+常見搭配：Ollama + OpenWebUI 做本地聊天介面，Ollama + LangChain 做本地 RAG，Ollama + Claude Code/Codex 用本地模型做 coding agent。`ollama launch` 讓這些工具的切換變得更無縫。
 
 ---
 
@@ -622,14 +622,14 @@ Ollama 的設計目標是本地開發和實驗，不是生產部署。沒有內�
 
 ### 模型品質的天花板
 
-本地跑的開源模型，在複雜推理任務上通常還是比不上 Claude 或 GPT-4o 等雲端 API。7B 模型適合簡單任務，70B 才接近雲端品質，但硬體要求也跟著上去。
+本地跑的開源模型，在複雜推理任務上通常還是比不上 Claude、GPT 的前沿型號。依 [AI 模型總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)整理的 Artificial Analysis 2026-11 數字，開放權重最強的 Kimi K3.1 Pro 綜合指數 46.5，閉源前沿在 60 到 65；而 Kimi K3.1 Pro 要多節點才跑得動，單卡或筆電能跑的 27B 級模型差距更大。小模型適合分類、抽取、簡單問答，複雜任務還是要評估雲端 API。
 
 ### 其他限制
 
 - 無法選擇特定量化方法（Ollama 自動決定）
 - 模型以專有 blob 格式儲存，不便跨工具共享（不像直接用 GGUF）
 - 只做推理，不做微調（但可以套用 LoRA adapter）
-- 沒有內建 GUI，要搭配 OpenWebUI 等第三方前端
+- 桌面 App 只有基本的聊天與設定介面，要多使用者或完整 Web UI 仍要搭配 OpenWebUI 等第三方前端
 - AMD GPU 支援不如 NVIDIA 成熟
 
 ---
@@ -674,7 +674,7 @@ Windows 啟用 debug 模式：`$env:OLLAMA_DEBUG="1"` 再啟動。
 **安裝特定版本**：
 
 ```bash
-curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.5.7 sh
+curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.40.17 sh
 ```
 
 ---
@@ -683,7 +683,7 @@ curl -fsSL https://ollama.com/install.sh | OLLAMA_VERSION=0.5.7 sh
 
 Ollama 的核心取捨很明確：**用一層抽象換取開發者體驗**。你放棄了 llama.cpp 的極致控制，換來一行指令就能跑模型 + OpenAI 相容 API + 自動 GPU 管理。
 
-從 2025 到 2026，Ollama 的定位已經從「本地 LLM runner」擴展成「AI 開發者的統一入口」。thinking mode、tool calling agent loop、structured output、web search、TUI launcher——這些功能加起來，讓它從一個單純的推理工具變成了一個開發平台。
+從 2025 到 2026，Ollama 的定位已經從「本地 LLM runner」擴展成「AI 開發者的統一入口」。thinking mode、tool calling agent loop、structured output、web search、內建 agent 與 `ollama launch`、Apple Silicon 上的 MLX——這些功能加起來，讓它從一個單純的推理工具變成了一個開發平台。
 
 適合的場景：本地開發和測試 LLM 應用、省 API 費用的原型開發、隱私敏感的離線使用、搭配 RAG 框架做實驗、匯入自訂微調模型做推理。
 
@@ -691,10 +691,19 @@ Ollama 的核心取捨很明確：**用一層抽象換取開發者體驗**。你
 
 如果你是開發者，想在本地跑 LLM 做開發測試，Ollama 目前是最低摩擦力的選擇。
 
+## 更新紀錄
+
+- 2026-11-23：依 0.19～0.40 的 release notes 改寫新功能：0.32 的內建 agent 與 `ollama launch`、0.40 起 Apple Silicon 預設跑 MLX、0.35 的決策模型；Ollama Cloud 改成現行方案與按 token 計費；支援模型與所有範例換成 Gemma 4、Qwen3.8 等現行世代；環境變數（Flash Attention 自動開、NUM_PARALLEL）、`repeat_penalty` 預設值、AMD／Vulkan 支援、整合工具數量（26 個）、桌面 App 與模型品質差距依官方文件與模型總覽更新。
+
 ## 參考資料
 
 - [Ollama 官方文件](https://ollama.com/docs) — Ollama CLI、API、Modelfile 完整參考文件
 - [Ollama GitHub 儲存庫](https://github.com/ollama/ollama) — 原始碼、issue tracker 與 release notes
+- [Ollama Releases](https://github.com/ollama/ollama/releases) — 0.19（MLX 預覽）、0.32（內建 agent）、0.35（決策模型）、0.40（MLX 預設）等版本說明
+- [Ollama 定價](https://ollama.com/pricing) — Cloud 方案與每百萬 token 價格
+- [Ollama GPU 文件](https://github.com/ollama/ollama/blob/main/docs/gpu.mdx) — NVIDIA、AMD ROCm v7、Vulkan 支援清單
+- [Ollama FAQ](https://github.com/ollama/ollama/blob/main/docs/faq.mdx) — 環境變數與預設值
+- [AI 模型總覽](/posts/tech/2026-08-24-ai-model-landscape-overview) — 各家族現行世代與開放／閉源差距
 - [llama.cpp GitHub 儲存庫](https://github.com/ggml-org/llama.cpp) — Ollama 底層推理引擎，支援 GGUF 格式的 C++ 實作
 - [Searching for Best Practices in Retrieval-Augmented Generation](https://arxiv.org/abs/2407.01219) — Wang et al. (2024)，本地 LLM 搭配 RAG 的最佳實踐研究
 - [OpenWebUI GitHub 儲存庫](https://github.com/open-webui/open-webui) — 最常與 Ollama 搭配使用的開源 Web UI

@@ -5,7 +5,7 @@ type: guide
 category: ai
 tags: [mcp, model-context-protocol, tool-use, agent, anthropic]
 lang: zh-TW
-tldr: "每個 AI 工具都有自己的呼叫格式，整合成本高。MCP（Model Context Protocol）是 Anthropic 提出的開放標準，統一 AI Agent 與外部工具、資料源的通訊協定，讓工具可以跨 Agent 重用。"
+tldr: "每個 AI 工具都有自己的呼叫格式，整合成本高。MCP（Model Context Protocol）是 Anthropic 在 2024 年提出、2025-12 捐給 Linux Foundation 旗下 Agentic AI Foundation 的開放標準，統一 AI Agent 與外部工具、資料源的通訊協定，讓工具可以跨 Agent 重用。目前規格版本是 2026-07-28：拿掉了初始化握手、改成無狀態，遠端傳輸以 Streamable HTTP 為準。"
 description: "MCP 的設計理念、核心架構（Host/Client/Server）、三大原語（Resources/Tools/Prompts）、傳輸層實作、與 Function Calling 的差異，以及如何開發自己的 MCP Server。"
 draft: false
 ---
@@ -88,15 +88,16 @@ Agent C ─┘                ├── Notion MCP Server
 
 ## MCP 是什麼
 
-**Model Context Protocol（MCP）** 是 Anthropic 在 2024 年 11 月開源的一個標準化協定，定義了 AI 應用程式如何與外部資料源和工具互動。
+**Model Context Protocol（MCP）** 是 Anthropic 在 2024 年 11 月開源的一個標準化協定，定義了 AI 應用程式如何與外部資料源和工具互動。2025-12-09 Anthropic 把 MCP [捐給 Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)（Linux Foundation 底下的基金，由 Anthropic、Block、OpenAI 共同發起），技術決策仍由原本的維護者透過 SEP（Specification Enhancement Proposal）流程決定。
 
 幾個關鍵特性：
 
-- **開放標準**：MIT 授權，任何人可以實作
+- **開放標準**：任何人可以實作；授權正從 MIT 轉為 Apache-2.0，新的程式與規格貢獻一律採 Apache-2.0
 - **語言無關**：協定本身是 JSON-RPC 2.0，不綁特定程式語言
-- **雙向通訊**：不只是 request-response，server 可以主動推送
-- **支持多種傳輸層**：本地 stdio、遠端 HTTP+SSE
-- **已有生態系統**：超過數百個社區 MCP Server
+- **雙向通訊**：不只是 request-response，server 可以回報進度、推送清單變更通知
+- **支援多種傳輸層**：本地 stdio、遠端 Streamable HTTP（舊的 HTTP+SSE 已棄用）
+- **版本以日期命名**：版本號是最後一次不相容變更的日期，[目前版本](https://modelcontextprotocol.io/specification/versioning)是 `2026-07-28`
+- **已有生態系統**：依 Anthropic 2025-12 的公告，公開運作中的 MCP Server 超過一萬個，另有官方的 [MCP Registry](https://registry.modelcontextprotocol.io/)
 
 MCP 的核心精神很簡單：
 
@@ -172,8 +173,8 @@ Server 是實際接觸外部資源的元件。它：
 一個 MCP Server 通常專注於一個服務或一個領域。例如：
 
 - `@modelcontextprotocol/server-filesystem`：檔案系統操作
-- `@modelcontextprotocol/server-github`：GitHub API
-- `@modelcontextprotocol/server-postgres`：PostgreSQL 查詢
+- [`github/github-mcp-server`](https://github.com/github/github-mcp-server)：GitHub 官方維護的 GitHub API Server
+- `mcp-server-fetch`：抓網頁並轉成適合模型讀的格式
 
 ---
 
@@ -407,7 +408,7 @@ Prompts 的特性：
 
 ## 傳輸層
 
-MCP 的傳輸層負責在 Client 和 Server 之間搬運 JSON-RPC 訊息。目前支援兩種主要方式。
+MCP 的傳輸層負責在 Client 和 Server 之間搬運 JSON-RPC 訊息。目前規格定義兩種：stdio 與 Streamable HTTP。
 
 ### stdio（標準輸入輸出）
 
@@ -447,20 +448,21 @@ MCP 的傳輸層負責在 Client 和 Server 之間搬運 JSON-RPC 訊息。目�
 
 Client 會執行這個指令，啟動一個子程序，然後透過 stdin/stdout 和它溝通。
 
-### HTTP + SSE（Server-Sent Events）
+### Streamable HTTP
 
 ```
-┌──────────┐   HTTP POST      ┌──────────┐
-│          │ ───────────────→  │          │
-│  Client  │                   │  Server  │
-│          │ ←─────────────── │          │
-└──────────┘   SSE stream      └──────────┘
+┌──────────┐   HTTP POST /mcp          ┌──────────┐
+│          │ ───────────────────────→   │          │
+│  Client  │                            │  Server  │
+│          │ ←─────────────────────── │          │
+└──────────┘   JSON 或 SSE 串流回應      └──────────┘
 ```
 
 **運作方式**：
 
-- Client → Server：透過 HTTP POST 發送請求
-- Server → Client：透過 SSE（Server-Sent Events）推送回應和通知
+- Client → Server：每個請求都是對同一個 endpoint 的 HTTP POST
+- Server → Client：回應可以是一個 JSON body；需要在結果之前送進度或日誌時，改用 SSE 串流回應
+- 從 2026-07-28 版起，協定是無狀態的：拿掉了 `Mcp-Session-Id` session，每個請求自己帶協定版本；想收清單變更通知的 Client 另外開一條 `subscriptions/listen` 串流
 
 **適用場景**：
 
@@ -469,12 +471,12 @@ Client 會執行這個指令，啟動一個子程序，然後透過 stdin/stdout
 - 需要跨網路存取
 - 雲端服務整合
 
-**重要補充**：2025 年 3 月，MCP 規格新增了 **Streamable HTTP** 傳輸方式，進一步取代原先的 HTTP+SSE 方案。Streamable HTTP 讓 Server 可以用單一 HTTP endpoint 同時處理 request-response 和串流，簡化了部署架構。
+**舊的 HTTP+SSE**：MCP 最早的遠端傳輸是「POST 送請求、另開一條 SSE 收回應」的雙 endpoint 設計。[2025-03-26 版](https://modelcontextprotocol.io/specification/2025-03-26/changelog)用 Streamable HTTP 取代它，[2026-07-28 版](https://modelcontextprotocol.io/specification/2026-07-28/changelog)把它正式列為 Deprecated，新的實作不要再用。因為無狀態，Streamable HTTP 的 Server 可以直接水平擴展，不用 sticky session。
 
 ### 何時用哪個
 
 ```
-                                            stdio          HTTP+SSE / Streamable HTTP
+                                            stdio          Streamable HTTP
                                             ─────          ─────────────────────────
 本地 CLI 工具                                 ✅ 推薦         ❌ 不需要
 本地 IDE 整合                                 ✅ 推薦         ⚠️ 可選
@@ -540,8 +542,8 @@ MCP 在 Function Calling 之上建立了一個完整的協定。它不只告訴�
 ├─────────────────────────────────────────────────────┤
 │  MCP (協定層)                                        │
 │  ├── 工具發現：Server 自動列出可用的 Tools             │
-│  ├── 能力協商：Client 和 Server 握手確認支援的功能      │
-│  ├── 生命週期：連線建立、維持、斷開                     │
+│  ├── 能力協商：Client 和 Server 確認雙方支援的功能      │
+│  ├── 版本協商：每個請求帶協定版本，不合就換版本重送     │
 │  ├── 多 Server 管理：同時連多個不同的 Server           │
 │  └── 資料暴露：Resources、Prompts                     │
 ├─────────────────────────────────────────────────────┤
@@ -565,7 +567,7 @@ MCP 在 Function Calling 之上建立了一個完整的協定。它不只告訴�
 | **多工具管理** | 自己維護 | 協定原生支持多 Server |
 | **資料存取** | 沒有原生支持 | Resources 原語 |
 | **Prompt 模板** | 沒有原生支持 | Prompts 原語 |
-| **生命週期管理** | 沒有 | 完整的連線生命週期 |
+| **版本與能力協商** | 沒有 | 協定版本、能力宣告與 `server/discover` |
 | **社區生態** | 各自實作 | 共享 MCP Server 生態系 |
 
 **簡單來說**：Function Calling 是讓模型「能呼叫函式」，MCP 是讓工具「能被任何 Agent 用統一方式使用」。
@@ -574,70 +576,77 @@ MCP 和 Function Calling 不是互相取代的關係。在實務上，一個 MCP
 
 ---
 
-## 協定生命週期
+## 版本協商：從握手到每個請求自帶版本
 
-MCP 的連線有一個明確的生命週期。理解這個流程對於開發和 debug 都很重要。
+MCP 的版本協商在 2026 年改過一次，現在網路上兩種寫法都看得到，先把差別講清楚。
+
+**2025-11-25 以前（握手制）**：連線一開始，Client 送 `initialize`（帶協定版本、自己的能力），Server 回自己支援的版本與能力，Client 再送 `notifications/initialized` 確認，之後才開始正常互動。整條連線共用握手時談好的狀態。
+
+**2026-07-28 起（無狀態）**：拿掉握手。每個請求都在 `_meta` 裡帶協定版本、Client 能力與身分；Server 逐個請求決定接受或拒絕，不支援就回 `UnsupportedProtocolVersionError` 並列出它支援的版本，Client 換一個雙方都支援的版本重送。
 
 ```
 Client                                    Server
   │                                         │
-  │  ────── initialize ──────────────→      │  階段 1：初始化
-  │         (版本、能力)                      │
-  │  ←───── initialize response ─────      │  (Server 回傳支援的能力)
+  │  ── server/discover（可選）──────→      │  想先知道 Server 支援什麼
+  │  ←── supportedVersions、capabilities ─  │
   │                                         │
-  │  ────── initialized ────────────→      │  階段 2：確認
-  │         (通知)                           │
+  │  ── tools/call（_meta 帶版本）───→      │  任何請求都能直接送
+  │  ←── result（resultType: complete）──   │
   │                                         │
-  │  ←═══════════════════════════════      │  階段 3：正常運作
-  │  ═══════════════════════════════→      │  (雙向訊息交換)
-  │  ←═══════════════════════════════      │
-  │                                         │
-  │  ────── shutdown ───────────────→      │  階段 4：關閉
-  │                                         │
+  │  ── tools/call（版本不支援）─────→      │
+  │  ←── UnsupportedProtocolVersionError ─  │  Client 換版本重送
 ```
 
-### 初始化握手
+### server/discover
+
+Server 一定要實作 [`server/discover`](https://modelcontextprotocol.io/specification/2026-07-28/server/discover)，Client 可以選擇先呼叫它，一次拿到支援的版本、能力與身分：
 
 ```json
-// Client → Server：initialize 請求
+// Client → Server
 {
   "jsonrpc": "2.0",
-  "id": 1,
-  "method": "initialize",
+  "id": "discover-1",
+  "method": "server/discover",
   "params": {
-    "protocolVersion": "2024-11-05",
-    "capabilities": {
-      "roots": { "listChanged": true }
-    },
-    "clientInfo": {
-      "name": "claude-desktop",
-      "version": "1.0.0"
+    "_meta": {
+      "io.modelcontextprotocol/protocolVersion": "2026-07-28",
+      "io.modelcontextprotocol/clientInfo": {
+        "name": "ExampleClient",
+        "version": "1.0.0"
+      },
+      "io.modelcontextprotocol/clientCapabilities": {}
     }
   }
 }
 ```
 
 ```json
-// Server → Client：initialize 回應
+// Server → Client
 {
   "jsonrpc": "2.0",
-  "id": 1,
+  "id": "discover-1",
   "result": {
-    "protocolVersion": "2024-11-05",
+    "resultType": "complete",
+    "supportedVersions": ["2026-07-28"],
     "capabilities": {
-      "tools": { "listChanged": true },
-      "resources": { "subscribe": true },
-      "prompts": { "listChanged": true }
+      "tools": {},
+      "resources": {}
     },
-    "serverInfo": {
-      "name": "github-mcp-server",
-      "version": "0.1.0"
-    }
+    "_meta": {
+      "io.modelcontextprotocol/serverInfo": {
+        "name": "ExampleServer",
+        "version": "1.0.0"
+      }
+    },
+    "ttlMs": 3600000,
+    "cacheScope": "public"
   }
 }
 ```
 
-握手完成後，Client 知道這個 Server 支援哪些能力（有 Tools、有 Resources、有 Prompts），就可以開始正常互動了。
+拿到之後，Client 就知道這個 Server 支援哪些能力（有 Tools、有 Resources、有 Prompts）。`ttlMs` 與 `cacheScope` 是 2026-07-28 版新增的快取提示，讓 Client 不必每次都重問。
+
+這次改版同時把 Server 主動對 Client 發請求（`sampling/createMessage`、`elicitation/create`、`roots/list`）改成「Multi Round-Trip Requests」：Server 回一個 `resultType: "input_required"` 的中間結果，Client 補齊資訊後重送原請求。Roots、Sampling、Logging 三個功能也被列為 Deprecated。舊版 Client 與新版 Server 互不相容，要同時服務兩邊，Server 得實作兩種行為，規格的[版本相容性頁](https://modelcontextprotocol.io/specification/2026-07-28/basic/lifecycle)有完整的對照表。
 
 ---
 
@@ -645,15 +654,18 @@ Client                                    Server
 
 理論講完了，來寫一個。
 
-我們用 TypeScript 搭配官方 SDK `@modelcontextprotocol/sdk`，做一個簡單的天氣查詢 MCP Server。
+我們用 TypeScript 搭配官方 SDK 做一個簡單的天氣查詢 MCP Server。TypeScript SDK 在 2026-07-27 發佈 v2，套件從單一的 `@modelcontextprotocol/sdk` 拆成 `@modelcontextprotocol/server`、`@modelcontextprotocol/client` 等，並實作 2026-07-28 版規格；下面用 v2 的 Server 套件。舊的 v1（`@modelcontextprotocol/sdk`）在 v2 發佈後至少還會修 bug 與安全問題六個月，v1 專案可以用官方 codemod 升級，見[升級指南](https://ts.sdk.modelcontextprotocol.io/v2/migration/upgrade-to-v2)。
 
 ### 專案初始化
+
+v2 需要 Node.js 20 以上。
 
 ```bash
 mkdir weather-mcp-server
 cd weather-mcp-server
 npm init -y
-npm install @modelcontextprotocol/sdk zod
+npm pkg set type=module
+npm install @modelcontextprotocol/server zod
 npm install -D typescript @types/node
 npx tsc --init
 ```
@@ -662,16 +674,9 @@ npx tsc --init
 
 ```typescript
 // src/index.ts
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
-import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import { z } from "zod";
-
-// 建立 MCP Server 實例
-const server = new McpServer({
-  name: "weather-server",
-  version: "1.0.0",
-  description: "提供天氣查詢功能的 MCP Server",
-});
+import { McpServer } from "@modelcontextprotocol/server";
+import { serveStdio } from "@modelcontextprotocol/server/stdio";
+import * as z from "zod/v4";
 
 // 模擬天氣資料（實際場景中你會呼叫真正的天氣 API）
 const weatherData: Record<string, { temp: number; condition: string; humidity: number }> = {
@@ -682,135 +687,147 @@ const weatherData: Record<string, { temp: number; condition: string; humidity: n
   "舊金山": { temp: 20, condition: "霧", humidity: 70 },
 };
 
-// ─── 註冊 Tool ───────────────────────────────────────────
+// 用 factory 建立 Server：stdio 每個連線、HTTP 每個請求都會呼叫一次
+export function createWeatherServer(): McpServer {
+  const server = new McpServer({ name: "weather-server", version: "1.0.0" });
 
-server.tool(
-  "get_weather",
-  "取得指定城市的即時天氣資訊",
-  {
-    city: z.string().describe("城市名稱，例如：台北、東京"),
-  },
-  async ({ city }) => {
-    const weather = weatherData[city];
+  // ─── 註冊 Tool ───────────────────────────────────────────
 
-    if (!weather) {
+  server.registerTool(
+    "get_weather",
+    {
+      description: "取得指定城市的即時天氣資訊",
+      inputSchema: z.object({
+        city: z.string().describe("城市名稱，例如：台北、東京"),
+      }),
+    },
+    async ({ city }) => {
+      const weather = weatherData[city];
+
+      if (!weather) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: `找不到「${city}」的天氣資料。支援的城市：${Object.keys(weatherData).join("、")}`,
+            },
+          ],
+          isError: true,
+        };
+      }
+
       return {
         content: [
           {
-            type: "text" as const,
-            text: `找不到「${city}」的天氣資料。支援的城市：${Object.keys(weatherData).join("、")}`,
+            type: "text",
+            text: [
+              `${city} 的天氣：`,
+              `  氣溫：${weather.temp}°C`,
+              `  天氣：${weather.condition}`,
+              `  濕度：${weather.humidity}%`,
+            ].join("\n"),
           },
         ],
       };
     }
+  );
 
-    return {
-      content: [
-        {
-          type: "text" as const,
-          text: [
-            `${city} 的天氣：`,
-            `  氣溫：${weather.temp}°C`,
-            `  天氣：${weather.condition}`,
-            `  濕度：${weather.humidity}%`,
-          ].join("\n"),
-        },
-      ],
-    };
-  }
-);
+  server.registerTool(
+    "compare_weather",
+    {
+      description: "比較兩個城市的天氣",
+      inputSchema: z.object({
+        city_a: z.string().describe("第一個城市"),
+        city_b: z.string().describe("第二個城市"),
+      }),
+    },
+    async ({ city_a, city_b }) => {
+      const a = weatherData[city_a];
+      const b = weatherData[city_b];
 
-server.tool(
-  "compare_weather",
-  "比較兩個城市的天氣",
-  {
-    city_a: z.string().describe("第一個城市"),
-    city_b: z.string().describe("第二個城市"),
-  },
-  async ({ city_a, city_b }) => {
-    const a = weatherData[city_a];
-    const b = weatherData[city_b];
+      if (!a || !b) {
+        const missing = [!a && city_a, !b && city_b].filter(Boolean).join("、");
+        return {
+          content: [{ type: "text", text: `找不到以下城市的資料：${missing}` }],
+          isError: true,
+        };
+      }
 
-    if (!a || !b) {
-      const missing = [!a && city_a, !b && city_b].filter(Boolean).join("、");
+      const tempDiff = a.temp - b.temp;
+      const warmer = tempDiff > 0 ? city_a : city_b;
+
       return {
         content: [
           {
-            type: "text" as const,
-            text: `找不到以下城市的資料：${missing}`,
+            type: "text",
+            text: [
+              `${city_a} vs ${city_b} 天氣比較：`,
+              ``,
+              `| 項目 | ${city_a} | ${city_b} |`,
+              `|------|--------|--------|`,
+              `| 氣溫 | ${a.temp}°C | ${b.temp}°C |`,
+              `| 天氣 | ${a.condition} | ${b.condition} |`,
+              `| 濕度 | ${a.humidity}% | ${b.humidity}% |`,
+              ``,
+              `${warmer} 比較暖，溫差 ${Math.abs(tempDiff)}°C。`,
+            ].join("\n"),
           },
         ],
       };
     }
+  );
 
-    const tempDiff = a.temp - b.temp;
-    const warmer = tempDiff > 0 ? city_a : city_b;
+  // ─── 註冊 Resource ───────────────────────────────────────
 
-    return {
-      content: [
+  server.registerResource(
+    "supported-cities",
+    "weather://cities",
+    {
+      title: "支援的城市",
+      description: "這個 Server 有天氣資料的城市清單",
+      mimeType: "application/json",
+    },
+    async (uri) => ({
+      contents: [
         {
-          type: "text" as const,
-          text: [
-            `${city_a} vs ${city_b} 天氣比較：`,
-            ``,
-            `| 項目 | ${city_a} | ${city_b} |`,
-            `|------|--------|--------|`,
-            `| 氣溫 | ${a.temp}°C | ${b.temp}°C |`,
-            `| 天氣 | ${a.condition} | ${b.condition} |`,
-            `| 濕度 | ${a.humidity}% | ${b.humidity}% |`,
-            ``,
-            `${warmer} 比較暖，溫差 ${Math.abs(tempDiff)}°C。`,
-          ].join("\n"),
+          uri: uri.href,
+          mimeType: "application/json",
+          text: JSON.stringify(Object.keys(weatherData), null, 2),
         },
       ],
-    };
-  }
-);
+    })
+  );
 
-// ─── 註冊 Resource ───────────────────────────────────────
+  // ─── 註冊 Prompt ─────────────────────────────────────────
 
-server.resource(
-  "supported-cities",
-  "weather://cities",
-  async (uri) => ({
-    contents: [
-      {
-        uri: uri.href,
-        mimeType: "application/json",
-        text: JSON.stringify(Object.keys(weatherData), null, 2),
-      },
-    ],
-  })
-);
-
-// ─── 註冊 Prompt ─────────────────────────────────────────
-
-server.prompt(
-  "travel_weather_check",
-  "檢查旅行目的地的天氣狀況",
-  { destination: z.string().describe("旅行目的地") },
-  ({ destination }) => ({
-    messages: [
-      {
-        role: "user" as const,
-        content: {
-          type: "text" as const,
-          text: `我計劃去${destination}旅行，請幫我查看當地天氣，並給我穿搭和行程建議。`,
+  server.registerPrompt(
+    "travel_weather_check",
+    {
+      description: "檢查旅行目的地的天氣狀況",
+      argsSchema: z.object({
+        destination: z.string().describe("旅行目的地"),
+      }),
+    },
+    ({ destination }) => ({
+      messages: [
+        {
+          role: "user" as const,
+          content: {
+            type: "text" as const,
+            text: `我計劃去${destination}旅行，請幫我查看當地天氣，並給我穿搭和行程建議。`,
+          },
         },
-      },
-    ],
-  })
-);
+      ],
+    })
+  );
+
+  return server;
+}
 
 // ─── 啟動 Server ─────────────────────────────────────────
 
-async function main() {
-  const transport = new StdioServerTransport();
-  await server.connect(transport);
-  console.error("Weather MCP Server is running on stdio");
-}
-
-main().catch(console.error);
+void serveStdio(createWeatherServer);
+console.error("Weather MCP Server is running on stdio");
 ```
 
 ### 設定 Claude Desktop 使用這個 Server
@@ -835,35 +852,39 @@ main().catch(console.error);
 幾個值得注意的重點：
 
 1. **`McpServer`** 是高階 API。SDK 也提供低階的 `Server` class，但大部分場景用 `McpServer` 就夠了
-2. **Zod schema** 用來定義參數類型，SDK 會自動轉換成 JSON Schema
-3. **`StdioServerTransport`** 使用 stdin/stdout 通訊，適合本地使用
-4. **`console.error`** 而不是 `console.log`——因為 stdout 是給 MCP 訊息用的，日誌要走 stderr
-5. **Tool 回傳格式**統一是 `{ content: [{ type, text }] }`，這是 MCP 規範要求的
+2. **`registerTool`／`registerResource`／`registerPrompt`** 是 v2 的註冊 API，取代 v1 的 `server.tool()`、`server.resource()`、`server.prompt()`
+3. **Zod schema** 要用 `z.object()` 包起來，SDK 會自動轉換成 JSON Schema，並在 handler 執行前驗證參數
+4. **`serveStdio(factory)`** 負責 stdin/stdout 傳輸，並用 factory 建立 Server 實例；這個寫法同時能服務 2026-07-28 版與舊版 Client
+5. **`console.error`** 而不是 `console.log`——因為 stdout 是給 MCP 訊息用的，日誌要走 stderr
+6. **Tool 回傳格式**統一是 `{ content: [{ type, text }] }`，失敗時加 `isError: true`，讓模型讀得到錯誤並自己修正
 
-### 如果要用 HTTP+SSE
+### 如果要用 Streamable HTTP
 
-只需要換掉 transport：
+同一個 factory 交給 `createMcpHandler` 就能走 HTTP。在 Node 上要多裝 `@modelcontextprotocol/node`，用 `toNodeHandler` 轉接，並在前面放 Host／Origin 檢查擋 DNS rebinding（handler 本身不驗這兩個 header，也不驗 token）：
 
 ```typescript
-import { SSEServerTransport } from "@modelcontextprotocol/sdk/server/sse.js";
-import express from "express";
+// src/http.ts（index.ts 最後兩行的 serveStdio 要拿掉，或把 factory 拆到獨立檔案）
+import { createServer } from "node:http";
+import { createMcpHandler } from "@modelcontextprotocol/server";
+import {
+  toNodeHandler,
+  localhostHostValidation,
+  localhostOriginValidation,
+} from "@modelcontextprotocol/node";
+import { createWeatherServer } from "./index.js";
 
-const app = express();
+const handler = createMcpHandler(createWeatherServer);
+const nodeHandler = toNodeHandler(handler);
+const validateHost = localhostHostValidation();
+const validateOrigin = localhostOriginValidation();
 
-app.get("/sse", async (req, res) => {
-  const transport = new SSEServerTransport("/messages", res);
-  await server.connect(transport);
-});
-
-app.post("/messages", async (req, res) => {
-  // 處理來自 Client 的訊息
-  await transport.handlePostMessage(req, res);
-});
-
-app.listen(3001, () => {
-  console.log("MCP Server listening on http://localhost:3001");
-});
+createServer((req, res) => {
+  if (!validateHost(req, res) || !validateOrigin(req, res)) return;
+  void nodeHandler(req, res);
+}).listen(3001, "127.0.0.1");
 ```
+
+factory 在每個 HTTP 請求都會跑一次，Server 實例之間不共用狀態，所以這個 endpoint 可以直接水平擴展。舊版教學裡的 `SSEServerTransport`（HTTP+SSE）不要再用。
 
 ---
 
@@ -873,22 +894,19 @@ MCP 的價值不只在協定本身，更在於圍繞它建立的生態系統。
 
 ### 官方 MCP Server
 
-Anthropic 和社區維護了一系列常用的 MCP Server：
+[modelcontextprotocol/servers](https://github.com/modelcontextprotocol/servers) 現在只維護少數幾個「參考實作」，用途是示範協定怎麼用，不是給生產環境直接上線：
 
-| Server | 功能 | 類別 |
-|--------|------|------|
-| `server-filesystem` | 檔案讀寫、搜尋、目錄操作 | 系統 |
-| `server-github` | Issue、PR、Repository 操作 | 開發 |
-| `server-gitlab` | GitLab API 操作 | 開發 |
-| `server-postgres` | PostgreSQL 查詢 | 資料庫 |
-| `server-sqlite` | SQLite 查詢 | 資料庫 |
-| `server-slack` | 頻道管理、訊息發送 | 通訊 |
-| `server-google-drive` | Google Drive 檔案操作 | 雲端 |
-| `server-google-maps` | 地圖和地理資訊查詢 | 資訊 |
-| `server-brave-search` | Brave 搜尋 | 搜尋 |
-| `server-fetch` | HTTP 請求 | 網路 |
-| `server-puppeteer` | 瀏覽器自動化 | 網路 |
-| `server-memory` | 持久化記憶（知識圖譜） | AI |
+| Server | 功能 |
+|--------|------|
+| `everything` | 涵蓋所有協定功能的測試用 Server |
+| `fetch` | 抓網頁並轉成適合模型讀的格式 |
+| `filesystem` | 檔案讀寫、搜尋、目錄操作，可設定允許的目錄 |
+| `git` | 讀取、搜尋、操作 Git repo |
+| `memory` | 以知識圖譜做持久化記憶 |
+| `sequentialthinking` | 分步驟思考的工具 |
+| `time` | 時間與時區轉換 |
+
+早期那批 GitHub、GitLab、PostgreSQL、SQLite、Slack、Google Drive、Google Maps、Brave Search、Puppeteer 等 Server 已移到 [servers-archived](https://github.com/modelcontextprotocol/servers-archived)，npm 上標示為「Archived and unmaintained; no security guarantees」。這些服務多半已有原廠自己維護的版本，例如 GitHub 官方的 [github-mcp-server](https://github.com/github/github-mcp-server)，改用原廠版本。
 
 ### 社區生態
 
@@ -907,10 +925,11 @@ Anthropic 和社區維護了一系列常用的 MCP Server：
 
 幾個找到 MCP Server 的管道：
 
-1. **[MCP Server Registry](https://github.com/modelcontextprotocol/servers)**：官方 GitHub repo，列出已知的所有 Server
+1. **[官方 MCP Registry](https://registry.modelcontextprotocol.io/)**：社群維護的 Server 目錄，提供 API 讓客戶端與其他目錄同步
 2. **npm / PyPI**：搜尋 `mcp-server-*` 或 `@modelcontextprotocol/*`
-3. **mcp.run**：社區維護的 MCP Server 市集
-4. **Smithery**：另一個 MCP Server 目錄
+3. **[Smithery](https://smithery.ai/)**：第三方的 MCP Server 目錄與託管平台
+
+早期常被列進來的 mcp.run 已經轉型成企業自架的 MCP gateway（Turbo MCP），不再是公開市集。
 
 ---
 
@@ -1026,7 +1045,7 @@ Host：⚠️ 即將執行 drop_database(target="staging")，確認？ [Y/n]
 **傳輸層安全**
 
 - stdio 傳輸：進程間通訊，天然隔離，不經過網路
-- HTTP+SSE：需要自己加 TLS、認證、授權
+- Streamable HTTP：要自己加 TLS；授權走規格定義的 OAuth 流程（見下方「限制與未來」）；本機服務要擋 DNS rebinding，規格要求 Origin 不合法時回 HTTP 403
 
 ### 已知的風險
 
@@ -1078,13 +1097,13 @@ LLM 可能會遵循 Tool 描述中的指令，而使用者在 UI 上看不到完
 
 ### 目前的限制
 
-**認證機制尚未標準化**
+**授權規格有了，但實作落差大**
 
-MCP 規範目前沒有定義標準的認證流程。每個 MCP Server 自己處理認證——有的用 API key，有的用 OAuth，有的什麼都不用。2025 年 3 月的規格更新引入了 OAuth 2.0 授權框架的初步支持，但生態系統的採用仍在早期。
+HTTP 傳輸的授權已經寫進規格，而且每一版都在改：[2025-03-26 版](https://modelcontextprotocol.io/specification/2025-03-26/changelog)加入以 OAuth 2.1 為基礎的授權框架；[2025-06-18 版](https://modelcontextprotocol.io/specification/2025-06-18/changelog)把 MCP Server 定位成 OAuth Resource Server，用 Protected Resource Metadata 指出對應的 Authorization Server，並要求 Client 實作 RFC 8707 Resource Indicators，防止惡意 Server 拿到別人的 token；[2025-11-25 版](https://modelcontextprotocol.io/specification/2025-11-25/changelog)推薦用 Client ID Metadata Documents 註冊 Client；[2026-07-28 版](https://modelcontextprotocol.io/specification/2026-07-28/changelog)把 Dynamic Client Registration 列為 Deprecated，並要求 Client 驗證授權回應裡的 `iss`。stdio 不走這套，憑證通常由環境變數帶進去。實務上的限制是 Server 與 Client 跟上規格的速度不一，同一個 Server 在不同 Client 上的登入體驗可能差很多。
 
 **Server 發現**
 
-目前沒有標準化的 Server 發現機制。你需要手動查找和設定 MCP Server。未來可能會有類似 DNS 的自動發現協定。
+官方的 [MCP Registry](https://registry.modelcontextprotocol.io/) 解決了「去哪裡找」，但安裝與設定仍要在各個 Host 手動處理，Registry 也不替 Server 的安全性背書。
 
 **效能考量**
 
@@ -1104,13 +1123,13 @@ npx @modelcontextprotocol/inspector node dist/index.js
 
 ### 未來方向
 
-**標準化認證**
+**擴充機制（Extensions）**
 
-OAuth 2.1 整合已在規劃中，讓 MCP Server 可以用標準的方式進行使用者認證和授權。
+2026-07-28 版在能力宣告裡加了 `extensions` 欄位，非核心的功能改用官方擴充提供，例如長時間任務（`io.modelcontextprotocol/tasks`）與 MCP Apps（`io.modelcontextprotocol/ui`）。核心協定變小，新功能先在擴充裡驗證。
 
 **遠端 MCP Server 託管**
 
-目前大部分 MCP Server 是本地執行的。未來可能會有託管平台，讓你一鍵部署 MCP Server 到雲端，類似 Vercel 部署 web app 的體驗。
+依 Anthropic 2025-12 的公告，AWS、Cloudflare、Google Cloud、Microsoft Azure 都已提供部署 MCP Server 的基礎設施；2026-07-28 版改成無狀態後，遠端 Server 更容易像一般 HTTP 服務一樣水平擴展。
 
 **權限模型**
 
@@ -1122,7 +1141,7 @@ MCP 目前是 Agent 與工具之間的協定。未來可能擴展支持 Agent �
 
 **Marketplace**
 
-類似 VS Code 的 Extension Marketplace，讓使用者可以一鍵安裝和管理 MCP Server。
+官方 Registry 已經上線，下一步是各 Host 在它之上做一鍵安裝與管理，類似 VS Code 的 Extension Marketplace。
 
 ---
 
@@ -1146,13 +1165,27 @@ N × M 整合成本                  N + M 整合成本
 2. **開發者**：把你常用的內部工具包成 MCP Server
 3. **團隊**：評估用 MCP 統一你們的 AI 工具整合
 
-協定仍在快速演進中，但核心架構已經穩定。早期投入的成本不高，但潛在的效率提升很大。
+協定仍在快速演進中，但 Host／Client／Server 與三大原語的核心架構沒變；變的是傳輸、版本協商與授權細節。2026-07-28 版是一次不相容的大改，接手舊專案時先確認它跑的是哪個版本。
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：更新到 2026-07-28 版規格。補上 MCP 於 2025-12 捐給 Agentic AI Foundation、授權改為 Apache-2.0；傳輸層改以 Streamable HTTP 為主，註明 HTTP+SSE 已棄用、2026-07-28 版改為無狀態；「協定生命週期」改寫為版本協商，說明拿掉 `initialize` 握手、改用每個請求帶 `_meta` 與 `server/discover`，以及 Roots／Sampling／Logging 列為 Deprecated；範例程式改用 TypeScript SDK v2（`@modelcontextprotocol/server`、`registerTool`、`serveStdio`、`createMcpHandler`）；官方 Server 清單改為現存的參考實作，標註 GitHub、PostgreSQL 等已封存；Server 發現改為官方 MCP Registry；授權段改寫為 2025-03-26 到 2026-07-28 各版的 OAuth 規定。
+
 ## 參考資料
 
-- [MCP 官方規格文件](https://spec.modelcontextprotocol.io/)
+- [MCP 規格（2026-07-28）](https://modelcontextprotocol.io/specification/2026-07-28)
+- [MCP 規格版本說明](https://modelcontextprotocol.io/specification/versioning)
+- [2026-07-28 版變更清單](https://modelcontextprotocol.io/specification/2026-07-28/changelog)
+- [2025-11-25 版變更清單](https://modelcontextprotocol.io/specification/2025-11-25/changelog)
+- [2025-06-18 版變更清單](https://modelcontextprotocol.io/specification/2025-06-18/changelog)
+- [2025-03-26 版變更清單](https://modelcontextprotocol.io/specification/2025-03-26/changelog)
+- [Donating MCP to the Agentic AI Foundation（Anthropic）](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)
+- [官方 MCP Registry](https://registry.modelcontextprotocol.io/)
+- [TypeScript SDK v1 → v2 升級指南](https://ts.sdk.modelcontextprotocol.io/v2/migration/upgrade-to-v2)
+- [MCP Servers（已封存）](https://github.com/modelcontextprotocol/servers-archived)
+- [GitHub MCP Server](https://github.com/github/github-mcp-server)
 - [MCP GitHub Repository](https://github.com/modelcontextprotocol)
 - [Anthropic MCP 公告文章](https://www.anthropic.com/news/model-context-protocol)
 - [MCP TypeScript SDK](https://github.com/modelcontextprotocol/typescript-sdk)

@@ -23,7 +23,7 @@ glossary:
     definition: "兩名選手在兩條並排的相同先鋒路線上同時出發，比誰先爬到頂。Rock Master 的招牌項目之一。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-competitions-beyond-world-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-competitions-beyond-world-climbing-en)
 
 2026 年 10 月，義大利阿爾科的 Rock Master 決賽，Adam Ondra 和 Filip Schenk 在兩條並排的先鋒路線上同時出發，比誰先扣到頂。Schenk 以 1 分 07 秒 3 贏了，只比 Ondra 快 1.5 秒（[8a.nu 報導](https://8a.nu/news/filip-schenk-and-jessica-pilz-win-rock-master-lead-duel-fd4p6)）。這種「兩人同時爬先鋒」的比賽，在 World Climbing 的系列賽裡看不到。
 

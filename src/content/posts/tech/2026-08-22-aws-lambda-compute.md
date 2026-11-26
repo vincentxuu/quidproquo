@@ -6,14 +6,14 @@ type: deep-dive
 tags: [aws, lambda, serverless, event-driven, cloud-computing]
 lang: zh-TW
 tldr: "Lambda 適合短生命週期、事件驅動且流量不規則的工作；真正的設計中心是 invocation、重試、冪等與下游容量，不是把容器切小。"
-description: "介紹 AWS Lambda 的 invocation、event source mapping、重試、並行度、冷啟動、封裝與 Lambda/Fargate 選型。"
+description: "介紹 AWS Lambda 的 invocation、event source mapping、重試、並行度、冷啟動、封裝、durable functions，以及 Lambda、Step Functions 與 Fargate 的選型。"
 series:
   name: "AI 時代的技術選擇"
   order: 50
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-aws-lambda-compute-en)
+> :globe: [English version](/posts/tech/2026-08-22-aws-lambda-compute-en)
 
 [AWS Lambda](https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html) 是事件驅動的函式運算服務。你部署程式與設定，AWS 依請求建立 execution environment；團隊不用維護主機，卻必須設計 invocation、並行度與失敗語意。
 
@@ -35,11 +35,30 @@ Lambda 支援 zip 與 [container image](https://docs.aws.amazon.com/lambda/lates
 
 handler 應保持 stateless，把 durable state 放到資料庫或 object storage。execution environment 可能重用，因此可以重用 client connection，但不能把 `/tmp` 或全域變數當可靠狀態。IAM role 採最小權限，對 event source 另檢查 resource policy 與 cross-account boundary。
 
-## Lambda、Fargate 或 App Runner
+## 多步流程：durable functions 改變了分界
 
-事件觸發、短工作、流量高度不規則，Lambda 通常最省操作。需要長時間 process、自訂 runtime 行為、sidecar、穩定 connection pool 或 container-level 資源，選 Fargate。單純把 HTTP container 從 repository 變成公開服務，App Runner 的抽象更高。
+傳統 Lambda 一次 invocation 只做一件短事，多步流程的狀態要自己存，或交給 Step Functions。2025-12 GA 的 [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) 把這件事收進 Lambda 本身：程式裡用 `step` 包住業務邏輯、用 `wait` 暫停，Lambda 自動 checkpoint；失敗或恢復時從頭 replay，但跳過已完成的 step，直接用存下來的結果。整個 durable execution 最長可以跑一年，`wait` 期間不收運算費。
 
-驗收時不要只打一次 HTTP。重送同一 event、讓 handler timeout、耗盡 concurrency、關閉 downstream，再確認 idempotency、backoff、DLQ、alarm 與 reserved concurrency 都照預期運作。
+它是 checkpoint/replay 模型，跟 Temporal、Inngest 這類 durable execution 是同一個家族，設計規則也一樣：
+
+- **step 之外的程式碼每次 replay 都會重跑**，所以要 deterministic；呼叫外部 API、取時間、產生亂數都要放進 step。
+- **單次 invocation 仍受 function timeout 限制**。一年是整個 execution 的總長，靠的是在 `wait` 與 step 邊界切成多次 invocation，不是一次跑一年。2026-11 起 on-demand 函式的 timeout 上限從 15 分鐘提高到 [30 分鐘](https://aws.amazon.com/blogs/compute/announcing-30-minute-timeout-for-on-demand-aws-lambda-event-functions/)。
+- **一年只適用非同步呼叫**。同步呼叫或 function URL 的 durable execution 上限是 30 分鐘。
+- **只能在建立函式時開啟**，不能事後套到既有函式；目前支援 Node.js、Python、Java、.NET 的部分 runtime 與 container image，每個 execution 的 checkpoint 資料有 100 MB、每個 operation 1 MB 的上限（[quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)）。
+
+跟 Step Functions 的分工，[AWS 文件](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html) 的說法是：流程跟業務邏輯綁得很緊、想用一般程式語言寫，選 durable functions；要跨大量 AWS 服務編排、需要視覺化設計與原生整合，選 Step Functions。
+
+## Lambda、Step Functions 或 Fargate
+
+事件觸發、短工作、流量高度不規則，Lambda 通常最省操作。多步、會等人審核或等外部事件、總時長以小時或天計的流程，以前的答案是 Step Functions 或長駐的 Fargate worker；現在先看 durable functions 能不能放得下，只要每一段運算塞得進 function timeout 就行。
+
+需要長駐 process、單次連續運算超過 function timeout、自訂 runtime 行為、sidecar、穩定 connection pool 或 container-level 資源，選 Fargate。單純要把 HTTP container 變成公開服務，以前會推 App Runner，但它從 2026-04-30 起停收新客戶（見 [App Runner 那篇](/posts/tech/2026-08-22-aws-app-runner)），新專案改用 ECS Express Mode，底下同樣是 Fargate。
+
+驗收時不要只打一次 HTTP。重送同一 event、讓 handler timeout、耗盡 concurrency、關閉 downstream，再確認 idempotency、backoff、DLQ、alarm 與 reserved concurrency 都照預期運作。用 durable functions 的話，再加一項：在兩個 step 之間讓 invocation 失敗，確認 replay 不會重做已完成的 side effect。
+
+## 更新紀錄
+
+- 2026-11-23：新增 durable functions 一節（2025-12 GA，最長一年、checkpoint/replay），重劃 Lambda、Step Functions、Fargate 的分界；移除 App Runner 選項（2026-04-30 起停收新客戶，新專案改用 ECS Express Mode）；補上 2026-11 起 on-demand 函式 timeout 上限提高到 30 分鐘。
 
 ## 參考資料
 
@@ -48,3 +67,7 @@ handler 應保持 stateless，把 durable state 放到資料庫或 object storag
 - [Understanding Lambda function scaling](https://docs.aws.amazon.com/lambda/latest/dg/lambda-concurrency.html)
 - [Lambda container images](https://docs.aws.amazon.com/lambda/latest/dg/images-create.html)
 - [AWS Fargate or AWS Lambda decision guide](https://docs.aws.amazon.com/decision-guides/latest/fargate-or-lambda/fargate-or-lambda.html)
+- [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+- [AWS Lambda announces durable functions（2025-12-02）](https://aws.amazon.com/about-aws/whats-new/2025/12/lambda-durable-multi-step-applications-ai-workflows/)
+- [Lambda quotas](https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-limits.html)
+- [Announcing 30-minute timeout for on-demand AWS Lambda Event Functions](https://aws.amazon.com/blogs/compute/announcing-30-minute-timeout-for-on-demand-aws-lambda-event-functions/)

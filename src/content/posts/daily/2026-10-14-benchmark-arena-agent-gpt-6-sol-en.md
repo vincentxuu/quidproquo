@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol)
+> :globe: [中文版](/posts/daily/2026-10-14-benchmark-arena-agent-gpt-6-sol)
 
 ## What changed
 
@@ -24,11 +24,11 @@ Arena's (formerly LMSYS Chatbot Arena) latest official Agent-category publish (2
 
 | Rank | Model | Score | 10-08 Score | Change |
 |---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (Max) | 17.89% | Not ranked (🆕 new effort variant) | — |
-| 🥈 | GPT-6.1 Sol (Max) | 13.81% | 11.72% (#5) | ↑3 |
-| 🥉 | GPT-6 Sol (Max) | 12.60% | Not in top 10 (🆕) | — |
-| 4 | Gemini 4 Argon (High) | 12.37% | Not in top 10 (🆕) | — |
-| 5 | GPT-6 Astra (Max) | 12.34% | 13.09% (🥈) | ↓3 |
+| 1 | Claude Opus 5.5 (Max) | 17.89% | Not ranked ( new effort variant) | — |
+| 2 | GPT-6.1 Sol (Max) | 13.81% | 11.72% (#5) | ↑3 |
+| 3 | GPT-6 Sol (Max) | 12.60% | Not in top 10 (NEW) | — |
+| 4 | Gemini 4 Argon (High) | 12.37% | Not in top 10 (NEW) | — |
+| 5 | GPT-6 Astra (Max) | 12.34% | 13.09% (2) | ↓3 |
 
 Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) (`agent` subset, `latest` split, `category=overall`) · Official publish date: 2026-10-12 · Retrieved: 2026-10-14
 
@@ -44,7 +44,7 @@ GPT-6 Sol (Max) leaping from "not even in the top 10" to #3 is the biggest singl
 
 ### The methodology angle
 
-⚠️ Same caveat as previous posts in this series: Arena's score here is its own relative win-rate metric, not a traditional Elo rating. You can't compute a precise point-by-point delta between batches for the same model — only read the rank order and rough score magnitude.
+:warning: Same caveat as previous posts in this series: Arena's score here is its own relative win-rate metric, not a traditional Elo rating. You can't compute a precise point-by-point delta between batches for the same model — only read the rank order and rough score magnitude.
 
 The confidence intervals overlap heavily again this round. #1 Opus 5.5 (Max)'s 95% CI is `[13.65%, 22.13%]`, #2 GPT-6.1 Sol (Max)'s is `[11.48%, 16.15%]`, and #5 GPT-6 Astra (Max)'s is `[9.88%, 14.81%]` — the leader's lower bound (13.65%) still falls inside the middle of the #2–#5 range, so statistically the true order of the top five isn't settled. There's an extra wrinkle this round: Claude Opus 5.5 (High) disappeared entirely, and a search turned up no official Anthropic announcement deprecating the "High" effort tier — OpenRouter's Claude 5.5 migration guide and user discussions both show "High" is still a selectable setting. The more likely explanation is that this particular Arena sample simply didn't collect enough "High"-variant battles to clear the top-52 cutoff, not that the product dropped the option. That's a reasonable inference, not an independently sourced conclusion — we'll update if an official statement surfaces.
 

@@ -24,7 +24,7 @@ glossary:
     context: "A2 Part 3 requires packaging the student's own visualization tasks as Harbor tasks."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-2-eval)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -168,8 +168,8 @@ Put differently, A2's macro-MCC measures how much noise your validator would inj
 
 For the series overview, see [the course overview post](/posts/ai/2026-09-29-cmu-11768-course-overview-en).
 
-- [Reading Stanford CS329Z Week 7: Score Honestly, Scale Data — Midterm Checkpoint](/posts/ai/2026-09-10-stanford-cs329z-week7-eval-benchmarks-en)
-- [Reading Stanford CS329Z Week 8: Let a Model Judge, Then Guardrail the Agent](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety-en)
+- [Reading Stanford CS329Z Lecture 13: don't let the score fool you](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en) and [Lecture 12: data selection](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en)
+- [Reading Stanford CS329Z Lecture 14: let a model judge](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge-en) and [Lecture 15: guardrail the agent](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety-en)
 - [How to Rigorously Compare Before and After Agent Changes: From Golden Sets to Statistical Testing](/posts/ai/2026-06-04-agent-change-rigorous-evaluation-en)
 - [Self-Reflection + LLM-as-Judge: Having AI Evaluate Its Own Answers](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 - [CS336 Lecture 16: RLVR Scales Reasoning with Verifiable Rewards, but GRPO Is Not Free PPO](/posts/ai/2026-08-22-cs336-rlvr-en)
@@ -182,11 +182,12 @@ Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

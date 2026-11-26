@@ -22,7 +22,7 @@ glossary:
     context: "抱石者的 RFD 明顯高於先鋒攀登者，campus board 主要練的就是這個。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-strength-power-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-strength-power-en)
 
 你在岩館看過這個畫面：有人腳離開牆，只用手在一片木條板上一格一格往上跳。看起來很帥，你也想試。或者你的問題是另一種：前傾牆一拉就沒力，手指明明還抓得住，手臂和背先投降了。
 

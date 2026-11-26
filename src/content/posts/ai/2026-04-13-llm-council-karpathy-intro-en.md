@@ -10,7 +10,7 @@ description: "An introduction to karpathy/llm-council's three-stage multi-model 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-13-llm-council-karpathy-intro)
+> :globe: [中文版](/posts/ai/2026-04-13-llm-council-karpathy-intro)
 
 Most people use LLMs by picking one model and sticking with it. Andrej Karpathy's weekend project [llm-council](https://github.com/karpathy/llm-council) proposes a different approach: **ask multiple models the same question simultaneously, have them peer-review each other, then ask a "Chairman" to make the final call.** The result is a local ChatGPT-style Web App with a clean interface that you can use directly for comparative study.
 

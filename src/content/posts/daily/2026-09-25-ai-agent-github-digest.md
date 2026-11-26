@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### google/ax ⭐ 10,083 (+1,376)
+### google/ax ★ 10,083 (+1,376)
 
 [GitHub](https://github.com/google/ax)　·　Go　·　Apache-2.0
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### strands-agents/harness-sdk ⭐ 8,178 (+463)
+### strands-agents/harness-sdk ★ 8,178 (+463)
 
 [GitHub](https://github.com/strands-agents/harness-sdk)　·　Python　·　Apache-2.0
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### HKUDS/CLI-Anything ⭐ 50,241 (+415)
+### HKUDS/CLI-Anything ★ 50,241 (+415)
 
 [GitHub](https://github.com/HKUDS/CLI-Anything)　·　Python　·　Apache-2.0
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### vectorize-io/hindsight ⭐ 27,594 (+1,607)
+### vectorize-io/hindsight ★ 27,594 (+1,607)
 
 [GitHub](https://github.com/vectorize-io/hindsight)　·　Python　·　MIT
 

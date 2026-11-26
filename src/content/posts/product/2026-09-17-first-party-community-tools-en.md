@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-first-party-community-tools)
+> :globe: [中文版](/posts/product/2026-09-17-first-party-community-tools)
 
 Imagine renting a stall at a night market. The market supplies the foot traffic; you cannot take the whole street home. A visitor who agrees to leave contact details has entered your customer book. Several regulars who start helping one another may become a community. Give them a measuring tool that remembers their dimensions, and they have a reason to return to unfinished work.
 

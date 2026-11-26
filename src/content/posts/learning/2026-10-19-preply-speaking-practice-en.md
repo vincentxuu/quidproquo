@@ -9,11 +9,11 @@ description: "Choose a Preply tutor and understand individual pricing, paid tria
 tldr: "Preply suits ongoing practice with a chosen tutor. Test a real task first, then check your 28-day budget, scheduling deadline and cancellation process before subscribing."
 series:
   name: "English Speaking Practice"
-  order: 6
+  order: 24
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-preply-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-preply-speaking-practice)
 
 You may be able to explain an idea in a meeting, then lose your thread when someone asks why you chose that option. [Preply](https://preply.com/zh/online/english-tutors) offers a way to practise with an online tutor who can listen, ask follow-up questions and build lessons around your goals.
 

@@ -13,7 +13,7 @@ description: "介紹神戸市北区道場町的不動岩：岩質與路線規模
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-fudoiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-fudoiwa-en)
 
 不動岩（ふどういわ，Fudoiwa）在兵庫縣神戸市北区，[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%B8%8D%E5%8B%95%E5%B2%A9/) 把它歸在「裏六甲」區域。岩質是凝灰岩，以 bolt 先鋒為主，從 JR 道場駅走 15 分鐘就到，CLIMBING-net 寫它「駅からのアプローチが近いということで古くから登られてきた」，是關西歷史很長的岩場。
 

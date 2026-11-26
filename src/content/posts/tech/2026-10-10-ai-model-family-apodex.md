@@ -13,18 +13,18 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-10-ai-model-family-apodex-en)
+> :globe: [English version](/posts/tech/2026-10-10-ai-model-family-apodex-en)
 
 [Apodex](https://apodex.ai/) 是由 **Apodex** 團隊開發的 reasoning-first 模型家族。官方模型卡將它定位為適合 **長程研究、預測與可驗證推理**——官方以可驗證產出定位其研究代理服務；能否重現結果，仍取決於工具、資料與執行紀錄。
 
-目前對外開放的代表模型為 **Apodex 1.1 Mini**（`apodex/apodex-1.1-mini:free`），採 Mixture-of-Experts 架構，context window 262K tokens，在 OpenRouter 以免費模型形式提供。
+目前的世代是 Apodex 1.1：旗艦 **Apodex 1.1**（397B）只走官方 API，**Apodex 1.1 Mini**（35B，Mixture-of-Experts）同時有官方 API 與 Apache 2.0 開放權重，兩者 context window 都是 262,144 tokens。Mini 的官方 API 定價是每百萬 token 輸入 $0.10、輸出 $1.00；OpenRouter 上已經沒有可用的 Apodex 端點。
 
 ## 家族定位與版本矩陣
 
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
-| Apodex 1.1 Mini | 長程研究、預測 | MoE；262,144 tokens | 開放權重；OpenRouter 免費路由 |
-| Apodex core API | 文字推理 | `apodex-1.1`／`apodex-1.1-mini`；不執行工具 | 官方模型 API |
+| Apodex 1.1 Mini | 長程研究、預測、高量任務 | 35B MoE；262,144 tokens | Apache 2.0 開放權重；官方 API `apodex-1.1-mini` |
+| Apodex 1.1 | 困難推理、品質優先 | 397B；262,144 tokens | 官方 API `apodex-1.1`（Hugging Face 上只有 Mini 權重） |
 | Deep Research 服務 | 研究代理 | 搜尋、沙箱、MCP 與代理執行環境 | Apodex 官方平台 |
 
 ### 先分清楚模型與研究代理服務
@@ -45,13 +45,13 @@ series:
 |------|------|
 | **架構** | Mixture-of-Experts (MoE) |
 | **Context Window** | 262,144 tokens |
-| **參數量** | 請以官方模型設定與權重倉庫為準 |
+| **參數量** | Mini 35B；旗艦 Apodex 1.1 為 397B（官方 API 文件） |
 | **訓練組織** | **Apodex** |
-| **授權/存取** | OpenRouter 免費模型（`:free` 後綴），亦可透過 Apodex 官方平台存取 |
+| **授權/存取** | Mini 權重為 Apache 2.0；託管存取走 Apodex 官方 API |
 | **輸入模態** | 文字（含程式碼與轉成文字的資料；core API 不接受檔案內容部件） |
 | **輸出模態** | 文字、推理內容、工具呼叫請求；附件由執行環境產生 |
 
-> ⚠️ 模型與官方代理服務是不同層次。AgentOS 與 Agent Team 提供執行流程；直接使用模型 API 時，仍需提供工具定義與執行工具的主程式。Mini 也可以在本地部署。
+> :warning: 模型與官方代理服務是不同層次。AgentOS 與 Agent Team 提供執行流程；直接使用模型 API 時，仍需提供工具定義與執行工具的主程式。Mini 也可以在本地部署。
 
 ## 評測與競品比較
 
@@ -63,21 +63,33 @@ series:
 
 ### 部署與存取方式
 
-#### OpenRouter（免費）
+#### Apodex 官方 API
+
+Core model 走 OpenAI 相容的 `https://api.apodex.ai/v1/chat/completions`，也可用 Anthropic Messages 格式（`/v1/messages`）呼叫，價格相同。
+
+| 模型 ID | 參數量 | 輸入／快取輸入／輸出（每百萬 token） |
+|---|---|---|
+| `apodex-1.1` | 397B | $0.30／$0.03／$3.00 |
+| `apodex-1.1-mini` | 35B | $0.10／$0.01／$1.00 |
+
+- 單次請求輸入超過 200K tokens 時，整個請求（輸入、快取輸入與輸出）以兩倍價格計費。
+- 非串流請求的 `max_tokens` 上限是 32,768，推理 token 也算在內；更長的輸出要開 `stream`。
+- Deep Research 1.1（$5／$20）、Deep Solve 1.1（$5／$25）是代理任務，另按次收搜尋、抓取與沙箱工具費；Deep Discover 1.1 Preview 需申請。這些是研究代理服務，不是 core model。
+
 ```python
 import os
 import openai
 client = openai.OpenAI(
-    api_key=os.environ["OPENROUTER_API_KEY"],
-    base_url="https://openrouter.ai/api/v1"
+    api_key=os.environ["APODEX_API_KEY"],
+    base_url="https://api.apodex.ai/v1"
 )
 resp = client.chat.completions.create(
-    model="apodex/apodex-1.1-mini:free",
+    model="apodex-1.1-mini",
     messages=[{"role": "user", "content": "..."}]
 )
 ```
-- 免費端點有額度與限流；使用前確認 OpenRouter 帳號政策。
-- 適用原型開發、個人研究、低頻批次任務
+
+先前的 OpenRouter 免費路由 `apodex/apodex-1.1-mini:free` 已經沒有可用端點，不要再拿它當入口。
 
 #### Apodex 官方平台
 - 官方代理服務提供 AgentOS 與 Agent Team 工作流。
@@ -118,20 +130,21 @@ resp = client.chat.completions.create(
 
 長上下文可以容納更多材料，不能保證模型找對資訊或算對結果。工具存取、狀態保存、並行工作與附件交付都要由執行環境管理。Mini 是否適合你的任務，要拿自己的資料測試；目前來源不足以支持「一般聊天一定較差」或「複雜任務一定需要完整版」的比較結論。
 
-模型卡提供 SGLang 與 vLLM 本地部署方式，並列出 Apache 2.0 授權。本地部署仍需足夠記憶體，以及相符的推理與工具解析器。免費託管端點適合實驗；正式使用前確認供應商可用性、帳號配額與資料保留條款。
+模型卡提供 SGLang 與 vLLM 本地部署方式，並列出 Apache 2.0 授權。本地部署仍需足夠記憶體，以及相符的推理與工具解析器。託管 API 按 token 計費；正式使用前確認帳號配額與資料保留條款，長輸入要留意超過 200K tokens 的加倍計費。
 
 ## 更新紀錄
 
+- 2026-11-23：OpenRouter 上的 `apodex/apodex-1.1-mini:free` 已沒有可用端點，開頭、版本矩陣、規格表與部署段的入口改成 Apodex 官方 API，補上官方價格表（1.1 與 1.1 Mini）、參數量（397B／35B）與 200K 以上輸入加倍計費；矩陣補上旗艦 Apodex 1.1。模型世代沒有變動，仍是 1.1。
 - 2026-10-11：依共同家族格式重排章節，使用既有資料補版本矩陣；事實核對日期沿用既有紀錄。
 - 2026-10-11：上線前核對模型與 API 文件，區分原始模型與研究代理服務，移除未證實的 IDE、私有部署與比較效能宣稱。
 
-*最後更新：2026-10-11。模型規格、免費額度與存取方式會隨平台政策變動，請以官方文件為準。*
+*最後更新：2026-11-23。模型規格、價格與存取方式會隨平台政策變動，請以官方文件為準。*
 
 ## 參考資料
 
 - [Apodex-1.1-mini 官方模型卡與本地部署](https://huggingface.co/apodex/Apodex-1.1-mini)
 
 - [Apodex 官網](https://apodex.ai/)
-- [Apodex on OpenRouter](https://openrouter.ai/apodex/apodex-1.1-mini:free)
+- [Apodex API 價格](https://platform.apodex.ai/docs/pricing)
 - [Apodex core-model API 文件](https://platform.apodex.ai/docs/models)
 - [Apodex 模型設定](https://huggingface.co/apodex/Apodex-1.1-mini/raw/main/config.json)

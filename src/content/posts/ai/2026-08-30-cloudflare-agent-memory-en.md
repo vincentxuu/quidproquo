@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-agent-memory)
 
 Any serious agent eventually runs into the question of what it should remember. User preferences, team rules, project state, support history, past decisions, and unfinished follow-ups should not be stuffed into every prompt. They also should not all be mixed into document retrieval.
 

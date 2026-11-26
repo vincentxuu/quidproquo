@@ -13,7 +13,7 @@ description: "介紹岡山縣高梁市的備中岩場群：石灰岩岩質、子
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-bitchu-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-bitchu-en)
 
 備中（びっちゅう，Bitchu）不是單一面岩壁，而是岡山縣高梁市一帶、散在高梁川流域的一群石灰岩岩場。在地團體 TCNet（高梁川流域クライミング交流会）的[エリアガイド](https://takahashigawa-climb.net/area/bitchu/)寫，從高梁市成羽町的「羽山エリア」到井原市芳井町的「白滝の岩場」，「大小25のクライミングエリアが点在」，其中以備中町用瀬的「用瀬クライミング広場」周邊最集中。
 

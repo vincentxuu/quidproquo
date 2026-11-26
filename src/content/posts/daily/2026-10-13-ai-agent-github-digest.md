@@ -11,7 +11,7 @@ series:
   order: 59
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-13-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-13-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### morluto/rea ⭐ 146,406 (+45,495)
+### morluto/rea ★ 146,406 (+45,495)
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### mksglu/context-mode ⭐ 27,096 (+394)
+### mksglu/context-mode ★ 27,096 (+394)
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　Elastic License v2
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### cathrynlavery/diagram-design ⭐ 52,255 (+2,100)
+### cathrynlavery/diagram-design ★ 52,255 (+2,100)
 
 [GitHub](https://github.com/cathrynlavery/diagram-design)　·　HTML　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### microsoft/BitNet ⭐ 40,826 (+134)
+### microsoft/BitNet ★ 40,826 (+134)
 
 [GitHub](https://github.com/microsoft/BitNet)　·　C++　·　MIT
 

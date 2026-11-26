@@ -13,7 +13,7 @@ description: "In-depth analysis of Cursor CLI's 2026 features, three modes (Plan
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-cursor)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-cursor)
 
 Cursor was originally known for its built-in IDE Agent. In late 2025, it officially brought the same Agent capabilities to the terminal. The core philosophy of Cursor CLI is: **anything you can do in the IDE, you can do in the terminal**. Whether it's interactive development, CI/CD automation, or handing off tasks to the cloud to run on their own, Cursor CLI has a solution for each.
 

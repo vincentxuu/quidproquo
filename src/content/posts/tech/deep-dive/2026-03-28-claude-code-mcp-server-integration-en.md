@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)
 
 Earlier posts in this series covered Claude Code's built-in toolset (see the [series entrance](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)), but built-in tools only reach your filesystem and terminal. When you catch yourself pasting text from an issue tracker into the conversation or transcribing numbers from a monitoring dashboard, that's the signal to connect an MCP server. As [the official docs put it](https://code.claude.com/docs/en/mcp): once connected, Claude can read and act on that system directly instead of working from what you paste.
 

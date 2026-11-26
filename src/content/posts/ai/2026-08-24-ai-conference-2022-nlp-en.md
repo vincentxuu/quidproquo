@@ -23,7 +23,7 @@ glossary:
     context: "2022 was the key year in which instruction-tuning methodology matured."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2022-nlp)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2022-nlp)
 
 NLP in 2022 had two worlds: before year-end and after it. Before December, academia still focused on conventional benchmark gains and methodological improvements. After ChatGPT launched in December, almost everyone reconsidered what NLP research could still contribute. In retrospect, however, ChatGPT’s foundations—RLHF, instruction tuning, and chain-of-thought—were already in place in the year’s top-conference papers.
 

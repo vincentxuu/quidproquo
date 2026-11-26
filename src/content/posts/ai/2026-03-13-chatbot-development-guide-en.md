@@ -10,7 +10,7 @@ description: "A complete development guide covering conversation state architect
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-13-chatbot-development-guide)
+> :globe: [中文版](/posts/ai/2026-03-13-chatbot-development-guide)
 
 Most people think "chatbot" means "call the OpenAI API and display the response."
 

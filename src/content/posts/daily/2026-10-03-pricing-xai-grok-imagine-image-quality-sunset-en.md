@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset)
+> :globe: [中文版](/posts/daily/2026-10-03-pricing-xai-grok-imagine-image-quality-sunset)
 
 ## What changed
 
@@ -58,7 +58,7 @@ Retiring an old model slug and silently redirecting to a new one isn't new — O
 
 ## Deadline reminder
 
-⚠️ **Retirement date**: 2026-11-02. `grok-imagine-image-quality` will still accept requests after this date but gets silently redirected to `grok-imagine-image-2.0` (quality: low). Migration guide: [grok-imagine-image-quality Retirement on November 2, 2026](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2).
+:warning: **Retirement date**: 2026-11-02. `grok-imagine-image-quality` will still accept requests after this date but gets silently redirected to `grok-imagine-image-2.0` (quality: low). Migration guide: [grok-imagine-image-quality Retirement on November 2, 2026](https://docs.x.ai/developers/migration/imagine-image-quality-nov-2).
 
 ## Takeaway
 

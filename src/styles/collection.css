@@ -1,0 +1,1644 @@
+/* 收藏館樣式。色板、字級、間距、圓角都沿用 site tokens.css（不引入新色系）；
+   light／dark 由站上 [data-theme] 切換。版型參考粉絲百科的區塊化敘事：
+   每段一種型式（主打、排行、類型卡、引言牆、CTA），避免同一種卡片格重複。 */
+body.is-collection {
+  --coll-bg: var(--bg-page);
+  --coll-panel: var(--bg-subtle);
+  --coll-border: var(--border);
+  --coll-text: var(--text-primary);
+  --coll-soft: var(--text-secondary);
+  --coll-muted: var(--text-muted);
+  --coll-accent: var(--brand-700);
+  /* nav 與內容共用寬度，左右邊緣對齊 */
+  --coll-width: 1040px;
+  /* 沒海報時的替身色塊上的文字 */
+  --coll-poster-fg: var(--coll-text);
+
+  max-width: none;
+}
+
+[data-theme="dark"] body.is-collection {
+  --coll-panel: var(--bg-card);
+  --coll-poster-fg: #fff;
+}
+
+body.is-collection header nav {
+  max-width: var(--coll-width);
+  margin: 0 auto;
+}
+
+body.is-collection #main-content {
+  max-width: var(--coll-width);
+  margin: 0 auto;
+  background: var(--coll-bg);
+  color: var(--coll-text);
+  padding: 0 0 var(--space-12);
+  overflow: clip;
+}
+
+/* ── 共用 ── */
+.collection-scope a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.collection-scope :focus-visible {
+  outline: 2px solid var(--coll-accent);
+  outline-offset: 2px;
+  border-radius: var(--corner-sm);
+}
+
+.collection-scope img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.collection-eyebrow {
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--coll-accent);
+  margin: 0 0 var(--space-3);
+}
+
+.coll-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+}
+
+.coll-actions--center {
+  justify-content: center;
+}
+
+.coll-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-2) var(--space-4);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-md);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--coll-text);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.coll-btn:hover {
+  border-color: var(--coll-accent);
+  color: var(--coll-accent);
+}
+
+.collection-scope .coll-btn--primary {
+  background: var(--coll-accent);
+  border-color: var(--coll-accent);
+  color: var(--text-on-accent);
+}
+
+.collection-scope .coll-btn--primary:hover {
+  color: var(--text-on-accent);
+  filter: brightness(1.08);
+}
+
+.coll-link {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--coll-accent);
+}
+
+/* ── Hero：左宣言，右拼貼牆 ── */
+.coll-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: var(--space-10);
+  align-items: center;
+  padding: var(--space-12) 0 var(--space-8);
+}
+
+.coll-hero h1 {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-4);
+  color: var(--coll-text);
+}
+
+.collection-tagline {
+  font-size: var(--fs-md);
+  line-height: 1.8;
+  color: var(--coll-soft);
+  margin: 0 0 var(--space-5);
+  text-wrap: balance;
+}
+
+.coll-keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--space-6);
+}
+
+.coll-keywords li {
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-sm);
+  color: var(--coll-soft);
+}
+
+.coll-keywords li::before {
+  content: '#';
+  color: var(--coll-muted);
+  margin-right: 2px;
+}
+
+.collection-stats {
+  display: flex;
+  gap: 0;
+  margin: var(--space-8) 0 0;
+}
+
+.collection-stat {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-1);
+  padding: 0 var(--space-6);
+  border-left: 1px solid var(--coll-border);
+}
+
+.collection-stat:first-child {
+  padding-left: 0;
+  border-left: none;
+}
+
+.collection-stat dd {
+  margin: 0;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  color: var(--coll-text);
+}
+
+.collection-stat dt {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--coll-muted);
+}
+
+/* ── 拼貼牆 ── */
+.collection-mosaic {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-flow: dense;
+  gap: 4px;
+  border-radius: var(--corner-lg);
+  overflow: hidden;
+}
+
+.mosaic-tile {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  min-width: 0;
+}
+
+.mosaic-tile--hero {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.mosaic-tile a {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-2);
+  color: var(--coll-poster-fg);
+  overflow: hidden;
+}
+
+.mosaic-tile img {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.4s ease, filter 0.25s ease;
+}
+
+.mosaic-tile a:hover img,
+.mosaic-tile a:focus-visible img {
+  transform: scale(1.05);
+}
+
+.mosaic-tile a:focus-visible {
+  outline-offset: -2px;
+}
+
+/* 沒海報時的替身文字 */
+.mosaic-tile b {
+  position: relative;
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.mosaic-tile span {
+  position: relative;
+  font-size: var(--fs-2xs);
+  color: var(--coll-soft);
+}
+
+/* 最後一列補格：span 由頁面依作品數算好傳入 */
+.mosaic-fill {
+  grid-column: span var(--fill-wide);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: var(--space-3);
+  background: var(--coll-panel);
+  color: var(--coll-muted);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+
+.collection-scope .mosaic-fill:hover {
+  color: var(--coll-accent);
+}
+
+@media (min-width: 900px) {
+  .mosaic-fill--none-wide { display: none; }
+}
+
+/* ── 區塊：編號 + 髮絲線 ── */
+.collection-section {
+  margin-top: var(--space-12);
+  scroll-margin-top: var(--space-6);
+}
+
+.collection-section-header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--coll-border);
+  margin-bottom: var(--space-6);
+}
+
+.collection-section-no {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--coll-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.collection-section-header h2 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--coll-text);
+}
+
+.collection-section-count {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.14em;
+  color: var(--coll-muted);
+}
+
+/* ── 01 No.1 主打 ── */
+.spotlight {
+  display: grid;
+  grid-template-columns: minmax(0, 18rem) minmax(0, 1fr);
+  gap: var(--space-10);
+  align-items: center;
+}
+
+.spotlight-poster {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-modal);
+}
+
+.spotlight-poster img {
+  transition: transform 0.4s ease;
+}
+
+.spotlight-poster:hover img {
+  transform: scale(1.03);
+}
+
+.spotlight-meta {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--coll-muted);
+  margin: 0 0 var(--space-4);
+}
+
+.spotlight-quote {
+  font-size: clamp(1.35rem, 3vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--coll-text);
+  border-left: 3px solid var(--coll-accent);
+  padding-left: var(--space-5);
+  margin: 0 0 var(--space-6);
+  text-wrap: balance;
+}
+
+.spotlight-body h3 {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  margin: 0 0 var(--space-1);
+}
+
+.collection-scope .spotlight-body h3 a:hover {
+  color: var(--coll-accent);
+}
+
+.spotlight-rating {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-1);
+  margin: 0 0 var(--space-4);
+}
+
+.spotlight-rating b {
+  font-size: 2.4rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--coll-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.spotlight-rating span {
+  font-size: var(--fs-sm);
+  color: var(--coll-muted);
+}
+
+.spotlight-synopsis {
+  color: var(--coll-soft);
+  line-height: 1.8;
+  margin: 0 0 var(--space-5);
+}
+
+.spotlight-scenes {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--space-2) var(--space-3);
+  margin-bottom: var(--space-6);
+}
+
+.spotlight-scenes > span {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  color: var(--coll-muted);
+}
+
+.spotlight-scenes ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.spotlight-scenes li {
+  font-size: var(--fs-sm);
+  padding: var(--space-1) var(--space-3);
+  background: var(--coll-panel);
+  border-radius: var(--corner-sm);
+}
+
+.fav-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-10);
+}
+
+.fav-card {
+  display: grid;
+  grid-template-columns: 5.5rem minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-md);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.fav-card:hover {
+  border-color: var(--coll-accent);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.fav-card-poster {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-sm);
+  overflow: hidden;
+}
+
+.fav-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  min-width: 0;
+}
+
+.fav-card-meta {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+.fav-card-title {
+  font-size: var(--fs-h3);
+  font-weight: 800;
+}
+
+.fav-card-quote {
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  color: var(--coll-soft);
+}
+
+/* ── 02 評分排行（歌單式） ── */
+.ranking {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--coll-border);
+}
+
+.ranking li {
+  border-bottom: 1px solid var(--coll-border);
+}
+
+.ranking-row {
+  display: grid;
+  grid-template-columns: 2.25rem 2.5rem minmax(0, 1.4fr) minmax(0, 1fr) 6.5rem 5rem;
+  gap: var(--space-4);
+  align-items: center;
+  padding: var(--space-3) var(--space-2);
+  transition: background-color 0.15s ease;
+}
+
+.ranking-row:hover {
+  background: var(--coll-panel);
+}
+
+.ranking-no {
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  color: var(--coll-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking li:nth-child(-n + 3) .ranking-no {
+  color: var(--coll-accent);
+}
+
+.ranking-thumb {
+  display: block;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-sm);
+  overflow: hidden;
+}
+
+.ranking-title {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.ranking-title b {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.ranking-title small {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ranking-genres,
+.ranking-type {
+  font-size: var(--fs-xs);
+  color: var(--coll-soft);
+}
+
+.ranking-score {
+  text-align: right;
+  font-weight: 800;
+  color: var(--coll-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.ranking-score--none {
+  font-weight: 400;
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+/* ── 03 依類型 ── */
+.type-grid {
+  display: grid;
+  /* 卡片數隨有作品的類型變動（1～3 張），自動填滿整列 */
+  grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr));
+  gap: var(--space-5);
+}
+
+.type-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-md);
+  scroll-margin-top: var(--space-6);
+}
+
+.type-card-head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+}
+
+.type-card-no {
+  font-size: 2.2rem;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--coll-border);
+  font-variant-numeric: tabular-nums;
+}
+
+.type-card-head h3 {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  margin: 0;
+}
+
+.type-card-count {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+.type-card-posters {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-1);
+}
+
+.type-card-posters a {
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-sm);
+  overflow: hidden;
+}
+
+.type-card-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.type-card-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-2) 0;
+  border-top: 1px dashed var(--coll-border);
+  font-size: var(--fs-sm);
+}
+
+.type-card-list li span {
+  color: var(--coll-muted);
+  font-size: var(--fs-xs);
+  white-space: nowrap;
+}
+
+.collection-scope .type-card-list a:hover {
+  color: var(--coll-accent);
+}
+
+/* ── 04 最愛場景引言牆 ── */
+.scene-wall {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(14rem, calc(50% - var(--space-2))), 1fr));
+  gap: var(--space-4);
+}
+
+.scene-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-5);
+  background: var(--coll-panel);
+  border-radius: var(--corner-md);
+}
+
+.scene-card p {
+  margin: 0;
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.scene-card p::before {
+  content: '“';
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  color: var(--coll-accent);
+}
+
+.scene-card a {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+.collection-scope .scene-card a:hover {
+  color: var(--coll-accent);
+}
+
+/* ── 結尾 CTA ── */
+.coll-cta {
+  margin-top: var(--space-12);
+  padding: var(--space-10) var(--space-6);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-lg);
+  text-align: center;
+}
+
+.coll-cta h2 {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-weight: 900;
+  margin: 0 0 var(--space-3);
+}
+
+.coll-cta > p:not(.collection-eyebrow) {
+  color: var(--coll-soft);
+  margin: 0 0 var(--space-6);
+}
+
+/* ── 作品單頁 ── */
+.work-backlink {
+  display: inline-block;
+  margin: var(--space-8) 0 var(--space-4);
+  font-size: var(--fs-sm);
+  letter-spacing: 0.06em;
+  color: var(--coll-muted);
+}
+
+.collection-scope .work-backlink:hover {
+  color: var(--coll-accent);
+}
+
+/* 1. Hero：上方劇照橫幅，海報壓在橫幅下緣，標題接在右側 */
+.work-hero {
+  position: relative;
+  display: grid;
+  grid-template-columns: 13rem minmax(0, 1fr);
+  column-gap: var(--space-8);
+  align-items: end;
+}
+
+.work-hero-banner {
+  grid-column: 1 / -1;
+  grid-row: 1;
+  aspect-ratio: 16 / 6;
+  border-radius: var(--corner-lg);
+  overflow: hidden;
+  position: relative;
+  background: var(--coll-panel);
+}
+
+.work-hero-banner::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 45%, color-mix(in srgb, var(--coll-bg) 55%, transparent) 100%);
+}
+
+.work-hero-banner img.is-blur {
+  filter: blur(36px) saturate(1.2);
+  transform: scale(1.2);
+}
+
+.work-hero-poster {
+  grid-column: 1;
+  grid-row: 2;
+  margin-top: -9rem;
+  margin-left: var(--space-6);
+  position: relative;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-md);
+  overflow: hidden;
+  border: 3px solid var(--coll-bg);
+  box-shadow: var(--shadow-modal);
+  display: flex;
+  align-items: flex-end;
+  color: var(--coll-poster-fg);
+}
+
+/* 沒海報時才在替身色塊上印片名 */
+.work-hero-poster b {
+  padding: var(--space-3);
+  font-size: var(--fs-md);
+}
+
+.work-hero-text {
+  grid-column: 2;
+  grid-row: 2;
+  min-width: 0;
+  padding-top: var(--space-6);
+}
+
+.work-hero h1 {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  margin: 0 0 var(--space-1);
+  color: var(--coll-text);
+  text-wrap: balance;
+}
+
+.work-hero-original {
+  color: var(--coll-soft);
+  font-size: var(--fs-md);
+  letter-spacing: 0.04em;
+  margin: 0 0 var(--space-3);
+}
+
+.work-hero-tagline {
+  font-style: italic;
+  color: var(--coll-muted);
+  font-size: var(--fs-sm);
+  line-height: 1.7;
+  margin: 0 0 var(--space-4);
+  max-width: 40rem;
+}
+
+.work-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-badge {
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-sm);
+  color: var(--coll-soft);
+}
+
+/* 版面：評價、簡介、規格格線由上而下；之後接全寬區塊 */
+.work-layout {
+  margin-top: var(--space-10);
+}
+
+.work-section + .work-section {
+  margin-top: var(--space-10);
+}
+
+.work-section h2 {
+  font-size: var(--fs-h2);
+  font-weight: 800;
+  color: var(--coll-text);
+  margin: 0 0 var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--coll-border);
+}
+
+.work-section p,
+.work-section li {
+  color: var(--coll-soft);
+  line-height: 1.85;
+}
+
+.work-section > p {
+  margin: 0;
+}
+
+.work-synopsis > p {
+  font-size: var(--fs-md);
+  color: var(--coll-text);
+}
+
+/* 2. 我的評價：引言卡 */
+.work-verdict {
+  padding: var(--space-6);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-lg);
+  box-shadow: var(--shadow-card-soft);
+}
+
+.work-verdict h2 {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--coll-muted);
+  border-top: none;
+  padding-top: 0;
+}
+
+.work-verdict-body {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+}
+
+.work-verdict .spotlight-rating {
+  margin: 0;
+}
+
+.work-verdict .spotlight-rating b {
+  font-size: 4rem;
+}
+
+.work-oneliner {
+  flex: 1 1 18rem;
+  font-size: clamp(1.2rem, 2.6vw, 1.55rem);
+  font-weight: 800;
+  line-height: 1.55;
+  color: var(--coll-text);
+  border-left: 3px solid var(--coll-accent);
+  padding-left: var(--space-4);
+  margin: 0;
+}
+
+.work-review {
+  margin: var(--space-5) 0 0;
+}
+
+.work-watches {
+  margin-top: var(--space-5);
+}
+
+.work-watches h3 {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  margin: 0 0 var(--space-2);
+}
+
+.work-watches h3 span {
+  font-weight: 400;
+  color: var(--coll-muted);
+  margin-left: var(--space-2);
+}
+
+.work-watches ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-watches li {
+  display: flex;
+  gap: var(--space-4);
+  font-size: var(--fs-sm);
+  padding: var(--space-1) 0;
+}
+
+.work-watches time {
+  font-variant-numeric: tabular-nums;
+  color: var(--coll-text);
+}
+
+/* 全寬區塊：跳出主欄＋側欄，各段用不同型式 */
+.work-band {
+  margin-top: var(--space-12);
+}
+
+/* 4. 角色與演員：底色帶＋直式頭像卡 */
+.work-band--cast {
+  background: var(--coll-panel);
+  border-radius: var(--corner-lg);
+  padding: var(--space-2) var(--space-6) var(--space-8);
+}
+
+.work-band--cast .collection-section-header {
+  border-top: none;
+}
+
+.cast-grid {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-6) var(--space-4);
+}
+
+.cast-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-1);
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--corner-md);
+  line-height: 1.4;
+  min-width: 0;
+}
+
+.cast-card--picked {
+  background: var(--coll-bg);
+  outline: 1px solid var(--coll-accent);
+}
+
+.cast-avatar {
+  flex: none;
+  width: 5.5rem;
+  height: 5.5rem;
+  margin-bottom: var(--space-2);
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--coll-bg);
+  box-shadow: 0 0 0 3px var(--coll-bg), var(--shadow-sm);
+  display: grid;
+  place-items: center;
+  font-size: var(--fs-h3);
+  font-weight: 800;
+  color: var(--coll-muted);
+}
+
+.cast-avatar img {
+  object-position: top;
+}
+
+.cast-name {
+  font-size: var(--fs-sm);
+  color: var(--coll-text);
+  max-width: 100%;
+}
+
+.cast-card small {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cast-card .cast-actor {
+  color: var(--coll-soft);
+}
+
+.cast-take {
+  font-style: normal;
+  font-size: var(--fs-xs);
+  color: var(--coll-accent);
+  margin-top: var(--space-1);
+}
+
+/* 5. 最愛場景：大編號橫列 */
+.work-scenes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-scene {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  gap: var(--space-6);
+  align-items: baseline;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--coll-border);
+}
+
+.work-scene:first-child {
+  padding-top: 0;
+}
+
+.work-scene-no {
+  font-size: 3.5rem;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--coll-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.work-scene-ref {
+  display: inline-block;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--coll-muted);
+  margin-bottom: var(--space-1);
+}
+
+.work-scene-title {
+  margin: 0;
+  font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+  font-weight: 800;
+  line-height: 1.45;
+  color: var(--coll-text);
+}
+
+.work-scene-take {
+  margin: var(--space-2) 0 0;
+  max-width: 40rem;
+  color: var(--coll-soft);
+  line-height: 1.85;
+}
+
+.work-spoiler summary {
+  cursor: pointer;
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--coll-text);
+}
+
+/* 6. 主題曲：唱片封套＋曲目表 */
+.soundtrack {
+  display: grid;
+  grid-template-columns: 15rem minmax(0, 1fr);
+  gap: var(--space-8);
+  padding: var(--space-6);
+  border-radius: var(--corner-lg);
+  background: var(--brand-50);
+  color: var(--brand-900);
+}
+
+.soundtrack-sleeve {
+  align-self: start;
+}
+
+.soundtrack-cover {
+  display: block;
+  aspect-ratio: 1;
+  border-radius: var(--corner-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-raised);
+  margin-bottom: var(--space-4);
+}
+
+.soundtrack-label {
+  margin: 0;
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--coll-accent);
+}
+
+.soundtrack-title {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-h3);
+  font-weight: 900;
+  color: var(--brand-900);
+}
+
+.soundtrack-meta {
+  margin: var(--space-1) 0 0;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  color: var(--coll-soft);
+}
+
+.theme-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.theme-list li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr) auto;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--brand-900) 14%, transparent);
+}
+
+.theme-no {
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--coll-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  line-height: 1.45;
+}
+
+.theme-text b {
+  font-size: var(--fs-md);
+  color: var(--brand-900);
+}
+
+.theme-text small {
+  font-size: var(--fs-xs);
+  color: var(--coll-soft);
+}
+
+.theme-type {
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--coll-accent);
+  margin-right: var(--space-2);
+}
+
+.theme-play {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid color-mix(in srgb, var(--brand-900) 25%, transparent);
+  border-radius: var(--corner-pill);
+  color: var(--brand-900);
+  white-space: nowrap;
+}
+
+.collection-scope .theme-play:hover {
+  border-color: var(--coll-accent);
+  color: var(--coll-accent);
+}
+
+.theme-track--reused .theme-text b {
+  color: var(--coll-soft);
+  font-weight: 600;
+}
+
+.theme-reused {
+  margin-right: var(--space-2);
+  padding: 0 var(--space-2);
+  border-radius: var(--corner-pill);
+  background: color-mix(in srgb, var(--brand-900) 10%, transparent);
+  color: var(--coll-soft);
+}
+
+.theme-actions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.collection-scope .theme-play--primary {
+  background: var(--brand-900);
+  border-color: var(--brand-900);
+  color: var(--brand-50);
+}
+
+.collection-scope .theme-play--primary:hover {
+  background: var(--coll-accent);
+  border-color: var(--coll-accent);
+  color: var(--brand-50);
+}
+
+.collection-scope .theme-play[aria-expanded="true"] {
+  background: var(--coll-accent);
+  border-color: var(--coll-accent);
+  color: var(--brand-50);
+}
+
+.theme-track.is-playing .theme-no {
+  color: var(--coll-accent);
+}
+
+/* 嵌入播放器：佔滿整列寬，放在曲目資訊下方 */
+.theme-embed {
+  grid-column: 2 / -1;
+  padding-top: var(--space-2);
+}
+
+.theme-frame {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--corner-md);
+}
+
+.theme-frame--youtube {
+  max-width: 36rem;
+  aspect-ratio: 16 / 9;
+}
+
+.theme-frame--spotify {
+  height: 80px;
+}
+
+.soundtrack-note {
+  margin: var(--space-3) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--coll-soft);
+}
+
+/* 多季：每季一個收合區 */
+.theme-season + .theme-season {
+  margin-top: var(--space-2);
+}
+
+.theme-season > summary {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-3);
+  cursor: pointer;
+  padding: var(--space-3) 0;
+  border-bottom: 2px solid color-mix(in srgb, var(--brand-900) 25%, transparent);
+  list-style: none;
+}
+
+.theme-season > summary::-webkit-details-marker {
+  display: none;
+}
+
+.theme-season > summary::after {
+  content: "+";
+  margin-left: var(--space-2);
+  font-weight: 700;
+  color: var(--coll-accent);
+}
+
+.theme-season[open] > summary::after {
+  content: "−";
+}
+
+.theme-season-year {
+  font-size: var(--fs-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--coll-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.theme-season-title {
+  font-weight: 800;
+  color: var(--brand-900);
+  min-width: 0;
+}
+
+.theme-season-airing {
+  margin-left: var(--space-2);
+  padding: 0 var(--space-2);
+  border: 1px solid var(--coll-accent);
+  border-radius: var(--corner-pill);
+  font-size: var(--fs-2xs);
+  font-style: normal;
+  font-weight: 700;
+  color: var(--coll-accent);
+  vertical-align: middle;
+}
+
+.theme-season-count {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--coll-soft);
+  white-space: nowrap;
+}
+
+.theme-more summary {
+  cursor: pointer;
+  padding: var(--space-3) 0;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--brand-900);
+}
+
+.work-posts ul {
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+.collection-scope .work-posts a {
+  color: var(--coll-accent);
+}
+
+/* 3. 規格表：全寬格線，標籤在上、值在下 */
+.work-info {
+  margin-top: var(--space-10);
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--coll-border);
+  border-radius: var(--corner-lg);
+}
+
+.work-info h2 {
+  font-size: var(--fs-xs);
+  letter-spacing: 0.2em;
+  color: var(--coll-muted);
+  margin: 0 0 var(--space-4);
+}
+
+.work-info dl {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(9.5rem, 100%), 1fr));
+  gap: var(--space-4) var(--space-5);
+}
+
+.work-info dl > div {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding-top: var(--space-2);
+  border-top: 2px solid var(--coll-border);
+  min-width: 0;
+}
+
+.work-info dt {
+  font-size: var(--fs-2xs);
+  letter-spacing: 0.14em;
+  color: var(--coll-muted);
+}
+
+.work-info dd {
+  margin: 0;
+  font-size: var(--fs-md);
+  font-weight: 800;
+  color: var(--coll-text);
+  overflow-wrap: anywhere;
+}
+
+.work-sources {
+  margin: var(--space-4) 0 0;
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+  line-height: 1.7;
+}
+
+.collection-scope .work-sources a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.collection-scope .work-sources a:hover {
+  color: var(--coll-accent);
+}
+
+/* 7. 同類型 ＋ 上下部 */
+.work-related {
+  margin-top: var(--space-12);
+}
+
+.work-related .collection-section-header h2 {
+  font-size: var(--fs-h2);
+}
+
+.work-related-grid {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 9rem;
+  gap: var(--space-4);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: var(--space-2);
+}
+
+.work-related-card {
+  scroll-snap-align: start;
+}
+
+.work-related-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.work-related-poster {
+  display: block;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--corner-md);
+  overflow: hidden;
+  margin-bottom: var(--space-1);
+}
+
+.work-related-poster img {
+  transition: transform 0.4s ease;
+}
+
+.work-related-card:hover .work-related-poster img {
+  transform: scale(1.04);
+}
+
+.work-related-card b {
+  font-size: var(--fs-sm);
+}
+
+.work-related-card small {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+.work-pager {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+  margin-top: var(--space-12);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--coll-border);
+}
+
+.work-pager a {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.work-pager small {
+  font-size: var(--fs-xs);
+  color: var(--coll-muted);
+}
+
+.work-pager b {
+  font-size: var(--fs-md);
+}
+
+.collection-scope .work-pager a:hover b {
+  color: var(--coll-accent);
+}
+
+.work-pager-next {
+  text-align: right;
+}
+
+/* ── 斷點 ── */
+@media (max-width: 899px) {
+  .coll-hero {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+
+  .collection-mosaic {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .mosaic-fill {
+    grid-column: span var(--fill-mid);
+  }
+
+  .type-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ranking-row {
+    grid-template-columns: 2rem 2.25rem minmax(0, 1fr) 4.5rem;
+  }
+
+  .ranking-genres,
+  .ranking-type {
+    display: none;
+  }
+
+  .cast-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 641px) and (max-width: 899px) {
+  .mosaic-fill--none-mid { display: none; }
+}
+
+@media (max-width: 640px) {
+  .coll-hero {
+    padding-top: var(--space-8);
+  }
+
+  .collection-mosaic {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mosaic-fill {
+    grid-column: span var(--fill-narrow);
+  }
+
+  .mosaic-fill--none-narrow { display: none; }
+
+  .collection-stat {
+    padding: 0 var(--space-4);
+  }
+
+  .spotlight {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+
+  .spotlight-poster {
+    width: 62%;
+  }
+
+  .work-hero {
+    grid-template-columns: 7.5rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+    align-items: start;
+  }
+
+  .cast-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-4) var(--space-2);
+  }
+
+  .work-band--cast {
+    padding: var(--space-1) var(--space-3) var(--space-5);
+  }
+
+  .cast-avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .work-scene {
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    gap: var(--space-3);
+    padding: var(--space-5) 0;
+  }
+
+  .work-scene-no {
+    font-size: 2.25rem;
+  }
+
+  .soundtrack {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding: var(--space-4);
+  }
+
+  .soundtrack-sleeve {
+    display: grid;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
+    column-gap: var(--space-4);
+    align-items: center;
+  }
+
+  .soundtrack-cover {
+    grid-row: span 4;
+    margin-bottom: 0;
+  }
+
+  .theme-list li {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+  }
+
+  .theme-actions {
+    grid-column: 2;
+  }
+
+  .theme-embed {
+    grid-column: 1 / -1;
+  }
+
+  .work-verdict {
+    padding: var(--space-4);
+  }
+
+  .work-info {
+    padding: var(--space-4);
+  }
+
+  .work-info dl {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3) var(--space-4);
+  }
+
+  .work-hero-banner {
+    aspect-ratio: 16 / 9;
+  }
+
+  .work-hero-poster {
+    margin-top: -4.5rem;
+    margin-left: var(--space-3);
+  }
+
+  .work-hero-text {
+    padding-top: var(--space-3);
+  }
+
+  .work-verdict .spotlight-rating b {
+    font-size: 3rem;
+  }
+
+  .work-pager b {
+    font-size: var(--fs-sm);
+  }
+
+  .scene-card {
+    padding: var(--space-4);
+  }
+
+  .scene-card p {
+    font-size: var(--fs-md);
+  }
+}

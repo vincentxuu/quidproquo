@@ -8,6 +8,11 @@ export interface AgentQueueMessage {
 
 export interface Env {
   DB: D1Database
+  ACCESS_TEAM_DOMAIN?: string
+  ACCESS_AUD?: string
+  ACCESS_ALLOWED_EMAILS?: string
+  VOCABULARY_ACCESS_TEAM_DOMAIN?: string
+  VOCABULARY_ACCESS_AUD?: string
   SESSION: KVNamespace
   AGENT_SESSION_DO: DurableObjectNamespace
   SANDBOX?: unknown

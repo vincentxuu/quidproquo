@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
+> :globe: [中文版](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
 
 ## Summary
 
@@ -68,8 +68,8 @@ On raw API credit alone, Anthropic's $1,000 doesn't come close to the $200K+ fig
 
 ## Timing Notes
 
-⏰ **API credit expiration**: Expires 6 months after it's actually granted, not from the application date.
-⏰ **Claude Team free-year eligibility**: Limited to organizations that have never used a Claude Team plan before — existing Team customers don't qualify for this benefit.
+:clock: **API credit expiration**: Expires 6 months after it's actually granted, not from the application date.
+:clock: **Claude Team free-year eligibility**: Limited to organizations that have never used a Claude Team plan before — existing Team customers don't qualify for this benefit.
 
 ## Today's Takeaway
 

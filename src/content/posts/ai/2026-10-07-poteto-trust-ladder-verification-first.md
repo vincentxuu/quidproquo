@@ -18,7 +18,7 @@ glossary:
     context: "對談裡用來示範「一個精準的詞就能壓縮大量意圖」。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-07-poteto-trust-ladder-verification-first-en)
+> :globe: [English version](/posts/ai/2026-10-07-poteto-trust-ladder-verification-first-en)
 
 [完整中英字幕對照：點任一句播放與跟讀](#video-practice-0-transcript)
 

@@ -1,4 +1,5 @@
 import type { APIRoute } from 'astro'
+import { accessConfigured } from '../../../lib/auth/access'
 import { deleteSession } from '../../../lib/auth/session'
 
 export const POST: APIRoute = async ({ cookies }) => {
@@ -7,7 +8,7 @@ export const POST: APIRoute = async ({ cookies }) => {
   return new Response(null, {
     status: 303,
     headers: {
-      Location: '/login',
+      Location: accessConfigured() ? '/cdn-cgi/access/logout' : '/login',
       'Set-Cookie': 'session=; Path=/; Max-Age=0',
     },
   })

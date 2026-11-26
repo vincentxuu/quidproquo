@@ -10,7 +10,7 @@ description: "An overview of the Ghostty terminal emulator and cmux, covering th
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-14-ghostty-vs-cmux)
+:globe: [中文版](/posts/tech/2026-03-14-ghostty-vs-cmux)
 
 If you've been looking for an iTerm2 replacement, Ghostty is the standard answer. But if you're running multiple AI coding agents simultaneously, cmux is worth a closer look. This post breaks down the design philosophy, feature differences, and how to choose between the two.
 

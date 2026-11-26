@@ -22,7 +22,7 @@ glossary:
     context: "Fall 2026 Logistics 寫明一般排隊時間超過 24 小時，且不會因此延長截止日。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-llm-systems-overview-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -219,12 +219,13 @@ HW5（自己寫資料平行與管線平行）要至少兩張 GPU；HW6（DeepSpe
 
 - [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

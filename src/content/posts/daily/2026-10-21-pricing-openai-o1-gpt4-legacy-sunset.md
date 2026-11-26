@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset-en)
+> :globe: [English version](/posts/daily/2026-10-21-pricing-openai-o1-gpt4-legacy-sunset-en)
 
 ## 變更摘要
 
@@ -76,7 +76,7 @@ OpenAI 的 API deprecations 頁面在 4 月就公告、10/23 正式生效：o1�
 
 ## 時效提醒（如有促銷/sunset）
 
-⚠️ **停用日期**：2026-10-23。o1、o1-pro、o3-mini、o4-mini、`gpt-4-0613`、`gpt-4-turbo-2024-04-09`、`gpt-4-1106-preview`、`gpt-4.1-nano`、`gpt-4o-2024-05-13`、`gpt-image-1` 及對應微調版本將全部從 API 移除。遷移指南：[OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations)。
+:warning: **停用日期**：2026-10-23。o1、o1-pro、o3-mini、o4-mini、`gpt-4-0613`、`gpt-4-turbo-2024-04-09`、`gpt-4-1106-preview`、`gpt-4.1-nano`、`gpt-4o-2024-05-13`、`gpt-image-1` 及對應微調版本將全部從 API 移除。遷移指南：[OpenAI Deprecations](https://developers.openai.com/api/docs/deprecations)。
 
 ## 今日收穫
 

@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### openclaw/openclaw ⭐ 390,153
+### openclaw/openclaw ★ 390,153
 
 [GitHub](https://github.com/openclaw/openclaw)　·　TypeScript　·　自訂授權（非標準 OSS 授權，商用前建議先讀條款）
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### volcengine/OpenViking ⭐ 38,184
+### volcengine/OpenViking ★ 38,184
 
 [GitHub](https://github.com/volcengine/OpenViking)　·　Python　·　AGPL-3.0
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### trycua/cua ⭐ 25,049
+### trycua/cua ★ 25,049
 
 [GitHub](https://github.com/trycua/cua)　·　多語言（driver 為主）　·　MIT
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### INSANE0777/Awwards-mcp ⭐ 39
+### INSANE0777/Awwards-mcp ★ 39
 
 [GitHub](https://github.com/INSANE0777/Awwards-mcp)　·　TypeScript　·　MIT
 

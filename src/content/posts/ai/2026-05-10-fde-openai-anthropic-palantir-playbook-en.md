@@ -10,7 +10,7 @@ description: "OpenAI's The Deployment Company and the Anthropic-Blackstone-Goldm
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-10-fde-openai-anthropic-palantir-playbook)
+> :globe: [中文版](/posts/ai/2026-05-10-fde-openai-anthropic-palantir-playbook)
 
 Why do the most powerful AI models still underwhelm inside most enterprises? Why do so many companies finish countless PoCs and still have no idea how to actually deploy AI into their core business?
 

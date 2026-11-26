@@ -13,7 +13,7 @@ description: "盧米尼亞諾（Lumignano）岩場介紹：岩質與各區規模
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-lumignano-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-lumignano-en)
 
 盧米尼亞諾（Lumignano）是威尼托（Veneto）大區維琴察（Vicenza）省隆加雷（Longare）市的一個村子，在[貝里奇丘陵（Colli Berici）](https://colliberici.it/en/the-berici-s-hills/sport)東側山腳，村子上方是一長排紅、橘、灰色條紋的石灰岩壁。[Planetmountain](https://planetmountain.com/en/crags/lumignano.html) 說它是「one of the most important crags in Northern Italy」，1980 年代運動攀登剛起步時，Lumignano Classica 是「the focal point for many of the best climbers in the world」。
 

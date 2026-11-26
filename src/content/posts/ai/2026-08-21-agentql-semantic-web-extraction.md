@@ -8,9 +8,12 @@ lang: zh-TW
 tldr: "AgentQL 用接近資料結構的語意查詢取代易碎的 CSS/XPath：`query_data` 回傳結構化資料，`query_elements` 回傳可操作的 Playwright locator。Starter 公開方案列出每月 50 次免費 API 呼叫，但超額、綁卡與遠端瀏覽器時數的實際停止規則仍要在 Billing 頁確認。"
 description: "從 AgentQL query syntax、結構化資料擷取與 Playwright 操作開始，實作本機及遠端瀏覽器，整理除錯方法、成本界線，以及它和 Crawl4AI、AutoScraper、Browser Use 的差異。"
 draft: false
+series:
+  name: "AI 瀏覽器自動化"
+  order: 11
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en)
+> :globe: [English version](/posts/ai/2026-08-21-agentql-semantic-web-extraction-en)
 
 [AgentQL](https://github.com/tinyfish-io/agentql) 是一套網頁擷取與瀏覽器自動化工具。它讓你用 `product_name`、`add_to_cart_btn` 這類帶有語意的欄位描述目標，再把結果交給 Python／JavaScript SDK、REST API 或 Playwright。你仍然負責流程、錯誤處理與資料驗證；AgentQL 處理的是「這一頁上的哪個資料或元素符合描述」。
 

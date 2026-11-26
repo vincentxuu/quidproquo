@@ -5,8 +5,8 @@ category: daily
 type: digest
 tags: [ai-agent, model-release, daily, deepseek, model-family-deepseek]
 lang: en
-description: "DeepSeek swaps architecture without bumping the generation number — a Causal Encoder-Decoder cuts active parameters even as agentic coding scores jump, and DeepSeek is routing its own V4-Pro flagship traffic to this Flash model starting Sept 14"
-tldr: "DeepSeek-V4.1-Flash (API model: deepseek-flash): released 2026-09-10, 552B-parameter MoE with a Causal Encoder-Decoder architecture (only 8B active parameters for input, 16B for output), 1M-token context, MIT-licensed. Peak pricing: input $0.30 / output $1.20 per 1M tokens (off-peak halved) — cheaper than the predecessor V4-Flash. Terminal-Bench 4.0 jumps from 7.0 to 31.2, DeepSWE v1.1 (74.2) ties Claude Opus 5 (74.0). KV cache compressed to 890 bytes/token (1/4 of the predecessor, 437x less than DeepSeek-V1). DeepSeek announced that starting Sept 14, all traffic to its own V4-Pro flagship will be routed to this Flash model and billed at Flash rates."
+description: "DeepSeek swaps architecture without bumping the generation number — a Causal Encoder-Decoder cuts active parameters even as agentic coding scores jump, and DeepSeek first announced it would route its own V4-Pro flagship traffic to this Flash model from Sept 14, before deciding to keep V4-Pro available"
+tldr: "DeepSeek-V4.1-Flash (API model: deepseek-flash): released 2026-09-10, 552B-parameter MoE with a Causal Encoder-Decoder architecture (only 8B active parameters for input, 16B for output), 1M-token context, MIT-licensed. Peak pricing: input $0.30 / output $1.20 per 1M tokens (off-peak halved) — cheaper than the predecessor V4-Flash. Terminal-Bench 4.0 jumps from 7.0 to 31.2, DeepSWE v1.1 (74.2) ties Claude Opus 5 (74.0). KV cache compressed to 890 bytes/token (1/4 of the predecessor, 437x less than DeepSeek-V1). The launch announcement said all traffic to its own V4-Pro flagship would route to this Flash model at Flash rates from Sept 14; the change log later reversed that, keeping V4-Pro available with unchanged billing in response to user demand."
 series:
   name: "AI Model Tracker"
   order: 21
@@ -15,7 +15,7 @@ glossary:
     def: "A new model architecture family DeepSeek introduced in September 2026; the first release, Flash, replaces the predecessor's MoE decoder with a Causal Encoder-Decoder, optimized for a smaller KV cache and stronger agentic performance"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
+> :globe: [中文版](/posts/daily/2026-09-12-model-deepseek-deepseek-v4-1-flash)
 
 ## Model Information
 
@@ -31,7 +31,7 @@ glossary:
 | Release date | 2026-09-10 (new pricing effective 04:00 UTC the same day) |
 | Official announcement | [DeepSeek: Introducing DeepSeek-V4.1-Flash](https://deepseek.com/en/news/deepseek-v4-1-flash/) |
 | Hugging Face | [deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash) |
-| Family | DeepSeek V4.x (predecessors: V4-Flash-0731, V4-Pro-0813, V4-Flash-Vision-Exp — all three are retired and now route to this model) |
+| Family | DeepSeek V4.x (predecessors: V4-Flash-0731 and V4-Flash-Vision-Exp, both retired and now routed to this model; V4-Pro-0813 was slated to route here from Sept 14 but stayed available) |
 
 ## Highlights
 
@@ -50,7 +50,7 @@ glossary:
 | GPQA Diamond (base model, no tools) | 90.9 | N/A | GPT-5.6 Sol: 94.1 |
 | SimpleQA-Verified (base model, factual recall) | 42.3 | N/A | Own flagship V4-Pro: 55.2 |
 
-⚠️ All figures above are DeepSeek's own self-reported results under its strongest agent scaffold (mini-SWE); none have been independently reproduced yet. GPQA Diamond and SimpleQA-Verified are base-model (not instruct/agent) scores; V4-Flash-0731 has no published figure for either, hence "N/A".
+:warning: All figures above are DeepSeek's own self-reported results under its strongest agent scaffold (mini-SWE); none have been independently reproduced yet. GPQA Diamond and SimpleQA-Verified are base-model (not instruct/agent) scores; V4-Flash-0731 has no published figure for either, hence "N/A".
 
 ## Comparison with Predecessor/Competitors
 
@@ -58,7 +58,7 @@ The biggest jump over the predecessor is in agentic coding: Terminal-Bench 4.0 c
 
 Against top competitors, DeepSWE v1.1's 74.2 already ties Claude Opus 5 (74.0) and GPT-5.6 Sol (73.0), well within margin of error. But Terminal-Bench 4.0 still trails Opus 5's 51.8 by a wide margin, showing a real gap remains at the hardest tier of agentic tasks. More notably, on knowledge-heavy evaluation: SimpleQA-Verified's 42.3 clearly trails DeepSeek's own flagship V4-Pro at 55.2 — a new 552B-parameter architecture actually losing to its predecessor flagship on factual recall, which suggests this release's gains are concentrated in "doing" rather than "knowing."
 
-Pricing strategy is the biggest business signal here: V4.1-Flash's peak cache-miss input ($0.30) and output ($1.20) are both cheaper than predecessor V4-Flash's $0.44 / $1.32, and DeepSeek announced that starting Sept 14, all online traffic to its own V4-Pro flagship will be routed to this Flash model and billed at Flash rates — effectively DeepSeek admitting its smaller model's agentic capability has surpassed its old flagship, and retiring that flagship outright. DeepSeek also unusually published a table scoring the same model across 8 different agent scaffolds: DeepSWE scores swing 8.7 points between mini-SWE (74.2) and OpenCode (65.5) — a wider spread than the 1.2-point gap between the three top models (V4.1-Flash, Opus 5, GPT-5.6 Sol). That's a methodology disclosure worth everyone's attention.
+Pricing strategy is the biggest business signal here: V4.1-Flash's peak cache-miss input ($0.30) and output ($1.20) are both cheaper than predecessor V4-Flash's $0.44 / $1.32, and the launch announcement said that starting Sept 14, all online traffic to its own V4-Pro flagship would be routed to this Flash model and billed at Flash rates, citing multi-party tests that put V4.1-Flash ahead of V4-Pro on performance, cost, and speed — effectively DeepSeek admitting its smaller model's agentic capability had surpassed its old flagship. The retirement was later called off: the change log now says V4 Pro API service continues after Sept 14 with unchanged billing in response to user demand, and the pricing page still lists `deepseek-v4-pro` separately. DeepSeek also unusually published a table scoring the same model across 8 different agent scaffolds: DeepSWE scores swing 8.7 points between mini-SWE (74.2) and OpenCode (65.5) — a wider spread than the 1.2-point gap between the three top models (V4.1-Flash, Opus 5, GPT-5.6 Sol). That's a methodology disclosure worth everyone's attention.
 
 ## Implications for Agent Development
 
@@ -72,9 +72,15 @@ Not a fit: use cases needing high factual accuracy, knowledge-intensive QA, or c
 
 I used to compare models by lining up benchmark scores different vendors publish and ranking them directly. But DeepSeek's own 8-scaffold comparison table breaks that assumption: running the same model through 8 different agent frameworks swings the DeepSWE score by 8.7 points — wider than the 1.2-point gap between the three top models (V4.1-Flash, Opus 5, GPT-5.6 Sol). That means most "cross-vendor model leaderboards" are actually comparing whose scaffold is stronger, not whose model is stronger — from now on, any model score comparison deserves the question "which framework was this run with?"
 
+## Update Log
+
+- 2026-11-23: Corrected the V4-Pro retirement claim. The launch announcement planned to route `deepseek-v4-pro` requests to V4.1-Flash from Sept 14, but DeepSeek's change log later said V4 Pro API service would continue in response to user demand with unchanged billing, and the pricing page still lists `deepseek-v4-pro`; the advice that traffic would migrate automatically was revised accordingly.
+
 ## References
 
 - [DeepSeek: Introducing DeepSeek-V4.1-Flash](https://deepseek.com/en/news/deepseek-v4-1-flash/)
+- [DeepSeek API change log](https://api-docs.deepseek.com/updates/)
+- [DeepSeek API models and pricing](https://api-docs.deepseek.com/quick_start/pricing)
 - [DeepSeek-V4.1-Flash Technical Report (PDF)](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash/blob/main/DeepSeek_V41_Tech_Report.pdf)
 - [Hugging Face: deepseek-ai/DeepSeek-V4.1-Flash](https://huggingface.co/deepseek-ai/DeepSeek-V4.1-Flash)
 - [Coursiv: DeepSeek V4.1 Flash Replaces V4 Pro: Pricing, Benchmarks, and What Changed Since V4 Flash](https://coursiv.io/blog/deepseek-v4-1-flash)

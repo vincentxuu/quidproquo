@@ -12,7 +12,7 @@ draft: false
 description: "分清 ICL、SFT、reward model 與 RLHF 各自改變什麼，並用算例驗收"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-11-icl-sft-rlhf-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

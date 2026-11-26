@@ -17,7 +17,7 @@ glossary:
     def: "Meta 為 Muse Wonder 設計的能力名稱：模型在多輪對話與長期使用中記住並檢索與使用者相關的重要資訊"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-12-model-meta-muse-wonder-en)
+> :globe: [English version](/posts/daily/2026-10-12-model-meta-muse-wonder-en)
 
 ## 模型資訊
 
@@ -52,7 +52,7 @@ glossary:
 | AA Intelligence Index（Meta 自測） | 56 | 59.0 | 58 | Claude Fable 5.1 54 |
 | AA Intelligence Index（Artificial Analysis 獨立評測） | 52（219 模型中第 9） | 56（699 模型中第 4） | 58（第 1） | — |
 
-⚠️ 前四列為 Meta 官方 model card 自測（部分 benchmark 由 Artificial Analysis／Datacurve／Abundant AI 等第三方工具執行，但仍是廠商委託或廠商自報分數，尚未經獨立複測）。最後一列是 Artificial Analysis 自己公開榜單上的獨立數字，與 Meta 自報的 56／59.0 有落差——同一個 Index，廠商自報分數比獨立評測高 3 分左右，這個落差本身就值得留意。
+:warning: 前四列為 Meta 官方 model card 自測（部分 benchmark 由 Artificial Analysis／Datacurve／Abundant AI 等第三方工具執行，但仍是廠商委託或廠商自報分數，尚未經獨立複測）。最後一列是 Artificial Analysis 自己公開榜單上的獨立數字，與 Meta 自報的 56／59.0 有落差——同一個 Index，廠商自報分數比獨立評測高 3 分左右，這個落差本身就值得留意。
 
 ## 與前代/競品比較
 

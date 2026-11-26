@@ -11,7 +11,7 @@ series:
   order: 66
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-20-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's three repos is reinventing the agent itself — each fills in a 
 
 ## Trending Repos
 
-### tinyhumansai/openhuman ⭐ 42,159
+### tinyhumansai/openhuman ★ 42,159
 
 [GitHub](https://github.com/tinyhumansai/openhuman)　·　Rust　·　GPL-3.0
 
@@ -30,7 +30,7 @@ None of today's three repos is reinventing the agent itself — each fills in a 
 
 ---
 
-### tigerless-labs/agent-memory ⭐ 4,385
+### tigerless-labs/agent-memory ★ 4,385
 
 [GitHub](https://github.com/tigerless-labs/agent-memory)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ None of today's three repos is reinventing the agent itself — each fills in a 
 
 ---
 
-### jub0t/Concat ⭐ 9,417
+### jub0t/Concat ★ 9,417
 
 [GitHub](https://github.com/jub0t/Concat)　·　Rust　·　AGPL-3.0
 

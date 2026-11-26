@@ -12,7 +12,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-funding-conveo)
+> :globe: [中文版](/posts/daily/2026-09-04-funding-conveo)
 
 ## Funding Details
 

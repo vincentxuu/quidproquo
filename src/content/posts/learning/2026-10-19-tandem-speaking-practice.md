@@ -9,11 +9,11 @@ description: "介紹 Tandem 語言交換的配對與互惠方式、免費和 Pro
 tldr: "Tandem 適合願意幫對方練中文、也能投入找語伴時間的人；先確認目標、時段與互惠，再決定是否需要付費通話或搜尋工具。"
 series:
   name: "英文口說練習"
-  order: 13
+  order: 31
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-tandem-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-tandem-speaking-practice-en)
 
 你想找人說英文，又不一定需要每次都有老師上課。如果你也願意花時間幫對方練中文，[Tandem](https://tandem.net/)可以用來找語言交換夥伴：雙方各提供自己熟悉的語言，交換練習機會。
 

@@ -4,6 +4,27 @@ on:
   workflow_call:
 
 jobs:
+  ui-scope:
+    name: Detect UI changes
+    runs-on: ubuntu-latest
+    outputs:
+      required: ${{ steps.scope.outputs.required }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - name: Test UI scope detection
+        run: node --test scripts/ui-change-scope.test.mjs
+      - id: scope
+        name: Detect affected UI
+        env:
+          UI_BASE_SHA: ${{ github.event.pull_request.base.sha || github.event.before }}
+          UI_HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+        run: node scripts/ui-change-scope.mjs >> "$GITHUB_OUTPUT"
+
   verify:
     name: Verify
     runs-on: ubuntu-latest
@@ -14,7 +35,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Verify (lint + references + skills-sync + progress)
@@ -31,7 +52,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22.22.0
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm --dir evals/rag install --frozen-lockfile
@@ -48,9 +69,15 @@ jobs:
           if-no-files-found: warn
 
   visual:
-    name: Visual regression (non-blocking)
-    continue-on-error: true
-    runs-on: ubuntu-latest
+    # 擋部署：版面、對比、互動斷言（不比像素，Mac 與 Linux 結果一致，改 UI 不用更新基線）。
+    name: Visual regression (required for UI changes)
+    needs: ui-scope
+    if: needs.ui-scope.outputs.required == 'true'
+    runs-on: ubuntu-24.04
+    env:
+      # dev server 把全站渲染結果放在記憶體：7,309 篇時已用到約 3.8GB，貼著 Node 預設的 4GB 上限，
+      # 2026-11-20 多了文章內圖示就 OOM（webServer exit 134）。runner 有 16GB，給 6GB 留成長空間。
+      NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -58,20 +85,49 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium
-      - name: Run Playwright visual tests (owns its webServer)
+      - name: Run Playwright layout assertions (owns its webServer)
         run: pnpm test:visual
+      - name: Upload failure traces
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: visual-failures
+          path: test-results/
+          if-no-files-found: warn
+
+  screenshots:
+    # 不擋部署：像素比對只當審稿素材。每次刻意改 UI 都會紅，紅了就看 diff，
+    # 確認是預期的改變再跑 visual-baselines.yml 重產 -linux 基線。
+    name: Screenshot diff (non-blocking)
+    needs: ui-scope
+    if: needs.ui-scope.outputs.required == 'true'
+    continue-on-error: true
+    runs-on: ubuntu-24.04
+    env:
+      # dev server 把全站渲染結果放在記憶體：7,309 篇時已用到約 3.8GB，貼著 Node 預設的 4GB 上限，
+      # 2026-11-20 多了文章內圖示就 OOM（webServer exit 134）。runner 有 16GB，給 6GB 留成長空間。
+      NODE_OPTIONS: --max-old-space-size=6144
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.3
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: npx playwright install --with-deps chromium
+      - name: Compare screenshots against -linux baselines
+        run: pnpm test:visual:screenshots
       - name: Upload visual diffs
         if: failure()
         uses: actions/upload-artifact@v7
         with:
           name: visual-diff
-          # snapshots 目錄一起帶走：缺 -linux 基線時 Playwright 會把實際圖寫進去，
-          # 人眼看過後直接 commit 成基線（linux 基線只能來自 CI，見 playwright.config.ts）。
-          path: |
-            test-results/
-            tests/visual/**/*-snapshots/
+          path: test-results/
           if-no-files-found: warn

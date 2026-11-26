@@ -12,7 +12,7 @@ series:
   order: 62
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-16-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-16-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -68,7 +68,7 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 
 ### Business Cases / Funding / M&A
 
-**Anthropic**: FT reported it told investors Q3 revenue hit $16.8bn, growing nearly 50% year over year with an 11% adjusted operating margin; distillation usage, 5-7% of revenue, was sharply cut back in Q3 ahead of its IPO. ([source](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b))
+**Anthropic**: FT reported it told investors Q3 revenue hit $16.8bn, growing about 45% from Q2 with an 11% adjusted operating margin; distillation usage, 5-7% of revenue, was sharply cut back in Q3 ahead of its IPO. ([source](https://www.ft.com/content/11632d03-358c-454b-af95-d06d4072932b))
 
 **Confido Health**: the healthcare-admin agent company closed a $12.5M Series A extension, bringing its cumulative raise to $22.5M, growing 15x by treating private-equity portfolios as its distribution channel — full story in today's funding brief. ([Funding brief](/posts/daily/2026-10-16-funding-confido-health-en))
 
@@ -122,14 +122,14 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily-en)
-- 📄 [Framework Update｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
-- 📄 [Funding Brief｜Confido Health Series A reaches $22.5M](/posts/daily/2026-10-16-funding-confido-health-en)
-- 📄 [Pricing Tracker｜OpenAI retires GPT-4o/GPT-4.1 from the API on January 14](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
-- 📄 [Tool of the Day｜Boundscope](/posts/daily/2026-10-16-tool-boundscope-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-16](/posts/daily/2026-10-16-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Daily — 2026-10-16](/posts/daily/2026-10-16-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-16](/posts/daily/2026-10-16-product-builder-interview-daily-en)
+- :file: [Framework Update｜Haystack v3.4.0](/posts/daily/2026-10-16-framework-haystack-3.4.0-en)
+- :file: [Funding Brief｜Confido Health Series A reaches $22.5M](/posts/daily/2026-10-16-funding-confido-health-en)
+- :file: [Pricing Tracker｜OpenAI retires GPT-4o/GPT-4.1 from the API on January 14](/posts/daily/2026-10-16-pricing-openai-gpt-4o-gpt-4-1-api-sunset-en)
+- :file: [Tool of the Day｜Boundscope](/posts/daily/2026-10-16-tool-boundscope-en)
 
 ## Watching Tomorrow
 
@@ -140,6 +140,10 @@ Haystack v3.4.0 added an experimental `ToolResultOffloadCompactor` that offloads
 ## Today's Takeaway
 
 I used to think open-weight models always trailed frontier models by some lag. Seeing Muse Spark Open land on AWS SageMaker JumpStart the same day it shipped made me realize open-weight release cadence has now synced up with commercial cloud supply chains — it's no longer a second-class citizen integrated only after the fact.
+
+## Update Log
+
+- 2026-11-07: Corrected the basis of Anthropic's Q3 growth, which was misstated as year over year.
 
 ## References
 

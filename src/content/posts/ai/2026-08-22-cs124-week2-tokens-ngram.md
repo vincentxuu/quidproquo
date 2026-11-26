@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 2 週導讀：詞與 token 的差�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week2-tokens-ngram-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week2-tokens-ngram-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 2 週，也是第一個有技術內容的一週。它回答三個問題：
 

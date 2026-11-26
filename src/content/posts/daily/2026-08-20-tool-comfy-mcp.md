@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-20-tool-comfy-mcp-en)
+> :globe: [English version](/posts/daily/2026-08-20-tool-comfy-mcp-en)
 
 ## 工具資訊
 
@@ -91,11 +91,11 @@ comfy-mcp vary_workflow \
 
 | | comfy-mcp | 手動操作 ComfyUI 網頁介面 | Comfy Cloud MCP |
 |---|---|---|---|
-| Agent 直接執行 workflow | ✅ | ❌ | ✅ |
-| 跑在自己機器、自己的 GPU/模型 | ✅ | ✅ | ❌（跑在 Comfy Cloud GPU） |
-| 免另申請雲端額度 | ✅ | ✅ | ❌（按用量計費） |
-| workflow 依賴檢查（node/模型是否齊全） | ✅ | 需自己排查 | 由雲端環境保證 |
-| 官方維護 | ✅ Comfy-Org | — | ✅ Comfy-Org |
+| Agent 直接執行 workflow | ✓ | ✗ | ✓ |
+| 跑在自己機器、自己的 GPU/模型 | ✓ | ✓ | ✗（跑在 Comfy Cloud GPU） |
+| 免另申請雲端額度 | ✓ | ✓ | ✗（按用量計費） |
+| workflow 依賴檢查（node/模型是否齊全） | ✓ | 需自己排查 | 由雲端環境保證 |
+| 官方維護 | ✓ Comfy-Org | — | ✓ Comfy-Org |
 
 ## 注意事項
 

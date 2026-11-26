@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-openstack-private-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-openstack-private-cloud-en)
 
 [OpenStack](https://docs.openstack.org/) 是 open-source IaaS cloud operating system，用 API 與 dashboard 管理 datacenter 的 compute、network、image、identity 與 storage。它不是單一 daemon，也不是在 KVM 上加一個漂亮 UI；每項能力由可獨立部署與升級的 service 組成。
 

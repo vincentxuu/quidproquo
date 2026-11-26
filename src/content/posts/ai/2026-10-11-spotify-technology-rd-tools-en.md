@@ -10,7 +10,7 @@ description: "What each of the four Spotify Technology product lines does, how t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-spotify-technology-rd-tools)
+> :globe: [中文版](/posts/ai/2026-10-11-spotify-technology-rd-tools)
 
 If your team is weighing a tool that lets several coding agents share your company's architecture knowledge, Spotify just put one on the table. On October 7, 2026, SVP Tyson Singer announced [Spotify Technology](https://technology.spotify.com/) on the [engineering blog](https://engineering.atspotify.com/2026/10/introducing-spotify-technology-proven-at-spotify-now-yours), gathering its internal tools under one brand. After this read you can tell what each product does, which ones you can try now, and which claims are the seller's own.
 

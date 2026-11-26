@@ -22,7 +22,7 @@ glossary:
     context: "The slides write it as C(t+1) ← F(C(t), I(t), O(t)) and hand F to the LLM."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-context-engineering)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -110,11 +110,9 @@ The slides walk through three examples:
 
 Slide 33 closes with a question mark: **hand everything to the LLM?** The slides don't answer it. My reading: ACON needs paired success and failure trajectories, AgentFold needs fine-tuning, and Context-Folding needs process rewards. Handing F to the LLM doesn't mean humans step away. The human job becomes designing the training signal that teaches the LLM to manage context.
 
-## What this post can and cannot confirm
+## After reading
 
-Confirmed: the structure of slides 1–33, chart titles, and cited sources, plus the title and abstract of every paper above (all checked on arXiv). Video titles and uploaders were checked via YouTube oEmbed.
-
-Not confirmed: I did not transcribe the video, so examples, numbers, and commentary given only verbally are not included. Chart numbers are read from the papers' original figures as shown on the slides; check the papers for experimental conditions.
+This post follows slides 1–33; examples, numbers, and commentary the lecturer gave only aloud in the video are not included. Chart numbers are read from the papers' original figures as shown on the slides; see the papers for experimental conditions.
 
 **Try this**: pick one agent workflow you use most. Estimate how one long task's context splits across system prompt, tool descriptions, tool outputs, and conversation. If tool outputs dominate, try Hard Clear or file offloading first. If tool descriptions dominate, consider on-demand loading.
 
@@ -146,6 +144,7 @@ Content check: verified against the video transcript (2026-10-10): video urwDLyN
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

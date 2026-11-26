@@ -26,7 +26,7 @@ glossary:
     context: "Bechtel 用四口爐比喻：一口大火滾，另外三口小火保溫。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-periodization-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-periodization-en)
 
 讀完前面幾篇，你手上有一堆工具：[指力板](/posts/climbing/2026-10-18-hangboard-training)、[引體向上和 campus board](/posts/climbing/2026-10-18-climbing-strength-power)、[ARC 和 4×4](/posts/climbing/2026-10-18-climbing-endurance-training)。問題是你每週只去岩館 3 次，每次兩個小時。全部都練，每樣都練不到位；只練一樣，又怕其他的退步。
 

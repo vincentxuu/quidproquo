@@ -6,6 +6,9 @@ type: deep-dive
 series:
   name: "跟成熟 coding agent 學設計"
   order: 29
+additionalSeries:
+  - name: "Sandbox Series"
+    order: 19
 tags: [coding-agent, harness-engineering, sandbox, landlock, seatbelt, bubblewrap]
 lang: en
 description: "Dissecting OS-sandbox boundaries in mature coding agents, then checking Looplane's sandbox-exec, Landlock/seccomp, and fail-closed verification baseline."
@@ -13,7 +16,7 @@ tldr: "An OS sandbox is the kernel boundary beyond path policy. looplane now shi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing)
 
 ## The Capability Gap
 
@@ -75,6 +78,10 @@ As of `2ed5efb`, the draft has a working baseline. `runtime.py#CommandSandbox` b
 
 Linux Landlock/seccomp has a local smoke and CI workflow, and the macOS wrapper has unit coverage. Containment still primarily wraps native verification commands rather than every agent process, however, and external CI results plus a broader platform matrix remain unconfirmed. The supported claim is that the configuration chain and deny-by-default behavior exist, not that every execution path has production isolation.
 
+## Update Log
+
+- 2026-11-23: The Cloudflare Sandbox SDK reference now points to the current `/sandbox/` docs (the old `/agents/api-reference/sandbox/` link is dead).
+
 ## References
 
 - [Looplane CommandSandbox (fixed commit)](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime.py)
@@ -86,5 +93,5 @@ Linux Landlock/seccomp has a local smoke and CI workflow, and the macOS wrapper 
 - [Chromium macOS sandboxing design](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_sandboxing.md)
 - [bubblewrap — unprivileged sandboxing tool](https://github.com/containers/bubblewrap)
 - [openai/codex — codex-rs/sandboxing](https://github.com/openai/codex/tree/main/codex-rs/sandboxing)
-- [Cloudflare Sandbox SDK](https://developers.cloudflare.com/agents/api-reference/sandbox/)
+- [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering (arXiv)](https://arxiv.org/abs/2405.15793)

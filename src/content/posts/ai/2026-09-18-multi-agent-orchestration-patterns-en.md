@@ -55,7 +55,7 @@ The core idea is to **let the LLM decide when it needs help**. Developers provid
 
 [Devin Fusion](https://cognition.com/blog/devin-fusion) goes further: the lead model autonomously decides which tasks to hand off to a cheaper sidekick model, each with independent toolsets and context.
 
-The now-maintenance-mode AutoGen GroupChat is the most extreme example — multiple agents freely chat in a group, a selector determines who speaks, and conversation history serves as state. Maximum flexibility, but this also led to [community-reported 40% budget overruns](https://github.com/microsoft/autogen/discussions/7066).
+The now-archived (2026-10) AutoGen GroupChat is the most extreme example — multiple agents freely chat in a group, a selector determines who speaks, and conversation history serves as state. Maximum flexibility, but this also led to [community-reported 40% budget overruns](https://github.com/microsoft/autogen/discussions/7066).
 
 **Strengths**: Flexible, handles unexpected situations, fast to develop
 **Weaknesses**: Unpredictable — the same prompt may spawn different numbers of agents each time, with high cost variance
@@ -105,6 +105,10 @@ Choosing an orchestration pattern is fundamentally a **predictability vs. flexib
 
 No single pattern fits every scenario. But if you're just getting started with multi-agent systems, start with the scripted camp — at least you'll know what the system will do and how much it'll cost. Once you have enough observability data on costs and behavior, gradually loosen the controls.
 
+## Update Log
+
+- 2026-11-23: AutoGen changed from maintenance mode to archived
+
 ## References
 
 - [Anthropic — Claude Code Workflows](https://code.claude.com/docs/en/workflows)
@@ -118,4 +122,5 @@ No single pattern fits every scenario. But if you're just getting started with m
 - [LangChain — Benchmarking Multi-Agent Architectures](https://www.langchain.com/blog/benchmarking-multi-agent-architectures)
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [Microsoft — AutoGen entering maintenance mode](https://github.com/microsoft/autogen/discussions/7066)
+- [Microsoft — AutoGen repo (archived)](https://github.com/microsoft/autogen)
 - [Google Research — Towards a Science of Scaling Agent Systems (arXiv 2512.08296)](https://arxiv.org/abs/2512.08296)

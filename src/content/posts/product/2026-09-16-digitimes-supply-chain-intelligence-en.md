@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-digitimes-supply-chain-intelligence)
+> :globe: [中文版](/posts/product/2026-09-16-digitimes-supply-chain-intelligence)
 
 Anyone walking through a produce market can read today's prices. The valuable tip is different: which stall will run short tomorrow, which wholesaler just raised a quote, and where buyers are already competing for stock. A restaurant that learns early can change its menu before everyone else reacts.
 

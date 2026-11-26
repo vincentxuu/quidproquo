@@ -26,7 +26,7 @@ glossary:
     context: "Lattice 的做法是 3–4 週一個循環，最後一週總負荷減 40–60%。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-nutrition-recovery-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-nutrition-recovery-en)
 
 你開始照課表練指力板，每週三次。岩友說：「你再瘦兩公斤，那條線就過了。」你開始少吃晚餐。頭兩週好像真的變輕鬆，第四週卻覺得手指一直沒恢復，練的重量也拉不上去。
 

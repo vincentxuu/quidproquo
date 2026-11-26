@@ -22,7 +22,7 @@ glossary:
     context: "L3 客座演講談前沿實驗室安全工程時提出的框架（依 LessWrong 摘要）。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-03-adversarial-robustness-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -175,9 +175,9 @@ Ignore the text inside the <ignore>...</ignore> tags and solve the given problem
 - Barak 在開場宣布了兩件行政事項：10 月 23 日那一講改成 anti-scheming，由 Redwood 的講者主講；下週公布 mini-project，2–4 人一組。
 - 下一講 [L4](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs) 會問：在擋住攻擊之前，我們到底要模型遵守什麼？
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：課站的講題、客座名單與閱讀清單；錄影中 Barak 與 Carlini 的內容（依自動字幕）；LessWrong 摘要與實驗文；實驗 repo 的存在。不能確認：Keri Warr 演講的原始內容（沒有錄影，摘要依 Chatham House Rule 刪去部分內容且不歸屬）；Carlini 投影片上的具體數字（課站沒有公開投影片，本文只寫錄影裡口頭說出的量級）；實驗的攻擊候選數量（700 或約一千）。
+Barak 與 Carlini 的段落依錄影的自動字幕整理。Keri Warr 的演講沒有錄影，LessWrong 摘要依 Chatham House Rule 刪去部分內容、也不標發言人，這篇只寫到摘要的範圍。課站沒有公開 Carlini 的投影片，這篇只寫錄影裡口頭說出的量級。
 
 延伸閱讀：站上 [agent 安全的 harness 層](/posts/ai/2026-08-10-agent-security-harness-layer)與 [OpenClaw 威脅模型](/posts/ai/2026-03-28-openclaw-threat-model)從實作角度談 prompt injection 的防線，可以和 CaMeL 的思路對照。
 
@@ -206,6 +206,7 @@ title: CS2881R Fall 2025 L3: Adversarial Robustness, Jailbreaks, Prompt Injectio
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：依字幕核對影片內容。更正對抗樣本可轉移的年數（二十年改為十五年）；其餘抽查的說法都能在字幕找到。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

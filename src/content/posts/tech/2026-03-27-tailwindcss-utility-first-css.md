@@ -10,7 +10,7 @@ description: "TailwindCSS 的設計哲學、為什麼 utility-first 是一種 CS
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-tailwindcss-utility-first-css-en)
+:globe: [English version](/posts/tech/2026-03-27-tailwindcss-utility-first-css-en)
 
 CSS 有一個根本問題：它的作用域是全域的。你寫 `.button { color: blue }` ，這個規則影響所有帶有 `button` class 的元素。解法出現過很多：BEM 命名規範、CSS Modules、CSS-in-JS——每一種都在嘗試解決「怎麼讓 CSS 的範圍可控」這個問題。
 

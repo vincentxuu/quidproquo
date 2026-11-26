@@ -13,7 +13,7 @@ series:
   order: 53
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction)
+> :globe: [中文版](/posts/ai/2026-10-09-pplx-embed-v2-late-multimodal-late-interaction)
 
 If your knowledge base is full of PDFs with tables and charts, there is now another self-hostable option: skip OCR and index each page as an image. On October 7, 2026, Perplexity released [`pplx-embed-v2-late`](https://www.perplexity.ai/hub/blog/multimodal-embeddings-beyond-a-single-vector), two models (0.6B and 9B) on Hugging Face under the MIT license. This post answers two questions: what actually changed, and whether it justifies reworking your RAG pipeline.
 
@@ -85,13 +85,13 @@ Other results, with conditions:
 
 | Claim | Result |
 |---|---|
-| MIT license | ✅ Both models |
-| 128 dims per token, MaxSim | ✅ Model card wording |
-| MADQA 92.4% | ✅ but 9B + Gemini 3.5 Flash agent, self-run, and not first place (Mixedbread Agentic Search 93.4%) |
-| 9B index + 0.6B queries | ✅ Officially listed deployment |
-| 340M active parameters | ⚠️ Image inputs only; text is about 240M |
-| "Proper nouns no longer missed" | ❌ Not claimed by the source; the post's own inference |
-| No text-extraction pipeline | ⚠️ True for page images, but you still need rendering, vector storage and MaxSim search |
+| MIT license | ✓ Both models |
+| 128 dims per token, MaxSim | ✓ Model card wording |
+| MADQA 92.4% | ✓ but 9B + Gemini 3.5 Flash agent, self-run, and not first place (Mixedbread Agentic Search 93.4%) |
+| 9B index + 0.6B queries | ✓ Officially listed deployment |
+| 340M active parameters | :warning: Image inputs only; text is about 240M |
+| "Proper nouns no longer missed" | ✗ Not claimed by the source; the post's own inference |
+| No text-extraction pipeline | :warning: True for page images, but you still need rendering, vector storage and MaxSim search |
 
 ## Limits: three costs to price before a rewrite
 

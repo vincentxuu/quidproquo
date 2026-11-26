@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-05-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-05-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### mattpocock/skills ⭐ 249,833 (+2,757)
+### mattpocock/skills ★ 249,833 (+2,757)
 
 [GitHub](https://github.com/mattpocock/skills)　·　Shell　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### anthropics/skills ⭐ 174,029 (+512)
+### anthropics/skills ★ 174,029 (+512)
 
 [GitHub](https://github.com/anthropics/skills)　·　Python　·　Apache-2.0（文件類 skill 為 source-available）
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### anomalyco/opencode ⭐ 203,949 (+314)
+### anomalyco/opencode ★ 203,949 (+314)
 
 [GitHub](https://github.com/anomalyco/opencode)　·　TypeScript　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### 2akouwu/reverify ⭐ 866
+### 2akouwu/reverify ★ 866
 
 [GitHub](https://github.com/2akouwu/reverify)　·　Python　·　MIT
 

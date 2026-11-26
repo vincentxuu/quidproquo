@@ -1,11 +1,38 @@
-FROM python:3.13-slim AS builder
+# AgentSandbox container. The base image ships the Sandbox SDK control server
+# (port 3000, ENTRYPOINT) that @cloudflare/sandbox talks to; keep its tag equal
+# to the @cloudflare/sandbox version in package.json. The -python variant adds Python 3.
+FROM docker.io/cloudflare/sandbox:0.12.9-python
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    libcairo2-dev \
-    && rm -rf /var/lib/apt/lists/*
+ENV DEBIAN_FRONTEND=noninteractive
 
-RUN pip install --no-cache-dir \
+# Document conversion, OCR and CJK fonts used by the file-producing skills.
+# CI builds this image from scratch on every deploy. Ubuntu mirrors briefly serve an
+# index that points at package versions they no longer host (404), so a failed install
+# refreshes the index and retries instead of failing the deploy.
+RUN set -e; \
+    for attempt in 1 2 3; do \
+      if apt-get update && apt-get install -y --no-install-recommends \
+        fonts-noto-cjk \
+        fontconfig \
+        libcairo2 \
+        libreoffice-core \
+        libreoffice-writer \
+        libreoffice-calc \
+        libreoffice-impress \
+        libreoffice-l10n-zh-tw \
+        poppler-utils \
+        pandoc \
+        qpdf \
+        tesseract-ocr \
+        tesseract-ocr-eng \
+        tesseract-ocr-chi-tra; then break; fi; \
+      if [ "$attempt" = 3 ]; then exit 1; fi; \
+      rm -rf /var/lib/apt/lists/*; sleep 60; \
+    done; \
+    rm -rf /var/lib/apt/lists/*; \
+    fc-cache -f
+
+RUN python3 -m pip install --no-cache-dir \
     numpy \
     pandas \
     matplotlib \
@@ -29,53 +56,18 @@ RUN pip install --no-cache-dir \
     defusedxml \
     cairosvg \
     anthropic \
-    mcp \
-    mplfonts
+    mcp
 
-RUN mplfonts init \
-    && mplfonts install --update Noto\ Sans\ CJK\ SC
-
-FROM python:3.13-slim
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
-    curl \
-    ca-certificates \
-    fonts-noto-cjk \
-    fontconfig \
-    libcairo2 \
-    libreoffice-core \
-    libreoffice-writer \
-    libreoffice-calc \
-    libreoffice-impress \
-    libreoffice-l10n-zh-tw \
-    poppler-utils \
-    pandoc \
-    qpdf \
-    tesseract-ocr \
-    tesseract-ocr-eng \
-    tesseract-ocr-chi-tra \
-    && rm -rf /var/lib/apt/lists/* \
-    && fc-cache -fv
-
-COPY --from=builder /usr/local/lib/python3.13/site-packages /usr/local/lib/python3.13/site-packages
-COPY --from=builder /usr/local/bin /usr/local/bin
-
-RUN MPLRC="$(python -c 'import matplotlib; print(matplotlib.matplotlib_fname())')" \
-    && sed -i 's/^#font.sans-serif:.*/font.sans-serif: Noto Sans CJK SC, DejaVu Sans, sans-serif/' "$MPLRC" \
+RUN MPLRC="$(python3 -c 'import matplotlib; print(matplotlib.matplotlib_fname())')" \
+    && sed -i 's/^#font.sans-serif:.*/font.sans-serif: Noto Sans CJK TC, Noto Sans CJK SC, DejaVu Sans, sans-serif/' "$MPLRC" \
     && sed -i 's/^#axes.unicode_minus:.*/axes.unicode_minus: False/' "$MPLRC"
 
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    nodejs \
-    npm \
-    && rm -rf /var/lib/apt/lists/* \
-    && npm install -g pptxgenjs tsx docx \
-       react-icons react react-dom sharp \
+RUN npm install -g pptxgenjs tsx docx react-icons react react-dom sharp \
     && npm cache clean --force
-ENV NODE_PATH=/usr/local/lib/node_modules:/usr/lib/node_modules
+ENV NODE_PATH=/usr/local/lib/node_modules
 
-RUN useradd --create-home --uid 1000 sandbox \
-    && mkdir -p /workspace \
-    && chown -R sandbox:sandbox /workspace
+# Commits made by agent runs.
+RUN git config --system user.name "quidproquo-agent" \
+    && git config --system user.email "agent@quidproquo.cc"
+
 WORKDIR /workspace
-USER sandbox

@@ -14,7 +14,7 @@ series:
   order: 41
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-semantic-caching-en)
+> :globe: [English version](/posts/ai/2026-03-12-semantic-caching-en)
 
 傳統快取比對的是精確字串：「龍洞有幾條路線」和「龍洞共有幾條路線」會被當成兩個不同的查詢，各自執行一次完整的 RAG pipeline。
 

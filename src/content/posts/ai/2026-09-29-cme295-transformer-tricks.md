@@ -30,7 +30,7 @@ glossary:
     context: "Longformer 和 Mistral 7B 都用它降低長序列的計算量，疊很多層後仍能間接看到遠處。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-transformer-tricks-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-transformer-tricks-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

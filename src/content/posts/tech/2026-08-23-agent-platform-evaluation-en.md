@@ -9,7 +9,7 @@ description: "A deep dive into the Agent Platform Evaluation System: seven eval 
 tldr: "Evaluation is Agent Platform's quality immune system: instead of collecting statistics only after a run, it enforces checks throughout Pre-run, In-run, and Post-run execution. Seven eval categories cover Flow → Step → Skill → Artifact → Evidence → Policy → Regression. A Skill release must pass five gates—Trigger, Functional, Policy, Regression, and Human Review—and any failure blocks it. The Learning Loop moves from Run signals through Proposal, Human Review, Sandbox Eval, Quality Gate, and Publish, under one strict rule: agents propose, humans review, and eval gates decide whether a change can ship."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-evaluation)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-evaluation)
 
 ## TL;DR
 

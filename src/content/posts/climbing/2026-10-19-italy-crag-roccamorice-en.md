@@ -13,7 +13,7 @@ description: "A guide to the Parete dell'Orso at Roccamorice: rock and scale acr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-roccamorice)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-roccamorice)
 
 Roccamorice is a mountain village in the province of Pescara in Abruzzo, inside the Majella National Park. In the Santo Spirito valley outside the village runs a limestone wall about two kilometres long, the Parete dell'Orso (Bear Wall); the road to the crag also leads to the Santo Spirito hermitage in the valley, and Montagna.TV mentions the paths that link the hermitages nearby. The [municipality](https://www.comune.roccamorice.pe.it/vivere_il_comune/luoghi/luogo_17.html) calls the wall "una delle mete più iconiche e amate per l'arrampicata sportiva in Abruzzo" (one of the most iconic and best-loved sport climbing destinations in Abruzzo), and [Montagna.TV](https://www.montagna.tv/255676/aperte-13-vie-a-roccamorice-tempio-del-climbing-nella-majella/) calls it the "temple of climbing in the Majella".
 

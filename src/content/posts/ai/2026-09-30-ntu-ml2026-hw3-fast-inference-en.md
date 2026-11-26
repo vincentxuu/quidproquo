@@ -22,7 +22,7 @@ glossary:
     context: "The homework compares alpha and runtime under a normal prompt and a simple prompt."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -136,11 +136,9 @@ This is the hands-on version of the lecture's rule that only an identical prefix
 
 The [Stanford CS336 inference guide](/posts/ai/2026-08-22-cs336-inference-en) gives another take on speculative decoding and KV cache, and the [CME295 LLM systems guide](/posts/ai/2026-09-29-cme295-llm-systems-en) also covers inference optimization. For vLLM's architecture, see [vLLM inference engine](/posts/ai/2026-03-14-vllm-inference-engine-en).
 
-## What this post could and could not verify
+## What this post leaves out
 
-Verified: the full text and embedded links of hw3.pdf, the Colab's markdown and code (model IDs, TODO locations, experiment parameters), the release date on the course page, the TA video's title and uploader (via YouTube oEmbed), and the titles of the seven papers plus FlashAttention-4 (checked on arXiv).
-
-Not verified: the TA video has no captions to pull, and this post did not transcribe it, so any extra hints in the video are not included. The official answers are not public, and this post deliberately gives no answers. The description of n-gram speed-up is based only on the `prompt_lookup_num_tokens` parameter in the Colab code.
+The TA video has no captions, so any extra hints in it are not included. The official answers are not public, and this post deliberately gives no answers. The description of n-gram speed-up is based only on the `prompt_lookup_num_tokens` parameter in the Colab code.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [Faster Generation, Part 2: KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache-en) | Next: [Positional Embedding and Very Long Inputs](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding-en)
 
@@ -168,6 +166,7 @@ Video transcript: attempted on 2026-10-10, but no transcript could be obtained f
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Tried to check the video content against its transcript, but no transcript was available for this video, so the spoken content was not checked; the post's description of the assignment relies only on the PDF and the Colab.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

@@ -14,7 +14,7 @@ series:
   order: 10
 ---
 
-🌏 [English version](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en)
+:globe: [English version](/posts/tech/2026-03-13-cloudflare-worker-maintenance-page-free-plan-en)
 
 ## TL;DR
 

@@ -26,7 +26,7 @@ glossary:
     context: "Fear of failure often peaks on the redpoint attempt where you think 'this should be the one'."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-performance-anxiety)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-performance-anxiety)
 
 You've practised falling, and letting go above a quickdraw doesn't scare you much any more. But on a redpoint attempt on your project, your legs go weak and your hands clamp before the crux, and you call take in front of a move you've done ten times. Or you climb fine on a normal day, then the gym fills up, people watch from below, and you start falling apart.
 

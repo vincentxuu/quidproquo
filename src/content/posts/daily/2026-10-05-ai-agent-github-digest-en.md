@@ -11,7 +11,7 @@ series:
   order: 51
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-05-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-05-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ OpenAI shipped Dots, a subscription-gated personal agent, just last Friday (9/29
 
 ## Trending Repos
 
-### open-dot ⭐ 550
+### open-dot ★ 550
 
 [GitHub](https://github.com/composio-community/open-dot) · TypeScript · MIT
 
@@ -30,7 +30,7 @@ OpenAI shipped Dots, a subscription-gated personal agent, just last Friday (9/29
 
 ---
 
-### mcp-audit-tool ⭐ 91
+### mcp-audit-tool ★ 91
 
 [GitHub](https://github.com/graygnatconsole/mcp-audit-tool) · Python · MIT
 
@@ -41,7 +41,7 @@ OpenAI shipped Dots, a subscription-gated personal agent, just last Friday (9/29
 
 ---
 
-### strands-decider ⭐ 331
+### strands-decider ★ 331
 
 [GitHub](https://github.com/strands-labs/strands-decider) · Python · MIT
 
@@ -52,7 +52,7 @@ OpenAI shipped Dots, a subscription-gated personal agent, just last Friday (9/29
 
 ---
 
-### answer-me-with-html ⭐ 977
+### answer-me-with-html ★ 977
 
 [GitHub](https://github.com/QingYunA/answer-me-with-html) · JavaScript · MIT
 

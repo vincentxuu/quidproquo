@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy)
 
 Six sub-projects — frontend, backend, AI services, database, infrastructure, background jobs — all maintained by one person. Not impossible, but if every step is done manually — writing code, running lint, writing commit messages, reviewing diffs, generating PR descriptions — half the day disappears into things that aren't actually coding.
 
@@ -124,7 +124,7 @@ After pushing and opening a PR, GitHub Actions automatically triggers four thing
 
 All four run in parallel and finish within 2–5 minutes.
 
-Two different AI reviewers using different models look at the code from different angles — the combined coverage is higher than any single reviewer. AI Code Review comments are severity-labeled: 🔴 High (must fix), 🟡 Medium (suggested fix), 🟢 Low (can ignore).
+Two different AI reviewers using different models look at the code from different angles — the combined coverage is higher than any single reviewer. AI Code Review comments are severity-labeled: :red-circle: High (must fix), :yellow-circle: Medium (suggested fix), :green-circle: Low (can ignore).
 
 After they finish, the `collect-pr-feedback` skill gathers all feedback at once — CI status, comments from all three reviewers — organizes them by category, and asks "which of these do you want to fix?" No more manually scanning through a dozen comments one by one.
 

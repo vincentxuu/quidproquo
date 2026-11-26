@@ -22,7 +22,7 @@ glossary:
     context: "Newer papers use the term PPSI; older ones mostly say epiphyseal stress fracture."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-youth-growth-plate)
+> :globe: [中文版](/posts/climbing/2026-10-18-youth-growth-plate)
 
 Your child is 14, on the gym's youth team, training four times a week. Lately they've mentioned that the second joint of their right middle finger hurts a bit, is stiff to bend in the morning, but "is fine while climbing". The coach says it's probably a tweaked pulley and two days off will sort it.
 

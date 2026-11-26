@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-24-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's MCP ecosystem is pulling in two directions — the official GitHub MCP S
 
 ## Trending Repos
 
-### duty1g/x64dbg-mcp-server ⭐ 563
+### duty1g/x64dbg-mcp-server ★ 563
 
 [GitHub](https://github.com/duty1g/x64dbg-mcp-server)　·　Zig　·　MIT
 
@@ -31,7 +31,7 @@ Today's MCP ecosystem is pulling in two directions — the official GitHub MCP S
 
 ---
 
-### QwenLM/qwen-code ⭐ 27,316
+### QwenLM/qwen-code ★ 27,316
 
 [GitHub](https://github.com/QwenLM/qwen-code)　·　TypeScript　·　Apache-2.0
 
@@ -42,7 +42,7 @@ Today's MCP ecosystem is pulling in two directions — the official GitHub MCP S
 
 ---
 
-### open-gitagent/gitagent ⭐ 657
+### open-gitagent/gitagent ★ 657
 
 [GitHub](https://github.com/open-gitagent/gitagent)　·　Rust　·　MIT
 
@@ -53,7 +53,7 @@ Today's MCP ecosystem is pulling in two directions — the official GitHub MCP S
 
 ---
 
-### Cripacx/mediagen ⭐ 55 (just launched, growing)
+### Cripacx/mediagen ★ 55 (just launched, growing)
 
 [GitHub](https://github.com/Cripacx/mediagen)　·　TypeScript
 

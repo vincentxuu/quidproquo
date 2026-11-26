@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637e-6a8f-75f0-b677-ca8f95626803"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"S-1\",\"verdict\":\"inconclusive\",\"reason\":\"N-1 confirms normal access; N-2 returns 403, confirming same-tenant owner enforcement for that request. Use the final request on S-1 to test cross-tenant access; its exact response is required for a verdict.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20678,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":91,"reasoning_output_tokens":14}}

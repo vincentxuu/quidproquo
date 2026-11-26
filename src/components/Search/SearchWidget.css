@@ -186,9 +186,9 @@
   letter-spacing: 0.04em;
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
-  background: var(--brand-50);
-  color: var(--brand-700);
-  border: 1px solid var(--brand-200);
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border);
 }
 
 .result-reason {
@@ -222,8 +222,8 @@
 .rag-answer {
   padding: 1rem;
   margin-bottom: 1rem;
-  background: var(--brand-50);
-  border: 1px solid var(--brand-200);
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.9rem;
   line-height: 1.6;
@@ -356,9 +356,9 @@
 }
 
 .suggestion-tag.popular {
-  background: var(--brand-50);
-  border-color: var(--brand-200);
-  color: var(--brand-700);
+  background: var(--bg-subtle);
+  border-color: var(--border);
+  color: var(--text-primary);
 }
 
 .suggestion-tag.popular:hover {

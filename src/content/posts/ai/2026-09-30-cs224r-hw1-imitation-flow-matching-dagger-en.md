@@ -21,7 +21,7 @@ glossary:
     context: "CS224R HW1 Problem 3 uses it to improve regression BC in hard mode."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-hw1-imitation-flow-matching-dagger)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -204,12 +204,13 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

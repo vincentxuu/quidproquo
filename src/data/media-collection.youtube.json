@@ -1,0 +1,526 @@
+{
+  "_readme": "主題曲的 YouTube 影片。由 scripts/collection-youtube.mjs 依官方頻道自動挑選，confirmed=false 表示尚未經站主確認；確認無誤後改成 true，重跑腳本就不會覆蓋。key 是 meta 檔裡的主題曲 title。",
+  "works": {
+    "attack-on-titan": {
+      "Guren no Yumiya (紅蓮の弓矢)": {
+        "id": "2B6nj38AdD0",
+        "channel": "Linked Horizon",
+        "videoTitle": "紅蓮の弓矢",
+        "source": "search",
+        "confirmed": false
+      },
+      "Jiyuu no Tsubasa (自由の翼)": {
+        "id": "W8UNLOOogU4",
+        "channel": "Linked Horizon",
+        "videoTitle": "自由の翼",
+        "source": "search",
+        "confirmed": false
+      },
+      "Utsukushiki Zankoku na Sekai (美しき残酷な世界)": {
+        "id": "hgQyXxkwlRM",
+        "channel": "Yoko Hikasa - Topic",
+        "videoTitle": "美しき残酷な世界",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "great escape": {
+        "id": "mWIaFbHG44s",
+        "channel": "cinema staff - Topic",
+        "videoTitle": "great escape",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Shinzou wo Sasageyo! (心臓を捧げよ！)": {
+        "id": "8QPyFlJNmus",
+        "channel": "Linked Horizon",
+        "videoTitle": "心臓を捧げよ！",
+        "source": "search",
+        "confirmed": false
+      },
+      "Yuugure no Tori (夕暮れの鳥)": {
+        "id": "akKQ3N6Lk2I",
+        "channel": "Shinsei Kamattechan - Topic",
+        "videoTitle": "夕暮れの鳥",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Red Swan": {
+        "id": "oYQmw6axrdQ",
+        "channel": "YOSHIKI - Topic",
+        "videoTitle": "Red Swan",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Akatsuki no Chinkonka (暁の鎮魂歌)": {
+        "id": "KFETh_4GbcM",
+        "channel": "Linked Horizon",
+        "videoTitle": "暁の鎮魂歌",
+        "source": "search",
+        "confirmed": false
+      },
+      "Name of Love": {
+        "id": "Sj1xs2PH-9M",
+        "channel": "cinema staff - Topic",
+        "videoTitle": "Name of Love",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Boku no Sensou (僕の戦争)": {
+        "id": "goXKlOozyx8",
+        "channel": "かまってチャンネル【公式】",
+        "videoTitle": "神聖かまってちゃん「僕の戦争」Music Video",
+        "source": "search",
+        "confirmed": false
+      },
+      "Shougeki (衝撃)": {
+        "id": "Ccidm4djKaM",
+        "channel": "Yuko Ando - Topic",
+        "videoTitle": "衝撃",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "The Rumbling": {
+        "id": "OBqw818mQ1E",
+        "channel": "SiM Official YouTube Channel",
+        "videoTitle": "SiM – The Rumbling (OFFICIAL VIDEO)",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Akuma no Ko (悪魔の子)": {
+        "id": "WPl10ZrhCtk",
+        "channel": "ヒグチアイ",
+        "videoTitle": "ヒグチアイ / 悪魔の子 (アニメスペシャルVer.) | Ai Higuchi “Akuma no Ko” Anime Special Ver.",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Shoukei to Shikabane no Michi (憧憬と屍の道)": {
+        "id": "czJHHta2vz8",
+        "channel": "Linked Horizon",
+        "videoTitle": "憧憬と屍の道",
+        "source": "search",
+        "confirmed": false
+      }
+    },
+    "haikyu": {
+      "Imagination (イマジネーション)": {
+        "id": "2QpeSCXP2t0",
+        "channel": "SPYAIR Official YouTube Channel",
+        "videoTitle": "SPYAIR - Imagination",
+        "source": "search",
+        "confirmed": false
+      },
+      "Ah Yeah!!": {
+        "id": "HxTQF1bCyag",
+        "channel": "スキマスイッチ / SUKIMASWITCH",
+        "videoTitle": "スキマスイッチ - 「Ah Yeah!!」Music Video： SUKIMASWITCH - Ah Yeah!! Music Video",
+        "source": "search",
+        "confirmed": false
+      },
+      "Tenchi Gaeshi (天地ガエシ)": {
+        "id": "hTXVU_lq6zc",
+        "channel": "NICO Touches the Walls Official YouTube Channel",
+        "videoTitle": "Tenchigaeshi",
+        "source": "search",
+        "confirmed": false
+      },
+      "LEO": {
+        "id": "084EsPyE4WE",
+        "channel": "tacica",
+        "videoTitle": "LEO (TV Edit)",
+        "source": "search",
+        "confirmed": false
+      },
+      "FLY HIGH!!": {
+        "id": "YX74EyoEVKc",
+        "channel": "BURNOUT SYNDROMES Official YouTube Channel",
+        "videoTitle": "BURNOUT SYNDROMES 『FLY HIGH!!』 Music Video（FULL）",
+        "source": "search",
+        "confirmed": false
+      },
+      "Climber (クライマー)": {
+        "id": "j3xN-tJj-W8",
+        "channel": "Galileo Galilei Official",
+        "videoTitle": "Climber",
+        "source": "search",
+        "confirmed": false
+      },
+      "Hikari Are (ヒカリアレ)": {
+        "id": "dfMb37KGqdE",
+        "channel": "BURNOUT SYNDROMES Official YouTube Channel",
+        "videoTitle": "BURNOUT SYNDROMES - Hikariare",
+        "source": "search",
+        "confirmed": false
+      },
+      "Mashi Mashi (マシ・マシ)": {
+        "id": "MxYdEpvMdmk",
+        "channel": "NICO Touches the Walls Official YouTube Channel",
+        "videoTitle": "Mashi Mashi",
+        "source": "search",
+        "confirmed": false
+      },
+      "PHOENIX": {
+        "id": "b5lsuPxMFmw",
+        "channel": "BURNOUT SYNDROMES Official YouTube Channel",
+        "videoTitle": "BURNOUT SYNDROMES 『PHOENIX』Music Video（TVアニメ「ハイキュー!! TO THE TOP」オープニングテーマ）",
+        "source": "search",
+        "confirmed": false
+      },
+      "Toppakou (突破口)": {
+        "id": "AT2tulhSprE",
+        "channel": "SUPER BEAVER official YouTube channel",
+        "videoTitle": "SUPER BEAVER 「突破口」 MV  (TVアニメ『ハイキュー!! TO THE TOP』第2クール オープニングテーマ)",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "One Day": {
+        "id": "IdUUam2H1y0",
+        "channel": "SPYAIR Official YouTube Channel",
+        "videoTitle": "SPYAIR 『One Day』Music Video（TVアニメ「ハイキュー!! TO THE TOP」第2クールエンディングテーマ）",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Imagination": {
+        "id": "wDIUyyQqQ_M",
+        "channel": "SPYAIR Official YouTube Channel",
+        "videoTitle": "SPYAIR 『イマジネーション』 テレビアニメ「ハイキュー!!」OPテーマ",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "I'm A Believer (アイム・ア・ビリーバー)": {
+        "id": "GF3BJxY-Opw",
+        "channel": "SPYAIR Official YouTube Channel",
+        "videoTitle": "SPYAIR 『アイム・ア・ビリーバー』TVアニメ『ハイキュー!! セカンドシーズン』OPテーマ",
+        "source": "search",
+        "confirmed": false
+      },
+      "Kessen Spirit (決戦スピリット)": {
+        "id": "ErqUUYWfOBo",
+        "channel": "CHiCO / CHiCO with HoneyWorks",
+        "videoTitle": "決戦スピリット／CHiCO with HoneyWorks",
+        "source": "search",
+        "confirmed": false
+      }
+    },
+    "ace-of-diamond": {
+      "Go EXCEED!!": {
+        "id": "Pf1rqYWhUB4",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "Go EXCEED!!",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Perfect HERO": {
+        "id": "eZdnlkdidVw",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "Perfect HERO",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Hashire! Mirai (疾走れ！ミライ)": {
+        "id": "BghTnzcat08",
+        "channel": "GLAY",
+        "videoTitle": "疾走れ！ミライ",
+        "source": "search",
+        "confirmed": false
+      },
+      "Seek Diamonds": {
+        "id": "rSj5O5biEXw",
+        "channel": "Yoko Hikasa - Topic",
+        "videoTitle": "Seek Diamonds",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Glory! (グローリー！)": {
+        "id": "sm5XG1oJ6dY",
+        "channel": "Suzuko Mimori - Topic",
+        "videoTitle": "グローリー!",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Mirai e Tsunage (未来へつなげ)": {
+        "id": "_eEvRYHZna0",
+        "channel": "D応P - Topic",
+        "videoTitle": "未来へつなげ",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "CLOUD NINE": {
+        "id": "1NOxz99IQqM",
+        "channel": "降谷暁(CV:島﨑信長) - Topic",
+        "videoTitle": "CLOUD NINE",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "PROMISED FIELD": {
+        "id": "5hVAmQtoYIE",
+        "channel": "降谷暁(CV:島﨑信長) - Topic",
+        "videoTitle": "PROMISED FIELD",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "FINAL VICTORY": {
+        "id": "ah1Ui9XBvXc",
+        "channel": "青道高校野球部 - Topic",
+        "videoTitle": "FINAL VICTORY",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "HEROES": {
+        "id": "IfpgRh1Ov_E",
+        "channel": "GLAY - Topic",
+        "videoTitle": "HEROES",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Sora ga Aozora de aru Tame ni (空が青空であるために)": {
+        "id": "agF2190uQjk",
+        "channel": "GLAY - Topic",
+        "videoTitle": "空が青空であるために",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "KIMERO!!": {
+        "id": "XeY92DYug1c",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "KIMERO!!",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "BLUE WINDING ROAD": {
+        "id": "O_lJ6d2qedw",
+        "channel": "降谷暁(CV:島﨑信長) - Topic",
+        "videoTitle": "BLUE WINDING ROAD",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "BLOOM OF YOUTH": {
+        "id": "oYiQV2ua1CQ",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "BLOOM OF YOUTH",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "BRAND NEW BLUE": {
+        "id": "gVBbjJxv23w",
+        "channel": "Masayoshi Oishi - Topic",
+        "videoTitle": "BRAND NEW BLUE",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Hajimari no Uta (はじまりのうた)": {
+        "id": "Ws2ElPz8Gk0",
+        "channel": "GLAY - Topic",
+        "videoTitle": "はじまりのうた",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Ryuusei no Howl (流星のHOWL)": {
+        "id": "DMu8CJFnEhQ",
+        "channel": "GLAY",
+        "videoTitle": "流星のHowl",
+        "source": "search",
+        "confirmed": false
+      },
+      "Golden After School (ゴールデンアフタースクール)": {
+        "id": "92jSNjGMX3E",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "ゴールデンアフタースクール",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Kodou Escalation (鼓動エスカレーション)": {
+        "id": "IMmaFnTT4V0",
+        "channel": "Maaya Uchida - Topic",
+        "videoTitle": "鼓動エスカレーション",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Chance! (チャンス！)": {
+        "id": "MNzIIZzqAVU",
+        "channel": "Suzuko Mimori - Topic",
+        "videoTitle": "チャンス!",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Everlasting Dream": {
+        "id": "N-Wg7IAzvE4",
+        "channel": "Tom-h@ck - Topic",
+        "videoTitle": "Everlasting Dream",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Let's Go Crazy": {
+        "id": "cpuG1Oc-FtE",
+        "channel": "Baby Canta(ベイビーカンタ)",
+        "videoTitle": "Baby Canta / Let's Go Crazy【Music Video】",
+        "source": "search",
+        "confirmed": false
+      },
+      "NUMBER": {
+        "id": "m-ja4Ri3fNM",
+        "channel": "SUPER DRAGON OFFICIAL",
+        "videoTitle": "[MV] SUPER★DRAGON / NUMBER",
+        "source": "search",
+        "confirmed": false
+      },
+      "NEVER SAY NEVER AGAIN": {
+        "id": "i-e0ektxmQg",
+        "channel": "GLAY",
+        "videoTitle": "NEVER SAY NEVER AGAIN",
+        "source": "search",
+        "confirmed": false
+      }
+    },
+    "jujutsu-kaisen": {
+      "KAIKAIKITAN (廻廻奇譚)": {
+        "id": "1tk1pqwrOys",
+        "channel": "Eve",
+        "videoTitle": "廻廻奇譚 - Eve MV",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "VIVID VICE": {
+        "id": "EU6I8TxU6Z4",
+        "channel": "Who-ya Extended official YouTube channel",
+        "videoTitle": "Who-ya Extended 「VIVID VICE」 MUSIC VIDEO TVアニメ『呪術廻戦』OPテーマ",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "give it back": {
+        "id": "QJ8P-81gYA8",
+        "channel": "Cö shu Nie Official Channel",
+        "videoTitle": "Cö shu Nie – give it back (Official Video) / TVアニメ『呪術廻戦』第2クール エンディング主題歌",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Ao no Sumika (青のすみか)": {
+        "id": "zuoVd2QNxJo",
+        "channel": "キタニタツヤ / Tatsuya Kitani",
+        "videoTitle": "青のすみか / キタニタツヤ - Where Our Blue Is / Tatsuya Kitani",
+        "source": "search",
+        "confirmed": false
+      },
+      "Akari (燈)": {
+        "id": "4jWzGkRsHw8",
+        "channel": "崎山蒼志",
+        "videoTitle": "崎山蒼志 Soushi Sakiyama / 燈 Akari [Official Music Video]",
+        "source": "search",
+        "confirmed": false
+      },
+      "more than words": {
+        "id": "kGY6N9DL4Jw",
+        "channel": "羊文学",
+        "videoTitle": "羊文学 - more than words (Official Music Video) [TVアニメ『呪術廻戦』「渋谷事変」エンディングテーマ]",
+        "source": "search",
+        "confirmed": false
+      },
+      "AIZO": {
+        "id": "zz2a9Q2Wru0",
+        "channel": "King Gnu official YouTube channel",
+        "videoTitle": "King Gnu - AIZO",
+        "source": "search",
+        "confirmed": false
+      },
+      "Yoake no Uta (よあけのうた)": {
+        "id": "ufcDIOS1HRo",
+        "channel": "jo0ji",
+        "videoTitle": "jo0ji「よあけのうた」Official Music Video | TVアニメ『呪術廻戦』「死滅回游 前編」エンディングテーマ",
+        "source": "search",
+        "confirmed": false
+      },
+      "SPECIALZ": {
+        "id": "fhzKLBZJC3w",
+        "channel": "King Gnu official YouTube channel",
+        "videoTitle": "King Gnu - SPECIALZ",
+        "source": "search",
+        "confirmed": false
+      }
+    },
+    "chainsaw-man": {
+      "KICK BACK": {
+        "id": "cl8QwcqTc6I",
+        "channel": "Will Stetson - Topic",
+        "videoTitle": "KICK BACK",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "CHAINSAW BLOOD": {
+        "id": "KzdlGdSqays",
+        "channel": "Vaundy - Topic",
+        "videoTitle": "CHAINSAW BLOOD",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Zanki (残機)": {
+        "id": "OMhVQLBNyGs",
+        "channel": "ZUTOMAYO - Topic",
+        "videoTitle": "Time Left",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Hawatari 2-oku Centi (刃渡り2億センチ)": {
+        "id": "bo8b5OkP_KM",
+        "channel": "MAXIMUM THE HORMONE - Topic",
+        "videoTitle": "HAWATARI NIOKU CENTI [2-hundred-million-centimeter-long blades] (TV edit)",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "Jouzai (錠剤)": {
+        "id": "jRK3iWhQOqE",
+        "channel": "john - Topic",
+        "videoTitle": "錠剤",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "In the Backroom (インザバックルーム)": {
+        "id": "eW620xcBnVE",
+        "channel": "syudou",
+        "videoTitle": "【syudou】インザバックルーム",
+        "source": "search",
+        "confirmed": false
+      },
+      "Dainou-teki na Rendez-vous (大脳的なランデブー)": {
+        "id": "GmU8KIfhmpQ",
+        "channel": "Kanaria",
+        "videoTitle": "【Kanaria】大脳的なランデブー",
+        "source": "search",
+        "confirmed": false
+      },
+      "Chu, Tayousei (ちゅ、多様性。)": {
+        "id": "EXTXw2u5tMM",
+        "channel": "ano - Topic",
+        "videoTitle": "Chu,Tayousei.",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "first death": {
+        "id": "FKq_vltq-Vs",
+        "channel": "凛として時雨 / TK",
+        "videoTitle": "TK from 凛として時雨 『first death』Music Video (TVアニメ「チェンソーマン」第8話エンディング・テーマ）",
+        "source": "search",
+        "confirmed": false
+      },
+      "Deep down": {
+        "id": "TaGIqycpQzA",
+        "channel": "Aimerrhythm - Topic",
+        "videoTitle": "Deep down",
+        "source": "myanimelist",
+        "confirmed": false
+      },
+      "DOGLAND": {
+        "id": "ba8XoFqIJVY",
+        "channel": "PEOPLE 1",
+        "videoTitle": "PEOPLE 1 “DOGLAND” （Official Video）",
+        "source": "search",
+        "confirmed": false
+      },
+      "VIOLENCE (バイオレンス)": {
+        "id": "nkPdMQCizIQ",
+        "channel": "女王蜂 / QUEEN BEE official YouTube channel",
+        "videoTitle": "女王蜂『バイオレンス(VIOLENCE)』Official MV",
+        "source": "search",
+        "confirmed": false
+      }
+    }
+  }
+}

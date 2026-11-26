@@ -13,7 +13,7 @@ description: "以五個成熟 coding agent 的原始碼為證，分析 coding ag
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-why-python-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-why-python-en)
 
 ## 設計問題：寫 coding agent 該選什麼語言
 

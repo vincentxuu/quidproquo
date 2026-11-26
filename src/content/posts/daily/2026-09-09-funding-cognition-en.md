@@ -12,7 +12,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-09-funding-cognition)
+> :globe: [中文版](/posts/daily/2026-09-09-funding-cognition)
 
 ## Funding Details
 

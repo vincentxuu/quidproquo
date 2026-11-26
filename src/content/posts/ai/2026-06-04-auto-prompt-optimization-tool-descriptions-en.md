@@ -18,7 +18,7 @@ glossary:
     context: "GEPA uses the Pareto frontier to retain candidate prompts that each excel on different subsets of problems."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-auto-prompt-optimization-tool-descriptions)
+> :globe: [中文版](/posts/ai/2026-06-04-auto-prompt-optimization-tool-descriptions)
 
 You spend three days hand-tuning a prompt, push accuracy from 55% to 58%, and still can't explain which sentence made the difference -- that's the reality of hand-crafted prompt engineering not scaling. This article traces two converging lines: **automatic prompt optimization (APO)** turns prompt engineering into an optimization problem with metrics; **tool description wording** is the overlooked prompt of the agent era -- and the latter is now being consumed by the former's techniques.
 

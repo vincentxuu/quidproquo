@@ -13,7 +13,7 @@ description: "費倫蒂洛（Ferentillo）岩場介紹：三大區與各子區�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-ferentillo-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-ferentillo-en)
 
 費倫蒂洛（Ferentillo）是翁布里亞（Umbria）南部、特爾尼（Terni）省瓦爾內里納（Valnerina）河谷裡的小鎮。[Umbriatourism 的城鎮頁](https://www.umbriatourism.it/en/w/ferentillo-en)寫內拉河（Nera）把鎮分成 Precetto 和 Matterella 兩半，岩壁就在鎮旁。翁布里亞官方旅遊網站 [Umbriatourism](https://www.umbriatourism.it/en/w/rock-climbing-in-ferentillo) 稱它是「one of the most popular Italian destinations for rock climbing」。
 

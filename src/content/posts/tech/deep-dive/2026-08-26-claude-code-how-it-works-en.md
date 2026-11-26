@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)
 
 This is the entry point to the *Claude Code Deep Dives* series. If you are still deciding whether to adopt it, or comparing coding agents in general, start with the earlier [Agent CLI comparison](/posts/tech/2026-03-31-claude-code-overview-anthropic-coding-agent-en). This post assumes you have decided to use it and want to understand **what actually runs underneath** — because every advanced feature (hooks, MCP, multi-agent, automation) builds on the same mechanics.
 

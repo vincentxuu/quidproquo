@@ -11,7 +11,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration)
+> :globe: [中文版](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration)
 
 ## Summary
 

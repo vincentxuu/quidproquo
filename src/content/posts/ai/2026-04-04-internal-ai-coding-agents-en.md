@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-04-internal-ai-coding-agents)
+> :globe: [中文版](/posts/ai/2026-04-04-internal-ai-coding-agents)
 
 In early 2026, a pattern began to emerge: elite engineering teams across Silicon Valley were independently building their own AI coding agents. Not Copilot-style autocomplete, but genuine end-to-end automation — from a single Slack message to a production-ready PR, with no human touching the keyboard.
 
@@ -378,7 +378,7 @@ Walmart's developer agent **WIBEY** is one of four "super agents" that saved app
 | Cloudflare | Own AI Gateway/Workers AI + OpenCode | 93% R&D penetration (60% company-wide), 3,683 internal users |
 | NVIDIA | Customized Cursor | 30,000+ engineers, 3x code commit volume, bug rate held flat |
 | Salesforce | Agentforce | 20% of production Apex code from Agentforce, engineering productivity +30% |
-| Block | Goose (open source) | 27,000 GitHub stars, base for Stripe Minions |
+| Block | Goose (open source, moved to the Linux Foundation's AAIF in 2025-12) | 56,000+ GitHub stars, base for Stripe Minions |
 | Apple | Xcode Intelligence | Claude integration, agentic coding |
 | Airbnb | Internal platform | Q1 2026 earnings call: 60% of new code AI-written; 97% tech debt migration success rate |
 
@@ -402,6 +402,7 @@ For most teams, the question worth asking right now is: **How much of your engin
 
 ## Update Log
 
+- 2026-11-23: Goose moved to the Agentic AI Foundation under the Linux Foundation (repo is now `aaif-goose/goose`); updated GitHub stars to 56,000+.
 - 2026-09-13: Added three more internal case studies from the A1 ("major tech") section of `agent-watchlist.json` — Cloudflare (built a 93%-R&D-penetration internal tool chain on its own AI Gateway/Workers AI, including an enforcement layer that maps onto this article's "thick gate" theme), NVIDIA (30,000+ engineers on a customized Cursor, 3x code commit volume), and Salesforce (Agentforce accounts for 20% of production Apex code, while the company is also a major Anthropic token customer). Palantir, Oracle, SAP, Adobe, and Snowflake didn't turn up a specific enough internal case study and were left out for now.
 - 2026-09-13: Added the latest mid/late-2026 metrics for the four flagship case studies — Stripe Minions 1,300 → 7,000+ PRs/week, Ramp Inspect 30% → 75% of merged PRs, and Spotify Honk's shift from migration bottleneck to review bottleneck. Renamed Coinbase Cloudbot to its current name, Forge, and added its new multi-agent orchestration tool, Mux. Added Amazon's transition from Q Developer to Kiro (including AWS's own internal use of Kiro to rebuild the Bedrock inference engine, plus its CEO's skepticism of the "share of AI-generated code" metric), Google's official 75% AI-generated-code figure, Meta's new Muse Code, and Uber's latest adoption figures and inner/outer loop architecture. Added four new case studies — Anthropic (Claude writes 80%+ of its own code), OpenAI (97.9% employee penetration for Codex), Shopify River, and PostHog's agent-reviews-agent pattern. Named the "thin spec, thick gate" and "circuit breaker" design patterns in the Blueprint and common-architecture sections, and elevated "the walls matter more than the model" into the article's throughline argument.
 
@@ -440,7 +441,8 @@ For most teams, the question worth asking right now is: **How much of your engin
 - [Walmart Tech: From Models to Agents — WIBEY](https://tech.walmart.com/content/walmart-global-tech/en_us/blog/post/wibey-announcement.html)
 - [Pragmatic Engineer: AI Tooling for Software Engineers in 2026](https://newsletter.pragmaticengineer.com/p/ai-tooling-2026)
 - [Block Open Source: Introducing Goose](https://block.xyz/inside/block-open-source-introduces-codename-goose)
-- [GitHub: block/goose](https://github.com/block/goose)
+- [GitHub: aaif-goose/goose](https://github.com/aaif-goose/goose)
+- [Linux Foundation: Formation of the Agentic AI Foundation (MCP, goose, AGENTS.md)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)
 - [a16z Podcast Summary: Stripe's Will Gaybrick on Minions scaling to 7,000 PRs/week](https://www.signalcast.app/episode/a16z-podcast/stripes-ai-strategy-build-more-not-less)
 - [Linear Customer Story: The coding agent behind 75% of Ramp's merged PRs](https://linear.app/customers/ramp)
 - [Pragmatic Engineer: Why Ramp built its own in-house coding agent, Inspect](https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect)

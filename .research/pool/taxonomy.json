@@ -1,0 +1,304 @@
+{
+  "version": 1,
+  "categories": [
+    {
+      "id": "climbing",
+      "label": "攀岩",
+      "topics": [
+        {
+          "id": "crags",
+          "label": "岩場與路線"
+        },
+        {
+          "id": "gear",
+          "label": "裝備"
+        },
+        {
+          "id": "technique",
+          "label": "技巧與安全"
+        },
+        {
+          "id": "training",
+          "label": "訓練與傷害"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "label": "AI",
+      "topics": [
+        {
+          "id": "models",
+          "label": "模型與推論"
+        },
+        {
+          "id": "agents",
+          "label": "AI代理"
+        },
+        {
+          "id": "rag",
+          "label": "檢索與知識系統"
+        },
+        {
+          "id": "evaluation",
+          "label": "評測"
+        },
+        {
+          "id": "security",
+          "label": "安全"
+        }
+      ]
+    },
+    {
+      "id": "learning",
+      "label": "學習",
+      "topics": [
+        {
+          "id": "courses",
+          "label": "課程"
+        },
+        {
+          "id": "languages",
+          "label": "語言學習"
+        },
+        {
+          "id": "methods",
+          "label": "學習方法"
+        }
+      ]
+    },
+    {
+      "id": "education",
+      "label": "教育",
+      "topics": [
+        {
+          "id": "curriculum",
+          "label": "課程設計"
+        },
+        {
+          "id": "teaching",
+          "label": "教學"
+        },
+        {
+          "id": "research",
+          "label": "教育研究"
+        }
+      ]
+    },
+    {
+      "id": "product",
+      "label": "產品",
+      "topics": [
+        {
+          "id": "research",
+          "label": "產品研究"
+        },
+        {
+          "id": "requirements",
+          "label": "需求"
+        },
+        {
+          "id": "cases",
+          "label": "案例"
+        }
+      ]
+    },
+    {
+      "id": "design",
+      "label": "設計",
+      "topics": [
+        {
+          "id": "ux",
+          "label": "使用體驗"
+        },
+        {
+          "id": "ui",
+          "label": "介面"
+        },
+        {
+          "id": "accessibility",
+          "label": "可及性"
+        }
+      ]
+    },
+    {
+      "id": "tech",
+      "label": "技術",
+      "topics": [
+        {
+          "id": "frameworks",
+          "label": "框架"
+        },
+        {
+          "id": "cloud",
+          "label": "雲端"
+        },
+        {
+          "id": "data",
+          "label": "資料系統"
+        },
+        {
+          "id": "devtools",
+          "label": "開發工具"
+        }
+      ]
+    },
+    {
+      "id": "career",
+      "label": "職涯",
+      "topics": [
+        {
+          "id": "interviews",
+          "label": "面試"
+        },
+        {
+          "id": "jobs",
+          "label": "工作機會"
+        },
+        {
+          "id": "growth",
+          "label": "職涯發展"
+        }
+      ]
+    },
+    {
+      "id": "policy",
+      "label": "政策",
+      "topics": [
+        {
+          "id": "regulation",
+          "label": "法規與治理"
+        },
+        {
+          "id": "public-policy",
+          "label": "公共政策"
+        }
+      ]
+    },
+    {
+      "id": "marketing",
+      "label": "行銷",
+      "topics": [
+        {
+          "id": "strategy",
+          "label": "策略"
+        },
+        {
+          "id": "content",
+          "label": "內容"
+        },
+        {
+          "id": "analytics",
+          "label": "分析"
+        }
+      ]
+    },
+    {
+      "id": "surf",
+      "label": "衝浪",
+      "topics": [
+        {
+          "id": "spots",
+          "label": "浪點"
+        },
+        {
+          "id": "gear",
+          "label": "裝備"
+        },
+        {
+          "id": "technique",
+          "label": "技巧"
+        }
+      ]
+    },
+    {
+      "id": "film",
+      "label": "電影",
+      "topics": [
+        {
+          "id": "reviews",
+          "label": "影評"
+        },
+        {
+          "id": "craft",
+          "label": "製作"
+        }
+      ]
+    },
+    {
+      "id": "life",
+      "label": "生活",
+      "topics": [
+        {
+          "id": "general",
+          "label": "生活研究"
+        }
+      ]
+    },
+    {
+      "id": "coffee",
+      "label": "咖啡",
+      "topics": [
+        {
+          "id": "beans",
+          "label": "咖啡豆"
+        },
+        {
+          "id": "brewing",
+          "label": "沖煮"
+        },
+        {
+          "id": "gear",
+          "label": "器材"
+        }
+      ]
+    },
+    {
+      "id": "travel",
+      "label": "旅行",
+      "topics": [
+        {
+          "id": "destinations",
+          "label": "目的地"
+        },
+        {
+          "id": "transport",
+          "label": "交通"
+        },
+        {
+          "id": "planning",
+          "label": "規劃"
+        }
+      ]
+    },
+    {
+      "id": "anime",
+      "label": "動畫",
+      "topics": [
+        {
+          "id": "reviews",
+          "label": "評論"
+        },
+        {
+          "id": "production",
+          "label": "製作"
+        }
+      ]
+    }
+  ],
+  "sourceTypes": [
+    "video",
+    "channel",
+    "web-page",
+    "paper",
+    "book",
+    "repository",
+    "dataset",
+    "documentation",
+    "podcast",
+    "course",
+    "organization",
+    "tool",
+    "playlist"
+  ]
+}

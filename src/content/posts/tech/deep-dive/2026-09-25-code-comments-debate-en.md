@@ -19,7 +19,7 @@ glossary:
     context: "Ousterhout argues there is no real abstraction without interface comments; this is where he and Uncle Bob disagree most."
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-09-25-code-comments-debate)
+> :globe: [中文版](/posts/tech/deep-dive/2026-09-25-code-comments-debate)
 
 Most engineers have heard both lines: "good code doesn't need comments" and "uncommented code is unreadable." They're usually framed as two schools, but once you read what the leading voices actually wrote, nobody argues for zero comments. The real disagreement is about the **default**: are comments an exception, or part of the design?
 

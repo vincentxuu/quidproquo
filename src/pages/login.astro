@@ -1,12 +1,14 @@
 ---
-import { verifySession } from '../lib/auth/session'
-const session = Astro.cookies.get('session')?.value
-if (session && await verifySession(session)) {
-  const next = Astro.url.searchParams.get('next') || '/admin'
-  return Astro.redirect(next)
+import { requireAdmin, adminReturnTo } from '../lib/auth/admin'
+import { accessConfigured } from '../lib/auth/access'
+const next = adminReturnTo(Astro.url.searchParams.get('next'))
+if (accessConfigured()) {
+  return Astro.redirect(`/auth/login?returnTo=${encodeURIComponent(next)}`)
 }
+const auth = await requireAdmin(Astro.cookies, Astro.request)
+if (auth.ok) return Astro.redirect(next)
 const error = Astro.url.searchParams.get('error')
-const next = Astro.url.searchParams.get('next') || '/admin'
+
 ---
 <!DOCTYPE html>
 <html lang="zh-TW">

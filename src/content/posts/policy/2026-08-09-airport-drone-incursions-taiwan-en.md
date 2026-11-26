@@ -13,7 +13,7 @@ series:
   order: 31
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
+> :globe: [中文版](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)
 
 [The previous post](/posts/policy/2026-08-09-who-may-down-a-drone-en) read every Taiwanese provision that might authorise counter-drone action and concluded that the law authorises an outcome and no means — and that **the airport is the cell squeezed from three sides**: the weakest verb, soft kill named as the prohibited thing, hard kill meaning gunfire beside a runway.
 
@@ -199,29 +199,9 @@ And the Budget Center's assessment:
 - **I did not read the airport interference SOP itself.** There is no public version; I have only the evaluation report's one-sentence paraphrase. **Could this refute the post?** Possibly: if the SOP specifies concrete removal measures, then "all six response cells are the same sentence" is a coincidence of summary-level reporting. But note that an SOP is an administrative rule and **cannot create an authority the Civil Aviation Act withheld from airports** — so even a detailed SOP leaves the previous post's textual problem intact.
 - **No geographic analysis behind "Songshan is urban, hence most affected."** That sentence is flagged in the text as a common-sense explanation, not a conclusion.
 
-## How to check the numbers
+## Update log
 
-Every figure comes from Tables 1, 2 and 3 of one PDF, so it can be checked directly:
-
-```
-Legislative Yuan Budget Center
-Evaluation Report on FY2021 Unit Budgets (TTSB and MOTC agencies)
-https://www.ly.gov.tw/Pages/ashx/File.ashx?FilePath=~/File/Attach/201989/File_276856.pdf
-
-Table 1 = FY2021 drone revenue (fines 2,700 / review 4,150 / licence 2,415, NT$ thousand)
-Table 2 = six closures, FY2019 to end-Aug 2020 (source: CAA data of 2020-09-14)
-Table 3 = 39,379 registrations as of 2020-08-27, split three ways
-
-Later series (added 2026-08-09):
-https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=45904&pid=224510
-  FY2022 unit budget evaluation report → 13 occurrences, 2020 to end-Aug 2022
-  (CAA data of 2022-09-14)
-https://www.ly.gov.tw/Pages/Detail.aspx?nodeid=46508&pid=233504
-  Civil Aviation Operating Fund FY2024 report → 12 occurrences, 2022 to end-Aug 2023
-  (CAA data of 2023-09-11; includes the handheld-jammer statement and the audit finding)
-```
-
-The totals (300 minutes, 47 flights, 5,929 passengers, 70.9% / 29.1%) are my additions; the original has none. All six addends are in the table above and can be re-summed.
+- 2026-11-23: Removed the "How to check the numbers" section; the sources are already given in the body and the references.
 
 ## References
 

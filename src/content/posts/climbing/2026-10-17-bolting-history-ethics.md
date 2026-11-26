@@ -10,7 +10,7 @@ tldr: "打 bolt 是在岩壁上留下不可逆的孔，所以各地都把決定�
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 15
+  order: 16
 glossary:
   - term: "clean climbing"
     aliases: ["清潔攀登"]
@@ -30,7 +30,7 @@ glossary:
     context: "Access Fund 公開反對以黏膠或修鑿製造岩點。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-bolting-history-ethics-en)
+> :globe: [English version](/posts/climbing/2026-10-17-bolting-history-ethics-en)
 
 假設你在龍洞爬了幾年，看到一條很漂亮的裂隙，旁邊有一片光滑的岩面。你想：如果在那片岩面上打幾顆 bolt，就會多出一條很好爬的運攀路線。你有電鑽、會打 bolt，岩壁也不屬於誰。
 

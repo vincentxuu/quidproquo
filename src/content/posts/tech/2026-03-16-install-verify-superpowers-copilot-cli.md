@@ -10,7 +10,7 @@ description: "實作日誌：從安裝腳本到 plugin 註冊、故障診斷與�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-16-install-verify-superpowers-copilot-cli-en)
+:globe: [English version](/posts/tech/2026-03-16-install-verify-superpowers-copilot-cli-en)
 
 ## 前言
 

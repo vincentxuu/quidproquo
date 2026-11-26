@@ -13,7 +13,7 @@ description: "A cross-certification breakdown of multi-agent system architecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)
+> :globe: [中文版](/posts/ai/2026-08-18-multi-agent-architecture-exam-domains)
 >
 > This is preparation material built from official sources, not an exam-day account — I have not sat these exams. Every "what it tests" points back to a vendor's official exam or study guide, all listed at the end. Verified 2026-08-18.
 
@@ -196,7 +196,7 @@ After this post was published, the series added a preparation path for [GitHub A
 
 **Unique to GH-600**: in the other five exams, agents cooperate inside a conversation or a workflow. In GH-600 they edit files in the same code repository in parallel. That gives it three things the others lack: **conflicts between agents** (overlapping code changes, duplicated effort, contradictory outputs), **the agent lifecycle** (updating or replacing an agent without disrupting active workflows, retiring one while preserving auditability), and **classifying failure root causes** (the guide gives reasoning errors, tool misuse, and context or environment issues as examples).
 
-**A seventh is on the way**: section 3.3 of the exam guide for Google's new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers orchestration with MCP and A2A and multi-agent handoffs. Its beta registration is closed and general availability registration opens November 2, 2026; it will be added to this comparison after that. This does not change what is said above about PMLE, which still does not test multi-agent coordination.
+**A seventh is on the way**: section 3.3 of the exam guide for Google's new [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) covers orchestration with MCP and A2A and multi-agent handoffs. Its beta registration is closed and general availability (GA) registration opened November 2, 2026; the companion preparation guide now exists and covers exam guide section 3.3. This does not change what is said above about PMLE, which still does not test multi-agent coordination.
 
 ## What may change (re-check before you register)
 
@@ -213,6 +213,7 @@ After this post was published, the series added a preparation path for [GitHub A
 ## Changelog
 
 - 2026-10-08: Added "Addendum: a sixth exam, GitHub GH-600", mapping its outline to the seven shared topics, and noted that Google Professional Agentic Architect will be added after general availability. The content and conclusions for the original five exams are unchanged.
+- 2026-11-13: Google's Professional Agentic Architect is now GA; the seventh comparison entry's status is rewritten accordingly.
 
 ## References
 

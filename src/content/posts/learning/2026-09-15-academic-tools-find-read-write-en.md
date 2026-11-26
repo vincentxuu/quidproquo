@@ -10,7 +10,7 @@ description: "A guide to streamlining academic research with Google Scholar, Moo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-15-academic-tools-find-read-write)
+> :globe: [中文版](/posts/learning/2026-09-15-academic-tools-find-read-write)
 
 The daily life of a researcher boils down to three actions: find papers, read papers, write papers. There are countless tools for each step, which is exactly why it's hard to know where to start.
 

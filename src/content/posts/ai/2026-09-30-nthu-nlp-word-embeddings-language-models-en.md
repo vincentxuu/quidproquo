@@ -25,7 +25,7 @@ glossary:
     context: "The slides cite BERT and GPT and illustrate with 'Apple the company' versus 'apple pie'."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-word-embeddings-language-models)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

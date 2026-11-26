@@ -13,7 +13,7 @@ description: "埃爾托（Erto）岩場介紹：Big 與 No Big 兩區的岩質�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-erto-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-erto-en)
 
 埃爾托（Erto）在弗留利－威尼斯朱利亞（Friuli Venezia Giulia）西端，岩壁就在瓦伊昂水壩（Vajont）旁的公路邊，上方是 Casso 村。1963 年 10 月 9 日瓦伊昂山崩，岩壁底下的碎石坡就是那次山崩留下的（[Up-Climbing](https://www.up-climbing.com/bimestrale/storia-di-copertina/i-ragazzi-dello-zoo-di-erto/)）。1978 年起有人在這面大仰角上開路線（[Dolomiti Friulane 自然公園](https://www.parcodolomitifriulane.it/en/i-paesi-del-parco/erto-e-casso/)），現在它是義大利最出名的難路線岩場之一。
 

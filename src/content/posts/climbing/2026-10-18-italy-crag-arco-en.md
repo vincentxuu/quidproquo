@@ -13,7 +13,7 @@ description: "A guide to Arco and the Sarca Valley: rock and scale, crag aspects
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-arco)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-arco)
 
 Arco is a small town at the southern tip of Trentino, a few kilometres inland from the north shore of [Lake Garda](https://www.gardatrentino.it/en/outdoor/climbing/crags). It sits on the floor of the [Valle del Sarca](https://www.thecrag.com/en/climbing/italy/arco), with grey and white limestone walls lining both sides. [Planetmountain](https://planetmountain.com/en/news/climbing/five-must-see-crags-at-arco-the-birthplace-of-sport-climbing-as-we-know-it.html) writes that "Ever since the early 1980s ... has been one of the undisputed centers of sport climbing", and the valley now holds hundreds of crags and thousands of sport routes.
 

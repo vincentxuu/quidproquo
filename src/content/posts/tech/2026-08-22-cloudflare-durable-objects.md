@@ -18,7 +18,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-cloudflare-durable-objects-en)
+> :globe: [English version](/posts/tech/2026-08-22-cloudflare-durable-objects-en)
 
 [Cloudflare Workers](https://developers.cloudflare.com/workers/) 很適合處理 stateless request：驗證、轉發、渲染、API handler、輕量資料轉換。問題出在下一步：聊天室要廣播、多人文件要協調、booking 不能重複扣位、agent run 要保證同一個 session 的 budget 不被並發扣錯。這些情境需要一個「同一個 key 的操作可以排隊決定」的地方。[Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/)（DO）就是 Cloudflare 在 serverless 裡補上的狀態與協調原語。
 
@@ -152,6 +152,8 @@ Durable Objects 很適合做 WebSocket server，因為同一個 room 的連線�
 
 也不要期待 hibernation 替你解所有 realtime 問題。慢 client、broadcast batching、重連後補資料、權限續期、部署 drain、房間過熱，仍然是應用程式責任。高頻小訊息會被 context switch 成本打爆；官方建議把多個 logical messages 包成較少、較大的 WebSocket frames。
 
+部署這一段平台有幫忙一部分。2026-10-30 起 Durable Objects 預設[延後套用新程式碼](https://developers.cloudflare.com/changelog/post/2026-10-30-durable-objects-deferred-code-updates/)：deploy 之後，仍在活動的 object 最多可以用舊程式碼再跑 5 分鐘，等它進入 hibernation 再換新版；用 Hibernation API 的 WebSocket 換版後仍保持連線。超過等待時間還沒休眠的 object 會被重設、直接換新程式碼，等待時間與立即套用都可以用 `code_update_strategy` 設定。這是 best effort，不是保證，所以重連後補資料仍要自己做。
+
 ## Alarms：每個 object 自己的細粒度排程
 
 [Durable Objects Alarms](https://developers.cloudflare.com/durable-objects/api/alarms/) 讓 object 設定未來某個時間醒來執行 `alarm()`。它比 Cron Trigger 細，因為每個 object 都可以有自己的 alarm。用法像：
@@ -162,6 +164,8 @@ Durable Objects 很適合做 WebSocket server，因為同一個 room 的連線�
 - 每個 tenant 自己批次 flush usage counter。
 
 每個 object 同時間只能有一個 alarm；如果你有多個 scheduled events，要把 schedule 存在 storage，alarm handler 處理到期事件後再設下一個。Alarms 是 at-least-once，handler 失敗會用 exponential backoff retry，最多 6 次。這代表 handler 必須 idempotent，外部副作用要有去重 key。
+
+呼叫端的重試也有變化。2026-11-05 起，Worker 或另一個 DO 對 Durable Object 的 `fetch()` 與 RPC 呼叫，若在抵達 object 之前就因可重試的錯誤失敗，runtime 會[自動重試](https://developers.cloudflare.com/changelog/post/2026-11-05-durable-objects-automatic-retries/)，預設最多四次；object 自己丟出的錯誤與 `.overloaded` 錯誤不重試。連線中斷、無法判斷第一次是否送達時也會重試，但 object 會拒絕重複的那一次，所以方法不會因此跑兩次，除非你用 `retryable()` 明確標記它可以重跑。自己寫的 retry loop 可以拿掉，idempotency 的要求不變。
 
 ```ts
 export class AgentRun extends DurableObject<Env> {
@@ -227,6 +231,7 @@ Durable Objects 很強，但它不是逃避資料建模的工具。它逼你先�
 
 ## 更新紀錄
 
+- 2026-11-23：補上 2026-10-30 起預設延後套用新程式碼（最多 5 分鐘）與 2026-11-05 起呼叫端自動重試的行為
 - 2026-08-30：依 Cloudflare Edge Platform / AI Stack 內容線重寫本文，補上 SQLite-backed storage、`exports` 設定、WebSocket hibernation、alarms、control/data plane 與 AI app 架構角色。
 
 ## 參考資料

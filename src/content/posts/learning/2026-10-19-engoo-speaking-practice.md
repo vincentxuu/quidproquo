@@ -9,11 +9,11 @@ description: "介紹 Engoo 台灣一般、雙享與 Premium 方案，完整說�
 tldr: "Engoo 適合願意自己選老師和材料、固定練短課的人；先試糾錯方式，再按每 30 天能上完的堂數買課，別只看年繳均價。"
 series:
   name: "英文口說練習"
-  order: 7
+  order: 25
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-engoo-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-engoo-speaking-practice-en)
 
 你想固定說英文，卻不想每次上課都從「今天要聊什麼」開始。[Engoo 台灣](https://engoo.com.tw/)提供一堂 25 分鐘的一對一線上課，可以自己選老師，也可以帶著平台教材或新聞討論。對下班後只想留一小段時間練習的人，這種安排比較容易放進行事曆。
 

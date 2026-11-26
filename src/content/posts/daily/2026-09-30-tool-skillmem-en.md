@@ -12,7 +12,7 @@ series:
   order: 40
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-tool-skillmem)
+> :globe: [中文版](/posts/daily/2026-09-30-tool-skillmem)
 
 ## Tool Info
 

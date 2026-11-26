@@ -13,7 +13,7 @@ description: "卡爾塔武圖羅（Caltavuturo）岩場介紹：Gazzara、Cabeci
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-madonie-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-madonie-en)
 
 卡爾塔武圖羅（Caltavuturo）是巴勒摩省內陸的小鎮，位在馬多涅（Madonie）山區西緣，鎮上方是一道叫 Rocca di Sciara 的石灰岩山脊。西西里的岩場多半在海邊，冬天好爬、夏天太熱；[UKC 的西西里指南](https://www.ukclimbing.com/articles/destinations/sicily-14498)說 Caltavuturo 一帶是全島最多山的地方，「the most suitable during the hot Sicilian summers」。
 

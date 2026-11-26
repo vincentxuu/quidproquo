@@ -10,7 +10,7 @@ description: "An introduction to LangChain v1 Agents, tools, structured output, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-langchain-agents-v1)
+> :globe: [中文版](/posts/ai/2026-08-22-langchain-agents-v1)
 
 [LangChain v1 Agents](https://docs.langchain.com/oss/python/langchain/agents) is the high-level entry point for tool-calling agents. `create_agent` combines a model, tools, and instructions into a loop that continues until the model returns a final answer or reaches a stop condition.
 

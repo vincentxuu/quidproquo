@@ -87,6 +87,7 @@
     "self-hosted-inference",
     "groundlane",
     "security-cert-prep",
+    "sandbox-series",
     "solo-media-company",
     "llm-from-scratch",
     "meta-harness-agent",

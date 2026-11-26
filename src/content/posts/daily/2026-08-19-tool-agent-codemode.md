@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-19-tool-agent-codemode-en)
+> :globe: [English version](/posts/daily/2026-08-19-tool-agent-codemode-en)
 
 ## 工具資訊
 
@@ -78,11 +78,11 @@ const [issues, events, channel] = await Promise.all([
 
 | | agent-codemode | 逐次 tool call | 自己寫一次性串接腳本 |
 |---|---|---|---|
-| 免另申請 API key／OAuth（直接借用 Claude Code 的認證） | ✅ | ✅（本來就是 Agent 內建） | ❌（要自己管密鑰） |
-| 多個 tool call 合併成一次 round trip | ✅ | ❌ | ✅（但要手刻） |
-| 型別檢查（依 server 實際 schema 動態產生） | ✅ | ❌ | 視自己有沒有寫 |
-| 跨 Claude Code／Cursor／Windsurf／VS Code／Gemini CLI 通用 | ✅ | 視各 Agent 實作而定 | ❌ |
-| 開源、免費 | ✅ MIT | — | — |
+| 免另申請 API key／OAuth（直接借用 Claude Code 的認證） | ✓ | ✓（本來就是 Agent 內建） | ✗（要自己管密鑰） |
+| 多個 tool call 合併成一次 round trip | ✓ | ✗ | ✓（但要手刻） |
+| 型別檢查（依 server 實際 schema 動態產生） | ✓ | ✗ | 視自己有沒有寫 |
+| 跨 Claude Code／Cursor／Windsurf／VS Code／Gemini CLI 通用 | ✓ | 視各 Agent 實作而定 | ✗ |
+| 開源、免費 | ✓ MIT | — | — |
 
 ## 注意事項
 

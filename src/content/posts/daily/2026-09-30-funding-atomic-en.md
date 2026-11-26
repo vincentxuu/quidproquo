@@ -12,7 +12,7 @@ series:
   order: 58
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-funding-atomic)
+> :globe: [中文版](/posts/daily/2026-09-30-funding-atomic)
 
 ## Funding Details
 

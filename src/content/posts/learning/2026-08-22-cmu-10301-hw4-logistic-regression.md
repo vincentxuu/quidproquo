@@ -10,7 +10,7 @@ tldr: "HW4 把機率解釋、cross-entropy 梯度與程式實作綁在一起，�
 description: "CMU 10-301/601 Spring 2026 HW4 Logistic Regression 的推導、實作與本機驗收方法。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 4 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw4-logistic-regression-en)
 
 [官方 ZIP 內 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw4.zip) 完整題名是 **Homework 4: Logistic Regression**，屬於 written＋programming。Written 題組包含 linear regression、logistic-regression warm-up／analysis／adversarial attack、vectorization and pseudocode、word embeddings and gender biases，以及 empirical questions。程式要先以 `feature.py` 將 Yelp sentiment text 轉成 GloVe 平均向量，再以 `lr.py` 訓練 logistic regression。ZIP 提供兩份 starter 與 `glove_embeddings.txt`；資料與部分 reference output 由課程作業環境配發，這個公開 ZIP 並未包含它們。
 

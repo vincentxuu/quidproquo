@@ -10,7 +10,7 @@ description: "從 repository 與 model card 出發，拆解 Hugging Face Hub、D
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-hugging-face-hub-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-hugging-face-hub-guide-en)
 
 [Hugging Face Hub](https://huggingface.co/docs/hub/index) 不是單純的模型下載站。它是機器學習資產的協作平台：模型權重、設定檔、資料集與展示應用程式都能放進有版本紀錄的 repository，再由 model card、dataset card、搜尋篩選與存取控制補上使用脈絡。
 

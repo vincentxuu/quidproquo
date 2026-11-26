@@ -13,7 +13,7 @@ description: "OpenClaw enterprise messaging channels: Slack's three transport mo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-enterprise)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-channels-enterprise)
 
 There is a structural change to state first: **the "install: built-in" column no longer exists.** Slack, Google Chat, Microsoft Teams, Matrix, Feishu, Mattermost, and Nextcloud Talk are **all official plugins** now — one command, or installed on demand during onboarding, with a Gateway restart afterward.
 

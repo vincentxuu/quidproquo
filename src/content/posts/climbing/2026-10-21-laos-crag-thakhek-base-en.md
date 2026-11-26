@@ -13,7 +13,7 @@ description: "A Thakhek base guide: getting to Green Climbers Home, visas, room 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-thakhek-base)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-thakhek-base)
 
 Thakhek sits in Khammouane Province in central Laos, on the east bank of the Mekong, opposite Nakhon Phanom in Thailand. The town is about 12 km from the Pha Tam Kam crags. In the valley below them is Green Climbers Home (GCH): two camps, a restaurant, gear rental and courses. Most climbers do not stay in Thakhek and commute; they stay at the crag.
 

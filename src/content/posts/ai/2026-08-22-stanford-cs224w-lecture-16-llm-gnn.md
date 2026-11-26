@@ -13,7 +13,7 @@ description: "Stanford CS224W Fall 2025 第 16 講完整 agenda 與自學筆記�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-16-llm-gnn-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-16-llm-gnn-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
@@ -142,12 +142,13 @@ Instruction/QA data若由同一graph triples生成，train/test questions可能�
 - [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方頁未列 Fall 2025 公開錄影、Canvas 需登入，公開播放清單僅 2021／2023 年版，維持原狀態並補上查核日期。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

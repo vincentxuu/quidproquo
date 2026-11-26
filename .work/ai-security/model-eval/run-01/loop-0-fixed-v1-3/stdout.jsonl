@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637d-5908-7380-9a94-978ecc244c40"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"finish\",\"ticket_id\":null,\"verdict\":\"blocked\",\"reason\":\"Normal baseline N-1 returned 200 with ticket_id N-1. Same-tenant non-owned N-2 and cross-tenant S-1 each returned 403 forbidden. These responses show unauthorized reads were blocked; no missing object authorization was demonstrated.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":20704,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":73,"reasoning_output_tokens":0}}

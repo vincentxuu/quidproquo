@@ -21,7 +21,7 @@ glossary:
     context: "The CS224U slides set it side by side with standard IID evaluation as two five-step procedures."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-behavioral-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -29,7 +29,7 @@ glossary:
     context: "第 13 講量化段的第一個技術，對應 weight-activation quantization。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-llm-deployment-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-llm-deployment-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

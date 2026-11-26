@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 72
 ---
-> 🌏 [中文版](/posts/daily/2026-08-04-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-04-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,7 +68,7 @@ Memory management is **an independently learnable skill**. No need to train the 
 
 - Benchmarks: Crafter, MiniHack, NetHack — three procedurally generated long-horizon games measuring Agent performance in complex environments over extended operation
 - Specific numbers: AutoMem 32B model achieves 51.4% on Crafter, 30.0% on MiniHack, 1.9% on NetHack
-- Comparison: Claude Opus 4.5 scores 49.5%, 27.5%, 2.0% respectively ⚠️ (Stanford's own test results; external replication needed for confirmation)
+- Comparison: Claude Opus 4.5 scores 49.5%, 27.5%, 2.0% respectively :warning: (Stanford's own test results; external replication needed for confirmation)
 - Improvement magnitude: Memory optimization alone yields ~2x–4x performance gains (compared to baseline Agent without any memory optimization)
 - Loop 1 details: 5 rounds of scaffold revision, each round the meta-LLM reads complete traces and rewrites memory operation rules
 - Deployment threshold: Requires extensive episode rollouts to collect training signals; small teams lacking environment simulation infrastructure will face challenges
@@ -155,7 +155,7 @@ Existing Agent security tests use static attack corpora, but real attackers adju
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 If you're building externally-facing Agents (processing user-uploaded content or browsing external web pages), the numbers in this paper are worth knowing. Teams with purely internal tools or well-established red team processes can deprioritize.
 
 ### Background

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-ai-sdk-message-parts-en)
+:globe: [English version](/posts/tech/2026-08-21-ai-sdk-message-parts-en)
 
 [AI Elements](/posts/tech/2026-08-19-vercel-ai-elements) 那篇提過：它的元件是照 AI SDK 的 message parts 結構設計的。這篇把地基本身講清楚——**為什麼一則 AI 訊息不再是一個字串，而是一個型別化片段的陣列**，以及這個決定如何連鎖地決定了整個對話介面的寫法。
 

@@ -11,7 +11,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce)
+> :globe: [中文版](/posts/daily/2026-09-20-security-plugin4shell-ai-coding-agent-rce)
 
 ## What Happened
 

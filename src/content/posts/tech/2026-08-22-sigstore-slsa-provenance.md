@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-sigstore-slsa-provenance-en)
+> :globe: [English version](/posts/tech/2026-08-22-sigstore-slsa-provenance-en)
 
 [Sigstore](https://docs.sigstore.dev/) 與 [SLSA](https://slsa.dev/) 解決相鄰但不同的問題。Sigstore/Cosign 簽署並驗證 artifact/attestation；SLSA 描述 provenance 應證明什麼、build platform 需要多可信。簽章只證明某 identity 對某 digest 簽過，不會自動證明 source、workflow 或 dependency 安全。
 

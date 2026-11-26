@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-01-rules-and-scope-en)
 
 ## TL;DR
 

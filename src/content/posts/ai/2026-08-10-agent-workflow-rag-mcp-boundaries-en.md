@@ -13,7 +13,7 @@ description: "Separating four commonly conflated concepts: Anthropic's workflow/
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)
+> :globe: [中文版](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries)
 
 This opens the "Agent 生產線" series. The material comes from reading roughly sixty agent-related articles published by [ByteByteGo](https://blog.bytebytego.com/) across 2025–2026, then going back to nineteen of the primary sources they cite. This first part separates four terms that get used interchangeably — because every engineering trade-off in the remaining six parts rests on these lines.
 
@@ -62,7 +62,7 @@ Anthropic's five, all cut along a consistent axis:
 4. **Orchestrator-workers** — a lead dynamically decomposes, dispatches, and merges
 5. **Evaluator-optimizer** — one generates, one scores, iterate
 
-> ⚠️ A different article also offers "five patterns" (Reflection / Tool Use / ReAct / Planning / Multi-Agent), but along **a completely different axis, with no cited source, and it lists Tool Use — a capability — alongside orchestration patterns**. The two never cross-reference each other. Use the one with a source.
+> :warning: A different article also offers "five patterns" (Reflection / Tool Use / ReAct / Planning / Multi-Agent), but along **a completely different axis, with no cited source, and it lists Tool Use — a capability — alongside orchestration patterns**. The two never cross-reference each other. Use the one with a source.
 
 ## Agent, RAG, MCP: three questions, not three competitors
 

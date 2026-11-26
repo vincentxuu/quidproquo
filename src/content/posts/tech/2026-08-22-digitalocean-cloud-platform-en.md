@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-digitalocean-cloud-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-digitalocean-cloud-platform)
 
 [DigitalOcean](https://docs.digitalocean.com/products/) presents familiar cloud building blocks with a smaller surface: Droplet VMs, App Platform, DigitalOcean Kubernetes (DOKS), Managed Databases, Spaces object storage, Volumes, load balancers, VPCs, and DNS.
 

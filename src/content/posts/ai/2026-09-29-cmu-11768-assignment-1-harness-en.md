@@ -28,7 +28,7 @@ glossary:
     context: "In A1 Part 3, run_python lets a chess search make hundreds of simulate_move calls in one step."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -210,7 +210,7 @@ The assignment depends on Modal and course-provided model credits; outside the c
 ## Further reading
 
 - Previous in series: [L6 Coding Agents](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents-en)
-- On this site: [Reading Stanford CS329Z Week 4: ReAct and MemGPT](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en)
+- On this site: [Reading Stanford CS329Z Lecture 6: ReAct](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en) and [Lecture 7: MemGPT](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en)
 - On this site: [Context compaction in coding agents](/posts/ai/2026-08-30-coding-agent-context-compaction-en)
 - On this site: [Code mode in coding agents](/posts/ai/2026-08-30-coding-agent-code-mode-en) (design trade-offs of programmatic tool calling)
 - On this site: [Hooks, skills, and plugins in coding agents](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
@@ -223,11 +223,12 @@ Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

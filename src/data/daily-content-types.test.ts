@@ -2,10 +2,11 @@ import { describe, expect, it } from 'vitest';
 import { DAILY_CHANNELS, countDailyChannels, getDailyChannelId } from './daily-content-types';
 
 describe('Daily Digest content channels', () => {
-  it('defines all fourteen reader-facing article channels', () => {
+  it('defines all fifteen reader-facing article channels', () => {
     expect(DAILY_CHANNELS.map(channel => channel.id)).toEqual([
       'daily',
       'weekly',
+      'monthly',
       'region',
       'arxiv',
       'github',
@@ -33,6 +34,7 @@ describe('Daily Digest content channels', () => {
     ['AI Agent Funding', 'funding'],
     ['AI Pricing Watch', 'pricing'],
     ['AI Agent 週回顧', 'weekly'],
+    ['AI Agent 月報', 'monthly'],
     ['AI Region Focus', 'region'],
     ['AI Engineer 面試日練', 'ai-interview'],
     ['Product Builder 面試日練', 'product-interview'],

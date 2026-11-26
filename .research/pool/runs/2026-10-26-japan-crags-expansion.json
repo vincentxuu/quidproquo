@@ -1,0 +1,1280 @@
+{
+  "id": "2026-10-26-japan-crags-expansion",
+  "categories": [
+    "climbing"
+  ],
+  "topics": [
+    "crags"
+  ],
+  "checked_at": "2026-10-26",
+  "scope": "Conservative public-source registry for35Japan-crag guide pairs; source-note sections and four author route-video catalogs, with actual article adoption tracked. No fact-index write.",
+  "source_input": ".research/2026-10-26-japan-crags-expansion.sources.jsonl",
+  "search_input": ".research/2026-10-26-japan-crags-expansion.queries.jsonl",
+  "input_records": 1230,
+  "unique_urls": 1170,
+  "new_urls": 1170,
+  "status_counts": {
+    "partial": 1021,
+    "snippet": 209,
+    "blocked": 0
+  },
+  "decision_counts": {
+    "selected": 1135,
+    "candidate": 95
+  },
+  "catalog_selected_clips": 766,
+  "source_notes": [
+    ".research/2026-10-26-japan-crag-otaru-akaiwa.md",
+    ".research/2026-10-26-japan-crag-kamuiiwa.md",
+    ".research/2026-10-26-japan-crag-asahikawa-boulders.md",
+    ".research/2026-10-26-japan-crag-ishigakiyama.md",
+    ".research/2026-10-26-japan-crag-yoshitsune-iwa.md",
+    ".research/2026-10-26-japan-crag-yamadera.md",
+    ".research/2026-10-26-japan-crag-hyotan-cave.md",
+    ".research/2026-10-26-japan-crag-okura-boulders.md",
+    ".research/2026-10-26-japan-crag-shiobara.md",
+    ".research/2026-10-26-japan-crag-kogashiyama.md",
+    ".research/2026-10-26-japan-crag-kasama.md",
+    ".research/2026-10-26-japan-crag-ena-kasagiyama.md",
+    ".research/2026-10-26-japan-crag-fukube.md",
+    ".research/2026-10-26-japan-crag-mizunami-byobuiwa.md",
+    ".research/2026-10-26-japan-crag-gozeniwa.md",
+    ".research/2026-10-26-japan-crag-mitsutoge.md",
+    ".research/2026-10-26-japan-crag-kofu-makuiwa.md",
+    ".research/2026-10-26-japan-crag-tachiookayama.md",
+    ".research/2026-10-26-japan-crag-arigasayama.md",
+    ".research/2026-10-26-japan-crag-shiromyo-bashi.md",
+    ".research/2026-10-26-japan-crag-kawamata.md",
+    ".research/2026-10-26-japan-crag-koshizawa-buttress.md",
+    ".research/2026-10-26-japan-crag-mikuradake.md",
+    ".research/2026-10-26-japan-crag-hieizan.md",
+    ".research/2026-10-26-japan-crag-gushichan.md",
+    ".research/2026-10-26-japan-crag-ojigatake.md",
+    ".research/2026-10-26-japan-crag-honjo.md",
+    ".research/2026-10-26-japan-crag-hachimensan.md",
+    ".research/2026-10-26-japan-crag-horuiiwa.md",
+    ".research/2026-10-26-japan-crag-hiwasa.md",
+    ".research/2026-10-26-japan-crag-nodake.md",
+    ".research/2026-10-26-japan-crag-shimane-peninsula.md",
+    ".research/2026-10-26-japan-crag-washizuyama.md",
+    ".research/2026-10-26-japan-crag-nabari.md",
+    ".research/2026-10-26-japan-crag-horai.md"
+  ],
+  "source_inputs_sha256": {
+    "src/content/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa.md": "64eaffcf809e42954fb3e9b2c1a29ef74172a37e0b3d1e87fa38d224e4e5ea66",
+    "src/content/posts/climbing/2026-10-26-japan-crag-otaru-akaiwa-en.md": "d43e9906d7011eafd9a7dc71a7007f7bcceb43bc27b7e17b2e3cb342acc64214",
+    ".research/2026-10-26-japan-crag-otaru-akaiwa.md": "e3f54fc297595969b4e91915975fba113c95824466895dfeee7e6a9fdae6b427",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kamuiiwa.md": "c3e22feb24ae7176f6b8dc1b9a39662ff536ff4146ae1c0f2b61ee1d46814c99",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kamuiiwa-en.md": "09e44811a4fe6794b7629108c80f81e017c54d77dedf7989500c705fa720b6df",
+    ".research/2026-10-26-japan-crag-kamuiiwa.md": "10dccf21e6bdc293bd07e9623d33d5e7394aaf8c52b921db5642e3210550fe02",
+    "src/content/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders.md": "7164fb951d96b6be575e775c036b55b12af90a7f224bd9c12ea53a011c495dc8",
+    "src/content/posts/climbing/2026-10-26-japan-crag-asahikawa-boulders-en.md": "cc59adcf66daea28b51a9fcba8fc64b177e034bc1c04fac171d7deec64eff960",
+    ".research/2026-10-26-japan-crag-asahikawa-boulders.md": "0a9724a98fd8d8584950350f149972aa7ce7521b648e3a1c6b50f27543a50f8b",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ishigakiyama.md": "552843301441b9d7d2a84ae44349a3efdcb5cc8e2038e69737498c476c4a92e7",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en.md": "cc4ace506df8e21cc9733f7079b2cd3cfa0882048be821f8e1533046eb742607",
+    ".research/2026-10-26-japan-crag-ishigakiyama.md": "1c9a64c2a30d47b842b9950f74cd4845183798ce836389daf237b1f154985b2e",
+    "src/content/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa.md": "4546e382fb9cef18420955b20d1ce124f4a781f37d2ce24525d0c7ac73f06e58",
+    "src/content/posts/climbing/2026-10-26-japan-crag-yoshitsune-iwa-en.md": "5cf6ec7059fc03836226a6b90a6d87164be1e94cc40b04552491e574c2f017b7",
+    ".research/2026-10-26-japan-crag-yoshitsune-iwa.md": "e1f6251209af9ca0f80336f029e921d2cd65c5b45a3bcba1841cd79472df285a",
+    "src/content/posts/climbing/2026-10-26-japan-crag-yamadera.md": "c9895a6a406c7be79b4ed20d9aba900240e5efb1b195aa259411c317e371ef5a",
+    "src/content/posts/climbing/2026-10-26-japan-crag-yamadera-en.md": "811cf554ad2906d620cc01bb27bac7beaeeefb017a52bf8527c57975e921cbbe",
+    ".research/2026-10-26-japan-crag-yamadera.md": "69fae83c1644bb32f58e2e3ba841da498f67a3f916ffae54e8931c3a3f28604c",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hyotan-cave.md": "f919b9eea283c343f25dd3d84aaedcd08eac82ec7b32afb05fa05970b455c2e8",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en.md": "d634fe22e1a27f923725fce174dcd66838e8558184ff198fd29d7b205f51f2e5",
+    ".research/2026-10-26-japan-crag-hyotan-cave.md": "79715c06c937bfbff8829db7c80296f3e3f09c93b0d70fdf4aaafd8a81a9e2ee",
+    "src/content/posts/climbing/2026-10-26-japan-crag-okura-boulders.md": "9f846d95170a3a3f4a4279eff9984894fd71a05bd09b14ad5f09fe791a0b1734",
+    "src/content/posts/climbing/2026-10-26-japan-crag-okura-boulders-en.md": "05f4392b9bc3d795afbfd9adfd75447b5bbb28e4b28e2bcac306455258574574",
+    ".research/2026-10-26-japan-crag-okura-boulders.md": "f08e639782a06a44fac1eb1cc4a559706a2ea26a5dadaf629b7386f71435854c",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shiobara.md": "e04aba87abab40e370b67abfe65e3cbca679c5009f29a0060a73672032b7e6bb",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shiobara-en.md": "0dab60ffd97b70e217f6db95dc5f146b17c7aef910a56a174fcb910b3115eae1",
+    ".research/2026-10-26-japan-crag-shiobara.md": "6dd66f8aee60f15419b582d6c65b8dfde5f55b052b82b9bae546932d5ba8d356",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kogashiyama.md": "74a895aa6030065ca64a4047fad7ad4194ac419a35d2fc536dddbefba81a6b13",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kogashiyama-en.md": "1e08e85333c05166577ca5970df0c03aabc7939a75b4600b7b741441e6c90281",
+    ".research/2026-10-26-japan-crag-kogashiyama.md": "52ab7876abfb141f2634c7bbe2111ff1be473427e2f636d6d9b3f8b2c27d0243",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kasama.md": "5331d0c331b667e702fb3e01ec19324bd14e296db8061a4191234605bedf60f9",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kasama-en.md": "839028dc07870fa2e7720007cd321186e8703c2b3bc9a37bf307846ced8f9d49",
+    ".research/2026-10-26-japan-crag-kasama.md": "916fc2c768446f8df966f424ac348ac1cc28c2c38f2711ae2eefd2769bdc7035",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama.md": "f5658a6c3a92cce965ca2938b2902d278e2c1f4c097b81c178991c99e8c63535",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ena-kasagiyama-en.md": "d2b2296f07e72f772ec2e0ba2af87c70b814a21d79538abda216b0f2b96a7b96",
+    ".research/2026-10-26-japan-crag-ena-kasagiyama.md": "17a60986c9d64aacea33b3457442983ae8c30560be53907695c105608e3ce5f4",
+    "src/content/posts/climbing/2026-10-26-japan-crag-fukube.md": "ccaa1912a215abc6686d95700869851f72ec7568d98b639bb135b580a67e91cd",
+    "src/content/posts/climbing/2026-10-26-japan-crag-fukube-en.md": "8c570daf4832602e42babcd4e0c07958139ab3e49c4b199fc25bd161960a9b75",
+    ".research/2026-10-26-japan-crag-fukube.md": "81197e34577589fa24cfde1eae94cc2d17afb2f83761c6e7f4b6c1ae8dd99c4d",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa.md": "d167cbf963d34d643eab7381797c2f0873d01d8bef62f8d1b2d564eb0ee495e9",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mizunami-byobuiwa-en.md": "29877e8492040c1d2d1a9e984c681a0fcdf4dc9e83ce4fc5601f9240b5325528",
+    ".research/2026-10-26-japan-crag-mizunami-byobuiwa.md": "c8cc26c456e197980d21a4addc5fd4a2baf40022d765839f5c74a8b80e480627",
+    "src/content/posts/climbing/2026-10-26-japan-crag-gozeniwa.md": "968caf0f7ebb4663d61c9aa82ab7929038902850cdbc58ba5049c640af6a7416",
+    "src/content/posts/climbing/2026-10-26-japan-crag-gozeniwa-en.md": "e19570d57410da48d6a0cf2ceaf8eb2e9b287fcc2a1cbccc27b29c92c3aafc90",
+    ".research/2026-10-26-japan-crag-gozeniwa.md": "fbae8f51cf9c2aa32d1de5358267a310b4aeab0eecec25b6d1400eb8dd3d75a3",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mitsutoge.md": "c1080f7927b2e9a8de3c530cd75fc7e7e022b184b1da70201c648a76b35b955f",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mitsutoge-en.md": "61ae8ffdb8674d850e751841bbaa94199ed38b620943d6672742820a88af57c7",
+    ".research/2026-10-26-japan-crag-mitsutoge.md": "ac0432aa8945c04f37d17e75f5eee35bc826da7be3a107980ce62579115ef84c",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa.md": "9fb008392eb62d10667931ef04e95e0ccd263ba043a54b9ea217b1119a10d588",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kofu-makuiwa-en.md": "2cf17dd3406b03eccaadcc2be367e5844238a49b1312ce171d4f0b3ce9340565",
+    ".research/2026-10-26-japan-crag-kofu-makuiwa.md": "dc671b1cab14a3d6707bf66a6a3476044091df1e1538a134cb1634fdecef77e8",
+    "src/content/posts/climbing/2026-10-26-japan-crag-tachiookayama.md": "b4324d78823a8f60a20680bca6472fa012731cdd8a6ddaab64d613ece932597f",
+    "src/content/posts/climbing/2026-10-26-japan-crag-tachiookayama-en.md": "db27a42124e20e7f492356732a4f2afafc094cc114e9526efd2a4a3ef4985d99",
+    ".research/2026-10-26-japan-crag-tachiookayama.md": "07ccb050c74363d968134d1bc4c8ef7dbadc3d706ada345858425b9867561efb",
+    "src/content/posts/climbing/2026-10-26-japan-crag-arigasayama.md": "82dc697b90d56cefca9c1d9b1bfe3641cb9d1b3b396b3ce7d71664bb213a55d9",
+    "src/content/posts/climbing/2026-10-26-japan-crag-arigasayama-en.md": "945ac0654727709f587b25899d01b0d528bbd48e917a0028c9ed785b1f9e3d7a",
+    ".research/2026-10-26-japan-crag-arigasayama.md": "80c49fd2429989e50c0fc8a4e44ff701f68d6be74a11b4b1001139a039762e77",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi.md": "9f4c0e0c6d4f9faa1347d8c1c4a1961e3f589c9f56e25719292a49646128df70",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi-en.md": "fda1d9e86756aa9baa2c54a5b58325c9da900d3a16d3d3285abe3b26d59f3b93",
+    ".research/2026-10-26-japan-crag-shiromyo-bashi.md": "8a2764a5018aeb3a48a1b8f26e2370abfe0e8722b5679542e91b06f9222bf003",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kawamata.md": "ff0d429b30d14100053061964ea923247908b7e43a65ae6c31aff7818ea33112",
+    "src/content/posts/climbing/2026-10-26-japan-crag-kawamata-en.md": "d5ceb7f5cb05ff5103afa4e3c89ca0f0174e5e9a5fa29f6cb387f57c1e2c7237",
+    ".research/2026-10-26-japan-crag-kawamata.md": "23e1dee7b5d06564f71f05c8d4a06f5903875f0fb77ed79259862daf28b2777a",
+    "src/content/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress.md": "ab4fd39a5325e680b65bd7844ece0bdb9851514b892403c612fe86e597bbdc83",
+    "src/content/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress-en.md": "38279872527fe369cd698d8145467219dd6209001464b69c4a9e433ea414d937",
+    ".research/2026-10-26-japan-crag-koshizawa-buttress.md": "17908eb82a5e190a5d5e3c01f5e2015740c8aad9d7754a61140e2a9bfd418d79",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mikuradake.md": "1a1e29d96b98fe871749a50b0a2cc800e2ddd23c5644b785a1a3005dc00d8b79",
+    "src/content/posts/climbing/2026-10-26-japan-crag-mikuradake-en.md": "73310b8372574a5bc89d1aaa91ea0aac2e811ed76e6712efb1ec4d5a204fba98",
+    ".research/2026-10-26-japan-crag-mikuradake.md": "fb31cb963727a7afbef06e7ee9e75cd7e42ea29b15d3cbef541d35dd21ef1356",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hieizan.md": "ff7419080f2aa8a9db3454ec66cb166fca03218daa121cae555417719b70f293",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hieizan-en.md": "cdf3be169ad1d7db1884e3bff6511846cfead7748f5eaeb0c4d85fc1ed347fdd",
+    ".research/2026-10-26-japan-crag-hieizan.md": "36ae63f39b83eb9089d6da2471808c310c7298d8afb33aa13ab13cf3fd12aa6a",
+    "src/content/posts/climbing/2026-10-26-japan-crag-gushichan.md": "1fe7a6d4482e7fa4ee63d181f1e6f1cffee49f807b83ea0d67d4ac7d790f3e73",
+    "src/content/posts/climbing/2026-10-26-japan-crag-gushichan-en.md": "e497e542c881a0e8a5eb190b8766e22fdcd559d5ae35a29f5ce8ad8082720cb2",
+    ".research/2026-10-26-japan-crag-gushichan.md": "ea65c7ee00aa16c4f5411477436e47d773974f0219fe08871555d7dca89776f1",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ojigatake.md": "5eb22039ed5dae60b7aa8a002a7b2c98e97053873ad90ba95121b76ae7077b7b",
+    "src/content/posts/climbing/2026-10-26-japan-crag-ojigatake-en.md": "8f7cc304af19aaefb1a8b76982a3bbd69d61ca7e7e957117e7e0182585933ba3",
+    ".research/2026-10-26-japan-crag-ojigatake.md": "d46b759e31d0ffb02a7ce665497299ac45fc0e850022c7ed2287dbce7ebe26fc",
+    "src/content/posts/climbing/2026-10-26-japan-crag-honjo.md": "aaed59622d6a15caed418e6896149c7b728faaa3613cf37b72a37a3fd0c77382",
+    "src/content/posts/climbing/2026-10-26-japan-crag-honjo-en.md": "d1b4cc530c96b6124bda86e52ba3fde65294dd7509df48e0fb8f80077d05b873",
+    ".research/2026-10-26-japan-crag-honjo.md": "81a7dcfdaf2da3c03334839f80992ffc88c2609aded6321f33d771d0876fd552",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hachimensan.md": "f949715a02e53abf20b0324d94c206b668c3a7728b92b8f7cc086f490709bf31",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hachimensan-en.md": "8b338b5a9dede1ebe894111d876f0ac51391a7a1e67b68b95069e6829a9f8c0a",
+    ".research/2026-10-26-japan-crag-hachimensan.md": "f1ca4c3b18d545b1cfe15e6f3539862f2a077e358def04a668d844a5e90acb4a",
+    "src/content/posts/climbing/2026-10-26-japan-crag-horuiiwa.md": "72cd6607bba9d6c91e81bdfe0d084225eb4e6e92be078003c8054267d9db97b3",
+    "src/content/posts/climbing/2026-10-26-japan-crag-horuiiwa-en.md": "79365f80cc088ab550906e3f1133c28d7e1dd5cb597b18b2ea043e9970faf837",
+    ".research/2026-10-26-japan-crag-horuiiwa.md": "e705b884bb6f2789ea74217e1cee12cf60f83ed182e384542c513329394c8391",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hiwasa.md": "c1fe9ee8b47676983b1adf6bbc8910e7bc43bab5117e88cc526d8d9178bf38d3",
+    "src/content/posts/climbing/2026-10-26-japan-crag-hiwasa-en.md": "fb304cbc79bfcf79f711c54597f9c0dd8c76888bb24ae41ab9dfddc194b357e8",
+    ".research/2026-10-26-japan-crag-hiwasa.md": "50b99af3c0779c93b39e5eb5c734e1b05366d12e763aa2d04530f5a0a0e2e3ff",
+    "src/content/posts/climbing/2026-10-26-japan-crag-nodake.md": "1afde1b64689957b2be6f4f2a1d54b2fc3fc18b9f1a8fb1b760f045d47572dec",
+    "src/content/posts/climbing/2026-10-26-japan-crag-nodake-en.md": "228577857e268f977aee6272234e15c5c087cbfb6135cd71e8e53db92eec9981",
+    ".research/2026-10-26-japan-crag-nodake.md": "8a19e2cbdbbbe4cbba49cf35300760de0dc39859068d3305f78591a28455f880",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shimane-peninsula.md": "cbef8ce2d239cd813a32a04b854064f99cf51653ebc0f513956622ea7803cb3f",
+    "src/content/posts/climbing/2026-10-26-japan-crag-shimane-peninsula-en.md": "6e8d4fae91e647635d00cc14911ee46ca93b4c47029eb9e2faa8571d0ecff665",
+    ".research/2026-10-26-japan-crag-shimane-peninsula.md": "752531e01a2a595983cd09deffc9677d1f978f64c180f1f22c9460a18a50e735",
+    "src/content/posts/climbing/2026-10-26-japan-crag-washizuyama.md": "012e328aa6acc2f38ef60dd20f3b43a3f62e82174fea88fe295f3acc0ae0507e",
+    "src/content/posts/climbing/2026-10-26-japan-crag-washizuyama-en.md": "bc44aa6cc7c019895a6d048b3fd6e883e54a74996fadfd73e3efb1042f97a691",
+    ".research/2026-10-26-japan-crag-washizuyama.md": "13e531226dd5d5a18ec2b58147b5867f7ac2f15cb187f775d3fbd350742a1dc9",
+    "src/content/posts/climbing/2026-10-26-japan-crag-nabari.md": "e21681e1897a7c74a2a025be738c089046253b43da00d3559d863b42fdd4868e",
+    "src/content/posts/climbing/2026-10-26-japan-crag-nabari-en.md": "b58782372f6c683629b9c2fcefad34b16d29108723c78265fcd9aea5f4900046",
+    ".research/2026-10-26-japan-crag-nabari.md": "ae1a76dade1190370100d55663a884f3c731d5f84ca8a828539c30ed2796728c",
+    "src/content/posts/climbing/2026-10-26-japan-crag-horai.md": "eb05b30402a6f28981d85a107d314675dc68c4e3758cd357887e13d150a01120",
+    "src/content/posts/climbing/2026-10-26-japan-crag-horai-en.md": "e62e70345af703a8b0e46d1be411c82fcba02dea936db4b328041854c918232d",
+    ".research/2026-10-26-japan-crag-horai.md": "b6aadcc0566711be808727ca028bb94f4a7e7d7c36b4416e4e4a2a3567e703d5",
+    ".work/japan-crags-expansion/north-videos.json": "21c8fbbd30b1518bbd60a05f289987edeee32afda2aa03b9fffbdf80e6a02372",
+    ".work/japan-crags-expansion/central-videos.json": "1733a43cbbbc5e8e6230e575f343cfea6a434bda3c8f462e901aef541a970945",
+    ".work/japan-crags-expansion/west-videos.json": "d6ba1ff570d50e68a9878db74dcf84c38620e6a33dad704ddd3f94e38ca30eac",
+    ".work/japan-crags-expansion/samples-videos.json": "82837ee9b7399c366763e17e59d468be2b5b5d2732e2f524e79507abe17d2cd4"
+  },
+  "unresolved_entities": [
+    {
+      "type": "channel-display-name",
+      "name": "",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "1040azumi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "2nd_723",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "360 butuchi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "500tatu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "50で山を始めた人の動画",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "5Gクライミング",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "6DME",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "710 fuji",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Atsu Ogu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "BOULDERING HOUSE 358杉本修平",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Bashi Ishibashi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Bouldering Gym REDPOINT",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Carving My Way - クライミング・沢登り&BCスキー",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ClimbR",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Climbing Channel (クライミングチャンネル)",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Climbing-zero Rocky",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Couzy Nakamura",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ECHOES climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Galapagos-Climber",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Go! Go! Mountain!!!",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Goto Y climb",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "HG-climbing-channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "HOMIE redbrick warehouse",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Hase Gess",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "HyakutaroT",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "IWASUKI U-KO",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Imax Megos",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "JapanBouldering",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Jimny yamamoto 登山チャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "JonnyClimbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Jun Shiba",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "KA2TA",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "KJBT8585",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "KMB channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "KameClimb",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Kaz5569",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Kazuki Taniguchi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Kohei0082",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "M. Tera",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "M. Yoshikawa",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "MASA-CHANNEL",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "MAZINGERーZ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Ma Ki",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "MadBoulder",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Mae Channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Mai Tsuji",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ManiacClimber",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Mt.サバイバル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "NAKA climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Niseko Climbers Channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Nissy Chin",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "North Ride.",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "OTKT Bones",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Ochiyuki",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "OtsuKatsuo",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "PikAru ・231",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "R SEKKY",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ROKDO",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Rei Kawamata",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Rin Climbing Channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Rock Life",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Rokuyon channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "SHOCHAFILM",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "SHUN 🇯🇵",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Sacchannel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Sei's Nature Study",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Shouhei Adachi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "SongJu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Susumu Kozuka",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "TeamJebisu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "The Climb",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "TheEishin8",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "TheKiteview",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Till@Climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "UPyou Douga",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "WAGAMAMA BODY マル枝",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Y dot us",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yama Fuwa",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yassy64",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yss",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yu0619 climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yuki Sato",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "Yuukich",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "aijirotenten",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "aki3rightandfast",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ani83ani",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "born_chicken",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "climb channel",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "d.higashiyama",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "daikon",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "eattae8048",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "elnadious",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "eworks01",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "fn161803398874989",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "gen ichi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hagimamazamasu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "halmy-climbing ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hama-san",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hamadura",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hara1632",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "harada kazuo",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hi-climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "higuling",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "hystrixxx",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ilchol",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "iwadanoboru",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "iwazaru Hase",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "junmomo99",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "k-uxa",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kakao 720",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kam zuma",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kanomor529",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kansetusyokunin",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kaoru Ka",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "katz sen",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kaz n",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kazu ma",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kenzi eguchi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "koji hasegawa",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kokkyou2002",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "kurekurajp",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "masaboul",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "mastertakk93",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "mojyao waka",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "muitimotubuppousou",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "nagoyashuhei",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "nobutake8848",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "noclimbnolife",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "noji isenomichi",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "nomuo.a",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "omi yama",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "orya ina (オリャー)",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "qzo amakin",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "seiji mashimo",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "shibarock48",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "shigezow43",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "shikahei",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "shinoji2001",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "shioshu",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "simizimi122",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "sportaba14a",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "takaryon",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "takashi A",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "takeshi yoshida",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "tara86178",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "tatsuo555-560",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "taz “tazhonda” honda",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "team 肥溜め",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "tetsumage",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "toshi.kita19",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "wanko wanko99",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "wankun75",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "yamada iwada",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "yoshi AK",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "yusaku_climbing",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "いせかずま",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "いっせーちゃんねる【攀じぱぱ】",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "えーじ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "かじまっちょ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "かぼたんチャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ぐんま太郎",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "しおP",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "しん",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "たにーたにー",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ちくごん -Chikugon Climbing Channel-",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ちゃこ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ちょっとずつ登る",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "てるさん",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "とも",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "とりちゃん　「四季を通した山あそび」",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "なぽチャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "なんか小さくてかわいくないやつ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "にゃー隊長のネコチャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "はっしーくらいむ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "はんにゃとましゅまろ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "へっぽこクライマー　マー君",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ぼんちゃん",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "まっつ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "みすたぁ【岩log】",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "めざせ500イレブン+",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ガチむりん",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "キキキー",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "クライミング日和です",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ゴブちゃんのクライミング日記",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "シマ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "タニエル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ベリーvery",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ヤマラボ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "ユウキミヤシタ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "九州起点の岩と渓谷 [ROCK and GORGE from JPN]",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "今日からきみは‼-にわかアルピニスト",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "北の掃除屋さん",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "古畑和音",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "塞翁が馬",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "富山クライマー",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "小樽登歩の会",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "小田桃花",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "尾川先生のスポーツクライミング解説チャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "山cancel界隈",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "山ちゃんねる",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "山のまこちゃんYamanoMakochan バックカントリーガイド 山岳ガイド",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "山梨移住夫婦の外岩日記",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "岩と沢チャンネル",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "崗の登攀日記",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "木村三郎",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "池田聖の自然研究",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "浦島太郎のクライマー",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "玉野市公式チャンネル【岡山県玉野市】",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "登るさぎこ",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "竹田遼",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "篠田明",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "隹",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    },
+    {
+      "type": "channel-display-name",
+      "name": "黒沢昌弘",
+      "reason": "Catalog display name only; no verified handle or UC ID in these inputs. No channel identity URL invented."
+    }
+  ],
+  "unrecorded_search_evidence": [
+    {
+      "tool": "Exa MCP / public yt-dlp author research",
+      "query": null,
+      "reason": "Author notes preserve bounded scopes and totals but this integration does not reconstruct external query strings, search ranks or result IDs. Only eleven exact pool-zero queries actually executed by the central worker are formally recorded."
+    }
+  ],
+  "limitations": [
+    "Every observation is partial, snippet or blocked; no full-source read status granted by registry ingestion.",
+    "Guidebook observations are publisher/catalog listings only; paid interiors and image-only topos are not represented as read.",
+    "Videos are metadata-only; no audiovisual review, live embed test or current route-condition inspection.",
+    "Operator portals with title-only extraction are identity snippets; Kan-etsu is not timetable evidence.",
+    "Article-only citations absent from Sources-opened are snippet adoption records, not newly verified original-source claims.",
+    "Known excluded Horai versions remain candidates, not selected videos.",
+    "No ecological turtle-habitat assertion is copied; coverage records describe reading scope, not a factual index."
+  ],
+  "baseline": {
+    "sources": 459,
+    "observations": 516,
+    "searches": 300
+  },
+  "source_count": 1170,
+  "observation_count": 1230,
+  "search_count": 11,
+  "added_source_count": 1170,
+  "added_observation_count": 1230,
+  "added_search_count": 11,
+  "final_pool_counts": {
+    "sources": 1629,
+    "observations": 1746,
+    "searches": 311
+  },
+  "existing_records_preserved": 1275,
+  "validation": "CLI check passed; every preexisting source/observation/search record remained JSON-identical by ID; repeated ingest dry-run adds zero."
+}

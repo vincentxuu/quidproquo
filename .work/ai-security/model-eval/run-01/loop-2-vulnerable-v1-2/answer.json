@@ -1,0 +1,6 @@
+{
+  "action": "finish",
+  "ticket_id": null,
+  "verdict": "vulnerable",
+  "reason": "As Alice, N-1 returned 200 with her ticket, establishing the normal baseline. N-2 also returned 200 with Bob's ticket text, \"North: laptop repair\", proving an owner-authorization violation. No further request is needed."
+}

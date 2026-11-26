@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 7 週導讀：attention 的直覺�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week7-transformers-speech-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week7-transformers-speech-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 7 週。上一週把 Transformer 當成黑盒子：前文進去，下一個 token 的機率分布出來。這一週打開它。
 

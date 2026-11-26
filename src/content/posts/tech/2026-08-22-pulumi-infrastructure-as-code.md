@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-pulumi-infrastructure-as-code-en)
+> :globe: [English version](/posts/tech/2026-08-22-pulumi-infrastructure-as-code-en)
 
 [Pulumi](https://www.pulumi.com/docs/iac/concepts/) 是以 TypeScript/JavaScript、Python、Go、C#、Java 或 YAML 定義 infrastructure 的 IaC 平台。程式由 language host 執行並註冊 resources，deployment engine 建 dependency graph，再由 providers 呼叫 cloud/SaaS APIs。
 

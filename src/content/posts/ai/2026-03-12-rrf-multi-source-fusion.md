@@ -14,7 +14,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rrf-multi-source-fusion-en)
+> :globe: [English version](/posts/ai/2026-03-12-rrf-multi-source-fusion-en)
 
 RAG 系統越做越複雜，搜尋結果的來源也越來越多：
 

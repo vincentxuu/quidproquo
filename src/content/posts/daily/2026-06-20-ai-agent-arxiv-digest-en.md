@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 <!-- [skip-harness] — English prose, not code -->
-> 🌏 [中文版](/posts/daily/2026-06-20-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-20-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -73,7 +73,7 @@ For agent platform developers, EinsteinArena demonstrates the "ROI of platform i
 - Main quantitative results (as of May 2026): agents collectively discovered **12 new SOTA results**, surpassing all prior human and AI solutions
 - Representative case: the lower bound for the Kissing Number problem in dimension 11 was raised from **593 to 604** — a major breakthrough after years of stagnation
 - Why math-only: verifiers can machine-check correctness; open-ended tasks lack precise verifiers and are currently out of scope
-- Framework implications: this architecture essentially adds a "shared episodic memory" layer outside the agent runtime. LangGraph currently lacks built-in cross-agent persistent knowledge sharing; EinsteinArena's design serves as a reference blueprint for similar infrastructure. ⚠️ (The paper focuses on scientific tasks; direct application to general-purpose agent platforms requires additional verifier mechanism design)
+- Framework implications: this architecture essentially adds a "shared episodic memory" layer outside the agent runtime. LangGraph currently lacks built-in cross-agent persistent knowledge sharing; EinsteinArena's design serves as a reference blueprint for similar infrastructure. :warning: (The paper focuses on scientific tasks; direct application to general-purpose agent platforms requires additional verifier mechanism design)
 - Adoption barrier: requires machine-verifiable success metrics; for scenarios where "success is hard to quantify" (e.g., customer service, content generation), extension requires additional design
 - Submitted: 2026-06-09; authors from Together AI and Stanford — credible academic + industry joint research
 
@@ -130,15 +130,15 @@ For LangGraph / AutoGen users: both frameworks support custom harnesses but lack
 
 - Self-Harness baseline (2025): evolving harness alone achieved **14-21% improvement** on Terminal-Bench-2.0; APEX adds L2+L3 on top
 - Implementation environment: NVIDIA Agent Challenge 2026; Joe = NVIDIA Nemotron + 15-node edge cluster management; **114 real tasks** (not synthetic)
-- Paper scale: 8 pages, 1 architecture diagram, 4 experiment tables — relatively short; limited experimental scale ⚠️ (114 tasks is small for statistical significance)
-- L2 principle distillation: pattern-mines reusable decision rules from success traces (specific algorithm details not fully described in public search results) ⚠️
-- L3 topology evolution: fitness-based selection among different division-of-labor structures, but search space size and strategy are unclear ⚠️
+- Paper scale: 8 pages, 1 architecture diagram, 4 experiment tables — relatively short; limited experimental scale :warning: (114 tasks is small for statistical significance)
+- L2 principle distillation: pattern-mines reusable decision rules from success traces (specific algorithm details not fully described in public search results) :warning:
+- L3 topology evolution: fitness-based selection among different division-of-labor structures, but search space size and strategy are unclear :warning:
 - Terminal-Bench connection: derived implementation Apex2 using Claude Sonnet 4.5 achieved **64.50% ± 1.77%** on the Terminal-Bench leaderboard, surpassing the previous SOTA Ante by 4.2 percentage points
 - Adoption barrier: requires structured success/failure traces; if your agent doesn't even have complete logging, L2/L3 evolution can't get started
 
 ### Reviewer's One-Line Take
 
-The three-layer evolution framework direction is right and genuinely fills the gap left by Self-Harness; but 114 tasks is a small experimental scale, and the individual contributions of L2 and L3 to final performance are unclear ⚠️ — currently closer to "interesting design proposal + preliminary validation" than "rigorous large-scale experimental conclusions."
+The three-layer evolution framework direction is right and genuinely fills the gap left by Self-Harness; but 114 tasks is a small experimental scale, and the individual contributions of L2 and L3 to final performance are unclear :warning: — currently closer to "interesting design proposal + preliminary validation" than "rigorous large-scale experimental conclusions."
 
 ### Your Take-Away
 
@@ -191,15 +191,15 @@ This pattern solves the "LLM quantitative hallucination" problem. The applicable
 - Evaluation scenario: US inflation persistence analysis (IS-LM class macro model) + Federal Reserve monetary policy scenario simulation
 - KG four node types: textual reports, time-series facts, model specifications, mathematical model outputs — forming a traceable reasoning chain
 - Core design principle: "model output is the source of truth; the LLM is a writer, not a calculator"
-- Single-author paper, more academic in nature, lacks large-scale quantitative evaluation or comparison with other agent systems ⚠️
+- Single-author paper, more academic in nature, lacks large-scale quantitative evaluation or comparison with other agent systems :warning:
 - Limitation: KG and econometric model library are manually constructed; how to automatically expand them is an open question, and migration to new domains is costly
 - Cross-domain application constraint: building KG + integrating formal computation models requires substantial domain engineering, redone for each new domain
 - Difference from existing RAG pipelines: not "search text → LLM interprets" but "search model specs → execute model → LLM interprets output" — an upgraded design pattern over existing RAG architectures
-- Author: Masahiro Kato (single author, institution not explicitly listed in public abstract) ⚠️
+- Author: Masahiro Kato (single author, institution not explicitly listed in public abstract) :warning:
 
 ### Reviewer's One-Line Take
 
-Clear design thinking that addresses a real pain point (LLM quantitative hallucination); but single author, no systematic comparison with other methods, and the KG is manually built ⚠️ — this reads more like a polished system design proposal, suitable as a domain agent architecture reference, but with limited conclusive evidence.
+Clear design thinking that addresses a real pain point (LLM quantitative hallucination); but single author, no systematic comparison with other methods, and the KG is manually built :warning: — this reads more like a polished system design proposal, suitable as a domain agent architecture reference, but with limited conclusive evidence.
 
 ### Your Take-Away
 

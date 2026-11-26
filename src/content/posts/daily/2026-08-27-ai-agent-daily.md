@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-27-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-27-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -81,15 +81,15 @@ Runable 完成 $21M Series A，把「建置網站／App」和「接手日常成�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0)
-- 📄 [融資速報｜Runable Series A $21M](/posts/daily/2026-08-27-funding-runable)
-- 📄 [定價追蹤｜Google Gemini Enterprise Flexible Billing](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing)
-- 📄 [資安警報｜LangGraph Checkpointer Post-Injection RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)
-- 📄 [工具推薦｜pgbot](/posts/daily/2026-08-27-tool-pgbot)
-- 📄 [AI Engineer 面試日練 — LLM & Agent Engineering](/posts/daily/2026-08-27-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — AI Product Design](/posts/daily/2026-08-27-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-27](/posts/daily/2026-08-27-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.62.0](/posts/daily/2026-08-27-framework-mastra-1.62.0)
+- :file: [融資速報｜Runable Series A $21M](/posts/daily/2026-08-27-funding-runable)
+- :file: [定價追蹤｜Google Gemini Enterprise Flexible Billing](/posts/daily/2026-08-27-pricing-google-gemini-enterprise-flexible-billing)
+- :file: [資安警報｜LangGraph Checkpointer Post-Injection RCE](/posts/daily/2026-08-27-security-langgraph-checkpointer-post-injection-rce)
+- :file: [工具推薦｜pgbot](/posts/daily/2026-08-27-tool-pgbot)
+- :file: [AI Engineer 面試日練 — LLM & Agent Engineering](/posts/daily/2026-08-27-ai-interview-daily)
+- :file: [Product Builder 面試日練 — AI Product Design](/posts/daily/2026-08-27-product-builder-interview-daily)
 
 ## 明日關注
 

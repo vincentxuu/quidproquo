@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 10: why anchor text hel
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week10-pagerank-networks)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week10-pagerank-networks)
 
 This is the last week of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). Earlier weeks worked with text, sound and ratings. This week's data is **links**: which page links to which, and who knows whom.
 

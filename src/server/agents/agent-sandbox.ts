@@ -9,6 +9,10 @@ type OutboundHandler = (request: Request, env: SandboxEnv) => Promise<Response>
 
 export class AgentSandbox extends Sandbox<SandboxEnv> {}
 
+// The Sandbox SDK routes container traffic through this WorkerEntrypoint and
+// resolves it from ctx.exports, so the Worker entrypoint must export it too.
+export { ContainerProxy } from '@cloudflare/sandbox'
+
 const outboundByHost: Record<string, OutboundHandler> = {
   'r2.artifacts': async (request, env) => {
     const key = decodeURIComponent(new URL(request.url).pathname.slice(1))

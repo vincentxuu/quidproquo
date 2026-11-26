@@ -5,12 +5,12 @@ type: guide
 category: tech
 tags: [nvidia, dgx-spark, gpu, ai-hardware, blackwell, edge-ai, llm]
 lang: en
-tldr: "The NVIDIA DGX Spark is powered by the GB10 Grace Blackwell Superchip, 128 GB of unified memory, and delivers 1 petaFLOP of FP4 compute — starting at around $3,999 USD. It lets developers run 200B-parameter models locally and fine-tune 70B models, making it the most accessible NVIDIA AI development platform available today."
+tldr: "The NVIDIA DGX Spark is powered by the GB10 Grace Blackwell Superchip, 128 GB of unified memory, and delivers 1 petaFLOP of FP4 compute — listed at $6,950 USD (4 TB) on the NVIDIA Marketplace. It lets developers run 200B-parameter models locally and fine-tune 70B models, making it the most accessible NVIDIA AI development platform available today."
 description: "The NVIDIA DGX Spark is a desktop AI computer built around the Grace Blackwell Superchip, delivering 1 petaFLOP of compute in a compact form factor. This post covers its specs, positioning, how it compares to the DGX Station, and which use cases it's best suited for."
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-02-nvidia-dgx-spark-intro)
+:globe: [中文版](/posts/tech/2026-04-02-nvidia-dgx-spark-intro)
 
 ## What Is the DGX Spark?
 
@@ -59,7 +59,8 @@ DGX Spark pricing has evolved since its announcement:
 - **GTC 2025 announcement**: $3,000 USD (as Project DIGITS)
 - **October 2025 general availability**: Founders Edition at $3,999 USD
 - **February 2026 price increase**: $4,699 USD (NVIDIA cited tight supply of 128 GB LPDDR5x)
-- **OEM versions**: ASUS Ascent GX10 starting at ~$3,000 USD (1 TB storage)
+- **A further increase since**: $6,950 USD (128 GB / 4 TB) on the [NVIDIA Marketplace](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/) as of 2026-11
+- **OEM versions**: on the same page, ASUS Ascent GX10 at $5,999 (1 TB) and $7,999 (4 TB); a 64 GB variant is sold only through OEMs (ASUS GX10 64 GB at $5,599)
 
 Beyond NVIDIA's own offering, OEM partners including Acer, ASUS, Dell, GIGABYTE, HP, Lenovo, and MSI have all released their own versions.
 
@@ -71,13 +72,13 @@ If you're trying to decide between the DGX Spark and DGX Station, here's the key
 |---|---|---|
 | Chip | GB10 Grace Blackwell | GB300 Grace Blackwell Ultra |
 | AI Compute | 1 petaFLOP | 20 petaFLOP |
-| Memory | 128 GB unified memory | 784 GB (288 GB HBM3e + 496 GB LPDDR5X) |
+| Memory | 128 GB unified memory | 748 GB coherent memory |
 | Memory Bandwidth | 273 GB/s | 8 TB/s (GPU) + 396 GB/s (CPU) |
 | Max Model Size | 200B (single node) / 405B (dual node) | 1T parameters |
 | Multi-user | Single user | MIG up to 7 partitions |
 | Networking | 10GbE ConnectX-7 | 800 Gb/s ConnectX-8 SuperNIC |
 | Form Factor | NUC-sized (1.2 kg) | Tower workstation |
-| Price | ~$3,999–$4,699 | Estimated five-figure USD |
+| Price | $6,950 (Marketplace, 2026-11) | Estimated five-figure USD |
 
 **Bottom line**: The DGX Spark is for individual developers and small teams; the DGX Station is a lab- or enterprise-grade machine — 20× the compute, 6× the memory, and a price tag in a completely different league.
 
@@ -95,13 +96,19 @@ If you're currently running llama.cpp on a Mac Studio, or running models locally
 
 ## Summary
 
-The DGX Spark represents a broader trend: **the democratization of AI compute**. Not long ago, your options for running large models were either renting cloud GPUs or spending hundreds of thousands on a workstation. Now, for under $5,000 USD, you can put a machine capable of running 200B-parameter models on your desk.
+The DGX Spark represents a broader trend: **the democratization of AI compute**. Not long ago, your options for running large models were either renting cloud GPUs or spending hundreds of thousands on a workstation. Now, for around $7,000 USD, you can put a machine capable of running 200B-parameter models on your desk.
 
 It's not perfect — the 273 GB/s memory bandwidth is a bottleneck, the memory isn't upgradeable, and training capabilities are limited. But as a local inference and fine-tuning development machine, the DGX Spark has carved out a precise and well-defined niche in the 2025–2026 AI hardware market.
+
+## Update Log
+
+- 2026-11-23: Price updated to the current NVIDIA Marketplace $6,950 (previously “from $3,999” and $4,699); added current OEM prices and the 64 GB variant; DGX Station memory corrected to 748 GB per the official product page.
 
 ## References
 
 - [NVIDIA DGX Spark Official Product Page](https://www.nvidia.com/en-us/products/workstations/dgx-spark/)
+- [NVIDIA Marketplace — Personal AI Supercomputers](https://marketplace.nvidia.com/en-us/enterprise/personal-ai-supercomputers/)
+- [NVIDIA DGX Station Official Product Page](https://www.nvidia.com/en-us/products/workstations/dgx-station/)
 - [NVIDIA Newsroom — DGX Spark Arrives for World's AI Developers](https://nvidianews.nvidia.com/news/nvidia-dgx-spark-arrives-for-worlds-ai-developers)
 - [NVIDIA Blog — DGX Spark and DGX Station Power Open-Source and Frontier Models](https://blogs.nvidia.com/blog/dgx-spark-and-station-open-source-frontier-models/)
 - [NVIDIA DGX Spark Hardware Specifications](https://docs.nvidia.com/dgx/dgx-spark/hardware.html)

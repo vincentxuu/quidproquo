@@ -19,7 +19,7 @@ glossary:
     context: "This article uses rubric design to reduce variance in subjective scoring."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
+> :globe: [中文版](/posts/ai/2026-06-04-agent-change-rigorous-evaluation)
 
 After tweaking a prompt, swapping a model, or changing knowledge base parameters, the most common way people validate is "ask a few questions before and after and see which one feels better." The problem is this approach will almost certainly fool you. This article lays out a practical methodology: how to build a test set, how to use an LLM as a judge without being misled by its biases, how to use statistics to determine whether differences are real, and what RAG systems specifically need to measure. The core idea fits in one sentence -- rigor = controlled variables + frozen baseline + sufficient samples + repeated sampling to suppress variance + statistical testing.
 

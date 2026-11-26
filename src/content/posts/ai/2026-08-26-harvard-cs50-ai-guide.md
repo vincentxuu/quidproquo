@@ -13,7 +13,7 @@ description: "Harvard CS50's Introduction to Artificial Intelligence with Python
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en)
+> :globe: [English version](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en)
 
 **影片狀態：已附影片。** 片長 1:53，是官方播放清單的第 1 支：課程的導論短片，預告七週的主題。它不是任何一週的講課，沒有字幕軌，本文依機器轉錄的逐字稿轉述；七週的講課錄影各自嵌在各週導讀，每一節附時間連結。[影片來源與說明](#課程影片來源)
 

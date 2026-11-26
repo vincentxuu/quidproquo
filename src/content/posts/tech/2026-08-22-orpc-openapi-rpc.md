@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-orpc-openapi-rpc-en)
+> :globe: [English version](/posts/tech/2026-08-22-orpc-openapi-rpc-en)
 
 [oRPC](https://orpc.dev/) 想解掉 TypeScript API 常見的二選一：內部開發想要像 function call 的 end-to-end type safety，對外又想保留標準 HTTP path、OpenAPI 文件與跨語言 client。它讓同一組 procedure 可走 RPCHandler，也可走 OpenAPIHandler。
 
@@ -63,13 +63,17 @@ oRPC router 是可巢狀的普通物件，也支援 lazy loading 以改善大型
 
 ## 跟 tRPC、ts-rest 怎麼分
 
-tRPC 的核心優勢是 server router type 直接流向 client，成熟度與生態最大；其官方 OpenAPI 目前仍是 alpha。ts-rest 以普通 REST contract 為中心，概念小、能逐步接到既有 framework。oRPC 則把 RPC、OpenAPI、native types、streaming 與多 runtime 放進同一套較完整的 framework。
+tRPC 的核心優勢是 server router type 直接流向 client，成熟度與生態最大；其官方 OpenAPI 目前仍是 alpha。ts-rest 以普通 REST contract 為中心，概念小、能逐步接到既有 framework，但已在 2026-10 宣布停止維護，不再有 bug 與安全修補。oRPC 則把 RPC、OpenAPI、native types、streaming 與多 runtime 放進同一套較完整的 framework。
 
 這個完整度也意味著要治理更多 surface：RPC client 與 OpenAPI client 是否都支援、哪一個是 canonical、serializer 如何版本化、procedure rename 是否同時改 path。今晚可做的動作是挑一條含 error 與 Date 的 route，同時用 RPCLink、curl 與 generated OpenAPI client 跑 contract test。
 
 ## 什麼時候選 oRPC
 
-同一個 TypeScript backend 同時服務自家前端、外部整合與 AI tool，而且希望只維護一份 procedure，oRPC 的定位很準。若只在單一 monorepo 追求最短 DX，tRPC 較成熟；若只要薄薄的 REST contract layer，ts-rest 較容易理解。選 oRPC 時，應把 OpenAPI artifact 納入 CI，而不是只信 inference。
+同一個 TypeScript backend 同時服務自家前端、外部整合與 AI tool，而且希望只維護一份 procedure，oRPC 的定位很準。若只在單一 monorepo 追求最短 DX，tRPC 較成熟；原本只要薄薄的 REST contract layer 會選 ts-rest，它停止維護後，oRPC 的 contract-first 是最接近的替代。選 oRPC 時，應把 OpenAPI artifact 納入 CI，而不是只信 inference。
+
+## 更新紀錄
+
+- 2026-11-23：ts-rest 在 2026-10 停止維護，比較段改註明這點，並把「只要薄 REST contract layer」的建議改為 oRPC contract-first。
 
 ## 參考資料
 

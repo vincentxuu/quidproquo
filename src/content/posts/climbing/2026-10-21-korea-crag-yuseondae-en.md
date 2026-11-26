@@ -13,7 +13,7 @@ description: "Yuseondae climbing guide: compare route grades and versions, plan 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-yuseondae)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-yuseondae)
 
 Yuseondae (유선대, also Yoosun-Dae or Youseon-dae) rises above Biseondae in the same approach area as Janggunbong. The first question is what you want from the day: ridge travel with broad Seoraksan views, or more time climbing cracks and slabs?
 

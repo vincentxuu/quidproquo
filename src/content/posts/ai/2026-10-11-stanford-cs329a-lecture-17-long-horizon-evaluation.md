@@ -13,7 +13,7 @@ tldr: "人類任務時長、成品品質與引用支持率回答不同問題；�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-17-long-horizon-evaluation-en)
 
 **影片狀態：已附影片。** 官方錄影文字轉錄已取得；字幕類型、原音回聽與跟讀播放器尚待核對。
 

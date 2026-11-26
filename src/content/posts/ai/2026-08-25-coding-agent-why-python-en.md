@@ -13,7 +13,7 @@ description: "Using source-code evidence from five mature coding agents, an engi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-why-python)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-why-python)
 
 ## The Design Question
 

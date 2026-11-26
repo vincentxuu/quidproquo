@@ -13,7 +13,7 @@ tldr: "Laskin's view is that engineers spend 80% of their time understanding sys
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems)
+> :globe: [中文版](/posts/ai/2026-10-13-cs329a-session-18-autonomous-agentic-systems)
 
 Earlier sessions covered methods: how to generate more candidates, how to verify, how to write feedback back into weights. Where do people get stuck when they build products with those methods? Session 18 of [CS329A](https://cs329a.stanford.edu/) Autumn 2025 was a guest lecture by Misha Laskin, CEO of [Reflection AI](https://reflection.ai/), titled "Building Agentic Systems for Autonomy: Lessons & Open questions." After reading this guide you should be able to say which piece he thinks coding agents lack, why he calls the field reward-bound, and which category a task's reward signal falls into. Prerequisites: reinforcement learning adjusts behavior with rewards, and LLM-as-judge means asking a model to grade.
 

@@ -10,7 +10,7 @@ description: "A complete guide to SearXNG's query flow, Compose installation, se
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-searxng-complete-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-searxng-complete-guide)
 
 [SearXNG](https://docs.searxng.org/) is a metasearch engine: it sends one question to multiple search services and merges their results. It does not build its own web-wide index, open result pages, execute JavaScript, or extract full text. For an agent, it solves “find the URLs first,” not “read everything behind those URLs.”
 

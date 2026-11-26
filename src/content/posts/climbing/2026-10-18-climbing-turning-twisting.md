@@ -34,7 +34,7 @@ glossary:
     context: "台灣沒有固定譯名，「擰身」是本文的譯法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-turning-twisting-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-turning-twisting-en)
 
 垂直牆你已經爬得不錯，一到前傾牆就不行：每次出手都得用手臂硬拉，身體還會往外甩。教練看了一眼說「側過來」，你轉了，卻不知道該轉哪邊、腳該怎麼踩。
 

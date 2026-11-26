@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-tui-cli-ergonomics-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-tui-cli-ergonomics-en)
 
 打開 Looplane，使用者先碰到的是終端機介面。你會在這裡輸入任務、選 runtime、看模型思考與工具執行，需要時核准動作，最後拿到成功或失敗的結果。這篇只追這層可見互動。prompt、workspace、tool policy、journal 與 provider protocol 都留給後續專篇。
 

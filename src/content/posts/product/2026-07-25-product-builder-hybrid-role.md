@@ -85,7 +85,7 @@ faq:
 draft: false
 ---
 
-🌏 [English version](/posts/product/2026-07-25-product-builder-hybrid-role-en)
+:globe: [English version](/posts/product/2026-07-25-product-builder-hybrid-role-en)
 
 Anthropic 的 Boris Cherny（Claude Code 的創造者）說了一句話：
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-subagent-scheduling)把修改權留給 parent。另一個 Python app 或 editor 想操作 [Looplane](https://github.com/vincentxuu/looplane) 時，還有一層 ownership 要先分清楚。SDK 提供哪些 contract、controller 擁有哪一段 lifecycle，WebSocket 又到底 attach 到什麼？
 

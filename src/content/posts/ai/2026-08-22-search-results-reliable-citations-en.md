@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-search-results-reliable-citations)
+> :globe: [中文版](/posts/ai/2026-08-22-search-results-reliable-citations)
 
 Ten URLs from a search API do not give you ten sources. One article may appear three times with different tracking parameters, then be syndicated by a portal and copied by three content farms. Seven URLs can still be one story. Worse, genuinely different URLs do not necessarily support the sentence beside which they are cited.
 

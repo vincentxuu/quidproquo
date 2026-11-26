@@ -20,6 +20,7 @@ description: Convert a conversation, notes, or experience into a structured Mark
 | 「寫成文章」「記錄一下」「write post」 | `templates/tech-post.md` | 踩坑 / 問題解決 |
 | 「寫成介紹文」「寫成深入介紹」「deep dive」 | `templates/tech-deep-dive.md` | 工具 / 技術 / 架構介紹 |
 | 「模型家族介紹」「新增模型家族」 | `templates/model-family.md` | 家族主篇（先讀專用規格） |
+| 「岩場介紹」「寫一個岩場」 | `templates/crag-guide.md`（英文 `crag-guide-en.md`） | 單一岩場／岩區導覽（先讀專用規格） |
 | 其他分類 | `templates/general-post.md` | 自由結構 |
 
 ## 支援的分類
@@ -69,7 +70,11 @@ description: Convert a conversation, notes, or experience into a structured Mark
 
 課程總覽、單堂／跨堂、作業、週次文章，動筆前直接讀 `references/course-guide-contract.md`，把範圍卡存到 `.work/`。按文章角色對齊學習目標、正文例子與自我檢查；中文完整標題採「主題｜課程 第 N 堂」，英文用 Lecture N，不從 series.order 推原課堂次。教學重寫完成前依規格列正文證據，無例子／無判準則修正文，不靠 verify 綠宣稱教學完成。
 
-岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
+書籍導讀（導讀一本書或書中一章，含閱讀地圖類系列）動筆前讀 `references/book-guide-contract.md`：每篇先把事件或論點本身講完，再談作者寫法與後來的修正；規劃用語（L1、order、回扣）、抽象標籤與固定標籤 H2 不進正文；交稿前做只給正文的冷讀。
+
+岩場／岩區導覽（〈日本岩場〉〈義大利岩場〉這類單篇與總覽）動筆前讀 `references/crag-guide-contract.md`，單篇用 `templates/crag-guide.md`、英文版用 `templates/crag-guide-en.md`（以仁壽峰中英兩篇為範本）：固定 H2、依程度分級路線表、`scripts/climbing-grade-convert.mjs --check` 換算、封閉類事實的一手來源要求。
+
+攀岩器材與保護系統文章（繩子、確保器、鉤環、吊帶、頭盔、岩楔／cam、固定點、bolt、確保、檢查汰換）預設補實測影片：先找 HowNOT2 與 Hard Is Easy，每篇 3–5 支嵌在對應段落、文末加頻道介紹。研究前先定日期門檻（評測、影片、價格預設只收 2024 年以後）、先用 `scripts/yt-candidates.mjs` 掃頻道清單再用關鍵字補漏；挑片、查證、雜訊排除、限制寫法與標準稿見 `references/climbing-gear-videos.md`。
 
 ### 1b. 多來源導讀與英文練習
 
@@ -94,7 +99,7 @@ Podcast 採「原音＋逐字稿練習」：提供官方音訊入口、經核對
 - **對象**：前三段要讓沒接觸過的人知道它是什麼
 - **主脊**：按判決／按部件／按時間／按論證——選一個
 - **動作**：每個建議都要能寫出一句今晚就能做的動作
-- **圖解**（不限字數，短文也要想）：有多步驟流程、分支決策、元件關係、定位比較、層級或時間順序的內容，規劃 1–3 張圖，不要全部塞成文字段落。**先跑 `../diagram/SKILL.md` 選圖型**（架構、流程、循序、狀態機、時間軸、泳道、象限、分層、韋恩、金字塔、樹狀、巢狀、循環、前後對照、比較矩陣），圖型要配合內容，不要每篇都是同一種方框箭頭圖。逐步請求流程可用 `flow-diagram`（`references/writing-guide.md#逐步動畫流程圖flow-diagram`），節點很多的依賴圖可用 mermaid（`references/writing-guide.md#圖解mermaid`）
+- **圖解**（不限字數，短文也要想）：有多步驟流程、分支決策、元件關係、定位比較、層級或時間順序的內容，規劃 1–3 張圖，不要全部塞成文字段落。**先跑 `../diagram/SKILL.md` 選圖型**（架構、流程、循序、狀態機、時間軸、泳道、象限、分層、韋恩、金字塔、樹狀、巢狀、循環、前後對照、比較矩陣），圖型要配合內容，不要每篇都是同一種方框箭頭圖。逐步請求流程可用 `flow-diagram`（`references/writing-guide.md#逐步動畫流程圖flow-diagram`），節點很多的依賴圖可用 mermaid（`references/writing-guide.md#mermaid只留給大型依賴圖`）
 - **影片**：來源是 YouTube 影片時，用 `youtube` fence 嵌入（格式見 `references/writing-guide.md#影片嵌入youtube`），中英版各一次
 
 寫的當下遵守：每個主張最多一個數字、引述只在原話比轉述更有力時用、但書不堆疊、不替來源加上它沒有的主張。
@@ -108,8 +113,9 @@ Podcast 採「原音＋逐字稿練習」：提供官方音訊入口、經核對
 | 路徑 | `YYYY-MM-DD-<slug>.md` | `YYYY-MM-DD-<slug>-en.md` |
 | `lang` | `zh-TW` | `en` |
 | `title` / `tldr` / `description` | 中文 | 自然英文（不是機翻） |
-| 跨語言連結 | `> 🌏 [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> 🌏 [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
+| 跨語言連結 | `> :globe: [English version](/posts/<category>/YYYY-MM-DD-<slug>-en)` | `> :globe: [中文版](/posts/<category>/YYYY-MM-DD-<slug>)` |
 | 其餘 frontmatter | 相同 | 相同；系列顯示名稱依已登錄的語言名，模型家族按專用規格 |
+| `tldr` 注意 | 前端不會把 frontmatter 當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等語法；建議 1–2 句話，只講最核心的一個重點 | 同上 |
 
 英文版規則：
 - code block 不動（只翻中文註解）
@@ -184,4 +190,4 @@ git commit -m "post(<category>): <title summary>"
 - 寫作風格：`references/writing-guide.md`
 - frontmatter schema：`references/frontmatter-schema.md`
 - 反合理化清單：`references/anti-shortcuts.md`
-- 模板：`templates/tech-post.md`、`templates/tech-deep-dive.md`、`templates/general-post.md`
+- 模板：`templates/tech-post.md`、`templates/tech-deep-dive.md`、`templates/general-post.md`、`templates/crag-guide.md`、`templates/crag-guide-en.md`

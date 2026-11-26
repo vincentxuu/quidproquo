@@ -14,7 +14,7 @@ description: "Entry point for the series on NTU Professor Hung-yi Lee's Machine 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-course-overview)
 
 **Video status: Videos included.** The intro embeds the course introduction (27 minutes); each lecture's recording is in its own post. [Source details](#course-video-sources)
 

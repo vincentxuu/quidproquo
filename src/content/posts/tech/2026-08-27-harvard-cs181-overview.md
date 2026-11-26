@@ -13,11 +13,11 @@ description: "Harvard CS1810 2026/2025/2024/2023 四屆對照：授課、先修�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-27-harvard-cs181-overview-en)
+> :globe: [English version](/posts/tech/2026-08-27-harvard-cs181-overview-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。2026 課站嵌入的 [Google Sheet 課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 可匿名匯出（2026-09-29 確認），本系列以 `hw 編號` 為週節拍、課表講題為篇內順序。
+> :warning: **版本**：2026 以 [CS181 2026 課程站](https://harvard-ml-courses.github.io/cs181-web/) 與 [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks) 為主；2025/2024/2023 以 `cs181-web-2025/2024/2023` 與 `cs181-s25/s24/s23-homeworks` 對照。2026 課站嵌入的 [Google Sheet 課表](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 可匿名匯出（2026-09-29 確認），本系列以 `hw 編號` 為週節拍、課表講題為篇內順序。
 
 ## TL;DR
 
@@ -100,7 +100,7 @@ draft: false
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 參考資料
 
@@ -124,3 +124,4 @@ draft: false
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
 - **2026-09-29**：系列擴充到 order 0–15，新增「系列文章一覽」與限制清單；依 2026 課表與各份 `.tex` 補上 HW1–HW6 截止日、題目與考試日期；更正「Google Sheet 課表已刪」與「2026 section 未公開」的舊說法。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。

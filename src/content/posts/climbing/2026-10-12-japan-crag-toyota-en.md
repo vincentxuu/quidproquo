@@ -13,7 +13,7 @@ description: "A guide to the Toyota crags in Aichi, Japan: granite bouldering sc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-toyota)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-toyota)
 
 Toyota (豊田, とよだ) is not one crag. It is the umbrella name for more than ten rock areas scattered across the hills east of Toyota City in Aichi Prefecture. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E8%B1%8A%E7%94%B0/) (in Japanese) puts it this way: "豊田市中心部より5、6キロほど東の丘陵地帯に点在する10数箇所の岩場を総称して『豊田の岩場』として語られることが通例である" — the dozen-plus crags 5–6 km east of the city centre are conventionally lumped together as "the Toyota crags." The rock is granite, the style is mostly bouldering, and a few of the big boulders carry bolted and crack routes. The heart of it is Komiyama (古美山), at the top of the Otaki Gorge (王滝渓谷).
 

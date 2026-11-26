@@ -13,7 +13,7 @@ description: "Gunung Lang climbing guide: getting there from the Ipoh old town, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-gunung-lang)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-gunung-lang)
 
 If your itinerary is in [Ipoh](https://www.thecrag.com/en/climbing/malaysia/area/1968666222) and you want half a day of short routes without a long drive, Gunung Lang is the closest thing the country has to a city crag: 3 km by Grab from the old town, and a 20 m limestone wall behind a gate. The catch is the large puddles at the base of most climbs, land that is private but freely accessible, and fixed points you have to check yourself. This guide helps you judge whether it deserves a slot in your plan, how to reach it from the old town, and how to time an afternoon session.
 

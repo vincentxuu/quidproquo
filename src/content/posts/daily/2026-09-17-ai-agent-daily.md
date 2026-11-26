@@ -12,7 +12,7 @@ series:
   order: 33
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-17-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-17-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -150,17 +150,17 @@ Tenable 共同執行長指出澳洲企業普遍不清楚自己部署了多少 AI
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-17](/posts/daily/2026-09-17-ai-interview-daily)
-- 📄 [框架更新｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10)
-- 📄 [框架更新｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0)
-- 📄 [融資速報｜Factory $200M，估值 $5B](/posts/daily/2026-09-17-funding-factory)
-- 📄 [融資速報｜Profound Series D $180M](/posts/daily/2026-09-17-funding-profound)
-- 📄 [定價追蹤｜OpenAI GPT-5.5 退場](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement)
-- 📄 [Product Builder 面試日練 — 2026-09-17](/posts/daily/2026-09-17-product-builder-interview-daily)
-- 📄 [資安警報｜BragJack 瀏覽器 AI Agent 劫持](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack)
-- 📄 [工具推薦｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool)
+- :file: [AI Agent Arxiv Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-17](/posts/daily/2026-09-17-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-17](/posts/daily/2026-09-17-ai-interview-daily)
+- :file: [框架更新｜Agno v3.0.10](/posts/daily/2026-09-17-framework-agno-3.0.10)
+- :file: [框架更新｜Mastra @mastra/core@1.67.0](/posts/daily/2026-09-17-framework-mastra-1.67.0)
+- :file: [融資速報｜Factory $200M，估值 $5B](/posts/daily/2026-09-17-funding-factory)
+- :file: [融資速報｜Profound Series D $180M](/posts/daily/2026-09-17-funding-profound)
+- :file: [定價追蹤｜OpenAI GPT-5.5 退場](/posts/daily/2026-09-17-pricing-openai-gpt-5-5-retirement)
+- :file: [Product Builder 面試日練 — 2026-09-17](/posts/daily/2026-09-17-product-builder-interview-daily)
+- :file: [資安警報｜BragJack 瀏覽器 AI Agent 劫持](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack)
+- :file: [工具推薦｜symfony/ai-mcp-tool](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool)
 
 ## 明日關注
 

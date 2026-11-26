@@ -10,7 +10,7 @@ description: "An overview of FlexJobs, Wellfound, We Work Remotely, Remote OK, R
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-08-22-remote-work-platforms-beyond-upwork)
+> :globe: [中文版](/posts/career/2026-08-22-remote-work-platforms-beyond-upwork)
 
 When people want to find remote work abroad, most head straight to [Upwork](https://www.upwork.com/) or [Fiverr](https://www.fiverr.com/). The problem isn't that these platforms are bad — they're just crowded. Millions of freelancers compete for the same gigs, prices get driven to the bottom, and newcomers can't get reviews without jobs, and can't get jobs without reviews.
 

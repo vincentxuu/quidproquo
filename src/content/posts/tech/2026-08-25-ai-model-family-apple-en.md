@@ -25,7 +25,7 @@ glossary:
     definition: "Apple's native Swift API for on-device and PCC cloud models, with guided generation, tool calling, and third-party model integration through one interface."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-ai-model-family-apple)
+> :globe: [中文版](/posts/tech/2026-08-25-ai-model-family-apple)
 
 In June 2024, Apple introduced Apple Intelligence at WWDC 2024. Underneath were two in-house foundation models: a 3B model running on phones and another on Apple's cloud. Two years later, the AFM 3 family had expanded to five models. AFM 3 Core Advanced runs a sparse 20B-parameter architecture on the iPhone while activating only 1–4B parameters per request. The strongest model, AFM 3 Cloud Pro, runs on NVIDIA GPUs in Google Cloud and is refined through Gemini distillation. This is the eleventh family deep dive in the “AI Model Families” series, tracing Apple's complete evolution from the original AFM to AFM 3.
 

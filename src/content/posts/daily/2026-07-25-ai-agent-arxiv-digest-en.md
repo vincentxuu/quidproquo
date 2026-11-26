@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 62
 ---
-> 🌏 [中文版](/posts/daily/2026-07-25-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -79,8 +79,8 @@ For agent-platform builders, this model could drastically reduce the friction fr
 - **`...` methods are the core innovation**: Python's Ellipsis literal serves as a semantic marker for "hand off to the LLM" — intuitive and fully compatible with existing Python syntax
 - **Composability**: an OO Agent can hold another OO Agent as a field, letting multi-agent hierarchies map naturally to Python's object composition
 - **Testability-first**: because agents are standard Python objects, mocking the LLM enables direct unit testing — something very hard to do with existing frameworks
-- **Relationship to MCP**: the tool interface defined by OO Agents could theoretically bridge to MCP tool schemas, but the paper does not explicitly address this; production deployments would need to handle the MCP protocol layer themselves **⚠️**
-- **Benchmark data**: the paper is primarily an architecture description; published quantitative comparisons against LangGraph/DSPy/AutoGen are limited **⚠️**
+- **Relationship to MCP**: the tool interface defined by OO Agents could theoretically bridge to MCP tool schemas, but the paper does not explicitly address this; production deployments would need to handle the MCP protocol layer themselves **:warning:**
+- **Benchmark data**: the paper is primarily an architecture description; published quantitative comparisons against LangGraph/DSPy/AutoGen are limited **:warning:**
 - **GitHub release**: NVIDIA Labs has a corresponding open-source repo available for hands-on exploration
 
 ### Reviewer's One-liner
@@ -138,10 +138,10 @@ AREX significantly outperforms comparable-scale baselines on BrowseComp, WideSea
 - **Four benchmarks for broad coverage**: BrowseComp (web search challenges), WideSearch (broad knowledge), DeepSearchQA (deep QA), HLE (cross-domain hard questions) — four angles to validate generalization
 - **Context compression is the critical engineering point**: not just summarization but structured compression that "retains only verified information"; this tool is itself trained, not rule-based
 - **Mapping to LangGraph**: the outer loop logic could be implemented in LangGraph as conditional edges + state updates, but the context compression tool requires additional training cost
-- **Specific performance numbers**: the paper claims to "substantially outperform comparable-scale baselines" but does not provide specific multipliers; the full paper should be checked for exact conditions **⚠️**
+- **Specific performance numbers**: the paper claims to "substantially outperform comparable-scale baselines" but does not provide specific multipliers; the full paper should be checked for exact conditions **:warning:**
 - **Limitation**: AREX is a specifically trained model variant, not a plug-in tool; reproduction requires substantial training resources
-- **Conflicting constraints**: AREX's behavior when constraints contradict each other is not described in detail **⚠️**
-- **Limited training details**: data curation and reward design are under-disclosed, raising reproducibility questions **⚠️**
+- **Conflicting constraints**: AREX's behavior when constraints contradict each other is not described in detail **:warning:**
+- **Limited training details**: data curation and reward design are under-disclosed, raising reproducibility questions **:warning:**
 
 ### Reviewer's One-liner
 
@@ -200,7 +200,7 @@ This paper lets you quickly classify any paper or product claim: "Which kind of 
 - **Open-ended RSI**: currently limited by the grounding problem (improving one's own objective function) and collapse dynamics (iterative refinement making things worse)
 - **Terminology mapping**: self-refine = bounded deployment-time refinement; self-evolve = cross-iteration strategy improvement; self-reward = self-trained evaluator — this mapping alone has high practical reference value
 - **Connection to today's Paper 2 (AREX)**: AREX falls under this taxonomy's "inference-time + high automation but with grounded outer loop verification," placing it on the bounded side with higher production viability
-- **Cutoff limitation**: this survey covers up to May 2026; the last two months of progress (including today's AREX and OO Agents) are not covered **⚠️**
+- **Cutoff limitation**: this survey covers up to May 2026; the last two months of progress (including today's AREX and OO Agents) are not covered **:warning:**
 - **Barrier to adoption**: low — reading this paper requires no experiments; it's a classification tool that directly changes how you read other papers
 
 ### Reviewer's One-liner

@@ -10,7 +10,7 @@ description: "Comparing LLM multi-agent orchestration with traditional distribut
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery)
+> :globe: [中文版](/posts/ai/2026-06-04-multi-agent-error-propagation-recovery)
 
 A 99% accuracy per step sounds high, but over a 100-step workflow, the error-free completion rate drops to just `0.99^100 ≈ 36%`; at 200 steps it's 13%. This is the classic math of "series reliability" -- a multi-step workflow fails if any single step goes wrong, so the overall success rate is the product of each step's success rate. The key insight: **this is a structural problem, not something prompt tuning can fix**. No matter how much models improve, they can only reduce the per-step error rate p -- they cannot change the shape of exponential decay.
 

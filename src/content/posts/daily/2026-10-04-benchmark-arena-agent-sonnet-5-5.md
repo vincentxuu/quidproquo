@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
+> :globe: [English version](/posts/daily/2026-10-04-benchmark-arena-agent-sonnet-5-5-en)
 
 ## 異動摘要
 
@@ -24,11 +24,11 @@ Arena（前身 LMSYS Chatbot Arena）Agent 類別排行榜最新一次官方發�
 
 | 排名 | 模型 | 分數 | 09-30 分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | Claude Fable 5.1（Max） | 14.31% | 14.55% | ↓0.24pp |
-| 🥈 | Claude Opus 5.5（High） | 13.82% | 13.78% | — |
-| 🥉 | Claude Sonnet 5.5（Max） | 12.52% | 新上榜 | 🆕 |
-| 4 | GPT-6 Astra（Max） | 12.27% | 12.18%（🥉） | ↓1 |
-| 5 | GPT-6.1 Sol（Max） | 11.23% | 新上榜 | 🆕 |
+| 1 | Claude Fable 5.1（Max） | 14.31% | 14.55% | ↓0.24pp |
+| 2 | Claude Opus 5.5（High） | 13.82% | 13.78% | — |
+| 3 | Claude Sonnet 5.5（Max） | 12.52% | 新上榜 | NEW|
+| 4 | GPT-6 Astra（Max） | 12.27% | 12.18%（3） | ↓1 |
+| 5 | GPT-6.1 Sol（Max） | 11.23% | 新上榜 | NEW|
 
 來源：[Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset)（`agent` 子集、`full` split，`category=overall`）· 官方發布日期：2026-10-02 · 抓取日期：2026-10-04
 
@@ -42,7 +42,7 @@ Claude Sonnet 5.5 於 2026-09-29 發表（見本站[定價追蹤](/posts/daily/2
 
 ### 方法論面
 
-⚠️ 跟上一篇一樣的提醒：這裡的分數是 Arena 自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同天的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級。
+:warning: 跟上一篇一樣的提醒：這裡的分數是 Arena 自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同天的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級。
 
 這次更值得注意的是信賴區間：Sonnet 5.5（Max）的 95% CI 是 `[9.43%, 15.61%]`，跟第一名 Fable 5.1 的 CI `[12.42%, 16.21%]`、第二名 Opus 5.5 的 CI `[11.65%, 15.99%]`、第四名 GPT-6 Astra 的 CI `[10.04%, 14.50%]` 幾乎完全重疊——四個名次的區間互相交疊，意味著單一快照看不出真正的勝負順序，只能說這四個模型目前處於同一個統計上無法明確分出高下的集團。Sonnet 5.5 的樣本數（483,211 次觀測、5,219 個對話）也是四者裡最少的，是剛上線模型的典型特徵，排名還會隨樣本數增加而浮動——Opus 5.5 上線首週就曾在 11.84%～13.78% 之間劇烈調整（見[上一篇](/posts/daily/2026-10-02-benchmark-arena-agent)），Sonnet 5.5 很可能重演同樣的過程。
 

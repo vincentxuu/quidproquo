@@ -13,7 +13,7 @@ description: "Installing GitHub Copilot CLI, its plan and autopilot modes, /flee
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-08-19-github-copilot-cli)
+:globe: [中文版](/posts/tech/2026-08-19-github-copilot-cli)
 
 If your team already pays for GitHub Copilot, you already have a terminal agent — you may just not have opened it.
 

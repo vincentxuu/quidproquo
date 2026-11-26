@@ -28,7 +28,7 @@ glossary:
     context: "L10 與 L11 把它當成監督式微調以外的另一種「學習」方式，並比較兩者的優缺點。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-peft-in-context-learning-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 

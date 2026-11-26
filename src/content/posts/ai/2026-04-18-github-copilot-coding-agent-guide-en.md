@@ -10,7 +10,7 @@ description: "An in-depth look at GitHub Copilot Coding Agent's core concepts, I
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-github-copilot-coding-agent-guide)
+> :globe: [中文版](/posts/ai/2026-04-18-github-copilot-coding-agent-guide)
 
 GitHub Copilot Coding Agent lets you assign a task directly from the Issue page to Copilot. It solves the problem inside a cloud sandbox, creates a branch, runs tests, and submits a PR for your review. This post covers its workflow, real-world usage experience, configuration essentials, and how it compares to other coding agents.
 
@@ -168,7 +168,7 @@ Practical impact of security restrictions: if the task requires calling your sta
 | Execution location | GitHub cloud | Local | Local | Cloud |
 | Trigger method | Issue, Actions, panel | CLI | Within IDE | API / CLI |
 | Integration depth | GitHub native | General-purpose | VS Code | General-purpose |
-| Asynchronous | ✅ | ❌ (runs on your machine) | ❌ | ✅ |
+| Asynchronous | ✓ | ✗ (runs on your machine) | ✗ | ✓ |
 | Control granularity | Low (task level) | High (can intervene mid-task) | Medium | Low |
 | Model | GPT-4o / o3 | Claude | Claude / GPT | GPT-4o / o3 |
 
@@ -196,10 +196,10 @@ Copilot Coding Agent is currently available for **Copilot Pro+** and **Copilot E
 
 | Plan | Monthly fee | Premium requests/month | Coding Agent |
 |---|---|---|---|
-| Copilot Free | Free | 50 | ❌ |
-| Copilot Pro | $10 | 300 | ❌ |
-| Copilot Pro+ | $39 | 1,500 | ✅ |
-| Copilot Enterprise | Varies | Higher quota | ✅ |
+| Copilot Free | Free | 50 | ✗ |
+| Copilot Pro | $10 | 300 | ✗ |
+| Copilot Pro+ | $39 | 1,500 | ✓ |
+| Copilot Enterprise | Varies | Higher quota | ✓ |
 
 Premium requests beyond the quota are charged at **$0.04/request**.
 

@@ -10,7 +10,7 @@ description: "從 phone/web call、assistant config、STT/LLM/TTS、tool calls �
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-22-vapi-voice-agents-en)
+:globe: [English version](/posts/ai/2026-08-22-vapi-voice-agents-en)
 
 [Vapi](https://docs.vapi.ai/quickstart/introduction) 是託管 voice agent orchestration 平台。它把電話或 WebRTC 送來的聲音串過 speech-to-text（STT）、LLM 與 text-to-speech（TTS）。過程中處理輪次、打斷、轉接與 tool call，再留下每通電話的 transcript、latency 與結果。它不是一個更好的語音模型，而是讓多個即時服務在同一通電話裡不互相踩腳的 runtime。
 

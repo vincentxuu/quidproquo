@@ -13,7 +13,7 @@ description: "An introduction to goose, the open-source AI Agent: its migration 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-02-goose-open-source-ai-agent)
+> :globe: [中文版](/posts/ai/2026-05-02-goose-open-source-ai-agent)
 
 AI Coding Agent tools are proliferating, but most are either tied to a specific IDE or only support a single model provider. goose chose a different path: fully open-source, cross-platform, supporting any LLM, and governed by the Linux Foundation -- not owned by any single commercial company.
 

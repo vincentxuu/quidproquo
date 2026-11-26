@@ -12,7 +12,7 @@ draft: false
 series: { name: "Reading Berkeley CS288", order: 3 }
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs288-post-training)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs288-post-training)
 
 [Units 08–12](https://cal-cs288.github.io/sp26/) ask how an architecture becomes a deployable, evaluated system through pre-training, fine-tuning, prompting, and post-training. Generation and evaluation are not appendices: different decoding policies turn the same logits into different quality, cost, and risk profiles.
 

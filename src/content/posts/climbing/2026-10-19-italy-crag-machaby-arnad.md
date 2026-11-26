@@ -13,7 +13,7 @@ description: "Corma di Machaby／Arnad 岩場介紹：Paretone、Pilastro Lomast
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-machaby-arnad-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-machaby-arnad-en)
 
 從杜林開 A5 高速公路往奧斯塔，過了 Pont-Saint-Martin 和 Bard 堡壘之後，北側山腳有一面粉色的大岩壁，這就是 Arnad 鎮旁的 Corma di Machaby。[UKC Logbook](https://ukclimbing.com/logbook/crags/corma_di_machaby-12447) 說，1970 年代杜林的攀登者想找 Rocca Sbarua 這些老岩場以外的低海拔岩壁，可以全年練爬、不受雪和冰影響，Machaby 就是那時候出名的。旁邊的 Gruviera 據奧斯塔大區觀光局說「probabilmente la prima chiodata in Valle d'Aosta」，可能是奧斯塔谷第一個打 bolt 的岩場（[lovevda：Gruviera](https://www.lovevda.it/it/banca-dati/7/arrampicata/arnad/palestra-di-arrampicata-la-gruviera/2644)）。
 

@@ -12,7 +12,7 @@ draft: false
 description: "以完整數值例子與變式答案理解Cross-attention 與 DiT：條件如何進入去噪器。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

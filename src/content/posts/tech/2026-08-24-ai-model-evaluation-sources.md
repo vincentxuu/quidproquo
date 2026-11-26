@@ -4,8 +4,8 @@ date: 2026-08-24
 category: tech
 tags: [ai-agent, llm, benchmark, evaluation, model-selection]
 lang: zh-TW
-tldr: "模型廠商的自測數字不能直接信。這篇整理 2026 年最重要的獨立評測平台、領域 benchmark、市場熱度指標和官方來源，說明各自測什麼、怎麼解讀、偏差在哪，附上不同情境的選型該看哪些數字。"
-description: "2026 年 AI 模型評測完整指南：Artificial Analysis、LMArena、LiveBench、SWE-bench、Aider、OpenRouter Rankings 等來源的解讀方法、限制和常見陷阱"
+tldr: "模型廠商的自測數字不能直接信。這篇整理 2026 年最重要的獨立評測平台（Artificial Analysis Intelligence Index v5.0.1、Arena、LiveBench 2.0、Vals AI、Epoch AI）、領域 benchmark（SWE-bench、Terminal-Bench、HLE-Diamond 等）、市場熱度指標和官方來源，說明各自測什麼、怎麼解讀、偏差在哪，附上不同情境的選型該看哪些數字。"
+description: "2026 年 AI 模型評測完整指南：Artificial Analysis、Arena（原 LMArena）、LiveBench、Vals AI、Epoch AI、SWE-bench、Terminal-Bench、OpenRouter Rankings 等來源的解讀方法、限制和常見陷阱"
 type: guide
 draft: false
 glossary:
@@ -17,7 +17,7 @@ glossary:
     def: "測試題目洩漏進模型訓練資料，導致模型「背答案」而非真正理解"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-24-ai-model-evaluation-sources-en)
+> :globe: [English version](/posts/tech/2026-08-24-ai-model-evaluation-sources-en)
 
 模型廠商發新模型時都會貼一堆 benchmark 數字，但哪些能信、哪些在灌水？這篇把 2026 年主要的評測來源拆開來看——每個來源測什麼、怎麼解讀、有什麼偏差。
 
@@ -25,21 +25,21 @@ glossary:
 
 ## 綜合評測平台
 
-這三個平台試圖從不同角度給出「模型整體好不好」的答案。
+這五個平台試圖從不同角度給出「模型整體好不好」的答案。
 
 ### Artificial Analysis
 
 [artificialanalysis.ai](https://artificialanalysis.ai)
 
-**測什麼**：品質、價格、速度、延遲的綜合比較。涵蓋文字、影像、影片、語音多個模態。有自己的 Intelligence Index、Coding Agent Index，也追蹤各家 API 的實際吞吐量和成本。
+**測什麼**：品質、價格、速度、延遲的綜合比較。涵蓋文字、影像、影片、語音多個模態，也追蹤各家 API 的實際吞吐量和成本。文字模型的主指標是 [Intelligence Index](https://artificialanalysis.ai/methodology/intelligence-benchmarking)，目前是 v5.0.1：9 個評測分成知識工作、程式、科學、通用四類，各佔 25%，包含 AA-Briefcase、FrontierCode-AA 2.0、Terminal-Bench 4.0、Terminal-Bench-Science、CritPt v2、AA-Omniscience、HLE-Diamond 等，多數是代理式（agentic）任務而不是選擇題。影像、影片榜則各自用 v2.1 版的 Elo 榜。
 
-**怎麼解讀**：最大的價值不是品質排名，而是**價格和速度的標準化比較**。當你要選 API 供應商時，它的 output tokens/sec 和 $/1M tokens 數據比自己跑更準，因為它持續監控多個 provider 的即時表現。Intelligence Index 是自己設計的評估，跟其他 benchmark 不完全相同。
+**怎麼解讀**：兩個價值。一是**價格和速度的標準化比較**：當你要選 API 供應商時，它的 output tokens/sec 和 $/1M tokens 數據比自己跑更準，因為它持續監控多個 provider 的即時表現。二是**所有模型在同一套條件下跑同一組評測**，可以直接橫向比；站上的[模型總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)與各家族文就是用它的 Intelligence Index 與 Terminal-Bench 4.0、FrontierCode 2.0 做比較。Intelligence Index 的版本一換，題組與權重就跟著換，不同版本的分數不能直接比。
 
-**偏差**：主要測 API 模型，本地部署的模型覆蓋有限。Coding Agent Index 的評估方法論不如 SWE-bench 透明。
+**偏差**：主要測 API 模型，本地部署的模型覆蓋有限。部分評測（AA-Briefcase、FrontierCode-AA、AA-Omniscience 等）是私有題庫，外部無法重跑驗證。
 
-### LMArena（Chatbot Arena）
+### Arena（原 LMArena、Chatbot Arena）
 
-[lmarena.ai](https://lmarena.ai)（前身 lmsys.org）
+[arena.ai](https://arena.ai)（[2026-01-28 由 LMArena 改名](https://arena.ai/blog/lmarena-is-now-arena)，網址從 lmarena.ai 搬過去；更早是 lmsys.org 的 Chatbot Arena）
 
 **測什麼**：人類偏好。使用者同時跟兩個匿名模型對話，投票選比較好的回答，用 ELO 排名系統算出每個模型的分數。
 
@@ -57,11 +57,31 @@ glossary:
 
 [livebench.ai](https://livebench.ai)
 
-**測什麼**：23 個客觀任務，橫跨 7 個類別，每六個月更新一次。核心設計目標是**避免 contamination**——因為題目定期更新，模型不可能在訓練時背過答案。
+**測什麼**：2026-10 起改版為 LiveBench 2.0，從短題目改成長時間的實際工作——做簡報、寫研究報告、修 bug、做能跑好幾小時的 app——分 Agentic、Design、Coding、Browser Use、Data Analysis、Research、Reasoning 七組，並列出每個成功任務的成本。核心設計目標仍是**避免 contamination**：題目持續更換，模型不可能在訓練時背過答案；2.0 上線後一個月內就出了三個 release（2026-10-14、10-25、11-06）。
 
-**怎麼解讀**：跟 MMLU 之類的靜態 benchmark 比，LiveBench 的分數更能反映模型的真實推理能力，因為題目是新的。但也因為定期更換，不同時期的分數不能直接比較——要看同一個 release 下的排名。
+**怎麼解讀**：跟 MMLU 之類的靜態 benchmark 比，LiveBench 的分數更能反映模型的真實能力，因為題目是新的；2.0 的「每個成功任務成本」欄也能直接拿來比價效比。但也因為題目定期更換，不同 release 的分數不能直接比較——要看同一個 release 下的排名，1.x 與 2.0 更是完全不同的測驗。
 
-**偏差**：題目設計團隊的選題偏好會影響結果。23 個任務不可能覆蓋所有場景。
+**偏差**：題目設計團隊的選題偏好會影響結果。LiveBench 由 Abacus AI 維護，官網寫明結果也用來驅動它自己的 agent 產品。
+
+### Vals AI
+
+[vals.ai/benchmarks](https://www.vals.ai/benchmarks)
+
+**測什麼**：各產業的實際任務。目前跑 43 個獨立評測，橫跨法律、金融、醫療、程式、數學、稅務等，每個榜都比準確率、成本與延遲。綜合指標 Vals Index 把金融、程式、法律、稅務的代理式任務，按各產業佔美國 GDP 的比重加權；另有 Finance、Legal、Science 等分項指數，以及比較同一個開放權重模型在不同推論服務商表現的 Inference Provider Index。
+
+**怎麼解讀**：如果你的場景是法律、金融這類專業工作，Vals 的分項榜比通用指數更貼近。2026-11-19 的 Vals Index 前三是 Claude Fable 5.2（71.31%）、Gemini 4 Neon（70.87%）、Claude Sonnet 5.5（70.85%），差距在 0.5 個百分點內，實務上等於同一梯隊。站上的模型家族文也常引用它的分項分數。
+
+**偏差**：題庫多數不公開，外部無法重跑；以美國的產業結構與法規為主，在地法規與非英語文件的覆蓋有限。
+
+### Epoch AI
+
+[epoch.ai/benchmarks](https://epoch.ai/benchmarks)
+
+**測什麼**：研究機構維護的 benchmark 資料庫，追蹤 431 個模型、99 個 benchmark，部分自己跑（GPQA Diamond、FrontierMath 等），部分收錄外部結果。綜合指標 Epoch Capabilities Index（ECI）把多個 benchmark 合成一條能力刻度，2026-11 的紀錄保持者是 Claude Fable 5.2；另有 FrontierMath 系列，2026-09 推出的 FrontierMath Erdős 用 68 個未解的 Erdős 問題，要求模型用 Lean 寫出證明。
+
+**怎麼解讀**：適合看長期趨勢——同一個 benchmark 上能力隨時間、算力、開放程度怎麼變。ECI 換成貝氏模型後會附不確定區間，比較兩個模型時先看區間有沒有重疊。
+
+**偏差**：新模型剛發佈時可能只有 Epoch 自己的少數評測，ECI 會隨更多結果進來而調整；Epoch 的官網也註明首發時的紀錄是依發佈前測試，可能變動。
 
 ## 領域 Benchmark
 
@@ -73,22 +93,32 @@ glossary:
 
 **測什麼**：從 12 個 Python 開源專案（Django、Flask、scikit-learn 等）擷取真實的 GitHub issue，讓模型讀完整 repo 後修 bug。評判標準是修完後能不能通過對應的測試。
 
-**SWE-bench Verified**：原版 SWE-bench 有些 issue 本身有歧義或測試不夠好。Verified 是人工審核過的子集（500 題），品質更高，是 2026 年更常引用的版本。
+**SWE-bench Verified**：原版 SWE-bench（2,294 題）有些 issue 本身有歧義或測試不夠好。Verified 是人工審核過的子集（500 題），品質更高，是最常被引用的版本。官方榜另有幾個變體：Bash Only（Verified 的預設檢視，所有模型都在同一個 mini-SWE-agent 環境跑，最適合橫向比）、Lite（300 題）、Multilingual（42 個 repo、9 種語言、300 題）、Multimodal（480 題，issue 帶有圖片）。
 
-**怎麼解讀**：這是 coding agent 最硬的 benchmark。高分代表模型能理解大型程式碼庫、定位 bug、寫出正確修正。但注意：SWE-bench 只測 Python，只測 bug fix，不測新功能開發、重構、多語言場景。
+**怎麼解讀**：高分代表模型能理解大型程式碼庫、定位 bug、寫出正確修正。但注意：原版與 Verified 只測 Python、只測 bug fix，不測新功能開發與重構；要看其他語言就看 Multilingual。廠商公告裡的 Verified 分數多半是用自己的 agent 框架跑的，跟官方榜的 Bash Only 不是同一個條件。
 
 **偏差**：
-- 只有 Python，不代表其他語言的能力
+- 原版與 Verified 只有 Python，不代表其他語言的能力
 - 有些 issue 的修正方式不只一種，但只接受通過原始測試的解法
 - 模型廠商可能針對這 12 個 repo 的程式風格做特別訓練
+
+### Terminal-Bench
+
+[tbench.ai](https://www.tbench.ai/)
+
+**測什麼**：在終端機裡完成長任務——編譯、設定環境、除錯、跑資料處理——用測試套件判斷成功與否，報告解決率與 95% 信賴區間。目前官網的最新版是 Terminal-Bench 4.1，4.0 的榜仍並列。榜上每一筆是「模型＋agent 框架」的組合（例如 Claude Code、Codex、GitHub Copilot），並列出 token 用量與成本。
+
+**怎麼解讀**：這是 2026 年 coding agent 最常被引用的評測之一。Artificial Analysis 把 Terminal-Bench 4.0（66 題）放進 Intelligence Index，站上的模型總覽也用它比 coding 能力。看官方榜時要注意同一個模型換框架分數就變，比較時固定框架，或改看 Artificial Analysis 用統一條件跑的版本。
+
+**偏差**：任務偏 Linux 終端機操作，不涵蓋 IDE 內的互動式編輯；不同版本（2.x、3.0、4.0、4.1）題組不同，分數不能跨版本比。
 
 ### Aider Polyglot
 
 [aider.chat/docs/leaderboards](https://aider.chat/docs/leaderboards/)
 
-**測什麼**：用 Aider（AI pair programming 工具）實際測試模型的程式碼編輯能力。133 個跨語言練習題（Python、JavaScript、TypeScript、C#、Java、Go 等），模型要修改現有檔案讓測試通過。同時記錄每次測試的 API 成本。
+**測什麼**：用 Aider（AI pair programming 工具）實際測試模型的程式碼編輯能力。225 個 Exercism 練習題，涵蓋 C++、Go、Java、JavaScript、Python、Rust，模型要修改現有檔案讓測試通過。同時記錄每次測試的 API 成本。
 
-**怎麼解讀**：比 SWE-bench 更貼近日常 coding 場景——不是修大型 repo 的 bug，而是「我叫 AI 改這段 code，它改對了嗎？」。附帶的成本數據很實用：GPT-5 (high) 拿 88% 但花 $29，DeepSeek V3.2 Exp Chat 拿 70% 只花 $0.88。
+**怎麼解讀**：設計上比 SWE-bench 更貼近日常 coding 場景——不是修大型 repo 的 bug，而是「我叫 AI 改這段 code，它改對了嗎？」。但榜上最新的結果停在 2025 年的模型（GPT-5 (high) 88%、$29），2026 年的前沿模型都沒有收錄，現在只能當歷史參考；要比現役模型改看 Terminal-Bench 或 LiveBench 的 Coding 組。
 
 **偏差**：Aider 本身的 prompt 設計會影響結果。同一個模型在不同 coding 工具（Cursor、Copilot、Claude Code）的表現可能不同。
 
@@ -126,11 +156,13 @@ glossary:
 
 ### Humanity's Last Exam (HLE)
 
-**測什麼**：Scale AI 與 CAIS 合作，由數千位各領域專家出題，跨 100+ 學科的極難問題，已發表於 Nature（Nature 649, 1139–1146）。設計目標是「人類出的最難的 AI 考試」——連領域專家都要花很久才能解。Artificial Analysis 用其中 2,158 道純文字題評測。
+**測什麼**：Scale AI 與 CAIS 合作，由數千位各領域專家出題，跨 100+ 學科的極難問題，已發表於 Nature（Nature 649, 1139–1146）。設計目標是「人類出的最難的 AI 考試」——連領域專家都要花很久才能解。2025-01 發表時，前沿模型只拿到個位數。
 
-**怎麼解讀**：HLE 的分數進步很快。2025 年 4 月時最強模型只有 Gemini 3 Pro 38.3%、GPT-5 25.3%。到 2026 年 8 月，前端模型已到 55%+ 區間（Claude Fable 5 55.5%、Claude Opus 5 54.9%），帶工具的版本甚至到 64.7%。仍有近一半的題答不出來，離飽和還有距離。
+**HLE-Diamond**：2026-09-22 [推出的精修版](https://lastexam.ai/blog/hle-diamond)，經過一年的清理，從原本 2,500 題的題庫（含保留題）挑出 1,000 題，分成推理與知識各 500 題，題組固定、題號穩定，不同時間的分數可以直接比。Artificial Analysis 的 Intelligence Index v5.0.1 改用 HLE-Diamond（不帶工具，含 272 道附圖題）；它原本用的是完整題庫裡 2,158 道純文字題，那組結果另外列。
 
-**偏差**：HLE 是「來源差異」最明顯的 benchmark 之一。Artificial Analysis 用 2,158 道純文字題，報 Claude Opus 5 約 55%；BenchLM 報同一模型 64.7%。差異可能來自題目子集不同（純文字 vs 含工具）、judge model 不同、或評分標準不同。看 HLE 分數時務必確認來源和評測條件。
+**怎麼解讀**：HLE 的分數進步很快。2026 年 8 月原版 HLE 的前段約 55%（Claude Fable 5 55.5%、Claude Opus 5 54.9%）。官方公布的 HLE-Diamond 不帶工具成績，第一是 Claude Fable 5.2 74.3%，其次 GPT-6.2 Astra 66.6%、Gemini 4 Neon 65.2%；推理題普遍比知識題高。Scale 預估 Diamond 還能再撐 6 到 12 個月才飽和。
+
+**偏差**：HLE 是「來源差異」最明顯的 benchmark 之一。原版 HLE 有全題庫、純文字子集、帶工具與不帶工具幾種跑法，2026-08 時 Artificial Analysis 用純文字題報 Claude Opus 5 約 55%，BenchLM 報同一模型 64.7%。現在又多了 HLE-Diamond，跟原版分數不能互換。看 HLE 分數時務必確認是哪個題組、有沒有帶工具、誰跑的。
 
 ## 多模態模型評測（VLM）
 
@@ -162,19 +194,19 @@ glossary:
 
 影像生成沒有像文字那樣的「客觀答案」，評測更依賴人類偏好投票和多維度自動評分。
 
-### LMArena Text-to-Image Arena
+### Arena Text-to-Image
 
 [arena.ai/leaderboard/text-to-image](https://arena.ai/leaderboard/text-to-image)
 
-**測什麼**：跟文字 Arena 同樣的 ELO 機制——使用者看到同一 prompt 生成的兩張圖，盲選比較好的。76+ 個模型參與。
+**測什麼**：跟文字 Arena 同樣的 ELO 機制——使用者看到同一 prompt 生成的兩張圖，盲選比較好的。目前 87 個模型參與，並附每張圖的成本中位數。
 
-**2026 年 8 月 Top 5**：GPT Image 2 (1381)、MAI-Image-2.6 (1336)、Grok Imagine 2.0 (1316)、Reve 2.1 (1302)、Meta Muse Image (1282)。
+**2026-11-21 Top 5**：GPT-Image-2.5 Sunburst (1429)、GPT-Image-2.6 Sunburst Medium (1412)、GPT-Image-2.5 Flare (1400)、MAI-Image-2.7 (1385)、GPT-Image-2 Medium (1382)。開放權重最高的是 Qwen-Image-2.1。
 
 ### Artificial Analysis Image Arena
 
 [artificialanalysis.ai/image/leaderboard/text-to-image](https://artificialanalysis.ai/image/leaderboard/text-to-image)
 
-**測什麼**：另一個獨立的圖片 ELO 排名，加上**每張圖的 API 定價比較**——讓你同時看品質和成本。GPT Image 2 (high) $211/千張 vs MAI-Image-2.5 $48/千張。
+**測什麼**：另一個獨立的圖片 ELO 排名（目前是 AA-Image-T2I v2.1），加上**每千張圖的 API 定價比較**——讓你同時看品質和成本。2026-11-23 第一是 GPT Image 2.6 Sunburst (max) 1263、$210.72/千張；同在前五的 MAI-Image-2.7 是 1215、$34.82/千張，價格約六分之一。
 
 ### Evalytic
 
@@ -198,17 +230,17 @@ glossary:
 
 [artificialanalysis.ai/video/leaderboard/text-to-video](https://artificialanalysis.ai/video/leaderboard/text-to-video)
 
-**測什麼**：盲目投票的 ELO 排名，分 Text-to-Video 和 Image-to-Video 兩個榜，各自再分「含音訊」和「不含音訊」。30+ 個模型，附 API 定價（$/分鐘）。
+**測什麼**：盲目投票的 ELO 排名，分 Text-to-Video 和 Image-to-Video 兩個榜，各自再分「含音訊」和「不含音訊」。30+ 個模型，附 API 定價（$/分鐘）。目前是 v2.1 版，把 Kling 3.0 1080p (Pro) 固定在 1000 當基準點。
 
-**2026 年 8 月 Top 5（T2V 含音訊）**：Wan 3.0 (1244)、Gemini Omni Flash (1238)、MiniMax H3 (1228)、Seedance 2.0 (1221)、Wan 2.7 (1156)。
+**2026-11-23 Top 5（T2V 含音訊，AA-Video-T2V v2.1）**：Wan 3.0 (1175)、Utopai X (1171)、MiniMax H3 768p (1163)、Hyperflow H3 (1157)、Seedance 2.5 (1156)。換到 v2.1 後分數基準變了，不能跟 2026-08 版本文引用的舊榜（當時 Wan 3.0 1244）直接比。各模型的取得方式與授權，見[影片生成模型家族](/posts/tech/2026-08-26-ai-model-family-video-generation)。
 
-**偏差**：影片 Arena 的排名波動比文字和圖片大得多。同一個模型（如 Kling 3.0 1080p Pro）在不同時間點的 Elo 可以差 137 分、排名差 3 名。引用影片排名時務必帶日期。
+**偏差**：影片 Arena 的排名波動比文字和圖片大得多。同一個模型（如 Kling 3.0 1080p Pro）在不同時間點的 Elo 可以差 137 分、排名差 3 名，榜單改版時分數基準也會整個換掉。引用影片排名時務必帶日期與榜單版本。
 
-### LMArena Image-to-Video Arena
+### Arena Image-to-Video
 
 [arena.ai/leaderboard/image-to-video](https://arena.ai/leaderboard/image-to-video)
 
-**測什麼**：45 個 I2V 模型的 ELO 排名。2026 年 8 月 MiniMax H3 以 1489 分領先。
+**測什麼**：50 個 I2V 模型的 ELO 排名，附每支影片的成本中位數。2026-11-08 的資料是 Gemini Omni 1.2 Flash 以 1503 分領先，Seedance 2.5 720p（1494）與 MiniMax H3（1493）緊追；MiniMax H3 也是開放權重第一。
 
 ### VBench / VBench-2.0
 
@@ -224,7 +256,7 @@ glossary:
 
 [artificialanalysis.ai/text-to-speech/arena](https://artificialanalysis.ai/text-to-speech/arena)
 
-**測什麼**：TTS 模型的盲聽 ELO 排名。使用者聽兩段同文字的合成語音，選比較自然的。2026 年 7 月 Qwen-Audio-3.0-TTS 排名第一。
+**測什麼**：TTS 模型的盲聽 ELO 排名。使用者聽兩段同文字的合成語音，選比較自然的。2026-11-23 的第一名是 Eleven v4 Turbo 與 Eleven v4（同為 1340），其次是 StepAudio 3 TTS（1307）。
 
 ### TTS-Bench
 
@@ -282,20 +314,20 @@ Benchmark 告訴你模型「能力」如何，市場熱度告訴你「多少人�
 
 **測什麼**：OpenRouter 是一個 AI model 聚合 API，提供上百個模型的統一接口。Rankings 按各模型的實際 token 處理量排名（prompt + completion tokens 加總）。數據以 CC BY 4.0 授權公開，也提供 [Data API](https://openrouter.ai/docs/cookbook/administration/data-api) 讓你程式化存取。
 
-**2026 年 8 月 Top 10**（截至 8/23）：
+**2026-11 週榜 Top 10**（資料截至 11/22，近 7 天）：
 
 | 排名 | 模型 | tokens 處理量 |
 |---|---|---|
-| 1 | DeepSeek V4 Flash 0731 | 11.6T |
-| 2 | Ox Alpha (stealth) | 11.6T (new) |
-| 3 | MiMo-V2.5 (xiaomi) | 9.94T |
-| 4 | Hy3 (tencent) | 8.21T |
-| 5 | DeepSeek V4 Flash 0423 | 5.46T |
-| 6 | GPT-5.6 Luna | 4.91T |
-| 7 | Nemotron 3 Ultra (free) | 4.75T |
-| 8 | GLM 5.2 | 3.42T |
-| 9 | DeepSeek V4 Pro 0423 | 1.85T |
-| 10 | Gemini 3.7 Flash | 1.8T |
+| 1 | DeepSeek V4.1 Flash 1017 | 65T |
+| 2 | DeepSeek V4.1 Flash | 15.4T |
+| 3 | GLM 5.3 Flash (z-ai) | 12.2T |
+| 4 | Hy4 flash (tencent) | 10.2T (new) |
+| 5 | GPT-6 Luna | 8.31T |
+| 6 | Claude Opus 5.5 | 6.97T |
+| 7 | MiniMax M3.1 Flash | 4.29T |
+| 8 | Kimi K3.1 Pro | 4.07T |
+| 9 | Nemotron 3 Ultra (free) | 3.93T |
+| 10 | MiMo-V2.6-Flash (xiaomi) | 3.7T |
 
 **怎麼解讀**：這是最接近「市場實際採用度」的指標。注意它測的是 adoption，不是品質——官方明確說明「these rankings measure adoption, not quality」。一個模型在 benchmark 上分數很高但 OpenRouter 用量很低，通常代表定價太貴或 API 不穩定。反過來，用量高但 benchmark 分數不是最頂的模型，代表價效比好或生態系統成熟。
 
@@ -337,7 +369,7 @@ Benchmark 告訴你模型「能力」如何，市場熱度告訴你「多少人�
 每個模型發佈時，廠商會在官方 blog 貼公告，附上 benchmark 數字、架構說明、定價。這些是最一手的資料，但也最需要警惕。
 
 **怎麼讀**：
-- **自測 vs 獨立複現**：廠商自己跑的 benchmark 要標注 ⚠️。同一個 benchmark，不同的提示模板、溫度設定、few-shot 數量都會影響分數。只有獨立團隊（如 SWE-bench 官方、Artificial Analysis）用統一流程跑的結果才能直接比較
+- **自測 vs 獨立複現**：廠商自己跑的 benchmark 要標注 :warning:。同一個 benchmark，不同的提示模板、溫度設定、few-shot 數量都會影響分數。只有獨立團隊（如 SWE-bench 官方、Artificial Analysis）用統一流程跑的結果才能直接比較
 - **選擇性報告**：廠商只會貼表現好的 benchmark。如果一個模型的公告裡沒提 SWE-bench，很可能是因為分數不好看
 - **「首次突破」的措辭**：注意「在 X benchmark 上達到 Y%」跟「在 X benchmark 上超越所有模型」是不同的。前者可能只比前代好，後者才是真的第一
 - **定價要抓定價頁**：Blog 裡的定價可能是首發優惠價。去 pricing page 看有沒有分標準/batch/cached 價格
@@ -390,7 +422,7 @@ HumanEval、原版 MMLU 已經飽和——頂尖模型都在 95%+ 區間。這�
 
 AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 月可能已經有三代新模型了。
 
-**怎麼防**：確認文章的發布日期和引用的模型版本。優先看持續更新的來源（Artificial Analysis、LMArena、LiveBench、Aider）而非一次性的比較文章。
+**怎麼防**：確認文章的發布日期和引用的模型版本。優先看持續更新的來源（Artificial Analysis、Arena、LiveBench、Vals AI、Epoch AI）而非一次性的比較文章；不再更新的榜（例如停在 2025 年模型的 Aider Polyglot）也要當成過時數據。
 
 ## 選型框架：不同情境看什麼
 
@@ -400,9 +432,10 @@ AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 �
 
 | 優先看 | 來源 |
 |---|---|
-| SWE-bench Verified | 多步驟任務完成能力 |
-| Aider Polyglot | 程式碼編輯成功率 + 成本 |
-| Artificial Analysis Coding Agent Index | Agent 端到端表現 |
+| SWE-bench Verified（Bash Only） | 多步驟任務完成能力 |
+| Terminal-Bench 4.0／4.1 | 終端機長任務解決率 + 成本 |
+| Artificial Analysis FrontierCode-AA 2.0 | 真實開源 repo 的程式修改 |
+| LiveBench 2.0（Agentic 組） | 長時間代理任務 + 每個成功任務成本 |
 | tau-bench | 多輪工具呼叫成功率（各廠商自測） |
 
 ### 做 RAG / 搜尋
@@ -419,14 +452,14 @@ AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 �
 | 優先看 | 來源 |
 |---|---|
 | Artificial Analysis（Price + Speed） | 標準化的 $/1M tokens 和 tokens/sec |
-| Aider 的成本欄 | 完成同一組任務的實際花費 |
+| Terminal-Bench 與 LiveBench 的成本欄 | 完成同一組任務的實際花費 |
 | OpenRouter Rankings | 高用量模型通常是價效比好的 |
 
 ### 通用聊天 / 客服
 
 | 優先看 | 來源 |
 |---|---|
-| LMArena ELO | 使用者實際偏好 |
+| Arena ELO | 使用者實際偏好 |
 | MMLU-Pro | 知識廣度 |
 | 多語言 benchmark（如 Aya 評估） | 如果服務非英語使用者 |
 
@@ -436,14 +469,15 @@ AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 �
 |---|---|
 | AIME | 數學推理 |
 | GPQA Diamond | 科學推理 |
-| HLE | 跨領域極限推理 |
+| HLE-Diamond | 跨領域極限推理 |
+| Epoch AI（FrontierMath、ECI） | 數學前沿與能力長期趨勢 |
 | LiveBench（Reasoning 類別） | 防 contamination 的推理測試 |
 
 ### 影像生成
 
 | 優先看 | 來源 |
 |---|---|
-| LMArena / Artificial Analysis Image Arena | 人類偏好 ELO |
+| Arena / Artificial Analysis Image Arena | 人類偏好 ELO |
 | Evalytic 子維度（TR / PA） | 文字渲染和 prompt 忠實度 |
 | $/千張圖 | Artificial Analysis 定價欄 |
 
@@ -484,13 +518,23 @@ AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 �
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：資料更新到 2026-11。Artificial Analysis 改寫為 Intelligence Index v5.0.1 的組成（9 個評測、四類各 25%），原寫的 Coding Agent Index 改為 Intelligence Index 內含的 Terminal-Bench 4.0 與 FrontierCode-AA 2.0；LMArena 改為 2026-01-28 改名後的 Arena（arena.ai）；LiveBench 改寫為 2.0（長時間實際任務、七組、每個成功任務成本），修正原本「每六個月更新」；新增 Vals AI、Epoch AI、Terminal-Bench 三節；SWE-bench 補官方榜的 Bash Only、Multilingual 等變體；Aider Polyglot 修正為 225 題、六種語言，並註明榜單停在 2025 年的模型；HLE 補 2026-09 的 HLE-Diamond 與 Artificial Analysis 改用它，刪除與事實不符的「2025 年 4 月 Gemini 3 Pro 38.3%」；影像、影片、語音榜與 OpenRouter 週榜換成 2026-11 的資料；選型框架的 Agent、省錢、通用聊天、推理各表同步更新。
+
 ## 參考資料
 
 - [Artificial Analysis](https://artificialanalysis.ai) — AI 模型品質、價格、速度的獨立比較平台
-- [LMArena (Chatbot Arena)](https://lmarena.ai) — 基於人類偏好投票的模型 ELO 排名
-- [LiveBench](https://livebench.ai) — 每六個月更新的 contamination-free benchmark（23 任務 × 7 類別）
+- [Artificial Analysis Intelligence Benchmarking Methodology](https://artificialanalysis.ai/methodology/intelligence-benchmarking) — Intelligence Index v5.0.1 的評測組成與權重
+- [Arena](https://arena.ai) — 基於人類偏好投票的模型 ELO 排名（原 LMArena）
+- [LMArena is now Arena](https://arena.ai/blog/lmarena-is-now-arena) — 2026-01-28 改名公告
+- [LiveBench](https://livebench.ai) — contamination-free benchmark，2026-10 起為 2.0 版
+- [Vals AI Benchmarks](https://www.vals.ai/benchmarks) — 產業任務評測與 Vals Index
+- [Epoch AI Benchmarks](https://epoch.ai/benchmarks) — benchmark 資料庫與 Epoch Capabilities Index
 - [SWE-bench](https://www.swebench.com) — 真實 GitHub issue 修復的 coding agent benchmark
-- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — 跨語言程式碼編輯 benchmark，附成本數據
+- [Terminal-Bench](https://www.tbench.ai/) — 終端機長任務的 agent benchmark
+- [Introducing HLE-Diamond](https://lastexam.ai/blog/hle-diamond) — 1,000 題的 HLE 精修版
+- [Aider LLM Leaderboards](https://aider.chat/docs/leaderboards/) — 跨語言程式碼編輯 benchmark，附成本數據（停在 2025 年的模型）
 - [OpenRouter Rankings](https://openrouter.ai/rankings) — AI model API 聚合平台的實際用量排名
 - [HuggingFace Models](https://huggingface.co/models) — 開源模型下載量、likes、trending 資料
 - [Ollama Library](https://ollama.com/library) — 本地 LLM 部署的模型拉取量排名
@@ -499,7 +543,8 @@ AI 模型的迭代速度極快。一篇 2026 年 3 月的比較文章，到 8 �
 - [Humanity's Last Exam (arXiv:2501.14249)](https://arxiv.org/abs/2501.14249) — 數千位專家出題的極限 AI 測試
 - [MMMU Benchmark](https://mmmu-benchmark.github.io/) — 11.5K 大學等級多模態題目，30 學科
 - [MathVista](https://mathvista.github.io/) — 6,141 道視覺數學推理題
-- [LMArena Text-to-Image](https://arena.ai/leaderboard/text-to-image) — 影像生成 ELO 排名（76+ 模型）
+- [Arena Text-to-Image](https://arena.ai/leaderboard/text-to-image) — 影像生成 ELO 排名（87 個模型）
+- [Arena Image-to-Video](https://arena.ai/leaderboard/image-to-video) — 圖生影片 ELO 排名（50 個模型）
 - [Artificial Analysis Image Arena](https://artificialanalysis.ai/image/leaderboard/text-to-image) — 影像生成 ELO + 定價比較
 - [Evalytic Image Leaderboard](https://evalytic.ai/leaderboard) — 6 評審、33 模型、多維度影像評測
 - [Artificial Analysis Video Arena](https://artificialanalysis.ai/video/leaderboard/text-to-video) — 影片生成 ELO 排名（含/不含音訊）

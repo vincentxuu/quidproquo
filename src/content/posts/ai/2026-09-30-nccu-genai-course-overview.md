@@ -21,7 +21,7 @@ glossary:
     context: "長庚大學的衛星班頁面就是這種安排下的產物，作業評分標準出自那裡。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-course-overview-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -203,12 +203,13 @@ TAICA 讓各校獨立評分，所以同一份作業在不同學校的份量不�
 - [官方課程與錄影入口](https://yangchihyuan.github.io/courses/GenerativeAI2025)
 - [YouTube 課程播放清單（Iveai - I've AI）](https://www.youtube.com/playlist?list=PL-eaXJVCzwbukEFU2k5vu_BlUqgVLsEnv)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認官方入口可開啟，單一講次錄影連結不適用於總覽文，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

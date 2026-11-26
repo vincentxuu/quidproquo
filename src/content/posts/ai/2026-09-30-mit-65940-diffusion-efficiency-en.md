@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 Lecture 18 slides, pages 37–39; from Rombach et al., CVPR 2022."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-diffusion-efficiency)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

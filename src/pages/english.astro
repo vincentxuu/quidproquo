@@ -2,9 +2,68 @@
 export const prerender = true;
 import PostLayout from '../layouts/PostLayout.astro';
 import { EnglishSpeaking } from '../components/EnglishSpeaking/EnglishSpeaking.tsx';
+import { englishContentEntries } from '../lib/english-content';
+import { speakingScenarios } from '../lib/english-speaking';
+import { getPublishedPosts } from '../utils/content';
+import '../styles/english-hub.css';
+
+const posts = await getPublishedPosts();
+const byId = new Map(posts.map(post => [post.id, post]));
+const entries = englishContentEntries.flatMap(entry => {
+  const post = byId.get(entry.id);
+  if (!post) return [];
+  const translation = byId.get(`${entry.id}-en`);
+  return [{ ...entry, title: post.data.title, href: `/posts/${post.id}/`, enHref: translation ? `/posts/${translation.id}/` : undefined }];
+});
+const sections = [
+  { id: 'materials', title: '情境教材', note: '先找到想說的話，讀用法與例子，再到相關情境練習。', label: '英文口說練習 · 情境篇' },
+  { id: 'methods', title: '方法、研究與原音教材', note: '了解怎麼安排練習、跟讀的證據與限制，或帶著原音教材開口。', label: '英文口說練習 · 方法篇' },
+  { id: 'courses', title: '選課與練習安排', note: '從總覽掌握完整路線；帶著方法與情境練習的卡點，選平台、學校，並安排課後複習。', label: '英文口說練習 · 選課與安排篇' },
+] as const;
+const readings = entries.filter(entry => entry.section === 'materials').map(entry => ({ title: entry.title, href: entry.href, scenario: entry.scenario! }));
 ---
 
-<PostLayout title="英文口說" lang="zh-TW" description="把想說卻卡住的意思，練成說得出口的英文。情境文章、句子朗讀與回想練習。" switchHref="/en">
-  <EnglishSpeaking client:load />
-  <noscript>請啟用 JavaScript，閱讀英文口說情境與使用回想練習。</noscript>
+<PostLayout title="英文口說" lang="zh-TW" description="英文口說的統一入口：互動練習、情境教材、方法與研究，以及選課與練習安排。" switchHref="/en">
+  <div class="eh-hub">
+    <header class="eh-intro">
+      <p class="eh-kicker">英文口說 · 從閱讀到開口</p>
+      <h1>找到想說的話，<br />再開口練一次。</h1>
+      <p>方法、情境與選課都收在同一個「英文口說練習」系列。可以依序讀，也可以挑現在用得上的一題，直接開口練。</p>
+    </header>
+    <nav class="eh-start" aria-label="英文口說入口">
+      <a href="#practice-area"><span>01</span><strong>直接開口練</strong><small>句子回想、朗讀與對話</small></a>
+      <a href="#materials"><span>02</span><strong>找情境教材</strong><small>工作、旅遊、面試與日常</small></a>
+      <a href="#methods"><span>03</span><strong>了解怎麼練</strong><small>方法、跟讀研究與原音</small></a>
+      <a href="#courses"><span>04</span><strong>選課與排練習</strong><small>平台、學校與課後複習</small></a>
+    </nav>
+  </div>
+  <section id="practice-area" class="eh-practice" aria-label="互動練習">
+    <EnglishSpeaking articles={readings} client:load />
+    <noscript><p class="eh-noscript">互動練習需要 JavaScript。你仍可閱讀下方所有教材、研究與選課文章。</p></noscript>
+  </section>
+  <div class="eh-hub eh-library">
+    {sections.map(section => (
+      <section id={section.id} class="eh-section" aria-labelledby={`eh-${section.id}`}>
+        <header class="eh-section-heading">
+          <p class="eh-kicker">{section.label}</p>
+          <h2 id={`eh-${section.id}`}>{section.title}</h2>
+          <p>{section.note}</p>
+          {section.id === 'courses' && <a class="eh-series-link" href="/series/english-speaking-practice/">依系列順序閱讀 →</a>}
+        </header>
+        {(section.id === 'materials'
+          ? speakingScenarios.map(scenario => ({ title: scenario.title, practiceHref: `/english/#home/${scenario.id}`, posts: entries.filter(entry => entry.section === 'materials' && entry.scenario === scenario.id) }))
+          : [{ title: '', practiceHref: '', posts: entries.filter(entry => entry.section === section.id) }]
+        ).filter(group => group.posts.length > 0).map(group => <div class="eh-reading-group">
+          {group.title && <div class="eh-group-heading"><h3>{group.title} <span>· {group.posts.length} 篇</span></h3><a href={group.practiceHref}>練這個情境 →</a></div>}
+          <ul class="eh-list">
+            {group.posts.map(entry => <li>
+              <a class="eh-reading" href={entry.href}>{entry.title}</a>
+              {entry.enHref && <a class="eh-translation" href={entry.enHref} lang="en" aria-label={`English version: ${entry.title}`}>English</a>}
+            </li>)}
+          </ul>
+        </div>)}
+        <a class="eh-return" href="#practice-area">回到互動練習 ↑</a>
+      </section>
+    ))}
+  </div>
 </PostLayout>

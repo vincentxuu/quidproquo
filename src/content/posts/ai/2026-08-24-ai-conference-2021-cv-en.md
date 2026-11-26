@@ -23,7 +23,7 @@ glossary:
     context: "Self-supervised methods such as SimSiam, DINO, and MoCo v3 made major advances in 2021, narrowing the performance gap with supervised learning."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2021-cv)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2021-cv)
 
 Two major events reshaped computer vision in 2021. COVID-19 forced CVPR and ICCV, the field’s two most important conferences, to move fully online. At the same time, the Transformer crossed over from NLP into computer vision and began challenging CNNs after a decade of dominance. This article reviews the award-winning and most influential work from both conferences, along with three technical trends that defined the direction of computer vision in 2021.
 

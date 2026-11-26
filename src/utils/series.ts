@@ -118,6 +118,15 @@ function inferSeriesCategory(slug: string, posts: SeriesPost[]): SeriesCategoryI
 // slug 是系列的身分：zh 與 en 版共用同一個 slug，只差 /en 前綴，中英切換才接得起來。
 const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
+    slug: 'ai-security',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 資安實戰', en: 'AI Security in Practice' },
+    descriptions: {
+      'zh-TW': '共用資料流、身分與證據基礎，分成 AI 輔助攻擊、保護 AI 系統、AI 輔助調查與修補三條路線，最後以可重現的攻防演練會合。實作涵蓋靶場、自架雲端與明確授權的系統。',
+      en: 'A shared foundation in data flow, identity, and evidence, followed by three paths: AI-assisted attacks, securing AI systems, and AI-assisted investigation and remediation. The paths meet in a reproducible exercise across labs, self-hosted cloud environments, and explicitly authorized systems.',
+    },
+  },
+  {
     slug: 'statistics-ml-ai',
     category: 'exams-interviews',
     names: { 'zh-TW': '從考試到 ML/AI 的統計學導讀', en: 'Statistics from Exams to ML/AI' },
@@ -176,10 +185,10 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'browser-automation-mcp',
     category: 'engineering',
-    names: { 'zh-TW': '瀏覽器自動化與 MCP', en: 'Browser Automation and MCP' },
+    names: { 'zh-TW': 'AI 瀏覽器自動化', en: 'AI Browser Automation' },
     descriptions: {
-      'zh-TW': '讓 agent 開瀏覽器的幾條路線：Playwright、Puppeteer、Chrome DevTools 三個 MCP server 的取捨，視覺驅動的 Midscene，以及各家 CLI agent 內建瀏覽器能力的差別。重點在什麼情況下哪條路線會失敗。',
-      en: 'The routes for putting a browser in an agent’s hands: the trade-offs between the Playwright, Puppeteer and Chrome DevTools MCP servers, vision-driven Midscene, and how the CLI agents differ in what they can drive natively. Focused on where each route breaks.',
+      'zh-TW': '讓 AI 操作瀏覽器，從上到下拆成五層：給 coding agent 的工具、寫程式用的 AI SDK、自己決定下一步的 agent、把動作送進瀏覽器的 driver 與協定，以及用什麼瀏覽器、跑在哪裡。每篇談一層裡的一個選擇，重點在它什麼時候會失敗。',
+      en: 'Putting a browser in an AI’s hands, taken apart layer by layer: tools for coding agents, AI SDKs you script against, agents that pick their own next step, the drivers and protocols that carry each action, and which browser runs where. Each post covers one choice in one layer, focused on where it breaks.',
     },
   },
   {
@@ -220,48 +229,12 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
-    slug: 'laos-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '寮國岩場', en: 'Laos Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從他曲的 Pha Tam Kam 與 Tha Falang、萬榮的喀斯特岩壁到龍坡邦的河壁，按風格、級數、季節與交通選目的地。每篇分開介紹路線、接近方式、住宿、岩栓與醫療風險。',
-      en: 'Choose Lao climbing destinations by style, grade, season and transport, from Pha Tam Kam and Tha Falang in Thakhek to the karst walls of Vang Vieng and the river walls of Luang Prabang. Each guide covers routes, approaches, lodging, bolts and medical risk.',
-    },
-  },
-  {
-    slug: 'vietnam-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '越南岩場', en: 'Vietnam Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從諒山 Hữu Lũng 的 267 條果園石灰岩運攀，到吉婆島的海島屋頂與蘭夏灣的沙灘運動攀岩與深水抱石，按風格、級數、季節、潮汐與交通選目的地。每篇分開介紹路線、接近方式、通行費、封閉與在地規範。',
-      en: 'Choose Vietnamese climbing destinations by style, grade, season, tide and transport, from the 267 orchard limestone sport routes at Hữu Lũng to island roofs on Cat Ba and beach sport climbing plus deep water soloing in Lan Hạ Bay. Each guide covers routes, approaches, access fees, closures and local rules.',
-    },
-  },
-  {
-    slug: 'malaysia-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '馬來西亞岩場', en: 'Malaysia Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從玻璃市的石灰岩運攀、蘭卡威的私人岩場與深水抱石，到黑風洞、怡保、刁曼島多段與砂拉越洞穴。每個岩場分開介紹路線、接近方式、在地規範、岩栓狀態與指南書。',
-      en: 'From Perlis limestone sport climbing and Langkawi’s private crags and deep-water soloing to Batu Caves, Ipoh, Tioman multipitch and Sarawak caves. Each crag guide covers routes, approaches, local rules, bolt condition and guidebooks.',
-    },
-  },
-  {
-    slug: 'thailand-crags',
-    category: 'climbing',
-    names: { 'zh-TW': '泰國岩場', en: 'Thailand Climbing Crags' },
-    descriptions: {
-      'zh-TW': '從喀比半島的 Tonsai 與 Railay、Ao Nang 本島的 North Wall 與 Chong Phli，到清邁 Crazy Horse、清道、華富里、北標與龜島抱石，按風格、級數、季節與交通選目的地。每篇分開介紹具名路線、接近方式、進入規定、岩栓狀態與指南書。',
-      en: 'Choose Thai climbing destinations by style, grade, season and transport, from Tonsai and Railay on the Krabi peninsula and the Ao Nang mainland crags to Crazy Horse, Chiang Dao, Lopburi, Nam Pha Pa Yai and Koh Tao bouldering. Each guide covers named routes, approaches, access rules, bolt condition and guidebooks.',
-    },
-  },
-  {
     slug: 'climbing-gear-travel',
     category: 'climbing',
     names: { 'zh-TW': '出國攀岩裝備', en: 'Climbing Travel Gear' },
     descriptions: {
-      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
-      en: 'For climbers flying abroad with their gear: what to bring for each destination and how long a rope you need, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
+      'zh-TW': '帶裝備出國攀岩時讀：依目的地決定帶什麼、繩要多長、挑哪一條繩，攀岩裝備怎麼過安檢與航司行李規定，2020 年後攀岩者實際怎麼分托運與登機，再挑托運主袋、岩場包和多繩距攀登包。裝備本身怎麼挑與保養，交給「攀岩裝備」系列。',
+      en: 'For climbers flying abroad with their gear: what to bring for each destination, how long a rope you need and which one to buy, how climbing gear fares at airport security and under airline baggage rules, how climbers actually split checked and cabin luggage (examples from 2020 on), then choosing a checked bag, crag pack and multipitch pack. How to choose and care for each piece of gear is covered in the Climbing Gear series.',
     },
   },
   {
@@ -299,6 +272,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把資料從外面弄進來的整條路：搜尋要租雲端 API 還是自己架、爬取工具怎麼選、被反爬擋住怎麼辦，最後怎麼把這些接成一條研究流程。每篇談一個決定，讀完能拼出一套自己的取得管道。',
       en: 'The full path for getting data in from outside: renting a cloud search API versus self-hosting one, choosing among the scraping tools, what to do when anti-bot defenses block you, and how to wire it all into a research pipeline. One decision per post.',
+    },
+  },
+  {
+    slug: 'always-on-agents',
+    category: 'ai-agents',
+    names: { 'zh-TW': '常駐型 AI agent', en: 'Always-On AI Agents' },
+    descriptions: {
+      'zh-TW': '關掉 app 還會自己決定做什麼的 agent。先拆它們的零件與「會自己醒來」的三個等級，再依「它在哪台電腦上跑」分四條路線看各家的設計取捨，最後談它們怎麼出錯、值不值得、出事誰負責、怎麼從唯讀開始用。',
+      en: 'Agents that keep deciding what to do after you close the app. The series takes apart their components and the three levels at which they wake, follows four routes defined by whose computer they run on, then covers how they go wrong, whether they are worth it, who is liable, and how to start read-only.',
     },
   },
   {
@@ -362,6 +344,33 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '每日 AI 動態速覽。',
       en: 'A daily digest of AI developments.',
+    },
+  },
+  {
+    slug: 'ai-common-failures',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI 通病', en: 'AI Common Failures' },
+    descriptions: {
+      'zh-TW': '針對 AI 相關寫作與介紹文章的常見通病，如否定式對比、意義抬高、指示型摘要、過度概括，說明如何認出與修正。',
+      en: 'Common pitfalls in AI-related writing and introductions, such as negative contrast, overstated significance, instructive summaries, and overgeneralization — how to spot and fix them.',
+    },
+  },
+  {
+    slug: 'ai-agent-security-tooling-map',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'AI Agent 資安工具地圖', en: 'AI Agent Security Tooling Map' },
+    descriptions: {
+      'zh-TW': '圖解 AI Agent 資安工具的版圖與關係，釐清各工具在防禦、偵測與回應層的定位。',
+      en: 'Mapping the landscape of AI agent security tools, clarifying each tool\u2019s role in defense, detection, and response layers.',
+    },
+  },
+  {
+    slug: 'agent-isolation-boundaries',
+    category: 'ai-agents',
+    names: { 'zh-TW': 'Agent 隔離邊界', en: 'Agent Isolation Boundaries' },
+    descriptions: {
+      'zh-TW': '探討 Agent 與主機、網路、資料之間的隔離邊界，以及如何確保 Agent 動作不越界。',
+      en: 'Exploring isolation boundaries between agents and hosts, networks, and data, and how to keep agent actions within bounds.',
     },
   },
   {
@@ -543,8 +552,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': '追蹤 Stanford CS329Z Fall 2026：前五堂官方投影片與 HW1 起始碼、資料及公開測試已釋出；各週指定閱讀另附導讀。',
-      en: 'Following Stanford CS329Z Fall 2026: the first five official slide decks and the HW1 starter, datasets, and public tests are available, alongside weekly reading guides.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：一堂一篇，投影片附頁碼對照，指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理；錄影由 Stanford Online 公開上架（第 1–10 堂已上架）。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026: one post per lecture with page-linked slide guides and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants; recordings are published publicly by Stanford Online (Lectures 1–10 up).',
     },
   },
   {
@@ -1065,6 +1074,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'understanding-benchmarks',
+    category: 'ai-agents',
+    names: { 'zh-TW': '認識 benchmark', en: 'Understanding AI Benchmarks' },
+    descriptions: {
+      'zh-TW': '模型發布表上的每個分數是怎麼量出來的、為什麼會失真、主要的 benchmark 各自在量什麼，以及怎麼自己建一個量得準的評測。',
+      en: 'How each score on a model release table is measured, why it gets distorted, what the major benchmarks actually measure, and how to build an evaluation of your own that measures what you mean.',
+    },
+  },
+  {
     slug: 'ai-native-sdlc-playbook',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI-Native SDLC Playbook', en: 'AI-Native SDLC Playbook' },
@@ -1137,6 +1155,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '每週整理 AI Agent 領域的重要發布、論文與工具變化。',
       en: 'A weekly roundup of notable releases, papers, and tooling changes in the AI agent space.',
+    },
+  },
+  {
+    slug: 'ai-agent-monthly-report',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 月報', en: 'AI Agent Monthly Report' },
+    descriptions: {
+      'zh-TW': '每月整理 AI Agent 領域改變判斷的變化：月對月指標、三條主線、上期判斷回顧、更正與下月驗證。',
+      en: 'A monthly report on what changed judgments in the AI agent space: month-over-month metrics, three main threads, a review of past claims, corrections, and conditions to check next month.',
     },
   },
   {
@@ -1252,8 +1279,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'climbing',
     names: { 'zh-TW': '攀岩裝備', en: 'Climbing Gear' },
     descriptions: {
-      'zh-TW': '從買第一雙攀岩鞋開始：先租還是先買、鞋子多緊才對、吊帶與頭盔怎麼試穿、繩子與確保器怎麼搭配，以及原廠怎麼規定檢查與汰換。只講選購判準、標準數字與退役規則，不推薦型號。',
-      en: 'Starting from your first pair of climbing shoes: what to rent and what to buy, how tight shoes should be, how to fit a harness and helmet, how ropes and belay devices go together, and what manufacturers say about inspection and retirement. Selection criteria, standards, and retirement rules only, no model picks.',
+      'zh-TW': '一個裝備一篇，照花錢的順序走：先租還是先買，接著是攀岩鞋、粉袋、吊帶、確保器、鉤環、頭盔、快扣、繩子、普魯士繩、岩楔與活動岩楔，最後是原廠怎麼規定檢查與汰換。每篇先講選購判準，再比較現行型號，附 2024 年後的評測與心得影片。',
+      en: 'One piece of gear per guide, in the order you spend money: what to rent and what to buy, then shoes, chalk bag, harness, belay device, carabiners, helmet, quickdraws, rope, prusik cord, nuts and cams, ending with what manufacturers say about inspection and retirement. Each guide covers the buying criteria first, then compares current models, with reviews and hands-on videos from 2024 on.',
     },
   },
   {
@@ -1275,12 +1302,39 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'crack-climbing',
+    category: 'climbing',
+    names: { 'zh-TW': '裂隙攀登技術', en: 'Crack Climbing Technique' },
+    descriptions: {
+      'zh-TW': '讀完〈裂隙怎麼爬〉之後，按尺寸把每種塞法練到能用：手掌、腳塞、指裂、薄手、拳、寬裂、擠身縫與煙囪，再到 layback、斜裂與屋簷，最後是膠帶手套、訓練，以及日本與韓國的裂隙岩場。每種技巧都附 2020 年以後、不同岩場與不同攀岩者的教學和攀爬影片，也講手大小怎麼改變答案。',
+      en: 'After the crack-climbing primer, work through each size until it holds: hands, feet, fingers, off-fingers, fists, offwidths, squeezes and chimneys, then laybacks, leaning cracks and roofs, and finally tape gloves, training, and the crack crags of Japan and Korea. Every technique comes with 2020-or-later lessons and ascent videos from different crags and climbers, and each post covers how hand size changes the answer.',
+    },
+  },
+  {
     slug: 'english-speaking-practice',
     category: 'learning',
     names: { 'zh-TW': '英文口說練習', en: 'English Speaking Practice' },
     descriptions: {
-      'zh-TW': '從具體溝通任務出發，逐家介紹線上真人平台、AI 工具與語言學校，搭配課前準備、課中回饋與課後重說。',
-      en: 'Task-based speaking practice with individual guides to live tutoring platforms, AI tools, and language schools, connecting preparation, feedback, and repetition.',
+      'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
+      en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
+    },
+  },
+  {
+    slug: 'daodao-community-ops',
+    category: 'business',
+    names: { 'zh-TW': '島島阿學怎麼經營', en: 'How DaoDao Runs a Learning Community' },
+    descriptions: {
+      'zh-TW': '島島阿學原本想直接幫學習者養成學習習慣，後來轉向幫助開課、帶社群的老師與引導者，再用共同挑戰讓不同取向的人都有地方加入。這個系列拆解這套做法：三種學習形式各自負責什麼、軟體在哪裡頂替人、錢從哪來、怎麼量，以及怎麼讓社群不靠少數人撐下去。',
+      en: 'DaoDao set out to help learners build habits directly, then turned to helping the teachers and facilitators who run courses and communities, with open co-challenges for people with any goal. This series takes the approach apart: what each of three learning formats is for, where software stands in for people, who pays, what to measure, and how a community keeps going without resting on a few people.',
+    },
+  },
+  {
+    slug: 'mass-irrationality',
+    category: 'learning',
+    names: { 'zh-TW': '群體非理性閱讀地圖', en: 'The Mass Irrationality Reading Map' },
+    descriptions: {
+      'zh-TW': '從 1841 年的金融狂熱敘事到 2024 年的錯誤資訊辯論，用十一本書搭一條解釋鏈：群體非理性在歷史上怎麼反覆出現、群眾心理與認知科學怎麼解釋它、文化與制度怎麼放大它、當代平台機制又怎麼讓它更難被糾正。每篇導讀一本書，並列後來研究修正了什麼。',
+      en: 'Eleven books, one explanation chain: why collective delusions keep recurring in history, what crowd psychology and cognitive science say about why, how culture and institutions amplify them, and what contemporary platform mechanics change. Each post reads one book against later research, with the criticisms alongside.',
     },
   },
   {

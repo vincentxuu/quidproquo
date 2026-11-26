@@ -10,7 +10,7 @@ description: "A deep introduction to Encyclopedia of Agentic Coding Patterns: a 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-encyclopedia-of-agentic-coding-patterns)
+> :globe: [中文版](/posts/ai/2026-04-18-encyclopedia-of-agentic-coding-patterns)
 
 In early 2025, Kenta Naruse, an ML engineer at Rakuten, gave a coding agent a task: implement a specific activation vector extraction method in vLLM. vLLM is an open-source inference library spanning multiple languages with over 12.5 million lines of code.
 

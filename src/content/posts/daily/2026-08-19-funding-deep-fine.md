@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-19-funding-deep-fine-en)
+> :globe: [English version](/posts/daily/2026-08-19-funding-deep-fine-en)
 
 ## 融資資訊
 

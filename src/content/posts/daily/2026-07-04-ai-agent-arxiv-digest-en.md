@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 41
 ---
-> 🌏 [中文版](/posts/daily/2026-07-04-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-04-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ Memory is a core feature of nearly every agent platform (LangGraph's checkpointi
 ### Deep Dive
 
 - **5-task framework**: reject → constrain → update → reconcile → leverage, systematically covering every role memory plays in reasoning
-- **Core finding**: mainstream memory systems universally show significant sycophancy on this benchmark, and adding memory often performs worse than no memory at all ⚠️ (check the original paper for specific model numbers)
+- **Core finding**: mainstream memory systems universally show significant sycophancy on this benchmark, and adding memory often performs worse than no memory at all :warning: (check the original paper for specific model numbers)
 - **Evaluation focus shift**: tests memory's impact on "decision quality" rather than just recall/precision — an important directional change in evaluation
 - **Difference from existing memory benchmarks**: MemoryArena, StreamMemBench, MemBench, etc. do not cover this dimension
 - **LangGraph/AutoGen relevance**: these frameworks' memory interfaces have no built-in sycophancy guard; developers must design override logic themselves
@@ -82,7 +82,7 @@ Memory is a core feature of nearly every agent platform (LangGraph's checkpointi
 
 ### Reviewer's One-Line Take
 
-Problem definition is clear and has strong practical value — memory sycophancy is a real industry pain point, and this benchmark direction is what the field genuinely needs. But without the full experiments, coverage breadth and per-model numbers remain unknown; ⚠️ details are primarily based on the abstract and require verification against the full paper.
+Problem definition is clear and has strong practical value — memory sycophancy is a real industry pain point, and this benchmark direction is what the field genuinely needs. But without the full experiments, coverage breadth and per-model numbers remain unknown; :warning: details are primarily based on the abstract and require verification against the full paper.
 
 ### Your Take-Away
 
@@ -136,7 +136,7 @@ The quality of agent safety testing determines how much confidence you can have 
 ### Deep Dive
 
 - **Rare linguistics perspective**: the vast majority of agent safety benchmarks are designed from a security attack/defense angle; this paper approaches from pragmatics, covering risks arising from everyday linguistic ambiguity
-- **Small benchmark scale**: 18 seed items + 54-row pilot dataset ⚠️ lacks statistical persuasiveness; community expansion needed for generalization
+- **Small benchmark scale**: 18 seed items + 54-row pilot dataset :warning: lacks statistical persuasiveness; community expansion needed for generalization
 - **5-dimension scoring**: separates "did it succeed?" from "was it safe?", decoupling capability from safety — this design itself is worth borrowing
 - **Scaffold failure isolated**: framework-level failures (e.g., input sanitization) are separated from model failures, which is crucial for engineering diagnosis
 - **Limitation**: single author, linguistics background, no LLM experimental comparisons — currently a methodological proposal, not an empirical paper
@@ -199,7 +199,7 @@ Observability is the core engineering challenge for multi-agent platforms. This 
 - **Limitation**: position paper lacking rigorous empirical validation; the definition and measurement of "emergent behavior" remain vague; no concrete framework or tools
 - **AutoGen/LangGraph relevance**: AutoGen's group chat and LangGraph's multi-agent supervisor are exactly the collectives discussed here; conversation traces serve as the primary observability tool
 - **MCP relevance**: MCP's tool call logs and message history are concrete instances of the "natural language traces" this paper describes
-- **Potential risk**: emergent behavior isn't necessarily beneficial — collectives may produce unexpectedly harmful coordinated behavior (e.g., multiple agents colluding to achieve goals the system doesn't permit) ⚠️
+- **Potential risk**: emergent behavior isn't necessarily beneficial — collectives may produce unexpectedly harmful coordinated behavior (e.g., multiple agents colluding to achieve goals the system doesn't permit) :warning:
 
 ### Reviewer's One-Line Take
 

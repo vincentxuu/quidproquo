@@ -13,7 +13,7 @@ description: "刁曼島 Dragon's Horns 攀岩指南：南塔多段（multipitch�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-tioman-dragons-horns-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-tioman-dragons-horns-en)
 
 馬來西亞大部分的天然岩場是幾十公尺高的石灰岩壁，一個下午能爬十條線。Dragon's Horns 完全是另一種東西：花崗岩、兩三百公尺的整條路線、沒有近路、沒有纜車，也沒有人替你安排叢林接近。
 

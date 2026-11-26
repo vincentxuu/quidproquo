@@ -13,11 +13,11 @@ description: "A four-year comparison of Harvard CS1810 (2026/2025/2024/2023): in
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-27-harvard-cs181-overview)
+> :globe: [中文版](/posts/tech/2026-08-27-harvard-cs181-overview)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
+> :warning: **Edition**: 2026 is primary from the [CS181 2026 site](https://harvard-ml-courses.github.io/cs181-web/) and [s26 homeworks](https://github.com/harvard-ml-courses/cs181-s26-homeworks); 2025/2024/2023 are compared via `cs181-web-2025/2024/2023` and `cs181-s25/s24/s23-homeworks`. The [Google Sheet schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) embedded on the 2026 site can be exported anonymously (checked 2026-09-29). This series uses **homework numbers as weeks** and the schedule's lecture order within each homework.
 
 ## TL;DR
 
@@ -100,7 +100,7 @@ Official sources:
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## References
 
@@ -124,3 +124,4 @@ Checked on 2026-10-10.
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
 - **2026-09-29**: Expanded the series to orders 0–15, added "Posts in this series" and a limits list; filled in HW1–HW6 due dates, problems, and exam dates from the 2026 schedule and each `.tex`; corrected the old claims that the Google Sheet schedule was deleted and that 2026 sections were not public.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.

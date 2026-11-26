@@ -13,7 +13,7 @@ description: "Stanford CS230（2025 秋季）Lecture 1 完整導讀：flipped cl
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs230-when-prompting-stops-working-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

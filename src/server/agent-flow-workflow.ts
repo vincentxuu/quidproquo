@@ -9,7 +9,7 @@ import type { Env } from '../lib/config/env'
 const PROVIDER_KEY_PREFIX = 'provider_key:'
 const PROVIDER_ENV_KEYS = [
   'GROQ_API_KEY', 'OPENAI_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY',
-  'CEREBRAS_API_KEY', 'ANTHROPIC_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
+  'ANTHROPIC_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
   'OPENCODE_ZEN_API_KEY', 'OLLAMA_API_KEY', 'OLLAMA_CLOUD_API_KEY',
   'TAVILY_API_KEY', 'EXA_API_KEY', 'JINA_API_KEY', 'JINA_SEARCH_API_KEY',
   'FIRECRAWL_API_KEY', 'LINKUP_API_KEY', 'BRAVE_SEARCH_API_KEY', 'SERPER_API_KEY',
@@ -48,7 +48,6 @@ const LLM_PROVIDERS: Record<string, ProviderConfig> = {
   groq: { baseUrl: 'https://api.groq.com/openai/v1', envKey: 'GROQ_API_KEY' },
   openai: { baseUrl: 'https://api.openai.com/v1', envKey: 'OPENAI_API_KEY' },
   nvidia: { baseUrl: 'https://integrate.api.nvidia.com/v1', envKey: 'NVIDIA_API_KEY' },
-  cerebras: { baseUrl: 'https://api.cerebras.ai/v1', envKey: 'CEREBRAS_API_KEY' },
   anthropic: { baseUrl: 'https://api.anthropic.com/v1', envKey: 'ANTHROPIC_API_KEY' },
   gemini: { baseUrl: 'https://generativelanguage.googleapis.com/v1beta/openai', envKey: 'GEMINI_API_KEY' },
 }

@@ -25,7 +25,7 @@ glossary:
     context: "The first topic of ADL videos 13.6/13.7."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-conversational-ai-tool-use)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -13,7 +13,7 @@ description: "Stanford CS336 Spring 2026 Lecture 9 導讀：data scaling、power
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs336-scaling-laws-foundations-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

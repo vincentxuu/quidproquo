@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-funding-vinci-en)
+> :globe: [English version](/posts/daily/2026-10-07-funding-vinci-en)
 
 ## 融資資訊
 

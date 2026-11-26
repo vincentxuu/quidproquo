@@ -13,7 +13,7 @@ description: "逐段讀 Stanford CS224N Winter 2026 Lecture 1，整理課程目�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs224n-history-nlp-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs224n-history-nlp-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
@@ -117,12 +117,13 @@ Winter 2026 的錄影只對修課者開放。本文依官方 intro 與 history �
 - [CS224N Spring 2024 公開錄影（補充教材）](https://www.youtube.com/playlist?list=PLoROMvodv4rOaMFbaqxPDoLWjDaRAdP9D)
 - [官方課程／講次來源](https://web.stanford.edu/class/cs224n/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時確認 Winter 2026 錄影需登入、公開錄影僅 2024 年版且無對應講次，維持原狀態並補上查核日期。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

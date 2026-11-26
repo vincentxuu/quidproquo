@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-native-mcp-authorization)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-native-mcp-authorization)
 
 The [previous article](/posts/tech/2026-08-30-looplane-context-compaction-en) handled context pressure in a long session. The next task is bringing external capabilities into the coding agent's native loop. [Looplane](https://github.com/vincentxuu/looplane) supports MCP, but the presence of `.mcp.json` does not authorize its commands to run.
 

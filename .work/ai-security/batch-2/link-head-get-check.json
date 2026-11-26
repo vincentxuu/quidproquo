@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-22",
+  "url": "https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter",
+  "userAgent": "quidproquo-link-check/1.0 (+https://quidproquo.cc)",
+  "observed": [
+    {
+      "method": "HEAD",
+      "status": 404
+    },
+    {
+      "method": "GET",
+      "status": 200
+    }
+  ],
+  "bodyRead": "Exa full lab text independently fetched, in research/lab-live-fetch.json",
+  "originalChecker": "17 passed; 1 flagged broken because HEAD 404 does not trigger GET fallback",
+  "checkerModified": false
+}

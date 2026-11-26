@@ -30,7 +30,7 @@ glossary:
     context: "Longformer and Mistral 7B use it to cut compute on long sequences; stacking many layers still lets information reach distant tokens indirectly."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-transformer-tricks)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-transformer-tricks)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

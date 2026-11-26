@@ -10,7 +10,7 @@ description: "從 Lance 與 Apache Arrow 的資料模型、Python 寫入與查�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-lancedb-vector-database-en)
+> :globe: [English version](/posts/ai/2026-08-22-lancedb-vector-database-en)
 
 [LanceDB](https://github.com/lancedb/lancedb) 是一套可嵌入應用程式的開放原始碼檢索資料庫。它不只存 embedding，也把文字、圖片等來源資料與 metadata 放在同一張表，支援向量、全文與 SQL 式查詢。安裝 Python 套件後，連到本機目錄就能使用，不必先啟動獨立資料庫服務。
 

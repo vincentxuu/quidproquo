@@ -13,7 +13,7 @@ description: "A guide to the Aoba crag in Iwaki, Fukushima: sandstone rock and r
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-aoba)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-aoba)
 
 Aoba (青葉, あおば; the local tourism site calls it 青葉の岩場, "Aoba crag") sits in Hiwatari, Joban-Yumoto-machi, Iwaki City, Fukushima Prefecture. The [Iwaki tourism site](https://kankou-iwaki.or.jp/spot/52122) places it "in a corner of the Tokiwadai forest reserve between JR Yumoto and Uchigo stations" (JR湯本駅と内郷駅の間にあるときわ台生活環境保全林の一角). The rock is sandstone, the climbing is mostly bolted sport, and there is one small boulder sector.
 

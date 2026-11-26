@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-platform-experiments-rubrics-design-research)
+> :globe: [中文版](/posts/learning/2026-10-14-platform-experiments-rubrics-design-research)
 
 This is Part 26 of the "Writing Articles That Teach" series, in its last section, "how to know it works, and how to make it". The previous part looked at an author with no exam to give: what each of the signals in their hands (readers saying it was well written, how long they read) actually measures. This part goes one level up. If there are exams, large numbers of learners, and the ability to randomize people into groups, what can experiments tell someone who writes teaching materials? And when experiments aren't possible, how much support do the two common substitutes have?
 

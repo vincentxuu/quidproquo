@@ -10,7 +10,7 @@ description: "A structured overview of mainstream code review comment classifica
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-26-code-review-comment-classification)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-26-code-review-comment-classification)
 
 The most common problem with code review comments: the reviewer thinks it's a blocking issue, but the author treats it as a suggestion and moves on. It's not anyone's fault — the comment itself carries no classification signal, so each side interprets it differently.
 
@@ -88,9 +88,9 @@ Only three severity levels, with correctness-only as the default:
 
 | Marker | Category | Description |
 |--------|----------|-------------|
-| 🔴 | Normal | Bugs that would affect production |
-| 🟡 | Nit | Minor issues worth fixing but non-blocking |
-| 🟣 | Pre-existing | Bugs that predate this PR |
+| :red-circle: | Normal | Bugs that would affect production |
+| :yellow-circle: | Nit | Minor issues worth fixing but non-blocking |
+| :purple-circle: | Pre-existing | Bugs that predate this PR |
 
 Multiple agents analyze in parallel, a validation step filters out false positives, and comments are deduplicated and ranked before being posted. It doesn't touch formatting preferences or test coverage — unless you explicitly request it in a `REVIEW.md`. Every finding includes extended reasoning explaining why it was flagged.
 
@@ -98,7 +98,7 @@ Multiple agents analyze in parallel, a validation step filters out false positiv
 
 Dual-axis classification: type × severity.
 
-Three feedback types: ⚠️ Potential issue, 🛠️ Refactor suggestion, 🧹 Nitpick (Assertive mode only).
+Three feedback types: :warning: Potential issue, :wrench: Refactor suggestion, Nitpick (Assertive mode only).
 
 Four severity levels (agent layer): Critical → High → Medium → Low.
 
@@ -124,15 +124,15 @@ Its categories are similar to other tools (Critical Bugs / Refactoring / Perform
 
 | Dimension | Claude | CodeRabbit | Copilot | Qodo | SonarQube | Greptile |
 |-----------|--------|-----------|---------|------|-----------|---------|
-| Bug / Correctness | ✅ Core | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Security Vulnerabilities | ✅ | ✅ | ⚠️ Weak | ✅ | ✅ Strongest | ✅ |
-| Performance | Extensible | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Maintainability | Extensible | ✅ | ✅ | ✅ | ✅ Core | ✅ |
-| Style / Formatting | Off by default | Assertive mode | ✅ | Configurable | ✅ | Low priority |
-| Test Coverage | Off by default | ❌ | ✅ | ✅ | ✅ | ❌ |
-| Pre-existing Issue Flagging | ✅ 🟣 | ❌ | ❌ | ❌ | ✅ | ❌ |
-| Positive Feedback | ❌ | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Ticket Compliance | ❌ | ✅ | ❌ | ✅ | ❌ | ❌ |
+| Bug / Correctness | ✓ Core | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Security Vulnerabilities | ✓ | ✓ | :warning: Weak | ✓ | ✓ Strongest | ✓ |
+| Performance | Extensible | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Maintainability | Extensible | ✓ | ✓ | ✓ | ✓ Core | ✓ |
+| Style / Formatting | Off by default | Assertive mode | ✓ | Configurable | ✓ | Low priority |
+| Test Coverage | Off by default | ✗ | ✓ | ✓ | ✓ | ✗ |
+| Pre-existing Issue Flagging | ✓ :purple-circle: | ✗ | ✗ | ✗ | ✓ | ✗ |
+| Positive Feedback | ✗ | ✓ | ✗ | ✗ | ✗ | ✗ |
+| Ticket Compliance | ✗ | ✓ | ✗ | ✓ | ✗ | ✗ |
 
 ## Design Philosophy Comparison
 

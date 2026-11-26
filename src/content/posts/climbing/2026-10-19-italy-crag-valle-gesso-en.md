@@ -13,7 +13,7 @@ description: "A guide to Valle Gesso bouldering: rock and scale of the San Giaco
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-valle-gesso)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-valle-gesso)
 
 Valle Gesso is in the province of Cuneo in Piedmont, a valley running from Borgo San Dalmazzo deep into the Maritime Alps (Alpi Marittime). Higher up it splits in two: the Vallone di San Giacomo towards Entracque, and the branch towards Valdieri that leads to Sant'Anna di Valdieri and Terme di Valdieri. Both are full of boulders, and [MadBoulder](https://www.madboulder.org/valle-gesso) calls it "a premier alpine bouldering destination in Italy".
 

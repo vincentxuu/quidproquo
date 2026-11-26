@@ -10,7 +10,7 @@ description: "A full walkthrough of debugging a Docker bind mount failure: the c
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied)
+:globe: [中文版](/posts/tech/2026-03-17-docker-bind-mount-restart-not-reapplied)
 
 ## TL;DR
 

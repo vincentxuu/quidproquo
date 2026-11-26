@@ -13,7 +13,7 @@ description: "A guide to climbing at Palinuro: rock, scale, aspect and season at
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-palinuro)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-palinuro)
 
 Palinuro is a seaside village on the Cilento coast at the southern end of the province of Salerno in Campania, administratively part of Centola. Climbing here has two headline crags: Spiaggia della Molpa on the beach south of Capo Palinuro, and La Severina a few kilometres inland below the abandoned village of San Severino. [theCrag](https://www.thecrag.com/en/climbing/italy/area/517744194) lists 101 routes for the Palinuro area, including a Camerota sector and Pozzallo, a deep-water-solo spot.
 

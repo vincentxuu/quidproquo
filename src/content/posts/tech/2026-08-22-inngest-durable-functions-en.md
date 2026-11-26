@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-inngest-durable-functions)
+> :globe: [中文版](/posts/tech/2026-08-22-inngest-durable-functions)
 
 [Inngest](https://www.inngest.com/docs/learn/how-functions-are-executed) is an event-driven durable execution platform. You write ordinary TypeScript, Python, or Go functions and put database, API, and model calls inside `step.run()`. Inngest persists each step result and manages retries, sleeps, event waits, and flow control.
 
@@ -59,11 +59,18 @@ Execution history is not a complete agent-state strategy. Store large prompts, d
 
 ## When to choose Inngest
 
-Inngest offers a short path for event-driven and serverless teams, especially TypeScript teams, that want retries, waits, observability, and flow control. A queue is simpler for independent one-step work. Restate merits comparison for keyed service state and single-writer semantics. Hatchet combines a task queue, DAGs, and dynamic durable tasks. Temporal has a broader ecosystem for a large cross-language workflow platform.
+Inngest offers a short path for event-driven and serverless teams, especially TypeScript teams, that want retries, waits, observability, and flow control. A queue is simpler for independent one-step work. Restate merits comparison for keyed service state and single-writer semantics. Hatchet combines a task queue, DAGs, and dynamic durable tasks. Temporal has a broader ecosystem for a large cross-language workflow platform. Teams running entirely on AWS should also compare [Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html), GA since 2025-12: the same rerun-from-the-top, fill-in-completed-steps checkpoint/replay model, up to one year per execution, no compute charges while waiting, with state and control staying inside Lambda instead of a third-party hosted control plane.
 
 The deciding factor is not SDK syntax. It is whether the team accepts the function-replay and step-memoization contract and the data boundary of its control plane.
 
+## Update history
+
+- 2026-11-23: Added AWS Lambda durable functions (GA in 2025-12) to the selection section as the comparison for AWS teams.
+
 ## References
+
+- [AWS Lambda durable functions](https://docs.aws.amazon.com/lambda/latest/dg/durable-functions.html)
+- [Lambda durable functions launch announcement](https://aws.amazon.com/about-aws/whats-new/2025/12/lambda-durable-multi-step-applications-ai-workflows/)
 
 - [Inngest: How functions are executed](https://www.inngest.com/docs/learn/how-functions-are-executed)
 - [Inngest flow control](https://www.inngest.com/docs/guides/flow-control)

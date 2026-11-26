@@ -26,7 +26,7 @@ glossary:
     context: "The second lecture uses it to cut GPT-2 Small's training clock from 6.01 days to 3.37 days."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-guest-lectures)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-guest-lectures)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

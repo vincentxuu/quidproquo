@@ -13,7 +13,7 @@ description: "奧索拉谷（Val d'Ossola）與 Cadarese 岩場介紹：花崗�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-ossola-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-ossola-en)
 
 奧索拉谷（Val d'Ossola）在皮埃蒙特（Piemonte）大區的最北端，像一塊楔子插在瑞士的瓦萊（Valais）與提契諾（Ticino）之間，從 Lago Maggiore 一路延伸到 Simplon 山口，中心城鎮是 Domodossola。瑞士攀岩媒體 [lacrux](https://www.lacrux.com/en/klettern/climbing-in-north-south-ossola-in-italy-climbing-guide/) 寫這裡有數百條開發好的路線，運攀、傳攀、高山路線都有，「the spectacular crack climbs should be mentioned here in particular」。
 

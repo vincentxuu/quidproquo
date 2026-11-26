@@ -13,7 +13,7 @@ description: "Anthropic 四張認證（CCAO-F、CCDV-F、CCAR-F、CCAR-P）的�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-19-claude-certifications-which-one-en)
+> :globe: [English version](/posts/ai/2026-08-19-claude-certifications-which-one-en)
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回四份官方 exam guide 與認證頁，不含考古題。查證日期：2026-08-19。
 

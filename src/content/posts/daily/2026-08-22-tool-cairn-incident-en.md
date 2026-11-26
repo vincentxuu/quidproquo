@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-22-tool-cairn-incident)
+> :globe: [中文版](/posts/daily/2026-08-22-tool-cairn-incident)
 
 ## Tool Info
 
@@ -72,12 +72,12 @@ Among open-source incident analysis agents, the most established is the CNCF San
 
 | | Cairn | HolmesGPT | Manual Triage |
 |---|---|---|---|
-| Natural-language diagnosis | ✅ | ✅ | — |
-| Remediation requires human approval | ✅ (approval state machine) | Requires wiring your own Slack/PR approval flow | ✅ (humans do it anyway) |
-| Built-in cost-aware router | ✅ (local 8B ↔ frontier model) | Depends on your LLM provider config | — |
-| 24/7 background watch mode | ❌ (currently query-based only) | ✅ (Operator mode) | ❌ |
-| Requires Kubernetes | ❌ | ❌ | — |
-| Evaluation suite | ✅ (30 scenarios + 7 threshold metrics included) | Yes (150+ scenarios comparing different LLMs) | — |
+| Natural-language diagnosis | ✓ | ✓ | — |
+| Remediation requires human approval | ✓ (approval state machine) | Requires wiring your own Slack/PR approval flow | ✓ (humans do it anyway) |
+| Built-in cost-aware router | ✓ (local 8B ↔ frontier model) | Depends on your LLM provider config | — |
+| 24/7 background watch mode | ✗ (currently query-based only) | ✓ (Operator mode) | ✗ |
+| Requires Kubernetes | ✗ | ✗ | — |
+| Evaluation suite | ✓ (30 scenarios + 7 threshold metrics included) | Yes (150+ scenarios comparing different LLMs) | — |
 
 Cairn is younger and more narrowly scoped (focused on doing "query-based root cause analysis + approved remediation" well), while HolmesGPT has a more mature ecosystem and broader integration surface (ready-made integrations with Slack/Teams/PagerDuty/Jira). If you just want to evaluate locally whether "LLM reads metrics and identifies root causes" actually works, Cairn's evaluation suite has a lower barrier to entry.
 

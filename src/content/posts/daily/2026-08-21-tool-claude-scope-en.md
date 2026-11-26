@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-tool-claude-scope)
+> :globe: [中文版](/posts/daily/2026-08-21-tool-claude-scope)
 
 ## Tool Info
 
@@ -82,11 +82,11 @@ claude-scope is positioned squarely against the pain points of the two existing 
 
 | | claude-scope | Index-based tools | grep / ripgrep direct scan |
 |---|---|---|---|
-| Results always current | ✅ (incremental sync before every search) | ❌ (waits for next rebuild) | ✅ |
-| Query speed | ✅ (reads only new bytes) | ✅ | ❌ (rescans everything each time) |
-| Staleness is explicit | ✅ (`[index refreshed]` / WARNING) | ❌ (silent) | — |
-| No extra process / no network | ✅ (native plugin, Python stdlib) | Depends | ✅ |
-| Consistent output across CLI and IDE | ✅ | Depends | ✅ |
+| Results always current | ✓ (incremental sync before every search) | ✗ (waits for next rebuild) | ✓ |
+| Query speed | ✓ (reads only new bytes) | ✓ | ✗ (rescans everything each time) |
+| Staleness is explicit | ✓ (`[index refreshed]` / WARNING) | ✗ (silent) | — |
+| No extra process / no network | ✓ (native plugin, Python stdlib) | Depends | ✓ |
+| Consistent output across CLI and IDE | ✓ | Depends | ✓ |
 
 It also handles two details most indexers miss: partially written lines (Claude Code still typing) are held back until complete, preventing duplicates or missing entries; and queued prompts recorded as `attachment` rather than `user` are indexed, while background task notifications sharing the same record type are filtered out — so searching "things I said" doesn't get polluted with agent noise.
 

@@ -19,7 +19,7 @@ glossary:
     definition: "Average True Range，衡量近期波動幅度的技術指標，用來定義停損距離"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability-en)
+> :globe: [English version](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability-en)
 
 > **台股研究 Agent 實戰系列（篇 4 / 9）**：[上一篇：LLM 分層與降級鏈](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback) ｜ [下一篇：評估方法學：walk-forward、run card 與 50% 的誠實 baseline](/posts/tech/2026-08-23-stock-agent-5-walkforward-eval) ｜ [完整目錄在篇 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan)
 

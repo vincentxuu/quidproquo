@@ -26,7 +26,7 @@ glossary:
     context: "影像上的 TENT、語音上的 SUTA、文字上的 Unreasonable Effectiveness of Entropy Minimization 都用這一招。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -196,11 +196,9 @@ Anthropic 今年 4 月的文章（[短版](https://www.anthropic.com/research/au
 - **作業**：本學期緊接著的是 [HW7：Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging) 與 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)。HW8 的 Self-Certainty 與 DeepConf，用的正是本講 certainty-based 的想法，只是拿來挑答案而不是更新參數。
 - **延伸閱讀**：RLVR 的完整脈絡見 [Stanford CS336 RLVR 導讀](/posts/ai/2026-08-22-cs336-rlvr)與 [CS336 SFT 與 RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf)；RL 與 LLM 的結合見 [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms)；RL 基礎見 [Berkeley CS285 policy 與 value 方法](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：投影片的文字與引用連結、影片的中文字幕（YouTube 上標為 zh-TW、非自動產生）、投影片上 15 篇 arXiv 論文的標題（用 arXiv API 核對）、Import AI 455 的作者是 Jack Clark（打開原文確認；老師在課堂上只說「可能是 Anthropic 的共同創辦人之一」）。
-
-不能確認：黃維萍同學的論文在本文撰寫時未找到公開版本，折疊裡的第二項公式是本文依課堂描述補的標準推導，不是從論文抄錄。「千問 0.6B／1.7B／4B」那組曲線，投影片標的是 R-Zero 的 arXiv 編號，本文沒有回原論文逐圖對照。PostTrainBench 的 51 分與 18 分依字幕轉述，沒有回論文核對表格。
+Import AI 455 的作者是 Jack Clark；老師在課堂上只說「可能是 Anthropic 的共同創辦人之一」。折疊裡的第二項公式是依課堂描述補的標準推導，不是從黃維萍同學的論文抄錄。「千問 0.6B／1.7B／4B」那組曲線，投影片標的是 R-Zero 的 arXiv 編號；PostTrainBench 的 51 分與 18 分依老師口述。這兩組數字要引用時，請回原論文對照圖表。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW6：Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing)｜下一篇 [HW7：Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging)
 
@@ -228,6 +226,7 @@ title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。影片主題與文中說法相符，無需修改內文。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

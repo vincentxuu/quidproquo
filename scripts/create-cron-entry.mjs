@@ -54,7 +54,7 @@ import { checkCostThresholds } from '../src/lib/console/cost/threshold.ts';
 import { detectToolDrift } from '../src/lib/mcp-proxy/drift-detector.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 export { AgentSessionDO } from '../src/server/agents/session-do.ts';
-export { AgentSandbox } from '../src/server/agents/agent-sandbox.ts';
+export { AgentSandbox, ContainerProxy } from '../src/server/agents/agent-sandbox.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
@@ -85,6 +85,8 @@ export default {
     const agentScheduledUrl = baseUrl + '/api/admin/sessions/scheduled'
 
     const isWeeklyCrawl = event.cron === '0 2 * * SUN'
+    // 後台建立的 routine 存在 D1，每 15 分鐘檢查一次哪些到期
+    const isRoutineTick = event.cron === '*/15 * * * *'
     const scheduledPipelineTasks = {
       '0 4 * * SUN': [
         { pipelineId: 'series-suggestions' },
@@ -105,6 +107,9 @@ export default {
 
       if (isWeeklyCrawl) {
         tasks.push(postWithSecret(crawlUrl, secret))
+      }
+      if (isRoutineTick) {
+        tasks.push(postWithSecret(agentScheduledUrl, secret, { routinesOnly: true }))
       }
       for (const task of scheduledPipelines) {
         tasks.push(postWithSecret(pipelineUrl, secret, {
@@ -132,6 +137,7 @@ export default {
       cron: event.cron,
       retention: Boolean(secret),
       crawl: isWeeklyCrawl,
+      routines: isRoutineTick,
       pipelines: scheduledPipelines.map((pipeline) => pipeline.pipelineId),
       agents: scheduledAgents.map((entry) => entry.agentId),
       stages: stages.length,
@@ -225,7 +231,29 @@ if (existsSync(SERVER_WRANGLER)) {
       wranglerConfig.env = hydrateEnvConfig(wranglerConfig, sourceConfig.env)
     }
   }
+  // Inject the Sandbox container and its binding into the production config only:
+  // astro dev refuses to start when a container binding is present (escalation Q-026),
+  // and adding it after env hydration keeps the preview env without containers.
+  // The image path is relative to dist/server/wrangler.json.
+  wranglerConfig.containers = [
+    {
+      class_name: 'AgentSandbox',
+      image: '../../sandbox/Dockerfile',
+      instance_type: 'basic',
+      max_instances: 3,
+    },
+  ]
+  wranglerConfig.durable_objects = {
+    ...(wranglerConfig.durable_objects ?? {}),
+    bindings: [
+      ...((wranglerConfig.durable_objects?.bindings ?? []).filter((b) => b.name !== 'SANDBOX')),
+      { name: 'SANDBOX', class_name: 'AgentSandbox' },
+    ],
+  }
   wranglerConfig.main = '../cron-entry.js'
+  // Wrangler 4.150+ uploads source maps by default; this Worker's maps exceed the 60 MiB
+  // upload limit and fail the deploy (code 10021), so keep the pre-4.150 behaviour.
+  wranglerConfig.upload_source_maps = false
   wranglerConfig.no_bundle = false
   wranglerConfig.rules = [
     { type: 'ESModule', globs: ['**/*.js', '**/*.mjs', '**/*.ts'] },

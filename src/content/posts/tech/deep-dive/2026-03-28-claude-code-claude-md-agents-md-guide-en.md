@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-claude-md-agents-md-guide)
 
 Every time you start Claude Code, you get a fresh context window — everything it learned last session is forgotten by default. The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) mentioned CLAUDE.md and auto memory in its access-scope list, and the [.claude directory tour](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory-en) walked through where each file lives. This post focuses on the more fundamental question: **how the memory system itself is designed** — what gets remembered, who writes it down, and how it stacks at load time.
 

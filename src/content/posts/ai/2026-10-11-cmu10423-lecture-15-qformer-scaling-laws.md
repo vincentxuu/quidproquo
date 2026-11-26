@@ -12,7 +12,7 @@ draft: false
 description: "追 Q-Former 的 query 讀取與兩階段訓練，再用固定預算計算模型與資料的分配"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en)
+> :globe: [English version](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

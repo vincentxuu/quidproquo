@@ -81,7 +81,7 @@ Codex 的六個原語裡有 `send_message`，讓 manager 或 worker 之間互傳
 
 ### MCP（Model Context Protocol）
 
-依 [Anthropic 的 MCP 文件](https://modelcontextprotocol.io/)，MCP 定義了 agent 與工具之間的標準介面——tools、resources、prompts。它解決的是「agent 怎麼呼叫外部能力」，不是「agent 怎麼跟 agent 溝通」。
+依 [MCP 官方文件](https://modelcontextprotocol.io/)，MCP 定義了 agent 與工具之間的標準介面——tools、resources、prompts。它解決的是「agent 怎麼呼叫外部能力」，不是「agent 怎麼跟 agent 溝通」。
 
 但 MCP 間接影響了 multi-agent 通訊：當 Agent A 要呼叫 Agent B 時，可以把 B 包裝成一個 MCP tool。依 [OpenAI Agents SDK 的 agents-as-tools 模式](https://developers.openai.com/api/docs/guides/agents/orchestration)，一個 agent 可以被註冊為另一個 agent 的 tool——呼叫方式跟呼叫普通工具一樣。
 
@@ -93,7 +93,7 @@ Codex 的六個原語裡有 `send_message`，讓 manager 或 worker 之間互傳
 
 跟 MCP 的差異：MCP 是 agent ↔ tool 的介面，A2A 是 agent ↔ agent 的介面。MCP 裡被呼叫方是被動的工具，A2A 裡雙方都是有自主性的 agent。
 
-目前 A2A 仍在早期階段，生產環境採用率低。但它代表了一個方向：multi-agent 系統需要一個通用的通訊協定，不然每換一個框架就要重新實作通訊邏輯。
+A2A 已在 2026-03 發布 [1.0 規格](https://github.com/a2aproject/A2A)。治理上，MCP 在 2025-12 由 Anthropic [捐給](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)Linux Foundation 旗下的 Agentic AI Foundation（AAIF），A2A 現在也是 AAIF 的專案，兩個協定由同一個中立基金會管。不過跨框架的 agent 互通在生產環境仍不常見，它代表的是一個方向：multi-agent 系統需要一個通用的通訊協定，不然每換一個框架就要重新實作通訊邏輯。
 
 ## 設計決策樹
 
@@ -113,13 +113,19 @@ Codex 的六個原語裡有 `send_message`，讓 manager 或 worker 之間互傳
 
 Agent 間通訊的核心取捨是**控制力 vs 靈活性**——handoff 最有紀律（一次只有一個 agent 跑）、delegate 平衡控制與並行、mailbox 最靈活但最難 debug。
 
-目前業界還沒有統一的通訊標準。MCP 正在成為 agent ↔ tool 的事實標準，A2A 嘗試成為 agent ↔ agent 的標準但採用率仍低。短期內，選擇通訊模式等於選擇框架——換框架就要重新接線。
+目前業界還沒有統一的通訊標準。MCP 正在成為 agent ↔ tool 的事實標準，A2A 1.0 想成為 agent ↔ agent 的標準，但跨框架的實際採用仍有限。短期內，選擇通訊模式等於選擇框架——換框架就要重新接線。
+
+## 更新紀錄
+
+- 2026-11-23：補上 A2A 1.0（2026-03）與 MCP、A2A 都歸 Agentic AI Foundation 治理的現況
 
 ## 參考資料
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
 - [Anthropic — Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems)
-- [Anthropic — Model Context Protocol (MCP)](https://modelcontextprotocol.io/)
+- [Model Context Protocol (MCP) 官方文件](https://modelcontextprotocol.io/)
+- [Anthropic — Donating MCP and establishing the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation)
+- [A2A Protocol GitHub](https://github.com/a2aproject/A2A)
 - [OpenAI — Agents SDK orchestration and handoffs](https://developers.openai.com/api/docs/guides/agents/orchestration)
 - [OpenAI — Codex GA 官方公告](https://openai.com/index/codex-now-generally-available/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

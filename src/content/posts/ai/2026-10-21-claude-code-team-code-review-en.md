@@ -10,7 +10,7 @@ description: "A guided reading of Anthropic's 'How the Claude Code team does cod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-claude-code-team-code-review)
+> :globe: [中文版](/posts/ai/2026-10-21-claude-code-team-code-review)
 
 In October 2026 the Claude Code team published a post on how they review code that Claude wrote. [The original](https://claude.dev/blog/solving-code-review-at-anthropic/) starts from a simple fact: Anthropic says Claude writes about 90% of Claude Code's code, and PR volume is too high to read line by line. So what is left of review? Their answer is to hand most of the reading to machines, keep humans for the places where risk is high, and make undoing mistakes cheap.
 

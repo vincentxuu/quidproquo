@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-dokku-self-hosted-paas)
+> :globe: [中文版](/posts/tech/2026-08-22-dokku-self-hosted-paas)
 
 [Dokku](https://dokku.com/docs/deployment/application-deployment/) turns a Linux and Docker server into a Heroku-like PaaS. After app creation, `git push` triggers build and release; Dockerfiles and existing images also work. The `dokku` CLI manages processes, config, domains, proxies, and linked services.
 

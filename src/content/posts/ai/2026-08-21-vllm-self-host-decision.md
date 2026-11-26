@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [vllm, llm-inference, self-hosting, gpu, pagedattention, cost]
 lang: zh-TW
-tldr: "vLLM 是自架 LLM 推論的事實標準（GitHub 89,470 stars，2026-08-21 實查），核心是把 KV cache 當作業系統的分頁來管。但選型的關鍵不在它多快，在你的 GPU 使用率：以 Red Hat 實測的每秒 793 個輸出 token 換算，一張打滿的 A100 約 $0.70 / 百萬輸出 token，使用率掉到一成就變 $7——比多數雲端 API 貴。"
+tldr: "vLLM 是自架 LLM 推論的事實標準（GitHub 97,383 stars，2026-11-23 實查），核心是把 KV cache 當作業系統的分頁來管。但選型的關鍵不在它多快，在你的 GPU 使用率：以 Red Hat 實測的每秒 793 個輸出 token 換算，一張打滿的 A100 約 $0.70 / 百萬輸出 token，使用率掉到一成就變 $7——比多數雲端 API 貴。"
 description: "從選型角度介紹 vLLM：PagedAttention 與 continuous batching 解決的是什麼問題、自架與雲端 API 的成本門檻怎麼算、同一層的 SGLang 怎麼比，以及什麼情況下自架推論服務是過度工程。"
 series:
   name: "自架推論服務"
@@ -13,15 +13,15 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-vllm-self-host-decision-en)
+:globe: [English version](/posts/ai/2026-08-21-vllm-self-host-decision-en)
 
 這個系列到目前為止談的都是應用層：路由、驗證、文件格式。這篇往下鑽一層，到自架推論服務——這一層直接決定你自己跑模型的成本與延遲，而且是少數「選錯會在帳單上看到」的決定。
 
-[vLLM](https://github.com/vllm-project/vllm) 是這一層的預設答案。它是一個開源的 LLM 推論與服務引擎：你給它一個 Hugging Face 上的模型名字，它起一個 OpenAI 相容的 HTTP server，把你 GPU 上的記憶體與算力盡量榨乾。專案出自 UC Berkeley 的 Sky Computing Lab，現在由 [PyTorch Foundation 託管](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/)，GitHub 上 89,470 stars。
+[vLLM](https://github.com/vllm-project/vllm) 是這一層的預設答案。它是一個開源的 LLM 推論與服務引擎：你給它一個 Hugging Face 上的模型名字，它起一個 OpenAI 相容的 HTTP server，把你 GPU 上的記憶體與算力盡量榨乾。專案出自 UC Berkeley 的 Sky Computing Lab，現在由 [PyTorch Foundation 託管](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/)，GitHub 上 97,383 stars。
 
 站上已經有一篇[偏使用面的 vLLM 介紹](/posts/ai/2026-03-14-vllm-inference-engine)，講 PagedAttention 的細節、V1 引擎、怎麼起 server。這篇不重複那些，只回答選型的三個問題：**我該自架嗎、該用 vLLM 嗎、什麼時候不該。**
 
-本文的版本號、價格與 stars 數皆為 2026-08-21 實查，測法與出處集中在文末附錄。
+本文的版本號、價格與 stars 數皆為 2026-11-23 實查，測法與出處集中在文末附錄。
 
 ## 兩個機制，一句話講完
 
@@ -44,9 +44,9 @@ Anyscale [量過這件事](https://www.anyscale.com/blog/continuous-batching-llm
 | 項目 | 價格 |
 |---|---|
 | A100 SXM 40GB 隨用隨付（[Lambda](https://lambda.ai/service/gpu-cloud#pricing)） | $1.99 / GPU / 小時 |
-| H100 SXM 80GB 隨用隨付（[RunPod](https://www.runpod.io/pricing)） | $3.29 / 小時 |
+| H100 SXM 80GB 隨用隨付（[RunPod](https://www.runpod.io/pricing)） | $4.39 / 小時 |
 | gpt-oss-120B serverless（[Together AI](https://www.together.ai/pricing)） | $0.15 輸入 / $0.60 輸出，每百萬 token |
-| Llama 3.3 70B serverless（Together AI） | $1.04 / 百萬 token |
+| Qwen3.8 Flash serverless（Together AI） | $0.15 輸入 / $0.47 輸出 |
 | Qwen3.5 9B serverless（Together AI） | $0.17 輸入 / $0.25 輸出 |
 
 再看一個實測吞吐量。Red Hat 在單張 A100 上跑一個 8B 模型，vLLM 的峰值是[每秒 793 個輸出 token](https://developers.redhat.com/articles/2025/08/08/ollama-vs-vllm-deep-dive-performance-benchmarking)。
@@ -81,10 +81,10 @@ GPU 是按小時計費，不是按 token 計費。使用率掉到一成，每 to
 
 推論服務層現在真正的選擇不多。
 
-| 引擎 | 定位 | Stars（2026-08-21） |
+| 引擎 | 定位 | Stars（2026-11-23） |
 |---|---|---|
-| [vLLM](https://github.com/vllm-project/vllm) | 生產級 GPU serving，硬體覆蓋最廣 | 89,470 |
-| [SGLang](https://github.com/sgl-project/sglang) | 生產級 GPU serving，大規模部署為重 | 32,194 |
+| [vLLM](https://github.com/vllm-project/vllm) | 生產級 GPU serving，硬體覆蓋最廣 | 97,383 |
+| [SGLang](https://github.com/sgl-project/sglang) | 生產級 GPU serving，大規模部署為重 | 38,957 |
 | [Ollama](/posts/ai/2026-03-14-ollama-local-llm-guide) | 本機開發與單人使用 | — |
 
 Ollama 那條線最好判斷：它跟 vLLM 不是競爭關係，是流程上的前後段。本機開發、單人聊天、快速試模型用 Ollama；要服務多人就換 vLLM。Red Hat 那份測試的結論也是這樣寫的。
@@ -109,7 +109,7 @@ PagedAttention 論文的討論一節有一段被引用得很少、但對選型�
 
 再加上自架的隱性成本：GPU 驅動與 CUDA 版本、模型權重的下載與存放、OOM 與排隊參數的調校、監控，以及升級。
 
-最後一項最容易被低估。vLLM 的迭代速度很快，光是最近的 v0.27.0 一版就包含 561 個 commit，其中還夾帶 PyTorch 大版本升級這種會弄壞環境的變更。這些都要有人維護。
+最後一項最容易被低估。vLLM 的迭代速度很快，光是 2026-11 的 v0.34.0 一版就包含 1,061 個 commit，其中還夾帶移除舊版 model runner、預設 block size 從 16 改成 64、PyPI 只發 CUDA 13 版本這類會弄壞既有設定的變更。這些都要有人維護。
 
 **怎麼做**：把「自架」當成一個要付人力的專案來估，而不是一個技術選項。如果你們沒有人願意掛名負責這台服務的升級與值班，那答案是不要自架——這比任何 benchmark 都更能預測結果。
 
@@ -125,14 +125,18 @@ vLLM 在推論服務層的地位已經沒有懸念：它是採用度最大、硬
 - **每百萬輸出 token $0.70**：本站的算術，非任何來源的宣稱。793 × 3600 ÷ 1,000,000 ≈ 2.85（百萬 token / 小時），$1.99 ÷ 2.85 ≈ $0.70。假設 GPU 100% 滿載、只計輸出 token、忽略儲存與網路費用，且直接沿用 Red Hat 在 A100-40GB 上的吞吐量搭配 Lambda 的 A100 40GB 牌價。實際數字會因模型、序列長度與硬體而異，這個算式的用途是「量級」而不是「報價」。
 - **2–4 倍與 20–26%**：均出自 PagedAttention 論文自身的評估（對照組為 FasterTransformer 與 Orca，硬體為 A100，模型為 OPT 系列與 LLaMA），非第三方複現。
 - **23 倍**：Anyscale（Ray 團隊）2023-06-22 的量測，負載為他們自行模擬的線上推論流量，對照組是樸素靜態批次。
-- **價格**：Lambda、RunPod、Together AI 的公開牌價頁面，2026-08-21 取得，未含稅、未計任何長約折扣。
+- **價格**：Lambda、RunPod、Together AI 的公開牌價頁面，2026-11-23 取得，未含稅、未計任何長約折扣。
+
+## 更新紀錄
+
+- 2026-11-23：stars、RunPod H100 時租（$3.29→$4.39）改成現值；Together 價目表已無 Llama 3.3 70B，換成 Qwen3.8 Flash；「升級成本」一段的版本例子從 v0.27.0 換成 v0.34.0。
 
 ## 參考資料
 
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention（arXiv:2309.06180）](https://arxiv.org/abs/2309.06180) — 讀了 abstract、§1 Introduction、§2 Background、§7.1 kernel microbenchmark、§7.3 recomputation vs swapping、§8 Discussion；記憶體浪費比例、2–4 倍吞吐、20–26% kernel 延遲、以及分頁的適用前提都出自這裡
 - [vLLM 官方文件](https://docs.vllm.ai/en/latest/) — 支援的模型架構數量與硬體後端清單
 - [vLLM GitHub repository](https://github.com/vllm-project/vllm) — stars 數、README 的功能清單與硬體支援
-- [vLLM Releases](https://github.com/vllm-project/vllm/releases) — v0.27.1 的發布日期、v0.27.0 的 commit 與貢獻者數、PyTorch 2.13 升級
+- [vLLM Releases](https://github.com/vllm-project/vllm/releases) — v0.34.0 的 commit 數與升級前須知（Model Runner V1 移除、block size 預設 64、CUDA 13）
 - [vLLM V1: A Major Upgrade to vLLM's Core Architecture](https://blog.vllm.ai/2025/01/27/v1-alpha-release.html) — V1 重寫的範圍，以及致謝中對 SGLang 等引擎的引用
 - [PyTorch Foundation Welcomes vLLM as a Hosted Project](https://pytorch.org/blog/pytorch-foundation-welcomes-vllm/) — 治理歸屬與時間點
 - [Ollama vs. vLLM: A deep dive into performance benchmarking（Red Hat）](https://developers.redhat.com/articles/2025/08/08/ollama-vs-vllm-deep-dive-performance-benchmarking) — 793 TPS、P99 TTFT 80ms vs 673ms、併發 16 之後 ITL 上升的取捨

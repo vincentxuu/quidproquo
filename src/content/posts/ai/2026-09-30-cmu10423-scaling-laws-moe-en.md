@@ -22,7 +22,7 @@ glossary:
     context: "The L16 slides follow OLMoE and add it to the total loss alongside the load-balance loss."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-scaling-laws-moe)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

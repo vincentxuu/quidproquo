@@ -10,7 +10,7 @@ description: "介紹 AG2 的 ConversableAgent、工具、GroupChat、多 agent �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-ag2-multi-agent-framework-en)
+> :globe: [English version](/posts/ai/2026-08-22-ag2-multi-agent-framework-en)
 
 [AG2](https://docs.ag2.ai/latest/) 是用 Python 建立 agent 與多 agent 工作流的開放原始碼框架。它的核心不是 graph node 或固定 task，而是「可對話的 agent」：每個角色都能接收訊息、呼叫模型、執行工具、回覆其他 agent 或等待人類介入。
 

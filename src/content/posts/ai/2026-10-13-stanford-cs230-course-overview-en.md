@@ -16,7 +16,7 @@ description: "An overview of the Stanford CS230: Deep Learning series, based on 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-13-stanford-cs230-course-overview)
+> :globe: [中文版](/posts/ai/2026-10-13-stanford-cs230-course-overview)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -156,11 +156,12 @@ Course and recording entries:
 - [Stanford CS230 Autumn 2025 YouTube playlist (Stanford Online)](https://www.youtube.com/playlist?list=PLoROMvodv4rNRRGdS0rBbXOUGA0wjdh1X)
 - [Official course / lecture source](https://cs230.stanford.edu/syllabus/)
 
-Checked: 2026-10-13.
+Checked: 2026-11-12.
 
 ## Update Log
 
 - 2026-10-13: Added the course overview as the series entry point.
+- 2026-11-12: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

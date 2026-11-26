@@ -12,7 +12,7 @@ series:
   order: 60
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-tool-audio-studio-mcp)
+> :globe: [中文版](/posts/daily/2026-10-20-tool-audio-studio-mcp)
 
 ## Tool Info
 
@@ -82,11 +82,11 @@ claude mcp add --scope user --transport http audio-studio http://127.0.0.1:8765/
 
 | | Audio Studio MCP | Cloud AI music generators (e.g. Suno) | Royalty-free SFX libraries (e.g. Epidemic Sound) |
 |---|---|---|---|
-| Runs locally, no API key | ✅ | ❌ | ❌ (subscription-based) |
-| Generated directly from inside the agent | ✅ | ❌ (needs a separate web tab) | ❌ (needs browsing/searching) |
-| Reproducible (same seed, same result) | ✅ | ❌ | — |
-| Can edit an existing clip (extend/re-style) | ✅ | Partial | ❌ |
-| No need to re-check a commercial license | ❌ (must read the Stability AI community license) | Depends on the plan | ✅ (while subscribed) |
+| Runs locally, no API key | ✓ | ✗ | ✗ (subscription-based) |
+| Generated directly from inside the agent | ✓ | ✗ (needs a separate web tab) | ✗ (needs browsing/searching) |
+| Reproducible (same seed, same result) | ✓ | ✗ | — |
+| Can edit an existing clip (extend/re-style) | ✓ | Partial | ✗ |
+| No need to re-check a commercial license | ✗ (must read the Stability AI community license) | Depends on the plan | ✓ (while subscribed) |
 
 ## Caveats
 

@@ -10,7 +10,7 @@ description: "Now that online courses are everywhere, the real market gap isn't 
 draft: false
 ---
 
-🌏 [中文版](/posts/product/2026-03-12-daodao-market-opportunity)
+:globe: [中文版](/posts/product/2026-03-12-daodao-market-opportunity)
 
 In 2012, Coursera and edX launched within months of each other, and the media called it the "Year of the MOOC" — world-class courses available for free, heralding a new era of democratized education. More than a decade later, we have sobering numbers to show for it: average completion rates on these platforms have stubbornly remained between 5% and 15%.
 

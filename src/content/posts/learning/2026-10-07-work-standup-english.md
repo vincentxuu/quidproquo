@@ -7,10 +7,13 @@ tags: [english-speaking, english, speaking, language-learning]
 lang: zh-TW
 description: "把軟體工程師每天會遇到的四件事整理成十句英文：報告進度、說明卡在哪裡、請同事幫忙看、提出不同意見與估時間。每句都附 Oxford 學習字典的句型依據與可替換的練習。"
 tldr: "報告昨天做完的事用過去式加時間；還在等用 I'm still waiting for；期限用 by；卡住用 I'm stuck on；請人幫忙用 Could you take a look at… when you have a moment；不同意先說 I'm not sure about…，再用 Could we… 提議；估時間用 This will probably take…。"
+series:
+  name: "英文口說練習"
+  order: 6
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-07-work-standup-english-en)
+> :globe: [English version](/posts/learning/2026-10-07-work-standup-english-en)
 
 英文口說練習區的「工作」情境原本只有兩句。這篇補上十句，範圍是軟體工程師在站立會議和日常協作裡會反覆做的四件事。這次的句子不是從某一段真實對話改出來的，是我先列出想說的中文，再逐句找字典依據。
 

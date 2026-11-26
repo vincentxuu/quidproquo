@@ -8,7 +8,7 @@ lang: en
 description: "A deep dive into the Agent Platform Provider Router: a unified Provider Registry, 10+ LLM and 12 Search providers plus 2 Reader providers, Groundlane MCP integration, step-local tool selection, fallback chains with health-aware routing, an OpenAI-compatible Proxy API (/v1/chat/completions), model alias mapping, and cross-provider format normalization."
 tldr: "The Provider Router is Agent Platform's model and tool gateway: it unifies 30+ providers, MCP tool discovery, step-local permission control, fallback chains with RRF fusion, and an OpenAI-compatible Proxy that existing SDKs can use without code changes. It is configuration-driven rather than hard-coded, with provider-health-aware routing."
 ---
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-provider-router)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-provider-router)
 
 ## TL;DR
 
@@ -379,13 +379,13 @@ export function normalizeStreamChunk(
 
 | Feature | Status | Notes |
 |------|---------|------|
-| Non-streaming chat completion | ✅ | Fully supported |
-| Streaming (SSE) | ✅ | Returns tokens incrementally |
-| Tool calling / Function calling | 🚧 | In progress |
-| Vision (image input) | 🚧 | Depends on provider support |
-| Response format (JSON schema) | 🚧 | Depends on provider support |
-| Model listing | ✅ | Aggregates every provider |
-| Usage tracking | ✅ | Attributes tokens and cost to the API key |
+| Non-streaming chat completion | ✓ | Fully supported |
+| Streaming (SSE) | ✓ | Returns tokens incrementally |
+| Tool calling / Function calling | :construction: | In progress |
+| Vision (image input) | :construction: | Depends on provider support |
+| Response format (JSON schema) | :construction: | Depends on provider support |
+| Model listing | ✓ | Aggregates every provider |
+| Usage tracking | ✓ | Attributes tokens and cost to the API key |
 
 ---
 

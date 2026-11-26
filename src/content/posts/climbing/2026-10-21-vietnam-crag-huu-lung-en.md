@@ -13,7 +13,7 @@ description: "A Hữu Lũng main valley climbing guide: the style, sun, approach
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-vietnam-crag-huu-lung)
+> :globe: [中文版](/posts/climbing/2026-10-21-vietnam-crag-huu-lung)
 
 Hữu Lũng is a valley, not a wall. The cliffs are scattered through the orchards and rice fields within five kilometers of Yên Thịnh village, and each one has its own landowner, its own access fee, its own sun. This guide covers the nine sectors of the main valley: Head, Chúc Sức Khỏe, Squirrel, L'Ile Noire, La Conche, Dragon, Drone, Dead End, K Wall. The east side of the same valley and the newer walls are in [the next article](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west-en).
 

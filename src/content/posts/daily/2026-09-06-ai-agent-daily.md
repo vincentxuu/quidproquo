@@ -116,11 +116,11 @@ HPE 將波多黎各開發的 AI 政府服務應用 INbiz 推廣到拉美市場�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-09-06](/posts/daily/2026-09-06-ai-agent-github-digest)
-- 📄 [模型卡｜GPT-6 Astra](/posts/daily/2026-09-06-model-openai-gpt-6-astra)
-- 📄 [資安警報｜OpenAI Agent Wiki 協作與沙箱繞過](/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass)
-- 📄 [框架更新｜Pydantic AI v2.40.0](/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0)
-- 📄 [工具推薦｜cc-readback](/posts/daily/2026-09-06-tool-cc-readback)
+- :file: [AI Agent GitHub Digest — 2026-09-06](/posts/daily/2026-09-06-ai-agent-github-digest)
+- :file: [模型卡｜GPT-6 Astra](/posts/daily/2026-09-06-model-openai-gpt-6-astra)
+- :file: [資安警報｜OpenAI Agent Wiki 協作與沙箱繞過](/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass)
+- :file: [框架更新｜Pydantic AI v2.40.0](/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0)
+- :file: [工具推薦｜cc-readback](/posts/daily/2026-09-06-tool-cc-readback)
 
 ## 明日關注
 

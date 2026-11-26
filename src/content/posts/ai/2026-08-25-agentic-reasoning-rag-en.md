@@ -13,7 +13,7 @@ series:
   order: 46
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-agentic-reasoning-rag)
+> :globe: [中文版](/posts/ai/2026-08-25-agentic-reasoning-rag)
 
 Before 2025, RAG was a single-pass pipeline: query in, retrieve once, generate once, done. The 2025 cluster broke that assumption: the model **autonomously decides when to search, what to search, and how to use results — mid-reasoning** — and the decision policy is trained with reinforcement learning. This post unpacks the shift — why it happened, what the technical entry point is, how the product and protocol layers land, and how to trade it off against the ten generations you already own.
 

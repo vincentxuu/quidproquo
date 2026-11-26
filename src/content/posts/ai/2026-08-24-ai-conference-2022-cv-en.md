@@ -23,7 +23,7 @@ glossary:
     context: "Published at CVPR 2022, it was the CNN camp’s direct response to the Vision Transformer wave."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2022-cv)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2022-cv)
 
 [The previous article on computer vision in 2021](/posts/ai/2026-08-24-ai-conference-2021-cv-en) covered the year Vision Transformers entered computer vision and NeRF took off. The changes in 2022 were even more dramatic. The largest shift was not in recognition but in generation: a Latent Diffusion Models paper published at CVPR became the architecture behind the globally popular Stable Diffusion only months later.
 

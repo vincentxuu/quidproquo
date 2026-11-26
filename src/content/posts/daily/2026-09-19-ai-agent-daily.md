@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-19-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -158,15 +158,15 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-19：Paper Reading](/posts/daily/2026-09-19-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-19：Technical PM](/posts/daily/2026-09-19-product-builder-interview-daily)
-- 📄 [融資速報｜CADDi Series D $114M](/posts/daily/2026-09-19-funding-caddi)
-- 📄 [融資速報｜Hang Ten Systems Seed 延伸輪 $53M](/posts/daily/2026-09-19-funding-hang-ten-systems)
-- 📄 [融資速報｜Magentic Series A $18M](/posts/daily/2026-09-19-funding-magentic)
-- 📄 [定價追蹤｜xAI X Search 計價改成按抓到的貼文數](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change)
-- 📄 [工具推薦｜TrustDex](/posts/daily/2026-09-19-tool-trustdex)
+- :file: [AI Agent Arxiv Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-19：Paper Reading](/posts/daily/2026-09-19-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-19：Technical PM](/posts/daily/2026-09-19-product-builder-interview-daily)
+- :file: [融資速報｜CADDi Series D $114M](/posts/daily/2026-09-19-funding-caddi)
+- :file: [融資速報｜Hang Ten Systems Seed 延伸輪 $53M](/posts/daily/2026-09-19-funding-hang-ten-systems)
+- :file: [融資速報｜Magentic Series A $18M](/posts/daily/2026-09-19-funding-magentic)
+- :file: [定價追蹤｜xAI X Search 計價改成按抓到的貼文數](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change)
+- :file: [工具推薦｜TrustDex](/posts/daily/2026-09-19-tool-trustdex)
 
 ## 明日關注
 

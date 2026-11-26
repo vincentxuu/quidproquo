@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -24,7 +24,7 @@ series:
 
 證據 A：DeepSeek 原計畫募 75 億美元，因投資人熱烈認購擴大到逾 120 億美元，由 Tencent 與電池大廠 CATL 領投，公司籌劃 2027 年重組上市；同一天，Moonshot AI（月之暗面／Kimi）完成最後一輪私募，估值從今夏的 315 億美元跳升到 500 億美元，籌備 2027 Q1 香港 IPO，最高募資 50 億美元；快手旗下 Kling 也傳出尋求逾 10 億美元的香港 IPO。三家中國 AI 公司在同一時間窗口衝向資本市場，規模遠超過去任何一輪。
 
-證據 B：就在同一天，Mistral 發表 1 兆參數開權重模型 Large 4（代號 Le Chonk），官方說法是在 cyber、coding、金融與多模態任務上「追上中國以外最強的開源模型」。這句話本身就是訊號——Mistral 不是拿自己跟 Llama 或其他西方開源模型比，而是先把中國模型放在「最強」的位置上，自己的目標是「除此之外最強」。Cohere 同日推出企業級 agentic 平台 North 2，主打跨 session 記憶與嚴格存取控制，走的是用治理能力而非裸模型分數競爭的路線——某種程度上也是在迴避正面比拚開源權重的賽道。
+證據 B：就在同一天，Mistral 發表 1 兆參數開權重模型 Large 4（代號 Le Chonk），官方說法是在 cyber、coding、金融與多模態任務上「追上中國以外最強的開源模型」。這句話本身就是訊號——Mistral 不是拿自己跟 Llama 或其他西方開源模型比，而是先把中國模型放在「最強」的位置上，自己的目標是「除此之外最強」。Cohere 前一天（10/05）推出企業級 agentic 平台 North 2，主打跨 session 記憶與嚴格存取控制，走的是用治理能力而非裸模型分數競爭的路線——某種程度上也是在迴避正面比拚開源權重的賽道。
 
 對從業者的意義：當中國實驗室的資本量級可以持續供養更大的開源模型發布節奏,開源模型選型的參照標準會持續往中國傾斜。對台灣企業而言,這不只是「哪個模型更便宜好用」的技術選擇——選用中國開源權重模型自架,同時要把資料主權、供應鏈審查，以及近期 Artex AI 被用於入侵南韓銀行這類先例（見資安事件）一併納入採購評估，而不是等到出問題才回頭查。
 
@@ -60,7 +60,7 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 
 **Protocol Pivoting 跨協定攻擊**：研究者花五個月證明 MCP server 常見的 SSRF 漏洞是協定本身缺乏規範性安全要求造成的結構性問題，Google、JPMorgan、法國政府、Weaviate、印尼坦格朗各自獨立犯了同一個錯；美國聯邦系統（含退伍軍人福利系統）通報六週後仍未修補。完整攻擊面分析與防禦做法見[資安警報](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)。
 
-**Artex AI 入侵南韓銀行**：攻擊者使用中國開發的 AI agent 工具 Artex AI 入侵南韓至少 7 家金融機構，竊取 6.8 萬人個資，南韓警方已展開調查，是首批 AI agent 入侵全球金融系統的案例之一。（[wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885)）
+**Artex AI 入侵南韓銀行**：攻擊者使用中國開發的 AI agent 工具 Artex AI 入侵南韓至少 7 家金融機構，竊取 6.8 萬人個資（至 10/07 WSJ 報導；數字其後有變動），南韓警方已展開調查，是首批 AI agent 入侵全球金融系統的案例之一。（[wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885)）
 
 **Progress Software**：修補其 Autonomous REST Connector AI Model Generator agent 定義中的指令注入漏洞（CVE-2026-91140），惡意 OpenAPI/Swagger 檔可在開發與 CI 環境中執行任意指令。（[securityonline](https://securityonline.info/progress-datadirect-vulnerability-cve-2026-91140)）
 
@@ -102,21 +102,21 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 | DeepSeek 新一輪融資 | 逾 $120 億 | [the-decoder](https://the-decoder.com/catl-and-tencent-back-deepseeks-ballooning-funding-round-as-the-ai-startup-eyes-a-2027-ipo) |
 | Moonshot AI（Kimi）估值 | $500 億（較夏季 $315 億跳升） | [euronews](https://www.euronews.com/2026/10/06/moonshot-ai-eyes-hong-kong-ipo-after-50-billion-valuation-as-deepseek-raises-capital) |
 | Lambda 估值 | $145 億 | [wsj](https://www.wsj.com/tech/ai/ai-neocloud-lambda-is-raising-4-billion-in-final-round-before-planned-ipo-568182f9) |
-| Artex AI 入侵南韓銀行外洩人數 | 6.8 萬人（7 家機構） | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
+| Artex AI 入侵南韓銀行外洩人數 | 6.8 萬人（7 家機構；至 10/07 WSJ 報導） | [wsj](https://www.wsj.com/world/asia/hackers-use-chinese-ai-tool-to-hit-south-korean-banks-exposing-new-risk-5d4d3885) |
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
-- 📄 [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
-- 📄 [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
-- 📄 [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
-- 📄 [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
-- 📄 [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
-- 📄 [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
-- 📄 [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
-- 📄 [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
+- :file: [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
+- :file: [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
+- :file: [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
+- :file: [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
+- :file: [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
+- :file: [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
+- :file: [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
+- :file: [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
 
 ## 明日關注
 
@@ -127,6 +127,10 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 ## 今日收穫
 
 之前以為「主權 AI」主要是法規壓出來的被動合規議題——把資料留在境內只是為了應付稽核。今天看到印度同一天出現 Anthropic／OpenAI 透過 AWS 把推理搬進孟買與海德拉巴、Yotta 又跟 IBM 合推境內 agentic 平台，才意識到模型供應商自己已經把「推理留在境內」做成主動銷售的產品層，不等政府要求就先推出——這對台灣企業是個提醒：評估自架或導入 AI agent 時，可以主動問供應商有沒有本地推理選項，而不是假設這只存在於歐美印度等大市場。
+
+## 更新紀錄
+
+- 2026-10-24：6.8 萬人標明為至 10/07 的 WSJ 報導數字。CrowdStrike 當日報告不點名銀行，也說受影響機構總數尚未確認，各家銀行是否都由 ARTEX 入侵尚待官方調查。
 
 ## 參考資料
 

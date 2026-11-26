@@ -1,0 +1,40 @@
+# horai final bilingual review — 2026-10-26
+
+## post-verify
+
+- 🟢 ROCKTOPO公開總表：https://www.rocktopo.net/areas/133/routes : 以實際返回的逐列名稱、原級數、分區及長度欄生成表格，並逐列保留來源連結。此篇分級資料共338列（中英各一份），不是人工挑選少數線。未由長度推算下降繩長。
+- 🟢 原始級數：YDS保留原文；日式抱石另欄保留，未核實Font/V不填。跨級距範圍按較高級距分類，級數原文不改。
+- 🟢 管制與交通：沿用本篇研究筆記的具名一手來源，禁攀／道路封閉限於公告範圍；沒有整區全面開放保證。
+- 🟢 網路紀錄：每場另打開5個候選；有用的版本、難度、日照或實攀感受併回對應路線備註，不把舊停車或單次器材配置當現行規範。
+- 🟢 影片：138支公開metadata核對後選入；逐支保留原片名、頻道、片長及上傳年。僅有metadata，未宣稱已連續觀看／回聽或能保證全部播放。
+- 🔵 身分對照：排除錯場同名、原線／延長版不明與同名不同分區；第一欄加日文引號與必要分區，routeEn對準該完整標籤，避免前綴匹配誤掛影片。
+
+## post-review
+
+固定7H2與交通3H3齊全；四級繩攀H3依HEAD；表格放在可展開區塊，保留主文選場、季節、交通、規範的閱讀順序。每列帶來源，沒有把源自他人的紀錄寫成作者到訪。雙語來源URL與表格事實同步。指南書入口含版本／語言／範圍與資料庫不取代topo的說明。
+
+## post-polish
+
+正文以讀者選場與當天可執行的準備為主，研究工具、失敗、完整度盤點留在研究筆記。影片未看片的限制寫在資料備註，不杜撰動作描述。長路線表折疊顯示，資料列不重寫成另一套經典線清單。
+
+## 模板覆蓋
+
+| 項目 | 結論 |
+|---|---|
+| 固定H2、交通H3與四級路線H3 | 已做；原始級數分組，未造換算 |
+| 路線影片 | 已做；逐線、多語、已選頻道公開uploads，metadata核對；部分頻道分頁403，未認證繞過 |
+| 經典線 | 已做；ROCKTOPO熱門欄與獨立山岳會／實攀報導交叉，理由留在分級段與備註 |
+| 網路上的路線紀錄 | 已做；5候選正文開啟，有用差異寫回路線列 |
+
+影片統計：查詢 325 組；候選 700 支；收錄 138 支；有影片的路線 98／241 列
+影片覆蓋說明：候選去重後只採能對上原線、岩場與分區的公開metadata；部分頻道分頁403，未核實的同名或變形線不硬配。統計的分母由繩攀四級表計算，混合岩場的抱石表另計，不灌入分母。
+
+## Validation
+
+定向grade／references／process檢查與隔離worktree的crag-coverage結果由主線程記錄。原始樣本12／11線的舊檢查已由完整公開表版本取代；不把舊樣本檢查冒稱新版全量驗證。最後閘門以`.work/japan-crags-expansion/`的發布紀錄為準。
+
+鳳來附註：ROCKTOPO342筆原始列，排除4筆未分級，收241繩攀＋97抱石；theCrag另列的高難度項目存在未定位／崩點前後版本，沒有擅自合併為當前可前往路線。
+
+## Peer identity correction
+
+Removed JV66x5xaaHo (title says 焔雲1~2Q(SD), table row was 焔3級) and -wIsMbU5xwo (SD-version correspondence unresolved). Synchronized both article fences and sample catalog.138 clips remain:98rope-route rows/241 and40boulder rows/97. Metadata/title identity review only; no footage viewing is claimed.

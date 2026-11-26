@@ -22,7 +22,7 @@ glossary:
     context: "6.5940 第 4 講以它說明「細粒度但有規則」的稀疏如何在 GPU 上兌現加速。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-pruning-ratio-system-support-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

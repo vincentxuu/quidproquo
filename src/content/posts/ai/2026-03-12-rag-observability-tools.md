@@ -14,7 +14,7 @@ series:
   order: 40
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-observability-tools-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-observability-tools-en)
 
 RAG 系統的可觀測性需求很明確：trace 每次查詢的執行過程、記錄 LLM 的輸入輸出、評估回答品質、找出問題集中在哪個步驟。
 

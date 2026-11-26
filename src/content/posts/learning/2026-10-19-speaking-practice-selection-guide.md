@@ -9,11 +9,11 @@ description: "比較真人家教、實體班、海外語言學校、AI 與語言
 tldr: "先找出需要練的對話與能維持的時間，再選回饋和付款方式合適的管道；用同一任務試，不必一次買齊所有服務。"
 series:
   name: "英文口說練習"
-  order: 15
+  order: 33
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speaking-practice-selection-guide-en)
+> :globe: [English version](/posts/learning/2026-10-19-speaking-practice-selection-guide-en)
 
 看完幾家英文平台，常常每家都有想試的地方：有人強調不限堂數，有人讓你挑老師，也有人提供實體環境或密集遊學。真正要決定的，是哪個安排能讓你持續處理自己的口說問題。
 

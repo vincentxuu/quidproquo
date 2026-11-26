@@ -12,7 +12,7 @@ series:
   order: 48
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-02-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -128,18 +128,18 @@ PwC 中東與 Google Cloud 在利雅德總部設立 AI Experience Zone，讓客�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-10-02：Coding](/posts/daily/2026-10-02-ai-interview-daily)
-- 📄 [框架更新｜Agno v3.1.0](/posts/daily/2026-10-02-framework-agno-3.1.0)
-- 📄 [框架更新｜Haystack v3.3.0](/posts/daily/2026-10-02-framework-haystack-3.3.0)
-- 📄 [融資速報｜Armadin Series B $255.5M](/posts/daily/2026-10-02-funding-armadin)
-- 📄 [融資速報｜enso Series A $15M](/posts/daily/2026-10-02-funding-enso)
-- 📄 [融資速報｜Flow Engineering Series B $50M](/posts/daily/2026-10-02-funding-flow-engineering)
-- 📄 [模型卡｜IQuest-Q1](/posts/daily/2026-10-02-model-iquestlab-iquest-q1)
-- 📄 [定價追蹤｜OpenAI 新增 Ultrafast 速度層級](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut)
-- 📄 [Product Builder 面試日練 — 2026-10-02：Growth & Experimentation](/posts/daily/2026-10-02-product-builder-interview-daily)
-- 📄 [工具推薦｜gitlab-mcp-server](/posts/daily/2026-10-02-tool-gitlab-mcp-server)
+- :file: [AI Agent Arxiv Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-02](/posts/daily/2026-10-02-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-10-02：Coding](/posts/daily/2026-10-02-ai-interview-daily)
+- :file: [框架更新｜Agno v3.1.0](/posts/daily/2026-10-02-framework-agno-3.1.0)
+- :file: [框架更新｜Haystack v3.3.0](/posts/daily/2026-10-02-framework-haystack-3.3.0)
+- :file: [融資速報｜Armadin Series B $255.5M](/posts/daily/2026-10-02-funding-armadin)
+- :file: [融資速報｜enso Series A $15M](/posts/daily/2026-10-02-funding-enso)
+- :file: [融資速報｜Flow Engineering Series B $50M](/posts/daily/2026-10-02-funding-flow-engineering)
+- :file: [模型卡｜IQuest-Q1](/posts/daily/2026-10-02-model-iquestlab-iquest-q1)
+- :file: [定價追蹤｜OpenAI 新增 Ultrafast 速度層級](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut)
+- :file: [Product Builder 面試日練 — 2026-10-02：Growth & Experimentation](/posts/daily/2026-10-02-product-builder-interview-daily)
+- :file: [工具推薦｜gitlab-mcp-server](/posts/daily/2026-10-02-tool-gitlab-mcp-server)
 
 ## 明日關注
 

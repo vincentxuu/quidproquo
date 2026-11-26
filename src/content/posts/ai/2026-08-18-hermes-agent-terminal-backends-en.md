@@ -13,7 +13,7 @@ description: "Isolation levels and approval behavior across the seven Hermes ter
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-hermes-agent-terminal-backends)
+> :globe: [中文版](/posts/ai/2026-08-18-hermes-agent-terminal-backends)
 
 Post 5 in the series. [Start with the opener](/posts/ai/2026-08-18-hermes-agent-intro-en).
 
@@ -23,13 +23,13 @@ When an agent runs commands, the questions that matter are **whose machine it ru
 
 | Backend | Where commands run | Isolation | Dangerous-command check |
 |---|---|---|---|
-| `local` | Your machine | None | ✅ Yes |
-| `ssh` | Remote host | Network boundary | ✅ Yes |
-| `docker` | One long-lived container | Full (namespaces, cap-drop, PID limits) | ❌ Skipped |
-| `singularity` | Apptainer container (`--containall`) | Namespaces | ❌ Skipped |
-| `modal` | Modal cloud sandbox | Full (cloud VM) | ❌ Skipped |
-| `daytona` | Daytona workspace | Full (cloud container) | ❌ Skipped |
-| `vercel_sandbox` | Vercel Sandbox microVM | Full (cloud microVM) | ❌ Skipped |
+| `local` | Your machine | None | ✓ Yes |
+| `ssh` | Remote host | Network boundary | ✓ Yes |
+| `docker` | One long-lived container | Full (namespaces, cap-drop, PID limits) | ✗ Skipped |
+| `singularity` | Apptainer container (`--containall`) | Namespaces | ✗ Skipped |
+| `modal` | Modal cloud sandbox | Full (cloud VM) | ✗ Skipped |
+| `daytona` | Daytona workspace | Full (cloud container) | ✗ Skipped |
+| `vercel_sandbox` | Vercel Sandbox microVM | Full (cloud microVM) | ✗ Skipped |
 
 That third column is the most important cell in this post. The security docs state it plainly: **sandboxed backends skip the dangerous-command check because the container is the boundary.**
 

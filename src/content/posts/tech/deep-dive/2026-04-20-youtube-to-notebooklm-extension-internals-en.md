@@ -10,7 +10,7 @@ description: "A deep dive into the implementation of the YouTube to NotebookLM C
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-04-20-youtube-to-notebooklm-extension-internals)
+:globe: [中文版](/posts/tech/deep-dive/2026-04-20-youtube-to-notebooklm-extension-internals)
 
 There's a Chrome extension called [YouTube to NotebookLM](https://chromewebstore.google.com/detail/youtube-to-notebooklm/kobncfkmjelbefaoohoblamnbackjggk) with 300,000 installs. With one click, it sends YouTube videos, playlists, and channels straight into NotebookLM. Sounds simple — but NotebookLM has no official API. So how does it actually work?
 

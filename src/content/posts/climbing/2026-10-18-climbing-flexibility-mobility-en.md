@@ -22,7 +22,7 @@ glossary:
     context: "Draper et al. 2021, IRCRA sport-specific test battery."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-flexibility-mobility)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-flexibility-mobility)
 
 You're on a gym boulder that needs a high step, and your foot just won't go up there. A friend says: "You're too stiff. Go home and stretch, it'll stop you getting injured too."
 

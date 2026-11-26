@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-restate-durable-execution)
+> :globe: [中文版](/posts/tech/2026-08-22-restate-durable-execution)
 
 [Restate](https://docs.restate.dev/foundations/key-concepts) makes durable execution a service layer. Application handlers still deploy on Node.js, Bun, Deno, Cloudflare Workers, Lambda, or other infrastructure. Restate Server sits in front, receives invocations, persists a journal, schedules retries, and provides durable state, messages, and service calls.
 

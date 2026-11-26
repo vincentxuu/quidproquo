@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-21-tool-session-relay-en)
+> :globe: [English version](/posts/daily/2026-09-21-tool-session-relay-en)
 
 ## 工具資訊
 
@@ -90,10 +90,10 @@ claude mcp add sessionrelay --scope user -- srelay serve
 | | SessionRelay | claude-mem | Mem0 |
 |---|---|---|---|
 | 儲存粒度 | 完整會話，原文可回跳 | AI 壓縮後的觀察片段 | 向量化的事實／偏好片段 |
-| 本地優先、零雲端依賴 | ✅ | 依外部儲存設定而定 | 預設走雲端 API，自架需另配 embedder／向量庫 |
-| 跨 Agent 工具通用 | ✅ 五源 adapter（Claude Code／Codex／Qoder／ZCode／Trae 部分），另有自訂 adapter SDK | 主打 Claude Code，另列出對 Codex／Gemini 等工具的支援 | 需自行在每個 Agent 裡呼叫 `memory.add()` / `memory.search()` |
-| 中文全文檢索 | ✅ jieba 分詞 + SQLite FTS5，可選本地語意檢索 | 依模型摘要品質而定，無中文分詞特化 | 依 embedding 模型而定，無中文分詞特化 |
-| 團隊交接匯出包 | ✅ `.hop` 協議，sha256 校驗 + 預設密鑰脫敏 | 無對應機制 | 無對應機制 |
+| 本地優先、零雲端依賴 | ✓ | 依外部儲存設定而定 | 預設走雲端 API，自架需另配 embedder／向量庫 |
+| 跨 Agent 工具通用 | ✓ 五源 adapter（Claude Code／Codex／Qoder／ZCode／Trae 部分），另有自訂 adapter SDK | 主打 Claude Code，另列出對 Codex／Gemini 等工具的支援 | 需自行在每個 Agent 裡呼叫 `memory.add()` / `memory.search()` |
+| 中文全文檢索 | ✓ jieba 分詞 + SQLite FTS5，可選本地語意檢索 | 依模型摘要品質而定，無中文分詞特化 | 依 embedding 模型而定，無中文分詞特化 |
+| 團隊交接匯出包 | ✓ `.hop` 協議，sha256 校驗 + 預設密鑰脫敏 | 無對應機制 | 無對應機制 |
 | 刪除權限 | 僅使用者可執行 `forget`，MCP 工具無刪除能力 | 未見公開的權限分離設計 | 由呼叫端應用邏輯自行控制 |
 
 ## 注意事項

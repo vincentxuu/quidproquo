@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en)
+> :globe: [English version](/posts/ai/2026-08-25-late-chunking-contextual-retrieval-en)
 
 檢索的失敗常常不是模型不夠強，而是切塊把上下文切丟了。同一份文件裡「前文提到的那個條款」「上段那家公司」一被切開，單塊的向量就只剩殘句，查再多也對不上。
 

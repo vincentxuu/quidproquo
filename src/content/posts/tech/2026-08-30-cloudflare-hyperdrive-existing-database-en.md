@@ -13,7 +13,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-hyperdrive-existing-database)
 
 After moving an API to [Cloudflare Workers](https://developers.cloudflare.com/workers/), the database is usually the first hard edge. You may already have [Postgres](https://www.postgresql.org/) or [MySQL](https://www.mysql.com/) running on AWS, GCP, Azure, Neon, Supabase, PlanetScale, RDS, or Aurora. The application runtime can be global, while the database still lives in one region.
 
@@ -82,7 +82,7 @@ This is not a default setting for every Worker. It fits database-heavy request p
 
 ## Create a Hyperdrive Configuration
 
-Hyperdrive currently supports Postgres, MySQL, and compatible databases. The official support table lists PostgreSQL 9.0 to 17.x and MySQL 5.7 to 8.x, plus compatible services such as Aurora, Neon, Supabase, Timescale, Materialize, CockroachDB, PlanetScale, and MariaDB. SQL Server and MongoDB are not currently supported.
+Hyperdrive currently supports Postgres, MySQL, and compatible databases. The official support table lists PostgreSQL 9.0 to 18.x and MySQL 5.7 to 8.x, plus compatible services such as Aurora, Neon, Supabase, Timescale, Materialize, CockroachDB, PlanetScale, and MariaDB. SQL Server and MongoDB are not currently supported.
 
 Create a configuration with a database connection string:
 
@@ -248,7 +248,7 @@ Hyperdrive's pool runs in transaction mode. When a query or transaction ends, th
 - Do not wrap many operations in a long transaction just to preserve `SET` state; long transactions hold pool connections and reduce Hyperdrive scaling.
 - If multiple Hyperdrive configurations point to the same database, count the combined origin connections.
 
-The current limits page lists approximate maximum origin database connections per configuration: about 20 on Free and about 100 on Paid, with a minimum of 5 connections. These are database-side connections, not Worker-to-Hyperdrive client concurrency; Hyperdrive does not limit concurrent client connections from Workers.
+Maximum origin database connections per configuration are about 20 on Free; on Paid the ceiling was about 100 and [since 2026-11-11 can be configured up to 1,500](https://developers.cloudflare.com/changelog/post/2026-11-11-hyperdrive-raised-limits/), with a minimum of 5 connections. Cloudflare recommends keeping it below your origin database's own connection limit, because it is a soft limit and Hyperdrive may open extra connections during network failures. These are database-side connections, not Worker-to-Hyperdrive client concurrency; Hyperdrive does not limit concurrent client connections from Workers.
 
 The errors to watch for are:
 
@@ -277,12 +277,12 @@ I would start with:
 
 ## Limits and Pricing
 
-As of the official docs checked on 2026-08-30:
+Per the official docs and changelog as of 2026-11:
 
 - Hyperdrive is available on Workers Free and Paid plans.
 - Free plan includes 100,000 database queries per day; Paid plan lists unlimited database queries.
 - A database query means any statement through Hyperdrive, including `SELECT`, `INSERT`, `UPDATE`, `DELETE`, `CREATE`, `ALTER`, and `DROP`.
-- Free supports up to 10 configured databases; Paid supports up to 25.
+- Free supports up to 10 configured databases; Paid was raised from 25 to 100 on 2026-11-11.
 - Initial connection timeout is 15 seconds; idle connection timeout is 10 minutes.
 - Maximum query statement duration is 60 seconds.
 - Maximum cached query response size is 50 MB; larger responses still return to Workers but are not cached.
@@ -325,6 +325,10 @@ Before launch, I would check:
 - Database-provider firewall and ACL rules allow Hyperdrive connections.
 
 Hyperdrive does not replace the database. It lets Workers connect to existing Postgres/MySQL without turning every request into a slow, connection-heavy cross-region database call. In the Edge Platform, it is a migration bridge: move the runtime closer to users first, then decide which data should remain in the existing database and which parts should move to D1, R2, KV, or Durable Objects.
+
+## Update Log
+
+- 2026-11-23: Paid configuration limit raised from 25 to 100 and origin connections per configuration configurable up to 1,500; supported PostgreSQL versions now go up to 18.x.
 
 ## References
 

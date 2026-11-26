@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-accessibility-in-teaching-articles)
+> :globe: [中文版](/posts/learning/2026-10-14-accessibility-in-teaching-articles)
 
 This is Part 23 of the "Writing Articles That Teach" series and the fourth part of its fifth section, "who you learn with, and who can't read it." The earlier parts asked how much readers learn once they read. This one steps back: some readers can't read the article at all, or can read the words but not the structure of the diagrams and code.
 
@@ -80,7 +80,7 @@ The same survey ranks the most problematic items, giving the order but no scores
 
 The state of the web as a whole comes from a different source. [WebAIM Million 2026](https://webaim.org/projects/million/) ran an automated tool over the home pages of the top one million websites: 95.9% had detectable WCAG failures. The six most common categories account for 96% of all detected errors, and the most common, low-contrast text, appeared on 83.9% of home pages. This measures home pages of popular sites, not teaching articles, and automated tools catch only some problems, so it serves only as background.
 
-A screen reader reads sequentially, one piece at a time. [Mealin and Murphy-Hill 2012](https://doi.org/10.1109/VLHCC.2012.6344485) interviewed 8 blind software developers. To explain why getting an overview of a codebase is hard, the authors note that screen readers work in a highly linear way, forcing users to read through the entire document. 7 of the 8 said they rely on API documentation for the overview. My inference for writers: a screen-reader user has to jump through headings to get what a sighted reader takes in at a glance, so the quality of the headings decides whether that reader can see the overview first.
+A screen reader reads sequentially, one piece at a time. [Mealin and Murphy-Hill 2012](https://doi.org/10.1109/VLHCC.2012.6344485) interviewed 8 blind software developers. To explain why getting an overview of a codebase is hard, the authors note that screen readers work in a highly linear way, forcing users to read through the entire document. 7 of the 8 said they rely on API documentation for the overview. For writers, this means: a screen-reader user has to jump through headings to get what a sighted reader takes in at a glance, so the quality of the headings decides whether that reader can see the overview first.
 
 ## Charts: the main reason they can't be read is that no readable data is provided
 
@@ -120,7 +120,7 @@ So "write levels 2 and 3" is a preference of blind readers. A more precise versi
 
 [The 2017 study by Khaled Albusays and colleagues](https://doi.org/10.1145/3132525.3132550) interviewed and remotely observed 28 totally blind developers, all men, each with at least 5 years of experience. The difficulties mentioned most were debugging (24 people), having to read line by line (23), indentation (22), and nested structures (20). The indentation problem is concrete: the screen reader reads three spaces as "space, space, space" rather than "three spaces." 5 people wrote their own scripts so the screen reader would announce the indentation level, and 4 switched to feeling it on a braille display.
 
-This study is often summarized as "code structure is conveyed by indentation and color, which screen readers can't convey." The indentation half has data; the color half doesn't. Syntax highlighting is mentioned once in the introduction as a visual aid in IDEs, and the results contain no finding about color. Also, these developers were reading their own work code in an IDE, not a teaching article; carrying the indentation problem over to code blocks in articles is my inference.
+This study is often summarized as "code structure is conveyed by indentation and color, which screen readers can't convey." The indentation half has data; the color half doesn't. Syntax highlighting is mentioned once in the introduction as a visual aid in IDEs, and the results contain no finding about color. Also, these developers were reading their own work code in an IDE, not a teaching article; whether code blocks in articles pose the same indentation problem is not something this study tested.
 
 On formulas there is even less. Of Mealin and Murphy-Hill's 8 interviewees, 2 said most math formulas on the web are images that a screen reader can't read. The same interviews asked about UML and similar diagrams. Only one of the 8 said outright that the UML diagrams he was given were inaccessible; two encountered them at work and avoided them; three never encountered them. One asked coworkers to describe a diagram's content aloud; another said the same information was usually in the documentation. One interviewee who led a team made its members explain diagrams in "simple English," on the grounds that diagrams of complicated systems carry so much information that some ambiguity of interpretation is always present.
 
@@ -190,9 +190,9 @@ The home page says there is evidence UDL benefits all learners, but none of the 
 - 10 of the 13 studies are single-group pre/post designs with no control group, where the effect size is "posttest minus pretest, divided by the pretest standard deviation."
 - The pooled estimate for single-group studies is 4.42; for the studies with a control group it is 0.69, not distinguishable from 0.
 - Individual effect sizes range from 0.33 to 13.18, with I² = 99.8%.
-- 8 of the 13 studies were about teachers; in those studies the outcomes were mostly teachers' UDL knowledge or lesson plans, not students' learning (the second half is my reading of its list of studies; the authors didn't tabulate it).
+- 8 of the 13 studies were about teachers; in those studies the outcomes were mostly teachers' UDL knowledge or lesson plans, not students' learning (the second half comes from going through its list of studies; the authors didn't tabulate it).
 
-The authors' explanation of why single-group studies came out larger is "This is perhaps due to the nature of such design, which minimises the standardised errors," and they still recommend adopting UDL. "The effect size is inflated by the study designs" is my reading of its tables, not something the authors concede.
+The authors' explanation of why single-group studies came out larger is "This is perhaps due to the nature of such design, which minimises the standardised errors," and they still recommend adopting UDL. "The effect size is inflated by the study designs" comes from its tables; the authors do not concede it.
 
 ### An implementation study
 
@@ -216,12 +216,12 @@ So this section reads only one side: CAST's own account, a meta-analysis whose d
 
 ## What you can do
 
-Each item notes its basis; where no study tested it directly, it is my judgment.
+Each item notes its basis; where no study tested it directly, the item says so.
 
 1. **Give every mermaid diagram an `accTitle` and `accDescr`, with the description stating the conclusion and relationships, not reciting every node.** Basis: WCAG 1.1.1 (normative); the tests on this site (diagrams without it are reduced to scattered node labels); Lundgard's levels 2 and 3 (blind readers' preference). Example for the search flowchart: `accDescr: Start from the initial state. Each round, remove one node from the frontier; if it is the goal, return it, otherwise expand it and add unseen neighbors to the frontier. If the frontier is empty, there is no solution.`
 2. **Put the diagram's conclusion in the sentence right before or after it.** Basis: W3C's complex-images tutorial (best practice, with an audience that includes readers new to the subject). That sentence also helps readers who can see the diagram; see the point on placing text near figures in [the part on diagrams](/posts/learning/2026-10-13-diagrams-in-teaching-articles-en).
 3. **When you include a data chart, give a one-sentence trend and a data table with it.** Basis: Sharif and colleagues' experiment and design recommendations. This site uses many tables and few data charts, so this is a rule for the future.
-4. **For deeply nested code, state its structure in one sentence in the text**, for example "the outer loop runs over each row, with two levels of if inside." The basis is the indentation and nesting difficulties in Albusays and colleagues' study; carrying them over to articles is my inference, and no study has tested it.
+4. **For deeply nested code, state its structure in one sentence in the text**, for example "the outer loop runs over each row, with two levels of if inside." The basis is the indentation and nesting difficulties in Albusays and colleagues' study; no study has tested carrying them over to articles.
 5. **Keep using KaTeX for formulas; don't paste screenshots of formulas.** Basis: WCAG 1.4.5 and Mealin's two interviewees. This site already does this.
 6. **Write headings as topics a reader can jump to.** Basis: the 71.6% in WebAIM's survey (self-report) and WCAG 2.4.6.
 7. **Mark the language of quotations and non-technical phrases in another language.** In Markdown you can wrap them in `<span lang="en">…</span>` (or `<span lang="zh-TW">…</span>` for Chinese quoted in an English article, as this version does); terms and proper names aren't wrapped. Basis: WCAG 3.1.2.
@@ -238,12 +238,12 @@ Changes that would need the site's templates I only list here and haven't made: 
 
 ## Limits of this evidence
 
-- **No study has measured how much readers with disabilities learn from a teaching article.** Sharif measured accuracy on chart questions; Lundgard measured perceived usefulness; the two developer studies are interviews. Applying them to writing articles is my inference.
+- **No study has measured how much readers with disabilities learn from a teaching article.** Sharif measured accuracy on chart questions; Lundgard measured perceived usefulness; the two developer studies are interviews. Advice on writing articles is inferred from these.
 - **Small samples, skewed toward certain people.** Sharif had 72 people, online and unsupervised; Lundgard's 30 blind readers were recruited through the authors' contacts and Twitter; Albusays's 28 were all men; Mealin's 8 were all men. WebAIM's survey is a volunteer sample, mostly proficient users.
 - **A narrow range of disabilities.** The studies are almost entirely about blind or low-vision readers. These sources have no data on deaf readers, readers with cognitive or learning disabilities, or readers with motor disabilities; WCAG itself says its coverage of cognitive and learning disabilities is insufficient.
 - **The tests on this site covered three articles and the browser's accessibility tree.** I didn't listen with an actual screen reader or have readers with disabilities read the articles. Automated tools like axe catch only some problems.
 - **On UDL I read only one side.** I only know that three papers exist: Boysen's two critiques and King-Sears and colleagues' meta-analysis.
-- **Six points are my inferences**: that screen-reader users get the overview from headings; that the indentation difficulty carries over to code blocks in articles; that stating the trend without commentary satisfies both Lundgard and W3C; that a one-sentence statement of nested code structure helps; that Almeqdad's large effect size comes from the study designs; and that `accTitle` doesn't make a diagram's structure readable (an observation of the accessibility tree; actual speech wasn't tested).
+- **Six points extend the research without direct experiments**: that screen-reader users get the overview from headings; that the indentation difficulty carries over to code blocks in articles; that stating the trend without commentary satisfies both Lundgard and W3C; that a one-sentence statement of nested code structure helps; that Almeqdad's large effect size comes from the study designs; and that `accTitle` doesn't make a diagram's structure readable (an observation of the accessibility tree; actual speech wasn't tested).
 - **Known to exist, but no legally available full text read**: [Boysen (2024), critical analysis](https://doi.org/10.1177/14782103241255428); [Boysen (2024), learning styles and UDL](https://doi.org/10.1037/stl0000280); [King-Sears et al. (2023), meta-analysis of the achievement of learners receiving UDL instruction](https://doi.org/10.1016/j.tate.2022.103956).
 
 ## Appendix: study designs and numbers
@@ -264,7 +264,7 @@ Changes that would need the site's templates I only list here and haven't made: 
 
 **Mealin and Murphy-Hill (2012)**, VL/HCC; I read the published version from the authors' research group website. 8 legally blind male developers with 10–40 years of programming experience, 3 with no vision at all; recruited through a single mailing list, interviewed over Skype; the paper doesn't describe its analysis procedure. 7 mainly use JAWS; 4 use a braille display when reading code, and one said a screen reader makes "EF" and "EFF" sound the same. 7 regularly keep a scratch window open to note method or variable names; 5 copy a block of code into another window, edit it, and paste it back.
 
-**Ali, Khusro, Alahmadi (2024)**, PeerJ Computer Science. Government institutes for the blind in three places in Khyber Pakhtunkhwa, Pakistan (Peshawar, Abbottabad, Swat); 15 teachers and 94 students in grades 6 to 10, purposive sampling, questionnaires after 15 days of use. Supports only linear and quadratic expressions. Compared with NVDA and Access8Math, but the comparison design isn't described. No pretest and no math test. The student questionnaire's Cronbach's α is given as 0.81 and then 0.91 in the same paragraph; the share finding it easy to use is given as 86.7% in one place and 91.43% in another. The ANOVA compares mean differences among the seven items of the same questionnaire, which says nothing about whether the tool works (my reading).
+**Ali, Khusro, Alahmadi (2024)**, PeerJ Computer Science. Government institutes for the blind in three places in Khyber Pakhtunkhwa, Pakistan (Peshawar, Abbottabad, Swat); 15 teachers and 94 students in grades 6 to 10, purposive sampling, questionnaires after 15 days of use. Supports only linear and quadratic expressions. Compared with NVDA and Access8Math, but the comparison design isn't described. No pretest and no math test. The student questionnaire's Cronbach's α is given as 0.81 and then 0.91 in the same paragraph; the share finding it easy to use is given as 86.7% in one place and 91.43% in another. The ANOVA compares mean differences among the seven items of the same questionnaire, which says nothing about whether the tool works.
 
 **CAST, UDL Guidelines 3.0 (released 2024-07-30).** I read the home page, Research Evidence, About the Guidelines 3.0 Update, and Representation. First released in 2008, with four revisions since. A side-by-side comparison of versions 2.2 and 3.0 isn't public and must be requested through a form. Themes of 3.0 include treating learners' multiple identities as part of variability, acknowledging systemic barriers, and shifting to learner-centered language.
 

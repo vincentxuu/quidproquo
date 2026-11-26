@@ -32,7 +32,7 @@ glossary:
     context: "Bowen Baker used this definition in L10 to separate two failures: the information is not in the CoT, or it is there but the monitor cannot read it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-10-interpretability)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

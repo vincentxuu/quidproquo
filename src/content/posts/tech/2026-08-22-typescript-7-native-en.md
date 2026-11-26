@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-typescript-7-native)
+> :globe: [中文版](/posts/tech/2026-08-22-typescript-7-native)
 
 [TypeScript 7](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) is not a native addon for a few hot paths. The compiler, project system, and language service have been reimplemented in Go. The TypeScript team reports improvements around an order of magnitude; Slack's published example reduced CI type checking from roughly 7.5 minutes to 1.25 minutes. Those numbers cannot be copied to every repository, but they show that this release addresses an architectural bottleneck rather than a minor optimization.
 
@@ -25,7 +25,7 @@ The Go implementation can use shared memory and parallel work without serializin
 
 ## Type semantics continue; tooling APIs may not
 
-The rewrite aims to preserve the TypeScript language and type-checking behavior, not compatibility with every JavaScript compiler API. TypeScript 7.0 has no programmatic API at all; the team expects 7.1 to introduce a new API. Applications that only call `tsc` often have a direct migration. Tools that import `typescript`, provide language-service plugins, use custom transformers, manipulate ASTs, or wrap builds carry more risk.
+The rewrite aims to preserve the TypeScript language and type-checking behavior, not compatibility with every JavaScript compiler API. TypeScript 7.0 has no programmatic API at all. The new API arrives in 7.1: the 7.1 Beta (2026-10-20) ships split entry points such as `typescript/sync`, `typescript/async`, and `typescript/ast`. It is shaped differently from the old `ts.createProgram`, and its objects must be released with `using` or an explicit dispose; tool authors should treat it as beta until the stable release. Applications that only call `tsc` often have a direct migration. Tools that import `typescript`, provide language-service plugins, use custom transformers, manipulate ASTs, or wrap builds carry more risk.
 
 This also leaves embedded-language workflows for Vue, Svelte, Astro, MDX, and Angular templates largely dependent on TypeScript 6 at the 7.0 release. A successful command-line compiler upgrade does not prove that framework language tooling is ready; validate the two paths separately.
 
@@ -59,7 +59,7 @@ Coexistence is a transition, not a permanent architecture. It can give editors, 
 
 TypeScript 7 remains the authoritative TypeScript semantic implementation for type checking, declaration emission, and editor intelligence. Oxc, SWC, esbuild, and Rolldown can remove type syntax, transform JSX, bundle, and minify quickly, but generally do not perform complete type checking. They are complementary: the bundler creates artifacts while `tsc --noEmit` enforces the type contract.
 
-Oxlint's type-aware mode directly uses typescript-go, showing how the compiler can become infrastructure for other tools. As more consumers share it, upgrades must account for each consumer's supported TypeScript version rather than only the repository's `typescript` dependency.
+Oxlint's type-aware mode can use `tsgolint`, built on typescript-go, as its backend, showing how the compiler can become infrastructure for other tools; Oxlint later added a Rust-based `tsrs` backend as an alternative. As more consumers share it, upgrades must account for each consumer's supported TypeScript version rather than only the repository's `typescript` dependency.
 
 ## What changes in the AI era
 
@@ -67,8 +67,14 @@ Types have always protected human developers. For coding agents, diagnostics are
 
 Speed cannot replace type quality. A codebase full of `any`, assertions, or `@ts-ignore` merely lets a faster compiler approve a hollowed-out contract sooner. TypeScript 7 pays off when the repository also controls those escape hatches, preserves declarations and runtime tests, and exposes one reproducible type-check command to local development and CI.
 
+## Update Log
+
+- 2026-11-23: Added the TypeScript 7.1 Beta API status and Oxlint's new `tsrs` type-aware backend.
+
 ## References
 
 - [Announcing TypeScript 7.0](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/)
+- [Announcing TypeScript 7.1 Beta](https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta/)
+- [Oxlint: Type-Aware Linting](https://oxc.rs/docs/guide/usage/linter/type-aware.html)
 - [A 10x Faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port/)
 - [TypeScript 7 migration guide](https://github.com/microsoft/typescript-go/blob/main/_packages/typescript-go/MIGRATION.md)

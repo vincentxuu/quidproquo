@@ -1,0 +1,879 @@
+{
+ "date": "2026-11-17",
+ "status": "published",
+ "selectedCount": 3,
+ "candidateSources": {
+  "layerA": "arXiv cs.AI/cs.CL/cs.MA /new batch for Monday 2026-11-16 announcement (cs.AI 276 entries / cs.CL 117 entries / cs.MA 20 entries; new+cross sections parsed in full, replacement sections excluded from candidate pool)",
+  "layerB": [
+   "HuggingFace Daily Papers API (recent window checked, no overlap with shortlisted candidates)",
+   "Semantic Scholar API (429 rate-limited for all queries this run — see toolDegradation)",
+   "Groundlane web_search verification queries for each shortlisted candidate"
+  ],
+  "layerC": "lookback from 2026-11-03 to 2026-11-16, 14 watch-category candidates re-entered from 2026-11-15/2026-11-16 screening records (sample; full 14-day history spans 9 files with up to 14 watch items per day, not exhaustively re-listed)"
+ },
+ "toolDegradation": [
+  "Semantic Scholar API (api.semanticscholar.org) 回應 HTTP 429 Too Many Requests，對全部 3 篇入選論文與多篇候選嘗試查詢引用數字均失敗；因三篇皆為發布 1-5 天內的新論文，citationCount 預期為 0 或極低，故以『preprint，過新尚無引用資料』記錄，未強行以其他來源替代官方引用數字",
+  "mcp__groundlane__web_fetch 對 arXiv 列表頁的回傳內容存在約 100,000 字元的硬上限（與請求的 maxOutputChars 無關），cs.AI（276 篇）與 cs.CL（117 篇）皆需用 skip 參數分段擷取才能取得完整列表"
+ ],
+ "generatedAt": "2026-11-17T00:00:00+08:00",
+ "candidates": [
+  {
+   "arxivId": "2611.17520",
+   "title": "Only as Safe as the Weakest Agent: A Break That Appears Only When the System Is Multi-Agent",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 2,
+   "daysSinceFirstSeen": 0,
+   "topicGate": "pass",
+   "venue": "Accepted to NeurIPS 2026 First Workshop on Meta Agents (workshop-reviewed)",
+   "citationCount": null,
+   "citationVelocity": "發布 5 天（2026-11-12 提交），Semantic Scholar API 回應 429（速率限制），尚無法查得引用數字；toolDegradation 記錄於下方",
+   "institution": "Carnegie Mellon University, University of Southern California, Prosaic Intelligence",
+   "communitySignals": [
+    "未見 HF Daily Papers 或 Papers with Code 收錄",
+    "被第三方論文索引站 arxivsignals.io 收錄（非策展信號，僅為鏡像）"
+   ],
+   "credibility": "pass",
+   "credibilityEvidence": [
+    "Section 4 Experiment 1：Claude Code / Codex / 自建 reference harness 三套系統、未修改、各自原生 sub-agent 機制下的受控攻擊實驗",
+    "正文 180/180、20/180、44/180、75/180、553/900、751/757 等逐一列出的試驗次數與分母，可回溯至文中敘述而非僅圖表摘要",
+    "13-18 個模型跨六家廠商的對照面板，含同層級 sub-agent 作為 control（0/180、1/180、11/540）排除「委派本身造成傷害」的替代解釋"
+   ],
+   "evidenceMaturity": "preliminary",
+   "evidenceMaturityReason": "攻擊情境為研究者自建的虛構故事問答＋偽造檔案設計，不是真實生產事故；證實了機制存在，但未在真實部署的商業系統事故中複現",
+   "reproducibility": "partial-artifacts",
+   "reproducibilityEvidence": [
+    "文中聲明 artifact 將公開完整模型註冊表（exact model ids and routes），但論文本身未提供可直接存取的程式碼或資料連結"
+   ],
+   "editorialConfidence": "high",
+   "editorialConfidenceReason": "「委派給較弱子代理會讓系統安全性趨近子代理水準」這一限縮主張，有受控對照實驗直接支持，且排除了委派本身的替代解釋",
+   "primaryLimitation": "攻擊情境是研究者設計的合成任務（偽造檔案問答），未在真實線上事故或第三方獨立複現中驗證外部效度",
+   "presentation": "clear",
+   "presentationReason": "方法、攻擊設計、模型面板與限制皆說明清楚，告知讀者委派路徑與同層對照的差異來源",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "noveltyReason": "首次在未修改的商用 Claude Code、Codex 上以原生 sub-agent 機制示範「系統安全性取決於最弱環節」而非委派本身",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "practicalLinkReason": "直接影響任何把強模型當 orchestrator、委派給便宜子代理的 agent harness 設計決策",
+   "decision": "selected",
+   "reason": "今日三篇中對讀者最具行動意義的一篇：具體指出委派給弱子代理的安全風險，且是在真實商用工具上示範，而非純模擬。"
+  },
+  {
+   "arxivId": "2611.17610",
+   "title": "More Agents, More Samples, or More Thinking? Untangling Coordination, Ensembling, and Test-Time Compute in Multi-Agent LLMs",
+   "source": [
+    "layerA"
+   ],
+   "sourceCount": 3,
+   "daysSinceFirstSeen": 0,
+   "topicGate": "pass",
+   "venue": "arXiv preprint（未經同行審查），作者提供 PACE Reviewer Checklist 與可重現程式碼",
+   "citationCount": null,
+   "citationVelocity": "發布約 1-5 天內，Semantic Scholar API 回應 429（速率限制），尚無法查得引用數字；toolDegradation 記錄於下方",
+   "institution": "University of Nevada, Reno（單一作者）",
+   "communitySignals": [
+    "未見 HF Daily Papers 或 Papers with Code 收錄",
+    "被第三方論文索引站 arxivsignals.io 收錄並摘要（非策展信號）"
+   ],
+   "credibility": "conditional",
+   "credibilityEvidence": [
+    "Section 5 實證綜合：9 項既有研究、516 組多代理人設定、4 類基準線階梯（Category A-D）與多層次隨機效應模型（REML, β̂=-0.195, 95% CI [-0.320,-0.070]）",
+    "逐一標注抽取自既有論文的表格列數據，並區分「貪婪單次通過」與「樣本數匹配」兩種基準線",
+    "提供 6 項 reviewer checklist 與開源重現工具（GitHub: mahmoudsajjadi/pace）"
+   ],
+   "evidenceMaturity": "preliminary",
+   "evidenceMaturityReason": "是對既有 9 篇論文表格數據的二次提取與統合分析，而非一手實驗；統計方法嚴謹但單一作者執行全部資料抽取，缺乏第二人獨立核對抽取正確性",
+   "reproducibility": "partial-artifacts",
+   "reproducibilityEvidence": [
+    "GitHub 公開 PACE 評估工具與表格抽取結果",
+    "原始 9 篇研究的數據來自公開論文的表格，但抽取過程本身未經外部覆核"
+   ],
+   "editorialConfidence": "medium",
+   "editorialConfidenceReason": "整體方向（多代理人在樣本數匹配基準線下平均為負）有多篇原始研究佐證且統計方法得當，但單一作者的二次數據抽取引入可追溯性風險，語氣宜保守",
+   "primaryLimitation": "是對既有文獻的統合分析而非新一手實驗，抽取樣本的代表性與正確性只有一位作者把關，尚待外部重現",
+   "presentation": "clear",
+   "presentationReason": "明確定義四類基準線階梯、資源向量與抽取流程，數字可回溯至具體研究與章節",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "noveltyReason": "首次把「多代理人評測常見的基準線不公平」系統性地量化成跨 9 篇研究、516 組設定的統計結果，而非單篇論文的個案觀察",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "practicalLinkReason": "直接影響任何評估「要不要上多代理人架構」的團隊：74% 的可比對照中多代理人不優於或劣於基準線",
+   "decision": "selected",
+   "reason": "補上「能力與評測極限」角度：用系統性證據挑戰多代理人架構的普遍假設，與另兩篇的安全角度形成互補而非重疊。"
+  },
+  {
+   "arxivId": "2611.17460",
+   "title": "Unfinished-Bench: Measuring Rule Violations by Persistent Agents in Realistic Work Environments",
+   "source": [
+    "layerA",
+    "layerB"
+   ],
+   "sourceCount": 2,
+   "daysSinceFirstSeen": 0,
+   "topicGate": "pass",
+   "venue": "arXiv preprint（未經同行審查）",
+   "citationCount": null,
+   "citationVelocity": "發布 5 天（2026-11-12 提交），Semantic Scholar API 回應 429（速率限制），尚無法查得引用數字；toolDegradation 記錄於下方",
+   "institution": "NAVER AI Lab",
+   "communitySignals": [
+    "被第三方中文 AI 日報（cnblogs.com/verstin）列為 2026-11-16 當日精選論文之一",
+    "獨立科技媒體 i10x.ai 以此文做了專題報導",
+    "未見 HF Daily Papers 或 Papers with Code 收錄"
+   ],
+   "credibility": "pass",
+   "credibilityEvidence": [
+    "Section 3：12 個開源模型 × 1,164 次執行 × 多條件（doc/user 規則位置 × 有無 persistence × 無規則對照 × marker-only ablation）＝ 13,968 次執行",
+    "統計方法：以 97 情境做 bootstrap（B=10,000）信賴區間與配對 McNemar 檢定",
+    "行為判讀：Claude Sonnet 5.5 作為 LLM judge，358 筆抽樣人工覆核，21 筆重複標註的評分者一致度 κ=0.84",
+    "Limitations 章節明確指出只測 12 個開源模型、未測商用模型、僅用單一 harness（Hermes Agent）"
+   ],
+   "evidenceMaturity": "substantial",
+   "evidenceMaturityReason": "方法、大規模執行次數、統計檢定與消融（marker-only ablation）皆完整，作者亦主動說明適用範圍限於開源模型與單一 harness",
+   "reproducibility": "full-artifacts",
+   "reproducibilityEvidence": [
+    "Benchmark 文件與程式碼公開於 francis21c.github.io/unfinished-bench",
+    "Appendix 列出完整模型清單、請求參數與逐模型結果表"
+   ],
+   "editorialConfidence": "high",
+   "editorialConfidenceReason": "「persistence 顯著提高內部文件規則的違規率」此一限縮主張，有大規模執行次數、統計檢定與人工覆核判讀共同支持",
+   "primaryLimitation": "只測試 12 個開源模型，未涵蓋任何商用旗艦模型（如 GPT-5.5、Claude、Gemini），無法推論商用模型是否有相同傾向",
+   "presentation": "clear",
+   "presentationReason": "情境設計、統計方法與限制說明清楚，讀者可準確理解主張的適用邊界",
+   "relevance": "direct",
+   "novelty": "substantive",
+   "noveltyReason": "首次把「無使用者在場、長期自主運行」的 persistence 條件獨立出來做對照實驗，區分出使用者明說規則 vs 規則藏在內部文件的巨大落差（8.5% vs 43.6%）",
+   "todayImportance": "high",
+   "practicalLink": "clear",
+   "practicalLinkReason": "直接影響任何部署「持續執行到完成」的自主 agent 的團隊，特別是規則寫在內部文件而非 prompt 裡的場景",
+   "decision": "selected",
+   "reason": "補上「應用安全」角度中最貼近實際部署的發現：持續性本身會讓 agent 更容易違反藏在環境裡的規則，且是三篇中唯一有獨立媒體佐證關注度的一篇。"
+  },
+  {
+   "id": "2611.17338",
+   "title": "When Should LLM Agents Forget? Memory Filtering Under Query-Critical Resolver Errors",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「LLM memory systems often delete facts classified as stale. We show that this hard-filtering step can reduce downstream accuracy when resolve…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17341",
+   "title": "Tabular Population Priors as Structured Retrieval for EHR Medication Set Prediction",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Tabular Population Priors as Structured Retrieval  相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17515",
+   "title": "A Push Down the Mountain: Framing Effects and Internal State Interventions on Collusive Behavior in a Long-Horizon LLM Agent",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Can sustained gain-loss (valence) framing sway an LLM agent toward market manipulation? We place Gemma 3 12B into the seat of a defendant in…」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.17539",
+   "title": "Verifiable pXRD: Hill-climbing pXRD structure determination with LLM agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Autonomous crystal-structure determination from powder X-ray diffraction (pXRD) remains a key bottleneck for self-driving materials laborato…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17564",
+   "title": "AI-Voyager: A Public-Interest System for Human-AI Civic Reasoning to Contest and Shape the Rules That Govern AI",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Governments are writing rules for artificial intelligence that decide what counts as an automated decision or a harm, often before the peopl…」，但證據規模與驗證深度不及入選的《Unfinished-Bench》（橫跨 97 個情境、12 個模型、13,968 次執行並以 bootstrap 信賴區間與配對 McNemar 檢定驗證的規模），今日優先選擇後者。",
+   "comparedTo": "2611.17460"
+  },
+  {
+   "id": "2611.17616",
+   "title": "LLM-Guided Cluster Lifecycle Management: Deciding When and How to Evolve Behavioral Clusters",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Behavioral clusters learned over user or item interactions drift as behavior evolves: some fragment into sub-behaviors, some converge, some …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17620",
+   "title": "Safety Side Effects of Preventative Persona Steering: An Empirical Audit",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「High-level behaviors such as sycophancy and hallucination correspond to directions in a model's activation space (Chen et al., 2025). These …」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.17621",
+   "title": "AscendGYM: A Cost-Aware Kernel Optimization Benchmark for Real-World Workloads on Ascend NPUs",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 AscendGYM 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17632",
+   "title": "Generated Evaluation Suites as Diversity-Driven Search for Real Agent Regressions",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Generating an evaluation suite from an agent's specification is diversity-driven search: a generator fills a descriptor space (requirements …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17639",
+   "title": "What LLM Agents See and What Users Say",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Before an LLM agent cancels a reservation or deletes a folder for a user, what stops it from acting on a false assumption: what its tools sh…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17662",
+   "title": "Learn then Bet: Learning Interpretable Rules for Reliable Agent Intervention",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Autonomous agents now run for hundreds of steps with little or no human supervision. In practice, practitioners use runtime monitors such as…」，但證據規模與驗證深度不及入選的《Unfinished-Bench》（橫跨 97 個情境、12 個模型、13,968 次執行並以 bootstrap 信賴區間與配對 McNemar 檢定驗證的規模），今日優先選擇後者。",
+   "comparedTo": "2611.17460"
+  },
+  {
+   "id": "2611.17680",
+   "title": "Aligned, Conflicting, or Unspecified? A Diagnostic Benchmark for Multimodal Time Series Forecasting",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Aligned, Conflicting, or Unspecified? A Diagnostic 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17681",
+   "title": "OCTAVE: A Capability-Resolved Benchmark for End-to-End HTML5 Game Generation",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 OCTAVE 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17696",
+   "title": "Co-Sight Harness: Externalized Control Assets and Deterministic Enforcement for Long-Horizon Business Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Long-horizon business workflows fail in two ways: errors accumulate as a chain of activities lengthens, and the knowledge an activity needs …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17776",
+   "title": "Certified Improvements to Best-Known Thomson-Problem Configurations with a Search Pipeline Built with Large Language Model Agents",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Certified Improvements to Best-Known Thomson-Probl 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17790",
+   "title": "AutoRL: A Multi-Agent System towards Autonomous Reinforcement Learning",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Recursive self-improvement (RSI) is one of the most promising paths toward an AI singularity for superintelligence. Achieving this vision re…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17793",
+   "title": "MASTARS: Multi-Agent Sequential Trajectory Augmentation with Return-Conditioned Subgoals",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「The performance of offline Multi-Agent Reinforcement Learning (MARL) is limited by the quality of the fixed offline dataset, motivating traj…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17797",
+   "title": "Vision-as-a-Tool: Visual Harness for Multimodal Agentic Coding",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Multimodal agentic coding requires robust visual reasoning to analyze observations and evaluate generated artifacts. Current frameworks larg…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17806",
+   "title": "Can Agents Keep Up with Time? An Empirical Analysis of Temporal Adaptation After a Conversational Hiatus",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Long-horizon agents increasingly serve as persistent personal assistants across modern web platforms, managing schedules, applications, and …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17814",
+   "title": "G-CAST: Governed Continual Self-Training for E-Commerce Agents under Evolving Demands",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「With the rapid advancement of Large Language Models (LLMs), an increasing number of users are turning to LLM-powered agents for conversation…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17880",
+   "title": "Soteria: Formally Verified Planning with Runtime Enforcement for Safe LLM Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「LLM agents that execute multi-step tool calls must satisfy two objectives simultaneously: completing the user's task (utility) and conformin…」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.17910",
+   "title": "Adversarially Attacking Symbolic Vocabulary Vulnerabilities In LLM Planners",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「As large language models (LLMs) are increasingly deployed as autonomous agents, their abilities in navigating automated planning tasks have …」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.17917",
+   "title": "When Cooperation Must Change: Semantic Strategy Unlearning in Multi-Agent Reinforcement Learning",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Cooperative multi-agent reinforcement learning (MARL) supports coordinated decision-making in distributed Web services, multi-robot control,…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17921",
+   "title": "RecMem: Recurrent Memory Compression for Long-Sequence Generative Recommendation",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 RecMem 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17929",
+   "title": "Evaluating Large Language Models for Scientific Paper Search: Retrieval Success and Inference Latency on Mac Studio and NVIDIA A100",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Evaluating Large Language Models for Scientific Pa 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17933",
+   "title": "OutfitterBench: Evaluating LLM Agents on Long-Horizon Resource Allocation and Commitment Coordination",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「In many long-horizon settings, an agent's own choices create future constraints: committing finite capacity establishes future obligations a…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17955",
+   "title": "WebArena-Pro: A Heterogeneous, Multimodal, Reproducible Benchmark for Web Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Web agents powered by large language and vision-language models are increasingly applied to realistic browser work that spans heterogeneous …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18064",
+   "title": "A$^3$: Adaptive Audio Agent Framework for Collaborative Edge Computing",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 A$^3$ 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18098",
+   "title": "Do Machines Learn Deviance From Their Peers? A Randomized Test of Differential Association With AI Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Differential association theory and its extension, social learning theory, hold that rule-breaking, and the definitions that make it accepta…」，但證據規模與驗證深度不及入選的《Unfinished-Bench》（橫跨 97 個情境、12 個模型、13,968 次執行並以 bootstrap 信賴區間與配對 McNemar 檢定驗證的規模），今日優先選擇後者。",
+   "comparedTo": "2611.17460"
+  },
+  {
+   "id": "2611.18130",
+   "title": "JFinBench: A Continuously Refreshable Japanese Financial Benchmark from the Latest Certification Exams",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Large language models (LLMs) are increasingly applied to finance, creating a need for benchmarks that evaluate their capabilities across fin…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18140",
+   "title": "Large Language Model-Empowered Intelligent Agent for Adaptive Fast-Charging Control of Lithium-Ion Batteries",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Large Language Model-Empowered Intelligent Agent f 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18248",
+   "title": "Dancing Tokens on the Vocabulary Network from LLM Generation",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Dancing Tokens on the Vocabulary Network from LLM  相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18315",
+   "title": "Experts Across Schemas: Agent-Guided Mixture-of-Relational-Experts for Cross-Database Generalization",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Experts Across Schemas 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18392",
+   "title": "VelServe: Taming Decode Jitters in LLM Inference with Tail-Calibrated Scheduling",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 VelServe 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18395",
+   "title": "Smart Home Agents Make Capable but Unpredictable Grid Operators",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「AI-enabled smart homes are becoming more common across the grid edge. However, there has not been much work on failure response. This area i…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18419",
+   "title": "LECAT: Measuring LLM Category Learning from Pretraining Data",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 LECAT 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18494",
+   "title": "ARCHER: From Rationale Imitation to Executable Reasoning in Small Language Models",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Small language models are attractive for local, low-cost, and privacy-sensitive deployment, but they remain unreliable on mathematical reaso…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18514",
+   "title": "Can Mechanistic Interpretability Help Explain LLM Agent Failures? A Case Study on Web Element Hallucination",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Mechanistic Interpretability (MI) has made significant progress in explaining the internal computations of Large Language Models (LLMs); how…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18533",
+   "title": "ModHarness-RL: Recasting Harnesses as Learnable and Evolving Programs for Agentic RL",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Agentic reinforcement learning (RL) increasingly relies on a harness, the scaffold around the model that decides what it sees of its own int…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18543",
+   "title": "Imitation Bootstrapped Multi-Agent Reinforcement Learning",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Demonstrations are an effective way to accelerate single-agent reinforcement learning (RL), but extending this idea to multi-agent reinforce…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2505.24098",
+   "title": "HARDTESTGEN: A High-Quality RL Verifier Generation Pipeline for LLM Algorithmic Coding",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Verifiers provide important reward signals for reinforcement learning of large language models (LLMs). However, it is challenging to develop…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17388",
+   "title": "Time-Consistent Evaluation of Hierarchical Code Graphs for SWE Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Evaluating repository-aware software engineering (SWE) agents requires strict separation between pre-existing repository knowledge and futur…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17440",
+   "title": "Interpreting Coding Agents Through Their Behavioral Trajectories",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Standard coding-agent benchmarks primarily evaluate binary task success, treating execution as a black box and obscuring the behaviors that …」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17505",
+   "title": "Adversarial Tracking: Attacks on Image Sensors for Object Tracking in Autonomous Vehicles",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Adversarial Tracking 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17556",
+   "title": "A Synthetic Benchmark for Target-Centric Causal Discovery in Industrial Processes",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 A Synthetic Benchmark for Target-Centric Causal Di 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17585",
+   "title": "Rethinking Visual Reasoning in Text-to-Image Reward Modeling",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Reward models are a core component of modern text-to-image systems, serving as the objective for inference-time selection and RL-based post-…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17598",
+   "title": "X-Nav Technical Report: Real-World Long-Horizon Indoor-to-Outdoor Navigation on a Humanoid Robot",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 X-Nav Technical Report 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17682",
+   "title": "Agent-written heuristics versus commercial solvers on unsolved job-shop benchmark instances",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Commercial solvers are the standard tool for difficult scheduling problems. We study whether a frontier large language model, used as a codi…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17753",
+   "title": "Superfluid: Local AI Server for Distributed LLM Inference",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Running large language models (LLMs) on local devices keeps data private, removes per-token cost, cuts network latency, and keeps working wi…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17780",
+   "title": "LuthorSQL: A One-Pass Text-to-SQL Model as System 1 for a Slower LLM Agent",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Frontier LLM agents that query databases with tools are among the most accurate text-to-SQL systems, but per-query calls to a hosted model a…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17808",
+   "title": "CarryOn: Learning What to Keep in Context for Long-Horizon LLM Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Long-horizon LLM agents can coordinate tools and applications to complete complex, multi-step tasks. As their interaction histories grow, ef…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17821",
+   "title": "SceneAgent: A Multi-Agent Framework for Portable Game Scene Generation",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Moving a scene generator to a new game engine requires more than exporting its final output: planning, construction tools, and stored experi…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17879",
+   "title": "From Local Prediction Error to Final Outputs: A Theory of Expert Sharing in Multi-Step Reasoning",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Mixture-of-experts (MoE) models can share experts across layers or computational steps, pooling training information from different contexts…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17883",
+   "title": "Securing Multi-Agent Systems by Design",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Multi-agent systems solve complex tasks by decomposing them into subtasks, delegating the subtasks to agents, and aggregating the agents' re…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨 9 項研究、516 組多代理人設定並以多層次隨機效應模型檢驗的證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17931",
+   "title": "MineralExp: Benchmarking LLM Agents for Experimental Design in Real-World Mineral Exploration",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「In mineral exploration, verifying geological hypotheses relies on designing a variety of geochemical experiments. While large language model…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17939",
+   "title": "Can You Trust Your Finance Agent? Drift, Diagnosis and Auditable Intervention on One Shipped Financial Research Agent",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Can you trust a finance agent you did not build? We take the reference agent shipped with the Vals Finance Agent Benchmark v2, leave it untu…」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.17966",
+   "title": "From Images to Grounded Edits: A Real-World Benchmark for Chinese Grammatical Error Correction in Handwritten Essays",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 From Images to Grounded Edits 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18078",
+   "title": "TelePhysica: Agentic Reconstruction of Physically Interactive Scenes",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Direct image-to-video diffusion models entangle pixel synthesis with implicit latent motion, precluding persistent 3D mechanical equilibrium…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18139",
+   "title": "PUMA-Former: Uncertainty-Aware Agentic Computation Offloading in MEO-LEO Satellite Networks With Incomplete Information",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 PUMA-Former 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18150",
+   "title": "Who Should Be on the Panel? Task-Conditioned Persona Selection for LLM Trading Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Multi-agent LLM systems are built by fixing a cast of roles and then designing how the cast coordinates. Which agents should make up the gro…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18230",
+   "title": "Personalization of Basic and Moral Values Guiding LLM-Controlled Assistant Robots",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Personal assistant robots powered by large language models (LLMs) are likely to enter everyday life within the next decade, but the values t…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18359",
+   "title": "Envisioning Agentic Robotics: A New Era of Robotic Systems",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「The release of GPT-6 Astra marks the emergence of a new paradigm in robotics: agentic robotics. Within weeks, frontier models with agentic h…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18397",
+   "title": "Gamer: A Generalist Vision-Language-Action Foundation Model for Long-Horizon Real-Time Game Agent",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「We introduce Gamer, a generalist agent framework built for long-horizon tasks in complex interactive environments. Its end-to-end architectu…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18471",
+   "title": "Do Verifier Judgments Survive Abstraction? Measuring Verification Transport for LLM Agent Evaluation",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「LLM-based verifiers are increasingly used to evaluate agent executions, but their reliability is typically measured under a single represent…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18484",
+   "title": "From AI-Enabled Remote Patient Monitoring Toward Agentic Robotics: Embodiment, Governance, and Care Integration",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「AI-enabled remote patient monitoring is evolving beyond passive data collection toward agentic AI systems that interpret patient states, coo…」，但證據規模與驗證深度不及入選的《Unfinished-Bench》（橫跨 97 個情境、12 個模型、13,968 次執行並以 bootstrap 信賴區間與配對 McNemar 檢定驗證的規模），今日優先選擇後者。",
+   "comparedTo": "2611.17460"
+  },
+  {
+   "id": "2611.18493",
+   "title": "TradeGauntlet: Evaluating Compliance Controls for Autonomous Trading Agents",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Autonomous trading agents need controls that prevent problematic orders without making legitimate tasks impractical. We study this aspect of…」，但證據規模與驗證深度不及入選的《Only as Safe as the Weakest Agent》（在未修改的 Claude Code、Codex 與對照 harness 上跑超過 1,000 次試驗、橫跨 13-18 個模型的受控攻擊實驗），今日優先選擇後者。",
+   "comparedTo": "2611.17520"
+  },
+  {
+   "id": "2611.18504",
+   "title": "Agentic AI for Discovering Fault-Tolerant Quantum Circuits",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 Agentic AI for Discovering Fault-Tolerant Quantum  相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2602.06008",
+   "title": "From Chats to Markets: AgenticPay for LLM-Powered Negotiation in Multi-Agent Commerce",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 From Chats to Markets 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.17461",
+   "title": "Tracing Knowledge and Reasoning in LLM",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Current evaluations of Large Language Models (LLMs) report performance at the dataset or task level, revealing what a model achieves but off…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17788",
+   "title": "RAG-FGO: Dynamic Optimization of Query-Rewriting Agents for Generative RAG",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「In retrieval-augmented generation (RAG), query rewriting serves as a core interface that aligns user intent with external knowledge bases, a…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.17836",
+   "title": "BLiMP-RO: A Benchmark of Linguistic Minimal Pairs for Romanian",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 BLiMP-RO 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18067",
+   "title": "Agent-as-a-Judge",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Artificial intelligence has progressed from task-specific systems toward general models spanning perception, generation, reasoning, and auto…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18257",
+   "title": "NER-D: A cross-domain benchmark for German NER",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為 NER-D 相關的領域應用，核心貢獻不在 Agent 架構、編排、記憶、安全或評測方法，與今日入選論文的 Agent 系統議題沒有直接重疊。"
+  },
+  {
+   "id": "2611.18264",
+   "title": "MamaReason: Unfinished Reasoning and Answer Recovery in Clinical Language Models",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Answer continuation often returns a diagnosis already stated in unfinished clinical reasoning. We study this behavior in MamaReason, adapted…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18506",
+   "title": "Agentic induction of common data elements and information extraction from sarcoma case report abstracts",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「Common data elements (CDEs) support clinical data comparability but are usually defined manually. We investigated whether large language mod…」，但證據規模與驗證深度不及入選的《More Agents, More Samples, or More Thinking?》（橫跨多篇既有研究整合後的系統性證據規模），今日優先選擇後者。",
+   "comparedTo": "2611.17610"
+  },
+  {
+   "id": "2611.18089",
+   "title": "Deep Latents, Long Memory: Latent persistence explains temporal correlations in transformer activations",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "本篇主張「The hidden layers of Large Language Models (LLMs) are believed to encode representations of the data whose abstraction increases with depth.…」，但證據規模與驗證深度不及入選的《Unfinished-Bench》（橫跨 97 個情境、12 個模型、13,968 次執行並以 bootstrap 信賴區間與配對 McNemar 檢定驗證的規模），今日優先選擇後者。",
+   "comparedTo": "2611.17460"
+  },
+  {
+   "id": "2611.18183",
+   "title": "When Should a Virtual Patient Ask? RISP-Guided Proactive Information Seeking in Multi-Agent Patient Simulation",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為護理教學用虛擬病人模擬系統，核心貢獻是行為心理學式的資訊搜尋模型，不涉及 Agent 架構、編排、記憶或安全，與今日議題無直接重疊。"
+  },
+  {
+   "id": "2611.17456",
+   "title": "Physical-Risk-Aware Decentralized Agents for Constrained Vehicle Communications",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為車載網路（V2X）資源分配的圖注意力強化學習，\"agent\" 指傳統控制理論代理，非 LLM-based AI Agent，與今日議題無直接重疊。"
+  },
+  {
+   "id": "2611.17482",
+   "title": "Collective Tree Exploration with Predictions",
+   "rejectionCategory": "off-topic",
+   "reason": "主題為演算法理論（帶預測的樹搜尋競爭比分析），與 LLM Agent 的建構、評估或部署無關，屬古典多代理機器人演算法範疇。"
+  },
+  {
+   "arxivId": "2611.15315",
+   "title": "MIGRO: A Decoupled and Portable Long-Term Memory System for Language Models",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.10439",
+   "title": "Who Remembers What? Multi-Granularity Memory Extraction for Multi-User, Multi-Agent Interaction (MixUA)",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.16378",
+   "title": "Evidence-Governed Adoption of Self-Generated Updates in Autonomous AI Agents",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.16466",
+   "title": "How Should Planning Agents ReSHAPE Their Search Space?",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.13454",
+   "title": "SafeRoute-MAS: Coverage-Aware and Risk-Calibrated Message Routing for Multi-Agent Scientific Reasoning",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15097",
+   "title": "GuardianAgentFlow: Multi-Agent Coordination for Web Privacy Protection",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15515",
+   "title": "Incentive-Responsive Agents: A Principal-Agent Framework, Metric Suite, and Runtime Architecture for Long-Lived Personal AI Agents",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15838",
+   "title": "Before AI Agents Negotiate for Us: A Competitive Tournament of Rule-Based, Search, Optimization, Learned, and Language-Model Negotiators Under Scarcity",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.16123",
+   "title": "SwarmSafe-Delta: Isolating Message Effects on LLM Agent Safety",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15835",
+   "title": "Controlling the Probability of Unknown Unknowns in Pre-Deployment Testing of AI Systems",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.10411",
+   "title": "Tail-risk-aware Agent Safety: Constraining Tail Risks Across Multi-step LLM Agent Workflows",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15460",
+   "title": "Read and Ignore: What Self-Directed LLM Agents Do in Public Service Scenarios",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.15309",
+   "title": "Where Autonomy Belongs: A Separation of Powers for Agentic Program Evolution (EvoTrias)",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 2,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  },
+  {
+   "arxivId": "2611.17186",
+   "title": "Cortex-FL: Agent-Mediated Collaboration for Federated Learning",
+   "source": [
+    "layerC"
+   ],
+   "sourceCount": 1,
+   "daysSinceFirstSeen": 1,
+   "topicGate": "pass",
+   "credibility": "not-assessed",
+   "decision": "watch",
+   "rejectionCategory": "stronger-competitor",
+   "reason": "持續列入回溯池；今日三篇（Weakest-Agent 安全突破、多代理人證據統合、Unfinished-Bench 規則違規）證據規模更大且更貼近今日重要性，本篇留待後續信號（如 code 釋出或外部複現）增強後再考慮。"
+  }
+ ]
+}

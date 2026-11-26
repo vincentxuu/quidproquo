@@ -9,11 +9,11 @@ description: "Connect preparation, classroom feedback, independent retelling and
 tldr: "Choose one real task, record your first attempt, use feedback to try again, then change a condition to see what you can use independently. Keep the schedule and notes focused on that task."
 series:
   name: "English Speaking Practice"
-  order: 14
+  order: 32
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-speaking-practice-review-routine)
+> :globe: [中文版](/posts/learning/2026-10-19-speaking-practice-review-routine)
 
 You enjoy a speaking lesson and the teacher improves a few sentences. The next day, a colleague asks something similar and you return to the original wording. One place to intervene is the review process: connect the lesson to your next conversation instead of simply filing the notes away.
 

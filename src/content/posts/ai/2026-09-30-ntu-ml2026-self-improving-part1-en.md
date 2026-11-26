@@ -26,7 +26,7 @@ glossary:
     context: "TENT for images, SUTA for speech, and The Unreasonable Effectiveness of Entropy Minimization for text all use this idea."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part1)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -196,11 +196,9 @@ A summary table of where humans remain at each step:
 - **Homework**: this term's next assignments are [HW7: Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en) and [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en). HW8's Self-Certainty and DeepConf use the same certainty-based idea from this lecture, but to pick answers rather than update parameters.
 - **Related reading**: for the full RLVR picture, see [Stanford CS336 RLVR](/posts/ai/2026-08-22-cs336-rlvr-en) and [CS336 SFT and RLHF](/posts/ai/2026-08-22-cs336-sft-rlhf-en). For RL with LLMs, see [CME295 RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en). For RL fundamentals, see [Berkeley CS285 policy and value methods](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods-en).
 
-## What this post could and couldn't verify
+## What this post leaves out
 
-Verified: the slide text and linked citations, the Chinese captions on the video (marked zh-TW on YouTube and not auto-generated), the titles of the 15 arXiv papers on the slides (checked via the arXiv API), and that Import AI 455 was written by Jack Clark (confirmed on the original page; in class Lee only said the author is "probably one of Anthropic's co-founders").
-
-Not verified: I could not find a public version of Wei-Ping Huang's paper, so the second-term formula in the fold is a standard derivation based on the lecture's description, not copied from the paper. For the Qwen 0.6B / 1.7B / 4B curves, the slide cites the R-Zero arXiv ID, but I did not match the figure against the paper. PostTrainBench's 51 and 18 come from the captions and were not checked against the paper's tables.
+Import AI 455 was written by Jack Clark; in class Lee only said the author is "probably one of Anthropic's co-founders." The second-term formula in the fold is a standard derivation based on the lecture's description, not copied from Wei-Ping Huang's paper. For the Qwen 0.6B / 1.7B / 4B curves, the slide cites the R-Zero arXiv ID; PostTrainBench's 51 and 18 come from Lee's narration. Check the original papers before citing either set of numbers.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW6: Model Editing](/posts/ai/2026-09-30-ntu-ml2026-hw6-model-editing-en) | Next: [HW7: Model Merging](/posts/ai/2026-09-30-ntu-ml2026-hw7-model-merging-en)
 
@@ -228,6 +226,7 @@ Content check: verified against the video transcript (2026-10-10): video s06mSAG
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. The video matches what the post says; no body text needed changing.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

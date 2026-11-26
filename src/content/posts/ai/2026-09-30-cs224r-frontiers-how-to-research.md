@@ -22,7 +22,7 @@ glossary:
     context: "CS224R L18 用它說明聊天機器人的獎勵為什麼難定義。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs224r-frontiers-how-to-research-en)
 
 **影片狀態：僅附相關補充影片；原講次錄影未確認。** [影片來源與說明](#課程影片來源)
 
@@ -318,13 +318,14 @@ title: Spring 2025 Lecture 18: Frontiers（YouTube，補充）
 
 - [官方課程／講次來源](https://cs224r.stanford.edu/)
 
-Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-10-10。
+Spring 2026 當季講次錄影放在需 Stanford 登入的 Canvas／Panopto；公開 YouTube 播放清單是 Spring 2025。 查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。嵌入的影片屬於較早學期的公開錄影，不是 2026 當季課程，狀態改為相關補充影片。
 - 2026-10-10：依字幕核對影片內容。字幕支持「2025 影片涵蓋大部分內容」與實習故事的說法，沒有需要修正的地方。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

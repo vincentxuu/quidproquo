@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-tool-specstory-cli-en)
+> :globe: [English version](/posts/daily/2026-10-07-tool-specstory-cli-en)
 
 ## 工具資訊
 
@@ -80,11 +80,11 @@ npx skills add specstoryai/getspecstory --skill lore
 
 | | SpecStory CLI | 手動複製貼上保存 | agent 本身的 session resume |
 |---|---|---|---|
-| 跨工具統一格式（Claude/Codex/Cursor CLI 等） | ✅ | 看個人習慣 | ❌ 各家互不相通 |
-| 本機優先、不強制上雲 | ✅ | ✅ | 依工具而定 |
-| 可全文搜尋歷史 session | ✅（本機或 Cloud） | ❌ | 大多不支援 |
-| 從歷史自動煉成新 skill（Lore） | ✅ | ❌ | ❌ |
-| 團隊共享同一份知識庫 | ✅（需登入 Cloud） | ❌ 檔案亂丟 | ❌ |
+| 跨工具統一格式（Claude/Codex/Cursor CLI 等） | ✓ | 看個人習慣 | ✗ 各家互不相通 |
+| 本機優先、不強制上雲 | ✓ | ✓ | 依工具而定 |
+| 可全文搜尋歷史 session | ✓（本機或 Cloud） | ✗ | 大多不支援 |
+| 從歷史自動煉成新 skill（Lore） | ✓ | ✗ | ✗ |
+| 團隊共享同一份知識庫 | ✓（需登入 Cloud） | ✗ 檔案亂丟 | ✗ |
 
 ## 注意事項
 

@@ -11,7 +11,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-19-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-19-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### stablyai/orca ⭐ 96,374
+### stablyai/orca ★ 96,374
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript（Electron）　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### agentscope-ai/AgentTeams ⭐ 5,772
+### agentscope-ai/AgentTeams ★ 5,772
 
 [GitHub](https://github.com/agentscope-ai/AgentTeams)　·　Go（控制平面）＋ Node.js／Python（Worker runtime）　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### wheresryan22/anatomy ⭐ 15,866
+### wheresryan22/anatomy ★ 15,866
 
 [GitHub](https://github.com/wheresryan22/anatomy)　·　JavaScript（Node 內建模組）　·　MIT
 

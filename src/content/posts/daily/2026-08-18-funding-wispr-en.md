@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-18-funding-wispr)
+> :globe: [中文版](/posts/daily/2026-08-18-funding-wispr)
 
 ## Funding Details
 

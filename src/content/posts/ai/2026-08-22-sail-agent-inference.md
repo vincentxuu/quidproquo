@@ -10,7 +10,7 @@ description: "拆解 Sail Research 的 completion windows、OpenAI／Anthropic �
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-sail-agent-inference-en)
+> :globe: [English version](/posts/ai/2026-08-22-sail-agent-inference-en)
 
 [Sail Research](https://www.sailresearch.com/) 是 Neil Movva 與 Samir Menon 創辦的 AI 基礎設施公司，正式產品分成開放模型推論 API、持久 Linux VM「Sailboxes」，以及 Agent telemetry「Voyages」。它不是 Stanford AI Lab，也不是同名論文中的 SAIL；官方文件、創辦人、投資人與 `sailresearch.com`／`sail.industries` 網域都指向同一家公司。
 

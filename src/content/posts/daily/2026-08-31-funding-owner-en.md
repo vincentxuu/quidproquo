@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-31-funding-owner)
+> :globe: [中文版](/posts/daily/2026-08-31-funding-owner)
 
 ## Funding Details
 

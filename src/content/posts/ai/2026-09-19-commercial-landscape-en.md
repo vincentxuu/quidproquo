@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-commercial-landscape)
+> :globe: [中文版](/posts/ai/2026-09-19-commercial-landscape)
 
 The previous articles focused on technology and the open-source world. This one looks at the **commercial world**: the 2026 deep research product landscape.
 

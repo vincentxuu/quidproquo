@@ -13,7 +13,7 @@ description: "A focused reading of Stanford CS111 Spring 2026 Lecture 21: block 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)
+> :globe: [中文版](/posts/learning/2026-08-22-stanford-cs111-lecture-21-free-space-buffer-cache)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
@@ -73,7 +73,7 @@ The slide says cheap disk makes internal fragmentation less important. That is r
 
 ## Course video sources
 
-This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-10-10: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-10-10.
+This article uses public course materials. Recordings for the covered offering require course access through Canvas / Panopto. The official source is linked below. Rechecked live on 2026-11-09: the official page says recordings are on Canvas / Panopto, and opening that entry redirects to the Stanford Canvas sign-in page; no public YouTube, Stanford Online or OCW release of the Spring 2026 recordings was found (YouTube results found belong to other years or course versions and are not used). Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -85,6 +85,8 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Sign-in wall confirmed live and no public recording of the same term found, so the status is unchanged.
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

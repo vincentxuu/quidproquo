@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 Lecture 20 slides, pages 26–52; from Lin et al., ICLR 2018."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-distributed-training)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-distributed-training)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

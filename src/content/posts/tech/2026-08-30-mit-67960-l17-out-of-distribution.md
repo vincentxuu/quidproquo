@@ -21,7 +21,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution-en)
+> :globe: [English version](/posts/tech/2026-08-30-mit-67960-l17-out-of-distribution-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

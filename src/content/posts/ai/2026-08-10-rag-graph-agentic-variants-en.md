@@ -13,7 +13,7 @@ description: "The mechanisms and trade-offs of Standard, Graph and Agentic RAG, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-10-rag-graph-agentic-variants)
+> :globe: [中文版](/posts/ai/2026-08-10-rag-graph-agentic-variants)
 
 The last part of the series returns to retrieval. [Part 1](/posts/ai/2026-08-10-agent-workflow-rag-mcp-boundaries-en) gave the test — if the answer is in a document use RAG, if it requires acting on another system use an agent — but RAG has itself split into three shapes, and the third one moves the agent loop inside retrieval.
 

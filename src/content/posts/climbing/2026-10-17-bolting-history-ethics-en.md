@@ -10,7 +10,7 @@ tldr: "A bolt is a permanent hole in the rock, so most climbing communities give
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 15
+  order: 16
 glossary:
   - term: "Clean climbing"
     definition: "Climbing with protection that does not damage the rock and can be fully removed (nuts, cams, slings) instead of hammered pitons. It became the norm in North America in the early 1970s."
@@ -28,7 +28,7 @@ glossary:
     context: "Access Fund publicly opposes gluing or chipping to create or enhance holds."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-bolting-history-ethics)
+> :globe: [中文版](/posts/climbing/2026-10-17-bolting-history-ethics)
 
 Say you have climbed at Long Dong for a few years. You spot a beautiful crack with a blank face beside it, and you think: a few bolts on that face would make a great sport route. You own a drill, you know how to place bolts, and nobody owns the cliff.
 

@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-anthropic-harness-design)
+> :globe: [中文版](/posts/ai/2026-03-28-anthropic-harness-design)
 
 Anthropic's engineering team published two articles on harness design between late 2025 and early 2026: [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) and [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps). Together, they represent the most complete publicly available field report on "how to keep an AI agent working continuously for hours."
 
@@ -168,6 +168,6 @@ If you're building any long-running agent system, these two articles are worth r
 - [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic engineering blog original, GAN-inspired Generator-Evaluator loop in practice
 - [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent design philosophy, the starting point for six composable patterns
 - [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — Anthropic agent evaluation methodology, directly related to evaluator agent design
-- [Claude Code Overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) — Claude Agent SDK official documentation, the concrete implementation foundation for understanding harnesses
+- [Claude Code Overview](https://code.claude.com/docs/en/overview) — Claude Code official documentation, the concrete implementation foundation for understanding harnesses
 - [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv paper, a comprehensive academic survey of LLM agent systems
 - [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP official documentation, understanding the agent tool standardization protocol

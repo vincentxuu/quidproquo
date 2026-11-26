@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-31-tool-sovereign-mcp-en)
+> :globe: [English version](/posts/daily/2026-08-31-tool-sovereign-mcp-en)
 
 ## 工具資訊
 
@@ -80,10 +80,10 @@ Agent：→ org_requirements("aws_db_instance")
 
 | | Sovereign MCP | Checkov CLI（獨立跑） | CI 階段掃描（如 tfsec / Checkov in CI） |
 |---|---|---|---|
-| 在 Agent 生成程式碼的當下即時介入 | ✅ | ❌ | ❌ |
-| 能讓規則在動筆前就生效（`org_requirements`） | ✅ | ❌ | ❌ |
-| 提供機械式自動修正（`apply_fixes`） | ✅（僅限單屬性、可驗證的安全修正） | 需自行整合 | 通常只回報，不修正 |
-| 合規框架控制項對照（SOC 2 / ISO 27001 / PCI-DSS…） | ✅ | 依外掛而定 | 依外掛而定 |
+| 在 Agent 生成程式碼的當下即時介入 | ✓ | ✗ | ✗ |
+| 能讓規則在動筆前就生效（`org_requirements`） | ✓ | ✗ | ✗ |
+| 提供機械式自動修正（`apply_fixes`） | ✓（僅限單屬性、可驗證的安全修正） | 需自行整合 | 通常只回報，不修正 |
+| 合規框架控制項對照（SOC 2 / ISO 27001 / PCI-DSS…） | ✓ | 依外掛而定 | 依外掛而定 |
 | 回饋週期 | 編輯器內、即時 | 手動執行時 | PR / merge 後 |
 
 ## 注意事項

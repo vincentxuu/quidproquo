@@ -32,7 +32,7 @@ glossary:
         url: "https://omnigent.ai/docs/policies/os-sandbox"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-omnigent-meta-harness)
+> :globe: [中文版](/posts/ai/2026-08-26-omnigent-meta-harness)
 
 Running 4 or 5 agents at once is now normal: [Claude Code](https://code.claude.com/) editing code, [Codex](https://developers.openai.com/codex) running tests, [Cursor](https://cursor.com/) completing in the editor, plus a custom data-analysis agent. The pain is not whether the model is smart enough, but that every harness is an island — its own sessions, permissions and history. Switching tools means re-explaining context, resetting guardrails and copy-pasting again.
 
@@ -113,9 +113,9 @@ Three takeaways:
 
 ### The three shipped examples — copy the third
 
-- **🐙 Polly**: multi-agent coding orchestrator that writes no code itself — it plans, delegates to Claude Code/Codex/Pi sub-agents in parallel git worktrees, then routes diffs to a reviewer from a different vendor than the author.
-- **🟠🔵 Debby**: two-headed debate — same question to Claude and GPT side by side, with `/debate` for cross-critique.
-- **🔎 Deep Research**: single agent + one MCP search server; plans sub-queries, fetches full pages and cross-checks claims. **Simplest to copy.**
+- **Polly**: multi-agent coding orchestrator that writes no code itself — it plans, delegates to Claude Code/Codex/Pi sub-agents in parallel git worktrees, then routes diffs to a reviewer from a different vendor than the author.
+- **:orange-circle::blue-circle: Debby**: two-headed debate — same question to Claude and GPT side by side, with `/debate` for cross-critique.
+- **:search: Deep Research**: single agent + one MCP search server; plans sub-queries, fetches full pages and cross-checks claims. **Simplest to copy.**
 
 ### Models and hosts
 
@@ -212,7 +212,7 @@ We scanned [agent-orchestration](https://github.com/topics/agent-orchestration) 
 
 ### Often mistaken for the same layer
 
-[HKUDS/nanobot](https://github.com/HKUDS/nanobot) (47.4k), [deepset-ai/haystack](https://github.com/deepset-ai/haystack) (26.3k), [microsoft/agent-framework](https://github.com/microsoft/agent-framework) (13.1k, AutoGen successor) and [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk) (7k) are **frameworks being orchestrated**, not governance layers.
+[HKUDS/nanobot](https://github.com/HKUDS/nanobot) (47.4k), [deepset-ai/haystack](https://github.com/deepset-ai/haystack) (26.3k), [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) (13.1k stars at the time of the scan, AutoGen successor; the GitHub repo is no longer public) and [strands-agents/harness-sdk](https://github.com/strands-agents/harness-sdk) (7k) are **frameworks being orchestrated**, not governance layers.
 
 Three same-named `metaharness` projects ([ruvnet/metaharness](https://github.com/ruvnet/metaharness), [stanford-iris-lab/meta-harness](https://github.com/stanford-iris-lab/meta-harness), [SuperagenticAI/metaharness](https://github.com/SuperagenticAI/metaharness)) mean "outer-loop optimizer that rewrites harness code" ([arXiv:2603.28052](https://arxiv.org/abs/2603.28052)) — same name, different meaning.
 

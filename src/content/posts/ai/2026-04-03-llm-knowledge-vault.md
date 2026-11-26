@@ -72,15 +72,15 @@ wiki 會越長越肥。加入 confidence decay——90 天沒被用到的知識�
 | 編譯流程 | LLM 增量編譯 wiki | Session 結束時自動掃描歸檔 | `/post` skill 把對話轉成結構化文章 |
 | 索引方式 | LLM 自維護 index，不需 RAG | 未特別說明 | Cloudflare Vectorize 語義索引 |
 | 前端瀏覽 | Obsidian + Marp slides | Obsidian | Astro SSG 公開網站 |
-| 外部資料處理 | Obsidian Web Clipper | 未特別說明 | Browser Rendering API → 分塊 → D1 |
+| 外部資料處理 | Obsidian Web Clipper | 未特別說明 | Browser Run（舊名 Browser Rendering）API → 分塊 → D1 |
 | 品質維護 | LLM health checks | Vault Governance（孤立筆記、過時內容） | OpenSpec workflow 生命週期 |
-| 時間維度 | ❌ 無衰減 | ✅ Confidence decay（90 天降權） | ❌ 無衰減 |
-| Session 連續性 | ❌ 不需要（知識在檔案裡） | ✅ PreCompact/PostCompact hooks | ✅ Claude Code hooks |
-| 錯誤學習 | ❌ 無自動機制 | ✅ 錯誤計數器，3 次升級為規則 | ❌ 無自動機制 |
-| 跨工具同步 | ❌ 單一 LLM | ✅ Bridge 模組同步多工具 | ❌ 單一工具鏈 |
+| 時間維度 | ✗ 無衰減 | ✓ Confidence decay（90 天降權） | ✗ 無衰減 |
+| Session 連續性 | ✗ 不需要（知識在檔案裡） | ✓ PreCompact/PostCompact hooks | ✓ Claude Code hooks |
+| 錯誤學習 | ✗ 無自動機制 | ✓ 錯誤計數器，3 次升級為規則 | ✗ 無自動機制 |
+| 跨工具同步 | ✗ 單一 LLM | ✓ Bridge 模組同步多工具 | ✗ 單一工具鏈 |
 | 微調 | 未來想做 | 已跑 16 代（Unsloth + Qwen3） | RAG 優先，微調在研究階段 |
 | 輸出格式 | Markdown、slides、圖表、web UI | 未強調 | Blog 文章 |
-| 開放程度 | 🔒 私人 | 🔒 私人 | 🌐 公開 |
+| 開放程度 | :lock: 私人 | :lock: 私人 | :globe: 公開 |
 | 基礎設施 | 本地檔案系統 | 本地 + CLI hooks | Cloudflare Workers + D1 + Vectorize + KV |
 | 人的角色 | 消費者——不碰 wiki | 策展者——設定規則讓系統執行 | 策展者——審閱後公開發布 |
 | 成熟度 | 自稱 hacky scripts | 有架構但未產品化 | 產品化架構（migrations、rate limiting） |
@@ -123,6 +123,10 @@ Gist 下方的討論串也催生了多個進階提案，值得關注：
 - **Reflection layer**——讓系統分析自身 wiki 結構的後設認知層
 
 這些提案呼應了本文「社群經驗庫模式」的觀察：社群正在把 Karpathy 的原始框架往更完整的知識管理系統方向推進。
+
+## 更新紀錄
+
+- 2026-11-23：Cloudflare Browser Rendering 已於 2026-04 改名 Browser Run，表格改用新名稱。
 
 ## 參考資料
 

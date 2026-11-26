@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nhost-postgres-graphql-backend)
+> :globe: [中文版](/posts/tech/2026-08-22-nhost-postgres-graphql-backend)
 
 [Nhost](https://docs.nhost.io/) is a PostgreSQL-centered BaaS. Hasura derives a GraphQL API from the schema, Nhost Auth signs tokens with Hasura claims, and Storage, Serverless Functions, and a local CLI complete the backend. Like Supabase it starts with Postgres, but its API and authorization model differ.
 
@@ -35,9 +35,20 @@ Storage also uses role and user context. Database rows, objects, and external si
 
 Cloud-console-only edits create drift and may be overwritten by synchronization. Migrations must coexist with old and new clients. Test rollback or forward fixes, metadata inconsistency, isolated seeds, and restoration. Functions and event triggers remain idempotent because Hasura delivery is not exactly-once.
 
+## Hasura v2 is winding down, and Nhost is building its own engine
+
+Nhost runs Hasura v2 (Community Edition). v2 still gets patch releases, but Hasura's main effort has moved to v3 and DDN, and the [official version policy](https://hasura.io/docs/2.0/policies/versioning/) schedules v2 LTS lines through v2.45 (supported until 2027-12) and v2.50 (planned until 2028-12). Nhost describes v2 as winding down, so in 2026-06 it announced [Constellation](https://nhost.io/blog/introducing-constellation), a Go engine that reads the same Hasura metadata. It is alpha: it serves queries, mutations, and subscriptions, while Actions and event or cron triggers still need Hasura, with both engines running side by side on the same database. When you choose Nhost, design metadata and permissions to Hasura semantics, but track when the GraphQL layer will switch engines and compare both engines on the same traffic in staging.
+
 Nhost fits teams valuing PostgreSQL, GraphQL subscriptions, role permissions, and local/cloud parity. Compare Firebase or Appwrite for REST and mobile ecosystems, Convex for typed reactive functions, and PocketBase for a minimal single host. Test role escalation, nested-query cost, migration plus metadata rollout, event redelivery, orphan cleanup, and Postgres point-in-time recovery.
 
+## Update history
+
+- 2026-11-23: Added a section on Hasura v2 winding down (LTS scheduled through 2028-12) and Nhost's Hasura-compatible Constellation engine (alpha), and what that means for selection.
+
 ## References
+
+- [Hasura Version Support Policy](https://hasura.io/docs/2.0/policies/versioning/)
+- [Introducing Constellation (Nhost Blog)](https://nhost.io/blog/introducing-constellation)
 
 - [Nhost documentation](https://docs.nhost.io/)
 - [Nhost local development](https://docs.nhost.io/platform/cli/local-development)

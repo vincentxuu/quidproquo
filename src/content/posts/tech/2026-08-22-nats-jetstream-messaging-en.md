@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nats-jetstream-messaging)
+> :globe: [中文版](/posts/tech/2026-08-22-nats-jetstream-messaging)
 
 [NATS](https://docs.nats.io/learn/core-nats/) builds communication around subjects and an interest graph. A publisher sends to `orders.created`, and every client subscribed at that moment receives the message. Wildcards, request-reply, and queue groups reuse the same addressing model. The server treats payloads as opaque bytes, and Core NATS does not store messages.
 

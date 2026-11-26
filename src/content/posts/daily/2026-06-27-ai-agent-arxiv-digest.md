@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 34
 ---
-> 🌏 [English version](/posts/daily/2026-06-27-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-27-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,7 +71,7 @@ Agent 記憶體從早期的「每次對話都貼給 LLM 看」，進化到現在
 - 四模組框架讓「記憶體」從黑盒變成可被拆解的系統：表示層（向量、圖、關鍵字？）、擷取層（LLM 自動萃取 vs. rule-based？）、路由層（dense retrieval vs. sparse hybrid？）、維護層（如何處理知識過時）
 - 針對動態知識更新的穩健性（robustness under dynamic knowledge updates）是特別被點名的評估空白——現有 benchmark 幾乎沒有這個測試維度
 - 操作成本（operational costs）的量化也是現有評估的缺失——embedding cost、LLM call cost、index rebuild cost 等都被忽略
-- 作者 Guoliang Li 是清華大學資料庫領域知名學者，有 Data Agent 相關研究背景，資料庫視角可信度高 ⚠️（完整實驗數據需閱讀正式論文）
+- 作者 Guoliang Li 是清華大學資料庫領域知名學者，有 Data Agent 相關研究背景，資料庫視角可信度高 :warning:（完整實驗數據需閱讀正式論文）
 - LangGraph 的 Memory Store、AutoGen 的 Memory Module、MCP 的 resources 機制，都缺乏這種系統層評估工具——這篇是難得的補位研究
 - 落地門檻：框架提供分析方法，各平台仍需自行對應各模組的實際實作
 
@@ -122,7 +122,7 @@ LangGraph、AutoGen 等 framework 提供 runtime 層的安全機制（超時、�
 
 ### 深入要點
 
-- 12 條規則的靈感來自 M&S 領域對 conceptual model 的組合驗證，是跨領域移植 ⚠️（規則完整性和對 LLM agent 的適用性，需閱讀正式論文確認）
+- 12 條規則的靈感來自 M&S 領域對 conceptual model 的組合驗證，是跨領域移植 :warning:（規則完整性和對 LLM agent 的適用性，需閱讀正式論文確認）
 - 測試資料集：48 個已知有缺陷的 workflow + 168 個結構變體——後者刻意「偽裝」缺陷（改圖結構但保留錯誤邏輯），結果驗證器仍能正確偵測
 - 現有 platform 的 runtime safeguard（如 LangGraph 的 interrupt、AutoGen 的 termination condition）只能在執行時抓錯誤，無法在設計時給警告——這篇填補的就是這個空白
 - 與 MCP 的關聯：MCP tool definition 的 schema 正確性，也可以用類似的 design-time 驗證方法擴展
@@ -177,7 +177,7 @@ Agent benchmark（如 GAIA、SWE-bench、WebArena 等）排行榜被廣泛用來
 
 ### 深入要點
 
-- 14 組平行實驗涵蓋：新 asset class（包含多模態視覺任務延伸）、不同 orchestration、不同 retrieval 策略、不同 reasoning mode（chain-of-thought vs. direct）、infrastructure 優化、評估方法論探針——實驗規模相當大 ⚠️（61 位作者大規模協作，需確認各組是否有統一的評估協議）
+- 14 組平行實驗涵蓋：新 asset class（包含多模態視覺任務延伸）、不同 orchestration、不同 retrieval 策略、不同 reasoning mode（chain-of-thought vs. direct）、infrastructure 優化、評估方法論探針——實驗規模相當大 :warning:（61 位作者大規模協作，需確認各組是否有統一的評估協議）
 - 核心發現：aggregate score 排名不能遷移到 out-of-distribution 設定；公開→隱藏測試集的競賽回顧提供了直接的排名不穩定實證
 - Predictive validity 指標：用 in-sample 和 out-of-sample 的排名相關係數（如 Spearman）衡量配置的「排名穩定性」，相關係數高的配置才是真正可靠的選擇
 - 對 MCP 生態的直接關聯：論文以 MCP-based 工業 benchmark 作為主要測試床，這個方法論可以直接套用在基於 MCP 的 Agent 評估設計上

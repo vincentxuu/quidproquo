@@ -22,7 +22,7 @@ glossary:
     context: "較新的論文用 PPSI 這個名稱，較早的論文多叫 epiphyseal stress fracture。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-youth-growth-plate-en)
+> :globe: [English version](/posts/climbing/2026-10-18-youth-growth-plate-en)
 
 你的孩子 14 歲，參加岩館的青少年隊，一週練四次。最近他說右手中指的第二個關節有點痛，早上彎不太下去，但「爬的時候還好」。教練說可能是滑車拉到，休息兩天就好。
 

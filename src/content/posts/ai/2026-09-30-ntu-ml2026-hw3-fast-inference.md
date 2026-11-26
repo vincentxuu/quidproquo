@@ -22,7 +22,7 @@ glossary:
     context: "作業要比較 normal prompt 與 simple prompt 下的 alpha 與執行時間。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw3-fast-inference-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -136,11 +136,9 @@ PDF 介紹 [vLLM](https://github.com/vllm-project/vllm) 是結合多種技術的
 
 站上的 [Stanford CS336 推論導讀](/posts/ai/2026-08-22-cs336-inference)有 speculative decoding 與 KV cache 的另一種講法，[CME295 LLM 系統導讀](/posts/ai/2026-09-29-cme295-llm-systems)也整理了推論最佳化；vLLM 本身的架構見 [vLLM 推論引擎](/posts/ai/2026-03-14-vllm-inference-engine)。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：hw3.pdf 全文與內嵌連結、Colab 的 markdown 與程式（模型 ID、TODO 位置、實驗參數）、課程頁的公告日、助教影片的標題與上傳者（YouTube oEmbed）、七篇論文與 FlashAttention-4 的標題（在 arXiv 核對過）。
-
-不能確認：助教影片沒有字幕可抓，本文沒有逐字聽寫，影片中額外的提示沒有寫進來。官方解答沒有公開，本文刻意不提供任何題目的答案。n-gram 加速的實作細節只依 Colab 程式裡的 `prompt_lookup_num_tokens` 參數描述。
+助教影片沒有字幕，影片中額外的提示沒有收進來。官方解答沒有公開，這篇也刻意不提供任何題目的答案。n-gram 加速的實作細節只依 Colab 程式裡的 `prompt_lookup_num_tokens` 參數描述。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [加快生成（下）：KV Cache](/posts/ai/2026-09-30-ntu-ml2026-kv-cache)｜下一篇 [Positional Embedding 與超長輸入](/posts/ai/2026-09-30-ntu-ml2026-positional-embedding)
 
@@ -168,6 +166,7 @@ title: 助教影片：ML 2026 Spring HW3 LLM Fast Inference
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但影片沒有可取得的字幕，影片口述內容未核對；本文對作業的說明僅依 PDF 與 Colab。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

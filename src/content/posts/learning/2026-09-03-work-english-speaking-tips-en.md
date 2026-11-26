@@ -7,10 +7,13 @@ tags: [english, speaking, self-learning, ai-and-learning, language-learning]
 lang: en
 tldr: "30 minutes a day for 12 weeks — combine shadowing, scenario practice, and AI apps to go from 'I understand but can't speak' to holding your own in meetings."
 description: "A synthesis of 6 online articles on short-term English speaking improvement: four practice methods, a time-management plan for busy workers, 7 AI speaking app comparisons, and 40+ meeting phrases."
+series:
+  name: "English Speaking Practice"
+  order: 1
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-03-work-english-speaking-tips)
+> :globe: [中文版](/posts/learning/2026-09-03-work-english-speaking-tips)
 
 Most office workers in Taiwan have a lopsided English skill set: reading documents is fine, writing emails with some help is manageable, but the moment they need to speak up in a meeting, their brain shifts into translate-compose-hesitate mode — and by the time they've formed a sentence, the conversation has moved on. The bottleneck isn't vocabulary. It's speaking reaction time and a lack of ready-made phrases for real work situations.
 

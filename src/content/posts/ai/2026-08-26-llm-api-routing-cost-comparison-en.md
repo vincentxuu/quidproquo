@@ -16,7 +16,7 @@ glossary:
     def: "Million Tokens — the standard pricing unit for LLM APIs"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-llm-api-routing-cost-comparison)
+> :globe: [中文版](/posts/ai/2026-08-26-llm-api-routing-cost-comparison)
 
 You want to use Claude Sonnet 5 for coding. Hitting the Anthropic API directly costs $2/$10 per MTok. But the same model might be cheaper on [OpenRouter](https://openrouter.ai), have volume discounts on [AWS Bedrock](https://aws.amazon.com/bedrock/), or offer caching benefits through third parties. This post maps the actual price differences as of August 2026 and helps you pick the right channel.
 
@@ -74,9 +74,9 @@ Prices sourced from each platform's public pricing pages and [CloudZero's compil
 | Claude Opus 5 | $5 / $25 | $5 / $25 | $5 / $25 | — |
 | GPT-5.6 Sol | $2.50 / $15 | $2.50 / $15 | Listed | — |
 | GPT-5.6 Luna | $0.20 / $1.20 | $0.20 / $1.20 | — | — |
-| DeepSeek V4 Pro | ~$0.50 / $2.00 direct | Multi-provider bidding | Listed | ✅ Listed |
-| Llama 4 Maverick | Free weights | $0.20 / $0.50 | Listed | ✅ Listed |
-| Kimi K3 | $3 / $15 | Listed | — | ✅ Listed |
+| DeepSeek V4 Pro | ~$0.50 / $2.00 direct | Multi-provider bidding | Listed | ✓ Listed |
+| Llama 4 Maverick | Free weights | $0.20 / $0.50 | Listed | ✓ Listed |
+| Kimi K3 | $3 / $15 | Listed | — | ✓ Listed |
 
 **Key observations**:
 

@@ -13,7 +13,7 @@ description: "羅卡莫里切（Roccamorice）Parete dell'Orso 岩場介紹：�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-roccamorice-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-roccamorice-en)
 
 羅卡莫里切（Roccamorice）是阿布魯佐（Abruzzo）大區佩斯卡拉（Pescara）省的山村，在馬耶拉（Majella）國家公園內。村外的 Santo Spirito 山谷裡有一道約兩公里長的石灰岩牆，叫 Parete dell'Orso（熊之壁）；往岩場的路也通往山谷裡的 Santo Spirito 隱修院，Montagna.TV 寫附近有串連各隱修院的步道。[市府](https://www.comune.roccamorice.pe.it/vivere_il_comune/luoghi/luogo_17.html)稱這面牆是阿布魯佐「una delle mete più iconiche e amate per l'arrampicata sportiva」（最具代表、最受喜愛的運攀地點之一），[Montagna.TV](https://www.montagna.tv/255676/aperte-13-vie-a-roccamorice-tempio-del-climbing-nella-majella/) 叫它「馬耶拉的攀岩聖殿」。
 

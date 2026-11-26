@@ -1,0 +1,116 @@
+{
+  "id": "2026-10-24-multipitch-hauling",
+  "categories": [
+    "climbing"
+  ],
+  "topics": [
+    "technique",
+    "gear"
+  ],
+  "checked_at": "2026-10-24",
+  "scope": "Pack hauling on free multi-pitch and big-wall hauling: technique tutorials, association materials, gear specs/prices, and 2024+ technique/route videos. Not an exhaustive survey.",
+  "source_count": 145,
+  "observation_count": 145,
+  "search_count": 185,
+  "used_in": [
+    "src/content/posts/climbing/2026-10-24-multipitch-hauling.md",
+    "src/content/posts/climbing/2026-10-24-multipitch-hauling-en.md"
+  ],
+  "unresolved_entities": [
+    {
+      "entity_type": "book",
+      "display_name": "Higher Education: Big Wall Manual (Andy Kirkpatrick, 2018)",
+      "reason": "Book not read; quote known only via Alpinesavvy reprints. Google Books quota exceeded, Amazon page had no preview."
+    },
+    {
+      "entity_type": "book-chapter",
+      "display_name": "SuperTopo How to Big Wall Climb - space hauling hazard list",
+      "reason": "Only in the book; web chapter stops at the warning. Wayback offline/429, archive.ph 404."
+    },
+    {
+      "entity_type": "web-page",
+      "display_name": "Alpinesavvy Foot haul - premium section (Tibloc variant, extra rope management, >bodyweight 1:1)",
+      "reason": "Paywalled; Wayback snapshot identical to public part."
+    },
+    {
+      "entity_type": "web-page",
+      "display_name": "CAMP Gyro1 official product page",
+      "reason": "camp.it / camp-usa.com are JS apps; curl returns shell, jina 'Page not found'. Retailer copies ingested instead; URL not guessed."
+    },
+    {
+      "entity_type": "web-page",
+      "display_name": "Petzl PORTAGE official product page",
+      "reason": "Guessed petzl.com URLs 404; retailer copies ingested instead."
+    },
+    {
+      "entity_type": "web-page",
+      "display_name": "gov.uk product safety recall 2211-0021 (DMM swivels, 2022-11)",
+      "reason": "Seen only as a search title; not opened, URL not retained."
+    },
+    {
+      "entity_type": "web-page",
+      "display_name": "Alpinesavvy 'Riding the Pig' (2026-02-16) and 'Convert a 1:1 to a 3:1' (2019-01-05)",
+      "reason": "Read via Exa only to confirm the Higher Education quote; URLs not retained in notes, not ingested."
+    },
+    {
+      "entity_type": "documentation",
+      "display_name": "Petzl NANO TRAXION technical notice P0015600E; PRO TRAXION technical notice",
+      "reason": "NANO read but URL not retained; PRO notice link not found on tech-tips page."
+    },
+    {
+      "entity_type": "video",
+      "display_name": "TAKEMOVIE Washington Column South Face part 1 (day 1)",
+      "reason": "Not found in searches; may contain hauling footage. Unchecked."
+    },
+    {
+      "entity_type": "video",
+      "display_name": "NcZIACmt4OI (TAKEMOVIE Lurking Fear first attempt, 2024-05-14)",
+      "reason": "Mentioned in R-videos; no subtitles, not reviewed, not ingested."
+    },
+    {
+      "entity_type": "video",
+      "display_name": "UQiaJKvxaII 자유등반에서의 3대1홀링시스템 (2024-03-02)",
+      "reason": "Ingested as rejected only because no subtitles/description read; topic fits, revisit."
+    },
+    {
+      "entity_type": "topic-gap",
+      "display_name": "Haul line vs lead rope friction test; written maker warning against finger/hair pinch in Traxion; maker/association prohibition on hauling while belaying",
+      "reason": "Not found in this search range; do not state as fact."
+    }
+  ],
+  "limitations": [
+    "Groundlane MCP not mounted (authenticate only) and direct HTTP 401; Keenable keyless primary, Exa/jina/curl for fetches, Tavily 429 in main thread.",
+    "Videos: subtitles plus sampled frames only; no full-footage review.",
+    "YouTube searches used signed-in browser cookies and may be personalized.",
+    "Prices and stock (petzltw, BD, Metolius, Maxim, Beal) observed 2026-10-24 and are mutable.",
+    "Petzl 'Hauling a bag' read via Exa search text (live URL 404); post links a Wayback snapshot.",
+    "Several Kirkpatrick articles are decades-old texts with outdated gear references.",
+    "Association search summary records keep counts only; verbatim Tavily/Exa queries stayed in session scratchpad."
+  ],
+  "evidence": [
+    {
+      "path": ".work/multipitch-hauling/R-technique.md",
+      "availability": "versioned"
+    },
+    {
+      "path": ".work/multipitch-hauling/R-videos.md",
+      "availability": "versioned"
+    },
+    {
+      "path": ".work/multipitch-hauling/pool-sources.jsonl",
+      "availability": "versioned (ingest input, technique)"
+    },
+    {
+      "path": ".work/multipitch-hauling/pool-sources-gear.jsonl",
+      "availability": "versioned (ingest input, gear-only)"
+    },
+    {
+      "path": ".work/multipitch-hauling/pool-searches.jsonl",
+      "availability": "versioned (record-search input)"
+    },
+    {
+      "path": "session scratchpad haulvids/ and gaps/assoc/",
+      "availability": "original session workspace only; raw search logs, subtitles and frames not copied to pool"
+    }
+  ]
+}

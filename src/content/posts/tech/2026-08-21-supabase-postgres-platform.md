@@ -26,7 +26,7 @@ glossary:
     definition_en: "Row Level Security — PostgreSQL's mechanism for controlling which rows each user can see and modify through declarative policies."
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-21-supabase-postgres-platform-en)
+> :globe: [English version](/posts/tech/2026-08-21-supabase-postgres-platform-en)
 
 [Supabase](https://supabase.com/) 常被介紹成「開源的 Firebase 替代方案」。這個定位沒有錯，但它遮蔽了 Supabase 真正有意思的架構決策：**整個平台建立在 PostgreSQL 之上**，而不是另起一個資料模型。
 
@@ -194,7 +194,7 @@ Supabase Realtime 是一個用 Elixir 寫的全球分散式叢集。它的即時
 
 ### 適合
 
-- **需要關聯式資料的應用**——Supabase 的底層就是 PostgreSQL，JOIN、transaction、foreign key 都是原生的。Firebase 的 Firestore 在這方面先天不足。
+- **需要關聯式資料的應用**——Supabase 的底層就是 PostgreSQL，JOIN、transaction、foreign key 都是原生的。Firebase 的 Firestore 在這方面先天不足；Firebase 另有以 Cloud SQL for PostgreSQL 為底的 [SQL Connect](https://firebase.google.com/docs/sql-connect)（原 Data Connect），但 query 要先寫成預先部署的 operation，不是讓應用直接寫 SQL、靠 RLS 授權。
 - **AI / RAG 應用**——pgvector 內建，不需要額外的向量資料庫。
 - **想要 SQL 存取權的團隊**——不只是用 SDK，而是可以直接連進 PostgreSQL 跑 SQL，用 pgAdmin、DBeaver 或任何 SQL 工具。
 - **想保留遷移彈性的團隊**——底層是標準 PostgreSQL，如果之後要搬到自管的 RDS 或 Cloud SQL，資料和 schema 可以直接帶走。
@@ -215,6 +215,10 @@ Supabase 的架構選擇直接呼應了[〈PostgreSQL 就夠了？別急著上�
 跟[本站使用的 Cloudflare D1](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database) 相比，Supabase 和 D1 解決的是不同規模的問題。D1 是 SQLite-based 的邊緣資料庫，適合跑在 Workers 上的輕量應用；Supabase 是完整的後端平台，適合需要 Auth、Storage、Realtime 的應用。兩者不衝突——你可以用 Supabase 當主資料庫，D1 當邊緣快取。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：「需要關聯式資料」一項補上 Firebase SQL Connect（Cloud SQL for PostgreSQL）與 Supabase 的差異。
 
 ## 參考資料
 

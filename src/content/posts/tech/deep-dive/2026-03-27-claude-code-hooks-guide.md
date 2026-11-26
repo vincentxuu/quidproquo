@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-27-claude-code-hooks-guide-en)
 
 Claude Code 的 Hook 是一套事件驅動系統。在 AI 的操作生命週期中，每個關鍵節點都會發出事件——你可以在這些節點掛上自動執行的動作：擋住危險指令、注入額外上下文、記錄操作日誌、甚至自動審批安全操作。
 

@@ -26,7 +26,7 @@ glossary:
     context: "Lattice 的 ARC 抓 RPE 約 2/10，1 on 1 off 抓約 4/10。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-endurance-training-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-endurance-training-en)
 
 你在岩館先鋒一條 5.10c。前半段很順，掛到第五、六把快扣時，前臂開始發硬，手指扣不住，接著就掉了。下來甩甩手，你心想：「耐力不夠，以後每次都爬到爆為止好了。」
 

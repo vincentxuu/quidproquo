@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
+> :globe: [English version](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
 
 ## 版本資訊
 

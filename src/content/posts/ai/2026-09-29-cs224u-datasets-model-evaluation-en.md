@@ -13,7 +13,7 @@ description: "A guide to the second half of the NLP methods unit in Stanford CS2
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

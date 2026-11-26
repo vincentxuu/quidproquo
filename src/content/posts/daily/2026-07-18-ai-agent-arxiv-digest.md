@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 55
 ---
-> 🌏 [English version](/posts/daily/2026-07-18-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-18-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -133,7 +133,7 @@ AgentCheck 的核心是「錄製 + 注入 + 重播」三步迴路：
 
 - **12 種故障類型**：包含工具逾時（timeout）、過期資料（stale data）、描述污染（description poisoning，模擬 prompt injection 攻擊）等，完整列表在論文
 - **「後接真實 call」設計**：agent 在故障注入點之後的 tool call 仍走真實 server，確保後續行為是真實的而非全部 replay——這是讓測試場景貼近現實的關鍵設計
-- **LLM judge 驗證**：對不能只看 pass/fail 的輸出，LLM judge 已跟人類標注驗證一致性（具體數字需查原文 ⚠️）
+- **LLM judge 驗證**：對不能只看 pass/fail 的輸出，LLM judge 已跟人類標注驗證一致性（具體數字需查原文 :warning:）
 - **開源**：作者釋出完整工作台，可對接任意 MCP server
 - **Limitation**：目前僅針對 MCP 協定，非 MCP 工具呼叫（如直接 API call、function calling）需另行處理；自定義故障類型需修改程式碼
 - **LangGraph / Claude Code / OpenAI Agents SDK 關聯**：凡透過 MCP 接工具的 agent 框架都可接入
@@ -192,7 +192,7 @@ Pipeline：**AbstainGen** 全自動產生配對任務（合成沙盒環境 + 生
 ### 深入要點
 
 - **263 配對任務 × 42 個可執行沙盒環境**：配對設計確保比較公平性，避免模型靠「偏向棄動」刷高分
-- **17 frontier LLMs × 4 harnesses**：涵蓋 GPT、Gemini、Claude 等系列（具體版本和 harness 名稱需查原文 ⚠️）
+- **17 frontier LLMs × 4 harnesses**：涵蓋 GPT、Gemini、Claude 等系列（具體版本和 harness 名稱需查原文 :warning:）
 - **最大發現**：棄動正確率 ≠ 任務解決正確率，兩者相關係數低——要建有棄動能力的 agent，需要**獨立的訓練訊號或架構設計**，不能寄望於一般的 benchmark scaling
 - **AbstainGen 的價值**：可持續生成新題目，不怕資料污染——這對 benchmark 長期維護是重要設計
 - **S6（工具失敗）和 S8（執行中出現新風險）最難**：要在執行途中改變計劃，需要 agent 有強烈的 meta-cognition（知道自己不確定）

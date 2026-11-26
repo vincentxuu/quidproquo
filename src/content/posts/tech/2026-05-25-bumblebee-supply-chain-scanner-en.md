@@ -10,7 +10,7 @@ description: "A deep dive into the internal design of Perplexity's open-source t
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-25-bumblebee-supply-chain-scanner)
+:globe: [中文版](/posts/tech/2026-05-25-bumblebee-supply-chain-scanner)
 
 Perplexity open-sourced [Bumblebee](https://github.com/perplexityai/bumblebee) in May 2026 — a "read-only" package inventory tool designed to run on developer laptops. It answers a narrow but time-critical question: when an advisory names a specific package, version, extension, or MCP configuration as compromised, **which machines in my fleet currently have it installed on disk?** This post dissects its internal design — why every "non-feature" is intentional, and where it draws the line against tools like OSV-Scanner, Syft, and osquery. The baseline version is v0.1.1, written in Go, with zero non-stdlib dependencies, and supports macOS and Linux only.
 

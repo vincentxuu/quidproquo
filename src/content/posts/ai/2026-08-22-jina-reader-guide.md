@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-jina-reader-guide-en)
+> :globe: [English version](/posts/ai/2026-08-22-jina-reader-guide-en)
 
 [Jina Reader](https://jina.ai/reader/) 是一個把網頁 URL 轉成 LLM-friendly 文字的 API。最簡單的用法，是把原始網址接在 `https://r.jina.ai/` 後面；服務會抓取頁面、辨識正文，再回傳 Markdown。它解決的是 retrieval pipeline 中「URL 已經找到了，怎麼把內容餵給模型」這一步。
 
@@ -122,4 +122,4 @@ Jina Reader 最好的位置，是「已知 URL」和「模型可讀 context」�
 
 ---
 
-> 本文的免费额度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Jina 屬「持續限速」路線，不帶 key 可持續用但限 20 RPM，Search 不支援匿名呼叫。同系列也包括 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（同樣持續限速，但帶機器渲染與 batch selector 抽取）。
+> 本文的免費額度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Jina 屬「持續限速」路線，不帶 key 可持續用但限 20 RPM，Search 不支援匿名呼叫。同系列也包括 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（也有每分鐘限速，另有每日免費上限，並帶機器渲染與 batch selector 抽取）。

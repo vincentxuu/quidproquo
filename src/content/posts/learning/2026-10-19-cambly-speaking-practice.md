@@ -9,11 +9,11 @@ description: "介紹 Cambly 成人課程的 Small Groups、Private+ 與 Pro，�
 tldr: "選 Cambly 先分清聊天練習與需要教學計畫的課型，再確認每週分鐘能否用完；試課要看老師會不會追問、修正並讓你重說。"
 series:
   name: "英文口說練習"
-  order: 2
+  order: 20
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-cambly-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-cambly-speaking-practice-en)
 
 想找真人練英文，卻怕每堂都在重複自我介紹，[Cambly](https://www.cambly.com/english?lang=zh_TW) 值得仔細看它的課型。你可以把它用成自由聊天，也可以找有明確目標的教學；這兩種需要，選老師與買方案的方式不同。
 

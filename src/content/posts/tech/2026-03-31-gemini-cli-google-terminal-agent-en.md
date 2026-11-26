@@ -13,7 +13,7 @@ description: "What Gemini CLI is, why its free tier was the most aggressive move
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)
+:globe: [中文版](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)
 
 Gemini CLI is Google's open source terminal AI agent, built on a ReAct (Reason and Act) loop with built-in tools and MCP servers. For a while it had the most extravagant free tier in this category — **and then it stopped serving individual accounts on June 18, 2026**.
 
@@ -32,12 +32,12 @@ So read the table below as "which row are you in," not "is this product dead":
 
 | Path | Still works |
 |---|---|
-| Free Google account (Gemini Code Assist for Individuals) | ❌ Ended 2026/06/18 |
-| Google AI Pro / Ultra subscription | ❌ Ended the same day |
-| Gemini Code Assist Standard / Enterprise license | ✅ Unaffected |
-| Access through Google Cloud | ✅ Unaffected |
-| Paid Gemini / Gemini Enterprise Agent Platform API key | ✅ Unaffected |
-| Gemini Code Assist for GitHub (individual) | ❌ No new installs from 6/18, full shutdown 7/17 |
+| Free Google account (Gemini Code Assist for Individuals) | ✗ Ended 2026/06/18 |
+| Google AI Pro / Ultra subscription | ✗ Ended the same day |
+| Gemini Code Assist Standard / Enterprise license | ✓ Unaffected |
+| Access through Google Cloud | ✓ Unaffected |
+| Paid Gemini / Gemini Enterprise Agent Platform API key | ✓ Unaffected |
+| Gemini Code Assist for GitHub (individual) | ✗ No new installs from 6/18, full shutdown 7/17 |
 
 Google published a separate deprecation notice after the shutdown, and its FAQ answers this directly: **"I have a Gemini Code Assist Standard or Enterprise subscription. Am I affected? No, access to Gemini Code Assist IDE extensions and Gemini CLI using Gemini Code Assist Standard or Enterprise subscriptions remain unchanged."** The enterprise side is also still receiving features — the Gemini Code Assist release notes shipped Release Channels for Standard and Enterprise on 2026-08-10.
 

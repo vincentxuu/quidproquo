@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only-en)
+> :globe: [English version](/posts/daily/2026-10-05-pricing-google-gemini-free-tier-flash-lite-only-en)
 
 ## 變更摘要
 
@@ -67,8 +67,8 @@ AI Pro 訂閱戶是這次公告裡唯一單向受益的族群——月費沒變�
 
 ## 時效提醒
 
-⏰ **免費版模型限縮生效日**：2026-10-09。免費版 Gemini App（個人帳號）當天起只能選擇 Flash-Lite。
-⏰ **AI Plus 失去 Pro 權限生效日**：因帳號而異，Google 會個別發送 email 通知確切日期，並非統一在 10/9 切換。
+:clock: **免費版模型限縮生效日**：2026-10-09。免費版 Gemini App（個人帳號）當天起只能選擇 Flash-Lite。
+:clock: **AI Plus 失去 Pro 權限生效日**：因帳號而異，Google 會個別發送 email 通知確切日期，並非統一在 10/9 切換。
 
 ## 今日收穫
 

@@ -22,7 +22,7 @@ glossary:
     context: "T5's default corrupts 15% of tokens with an average span length of 3."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-bert-family)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-bert-family)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

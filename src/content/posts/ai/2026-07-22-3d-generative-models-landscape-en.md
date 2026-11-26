@@ -18,7 +18,7 @@ description: "Starting from NVIDIA's Lyra 2.0 and working outwards across the 20
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-22-3d-generative-models-landscape)
+> :globe: [中文版](/posts/ai/2026-07-22-3d-generative-models-landscape)
 
 I have been reading up on 3D model generation, starting from NVIDIA's [Lyra 2.0](https://arxiv.org/abs/2604.13036) in April and pulling in twenty-odd papers around it. This is not a paper-by-paper summary. It takes the whole map at once and answers one question: **as of mid-2026, if you want to understand 3D generative models from scratch, what should you read, what can you skip, and which turns matter?**
 

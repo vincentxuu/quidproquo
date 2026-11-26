@@ -10,7 +10,7 @@ description: "Follow a SerpAPI request from engine selection and structured resu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-serpapi-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-serpapi-search-api-guide)
 
 [SerpAPI](https://serpapi.com/search-api) is a managed SERP (search engine results page) retrieval and parsing service. You select a search surface such as Google, Bing, YouTube, or Google Scholar. It submits the query, deals with proxies and page changes, and turns organic listings, ads, knowledge panels, or local results into JSON. Its primary value is not building a web index for you. It wraps “what this search engine displays for this request” in an API.
 

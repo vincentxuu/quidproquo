@@ -5,15 +5,15 @@ category: ai
 type: deep-dive
 tags: [exa, web-search, ai-agent, mcp, neural-search, developer-tools]
 lang: zh-TW
-tldr: "Exa 把整個網頁索引轉成 embedding 再檢索，而不是比對關鍵字。2026-08 官方定價：/search $7 / 1k 次（含前 10 筆結果）、/contents $1 / 1k 頁、deep 系列 $12–15 / 1k 次，新帳號 $20 免費額度。這個 blog 的 CLAUDE.md 把 Exa 列在雲端抓取工具的第一順位，38 支 skill 裡有 16 支寫到它，站上既有文章只有 4 篇順帶提過——但一篇專文都沒有。這篇補上。"
-description: "Exa 搜尋 API 的深入介紹：神經檢索與關鍵字檢索的機制差異、embedding 索引與自建向量資料庫的實作、agent 工作流為什麼需要不同形狀的搜尋、2026-08 實查定價與延遲分級，以及自架不可得、按次計費、廠商自報數字這些限制。"
+tldr: "Exa 把整個網頁索引轉成 embedding 再檢索，而不是比對關鍵字。2026-11 官方定價：/search `auto` $7 / 1k 次、2026-10 新增的 `lite` $4 / 1k 次（皆含前 10 筆結果）、/contents $1 / 1k 頁、deep 系列 $12–15 / 1k 次；免費額度每月 1 日重設為 $10。這個 blog 的 CLAUDE.md 把 Exa 列在雲端抓取工具的第一順位，38 支 skill 裡有 16 支寫到它，站上既有文章只有 4 篇順帶提過——但一篇專文都沒有。這篇補上。"
+description: "Exa 搜尋 API 的深入介紹：神經檢索與關鍵字檢索的機制差異、embedding 索引與自建向量資料庫的實作、agent 工作流為什麼需要不同形狀的搜尋、2026-11 定價與搜尋型態分級，以及自架不可得、按次計費、廠商自報數字這些限制。"
 series:
   name: "AI 時代的技術選擇"
   order: 12
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-exa-neural-search-for-agents-en)
+:globe: [English version](/posts/ai/2026-08-21-exa-neural-search-for-agents-en)
 
 這個系列前十一篇挑的都是「別人在用、我沒在用」的東西。這篇反過來：本站的 `CLAUDE.md` 有一條規則明文寫著網頁抓取的優先順序是 `stealth_fetch` → `mcp__claude_ai_Exa__*` → Tavily / linkup / jina → 最後才用內建 `WebFetch`。38 支 skill 裡有 16 支在指令中直接引用它，站上既有的中文文章裡只有四篇順帶提過 Exa——而專文是零篇。連這篇文章的所有一手資料，都是在 Firecrawl 額度用完後改用 Exa 的 `web_fetch_exa` 抓下來的。天天用、從沒寫過，那就先寫這個。
 
@@ -47,7 +47,7 @@ Exa 走的是另一條：訓練 transformer 把**每一個網頁**壓成一個 e
 
 要注意這篇是 2024 年底的狀態。[Exa 2.0（2025-10）](https://exa.ai/blog/exa-api-2-0)說向量資料庫做了新的叢集演算法與詞彙壓縮，embedding 模型在 144 張 H200 上重訓了一個多月。所以上面那組數字該讀成「他們的做法長什麼樣」，不是「今天跑起來就是這些參數」。
 
-順帶一提：現在的官方文件已經**不再把 `neural` / `keyword` 當成可選的 type**。`type` 現在管的是延遲與深度（`auto` / `fast` / `instant` / `deep-lite` / `deep` / `deep-reasoning`），文件只留一句「Some older docs and payloads still use legacy search-type names」。網路上大量教學還在教 `type="neural"`，照抄會踩空。
+順帶一提：現在的官方文件已經**不再把 `neural` / `keyword` 當成可選的 type**。`type` 現在管的是成本、延遲與深度。2026-10-19 [Exa 3.0](https://exa.ai/blog/exa-3) 起推薦的是 `lite` / `auto` / `deep`（另有 `deep-lite`），`instant`、`fast`、`deep-reasoning` 改列 legacy，仍可呼叫、價格不變。網路上大量教學還在教 `type="neural"`，照抄會踩空。
 
 ## agent 需要的搜尋跟人不一樣
 
@@ -57,24 +57,26 @@ agent 用搜尋：拿到的結果直接進 context window。成本是**token**�
 
 **第一是 token 效率。** 文件建議 agent 工作流用 `highlights` 而不是全文，宣稱比全文省 10 倍 token 且不增加延遲——highlights 是把整頁切塊後照你的 query 挑出相關段落。要做的事很小：`{"contents": {"highlights": true}}`，只有真的需要通篇理解時才換成 `text` 並用 `maxCharacters` 封頂。
 
-**第二是延遲分級。** 官方文件列的是 `instant` 約 250 毫秒、`fast` 約 450 毫秒、`auto` 約 1 秒，`deep` 系列 4 到 40 秒。這些是文件上的數字，本站沒有自己量過。分級的意義在於同一個 agent 裡不同節點該用不同檔位：對話中即時補資料用 `instant`，寫報告前的資料蒐集用 `deep`。
+**第二是成本與延遲分級。** 現行定價頁列的延遲只有 deep 系列：`deep-lite` 約 4 秒、`deep` 4 到 15 秒、`deep-reasoning` 12 到 40 秒；一般搜尋則分成 `lite`（$4 / 1k，與 `auto` 同一份索引、檢索算力較少）和 `auto`（$7 / 1k）。這些是官方數字，本站沒有自己量過。分級的意義在於同一個 agent 裡不同節點該用不同檔位：高頻、對成本敏感的即時補資料用 `lite`，一般查詢用 `auto`，寫報告前的資料蒐集用 `deep`。
 
 **第三是控制新鮮度與形狀。** `maxAgeHours` 決定要不要現爬：`24` 是快取超過一天就重爬、`0` 是永遠現爬、`-1` 是只吃快取。`outputSchema` 可以叫它直接回你要的 JSON（巢狀深度上限 2、屬性總數上限 10），`category` 可以把搜尋限制在 `company` / `people` / `publication` / `news` / `personal site` / `financial report`。還有一條容易寫錯的：`includeDomains` 本身就吃路徑前綴（`exa.ai/blog`）和子網域萬用字元（`*.substack.com`），文件明講不要再在 query 裡塞 `site:`。
 
-## 錢怎麼算（2026-08-21 實查）
+## 錢怎麼算（2026-11 的價格）
 
-定價是最會過期的東西，以下全部是 2026-08-21 從 [exa.ai/pricing](https://exa.ai/pricing) 讀到的。沒有訂閱制、沒有最低消費，儲值後按次扣。
+定價是最會過期的東西，以下是 [exa.ai/pricing](https://exa.ai/pricing?tab=api) 2026-11 的價格。沒有訂閱制、沒有最低消費，儲值後按次扣。
 
 | 端點 | 基本價（含前 10 筆結果） | 超過 10 筆的部分 | AI 頁面摘要 |
 |---|---|---|---|
-| `/search` | $7 / 1k 次 | $1 / 1k 筆 | $1 / 1k 頁 |
+| `/search`（`lite`） | $4 / 1k 次 | $1 / 1k 筆 | — |
+| `/search`（`auto`；legacy `fast`） | $7 / 1k 次 | $1 / 1k 筆 | $1 / 1k 頁 |
+| `/search`（legacy `instant`） | $4 / 1k 次 | $1 / 1k 筆 | $1 / 1k 頁 |
 | `/answer` | $5 / 1k 次 | — | — |
-| `/monitors` | $15 / 1k 次 | $1 / 1k 筆 | $1 / 1k 頁 |
+| `/monitors` | $2 / 1k 次 | $1 / 1k 筆 | $1 / 1k 頁 |
 | `/contents` | $1 / 1k 頁，每種內容型態各算 | — | $1 / 1k 頁 |
 
-Deep 系列另計：`deep-lite` 與 `deep` 都是 $12 / 1k 次，`deep-reasoning` $15 / 1k 次。Agent API 可以設固定 effort 換取可預測單價，$0.012（`minimal`）到 $1.00（`xhigh`）一次；`auto` 則按實際用量計，預設單次上限 $5。
+Deep 系列另計：`deep-lite` 與 `deep` 都是 $12 / 1k 次，`deep-reasoning`（legacy）$15 / 1k 次。Agent API 可以設固定 effort 換取可預測單價，$0.012（`minimal`）到 $1.00（`xhigh`）一次；`auto` 則按實際用量計，預設單次上限 $5。
 
-免費額度：新帳號 $20（官方換算約 2,800 次搜尋），Free Tier 每月再加 $10。MCP 那條路更寬鬆——`https://mcp.exa.ai/mcp` 不帶 key 也能用，額度用完會回 429，這時再把 `x-api-key` 加進 headers。
+免費額度：Free Tier 註冊當天給 $10（官方換算最多 2,500 次 `lite` 搜尋），之後每月 1 日把免費餘額重設回 $10，不用綁付款方式；在 dashboard 完成 onboarding 另給一次性 $10。MCP 那條路更寬鬆——`https://mcp.exa.ai/mcp` 不帶 key 也能用，額度用完會回 429，這時再把 `x-api-key` 加進 headers。
 
 有一個計費細節值得記：`/contents` 的「每種內容型態各算一次」是說同一頁同時要 `text` 和 `highlights` 會被算成兩頁。另外，透過 `/search` 順便拿內容，前 10 筆是**不額外收費**的——官方文件自己建議搜尋類用途直接用 `/search` 帶 contents，不要先搜再單獨打 `/contents`。
 
@@ -127,14 +129,19 @@ MCP 端預設只開兩個工具：`web_search_exa` 和 `web_fetch_exa`。`agent_
 
 Exa 賭的是一個相當具體的前提：搜尋的主要使用者正在從人變成 agent，而 agent 要的東西跟人不一樣——不是十條連結讓你挑，是精準、可放進 token 預算、可控新鮮度、可指定回傳形狀的資料。這個賭注在 API 的每個角落都看得到，從 `highlights` 到 `outputSchema` 到 `maxAgeHours`。
 
-以選型的角度：如果你的 agent 主要在做研究、比較、找「我描述得出來但叫不出名字」的東西，Exa 是目前最直接的一步，$20 免費額度足夠讓你在一個下午內判斷它對你的查詢型態有沒有效。如果你要的是自架、是純關鍵字查找、是把成本壓到極限的高頻呼叫，這不是你的工具。
+以選型的角度：如果你的 agent 主要在做研究、比較、找「我描述得出來但叫不出名字」的東西，Exa 是目前最直接的一步，每月 $10 的免費額度足夠讓你在一個下午內判斷它對你的查詢型態有沒有效。如果你要的是自架、是純關鍵字查找、是把成本壓到極限的高頻呼叫，這不是你的工具。
 
 而如果你跟本站一樣，主要拿它當「抓得下來」的工具而不是搜尋引擎——那也完全合理，只是記得你買的其實是別的東西。
+
+## 更新紀錄
+
+- 2026-11-23：Exa 3.0（2026-10-19）新增 `lite` 搜尋型態（$4 / 1k），`instant`、`fast`、`deep-reasoning` 改列 legacy；`/monitors` 由 $15 降為 $2 / 1k；免費額度改為每月 1 日重設 $10（另有 onboarding 一次性 $10），取代原本的新帳號 $20；延遲分級改依現行定價頁。
 
 ## 參考資料
 
 - [Exa 官方網站](https://exa.ai/)
-- [Exa Pricing（2026-08-21 實查）](https://exa.ai/pricing)
+- [Exa Pricing](https://exa.ai/pricing?tab=api)
+- [Introducing Exa 3.0（Exa Blog, 2026-10-19）](https://exa.ai/blog/exa-3)
 - [Exa 文件索引 llms.txt](https://exa.ai/docs/llms.txt)
 - [Exa Search API 指南](https://exa.ai/docs/reference/search-api-guide)
 - [Exa Search 最佳實務（參數與搜尋型態）](https://exa.ai/docs/reference/search-best-practices)

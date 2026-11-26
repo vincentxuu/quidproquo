@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-funding-siena-en)
+> :globe: [English version](/posts/daily/2026-10-07-funding-siena-en)
 
 ## 融資資訊
 

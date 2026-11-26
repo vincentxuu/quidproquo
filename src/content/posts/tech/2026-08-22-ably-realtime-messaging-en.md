@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-ably-realtime-messaging)
+> :globe: [中文版](/posts/tech/2026-08-22-ably-realtime-messaging)
 
 [Ably](https://ably.com/docs) is a managed realtime messaging platform. Clients maintain Realtime connections and publish or subscribe to channels while the service handles global routing, connection recovery, presence, and history. It removes WebSocket fleet and cross-region fan-out work, not the definition of business truth.
 
@@ -29,7 +29,11 @@ Connection state and message serials support temporary recovery. Beyond recovery
 
 History supports short replay and debugging, but retention, pagination, ordering, and plan cost matter. For events that must survive for years or trigger irreversible workflows, commit a durable database or log first and notify through Ably. Resolve database/publish dual writes with an outbox.
 
-Ably fits global fan-out, mobile reconnects, presence, and teams avoiding connection infrastructure. Socket.IO is a self-hosted Node event runtime; PartyKit and Durable Objects run per-room stateful code; Liveblocks supplies higher-level collaboration primitives. Test token renewal, denied capabilities, duplicates, gaps, slow consumers, provider outages, history expiry, ghost presence, and cost ceilings.
+Ably fits global fan-out, mobile reconnects, presence, and teams avoiding connection infrastructure. Socket.IO is a self-hosted Node event runtime; [PartyServer (formerly PartyKit)](/posts/tech/2026-08-22-partykit-realtime-rooms-en) and Durable Objects run per-room stateful code; Liveblocks supplies higher-level collaboration primitives. Test token renewal, denied capabilities, duplicates, gaps, slow consumers, provider outages, history expiry, ghost presence, and cost ceilings.
+
+## Update Log
+
+- 2026-11-23: The hosted PartyKit platform shut down on 2026-10-23, so the comparison now points to its successor, PartyServer.
 
 ## References
 

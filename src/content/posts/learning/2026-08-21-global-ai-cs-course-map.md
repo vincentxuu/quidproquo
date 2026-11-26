@@ -13,13 +13,15 @@ description: "以 2025–2026 官方課程網站、課表與教材入口為依�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-global-ai-cs-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
 搜尋「Stanford CS229」、「Berkeley CS188」或「MIT deep learning」，很快就能找到課程網站、YouTube 影片和別人整理的筆記。真正麻煩的問題在下一步：**這些東西是不是同一個學期？現在不用學校帳號還打得開嗎？作業只有題目，還是連起始碼與必要檔案都有？**
 
 這份地圖盤點 Stanford、Carnegie Mellon University（CMU）、MIT、UC Berkeley、Harvard 與國立臺灣大學（台大），時間範圍是 **2025–2026**。2026 年版本完整就優先；如果新學期只有課表、錄影鎖在校內系統，而 2025 年官方版本更完整，2025 也會正式列入。每篇單課導讀都會標明採用學期，不把 2025 影片與 2026 作業包裝成同一套課。
+
+本文總覽的最後一次實質更新為 **2026-10-10**（核對錄影來源、補 AI 資安課一節）。各單校學校地圖的資訊截止日期，請見該文章開頭或其「更新紀錄」；Fall 2026 課程正在逐週釋出教材，系列不會即時同步每週進度，自學前請再到官方課站確認一次匿名存取權限。
 
 這不是大學排名，也不是「哪間學校最好」。它只回答兩件事：這間學校如何安排 AI／CS 課程，以及校外讀者現在到底拿得到多少。
 
@@ -149,7 +151,7 @@ Harvard 的現行課表裡沒有這類課。能從頭自學到尾（A3）的 AI 
 - [Berkeley CS189 導讀](/posts/learning/2026-08-22-berkeley-cs189-spring-2025-overview)：總覽以 Spring 2025 為起點，逐講與 HW1–5 則依重新上線的 Spring 2026 課站寫成，另對照 Fall 2026（eecs189.org/fa26）行事曆
 - [CMU 07-380 導讀](/posts/learning/2026-08-22-cmu-07380-fall-2026-overview)：Fall 2026 首開，已公開的第 1–10 講與 HW1–3 已逐篇寫完，後半學期隨課站進度補上；對照 [07-280](/posts/ai/2026-08-22-cmu-07280-course-overview)
 
-Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)（HW0–HW6 全部作業）都已上線；還沒寫的只剩 CS182，它 Fall 2026 雖列在 SEAS 課表上，但目前找不到公開課站，要等教材出現再寫。
+Harvard 這邊，[CS50 AI 導讀](/posts/ai/2026-08-26-harvard-cs50-ai-guide)與 [CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)（HW0–HW6 全部作業）都已上線；CS182 Fall 2026 在本文查核日（2026-08-22）仍未有公開課站，開課後教材是否公開，未在本文再次確認（詳見 [Harvard AI／ML 課程導讀](/posts/learning/2026-08-22-harvard-ai-ml-course-map) 的查核日期）。
 
 如果你現在只想選一門開始，做一個很小的測試：打開 MIT 6.S191 的第一個 lab，或 Berkeley CS188 的第一個 project，給自己九十分鐘。九十分鐘後還能說清楚環境缺什麼、下一步要做什麼，這門課才真的進入你的自學清單。收藏一個播放清單不算開始。
 

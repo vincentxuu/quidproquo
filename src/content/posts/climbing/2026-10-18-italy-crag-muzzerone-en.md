@@ -13,7 +13,7 @@ description: "A guide to Muzzerone: rock and sector sizes, the seasons each sour
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-muzzerone)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-muzzerone)
 
 Muzzerone is a headland at the eastern end of Liguria, above [Porto Venere](https://www.visitportovenere.com/it/cosa-fare-a-portovenere/arrampicata), with a long line of white and grey limestone walls on its west side that fall straight into the sea. It lies inside the [Porto Venere Regional Natural Park (Parco Naturale Regionale di Porto Venere)](https://parconaturaleportovenere.it/palestra-di-roccia/), whose climbing page opens with: "Il Muzzerone e le sue falesie sono diventati uno dei luoghi più amati e frequentati da migliaia di arrampicatori provenienti da tutta Europa" — Muzzerone and its cliffs have become one of the best-loved and busiest spots for thousands of climbers from all over Europe.
 

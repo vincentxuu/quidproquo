@@ -114,14 +114,14 @@ South Africa's data centre building boom is raising questions about who owns and
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-github-digest-en)
-- 📄 [Model Card | Claude Fable 5.1](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
-- 📄 [Security Alert | NVIDIA NemoClaw DNS Rebinding](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding-en)
-- 📄 [Funding Brief | Atira Seed $17.5M](/posts/daily/2026-09-07-funding-atira-en)
-- 📄 [Tool Recommendation | okf-agent-memory](/posts/daily/2026-09-07-tool-okf-agent-memory-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-07: ML Fundamentals](/posts/daily/2026-09-07-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-07: Product Sense](/posts/daily/2026-09-07-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-07](/posts/daily/2026-09-07-ai-agent-github-digest-en)
+- :file: [Model Card | Claude Fable 5.1](/posts/daily/2026-09-07-model-anthropic-claude-fable-5-1-en)
+- :file: [Security Alert | NVIDIA NemoClaw DNS Rebinding](/posts/daily/2026-09-07-security-nvidia-nemoclaw-dns-rebinding-en)
+- :file: [Funding Brief | Atira Seed $17.5M](/posts/daily/2026-09-07-funding-atira-en)
+- :file: [Tool Recommendation | okf-agent-memory](/posts/daily/2026-09-07-tool-okf-agent-memory-en)
+- :file: [AI Engineer Interview Daily — 2026-09-07: ML Fundamentals](/posts/daily/2026-09-07-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-07: Product Sense](/posts/daily/2026-09-07-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

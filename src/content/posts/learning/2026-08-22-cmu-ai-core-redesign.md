@@ -10,7 +10,7 @@ description: "以 CMU 官方 FAQ、BSAI 課程要求與四門課的公開內容�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-ai-core-redesign-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-ai-core-redesign-en)
 
 CMU 的人工智慧本科核心在 2026 年換了一套骨架。舊路線把 **15-281 Artificial Intelligence** 與 **10-315 Introduction to Machine Learning for SCS** 分開。新路線則是 **07-280 Artificial Intelligence and Machine Learning I → 07-380 Artificial Intelligence and Machine Learning II**。官方 FAQ 直接說明舊兩門將退休，但這不代表把舊課號一對一換成新課號。
 

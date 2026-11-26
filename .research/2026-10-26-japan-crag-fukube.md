@@ -1,0 +1,477 @@
+# Fukube research
+
+Checked 2026-10-26. Reader decision: Fukube bouldering guide: spring and autumn seasons, MinoIC access, local rules, original Japanese grades and guidebook.
+
+## Sources opened
+
+- Mino tourism https://minokanko.com/seeing/category/nature-scenery/p5987/ : Kataji/Mino boulderingdestination; MinoIC drivingaccess.
+- Topo.jp localrules http://topo.jp/modules/pico/index.php?content_id=1 : Entrylog andcontribution; keepworkvehiclepassage; upstreamtoilet; campingareas unavailableduringcommunityevents.
+- CN Fukube https://www.climbing-net.com/iwaba_detail/%E3%83%95%E3%82%AF%E3%83%99/ : Hardtuff; March–June andSeptember–December; FCCrules reproduced.
+- RT Fukube https://www.rocktopo.net/areas/127 : Uppermountain/upperriver/middle/lower/Kayanotaki sectors;432boulders.
+- RT Fukuberoutes https://www.rocktopo.net/areas/127/routes : Original Japanesegrades; same-nameバタフライ has8kyu andnidanentries.
+- Yamakei https://www.yamakei.co.jp/products/2820180890.html : MakotoKitayama; Yama-kei;2020edition;Japanese Tokai/Kansaiguide.
+
+## Public route inventory
+
+ROCKTOPO full public table extracted by external script, graded rows retained. Current merged table has 433 rows; original database grade, style and sector fields preserved. Other public lists and same-name variants are source-linked per row. Paid guidebook interiors were not available; this is not a claim of exhaustive guidebook or all unpublished routes.
+
+- クラック / シエ / 7級 / length -
+- 無名 / シエ / 4級 / length -
+- 入門 / シエ / 4級 / length -
+- 無名 / シエ / 3級 / length -
+- 無名 / シエ / 3級 / length -
+- かまどうま / シエ / 2級 / length -
+- 右上がりのダンディ / シエ / 2級 / length -
+- HS / シエ / 2級 / length -
+- ななふし / シエ / 1級 / length -
+- ななふしSD / シエ / 初段 / length -
+- 萌え / シエ / 初段 / length -
+- バタフライ / バタフライ / 8級 / length -
+- バタフライ / バタフライ / 2級 / length -
+- モスラ / バタフライ / 初段 / length -
+- モス / バタフライ / 初段 / length -
+- バタフライ / バタフライ / 二段 / length -
+- ガ / バタフライ / 二段 / length -
+- モスラ / バタフライ / 二段+ / length -
+- ストーンライダー / バタフライ / 三段 / length -
+- 無名 / アニーロック / 6級 / length -
+- 無名 / アニーロック / 4級 / length -
+- アニー / アニーロック / 2級 / length -
+- 無名 / アニーロック / 1級 / length -
+- バランサースラブ / ツインタワー / 4級 / length -
+- 鯰スナイパー / ツインタワー / 3級 / length -
+- バランサーカンテ / ツインタワー / 1級 / length -
+- 伝家の宝刀 / リローデッド / 2級 / length -
+- マロンの宝玉 / リローデッド / 初段 / length -
+- バースター / フリードロック / 3級 / length -
+- トラプター / フリードロック / 初段 / length -
+- 想ひ出 / ワイヤーロック / 6級 / length -
+- ブタバナ / ワイヤーロック / 5級 / length -
+- エウロパ / ワイヤーロック / 5級 / length -
+- ランサー / ワイヤーロック / 3級 / length -
+- 無名 / ワイヤーロック / 2級 / length -
+- ラオベン / ワイヤーロック / 1級 / length -
+- シニカルステップ / ワイヤーロック / 1級 / length -
+- イキリト / ワイヤーロック / 初段+ / length -
+- プロパガンダ / ワイヤーロック / 三段 / length -
+- 予告編 / レボリューションズ / 4級 / length -
+- 無名 / レボリューションズ / 2級 / length -
+- ブヨキング / レボリューションズ / 1級 / length -
+- 金華山 / G4 / 2級 / length -
+- ダバイ / G4 / 2級 / length -
+- CCCP / G4 / 1級 / length -
+- 金華山 / G4 / 初段 / length -
+- ろ山 / G4 / 初段 / length -
+- ジェーヌ / G4 / 初段 / length -
+- CCCP / G4 / 初段 / length -
+- CCCP / G4 / 初段+ / length -
+- ボンボン / G4 / 初段+ / length -
+- メインガ / G4 / 四段- / length -
+- G4 / G4 / 四段 / length -
+- メインガエクステンション / G4 / 四段+ / length -
+- 無名 / UFO・枕岩 / 5級 / length -
+- 宇宙2 / UFO・枕岩 / 3級 / length -
+- 宇宙1 / UFO・枕岩 / 3級 / length -
+- 無名 / UFO・枕岩 / 1級 / length -
+- ぴっころ / UFO・枕岩 / 1級 / length -
+- ぶよ / UFO・枕岩 / 初段 / length -
+- 宇宙3 / UFO・枕岩 / 初段 / length -
+- 星から来た友人 / UFO・枕岩 / 初段 / length -
+- 枕 / UFO・枕岩 / 初段 / length -
+- ナメック星人 / UFO・枕岩 / 初段 / length -
+- ベガ / UFO・枕岩 / 初段+ / length -
+- サンシャインパワー / UFO・枕岩 / 二段 / length -
+- カンテまわり / 三角岩周辺 / 6級 / length -
+- ケンショク / 三角岩周辺 / 5級 / length -
+- チョックストーンアタック / 三角岩周辺 / 4級 / length -
+- いかんて / 三角岩周辺 / 3級 / length -
+- あかんて / 三角岩周辺 / 3級 / length -
+- 18歳 / 三角岩周辺 / 2級 / length -
+- 通り雨 / 三角岩周辺 / 1級 / length -
+- ブーメランスネーク / 三角岩周辺 / 1級 / length -
+- ガンシップ / 三角岩周辺 / 初段 / length -
+- プリングルス / 三角岩周辺 / 初段 / length -
+- ポリンキー / 三角岩周辺 / 初段 / length -
+- ジン面相 / 人面岩 / 3級 / length -
+- 無名 / 刃牙の岩 / 5級 / length -
+- ベリーロール / 刃牙の岩 / 3級 / length -
+- 無名 / 刃牙の岩 / 2級 / length -
+- 刃牙 / 刃牙の岩 / 初段+ / length -
+- 左 / 古城岩 / 9級 / length -
+- 右 / 古城岩 / 3級 / length -
+- トラウマ / 古城岩 / 初段+ / length -
+- 右ガバ / シャークロック周辺 / 7級 / length -
+- 真中 / シャークロック周辺 / 5級 / length -
+- 右 / シャークロック周辺 / 4級 / length -
+- ものさし / シャークロック周辺 / 4級 / length -
+- 左 / シャークロック周辺 / 4級 / length -
+- あねき / シャークロック周辺 / 3級 / length -
+- あねご / シャークロック周辺 / 3級 / length -
+- さしがね / シャークロック周辺 / 3級 / length -
+- ノンノ / ミミズスラブ周辺 / 6級 / length -
+- ミミズスラブ / ミミズスラブ周辺 / 5級 / length -
+- ミナミナ / ミミズスラブ周辺 / 5級 / length -
+- おしゃれ / ミミズスラブ周辺 / 5級 / length -
+- ミミズカンテ / ミミズスラブ周辺 / 5級 / length -
+- 気まぐれ / ミミズスラブ周辺 / 4級 / length -
+- エニシ / ミミズスラブ周辺 / 1級 / length -
+- ボブ二等兵 / おおスラブ周辺 / 10級 / length -
+- 無名 / おおスラブ周辺 / 10級 / length -
+- 右 / おおスラブ周辺 / 9級 / length -
+- サンダース軍曹 / おおスラブ周辺 / 6級 / length -
+- 無名 / おおスラブ周辺 / 6級 / length -
+- 左 / おおスラブ周辺 / 6級 / length -
+- シャボン / おおスラブ周辺 / 5級 / length -
+- 中央ライン / おおスラブ周辺 / 4級 / length -
+- 純 / おおスラブ周辺 / 4級 / length -
+- 抜けがけ / おおスラブ周辺 / 4級 / length -
+- マントル少佐 / おおスラブ周辺 / 4級 / length -
+- 逃げ腰 / おおスラブ周辺 / 4級 / length -
+- 無名 / おおスラブ周辺 / 4級 / length -
+- マイケル大佐 / おおスラブ周辺 / 3級 / length -
+- 無名 / おおスラブ周辺 / 2級 / length -
+- サンシャイン牧場 / おおスラブ周辺 / 2級 / length -
+- ホッピーエンド / おおスラブ周辺 / 2級 / length -
+- ホッピングマシーン / おおスラブ周辺 / 初段 / length -
+- スローピーホッピー / おおスラブ周辺 / 二段 / length -
+- クロスゲート / おおスラブ周辺 / 三段 / length -
+- Slop Slope / おおスラブ周辺 / 三段+ / length -
+- われめ / 土台岩・中洲の岩・肩掛け岩 / 7級 / length -
+- 無名 / 土台岩・中洲の岩・肩掛け岩 / 6級 / length -
+- 無名 / 土台岩・中洲の岩・肩掛け岩 / 4級 / length -
+- 無名 / 土台岩・中洲の岩・肩掛け岩 / 3級 / length -
+- マグマ / 土台岩・中洲の岩・肩掛け岩 / 1級 / length -
+- マグンマ / 土台岩・中洲の岩・肩掛け岩 / 初段 / length -
+- ぽろり / 土台岩・中洲の岩・肩掛け岩 / 初段 / length -
+- 段取り / 大駐車場前岩 / 7級 / length -
+- 無名 / 大駐車場前岩 / 6級 / length -
+- 据え膳 / 大駐車場前岩 / 4級 / length -
+- アバラ / 大駐車場前岩 / 3級 / length -
+- 大鯰 / 大鯰の岩 / 初段 / length -
+- 飛沫 / 大鯰の岩 / 初段 / length -
+- 熊蜂 / 山女魚岩 / 1級 / length -
+- 山女魚スペシャル / 山女魚岩 / 1級 / length -
+- トラバース / オープンブック・うぐいす岩 / 6級 / length -
+- ケキョ / オープンブック・うぐいす岩 / 3級 / length -
+- 無名 / オープンブック・うぐいす岩 / 2級 / length -
+- Bee / オープンブック・うぐいす岩 / 1級 / length -
+- スネークヘッド / オープンブック・うぐいす岩 / 1級 / length -
+- Honey / オープンブック・うぐいす岩 / 1級 / length -
+- スズメバチ / オープンブック・うぐいす岩 / 二段 / length -
+- ビースト / オープンブック・うぐいす岩 / 三段 / length -
+- シンバル / オープンブック・うぐいす岩 / 三段 / length -
+- シンバ / オープンブック・うぐいす岩 / 三段 / length -
+- 冬の火 / オープンブック・うぐいす岩 / 三段+ / length -
+- シンバルン / オープンブック・うぐいす岩 / 三段+ / length -
+- ハッチ / オープンブック・うぐいす岩 / 四段- / length -
+- グリーンレインボー / グリーンレインボーの岩 / 1級 / length -
+- 怒りの矛先 / マトリックス岩 / 初段 / length -
+- リアルワールド / マトリックス岩 / 初段+ / length -
+- EMP / マトリックス岩 / 初段+ / length -
+- トレインマン / マトリックス岩 / 二段+ / length -
+- アンフェア / マトリックス岩 / 三段+ / length -
+- Blue tree / マトリックス岩 / 四段+ / length -
+- モモコ / ミニハイカラ岩 / 7級 / length -
+- ハイヒール左直上 / ミニハイカラ岩 / 5級 / length -
+- ハイヒール / ミニハイカラ岩 / 5級 / length -
+- KIWA / ミニハイカラ岩 / 3級 / length -
+- ツノ右行き / ミニハイカラ岩 / 3級 / length -
+- タケコプター / ミニハイカラ岩 / 3級 / length -
+- ツノ左行き / ミニハイカラ岩 / 2級 / length -
+- ツノツノ / ミニハイカラ岩 / 1級 / length -
+- Sライン / ミニハイカラ岩 / 初段 / length -
+- Mライン / ミニハイカラ岩 / 初段+ / length -
+- 無名 / のむのむの岩 / 4級 / length -
+- アナドレン / のむのむの岩 / 3級 / length -
+- のむのむ / のむのむの岩 / 二段 / length -
+- 川のほとり / イジワルの岩 / 3級 / length -
+- イジワル / イジワルの岩 / 初段 / length -
+- ヤマセミ / カワセミの岩 / 3級 / length -
+- カワセミ / カワセミの岩 / 2級 / length -
+- マボロシカンテ / カワセミの岩 / 初段 / length -
+- ダマスカス / ジルコンの岩 / 三段 / length -
+- ジルコン / ジルコンの岩 / 四段 / length -
+- 無名 / ミニクジラ岩 / 6級 / length -
+- 無名 / ミニクジラ岩 / 5級 / length -
+- 太平洋 / ミニクジラ岩 / 3級 / length -
+- ひもパン / ひもパン岩 / 2級 / length -
+- ココナツ / トコナツ岩 / 2級 / length -
+- トコナツ / トコナツ岩 / 初段 / length -
+- ネリンガ / ネリンガ岩 / 初段 / length -
+- うねり / うねり岩 / 1級 / length -
+- くもん / くもん岩 / 2級 / length -
+- くもん直上 / くもん岩 / 1級 / length -
+- 富嶽 / くもん岩 / 四段+ / length -
+- 無名 / はぐれ岩 / 8級 / length -
+- 逃げ道 / はぐれ岩 / 6級 / length -
+- イヤン / はぐれ岩 / 4級 / length -
+- ブーメランスネーク / はぐれ岩 / 3級 / length -
+- リーチ / はぐれ岩 / 3級 / length -
+- やもり / はぐれ岩 / 2級 / length -
+- 無名 / ほおば岩 / 3級 / length -
+- 無名 / ほおば岩 / 3級 / length -
+- ういもん / ほおば岩 / 二段 / length -
+- ういめん / ほおば岩 / 二段 / length -
+- 紅葉 / ケーキ岩 / 2級 / length -
+- マントル / ケーキ岩 / 2級 / length -
+- ケーキ / ケーキ岩 / 初段 / length -
+- ロッキー / ダンカ岩 / 5級 / length -
+- ダンカ / ダンカ岩 / 4級 / length -
+- ゲリラトラバース / ダンカ岩 / 1級 / length -
+- JOY / テスト岩 / 5級 / length -
+- ダブルリーチ / テスト岩 / 3級 / length -
+- JOYFULL / テスト岩 / 2級 / length -
+- 美濃虫 / テスト岩 / 2級 / length -
+- 玉虫 / テスト岩 / 初段 / length -
+- 新きゃべつ / テスト岩 / 二段 / length -
+- バターマントル / バター岩 / 4級 / length -
+- ショートラ / バター岩 / 3級 / length -
+- トラバース / バター岩 / 1級 / length -
+- ムカデ / ムカデ岩 / 3級 / length -
+- ゲジゲジ / ムカデ岩 / 2級 / length -
+- トカゲ / ムカデ岩 / 2級 / length -
+- じゃじゃまる / ムカデ岩 / 二段 / length -
+- ヤゴ / ヤゴの岩 / 四段- / length -
+- カンテ / ごて岩 / 3級 / length -
+- ガルボ / やぶ岩 / 初段+ / length -
+- ラメント / やぶ岩 / 三段+ / length -
+- チビツー / チビ岩 / 4級 / length -
+- チビツー / チビ岩 / 3級 / length -
+- まんとる / チビ岩 / 3級 / length -
+- ウッドストック / ウッドストックの岩周辺 / 4級 / length -
+- ５４ / ウッドストックの岩周辺 / 4級 / length -
+- カーミット / ウッドストックの岩周辺 / 3級 / length -
+- １３４ / ウッドストックの岩周辺 / 3級 / length -
+- スラブ / タペストリーの岩周辺 / 6級 / length -
+- 腰掛け / タペストリーの岩周辺 / 5級 / length -
+- クラッカー / タペストリーの岩周辺 / 5級 / length -
+- ヨイショ / タペストリーの岩周辺 / 5級 / length -
+- 箱庭 / タペストリーの岩周辺 / 5級 / length -
+- ヨイショ2 / タペストリーの岩周辺 / 4級 / length -
+- 軽くヤバイ / タペストリーの岩周辺 / 3級 / length -
+- 紅葉 / タペストリーの岩周辺 / 1級 / length -
+- タペストリー / タペストリーの岩周辺 / 初段 / length -
+- でびゅー / ジャムジャム岩周辺 / 6級 / length -
+- デンデ２ / ジャムジャム岩周辺 / 5級 / length -
+- じゃりじゃり / ジャムジャム岩周辺 / 5級 / length -
+- デンデ１ / ジャムジャム岩周辺 / 4級 / length -
+- ジャムドラ / ジャムジャム岩周辺 / 4級 / length -
+- プライベートマイケル / ジャムジャム岩周辺 / 2級 / length -
+- ジャムジャム / ジャムジャム岩周辺 / 2級 / length -
+- グリーンパンチ / ジャムジャム岩周辺 / 1級 / length -
+- パープルパンチ / ジャムジャム岩周辺 / 初段 / length -
+- バンビ / ミサイルの岩周辺 / 5級 / length -
+- アップ / ミサイルの岩周辺 / 5級 / length -
+- 立ちスタート / ミサイルの岩周辺 / 4級 / length -
+- デッキ / ミサイルの岩周辺 / 4級 / length -
+- モルト / ミサイルの岩周辺 / 4級 / length -
+- 無名 / ミサイルの岩周辺 / 3級 / length -
+- ジン / ミサイルの岩周辺 / 3級 / length -
+- アルツ / ミサイルの岩周辺 / 2級 / length -
+- 亀齢 / ミサイルの岩周辺 / 1級 / length -
+- ペッパーミル / ミサイルの岩周辺 / 1級 / length -
+- ラム / ミサイルの岩周辺 / 1級 / length -
+- ミサイル / ミサイルの岩周辺 / 初段 / length -
+- 花陽浴 / ミサイルの岩周辺 / 初段+ / length -
+- 無名 / きなこの岩と周辺 / 2級 / length -
+- 無名 / きなこの岩と周辺 / 1級 / length -
+- 無名 / きなこの岩と周辺 / 初段 / length -
+- エルモ / きなこの岩と周辺 / 初段 / length -
+- きなこ / きなこの岩と周辺 / 二段 / length -
+- のほほ～ん / のほほん岩の周辺 / 10級 / length -
+- のほほん２ / のほほん岩の周辺 / 8級 / length -
+- ハイボーラー / のほほん岩の周辺 / 7級 / length -
+- UPUP / のほほん岩の周辺 / 7級 / length -
+- のほほん１ / のほほん岩の周辺 / 6級 / length -
+- チェリーボーイ / のほほん岩の周辺 / 5級 / length -
+- リトルマントル / のほほん岩の周辺 / 2級 / length -
+- カワゴイ / のほほん岩の周辺 / 1級 / length -
+- ホスタ / のほほん岩の周辺 / 初段 / length -
+- ガバ / びびり岩周辺 / 10級 / length -
+- トレバース / びびり岩周辺 / 6級 / length -
+- カンテ / びびり岩周辺 / 5級 / length -
+- びびり / びびり岩周辺 / 4級 / length -
+- カンテ / びびり岩周辺 / 4級 / length -
+- おしめり / びびり岩周辺 / 4級 / length -
+- ヒールポイント / びびり岩周辺 / 4級 / length -
+- チェリー / びびり岩周辺 / 4級 / length -
+- トラバース / びびり岩周辺 / 3級 / length -
+- トリック / びびり岩周辺 / 1級 / length -
+- 呼魂 / びびり岩周辺 / 1級 / length -
+- バックドロップ / びびり岩周辺 / 1級 / length -
+- マジック / びびり岩周辺 / 初段 / length -
+- のぞみ / びびり岩周辺 / 初段 / length -
+- Tバック / びびり岩周辺 / 二段 / length -
+- 夜陰 / びびり岩周辺 / 四段 / length -
+- 夜明け / びびり岩周辺 / 四段+ / length -
+- フック船長 / イルカ岩周辺 / 2級 / length -
+- ドルフィン刑事 / イルカ岩周辺 / 2級 / length -
+- エル / イルカ岩周辺 / 2級 / length -
+- ニア / イルカ岩周辺 / 2級 / length -
+- シャドー右 / ヤモリ岩周辺 / 5級 / length -
+- シャドー左 / ヤモリ岩周辺 / 3級 / length -
+- しぶがき / ヤモリ岩周辺 / 3級 / length -
+- ベンチ / ヤモリ岩周辺 / 1級 / length -
+- ちゃんとやってください / ヤモリ岩周辺 / 初段 / length -
+- YUGO / ヤモリ岩周辺 / 二段 / length -
+- ガマ親分 / カエル岩・大山椒岩 / 5級 / length -
+- 無名 / カエル岩・大山椒岩 / 4級 / length -
+- ガマトラ / カエル岩・大山椒岩 / 4級 / length -
+- カエルの背中 / カエル岩・大山椒岩 / 4級 / length -
+- カエルのしっぽ / カエル岩・大山椒岩 / 4級 / length -
+- 無名 / カエル岩・大山椒岩 / 3級 / length -
+- 無名 / マッスル岩・ハッスル岩 / 6級 / length -
+- 足トレ / マッスル岩・ハッスル岩 / 4級 / length -
+- 指トレ / マッスル岩・ハッスル岩 / 3級 / length -
+- 無名 / マッスル岩・ハッスル岩 / 2級 / length -
+- 燃える上腕二頭筋 / マッスル岩・ハッスル岩 / 2級 / length -
+- 無名 / マッスル岩・ハッスル岩 / 2級 / length -
+- エルメス / マッスル岩・ハッスル岩 / 初段 / length -
+- 夏の日 / マッスル岩・ハッスル岩 / 初段+ / length -
+- 秋の香り / マッスル岩・ハッスル岩 / 二段 / length -
+- エルオス / マッスル岩・ハッスル岩 / 二段 / length -
+- 夏の日々 / マッスル岩・ハッスル岩 / 二段+ / length -
+- 夏至 / マッスル岩・ハッスル岩 / 三段 / length -
+- マッスルパワー / マッスル岩・ハッスル岩 / 三段 / length -
+- アルシオン / マッスル岩・ハッスル岩 / 三段 / length -
+- モリアオガエル / かやの岩・テツの岩 / 4級 / length -
+- 舞子は～ん / かやの岩・テツの岩 / 4級 / length -
+- テツ / かやの岩・テツの岩 / 3級 / length -
+- かやかや / かやの岩・テツの岩 / 3級 / length -
+- かやトンボ / かやの岩・テツの岩 / 3級 / length -
+- ハイエナ / かやの岩・テツの岩 / 2級 / length -
+- カヤトラ / かやの岩・テツの岩 / 初段 / length -
+- かやのジャンプ / かやの岩・テツの岩 / 二段 / length -
+- ガンナー / かやの岩・テツの岩 / 三段 / length -
+- ハンター / かやの岩・テツの岩 / 三段 / length -
+- カンテ / ぎっくり岩・かかと岩・橋向こうスラブ / 4級 / length -
+- 無名 / ぎっくり岩・かかと岩・橋向こうスラブ / 4級 / length -
+- 無名 / ぎっくり岩・かかと岩・橋向こうスラブ / 3級 / length -
+- ドロンジョさま / ぎっくり岩・かかと岩・橋向こうスラブ / 3級 / length -
+- 無名 / ぎっくり岩・かかと岩・橋向こうスラブ / 3級 / length -
+- 初心者かッ?! / 巣箱岩 / 5級 / length -
+- はやぶさ2 / 巣箱岩 / 5級 / length -
+- 時を戻そう / 巣箱岩 / 1級 / length -
+- 天目 / 巣箱岩 / 初段+ / length -
+- バイキンマン / 師走の大掃除岩 / 8級 / length -
+- ドキンちゃん / 師走の大掃除岩 / 7級 / length -
+- 大掃除 / 師走の大掃除岩 / 5級 / length -
+- 知恵の輪 / 忍者岩・パズル岩 / 3級 / length -
+- ミニパ / 忍者岩・パズル岩 / 2級 / length -
+- 蟻地獄 / 忍者岩・パズル岩 / 初段 / length -
+- 蟻塚 / 忍者岩・パズル岩 / 初段+ / length -
+- 朽木 / 朽木岩 / 3級 / length -
+- ザワ / 朽木岩 / 初段 / length -
+- トリニティ / ザイオン・楓岩 / 4級 / length -
+- モーフィアス / ザイオン・楓岩 / 3級 / length -
+- 無名 / ザイオン・楓岩 / 3級 / length -
+- メープルシロップ / ザイオン・楓岩 / 3級 / length -
+- アンダーソン君 / ザイオン・楓岩 / 3級 / length -
+- 楓 / ザイオン・楓岩 / 2級 / length -
+- スミス / ザイオン・楓岩 / 2級 / length -
+- エージェントスミス / ザイオン・楓岩 / 1級 / length -
+- 無名 / 無名岩 / 4級 / length -
+- バサラ / 無名岩 / 3級 / length -
+- 黒文字 / 白文字の岩 / 5級 / length -
+- カンブリア宮殿 / 白文字の岩 / 3級 / length -
+- 白文字 / 白文字の岩 / 二段 / length -
+- ワルツ / 白い犬岩・エメルの岩 / 4級 / length -
+- ミルモでポン / 白い犬岩・エメルの岩 / 3級 / length -
+- スヌーピー / 白い犬岩・エメルの岩 / 2級 / length -
+- ちはる / 白い犬岩・エメルの岩 / 1級 / length -
+- 小人のプライド / 白い犬岩・エメルの岩 / 1級 / length -
+- ちなつ / 白い犬岩・エメルの岩 / 初段 / length -
+- エメル / 白い犬岩・エメルの岩 / 初段 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 6級 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 6級 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 5級 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 4級 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 3級 / length -
+- おさらい / 突ガバ岩・おけいこ岩 / 3級 / length -
+- 無名 / 突ガバ岩・おけいこ岩 / 3級 / length -
+- 無名 / 蛙岩の周辺 / 8級 / length -
+- アサガオ / 蛙岩の周辺 / 4級 / length -
+- マントル / 蛙岩の周辺 / 4級 / length -
+- クッパ / 蛙岩の周辺 / 3級 / length -
+- 青い苔 / 蛙岩の周辺 / 2級 / length -
+- ヒキガエル / 蛙岩の周辺 / 2級 / length -
+- 無名 / 蛙岩の周辺 / 2級 / length -
+- アンダースタート / 蛙岩の周辺 / 1級 / length -
+- 半身浴 / 蛙岩の周辺 / 初段 / length -
+- ハッパマシンガン / 蛙岩の周辺 / 二段 / length -
+- 豊田っ子 / 表裏岩 / 5級 / length -
+- チョビヒゲ / 表裏岩 / 3級 / length -
+- 黒ひげ / 表裏岩 / 1級 / length -
+- 赤ひげ / 表裏岩 / 初段 / length -
+- 無名 / 見晴らし岩・砦岩 / 7級 / length -
+- 無名 / 見晴らし岩・砦岩 / 6級 / length -
+- 無名 / 見晴らし岩・砦岩 / 5級 / length -
+- はじめの一歩 / 見晴らし岩・砦岩 / 4級 / length -
+- アン / 見晴らし岩・砦岩 / 4級 / length -
+- ポコペン / 見晴らし岩・砦岩 / 4級 / length -
+- ポケモン / 見晴らし岩・砦岩 / 3級 / length -
+- 原始人 / 見晴らし岩・砦岩 / 3級 / length -
+- 無名 / 見晴らし岩・砦岩 / 2級 / length -
+- トラバース / 見晴らし岩・砦岩 / 1級 / length -
+- バナ / 見晴らし岩・砦岩 / 1級 / length -
+- ロッサ / 見晴らし岩・砦岩 / 初段 / length -
+- ナバ / 見晴らし岩・砦岩 / 二段 / length -
+- バナナ / 見晴らし岩・砦岩 / 二段 / length -
+- 入道雲 / 見晴らし岩・砦岩 / 二段 / length -
+- 無名 / どてした親岩周辺 / 7級 / length -
+- 小遣い / どてした親岩周辺 / 5級 / length -
+- 無名 / どてした親岩周辺 / 5級 / length -
+- 無名 / どてした親岩周辺 / 4級 / length -
+- 群青 / どてした親岩周辺 / 4級 / length -
+- 足使い / どてした親岩周辺 / 4級 / length -
+- 三原色 / どてした親岩周辺 / 4級 / length -
+- ガキ大将 / どてした親岩周辺 / 4級 / length -
+- やんちゃ坊 / どてした親岩周辺 / 3級 / length -
+- 無名 / どてした親岩周辺 / 3級 / length -
+- すねかじり / どてした親岩周辺 / 3級 / length -
+- ガチヤバイ / どてした親岩周辺 / 3級 / length -
+- パルスコントロール / どてした親岩周辺 / 2級 / length -
+- スノームーン / どてした親岩周辺 / 2級 / length -
+- 三寒四温 / どてした親岩周辺 / 1級 / length -
+- 八千代 / どてした親岩周辺 / 初段 / length -
+- 夜遊 / どてした親岩周辺 / 初段 / length -
+- スターゲイザー / どてした親岩周辺 / 初段+ / length -
+- 無名 / 象さんスラブ / 7級 / length -
+- 無名 / 象さんスラブ / 7級 / length -
+- 無名 / 象さんスラブ / 6級 / length -
+- 無名 / 象さんスラブ / 6級 / length -
+- 無名 / 象さんスラブ / 5級 / length -
+- 無名 / 象さんスラブ / 4級 / length -
+- 狭き門 / 門の岩 / 2級 / length -
+- 幻の門 / 門の岩 / 三段 / length -
+- 破門 / 門の岩 / 四段 / length -
+- 門 / 門の岩 / 四段 / length -
+- イコン / Fukube / Font 8A+ / length -
+- ハシシ / Fukube / Font 7B+ / length -
+
+## Online record reading
+
+Opened five candidates via Exa fetch, at most6500characters per candidate; source extracts read for route-specific observations. Not all photographs or complete long pages were inspected. Useful dated facts are paraphrased only in route Notes.
+
+- Candidate https://www.kojitusanso.jp/tozan-report/detail/?fm=18034 : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate http://boulderingusagym.blogspot.com/2021/04/blog-post.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://shin-totan-510.doorblog.jp/archives/1083059229.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://stonefree47.dreamlog.jp/archives/5022771.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+- Candidate https://shin-totan-510.doorblog.jp/archives/1078427587.html : Public trip-report candidate opened; dated climbing observations checked, not current permission.
+
+## Research path
+
+Groundlane absent from full callable inventory. Exa MCP search/fetch used for public sources. Platform web used to recover manager/sector links absent from Exa extracts; theCrag returned402or generic-homepage responses for some route/sector requests, which are not counted as inventories read. Shared research pool: category climbing, topic crags, exact assigned Japanese destination queried using relativeCLI in the isolated origin worktree; all 11 queries returned total 0. No shared pool writes. No authentication, cookies or private source access.
+
+## Limits and exclusions
+
+No invented French conversions, route length, rope size, anchor inspection or general opening guarantee. Old prices and past single-day closures excluded. Historic self-restraint notices stay dated and unresolved permission requires local confirmation. Video evidence and actual query counts are recorded in the review after metadata processing.
+
+## Conditional coverage and tool record
+
+Public yt-dlp --flat-playlist ytsearch10 requests: 356 distinct route/area queries. Selected-channel /videos complete upload lists: 4 associations. Individual yt-dlp -j public metadata only; sign-in/bot-challenged results excluded without authentication. Full source excerpts and tool JSON are kept only in temporary working caches, not these publish artifacts.
+
+- Classic candidate https://www.kojitusanso.jp/tozan-report/detail/?fm=18034 : Opened recommendation/rating source; attributed facts appear in route Notes.
+- Classic candidate https://bc.sprt.jp/2015/06/05/150519fukubeborudarinngu/ : Opened recommendation/rating source; attributed facts appear in route Notes.
+
+Inventory counts: ROCKTOPO public total table: 431 graded rows; thetopo public routelist:18 graded rows (including overlaps); Paid guidebook interior: 0 rows accessed; listing establishes title/author/publisher/edition/language/region only.

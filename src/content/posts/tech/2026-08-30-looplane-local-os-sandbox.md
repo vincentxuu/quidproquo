@@ -10,10 +10,13 @@ description: "追蹤 Looplane verification sandbox profile 如何解析成 macOS
 series:
   name: "Looplane 架構拆解"
   order: 10
+additionalSeries:
+  - name: "沙箱系列"
+    order: 3
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-local-os-sandbox-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-local-os-sandbox-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-permission-layering)決定一個 command 有沒有 authority。通過 permission 之後，程序仍可能讀 host 檔案、開子程序或碰到網路。Looplane 的 local OS sandbox 把部分 command execution 再包進平台限制，讓「允許執行」不等於「取得目前帳號的完整權限」。
 

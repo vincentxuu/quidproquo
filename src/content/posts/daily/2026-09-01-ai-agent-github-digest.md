@@ -18,7 +18,7 @@ series:
 
 ## Trending Repos
 
-### HKUDS/nanobot ⭐ 47,574
+### HKUDS/nanobot ★ 47,574
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 
@@ -29,7 +29,7 @@ series:
 
 ---
 
-### conductor-oss/conductor ⭐ 32,152
+### conductor-oss/conductor ★ 32,152
 
 [GitHub](https://github.com/conductor-oss/conductor)　·　Java　·　Apache-2.0
 
@@ -40,7 +40,7 @@ series:
 
 ---
 
-### mksglu/context-mode ⭐ 20,281
+### mksglu/context-mode ★ 20,281
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2
 
@@ -51,7 +51,7 @@ series:
 
 ---
 
-### zhayujie/CowAgent ⭐ 46,740
+### zhayujie/CowAgent ★ 46,740
 
 [GitHub](https://github.com/zhayujie/CowAgent)　·　Python　·　MIT
 

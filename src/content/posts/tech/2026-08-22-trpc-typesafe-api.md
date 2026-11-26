@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-trpc-typesafe-api-en)
+> :globe: [English version](/posts/tech/2026-08-22-trpc-typesafe-api-en)
 
 [tRPC](https://trpc.io/docs/) 的核心很直接：server 匯出 `AppRouter` 型別，client 用同一個型別取得 procedure 路徑、input、output 與 error 的自動完成。合約不是另一份 IDL，也不需要 code generation；TypeScript inference 本身就是連接兩端的橋。
 
@@ -49,9 +49,9 @@ wire format 不是「每個 procedure 都是一條普通 REST resource」。依 
 
 2026 年的 tRPC v11 已提供 [`@trpc/openapi`](https://trpc.io/docs/openapi)。它靜態分析 router 的 TypeScript 型別，產生 OpenAPI 3.1，不執行 application code；query 轉成 GET、mutation 轉成 POST，也可交給 Hey API 等工具產生跨語言 client。
 
-限制同樣重要：套件仍標示 alpha；subscription 尚不進 spec；GET input 採單一 JSON query parameter，而非把每個欄位拆成傳統 query parameter。若 server 使用 SuperJSON 等 transformer，外部 client 也要用相同 serializer，否則 Date、Map 或 BigInt 會失真。
+限制同樣重要：套件仍標示 alpha，API 可能不經通知改變；從 11.29.0-alpha（2026-11）起需要 TypeScript 7.1-beta 以上，還在 TypeScript 6 以前的專案只能停在 `@trpc/openapi@11.28.2-alpha`；subscription 尚不進 spec；GET input 採單一 JSON query parameter，而非把每個欄位拆成傳統 query parameter。若 server 使用 SuperJSON 等 transformer，外部 client 也要用相同 serializer，否則 Date、Map 或 BigInt 會失真。
 
-因此 OpenAPI 能改善文件、agent tool discovery 與外部 client，但不會把既有 tRPC wire contract 自動變成最傳統的 REST surface。公共 API 若從第一天就要求穩定 path、status code、language-neutral schema 與 gateway interoperability，oRPC、ts-rest 或 OpenAPI-first 工具通常更直白。
+因此 OpenAPI 能改善文件、agent tool discovery 與外部 client，但不會把既有 tRPC wire contract 自動變成最傳統的 REST surface。公共 API 若從第一天就要求穩定 path、status code、language-neutral schema 與 gateway interoperability，oRPC 或 OpenAPI-first 工具通常更直白；同樣保留 REST 語意的 ts-rest 已在 2026-10 停止維護，不建議新專案採用。
 
 ## AI coding 讓優勢變大，也放大隱性耦合
 
@@ -62,6 +62,10 @@ Agent 能沿著 router type 快速完成 client 呼叫與 refactor，tRPC 的大
 ## 什麼時候選 tRPC
 
 同一團隊、同一 monorepo、client 與 server 都是 TypeScript，且主要 consumer 是自家 web app，tRPC 仍是摩擦很低的預設。需要多語言 SDK、外部開發者入口或長期獨立 release cadence 時，先把 OpenAPI／Protobuf 當 source of truth，通常比事後從 inference 補公共合約穩。
+
+## 更新紀錄
+
+- 2026-11-23：OpenAPI 一節補上 `@trpc/openapi` 從 11.29.0-alpha 起需要 TypeScript 7.1-beta；公共 API 的替代選項移除 2026-10 停止維護的 ts-rest。
 
 ## 參考資料
 

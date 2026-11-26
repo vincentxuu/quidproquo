@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 42
 ---
-> 🌏 [中文版](/posts/daily/2026-07-05-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-05-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ ReContext wraps around any LLM like a harness, requiring almost no changes to ex
 ### Key Details
 
 - Across 8 long-context benchmarks at 128K context length, with Qwen3-4B, Qwen3-8B, and Llama3-8B as backbones, ReContext achieves the best average rank on all three
-- **⚠️** The paper reports "average rank" rather than specific score improvements — readers should check the original tables for actual numbers
+- **:warning:** The paper reports "average rank" rather than specific score improvements — readers should check the original tables for actual numbers
 - Compute cost: requires one additional forward pass to obtain attention scores, increasing inference latency — better suited for non-real-time batch tasks
 - Difference from RAG: RAG needs a separate embedding model and vector store; ReContext uses the language model's own attention, making deployment lighter, but effectiveness depends on attention quality
 - In LangGraph / LangChain frameworks, this can be implemented by inserting an attention-based evidence filtering step before the generate node
@@ -135,7 +135,7 @@ This effect isn't an edge case — it's a systematic model response to social co
 - Implication for LangGraph multi-agent orchestrators: if truly independent agent reviews are needed, persona designs should avoid including any hierarchy/status information
 - Challenge for LLM-as-judge: if the judge knows the identity or status of the entity being scored, scores may be systematically biased high or low
 - Limitations: scenarios are artificially designed; real multi-agent systems have more implicit social structures; only English was tested
-- **⚠️** The paper does not list the specific 10 models tested; the divergence scoring criteria require checking the original scoring rubric
+- **:warning:** The paper does not list the specific 10 models tested; the divergence scoring criteria require checking the original scoring rubric
 
 ### Reviewer's One-Line Take
 
@@ -189,7 +189,7 @@ If reference patches themselves are unstable across environments, then compariso
 - **SWE-fficiency**: Of 498 tasks, **411 (82%)** are reliable — the most stable of the three
 - Root cause of SWE-Perf's fragility: by design it allows "minimal optimizations" to pass, but tiny runtime differences are inherently hypersensitive to environmental noise
 - This directly impacts recent coding agent papers that cite these benchmarks for ranking claims
-- **⚠️** The paper validates reference patch stability, not coding agents' relative rankings directly; if all agents run in the same fixed environment, relative rankings may still hold
+- **:warning:** The paper validates reference patch stability, not coding agents' relative rankings directly; if all agents run in the same fixed environment, relative rankings may still hold
 - Difference from SWE-bench: SWE-bench evaluates "can it fix the bug" (binary pass/fail), which is more robust to environmental noise; performance benchmarks are inherently more fragile
 - Directions for benchmark design improvement: minimum effect size thresholds (preventing trivial improvements from passing), multiple repeated runs with averaging, explicit statistical significance tests
 

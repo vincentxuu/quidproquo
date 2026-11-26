@@ -13,7 +13,7 @@ description: "介紹京都大原金比羅山岩場：岩質、路線數與難度
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-konpirasan-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-konpirasan-en)
 
 金比羅山（こんぴらやま，Konpirayama）在京都市左京區大原，岩場位於江文神社（えぶみじんじゃ）後方的山腰。岩質是燧石（チャート），從登山鞋攀岩的年代就有人在這裡練習，[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E9%87%91%E6%AF%94%E7%BE%85%E5%B1%B1/) 的說法是它一直是「日本のアルパインクライミングの練習場」，80 年代自由攀登化之後，兩種性格並存。
 

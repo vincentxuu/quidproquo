@@ -13,7 +13,7 @@ description: "OpenClaw's remote node host execution model: how gateway and node 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-nodes-deep)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-nodes-deep)
 
 The previous article covered mobile devices as nodes. This one covers **sending commands to another machine to run** — and why its approval model looks the way it does.
 

@@ -13,7 +13,7 @@ description: "A comprehensive comparison of subscription plans and pricing strat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-subscription-multi-model-routing)
 
 In 2026, AI coding agents have evolved from "assistive tools" to "primary development drivers." This article focuses on **tools with terminal CLI agents** — coding agents that run directly in your terminal.
 
@@ -33,7 +33,7 @@ This article covers two things:
 | **[Antigravity CLI](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent-en)** | Per Google AI plan | Per plan | Gemini series | The Google ecosystem |
 | **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode-en)** | Free (open source) | Pay per API use | 75+ providers, switch freely | Model freedom, vendor independence |
 
-> **⚠️ Prices in this table have a half-life of roughly one quarter.** In the first half of 2026 nearly all six changed billing: Codex moved from per-message to token-based credits and added a $100 Pro 5x tier, Cursor split into two usage pools, Kiro added a Pro Max tier, and Gemini CLI's individual free tier disappeared outright. The figures below were verified on 2026/8/18 — check each vendor's official page before deciding.
+> **:warning: Prices in this table have a half-life of roughly one quarter.** In the first half of 2026 nearly all six changed billing: Codex moved from per-message to token-based credits and added a $100 Pro 5x tier, Cursor split into two usage pools, Kiro added a Pro Max tier, and Gemini CLI's individual free tier disappeared outright. The figures below were verified on 2026/8/18 — check each vendor's official page before deciding.
 
 ## Positioning and Features of Each Tool
 
@@ -63,7 +63,7 @@ This article covers two things:
 | Kiro CLI | 50 credits (perpetual) | Fractional billing stretches it, but once gone it's gone |
 | Codex CLI | ChatGPT Free's limited allowance | Enough to try, not to work; the practical entry is the $8 Go plan |
 | Cursor CLI | Hobby plan | Limited agent requests, access to Composer |
-| Antigravity / Gemini CLI | ❌ | **The individual free tier ended 2026/6/18** |
+| Antigravity / Gemini CLI | ✗ | **The individual free tier ended 2026/6/18** |
 
 This row shrank noticeably in the first half of 2026 — the most generous option disappeared entirely. The only genuinely sustainable zero-cost path left is the open source, bring-your-own-key route.
 

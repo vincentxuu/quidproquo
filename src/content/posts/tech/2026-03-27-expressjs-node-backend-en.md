@@ -10,7 +10,7 @@ description: "A look at Express.js's core design philosophy, middleware pattern,
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-expressjs-node-backend)
+:globe: [中文版](/posts/tech/2026-03-27-expressjs-node-backend)
 
 Express was released in 2010 — over 15 years ago. Every few years someone declares it "dead," replaced by Fastify, Koa, or NestJS, yet npm download counts keep it near the top of the charts. DaoDao's primary backend is built on Express + TypeScript, and that choice has solid reasoning behind it.
 

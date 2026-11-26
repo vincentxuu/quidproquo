@@ -1,5 +1,5 @@
 ---
-import { verifySession } from '../lib/auth/session';
+import { requireAdmin } from '../lib/auth/admin';
 import Icons from '../components/Icons.astro';
 import '../styles/admin-tokens.css';
 
@@ -18,10 +18,10 @@ interface Props {
 
 const { title, section, breadcrumb } = Astro.props;
 
-const session = Astro.cookies.get('session')?.value;
-const isLoggedIn = session ? await verifySession(session) : false;
+const auth = await requireAdmin(Astro.cookies, Astro.request);
 
-if (!isLoggedIn) {
+if (!auth.ok) {
+  if (auth.response.status !== 401) return auth.response;
   return Astro.redirect(`/login?next=${encodeURIComponent(Astro.url.pathname)}`);
 }
 

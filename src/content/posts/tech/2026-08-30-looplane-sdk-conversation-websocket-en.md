@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket)
 
 The [previous article](/posts/tech/2026-08-30-looplane-subagent-scheduling-en) kept modification authority with the parent. When another Python application or editor needs to operate [Looplane](https://github.com/vincentxuu/looplane), another ownership question appears: what does the SDK promise, what lifecycle does the controller own, and what does the WebSocket actually attach to?
 

@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-27-tool-ismail-en)
+> :globe: [English version](/posts/daily/2026-09-27-tool-ismail-en)
 
 ## 工具資訊
 
@@ -81,11 +81,11 @@ python -m ismail -p songs/demo cmp_worst                    # 找出分數最差
 
 | | ismail | Suno / Udio 類文字轉音樂 | Ableton 類 DAW 自動化 MCP |
 |---|---|---|---|
-| 逐音符可編輯 | ✅ | ❌ 黑盒生成，改不了單一音符 | ✅（但要透過 MIDI/OSC） |
-| Agent 能讀回混音結果自己比對 | ✅ 結構化文字分析＋比分 | ❌ | ❌ 通常仍要人聽 |
-| 迭代仰賴人耳把關 | ❌ | ✅ | ✅ |
-| 對照參考曲重建並打分 | ✅ `cmp_run` 系列 | ❌ | ❌ |
-| 完全開源自架 | ✅ MIT | ❌ 多為封閉服務 | 依專案而定 |
+| 逐音符可編輯 | ✓ | ✗ 黑盒生成，改不了單一音符 | ✓（但要透過 MIDI/OSC） |
+| Agent 能讀回混音結果自己比對 | ✓ 結構化文字分析＋比分 | ✗ | ✗ 通常仍要人聽 |
+| 迭代仰賴人耳把關 | ✗ | ✓ | ✓ |
+| 對照參考曲重建並打分 | ✓ `cmp_run` 系列 | ✗ | ✗ |
+| 完全開源自架 | ✓ MIT | ✗ 多為封閉服務 | 依專案而定 |
 
 ## 注意事項
 

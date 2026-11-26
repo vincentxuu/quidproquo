@@ -30,7 +30,7 @@ glossary:
     context: "PPO 目標裡的 KL 懲罰項就是用來壓住這個問題。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-preference-tuning-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-preference-tuning-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

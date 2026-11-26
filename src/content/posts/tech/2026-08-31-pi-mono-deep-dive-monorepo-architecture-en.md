@@ -13,7 +13,7 @@ description: "Deep dive into pi-mono monorepo structure: packages/ai, agent, cod
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-monorepo-architecture)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-monorepo-architecture)
 
 ## TL;DR
 

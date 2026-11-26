@@ -7,10 +7,13 @@ tags: [runloop, ai-agent, sandbox, coding-agent, devbox, agent-infrastructure]
 lang: en
 tldr: "Runloop combines isolated microVMs, reproducible images, disk branching, credential proxies, and evals in one coding-agent platform; an official case study reports more than 10,000 concurrent Devboxes in one workload."
 description: "A technical guide to Runloop Devboxes, Blueprints, Snapshots, Network Policies, Agent Gateway, and the tradeoffs against general-purpose cloud sandboxes."
+series:
+  name: "Sandbox Series"
+  order: 10
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-runloop-agent-sandbox)
+> :globe: [中文版](/posts/ai/2026-08-22-runloop-agent-sandbox)
 
 [Runloop](https://docs.runloop.ai/docs/overview/what-is-runloop) is a managed execution layer for coding agents. It is not another agent framework and it does not choose a model for you. It handles what happens after the model starts acting: fetching code, installing dependencies, running tests, preserving work, restricting network access, and operating thousands of isolated environments at once.
 

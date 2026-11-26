@@ -10,7 +10,7 @@ tldr: "自我救援先從最簡單的選項想起：溝通、下放、打 119（
 draft: false
 series:
   name: "運動攀登與傳統攀登"
-  order: 12
+  order: 13
 glossary:
   - term: "確保脫離"
     aliases: ["escaping the belay", "belay escape", "確保脫出"]
@@ -30,7 +30,7 @@ glossary:
     context: "AAC 指出這是預防「繩子不夠長」類下放事故最簡單的方法。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-self-rescue-basics-en)
+> :globe: [English version](/posts/climbing/2026-10-17-self-rescue-basics-en)
 
 在[多繩距入門](/posts/climbing/2026-10-17-multi-pitch-basics)裡，你離地面越來越遠。這也代表一件事：出狀況時，能走過來幫你的人越來越少。夥伴卡在一個爬不上去的難關、墜落後撞傷、或者下放到一半發現繩子不夠長，這時你們兩個人手上有什麼選項？
 

@@ -50,7 +50,7 @@ glossary:
         url: "https://arxiv.org/abs/1812.11118"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-ml-transformer-basics)
 
 When an interviewer asks about the [Transformer](https://arxiv.org/abs/1706.03762), they rarely want you to redraw the architecture diagram. What separates candidates is the chain of follow-ups: why does attention divide by √d_k, how does [RoPE](https://arxiv.org/abs/2104.09864) make the dot product depend only on relative distance, what exactly differs between [Adam](https://arxiv.org/abs/1412.6980) and [AdamW](https://arxiv.org/abs/1711.05101), why isn't a high AUC enough to ship. The answers all live in the mechanism, and memorized conclusions rarely survive a second "why?".
 
@@ -121,7 +121,7 @@ An LLM's pretraining loss is cross-entropy on the next token, and perplexity is 
 
 When classes are imbalanced you can swap the loss: [focal loss](https://arxiv.org/abs/1708.02002), proposed for dense object detection, down-weights well-classified examples so a flood of easy negatives doesn't dominate training.
 
-"Don't use MSE for classification because gradients saturate" is a common claim that this post did not verify against a primary source; treat it as a side note and anchor your main argument on the likelihood interpretation and the `p − y` gradient.
+"Don't use MSE for classification because gradients saturate" is a common claim without primary-source backing; treat it as a side note and anchor your main argument on the likelihood interpretation and the `p − y` gradient.
 
 **How to answer in an interview**: Say both are negative log-likelihoods with different distributional assumptions (Gaussian for MSE, categorical for cross-entropy). Then say the gradient of softmax plus cross-entropy is `p − y`. Finish with numerical stability: use log-softmax.
 
@@ -166,7 +166,7 @@ The general F-beta form is `(1+β²)tp / ((1+β²)tp + fp + β²fn)`, and β abo
 On imbalanced data, [Saito and Rehmsmeier](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0118432) argue that visual interpretation of ROC plots can be deceptive, while PR plots show the fraction of true positives among predicted positives and better reflect future classification performance. The toolbox for imbalanced data, roughly cheapest first:
 
 1. Switch metrics to precision, recall and PR curves first; split with stratification so each fold keeps the class ratio.
-2. Class weights (cost-sensitive learning) and threshold tuning are generic practices that this post did not check against a single primary source.
+2. Class weights (cost-sensitive learning) and threshold tuning are generic practices with no single primary source behind them.
 3. Resampling: [SMOTE](https://arxiv.org/abs/1106.1813) synthesizes new minority-class samples and combines that with undersampling of the majority class.
 4. Change the loss, such as the focal loss mentioned earlier.
 
@@ -184,7 +184,7 @@ The scikit-learn docs have a handy demonstration: 200 samples, 10,000 random fea
 
 - **Temporal leakage**: time series can't use a randomly shuffled KFold; use `TimeSeriesSplit` and test on "future" observations.
 - **Group leakage**: samples from the same person (patient) land on both sides of the split and the model can learn the person; use `GroupKFold`.
-- **Target leakage**: a feature itself carries label information, such as a column known only after the outcome. This is the common definition; this post did not check it against a single primary source.
+- **Target leakage**: a feature itself carries label information, such as a column known only after the outcome. This is the common definition, with no single primary source behind it.
 
 **How to answer in an interview**: One-sentence definition, then two concrete practices: `Pipeline` and the random-label check. Asked "should standardization happen inside or outside cross-validation?", answer inside, via a Pipeline, otherwise validation-fold mean and variance leak into training. Asked how to split for recommenders or time series, answer by time, train earlier and test later.
 
@@ -200,7 +200,7 @@ Choose the split to match the data:
 
 Two details are easy to miss: if the data is sorted by class, shuffle first, but when samples aren't i.i.d. (for example, news sorted by time) shuffling inflates scores instead; and when comparing models, fix the CV split (give the splitter an integer `random_state`).
 
-Picking the best result from a hyperparameter search using the same CV score makes that score optimistic; a commonly mentioned remedy is nested cross-validation, whose details this post did not verify and only names here.
+Picking the best result from a hyperparameter search using the same CV score makes that score optimistic; a commonly mentioned remedy is nested cross-validation, which this post only names without going into detail.
 
 **How to answer in an interview**: First say you still need a test set after CV, because CV is for choosing models and hyperparameters, and the final generalization estimate must come from data never touched. Then pick the split by data type: stratified for classification, by time for time series, group for repeated individuals.
 
@@ -274,7 +274,7 @@ Properties worth remembering: R is orthogonal, so rotation doesn't change vector
 
 RoPE still degrades beyond the training length. [Position Interpolation](https://arxiv.org/abs/2306.15595) linearly scales position indices down to the original window instead of extrapolating, because extrapolation can produce catastrophically high attention scores; the paper uses it to extend LLaMA's window to as much as 32768 with fine-tuning of well under a thousand steps.
 
-**How to answer in an interview**: The key to RoPE is that rotation matrices satisfy `R_mᵀ R_n = R_{n−m}`, so the inner product keeps only the relative offset. For "how do you extend a 4K model to 32K?", answer position interpolation plus brief fine-tuning. Other extension methods weren't verified here, so don't go further.
+**How to answer in an interview**: The key to RoPE is that rotation matrices satisfy `R_mᵀ R_n = R_{n−m}`, so the inner product keeps only the relative offset. For "how do you extend a 4K model to 32K?", answer position interpolation plus brief fine-tuning. Other extension methods are out of scope here.
 
 ### LayerNorm, RMSNorm and Pre-LN
 

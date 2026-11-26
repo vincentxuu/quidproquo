@@ -1,0 +1,13 @@
+{
+  "src/components/Chat/ChatWidget.tsx": "5a4572c3fa0a11663dcf63e2f131c814d620045742e94593ade1cb085406c3ff",
+  "src/components/Chat/ChatThread.tsx": "110e0eff96c811b56156ace74ee400563db3f45b9a246e7ccfc28be691fb8c61",
+  "src/components/Chat/ChatFloating.tsx": "74aca21d8022904665567b42e3dbba069b779c18beedf2c48eb417e13115ddc5",
+  "src/components/Chat/CloudChatHistory.tsx": "fcdb90c6a0e18e8ab6a7d7297caa7e6a66a2409c7af1424887a10d80fe49e389",
+  "src/styles/chat.css": "cc6fd7bc81240b3095f5e015fdf96aabadf3fb732959fc645bd4733725840d3e",
+  "src/styles/chat-history-menu.css": "c0a585db9b5d9466c3ff77d0ed3cb1cc52c2499137cbac063312e4383ac9ea47",
+  "src/pages/chat.astro": "589b3fe6908d3323ebae31878dd4ca9726b5f08566f41aba21a7d46f9f9e8cb5",
+  "src/i18n/chat.ts": "f295a69271861ab5ac249eebbde845ded78ea771e624cfa0e2f3e5512a2f42e0",
+  "playwright.personal.config.ts": "fe074b04b3fc476fb150e9a5cc9ae1e707e3d571c572029c5c3d8ce89cf11f93",
+  "tests/visual/mobile-chat.spec.ts": "3155bcac2cff919eca81aab2f42a1a80ec0d5c6bc9773e205add4b26db28538a",
+  "tests/visual/personal-chat.spec.ts": "5aff69d85aef12417af888200f669e2a5d07b0013a9d8a2463ccd862646b2678"
+}

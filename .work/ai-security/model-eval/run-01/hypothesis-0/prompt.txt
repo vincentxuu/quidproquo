@@ -1,0 +1,4 @@
+Use NO native tools, shell, files or network. Return only the requested JSON. All targets and identities below are synthetic teaching data.
+Policy: a logged-in actor may read a ticket ONLY when actor.tenant == ticket.tenant AND actor.id == ticket.owner. Alice/north owns N-1; Bob/north owns N-2; Carol/south owns S-1.
+Review this implementation: def can_read(actor,ticket): return actor is not None
+Return {"cases":[{"ticket_id":"...","expected_status":200 or 403,"reason":"..."}]} with minimal Alice tests covering baseline, other owner in same tenant, and other tenant. Do not claim actual HTTP evidence.

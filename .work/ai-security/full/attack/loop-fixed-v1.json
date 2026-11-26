@@ -1,0 +1,109 @@
+{
+  "mode": "loop",
+  "execution": "fixed-action HTTP replay; no model called",
+  "health": {
+    "build": "fixed-v1",
+    "fixture_revision": "tickets-v1",
+    "policy": "same-tenant-owner",
+    "target_id": "lesson-target"
+  },
+  "same_tenant": "denied_without_content",
+  "stop": "candidate_disproved; no repeated attack",
+  "trace": [
+    {
+      "step": 1,
+      "actor": "alice",
+      "path": "/health",
+      "request": null,
+      "status": 200,
+      "body": {
+        "build": "fixed-v1",
+        "fixture_revision": "tickets-v1",
+        "policy": "same-tenant-owner",
+        "target_id": "lesson-target"
+      }
+    },
+    {
+      "step": 2,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-1"
+      },
+      "status": 200,
+      "body": {
+        "text": "North: printer repair",
+        "ticket_id": "N-1"
+      }
+    },
+    {
+      "step": 3,
+      "actor": "alice",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-2"
+      },
+      "status": 403,
+      "body": {
+        "error": "forbidden"
+      }
+    },
+    {
+      "step": 4,
+      "actor": "bob",
+      "path": "/tools/read_ticket",
+      "request": {
+        "ticket_id": "N-2"
+      },
+      "status": 200,
+      "body": {
+        "text": "North: laptop repair",
+        "ticket_id": "N-2"
+      }
+    }
+  ],
+  "requests": 4,
+  "server_audit": [
+    {
+      "action": "read_ticket",
+      "actor": "alice",
+      "build": "fixed-v1",
+      "decision": "allow",
+      "event_id": "evt-000001",
+      "reason": "object_policy_allowed",
+      "resource": "N-1",
+      "returned_ticket_id": "N-1",
+      "status": 200,
+      "target_id": "lesson-target",
+      "tenant": "north",
+      "timestamp": "2026-10-22T00:12:06.535407+00:00"
+    },
+    {
+      "action": "read_ticket",
+      "actor": "alice",
+      "build": "fixed-v1",
+      "decision": "deny",
+      "event_id": "evt-000002",
+      "reason": "object_policy_denied",
+      "resource": "N-2",
+      "status": 403,
+      "target_id": "lesson-target",
+      "tenant": "north",
+      "timestamp": "2026-10-22T00:12:06.535891+00:00"
+    },
+    {
+      "action": "read_ticket",
+      "actor": "bob",
+      "build": "fixed-v1",
+      "decision": "allow",
+      "event_id": "evt-000003",
+      "reason": "object_policy_allowed",
+      "resource": "N-2",
+      "returned_ticket_id": "N-2",
+      "status": 200,
+      "target_id": "lesson-target",
+      "tenant": "north",
+      "timestamp": "2026-10-22T00:12:06.536268+00:00"
+    }
+  ]
+}

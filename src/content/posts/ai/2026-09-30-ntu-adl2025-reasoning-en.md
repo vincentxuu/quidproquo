@@ -26,7 +26,7 @@ glossary:
     context: "ADL Lecture 12 uses it to explain why a reasoning path that has gone wrong can be cut off early."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-reasoning)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-reasoning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

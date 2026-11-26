@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 34
 ---
-> 🌏 [中文版](/posts/daily/2026-06-27-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-27-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ For Agent platform products, this framework is essentially a "memory design chec
 - The four-module framework turns "memory" from a black box into a decomposable system: representation layer (vectors, graph, keywords?), extraction layer (LLM auto-extraction vs. rule-based?), routing layer (dense retrieval vs. sparse hybrid?), maintenance layer (how to handle stale knowledge)
 - Robustness under dynamic knowledge updates is specifically called out as an evaluation blind spot — existing benchmarks almost never test this dimension
 - Quantification of operational costs is another gap in current evaluations — embedding cost, LLM call cost, index rebuild cost are all overlooked
-- Author Guoliang Li is a well-known database researcher at Tsinghua University with Data Agent research background, lending high credibility to the database perspective ⚠️ (full experimental data requires reading the complete paper)
+- Author Guoliang Li is a well-known database researcher at Tsinghua University with Data Agent research background, lending high credibility to the database perspective :warning: (full experimental data requires reading the complete paper)
 - LangGraph's Memory Store, AutoGen's Memory Module, and MCP's resources mechanism all lack this kind of system-level evaluation tooling — this paper fills a rare gap
 - Adoption barrier: the framework provides analytical methods, but each platform still needs to map these modules to their actual implementations
 
@@ -122,7 +122,7 @@ The "shift left" principle — catching problems at design time costs far less t
 
 ### Deep Dive
 
-- The 12 rules draw inspiration from M&S field composability verification of conceptual models — a cross-domain transfer ⚠️ (rule completeness and applicability to LLM agents requires reading the full paper to confirm)
+- The 12 rules draw inspiration from M&S field composability verification of conceptual models — a cross-domain transfer :warning: (rule completeness and applicability to LLM agents requires reading the full paper to confirm)
 - Test datasets: 48 workflows with known flaws + 168 structural variants — the latter deliberately "disguise" flaws (modifying graph structure while preserving incorrect logic), and the verifier still detected them correctly
 - Existing platform runtime safeguards (e.g., LangGraph's interrupt, AutoGen's termination condition) can only catch errors at execution time, not provide warnings at design time — this paper fills exactly that gap
 - MCP connection: MCP tool definition schema correctness could also be extended with similar design-time verification methods
@@ -177,7 +177,7 @@ This is a critical correction to Agent evaluation methodology. Practical impact:
 
 ### Deep Dive
 
-- 14 parallel experiments cover: new asset classes (including multimodal vision task extensions), different orchestration, different retrieval strategies, different reasoning modes (chain-of-thought vs. direct), infrastructure optimizations, and evaluation methodology probes — substantial experimental scale ⚠️ (61-author large-scale collaboration; confirm whether groups followed a unified evaluation protocol)
+- 14 parallel experiments cover: new asset classes (including multimodal vision task extensions), different orchestration, different retrieval strategies, different reasoning modes (chain-of-thought vs. direct), infrastructure optimizations, and evaluation methodology probes — substantial experimental scale :warning: (61-author large-scale collaboration; confirm whether groups followed a unified evaluation protocol)
 - Core finding: aggregate score rankings don't transfer to out-of-distribution settings; public → hidden test set competition retrospectives provide direct empirical evidence of ranking instability
 - Predictive validity metric: measures ranking "stability" using in-sample and out-of-sample ranking correlation coefficients (e.g., Spearman) — only configurations with high correlation are truly reliable choices
 - Direct relevance to MCP ecosystem: the paper uses an MCP-based industrial benchmark as its primary test bed, so this methodology can be directly applied to MCP-based Agent evaluation design

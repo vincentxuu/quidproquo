@@ -21,9 +21,9 @@ OpenClaw 首先是個**個人 agent**。開箱狀態下，你從 Telegram、What
 
 底層它就是一個普通的 session，預設 key 是 `agent:<id>:main`。特別的是**其他系統都把它當成 agent 的根**：
 
-- **群組活動會匯進來。** 群組與房間 session 預設是隔離的，但在預設 DM 範圍下，主 session 會**自動關注它們**。活動排隊成精簡的通知——**每個對話合併一次，不是每則訊息叫醒一次**——agent 在下次執行時看到（你的下一則訊息，或排程的 heartbeat）
+- **群組活動會匯進來。** 群組與房間 session 預設是隔離的，但在預設 DM 範圍下，主 session 會**自動關注它們**。活動排隊成精簡的通知——**每個對話合併一次，不是每則訊息叫醒一次**——agent 在下次執行時看到（你的下一則訊息，或在主對話裡跑的排程檢查）
 - **背景工作會回報。** 子 agent 與 spawn 出來的 session 會把結果宣告回啟動它們的那個 session
-- **Heartbeat 指向主 session**，這就是為什麼你沒說話它也會有意識
+- **週期性檢查可以跑在主 session**：新安裝會建一個 Proactive check（預設關閉，打開後每 30 分鐘、閒置才跑），用的就是主對話，這就是為什麼你沒說話它也會有意識
 
 ## DM 範圍：多人時必須主動隔離
 
@@ -84,7 +84,7 @@ binding 的覆寫贏過全域設定。要注意它**只改變 session key 的選
 | `idle` | 閒置 `idleMinutes` 之後開新 session |
 | 手動 | 聊天裡打 `/new` 或 `/reset`（`/new <model>` 還會換模型）|
 
-兩個容易踩到的細節：**每日重置的新鮮度基準是當前 `sessionId` 開始的時間，不是後來的中繼資料寫入**；而**閒置重置的基準是最後一次真實的使用者／頻道互動——heartbeat、cron 與 exec 這類系統事件不會讓 session 保持存活**。兩者都設時，先到期的贏。
+兩個容易踩到的細節：**每日重置的新鮮度基準是當前 `sessionId` 開始的時間，不是後來的中繼資料寫入**；而**閒置重置的基準是最後一次真實的使用者／頻道互動——排程工作與 exec 這類系統事件不會讓 session 保持存活**。兩者都設時，先到期的贏。
 
 重置時還有一個貼心處理：**舊 session 排隊中的系統事件通知會被丟棄**，免得過時的背景更新被塞到新 session 的第一個 prompt 前面。
 
@@ -107,7 +107,7 @@ binding 的覆寫贏過全域設定。要注意它**只改變 session key 的選
 
 **`USER.md` 有一條寫法規則值得注意**：偏好改變時要**就地標記 superseded，而不是追加一條矛盾的 active 指令**。這避免了「新舊偏好同時有效」這種很難查的錯誤。
 
-**蒸餾是自動的**：每日筆記裡有用的材料會被預設的 **dreaming** 掃描蒸餾進 `MEMORY.md`。預設的 heartbeat prompt 本身**不做任何記憶維護**。
+**蒸餾是自動的**：每日筆記裡有用的材料會被預設的 **dreaming** 掃描蒸餾進 `MEMORY.md`。
 
 **`MEMORY.md` 太大時**，OpenClaw 保留磁碟上的完整檔案，但**截斷注入上下文的那份副本**。把這當成訊號：把細節搬去 `memory/*.md`、只在 `MEMORY.md` 留耐久摘要，或提高 bootstrap 上限。用 `/context list`、`/context detail` 或 `openclaw doctor` 看原始大小與注入大小的差異與截斷狀態。
 
@@ -152,6 +152,8 @@ Control UI 的 **Settings → Import Memory** 可以匯入 Codex、Claude Code �
 
 ## 更新紀錄
 
+- 2026-11-23：修正 Proactive check 的說法：新安裝會建立這個工作，但預設是關的，要自己用 `openclaw automations enable` 打開（原寫成新安裝就會每 30 分鐘跑）。
+- 2026-11-20：heartbeat 已遷移成一般 automation 工作，主 session 的說明改成 Proactive check（每 30 分鐘、用主對話、閒置才跑）；拿掉「預設 heartbeat prompt 不做記憶維護」這句。
 - 2026-08-18：對照官方文件現況大改。新增：**主 session 的匯流設計**（群組活動合併成通知、背景工作回報、heartbeat 指向它）、`dmScope` 四種模式與啟用隔離會連帶關掉群組關注與跨對話回想、`groupScope` 的 binding 層覆寫、**incognito session** 及其明確邊界（不限制工具、供應商仍處理訊息、保護的不是 gateway 擁有者）、重置的新鮮度基準（系統事件不延長閒置計時）與重置時丟棄舊通知、**10 GB 磁碟預算與壓縮封存**。記憶部分新增 `USER.md` 與 `DREAMS.md` 兩個檔案、`USER.md` 的 supersede 寫法、**dreaming 掃描負責蒸餾而 heartbeat 不做記憶維護**、`MEMORY.md` 超出預算時只截斷注入副本、**會影響行動的記憶**該捕捉的行動邊界（含「記憶不執行政策」的界線）、`intent` 工具、記憶引擎已 plugin 化與混合搜尋的供應商選項，以及從 Codex／Claude Code／Hermes 匯入記憶的範圍與隔離存放。
 
 ## 參考資料

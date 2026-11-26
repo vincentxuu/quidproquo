@@ -17,7 +17,7 @@ glossary:
     def: "由 MOSI.AI、上海創新研究院（SII）、復旦大學與上海交通大學團隊組成的開源 AI 研究組織，早期以中文對話模型 MOSS 聞名"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-19-model-openmoss-moss-image-en)
+> :globe: [English version](/posts/daily/2026-10-19-model-openmoss-moss-image-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | RLA 端到端系統 Elo（9 系統比較，完整 pipeline） | 1698.70（排名第 2） | 首作，無前代 | GPT Image 2：1844.35（排名第 1） |
 | RLA 共享增強 prompt 骨幹比較 Elo（9 生成器） | 1807.34（排名第 1） | 首作，無前代 | ERNIE Image：1748.51 |
 
-⚠️ 以上 LLTB、7Bench、RLA 三項均由 OpenMOSS 官方自行建構題庫並自行評測（論文原文：「all results on 7Bench, LLTB, and RLA are obtained through our own evaluation」），目前無獨立第三方覆現數字，分數高低需保留一定保留態度。唯一引用外部公開報告的是 LongTextBench，官方指出該基準已接近飽和（各模型普遍落在 96.05–98.85 分區間），因此改以自建的 LLTB 當主要評測。
+:warning: 以上 LLTB、7Bench、RLA 三項均由 OpenMOSS 官方自行建構題庫並自行評測（論文原文：「all results on 7Bench, LLTB, and RLA are obtained through our own evaluation」），目前無獨立第三方覆現數字，分數高低需保留一定保留態度。唯一引用外部公開報告的是 LongTextBench，官方指出該基準已接近飽和（各模型普遍落在 96.05–98.85 分區間），因此改以自建的 LLTB 當主要評測。
 
 ## 與前代/競品比較
 

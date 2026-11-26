@@ -45,10 +45,10 @@ glossary:
 | Artificial Analysis Intelligence Index v4.2（中立） | 15 | N/A（1B 版未列入此版本評測組） | Granite 4.2 3B：11 |
 | GDPval-AA v2 Elo（中立，真實工作任務） | 831 | N/A | Ling 3.0 Tiny：718 |
 | τ³-Bench Banking（中立，Agent 工具呼叫） | 21%（與 Ling 3.0 Tiny 並列第一） | N/A | Granite 4.2 8B：8% |
-| SWE-bench Verified ⚠️（官方自測） | 46.4% | N/A | Qwen3.5-4B：33.6%（4B 對照組最佳） |
+| SWE-bench Verified :warning:（官方自測） | 46.4% | N/A | Qwen3.5-4B：33.6%（4B 對照組最佳） |
 | Humanity's Last Exam（中立） | 9% | N/A | Gemma 4 12B（Reasoning）：16% |
 
-⚠️ 除標注者外，其餘皆為 Artificial Analysis 獨立測試；SWE-bench Verified 為 OpenBMB 官方自測（見 Hugging Face model card），尚未經第三方復現。MiniCPM5-1B 與 MiniCPM5-2B 分屬不同量級評測組（1B 版對照 Qwen3-0.6B 等，2B 版對照 Qwen3.5-2B 等），兩者無直接可比數字，故「前代」欄位缺值。
+:warning: 除標注者外，其餘皆為 Artificial Analysis 獨立測試；SWE-bench Verified 為 OpenBMB 官方自測（見 Hugging Face model card），尚未經第三方復現。MiniCPM5-1B 與 MiniCPM5-2B 分屬不同量級評測組（1B 版對照 Qwen3-0.6B 等，2B 版對照 Qwen3.5-2B 等），兩者無直接可比數字，故「前代」欄位缺值。
 
 ## 與前代/競品比較
 

@@ -37,7 +37,7 @@ glossary:
     context: "本講的最後一段，讓單張較小的 GPU 也能微調大模型。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-training-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -188,7 +188,7 @@ SFT（Supervised FineTuning）的想法是調整權重來改變模型行為：
 評估那一項投影片展開講了兩條路：
 
 - **Benchmark**：一般知識看 MMLU、基礎推理看 ARC-Challenge、數學看 GSM8K、程式看 HumanEval。投影片提醒，要跨模型比較，建議先在測試任務上訓練過再比，引用 [Dominguez-Olmedo 等人](https://arxiv.org/abs/2407.07890)的研究：有沒有針對測試任務訓練過，會混淆評估結果
-- **真實體感**：像 Chatbot Arena（現在叫 [LMArena](https://lmarena.ai/leaderboard)）讓使用者對兩個匿名模型的回答做 A/B 投票。好處是替「vibes」打了個分數；問題包括新模型曝光不均的冷啟動、容易被操縱、使用者無法判斷事實正確性、個人偏好不具代表性、安全拒答會被扣分
+- **真實體感**：像 Chatbot Arena（後來改名 LMArena，現在叫 [Arena](https://arena.ai/leaderboard)）讓使用者對兩個匿名模型的回答做 A/B 投票。好處是替「vibes」打了個分數；問題包括新模型曝光不均的冷啟動、容易被操縱、使用者無法判斷事實正確性、個人偏好不具代表性、安全拒答會被扣分
 
 投影片的結語是：「evaluation is a hard problem in itself!」本系列 [order 8](/posts/ai/2026-09-29-cme295-llm-evaluation) 會專門談這件事。
 
@@ -304,6 +304,7 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 
 ## 更新紀錄
 
+- 2026-11-23：LMArena 已於 2026-01 改名 Arena、網址搬到 arena.ai，連結與名稱跟著更新。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。影片是 2025 第 4 講，主題與日期皆與本文相符，沒有需修正之處。
@@ -328,7 +329,7 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 4 - LLM Train
 - [Micikevicius et al., Mixed Precision Training (2017)](https://arxiv.org/abs/1710.03740)
 - [Wei et al., Finetuned Language Models Are Zero-Shot Learners (2021)](https://arxiv.org/abs/2109.01652)
 - [Dominguez-Olmedo et al., Training on the Test Task Confounds Evaluation and Emergence (2024)](https://arxiv.org/abs/2407.07890)
-- [LMArena Leaderboard](https://lmarena.ai/leaderboard)
+- [Arena Leaderboard（原 LMArena）](https://arena.ai/leaderboard)
 - [Hu et al., LoRA: Low-Rank Adaptation of Large Language Models (2021)](https://arxiv.org/abs/2106.09685)
 - [Schulman et al., LoRA Without Regret (Thinking Machines, 2025)](https://thinkingmachines.ai/blog/lora/)
 - [Dettmers et al., QLoRA: Efficient Finetuning of Quantized LLMs (2023)](https://arxiv.org/abs/2305.14314)

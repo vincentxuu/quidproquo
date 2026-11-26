@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 50
 ---
-> 🌏 [English version](/posts/daily/2026-07-13-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-13-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,7 +71,7 @@ Amazon 把 agent 每次都要「重新生成」的固定操作程式碼，預先
 - 部署場景：Amazon Fulfillment Center alarm-triage（履行中心警報診斷），真實 production 系統，非 lab benchmark
 - 架構分層：offline tool-maker（工具合成階段）+ online production agent（工具呼叫階段），明確分離關注點
 - Tool repair loop：自動對照 labeled cases 修復候選工具函式，確保準確度達門檻才上線
-- **⚠️ p50 latency -42%、error rate -53%** 來自 Amazon 內部 production 系統，外部無法直接重現
+- **:warning: p50 latency -42%、error rate -53%** 來自 Amazon 內部 production 系統，外部無法直接重現
 - 錯誤率下降原因：預先編譯消除了「run-to-run variance」（每次隨機生成帶來的差異）
 - Fallback 機制：工具庫覆蓋不到的 edge case 仍走即時生成，保持系統穩健性
 - 冷啟動問題：初期 execution trace 不足時工具覆蓋率低，需一段時間累積才有效
@@ -131,7 +131,7 @@ Amazon 把 agent 每次都要「重新生成」的固定操作程式碼，預先
 - Memory bank 五分類：任務需求 / 環境事實 / 過去嘗試 / 診斷結果 / 待完成子目標——這個分類本身是可借鑒的設計
 - 注入時機是關鍵設計點：過多注入干擾 action agent，過少則無效；memory agent 需有足夠能力判斷
 - 與 LangGraph persistence 的差異：LangGraph 的記憶在 checkpointing 層，靠 agent 主動 retrieve；ProMem 是獨立 agent 主動 push
-- **⚠️ Memory agent 的 token / latency overhead 在論文中未詳細報告**——對實際部署成本估算是一個明顯缺口
+- **:warning: Memory agent 的 token / latency overhead 在論文中未詳細報告**——對實際部署成本估算是一個明顯缺口
 - Limitation：memory agent 本身的品質直接影響效果；用弱模型作 memory agent 時效果未被充分討論
 - Limitation：步驟數極少的短任務中，overhead 可能不值得
 
@@ -159,7 +159,7 @@ Amazon 把 agent 每次都要「重新生成」的固定操作程式碼，預先
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 多 agent 遞迴分工的概念有前例，但 WebSwarm 把它具體應用在 deep web research 場景，適合想設計研究型 agent pipeline 的工程師了解架構 pattern，不需深究細節。
 
 ### 領域背景
@@ -183,7 +183,7 @@ WebSwarm 採用遞迴分解策略：(1) **Orchestrator agent** 把問題分解�
 
 ### 深入要點
 
-- **⚠️ 本文為 work in progress**，詳細 benchmark 結果尚未完整披露，效果數字需等後續版本確認
+- **:warning: 本文為 work in progress**，詳細 benchmark 結果尚未完整披露，效果數字需等後續版本確認
 - 遞迴深度動態調整：依問題複雜度決定分解層數，但防止無限展開的機制未詳述
 - 與 LangGraph subgraph 對比：LangGraph 支援靜態定義的 subgraph；WebSwarm 的遞迴是動態的，更靈活但更難控制
 - Orchestrator-worker 通訊開銷：多層遞迴會增加 agent 間通訊的 token 和延遲成本，論文未量化

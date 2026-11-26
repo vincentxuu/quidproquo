@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 13
 ---
-> 🌏 [English version](/posts/daily/2026-06-06-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-06-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -67,7 +67,7 @@ LLM agent 的 context window 是有限的，但真正有用的 agent 需要記�
 
 ### 深入要點
 
-- 8 個被測試的記憶系統涵蓋目前主流設計類型；核心結果：大多數系統只在自己最初設計的場景表現出色，跨場景排名顯著下滑——典型的「設計過擬合」現象 ⚠️（具體系統名稱與分數需查原文）
+- 8 個被測試的記憶系統涵蓋目前主流設計類型；核心結果：大多數系統只在自己最初設計的場景表現出色，跨場景排名顯著下滑——典型的「設計過擬合」現象 :warning:（具體系統名稱與分數需查原文）
 - AutoMEM 架構極簡：agent 透過 tool call 讀寫純文字檔，所有記憶的結構化和索引都由 agent 自行決定，沒有外部固定 pipeline
 - 關鍵設計原則的逆轉：傳統觀點認為「記憶系統要幫 agent 做好組織和索引」，本文反轉為「讓 agent 自己決定怎麼組織，系統只提供 read/write 工具」
 - AutoMEM 在 LoCoMo benchmark（長程對話記憶測試集）上超越 DCI-Lite 和純 long-context 方法；在 structural rate 最高的 benchmark 上提升最顯著
@@ -115,7 +115,7 @@ LLM agent 的 context window 是有限的，但真正有用的 agent 需要記�
 
 #### 方法
 
-Meta-Agent Challenge（MAC）給一個「元代理人」（code agent）一個沙箱環境、一個評測 API、以及時間限制，要求它透過不斷迭代寫程式，建立一個在某個領域表現最好的 agent 成品，橫跨五個領域。人工設計的 baseline policy 作為參照標準；有多層防護機制防止 reward hacking（玩弄評分系統竄改分數而非真正改善能力）⚠️（具體防護實作需查原文）。
+Meta-Agent Challenge（MAC）給一個「元代理人」（code agent）一個沙箱環境、一個評測 API、以及時間限制，要求它透過不斷迭代寫程式，建立一個在某個領域表現最好的 agent 成品，橫跨五個領域。人工設計的 baseline policy 作為參照標準；有多層防護機制防止 reward hacking（玩弄評分系統竄改分數而非真正改善能力）:warning:（具體防護實作需查原文）。
 
 #### 為什麼重要
 
@@ -124,10 +124,10 @@ Meta-Agent Challenge（MAC）給一個「元代理人」（code agent）一個�
 ### 深入要點
 
 - MAC 的沙箱包含「評測 API」：meta-agent 可在迭代過程中自行測試開發中的 agent，這是貼近真實開發流程的關鍵設計，讓評測比純靜態 benchmark 更有說服力
-- 多層防 reward-hacking 機制（具體實作⚠️待查原文）
-- 核心結果：meta-agent 很少超越人工設計的 baseline；能達標的幾乎都是頂級閉源模型 ⚠️（具體模型排名與分數需查論文）
+- 多層防 reward-hacking 機制（具體實作:warning:待查原文）
+- 核心結果：meta-agent 很少超越人工設計的 baseline；能達標的幾乎都是頂級閉源模型 :warning:（具體模型排名與分數需查論文）
 - 開源模型在 meta-agent 任務上表現顯著落後，暗示此高階能力目前仍是閉源模型優勢
-- 五個領域的設計確保覆蓋不同任務類型，避免評測偏向特定場景 ⚠️（具體領域名稱需查原文）
+- 五個領域的設計確保覆蓋不同任務類型，避免評測偏向特定場景 :warning:（具體領域名稱需查原文）
 - 與現有 agent 框架的關聯：LangGraph/AutoGen 的 code-based agent 定義是 meta-agent 操作的基礎——MAC 實際上在測「能不能自己寫出好的 LangGraph/AutoGen 程式碼」
 - **Limitation 1**：時間限制下的迭代次數有限，實際更長時間的 meta-agent 表現不在評測範圍
 - **Limitation 2**：reward API 的精確度直接影響 meta-agent 能否有效學習，API 設計偏差可能影響整體評測公正性
@@ -181,14 +181,14 @@ Claude Sonnet 4.6 和 GPT-5.4 在網頁操作任務中 prompt injection 攻擊�
 ### 深入要點
 
 - **過去論文的 42-98% ASR 需要重新解讀**：幾乎都集中在退役模型或最脆弱版本，本文提供截至 2026 年的現實校準數字，是業界「降溫劑」
-- CUA-HandCrafted 是公開 benchmark：793 episodes、24 web 任務、56 攻擊模板、8 攻擊家族（⚠️具體家族類型需查原文）、4 種 system prompt 設定
+- CUA-HandCrafted 是公開 benchmark：793 episodes、24 web 任務、56 攻擊模板、8 攻擊家族（:warning:具體家族類型需查原文）、4 種 system prompt 設定
 - **網頁任務結果**：Claude Sonnet 4.6 + GPT-5.4 面對 140 個多步驟攻擊，0 次成功；Clopper-Pearson 95% 上界 2.60%
 - Prompt ablation 實驗顯示：這種抵抗力住在 **model weights**，不只是 system prompt 的防護——意味著提示工程無法彌補 weights 層面的不足
-- **程式碼任務結果（SkillBench）**：同樣 weights 面對 hand-crafted skill injection 攻擊，成功率高達 **100%** ⚠️（SkillBench 細節透明度待確認）
+- **程式碼任務結果（SkillBench）**：同樣 weights 面對 hand-crafted skill injection 攻擊，成功率高達 **100%** :warning:（SkillBench 細節透明度待確認）
 - 「域條件式安全」（domain-conditioned safety）是本文最重要的發現：不同任務域的攻擊面完全不同，一個域上的安全測試不能推論到另一個域
 - Reproducibility audit 確認：過去論文的攻擊模板確實可以複現，問題不在攻擊設計，而在模型版本——有助於公平評價過去研究
 - **Limitation 1**：只測了兩個模型（Claude Sonnet 4.6 + GPT-5.4）；開源模型的域條件式安全未涵蓋
-- **Limitation 2**：SkillBench 100% 成功率可能因攻擊模板設計較為刻意，邊界條件需等社群複現 ⚠️
+- **Limitation 2**：SkillBench 100% 成功率可能因攻擊模板設計較為刻意，邊界條件需等社群複現 :warning:
 - 單人作者（Patronus AI + UC Berkeley）：Patronus AI 是專注 AI evaluation 的公司，有評測基礎設施，但單人研究需留意複審機制
 
 ### Reviewer 一句話評

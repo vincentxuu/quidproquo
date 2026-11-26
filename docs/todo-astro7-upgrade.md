@@ -22,9 +22,8 @@
 
 ### 1. Markdown 處理器（Sätteri 取代 remark/rehype）
 
-Astro 7 預設用 Sätteri，不再內建 unified/remark/rehype。需安裝 `@astrojs/markdown-remark` 讓現有的三個 plugin 繼續運作：
+Astro 7 預設用 Sätteri，不再內建 unified/remark/rehype。需安裝 `@astrojs/markdown-remark` 讓現有的兩個 plugin 繼續運作：
 
-- `remarkReadingTime`
 - `rehypeExternalLinks`（自訂）
 - `rehypeLazyImages`（自訂）
 

@@ -13,7 +13,7 @@ description: "A guide to bouldering in Valle di Daone: the granite and the secto
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-daone)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-daone)
 
 Valle di Daone is a side valley of the Valle del Chiese in western Trentino, running up into the Adamello massif. Its floor is scattered with granite boulders that rolled off the valley sides thousands of years ago, and it is now one of the most popular bouldering areas in northern Italy. It is about 70 km from [Arco](/posts/climbing/2026-10-18-italy-crag-arco-en), and many climbers fit both into one trip.
 

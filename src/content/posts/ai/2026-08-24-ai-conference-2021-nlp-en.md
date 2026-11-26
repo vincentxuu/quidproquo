@@ -23,7 +23,7 @@ glossary:
     context: "Findings of EMNLP 2021 accepted 419 papers."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2021-nlp)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2021-nlp)
 
 The leading NLP conferences of 2021 shared a subtle but profoundly influential theme: **stop fine-tuning the entire model**. Prefix-Tuning, LoRA, and Prompt Tuning all appeared that year. Each became part of the standard toolkit for parameter-efficient adaptation. ACL Rolling Review also launched in 2021, beginning a change in how NLP papers were submitted and reviewed.
 

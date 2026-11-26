@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-webdancer-webthinker-from-scratch)
+> :globe: [中文版](/posts/ai/2026-09-19-webdancer-webthinker-from-scratch)
 
 Last article's panorama mapped the four core components of Deep Research systems. This article zooms into one of them: **training methodology**. Two NeurIPS 2025 papers take fundamentally different philosophies to train agents that can autonomously research the web from scratch.
 

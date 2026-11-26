@@ -26,7 +26,7 @@ glossary:
     context: "L2 第 74 頁用 FLOPS = FLOPs / second 區分兩者。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-basics-efficiency-metrics-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

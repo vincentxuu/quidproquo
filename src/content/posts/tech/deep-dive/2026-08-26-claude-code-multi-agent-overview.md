@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview-en)
 
 平常一個 Claude Code session 從頭做到尾就夠了。但任務一大——同時修三個互不相干的 bug、做一次掃過整個 repo 的稽核、把 500 個檔案的遷移拆開跑——單線程就開始吃力。這篇是 F 叢集（多代理）的全景篇：先講清楚官方認得的四種方式各有什麼、怎麼選，最後補上不管選哪種都躲不掉的一件事——平行工作的檔案衝突要靠 worktree 隔離。單一 subagent 的機制細節已經在[前一篇](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution)拆解過，這篇不再重複。
 

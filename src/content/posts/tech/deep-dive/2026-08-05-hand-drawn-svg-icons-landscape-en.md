@@ -19,7 +19,7 @@ glossary:
     context_en: "This article uses it to explain how sketchyicons turns Lucide's straight runs into hand-drawn-looking arcs."
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-05-hand-drawn-svg-icons-landscape)
 
 [Koboyo Icons](https://koboyo.com/icons) lists close to 90,000 free hand-drawn SVG icons — free for commercial use, no attribution, no signup. That scale is absurd for a free library: [Streamline](https://www.streamlinehq.com/)'s Freehand, billed as the largest hand-drawn set in the industry, has 11,171 icons in its main set, and costs money.
 

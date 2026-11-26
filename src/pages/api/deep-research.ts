@@ -3,7 +3,7 @@ export const prerender = false
 import type { APIRoute } from 'astro'
 import { env as cloudflareEnv } from 'cloudflare:workers'
 import { initGatelane } from '../../lib/gatelane'
-import { verifySession } from '../../lib/auth/session'
+import { requireAdmin } from '../../lib/auth/admin'
 import { runDeepResearch, type DeepResearchBody } from '../../lib/research/orchestrator'
 import type { Env } from '@/lib/config/env'
 
@@ -13,11 +13,8 @@ export const POST: APIRoute = async (context) => {
     const { request, cookies } = context
     const routeEnv = (context as unknown as { env?: Env }).env
     const runtimeEnv = ((routeEnv as unknown as Env | undefined) ?? (cloudflareEnv as unknown as Env))
-    const sessionToken = cookies.get('session')?.value
-    const authSuccess = sessionToken ? await verifySession(sessionToken) : false
-    if (!authSuccess) {
-      return new Response('Unauthorized', { status: 401 })
-    }
+    const auth = await requireAdmin(cookies, request)
+    if (!auth.ok) return auth.response
 
     const payload = await request.json().catch(() => ({})) as DeepResearchBody
     const brief = typeof payload.brief === 'string' ? payload.brief.trim() : ''

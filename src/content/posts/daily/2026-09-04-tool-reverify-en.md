@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-tool-reverify)
+> :globe: [中文版](/posts/daily/2026-09-04-tool-reverify)
 
 ## Tool Info
 
@@ -80,11 +80,11 @@ Over MCP you get two extra tools: `re_verify_claim` exposes the verification loo
 
 | | reverify | Asking AI directly (no verification layer) | Manual Ghidra/IDA analysis | A generic "AI disassembly" wrapper |
 |---|---|---|---|---|
-| Claims checked against deterministic byte evidence | ✅ | ❌ | ✅ (by a human) | ❌ |
-| Works without installing Ghidra | ✅ (pure-Python core) | — | ❌ | Depends |
-| Ships as an MCP server agents can call natively | ✅ | — | ❌ | Partial |
-| State survives a context compaction/clear | ✅ (ledger on disk) | ❌ | ✅ (human memory) | ❌ |
-| Requires manual step-by-step operation | ❌ (can loop automatically via `reconstruct`) | — | ✅ | ❌ |
+| Claims checked against deterministic byte evidence | ✓ | ✗ | ✓ (by a human) | ✗ |
+| Works without installing Ghidra | ✓ (pure-Python core) | — | ✗ | Depends |
+| Ships as an MCP server agents can call natively | ✓ | — | ✗ | Partial |
+| State survives a context compaction/clear | ✓ (ledger on disk) | ✗ | ✓ (human memory) | ✗ |
+| Requires manual step-by-step operation | ✗ (can loop automatically via `reconstruct`) | — | ✓ | ✗ |
 
 ## Things to Watch Out For
 

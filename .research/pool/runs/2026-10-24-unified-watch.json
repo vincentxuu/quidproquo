@@ -1,0 +1,2831 @@
+{
+  "version": 1,
+  "batch": {
+    "version": 1,
+    "batch_id": "2026-10-24-research-watch-batch",
+    "date": "2026-10-24",
+    "max_requests": 32,
+    "rotation_week": 2963,
+    "rotation_offset": 2,
+    "sorted_watch_ids": [
+      "climbing-crags",
+      "climbing-gear",
+      "climbing-technique"
+    ],
+    "execution_order": [
+      "climbing-technique",
+      "climbing-crags",
+      "climbing-gear"
+    ],
+    "enabled_watch_count": 3,
+    "planned_requests": 18,
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-10-24-climbing-technique-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-10-24-climbing-crags-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-10-24-climbing-gear-watch",
+        "request_count": 6,
+        "status": "planned",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": ""
+      }
+    ]
+  },
+  "summary": {
+    "version": 1,
+    "batch_id": "2026-10-24-research-watch-batch",
+    "date": "2026-10-24",
+    "max_requests": 32,
+    "planned_requests": 18,
+    "execution_order": [
+      "climbing-technique",
+      "climbing-crags",
+      "climbing-gear"
+    ],
+    "complete": true,
+    "status_counts": {
+      "complete": 3,
+      "incomplete": 0,
+      "failed": 0,
+      "pending": 0,
+      "deferred": 0
+    },
+    "completed_watches": 3,
+    "new_sources": 23,
+    "known_sources": 12,
+    "new_source_ids": [
+      "src_0bc3df0981c220395a4c",
+      "src_1024b2be1fc4500f2a29",
+      "src_16aadcf01d009223efad",
+      "src_17fd51a131098c8de797",
+      "src_1936cd7e95d4da0eed17",
+      "src_23e969a34cd304cc2068",
+      "src_41145976ff2a7b7f86ee",
+      "src_4d294dc5cd7d7ed85de6",
+      "src_51d52f1ddb56d49decd1",
+      "src_56f211f3f7d5e2e1d72a",
+      "src_5b864e09846408528908",
+      "src_6c9a6b1aea514c998662",
+      "src_82aeaac0cc0e342d96ed",
+      "src_8d354ecf0b9bc1b779dc",
+      "src_8fb6f4ac1086276d5dbd",
+      "src_9de809b2fd1c9fa385ca",
+      "src_b37f059f90d36ee26b96",
+      "src_c3ec1eda19ab7e10657b",
+      "src_cd60c5d759b78d563a9a",
+      "src_d8ef36f45ab15a2d82a0",
+      "src_eebaeebaf7f99ec9b3e6",
+      "src_efe6eb66781e5d9069c7",
+      "src_ff9392b1f9489f4eff05"
+    ],
+    "jobs": [
+      {
+        "order": 1,
+        "watch_id": "climbing-technique",
+        "title": "攀岩／技巧與安全研究追蹤",
+        "category": "climbing",
+        "topic": "technique",
+        "run_id": "2026-10-24-climbing-technique-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-technique/plan.json",
+        "summary_path": "climbing-technique/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 8,
+        "known_sources": 4
+      },
+      {
+        "order": 2,
+        "watch_id": "climbing-crags",
+        "title": "攀岩／岩場與路線研究追蹤",
+        "category": "climbing",
+        "topic": "crags",
+        "run_id": "2026-10-24-climbing-crags-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-crags/plan.json",
+        "summary_path": "climbing-crags/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 7,
+        "known_sources": 4
+      },
+      {
+        "order": 3,
+        "watch_id": "climbing-gear",
+        "title": "攀岩／裝備研究追蹤",
+        "category": "climbing",
+        "topic": "gear",
+        "run_id": "2026-10-24-climbing-gear-watch",
+        "request_count": 6,
+        "status": "complete",
+        "plan_path": "climbing-gear/plan.json",
+        "summary_path": "climbing-gear/summary.json",
+        "deferred_reason": null,
+        "reason": "",
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "new_sources": 8,
+        "known_sources": 4
+      }
+    ]
+  },
+  "watches": [
+    {
+      "watch_id": "climbing-technique",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-technique",
+          "title": "攀岩／技巧與安全研究追蹤",
+          "category": "climbing",
+          "topic": "technique",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 技巧與安全"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing technique."
+            }
+          ]
+        },
+        "date": "2026-10-24",
+        "run_id": "2026-10-24-climbing-technique-watch",
+        "rotation_week": 2963,
+        "known_source_count": 114,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 2,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_f221897325a76d6936a6",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_f221897325a76d6936a6",
+            "url": "https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units",
+            "query": "攀岩 技巧與安全 Important safety notice: product recall DMM compact swivel units",
+            "title": "Important safety notice: product recall DMM compact swivel units"
+          },
+          {
+            "id": "source-src_f96ba5adfc0c90fb6a54",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_f96ba5adfc0c90fb6a54",
+            "url": "https://www.youtube.com/watch?v=RvW6hzzRr8g",
+            "query": "攀岩 技巧與安全 How to dock and release a haul bag",
+            "title": "How to dock and release a haul bag"
+          },
+          {
+            "id": "source-src_fe5238071912598280bb",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_fe5238071912598280bb",
+            "url": "https://andykirkpatrick.substack.com/p/advanced-hauling",
+            "query": "攀岩 技巧與安全 Advanced Hauling (Andy Kirkpatrick, Substack, 2021-06-01)",
+            "title": "Advanced Hauling (Andy Kirkpatrick, Substack, 2021-06-01)"
+          },
+          {
+            "id": "source-src_ff0c6e76463ca054e43e",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_ff0c6e76463ca054e43e",
+            "url": "https://www.youtube.com/watch?v=yRi2GLXLtTk",
+            "query": "攀岩 技巧與安全 Big Wall Climbing in Squamish!",
+            "title": "Big Wall Climbing in Squamish!"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing technique."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-10-24-climbing-technique-watch",
+        "date": "2026-10-24",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 8,
+        "known_sources": 4,
+        "candidates": [
+          {
+            "id": "src_1024b2be1fc4500f2a29",
+            "url": "https://hkcmcu.org.hk/hk/standard-handbook",
+            "title": "標準及各專項訓練手冊 - 中國香港攀山及攀登總會有限公司",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_56f211f3f7d5e2e1d72a",
+            "url": "https://www.sport.gov.cn/n20001280/n20745751/c30022079/content.html",
+            "title": "以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布_国家体育总局",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2026-09-09T19:22:16.000Z"
+          },
+          {
+            "id": "src_6c9a6b1aea514c998662",
+            "url": "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+            "title": "国家体育总局登山运动管理中心",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2026-09-23T19:44:46.000Z"
+          },
+          {
+            "id": "src_82aeaac0cc0e342d96ed",
+            "url": "https://ec.europa.eu/programmes/erasmus-plus/project-result-content/7b11b5b7-90cb-47b5-b278-ad98715a6424/Guidelines_for_youth_climbing.pdf",
+            "title": "Guidelines for youth climbing",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_8d354ecf0b9bc1b779dc",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+            "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2026-02-28T00:00:00.000Z"
+          },
+          {
+            "id": "src_b37f059f90d36ee26b96",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10623130/",
+            "title": "Neuromechanics of finger hangs with arm lock-offs: analyzing joint moments and muscle activations to improve practice guidelines for climbing",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2023-10-20T00:00:00.000Z"
+          },
+          {
+            "id": "src_eebaeebaf7f99ec9b3e6",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6527913/",
+            "title": "Determinants for success in climbing: A systematic review",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2019-05-03T00:00:00.000Z"
+          },
+          {
+            "id": "src_ff9392b1f9489f4eff05",
+            "url": "https://www.mountain-training.org/media/xqvbp5ge/accessbook-1-belaying-en-2024.pdf",
+            "title": "Belaying in a climbing gym",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_f221897325a76d6936a6",
+            "url": "https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units",
+            "title": "Important safety notice: product recall DMM compact swivel units",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_f221897325a76d6936a6"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_f96ba5adfc0c90fb6a54",
+            "url": "https://www.youtube.com/watch?v=RvW6hzzRr8g",
+            "title": "How to dock and release a haul bag",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "rejected",
+            "decision": "rejected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_f96ba5adfc0c90fb6a54"
+            ],
+            "tools": [
+              "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review."
+            ],
+            "reasons": [
+              "Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_fe5238071912598280bb",
+            "url": "https://andykirkpatrick.substack.com/p/advanced-hauling",
+            "title": "Advanced Hauling (Andy Kirkpatrick, Substack, 2021-06-01)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_fe5238071912598280bb"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_ff0c6e76463ca054e43e",
+            "url": "https://www.youtube.com/watch?v=yRi2GLXLtTk",
+            "title": "Big Wall Climbing in Squamish!",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "rejected",
+            "decision": "rejected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_ff0c6e76463ca054e43e"
+            ],
+            "tools": [
+              "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review."
+            ],
+            "reasons": [
+              "Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_f221897325a76d6936a6",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_f96ba5adfc0c90fb6a54",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+            "coverage": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_fe5238071912598280bb",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_ff0c6e76463ca054e43e",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+            "coverage": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+            "count": 4,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+            "count": 4,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://hkcmcu.org.hk/hk/standard-handbook",
+          "title": "標準及各專項訓練手冊 - 中國香港攀山及攀登總會有限公司",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/n20001280/n20745751/c30022079/content.html",
+          "title": "以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布_国家体育总局",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-09-09T19:22:16.000Z"
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+          "title": "国家体育总局登山运动管理中心",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-09-23T19:44:46.000Z"
+          }
+        },
+        {
+          "url": "https://ec.europa.eu/programmes/erasmus-plus/project-result-content/7b11b5b7-90cb-47b5-b278-ad98715a6424/Guidelines_for_youth_climbing.pdf",
+          "title": "Guidelines for youth climbing",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "title": "Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-02-28T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10623130/",
+          "title": "Neuromechanics of finger hangs with arm lock-offs: analyzing joint moments and muscle activations to improve practice guidelines for climbing",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2023-10-20T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6527913/",
+          "title": "Determinants for success in climbing: A systematic review",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2019-05-03T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://www.mountain-training.org/media/xqvbp5ge/accessbook-1-belaying-en-2024.pdf",
+          "title": "Belaying in a climbing gym",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units",
+          "title": "Important safety notice: product recall DMM compact swivel units",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=RvW6hzzRr8g",
+          "title": "How to dock and release a haul bag",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "decision": "rejected",
+          "reason": "Previously saved (rejected); discovery does not supersede earlier reading or decisions. Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://andykirkpatrick.substack.com/p/advanced-hauling",
+          "title": "Advanced Hauling (Andy Kirkpatrick, Substack, 2021-06-01)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yRi2GLXLtTk",
+          "title": "Big Wall Climbing in Squamish!",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "technique"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "decision": "rejected",
+          "reason": "Previously saved (rejected); discovery does not supersede earlier reading or decisions. Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-technique",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.youtube.com/watch?v=RvW6hzzRr8g",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=RvW6hzzRr8g"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://andykirkpatrick.substack.com/p/advanced-hauling",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://andykirkpatrick.substack.com/p/advanced-hauling"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.youtube.com/watch?v=yRi2GLXLtTk",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=yRi2GLXLtTk"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 技巧與安全 官方 一手資料 研究與實務更新",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "result_urls": [
+            "https://hkcmcu.org.hk/hk/standard-handbook",
+            "https://www.mountain-training.org/media/xqvbp5ge/accessbook-1-belaying-en-2024.pdf",
+            "https://www.sport.gov.cn/dszx/n5414/c30067085/content.html",
+            "https://www.sport.gov.cn/n20001280/n20745751/c30022079/content.html"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing technique.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "result_urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC6527913/",
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10623130/",
+            "https://ec.europa.eu/programmes/erasmus-plus/project-result-content/7b11b5b7-90cb-47b5-b278-ad98715a6424/Guidelines_for_youth_climbing.pdf"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／技巧與安全研究追蹤候選報告\n\n日期：2026-10-24；run：2026-10-24-climbing-technique-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 8 個來源；已知 4 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [標準及各專項訓練手冊 - 中國香港攀山及攀登總會有限公司](<https://hkcmcu.org.hk/hk/standard-handbook>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [以案示警防风险 凝心聚力保安全——《2025年中国攀岩运动事故报告》正式发布\\_国家体育总局](<https://www.sport.gov.cn/n20001280/n20745751/c30022079/content.html>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [国家体育总局登山运动管理中心](<https://www.sport.gov.cn/dszx/n5414/c30067085/content.html>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Guidelines for youth climbing](<https://ec.europa.eu/programmes/erasmus-plus/project-result-content/7b11b5b7-90cb-47b5-b278-ad98715a6424/Guidelines_for_youth_climbing.pdf>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Biomechanical Principles and Techniques—A Systematization for Sport Climbing - PMC](<https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Neuromechanics of finger hangs with arm lock-offs: analyzing joint moments and muscle activations to improve practice guidelines for climbing](<https://pmc.ncbi.nlm.nih.gov/articles/PMC10623130/>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Determinants for success in climbing: A systematic review](<https://pmc.ncbi.nlm.nih.gov/articles/PMC6527913/>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Belaying in a climbing gym](<https://www.mountain-training.org/media/xqvbp5ge/accessbook-1-belaying-en-2024.pdf>) | 新候選 | Public primary-source candidate for climbing-technique; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 3 | [Important safety notice: product recall DMM compact swivel units](<https://dmmwales.com/pages/important-safety-notice-product-recall-dmm-compact-swivel-units>) | 已知／selected | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [How to dock and release a haul bag](<https://www.youtube.com/watch?v=RvW6hzzRr8g>) | 已知／rejected | Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged. |\n| 3 | [Advanced Hauling (Andy Kirkpatrick, Substack, 2021-06-01)](<https://andykirkpatrick.substack.com/p/advanced-hauling>) | 已知／selected | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [Big Wall Climbing in Squamish!](<https://www.youtube.com/watch?v=yRi2GLXLtTk>) | 已知／rejected | Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged. |\n\n## 搜尋覆蓋\n\n- source-src\\_f221897325a76d6936a6：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_f96ba5adfc0c90fb6a54：ok；Exa web\\_fetch\\_exa → yt-dlp public metadata (Groundlane unavailable)；Exa returned CRAWL\\_HTTP\\_403; bounded native metadata fallback, no media download/audio/frame review.；1 筆\n- source-src\\_fe5238071912598280bb：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_ff0c6e76463ca054e43e：ok；Exa web\\_fetch\\_exa → yt-dlp public metadata (Groundlane unavailable)；Exa returned CRAWL\\_HTTP\\_403; bounded native metadata fallback, no media download/audio/frame review.；1 筆\n- query-primary-zh：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.；4 筆\n- query-primary-en：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.；4 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-crags",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-crags",
+          "title": "攀岩／岩場與路線研究追蹤",
+          "category": "climbing",
+          "topic": "crags",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 岩場與路線"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing crags."
+            }
+          ]
+        },
+        "date": "2026-10-24",
+        "run_id": "2026-10-24-climbing-crags-watch",
+        "rotation_week": 2963,
+        "known_source_count": 252,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 61,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_0a2005f24f3ff5a2dcda",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_0a2005f24f3ff5a2dcda",
+            "url": "https://www.youtube.com/watch?v=XBdReu7EehA",
+            "query": "攀岩 岩場與路線 魅せられて 5.12a/b",
+            "title": "魅せられて 5.12a/b"
+          },
+          {
+            "id": "source-src_0a4693e34387f62c7d2c",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_0a4693e34387f62c7d2c",
+            "url": "https://www.youtube.com/watch?v=yznr0UAWFEE",
+            "query": "攀岩 岩場與路線 ナン 5.11a",
+            "title": "ナン 5.11a"
+          },
+          {
+            "id": "source-src_0af69cb044b365688183",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_0af69cb044b365688183",
+            "url": "https://www.youtube.com/watch?v=lFbxN3meUNo",
+            "query": "攀岩 岩場與路線 【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan",
+            "title": "【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan"
+          },
+          {
+            "id": "source-src_0b1abbd1818134c49588",
+            "kind": "source",
+            "source_type": "video",
+            "source_id": "src_0b1abbd1818134c49588",
+            "url": "https://www.youtube.com/watch?v=lhtDrrCgTm8",
+            "query": "攀岩 岩場與路線 2018年3月12日城山　「ロジカルプログレッション」5.14b/c",
+            "title": "2018年3月12日城山　「ロジカルプログレッション」5.14b/c"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing crags."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-10-24-climbing-crags-watch",
+        "date": "2026-10-24",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 7,
+        "known_sources": 4,
+        "candidates": [
+          {
+            "id": "src_1936cd7e95d4da0eed17",
+            "url": "https://www.tocc-climbing.org/archieve",
+            "title": "文件檔案 | Archieve | TOCC | 臺灣戶外攀岩協會",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_23e969a34cd304cc2068",
+            "url": "https://www.tocc-climbing.org/blog/categories/%E5%9B%BA%E5%AE%9A%E9%BB%9E%E6%9B%B4%E6%96%B0%E8%A8%88%E7%95%AB-rebolting-project",
+            "title": "固定點更新計畫 | Rebolting Project",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2025-11-30T00:00:00.000Z"
+          },
+          {
+            "id": "src_41145976ff2a7b7f86ee",
+            "url": "https://www.tocc-climbing.org/ld-rock-climbing",
+            "title": "龍洞岩場 | LD Rock Climbing | TOCC | 臺灣戶外攀岩協會",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2018-12-11T00:00:00.000Z"
+          },
+          {
+            "id": "src_5b864e09846408528908",
+            "url": "https://www.mountaineering.ie/content/ClimbingDevelopmentGuidelines/30",
+            "title": "Climbing Development Guidelines",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/"
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_9de809b2fd1c9fa385ca",
+            "url": "https://www.tocc-climbing.org/post/2025-tocc-summary-report",
+            "title": "2025 TOCC 工作成果報告",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2026-03-05T14:02:44.000Z"
+          },
+          {
+            "id": "src_cd60c5d759b78d563a9a",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10598720/",
+            "title": "Climbing crags recommender system in Arco, Italy - PMC",
+            "source_type": "paper",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/"
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2023-10-11T00:00:00.000Z"
+          },
+          {
+            "id": "src_d8ef36f45ab15a2d82a0",
+            "url": "https://thebmc.co.uk/en/top-10-british-sport-climbing-crags-for-beginners",
+            "title": "Top 10 British sport climbing crags for beginners - The British Mountaineering Council",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/"
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_0a2005f24f3ff5a2dcda",
+            "url": "https://www.youtube.com/watch?v=XBdReu7EehA",
+            "title": "魅せられて 5.12a/b",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_0a2005f24f3ff5a2dcda"
+            ],
+            "tools": [
+              "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review."
+            ],
+            "reasons": [
+              "Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_0a4693e34387f62c7d2c",
+            "url": "https://www.youtube.com/watch?v=yznr0UAWFEE",
+            "title": "ナン 5.11a",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_0a4693e34387f62c7d2c"
+            ],
+            "tools": [
+              "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review."
+            ],
+            "reasons": [
+              "Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_0af69cb044b365688183",
+            "url": "https://www.youtube.com/watch?v=lFbxN3meUNo",
+            "title": "【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_0af69cb044b365688183"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_0b1abbd1818134c49588",
+            "url": "https://www.youtube.com/watch?v=lhtDrrCgTm8",
+            "title": "2018年3月12日城山　「ロジカルプログレッション」5.14b/c",
+            "source_type": "video",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_0b1abbd1818134c49588"
+            ],
+            "tools": [
+              "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review."
+            ],
+            "reasons": [
+              "Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_0a2005f24f3ff5a2dcda",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+            "coverage": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_0a4693e34387f62c7d2c",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+            "coverage": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_0af69cb044b365688183",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_0b1abbd1818134c49588",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+            "coverage": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+            "count": 4,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+            "count": 3,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.tocc-climbing.org/archieve",
+          "title": "文件檔案 | Archieve | TOCC | 臺灣戶外攀岩協會",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/blog/categories/%E5%9B%BA%E5%AE%9A%E9%BB%9E%E6%9B%B4%E6%96%B0%E8%A8%88%E7%95%AB-rebolting-project",
+          "title": "固定點更新計畫 | Rebolting Project",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2025-11-30T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/ld-rock-climbing",
+          "title": "龍洞岩場 | LD Rock Climbing | TOCC | 臺灣戶外攀岩協會",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2018-12-11T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://www.mountaineering.ie/content/ClimbingDevelopmentGuidelines/30",
+          "title": "Climbing Development Guidelines",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.tocc-climbing.org/post/2025-tocc-summary-report",
+          "title": "2025 TOCC 工作成果報告",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-03-05T14:02:44.000Z"
+          }
+        },
+        {
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10598720/",
+          "title": "Climbing crags recommender system in Arco, Italy - PMC",
+          "source_type": "paper",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2023-10-11T00:00:00.000Z"
+          }
+        },
+        {
+          "url": "https://thebmc.co.uk/en/top-10-british-sport-climbing-crags-for-beginners",
+          "title": "Top 10 British sport climbing crags for beginners - The British Mountaineering Council",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=XBdReu7EehA",
+          "title": "魅せられて 5.12a/b",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=yznr0UAWFEE",
+          "title": "ナン 5.11a",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=lFbxN3meUNo",
+          "title": "【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.youtube.com/watch?v=lhtDrrCgTm8",
+          "title": "2018年3月12日城山　「ロジカルプログレッション」5.14b/c",
+          "source_type": "video",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "crags"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-crags",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "https://www.youtube.com/watch?v=XBdReu7EehA",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=XBdReu7EehA"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.youtube.com/watch?v=yznr0UAWFEE",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=yznr0UAWFEE"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.youtube.com/watch?v=lFbxN3meUNo",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=lFbxN3meUNo"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.youtube.com/watch?v=lhtDrrCgTm8",
+          "tool": "Exa web_fetch_exa → yt-dlp public metadata (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Exa returned CRAWL_HTTP_403; bounded native metadata fallback, no media download/audio/frame review.",
+          "result_urls": [
+            "https://www.youtube.com/watch?v=lhtDrrCgTm8"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 岩場與路線 官方 一手資料 研究與實務更新",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "result_urls": [
+            "https://www.tocc-climbing.org/ld-rock-climbing",
+            "https://www.tocc-climbing.org/archieve",
+            "https://www.tocc-climbing.org/blog/categories/%E5%9B%BA%E5%AE%9A%E9%BB%9E%E6%9B%B4%E6%96%B0%E8%A8%88%E7%95%AB-rebolting-project",
+            "https://www.tocc-climbing.org/post/2025-tocc-summary-report"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing crags.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/",
+          "result_urls": [
+            "https://pmc.ncbi.nlm.nih.gov/articles/PMC10598720/",
+            "https://www.mountaineering.ie/content/ClimbingDevelopmentGuidelines/30",
+            "https://thebmc.co.uk/en/top-10-british-sport-climbing-crags-for-beginners"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／岩場與路線研究追蹤候選報告\n\n日期：2026-10-24；run：2026-10-24-climbing-crags-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 7 個來源；已知 4 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [文件檔案 \\| Archieve \\| TOCC \\| 臺灣戶外攀岩協會](<https://www.tocc-climbing.org/archieve>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [固定點更新計畫 \\| Rebolting Project](<https://www.tocc-climbing.org/blog/categories/%E5%9B%BA%E5%AE%9A%E9%BB%9E%E6%9B%B4%E6%96%B0%E8%A8%88%E7%95%AB-rebolting-project>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [龍洞岩場 \\| LD Rock Climbing \\| TOCC \\| 臺灣戶外攀岩協會](<https://www.tocc-climbing.org/ld-rock-climbing>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Climbing Development Guidelines](<https://www.mountaineering.ie/content/ClimbingDevelopmentGuidelines/30>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [2025 TOCC 工作成果報告](<https://www.tocc-climbing.org/post/2025-tocc-summary-report>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Climbing crags recommender system in Arco, Italy - PMC](<https://pmc.ncbi.nlm.nih.gov/articles/PMC10598720/>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Top 10 British sport climbing crags for beginners - The British Mountaineering Council](<https://thebmc.co.uk/en/top-10-british-sport-climbing-crags-for-beginners>) | 新候選 | Public primary-source candidate for climbing-crags; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 3 | [魅せられて 5.12a/b](<https://www.youtube.com/watch?v=XBdReu7EehA>) | 已知／candidate | Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged. |\n| 3 | [ナン 5.11a](<https://www.youtube.com/watch?v=yznr0UAWFEE>) | 已知／candidate | Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged. |\n| 3 | [【ジャンバラヤ 5.11c】城山  166㎝ クライミング climbing joyama Japan](<https://www.youtube.com/watch?v=lFbxN3meUNo>) | 已知／selected | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [2018年3月12日城山　「ロジカルプログレッション」5.14b/c](<https://www.youtube.com/watch?v=lhtDrrCgTm8>) | 已知／selected | Public watch metadata re-observed only; prior source decision and footage reading scope remain unchanged. |\n\n## 搜尋覆蓋\n\n- source-src\\_0a2005f24f3ff5a2dcda：ok；Exa web\\_fetch\\_exa → yt-dlp public metadata (Groundlane unavailable)；Exa returned CRAWL\\_HTTP\\_403; bounded native metadata fallback, no media download/audio/frame review.；1 筆\n- source-src\\_0a4693e34387f62c7d2c：ok；Exa web\\_fetch\\_exa → yt-dlp public metadata (Groundlane unavailable)；Exa returned CRAWL\\_HTTP\\_403; bounded native metadata fallback, no media download/audio/frame review.；1 筆\n- source-src\\_0af69cb044b365688183：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_0b1abbd1818134c49588：ok；Exa web\\_fetch\\_exa → yt-dlp public metadata (Groundlane unavailable)；Exa returned CRAWL\\_HTTP\\_403; bounded native metadata fallback, no media download/audio/frame review.；1 筆\n- query-primary-zh：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.；4 筆\n- query-primary-en：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review. Excluded technique-only biomechanics paper as not a crag resource: https://pmc.ncbi.nlm.nih.gov/articles/PMC13027491/；3 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    },
+    {
+      "watch_id": "climbing-gear",
+      "status": "complete",
+      "plan": {
+        "version": 1,
+        "watch": {
+          "id": "climbing-gear",
+          "title": "攀岩／裝備研究追蹤",
+          "category": "climbing",
+          "topic": "gear",
+          "enabled": true,
+          "origin": "pool-topic",
+          "tags": [],
+          "article_paths": [],
+          "context_terms": [
+            "攀岩 裝備"
+          ],
+          "known_source_types": [
+            "video",
+            "channel",
+            "web-page",
+            "paper",
+            "book",
+            "repository",
+            "dataset",
+            "documentation",
+            "podcast",
+            "course",
+            "organization",
+            "tool",
+            "playlist"
+          ],
+          "source_limit": 4,
+          "query_limit": 2,
+          "queries": [
+            {
+              "id": "primary-zh",
+              "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+            },
+            {
+              "id": "primary-en",
+              "query": "Find official primary sources and recent research or practical guides about climbing gear."
+            }
+          ]
+        },
+        "date": "2026-10-24",
+        "run_id": "2026-10-24-climbing-gear-watch",
+        "rotation_week": 2963,
+        "known_source_count": 83,
+        "selected_source_count": 4,
+        "source_limit": 4,
+        "known_channel_count": 0,
+        "selected_channel_count": 0,
+        "requests": [
+          {
+            "id": "source-src_c78753d57259ef7432ad",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c78753d57259ef7432ad",
+            "url": "https://sterlingrope.com/6-mm-trc",
+            "query": "攀岩 裝備 6 mm TRC (Sterling)",
+            "title": "6 mm TRC (Sterling)"
+          },
+          {
+            "id": "source-src_c9397d523f2e9d782ffe",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c9397d523f2e9d782ffe",
+            "url": "https://rockempire.com/bags/cargo-2",
+            "query": "攀岩 裝備 Cargo 55l (Rock Empire)",
+            "title": "Cargo 55l (Rock Empire)"
+          },
+          {
+            "id": "source-src_c9f9e7c95055c1c88c67",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_c9f9e7c95055c1c88c67",
+            "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+            "query": "攀岩 裝備 MICRO SWIVEL (Petzl Tactical)",
+            "title": "MICRO SWIVEL (Petzl Tactical)"
+          },
+          {
+            "id": "source-src_cb2a3433aa47b3a567dc",
+            "kind": "source",
+            "source_type": "web-page",
+            "source_id": "src_cb2a3433aa47b3a567dc",
+            "url": "https://www.climbinganchors.com.au/c.a.m.p.-gyro1",
+            "query": "攀岩 裝備 C.A.M.P. Gyro1 (Climbing Anchors retailer)",
+            "title": "C.A.M.P. Gyro1 (Climbing Anchors retailer)"
+          },
+          {
+            "id": "query-primary-zh",
+            "kind": "query",
+            "query": "攀岩 裝備 官方 一手資料 研究與實務更新"
+          },
+          {
+            "id": "query-primary-en",
+            "kind": "query",
+            "query": "Find official primary sources and recent research or practical guides about climbing gear."
+          }
+        ]
+      },
+      "summary": {
+        "run_id": "2026-10-24-climbing-gear-watch",
+        "date": "2026-10-24",
+        "planned_requests": 6,
+        "completed_requests": 6,
+        "failed_requests": 0,
+        "missing_requests": [],
+        "complete": true,
+        "new_sources": 8,
+        "known_sources": 4,
+        "candidates": [
+          {
+            "id": "src_0bc3df0981c220395a4c",
+            "url": "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+            "title": "UIAA Advice: Ten things to consider when buying climbing gear - UIAA",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": [],
+            "published_at": "2026-02-24T15:27:41.000Z"
+          },
+          {
+            "id": "src_16aadcf01d009223efad",
+            "url": "https://www.theuiaa.org/rock-climbing-resources/",
+            "title": "Rock Climbing Resources - UIAA",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_17fd51a131098c8de797",
+            "url": "https://theuiaa.org/documents/safety-standards/122_UIAAPitonsV3_2018.pdf",
+            "title": "International",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_4d294dc5cd7d7ed85de6",
+            "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+            "title": "BMC equipment guides - The British Mountaineering Council",
+            "source_type": "web-page",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_51d52f1ddb56d49decd1",
+            "url": "https://www.sport.gov.cn/n315/n20001395/c27007716/part/27007769.pdf",
+            "title": "《体育场所开放条件与技术要求 第 4 部分：攀岩场所》 国家标准编制说明",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_8fb6f4ac1086276d5dbd",
+            "url": "https://www.theuiaa.org/documents/safety/DAV-UIAA-BoltingGuide-2025.pdf",
+            "title": "Bolts",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-en"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c3ec1eda19ab7e10657b",
+            "url": "https://images.ifsc-climbing.org/ifsc/image/private/t_q_good/prd/sxpa5laq1l5pwrosreef.pdf",
+            "title": "EQUIPMENT CODE",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_efe6eb66781e5d9069c7",
+            "url": "https://www.sport.gov.cn/dszx/n5414/c29006316/part/29006346.pdf",
+            "title": "中国登⼭协会攀岩运动赛事办赛指南",
+            "source_type": "documentation",
+            "known": false,
+            "previous_decision": null,
+            "decision": "candidate",
+            "priority": 1,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": true,
+            "request_ids": [
+              "query-primary-zh"
+            ],
+            "tools": [
+              "Exa web_search_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review."
+            ],
+            "reasons": [
+              "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c78753d57259ef7432ad",
+            "url": "https://sterlingrope.com/6-mm-trc",
+            "title": "6 mm TRC (Sterling)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "selected",
+            "decision": "selected",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c78753d57259ef7432ad"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c9397d523f2e9d782ffe",
+            "url": "https://rockempire.com/bags/cargo-2",
+            "title": "Cargo 55l (Rock Empire)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c9397d523f2e9d782ffe"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_c9f9e7c95055c1c88c67",
+            "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+            "title": "MICRO SWIVEL (Petzl Tactical)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_c9f9e7c95055c1c88c67"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          },
+          {
+            "id": "src_cb2a3433aa47b3a567dc",
+            "url": "https://www.climbinganchors.com.au/c.a.m.p.-gyro1",
+            "title": "C.A.M.P. Gyro1 (Climbing Anchors retailer)",
+            "source_type": "web-page",
+            "known": true,
+            "previous_decision": "candidate",
+            "decision": "candidate",
+            "priority": 3,
+            "source_route": null,
+            "query_routes": [],
+            "uncovered_route": false,
+            "outsider": false,
+            "request_ids": [
+              "source-src_cb2a3433aa47b3a567dc"
+            ],
+            "tools": [
+              "Exa web_fetch_exa (Groundlane unavailable)"
+            ],
+            "coverages": [
+              "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review."
+            ],
+            "reasons": [
+              "Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged."
+            ],
+            "aliases": []
+          }
+        ],
+        "attempts": [
+          {
+            "request_id": "source-src_c78753d57259ef7432ad",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_c9397d523f2e9d782ffe",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_c9f9e7c95055c1c88c67",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "source-src_cb2a3433aa47b3a567dc",
+            "status": "ok",
+            "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+            "coverage": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+            "count": 1,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-zh",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+            "count": 4,
+            "error": null
+          },
+          {
+            "request_id": "query-primary-en",
+            "status": "ok",
+            "tool": "Exa web_search_exa (Groundlane unavailable)",
+            "coverage": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+            "count": 4,
+            "error": null
+          }
+        ]
+      },
+      "sources": [
+        {
+          "url": "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+          "title": "UIAA Advice: Ten things to consider when buying climbing gear - UIAA",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": [],
+            "published_at": "2026-02-24T15:27:41.000Z"
+          }
+        },
+        {
+          "url": "https://www.theuiaa.org/rock-climbing-resources/",
+          "title": "Rock Climbing Resources - UIAA",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://theuiaa.org/documents/safety-standards/122_UIAAPitonsV3_2018.pdf",
+          "title": "International",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+          "title": "BMC equipment guides - The British Mountaineering Council",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/n315/n20001395/c27007716/part/27007769.pdf",
+          "title": "《体育场所开放条件与技术要求 第 4 部分：攀岩场所》 国家标准编制说明",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.theuiaa.org/documents/safety/DAV-UIAA-BoltingGuide-2025.pdf",
+          "title": "Bolts",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://images.ifsc-climbing.org/ifsc/image/private/t_q_good/prd/sxpa5laq1l5pwrosreef.pdf",
+          "title": "EQUIPMENT CODE",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.sport.gov.cn/dszx/n5414/c29006316/part/29006346.pdf",
+          "title": "中国登⼭协会攀岩运动赛事办赛指南",
+          "source_type": "documentation",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://sterlingrope.com/6-mm-trc",
+          "title": "6 mm TRC (Sterling)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "selected",
+          "reason": "Previously saved (selected); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://rockempire.com/bags/cargo-2",
+          "title": "Cargo 55l (Rock Empire)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+          "title": "MICRO SWIVEL (Petzl Tactical)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        },
+        {
+          "url": "https://www.climbinganchors.com.au/c.a.m.p.-gyro1",
+          "title": "C.A.M.P. Gyro1 (Climbing Anchors retailer)",
+          "source_type": "web-page",
+          "aliases": [],
+          "tags": [],
+          "categories": [
+            "climbing"
+          ],
+          "topics": [
+            "gear"
+          ],
+          "observed_at": "2026-10-24",
+          "read_status": "snippet",
+          "coverage": "Discovery-only evidence. Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "decision": "candidate",
+          "reason": "Previously saved (candidate); discovery does not supersede earlier reading or decisions. Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged.",
+          "used_in": [],
+          "evidence_refs": [
+            ".research/pool/runs/2026-10-24-unified-watch.json"
+          ],
+          "metadata": {
+            "watch_id": "climbing-gear",
+            "suggested_article_paths": [],
+            "query_routes": []
+          }
+        }
+      ],
+      "searches": [
+        {
+          "query": "https://sterlingrope.com/6-mm-trc",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://sterlingrope.com/6-mm-trc"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://rockempire.com/bags/cargo-2",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://rockempire.com/bags/cargo-2"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "https://www.climbinganchors.com.au/c.a.m.p.-gyro1",
+          "tool": "Exa web_fetch_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.",
+          "result_urls": [
+            "https://www.climbinganchors.com.au/c.a.m.p.-gyro1"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "攀岩 裝備 官方 一手資料 研究與實務更新",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "result_urls": [
+            "https://www.sport.gov.cn/dszx/n5414/c29006316/part/29006346.pdf",
+            "https://theuiaa.org/documents/safety-standards/122_UIAAPitonsV3_2018.pdf",
+            "https://images.ifsc-climbing.org/ifsc/image/private/t_q_good/prd/sxpa5laq1l5pwrosreef.pdf",
+            "https://www.sport.gov.cn/n315/n20001395/c27007716/part/27007769.pdf"
+          ],
+          "gap": ""
+        },
+        {
+          "query": "Find official primary sources and recent research or practical guides about climbing gear.",
+          "tool": "Exa web_search_exa (Groundlane unavailable)",
+          "searched_at": "2026-10-24",
+          "scope": "Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.",
+          "result_urls": [
+            "https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/",
+            "https://www.thebmc.co.uk/en/bmc-technical-advice-booklets",
+            "https://www.theuiaa.org/rock-climbing-resources/",
+            "https://www.theuiaa.org/documents/safety/DAV-UIAA-BoltingGuide-2025.pdf"
+          ],
+          "gap": ""
+        }
+      ],
+      "report": "# 攀岩／裝備研究追蹤候選報告\n\n日期：2026-10-24；run：2026-10-24-climbing-gear-watch\n\n範圍：6/6 次已嘗試，失敗 0 次，未執行 0 次。本次計畫均已嘗試成功。\n新增 8 個來源；已知 4 個。所有結果僅作候選發現，未完成內容閱讀或影片觀看。\n\n建議文章：（尚未採用，不寫入 used_in）\n\n| 優先 | 來源 | 狀態 | 主題脈絡／待查理由 |\n| --- | --- | --- | --- |\n| 1 | [UIAA Advice: Ten things to consider when buying climbing gear - UIAA](<https://www.theuiaa.org/uiaa-advice-ten-things-to-consider-when-buying-climbing-gear/>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Rock Climbing Resources - UIAA](<https://www.theuiaa.org/rock-climbing-resources/>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [International](<https://theuiaa.org/documents/safety-standards/122_UIAAPitonsV3_2018.pdf>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [BMC equipment guides - The British Mountaineering Council](<https://www.thebmc.co.uk/en/bmc-technical-advice-booklets>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [《体育场所开放条件与技术要求 第 4 部分：攀岩场所》 国家标准编制说明](<https://www.sport.gov.cn/n315/n20001395/c27007716/part/27007769.pdf>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [Bolts](<https://www.theuiaa.org/documents/safety/DAV-UIAA-BoltingGuide-2025.pdf>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [EQUIPMENT CODE](<https://images.ifsc-climbing.org/ifsc/image/private/t_q_good/prd/sxpa5laq1l5pwrosreef.pdf>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 1 | [中国登⼭协会攀岩运动赛事办赛指南](<https://www.sport.gov.cn/dszx/n5414/c29006316/part/29006346.pdf>) | 新候選 | Public primary-source candidate for climbing-gear; topic relevance and original contents still need review. Provider publication label is unverified. |\n| 3 | [6 mm TRC (Sterling)](<https://sterlingrope.com/6-mm-trc>) | 已知／selected | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [Cargo 55l (Rock Empire)](<https://rockempire.com/bags/cargo-2>) | 已知／candidate | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [MICRO SWIVEL (Petzl Tactical)](<https://www.petzl.com/us/en/tactical/products/swivels/micro-swivel/MICRO-SWIVEL-TACTICAL_MIL_a2mw0000000QRjRAAW.html>) | 已知／candidate | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n| 3 | [C.A.M.P. Gyro1 (Climbing Anchors retailer)](<https://www.climbinganchors.com.au/c.a.m.p.-gyro1>) | 已知／candidate | Known public source re-observed via partial extract only; prior adoption/rejection and reading scope remain unchanged. |\n\n## 搜尋覆蓋\n\n- source-src\\_c78753d57259ef7432ad：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_c9397d523f2e9d782ffe：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_c9f9e7c95055c1c88c67：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- source-src\\_cb2a3433aa47b3a567dc：ok；Exa web\\_fetch\\_exa (Groundlane unavailable)；Bounded public-page extract up to 2200 characters; heading and metadata re-observed only. Truncated page is not a full reading; no audio/video review.；1 筆\n- query-primary-zh：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.；4 筆\n- query-primary-en：ok；Exa web\\_search\\_exa (Groundlane unavailable)；Top 4 search-result titles, URLs and highlights only. No full reading, edition/date validation or video review.；4 筆\n\n零結果僅代表本次查詢範圍。發布日期若有保存，來自提供者標記，未獨立查證；既有來源不會因此自動變成最新或已讀。\n"
+    }
+  ]
+}

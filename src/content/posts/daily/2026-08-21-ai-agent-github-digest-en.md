@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-21-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-21-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Four AI Agent projects on today's trending list share a strikingly consistent th
 
 ## Trending Repos
 
-### cursor/plugins ⭐ 3,960+ (+470 today)
+### cursor/plugins ★ 3,960+ (+470 today)
 
 [GitHub](https://github.com/cursor/plugins)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ Four AI Agent projects on today's trending list share a strikingly consistent th
 
 ---
 
-### apache/maka (Incubating) ⭐ 1,900+ (+360 today)
+### apache/maka (Incubating) ★ 1,900+ (+360 today)
 
 [GitHub](https://github.com/apache/maka)　·　TypeScript　·　Apache-2.0
 
@@ -42,7 +42,7 @@ Four AI Agent projects on today's trending list share a strikingly consistent th
 
 ---
 
-### magnitudedev/magnitude ⭐ 1,440+ (+130 today)
+### magnitudedev/magnitude ★ 1,440+ (+130 today)
 
 [GitHub](https://github.com/magnitudedev/magnitude)　·　TypeScript　·　Apache-2.0
 
@@ -53,7 +53,7 @@ Four AI Agent projects on today's trending list share a strikingly consistent th
 
 ---
 
-### vercel/eve ⭐ 4,700+
+### vercel/eve ★ 4,700+
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0 (Public Beta)
 

@@ -13,7 +13,7 @@ description: "A guide to the Palermo crags: rock, scale and seasons on Monte Pel
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-palermo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-palermo)
 
 Palermo, the capital of Sicily, has two limestone mountains on its northern edge. Monte Pellegrino is inside the city itself, with rock walls all along the road to Mondello beach. Further north, Monte Gallo rises straight out of the sea and ends in the Capo Gallo headland. [Mountain Project](https://www.mountainproject.com/area/107611547/palermo-area) calls Pellegrino "the most important rock climbing area in southern Italy" and says Gallo is "similar to the Dolomites".
 

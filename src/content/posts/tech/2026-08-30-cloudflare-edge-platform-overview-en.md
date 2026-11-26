@@ -13,7 +13,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-overview)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-overview)
 
 Cloudflare is easy to describe as a CDN or DNS provider. But once you move a product onto it, it starts looking like an app platform: [Workers](https://developers.cloudflare.com/workers/) runs code, [D1](https://developers.cloudflare.com/d1/) stores SQL data, [KV](https://developers.cloudflare.com/kv/) handles global key-value state, [R2](https://developers.cloudflare.com/r2/) stores objects, [Durable Objects](https://developers.cloudflare.com/durable-objects/) handles state and coordination, and the platform continues through Queues, Workflows, Cache Rules, Smart Shield, Images, Email Service, Turnstile, Observability, Browser Run, and Containers.
 
@@ -68,12 +68,16 @@ This is not Cloudflare's product taxonomy. It is the order a product usually nee
 
 Cloudflare is a strong fit for edge entry points, serverless APIs, small-to-medium products, global cache, R2 object workflows, and AI app glue code. It is not the right home for every workload:
 
-- Long-running TCP services.
+- Long-running TCP services. Since 2026-11, Workers can accept [inbound TCP](https://developers.cloudflare.com/changelog/post/2026-11-19-inbound-tcp/) through Spectrum and Containers can serve bidirectional gRPC, but both are in public beta and require a Pro or higher zone.
 - Large VMs, GPUs, or persistent block storage.
 - Databases that depend on complex transactions, extensions, or stored procedures.
 - Teams with mature Kubernetes / cloud ops where Cloudflare would only add another layer.
 
 The point of this series is not to put everything on Cloudflare. It is to show which product pieces become simpler when they move there.
+
+## Update Log
+
+- 2026-11-23: Added the public beta status of inbound TCP to the TCP item under when not to migrate.
 
 ## References
 

@@ -8,8 +8,8 @@ lang: en
 series:
   name: "AI Model Families"
   order: 13
-tldr: "DeepReinforce's Ornith 1.5 family, trained with self-improvement RL: the 397B flagship scores 86.0 on SWE-bench Verified, matching Claude Opus 4.8; the 35B-A3B activates only 3B parameters per token yet leads every coding benchmark in its class; the 9B runs on phones. MIT-licensed, fully open-source."
-description: "A deep dive into the Ornith model family: DeepReinforce's background, the self-scaffolding training methodology, benchmark comparisons across three scales, deployment options, and what it means for the open-source ecosystem."
+tldr: "DeepReinforce's Ornith 1.5 family, trained with self-improvement RL: the 397B flagship scores 86.0 on SWE-bench Verified, matching Claude Opus 4.8; the 35B-A3B activates only 3B parameters per token yet leads every coding benchmark in its class; the 9B runs on phones. A 122B MoE joined on 2026-10-16 with 84.5 on SWE-bench Verified (non-hack), a self-hosting option between the 35B and 397B. MIT-licensed, fully open-source."
+description: "A deep dive into the Ornith model family: DeepReinforce's background, the self-scaffolding training methodology, benchmark comparisons across four scales (including the 122B added in October 2026), deployment options, and what it means for the open-source ecosystem."
 draft: false
 glossary:
   - term: "MoE"
@@ -20,7 +20,7 @@ glossary:
     def: "Software Engineering Benchmark — a standardized test that measures a model's ability to solve real GitHub issues"
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
+> :globe: [中文版](/posts/tech/2026-08-26-ornith-deepreinforce-model-family)
 
 DeepReinforce is not a big lab. Not Alibaba, not Meta, not Google — it's a small team focused on agentic coding and reinforcement learning. Yet their Ornith 1.5 family, released in August 2026, matches or beats Claude Opus 4.8 on multiple coding benchmarks, all under an MIT license. Here's how they did it and whether it's worth paying attention to.
 
@@ -29,6 +29,7 @@ DeepReinforce is not a big lab. Not Alibaba, not Meta, not Google — it's a sma
 | Model / product line | Positioning | Key difference | Access |
 |---|---|---|---|
 | Ornith 1.5-397B | Flagship coding/reasoning | 397B MoE | MIT weights; vLLM/SGLang |
+| Ornith 1.5-122B | Mid-to-large self-hosting | 122B MoE; 262K context, extendable to ~1M with YaRN | MIT weights; BF16, FP8, NVFP4, GGUF, MLX |
 | Ornith 1.5-35B-A3B | Self-hosting efficiency | 35B/about 3B active | MIT weights; OpenAI-compatible interface |
 | Ornith 1.5-9B | Small local model | 9B dense; quantized variants | MIT weights |
 
@@ -40,19 +41,33 @@ They don't pretrain base models from scratch. Ornith is built on top of Qwen3.5 
 
 ### Model Family Specifications
 
-Ornith 1.5 comes in three scales, all MIT-licensed with weights on [Hugging Face](https://huggingface.co/ornith-ai):
+Ornith 1.5 comes in four scales, all MIT-licensed with weights on [Hugging Face](https://huggingface.co/ornith-ai):
 
 | Model | Architecture | Total Params | Active per Token | Notes |
 |---|---|---|---|---|
 | Ornith 1.5-397B | MoE | 397B | Undisclosed | Flagship, matches closed-source leaders |
+| Ornith 1.5-122B | MoE | 122B | Undisclosed | Added 2026-10-16, between the 35B and 397B |
 | Ornith 1.5-35B-A3B | MoE | 35B | ~3B | Efficiency champion, class leader |
 | Ornith 1.5-9B | Dense | 9B | 9B | Quantized mobile version available |
 
-The 9B offers an `Ornith-1.5-9B-Mobile` quantized variant that can run on iPhone and Android devices.
+Ornith says the 9B can run on iPhone and Android devices and mentions an `Ornith-1.5-9B-Mobile` quantized variant, but no such repo exists under the ornith-ai organization; the on-device options available are the GGUF and MLX 4/6/8-bit builds.
+
+### 122B: a new size between 35B and 397B
+
+[Ornith-1.5-122B](https://huggingface.co/ornith-ai/Ornith-1.5-122B) landed on Hugging Face on 2026-10-16, with FP8, NVFP4, GGUF, and MLX (4-bit/8-bit) versions following on 10-20, all marked MIT. It is a reasoning model that opens with a `<think>` block by default; its HF `config.json` is `Qwen3_5MoeForConditionalGeneration` with 256 experts and 8 selected per token, a native context of 262,144 tokens, and YaRN (factor 4.0) validated by the model card for roughly 1M. The model card does not state active parameters per token.
+
+The model card calls it the "most capable and efficient" member of the 1.5 family and says it serves on a single 80GB GPU. Read that against the weight sizes: the BF16 checkpoint is about 250 GB and the FP8 version about 133 GB; only the NVFP4 version (about 78 GB) comes close to 80GB, leaving very little room for KV cache. Running it on one card in practice means NVFP4 plus a shorter context, so measure before relying on it. The card also mentions a phone-deployable `Ornith-1.5-122B-Mobile`, but the ornith-ai Hugging Face organization has no such repo at present.
 
 ## Family evolution
 
 Ornith moves from self-scaffolding in 1.0 to the joint task-generation, scaffold-construction, and problem-solving loop in 1.5. This changes the training method, not merely the model size.
+
+| Date | Release | What changed for selection |
+|---|---|---|
+| 2026-06 | Ornith 1.0 (9B / 35B / 397B) | First-generation self-scaffolding, three sizes plus FP8/GGUF versions |
+| 2026-08-18 | Ornith 1.5 (9B / 35B-A3B / 397B) | Training loop adds self-generated tasks; the 35B-A3B becomes the efficient pick for self-hosted coding agents |
+| 2026-09-20 | DFlash drafts for 1.5 | Speculative-decoding drafts for the 397B, 35B-A3B, and 9B cut self-hosting latency |
+| 2026-10-16 | Ornith 1.5-122B | One more MoE size between 35B and 397B, quantized versions on 10-20; details in [Model Card: Ornith-1.5-122B](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b-en) |
 
 ## Architecture and training trade-offs
 
@@ -119,9 +134,30 @@ Key takeaways:
 
 The 9B more than doubles Qwen3.5-9B on Terminal-Bench. The team claims the 9B matches or exceeds models several times its size, including Gemma 4-31B and Qwen 3.6-35B.
 
+#### 122B: a different table, different conditions
+
+The 122B numbers come from its own [model card](https://huggingface.co/ornith-ai/Ornith-1.5-122B), with different comparison models and evaluation settings from the 1.5 technical report above (the SWE-bench family runs on OpenHands with anti-reward-hacking checks, labeled non-hack), so they are not merged with the 397B and 35B tables:
+
+| Benchmark | Ornith 1.5-122B | Qwen3.8-Flash-Next (125B) | Qwen3.8 (27B) | DeepSeek-V4-Flash-0731 (284B) |
+|---|---|---|---|---|
+| SWE-bench Verified (non-hack) | **84.5** | 82.8 | 76.8 | — |
+| SWE-bench Pro (no-hack) | **76.9** | 43.9 | 65.5 | — |
+| SWE-bench Multilingual (non-hack) | **76.4** | 73.0 | 70.3 | — |
+| Terminal-Bench 2.1 | 81.2 | **83.4** | 71.9 | 82.7 |
+| CyberGym | **80.0** | 78.0 | 55.0 | 76.7 |
+| NL2Repo | 51.2 | 45.2 | 42.3 | **54.2** |
+| HLE (with tools) | 48.0 | 38.0 | 31.3 | **50.8** |
+| BrowseComp | 78.5 | 75.3 | 71.4 | **80.2** |
+
+Reading: the 122B leads the table on all three SWE-bench variants but trails Qwen3.8-Flash-Next or the twice-as-large DeepSeek-V4-Flash on Terminal-Bench 2.1, NL2Repo, HLE, and BrowseComp. Everything is self-reported by DeepReinforce with no third-party reproduction; Terminal-Bench 2.1 runs on Claude Code 2.1.126 averaged over 5 runs, and HLE uses Claude 4.6 Opus as the judge.
+
 ## Licensing, pricing, and deployment
 
 Ornith 1.5 weights use MIT and are available on Hugging Face; the existing usage example uses vLLM/SGLang with an OpenAI-compatible local endpoint. This article has not compiled hosted API pricing, so weight access does not establish a hosted service cost.
+
+The 122B model card metadata says MIT and its `license_link` points to a LICENSE file in the repo, but the repo currently has no such file; if legal needs the full license text, compare against the LICENSE in another repo of the family or confirm with DeepReinforce. The 122B needs Transformers ≥ 5.8.1, vLLM ≥ 0.19.1, or SGLang ≥ 0.5.9. YaRN is applied statically to every request, and the model card advises enabling it only when you truly need more than 262K, since it slightly hurts quality on ordinary-length inputs.
+
+Since 2026-09-20, the 397B, 35B-A3B, and 9B each have a [DFlash](https://huggingface.co/ornith-ai/Ornith-1.5-397B-DFlash) speculative-decoding draft model; it needs a DFlash-enabled inference setup and only speeds things up, it is not a standalone model.
 
 ## Agent integration and selection
 
@@ -138,6 +174,8 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Fix the bug in this function..."}]
 )
 ```
+
+Pick a size by hardware first. Multi-GPU node and the best scores: 397B. Room for the 122B FP8 version (about 133 GB, two 80GB cards) or willing to run NVFP4 on one card, and wanting clearly better SWE-bench scores than the 35B: evaluate the 122B. A single card: 35B-A3B. Phones and small GPUs: 9B.
 
 The 35B-A3B's inference cost is far lower than models with comparable scores, since only 3B parameters activate per token. Community members have reported running the 35B locally on a single A100. The quantized 9B runs on consumer GPUs (12 GB+) or even smartphones.
 
@@ -159,6 +197,7 @@ The 35B-A3B's inference cost is far lower than models with comparable scores, si
 
 ## Update history
 
+- 2026-11-23: Added Ornith 1.5-122B (2026-10-16, MIT): model matrix, spec table, a family-evolution timeline (linking the 122B daily model card), a separate 122B official benchmark table (different conditions from the 1.5 technical report, not merged), deployment requirements, a weight-size check on the single-80GB claim, and the missing LICENSE file; added the 2026-09-20 DFlash draft models and a size-selection order.
 - 2026-10-11: Reorganized the format, model matrix, and selection sections; retained existing sources and dates. No fresh fact-check was performed.
 
 ## References
@@ -167,6 +206,10 @@ The 35B-A3B's inference cost is far lower than models with comparable scores, si
 - [DeepReinforce Website](https://deep-reinforce.com)
 - [Ornith GitHub Repository](https://github.com/ornith-ai/Ornith-1)
 - [Ornith Hugging Face Models](https://huggingface.co/ornith-ai)
+- [Hugging Face: ornith-ai/Ornith-1.5-122B (model card, evaluation, and serving notes)](https://huggingface.co/ornith-ai/Ornith-1.5-122B)
+- [Hugging Face: ornith-ai/Ornith-1.5-122B-NVFP4](https://huggingface.co/ornith-ai/Ornith-1.5-122B-NVFP4)
+- [Hugging Face: ornith-ai/Ornith-1.5-397B-DFlash](https://huggingface.co/ornith-ai/Ornith-1.5-397B-DFlash)
+- [Model Card: Ornith-1.5-122B (on this site)](/posts/daily/2026-10-21-model-ornith-ai-ornith-1-5-122b-en)
 - [Ornith 1.5 35B-A3B Benchmark Analysis — MindStudio](https://www.mindstudio.ai/blog/ornith-1-5-35b-a3b-benchmarks)
 - [Ornith 1.5 Self-Improvement Loop Explained — MindStudio](https://www.mindstudio.ai/blog/ornith-1-5-self-improvement-loop)
 - [AI Model Landscape Overview — 2026 Guide](/posts/tech/2026-08-24-ai-model-landscape-overview) (in Mandarin)

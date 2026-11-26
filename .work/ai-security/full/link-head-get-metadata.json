@@ -1,0 +1,38 @@
+[
+  {
+    "url": "https://portswigger.net/web-security",
+    "HEAD": {
+      "status": 404,
+      "final_url": "https://portswigger.net/web-security"
+    },
+    "GET": {
+      "status": 200,
+      "final_url": "https://portswigger.net/web-security",
+      "content_type": "text/html; charset=utf-8"
+    }
+  },
+  {
+    "url": "https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter",
+    "HEAD": {
+      "status": 404,
+      "final_url": "https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter"
+    },
+    "GET": {
+      "status": 200,
+      "final_url": "https://portswigger.net/web-security/access-control/lab-user-id-controlled-by-request-parameter",
+      "content_type": "text/html; charset=utf-8"
+    }
+  },
+  {
+    "url": "https://portswigger.net/web-security/llm-attacks/lab-indirect-prompt-injection",
+    "HEAD": {
+      "status": 404,
+      "final_url": "https://portswigger.net/web-security/llm-attacks/lab-indirect-prompt-injection"
+    },
+    "GET": {
+      "status": 200,
+      "final_url": "https://portswigger.net/web-security/llm-attacks/lab-indirect-prompt-injection",
+      "content_type": "text/html; charset=utf-8"
+    }
+  }
+]

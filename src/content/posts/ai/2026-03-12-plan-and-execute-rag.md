@@ -14,7 +14,7 @@ series:
   order: 22
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-plan-and-execute-rag-en)
+> :globe: [English version](/posts/ai/2026-03-12-plan-and-execute-rag-en)
 
 Agentic RAG 的 ReAct 迴圈是「邊想邊做」——執行一步，評估結果，決定下一步。這個模式靈活，但對非常複雜的問題，每一步的決策可能因為缺乏全局視野而走彎路。
 

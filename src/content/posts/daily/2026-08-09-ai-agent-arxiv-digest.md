@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-09-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-09-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -57,7 +57,7 @@ Jingsheng Zheng, Xinyuan Fang, Jintian Zhang et al.（Zhejiang University）　�
 
 ### 深入要點
 
-- AgentIF-OneDay 104 個任務，GLM-5.2 後端整體分數 0.821，領先所有任務類型、領域、評分維度 ⚠️（浙大＋智譜自測，需等外部複現）
+- AgentIF-OneDay 104 個任務，GLM-5.2 後端整體分數 0.821，領先所有任務類型、領域、評分維度 :warning:（浙大＋智譜自測，需等外部複現）
 - 先前最佳：Codex（GPT-5.5 medium）達 0.799
 - 五個後端模型來自三個模型家族，鷹架不需要任何後端特定調整
 - 消融實驗顯示三個能力各自貢獻：移除驗修模組損失最大
@@ -147,7 +147,7 @@ Agent benchmark 一直在測模型解任務的能力，但鷹架本身——prom
 ### 深入要點
 
 - GPT-5.6 Sol：Overall +16.6（Search +32.8, Office +3.2, General +11.0）
-- Claude Opus 4.8：Overall +16.1（Search +34.8, Office +1.3, General +7.9），Search 分數全場最高 46.5 ⚠️（人大/BOSS直聘自測，需等外部複現）
+- Claude Opus 4.8：Overall +16.1（Search +34.8, Office +1.3, General +7.9），Search 分數全場最高 46.5 :warning:（人大/BOSS直聘自測，需等外部複現）
 - 人工設計的 Artificial Harness baseline：Overall 47.5，GPT-5.6 Sol 的 46.3 已接近
 - 關鍵發現：(1) 早期飽和——模型在前幾輪就找到高品質結構，後續修改反而有害 (2) 進化出的鷹架是高度可轉移的推理結構——用 A 模型進化的鷹架可以直接提升 B 模型 (3) Office 任務的增益趨近於零
 - 開源 27B 模型 Qwen3.6-27B 排名第 6，Overall 39.4（+9.7），表現優於多個前沿模型

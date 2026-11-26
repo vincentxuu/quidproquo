@@ -145,14 +145,14 @@ NVIDIA 與 CDC、Sharon AI、IREN 等夥伴擴大澳洲 AI 基礎設施,IREN 南
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-github-digest)
-- 📄 [融資速報｜Temporal Series E $550M](/posts/daily/2026-09-15-funding-temporal)
-- 📄 [模型卡｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro)
-- 📄 [資安警報｜Anthropic 揭露 GTG-50014](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft)
-- 📄 [工具推薦｜DearAgent](/posts/daily/2026-09-15-tool-dearagent)
-- 📄 [AI Engineer 面試日練 — 2026-09-15：Deep Learning & NLP](/posts/daily/2026-09-15-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-15：Metrics & Analytics](/posts/daily/2026-09-15-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-15](/posts/daily/2026-09-15-ai-agent-github-digest)
+- :file: [融資速報｜Temporal Series E $550M](/posts/daily/2026-09-15-funding-temporal)
+- :file: [模型卡｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro)
+- :file: [資安警報｜Anthropic 揭露 GTG-50014](/posts/daily/2026-09-15-security-anthropic-gtg-50014-ai-agent-credential-theft)
+- :file: [工具推薦｜DearAgent](/posts/daily/2026-09-15-tool-dearagent)
+- :file: [AI Engineer 面試日練 — 2026-09-15：Deep Learning & NLP](/posts/daily/2026-09-15-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-15：Metrics & Analytics](/posts/daily/2026-09-15-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -10,7 +10,7 @@ description: "拆解 Parallel Web Systems 的 Search、Extract、Task API、引�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-parallel-web-systems-en)
+> :globe: [English version](/posts/ai/2026-08-22-parallel-web-systems-en)
 
 [Parallel Web Systems](https://parallel.ai/) 做的不是一個「幫 LLM Google 一下」的 wrapper，而是一套給 Agent 使用的網路存取層。它有自己的 crawler 與 index，再把工作拆成搜尋、網頁擷取、多步研究，以及持續監控等不同 API。這個拆法很重要：Agent 不該為了找一個官方版本號，每次都啟動昂貴的深度研究。
 

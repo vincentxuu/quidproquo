@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 69
 ---
-> 🌏 [English version](/posts/daily/2026-08-01-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-01-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -69,7 +69,7 @@ ORCA-bench 建了一套真實運行的微服務系統（搭配 OpenTelemetry 追
 
 - 任務設計三維度：報告詳細度（詳細→模糊）、time-to-detection（即時→延遲數小時）、co-occurring fault（單一→多故障同發），共 1,079 個任務
 - 真實 telemetry 介面：Agent 透過工具呼叫 Prometheus、Jaeger、OpenSearch，非讀靜態 dump，更接近 SRE 的真實操作流程
-- 最佳整體 RCA Accuracy：40%（GLM-5）；Medium 難度（最貼近現實的設定）最佳為 25.3% ⚠️——兩個數字來自不同難度條件，以原論文為準
+- 最佳整體 RCA Accuracy：40%（GLM-5）；Medium 難度（最貼近現實的設定）最佳為 25.3% :warning:——兩個數字來自不同難度條件，以原論文為準
 - 拿掉源碼存取 → 所有 Agent 的所有指標均下降，說明 code grounding 對 RCA 至關重要，光靠 telemetry 不夠
 - 評分設計嚴謹：SRE 人工審核 ground truth + LLM judge 雙重評分，人工校驗一致性 κ_w=0.90，屬高度一致
 - 高難度任務（報告模糊 + 延遲發現 + 多故障同發）對所有模型造成顯著 degradation

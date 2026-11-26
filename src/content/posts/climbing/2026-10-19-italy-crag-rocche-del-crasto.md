@@ -13,7 +13,7 @@ description: "克拉斯托岩峰（Rocche del Crasto）岩場介紹：Rocca Cala
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-rocche-del-crasto-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-rocche-del-crasto-en)
 
 克拉斯托岩峰（Rocche del Crasto）在西西里東北部墨西拿省（Messina）的內布羅迪（Nebrodi）山區。內布羅迪多半是砂岩丘陵，這群石灰岩峰是例外。[UKC 的西西里指南](https://www.ukclimbing.com/articles/destinations/sicily-14498)把「the wild Rocche del Crasto」列在島東的多段攀登區。[西西里官方觀光網站](https://www.visitsicily.info/en/climbing-and-dws-in-sicily/)寫這裡和旁邊的 Rocca Calanna、Rocca Traura 都是「immersed in rugged wild terrain, where eagles and griffons hover undisturbed」。
 

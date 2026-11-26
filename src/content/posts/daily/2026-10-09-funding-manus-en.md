@@ -12,7 +12,7 @@ series:
   order: 77
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-funding-manus)
+> :globe: [中文版](/posts/daily/2026-10-09-funding-manus)
 
 ## Deal Terms
 

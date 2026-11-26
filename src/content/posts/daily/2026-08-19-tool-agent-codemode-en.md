@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-19-tool-agent-codemode)
+> :globe: [中文版](/posts/daily/2026-08-19-tool-agent-codemode)
 
 ## Tool Info
 
@@ -78,11 +78,11 @@ const [issues, events, channel] = await Promise.all([
 
 | | agent-codemode | Sequential tool calls | Writing a one-off integration script |
 |---|---|---|---|
-| No extra API keys / OAuth (reuses Claude Code's auth) | ✅ | ✅ (built into the Agent) | ❌ (manage credentials yourself) |
-| Multiple tool calls batched into one round trip | ✅ | ❌ | ✅ (but you wire it manually) |
-| Type checking (dynamically generated from server schema) | ✅ | ❌ | Depends on your setup |
-| Works across Claude Code / Cursor / Windsurf / VS Code / Gemini CLI | ✅ | Depends on the Agent | ❌ |
-| Open source, free | ✅ MIT | — | — |
+| No extra API keys / OAuth (reuses Claude Code's auth) | ✓ | ✓ (built into the Agent) | ✗ (manage credentials yourself) |
+| Multiple tool calls batched into one round trip | ✓ | ✗ | ✓ (but you wire it manually) |
+| Type checking (dynamically generated from server schema) | ✓ | ✗ | Depends on your setup |
+| Works across Claude Code / Cursor / Windsurf / VS Code / Gemini CLI | ✓ | Depends on the Agent | ✗ |
+| Open source, free | ✓ MIT | — | — |
 
 ## Caveats
 

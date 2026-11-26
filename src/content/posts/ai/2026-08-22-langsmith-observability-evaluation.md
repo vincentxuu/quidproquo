@@ -10,7 +10,7 @@ description: "說明 LangSmith 的 trace 資料模型、Python instrumentation�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-langsmith-observability-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-langsmith-observability-evaluation-en)
 
 [LangSmith](https://docs.langchain.com/langsmith/observability-concepts) 是 LangChain 團隊提供的 LLM 應用觀測與評估平台。它記錄的不只是單次模型 request，而是一次操作中的模型、retrieval、tool call、程式步驟與巢狀關係，因此特別適合除錯 RAG 與 agent workflow。
 

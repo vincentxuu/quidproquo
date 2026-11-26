@@ -13,7 +13,7 @@ description: "科萊帕爾多洞穴（Cueva di Collepardo）岩場介紹：洞�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-collepardo-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-collepardo-en)
 
 科萊帕爾多（Collepardo）是拉齊奧（Lazio）南部弗羅西諾內（Frosinone）省、Monti Ernici 山區裡不到一千人的小村。村外 Vallefiume 河谷的山坡上有一個約 30 公尺高、滿是鐘乳與石筍的石灰岩洞，叫 La Cueva。2015 年羅馬 Vertical Park 攀岩館的教練群開始在洞裡打 bolt（[Planetmountain 2016](https://www.planetmountain.com/it/notizie/arrampicata/la-cueva-di-collepardo-arrampicata-nel-cuore-dei-monti-ernici.html)），之後羅馬出身的 Laura Rogora 在這裡首攀了一串 8c+ 到 9a 的路線，讓它成為中義大利的高難度洞穴岩場。
 

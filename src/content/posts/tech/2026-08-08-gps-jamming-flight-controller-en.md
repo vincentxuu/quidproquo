@@ -13,7 +13,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-gps-jamming-flight-controller)
+> :globe: [中文版](/posts/tech/2026-08-08-gps-jamming-flight-controller)
 
 Taiwan's *Remotely Piloted Aircraft Cybersecurity Testing Specification* names three modules when it defines a product series: **flight control, communications, and the satellite-positioning chip module**. The [flight control post](/posts/tech/2026-08-08-px4-vs-ardupilot-en) and the [communications post](/posts/tech/2026-08-08-drone-radio-link-en) covered the first two. This is the third.
 

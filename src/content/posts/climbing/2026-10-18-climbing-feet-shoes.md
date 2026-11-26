@@ -26,7 +26,7 @@ glossary:
     context: "Auer 2021 的抱石研究把「極度下彎」的鞋列為風險因子之一。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-feet-shoes-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-feet-shoes-en)
 
 你在岩館的商店試穿一雙新鞋。腳趾整個捲起來，站著就痛。店員說：「攀岩鞋本來就要這麼緊，穿久就會鬆。」你買了。三個月後，大拇趾甲下面一片黑，脫鞋之後腳跟還在痛。
 

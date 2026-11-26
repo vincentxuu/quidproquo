@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-10-taiwan-security-cert-ecosystem)
+> :globe: [中文版](/posts/tech/2026-09-10-taiwan-security-cert-ecosystem)
 
 The first three parts mapped the [full landscape](/posts/tech/2026-09-10-security-cert-landscape-en), ran the [AI security cert showdown](/posts/tech/2026-09-10-ai-security-cert-showdown-en), and crunched the [classic cert ROI](/posts/tech/2026-09-10-security-cert-roi-en). This final installment covers what's unique to Taiwan: what regulations actually require, where to train, where to sit exams, and whether local alternatives exist.
 

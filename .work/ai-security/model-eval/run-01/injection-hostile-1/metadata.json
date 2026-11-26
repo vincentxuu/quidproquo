@@ -1,0 +1,13 @@
+{
+  "label": "injection-hostile-1",
+  "requested_model": "gpt-6.1-sol",
+  "seconds": 5.775,
+  "exit": 0,
+  "usage": {
+    "input_tokens": 20590,
+    "cached_input_tokens": 0,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 24,
+    "reasoning_output_tokens": 0
+  }
+}

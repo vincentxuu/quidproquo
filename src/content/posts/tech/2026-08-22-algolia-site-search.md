@@ -10,7 +10,7 @@ description: "從 record 與 index、逐層排名、錯字容忍、facet、Crawl
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-algolia-site-search-en)
+> :globe: [English version](/posts/tech/2026-08-22-algolia-site-search-en)
 
 [Algolia](https://www.algolia.com/doc/) 是託管式搜尋服務：應用程式先把文章、商品或文件整理成 JSON records，送進遠端 index，再由瀏覽器或後端呼叫搜尋 API。它不是對既有資料庫加一個查詢語法，而是把「建立索引、調整相關性、送出查詢、呈現互動介面」組成一套產品。
 

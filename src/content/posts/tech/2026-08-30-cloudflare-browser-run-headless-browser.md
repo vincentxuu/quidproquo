@@ -16,7 +16,7 @@ additionalSeries:
     order: 9
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-browser-run-headless-browser-en)
 
 大部分 Workers 程式只需要 `fetch()`。打 API、讀 JSON、抓 HTML、處理 webhook，這些都不需要真的開瀏覽器。但有些任務只靠 HTTP 會變得很麻煩：截圖、PDF、client-side render 後的頁面、需要 JavaScript 執行的網站、互動式流程測試、或讓 agent 真的操作網頁。
 
@@ -44,7 +44,7 @@ Browser Run 有兩種整合方式。
 Quick Actions 可以直接用 REST API。截圖例子長這樣：
 
 ```bash
-curl -X POST "https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-rendering/screenshot" \
+curl -X POST "https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/screenshot" \
   -H "Authorization: Bearer <apiToken>" \
   -H "Content-Type: application/json" \
   -d '{ "url": "https://example.com" }' \
@@ -77,7 +77,7 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-官方文件提醒，`.quickAction()` 需要 `compatibility_date` 在 `2026-03-24` 或之後。local development 如果要用真的 headless browser，也要透過 remote binding。
+官方文件提醒，`.quickAction()` 需要 `compatibility_date` 在 `2026-03-24` 或之後。2026-11 起，`wrangler dev` 下的 `.quickAction()` 會改用本機的 Chrome 執行，不必再接 remote binding；但 `json` action 只回符合 schema 的 placeholder（本機沒有 Workers AI），Kitesurf 也不能用，需要真實結果時在 browser binding 設 `"remote": true`。
 
 Quick Actions 的用途很直接：
 
@@ -116,9 +116,18 @@ export default {
 } satisfies ExportedHandler<Env>;
 ```
 
-`finally` 很重要。Browser Run 的 limits 文件特別指出，沒有明確 `browser.close()` 的 session 會繼續消耗 browser time，直到 idle timeout。預設 idle timeout 是 60 秒，使用 `keep_alive` 最多可以延長到 10 分鐘。
+`finally` 很重要。Browser Run 的 limits 文件特別指出，沒有明確 `browser.close()` 的 session 會繼續消耗 browser time，直到 idle timeout。預設 idle timeout 是 60 秒，使用 `keep_alive` 最多可以延長到 20 分鐘。
 
 如果需要跨 request 重用 browser session，可以搭配 [Durable Objects](/posts/tech/2026-08-22-cloudflare-durable-objects)。DO 適合保存 session 狀態、排隊操作、控制同一個 browser 不被多個 request 打爆。這也是 Browser Run 和 Containers 的差別之一：你拿到的是 managed headless Chrome，不是任意 Linux runtime。
+
+## 新選項：/script 與 Kitesurf
+
+2026 下半年 Browser Run 多了兩個值得先知道的選項：
+
+- **`/script`**：把一段 Playwright、Puppeteer 或 raw CDP 的 JavaScript function 用一次 API request 送進去，Browser Run 在隔離的 Worker 裡連上 browser session 執行並回傳結果，不必自己部署 Worker。Worker 內可用 `env.BROWSER.script()`。它屬於 Browser Sessions，按 browser hours 加 concurrent browsers 計費；執行完不會自動關 session，要自己關或等 idle timeout。
+- **Kitesurf**：Cloudflare 為 agent 做的 browser engine，整個跑在 Workers 上、不開 Chromium，screenshot、HTML 抽取這類工作吃的 CPU 與記憶體少很多。目前是 beta、免費但有 per-account limits；不能播影片、跑 WebGL、通過需要真實 TLS fingerprint 的 bot challenge，也不適合需要登入狀態的長 session。Quick Actions 加 `browser=kitesurf` 就能試；2026-11 已以 Apache 2.0 開源。
+
+預設的 Chromium 也在 2026-10 升到 Chrome 152，Quick Actions 的預設 User-Agent 從 Chrome 119 改報 Chrome 152。若你的站用 User-Agent 白名單放行 Browser Run，規則要跟著改。
 
 ## Limits：先算 browser time 和 concurrency
 
@@ -179,6 +188,10 @@ Browser Run 解決的是「我需要一個 managed browser」。[Containers](htt
 
 這條界線可以避免把 Browser Run 當成萬用 compute。Browser 很貴、很重，也有清楚的 concurrency 和時間限制。能用 `fetch()` 解決的任務，不需要開 Chrome；能用 Quick Actions 解決的任務，不需要自己管 session。
 
+## 更新紀錄
+
+- 2026-11-23：REST 範例路徑改為官方文件現用的 `/browser-run/`；`keep_alive` 上限由 10 分鐘改為 20 分鐘；Quick Actions 已可在 `wrangler dev` 本機執行；新增 `/script`、Kitesurf 與 Chrome 152 預設 User-Agent 變更。
+
 ## 參考資料
 
 - [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/)
@@ -187,4 +200,7 @@ Browser Run 解決的是「我需要一個 managed browser」。[Containers](htt
 - [Browser Run pricing](https://developers.cloudflare.com/browser-run/pricing/)
 - [Browser Run Quick Actions](https://developers.cloudflare.com/browser-run/quick-actions/)
 - [Browser Run Playwright](https://developers.cloudflare.com/browser-run/playwright/)
+- [Browser Run custom scripts](https://developers.cloudflare.com/browser-run/script/)
+- [Browser Run Kitesurf](https://developers.cloudflare.com/browser-run/kitesurf/)
+- [Changelog：Browser Run now runs Chrome 152](https://developers.cloudflare.com/changelog/post/2026-10-30-chrome-152/)
 - [Browser Run with Durable Objects](https://developers.cloudflare.com/browser-run/how-to/browser-run-with-do/)

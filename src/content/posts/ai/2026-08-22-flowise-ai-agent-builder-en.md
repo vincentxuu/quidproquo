@@ -10,7 +10,7 @@ description: "An application-lifecycle guide to Flowise's three visual builders,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-flowise-ai-agent-builder)
+> :globe: [中文版](/posts/ai/2026-08-22-flowise-ai-agent-builder)
 
 [Flowise](https://docs.flowiseai.com/) is an open-source platform for building LLM workflows and AI agents on a visual canvas. Its center is not general SaaS automation or an all-in-one application platform. It combines models, retrievers, memory, tools, conditions, loops, and human approval into executable AI workflows.
 

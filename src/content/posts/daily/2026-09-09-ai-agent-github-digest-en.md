@@ -17,7 +17,7 @@ Today's throughline is trust — reverify doesn't ask the model to be more caref
 
 ## Trending Repos
 
-### 2akouwu/reverify ⭐ 1,036
+### 2akouwu/reverify ★ 1,036
 
 [GitHub](https://github.com/2akouwu/reverify)　·　Python　·　MIT
 
@@ -28,7 +28,7 @@ Today's throughline is trust — reverify doesn't ask the model to be more caref
 
 ---
 
-### useagenthq/useagent ⭐ 283
+### useagenthq/useagent ★ 283
 
 [GitHub](https://github.com/useagenthq/useagent)　·　TypeScript　·　AGPL-3.0
 
@@ -39,7 +39,7 @@ Today's throughline is trust — reverify doesn't ask the model to be more caref
 
 ---
 
-### noskillish/bankmcp ⭐ 151
+### noskillish/bankmcp ★ 151
 
 [GitHub](https://github.com/noskillish/bankmcp)　·　TypeScript　·　MIT
 
@@ -50,7 +50,7 @@ Today's throughline is trust — reverify doesn't ask the model to be more caref
 
 ---
 
-### cbrock84/headcount ⭐ 1,323
+### cbrock84/headcount ★ 1,323
 
 [GitHub](https://github.com/cbrock84/headcount)　·　Markdown　·　MIT
 

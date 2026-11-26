@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-kamal-deployment-tool)
+> :globe: [中文版](/posts/tech/2026-08-22-kamal-deployment-tool)
 
 [Kamal](https://kamal-deploy.org/docs/installation/) deploys Docker images from a CLI or CI runner over SSH. It is not a resident dashboard or cluster scheduler. `config/deploy.yml` declares service, image, servers, roles, registry, environment, and proxy; remote hosts run Docker, kamal-proxy, and application containers.
 

@@ -14,7 +14,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders-en)
+> :globe: [English version](/posts/ai/2026-08-22-cmu-11785-21-representations-autoencoders-en)
 
 **影片狀態：已附影片；播放未逐支確認。** [影片來源與說明](#課程影片來源)
 

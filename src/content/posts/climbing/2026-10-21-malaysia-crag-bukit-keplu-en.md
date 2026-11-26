@@ -13,7 +13,7 @@ description: "Bukit Keplu climbing guide: the two approach options from the junc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-bukit-keplu)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-bukit-keplu)
 
 Bukit Keplu is a limestone hill in [Kodiang](https://www.thecrag.com/en/climbing/malaysia/area/12321894648), Kedah, with paddy fields on top, caves inside and 28 sport routes between 5c and 7b+. It is a morning crag: the heat arrives around 3pm, and in rain most of the routes stay dry. This guide helps you judge whether a half day fits, which of the two approaches to take, whether parking will block a farmer, and why the helmet is not optional.
 

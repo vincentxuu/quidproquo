@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
+> :globe: [English version](/posts/policy/2026-08-07-drone-privacy-taiwan-en)
 
 **這個系列到這裡二十二篇，全部是同一種視角。**
 

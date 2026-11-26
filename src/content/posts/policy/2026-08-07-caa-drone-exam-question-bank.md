@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
+> :globe: [English version](/posts/policy/2026-08-07-caa-drone-exam-question-bank-en)
 
 **先講邊界：我沒有考過這張證，這篇不是考試心得。**
 

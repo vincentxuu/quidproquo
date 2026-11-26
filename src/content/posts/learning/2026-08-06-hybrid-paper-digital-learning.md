@@ -10,7 +10,7 @@ description: "在數位化學習成為預設之後，實體紙筆還有哪些經
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-06-hybrid-paper-digital-learning-en)
+> :globe: [English version](/posts/learning/2026-08-06-hybrid-paper-digital-learning-en)
 
 現在要學一件事，預設路徑幾乎都是數位的。線上課程、PDF、筆記 app、平板加觸控筆、間隔重複工具。整條鏈路不碰紙也跑得完。
 

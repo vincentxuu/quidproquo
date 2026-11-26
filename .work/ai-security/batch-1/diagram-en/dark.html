@@ -1,0 +1,308 @@
+<!doctype html><html lang="en" data-theme="dark"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>/* quidproquo 設計 token 單一來源（Single Source of Truth）。
+ *
+ * 載入頁面：`src/layouts/PostLayout.astro` 與 `src/pages/chat.astro` 經 frontmatter
+ * `import '../styles/tokens.css'` 載入（先於 chat.css）。站內所有 `var(--brand-*)` /
+ * `var(--text-*)` / `var(--bg-*)` / `var(--border)` / `var(--shadow-*)` 都解析到這裡。
+ *
+ * 規則：
+ * - 改色只改這裡，不准在頁面／layout 另起 `:root` 拷貝（見 scripts/check-chat-style.mjs）。
+ * - 後台（admin-tokens.css）是獨立介面，不在此檔管理。
+ * - 深色模式＝`[data-theme="dark"]`（localStorage＋toggle 切換）；Tailwind `dark:`
+ *   variant 靠 `src/styles/chat.css` 的 `@custom-variant dark` 綁到同一 attribute。
+ */
+
+:root {
+  --brand-900: #1a2e1a;
+  --brand-700: #2d4a2d;
+  --brand-500: #4a9e6a;
+  --brand-300: #a7c4a0;
+  --brand-100: #e8f5e8;
+  --brand-50:  #f0f7f0;
+  --border:    #d1e8d1;
+  --text-primary:    #1a1a1a;
+  --text-secondary:  #4a7c59;
+  --text-muted:      #767676;
+  --bg-page:   #ffffff;
+  --bg-subtle: #f5f7f5;
+  --bg-card:   #ffffff;
+  --bg-code:   #1e1e2e;
+  --heading-accent: #e8657a;
+  --info-bg:    #eef6ff;
+  --info-border: #3b82f6;
+  --info-icon:   #3b82f6;
+  --success-bg:    #eefbf3;
+  --success-border: #22c55e;
+  --success-icon:   #22c55e;
+  --warning-bg:    #fffbeb;
+  --warning-border: #f59e0b;
+  --danger:     #b42318;
+  --shine:      rgba(255, 255, 255, 0.55);
+  --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
+  --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
+  --code-dot-red: #ff5f57;
+  --code-dot-yellow: #febc2e;
+  --code-dot-green: #28c840;
+
+  /* Category badge colors */
+  --cat-tech:      #1a1a1a;
+  --cat-ai:        #6d28d9;
+  --cat-product:   #0369a1;
+  --cat-education: #b45309;
+  --cat-life:      #15803d;
+  --cat-marketing: #be185d;
+  --cat-travel:    #c2410c;
+  --cat-climbing:  #57534e;
+  --cat-surf:      #0891b2;
+  --cat-film:      #292524;
+  --cat-coffee:    #92400e;
+  --cat-investing: #047857;
+  --cat-learning:  #0d9488;
+  --cat-design:    #a21caf;
+  --cat-policy:    #475569;
+  --cat-anime:     #e11d48;
+  --cat-career:    #0c4a6e;
+}
+
+[data-theme="dark"] {
+  --brand-900: #e8e8e8;
+  --brand-700: #c0c0c0;
+  --brand-500: #5cb87a;
+  --brand-300: #2d4a2d;
+  --brand-100: #1c2833;
+  --brand-50:  #151d26;
+  --border:    #2a3545;
+  --text-primary:    #d1d5db;
+  --text-secondary:  #5cb87a;
+  --text-muted:      #6b7280;
+  --bg-page:   #0f1419;
+  --bg-subtle: #151d26;
+  --bg-card:   #1a2332;
+  --bg-code:   #0d1117;
+  --heading-accent: #f472b6;
+  --info-bg:    #151d26;
+  --info-border: #3b82f6;
+  --info-icon:   #60a5fa;
+  --success-bg:    #151d26;
+  --success-border: #22c55e;
+  --success-icon:   #4ade80;
+  --warning-bg:    #1a1a0f;
+  --warning-border: #f59e0b;
+  --danger:     #f87171;
+  --shine:      rgba(255, 255, 255, 0.08);
+  --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
+  --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Flow diagrams rendered from ```flow-diagram fences (src/plugins/remarkFlowDiagram.ts). */
+.flow-diagram { --flow-active: var(--brand-500); --flow-warn: var(--danger); margin: 1.5rem 0; padding: 1rem 1rem .75rem; border: 1px solid var(--border); border-radius: .75rem; background: var(--bg-card); }
+.content .flow-diagram__title { margin: 0 0 .5rem; font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
+.flow-diagram__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.flow-diagram__scroll:focus-visible { outline: 2px solid var(--flow-active); outline-offset: 2px; }
+/* Keep 12px labels at ~9px or more on phones: below this width the diagram scrolls instead of shrinking. */
+.flow-diagram__svg { display: block; width: 100%; max-width: 680px; min-width: 500px; height: auto; max-height: 80vh; margin-inline: auto; overflow: visible; }
+
+.flow-diagram__node rect, .flow-diagram__node ellipse, .flow-diagram__node path:not(.flow-diagram__pins), .flow-diagram__node circle { fill: var(--bg-subtle); stroke: var(--text-muted); stroke-width: 1.5; }
+.flow-diagram__node--db path:not(.flow-diagram__pins) { fill: var(--bg-subtle); }
+.flow-diagram__pins { fill: none; stroke: var(--text-muted); stroke-width: 2; stroke-linecap: round; }
+.flow-diagram__node--group rect { fill: transparent; stroke-dasharray: 4 4; }
+.flow-diagram__node--accent rect { fill: var(--brand-50); stroke: var(--brand-500); }
+.flow-diagram__node--warn rect { stroke: var(--flow-warn); }
+.flow-diagram__node-label { fill: var(--text-primary); font-weight: 600; }
+
+.flow-diagram__edge { color: var(--text-muted); }
+.flow-diagram__edge--warn { color: var(--flow-warn); }
+.flow-diagram__line { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-dasharray: 6 5; }
+.flow-diagram__head { fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.flow-diagram__badge circle { fill: var(--text-primary); }
+.flow-diagram__badge text { fill: var(--bg-card); font-weight: 700; }
+.flow-diagram__edge-label { fill: currentColor; }
+.flow-diagram__edge:not(.flow-diagram__edge--warn) .flow-diagram__edge-label { fill: var(--text-primary); }
+
+/* Stepping: the current step glows, earlier steps stay legible, later steps fade. */
+.flow-diagram__edge, .flow-diagram__node { transition: opacity .3s ease, color .3s ease; }
+.flow-diagram.is-stepping .flow-diagram__edge:not(.is-active, .is-done) { opacity: .18; }
+.flow-diagram.is-stepping .flow-diagram__node:not(.is-active, .is-done, .flow-diagram__node--group) { opacity: .35; }
+.flow-diagram.is-stepping .flow-diagram__edge.is-done { opacity: .5; }
+.flow-diagram__edge.is-active { color: var(--flow-active); }
+.flow-diagram__edge--warn.is-active { color: var(--flow-warn); }
+.flow-diagram__edge.is-active .flow-diagram__line, .flow-diagram__edge.is-active .flow-diagram__head { stroke-width: 2.6; }
+.flow-diagram__edge.is-active .flow-diagram__badge circle { fill: currentColor; }
+.flow-diagram__node.is-active:not(.flow-diagram__node--group) :is(rect, ellipse, path:not(.flow-diagram__pins), circle) { stroke: var(--flow-active); stroke-width: 2.4; }
+@media (prefers-reduced-motion: no-preference) {
+  .flow-diagram__edge.is-active .flow-diagram__line { animation: flow-diagram-dash .6s linear infinite; }
+}
+@keyframes flow-diagram-dash { to { stroke-dashoffset: -11; } }
+
+.flow-diagram__controls:not([hidden]) { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-top: .75rem; }
+.flow-diagram__controls button { min-width: 44px; min-height: 44px; padding: .4rem .8rem; border: 1px solid var(--border); border-radius: .4rem; background: var(--bg-card); color: var(--text-primary); font: inherit; font-size: .875rem; cursor: pointer; }
+.flow-diagram__controls [data-flow-toggle] { background: var(--brand-900); border-color: var(--brand-900); color: var(--bg-page); font-weight: 600; }
+.flow-diagram__controls [data-flow-status] { margin-left: .25rem; font-size: .8rem; color: var(--text-muted); }
+
+/* The step narration is for screen readers only; sighted readers follow the diagram and the step counter. */
+.content .flow-diagram__steps { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.content .flow-diagram__caption { margin: .5rem 0 0; font-size: .8rem; color: var(--text-muted); }
+.flow-diagram__edge-label { paint-order: stroke; stroke: var(--bg-card); stroke-width: 5px; stroke-linejoin: round; }
+
+/* ```diagram figures (src/plugins/remarkDiagram.ts). Every colour in a diagram comes from a dg-* class here,
+ * so diagrams follow the site's light/dark theme. Vocabulary documented in .agents/skills/diagram/references/style.md. */
+.dg {
+  --dg-ink: var(--text-primary);
+  --dg-muted: var(--text-muted);
+  --dg-paper: var(--bg-card);
+  --dg-paper-2: var(--bg-subtle);
+  --dg-rule: var(--border);
+  --dg-accent: var(--brand-500);
+  --dg-accent-text: color-mix(in srgb, var(--brand-500) 70%, var(--text-primary));
+  --dg-accent-tint: color-mix(in srgb, var(--brand-500) 12%, transparent);
+  --dg-link: var(--info-border);
+  --dg-link-tint: color-mix(in srgb, var(--info-border) 10%, transparent);
+  --dg-warn: var(--danger);
+  --dg-warn-tint: color-mix(in srgb, var(--danger) 10%, transparent);
+  --dg-active: var(--brand-500);
+  --flow-active: var(--dg-active);
+  margin: 1.5rem 0;
+  padding: 1rem 1rem .75rem;
+  border: 1px solid var(--border);
+  border-radius: .75rem;
+  background: var(--bg-card);
+}
+[data-theme="dark"] .dg { --dg-warn: #f97066; }
+.content .dg__title { margin: 0 0 .5rem; font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
+.content .dg__caption { margin: .5rem 0 0; font-size: .8rem; color: var(--text-muted); }
+.dg__scroll { overflow-x: auto; overscroll-behavior-x: contain; }
+.dg__scroll:focus-visible { outline: 2px solid var(--dg-accent); outline-offset: 2px; }
+.dg-svg { display: block; width: 100%; height: auto; max-height: 85vh; margin-inline: auto; overflow: visible; }
+/* Never shrink text below 75%: wide diagrams scroll sideways inside the figure instead. */
+.dg--s .dg-svg { max-width: 560px; }
+.dg--m .dg-svg { max-width: 720px; min-width: 480px; }
+.dg--l .dg-svg { max-width: 840px; min-width: 600px; }
+
+/* Shapes */
+.dg-box { fill: var(--dg-paper); stroke: var(--dg-muted); stroke-width: 1.2; }
+.dg-box--accent { fill: var(--dg-accent-tint); stroke: var(--dg-accent); stroke-width: 1.6; }
+.dg-box--link { fill: var(--dg-link-tint); stroke: var(--dg-link); }
+.dg-box--warn { fill: var(--dg-warn-tint); stroke: var(--dg-warn); }
+.dg-box--store { fill: var(--dg-paper-2); }
+.dg-box--ghost { fill: var(--dg-paper); stroke-dasharray: 5 4; }
+.dg-box--solid { fill: var(--dg-ink); stroke: var(--dg-ink); }
+.dg-zone { fill: none; stroke: var(--dg-rule); stroke-width: 1.2; stroke-dasharray: 6 4; }
+.dg-zone--accent { stroke: var(--dg-accent); }
+.dg-zone--solid { stroke-dasharray: none; }
+.dg-band { fill: var(--dg-paper-2); stroke: none; }
+.dg-band--accent { fill: var(--dg-accent-tint); }
+.dg-band--warn { fill: var(--dg-warn-tint); }
+.dg-area { fill: var(--dg-ink); fill-opacity: .07; stroke: var(--dg-muted); stroke-width: 1.2; }
+.dg-area--accent { fill: var(--dg-accent-tint); fill-opacity: 1; stroke: var(--dg-accent); }
+.dg-area--link { fill: var(--dg-link-tint); fill-opacity: 1; stroke: var(--dg-link); }
+.dg-dot { fill: var(--dg-ink); }
+.dg-dot--accent { fill: var(--dg-accent); }
+.dg-dot--muted { fill: var(--dg-muted); }
+.dg-dot--hollow { fill: var(--dg-paper); stroke: var(--dg-muted); stroke-width: 1.4; }
+
+/* Lines */
+.dg-line { fill: none; stroke: var(--dg-muted); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.dg-line--accent { stroke: var(--dg-accent); stroke-width: 2; }
+.dg-line--link { stroke: var(--dg-link); }
+.dg-line--warn { stroke: var(--dg-warn); }
+.dg-line--dashed { stroke-dasharray: 5 4; }
+.dg-line--strong { stroke: var(--dg-ink); }
+.dg-rule { fill: none; stroke: var(--dg-rule); stroke-width: 1; }
+.dg-axis { fill: none; stroke: var(--dg-muted); stroke-width: 1; }
+.dg-marker path { fill: var(--dg-muted); stroke: none; }
+.dg-marker--arrow-accent path { fill: var(--dg-accent); }
+.dg-marker--arrow-link path { fill: var(--dg-link); }
+.dg-marker--arrow-warn path { fill: var(--dg-warn); }
+.dg-marker--arrow-active path { fill: var(--dg-active); }
+
+/* Text — sizes are viewBox units; the scroll floor above keeps them readable on phones. */
+:where(.dg-svg) text { fill: var(--dg-ink); }
+.dg-label { font-size: 15px; font-weight: 600; }
+.dg-sub { font-size: 12.5px; fill: var(--dg-muted); }
+.dg-small { font-size: 11.5px; fill: var(--dg-muted); }
+.dg-tag { font-size: 11.5px; font-weight: 700; letter-spacing: .08em; fill: var(--dg-muted); }
+.dg-heading { font-size: 17px; font-weight: 700; }
+.dg-big { font-size: 26px; font-weight: 700; }
+.dg-edge { font-size: 12.5px; fill: var(--dg-muted); paint-order: stroke; stroke: var(--dg-paper); stroke-width: 5px; stroke-linejoin: round; }
+.dg-edge--on-band { stroke: var(--dg-paper-2); }
+.dg-mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+.dg-em { font-style: italic; }
+.dg-text--accent { fill: var(--dg-accent-text); }
+.dg-text--warn { fill: var(--dg-warn); }
+.dg-text--link { fill: var(--dg-link); }
+.dg-text--invert { fill: var(--dg-paper); }
+
+/* Step badges: <g class="dg-badge"><circle r="10"/><text>1</text></g> */
+.dg-badge circle { fill: var(--dg-ink); }
+.dg-badge text { fill: var(--dg-paper); font-size: 12px; font-weight: 700; }
+.dg-badge--accent circle { fill: var(--dg-accent); }
+
+/* Stepping (shared player in src/lib/flowDiagram.ts): marked elements light up on their steps. */
+.dg [data-step] { transition: opacity .3s ease; }
+.dg.is-stepping [data-step]:not(.is-active, .is-done) { opacity: .16; }
+.dg.is-stepping [data-step].is-done { opacity: .55; }
+/* Active step: lines and box outlines turn green; text keeps its colour, and red/blue lines keep their meaning. */
+.dg [data-step].is-active :is(.dg-line, .dg-box):not(.dg-line--warn, .dg-line--link, .dg-box--warn, .dg-box--link),
+.dg :is(.dg-line, .dg-box)[data-step].is-active:not(.dg-line--warn, .dg-line--link, .dg-box--warn, .dg-box--link) { stroke: var(--dg-active); }
+.dg [data-step].is-active .dg-line, .dg .dg-line[data-step].is-active { stroke-width: 2.6; }
+.dg [data-step].is-active .dg-box, .dg .dg-box[data-step].is-active { stroke-width: 2.4; }
+.dg [data-step].is-active [marker-end]:not(.dg-line--warn, .dg-line--link), .dg [marker-end][data-step].is-active:not(.dg-line--warn, .dg-line--link) { marker-end: url(#dg-arrow-active); }
+.dg [data-step].is-active [marker-start]:not(.dg-line--warn, .dg-line--link), .dg [marker-start][data-step].is-active:not(.dg-line--warn, .dg-line--link) { marker-start: url(#dg-arrow-active); }
+.dg [data-step].is-active .dg-badge circle, .dg .dg-badge[data-step].is-active circle { fill: var(--dg-active); }
+@media (prefers-reduced-motion: no-preference) {
+  .dg [data-step].is-active .dg-line--dashed, .dg .dg-line--dashed[data-step].is-active { animation: flow-diagram-dash .6s linear infinite; }
+}
+
+/* Data charts. A mark takes its colour from --dg-c: set it with one colour class (dg-c-accent, dg-c-s1…s5, …).
+ * Series colours are muted on purpose — accent stays the single focal series. Palette from diagram-design (MIT). */
+.dg { --dg-s1: #5e7a9b; --dg-s2: #b8915a; --dg-s3: #9c6b50; --dg-s4: #6e6479; --dg-s5: #7c8f6f; }
+[data-theme="dark"] .dg { --dg-s1: #82a0c0; --dg-s2: #d3ad7a; --dg-s3: #b88670; --dg-s4: #8d8298; --dg-s5: #9caf8f; }
+.dg-c-accent { --dg-c: var(--dg-accent); }
+.dg-c-warn { --dg-c: var(--dg-warn); }
+.dg-c-link { --dg-c: var(--dg-link); }
+.dg-c-muted { --dg-c: var(--dg-muted); }
+.dg-c-ink { --dg-c: var(--dg-ink); }
+.dg-c-s1 { --dg-c: var(--dg-s1); }
+.dg-c-s2 { --dg-c: var(--dg-s2); }
+.dg-c-s3 { --dg-c: var(--dg-s3); }
+.dg-c-s4 { --dg-c: var(--dg-s4); }
+.dg-c-s5 { --dg-c: var(--dg-s5); }
+.dg-bar { fill: var(--dg-c, var(--dg-muted)); stroke: none; }
+.dg-bar--soft { fill-opacity: .35; }
+.dg-bar--hollow { fill: var(--dg-paper); stroke: var(--dg-c, var(--dg-muted)); stroke-width: 1.4; }
+.dg-plot-line { fill: none; stroke: var(--dg-c, var(--dg-ink)); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.dg-plot-line--thin { stroke-width: 1.4; }
+.dg-plot-area { fill: var(--dg-c, var(--dg-muted)); fill-opacity: .2; stroke: var(--dg-c, var(--dg-muted)); stroke-width: 1.4; }
+.dg-point { fill: var(--dg-c, var(--dg-ink)); stroke: var(--dg-paper); stroke-width: 1.5; }
+.dg-point--hollow { fill: var(--dg-paper); stroke: var(--dg-c, var(--dg-ink)); stroke-width: 1.6; }
+.dg-flow { fill: var(--dg-c, var(--dg-muted)); fill-opacity: .3; stroke: none; }
+.dg-grid { fill: none; stroke: var(--dg-rule); stroke-width: 1; stroke-dasharray: 2 3; }
+.dg-swatch { fill: var(--dg-c, var(--dg-muted)); stroke: none; }
+.dg-text--series { fill: var(--dg-c, var(--dg-ink)); }
+/* Heatmap / intensity cells: 0 = empty … 5 = strongest. */
+.dg-heat-0 { fill: var(--dg-paper-2); }
+.dg-heat-1 { fill: color-mix(in srgb, var(--dg-accent) 16%, var(--dg-paper)); }
+.dg-heat-2 { fill: color-mix(in srgb, var(--dg-accent) 34%, var(--dg-paper)); }
+.dg-heat-3 { fill: color-mix(in srgb, var(--dg-accent) 54%, var(--dg-paper)); }
+.dg-heat-4 { fill: color-mix(in srgb, var(--dg-accent) 76%, var(--dg-paper)); }
+.dg-heat-5 { fill: var(--dg-accent); }
+/* Isometric faces (exploded / axonometric): light from the top-left. */
+.dg-face { stroke: var(--dg-muted); stroke-width: 1; stroke-linejoin: round; }
+.dg-face--top { fill: var(--dg-paper); }
+.dg-face--left { fill: color-mix(in srgb, var(--dg-ink) 7%, var(--dg-paper)); }
+.dg-face--right { fill: color-mix(in srgb, var(--dg-ink) 15%, var(--dg-paper)); }
+.dg-face--accent.dg-face--top { fill: color-mix(in srgb, var(--dg-accent) 22%, var(--dg-paper)); }
+.dg-face--accent.dg-face--left { fill: color-mix(in srgb, var(--dg-accent) 34%, var(--dg-paper)); }
+.dg-face--accent.dg-face--right { fill: color-mix(in srgb, var(--dg-accent) 46%, var(--dg-paper)); }
+
+/* Small parts shared by many types. */
+.dg-chip { fill: var(--dg-paper-2); stroke: var(--dg-muted); stroke-width: 1; }
+.dg-chip--accent { fill: var(--dg-accent-tint); stroke: var(--dg-accent); }
+.dg-chip--warn { fill: var(--dg-warn-tint); stroke: var(--dg-warn); }
+.dg-outline--accent { fill: none; stroke: var(--dg-accent); stroke-width: 2.2; }
+.dg-bubble { fill: color-mix(in srgb, var(--dg-c, var(--dg-muted)) 24%, var(--dg-paper)); stroke: var(--dg-c, var(--dg-muted)); stroke-width: 1.4; }
+.dg-text--ink { fill: var(--dg-ink); }
+/* Dark green text reads on dg-heat-4/5 in both themes (≥4.2:1). */
+.dg-text--on-heat { fill: #10261a; font-weight: 600; }
+
+body{margin:0;background:var(--bg-page);color:var(--text-primary);font-family:"Noto Sans TC","PingFang TC",system-ui,sans-serif}
+.content{max-width:760px;margin:0 auto;padding:16px}</style><body><div class="content"><figure class="flow-diagram" data-flow-diagram data-flow-total="4" data-flow-lang="en" aria-labelledby="flow-diagram-0-title"><figcaption class="flow-diagram__title" id="flow-diagram-0-title">Teaching example: from a user to tool execution</figcaption><div class="flow-diagram__scroll" tabindex="0" aria-label="Diagram, scroll sideways if it is cut off"><svg class="flow-diagram__svg" viewBox="0 0 440 610" role="img" aria-labelledby="flow-diagram-0-title" aria-describedby="flow-diagram-0-steps"><g class="flow-diagram__edge" data-step="1"><path class="flow-diagram__line" d="M155 89L155 146"/><path class="flow-diagram__head" d="M150.7 137L155 146L159.3 137"/><g class="flow-diagram__badge"><circle cx="190" cy="117" r="10"/><text x="190" y="117" font-size="12" text-anchor="middle" dominant-baseline="central">1</text></g><text class="flow-diagram__edge-label" x="205" y="117" font-size="12" text-anchor="start" dominant-baseline="central"><tspan x="205" dy="0">Question</tspan></text></g><g class="flow-diagram__edge" data-step="2"><path class="flow-diagram__line" d="M155 214L155 271"/><path class="flow-diagram__head" d="M150.7 262L155 271L159.3 262"/><g class="flow-diagram__badge"><circle cx="190" cy="242" r="10"/><text x="190" y="242" font-size="12" text-anchor="middle" dominant-baseline="central">2</text></g><text class="flow-diagram__edge-label" x="205" y="242" font-size="12" text-anchor="start" dominant-baseline="central"><tspan x="205" dy="0">Retrieve</tspan></text></g><g class="flow-diagram__edge" data-step="3"><path class="flow-diagram__line" d="M155 339L155 396"/><path class="flow-diagram__head" d="M150.7 387L155 396L159.3 387"/><g class="flow-diagram__badge"><circle cx="190" cy="367" r="10"/><text x="190" y="367" font-size="12" text-anchor="middle" dominant-baseline="central">3</text></g><text class="flow-diagram__edge-label" x="205" y="367" font-size="12" text-anchor="start" dominant-baseline="central"><tspan x="205" dy="0">Context</tspan></text></g><g class="flow-diagram__edge" data-step="4"><path class="flow-diagram__line" d="M155 464L155 521"/><path class="flow-diagram__head" d="M150.7 512L155 521L159.3 512"/><g class="flow-diagram__badge"><circle cx="190" cy="492" r="10"/><text x="190" y="492" font-size="12" text-anchor="middle" dominant-baseline="central">4</text></g><text class="flow-diagram__edge-label" x="205" y="492" font-size="12" text-anchor="start" dominant-baseline="central"><tspan x="205" dy="0">Authorize</tspan></text></g><g class="flow-diagram__node flow-diagram__node--box" data-flow-node="0" data-step="1"><rect x="30" y="27" width="250" height="56" rx="8"/><text class="flow-diagram__node-label" x="155" y="55" font-size="14" text-anchor="middle" dominant-baseline="central"><tspan x="155" dy="0">User and session</tspan></text></g><g class="flow-diagram__node flow-diagram__node--box" data-flow-node="1" data-step="1 2"><rect x="30" y="152" width="250" height="56" rx="8"/><text class="flow-diagram__node-label" x="155" y="180" font-size="14" text-anchor="middle" dominant-baseline="central"><tspan x="155" dy="0">API access checks</tspan></text></g><g class="flow-diagram__node flow-diagram__node--box" data-flow-node="2" data-step="2 3"><rect x="30" y="277" width="250" height="56" rx="8"/><text class="flow-diagram__node-label" x="155" y="305" font-size="14" text-anchor="middle" dominant-baseline="central"><tspan x="155" dy="0">Permitted data</tspan></text></g><g class="flow-diagram__node flow-diagram__node--box" data-flow-node="3" data-step="3 4"><rect x="30" y="402" width="250" height="56" rx="8"/><text class="flow-diagram__node-label" x="155" y="430" font-size="14" text-anchor="middle" dominant-baseline="central"><tspan x="155" dy="0">Model tool request</tspan></text></g><g class="flow-diagram__node flow-diagram__node--box flow-diagram__node--accent" data-flow-node="4" data-step="4"><rect x="30" y="527" width="250" height="56" rx="8"/><text class="flow-diagram__node-label" x="155" y="555" font-size="14" text-anchor="middle" dominant-baseline="central"><tspan x="155" dy="0">Tool access checks</tspan></text></g></svg></div><div class="flow-diagram__controls" data-flow-controls hidden><button type="button" data-flow-prev aria-label="Previous step">←</button><button type="button" data-flow-toggle aria-pressed="false">Play</button><button type="button" data-flow-next aria-label="Next step">→</button><span data-flow-status role="status" aria-live="polite">All 4 steps</span></div><ol class="flow-diagram__steps" id="flow-diagram-0-steps"><li data-flow-step-item="1">The user asks a question and the backend obtains authenticated identity</li><li data-flow-step-item="2">The backend retrieves data under access rules</li><li data-flow-step-item="3">Permitted data enters the model context</li><li data-flow-step-item="4">The model proposes a tool call and the execution layer checks the operation</li></ol></figure></div></body></html>

@@ -13,11 +13,11 @@ description: "A guide to Harvard CS50 AI Week 6 Language, written section by sec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-harvard-cs50ai-w06-language)
+> :globe: [中文版](/posts/tech/2026-08-30-harvard-cs50ai-w06-language)
 
 **Video status: Videos included.** The lecture runs 1:05:21. The "Lecture walkthrough" below is written section by section from the recording's English captions, and each section opens with a time link that moves the player on this page to that point. The lecture does not cover this week's projects; those sections follow the course website. [Jump to the player](#lecture-video--timestamps) | [Source details](#course-video-sources)
 
-> ⚠️ **Version note**: This week's lecture recording is titled **2023** (the recordings for Weeks 0 to 5 in this series are titled 2020); the official notes state that the new version of Lecture 6 was released on 14 August 2023, and it already covers attention and the Transformer. Project specs, distribution code, and check50 slugs follow the 2026 course site (i.e., `ai50/projects/2024/x/...`), where the Week 6 projects are Parser and Attention. The 2020 edition's Questions project (TF-IDF question answering) is no longer listed on the current site, this recording does not teach TF-IDF, and this article does not cover it.
+> :warning: **Version note**: This week's lecture recording is titled **2023** (the recordings for Weeks 0 to 5 in this series are titled 2020); the official notes state that the new version of Lecture 6 was released on 14 August 2023, and it already covers attention and the Transformer. Project specs, distribution code, and check50 slugs follow the 2026 course site (i.e., `ai50/projects/2024/x/...`), where the Week 6 projects are Parser and Attention. The 2020 edition's Questions project (TF-IDF question answering) is no longer listed on the current site, this recording does not teach TF-IDF, and this article does not cover it.
 
 ## TL;DR
 
@@ -677,7 +677,7 @@ style50 parser.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation was run only in the environment listed on this site and has not been through check50.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation was run only in the environment listed on this site and has not been through check50.
 
 This is one way to write it, not an official solution. The choice made in the grammar is that a determiner may appear only once while adjectives may be stacked.
 
@@ -968,7 +968,7 @@ style50 mask.py
 <details>
 <summary>Full reference implementation (open only after you have written and submitted your own)</summary>
 
-> ⚠️ If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation was run only in the environment listed on this site and has not been through check50. The head observations below amount to an answer for `analysis.md`, so write your own first as well.
+> :warning: If you are taking this course, or plan to apply for a CS50 certificate: the course's [academic honesty policy](https://cs50.harvard.edu/ai/honesty/) says you may not look at someone else's solution before submitting your own work. Finish and submit first, then use this part to compare. This implementation was run only in the environment listed on this site and has not been through check50. The head observations below amount to an answer for `analysis.md`, so write your own first as well.
 
 This is one way to write it, not an official solution.
 

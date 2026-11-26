@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-18-benchmark-arena-agent-astra)
+> :globe: [繁體中文版](/posts/daily/2026-10-18-benchmark-arena-agent-astra)
 
 ## Shift Summary
 
@@ -24,9 +24,9 @@ The Arena Agent leaderboard published a new batch on 2026-10-16: GPT-6 Astra (Ma
 
 | Rank | Model | Score | 95% CI | 10-14 score (rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (Max) | 18.88% | [16.14%, 21.61%] | 17.18% (1) | — |
-| 🥈 | GPT-6 Astra (Max) | 14.13% | [11.83%, 16.43%] | 13.69% (5) | ↑3 |
-| 🥉 | Claude Fable 5.1 (Max) | 14.03% | [12.04%, 16.03%] | 14.12% (3) | — |
+| 1 | Claude Opus 5.5 (Max) | 18.88% | [16.14%, 21.61%] | 17.18% (1) | — |
+| 2 | GPT-6 Astra (Max) | 14.13% | [11.83%, 16.43%] | 13.69% (5) | ↑3 |
+| 3 | Claude Fable 5.1 (Max) | 14.03% | [12.04%, 16.03%] | 14.12% (3) | — |
 | 4 | GPT-6.1 Sol (Max) | 13.60% | [11.70%, 15.51%] | 14.78% (2) | ↓2 |
 | 5 | Gemini 4 Argon (High) | 13.23% | [11.90%, 14.56%] | 13.73% (4) | ↓1 |
 | 6 | Claude Sonnet 5.5 (Max) | 12.99% | [9.86%, 16.11%] | — | new to top 10 |
@@ -44,7 +44,7 @@ The notable thing here isn't a single batch's rank jump — it's two models each
 
 ### Methodology
 
-⚠️ Arena's score is an IPS (inverse propensity score), not Elo; swings between batches should be read as order and magnitude only, not subtracted and interpreted as "how much it improved."
+:warning: Arena's score is an IPS (inverse propensity score), not Elo; swings between batches should be read as order and magnitude only, not subtracted and interpreted as "how much it improved."
 
 The confidence intervals still overlap: GPT-6 Astra's [11.83%, 16.43%] and GPT-6.1 Sol's [11.70%, 15.51%] sit almost entirely on top of each other, so statistically the order between these two still can't be distinguished. But what's worth noting this time isn't this batch's order — it's that the pattern of "holding the same position across three straight batches" just broke, in both directions. The lesson from the 10-15 post was that a single batch's rank jump doesn't need explaining, but a model holding the same position over several batches does — this is exactly that case: Sol's three-batch stable run ended, and so did Astra's three-batch holding pattern, in opposite directions. No official explanation from OpenAI or Arena turned up for this shift. The community has consistently positioned GPT-6.1 Sol as "Astra Lite" — approaching Astra's score at a much lower cost — and this rank swap doesn't change that positioning; it's more likely normal movement within an overlapping range that happened to hold its direction long enough to register.
 

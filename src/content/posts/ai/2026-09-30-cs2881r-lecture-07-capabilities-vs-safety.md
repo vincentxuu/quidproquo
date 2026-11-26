@@ -25,7 +25,7 @@ glossary:
     context: "OpenAI Preparedness Framework 分 High 與 Critical，Anthropic RSP 用 ASL 等級對應；兩者都為「AI 自我改進」設了門檻。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-07-capabilities-vs-safety-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -220,7 +220,7 @@ Becker 說這部分之後會有經濟學家客座（見 [L9 經濟衝擊](/posts
 ## 延伸閱讀（本站）
 
 - [CS336 評測](/posts/ai/2026-08-22-cs336-evaluation)：語言模型評測的基本方法與陷阱
-- [Stanford CS329Z Week 8：LLM 評審與評測安全](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
+- [Stanford CS329Z 第 14 堂：LLM 評審](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[第 15 堂：安全](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
 - [Stanford CS329A 自我改進 agent](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)
 
 ## 系列導覽

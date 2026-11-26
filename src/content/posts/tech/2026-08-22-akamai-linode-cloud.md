@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-akamai-linode-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-akamai-linode-cloud-en)
 
 Linode 已成為 [Akamai Cloud Computing](https://techdocs.akamai.com/cloud-computing/docs/welcome) 的 compute 平台，但許多資源名稱仍保留 Linode。產品包含 Linode VM、Linode Kubernetes Engine（LKE）、NodeBalancer、Block/Object Storage、Backups、Cloud Firewall、VPC 與 Managed Databases。
 

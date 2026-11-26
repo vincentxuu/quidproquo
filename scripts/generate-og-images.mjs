@@ -13,10 +13,11 @@ import { availableParallelism } from 'node:os';
 import { resolve, join } from 'node:path';
 import { Worker, isMainThread, parentPort, workerData } from 'node:worker_threads';
 import matter from 'gray-matter';
+import { resolveOgImageCacheDir } from './lib/og-image-cache.mjs';
 
 const POSTS_DIR = resolve('src/content/posts');
 const OUT_DIR = resolve('dist/client/og');
-const CACHE_DIR = resolve('.cache/og-images');
+const CACHE_DIR = resolveOgImageCacheDir();
 const FONT_PATH = resolve('public/fonts/NotoSansTC-Medium.otf');
 const TEMPLATE_VERSION = '2026-08-29-v1';
 const MAX_WORKERS = 8;

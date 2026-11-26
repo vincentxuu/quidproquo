@@ -10,7 +10,7 @@ description: "TailwindCSS's design philosophy, why utility-first is an architect
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-tailwindcss-utility-first-css)
+:globe: [中文版](/posts/tech/2026-03-27-tailwindcss-utility-first-css)
 
 CSS has a fundamental problem: its scope is global. Write `.button { color: blue }` and that rule affects every element with the `button` class. Many solutions have emerged over the years — BEM naming conventions, CSS Modules, CSS-in-JS — each attempting to answer the same question: how do you make CSS scoping manageable?
 

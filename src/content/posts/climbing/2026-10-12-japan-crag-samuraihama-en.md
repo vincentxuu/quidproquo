@@ -13,7 +13,7 @@ description: "A guide to Samuraihama, a seaside granite crag in Kuji, Iwate: siz
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-samuraihama)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-samuraihama)
 
 Samuraihama (侍浜, さむらいはま) sits on the Sanriku coast north of Kuji City in Iwate Prefecture. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%BE%8D%E6%B5%9C/) (in Japanese) gives the location as "岩手県久慈市北侍浜" and the rock as granite. The name covers bouldering, bolted sport routes, cracks and top-rope problems, and CLIMBING-net notes that "侍浜のエリアは10カ箇所以上ある" (there are more than ten areas). This is the first Tohoku crag in this series.
 
@@ -129,7 +129,7 @@ Registration and fees: none of the CLIMBING-net, ROCKTOPO, theCrag or JFA pages 
 
 ROCKTOPO's [top-rated routes for Samuraihama](https://www.rocktopo.net/areas/63/popular_routes/all) (2026-10-12) include:
 
-- 入学試験 (5.10a, 展望台下エリア): ROCKTOPO describes it as "花崗岩の長いスラブフェイスの⭐️⭐️⭐️⭐️ルート。ムーブが楽しい" — a four-star long granite slab with fun moves.
+- 入学試験 (5.10a, 展望台下エリア): ROCKTOPO describes it as "花崗岩の長いスラブフェイスの★★★★ルート。ムーブが楽しい" — a four-star long granite slab with fun moves.
 - YellowWave (5.9, 展望台下エリア): "ダイクが面で剥がれたような、インパクトあるオレンジ色のスラブ" — a striking orange slab where a dike seems to have peeled away.
 - 海は広いな大きいな (5.8), 中間試験 (5.10b), 追試 (5.10b) and 東風（やませ） (5.11c), all in the 展望台下エリア.
 - Boulders: Cappellini (1-kyu−, 侍石エリア), ブロンズ (7-kyu, Voxボルダー), ハングドッグフライヤーJr. (7-kyu, Voxボルダー).

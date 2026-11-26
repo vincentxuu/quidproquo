@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack)
+> :globe: [中文版](/posts/daily/2026-09-17-security-bragjack-browser-ai-agent-hijack)
 
 ## Incident Overview
 

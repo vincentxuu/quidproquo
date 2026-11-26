@@ -10,7 +10,7 @@ tldr: "Start with the simplest option: communicate, lower, call 119 in Taiwan (n
 draft: false
 series:
   name: "Sport and Trad Climbing"
-  order: 12
+  order: 13
 glossary:
   - term: "Escaping the belay"
     aliases: ["belay escape", "確保脫離", "確保脫出"]
@@ -30,7 +30,7 @@ glossary:
     context: "The AAC calls this the simplest way to prevent rope-too-short lowering accidents."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-self-rescue-basics)
+> :globe: [中文版](/posts/climbing/2026-10-17-self-rescue-basics)
 
 In [Multi-Pitch Basics](/posts/climbing/2026-10-17-multi-pitch-basics-en) you move further from the ground. That also means fewer people can walk over and help when something goes wrong. Your partner is stuck below a crux, hurt after a fall, or you are halfway through a lower and the rope is running out. What options do the two of you actually have?
 

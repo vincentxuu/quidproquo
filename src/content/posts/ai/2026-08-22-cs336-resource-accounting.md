@@ -13,7 +13,7 @@ description: "Stanford CS336 Spring 2026 Lecture 2 導讀：PyTorch tensor、ein
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs336-resource-accounting-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs336-resource-accounting-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

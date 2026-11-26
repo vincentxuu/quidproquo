@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [modal, serverless-gpu, sandbox, gpu, ai-agent, cost]
 lang: zh-TW
-tldr: "Modal 是按秒計費的 serverless GPU 平台，同時把 agent sandbox 做成一級公民（官方自報累計啟動逾 10 億個 sandbox、佔營收三分之一以上）。選型的關鍵不是它多方便，是你的 GPU 使用率：2026-08-21 實查，Modal A100 80GB 折算 $2.50/hr、RunPod 同卡 $1.59/hr，使用率超過六成四自己開機器就比較便宜；但同一天 H100 SXM Modal $3.95/hr、Lambda $3.99/hr，這張卡的溢價幾乎是零。"
+tldr: "Modal 是按秒計費的 serverless GPU 平台，同時把 agent sandbox 做成一級公民（官方自報累計啟動逾 10 億個 sandbox、佔營收三分之一以上）。選型的關鍵不是它多方便，是你的 GPU 使用率：2026-11 的定價，Modal A100 80GB 折算 $2.50/hr，對上 RunPod 同卡 Secure Cloud $2.19/hr，使用率要超過八成八自己開機器才比較便宜（對 Community Cloud $1.39/hr 則是五成六）；H100 SXM 與 B200 上，Modal 比 RunPod Secure Cloud 與 Lambda 都便宜，溢價是負的。"
 description: "從選型角度介紹 Modal：serverless GPU 與 agent sandbox 這兩層各解決什麼問題、跟裸 GPU 供應商的成本結構怎麼算、冷啟動為什麼是這層的技術核心、agent 跑不可信程式碼時它為什麼變成必需，以及鎖定、無自架、併發上限這些誠實面。"
 series:
   name: "AI 時代的技術選擇"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-modal-serverless-gpu-en)
+:globe: [English version](/posts/ai/2026-08-21-modal-serverless-gpu-en)
 
 站上寫過怎麼挑推論引擎——[vLLM 的技術細節](/posts/ai/2026-03-14-vllm-inference-engine)、[什麼時候該自架](/posts/ai/2026-08-21-vllm-self-host-decision)——但「引擎要跑在哪台機器上」這一層，一篇專文都沒有。這篇補上，主角是這層現在聲量最大的一家。
 
@@ -58,26 +58,30 @@ def generate(prompt: str):
 
 自己開一台 GPU 機器，帳單跟你有沒有在用無關；Modal 只在容器活著時計費。所以這個決定可以化約成一個數字：**你的 GPU 一天真的在算的時間佔幾成。**
 
-2026-08-21 三家官網實查，折算成每 GPU 每小時（Modal 官網標的是每秒價，這裡乘 3600）：
+三家官網 2026-11 的定價，折算成每 GPU 每小時（Modal 官網標的是每秒價，這裡乘 3600）。RunPod 分兩種口徑：Secure Cloud 跑在 RunPod 合作的資料中心，Community Cloud 是第三方主機提供的較便宜機器，可靠性與合規條件不同，比價前要先決定你能接受哪一種。Lambda 取 8 卡機型的每卡價：
 
-| GPU | [Modal](https://modal.com/pricing)（按秒，折算/hr） | [RunPod](https://www.runpod.io/pricing) Pod | [Lambda](https://lambda.ai/service/gpu-cloud#pricing) 隨需 |
-|---|---|---|---|
-| H100 SXM 80GB | $3.95 | $3.29 | $3.99 |
-| A100 SXM 80GB | $2.50 | $1.59 | $2.79 |
-| L40S 48GB | $1.95 | $0.99 | — |
-| B200 180GB | $6.25 | $6.79 | $6.69 |
+| GPU | [Modal](https://modal.com/pricing)（按秒，折算/hr） | [RunPod](https://www.runpod.io/pricing) Pod Secure Cloud | RunPod Pod Community Cloud | [Lambda](https://lambda.ai/service/gpu-cloud#pricing) 隨需（8 卡） |
+|---|---|---|---|---|
+| H100 SXM 80GB | $3.95 | $4.39 | $2.69 | $4.59 |
+| A100 SXM 80GB | $2.50 | $2.19 | $1.39 | $3.19 |
+| L40S 48GB | $1.95 | $1.09 | $0.79 | — |
+| B200 180GB | $6.25 | $7.99 | $5.98 | $7.69 |
 
-這張表的重點不是「Modal 比較貴」，而是**溢價隨卡別劇烈變動**。A100 對 RunPod 是 1.57 倍，L40S 是 1.97 倍；但 H100 對 Lambda 只有 0.99 倍——同一天，Modal 的 H100 比 Lambda 便宜。
+這張表的重點不是「Modal 比較貴」，而是**溢價隨卡別與對手口徑劇烈變動**。對 RunPod Secure Cloud，A100 是 1.14 倍、L40S 是 1.79 倍，H100 與 B200 則是 Modal 比較便宜；對 Lambda，H100 只有 0.86 倍。換成 Community Cloud，A100 變成 1.80 倍，價差一下子拉開。
 
 換成損益兩平的使用率（Modal 價 × 使用率 = 對手的整月價）：
 
 | 對照 | 損益兩平使用率 |
 |---|---|
-| A100 vs RunPod | 64% |
-| L40S vs RunPod | 51% |
-| H100 vs Lambda | 101%（算出來超過 100%，代表這張卡 Modal 永遠比較便宜） |
+| A100 vs RunPod Secure | 88% |
+| A100 vs RunPod Community | 56% |
+| L40S vs RunPod Secure | 56% |
+| L40S vs RunPod Community | 41% |
+| H100 vs RunPod Community | 68% |
+| H100 vs Lambda、RunPod Secure | 超過 100%（這張卡 Modal 永遠比較便宜） |
+| B200 vs Lambda、RunPod Secure | 超過 100%（同上） |
 
-**怎麼做**：翻出你上個月的 GPU 監控，算「utilization > 0 的秒數 ÷ 機器開著的秒數」。低於五成，serverless 幾乎一定贏；高於八成而且流量平穩，你在替閒置付溢價。介於中間就看卡別——上表告訴你 H100 沒有溢價，A100 不行。
+**怎麼做**：翻出你上個月的 GPU 監控，算「utilization > 0 的秒數 ÷ 機器開著的秒數」。低於四成，serverless 幾乎一定贏；高於九成而且流量平穩，你在替閒置付溢價。介於中間先決定對手的口徑，再看卡別：要資料中心等級的機器，H100、B200 用 Modal 不吃虧，A100 也要到八成八才划算自己開；能接受 Community Cloud，A100 與 L40S 過了五成左右就該自己租。
 
 ## 四、第二個判準：你買的是價差還是那層軟體
 
@@ -85,7 +89,7 @@ def generate(prompt: str):
 
 裸 GPU 供應商給你一台開機的機器，剩下都是你的：容器映像檔怎麼建、模型權重怎麼快取、autoscaler 怎麼寫、閒置怎麼收、跨區怎麼調度。Modal 賣的正是這些——[autoscaler 的四個參數](https://modal.com/docs/guide/scale)（`min_containers`、`max_containers`、`buffer_containers`、`scaledown_window`）就是一整個團隊本來要自己刻的東西。
 
-所以真正的問句不是「哪家便宜」，是：**省下的價差，夠不夠請人維護那層？** A100 一張卡每月的價差是 654 美元（$2.50 − $1.59，跑滿 720 小時）。三張卡差不多是台灣一個工程師月薪的量級；三十張卡就明顯該自己刻。這是這個判準唯一需要算的東西。
+所以真正的問句不是「哪家便宜」，是：**省下的價差，夠不夠請人維護那層？** A100 一張卡跑滿 720 小時，對 RunPod Secure Cloud 每月價差是 223 美元（$2.50 − $2.19），對 Community Cloud 是 799 美元（$2.50 − $1.39）。前者要九到十張卡才到台灣一個工程師月薪的量級，後者大約三張；三十張卡以上，不論哪種口徑都明顯該自己刻。這是這個判準唯一需要算的東西。
 
 ## 五、冷啟動：這層真正的技術戰場
 
@@ -123,13 +127,17 @@ Modal 的答案是把容器記憶體整個存檔。[CPU Memory Snapshots](https:
 
 ## 整體來說
 
-Modal 的核心取捨是：**用一層專有抽象和三到五成的價格溢價，換掉整個 GPU 基礎設施團隊的工作。**
+Modal 的核心取捨是：**用一層專有抽象和隨卡別變動的價格溢價（對資料中心等級的對手，從負的到近八成；對 Community Cloud 則更高），換掉整個 GPU 基礎設施團隊的工作。**
 
 適合的情況很好認：流量尖峰突兀、GPU 使用率長期低於五成、團隊裡沒有人想維護 autoscaler，或者你在做 agent 而且需要 GPU sandbox——最後這一項目前沒什麼替代品。
 
 不適合的情況同樣好認：GPU 幾乎全天打滿（去找 RunPod 或 Lambda 的長約），或者你的 sandbox 只需要跑測試跟 lint（E2B、Cloudflare Sandboxes 更便宜），或者合規要求程式碼不能離開自家機房（這條直接把 Modal 排除）。
 
 最後一句給選型的人：這篇的比價表在三個月後大概就不準了。**真正該記住的不是數字，是那個算式——你的使用率乘上 Modal 的價，跟對手的整月價比。** 這個算式不會過期。
+
+## 更新紀錄
+
+- 2026-11-23：重算比價表與損益兩平點。Modal 自家價格沒變，但 RunPod Secure Cloud 漲價（A100 SXM $1.59→$2.19、H100 SXM $3.29→$4.39、L40S $0.99→$1.09、B200 $6.79→$7.99），Lambda 8 卡機型也漲價（H100 $3.99→$4.59、A100 $2.79→$3.19、B200 $6.69→$7.69）；A100 對 RunPod 的損益兩平點從 64% 變成 88%，並補上 RunPod Community Cloud 一欄與對應的損益兩平點。
 
 ## 參考資料
 
@@ -147,8 +155,8 @@ Modal 的核心取捨是：**用一層專有抽象和三到五成的價格溢價
 - [Building with Modal and the OpenAI Agents SDK（Modal 部落格，2026-04-15）](https://modal.com/blog/building-with-modal-and-the-openai-agent-sdk)（不安全 prompt 示範、GPU sandbox 自稱獨有、filesystem snapshot 分支）
 - [Sandbox clients — OpenAI Agents SDK 文件](https://openai.github.io/openai-agents-python/sandbox/clients/)（七家託管後端清單、Modal 資源配置一節）
 - [openai-agents-python modal_runner.py 範例原始碼](https://github.com/openai/openai-agents-python/blob/main/examples/sandbox/extensions/modal_runner.py)（`ModalSandboxClientOptions` 的 `gpu` 欄位）
-- [RunPod 定價頁](https://www.runpod.io/pricing)（2026-08-21 實查：Pod 與 Serverless 每小時價）
-- [Lambda GPU Cloud 定價](https://lambda.ai/service/gpu-cloud#pricing)（2026-08-21 實查：H100 / A100 / B200 隨需價）
+- [RunPod 定價頁](https://www.runpod.io/pricing)（2026-11-12 版：Pod 的 Secure Cloud 與 Community Cloud 每小時價）
+- [Lambda GPU Cloud 定價](https://lambda.ai/service/gpu-cloud#pricing)（2026-11 版：8 卡機型 H100 / A100 / B200 每卡隨需價）
 - [E2B 定價頁](https://e2b.dev/pricing)（2026-08-21 實查：每秒 vCPU 與記憶體費率、方案併發上限）
 - [E2B Sandbox lifecycle 文件](https://e2b.dev/docs/sandbox)（1 小時 / 24 小時上限、pause & resume）
 - [Agents have their own computers with Sandboxes GA（Cloudflare 部落格，2026-04-13）](https://blog.cloudflare.com/sandbox-ga/)（Active CPU Pricing、15,000 併發 lite 實例、快照與 R2）

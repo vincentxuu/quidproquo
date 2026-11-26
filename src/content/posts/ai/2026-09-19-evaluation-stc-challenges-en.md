@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-evaluation-stc-challenges)
+> :globe: [中文版](/posts/ai/2026-09-19-evaluation-stc-challenges)
 
 The previous articles all looked at "how to do better." This one addresses a more fundamental question: **how do we know if it's any good?**
 

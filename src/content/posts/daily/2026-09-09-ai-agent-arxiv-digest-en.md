@@ -11,7 +11,7 @@ series:
   order: 108
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-09-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-09-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -136,7 +136,7 @@ Agent platforms tend to treat memory as a solved problem: plug in Mem0, Zep, Let
 - KG-fixed accuracy changes by only +0.0004 ± 0.0020 after a writer swap (own-store performance was already 0.845-0.988); NOTES instead swings asymmetrically by migration direction — Llama reading Qwen's notes gains +9.91 points, while Qwen reading Llama's notes loses -13.28 points
 - After an embedding-model upgrade, a 50/50 mixed old/new index captures only 4.96 of the 11.90-point gain achieved by a full re-embed — most of the potential benefit is left on the table
 - Diagnostic decomposition: 80% (0.467 ± 0.014) of the NOTES accuracy deficit comes from information lost during writing, while 81% (0.364 ± 0.012) of the RAG deficit comes from retrieval failing to surface the right chunk — the two formats fail for entirely different reasons
-- Store-only repair (without access to the raw history) fails to reach the 90% recovery target in all 48 test cases for NOTES; retaining the raw source history enables successful recovery in 34 of 48 cases for one migration direction ⚠️ (LinkedIn internal evaluation, two-person team, no external replication yet)
+- Store-only repair (without access to the raw history) fails to reach the 90% recovery target in all 48 test cases for NOTES; retaining the raw source history enables successful recovery in 34 of 48 cases for one migration direction :warning: (LinkedIn internal evaluation, two-person team, no external replication yet)
 - Deployment threshold: the methodology itself is easy to replicate against your own memory architecture, but only two sub-10B open-weight models were swapped here — enterprise-scale memory stores, larger models, and same-family version upgrades remain untested
 - Connection to mainstream frameworks: directly relevant to Mem0-, Zep-, Letta-, and LangMem-style memory layers built on notes-style or RAG-style storage, and highlights that "keep the raw history around" — a design choice that looks wasteful — turns out to be the key insurance policy for repair
 - Limitation: only two of the four preregistered hypotheses (partial embedding-migration loss; raw history's benefit for repair) cleared the preregistered five-point threshold; the two symmetry-based hypotheses did not, and the authors disclose this honestly rather than selectively reporting

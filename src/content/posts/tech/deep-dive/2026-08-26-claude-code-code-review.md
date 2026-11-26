@@ -13,7 +13,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-code-review-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-code-review-en)
 
 [Claude Code](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) 能做的自動化裡，code review 是投資報酬率最穩的一種：輸入固定（一個 diff）、輸出可驗證（findings 對照程式碼）、而且每個 PR 都需要。這篇講它的兩條審查路線——掛在 GitHub PR 上自動跑的 Code Review managed service，以及在你自己 session 裡跑的 `/code-review` 指令和它的雲端加深版 `/code-review ultra`（ultrareview）。兩個功能目前都是 research preview，以下全依官方文件。
 
@@ -45,11 +45,11 @@ Findings 分三級：
 
 | 標記 | 級別 | 意義 |
 |------|------|------|
-| 🔴 | Important | merge 前該修的 bug |
-| 🟡 | Nit | 小問題，值得修但不擋路 |
-| 🟣 | Pre-existing | 本來就在 codebase 裡，不是這個 PR 引入 |
+| :red-circle: | Important | merge 前該修的 bug |
+| :yellow-circle: | Nit | 小問題，值得修但不擋路 |
+| :purple-circle: | Pre-existing | 本來就在 codebase 裡，不是這個 PR 引入 |
 
-每條 finding 都有可折疊的延伸推理區段，說明為什麼被標記、以及 Claude 怎麼驗證這個問題真的存在。每則留言預先掛好 👍👎，Anthropic 在 PR merge 後收回反應統計來調校 reviewer。
+每條 finding 都有可折疊的延伸推理區段，說明為什麼被標記、以及 Claude 怎麼驗證這個問題真的存在。每則留言預先掛好 ，Anthropic 在 PR merge 後收回反應統計來調校 reviewer。
 
 一個容易誤會的點：它**不擋 merge**。check run 一律以中性結論收場，branch protection rule 不會被它卡住；想在自家 CI 拿 severity 數字把關，官方文件提供了用 `gh` 加 jq 解析 check run output 的做法。
 

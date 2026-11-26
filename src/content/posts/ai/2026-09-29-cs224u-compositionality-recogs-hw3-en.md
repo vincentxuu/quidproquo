@@ -20,7 +20,7 @@ glossary:
     context: "The dataset for CS224U Assignment 3."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-compositionality-recogs-hw3)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

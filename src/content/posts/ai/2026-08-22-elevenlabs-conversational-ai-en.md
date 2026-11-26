@@ -10,7 +10,7 @@ description: "A lifecycle-oriented guide to ElevenLabs ElevenAgents: realtime ST
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-elevenlabs-conversational-ai)
+> :globe: [中文版](/posts/ai/2026-08-22-elevenlabs-conversational-ai)
 
 [ElevenAgents](https://elevenlabs.io/docs/eleven-agents/overview/) is ElevenLabs' current fully managed voice-agent platform, formerly called Conversational AI. It joins realtime speech-to-text (STT), an LLM, text-to-speech (TTS), turn-taking, tools, a knowledge base, testing, and deployment into one pipeline, then exposes the same agent on the web, mobile devices, and phones.
 

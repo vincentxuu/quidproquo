@@ -1,21 +1,23 @@
 ---
-title: "RunPod：GPU Pod 與 Serverless Endpoint 是兩種不同產品"
+title: "Runpod：GPU Pod 與 Serverless Endpoint 是兩種不同產品"
 date: 2026-08-22
 category: tech
 type: deep-dive
 tags: [runpod, gpu-cloud, serverless, inference, machine-learning]
 lang: zh-TW
-tldr: "RunPod Pod 適合互動與長駐 GPU 工作，Serverless 適合 queue-based 或 load-balanced inference；選錯會把 persistence、cold start 與重試語意混在一起。"
-description: "介紹 RunPod Pods、network volumes、Serverless queue/load-balancing endpoints、worker scaling、cold start 與 production 邊界。"
+tldr: "Runpod Pod 適合互動與長駐 GPU 工作，Serverless 適合 queue-based 或 load-balanced inference；選錯會把 persistence、cold start 與重試語意混在一起。"
+description: "介紹 Runpod Pods、network volumes、Serverless queue/load-balancing endpoints、worker scaling、cold start 與 production 邊界。"
 series:
   name: "AI 時代的技術選擇"
   order: 59
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-runpod-gpu-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-runpod-gpu-cloud-en)
 
-[RunPod](https://docs.runpod.io/api-reference/overview) 提供兩個主要抽象：Pod 是可 SSH、長時間存在的 GPU instance；Serverless endpoint 則依請求啟停 container worker。開發 notebook、training 或自管 daemon 選 Pod；有明確 request/job contract 的 inference 才選 Serverless。
+[Runpod](https://docs.runpod.io/api-reference/overview) 提供兩個主要抽象：Pod 是可 SSH、長時間存在的 GPU instance；Serverless endpoint 則依請求啟停 container worker。開發 notebook、training 或自管 daemon 選 Pod；有明確 request/job contract 的 inference 才選 Serverless。
+
+品牌名稱從 2025-06 起寫成 Runpod（小寫 p）。用 API 自動化 Pod 或 endpoint 的腳本要改走 [REST API v2](https://docs.runpod.io/release-notes)：v1 已在 2026-11-15 停用，GraphQL API 預計 2027 年初停用。
 
 ## Pod 的重點是可重現與 storage lifecycle
 
@@ -33,11 +35,17 @@ Pod 讓你選 image、GPU、volume 與 port，很適合快速實驗。風險是�
 
 worker 從零啟動要拉 image、載 weights、初始化 CUDA，幾十 GB 模型不可能像小型 function 一樣瞬間醒來。[Endpoint settings](https://docs.runpod.io/serverless/endpoints/endpoint-configurations) 提供 active/min/max worker、model cache、GPU priority 與 network volume；warm worker 降 latency，但產生 idle cost。以 p95 queue delay + initialization + inference 衡量，而非只看 kernel time。
 
-RunPod 適合 prototype、彈性 GPU 與自行封裝模型的團隊。需要 curated public model API 可看 Replicate；需要大型固定 cluster、Kubernetes 與高速 fabric 可看 CoreWeave、Lambda 或 Nebius。上線前故意重送 job、移除首選 GPU、讓 worker timeout，再確認 fallback、成本上限與 output durability。
+Runpod 適合 prototype、彈性 GPU 與自行封裝模型的團隊。需要 curated public model API 可看 Replicate；需要大型固定 cluster、Kubernetes 與高速 fabric 可看 CoreWeave、Lambda 或 Nebius。上線前故意重送 job、移除首選 GPU、讓 worker timeout，再確認 fallback、成本上限與 output durability。
+
+## 更新紀錄
+
+- 2026-11-23：品牌名改為 Runpod；補上 REST API v1 已停用、GraphQL API 將停用，自動化要改用 REST API v2。
 
 ## 參考資料
 
-- [RunPod API overview](https://docs.runpod.io/api-reference/overview)
-- [RunPod Serverless overview](https://docs.runpod.io/serverless/overview)
-- [RunPod endpoint types](https://docs.runpod.io/serverless/endpoints/overview)
-- [RunPod endpoint settings](https://docs.runpod.io/serverless/endpoints/endpoint-configurations)
+- [Runpod product updates（release notes）](https://docs.runpod.io/release-notes)
+
+- [Runpod API overview](https://docs.runpod.io/api-reference/overview)
+- [Runpod Serverless overview](https://docs.runpod.io/serverless/overview)
+- [Runpod endpoint types](https://docs.runpod.io/serverless/endpoints/overview)
+- [Runpod endpoint settings](https://docs.runpod.io/serverless/endpoints/endpoint-configurations)

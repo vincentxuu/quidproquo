@@ -9,11 +9,11 @@ description: "介紹英國文化協會台灣成人實體英文課，分清現行
 tldr: "想在固定同學與老師之間練習接話，可以考慮英協成人模組課；先確認程度、十週出席與實際發言時間，再拿完整報價決定。"
 series:
   name: "英文口說練習"
-  order: 4
+  order: 22
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-british-council-taiwan-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-british-council-taiwan-speaking-practice-en)
 
 想在台灣找到一個有人帶、有人陪你開口的英文環境，[英國文化協會（British Council）成人課程](https://www.britishcouncil.org.tw/english-courses/adults)是一種可以評估的實體選擇。它是英國推動文化關係與教育機會的國際組織；台灣的英文教學服務除了考試準備，也有面向成人生活、社交與職場溝通的課。
 

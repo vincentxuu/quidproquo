@@ -10,7 +10,7 @@ description: "BullMQ lets Node.js applications offload time-consuming work to ba
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-bullmq-job-queue-nodejs)
+:globe: [中文版](/posts/tech/2026-03-27-bullmq-job-queue-nodejs)
 
 Web API response times should stay under 100ms — but sending emails, push notifications, or calling external AI services can take seconds or even tens of seconds. The fix is straightforward: don't do this work inside the request/response cycle. Throw it into a background queue and let a worker handle it asynchronously.
 

@@ -13,7 +13,7 @@ tldr: "多步驟任務要區分搜尋、平行執行與訓練；子任務產物�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-05-reasoning-planning-en)
+> :globe: [English version](/posts/ai/2026-10-11-stanford-cs329a-lecture-05-reasoning-planning-en)
 
 **影片狀態：已附影片。** 本文依 [Stanford CS329A Autumn 2025 官方課表](https://cs329a.stanford.edu/) 第 5 堂，結合 Stanford Online 錄影字幕與指定閱讀導讀。字幕由字幕服務取得，人工或自動來源尚未確認；本文不是完整逐字稿或親聽筆記。
 

@@ -9,7 +9,7 @@ tldr: "看到一篇交易紀錄貼文，裡面全是我不懂的詞：權證、�
 description: "從一篇半年 16 倍報酬的貼文出發，解釋權證、股票期貨、維持率、加減碼是什麼意思。"
 ---
 
-> 🌏 [English version](/posts/investing/2026-06-21-trading-performance-stock-futures-en)
+> :globe: [English version](/posts/investing/2026-06-21-trading-performance-stock-futures-en)
 
 最近看到一篇貼文，有人說他年初操盤 15 萬，半年後變成 240 萬。
 

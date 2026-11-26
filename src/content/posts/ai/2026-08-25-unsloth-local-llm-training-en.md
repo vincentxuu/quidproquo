@@ -10,7 +10,7 @@ description: "A complete Unsloth introduction: core fine-tuning capabilities (SF
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-unsloth-local-llm-training)
+> :globe: [中文版](/posts/ai/2026-08-25-unsloth-local-llm-training)
 
 The hardest parts of fine-tuning LLMs on your own hardware are VRAM limits, slow training, and environment setup. Unsloth tackles all three with hand-written Triton kernels — the same GPU can train larger models, twice as fast.
 

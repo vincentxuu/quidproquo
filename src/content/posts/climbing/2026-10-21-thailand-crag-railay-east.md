@@ -13,7 +13,7 @@ description: "Railay East 攀岩指南：Muay Thai、One-Two-Three、The Keep、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-railay-east-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-railay-east-en)
 
 Railay 在 Phra-Nang 半島的西側，Tonsai 在東側，中間隔著一道窄水。theCrag 在 2026 年 10 月 21 日收錄 **314 條路線**、19,094 次攀登。
 

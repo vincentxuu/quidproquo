@@ -13,7 +13,7 @@ description: "拉瓦雷多三峰（Tre Cime di Lavaredo）攀登介紹：白雲�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-tre-cime-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-tre-cime-en)
 
 拉瓦雷多三峰（Tre Cime di Lavaredo，德文 Drei Zinnen）在多洛米蒂東北，南面屬威尼托大區（Veneto）Belluno 省的 [Auronzo di Cadore](https://auronzo.info/tre-cime-di-lavaredo-come-arrivare/)，北面朝南提洛。由東往西是 Cima Piccola、Cima Grande、Cima Ovest 三座峰（[theCrag](https://www.thecrag.com/en/climbing/italy/dolomites/cortina-dampezzo-area/area/12519439)）。Cima Grande 北壁和艾格峰、馬特洪峰並列「阿爾卑斯六大北壁」，1933 年 Emilio Comici 三人花了三天兩夜才爬上去。
 

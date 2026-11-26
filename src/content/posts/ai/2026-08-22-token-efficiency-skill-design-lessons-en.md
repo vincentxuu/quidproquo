@@ -15,7 +15,7 @@ glossary:
     context: "Here it means SKILL.md keeps only judgment and routing, while tables and command references move to files read on demand."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-token-efficiency-skill-design-lessons)
+> :globe: [中文版](/posts/ai/2026-08-22-token-efficiency-skill-design-lessons)
 
 ## TL;DR
 

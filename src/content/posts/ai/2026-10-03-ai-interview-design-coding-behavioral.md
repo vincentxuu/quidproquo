@@ -37,7 +37,7 @@ glossary:
     context: "本文用它處理知識庫的文件刪除。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
+> :globe: [English version](/posts/ai/2026-10-03-ai-interview-design-coding-behavioral-en)
 
 AI Engineer 面試走到最後，考的通常不是你認不認得某個名詞，而是三件事：能不能在白板前把一個系統講完整，能不能在編輯器裡寫出一段會動的程式，能不能用一個真實的故事證明你做過事。這篇是「AI Engineer 面試準備」系列的收尾，把這三件事各給一套可以直接套用的骨架。
 
@@ -318,7 +318,7 @@ flowchart LR
 
 ### 監控與失敗處理
 
-護欄指標越線就自動回滾。資料飛輪有三個地方會出事：回饋有選擇偏誤（只有不滿意的人才按倒讚）、使用者資料涉及隱私與同意、把模型自己的輸出當標準答案會造成回音效應。所以標註佇列要有人工審核與去識別化。飛輪的完整脈絡可看站內的 [Stanford CS329Z 導讀 Week 6：資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)。
+護欄指標越線就自動回滾。資料飛輪有三個地方會出事：回饋有選擇偏誤（只有不滿意的人才按倒讚）、使用者資料涉及隱私與同意、把模型自己的輸出當標準答案會造成回音效應。所以標註佇列要有人工審核與去識別化。飛輪的完整脈絡可看站內的 [Stanford CS329Z 第 11 堂：資料飛輪](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)。
 
 ### 總結
 

@@ -12,7 +12,7 @@ draft: false
 series: { name: "Berkeley CS288 導讀", order: 1 }
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-foundations-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs288-foundations-en)
 
 CS288 前四組[官方投影片](https://cal-cs288.github.io/sp26/)處理同一個問題：文字如何先變成可計算的對象，再變成可學習的預測問題。順序是 Introduction、n-gram Language Models、Word Representation、Text Classification。
 

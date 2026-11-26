@@ -10,7 +10,7 @@ description: "沿著模型推論生命週期拆解 Baseten：Truss 如何封裝�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-baseten-model-inference-en)
+> :globe: [English version](/posts/ai/2026-08-22-baseten-model-inference-en)
 
 [Baseten](https://docs.baseten.co/concepts/whybaseten) 是託管模型推論平台。你把權重、Python 程式、系統套件、GPU 規格與 serving engine 交給它，平台負責建置映像、配置算力、掛上 API、autoscaling、版本發布與觀測。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-rabbitmq-message-routing)
+> :globe: [中文版](/posts/tech/2026-08-22-rabbitmq-message-routing)
 
 In [RabbitMQ](https://www.rabbitmq.com/docs), producers publish to an exchange before binding rules route messages into one or more queues. Direct, topic, fanout, and headers exchanges keep work distribution, broadcast, pattern routing, and dead-letter flows in broker topology instead of scattering that logic across producers.
 
@@ -31,7 +31,7 @@ producer -> orders(topic exchange)
               +--> incident queue -> on-call worker
 ```
 
-This model provides finer routing than Kafka consumer groups and naturally supports short-lived work, priorities, TTLs, and dead-letter exchanges. Messages normally disappear after acknowledgment. If independent consumers must rewind and replay history, use RabbitMQ Streams, Kafka, or Redpanda.
+This model provides finer routing than Kafka consumer groups and naturally supports short-lived work, priorities, TTLs, and dead-letter exchanges. Since Kafka 4.2, [share groups](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/) are production-ready: consumers can outnumber partitions and acknowledge and redeliver individual records, so a work queue on Kafka no longer has to be forced through a classic consumer group. They still lack exchange and binding routing, priorities, and TTLs, and they do not guarantee ordering. Messages normally disappear after acknowledgment. If independent consumers must rewind and replay history, use RabbitMQ Streams, Kafka, or Redpanda.
 
 ## Quorum queues are the high-availability default
 
@@ -70,7 +70,13 @@ RabbitMQ fits LLM batches, document parsing, embeddings, tool execution, and web
 
 Long-running agent work exposes a boundary. Extending an acknowledgment timeout does not create durable execution. After a worker crash, RabbitMQ can redeliver the entire message but cannot know which workflow steps completed. Workflows that recover step by step or wait hours for a person belong in Temporal, Restate, or Trigger.dev.
 
+## Update history
+
+- 2026-11-23: Narrowed the Kafka comparison to classic consumer groups and added the work-queue semantics of Kafka 4.2 share groups along with the routing features they still lack.
+
 ## References
+
+- [Apache Kafka 4.2.0 release announcement (share groups)](https://kafka.apache.org/blog/2026/02/17/apache-kafka-4.2.0-release-announcement/)
 
 - [RabbitMQ queues](https://www.rabbitmq.com/docs/queues)
 - [RabbitMQ quorum queues](https://www.rabbitmq.com/docs/quorum-queues)

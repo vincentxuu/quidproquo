@@ -22,11 +22,11 @@ glossary:
     context: "Section 6 給的經驗法則是分類 m≈√d、迴歸 m≈d/3。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) 的 `hw4_release.tex` 與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf) §3 為準，2026-09-29 實際打開。本課整體為 **A3**，官方課表未列對應講次的公開錄影、沒有作業解答。Week 7 的 Non-parametric Models / Decision Trees 講課投影片本篇沒有取得。Problem 3 是純紙筆題，notebook 裡沒有對應程式；題目標題沒寫總分，各小題標示加起來是 35 分。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW4](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw4) 的 `hw4_release.tex` 與 [Section 6 講義](https://harvard-ml-courses.github.io/cs181-web/static/sec06/sec06.pdf) §3 為準，2026-09-29 實際打開。本課整體為 **A3**，官方課表未列對應講次的公開錄影、沒有作業解答。Week 7 的 Non-parametric Models / Decision Trees 講課投影片本篇沒有取得。Problem 3 是純紙筆題，notebook 裡沒有對應程式；題目標題沒寫總分，各小題標示加起來是 35 分。
 
 這是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 8 篇，HW4 的最後一題。前兩篇是 [Transformer](/posts/tech/2026-09-29-harvard-cs181-hw4-transformer) 和 [Autoencoder 到 VAE](/posts/tech/2026-09-29-harvard-cs181-hw4-autoencoder-vae)。
 
@@ -143,12 +143,13 @@ HW4 到這裡結束。下一份作業 HW5 進入沒有標籤的學習：分群�
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

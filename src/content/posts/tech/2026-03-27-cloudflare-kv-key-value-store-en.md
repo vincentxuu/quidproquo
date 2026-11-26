@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
+:globe: [中文版](/posts/tech/2026-03-27-cloudflare-kv-key-value-store)
 
 KV is Cloudflare Workers' global key-value store. If you need a serverless caching layer without the overhead of managing Redis, KV is the most straightforward option.
 

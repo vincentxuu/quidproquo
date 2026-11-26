@@ -29,6 +29,12 @@ description: Portable multi-source research for tools, frameworks, papers, model
 
 ## 執行步驟
 
+### 共用研究池：先查、補搜、寫回
+
+研究開始先讀 `docs/research-pool.md`，依 `.research/pool/taxonomy.json` 選主題類別與子題，再以 `node scripts/research-pool.mjs search --category <類別> --topic <子題> --query '<關鍵字>'` 查既有來源、讀取範圍、日期、衝突與未採用原因。頻道／論文／文件是來源類型，不是頂層主題分類；pool不是白名單，仍照本skill補搜新來源與反證。
+
+每輪搜尋／閱讀後，將可共用的公開metadata與本次觀察從明確的來源清單匯入：`node scripts/research-pool.mjs ingest --input <本次.sources.jsonl> --category <類別> --topic <子題> --research <研究ID>` 先dry-run，核對後加 `--write`。保留每次 `read_status`、實際範圍、工具、採用／淘汰理由與原始證據路徑；不能把舊研究的全文閱讀狀態沿用成當次已讀，也不能只回填最後採用的來源。查詢、搜尋範圍與缺口以 `record-search --input <本次.queries.jsonl> --category <類別> --topic <子題> --research <研究ID>` 同樣先dry-run再 `--write`，寫入同分類 `searches.jsonl`；交接前回寫文章用途並跑 `node scripts/research-pool.mjs check`。格式與分類維護見上述文件。
+
 ### 0. 多案例研究：定義母群 → 覆蓋矩陣 → 標註偏誤
 
 當題目是「整理 N 個案例」「橫向比較」「系列文」時，在拆子問題之前先跑步驟零。單一主題研究跳過。

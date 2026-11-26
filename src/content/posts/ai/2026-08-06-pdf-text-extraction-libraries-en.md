@@ -22,7 +22,7 @@ glossary:
     context: "PyMuPDF is AGPL-3.0, which makes the best-performing option the most expensive one in a commercial SaaS setting."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-pdf-text-extraction-libraries)
+> :globe: [中文版](/posts/ai/2026-08-06-pdf-text-extraction-libraries)
 
 This is the rung of the [three-layer ladder](/posts/ai/2026-08-06-document-parsing-three-layers-en) people skip most often. They see a PDF, think OCR, and go shopping for a VLM — but a digital-native PDF already has readable text. What is missing is structure, and structure can be recovered with rules.
 
@@ -105,7 +105,7 @@ Stars and licenses below are GitHub API values queried 2026-08-06:
 | [pypdf](https://github.com/py-pdf/pypdf) | 10,145 | BSD-3 family | Python | Pure Python, no compilation; manipulation not extraction |
 | [Apache Tika](https://github.com/apache/tika) | 3,948 | Apache-2.0 | Java | 1,000+ formats; you carry a JVM |
 | [Xberg](https://github.com/xberg-io/xberg) (formerly Xberg) | 9.1k | MIT | Rust | Many bindings plus CLI and MCP server |
-| [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | ⚠️ No commits since 2024-12 |
+| [extractous](https://github.com/yobix-ai/extractous) | 1,769 | Apache-2.0 | Rust | :warning: No commits since 2024-12 |
 
 The decision order I would follow:
 

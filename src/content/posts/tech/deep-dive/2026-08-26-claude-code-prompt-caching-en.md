@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-prompt-caching)
 
 After using [Claude Code](https://code.claude.com/docs/en/prompt-caching) for a while, you've probably noticed a few things: responses get faster as a session goes on without the bill growing proportionally; one day you run `/model` and that single turn takes noticeably longer; you edit CLAUDE.md mid-session and Claude acts like it never saw it. All of these have the same answer — prompt caching. This post maps each confusion onto the mechanism, following the official documentation.
 

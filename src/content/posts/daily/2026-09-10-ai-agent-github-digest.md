@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### obra/superpowers ⭐ 283,899 (+690)
+### obra/superpowers ★ 283,899 (+690)
 
 [GitHub](https://github.com/obra/superpowers)　·　Shell　·　MIT
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### affaan-m/ECC ⭐ 254,988 (+1,151)
+### affaan-m/ECC ★ 254,988 (+1,151)
 
 [GitHub](https://github.com/affaan-m/ECC)　·　JavaScript　·　MIT
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### cathrynlavery/diagram-design ⭐ 36,362 (+2,286)
+### cathrynlavery/diagram-design ★ 36,362 (+2,286)
 
 [GitHub](https://github.com/cathrynlavery/diagram-design)　·　HTML　·　MIT
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### Tencent/teamai-cli ⭐ 2,850 (+563)
+### Tencent/teamai-cli ★ 2,850 (+563)
 
 [GitHub](https://github.com/Tencent/teamai-cli)　·　TypeScript　·　Other
 
@@ -61,7 +61,7 @@ series:
 
 ---
 
-### TauricResearch/TradingAgents ⭐ 103,787 (+367)
+### TauricResearch/TradingAgents ★ 103,787 (+367)
 
 [GitHub](https://github.com/TauricResearch/TradingAgents)　·　Python　·　Apache-2.0
 

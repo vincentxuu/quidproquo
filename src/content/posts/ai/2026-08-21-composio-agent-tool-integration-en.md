@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [composio, ai-agent, oauth, mcp, tool-use, multi-tenant]
 lang: en
-tldr: "This site covers MCP thoroughly but has never written about the layer underneath it: when your agent acts for ten thousand end users reading their own Gmail, whose database holds those refresh tokens, who rotates them, who revokes them. Composio is currently the most complete answer — MIT-licensed SDKs, a commercial hosted execution and OAuth layer. It claims 1,000+ toolkits; the managed-auth page actually lists 121 with a Composio OAuth app and 96 that require your own credentials. New pricing effective 2026-08-15: 100K free tool calls, $29/mo Pro. This post takes the authorization model down to an operational level and draws the line between wiring up MCP servers yourself and buying an integration platform."
+tldr: "This site covers MCP thoroughly but has never written about the layer underneath it: when your agent acts for ten thousand end users reading their own Gmail, whose database holds those refresh tokens, who rotates them, who revokes them. Composio is currently the most complete answer — MIT-licensed SDKs, a commercial hosted execution and OAuth layer. It claims 1,700+ toolkits; among toolkits that support OAuth, the managed-auth page actually lists 133 with a Composio OAuth app and 315 that require your own OAuth app. New pricing effective 2026-08-15: 100K free tool calls, $29/mo Pro; managed-app overage became per-app tiered on 2026-11-03. This post takes the authorization model down to an operational level and draws the line between wiring up MCP servers yourself and buying an integration platform."
 description: "A deep dive on Composio: the user ID / auth config / connected account model, managed versus bring-your-own OAuth apps, revocation and exit paths, the Connect Link OAuth session fixation defense, and pricing verified 2026-08."
 series:
   name: "Technology Choices in the AI Era"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-21-composio-agent-tool-integration)
+:globe: [中文版](/posts/ai/2026-08-21-composio-agent-tool-integration)
 
 This site's MCP coverage is fairly complete: [the protocol itself](/posts/ai/2026-03-22-mcp-model-context-protocol-en), the [Playwright](/posts/tech/2026-06-20-playwright-mcp-en) and [Chrome DevTools](/posts/tech/2026-06-20-chrome-devtools-mcp-en) browser servers, [wrapping your own scraper as an MCP server](/posts/tech/2026-03-20-mcp-server-job-scraper-en), [how to mount them in Claude Code](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration-en), and [how the protocol layers divide the work](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer-en).
 
@@ -31,7 +31,7 @@ The [SDK monorepo on GitHub is MIT licensed](https://github.com/ComposioHQ/compo
 
 **What is not open source is the execution side.** Managed OAuth, credential storage, the tool catalog, the dashboard, and the sandbox all live on Composio's cloud, and I found no self-hosting path in the official docs.
 
-The scale numbers come in two tiers. "1,000+ toolkits" appears on the homepage, the README, and the pricing page — that is a vendor claim. What you can independently check is the [managed auth page](https://docs.composio.dev/toolkits/managed-auth). It lists **121** toolkits where Composio has already registered an OAuth app for you: Gmail, Slack, GitHub, Notion, Salesforce, and HubSpot are all there. Another **96** require your own credentials, including Shopify, Snowflake, ServiceNow, Twitter, and Xero.
+The scale numbers come in two tiers. "1,700+ toolkits" appears on official pages such as the pricing page — that is a vendor claim. What you can independently check is the [managed auth page](https://docs.composio.dev/toolkits/managed-auth), which only lists toolkits that support OAuth (toolkits using only API keys, bearer tokens, or no auth are excluded). **133** of them have an OAuth app Composio has already registered for you: Gmail, Slack, GitHub, Notion, Salesforce, and HubSpot are all there. Another **315** require your own OAuth app, including Shopify, Snowflake, ServiceNow, Twitter, and Xero.
 
 That page only covers toolkits that have an authentication concept, so it is not the whole catalog. But it is the only figure you can count line by line.
 
@@ -82,7 +82,7 @@ This is the question to settle before you commit, and the answer depends on whic
 
 There is also a hybrid path worth knowing. You can import an **access token you obtained through your own OAuth flow** as a connected account under the `BEARER_TOKEN` scheme, and it works with every toolkit supporting OAuth2. The cost is stated in the docs: "Since you're providing your own token, Composio won't handle OAuth refresh. You're responsible for refreshing the token on your end and pushing the updated value to Composio via the PATCH method whenever it changes." In other words, **you can buy the tool catalog without buying the managed authorization** — but then you carry the refresh loop yourself.
 
-**What to do**: something you can settle tonight — list the first five toolkits you need and check each one against the [managed auth page](https://docs.composio.dev/toolkits/managed-auth) to see whether it falls in the 121 group or the 96. Anything in the 96 requires you to register your own OAuth app anyway, which means managed auth's convenience advantage does not actually apply to your project.
+**What to do**: something you can settle tonight — list the first five toolkits you need and check each one against the [managed auth page](https://docs.composio.dev/toolkits/managed-auth) to see whether it falls in the 133 group or the 315. Anything in the 315 requires you to register your own OAuth app anyway, which means managed auth's convenience advantage does not actually apply to your project.
 
 ## Revocation, Expiry, and the Exit
 
@@ -142,7 +142,7 @@ What that means for a reader: if you only want your own Claude Code to reach Gma
 
 ## Pricing (Effective 2026-08-15)
 
-Composio changed its pricing on 2026-08-15. Here is the [official pricing page](https://composio.dev/pricing) as read:
+Composio changed its pricing on 2026-08-15. Here is the [official SDK platform pricing page](https://composio.dev/pricing/platform) (`composio.dev/pricing` is now the seat plan for end users, not this table):
 
 | Item | Free | Pro ($29/mo) | Overage |
 |---|---|---|---|
@@ -153,13 +153,21 @@ Composio changed its pricing on 2026-08-15. Here is the [official pricing page](
 | Team members | 3 | Unlimited | — |
 | Log retention | 7 days | 30 days | Custom on Enterprise |
 
-Two dates to keep: existing customers stay on their current plan through 2026-12-31, and premium tool billing applies to everyone from 2026-09-01.
+Two dates to keep: existing customers stay on their current plan through 2026-12-31, and instant tool (formerly premium tool) billing applies to everyone from 2026-09-10, including customers who signed up before August 15.
 
-Composio-managed OAuth apps have a separate, **more expensive rate that eats the same free allowance**. At most 20K of your 100K free tool calls can run through managed apps, then $0.0005 per call; connections are free up to a thousand, then $0.10 each. That design puts a price tag on convenience — skip registering your own OAuth app and your free allowance drops to a fifth.
+Composio-managed OAuth apps have a separate, **more expensive rate that eats the same free allowance**. At most 20K of your 100K free tool calls can run through managed apps; past that, Pro is billed in three per-app tiers (for accounts signed up on or after 2026-11-03):
+
+| Managed-app tool call | Per call |
+|---|---|
+| Salesforce, YouTube, Reddit, Google Ads, QuickBooks, LinkedIn, and others | $0.01 |
+| Gmail, Google Calendar, Google Drive, Slack, HubSpot, Jira, Microsoft Teams, and others | $0.002 |
+| All other managed apps | $0.0005 |
+
+Connections are free up to a thousand, then a one-time $0.10 each; managed-app trigger events get 10K free a month, then $0.006 each for polling triggers (Gmail, Google Sheets) and $0.003 for realtime triggers (Slack, Jira). That design puts a price tag on convenience: skip registering your own OAuth app and your free allowance drops to a fifth, and the top overage tier costs more than thirty times the own-app rate ($0.0003). Composio says it plainly: managed apps work in production but are not built for production scale, so move to your own OAuth app as you scale.
 
 Two add-ons are easy to miss. Zero data retention is a Pro-and-above add-on charged per tool call and per trigger event, and direct execution outside a session costs extra too. The Free tier is hard-capped: hit the ceiling and usage pauses until next month rather than generating a bill.
 
-Premium tools are pass-through. Composio says it passes "the provider's price straight through with a 5% platform fee — no markup on top." The list includes Browser Use, Veo video generation, and search from [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents-en) and Tavily. Exa is the one you can reconcile: Composio quotes about $0.008 a search, and the previous post in this series priced Exa directly at $7 per 1,000 — the 5% checks out.
+Instant tools run on Composio's own provider accounts, so you need no separate API key and charges come out of your Composio balance. The official wording is now **0% markup** on provider charges, with the regular tool-call fee still applied to each call. The list includes Browser Use and search from [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents-en) and Tavily. Exa is the one you can reconcile: Composio lists Exa search at $0.007 a call, the same as the $7 per 1,000 the previous post in this series found for buying Exa directly.
 
 ## Build It Yourself or Buy the Platform
 
@@ -191,10 +199,14 @@ Composio has not pivoted and has not been acquired. It is currently the most com
 
 But be clear about what is being sold: **the SDKs are open source; the moat is custody and rotation of a hundred million tokens.** You are not buying "you don't have to understand OAuth." You are buying "you don't have to multiply OAuth operations by integration count by user count." The difference between those two sentences shows up the first time someone asks you to revoke every grant belonging to one user.
 
+## Update history
+
+- 2026-11-23: Pricing link now points to `composio.dev/pricing/platform` (the old link is now the end-user seat plan); managed-app overage changed from a flat $0.0005 to three per-app tiers ($0.01 / $0.002 / $0.0005) from 2026-11-03, with managed trigger rates added; premium tools are now called instant tools, the billing start date is corrected to 2026-09-10, and the pass-through rule is now 0% markup; toolkit count updated to 1,700+, and the managed-auth list to 133 managed and 315 requiring your own OAuth app.
+
 ## References
 
 - [Composio](https://composio.dev/)
-- [Composio pricing](https://composio.dev/pricing) (read 2026-08-21; new pricing effective 2026-08-15)
+- [Composio platform pricing](https://composio.dev/pricing/platform) (new pricing effective 2026-08-15; per-app managed-app tiers from 2026-11-03)
 - [ComposioHQ/composio (GitHub, MIT)](https://github.com/ComposioHQ/composio)
 - [Authentication — Composio Docs](https://docs.composio.dev/docs/authentication)
 - [What is a session? — Composio Docs](https://docs.composio.dev/docs/how-composio-works)

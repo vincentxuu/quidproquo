@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-31-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-31-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's thread is "MCP is becoming the standard layer through which agents expos
 
 ## Trending Repos
 
-### can1357/oh-my-pi ⭐ 28,455
+### can1357/oh-my-pi ★ 28,455
 
 [GitHub](https://github.com/can1357/oh-my-pi) · TypeScript + Rust · MIT
 
@@ -31,7 +31,7 @@ Today's thread is "MCP is becoming the standard layer through which agents expos
 
 ---
 
-### K-Dense-AI/scientific-agent-skills ⭐ 38,894
+### K-Dense-AI/scientific-agent-skills ★ 38,894
 
 [GitHub](https://github.com/K-Dense-AI/scientific-agent-skills) · Python · MIT
 
@@ -42,7 +42,7 @@ Today's thread is "MCP is becoming the standard layer through which agents expos
 
 ---
 
-### addyosmani/agent-skills ⭐ 90,900
+### addyosmani/agent-skills ★ 90,900
 
 [GitHub](https://github.com/addyosmani/agent-skills) · JavaScript · MIT
 
@@ -53,7 +53,7 @@ Today's thread is "MCP is becoming the standard layer through which agents expos
 
 ---
 
-### THU-MAIC/OpenMAIC ⭐ 23,594
+### THU-MAIC/OpenMAIC ★ 23,594
 
 [GitHub](https://github.com/THU-MAIC/OpenMAIC) · TypeScript · MIT
 

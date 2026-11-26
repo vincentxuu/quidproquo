@@ -19,7 +19,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en)
+> :globe: [English version](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en)
 
 [系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Meta 的 WhatsApp Private Processing 獎金頁](https://bugbounty.meta.com/payout-guidelines/private-processing/)把 TEE 內的程式碼執行、權限提升、VM 逃脫各列到最高 30 萬美元。[第 9 篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機之間的牆，[第 10 篇](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study)拆了一個牆上有洞的案例。這一篇換一種牆：不只隔開客戶彼此，還要把機器的營運者也擋在外面。
 

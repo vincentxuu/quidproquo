@@ -16,7 +16,7 @@ additionalSeries:
     order: 25
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-ai-app-storage-patterns)
 
 AI apps often put data in the wrong place. Conversations go into D1, full transcripts go into D1, PDFs go into D1, embedding metadata goes into D1, tool outputs go into D1, and eventually the database becomes a file cabinet. The opposite mistake is putting everything into R2, then discovering that status queries, tenant filters, and reports require object scans.
 
@@ -123,7 +123,7 @@ That is more natural than pushing every synchronization problem into D1 transact
 Three AI data layers are easy to collapse into one bucket:
 
 - Agent Memory: user/team/project facts, events, instructions, and tasks.
-- AI Search: a managed RAG pipeline with data sources, indexing, and hybrid retrieval handled by Cloudflare.
+- AI Search: a managed RAG pipeline with data sources, indexing, and hybrid retrieval handled by Cloudflare. Besides websites, R2, and direct uploads, it can index [D1](https://developers.cloudflare.com/ai-search/configuration/data-source/d1/) (beta, since November 2026): you supply a read-only SQL query, each returned row becomes a document, and scheduled syncs pick up added, changed, and removed rows. If your product docs already live in D1, you no longer need to export them to R2 first.
 - Vectorize: vector search where you control embeddings, metadata, and query path.
 
 User preferences should not be hidden inside an AI Search document corpus. Product documentation should not become Agent Memory. An embedding index should not be the archive for full transcripts.
@@ -176,6 +176,10 @@ If I were building a Cloudflare AI app tonight, I would start with:
 - Secrets Store: AI Gateway BYOK or provider keys reused across Workers.
 
 This is not the most complete version, but it has clear responsibility boundaries. As the workload grows, add queues, workflows, containers, browser tooling, and memory deliberately.
+
+## Update Log
+
+- 2026-11-23: Added that AI Search can use D1 query results as a data source (November 2026, beta).
 
 ## References
 

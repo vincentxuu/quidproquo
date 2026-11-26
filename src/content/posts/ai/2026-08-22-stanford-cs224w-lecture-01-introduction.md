@@ -13,7 +13,7 @@ description: "Stanford CS224W Fall 2025 第 1 講完整 agenda 與自學筆記�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-01-introduction-en)
+> :globe: [English version](/posts/ai/2026-08-22-stanford-cs224w-lecture-01-introduction-en)
 
 **影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
 
@@ -130,9 +130,11 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 - [Stanford Online CS224W 公開播放清單（2021 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W 公開播放清單（2021／2023 年版，非 Fall 2025）](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
+
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 - 2026-10-11：補上自編教學例子、推理結果與理解檢查答案。
 
@@ -143,3 +145,5 @@ Degree 描述局部連接量，clustering coefficient 描述鄰居彼此連接�
 
 - [CS224W Fall 2025 schedule](https://web.stanford.edu/class/cs224w/)
 - [Lecture 1 official slides](https://web.stanford.edu/class/cs224w/slides/01-intro.pdf)
+- [CS224W Fall 2025 official archive](http://snap.stanford.edu/class/cs224w-2025)
+- [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)

@@ -1,0 +1,35 @@
+---
+import { englishContentContext, englishPracticeHref } from '../lib/english-content';
+import '../styles/english-hub.css';
+interface Props { postId: string; lang: 'zh-TW' | 'en'; isSeries?: boolean; }
+const { postId, lang, isSeries = false } = Astro.props;
+const context = englishContentContext(postId);
+const en = lang === 'en';
+const roles = {
+  materials: en ? 'English Speaking Practice · scenario material' : '英文口說練習 · 情境教材',
+  methods: en ? 'English Speaking Practice · methods, research & original audio' : '英文口說練習 · 方法、研究與原音教材',
+  courses: en ? 'English Speaking Practice · courses & planning' : '英文口說練習 · 選課與練習安排',
+};
+const role = context && (isSeries || context.order === 0
+  ? en ? 'English Speaking Practice · complete learning path' : '英文口說練習 · 完整學習路線'
+  : roles[context.section]);
+const explanation = isSeries
+  ? en ? 'This series brings together practice methods, research, scenario materials, courses and review. The learning hub groups these chapters by what you want to do next.' : '本系列把練習方法、研究、情境教材、選課與複習接在一起。英文口說入口依用途整理這些篇章，也提供互動練習。'
+  : en ? 'This article belongs to the English Speaking Practice series. Read in series order, try a practice activity, or find another chapter in the learning hub.' : '這篇是「英文口說練習」系列的一部分。可以照系列順序讀，讀完開口練一次，也可以從入口找其他篇章。';
+const practiceLabel = context?.scenario
+  ? en ? 'Try the related scenario (Chinese interface) →' : '到相關情境開口練 →'
+  : context?.id.endsWith('shadowing-evidence')
+    ? en ? 'Try sentence shadowing (Chinese interface) →' : '試試句子跟讀 →'
+    : en ? 'Explore practice tools (Chinese interface) →' : '到互動練習挑一個情境 →';
+---
+{context && <aside class="eh-post-nav" aria-label={en ? 'English speaking learning navigation' : '英文口說學習導覽'}>
+  <p class="eh-post-role">{role}</p>
+  <p>{explanation}</p>
+  <p><a class="eh-post-practice" href={englishPracticeHref(context)}>{practiceLabel}</a></p>
+  <nav class="eh-post-links" aria-label={en ? 'Explore English speaking content' : '找其他英文口說內容'}>
+    <a href="/english/">{en ? 'Learning hub' : '英文口說入口'}</a>
+    <a href="/english/#materials">{en ? 'Scenario materials' : '情境教材'}</a>
+    <a href="/english/#methods">{en ? 'Methods & audio' : '方法與原音教材'}</a>
+    <a href="/english/#courses">{en ? 'Courses & planning' : '選課與練習安排'}</a>
+  </nav>
+</aside>}

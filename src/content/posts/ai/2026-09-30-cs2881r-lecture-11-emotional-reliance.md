@@ -20,7 +20,7 @@ glossary:
     context: "Moore et al. 認為治療同盟需要人類特質；NEJM AI 的 Therabot 試驗則報告受試者評分與人類治療師相當。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-11-emotional-reliance-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -149,7 +149,7 @@ Boaz 先把「AI 與心理健康」拆成幾個面向：不以心理健康為目
 
 - 模型規格裡怎麼寫這類行為：[L4：模型規格與合規](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 - 訓練流程中的 RLHF 與安全訓練：[L2：現代 LLM 訓練](/posts/ai/2026-09-30-cs2881r-lecture-02-llm-training)
-- LLM-as-judge 的可靠性：[Stanford CS329Z 第 8 週：Judge 與安全](/posts/ai/2026-09-10-stanford-cs329z-week8-judge-safety)
+- LLM-as-judge 的可靠性：[Stanford CS329Z 第 14 堂：Judge](/posts/ai/2026-09-10-stanford-cs329z-lecture-14-llm-as-judge)與[第 15 堂：安全](/posts/ai/2026-09-10-stanford-cs329z-lecture-15-agent-safety)
 
 ## 課程影片來源
 

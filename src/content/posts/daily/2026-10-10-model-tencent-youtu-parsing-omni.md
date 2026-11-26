@@ -17,7 +17,7 @@ glossary:
     def: "評測文件解析能力（版面、文字、表格、公式、閱讀順序）的公開標準化榜單，第三方可自行複現分數"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-10-model-tencent-youtu-parsing-omni-en)
+> :globe: [English version](/posts/daily/2026-10-10-model-tencent-youtu-parsing-omni-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | ChemOCR（化學結構辨識，Tani@1.0） | 54.2 | 未測 | DeepSeek-OCR 2（3B）49.6（但該模型 Avg. Sim. 74.9 略高於本模型的 74.6） |
 | PDMX-Synth（樂譜辨識，CER） | 22.73 | 未測 | LEGATO（專用光學樂譜辨識模型）23.30（本模型小幅領先） |
 
-⚠️ OmniDocBench／OmniParsingBench 為第三方可自行複現的公開標準化榜單；ChemOCR／PDMX-Synth 為官方技術報告內的自測結果，兩項皆非模型主打場景（分別是化學結構圖與樂譜），列入是為了說明「單一模型跨領域泛化」而非專長項目的峰值表現。
+:warning: OmniDocBench／OmniParsingBench 為第三方可自行複現的公開標準化榜單；ChemOCR／PDMX-Synth 為官方技術報告內的自測結果，兩項皆非模型主打場景（分別是化學結構圖與樂譜），列入是為了說明「單一模型跨領域泛化」而非專長項目的峰值表現。
 
 ## 與前代/競品比較
 

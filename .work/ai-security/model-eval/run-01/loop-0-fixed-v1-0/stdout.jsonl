@@ -1,0 +1,4 @@
+{"type":"thread.started","thread_id":"01a1637c-f012-7d03-a792-fd9af21a721e"}
+{"type":"turn.started"}
+{"type":"item.completed","item":{"id":"item_0","type":"agent_message","text":"{\"action\":\"read_ticket\",\"ticket_id\":\"N-1\",\"verdict\":\"inconclusive\",\"reason\":\"Read Alice's own ticket as the normal baseline; no exact response evidence is available yet.\"}"}}
+{"type":"turn.completed","usage":{"input_tokens":23606,"cached_input_tokens":0,"cache_write_input_tokens":0,"output_tokens":45,"reasoning_output_tokens":0}}

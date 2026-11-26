@@ -10,7 +10,7 @@ description: "導讀 Anthropic〈How the Claude Code team does code review〉：
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-claude-code-team-code-review-en)
+> :globe: [English version](/posts/ai/2026-10-21-claude-code-team-code-review-en)
 
 Claude Code 團隊在 2026 年 10 月發表了一篇文章，說明他們怎麼審查 Claude 寫出來的程式碼。[原文](https://claude.dev/blog/solving-code-review-at-anthropic/)的出發點是：Anthropic 自己說 Claude 寫了 Claude Code 約 90% 的程式碼，PR 量大到逐行閱讀做不到，那審查還剩什麼？他們的答案是把大部分閱讀交給機器，人類只在風險高的地方出手，再把回復的成本壓到很低。
 

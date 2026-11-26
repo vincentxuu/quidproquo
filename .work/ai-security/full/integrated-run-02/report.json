@@ -1,0 +1,32 @@
+{
+  "scope": "Self-started local synthetic HTTP target; no model or third-party test",
+  "python": "3.11.15",
+  "platform": "darwin",
+  "server_sha256": "4cef8d885a235761267cc86a9053f66f82b7ceac03893e53dba2f07981677d37",
+  "runner_sha256": "7761a7760b34340ed52a26295fd59060535032e713bf81826c2e866dc0756974",
+  "policy": "same tenant AND owner; known demo bearer strings are not real authentication",
+  "finding": "Alice read N-2 and S-1 in vulnerable-v1; fixed-v1 denied both",
+  "evidence": [
+    "vulnerable-v1/transcript.jsonl",
+    "fixed-v1/transcript.jsonl"
+  ],
+  "summary": {
+    "vulnerable-v1": {
+      "requests": 5,
+      "passed": 5,
+      "unauthorized_reads": 2,
+      "allowed_controls": 3
+    },
+    "fixed-v1": {
+      "requests": 5,
+      "passed": 5,
+      "unauthorized_reads": 0,
+      "allowed_controls": 3
+    }
+  },
+  "limits": [
+    "Only five fixed cases per build",
+    "No model effectiveness measured",
+    "No production, cloud deployment, or whole-product security claim"
+  ]
+}

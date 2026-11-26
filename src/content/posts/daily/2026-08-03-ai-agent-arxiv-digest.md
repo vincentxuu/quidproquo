@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 71
 ---
-> 🌏 [English version](/posts/daily/2026-08-03-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-03-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,9 +73,9 @@ IMACS（Intelligent Multi-Agent Collaboration System）把問題拆成三個獨�
 
 - 三個層次分別對應的管理學理論：Belbin 角色（組織層）、Mintzberg 協調機制（協調層）、演算法研究文獻（協作層）
 - 七種可插拔協作演算法都掛在同一個 interface 後面，理論上可以自行新增第八個而不改其他層
-- Adaptive Org Routing 是元協議（meta-protocol），動態根據任務特性選擇協作算法 **⚠️ 論文未提供此模組的獨立評測數據**
+- Adaptive Org Routing 是元協議（meta-protocol），動態根據任務特性選擇協作算法 **:warning: 論文未提供此模組的獨立評測數據**
 - 與 LangGraph 的對應：graph state ≈ 協調層；agent node definition ≈ 組織層；reduce function ≈ 協作演算法層
-- 論文本身未包含規模化（>10 agents）的實驗；所有實驗均在小型任務上驗證 **⚠️**
+- 論文本身未包含規模化（>10 agents）的實驗；所有實驗均在小型任務上驗證 **:warning:**
 - 落地門檻：IMACS 是 Python framework，需整合到現有系統；「三省制」預設偏實驗性，實用性待驗證
 - 對 CrewAI 使用者：CrewAI 的 crew definition 混合了組織層與協作層，IMACS 的解耦思維可作為重構參考
 
@@ -129,7 +129,7 @@ APPA 打破了「安全 vs 可用性」的零和關係。在 4 個模型上，�
 ### 深入要點
 
 - 評測方式：多輪 tool-chaining benchmark，跨 4 個模型（論文未完全公開模型名稱）
-- 關鍵數據：exfiltration 攻擊成功率 31%–50% → 0%–7%，4 個模型均接近零；branching 機制相較 pure taint tracking 大幅恢復可用性 **⚠️「大幅」為描述性語言，詳細比例需查論文表格**
+- 關鍵數據：exfiltration 攻擊成功率 31%–50% → 0%–7%，4 個模型均接近零；branching 機制相較 pure taint tracking 大幅恢復可用性 **:warning:「大幅」為描述性語言，詳細比例需查論文表格**
 - Archestra AI 是小型 AI 安全公司，本篇為其研究成果；目前尚無獨立第三方驗證
 - 「sanitizer（淨化器）」需人工或規則定義，是最大的部署門檻：你需要為每種資料類型設計淨化邏輯
 - 與 LangGraph 的整合路徑：可在 node 層級實作 context branching，但 LangGraph 目前沒有原生 IFC 支援
@@ -159,7 +159,7 @@ APPA 打破了「安全 vs 可用性」的零和關係。在 4 個模型上，�
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 PM / 產品設計師的好讀材料：這是一張「現有 agent 授權方案的地圖」，可以快速知道學術界和業界各自在哪個位置，以及你的產品缺少什麼。
 
 ### 領域背景
@@ -188,10 +188,10 @@ PM / 產品設計師的好讀材料：這是一張「現有 agent 授權方案�
 - 分析的 21 個學術提案橫跨 2022–2026 年的主要 agent 安全文獻
 - 三層分析維度：（1）UI 規格設計：使用者能不能在介面上選擇「允許 / 拒絕 / 要求確認」？（2）政策推導：系統能不能自動把這些選擇轉成後端可執行的存取控制規則？（3）執行機制：agent 運行時有沒有真的去 check 這些規則？
 - 關鍵發現：學術提案偏重 enforcement 架構設計，UI/UX 層薄弱；商業系統則相反——介面看起來有設定，但後端 enforcement 往往不夠嚴謹
-- 5 個商業系統的分析屬於黑箱觀察（外部觀察介面行為），不代表其內部真實 enforcement 機制 **⚠️**
+- 5 個商業系統的分析屬於黑箱觀察（外部觀察介面行為），不代表其內部真實 enforcement 機制 **:warning:**
 - 論文本身是「調查 + 分類框架」類型，沒有自己的實作或評測數字——這是它的 limitation，但也讓結論更中立
 - 與 MCP 的關係：MCP 的 tool permission 目前是在 client 端設定，屬於開發者級設定；論文指出的使用者級授權缺口直接點名了 MCP 生態的下一步挑戰
-- 同期可搭配閱讀：Janus（2607.01510）提出了一個使用者授權管理的 playground 實作，是本篇調查的實作對應 **⚠️（本 digest 未選入，讀者可自行追蹤）**
+- 同期可搭配閱讀：Janus（2607.01510）提出了一個使用者授權管理的 playground 實作，是本篇調查的實作對應 **:warning:（本 digest 未選入，讀者可自行追蹤）**
 
 ### Reviewer 一句話評
 

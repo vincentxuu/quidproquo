@@ -17,7 +17,7 @@ glossary:
     definition: "用固定歷史切點標注正確答案、用來衡量 agent 輸出品質的基準測試集。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
+> :globe: [English version](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 
 > **台股研究 Agent 實戰系列（篇 1 / 9）**：本篇為系列開端 ｜ [下一篇：LangGraph 並行架構——五個分析師同時開工](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture) ｜ 完整目錄就在本篇下方
 

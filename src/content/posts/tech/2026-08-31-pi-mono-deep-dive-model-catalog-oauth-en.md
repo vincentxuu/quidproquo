@@ -13,7 +13,7 @@ description: "Deep dive into pi-ai model ecosystem: Model Catalog auto-fetch fro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-model-catalog-oauth)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-model-catalog-oauth)
 
 ## TL;DR
 
