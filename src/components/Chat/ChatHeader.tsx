@@ -117,7 +117,7 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                className="size-7 chat-icon-btn"
+                className="size-8 chat-icon-btn"
                 onClick={onExpandToggle}
                 aria-label={expandLabel}
               >
@@ -136,7 +136,7 @@ function HeaderActions({ onExpandToggle, isExpanded, onClose, embedded }: Header
                 type="button"
                 variant="ghost"
                 size="icon-sm"
-                className="size-7 chat-icon-btn"
+                className="size-8 chat-icon-btn"
                 onClick={onClose}
                 aria-label={t('chat.action.close')}
               >
@@ -179,7 +179,7 @@ export function ChatHeaderToolbar({
               type="button"
               variant="ghost"
               size="icon-sm"
-              className="size-7 chat-icon-btn"
+              className="size-8 chat-icon-btn"
               onClick={onNewChat}
               aria-label={t('chat.action.new')}
             >

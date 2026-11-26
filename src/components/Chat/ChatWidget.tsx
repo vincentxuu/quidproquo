@@ -441,19 +441,25 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
   ) : null
 
   // chip 整段對話都留著（不只空狀態），讀者隨時看得到 AI 以哪篇為脈絡、也隨時能拿掉
+  // 放在輸入框正上方、跟輸入框同一塊底：它描述的是「這次問題帶什麼脈絡」，不是另一個區塊
   const pageChip = activePage ? (
-    <div role="region" aria-label={`${t('chat.page.chip')} ${activePage.title}`} className="flex items-center gap-1.5 px-4 pt-2 pb-1 text-sm" style={{ background: 'var(--bg-card)', color: 'var(--text-secondary)' }}>
-      <span className="shrink-0 font-bold">{t('chat.page.chip')}</span>
-      <span className="min-w-0 truncate" title={activePage.title}>{activePage.title}</span>
+    <div role="region" aria-label={`${t('chat.page.chip')} ${activePage.title}`} className="chat-page-chip">
+      <svg className="chat-page-chip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" />
+        <path d="M14 3v5h5M9 13h6M9 17h4" />
+      </svg>
+      <span className="chat-page-chip-label">{t('chat.page.chip')}</span>
+      <span className="chat-page-chip-title" title={activePage.title}>{activePage.title}</span>
       <button
         type="button"
         onClick={() => setPageDismissed(true)}
-        className="ml-auto inline-flex size-5 shrink-0 cursor-pointer items-center justify-center rounded-full border-none bg-transparent leading-none transition-colors hover:bg-accent"
-        style={{ color: 'var(--text-secondary)' }}
+        className="chat-page-chip-remove"
         aria-label={t('chat.page.remove')}
         title={t('chat.page.remove')}
       >
-        <span aria-hidden="true">×</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+          <path d="M18 6 6 18M6 6l12 12" />
+        </svg>
       </button>
     </div>
   ) : null
@@ -462,7 +468,6 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
     <ChatLocaleProvider lang={lang} pageSlug={activePage?.slug}>
     <div className={`chat-widget${embedded ? ' is-embedded' : ''}`} style={containerStyle}>
       <ChatHeader
-        title={page?.title}
         status={loading ? 'streaming' : 'idle'}
         subtitle={t('chat.widget.subtitle')}
         onExpandToggle={onExpandToggle}
@@ -488,7 +493,8 @@ const ChatWidget = forwardRef<{ focusInput: () => void }, ChatWidgetProps>(({
         onSend={sendMessage}
         onStop={handleStop}
         onRetry={handleRetry}
-        beforeComposer={<>{suggestions}{pageChip}</>}
+        beforeComposer={suggestions}
+        composerTop={pageChip}
         footerNote={
           <>
             <span>{t('chat.disclaimer')}</span>

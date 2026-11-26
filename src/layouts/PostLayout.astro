@@ -117,16 +117,18 @@ const pageTitle =
   <header>
     <nav>
       <a href={homeHref} class="logo">quidproquo</a>
-      <a href={lang === 'en' ? '/en/daily' : '/daily'} class="nav-link">{t('nav.daily')}</a>
-      <a href={lang === 'en' ? '/en/about' : '/about'} class="nav-link">{t('nav.about')}</a>
-      <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
-      <a href={seriesHref} class="nav-link">{t('nav.series')}</a>
-      <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
-      <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
-      <a href="/english" class="nav-link">{t('nav.english')}</a>
-      {lang !== 'en' && <a href="/collection" class="nav-link">{t('nav.collection')}</a>}
-      <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'} class="nav-link">{lang === 'en' ? 'Vocabulary' : '單字庫'}</a>
-      <a href="/account" class="nav-link">{lang === 'en' ? 'My space' : '私人空間'}</a>
+      <div class="nav-links">
+        <a href={lang === 'en' ? '/en/daily' : '/daily'} class="nav-link">{t('nav.daily')}</a>
+        <a href={lang === 'en' ? '/en/about' : '/about'} class="nav-link">{t('nav.about')}</a>
+        <a href={categoriesHref} class="nav-link">{t('nav.categories')}</a>
+        <a href={seriesHref} class="nav-link">{t('nav.series')}</a>
+        <a href={tagsHref} class="nav-link">{t('nav.tags')}</a>
+        <a href={lang === 'en' ? '/en/interview' : '/interview'} class="nav-link">{t('nav.interview')}</a>
+        <a href="/english" class="nav-link">{t('nav.english')}</a>
+        {lang !== 'en' && <a href="/collection" class="nav-link">{t('nav.collection')}</a>}
+        <a href={lang === 'en' ? '/en/vocabulary' : '/vocabulary'} class="nav-link">{lang === 'en' ? 'Vocabulary' : '單字庫'}</a>
+        <a href="/account" class="nav-link">{lang === 'en' ? 'My space' : '私人空間'}</a>
+      </div>
       <div class="nav-right">
         <a href={lang === 'en' ? '/en/search' : '/search'} class="nav-search-link" aria-label={t('nav.search')}>
           <Icons name="search" size={15} />
@@ -214,7 +216,7 @@ const pageTitle =
   body {
     font-family: 'Latin Quotes', 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', system-ui, -apple-system, sans-serif;
     --page-gutter: 1.5rem;
-    --ask-ai-sidebar-width: 380px; /* 與 ChatSidebar.tsx SIDEBAR_WIDTH 對齊；單一事實來源 */
+    --ask-ai-sidebar-width: 420px; /* Ask AI 側欄寬度唯一來源；面板寬與 body 讓位都讀這個變數 */
     max-width: 800px;
     margin: 0 auto;
     padding: var(--space-4) var(--page-gutter);
@@ -225,6 +227,16 @@ const pageTitle =
   /* Ask AI 面板開啟時，body 撐滿視窗寬度，使 padding-right 讓位落在畫面右邊被固定面板精準蓋住，
      避免 body 置中導致 padding 從內容裡往內吃、出現巨大空格＋本文被壓縮。 */
   body.has-chat-sidebar { max-width: none; }
+  /* 側欄隨視窗變寬，但先保住版面：
+     1140–1519 TOC 收起，先讓中文導覽列排得進一行（約 842px，含左右 gutter 48 → 100vw - 890px），剩下才給 AI；
+     ≥1520 三欄並存，本文＋TOC 至少約 1060px，剩下的才給 AI；上限 540 讓 15px 中文一行約 34 字。
+     排不下（英文、或 1140–1290）時由 .nav-links 在中間欄換行，不會壞版；增減連結後 842 可重量再調。 */
+  @media (min-width: 1140px) {
+    body { --ask-ai-sidebar-width: clamp(400px, calc(100vw - 890px), 520px); }
+  }
+  @media (min-width: 1520px) {
+    body { --ask-ai-sidebar-width: clamp(400px, calc(100vw - 1108px), 540px); }
+  }
   /* Article pages widen at desktop to fit a sticky TOC/video sidebar (.post-grid) */
   @media (min-width: 1000px) {
     body.is-article { max-width: 1180px; }
@@ -252,6 +264,16 @@ const pageTitle =
     padding-bottom: var(--space-4);
     border-bottom: 2px solid var(--border);
     position: relative;
+  }
+  /* 連結群組平常 display: contents，版面與沒有這層時完全一樣（含手機的換行規則）。
+     側欄開啟時導覽列固定成「logo｜連結｜右側按鈕」三欄：空間不夠只有中間的連結自己換行，
+     logo 與按鈕永遠留在第一行，不會像 flex-wrap 那樣把按鈕單獨擠成第三行；不寫死寬度，中英文都適用。 */
+  .nav-links { display: contents; }
+  @media (min-width: 1140px) {
+    body.has-chat-sidebar header > nav { flex-wrap: nowrap; align-items: flex-start; }
+    body.has-chat-sidebar header > nav > .logo,
+    body.has-chat-sidebar header > nav > .nav-right { flex: 0 0 auto; min-height: 36px; display: flex; align-items: center; }
+    body.has-chat-sidebar .nav-links { display: flex; flex: 1 1 auto; flex-wrap: wrap; align-items: center; gap: var(--space-2) var(--space-4); min-width: 0; min-height: 36px; }
   }
   .logo {
     font-weight: 900;

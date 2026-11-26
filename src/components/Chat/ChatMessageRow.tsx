@@ -29,20 +29,19 @@ export function ChatMessageRow({ message: msg, onRetry }: { message: ChatMessage
   const showActions = isAssistant && !msg.streaming && msg.id !== 'welcome' && (Boolean(msg.content) || Boolean(onRetry))
 
   return (
-    <div
-      key={msg.id}
-      className={isAssistant ? 'assistant-message' : 'user-message'}
-      style={{
-        ...styles.message,
-        ...(isAssistant ? styles.assistantMessage : styles.userMessage),
-      }}
-    >
-      {isAssistant && <Avatar role="assistant" />}
-      <div style={isAssistant ? styles.assistantPanel : styles.userBubble}>
+    <div className={`chat-msg ${isAssistant ? 'chat-msg-assistant' : 'chat-msg-user'}`}>
+      {/* 寬版：頭像在左欄；窄版：頭像＋名字收成回答上方一行，正文鐵滿整欄（切換見 chat.css 的 container query） */}
+      {isAssistant && (
+        <div className="chat-msg-author">
+          <Avatar role="assistant" />
+          <span className="chat-msg-name" aria-hidden="true">Ask AI</span>
+        </div>
+      )}
+      <div className={isAssistant ? 'chat-msg-panel' : 'chat-msg-bubble'}>
         {isAssistant && (
           <ActivityLine steps={msg.steps} streaming={msg.streaming === true} hasContent={Boolean(msg.content)} />
         )}
-        <div className="message-content" style={styles.content}>
+        <div className="chat-msg-content">
           {msg.content ? <MarkdownContent content={msg.content} role={msg.role} /> : null}
           {msg.sources && msg.sources.length > 0 && <LinkSection countKey="chat.sources.count" links={msg.sources} />}
           {msg.related && msg.related.length > 0 && <LinkSection countKey="chat.related.count" links={msg.related} />}
@@ -50,11 +49,6 @@ export function ChatMessageRow({ message: msg, onRetry }: { message: ChatMessage
         {showActions && <MessageActions content={msg.error ? '' : msg.content} onRetry={onRetry} />}
       </div>
       {!isAssistant && <Avatar role="user" />}
-      <style>{`
-        .message-content p:last-child {
-          margin-bottom: 0 !important;
-        }
-      `}</style>
     </div>
   )
 }
@@ -103,7 +97,7 @@ function Avatar({ role }: { role: 'user' | 'assistant' }) {
   const src = role === 'user' ? '/chat/avatar-reader.svg' : '/chat/avatar-ask-ai.svg'
   const alt = role === 'user' ? 'You' : 'Ask AI'
 
-  return <img src={src} alt={alt} style={styles.avatar} loading="lazy" referrerPolicy="no-referrer" />
+  return <img src={src} alt={alt} className="chat-msg-avatar" loading="lazy" referrerPolicy="no-referrer" />
 }
 
 interface LinkFallbacks {
@@ -122,21 +116,14 @@ function MarkdownContent({ content, role }: { content: string; role: 'user' | 'a
       remarkPlugins={[remarkGfm]}
       skipHtml
       components={{
-        p: ({ children }) => <p style={styles.paragraph}>{children}</p>,
         a: ({ href, children }) => (
           <a href={href} target="_blank" rel="noopener noreferrer" style={{ ...styles.link, color: linkColor }}>
             {formatLinkChildren(href, children, fallbacks)}
           </a>
         ),
-        ul: ({ children }) => <ul style={styles.list}>{children}</ul>,
-        ol: ({ children }) => <ol style={styles.list}>{children}</ol>,
-        li: ({ children }) => <li style={styles.listItem}>{children}</li>,
         strong: ({ children }) => <strong style={styles.strong}>{children}</strong>,
         em: ({ children }) => <em style={styles.emphasis}>{children}</em>,
         blockquote: ({ children }) => <blockquote style={styles.blockquote}>{children}</blockquote>,
-        h1: ({ children }) => <h1 style={styles.h1}>{children}</h1>,
-        h2: ({ children }) => <h2 style={styles.h2}>{children}</h2>,
-        h3: ({ children }) => <h3 style={styles.h3}>{children}</h3>,
         table: ({ children }) => (
           <div style={styles.tableScroller}>
             <table style={styles.table}>{children}</table>
@@ -170,8 +157,8 @@ function LinkSection({ countKey, links }: { countKey: 'chat.sources.count' | 'ch
 
   // 預設收合成一行「參考了 N 篇文章」，點開才列卡片
   return (
-    <details className="sources-container" style={styles.linkSection}>
-      <summary style={styles.sectionLabel}>{t(countKey, { n: normalizedLinks.length })}</summary>
+    <details className="chat-msg-links">
+      <summary>{t(countKey, { n: normalizedLinks.length })}</summary>
       <div style={styles.linkList}>
         {normalizedLinks.map((link, index) => (
           <a key={`${link.url}:${link.title}`} href={link.url} target="_blank" rel="noopener noreferrer" style={styles.linkCard}>
@@ -189,67 +176,6 @@ function LinkSection({ countKey, links }: { countKey: 'chat.sources.count' | 'ch
 }
 
 const styles: Record<string, CSSProperties> = {
-  avatar: {
-    width: '2rem',
-    height: '2rem',
-    flex: '0 0 2rem',
-    borderRadius: '50%',
-    border: '1px solid var(--border)',
-    background: 'var(--bg-card)',
-  },
-  message: {
-    maxWidth: '100%',
-    minWidth: 0,
-    display: 'flex',
-    alignItems: 'flex-start',
-    gap: '0.6rem',
-  },
-  userMessage: {
-    alignSelf: 'flex-end',
-    justifyContent: 'flex-end',
-    width: 'min(100%, 82%)',
-  },
-  assistantMessage: {
-    alignSelf: 'stretch',
-  },
-  userBubble: {
-    minWidth: 0,
-    padding: '0.75rem 0.875rem',
-    borderRadius: 8,
-    background: 'var(--bg-subtle)',
-    color: 'var(--text-primary)',
-    border: '1px solid var(--border)',
-  },
-  assistantPanel: {
-    minWidth: 0,
-    flex: 1,
-    padding: '0.95rem 1rem',
-    borderRadius: 8,
-    background: 'var(--bg-card)',
-    border: '1px solid var(--border)',
-    boxShadow: 'var(--shadow-card-hover)',
-  },
-  content: {
-    minWidth: 0,
-    color: 'inherit',
-    fontSize: '1rem',
-    lineHeight: 1.7,
-    overflowWrap: 'anywhere' as const,
-    wordBreak: 'break-word' as const,
-  },
-  paragraph: {
-    margin: '0 0 0.85rem',
-    lineHeight: 1.7,
-    overflowWrap: 'anywhere' as const,
-  },
-  list: {
-    margin: '0 0 0.9rem',
-    paddingLeft: '1.35rem',
-  },
-  listItem: {
-    margin: '0.28rem 0',
-    paddingLeft: '0.1rem',
-  },
   strong: {
     fontWeight: 700,
   },
@@ -260,21 +186,6 @@ const styles: Record<string, CSSProperties> = {
     textDecoration: 'underline',
     textUnderlineOffset: '0.18em',
     fontWeight: 600,
-  },
-  h1: {
-    fontSize: '1.16rem',
-    lineHeight: 1.4,
-    margin: '0 0 0.7rem',
-  },
-  h2: {
-    fontSize: '1.08rem',
-    lineHeight: 1.45,
-    margin: '1rem 0 0.55rem',
-  },
-  h3: {
-    fontSize: '1rem',
-    lineHeight: 1.45,
-    margin: '0.75rem 0 0.45rem',
   },
   blockquote: {
     margin: '0 0 0.9rem',
@@ -331,18 +242,6 @@ const styles: Record<string, CSSProperties> = {
     padding: '0.55rem 0.65rem',
     borderTop: '1px solid var(--border)',
     verticalAlign: 'top',
-  },
-  linkSection: {
-    marginTop: '1rem',
-    paddingTop: '0.75rem',
-    borderTop: '1px solid var(--border)',
-  },
-  sectionLabel: {
-    cursor: 'pointer',
-    color: 'var(--text-secondary)',
-    fontSize: '0.78rem',
-    lineHeight: 1.2,
-    fontWeight: 700,
   },
   linkList: {
     marginTop: '0.55rem',
