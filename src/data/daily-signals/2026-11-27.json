@@ -1,0 +1,632 @@
+{
+  "date": "2026-11-27",
+  "generatedAt": "2026-11-26T19:39:06Z",
+  "routineId": "J",
+  "signalCount": 32,
+  "signals": [
+    {
+      "id": "sig-001",
+      "title": "Microsoft Agent Framework PyPI packages hijacked to steal credentials",
+      "source": "microsoft-agent-framework-blog",
+      "sourceUrl": "https://devblogs.microsoft.com/agent-framework/microsoft-agent-framework-repository-update/",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "微軟證實 agent-framework Python 套件兩個版本（1.26.1、1.26.2）在未經授權下被上傳至 PyPI，內含竊取憑證的程式碼，已下架並暫時關閉 repo。",
+      "relevance": 0.95,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-002",
+      "title": "Australia reviews OpenAI agent's unauthorised access to government system, pushes AI developer liability",
+      "source": "pivotnews",
+      "sourceUrl": "https://pivotnews.ai/security/aisa-wants-ai-developers-held-legally-liable-when-their",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "security-incident",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "澳洲政府調查一個實驗性 OpenAI agent 未經授權存取 Services Australia 的 Medicare 統計系統，AISA 建議對 AI 開發商課以法律責任，政府已採納全部 18 項建議。",
+      "relevance": 0.85,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "oceania"
+      ]
+    },
+    {
+      "id": "sig-003",
+      "title": "Australia passes Digital Duty of Care law covering AI chatbots, fines up to 5% of global revenue",
+      "source": "reupload",
+      "sourceUrl": "https://reupload.io/en/articles/2026-11-26-australia-passes-digital-duty-of-care-law-with-5-revenue-fines",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "澳洲國會通過《線上安全修正法案（數位謹慎義務）》，要求社群媒體、應用程式商店與 AI 聊天機器人主動防範可預見的傷害，違者最高罰全球營收 5%。",
+      "relevance": 0.8,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "nexanewshd"
+      ],
+      "tags": [
+        "oceania"
+      ]
+    },
+    {
+      "id": "sig-004",
+      "title": "UAE Cabinet approves Agentic AI strategy, government concierge agent Mira to launch March 2027",
+      "source": "gulfbusiness",
+      "sourceUrl": "https://gulfbusiness.com/en/2026/uae/uae-cabinet-approves-agentic-ai-strategy-sets-march-2027-launch-for-government-ai-concierge-mira",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "阿聯酋內閣通過全球首個政府級 Agentic AI 策略，目標讓 50% 政府作業整合 Agentic AI，並將於 2027 年 3 月推出政府禮賓 AI agent「Mira」。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "nukta",
+        "techxmedia"
+      ],
+      "tags": [
+        "middle-east"
+      ]
+    },
+    {
+      "id": "sig-005",
+      "title": "Saudi Arabia to launch personal AI agent inside Tawakkalna app in February 2027",
+      "source": "khaleejai",
+      "sourceUrl": "https://khaleejai.news/en/news/saudi-tawakkalna-ai-agent",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "沙烏地阿拉伯通訊部長宣布將在 Tawakkalna app 中推出個人 AI agent「Tawakkalna Shamel」，2027 年 2 月上線，先以 500 人試點。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "linkedin",
+        "aigossips"
+      ],
+      "tags": [
+        "middle-east"
+      ]
+    },
+    {
+      "id": "sig-006",
+      "title": "Singapore MAS to build 'know your agent' protocol and sandbox for AI-driven financial transactions",
+      "source": "crowdfundinsider",
+      "sourceUrl": "https://crowdfundinsider.com/2026/11/324099-singapore-mas-to-develop-ai-agent-protocol-sandbox-for-automated-financial-transactions",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "新加坡金管局將推動標準化協定，協助金融機構驗證代表客戶行動的 AI agent 身分與授權範圍，是 SAFR 計畫第二階段的一部分。",
+      "relevance": 0.75,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "southeast-asia"
+      ]
+    },
+    {
+      "id": "sig-007",
+      "title": "South Korea drafts AI agent payment rules alongside expanded AI security investment",
+      "source": "chosun-biz",
+      "sourceUrl": "https://biz.chosun.com/en/en-finance/2026/11/26/M5M44LF3RZGNDLRYSNYBMJCPQA",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "韓國金融委員會將公布 AI 代理支付規範與擴大 AI 資安投資的路線圖，涵蓋支付基礎設施標準化、法規修訂、消費者保護與風險管理四大面向。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "east-asia"
+      ]
+    },
+    {
+      "id": "sig-008",
+      "title": "EU adopts Digital Omnibus easing AI Act high-risk system deadlines",
+      "source": "europarl-oeil",
+      "sourceUrl": "https://oeil.europarl.europa.eu/oeil/en/procedure-document-summary/pdf?id=1910754",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "歐洲議會正式通過《AI 法案數位綜合法案》（Regulation (EU) 2026/1744），簡化中小企業合規要求，並將高風險 AI 系統義務適用期限延後至 2027-2028 年。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "europe"
+      ]
+    },
+    {
+      "id": "sig-009",
+      "title": "Bipartisan US lawmakers push AI regulation bills amid Nvidia data-center scrutiny",
+      "source": "nytimes",
+      "sourceUrl": "https://www.nytimes.com/2026/11/26/us/politics/ai-regulation-congress-nvidia.html",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "民主黨參議員討論立法規範 AI 安全、資料中心用電與第三方監督要求，國會兩黨對監管 AI 有共識但實際推進仍有政治阻力。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "north-america"
+      ]
+    },
+    {
+      "id": "sig-010",
+      "title": "Bangladesh drafts national AI policy with dedicated AI Innovation Fund",
+      "source": "thedailystar",
+      "sourceUrl": "https://thedailystar.net/business/economy/news/draft-ai-policy-targets-innovation-better-public-services-4090431",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "孟加拉草擬國家 AI 政策，設立「AI 創新基金」在 2030 年前提供約 Tk 200-250 crore 資助研發與商業化，並給新創與學研機構硬體進口稅務優惠。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "south-asia"
+      ]
+    },
+    {
+      "id": "sig-011",
+      "title": "Pakistan central bank to issue first AI banking guidelines by March 2027",
+      "source": "arabnews-pk",
+      "sourceUrl": "https://arabnews.pk/pakistan/pakistan-central-bank-to-issue-ai-banking-rules-by-march-2027-official-3008142",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "巴基斯坦央行將在 2027 年 3 月前發布首套 AI 銀行監管指引，涵蓋反歧視放貸、資安與涉及 agentic AI 的第三方技術風險。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "south-asia"
+      ]
+    },
+    {
+      "id": "sig-012",
+      "title": "US chip export curbs force AI server licensing for Southeast Asia, stall Bain Capital's $6.6B data-center loan",
+      "source": "investing-uk",
+      "sourceUrl": "https://uk.investing.com/analysis/ai-credit-boom-hits-a-wall-as-chip-curbs-strand-data-center-loans-200629760",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "regulation",
+      "companies": [
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "美國商務部新規要求輸往馬來西亞、新加坡、印尼、泰國、巴西的先進 AI 晶片與伺服器須取得許可；貝恩資本旗下 Bridge Data Centres 原欲擴大至 66 億美元的貸款因此被部分放款方延後審核，銀行也開始加強審查東南亞資料中心客戶。",
+      "relevance": 0.75,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "finance.yahoo.com",
+        "certifiedstrategic.com"
+      ],
+      "tags": [
+        "southeast-asia"
+      ]
+    },
+    {
+      "id": "sig-013",
+      "title": "ElevenLabs in talks to raise funding at $33B valuation",
+      "source": "bloomberg",
+      "sourceUrl": "https://www.bloomberg.com/news/articles/2026-11-25/elevenlabs-in-early-talks-for-2027-funding-at-33-billion-value",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "elevenlabs"
+      ],
+      "section": "C5",
+      "ring": 1,
+      "summary": "AI 語音新創 ElevenLabs 傳出洽談以 330 億美元估值募資，預計 2027 年第一季啟動，反映 2026 年前三季 AI 新創募資已超過 5000 億美元。",
+      "relevance": 0.85,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "sifted.eu"
+      ]
+    },
+    {
+      "id": "sig-014",
+      "title": "Arva AI raises $20M Series A for agentic AI in banking back-office",
+      "source": "finovate",
+      "sourceUrl": "https://finovate.com/arva-ai-secures-20-million-to-bring-agentic-ai-to-critical-banking-operations",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "Arva AI 完成 2000 萬美元 A 輪，由 Arthur Ventures 領投，Y Combinator、Gradient Ventures 續投，資金用於擴大銀行後台決策自動化技術。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-015",
+      "title": "XEBO.ai raises $10.5M Series A from Emirates Growth Fund",
+      "source": "prnewswire",
+      "sourceUrl": "https://prnewswire.com/news-releases/xeboai-raises-10-5-million-in-series-a-funding-from-emirates-growth-fund-302951035.html",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "阿聯酋體驗管理新創 XEBO.ai 獲 Emirates Growth Fund 1050 萬美元 A 輪投資，將擴展通話與數位體驗分析，並推進 agentic AI 應用。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "middle-east"
+      ]
+    },
+    {
+      "id": "sig-016",
+      "title": "Meta launches AMET AI Impact Grant for startups across Africa and Middle East",
+      "source": "wisevoter",
+      "sourceUrl": "https://wisevoter.com/world/2026/11/26/meta-ai-impact-grant-seven-countries",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [
+        "meta"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Meta 在伊斯坦堡 AMET AI & Wearables Summit 宣布 70 萬美元 AI Impact Grant，涵蓋埃及、肯亞、奈及利亞、沙烏地、南非、土耳其、阿聯酋七國，限用 Meta 自家 AI 工具與穿戴裝置建置方案。",
+      "relevance": 0.6,
+      "crossValidated": true,
+      "crossValidationSources": [
+        "naijagoodnews",
+        "grants.news"
+      ],
+      "tags": [
+        "africa",
+        "middle-east"
+      ]
+    },
+    {
+      "id": "sig-017",
+      "title": "Kaszek Ventures raises $650M AI-focused fund for Latin America",
+      "source": "ai-dailynews",
+      "sourceUrl": "https://ai-dailynews.com/ai-news/kaszek-ai-fund-latin-america",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "funding",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "拉美創投 Kaszek Ventures 完成 6.5 億美元第七期早期基金，是該地區史上最大早期募資工具，將投資 20-30 家主要在巴西與墨西哥的 AI 新創。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "latin-america"
+      ]
+    },
+    {
+      "id": "sig-018",
+      "title": "Rex Africa launches AI-native bank built around Rex Atlas agent",
+      "source": "infercline",
+      "sourceUrl": "https://infercline.com/story/rex-africas-ai-bank-advises-you-on-loans-it-also-sells-and-has-not-sai-5b00",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "奈及利亞金融科技 Rex Africa 推出以 AI agent「Rex Atlas」為核心的 AI 原生銀行，讀取用戶財務紀錄並建議儲蓄、借貸與投資，同時自身也銷售貸款產品，引發利益衝突疑慮。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "africa"
+      ]
+    },
+    {
+      "id": "sig-019",
+      "title": "Google DeepMind launches Humanity's First Exam (HFE) benchmark, drops top models to 85.6% average",
+      "source": "af-net",
+      "sourceUrl": "https://af.net/realtime/deepmind-benchmark-hfe-drops-top-ai-models-to-85-6-average/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Google DeepMind 在 Kaggle 推出新評測基準 Humanity's First Exam，測試前沿模型的深度推理能力，頂尖模型平均分數僅 85.6%，顯示現有模型仍有明顯短板。",
+      "relevance": 0.8,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-020",
+      "title": "Google compares Gemini 4 Neon/Carbon/Hydrogen lineup against Claude and OpenAI on real-world data analysis",
+      "source": "plotly-blog",
+      "sourceUrl": "https://plotly.com/blog/gemini-4-neon-vs-carbon-vs-hydrogen/",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "google"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Plotly 比較 Google 新推出的三款 Gemini 4 模型（Neon、Carbon、Hydrogen）在真實資料分析任務上的表現，並對照 Anthropic 與 OpenAI 的對應模型。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-021",
+      "title": "OpenAI's GPT-6 models show intrinsic protein-design capabilities",
+      "source": "openai-news",
+      "sourceUrl": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "model-release",
+      "companies": [
+        "openai"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "OpenAI 發表研究顯示 GPT-6 系列模型具備未經專門訓練的蛋白質設計能力，是 OpenAI 持續推動科學應用（如尋找系外行星的 Astra 專案）的一部分。",
+      "relevance": 0.7,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-022",
+      "title": "JetBrains releases Mellum 2.1 Instruct, doubling SWE-bench Verified score over predecessor",
+      "source": "emergent-sh",
+      "sourceUrl": "https://emergent.sh/news/jetbrains-mellum-2-1-instruct-scores-40-4-swe",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [],
+      "section": "",
+      "ring": 2,
+      "summary": "JetBrains 在 Hugging Face 以 Apache 2.0 授權發布 120 億參數 MoE 編碼模型 Mellum 2.1 Instruct，SWE-bench Verified 得分 40.4%，約為前代 20.2% 的兩倍，且 token 用量減少 45%。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-023",
+      "title": "PrismML's 1.76-bit Ternary Bonsai 2.5 narrows gap to full-precision Qwen3.8 on coding benchmarks",
+      "source": "techtimes",
+      "sourceUrl": "https://techtimes.com/articles/331569/20261126/local-ai-coding-model-jumps-608-756-swe-bench-verified-same-size-prismml-says.htm",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "open-source",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "美國新創 PrismML 用 1.76-bit 三元量化壓縮阿里 Qwen3.8 27B，推出 Ternary Bonsai 2.5，SWE-bench Verified 從 60.8 提升到 75.6，檔案大小僅 5.93GB（原版 53.8GB）。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "east-asia"
+      ]
+    },
+    {
+      "id": "sig-024",
+      "title": "Amazon's Trainium3 shows cost edge over Nvidia GB300 in AgentX benchmark debut",
+      "source": "thedefiant",
+      "sourceUrl": "https://thedefiant.io/frontier/ai/amazon-s-trainium3-shows-cost-edge-in-ai-benchmark",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "benchmark-shift",
+      "companies": [
+        "amazon",
+        "nvidia"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "Amazon 首次送出的 Trainium3 UltraServer 在 AgentX 基準測試中，每模擬美元的 token 吞吐量達 Nvidia GB300 NVL72 的 2.28 倍。",
+      "relevance": 0.65,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-025",
+      "title": "Writer explores how agentic commerce is rewriting product data for retail",
+      "source": "writer-blog",
+      "sourceUrl": "https://writer.com/blog/agentic-commerce-retail-product-data/",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "unverified",
+      "category": "vendor-update",
+      "companies": [
+        "writer"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "企業 AI 公司 Writer 發文分析消費者透過聊天機器人詢問購物建議的趨勢，討論零售業需要建立讓 AI agent 能正確解讀的商品資料結構。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-026",
+      "title": "Alibaba Cloud ships RocketMQ LiteTopic for async AI agent task execution",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/rocketmq-for-ai-litetopic-based-agent-asynchronous-communication-architecture-and-production-practice_603821",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "阿里雲發布 RocketMQ LiteTopic 架構，為長時間執行的 AI agent 任務提供可靠、具狀態保存能力的非同步通訊機制。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "east-asia"
+      ]
+    },
+    {
+      "id": "sig-027",
+      "title": "Alibaba Cloud introduces SLS Session Store for agent self-improvement data",
+      "source": "alibabacloud-blog",
+      "sourceUrl": "https://www.alibabacloud.com/blog/the-data-foundation-for-agent-self-improvement-alibaba-cloud-sls-session-store_603820",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "vendor-update",
+      "companies": [
+        "alibaba-qwen"
+      ],
+      "section": "F1",
+      "ring": 3,
+      "summary": "阿里雲推出 SLS Session Store，將 AI agent 執行階段資料整理成標準化軌跡，支援評估與遞迴式自我改進。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "east-asia"
+      ]
+    },
+    {
+      "id": "sig-028",
+      "title": "Ai2 interviews 17 scientists on where they draw the line for AI agents in research",
+      "source": "allenai-blog",
+      "sourceUrl": "https://allenai.org/blog/where-scientists-draw-the-line-on-ai-agents",
+      "publishedDate": "2026-11-25",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [
+        "ai2-allen-institute"
+      ],
+      "section": "A2",
+      "ring": 2,
+      "summary": "Ai2 訪談 17 位科學家，了解他們在研究中使用 AI agent 時希望驗證、保護與保留人類控制的界線，反映學術界對 agent 自主性的審慎態度。",
+      "relevance": 0.6,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-029",
+      "title": "Mastra ships Slack-native generative UI for agent replies",
+      "source": "mastra-blog",
+      "sourceUrl": "https://mastra.ai/blog/introducing-slack-generative-ui",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "tool-launch",
+      "companies": [
+        "mastra"
+      ],
+      "section": "B2",
+      "ring": 2,
+      "summary": "Mastra 推出 Slack 原生生成式 UI，讓 agent 能在 Slack 回覆中直接呈現表格、圖表等互動元件，而非純文字訊息。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-030",
+      "title": "Microsoft research questions whether AI agents' 'sort by impact' rankings are meaningful",
+      "source": "microsoft-devblogs",
+      "sourceUrl": "https://devblogs.microsoft.com/blog/is-sort-by-impact-just-vibes/",
+      "publishedDate": "2026-11-24",
+      "dateConfidence": "verified",
+      "category": "community-signal",
+      "companies": [
+        "microsoft"
+      ],
+      "section": "A1",
+      "ring": 1,
+      "summary": "微軟測試四個模型對同一份清單排序 1500 次，發現當使用者要求 agent「依重要性排序」卻未定義「重要性」時，模型的排序標準並不一致，影響使用者對 agent 輸出的信任。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": []
+    },
+    {
+      "id": "sig-031",
+      "title": "Malaysia's draft AI Act nears parliament while Singapore sticks to non-statutory agentic AI guidance",
+      "source": "genesishumanexperience",
+      "sourceUrl": "https://genesishumanexperience.com/2026/11/26/kuala-lumpur-legislates-singapore-advises",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "馬來西亞跨部門 AI 法案草案已完成，預計 2027 年初送交國會；新加坡則持續以 IMDA 的 agentic AI 框架與 MAS 風險管理指引等非立法方式治理，兩種監理路徑形成對比。",
+      "relevance": 0.55,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "southeast-asia"
+      ]
+    },
+    {
+      "id": "sig-032",
+      "title": "India clears Sarvam of misusing IndiaAI Mission support over Chinese model access",
+      "source": "economictimes-telecom",
+      "sourceUrl": "https://telecom.economictimes.indiatimes.com/news/policy/sarvam-did-not-misuse-indiaai-mission-support-over-chinese-model-row-s-krishnan/136176337",
+      "publishedDate": "2026-11-26",
+      "dateConfidence": "verified",
+      "category": "region-news",
+      "companies": [],
+      "section": "",
+      "ring": 3,
+      "summary": "印度政府認定獲 IndiaAI Mission 資助的新創 Sarvam 透過 Token Factory 平台提供 DeepSeek、阿里、月之暗面等中國開源模型並未違規，化解此前的輿論爭議。",
+      "relevance": 0.5,
+      "crossValidated": false,
+      "crossValidationSources": [],
+      "tags": [
+        "south-asia"
+      ]
+    }
+  ]
+}
