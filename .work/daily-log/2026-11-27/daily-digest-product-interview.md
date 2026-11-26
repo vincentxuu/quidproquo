@@ -1,0 +1,11 @@
+- 主題：Routine O（星期五 DOW=5）→ Growth & Experimentation。讀 `src/data/interview-focus.json` 的 `product-builder.weights`，七項全為 1，未觸發加權覆寫，照星期對應產出。
+- 搜尋：Groundlane `web_search` 跑 Q1（`growth PM interview growth loop retention virality A/B testing 2026`）與 Q2（`product-led growth interview experiment design activation funnel`），`timeRange: month`。
+- toolDegradation：兩次呼叫 `providersAttempted: [tavily, brave, you, keenable]` 中只有 `keenable`（public endpoint）成功，`tavily`／`brave`／`you` 回報 unavailable；未進一步降級到 Keenable keyless／You.com keyless／其他雲端搜尋 MCP，因為 keenable 本身已經是該鏈第三層且本次有回傳足量可用結果，判定不需要再往下一層。
+- 練習題取材：KORE1〈Growth Product Manager Interview Questions 2026〉（`web_fetch` 全文），改寫其 "A Loop Is a Multiplication" 練習（1.5 次邀請 × 20% 接受 × 60% 啟用 → k=0.18 → 倍增率 1.22×），避開本系列過去三個星期五（10/30、11/13、11/20）重複使用的 Slack PLG 擴張題型。
+- 框架二（三個讀數陷阱：SRM／提早偷看／Simpson's Paradox）同樣取材自 KORE1 全文，並以 `web_fetch` 直接核對 Evan Miller〈How Not to Run an A/B Test〉（提早偷看、假陽性率 26.1%）與 Microsoft Research〈Diagnosing Sample Ratio Mismatch in A/B Testing〉（SRM 常見成因）兩篇原始來源，確保不是只轉述二手引用。
+- 今日案例改用 Flo（Mike Charniatsou，Sub Club podcast／RevenueCat blog，`web_fetch` 全文核對）的「連輸兩次、靠證據翻盤 23%」故事，同樣是避開本系列已用過的 Calendly／Zoom／Dropbox 案例。
+- E0 圖解：加一張循環圖（`病毒迴圈的乘法：k = 0.18`），中文版沿用站上既有「資料飛輪」範例的 R=152／viewBox 440×392 幾何；英文版文字較長，另外用 `textWidth()`（`scripts/check-diagram-text.mjs` 匯出）實測各站點 label/sub 寬度後重新算四站＋hub 的座標與弧線交點（viewBox 428×392），兩版 `check:diagram-geometry`／`check:diagram-text` 都 0 錯誤，`diagram-preview.ts`（雲端無瀏覽器，暫時以 `executablePath: /opt/pw-browsers/chromium` 覆寫跑完後用 `git checkout` 還原腳本，未保留這個改動）淺色／深色／手機三張截圖人工看過，排版正常。
+- E1 英文版：`2026-11-27-product-builder-interview-daily-en.md`，改寫（非直譯），frontmatter `series.name` 沿用中文登錄名「Product Builder 面試日練」比照既有英文版慣例。
+- E2：`pnpm check:references` 對這兩篇檔案本身 0 error／0 warn（repo 其他既有檔案的 warning 與本次無關，未處理）。
+- E4 targeted verify：`check:lang-parity` OK（3808 對）、`check:tw` 與 `check:series-order` 均未標記這兩個新檔案、`pnpm lint` 0 warning/error；`pnpm verify`（全站）另跑，結果見下方 commit 紀錄。
+- 本次 session 的 repo 是全新 container，`node_modules` 原本不存在，先跑 `pnpm install` 才能跑 diagram 腳本與 verify。
