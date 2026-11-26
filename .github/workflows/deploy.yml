@@ -145,10 +145,16 @@ jobs:
           image_tag="quidproquo-sandbox:${dockerfile_hash:0:12}"
           output_file="$(mktemp)"
           npx wrangler containers build ./sandbox --tag "$image_tag" --push 2>&1 | tee "$output_file"
-          image_ref="$(grep -oE 'registry\.cloudflare\.com/[^[:space:]]+' "$output_file" | tail -1 || true)"
+          # wrangler prints both a tagged ref ("pushing: ...:tag") and an
+          # untagged repository ("repository [.../image]"). Only the tagged
+          # one is deployable, so take the first match containing ':'. When the
+          # image is already remote there may be no tagged line at all; build
+          # the ref from the same tag/account instead of failing the deploy.
+          image_ref="$(grep -oE 'registry\.cloudflare\.com/[A-Za-z0-9_./:@-]+' "$output_file" | grep ':' | head -1 || true)"
           if [[ -z "$image_ref" ]]; then
-            echo "::error::could not find registry image reference in wrangler output"
-            exit 1
+            account_id="$(grep -oE '"account_id"[[:space:]]*:[[:space:]]*"[a-f0-9]+"' wrangler.jsonc | grep -oE '[a-f0-9]{32}' | head -1)"
+            image_ref="registry.cloudflare.com/${account_id}/${image_tag}"
+            echo "tagged ref not found in output; using ${image_ref}"
           fi
           echo "image_ref=$image_ref" >> "$GITHUB_OUTPUT"
 
