@@ -922,3 +922,10 @@
 - 為什麼現在不能做：同上方 Q-054 原始條目——`check-series-plan.mjs` 全站掃描、不限暫存範圍，`understanding-benchmarks` 系列缺規劃表這個缺口擋住**任何一次** commit，不是 daily-digest-report routine 能處理或繞過的範圍；也不能直接把 `understanding-benchmarks` 加進 baseline grandfathered 清單繞過，那是 Tier 3 禁止項目。
 - 接手第一步：同上方 Q-054 原始條目（補 `.work/series-plans/understanding-benchmarks.md` 或把該系列從 `series.ts` 移除／移入 baseline grandfathered 清單）。另外建議：鑑於今天至少 7 支 daily-digest routine（含本篇）都卡在同一紅燈、且上游 Stage 1 的暫存內容已經分散遺失在互不相通的 session 容器裡，`understanding-benchmarks` 這個缺口的修復優先度應該提高——它現在擋的不是單一系列的 commit，是整站 daily-digest 產線的出口。解除後，本次暫存的 3 個檔案可直接 `git commit` 補上，不需重做內容或重新查證。
 - 被擋下的本次產出：`src/content/posts/daily/2026-11-25-ai-agent-daily.md`、`src/content/posts/daily/2026-11-25-ai-agent-daily-en.md`、`.work/daily-log/2026-11-25/daily-digest-report.md`，皆已 `git add` 留在暫存區未 commit。
+
+## Q-055 「認識人體」系列：OpenStax 授權（CC BY-NC-SA）與系列登錄（原登錄為 Q-041，與 main 的 Q-041 撞號，合併時改號）
+- 狀態：使用者於 2026-10-26 回覆「同意」（同意 OpenStax CC BY-NC-SA 4.0 改寫並附授權說明、同意在 `src/utils/series.ts` 登錄）。已登錄系列；22 篇仍為 `draft: true`，上線（改 false）與 deploy 另案。
+- 登錄：2026-10-24（來源：對話，order 2〈肌肉怎麼收縮〉審稿）
+- 做什麼：（1）決定本站是否可以改寫 OpenStax《Anatomy and Physiology 2e》這類 CC BY-NC-SA 4.0 教科書內容：NC（非商業）對本站有廣告、聯盟連結或付費內容時是否適用，SA（相同方式分享）是否要求衍生作品標同授權，以及頁面是否要附 "Access for free at …"。（2）核准在 `src/utils/series.ts` 登錄「認識人體」（slug `human-body-basics`）。
+- 為什麼現在不能做：（1）是授權與法務判斷，不是 agent 能下的結論；目前草稿用「改寫」並附授權說明，`draft: true`。（2）登錄系列會改動全站系列清單與 `check:series-plan` 閘門，且 order 0／1 尚未寫，先登錄會讓系列導覽成孤兒。
+- 接手第一步：讀 `.work/series-plans/human-body-basics.md` 與 `.work/how-muscles-contract/review-reports/post-verify.md`（§5 授權）。使用者決定後：授權若不適用，改用自己的例子或換成 CC BY／公領域來源；若適用，補衍生作品授權聲明；再登錄系列並把 `draft` 改 false。
