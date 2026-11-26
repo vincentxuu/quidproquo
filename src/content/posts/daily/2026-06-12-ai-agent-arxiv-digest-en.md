@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 19
 ---
-> 🌏 [中文版](/posts/daily/2026-06-12-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-12-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ This paper provides a reproducible framework at "near-real business difficulty,"
 - Data source: Capital One's internal T1 tool-augmented dialogue dataset (arxiv 2505.16986) — real financial industry scenarios with higher business fidelity than typical synthetic data
 - 25 business domains with difficulty tiers; the "interleaved scenario" design deliberately creates domain-switching pressure, exposing systematic weaknesses in current models
 - Comprehensive evaluation across 12 models covering the latest proprietary and open-source options, providing reproducible cross-model baseline comparisons
-- **⚠️** Specific model score differences couldn't be obtained from the public abstract — check the Evaluation section of the original paper for exact numbers
+- **:warning:** Specific model score differences couldn't be obtained from the public abstract — check the Evaluation section of the original paper for exact numbers
 - Complementary to AgencyBench (2601.11044, million-token long-context benchmark): T1-Bench tests deep cross-domain reasoning; AgencyBench tests sustained long-context capability
 - Limitation: Scenarios are rooted in financial customer service; generalizability needs cross-domain validation. English-only; multilingual scenarios not yet covered
 - Low barrier to adoption: the benchmark can be directly integrated as a regression test suite in an agent CI/CD pipeline without additional infrastructure
@@ -124,7 +124,7 @@ VISTA's contribution operates at the meta level: it doesn't just test the agent 
 
 ### Deep Dive
 
-- The 6 simulation quality metrics cover dimensions including conversational realism, task coverage, and failure mode discovery capability (**⚠️** exact definitions and calculations for each metric require reading the original paper)
+- The 6 simulation quality metrics cover dimensions including conversational realism, task coverage, and failure mode discovery capability (**:warning:** exact definitions and calculations for each metric require reading the original paper)
 - Validated in both e-commerce shopping and education customer service domains, with results showing it is "more realistic and more comprehensive" than existing methods
 - The hybrid design is a technical highlight: most agent testing frameworks can only simulate API interactions; VISTA also supports simulating GUI-level user behavior, which is particularly valuable for agents with web app interfaces
 - Columbia University + [Arklex.ai](http://Arklex.ai) collaboration — Arklex is an agent framework startup, and this tool will likely be integrated into their commercial agent development workflow, providing real deployment motivation
@@ -186,7 +186,7 @@ If agentic software "bugs" don't occur on lines of code but along reasoning path
 - Key thesis: In agentic software, the target of "debugging" is no longer lines of code but the agent's reasoning path — this has far-reaching implications for the observability toolchain
 - Echoes the contemporaneous AOS paper (2606.01508, covered in the 6/11 digest): AOS argues "agents need a new OS"; this paper argues "agents represent a new software ontology" — the two can be read as complementary conceptual frameworks
 - The author is from a fintech investment firm (not academia), bringing a more industry-practice-oriented perspective with an engineer's-intuition style rather than academic rigor
-- **⚠️** Non-academic institution author; paper is still in preprint — peer review quality unconfirmed
+- **:warning:** Non-academic institution author; paper is still in preprint — peer review quality unconfirmed
 - Limitation: Leans conceptual, lacking concrete benchmarks or case studies to support core arguments; several contemporaneous papers attempt similar conceptual consolidation, with this one's differentiator being the "code as tool, not purpose" angle
 - Adoption path: Can serve as a discussion framework for planning agent platform observability architecture, helping clarify the need to trace "reasoning paths" rather than just "execution paths"
 

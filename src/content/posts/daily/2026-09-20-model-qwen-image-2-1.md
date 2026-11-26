@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, model-release, daily, qwen, model-family-qwen-image]
 lang: zh-TW
 description: "阿里通義千問開源 Qwen-Image-2.1——視覺生成部分僅 7B，原生支援透明圖（RGBA）生成與編輯、最多 10 張參考圖合成，Qwen-Image-Bench 自測總分 60.28 略高於 Nano Banana 2.0 與 GPT Image 1.5"
-tldr: "Qwen-Image-2.1（Alibaba Qwen）：2026-09-20 開源，視覺生成模組 7B（32 層 Single-Stream DiT）＋Qwen3-VL 8B 編碼器，維持前代 2.0 的 7B 量級但新增原生透明圖（64 通道 RGBA VAE）與最多 10 張參考圖多圖編輯；Qwen-Image-Bench 官方自測總分 60.28，高於 Nano Banana 2.0（59.82）與 GPT Image 1.5（59.65）⚠️ 自測未經第三方覆現；SGLang 團隊獨立驗證單樣本 RGBA PSNR 達 60.69 dB；採 Qwen Research License Agreement，僅限非商業用途，官方未提供托管 API 定價；對 Agent 開發的意義是可省去獨立去背/合成步驟，適合電商素材與多場景分鏡類工作流"
+tldr: "Qwen-Image-2.1（Alibaba Qwen）：2026-09-20 開源，視覺生成模組 7B（32 層 Single-Stream DiT）＋Qwen3-VL 8B 編碼器，維持前代 2.0 的 7B 量級但新增原生透明圖（64 通道 RGBA VAE）與最多 10 張參考圖多圖編輯；Qwen-Image-Bench 官方自測總分 60.28，高於 Nano Banana 2.0（59.82）與 GPT Image 1.5（59.65）自測未經第三方覆現；SGLang 團隊獨立驗證單樣本 RGBA PSNR 達 60.69 dB；採 Qwen Research License Agreement，僅限非商業用途，官方未提供托管 API 定價；對 Agent 開發的意義是可省去獨立去背/合成步驟，適合電商素材與多場景分鏡類工作流"
 series:
   name: "AI Model Tracker"
   order: 27
@@ -17,7 +17,7 @@ glossary:
     def: "Red-Green-Blue-Alpha，在色彩通道外多一層透明度（Alpha）資訊，讓圖片可以有部分或完全透明的區域，方便後續疊圖合成"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
+> :globe: [English version](/posts/daily/2026-09-20-model-qwen-image-2-1-en)
 
 ## 模型資訊
 
@@ -40,16 +40,16 @@ glossary:
 - 原生透明圖（RGBA）生成與編輯：64 通道 RGBA VAE＋16 倍空間壓縮，讓透明度通道直接是潛空間的一部分，而不是生成後再跑一次去背；SGLang 團隊獨立驗證單樣本 RGBA PSNR 達 60.69 dB，透明 PNG 生成與 FP8 量化組態皆通過正確性測試
 - 一次最多接收 10 張參考圖做多主體合成編輯，並提供圈選、塗抹、獨立遮罩三種方式標定局部編輯區域，同時強調人像與商品的保真度
 - 混合粒度注意力架構：文字部分維持逐詞因果遮罩，圖像部分改用區塊級遮罩並搭配 Prefix KV Cache，參考圖與指令在第一個去噪步驟後即快取重複利用，多圖輸入時的推理效率提升最明顯
-- 視覺生成模組維持前代 2.0 的 7B 量級沒有再擴大，但 Qwen-Image-Bench 官方自測總分 60.28，略高於 Nano Banana 2.0（59.82）與 GPT Image 1.5（59.65）⚠️
+- 視覺生成模組維持前代 2.0 的 7B 量級沒有再擴大，但 Qwen-Image-Bench 官方自測總分 60.28，略高於 Nano Banana 2.0（59.82）與 GPT Image 1.5（59.65）:warning:
 
 ## Benchmark 表現
 
 | Benchmark | 分數 | 前代模型 | 競品最強 |
 |---|---|---|---|
-| Qwen-Image-Bench 總分 ⚠️ | 60.28 | 未參與（2.1 為首次公布此榜成績，2.0 沒有對照數字） | Nano Banana 2.0 59.82／GPT Image 1.5 59.65 |
+| Qwen-Image-Bench 總分 :warning: | 60.28 | 未參與（2.1 為首次公布此榜成績，2.0 沒有對照數字） | Nano Banana 2.0 59.82／GPT Image 1.5 59.65 |
 | RGBA 透明圖正確性（SGLang 獨立驗證，單樣本 PSNR） | 60.69 dB | 不適用（2.0 沒有原生透明圖生成能力） | 不適用（主流閉源競品的透明圖多半是後製 API 參數而非原生潛空間輸出，無法用同一指標比較） |
 
-⚠️ Qwen-Image-Bench 總分為 Qwen 官方自測結果，計分方式與比較對象未經第三方覆現；截至發稿，Qwen-Image-2.1 尚未出現在任何獨立圖像模型排行榜上。RGBA PSNR 數字來自 SGLang 團隊為驗證推理框架整合正確性所做的單樣本測試，該團隊本身也強調這只是正確性檢查、不是通用品質評測。由於本次是發布不到 24 小時內成文，可驗證的量化數據就只有這兩組，比一般模型卡少；這個資訊落差本身也是今天最值得記下的一點。
+:warning: Qwen-Image-Bench 總分為 Qwen 官方自測結果，計分方式與比較對象未經第三方覆現；截至發稿，Qwen-Image-2.1 尚未出現在任何獨立圖像模型排行榜上。RGBA PSNR 數字來自 SGLang 團隊為驗證推理框架整合正確性所做的單樣本測試，該團隊本身也強調這只是正確性檢查、不是通用品質評測。由於本次是發布不到 24 小時內成文，可驗證的量化數據就只有這兩組，比一般模型卡少；這個資訊落差本身也是今天最值得記下的一點。
 
 ## 與前代/競品比較
 

@@ -13,7 +13,7 @@ tldr: "An agent needs trustworthy feedback to correct its actions; improving one
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs329a-lecture-01-generation-verification-gap)
 
 **Video status: Videos included.** This guide covers Lecture 1 of the [official Stanford CS329A Autumn 2025 schedule](https://cs329a.stanford.edu/), using the full transcript of [Stanford Online’s Course Overview recording](https://www.youtube.com/watch?v=6YnLB0XbTnI). Whether the captions are human-written or automatic is unconfirmed. Audio and slides have not been checked; this is neither a complete transcript nor a firsthand listening report.
 

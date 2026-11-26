@@ -25,7 +25,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en)
+> :globe: [English version](/posts/ai/2026-08-06-ai-certifications-2026-fact-check-en)
 
 2026 上半年三家雲端業者同時改版 AI 認證線，能報名的證照跟一年前差很多。這篇把工程師現在能考的每一張逐條列出來，價格、效期、報考門檻都以原廠公告為準。
 
@@ -103,7 +103,7 @@ draft: false
 
 ## Google：現在能考的是 PMLE，教材要挑 2026 年中之後的
 
-Google 現在能報名的 AI 認證有兩張：[Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader)（基礎級）與 [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer)（專業級）。第三張 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 專考 agent 的開發、編排與治理，正式版 2026 年 11 月 2 日開放報名。在那之前，要在 Google 生態證明 GenAI 或 agent 能力，工程師能考的只有 PMLE；它的新考綱也已經把 agentic 內容放進去。
+Google 現在能報名的 AI 認證有三張：[Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader)（基礎級）、[Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer)（專業級）與 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect)（專業級）。Professional Agentic Architect 專考 agent 的開發、編排與治理，正式版（GA）2026 年 11 月 2 日開放報名（2026-11-13 查證：報名已開放、頁面列 GA 規格）；PMLE 之外，這張就是 agent 能力的專門考證。
 
 Generative AI Leader 不建議工程師花這 $99。官方對適用對象講得很白：
 
@@ -169,7 +169,7 @@ Agent 這條線微軟給得比其他家完整。除了已 GA 的 AB-620（AI Age
 
 也就是**必須先拿到 AI-103**，頁面欄位另標 `Prerequisites: 1 certification`。想直接考 AI-500 是不行的，實際成本是 $165（AI-103）加 $165（AI-500）。官方頁面已在 2026 年 9 月底拿掉 beta 標示，它目前**只提供英文**，頁面還寫著「Learning paths or modules are not yet available for this certification」。
 
-**AI-500 值得單獨留意。** 三大雲端業者裡只有微軟開了專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。要注意它不是市面上唯一的 agent 進階證照 —— NVIDIA 的 NCP-AAI、Oracle 的 Agentic AI track，以及 Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect)（正式版 2026 年 11 月 2 日開放報名）都在同一個方向上，差別在綁的是誰的平台。
+**AI-500 值得單獨留意。** 三大雲端業者裡只有微軟開了專攻多 agent 系統架構的專家級認證，想往 Agent 方向走，鑑別度比 associate 級的 AI-103 高一階。要注意它不是市面上唯一的 agent 進階證照 —— NVIDIA 的 NCP-AAI、Oracle 的 Agentic AI track，以及 Google 新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect)（正式版（GA）2026 年 11 月 2 日開放報名）都在同一個方向上，差別在綁的是誰的平台。
 
 **AB-100 也有先修。** 官方現在明寫，除了考過 AB-100，還必須持有清單中任一張 associate 認證（AB-620、AI-103、AI-300 等都在清單上），細節見 [AB-100 備考路徑](/posts/ai/2026-08-18-microsoft-ab-100-prep-guide)。
 
@@ -350,6 +350,7 @@ AIGP 則是這幾張裡最偏法規與政策的一張，考的是 AI 系統的�
 
 ## 更新紀錄
 
+- 2026-11-13：Google 一節改寫——Professional Agentic Architect 已進入 GA，能報名的 AI 認證從兩張補成三張；PMLE 之外新增 agent 專屬考證的說明，並補上新發佈的備考路徑（系列 order 31）。
 - 2026-10-12：新增「考試費之外：課程費與省錢機制」一節；Google 一節補上 11 月開放報名的 Professional Agentic Architect，PMLE 第 6 章權重補為約 13%；iPAS 第二場報名已截止；AWS 補重考規則，Claude 補考前訓練的門檻，iPAS 補題組題；「三個不是個人 AI 證照的東西」與「報名前的三個提醒」改寫。
 - 2026-10-12：系列入口改連系列頁與準備方法文。AWS 一節改依現況：MLA-C01 英文版已於 9/28 停考，現在交付的是 MLA-C02 英文 beta，並補上 MLA-C02 備考路徑的連結；「唯一提供繁中」改為 AWS 三張裡唯一。
 - 2026-10-08（複查）：AI-500 的官方頁面已拿掉 beta 標示，相關說法更新；補上 AB-100 現在要求另持一張 associate 認證；補上 Google Professional Agentic Architect；Google PMLE 考試指南的舊網址已失效，改連官方 PDF。

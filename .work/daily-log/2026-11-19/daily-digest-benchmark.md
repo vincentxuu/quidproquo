@@ -1,0 +1,1 @@
+無合格事件，未產出。SWE-bench Verified／LMArena Agent／CursorBench 4.0 前列排名與 11-18 逐位元相同，未達觸發門檻；morphllm.com/leaderboard 持續 404；artificialanalysis.ai 仍無法解析表格數據（JS 渲染）。已更新 `src/data/daily-signals/benchmark-snapshot.json` 的 date 與 notes。

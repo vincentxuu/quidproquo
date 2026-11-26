@@ -13,7 +13,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime-en)
 
 安裝成功、登入成功，接下來的問題都發生在 session 跑到一半：風扇狂轉、畫面凍住、context 壓縮失敗、搜尋明明有那個檔案卻找不到。這篇照官方 [troubleshooting](https://code.claude.com/docs/en/troubleshooting) 文件的分類，把五類執行期問題的症狀、診斷指令和修法整理成可照做的步驟。裝不起來或登不進去的，先看[上一篇：安裝與登入](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install)；settings 不生效、hooks 不觸發這類設定問題，看[設定診斷專文](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config)。
 

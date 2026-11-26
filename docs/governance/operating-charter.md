@@ -17,7 +17,7 @@
 
 ### Tier 1 — 過閘門才能做
 
-- **任何 commit**：pre-commit 會跑 `pnpm verify:staged`（只檢查暫存檔；暫存區含程式碼、設定、腳本，或刪除／改名文章時退回完整 `pnpm verify`），紅了就修，不准繞過（`--no-verify` 視同違規）。完整 `pnpm verify` 由 CI 在 deploy 前跑。
+- **任何 commit**：pre-commit 會跑 `pnpm verify:staged`（只檢查暫存檔；暫存區含程式碼、設定、腳本，或刪除／改名文章時退回完整 `pnpm verify`；只動 `package.json`、`pnpm-lock.yaml`、`.github/` 時只跑 lint），紅了就修，不准繞過（`--no-verify` 視同違規）。完整 `pnpm verify` 由 CI 在 deploy 前跑。
 - **發佈內容**：走對應 skill（post / post-update / post-translate），跑完 skill 要求的驗證
 - **修改 skill**：只改 `.agents/skills/`，改完跑 `pnpm skills:sync` 再 `pnpm verify`
 - **改 UI**（`scripts/ui-change-scope.mjs` 判定的範圍）：走 feature branch＋PR，不直接 push main。截圖比對紅了，用 `visual-baselines.yml` 在 PR 分支產 `-linux` 基線，逐張看過再 merge；擋部署的是版面斷言，不是像素。細節見 `ui-delivery.config.md`（ADR 0005）。
@@ -130,12 +130,13 @@ Summary 用改動的實際語言寫（中文內容用中文），一行說清楚
 3. **push 被拒就 `git pull --rebase` 再 push**，不要 force。
 4. 只提交自己動過的檔案。`git status` 裡的其他改動可能是別的 session 正在寫的半成品，連帶提交會送出未完成的內容。
 5. **驗證器偶爾會出現假紅燈**（例如 `skills-sync` 或 `progress.txt` 行數），因為別的 session 正在寫同一個檔。重跑一次；連續兩次同樣的紅燈才當真。
+6. **不要把未 commit 的改動跨 session 留著**：開工看 `pnpm session:start` 的 `working tree` 區塊，它會列出「origin/main 也改過、pull 會衝突」的檔案；pull 一律 `git pull --rebase --autostash`。2026-11-13 事故：11-09 的 46 篇課程重查放了 4 天沒 commit，遠端 routine 做了同一批更新，pull 整批撞在一起；3 個未追蹤的 `.work` 原件也擋住 checkout。
 
 已知會被掃走的檔案：`progress.txt`、`src/lib/glossary/terms.ts`、`.agents/skills/` 與其 `.claude/` 鏡像——這幾個多數 session 都會動。
 
 #### 防護機制
 
-- **pre-push hook**（`.git/hooks/pre-push`）：push 前自動 `git fetch`，若 remote main 不是本地 commit 的 ancestor 就擋住，要求先 `git pull --rebase`。每個 clone 需裝一次。
+- **pre-push hook**（`.git/hooks/pre-push`）：push 前自動 `git fetch`，若 remote main 不是本地 commit 的 ancestor 就擋住，要求先 `git pull --rebase`。由 `pnpm prepare`（simple-git-hooks）安裝，腳本在 `scripts/check-push.mjs`；換 clone 後跑一次 `pnpm install` 即可。
 - **GitHub branch protection**：在 main 上禁止 force push（Settings → Branches → 取消 "Allow force pushes"）。server 端擋，換 clone 也有效。
 
 2026-08-25 事故：cloud session 推了 daily posts 後，另一個 session 從較舊的 base push 上去，把 10 篇 daily 文章覆寫。靠 cherry-pick 恢復，並加裝上述兩層防護。

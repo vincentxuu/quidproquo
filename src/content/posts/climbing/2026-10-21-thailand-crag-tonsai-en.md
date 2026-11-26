@@ -13,7 +13,7 @@ description: "A Tonsai climbing guide: how 448 routes are spread across 24 secto
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-tonsai)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-tonsai)
 
 Tonsai is the island on the east side of the Phra-Nang peninsula; Railay is on the west, separated by a narrow channel. Tonsai is one of the most famous climbing spots in Southeast Asia: theCrag logged **448 routes** on 21 October 2026, with 25,344 ascents and 168 photos. **Greed (8c+) is flagged on theCrag as "currently the hardest ascent in Thailand".**
 

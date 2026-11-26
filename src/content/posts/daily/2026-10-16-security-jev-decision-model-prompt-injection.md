@@ -11,7 +11,7 @@ series:
   order: 55
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-security-jev-decision-model-prompt-injection-en)
+> :globe: [English version](/posts/daily/2026-10-16-security-jev-decision-model-prompt-injection-en)
 
 ## 事件概述
 

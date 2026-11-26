@@ -30,7 +30,7 @@ glossary:
     context: "Access Fund 公開反對以黏膠或修鑿製造岩點。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-bolting-history-ethics-en)
+> :globe: [English version](/posts/climbing/2026-10-17-bolting-history-ethics-en)
 
 假設你在龍洞爬了幾年，看到一條很漂亮的裂隙，旁邊有一片光滑的岩面。你想：如果在那片岩面上打幾顆 bolt，就會多出一條很好爬的運攀路線。你有電鑽、會打 bolt，岩壁也不屬於誰。
 

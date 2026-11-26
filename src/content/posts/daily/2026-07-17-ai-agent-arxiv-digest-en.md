@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 54
 ---
-> 🌏 [中文版](/posts/daily/2026-07-17-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-17-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -69,8 +69,8 @@ Agentic commerce is the next e-commerce wave, but most platforms have done zero 
 
 - Experiment design: 5 shopping tasks (search, filter, add to cart, compare, checkout), 3 browser agents (GPT-4.1, Gemini-2.5 Flash, Grok-4 Fast), 300 total runs
 - Key numbers: agent-ready site PASS rate 89.3% (134/150) vs. baseline 49.3% (74/150), roughly 1.8x improvement
-- Only 2 authors; small research scale. The baseline is a site built by the authors, not a real e-commerce platform — external validity is questionable **⚠️**
-- The framework hasn't quantified "how much each dimension contributes" (insufficient ablation study) — can't determine which dimension has the best ROI **⚠️**
+- Only 2 authors; small research scale. The baseline is a site built by the authors, not a real e-commerce platform — external validity is questionable **:warning:**
+- The framework hasn't quantified "how much each dimension contributes" (insufficient ablation study) — can't determine which dimension has the best ROI **:warning:**
 - MCP relevance: the framework directly applies to MCP browser tool server-side design; compliant sites can dramatically improve performance of Computer Use, Copilot, and similar tools
 - CAPTCHA, two-factor authentication, and other agent-blocking scenarios are not discussed — a clear limitation
 - Low implementation barrier: primarily HTML semantics and [Schema.org](http://Schema.org) best practices — a front-end engineer can implement the core items in one sprint
@@ -123,7 +123,7 @@ In production RAG / search agent deployments, hallucination is the hardest probl
 ### Deep Dive
 
 - Key numbers: compared to non-abstaining baselines, precision improves up to 10.3% (absolute), RA-F1 improves 2.9%
-- "Marginal accuracy sacrifice" is the paper's own wording; specific figures are not fully disclosed in the search results — the actual trade-off magnitude requires examining the full experiment tables **⚠️**
+- "Marginal accuracy sacrifice" is the paper's own wording; specific figures are not fully disclosed in the search results — the actual trade-off magnitude requires examining the full experiment tables **:warning:**
 - Primarily evaluated on open-domain QA tasks (PopQA, TriviaQA-type benchmarks); applicability to long conversations, multi-step tool-calling, and other complex agent scenarios remains unvalidated
 - Courage Factor is a hyperparameter that needs task-specific tuning in real deployment, adding implementation complexity
 - AWA-RL is a training-time method — it can't be plugged directly into LangGraph/AutoGen or similar frameworks; but it can inspire "how to design abstention reward functions when fine-tuning your own agent model"
@@ -178,9 +178,9 @@ Though this paper focuses on robotics, "long-term multi-modal memory" and "skill
 ### Deep Dive
 
 - Memory benchmark results: LoCoMo 87.5 (static) → 88.7 (self-evolving), OpenEQA EM-EQA 59.9 → 60.4, Mem-Gallery 88.6 → 89.0, NExT-QA 76.5 Acc@All
-- Improvements are modest (LoCoMo only +1.2), indicating progress exists but isn't breakthrough-level **⚠️**
-- EmbodiedWorldBench (16 scenarios, 4 difficulty levels, 200+ tasks) is an author-built benchmark lacking independent third-party evaluation — results should be interpreted cautiously **⚠️**
-- Author affiliations not fully disclosed, making it difficult to assess the engineering resources behind the work — a transparency concern **⚠️**
+- Improvements are modest (LoCoMo only +1.2), indicating progress exists but isn't breakthrough-level **:warning:**
+- EmbodiedWorldBench (16 scenarios, 4 difficulty levels, 200+ tasks) is an author-built benchmark lacking independent third-party evaluation — results should be interpreted cautiously **:warning:**
+- Author affiliations not fully disclosed, making it difficult to assess the engineering resources behind the work — a transparency concern **:warning:**
 - Context-Isolated Skill granularity and context-switching latency costs are not discussed in detail
 - Edge-Cloud collaboration depends on stable networking in real robot deployment — a clear practical limitation
 - LangGraph relevance: UMG-Mem's five node types (conversation, visual, spatial, temporal, task trajectory) can inspire LangGraph memory store schema design; context isolation corresponds to a more granular version of sub-graph execution

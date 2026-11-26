@@ -22,7 +22,7 @@ glossary:
     context: "Used to train the VAE in MIT 6.S184 notes §6.2.2."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-6s184-lecture-04-latent-spaces-architectures)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

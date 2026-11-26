@@ -22,7 +22,7 @@ glossary:
     context: "Sub-word tokenization exists mainly to handle OOV words, misspellings and compounds."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-subword-tokenization)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

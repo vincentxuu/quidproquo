@@ -12,7 +12,7 @@ series:
   order: 41
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-funding-caddi)
+> :globe: [中文版](/posts/daily/2026-09-19-funding-caddi)
 
 ## Funding Details
 

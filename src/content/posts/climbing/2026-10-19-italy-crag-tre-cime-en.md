@@ -13,7 +13,7 @@ description: "A climbing guide to the Tre Cime di Lavaredo: dolomite rock and th
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-tre-cime)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-tre-cime)
 
 The Tre Cime di Lavaredo (German: Drei Zinnen) stand in the north-east of the Dolomites. The south side belongs to [Auronzo di Cadore](https://auronzo.info/tre-cime-di-lavaredo-come-arrivare/) in the province of Belluno, Veneto; the north side faces South Tyrol. From east to west the three peaks are Cima Piccola, Cima Grande and Cima Ovest ([theCrag](https://www.thecrag.com/en/climbing/italy/dolomites/cortina-dampezzo-area/area/12519439)). The north face of Cima Grande counts among the six great north faces of the Alps, alongside the Eiger and the Matterhorn; Emilio Comici's party of three took three days and two nights to climb it in 1933.
 

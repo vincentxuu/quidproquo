@@ -376,7 +376,7 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 | Cloudflare | 自家 AI Gateway/Workers AI + OpenCode | R&D 滲透率 93%（全公司 60%），3,683 名內部使用者 |
 | NVIDIA | 客製化 Cursor | 30,000+ 工程師使用，程式碼提交量 3x，bug 率持平 |
 | Salesforce | Agentforce | 20% production Apex 程式碼由 Agentforce 產出，工程生產力 +30% |
-| Block | Goose（開源）| 27,000 GitHub stars，Stripe Minions 的基底 |
+| Block | Goose（開源，2025-12 起移交 Linux Foundation 旗下 AAIF）| 5.6 萬+ GitHub stars，Stripe Minions 的基底 |
 | Apple | Xcode Intelligence | Claude 整合，agentic coding |
 | Airbnb | 內部平台 | 2026 Q1 財報：60% 新程式碼由 AI 撰寫；技術債遷移成功率 97% |
 
@@ -400,6 +400,7 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 
 ## 更新紀錄
 
+- 2026-11-23：Goose 已移交 Linux Foundation 旗下 Agentic AI Foundation（repo 改為 `aaif-goose/goose`），GitHub stars 更新為 5.6 萬+。
 - 2026-09-13：依 `agent-watchlist.json` A1（大廠）section 再補三個內部案例——Cloudflare（自家 AI Gateway/Workers AI 蓋出 R&D 93% 滲透率的內部工具鏈，含「厚 gate」對應的 enforcement layer）、NVIDIA（30,000+ 工程師用客製化 Cursor，程式碼提交量 3x）、Salesforce（Agentforce 佔 20% production Apex 程式碼，但同時也是 Anthropic token 大客戶）；Palantir、Oracle、SAP、Adobe、Snowflake 查無夠具體的內部案例，暫未收錄。
 - 2026-09-13：補上 2026 年中／下半年最新指標——Stripe Minions 1,300→7,000+ PRs/週、Ramp Inspect 30%→75% merged PRs、Spotify Honk 遷移瓶頸轉移案例；Coinbase Cloudbot 更名為 Forge，新增 Mux 多 agent 編排工具；補充 Amazon Q Developer 轉往 Kiro（含 AWS 自己用 Kiro 重寫 Bedrock 推論引擎的內部案例與 CEO 對「AI 生成程式碼佔比」這個指標的質疑）、Google 官方 75% AI 生成程式碼數字、Meta 新增 Muse Code、Uber 最新採用率與 inner/outer loop 架構；新增 Anthropic（Claude 寫自己 80%+ 的程式碼）、OpenAI（Codex 滲透率 97.9%）、Shopify River、PostHog agent-review-agent 共四個新案例；把「薄 spec + 厚 gate」與「circuit breaker」寫進 Blueprint 與共同架構模式章節，並把 "the walls matter more than the model" 拉高為全文貫穿的論點。
 
@@ -438,7 +439,8 @@ Walmart 的開發者 agent **WIBEY** 是四個「super agent」之一，在 2024
 - [Walmart Tech: From Models to Agents — WIBEY](https://tech.walmart.com/content/walmart-global-tech/en_us/blog/post/wibey-announcement.html)
 - [Pragmatic Engineer: AI Tooling for Software Engineers in 2026](https://newsletter.pragmaticengineer.com/p/ai-tooling-2026)
 - [Block Open Source: Introducing Goose](https://block.xyz/inside/block-open-source-introduces-codename-goose)
-- [GitHub: block/goose](https://github.com/block/goose)
+- [GitHub: aaif-goose/goose](https://github.com/aaif-goose/goose)
+- [Linux Foundation: Formation of the Agentic AI Foundation (MCP, goose, AGENTS.md)](https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation)
 - [a16z Podcast Summary: Stripe's Will Gaybrick on Minions scaling to 7,000 PRs/week](https://www.signalcast.app/episode/a16z-podcast/stripes-ai-strategy-build-more-not-less)
 - [Linear Customer Story: The coding agent behind 75% of Ramp's merged PRs](https://linear.app/customers/ramp)
 - [Pragmatic Engineer: Why Ramp built its own in-house coding agent, Inspect](https://newsletter.pragmaticengineer.com/p/why-ramp-built-inspect)

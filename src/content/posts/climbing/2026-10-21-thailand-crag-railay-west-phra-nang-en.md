@@ -13,7 +13,7 @@ description: "A Railay West and Phra Nang climbing guide: the famous multipitch 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-railay-west-phra-nang)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-railay-west-phra-nang)
 
 The west side of Railay is the most famous multipitch climbing in Southeast Asia. **theCrag's own summary calls Lord of the Thais (7b, 5 pitches, 120 m) "one of the best in the world"**, and Circus Oz, Continental Drifters and Crystal Flame all sit on the same wall.
 

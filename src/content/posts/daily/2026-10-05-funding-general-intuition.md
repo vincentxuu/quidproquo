@@ -12,7 +12,7 @@ series:
   order: 68
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-funding-general-intuition-en)
+> :globe: [English version](/posts/daily/2026-10-05-funding-general-intuition-en)
 
 ## 融資資訊
 

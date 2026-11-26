@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-language-translation-mobile-reading)
+> :globe: [中文版](/posts/learning/2026-10-14-language-translation-mobile-reading)
 
 This is Part 24 of the "Writing Articles That Teach" series, and the last part of section five, "Who you learn with, and who can't read it." The earlier parts covered learning together versus alone, comment sections and communities, writing for others, and accessibility. This part handles three more reader-side conditions an author cannot see: the reader is not reading in their first language, is reading a translation, or is reading on a phone.
 

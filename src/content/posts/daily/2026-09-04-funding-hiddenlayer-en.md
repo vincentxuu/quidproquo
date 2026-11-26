@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-funding-hiddenlayer)
+> :globe: [中文版](/posts/daily/2026-09-04-funding-hiddenlayer)
 
 ## Funding Details
 

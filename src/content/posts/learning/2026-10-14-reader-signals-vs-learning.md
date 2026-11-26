@@ -6,14 +6,14 @@ type: deep-dive
 tags: [learning-science, metrics, web-analytics, mooc, self-learning, course-guide, blog]
 lang: zh-TW
 description: "整理沒有考試的作者手上那些訊號各量到什麼：自評學到多少、覺得講得好、喜歡與投入、影片觀看時間、練習時答對多少、預測通過的模型、Duolingo 的代理指標，以及網頁停留時間為什麼沒有研究可引，最後逐項對照本站看得到的資料與課程導讀規格。"
-tldr: "Harvard 物理課的交叉實驗裡，學生測驗高 0.46 個標準差的那一堂，自評反而低 0.56；一個有生成式 AI 可用的實驗裡，自評高過實際進步能解釋的幅度。觀看時間、平台活動量、預測通過的模型，量到的多半是做了多少，不是另外量的學習。本站的流量統計是匯總的，沒有任何訊號量得到讀者學到沒有。"
+tldr: "Harvard 物理課的交叉實驗裡，學生測驗高 0.46 個標準差的那一堂，自評反而低 0.56（自評是包含喜不喜歡在內的四題合成分數）；一個有生成式 AI 可用的實驗裡，探索性分析顯示自評略高過實際進步，但自評大致仍跟著進步走。觀看時間、平台活動量、預測通過的模型，量到的多半是做了多少，不是另外量的學習。本站的流量統計是匯總的，沒有任何訊號量得到讀者學到沒有。"
 series:
   name: "教學文章怎麼寫"
   order: 25
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-reader-signals-vs-learning-en)
+> :globe: [English version](/posts/learning/2026-10-14-reader-signals-vs-learning-en)
 
 這是「教學文章怎麼寫」系列的第 25 篇，第六部分「怎麼知道有效，怎麼做出來」的第一篇。[第 15 篇](/posts/learning/2026-10-14-metacomprehension-in-teaching-articles)從讀者那一側談過：讀者分辨自己哪篇懂、哪篇不懂的能力很弱，沒有任何介入時，判斷和成績的個人內相關平均只有 0.18 左右；判斷前先作答、讀完全部再寫關鍵詞，能讓判斷準一點。這篇換到作者那一側。讀者的判斷不準，那麼讀者告訴作者的話、讀者留下的行為紀錄，又能告訴作者多少？
 

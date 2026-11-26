@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-11-05-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -141,16 +141,16 @@ caption: 左側為舊假設，右側為今天三個事件（Docker Sandboxes CVE
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily)
-- 📄 [框架更新｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0)
-- 📄 [融資速報｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal)
-- 📄 [融資速報｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra)
-- 📄 [融資速報｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal)
-- 📄 [Product Builder 面試日練 — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily)
-- 📄 [資安警報｜Docker Sandboxes 符號連結沙箱逃逸](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape)
-- 📄 [工具推薦｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
+- :file: [AI Agent Arxiv Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-11-05](/posts/daily/2026-11-05-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-11-05](/posts/daily/2026-11-05-ai-interview-daily)
+- :file: [框架更新｜Pydantic AI v2.66.0](/posts/daily/2026-11-05-framework-pydantic-ai-v2.66.0)
+- :file: [融資速報｜fal Series E&F $1.3B](/posts/daily/2026-11-05-funding-fal)
+- :file: [融資速報｜Sentra Series C $150M](/posts/daily/2026-11-05-funding-sentra)
+- :file: [融資速報｜Traversal Series B $120M](/posts/daily/2026-11-05-funding-traversal)
+- :file: [Product Builder 面試日練 — 2026-11-05](/posts/daily/2026-11-05-product-builder-interview-daily)
+- :file: [資安警報｜Docker Sandboxes 符號連結沙箱逃逸](/posts/daily/2026-11-05-security-docker-sandboxes-symlink-escape)
+- :file: [工具推薦｜Predictive Maintenance MCP](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
 
 ## 明日關注
 

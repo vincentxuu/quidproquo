@@ -14,7 +14,7 @@ series:
   order: 36
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation)
+:globe: [中文版](/posts/tech/deep-dive/2026-03-28-rag-multi-field-retrieval-attribute-conflation)
 
 This post documents a retrieval bug I hit while building a climbing route recommendation system. The user said "I just sent Beauty in the Mirror 5.11b — recommend routes of similar difficulty," and the system returned a bunch of routes whose names resembled "Beauty in the Mirror," with grades all over the map.
 

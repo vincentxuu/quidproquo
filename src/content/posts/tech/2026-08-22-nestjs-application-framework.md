@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-nestjs-application-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-nestjs-application-framework-en)
 
 [NestJS](https://docs.nestjs.com/) 是 TypeScript-first Node.js application framework。它預設以 Express 執行 HTTP，也能換 Fastify adapter；上層用 Controller、Provider、Module、dependency injection 和 decorators 組織 application，並把相同概念延伸到 GraphQL、WebSocket 與多種 message transports。
 
@@ -39,6 +39,8 @@ Provider 預設 singleton scope。Request-scoped provider 會把 scope 向依賴
 
 DTO decorator metadata 可支援 validation/OpenAPI，但 TypeScript type 在 runtime 不存在。要啟用 ValidationPipe、明確 whitelist/forbid unknown fields，並測 nested/coercion；OpenAPI schema 與實際 response serialization 也要契約測試。Entity 不應直接當 public DTO，避免敏感欄位外洩與 persistence schema 綁死 API。
 
+NestJS 12（2026-08）另外提供 Standard Schema 路徑：`@Body()`、`@Query()`、`@Param()` 可帶 `schema`（Zod、Valibot、ArkType 等），註冊 `StandardSchemaValidationPipe` 驗證 input，`StandardSchemaSerializerInterceptor` 驗證並轉換 response，同一份 schema 也能餵 OpenAPI。既有 `class-validator` DTO 寫法照常支援；兩條路擇一當 source of truth，不要同一條 route 兩套並存。v12 也把核心套件改成 ESM、要求 Node.js 20.19+ 或 22.12+，既有 CommonJS app 多半不用改寫，升級可先跑 `nest upgrade --dry-run` 看報告。
+
 ## Adapter abstraction 不是完全 portability
 
 Nest platform layer 可換 Express/Fastify，但直接使用 `req.raw`、adapter plugin、streaming、file upload 或 middleware semantics 就會形成實際耦合。換 adapter 前跑完整 HTTP tests，不要只看 application compile。
@@ -46,6 +48,10 @@ Nest platform layer 可換 Express/Fastify，但直接使用 `req.raw`、adapter
 Lifecycle hooks 管 initialize/shutdown，但 shutdown hooks 必須啟用；container termination 時要停止接流量、drain connections、關 database/consumer。Background event/microservice handler 仍需 idempotency、retry、dead letter 與 observability，Nest 不會自動提供 exactly-once。
 
 NestJS 適合中大型 TypeScript backend、多團隊共享 conventions、需要 DI/testing、HTTP+GraphQL+messaging 一致架構的產品。小 API 用 Fastify/Hono/Elysia 更直接；需要完全自由的 minimal middleware 可用 Express。驗收應涵蓋 module boundary、DI scope、guard deny、DTO overposting、exception contract、adapter parity、graceful shutdown 與 message redelivery。
+
+## 更新紀錄
+
+- 2026-11-23：補上 NestJS 12（2026-08）的 Standard Schema validation／serialization、ESM 套件與 Node.js 版本要求。
 
 ## 參考資料
 
@@ -55,3 +61,5 @@ NestJS 適合中大型 TypeScript backend、多團隊共享 conventions、需要
 - [NestJS injection scopes](https://docs.nestjs.com/fundamentals/injection-scopes)
 - [NestJS request lifecycle](https://docs.nestjs.com/faq/request-lifecycle)
 - [NestJS lifecycle events](https://docs.nestjs.com/fundamentals/lifecycle-events)
+- [NestJS v12.0.0 release notes](https://github.com/nestjs/nest/releases/tag/v12.0.0)
+- [NestJS migration guide](https://docs.nestjs.com/migration-guide)

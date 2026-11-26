@@ -18,7 +18,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en)
 
 [RCE 那一篇](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)講的 RCE，場景還在網站：使用者輸入被拼進 shell 指令，或不可信的資料被還原成物件。下一階段要往更底層走，看程式在記憶體裡出的問題。這是整個系列最大的一道斷崖：前面的 Web 與報告篇你可以只靠瀏覽器和一點 Python 理解，接下來的漏洞卻發生在「資料放在哪個位置」這種層次。
 

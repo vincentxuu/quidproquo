@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-funding-gimlet-labs)
+> :globe: [中文版](/posts/daily/2026-09-05-funding-gimlet-labs)
 
 ## Funding Details
 

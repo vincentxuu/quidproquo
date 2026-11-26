@@ -13,7 +13,7 @@ series:
   order: 35
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-09-drone-autonomy-modereason-en)
+> :globe: [English version](/posts/tech/2026-08-09-drone-autonomy-modereason-en)
 
 這是無人機系列技術群的最後一格，題目原本寫成「自主性演進：waypoint → 學習式 → end-to-end」。
 

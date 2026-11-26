@@ -11,10 +11,10 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 30
 ---
-> 🌏 [English version](/posts/daily/2026-06-23-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-23-ai-agent-arxiv-digest-en)
 
 [!blue_background]
-📌 **今日總覽**
+:pin: **今日總覽**
 今天三篇從不同角度切入 agent 平台的核心工程挑戰：**H-RePlan** 提出「跨設備 agent 分層故障恢復」，解決 agent 跨多台設備執行時失敗粒度太粗的老問題；**Multi-Agent Transactive Memory** 把 RAG 從人類文字延伸到 agent 軌跡，讓整個 agent 群體能累積並共享執行知識；**LLM+RL 階層控制** 則驗證「LLM 做高層策略選擇、RL 負責低層執行」的混合分工在多 agent 環境的可行性。三篇合在一起，勾勒出 2026 年 agent 平台設計的三個核心問題：如何優雅地處理跨設備執行失敗、如何讓 agent 的過去行為成為可重用的群體資產、以及大腦（規劃）和手腳（執行）之間應該怎麼分工。
 
 ## 讀這篇前該知道的詞
@@ -37,18 +37,18 @@ series:
 **作者**: Shu Yao, Yuhua Luo, Qian Long 等　·　**arxiv**: 2606.20487
 **連結**: [arxiv](https://arxiv.org/abs/2606.20487) · [alphaxiv](https://www.alphaxiv.org/abs/2606.20487)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 跨多台設備的 agent 執行失敗時，別急著全部重來——先讓設備端自己試著換個方式（API → CLI → GUI），不行再往上呈報給總指揮。
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
 必讀
 對在做 computer-use agent 或多設備 automation 的工程師最直接，這篇把生產環境最常見的「執行失敗怎麼辦」痛點說清楚了。
 [!gray_background]
-🧭 
+:compass: 
 ### 領域背景
 
 現在的 computer-use agent（例如同時控制手機和電腦完成一個訂票+存行事曆的任務）需要跨多台設備協作。既有系統會把大任務拆成子任務分給不同設備，但當某個設備執行失敗，通常只有三招：重試、換台設備、或重新規劃整個計劃（global replanning）。這三招都太粗，常常花了大量 token，其實只要在設備端換個執行方式（比如 GUI 點按改成 API 呼叫）就能過。
@@ -78,12 +78,11 @@ H-RePlan 引入三層抽象：每台設備能支援的執行方式（API、CLI�
 - 和 MCP（Model Context Protocol）的關聯：MCP 工具呼叫本質上也是 API 接口，H-RePlan 的「策略切換」概念可以延伸為 MCP tool 的 fallback 機制
 - **Limitation**：HeraBench 是自建 benchmark，故障場景人工注入，真實環境的故障模式更複雜；目前只在 Linux + Android 兩類設備驗證，對 Windows 或純 web 場景泛化性未知
 [!purple_background]
-🧐 
 ### Reviewer 一句話評
 
 問題定義清楚、baseline 比較紮實，HeraBench 本身也是貢獻；但 36.78% 的完美通過率顯示即使有分層恢復，複雜多設備任務仍遠未解決，且 HeraBench 是作者自建，需要社群獨立複現才能確認。
 [!orange_background]
-🎬 
+:film: 
 ### 給你的 take-away
 
 - 設計 agent orchestration 架構時，「設備端自救」和「全局重規劃」應該是兩個獨立的錯誤處理路徑——不要讓所有失敗都冒泡到最頂層 Orchestrator
@@ -97,18 +96,18 @@ H-RePlan 引入三層抽象：每台設備能支援的執行方式（API、CLI�
 **作者**: To Eun Kim, Xuhong He, Dishank Jain, Ambuj Agrawal, Negar Arabzadeh, Fernando Diaz　（Carnegie Mellon University · UC Berkeley）　·　**arxiv**: 2606.19911
 **連結**: [arxiv](https://arxiv.org/abs/2606.19911) · [alphaxiv](https://www.alphaxiv.org/abs/2606.19911)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 讓 agent 把完整的執行軌跡（怎麼一步步完成任務）存進共享庫，讓其他 agent 之後能撈出來參考，而不是每次遇到類似任務都重新摸索。
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
 必讀
 對在設計 multi-agent 平台記憶架構的人來說，這篇提出了一個可落地的「群體知識共享」框架，並在 ALFWorld + WebArena 兩個主流 benchmark 驗證，可信度高。
 [!gray_background]
-🧭 
+:compass: 
 ### 領域背景
 
 傳統 RAG 讓 agent 從人類寫的文件撈知識。但 agent 的「軌跡（trajectory）」——也就是它實際做了哪些步驟、工具呼叫了什麼、遇到錯誤怎麼處理的——是一種完全不同的文件類型：很長、有時序結構、充滿工具呼叫記錄。現有系統把這些軌跡用完即丟，或只留給產生它的那個 agent，每次新 agent 上場都得從零開始。
@@ -131,19 +130,18 @@ MATM 把 multi-agent 系統分成兩種角色：**Producer agent**（完成任�
 ### 深入要點
 
 - 在 **ALFWorld**（文字式室內導航任務）和 **WebArena**（真實網頁操作任務）上評測，是目前最常用的 agent benchmark 之二
-- 結果顯示 MATM 加上 learned reranking 能提升 consumer agent 的任務完成率並減少互動步數（具體百分比數字論文有，但搜尋結果未取得完整對比表格）⚠️
+- 結果顯示 MATM 加上 learned reranking 能提升 consumer agent 的任務完成率並減少互動步數（具體百分比數字論文有，但搜尋結果未取得完整對比表格）:warning:
 - **純向量相似度搜尋（BM25/embedding retrieval）效果顯著不如 learned reranking**，說明軌跡類型的文件確實需要特殊處理
 - 不需要 producer 和 consumer agent 之間有任何協調或聯合訓練——純粹基於 retrieval，對現有系統的侵入性低
 - 「transactive memory」這個詞借自社會心理學（Wegner, 1987）：一個群體不是每個人記所有事，而是記「誰懂什麼」。MATM 把這個概念系統化應用到 multi-agent 系統是首次
 - 與 MemGPT、Zep 等現有 agent 記憶工具最大差別：那些工具管的是單一 agent 的跨會話記憶，MATM 管的是跨 agent 的群體記憶
 - **Limitation**：效果取決於 producer 軌跡的品質；共享庫初期為空，需要 warm-up；reranker 的訓練資料從哪來是落地關鍵，論文未詳述
 [!purple_background]
-🧐 
 ### Reviewer 一句話評
 
 概念清晰且有 40 年心理學研究支撐，CMU+Berkeley 的組合可信；但目前搜尋到的資訊未見完整的數字對比表，「顯著提升」的說法有待查閱原始論文確認，建議謹慎引用具體數字。
 [!orange_background]
-🎬 
+:film: 
 ### 給你的 take-away
 
 - 如果你的平台有大量 agent 在跑同類型重複性任務（客服、資料抓取、填表），現在就值得設計一個軌跡存儲和檢索層——agent 的「解題過程」應該是平台資產，不是用完即丟的中間產物
@@ -157,18 +155,18 @@ MATM 把 multi-agent 系統分成兩種角色：**Producer agent**（完成任�
 **作者**: Jannik Hösch, Alessandro Sestini, Florian Fuchs, Amir Baghi, Joakim Bergdahl, Konrad Tollmar, Jean-Philippe Barrette-LaPierre, Linus Gisslén　（工業界與學術合作）　·　**arxiv**: 2606.20014
 **連結**: [arxiv](https://arxiv.org/abs/2606.20014) · [alphaxiv](https://www.alphaxiv.org/abs/2606.20014)
 [!yellow_background]
-🎯 
+:target: 
 ### TL;DR
 
 用 LLM 當多 agent 團隊的指揮官決定策略方向，再讓 RL 訓練的底層 agent 負責真正的動作執行——兩者各司其職，比純 RL 或純手工規則都更彈性。
 [!green_background]
-⭐ 
+★ 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 實驗環境是電玩遊戲（2v2 搶山頭），不能直接套用到一般 agent 平台，但「LLM 做高層策略、RL 做低層執行」的分工模式是個值得了解的設計方向。
 [!gray_background]
-🧭 
+:compass: 
 ### 領域背景
 
 用 RL 訓練多 agent 在複雜對戰環境中合作一直很難：獎勵稀疏（不知道哪一步對了）、狀態空間爆炸（兩個 agent 加上對手的組合）、協調難（兩個 agent 容易各打各的）。但 LLM 在這類需要實時反應的環境中又太慢、太貴——不可能每個 timestep 都問 LLM 該怎麼辦。
@@ -191,19 +189,18 @@ LLM 發揮強項（常識性策略推理），RL 發揮強項（反應式低層�
 ### 深入要點
 
 - 評測環境：自製 **2v2 King of the Hill**（搶山頭電玩競技），是相對封閉的測試場景
-- 勝率結果：LLM+RL 混合架構 **46.4%** vs 手工設計的 Behavior Tree（BT）**51.5%** vs 純 Flat RL 顯著更低；LLM+RL vs BT 統計上無顯著差異（p=0.103）⚠️（此數據來自特定遊戲場景，泛化需謹慎）
+- 勝率結果：LLM+RL 混合架構 **46.4%** vs 手工設計的 Behavior Tree（BT）**51.5%** vs 純 Flat RL 顯著更低；LLM+RL vs BT 統計上無顯著差異（p=0.103）:warning:（此數據來自特定遊戲場景，泛化需謹慎）
 - 核心意涵：不需要工程師手工設計行為樹規則，LLM+RL 自動達到手工設計的水準——節省大量規則工程工作
 - LLM 的調用頻率是「每 N 個 timestep 一次」，不是每步，大幅降低推理成本
 - RL skill policies 是預先訓練好的模組，LLM 只需從已有技能中選擇，不需要從頭學
 - 對 LangGraph/AutoGen 的啟示：可以把 LLM orchestrator node 設計為「定期觸發、高層決策」，而非「每次工具呼叫都全力推理」
 - **Limitation**：只在單一遊戲環境測試，未驗證其他場景；LLM 只能從預定義技能集選擇，新技能仍需重新訓練 RL；遊戲的即時反應需求和現實 agent 的非同步工具呼叫有本質差異
 [!purple_background]
-🧐 
 ### Reviewer 一句話評
 
 架構想法清楚，hybrid LLM+RL 是個有趣方向；但只在一個遊戲環境測試說服力有限，46.4% vs 51.5% 的差距雖無統計顯著性但絕對值不小，且論文對遊戲 RL 和真實世界 agent tool-use 的差距討論不足。
 [!orange_background]
-🎬 
+:film: 
 ### 給你的 take-away
 
 - 設計 multi-agent orchestration 時，考慮「LLM 只做高層策略節點決策、低層執行交給更輕量模組」——不是每次工具呼叫都需要完整的 LLM 推理

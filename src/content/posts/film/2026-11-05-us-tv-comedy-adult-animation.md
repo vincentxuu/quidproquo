@@ -18,7 +18,7 @@ glossary:
     context: "《我們的辦公室》《吸血鬼家庭屍篇》都是偽紀錄片喜劇。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-05-us-tv-comedy-adult-animation-en)
+> :globe: [English version](/posts/film/2026-11-05-us-tv-comedy-adult-animation-en)
 
 這篇收的是美國的情境喜劇、喜劇劇情片和成人動畫：多重宇宙裡的瘋狂科學家、紙業公司的辦公室、好萊塢片廠、英格蘭的足球隊，還有住在紐約的吸血鬼。22 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。
 

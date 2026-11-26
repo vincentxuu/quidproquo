@@ -13,7 +13,7 @@ description: "Chong Phli 靈山攀岩指南：10 個子區與 157 條路線、Th
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-thailand-crag-chong-phli-en)
+> :globe: [English version](/posts/climbing/2026-10-21-thailand-crag-chong-phli-en)
 
 Chong Phli 又叫 Spirit Mountain（靈山），在 Ao Nang 與喀比市區之間的本土上。theCrag 在 2026 年 10 月 21 日收錄 **157 條路線**，級數 4b+ 到 9a，分 10 個子區，5,889 次攀登。
 
@@ -298,7 +298,7 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 | RTT / Rubber Tapping Tranny | 8a | 5.13b | 20 m | Wild Child Wall | ★★★；級數由 fedor 與 tim 確認 |
 | Red Planet | 8a | 5.13b | 33 m | The Lounge / Main face | ★★★；Pill Box 的第二段；5 支鈦栓 |
 | Scorpion (Direct) | 8a | 5.13b | 33 m | The Lounge / Main face | **不要用那個四指加工的攀點** |
-| Scorpion Queen 🦂 | 8b+/c | 5.14a | 40 m | The Lounge / Main face | ★★★ |
+| Scorpion Queen | 8b+/c | 5.14a | 40 m | The Lounge / Main face | ★★★ |
 | Singa-Paw | 8a | 5.13b | — | The Lounge / Main face | ★★★；Rex Kwan-Do 的延伸 |
 | Singa-Paw Slap! | 8b | 5.13d | — | The Lounge / Main face | ★★★；Singa-Paw 結束處站起來橫切進 Slap & Tickle |
 | Slap and Tickle | 8a | 5.13b | 26 m | The Lounge / Main face | ★★★；Superstition 的第二段；全鈦栓 |

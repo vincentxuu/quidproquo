@@ -13,7 +13,7 @@ description: "A guide to Cueva di Collepardo: rock and scale on the cave's two w
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-collepardo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-collepardo)
 
 Collepardo is a village of under a thousand people in the Monti Ernici, in the province of Frosinone in southern Lazio. On the slope of the Vallefiume valley outside the village is a limestone cave about 30 m high, full of tufas and stalactites, called La Cueva. Instructors from the Vertical Park climbing gym in Rome started bolting it in 2015 ([Planetmountain 2016](https://www.planetmountain.com/it/notizie/arrampicata/la-cueva-di-collepardo-arrampicata-nel-cuore-dei-monti-ernici.html)). Rome-born Laura Rogora then made the first ascents of a string of 8c+ to 9a routes here, turning it into central Italy's hard cave crag.
 

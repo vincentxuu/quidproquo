@@ -10,7 +10,7 @@ description: "A walkthrough of the root cause and fix for nginx upstream resolut
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-16-docker-cross-compose-nginx-502)
+:globe: [中文版](/posts/tech/2026-03-16-docker-cross-compose-nginx-502)
 
 ## TL;DR
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-07-job-hunt-chat-english-en)
+> :globe: [English version](/posts/learning/2026-10-07-job-hunt-chat-english-en)
 
 和也在找工作的朋友用英文傳訊息，聊面試進度、大公司和新創的差別、朋友在外商的工作狀況。整段聊得下去，對方也都懂，但回頭看自己打的句子，同樣的地方一直重複出錯。
 

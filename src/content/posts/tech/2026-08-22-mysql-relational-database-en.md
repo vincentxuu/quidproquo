@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-mysql-relational-database)
+> :globe: [中文版](/posts/tech/2026-08-22-mysql-relational-database)
 
 [MySQL](https://dev.mysql.com/doc/refman/8.4/en/) is a mature client-server relational database. Typical deployments use InnoDB for ACID transactions, row-level locking, crash recovery, foreign keys, and clustered primary keys. It is not limited to legacy systems: predictable SQL, broad driver and ORM support, and abundant operational experience remain valuable for SaaS, commerce, and content workloads.
 

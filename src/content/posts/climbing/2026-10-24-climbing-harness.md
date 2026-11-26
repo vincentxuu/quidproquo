@@ -34,7 +34,7 @@ glossary:
     context: "Petzl 和 Black Diamond 的女款，差別之一就是 rise 比較長。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-harness-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-harness-en)
 
 你在店裡拿了一條吊帶，套上去，把腰帶拉到覺得「應該差不多」的地方收緊。店員問你要不要吊起來試試，你說不用了，反正岩館的租借吊帶也是這樣穿。
 

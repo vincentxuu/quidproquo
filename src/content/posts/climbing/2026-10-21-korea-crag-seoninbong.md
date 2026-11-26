@@ -14,7 +14,7 @@ description: "仙人峰 Seoninbong 攀岩指南：道峰山站接近、東南向
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-korea-crag-seoninbong-en)
+> :globe: [English version](/posts/climbing/2026-10-21-korea-crag-seoninbong-en)
 
 在首爾排一天花崗岩多段，不只有仁壽峰。再往東北一點，道峰山的仙人峰（선인봉）也能從地鐵開始接近；岩壁上有摩擦板，也有讓拳頭、手臂和整個身體派上用場的裂隙。
 

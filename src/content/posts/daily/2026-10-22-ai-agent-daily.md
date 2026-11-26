@@ -12,7 +12,7 @@ series:
   order: 68
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-22-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -138,15 +138,15 @@ Google／Temasek／Bain 報告顯示新加坡企業 AI 使用占比達 55-60%，
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-github-digest)
-- 📄 [框架更新｜Agno v3.1.8](/posts/daily/2026-10-22-framework-agno-3.1.8)
-- 📄 [框架更新｜Pydantic AI v2.59.0](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0)
-- 📄 [融資速報｜Legora Series E $550M](/posts/daily/2026-10-22-funding-legora)
-- 📄 [融資速報｜Pigment Series E $250M](/posts/daily/2026-10-22-funding-pigment)
-- 📄 [資安警報｜Symantec 捕獲「Skynet」自主攻擊 agent](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent)
-- 📄 [AI Engineer 面試準備 — 2026-10-22](/posts/daily/2026-10-22-ai-interview-daily)
-- 📄 [Product Builder 面試準備 — 2026-10-22](/posts/daily/2026-10-22-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-github-digest)
+- :file: [框架更新｜Agno v3.1.8](/posts/daily/2026-10-22-framework-agno-3.1.8)
+- :file: [框架更新｜Pydantic AI v2.59.0](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0)
+- :file: [融資速報｜Legora Series E $550M](/posts/daily/2026-10-22-funding-legora)
+- :file: [融資速報｜Pigment Series E $250M](/posts/daily/2026-10-22-funding-pigment)
+- :file: [資安警報｜Symantec 捕獲「Skynet」自主攻擊 agent](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent)
+- :file: [AI Engineer 面試準備 — 2026-10-22](/posts/daily/2026-10-22-ai-interview-daily)
+- :file: [Product Builder 面試準備 — 2026-10-22](/posts/daily/2026-10-22-product-builder-interview-daily)
 
 ## 明日關注
 

@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-flying-with-climbing-gear-en)
+> :globe: [English version](/posts/climbing/2026-10-19-flying-with-climbing-gear-en)
 
 〈[依目的地列裝備清單](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination)〉把要帶的東西列成清單、算出總重之後，下一個問題是這堆東西怎麼過機場。哪些可以背上飛機？哪些一定要托運？托運和登機的重量又怎麼算？
 

@@ -13,7 +13,7 @@ description: "A guide to Pennadomo: rock, scale and aspect of Cima Fumosa, Solit
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-pennadomo)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-pennadomo)
 
 Pennadomo is a small village in the province of Chieti in Abruzzo, in the middle Sangro valley next to Lago di Bomba. [Planetmountain's](https://www.planetmountain.com/it/falesie/pennadomo.html) write-up is by the crag's developer, Giorgio Ferretti, who describes the village as surrounded by "incredibili lame calcaree" (incredible limestone blades) rising out of the hills; locally they're called the "Lisce". He bolted the first routes in the late 1980s, and the crag became an important chapter in Abruzzo's climbing history.
 

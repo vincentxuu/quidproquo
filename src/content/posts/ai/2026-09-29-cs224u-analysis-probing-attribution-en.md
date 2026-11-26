@@ -28,7 +28,7 @@ glossary:
         url: "http://proceedings.mlr.press/v70/sundararajan17a.html"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-analysis-probing-attribution)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -155,9 +155,9 @@ Things you can confirm from the repo:
 
 **What to do**: if you want a first pass tonight, run only the first two sections (InputXGradients and the sensitivity counterexample). They need only PyTorch and captum and no data downloads, and you'll see inputs × gradients return two zeros while IG returns roughly 1.
 
-## What this post can and can't confirm
+## What this post leaves out
 
-Confirmed: the schedule, the slide content, the three videos, and the current state of the notebook on GitHub. Not confirmed: what Quiz 4 asks (Canvas requires a login) and any extra classroom discussion in 2023 (the recordings are on Panopto).
+Quiz 4 is on Canvas, which requires a login. Extra classroom discussion from 2023 exists only in the classroom recordings (on Panopto) and is not included here.
 
 Further reading: the site's CS224N series has an [interpretability guide](/posts/ai/2026-08-22-cs224n-interpretability-en) covering Been Kim's agentic interpretability, which complements the probing/IG line here.
 
@@ -191,6 +191,7 @@ Course and recording entries:
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked video IDs and lecture numbers against the official playlist; they are correct, and video titles now use the original titles.
 - 2026-10-10: Checked the video content against its transcript. No mismatches with the transcripts were found; only the check note was added.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

@@ -10,7 +10,7 @@ description: "A guide to Cognee's three stores, DataPoints, Tasks, Pipelines, me
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cognee-memory-engine)
+> :globe: [中文版](/posts/ai/2026-08-22-cognee-memory-engine)
 
 [Cognee](https://docs.cognee.ai/core-concepts/overview) is an open-source system for turning documents, text, and structured data into searchable AI memory. It extracts entities and relationships as well as embeddings, preserving provenance, vectors, and graph structure in separate stores.
 

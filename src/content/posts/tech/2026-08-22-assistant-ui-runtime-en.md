@@ -10,7 +10,7 @@ description: "A guide to assistant-ui's Thread, Message, and Composer primitives
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-assistant-ui-runtime)
+> :globe: [中文版](/posts/tech/2026-08-22-assistant-ui-runtime)
 
 [assistant-ui](https://www.assistant-ui.com/docs) is a component and state layer for React Agent Chat. It decomposes the interface into Thread, Message, Composer, ActionBar, and other primitives, then uses a Runtime to connect them to AI SDK, LangGraph, AG-UI, A2A, or a custom backend.
 

@@ -33,17 +33,17 @@ According to AutoGen community reports in 2025, unbounded conversation loops cau
 
 ### Anthropic: Claude Agent SDK + Managed Agents
 
-According to [Anthropic's documentation](https://docs.anthropic.com/en/docs/agents), Anthropic introduced a three-tier system in 2026:
+According to the Claude Platform docs, Anthropic currently offers three independent budget mechanisms:
 
 | Mechanism | Type | Description |
 |---|---|---|
-| **Session Budget** | Hard dollar cap | Set at the session level; when reached, returns `budget_reached` stop reason — pauses rather than terminates |
-| **Task Budget** | Soft token hint | Server-side countdown injection; the model allocates priorities and wraps up proactively as the budget approaches |
-| `max_tokens` per tool call | Per-call | Limits output tokens for individual tool invocations |
+| **[Session budget](https://platform.claude.com/docs/en/managed-agents/budgets)** (Managed Agents) | Hard dollar cap | Set `budget.max_list_cost` (in US cents) when creating a session. The platform continuously prices tokens, web searches, and session running time at public list rates; once the cap is reached it pauses before the next model request, and the session goes idle with a `budget_reached` stop reason instead of terminating. Raising or removing the budget resumes the work automatically. All threads in a multiagent session share one budget |
+| **[Task budget](https://platform.claude.com/docs/en/build-with-claude/task-budgets)** (Messages API, beta) | Soft token hint | Set `output_config.task_budget` to a token total for the whole agentic loop (minimum 20,000). A server-side countdown lets the model prioritize and wrap up as the budget runs low; it is advisory, not enforced |
+| `max_tokens` | Hard per-request cap | Limits the tokens generated in one API request and truncates with `stop_reason: "max_tokens"`; the model is not shown this value |
 
-Task Budget is the most interesting design — rather than hard-blocking, it lets the model "know" the budget is running low and decide whether to economize or wrap up. According to Anthropic, this works best on Opus 4.7+.
+Task budget is the most interesting design: rather than hard-blocking, it lets the model "know" the budget is running low and decide whether to economize or wrap up. It has been available in beta since Opus 4.7 (beta header `task-budgets-2026-03-13`); Claude Code and Managed Agents do not support it, and Managed Agents uses session budgets instead. Anthropic recommends combining the two: task budget as the pacing target, `max_tokens` as the absolute ceiling.
 
-Managed Agents pricing: token fees + $0.08/session-hour + tool costs.
+Managed Agents pricing: token fees + $0.08/session-hour + tool costs (web search at $10 per 1,000).
 
 Also worth noting is [Claude Code](https://code.claude.com/docs/en/workflows)'s Dynamic Workflow system. It provides `budget.remaining()` as a first-class primitive, letting orchestration scripts query remaining token budget alongside `pipeline()` / `parallel()` / `agent({schema})` for deterministic orchestration. Up to 1,000 agents per run, 16 concurrent, with resume-after-interrupt support (cache hit). This is currently the only coding agent that makes budget tracking a first-class orchestration primitive.
 
@@ -60,20 +60,16 @@ On cost control, Codex is relatively restrained:
 
 ### Microsoft Agent Framework (2026-04 GA)
 
-[Microsoft Agent Framework](https://github.com/microsoft/agents) merged AutoGen's agent abstractions with Semantic Kernel's enterprise features; both entered maintenance mode. Its core philosophy is called **TokenOps**:
+[Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/) merged AutoGen's agent abstractions with Semantic Kernel's enterprise features; both entered maintenance mode. It has no single "budget" switch; cost control is spread across several components:
 
-> When overspending, prioritize "in-place intervention" — compress context, cache results, reduce output. The kill switch is the last resort.
+- **Per-run output cap**: [run options](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/running-agents) accept `max_tokens` (Python passes `options={"max_tokens": ...}`; .NET passes `ChatOptions` through `ChatClientAgentRunOptions`), and a single run can override `model` to send cheaper tasks to a smaller model
+- **[Compaction](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)** (experimental): `TokenBudgetComposedStrategy` runs compaction strategies from gentle to aggressive, for example collapsing old tool results, then summarizing older turns with a small model, then keeping only recent messages, and stops once history fits the token budget; if that is not enough, it falls back to dropping the oldest messages
+- **[Group chat termination](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/group-chat)**: Python's `GroupChatBuilder(termination_condition=...)` and .NET's `MaximumIterationCount` with an overridable `ShouldTerminateAsync` bound the number of turns in a multi-agent conversation
+- **[Middleware](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/middleware/)**: intercepts agent runs, function calls, and chat client calls; token accounting, overspend alerts, or pausing for human confirmation belong in this layer
 
-Specific mechanisms:
+The approach is compress first, downgrade second, stop last, never a binary cut. AutoGen's [`TokenUsageTermination`](https://microsoft.github.io/autogen/stable/reference/python/autogen_agentchat.conditions.html) is a ready-made token termination condition; MAF's group chat has no built-in equivalent today, so you check usage yourself in `termination_condition` or middleware.
 
-- `ChatClientAgentRunOptions.max_tokens`: per-call output cap
-- **Termination middleware**: composable termination conditions, including `TokenUsageTermination`
-- **Three-tier response**: approaching threshold → throttle → pause (await confirmation) → terminate
-- Automatic context compression or model downgrade when approaching budget
-
-The TokenOps philosophy: compress first, downgrade second, stop last — never a binary cut.
-
-MAF's predecessor AutoGen is a cautionary tale worth remembering. AutoGen 0.2's `GroupChat` let multiple agents converse freely with no built-in token budget or turn limits, leading to community-reported 40% budget overruns. In November 2024, the original authors left Microsoft and forked [AG2](https://github.com/ag2ai/ag2); Microsoft built the async-first AutoGen 0.4 rewrite. By April 2026, Microsoft merged AutoGen + Semantic Kernel into MAF, and AutoGen officially entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066). From "unbounded conversation" to "tiered TokenOps" — this journey took nearly two years.
+MAF's predecessor AutoGen is a cautionary tale worth remembering. AutoGen 0.2's `GroupChat` let multiple agents converse freely with no built-in token budget or turn limits, leading to community-reported 40% budget overruns. In November 2024, the original authors left Microsoft and forked [AG2](https://github.com/ag2ai/ag2); Microsoft built the async-first AutoGen 0.4 rewrite. By April 2026, Microsoft merged AutoGen + Semantic Kernel into MAF, and AutoGen officially entered [maintenance mode](https://github.com/microsoft/autogen/discussions/7066), and since 2026-10 the [repo has been archived](https://github.com/microsoft/autogen). From "unbounded conversation" to "layered compaction and termination conditions", this journey took nearly two years.
 
 ### LangGraph
 
@@ -127,8 +123,8 @@ Normal → Approaching budget (compress/downgrade) → At budget (pause/alert) �
 
 The difference lies in "who decides":
 
-- **Anthropic Task Budget**: the model decides it's time to wrap up (soft hint)
-- **Microsoft TokenOps**: middleware automatically compresses and downgrades (system automatic)
+- **Anthropic Task budget**: the model decides it's time to wrap up (soft hint); session budget is a platform hard stop that pauses
+- **Microsoft Agent Framework**: compaction strategies and middleware compress and downgrade automatically (system automatic)
 - **Bedrock Guardrails**: platform hard-blocks (no application-level control)
 - **CrewAI**: developers pre-assign model tiers at design time
 
@@ -149,20 +145,28 @@ Point 3 is easily overlooked — fork mode context bloat is multiplicative. Deep
 
 ## Overall
 
-Multi-agent cost control isn't a single switch — it's a layered set of mechanisms. The industry is moving from "just set a limit" toward "tiered response + model self-awareness." Anthropic's Task Budget lets the model economize on its own; Microsoft's TokenOps lets the system auto-downgrade. Both are far smarter than a simple hard stop.
+Multi-agent cost control isn't a single switch — it's a layered set of mechanisms. The industry is moving from "just set a limit" toward "tiered response + model self-awareness." Anthropic's task budget lets the model economize on its own; Microsoft Agent Framework's compaction lets the system compress automatically. Both are far smarter than a simple hard stop.
 
 If you're building a multi-agent system, the minimum bar is: iteration limits + token budget + concurrency limits. The advanced approach adds: history truncation + tiered response. The ultimate goal is letting the system find the most efficient way to complete the task within budget, rather than getting abruptly cut off mid-execution.
+
+## Update Log
+
+- 2026-11-23: Added AutoGen's archived status; the Microsoft Agent Framework link now points to the official docs (the old link went to the separate M365 Agents SDK repo); rewrote the Anthropic budget mechanisms from the official docs (session budget, task budget, `max_tokens` as a per-request cap) and the Microsoft Agent Framework section (the official docs have no "TokenOps", and `TokenUsageTermination` is an AutoGen class; now lists run options, compaction, group chat termination, and middleware)
 
 ## References
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
+- [Claude Platform — Task budgets](https://platform.claude.com/docs/en/build-with-claude/task-budgets)
+- [Claude Platform — Session budgets](https://platform.claude.com/docs/en/managed-agents/budgets)
 - [Anthropic — Claude Agent SDK](https://github.com/anthropics/claude-agent-sdk)
 - [Anthropic — How we built our multi-agent research system](https://www.anthropic.com/engineering/multi-agent-research-system)
 - [Anthropic — Patterns and problems in multiagent systems](https://www.anthropic.com/research/multiagent-systems)
 - [Claude Code — Dynamic Workflows](https://code.claude.com/docs/en/workflows)
 - [OpenAI — Codex GA announcement](https://openai.com/index/codex-now-generally-available/)
 - [OpenAI — Symphony open-source orchestration](https://openai.com/index/open-source-codex-orchestration-symphony/)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Microsoft Agent Framework docs](https://learn.microsoft.com/en-us/agent-framework/)
+- [Microsoft Agent Framework — Compaction](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)
+- [Microsoft Agent Framework — Group Chat orchestration](https://learn.microsoft.com/en-us/agent-framework/workflows/orchestrations/group-chat)
 - [Microsoft — AutoGen maintenance mode discussion](https://github.com/microsoft/autogen/discussions/7066)
 - [Microsoft — AutoGen to Agent Framework migration guide](https://learn.microsoft.com/en-us/agent-framework/migration-guide/from-autogen/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)

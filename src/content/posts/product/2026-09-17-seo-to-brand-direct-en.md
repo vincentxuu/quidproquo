@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-seo-to-brand-direct)
+> :globe: [中文版](/posts/product/2026-09-17-seo-to-brand-direct)
 
 Imagine running a shop inside a large mall. SEO is the directory that sends someone searching for “hiking shoes for rainy weather” to your counter. Direct brand demand begins when a customer remembers the shop's name and later searches for it, opens its app, or returns to a saved tool.
 

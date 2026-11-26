@@ -22,7 +22,7 @@ glossary:
     definition: "A design pattern that separates the executor (the agent writing code) from the verifier (the agent reviewing code)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-06-20-loop-engineering)
+> :globe: [中文版](/posts/ai/2026-06-20-loop-engineering)
 
 In June 2026, three seemingly independent statements sent shockwaves through the developer community. [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) lead Boris Cherny said in his [Acquired Unplugged interview](https://workos.com/blog/boris-cherny-claude-code-acquired-interview-takeaways): "I don't prompt Claude anymore. I have loops running that prompt Claude and figuring out what to do. My job is to write loops." [OpenClaw](https://github.com/nicepkg/openclaw) creator Peter Steinberger posted: "You shouldn't be prompting coding agents anymore. You should be designing loops that prompt your agents." Google Chrome engineering lead [Addy Osmani](https://addyosmani.com/) then published an article that gave this pattern its name — [Loop Engineering](https://addyosmani.com/blog/loop-engineering/).
 

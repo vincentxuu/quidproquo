@@ -13,7 +13,7 @@ description: "帕利努羅（Palinuro）岩場介紹：Spiaggia della Molpa 與 
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-palinuro-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-palinuro-en)
 
 帕利努羅（Palinuro）是坎帕尼亞（Campania）大區 Salerno 省南端、Cilento 海岸的海邊小鎮，行政上屬於 Centola 市。這一帶的攀岩有兩個主角：鎮旁 Capo Palinuro 南側沙灘上的 Spiaggia della Molpa，以及往內陸幾公里、San Severino 廢村下方的 La Severina。[theCrag](https://www.thecrag.com/en/climbing/italy/area/517744194) 把 Palinuro 區列成 101 條，另有 Camerota 子區和一處 deep water solo 的 Pozzallo。
 

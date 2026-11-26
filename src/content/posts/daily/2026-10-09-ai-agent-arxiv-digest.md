@@ -11,7 +11,7 @@ series:
   order: 138
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-10-09-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -46,7 +46,7 @@ Wanjing Han, Levi Taiji Li, Mu Zhang et al.（University of Utah）　·　arxiv
 | 面向 | 判斷 |
 |---|---|
 | Venue | arXiv preprint（cs.CR 主分類,cs.AI／cs.CL 交叉列出,未經同行審查） |
-| 引用速度 | 發布 2 天,Semantic Scholar 查詢持續遭 429 限流未能確認,依論文年齡推估接近 0 引用 |
+| 引用速度 | 發布 2 天,依論文年齡推估接近 0 引用 |
 | 機構 | University of Utah |
 | 社群反應 | 未見於 HF Daily Papers（2026-10-07／10-08 名單核對)／Papers with Code；程式碼已公開於 GitHub（MoonTea0416/WebMirage） |
 | 可信度 | 通過 — 正式定義「視覺綁架到執行」的端到端威脅模型,用 role-slot 抽象與網頁重組對齊候選元素競爭,再用 CodeQL 做資料流分析把優化目標對齊到實際被執行的瀏覽器命令,並有完整消融與防禦測試 |
@@ -76,7 +76,7 @@ Wanjing Han, Levi Taiji Li, Mu Zhang et al.（University of Utah）　·　arxiv
 - 評測涵蓋 SeeAct、WebVoyager 兩種通用 Agent 框架,搭配 LLaVA-v1.5-13B、LLaVA-v1.6-34B、MiniCPM-o-8B、Phi-3-Vision-4B、Qwen2-VL-7B 五種骨幹,加上 VisualWebArena 沙盒用 CogVLM,共六種 VLM 骨幹
 - 攻擊可遷移到優化階段未使用過的 VLM 骨幹,顯示攻擊不是過擬合單一模型的特例
 - 三種既有 Agent 級防禦效果有限；調整後的自適應防禦只有在同時大幅犧牲乾淨任務成功率的情況下才能降低攻擊成功率
-- 落地門檻：攻擊者需要白箱存取 Agent 程式碼與開源 VLM 權重才能完成 offline synthesis,但測試時只需要控制一張第三方圖片,不需要修改 DOM 或 agent 設定 ⚠️（白箱假設,真實部署多用閉源前沿模型,實際威脅程度需等後續研究驗證）
+- 落地門檻：攻擊者需要白箱存取 Agent 程式碼與開源 VLM 權重才能完成 offline synthesis,但測試時只需要控制一張第三方圖片,不需要修改 DOM 或 agent 設定 :warning:（白箱假設,真實部署多用閉源前沿模型,實際威脅程度需等後續研究驗證）
 - Limitation：僅測開源 VLM,未覆蓋 GPT-4V／Claude／Gemini 等前沿商用模型；白箱 offline synthesis 假設不等同於真實黑箱攻擊者的能力
 
 ### Reviewer 一句話評
@@ -106,7 +106,7 @@ Yupu Wang, Zhengyuan Jiang, Reachal Wang et al.（Duke University）　·　arxi
 | 面向 | 判斷 |
 |---|---|
 | Venue | arXiv preprint（cs.CR 主分類,cs.AI 交叉列出,未經同行審查） |
-| 引用速度 | 發布 2 天,Semantic Scholar 查詢持續遭 429 限流未能確認,依論文年齡推估接近 0 引用 |
+| 引用速度 | 發布 2 天,依論文年齡推估接近 0 引用 |
 | 機構 | Duke University |
 | 社群反應 | 未見於 HF Daily Papers／Papers with Code；論文未提供自身程式碼公開連結（惡意套件在受控本地 PyPI mirror 中建置,未對外釋出） |
 | 可信度 | 通過 — 正式定義「套件幻覺攻擊」威脅模型,提出以 trajectory-level signal 解決稀疏回饋、self-attributed refinement 解決長規則檔稀釋問題的演化搜尋框架,在 3 個 coding benchmark、8 個 agent 框架（含 Claude Code、Cursor)、13 種骨幹 LLM 上系統評測,並用注意力分析解釋攻擊為何有效 |
@@ -166,7 +166,7 @@ Secure-CUA 用「限界背書」同時鎖住電腦操作型 Agent 的動作生�
 | 面向 | 判斷 |
 |---|---|
 | Venue | arXiv preprint（cs.CR 主分類,cs.AI 交叉列出,未經同行審查） |
-| 引用速度 | 發布 2 天,Semantic Scholar 查詢持續遭 429 限流未能確認,依論文年齡推估接近 0 引用 |
+| 引用速度 | 發布 2 天,依論文年齡推估接近 0 引用 |
 | 機構 | University of Wisconsin–Madison + Google + Google DeepMind |
 | 社群反應 | 未見於 HF Daily Papers／Papers with Code；作者聲明將公開評測程式碼,本篇尚未釋出 |
 | 可信度 | 通過 — 正式定義「生成完整性」與「定位完整性」兩項安全需求,在理想執行模型下用歸納法證明兩者同時成立即可保護整條執行軌跡（完整證明見 Appendix A),並有大規模 benign 條件實證評測驗證效用成本 |
@@ -195,7 +195,7 @@ Secure-CUA 用「限界背書」同時鎖住電腦操作型 Agent 的動作生�
 - 400 個 WebArena 任務×3 種前沿模型（Claude Opus 5、GPT-5.6-Sol、Gemini 3.8 Flash)×5 個隨機種子,共 6,000 條執行軌跡的 benign 條件評測
 - Secure-CUA 平均任務成功率 53.55%,對比 Vanilla-CUA（無防護基準）55.12%,只差 1.57 個百分點
 - 先前的 CaMeL-CUA 防禦方法在同樣條件下任務成功率只剩 13.17%,顯示「完全隔絕不可信內容」的設計會嚴重犧牲任務效用
-- 作者用一個真實攻擊示範既有防禦的缺口：對 CaMeL-CUA 攻擊其視覺定位機制,在 WebArena 的 Postmill 按讚任務中,讓它找到的座標點到別的貼文上——證明固定住「要做什麼」的程式本身不夠,視覺定位階段仍是破口 ⚠️（論文自述的攻擊示範,非大規模系統性紅隊實測）
+- 作者用一個真實攻擊示範既有防禦的缺口：對 CaMeL-CUA 攻擊其視覺定位機制,在 WebArena 的 Postmill 按讚任務中,讓它找到的座標點到別的貼文上——證明固定住「要做什麼」的程式本身不夠,視覺定位階段仍是破口 :warning:（論文自述的攻擊示範,非大規模系統性紅隊實測）
 - Secure-CUA 每一步都重新產生一份新的動作交易,讓它能適應介面變化（例如版面重新渲染),同時維持效用
 - 落地門檻：需要先定義好應用程式裡哪些內容算可信（如官方欄位標籤)、哪些算不可信（如使用者留言、廣告),目前仍靠人工撰寫規則,尚未有自動化工具
 - Limitation：限界背書保證查詢結果只能流到被允許的地方,但不保證查詢結果本身「說的是真話」;執行延遲仍是待解問題;僅在網頁 WebArena 環境驗證,論文自己也指出桌面、行動裝置的適用性還待評估

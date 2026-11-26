@@ -31,7 +31,7 @@ glossary:
     context: "ADL LLM Adaptation deck, slides 9–11."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-post-training-rlhf)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -445,7 +445,7 @@ Other course guides on this site cut the same topics differently:
 - [CS224N Lecture 8: From Instruction Tuning and RLHF to DPO](/posts/ai/2026-08-22-cs224n-post-training-en)
 - [CS224N Lecture 9: Prompting, LoRA, and Parameter-Efficient Adaptation](/posts/ai/2026-08-22-cs224n-efficient-adaptation-en)
 - [CME295 Lecture 5: SFT Can't Teach "Don't Answer Like That", So RLHF and DPO Add the Negative Signal](/posts/ai/2026-09-29-cme295-preference-tuning-en)
-- [CME295 2026 Lecture 4: SFT, PPO, GRPO, and On-Policy Distillation Are One Policy Gradient](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
+- [CME295 2026 Lecture 4: RL with LLMs: Which Gap PPO, GRPO, and On-Policy Distillation Each Fill](/posts/ai/2026-09-29-cme295-rl-with-llms-en)
 
 Next lecture: [Lecture 8, RAG](/posts/ai/2026-09-30-ntu-adl2025-rag-hw3-en)
 

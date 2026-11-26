@@ -14,7 +14,7 @@ series:
   order: 39
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-observability-tracing-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-observability-tracing-en)
 
 RAG 系統上線後，使用者回報「這個回答不對」，你要怎麼查？
 

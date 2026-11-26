@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
+> :globe: [English version](/posts/daily/2026-10-26-tool-dbmole-mcp-en)
 
 ## 工具資訊
 
@@ -45,65 +45,65 @@ step: 包成一筆 BEGIN READ ONLY／SET SESSION TRANSACTION READ ONLY 交易再
 step: 成功就回傳結果；失敗就回傳錯誤訊息——兩條路最後都會重置連線階段狀態
 ---
 <svg viewBox="0 0 640 576">
-  <path class="dg-line" d="M280 34V56" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M280 112V144" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M376 192H428" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M280 236V268" data-step="3"/>
-  <path class="dg-line" d="M520 216V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line" d="M280 272V292" marker-end="url(#arrow)" data-step="3"/>
-  <path class="dg-line" d="M280 348V372" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line dg-line--accent" d="M376 416H428" marker-end="url(#arrow-accent)" data-step="5"/>
-  <path class="dg-line dg-line--warn" d="M280 460V492" marker-end="url(#arrow-warn)" data-step="5"/>
+  <path class="dg-line" d="M240 34V56" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M240 112V144" marker-end="url(#arrow)" data-step="1"/>
+  <path class="dg-line" d="M400 192H436" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M240 236V268" data-step="3"/>
+  <path class="dg-line" d="M528 220V260Q528 268 520 268H248" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M240 272V292" marker-end="url(#arrow)" data-step="3"/>
+  <path class="dg-line" d="M240 348V372" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line dg-line--accent" d="M400 416H436" marker-end="url(#arrow-accent)" data-step="5"/>
+  <path class="dg-line dg-line--warn" d="M240 460V492" marker-end="url(#arrow-warn)" data-step="5"/>
 
-  <circle class="dg-dot" cx="280" cy="28" r="6" data-step="1"/>
+  <circle class="dg-dot" cx="240" cy="28" r="6" data-step="1"/>
 
   <g data-step="1">
-    <rect class="dg-box" x="196" y="60" width="168" height="52" rx="6"/>
-    <text class="dg-label" x="280" y="80" text-anchor="middle" dominant-baseline="central">呼叫 execute_sql</text>
-    <text class="dg-sub" x="280" y="98" text-anchor="middle" dominant-baseline="central">connection 名稱＋SQL</text>
+    <rect class="dg-box" x="156" y="60" width="168" height="52" rx="6"/>
+    <text class="dg-label" x="240" y="75" text-anchor="middle" dominant-baseline="central">呼叫 execute_sql</text>
+    <text class="dg-sub" x="240" y="99" text-anchor="middle" dominant-baseline="central">connection 名稱＋SQL</text>
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M280 148L376 192L280 236L184 192Z"/>
-    <text class="dg-label" x="280" y="182" text-anchor="middle" dominant-baseline="central">設定了 readonly？</text>
-    <text class="dg-sub" x="280" y="204" text-anchor="middle" dominant-baseline="central">這個連線</text>
+    <path class="dg-box" d="M240 148L400 192L240 236L80 192Z"/>
+    <text class="dg-label" x="240" y="182" text-anchor="middle" dominant-baseline="central">設定了 readonly？</text>
+    <text class="dg-sub" x="240" y="204" text-anchor="middle" dominant-baseline="central">這個連線</text>
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="432" y="168" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="188" text-anchor="middle" dominant-baseline="central">包成 READ ONLY 交易</text>
-    <text class="dg-sub" x="520" y="206" text-anchor="middle" dominant-baseline="central">session 層面強制</text>
+    <rect class="dg-box" x="440" y="164" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="528" y="180" text-anchor="middle" dominant-baseline="central">包成 READ ONLY 交易</text>
+    <text class="dg-sub" x="528" y="204" text-anchor="middle" dominant-baseline="central">session 層面強制</text>
   </g>
 
-  <circle class="dg-dot" cx="280" cy="270" r="4" data-step="2 3"/>
+  <circle class="dg-dot" cx="240" cy="270" r="4" data-step="2 3"/>
 
   <g data-step="4">
-    <rect class="dg-box" x="192" y="292" width="176" height="56" rx="6"/>
-    <text class="dg-label" x="280" y="312" text-anchor="middle" dominant-baseline="central">執行這一筆 statement</text>
-    <text class="dg-sub" x="280" y="332" text-anchor="middle" dominant-baseline="central">依 rowLimit／40KB 截斷</text>
+    <rect class="dg-box" x="152" y="292" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="240" y="312" text-anchor="middle" dominant-baseline="central">執行這一筆 statement</text>
+    <text class="dg-sub" x="240" y="332" text-anchor="middle" dominant-baseline="central">依 rowLimit／40KB 截斷</text>
   </g>
 
   <g data-step="5">
-    <path class="dg-box" d="M280 372L376 416L280 460L184 416Z"/>
-    <text class="dg-label" x="280" y="406" text-anchor="middle" dominant-baseline="central">執行成功？</text>
-    <text class="dg-sub" x="280" y="428" text-anchor="middle" dominant-baseline="central">execute_sql 回報</text>
+    <path class="dg-box" d="M240 372L400 416L240 460L80 416Z"/>
+    <text class="dg-label" x="240" y="406" text-anchor="middle" dominant-baseline="central">執行成功？</text>
+    <text class="dg-sub" x="240" y="428" text-anchor="middle" dominant-baseline="central">execute_sql 回報</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box dg-box--accent" x="432" y="392" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="416" text-anchor="middle" dominant-baseline="central">回傳結果</text>
+    <rect class="dg-box dg-box--accent" x="440" y="392" width="176" height="48" rx="6"/>
+    <text class="dg-label" x="528" y="416" text-anchor="middle" dominant-baseline="central">回傳結果</text>
   </g>
 
   <g data-step="5">
-    <rect class="dg-box dg-box--warn" x="192" y="492" width="176" height="56" rx="6"/>
-    <text class="dg-label" x="280" y="512" text-anchor="middle" dominant-baseline="central">回傳錯誤訊息</text>
-    <text class="dg-sub" x="280" y="532" text-anchor="middle" dominant-baseline="central">session 一樣會重置</text>
+    <rect class="dg-box dg-box--warn" x="152" y="492" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="240" y="512" text-anchor="middle" dominant-baseline="central">回傳錯誤訊息</text>
+    <text class="dg-sub" x="240" y="532" text-anchor="middle" dominant-baseline="central">session 一樣會重置</text>
   </g>
 
-  <text class="dg-edge" x="402" y="180" text-anchor="middle" dominant-baseline="central" data-step="2">是</text>
-  <text class="dg-edge" x="290" y="256" text-anchor="start" dominant-baseline="central" data-step="3">否</text>
-  <text class="dg-edge dg-text--accent" x="402" y="404" text-anchor="middle" dominant-baseline="central" data-step="5">是</text>
-  <text class="dg-edge dg-text--warn" x="290" y="480" text-anchor="start" dominant-baseline="central" data-step="5">否</text>
+  <text class="dg-edge" x="420" y="180" text-anchor="middle" dominant-baseline="central" data-step="2">是</text>
+  <text class="dg-edge" x="250" y="256" text-anchor="start" dominant-baseline="central" data-step="3">否</text>
+  <text class="dg-edge dg-text--accent" x="420" y="404" text-anchor="middle" dominant-baseline="central" data-step="5">是</text>
+  <text class="dg-edge dg-text--warn" x="250" y="480" text-anchor="start" dominant-baseline="central" data-step="5">否</text>
 </svg>
 ```
 
@@ -164,13 +164,13 @@ ssh-keyscan -p 22 bastion.example.com 2>/dev/null | ssh-keygen -lf -
 
 | | dbmole-mcp | DBHub | Postgres MCP Pro | mcp-server-mysql | MCP Toolbox |
 |---|---|---|---|---|---|
-| PostgreSQL | ✅ | ✅ | ✅ | ❌ | ✅ |
-| MySQL | ✅ | ✅ | ❌ | ✅ | ✅ |
-| 其他資料庫 | ❌ | ✅ | ❌ | ❌ | ✅ |
-| 內建 SSH tunnel | ✅ | ✅ | — | ✅ | ❌ |
-| agent 可透過工具自己新增／編輯連線 | ✅ | ❌（作者在 issue 裡標明不打算做） | ❌ | ❌ | ❌ |
-| Index 調校 | ❌ | — | ✅ | — | — |
-| 健康檢查 | ❌ | ✅ | ✅ | — | ✅（內建 PostgreSQL 工具） |
+| PostgreSQL | ✓ | ✓ | ✓ | ✗ | ✓ |
+| MySQL | ✓ | ✓ | ✗ | ✓ | ✓ |
+| 其他資料庫 | ✗ | ✓ | ✗ | ✗ | ✓ |
+| 內建 SSH tunnel | ✓ | ✓ | — | ✓ | ✗ |
+| agent 可透過工具自己新增／編輯連線 | ✓ | ✗（作者在 issue 裡標明不打算做） | ✗ | ✗ | ✗ |
+| Index 調校 | ✗ | — | ✓ | — | — |
+| 健康檢查 | ✗ | ✓ | ✓ | — | ✓（內建 PostgreSQL 工具） |
 
 （資料來自 dbmole-mcp README 的對照表，標註檢查時間 2026 年 10 月；其他工具若有更新，實際功能請以各自文件為準。）
 

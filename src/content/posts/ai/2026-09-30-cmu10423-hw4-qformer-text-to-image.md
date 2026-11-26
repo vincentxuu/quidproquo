@@ -25,7 +25,7 @@ glossary:
     context: "HW4 的預訓練 DiT 原本用 10 個類別 embedding 驅動 adaLN，作業把它換成 Q-Former 輸出的逐層向量。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu10423-hw4-qformer-text-to-image-en)
 
 **影片狀態：錄影需登入或課程授權。** [來源說明](#課程影片來源)
 

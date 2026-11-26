@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-funding-arena)
+> :globe: [中文版](/posts/daily/2026-10-10-funding-arena)
 
 ## Funding Details
 

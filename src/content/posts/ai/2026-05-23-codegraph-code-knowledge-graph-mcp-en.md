@@ -10,7 +10,7 @@ description: "Breaking down CodeGraph (colbymchenry/codegraph): its knowledge gr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp)
+> :globe: [中文版](/posts/ai/2026-05-23-codegraph-code-knowledge-graph-mcp)
 
 Every time you ask Claude Code, Cursor, or Codex to "understand" a codebase, it has to scan files with grep, glob, and Read -- every tool call burns tokens, every file eats into the context window, and once you close the session, all that expensive "understanding" evaporates. Next time, you pay the exploration tax from scratch. [CodeGraph](https://github.com/colbymchenry/codegraph) (`colbymchenry/codegraph`, npm `@colbymchenry/codegraph`, approximately 18.3k stars as of 2026-05-23, version 0.7.9) front-loads and persists this work: it uses tree-sitter to extract source code into a local knowledge graph, so an agent can get "entry points + related symbols + code snippets + relationships" in a single graph query. This article covers three things -- its architecture, the design of its 9 MCP tools, and the most valuable lesson it teaches: **the honest retreat of its benchmark numbers, and the counterintuitive premise that "it only saves money when the agent actually walks the graph."**
 

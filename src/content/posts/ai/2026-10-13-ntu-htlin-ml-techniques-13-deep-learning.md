@@ -31,7 +31,7 @@ glossary:
     context: "技法第 13 堂把它推導成權重綁定、沒有常數項的線性 autoencoder 的最佳解。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning-en)
+> :globe: [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-13-deep-learning-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [213_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/213_handout.pdf) 與四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/24 到 24/24），寫「課堂上」的地方是轉述影片裡的說法。
 

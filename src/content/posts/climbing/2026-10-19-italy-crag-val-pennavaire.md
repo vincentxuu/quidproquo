@@ -13,7 +13,7 @@ description: "佩納瓦伊雷谷（Val Pennavaire／Oltrefinale）岩場介紹�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-val-pennavaire-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-val-pennavaire-en)
 
 佩納瓦伊雷谷（Val Pennavaire）在利古里亞（Liguria）西部，從海邊小城阿本加（Albenga）往內陸開十幾分鐘就到。山谷很窄，兩岸長滿樹，岩壁一塊一塊藏在林子裡。早年它被收在一本叫《Oltrefinale》（Finale 再過去）的指南書裡，所以很多人到現在還叫它 Oltrefinale，或直接叫「Albenga」。
 

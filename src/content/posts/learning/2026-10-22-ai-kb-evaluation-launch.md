@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-evaluation-launch-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-evaluation-launch-en)
 
 團隊用 20 題測試題評估新的 AI 知識庫，回答正確率 80%，大家準備上線。有人多看了一眼檢索的結果：14 題可回答的題目裡，只有 9 題的出處段落出現在前 5 名。剩下的題目，AI 是怎麼答對的？
 

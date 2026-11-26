@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-fastify-web-framework)
+> :globe: [中文版](/posts/tech/2026-08-22-fastify-web-framework)
 
 [Fastify](https://fastify.dev/docs/latest/) is a low-overhead, schema-based Node.js web framework. Routing, Ajv-compiled validation, and fast-json-stringify serialization drive performance, while the `register` plugin encapsulation graph drives maintainability.
 

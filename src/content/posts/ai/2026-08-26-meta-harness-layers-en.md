@@ -26,7 +26,7 @@ glossary:
         url: "https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-meta-harness-layers)
+> :globe: [中文版](/posts/ai/2026-08-26-meta-harness-layers)
 
 The previous post on [Omnigent's meta-harness](/posts/ai/2026-08-26-omnigent-meta-harness-en) used "a layer above harnesses" repeatedly. The same week, Stanford published a paper also called [Meta-Harness](https://arxiv.org/abs/2603.28052) meaning "an outer loop that rewrites harness code". Meanwhile [Zed ACP](https://agentclientprotocol.com/), [Vercel HarnessAgent](https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer) and [Cloudflare Flue](https://blog.cloudflare.com/agents-platform-flue-sdk/) all shipped. Easy to conflate four battles into one.
 

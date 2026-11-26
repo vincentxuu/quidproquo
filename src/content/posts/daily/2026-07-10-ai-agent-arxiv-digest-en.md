@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 47
 ---
-> 🌏 [中文版](/posts/daily/2026-07-10-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-10-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -132,7 +132,7 @@ Each memory layer can be independently ablated, letting engineers precisely know
 ### Deep Dive
 
 - **Testbed**: *Slay the Spire 2* — a closed-rule stochastic card game requiring hundreds of tactical and strategic decisions per run, a rigorous environment for testing long-task planning
-- **Ablation results** ⚠️ (N=10, directional, not statistically significant):
+- **Ablation results** :warning: (N=10, directional, not statistically significant):
   - Baseline (no memory): 3/10 wins
   - Prompt-only (L1/L2 only): 4/10 wins
   - Adding L5 skills (Mode A/B): **6/10 wins**
@@ -195,7 +195,7 @@ AI-native SQL represents a paradigm shift happening at the data infrastructure l
 
 ### Deep Dive
 
-- **Model performance**: Strongest proprietary models (GPT series) achieve execution accuracy of roughly **67%–70%** ⚠️; best open-source model reaches **58.1%**; gaps come mainly from three areas: predicate specification, schema grounding, and AI function parameterization
+- **Model performance**: Strongest proprietary models (GPT series) achieve execution accuracy of roughly **67%–70%** :warning:; best open-source model reaches **58.1%**; gaps come mainly from three areas: predicate specification, schema grounding, and AI function parameterization
 - **Counterintuitive finding**: Complex agents designed for traditional text-to-SQL (multi-round schema retrieval, table selection, etc.) **perform no better than minimal agents** — AI-native SQL requires understanding the AI functions themselves, not schema exploration
 - **Benchmark construction method**: Uses an agent pipeline to automatically rewrite tasks while maintaining ground truth verifiability (execution result consistency) — this construction method itself is noteworthy as a reference for building similar benchmarks
 - **Framework implications**: LangChain/LangGraph SQL toolkits need to extend their schema descriptions for AI-native SQL functions; text-to-SQL fine-tuning datasets need AI function usage examples

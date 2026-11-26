@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut)
+> :globe: [中文版](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut)
 
 ## Summary of Changes
 
@@ -70,8 +70,8 @@ OpenAI now splits speed into three price bands (Standard/Fast/Ultrafast) instead
 
 ## Expiration Notice
 
-⏰ **Existing Pro 200 allowance preserved until**: 2026-10-29. Starting 10/30, existing subscribers' Codex/ChatGPT Work usage cap drops from 20x Plus to the new, lower cap (10x Plus).
-⏰ **One-time $2,500 usage credit expires**: 2026-12-31. Any unused credit from the downgrade is forfeited after this date — it does not roll over.
+:clock: **Existing Pro 200 allowance preserved until**: 2026-10-29. Starting 10/30, existing subscribers' Codex/ChatGPT Work usage cap drops from 20x Plus to the new, lower cap (10x Plus).
+:clock: **One-time $2,500 usage credit expires**: 2026-12-31. Any unused credit from the downgrade is forfeited after this date — it does not roll over.
 
 ## Takeaway
 

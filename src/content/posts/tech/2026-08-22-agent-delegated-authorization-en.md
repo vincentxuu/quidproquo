@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-agent-delegated-authorization)
+> :globe: [中文版](/posts/tech/2026-08-22-agent-delegated-authorization)
 
 When an agent sends mail, pays, or changes production “on behalf of a user,” authentication is only the start. The system must retain who delegated, which agent or client executes, which action is allowed on which resource, for how long, and whether new confirmation is required.
 

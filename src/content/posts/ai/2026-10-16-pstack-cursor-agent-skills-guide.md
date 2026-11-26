@@ -18,7 +18,7 @@ glossary:
     context: "本文用它讓 /poteto-mode 在整個對話持續生效。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-16-pstack-cursor-agent-skills-guide-en)
+> :globe: [English version](/posts/ai/2026-10-16-pstack-cursor-agent-skills-guide-en)
 
 如果你用 Cursor 寫程式，想知道 pstack 裝了之後到底多了什麼、該從哪個指令開始、值不值得多花 token，這篇照使用順序走一遍：入口、playbook、可單獨呼叫的 skill、原則、模型分工，最後是成本與限制。
 

@@ -10,7 +10,7 @@ tldr: "Cerebras can dramatically accelerate generation on supported models, but 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cerebras-inference)
+> :globe: [中文版](/posts/ai/2026-08-22-cerebras-inference)
 
 Cerebras Inference is usually introduced with a tokens-per-second number. For a production agent, however, the useful question is not merely which provider emits text fastest. It is: **how much of my wait is prompt prefill, autoregressive decoding, or browser, search, and database I/O?** The wafer-scale approach can move the ceiling on decoding speed. It cannot automatically remove latency outside the model call.
 

@@ -13,7 +13,7 @@ description: "Series introduction for 'Understanding AI Models': 18 articles cov
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-series-intro)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-series-intro)
 
 You don't need to understand models to generate text with an API. Just like you don't need to understand engines to drive a car.
 

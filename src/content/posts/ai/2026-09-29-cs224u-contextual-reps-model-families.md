@@ -25,7 +25,7 @@ glossary:
     context: "DistilBERT 把 12 層的 BERT-base 蒸餾成 6 層。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-contextual-reps-model-families-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

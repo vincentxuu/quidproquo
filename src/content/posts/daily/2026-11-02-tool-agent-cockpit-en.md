@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-02-tool-agent-cockpit)
+> :globe: [中文版](/posts/daily/2026-11-02-tool-agent-cockpit)
 
 ## Tool info
 
@@ -140,11 +140,11 @@ This pair demonstrates the whole point: an unreported change still gets caught, 
 
 | | Agent Cockpit | Manually tracking git log/diff | Just asking the agent "what did you change" |
 |---|---|---|---|
-| Detects unreported file changes | ✅ content-hash comparison catches it even when unreported | Someone has to remember to diff it — easy to miss | ❌ if the agent says it didn't, that's taken at face value |
-| Stale claims auto-flag and propagate downstream | ✅ | Have to manually track which claim depends on which file | ❌ |
-| Needs an LLM call to check | ❌ zero tokens, pure rule evaluation | — | The check itself is an LLM call — not reliable |
-| Handing off between agents on the same project | ✅ identity comes from the MCP handshake, board is shared | Relies on verbal handoff or docs, easy to drop | Easy to drop |
-| Can replay the whole event sequence afterward | ✅ append-only event log, scrubbable | Guess the order from git log | ❌ |
+| Detects unreported file changes | ✓ content-hash comparison catches it even when unreported | Someone has to remember to diff it — easy to miss | ✗ if the agent says it didn't, that's taken at face value |
+| Stale claims auto-flag and propagate downstream | ✓ | Have to manually track which claim depends on which file | ✗ |
+| Needs an LLM call to check | ✗ zero tokens, pure rule evaluation | — | The check itself is an LLM call — not reliable |
+| Handing off between agents on the same project | ✓ identity comes from the MCP handshake, board is shared | Relies on verbal handoff or docs, easy to drop | Easy to drop |
+| Can replay the whole event sequence afterward | ✓ append-only event log, scrubbable | Guess the order from git log | ✗ |
 
 ## Caveats
 

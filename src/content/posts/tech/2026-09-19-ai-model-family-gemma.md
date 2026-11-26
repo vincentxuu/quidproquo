@@ -5,8 +5,8 @@ category: tech
 tags: [ai-agent, llm, gemma, google, open-weights, model-family-gemma, model-selection]
 lang: zh-TW
 type: deep-dive
-tldr: "Gemma 是 Google 對照 Gemini 閉源旗艦的開放權重（open weights）家族；2026 年 4 月的 Gemma 4（E2B／E4B／26B-MoE／31B）把授權從自家 Gemma Terms of Use 換成 Apache 2.0——這是全文最關鍵的變化，也是選型前必須先搞懂的事。"
-description: "Gemma 模型家族深度介紹：Gemma 1 到 Gemma 4 的演化時間線、Gemma 4 轉 Apache 2.0 與舊代授權的關鍵差異、Workers AI／自架／AI Edge 部署三分法、與 Gemini 主篇的分工，以及 Agent 開發者選型指南。"
+tldr: "Gemma 是 Google 對照 Gemini 閉源旗艦的開放權重（open weights）家族；2026 年 4 月的 Gemma 4 把授權從自家 Gemma Terms of Use 換成 Apache 2.0——這是全文最關鍵的變化，也是選型前必須先搞懂的事。Gemma 4 仍是現行世代，6 月補上不用多模態編碼器的 12B Unified 成為五個尺寸（E2B／E4B／12B／26B A4B／31B），10 月再推出 740M 的多模態嵌入模型 EmbeddingGemma 2；託管入口有 Gemini API（只有免費層）、Workers AI 與 OpenRouter 上十多家供應商。"
+description: "Gemma 模型家族深度介紹：Gemma 1 到 Gemma 4 的演化時間線、Gemma 4 五個尺寸與 12B Unified、DiffusionGemma、EmbeddingGemma 2、轉 Apache 2.0 與舊代授權的關鍵差異、託管 API／自架／AI Edge 部署三分法、與 Gemini 主篇的分工，以及 Agent 開發者選型指南。"
 series:
   name: "AI 模型家族"
   order: 24
@@ -37,7 +37,7 @@ glossary:
         url: "https://ai.google.dev/edge"
 ---
 
-2026 年 4 月 2 日，Google 發佈 [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)——四個尺寸（E2B／E4B／26B-MoE／31B），31B 拿下 Arena 開源榜第三。但尺寸和分數都不是這次真正的新聞，授權才是：Gemma 4 改用 **Apache 2.0**。此前的每一代 Gemma 都綁著 Google 自家的 Gemma Terms of Use，下載要登入按同意；從 Gemma 4 起，自架、微調、商用散佈不再需要經過 click-through。這是「AI 模型家族」系列的第二十四篇家族深度介紹，追蹤 Gemma 從 2024 年初代到 Gemma 4 的完整路徑，以及它和 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini) 的分工。
+2026 年 4 月 2 日，Google 發佈 [Gemma 4](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)——四個尺寸（E2B／E4B／26B-MoE／31B），31B 拿下 Arena 開源榜第三。但尺寸和分數都不是這次真正的新聞，授權才是：Gemma 4 改用 **Apache 2.0**。此前的每一代 Gemma 都綁著 Google 自家的 Gemma Terms of Use，下載要登入按同意；從 Gemma 4 起，自架、微調、商用散佈不再需要經過 click-through。6 月 3 日 Google 補上 [Gemma 4 12B Unified](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/)，Gemma 4 變成五個尺寸。這是「AI 模型家族」系列的第二十四篇家族深度介紹，追蹤 Gemma 從 2024 年初代到 Gemma 4 的完整路徑，以及它和 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini) 的分工。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。
 
@@ -46,8 +46,11 @@ glossary:
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
 | Gemma 4 E2B／E4B | 手機／離線 | 128K；原生語音輸入 | Apache 2.0 權重；AI Edge |
-| Gemma 4 26B-MoE | 雲端／工作站 | 約 3.8B 啟用；256K | 自架；Workers AI |
-| Gemma 4 31B | 家族品質上限 | 31B | 權重；AI Studio／Gemini API |
+| Gemma 4 12B Unified | 筆電（16GB） | 11.95B 稠密；不用視覺與語音編碼器；256K；原生語音輸入 | Apache 2.0 權重；Ollama、LM Studio |
+| Gemma 4 26B A4B | 雲端／工作站 | 25.2B 總參數、3.8B 啟用；256K | 自架；Gemini API；Workers AI；OpenRouter |
+| Gemma 4 31B | 家族品質上限 | 30.7B 稠密；256K | 權重；Gemini API；OpenRouter |
+| EmbeddingGemma 2 | 端側多模態嵌入 | 740M（純文字 270M）；768 維；8K | Apache 2.0 權重；Workers AI |
+| DiffusionGemma | 實驗：文字擴散 | 26B A4B 底座；一次生成 256 token 區塊；品質低於 Gemma 4 | Apache 2.0 權重；Vertex AI Model Garden |
 | Gemma 1／2／3／3n | 歷史版本 | 仍使用 Gemma Terms of Use | Gated 權重，條款不同 |
 
 ## 家族演化
@@ -61,20 +64,43 @@ glossary:
 | Gemma 3 | 2025-03 | 1B／4B／12B／27B | 多模態進入開放線；稍後補上 270M 極小尺寸 |
 | Gemma 3n | 2025-06 | E2B／E4B | MatFormer＋選擇性參數啟動，手機優先的第一代 |
 | Gemma 4 | 2026-04 | E2B／E4B／26B-MoE／31B | 授權轉 Apache 2.0；原生支援 function calling 與 agent 工作流 |
+| Gemma 4 12B Unified | 2026-06-03 | 12B | 中尺寸第一次有原生語音輸入；拿掉多模態編碼器，筆電 16GB 能跑 |
+| DiffusionGemma | 2026-06-10 | 26B A4B | 實驗性文字擴散模型，本機低併發生成最多快 4 倍，品質換速度 |
+| EmbeddingGemma 2 | 2026-10-06 | 740M | 嵌入從純文字擴到圖片、影片、語音，context 從 2K 拉到 8K |
 
-兩年、五代。Gemma 的主線一直很單純：**把 Gemini 世代的研究成果，用開放權重、可自架的尺寸重新封裝一次**。每一代的尺寸下限往下探（7B→2B→1B→270M→E2B），上限往上頂（7B→27B→31B），中間穿插醫療、視覺、安全等垂直變體——但只有 Gemma 4 動了授權，這是理解整個家族前後差異的鑰匙。
+兩年、五代。Gemma 的主線一直很單純：**把 Gemini 世代的研究成果，用開放權重、可自架的尺寸重新封裝一次**。每一代的尺寸下限往下探（7B→2B→1B→270M→E2B），上限往上頂（7B→27B→31B），中間穿插醫療、視覺、安全等垂直變體——但只有 Gemma 4 動了授權，這是理解整個家族前後差異的鑰匙。Gemma 4 推出後，Google 沒有再開新世代，而是在同一代裡補尺寸與變體；官方 [releases 頁](https://gemma.ai/models/releases/)最新一筆是 2026-10-06 的 EmbeddingGemma 2。
 
-變體只給一句話定位，不展開：[MedGemma](https://deepmind.google/models/gemma/medgemma/)（醫療文字＋影像理解）、[ShieldGemma 2](https://deepmind.google/models/gemma/shieldgemma-2/)（內容安全分類器）、[FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)（邊緣端 function calling）、[EmbeddingGemma](https://ai.google.dev/gemma/docs/embeddinggemma)（300M 端側 embedding）、[PaliGemma](https://ai.google.dev/gemma/docs/paligemma)（視覺語言）。完整的官方變體清單見 [DeepMind Gemma 頁面](https://deepmind.google/models/gemma/)。
+變體只給一句話定位，不展開：[MedGemma](https://deepmind.google/models/gemma/medgemma/)（醫療文字＋影像理解）、[ShieldGemma 2](https://deepmind.google/models/gemma/shieldgemma-2/)（內容安全分類器）、[FunctionGemma](https://ai.google.dev/gemma/docs/functiongemma)（邊緣端 function calling）、[EmbeddingGemma 2](https://gemma.ai/models/embeddinggemma/)（740M 端側多模態 embedding，前代是 308M 純文字）、[PaliGemma](https://ai.google.dev/gemma/docs/paligemma)（視覺語言）。完整的官方變體清單見 [DeepMind Gemma 頁面](https://deepmind.google/models/gemma/)。
 
 ## 架構與訓練取捨
 
-既有來源描述 Gemma 3n 的 MatFormer 與選擇性參數啟動，以及 Gemma 4 的稠密／MoE 尺寸；26B MoE 約啟用 3.8B 參數。本文未提供完整訓練資料配方，部署自由不等於訓練透明。
+既有來源描述 Gemma 3n 的 MatFormer 與選擇性參數啟動，以及 Gemma 4 的稠密／MoE 尺寸。依 [Gemma 4 模型卡](https://gemma.ai/models/gemma-4/model-card/)，26B A4B 是 25.2B 總參數、每 token 啟用 3.8B（128 個專家選 8 個，外加 1 個共用專家）；全系列交錯使用 sliding window 與 global attention，最後一層一定是 global。部署時 MoE 仍要把 26B 全部載入記憶體，BF16 約 57.7GB，記憶體需求接近稠密 26B，不是 4B。本文未提供完整訓練資料配方，部署自由不等於訓練透明。
+
+同一代裡有兩個架構實驗值得分開看：
+
+- **12B Unified 拿掉了多模態編碼器。** 其他 Gemma 4 尺寸先用獨立的視覺編碼器（小尺寸約 150M、中尺寸約 550M）與語音編碼器（約 300M）處理輸入；12B 把 48×48 像素的圖塊用一次矩陣乘法投影進語言模型，語音則把 16kHz 原始波形切成 40ms 一幀直接線性投影（[官方開發者指南](https://developers.googleblog.com/gemma-4-12b-the-developer-guide/)）。代價換到的是較低的多模態延遲，以及 LoRA 或全參數微調能一次更新整條多模態路徑。
+- **DiffusionGemma 改用離散擴散生成。** 它沿用 26B A4B 底座，一次對 256 個 token 的區塊反覆去噪，官方稱單張 H100 可達每秒 1,000 個 token 以上。這招只在低併發的本機推論划算；高 QPS 的雲端服務本來就能把自迴歸模型批次塞滿，擴散的優勢會縮小、成本反而可能更高。
 
 ## 評測與競品比較
 
 ### 與 Gemini 主篇的分工：閉源旗艦 vs 開源側翼
 
 Gemma 和 Gemini 的關係，一句話就是 Google 版的雙軌：**Gemini 收營收，Gemma 補生態**。詳情見 [Gemini 主篇](/posts/tech/2026-08-24-ai-model-family-gemini)——閉源旗艦（1M context、原生多模態、$2／$12）只跑在 Google 基礎設施上；Gemma 是給需要自架、微調、資料主權的開發者留的退路，明確不是前沿。Gemma 4 的 Apache 2.0 讓這條退路第一次名副其實，但「開源側翼」的定位沒變：要科學推理最強的模型，還是得回 Gemini 3.1 Pro。
+
+### Gemma 4 各尺寸的官方評測
+
+下表是 [Gemma 4 模型卡](https://gemma.ai/models/gemma-4/model-card/)自報的指令微調版結果，同一份表、同一套條件，可以拿來比尺寸，不能直接拿去跟其他家族的自報數字混排。
+
+| Benchmark | 31B | 26B A4B | 12B Unified | E4B | E2B |
+|---|---|---|---|---|---|
+| MMLU Pro | 85.2% | 82.6% | 77.2% | 69.4% | 60.0% |
+| AIME 2026（不用工具） | 89.2% | 88.3% | 77.5% | 42.5% | 37.5% |
+| LiveCodeBench v6 | 80.0% | 77.1% | 72.0% | 52.0% | 44.0% |
+| GPQA Diamond | 84.3% | 82.3% | 78.8% | 58.6% | 43.4% |
+| Tau2（三次平均） | 76.9% | 68.2% | 69.0% | 42.2% | 24.5% |
+| MRCR v2 8-needle 128K | 66.4% | 44.1% | 43.4% | 25.4% | 19.1% |
+
+讀法：26B A4B 在推理與 coding 上貼著 31B，差距主要在長 context 與 agent 任務；12B 在 Tau2 甚至略高於 26B A4B，但數學與 coding 落後一截。DiffusionGemma 的模型卡用同一組 benchmark 對照 26B A4B，AIME 2026 只有 69.1%（26B A4B 是 88.3%），官方也建議要品質就用標準 Gemma 4。
 
 放到開源線的競爭格局裡看：
 
@@ -110,18 +136,28 @@ Gemma 4 的尺寸矩陣是按硬體切的：E2B／E4B 走行動端與 IoT（極�
 ```mermaid
 flowchart TD
     A[要用 Gemma 4] --> B{跑在哪裡}
-    B -->|Cloudflare 生態系| C[Workers AI：gemma-4-26b-a4b-it]
+    B -->|託管 API| C[Gemini API／OpenRouter：26B A4B、31B；Workers AI：26B A4B]
     B -->|自己的機器| D{要多大}
     B -->|手機／離線| E[AI Edge：E2B／E4B]
-    D -->|工作站／單卡| F[自架 26B-MoE]
-    D -->|要最強品質| G[AI Studio／Gemini API：31B]
+    D -->|筆電 16GB| H[自架 12B Unified]
+    D -->|工作站／單卡| F[自架 26B A4B 或 31B]
 ```
 
-#### 第一路：Workers AI（最省事）
+#### 第一路：託管 API（最省事）
+
+託管入口有三個，條件差很多：
+
+| 通路 | 有哪些尺寸 | 價格（每百萬 input／output token） | 要注意的條件 |
+|---|---|---|---|
+| [Gemini API](https://gemma.ai/deployment/gemini-api/)（AI Studio） | 31B、26B A4B | 只有免費層，沒有付費層 | 免費層的資料會被用來改進 Google 產品；正式用量要另找通路 |
+| [OpenRouter](https://openrouter.ai/google/gemma-4-31b-it) | 31B、26B A4B | 依供應商：26B A4B input $0.04–$0.15、output $0.15–$0.60；31B input $0.10–$0.75、output $0.10–$1.15 | 26B A4B 有 15 家、31B 有 18 家供應商，量化精度從 FP4 到 BF16 不一；各有一個 Google AI Studio 的 `:free` 端點 |
+| [Workers AI](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) | 26B A4B | $0.10／$0.30 | 只有 26B A4B，31B 沒上 |
+
+OpenRouter 的價格與供應商名單會變；挑供應商時先看 endpoint 列出的量化精度，FP4 與 BF16 的輸出品質不能當成同一個模型比。
 
 Cloudflare Workers AI 上核心 Gemma 4 只上了 [`@cf/google/gemma-4-26b-a4b-it`](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/) 這一個：256K context、Vision、Function calling、Reasoning 全開，定價 $0.10／$0.30 per M input／output tokens。MoE 只啟動約 3.8B 參數，所以延遲比前代 12B 稠密模型還好看。本站已經有一篇實戰記錄——[Gemma on Cloudflare Workers AI](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)——從 Gemma 3 遷移到 Gemma 4 的完整過程，含 RAG pipeline 的 prompt 重測經驗。
 
-三個邊界要記牢：**31B 只在 AI Studio／Gemini API**，不在 Workers AI 上；舊的 `gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，不要再拿它起新專案；[`@cf/aisingapore/gemma-sea-lion-v4-27b-it`](https://developers.cloudflare.com/workers-ai/models/) 是 AI Singapore 以 Gemma 為基座的東南亞語言變體，注意 model ID 前綴是 `@cf/aisingapore` 不是 `@cf/google`。完整的 Workers AI 模型對照見本站[模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide)。
+三個邊界要記牢：**31B 不在 Workers AI 上**，要託管 31B 走 Gemini API 或 OpenRouter；舊的 `gemma-3-12b-it` 已於 2026-05-30 標為 deprecated，不要再拿它起新專案；[`@cf/aisingapore/gemma-sea-lion-v4-27b-it`](https://developers.cloudflare.com/workers-ai/models/) 是 AI Singapore 以 Gemma 為基座的東南亞語言變體，注意 model ID 前綴是 `@cf/aisingapore` 不是 `@cf/google`。Workers AI 另有 [`@cf/google/embeddinggemma-2`](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-2/)（768 維、8,192 tokens，$0.0017 per M input tokens），要在同一個生態系做 RAG 的嵌入可以一起用。完整的 Workers AI 模型對照見本站[模型目錄](/posts/ai/2026-08-18-workers-ai-model-guide)。
 
 ```typescript
 // Workers 環境呼叫 Gemma 4，介面與其他 Workers AI 模型相同
@@ -136,7 +172,7 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 
 #### 第二路：自架（Ollama／vLLM，要主權的人走這條）
 
-Apache 2.0 的真正價值在這裡：權重可下載，[Ollama](https://ollama.com/library/gemma4)、vLLM、llama.cpp、Hugging Face Transformers 首日就支援。官方數據：未量化的 bfloat16 權重可塞進單張 80GB H100；量化版跑在消費級 GPU 上，撐 IDE  coding 助手與 agent 工作流。需要微調主權、資料不能出內網、或要長期鎖定 checkpoint（託管 API 的版本不透明，會無預警更動），就走這條。
+Apache 2.0 的真正價值在這裡：權重可下載，[Ollama](https://ollama.com/library/gemma4)、vLLM、llama.cpp、Hugging Face Transformers 首日就支援。官方數據：未量化的 bfloat16 權重可塞進單張 80GB H100；量化版跑在消費級 GPU 上，撐 IDE  coding 助手與 agent 工作流。需要微調主權、資料不能出內網、或要長期鎖定 checkpoint（託管 API 的版本不透明，會無預警更動），就走這條。筆電只有 16GB 記憶體的話，12B Unified 是官方點名的尺寸，Ollama、LM Studio、llama.cpp、MLX 都支援；各尺寸另有官方 QAT 量化版與 MTP 草稿模型（speculative decoding 用）可下載。
 
 #### 第三路：手機 AI Edge（E2B／E4B，另一個戰場）
 
@@ -147,7 +183,10 @@ E2B／E4B 是為離線設計的：128K context（大尺寸線是 256K），全�
 ### 對 Agent 開發者的意義
 
 - **繁中 RAG 留在 Cloudflare 生態系** → Workers AI 的 `gemma-4-26b-a4b-it`：256K context、$0.10／$0.30，Vision＋Function calling 原生支援，實戰細節見[本站 Gemma 實戰文](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
-- **要 31B 的品質但不想自架** → AI Studio／Gemini API 的 `gemma-4-31b-it`，Arena 開源榜第三（官方 blog 引用的 4 月數據）
+- **要 31B 的品質但不想自架** → OpenRouter 的 `google/gemma-4-31b-it`（多家供應商，先看量化精度）；Gemini API 的 `gemma-4-31b-it` 只有免費層，適合原型，不適合放正式或敏感資料
+- **筆電本機、要看圖聽語音** → 12B Unified，16GB 能跑，官方評測接近 26B A4B
+- **端側多模態 RAG 的嵌入** → EmbeddingGemma 2：文字、圖片、影片、語音同一個 768 維空間，可截到 128 維省儲存；純文字只要載入 270M
+- **本機互動要極低延遲、可以犧牲品質** → DiffusionGemma（實驗性）；正式輸出仍用標準 Gemma 4
 - **要微調主權或鎖 checkpoint** → 自架 Gemma 4（Apache 2.0），Ollama／vLLM 首日支援；舊代 Gemma 2／3 的 gated 授權不適用這條
 - **手機離線 agent** → E2B／E4B＋AI Edge，128K context，原生語音輸入
 - **東南亞多語** → 評估 SEA-LION 變體（`@cf/aisingapore` 前綴），繁中主力仍是 Gemma 4 本體
@@ -164,11 +203,23 @@ Gemma 的故事是「用開放權重（open weights）換生態位」。Google �
 
 ## 更新紀錄
 
+- 2026-11-23：Gemma 4 仍是現行世代，沒有 Gemma 5。補上同一代後續釋出的 Gemma 4 12B Unified（2026-06-03）、DiffusionGemma（2026-06-10）與 EmbeddingGemma 2（2026-10-06）：矩陣、時間線、架構段與選型都加了這三款，原本的 EmbeddingGemma 300M 改為前代。新增 Gemma 4 模型卡各尺寸評測表。託管入口改寫：Gemini API 同時提供 31B 與 26B A4B，但只有免費層；OpenRouter 上兩個尺寸各有十多家付費供應商與一個免費端點，補上價格範圍；Workers AI 加上 EmbeddingGemma 2。修正錯誤：原文稱「31B 只在 AI Studio／Gemini API」，31B 也在 OpenRouter 上；26B A4B 的總參數依模型卡為 25.2B。
 - 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
 
 - [Introducing Gemma 4（2026-04，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
+- [Gemma 4 模型卡（五個尺寸規格與評測）](https://gemma.ai/models/gemma-4/model-card/)
+- [Gemma 模型 releases 頁](https://gemma.ai/models/releases/)
+- [Introducing Gemma 4 12B（2026-06-03，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemma-4-12b/)
+- [Gemma 4 12B: The Developer Guide（2026-06-03）](https://developers.googleblog.com/gemma-4-12b-the-developer-guide/)
+- [DiffusionGemma（2026-06-10，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/diffusion-gemma-faster-text-generation/)
+- [`google/diffusiongemma-26B-A4B-it` 模型卡](https://huggingface.co/google/diffusiongemma-26B-A4B-it)
+- [EmbeddingGemma 2（2026-10-06，官方部落格）](https://blog.google/innovation-and-ai/technology/developers-tools/embeddinggemma-2/)
+- [Run Gemma with the Gemini API](https://gemma.ai/deployment/gemini-api/)
+- [Gemini API 定價（Gemma 4 只有免費層）](https://ai.google.dev/gemini-api/docs/pricing)
+- [OpenRouter：google/gemma-4-31b-it](https://openrouter.ai/google/gemma-4-31b-it)、[google/gemma-4-26b-a4b-it](https://openrouter.ai/google/gemma-4-26b-a4b-it)
+- [Workers AI：embeddinggemma-2 模型頁](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-2/)
 - [Gemma 4 授權：Apache 2.0](https://ai.google.dev/gemma/apache_2)
 - [Google DeepMind Gemma 頁面（家族總覽）](https://deepmind.google/models/gemma/)
 - [Google Gemma 官方文件](https://ai.google.dev/gemma/docs)

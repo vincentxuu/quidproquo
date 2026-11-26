@@ -30,7 +30,7 @@ glossary:
     context: "A longer rise is one of the differences in Petzl's and Black Diamond's women's models."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-harness)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-harness)
 
 In the shop you pick up a harness, step in, pull the waistbelt to where it "seems about right" and tighten it. The staff ask if you'd like to hang in it to check. You say no; the gym's rental harness goes on the same way.
 

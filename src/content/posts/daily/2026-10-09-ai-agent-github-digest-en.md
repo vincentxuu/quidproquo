@@ -11,7 +11,7 @@ series:
   order: 55
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-09-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of today's three tools touch the model itself — they all tackle what happ
 
 ## Trending Repos
 
-### trueforge ⭐ 6,083
+### trueforge ★ 6,083
 
 [GitHub](https://github.com/truefoundry/trueforge) · TypeScript · MIT
 
@@ -30,7 +30,7 @@ None of today's three tools touch the model itself — they all tackle what happ
 
 ---
 
-### agent-device ⭐ 4,937
+### agent-device ★ 4,937
 
 [GitHub](https://github.com/callstack/agent-device) · TypeScript · MIT
 
@@ -41,7 +41,7 @@ None of today's three tools touch the model itself — they all tackle what happ
 
 ---
 
-### pi-pocket ⭐ 274 (4 days old)
+### pi-pocket ★ 274 (4 days old)
 
 [GitHub](https://github.com/TannerMidd/pi-pocket) · TypeScript · MIT
 

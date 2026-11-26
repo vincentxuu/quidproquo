@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-funding-ema)
+> :globe: [中文版](/posts/daily/2026-09-25-funding-ema)
 
 ## Funding Details
 

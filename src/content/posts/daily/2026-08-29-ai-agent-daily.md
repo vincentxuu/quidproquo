@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-29-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-29-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -136,15 +136,15 @@ Google Agent Development Kit (ADK) for Python 發佈 v2.8.0：新增 `RemoteA2aA
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-08-29](/posts/daily/2026-08-29-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.63.0](/posts/daily/2026-08-29-framework-mastra-1.63.0)
-- 📄 [融資速報｜Onyx Security Series B $113M](/posts/daily/2026-08-29-funding-onyx-security)
-- 📄 [融資速報｜Zenity Series C $125M](/posts/daily/2026-08-29-funding-zenity)
-- 📄 [模型卡｜Tencent Hy4 Preview](/posts/daily/2026-08-29-model-tencent-hy4-preview)
-- 📄 [資安警報｜llms.txt 供應鏈缺口](/posts/daily/2026-08-29-security-llmstxt-supply-chain)
-- 📄 [工具推薦｜localagents](/posts/daily/2026-08-29-tool-localagents-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-08-29：Paper Reading](/posts/daily/2026-08-29-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-29：Technical PM](/posts/daily/2026-08-29-product-builder-interview-daily)
+- :file: [AI Agent GitHub Digest — 2026-08-29](/posts/daily/2026-08-29-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.63.0](/posts/daily/2026-08-29-framework-mastra-1.63.0)
+- :file: [融資速報｜Onyx Security Series B $113M](/posts/daily/2026-08-29-funding-onyx-security)
+- :file: [融資速報｜Zenity Series C $125M](/posts/daily/2026-08-29-funding-zenity)
+- :file: [模型卡｜Tencent Hy4 Preview](/posts/daily/2026-08-29-model-tencent-hy4-preview)
+- :file: [資安警報｜llms.txt 供應鏈缺口](/posts/daily/2026-08-29-security-llmstxt-supply-chain)
+- :file: [工具推薦｜localagents](/posts/daily/2026-08-29-tool-localagents-mcp)
+- :file: [AI Engineer 面試日練 — 2026-08-29：Paper Reading](/posts/daily/2026-08-29-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-29：Technical PM](/posts/daily/2026-08-29-product-builder-interview-daily)
 
 ## 明日關注
 

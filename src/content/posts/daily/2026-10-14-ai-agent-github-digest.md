@@ -11,7 +11,7 @@ series:
   order: 60
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-14-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### onehumanbeing/esp32-iphone-agent ⭐ 1,400 (+1,400)
+### onehumanbeing/esp32-iphone-agent ★ 1,400 (+1,400)
 
 [GitHub](https://github.com/onehumanbeing/esp32-iphone-agent)　·　Python + C++　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### TedHaley/pensieve ⭐ 63 (+63)
+### TedHaley/pensieve ★ 63 (+63)
 
 [GitHub](https://github.com/TedHaley/pensieve)　·　Python　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### vakandi/opencode-rust ⭐ 51 (+51)
+### vakandi/opencode-rust ★ 51 (+51)
 
 [GitHub](https://github.com/vakandi/opencode-rust)　·　Rust　·　MIT
 

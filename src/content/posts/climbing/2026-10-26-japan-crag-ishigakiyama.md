@@ -13,7 +13,7 @@ description: "石垣山攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-ishigakiyama-en)
 
 愛別町的石垣山有柱狀節理，也有裂隙與岩面路線。這是北海道的石垣山；搜尋時加上「愛別」，避開其他縣的同名山。想練裂隙的人，先核對路線保護方式，別只照運攀裝備打包。
 
@@ -58,12 +58,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-
-```video-gallery
-key: japanIshigakiyama
-lang: zh-TW
-layout: routes
-```
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -113,6 +107,12 @@ layout: routes
 | 「苔の同門（左・フィスト）」 | 5.7 | 5.7 | 12 m／段數未列 | 頂上直下・見張り岩 | 來源：[在地 topo／記錄](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；圖文指南具名裂隙；長度依作者記錄，段數未列。 |
 | 「苔の同門（右・チムニー）」 | 5.7 | 5.7 | 12 m／段數未列 | 頂上直下・見張り岩 | 來源：[在地 topo／記錄](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；圖文指南具名裂隙；長度依作者記錄，段數未列。 |
 
+```video-gallery
+key: japanIshigakiyama
+lang: zh-TW
+layout: routes
+```
+
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
 中級線不只有面攀：YUMIKOMYLOVE、ヴァイキング等在圖文指南中有裂隙描述。級數或拼法不同的地方並列，不直接覆寫成單一版本。
@@ -146,6 +146,12 @@ layout: routes
 | 「青い空」 | 5.11c | 5.11c | 未列 | 相愛岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「蛍」 | 5.10 | 5.10 | 15 m／段數未列 | 頂上直下・見張り岩 | 來源：[在地 topo／記錄](http://yamanomakochan.blogspot.com/2021/05/climbingishigakiyama.html)；圖文指南具名裂隙；長度依作者記錄，段數未列。 |
 
+```video-gallery
+key: japanIshigakiyama
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 頭ならびに腹等線把裂隙和平衡岩面接在一起；有的線要持續攀爬很長一段，強度不能只看最難動作。
@@ -163,6 +169,12 @@ layout: routes
 | 「パリブレスト」 | 5.12b | 5.12b | 未列 | 相愛岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「アムリタ」 | 5.12c | 5.12c | 未列 | 相愛岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/49/routes) |
 | 「白い雪」 | 5.13a | 5.13a | 未列 | 相愛岩 | 來源： [RockTopo](https://www.rocktopo.net/areas/49/routes) |
+
+```video-gallery
+key: japanIshigakiyama
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

@@ -27,7 +27,7 @@ glossary:
     context: "Almost every evaluation and training environment in the second half of L6 reuses its task format."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-06-coding-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

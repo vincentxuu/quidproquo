@@ -12,7 +12,7 @@ series:
   order: 40
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-19-funding-magentic-en)
+> :globe: [English version](/posts/daily/2026-09-19-funding-magentic-en)
 
 
 ## 融資資訊

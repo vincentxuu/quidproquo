@@ -16,7 +16,7 @@ tldr: "本地沙箱管的是『agent 在你的機器上爆炸半徑多大』，�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution-en)
 
 ## 設計問題
 
@@ -70,6 +70,8 @@ looplane M6 選了第二題：真的把 Python agent loop 部署到 Cloudflare�
 
 [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) 的核心模型是一個 Durable Object class 即一台容器：Worker 用 [Containers](https://developers.cloudflare.com/containers/) binding 取得 `getSandbox()` handle，每個 instance 有自己的檔案系統與 exec 介面，生命週期由平台管理。looplane 把 run id 直接當 sandbox id，於是「一 run 一拋棄式容器」不需要自己寫排程器。capability 的強一致性需求（同一 run 的預算扣款不能 race）正是 [Durable Objects](https://developers.cloudflare.com/durable-objects/) 的設計用途——單點序列化，SQLite storage 保狀態。SSE 則是這類 SDK 常見的串流傳輸選擇，事件框架的代價就是消費端必須用對應的 decoder，MDN 對 [EventSource 資料格式](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)的描述可以直接對照 `streamFile()` 的輸入格式。
 
+上面描述的是 looplane 當時用的 Sandbox SDK 0.x。2026-09-30 推出的 SDK 1.0 改由自己寫的 Durable Object class 透過 `this.ctx.container` 控制 sandbox，`getSandbox()` 這層不再是主要介面；0.x 只收 bug 與安全修正到 2026-12-31。差異與遷移方式見〈[Cloudflare Sandboxes](/posts/ai/2026-08-22-cloudflare-sandboxes)〉。
+
 ## 改善路線
 
 按優先順序：
@@ -80,6 +82,10 @@ looplane M6 選了第二題：真的把 Python agent loop 部署到 Cloudflare�
 4. **保留本地沙箱這條線。** Codex 的 Landlock/seccomp 藍圖仍然適用——就算跑在容器裡，容器內的 process 也該有第二道牆。「雲端沙箱」不是跳過本地沙箱的理由，是多買了一層保險。
 
 一句話總結：五家教的都是怎麼在**你的**機器上縮小爆炸半徑；遠端執行要多回答三個新問題——憑證不落地、生命週期有人管、回傳通道要解碼——而這三題只有在真的部署之後才會變成具體的 bug。
+
+## 更新紀錄
+
+- 2026-11-23：工程依據段補上 Cloudflare Sandbox SDK 1.0（2026-09-30）改由自己的 Durable Object 控制 sandbox、0.x 維護到 2026-12-31，標明本文描述的是 0.x。
 
 ## 參考資料
 

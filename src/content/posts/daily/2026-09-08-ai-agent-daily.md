@@ -108,11 +108,11 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-08](/posts/daily/2026-09-08-ai-agent-arxiv-digest)
-- 📄 [模型卡｜MiniCPM5-2B](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b)
-- 📄 [工具推薦｜jmeter-mcp-server](/posts/daily/2026-09-08-tool-jmeter-mcp-server)
-- 📄 [AI Engineer 面試日練 — 2026-09-08：Deep Learning & NLP](/posts/daily/2026-09-08-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-08：Metrics & Analytics](/posts/daily/2026-09-08-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-08](/posts/daily/2026-09-08-ai-agent-arxiv-digest)
+- :file: [模型卡｜MiniCPM5-2B](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b)
+- :file: [工具推薦｜jmeter-mcp-server](/posts/daily/2026-09-08-tool-jmeter-mcp-server)
+- :file: [AI Engineer 面試日練 — 2026-09-08：Deep Learning & NLP](/posts/daily/2026-09-08-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-08：Metrics & Analytics](/posts/daily/2026-09-08-product-builder-interview-daily)
 
 ## 明日關注
 

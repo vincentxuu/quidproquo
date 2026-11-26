@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0)
+> :globe: [中文版](/posts/daily/2026-09-20-framework-microsoft-agent-framework-1.19.0)
 
 ## Release Info
 

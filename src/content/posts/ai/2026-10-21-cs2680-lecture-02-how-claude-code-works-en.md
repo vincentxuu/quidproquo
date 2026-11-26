@@ -21,7 +21,7 @@ glossary:
     context: "Lecture 2 contrasts it with skills: a skill is knowledge that's available, a hook is an action that's guaranteed."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-02-how-claude-code-works)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-skills, coding-agent, agent-platform, mcp-server]
 lang: zh-TW
 description: "trending 榜首不是新框架或新模型，是一個教 agent 審美判斷的 design skill——當寫程式能力變成標配，今天的戰場轉向品味、IDE 原生整合和多代理人桌面協作"
-tldr: "**pbakaus/impeccable**（⭐ 88,893）用 62 條規則定義「AI 生成介面的通病」並逐一修正；**JetBrains/thinkrail**（⭐ 2,638）把第三方 `pi` coding agent 包進自家 IDE，用 git worktree 隔離每個 agent 的工作；**nightly-labs/openbot**（⭐ 1,317）是本地優先的桌面 app，讓 Codex／Claude／Grok 等多個 agent 互相傳訊協作；**boyuchengz/canvas-mcp**（⭐ 115）是唯讀 MCP server，把大學課程管理系統 Canvas 接進 Claude／ChatGPT。今日無重要框架更新。"
+tldr: "**pbakaus/impeccable**（★ 88,893）用 62 條規則定義「AI 生成介面的通病」並逐一修正；**JetBrains/thinkrail**（★ 2,638）把第三方 `pi` coding agent 包進自家 IDE，用 git worktree 隔離每個 agent 的工作；**nightly-labs/openbot**（★ 1,317）是本地優先的桌面 app，讓 Codex／Claude／Grok 等多個 agent 互相傳訊協作；**boyuchengz/canvas-mcp**（★ 115）是唯讀 MCP server，把大學課程管理系統 Canvas 接進 Claude／ChatGPT。今日無重要框架更新。"
 series:
   name: "AI Agent GitHub Digest"
   order: 73
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-27-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-27-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### pbakaus/impeccable ⭐ 88,893
+### pbakaus/impeccable ★ 88,893
 
 [GitHub](https://github.com/pbakaus/impeccable)　·　Rust　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### JetBrains/thinkrail ⭐ 2,638
+### JetBrains/thinkrail ★ 2,638
 
 [GitHub](https://github.com/JetBrains/thinkrail)　·　TypeScript　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### nightly-labs/openbot ⭐ 1,317
+### nightly-labs/openbot ★ 1,317
 
 [GitHub](https://github.com/nightly-labs/openbot)　·　TypeScript　·　PolyForm Noncommercial 1.0.0
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### boyuchengz/canvas-mcp ⭐ 115
+### boyuchengz/canvas-mcp ★ 115
 
 [GitHub](https://github.com/boyuchengz/canvas-mcp)　·　JavaScript　·　MIT
 

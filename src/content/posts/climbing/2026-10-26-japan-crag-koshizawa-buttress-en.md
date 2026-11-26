@@ -13,7 +13,7 @@ description: "Koshizawa Buttress climbing guide: seasons, access, management rul
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-koshizawa-buttress)
 
 Koshizawa Buttress is an Okutama multipitch cliff where modest technical grades coexist with exposed approaches, older protection and sharp rock edges. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

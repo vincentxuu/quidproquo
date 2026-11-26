@@ -13,7 +13,7 @@ description: "A guide to the Laste crag: rock, scale and style on its four block
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-laste)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-laste)
 
 Laste is in the Agordino valley in the north of the province of Belluno, Veneto, in the municipality of Rocca Pietore, near Caprile and the mouth of the Val Pettorina. The crag wraps around four big blocks next to the hamlet of Ronch, looking straight at the north-west face of the Civetta. [CAI's Lo Scarpone](https://www.loscarpone.cai.it/dettaglio/fuga-dal-caldo-cinque-falesie-per-arrampicare-nelle-dolomiti-orientali/) calls it "probabilmente la falesia più emblematica delle Dolomiti Venete" (probably the most emblematic crag of the Veneto Dolomites).
 

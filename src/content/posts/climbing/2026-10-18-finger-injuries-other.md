@@ -30,7 +30,7 @@ glossary:
     context: "Hooper's Beta 指出側拉、扳點和大跨步時手腕歪向一側，是攀岩者的常見機轉。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-finger-injuries-other-en)
+> :globe: [English version](/posts/climbing/2026-10-18-finger-injuries-other-en)
 
 上一篇〈[手指滑車韌帶受傷](/posts/climbing/2026-10-18-finger-pulley-injury)〉講的是「啪」一聲之後的事。但很多手指痛沒有「啪」：可能是早上起床關節腫腫的、某一指一抓小點就刺痛，或用了一次單指洞後手掌深處痠到現在。
 

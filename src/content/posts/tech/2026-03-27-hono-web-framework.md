@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-hono-web-framework-en)
+:globe: [English version](/posts/tech/2026-03-27-hono-web-framework-en)
 
 Express 在 Node.js 上統治了超過十年，但在 Cloudflare Workers 上跑 Express 從一開始就是錯的。Workers 執行在 V8 Isolate 裡，不是 Node.js 環境，Express 的大量 Node.js API 依賴根本跑不動。Hono 就是為了解決這個問題而生的。
 
@@ -37,7 +37,7 @@ NobodyClimb 的後端就是用 Hono，部署在 Cloudflare Workers 上。選它�
 Express 的問題不是 API 設計不好，而是它預設 Node.js 存在：
 
 - `req.socket`、`res.end()`、`Buffer` 都是 Node.js-only API
-- Bundle size 吃掉 Workers 的 [script 大小上限](https://developers.cloudflare.com/workers/platform/limits/) 一大塊（免費與付費方案的上限不同：壓縮後 3 MB／10 MB，另有兩方案共通的壓縮前 64 MB 上限）
+- Bundle 越大，Worker 啟動越慢：[大小上限](https://developers.cloudflare.com/workers/platform/limits/) 2026-09 起兩方案都放寬到壓縮前 64 MiB，但全域程式碼要在 1 秒內跑完的啟動時間上限還在
 - 沒有原生的 async/await middleware 支援，錯誤處理容易漏
 
 在 Cloudflare Workers 環境下，你需要：
@@ -148,7 +148,7 @@ Routes 只管 OpenAPI 描述和 request validation，services 放業務邏輯，
 
 **適合的情境：**
 - 部署在 Cloudflare Workers、Deno Deploy、Bun
-- 需要小 bundle size（Workers 的限制）
+- 需要小 bundle、啟動快（Workers 有啟動時間上限）
 - 想要 Web Standard API 相容的 codebase
 - 從 Express 遷移，想要熟悉的 API 語法
 
@@ -165,6 +165,7 @@ Hono 很輕，但輕意味著你要自己組裝更多東西。Express 的生態�
 
 ## 更新紀錄
 
+- 2026-11-23：Workers 大小上限改為兩方案皆壓縮前 64 MiB（取消壓縮後 3 MB／10 MB），bundle 大小的影響改寫成啟動時間
 - 2026-08-19：對照官方文件逐篇查證翻新，移除易腐內容，並收進「Cloudflare 邊緣tech stack」系列
 
 ## 參考資料

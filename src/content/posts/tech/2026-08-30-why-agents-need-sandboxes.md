@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-why-agents-need-sandboxes-en)
+> :globe: [English version](/posts/tech/2026-08-30-why-agents-need-sandboxes-en)
 
 ## 核心觀點
 

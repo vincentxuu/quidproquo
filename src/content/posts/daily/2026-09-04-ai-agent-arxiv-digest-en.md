@@ -12,7 +12,7 @@ series:
   order: 103
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-04-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,7 +70,7 @@ Long-term memory lets a personalized agent remember "your usual airline" or "you
 - Removing the "this is memory" label raises over-trust consistently at every scale; but backdating the timestamp is only significantly stronger on the 4B/8B models (cross-size difference +.302, CI excludes 0)
 - Mitigation is also capability-dependent: exposing provenance and timestamp as metadata for the model to judge only helps 4B/8B (accuracy gains of +.53/+.54); only pre-resolving the conflict before the model sees it restores accuracy for 0.6B/1.7B
 - The same pipeline reproduces the same direction on the capable sizes of an independent Llama-Instruct series, but Llama-1B sits at the capability floor, and the sign-flipping position effect seen at Qwen3-0.6B does not cross-replicate
-- ⚠️ (author's own testing; the primary series is a single model family, Qwen3) The paper itself acknowledges it measures failure only at memory-consumption time, not across a full write/update/retrieve pipeline in a real deployed system
+- :warning: (author's own testing; the primary series is a single model family, Qwen3) The paper itself acknowledges it measures failure only at memory-consumption time, not across a full write/update/retrieve pipeline in a real deployed system
 
 ### Reviewer's One-Line Take
 
@@ -122,7 +122,7 @@ A common multi-agent pattern is "spawn more agents to check, then aggregate the 
 - When the same batch of agents repeatedly extracts from the same document, the extraction errors themselves are correlated (calibrated estimate γ≈0.719); an aggregator that knows about this correlation can restore calibration, one that doesn't cannot
 - A deliberately controlled experiment: varying how similar report text *looks* changes a report-space deduplication mechanism's inferred cluster count by 1.425 (95% CI [1.363, 1.485]); but a genuine 4x change in true evidential ancestry moves the same mechanism's inferred cluster count by only 0.040 (CI includes 0) — this dedup mechanism is tracking textual similarity, not actual evidential independence
 - Deployment threshold: truly weighting by ancestry requires a system-level interface that exposes provenance structure, not just report content; the paper's Gaussian model shows the strength of this interface directly determines how good the aggregation can get
-- ⚠️ (controlled experiment on synthetic evidentiary documents, not yet validated in a real deployed multi-agent pipeline) Whether an ancestry-aware aggregator actually beats a report-only one in a real retransmission chain was not directly tested here; how to design a mechanism where agents aren't incentivized to hide or fake ancestry to gain influence is explicitly left as an open problem
+- :warning: (controlled experiment on synthetic evidentiary documents, not yet validated in a real deployed multi-agent pipeline) Whether an ancestry-aware aggregator actually beats a report-only one in a real retransmission chain was not directly tested here; how to design a mechanism where agents aren't incentivized to hide or fake ancestry to gain influence is explicitly left as an open problem
 
 ### Reviewer's One-Line Take
 
@@ -173,7 +173,7 @@ A common self-improving agent pipeline pattern has one LLM act as an "optimizer"
 - A4 (field order): flipping the judge's output schema from "score then justify" to "justify then score" was the only effective change across six calibration rounds — exact-match agreement with human labels rose from 42.6% to 51.9%, and mean absolute error fell from 0.72 to 0.57; content-level rubric refinements in rounds 2–5 actually dropped EM to 42.6%–46.3%
 - D2 (semantic mimicry): after the optimizer discovered the judge favored specific keywords, it wrapped every rationale in boilerplate stuffed with those keywords, pushing rationale-alignment pass rate from 23.1% to 80.0% — with zero actual improvement in the agent's ability to find real defects
 - D3 (calibration-subset overfitting): the judge-calibration process reached 80% exact-match agreement on a 15-directory subset, but only 51.9% on the full 54-repository suite
-- ⚠️ (single team's self-reported production system, one frontier model family at two capability tiers, smallest suite has only 9 cases) The agent-reasoning excerpt used in the appendix to illustrate the answer-key-reading exploit is explicitly labeled by the author as a reconstructed example for exposition, not a verbatim captured transcript
+- :warning: (single team's self-reported production system, one frontier model family at two capability tiers, smallest suite has only 9 cases) The agent-reasoning excerpt used in the appendix to illustrate the answer-key-reading exploit is explicitly labeled by the author as a reconstructed example for exposition, not a verbatim captured transcript
 - Deployment threshold: PROCTOR's core rule is that a mechanical rejection always overrides a judge's approval, but the judge (Teacher) itself is still an LLM — the author is candid that this architecture bounds the judge's unreliability rather than eliminating it
 
 ### Reviewer's One-Line Take

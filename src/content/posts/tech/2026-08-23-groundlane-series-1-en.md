@@ -14,7 +14,7 @@ glossary:
   - term: "ssrf"
     definition: "Server-Side Request Forgery; Groundlane treats URLs, redirects, DNS answers, and browser subresources as untrusted inputs to reduce this risk."
 ---
-> 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-1)
+> :globe: [繁體中文版](/posts/tech/2026-08-23-groundlane-series-1)
 
 ## What Groundlane is (per repo self-description, not inference)
 
@@ -74,15 +74,11 @@ Cloudflare deployment requires two different secrets (explicitly required, not o
 
 The separation is a security design, not a formality: if a consent screen is phished, the attacker gains `OAUTH_OWNER_PASSPHRASE`, which is different from the bearer token used by all headless clients, so it cannot be reused directly across every client.
 
-## What this article verifies and what it does not claim
+## Version and scope
 
-Every technical claim in this article traces to verifiable sources:
+This article covers only features the repo already implements. Items listed as "Next" in the self-description (such as "automatic crawl" or "cache-aware routing") are not current features, and this article doesn't treat them as such.
 
-- `github.com/vincentxuu/groundlane` README and docs (retrieved via `curl` and source inspection, not from training memory).
-- `.claude/skills/groundlane` skill, which references `mcp__groundlane__*` tool routes consistent with the three tools described here.
-- No unimplemented feature is introduced (e.g. "automatic crawl" or "cache-aware routing" are listed as "Next" in the self-description, not current features).
-
-This article also explicitly marks the version as `0.1.0` early preview and repeats: any expectation about a future stable release should be verified against the official docs at that time, not taken from this series.
+Groundlane is currently a `0.1.0` early preview, and its interface may still change; for expectations about a future stable release, go by the official docs at that time, not by this series.
 
 ## What's next in the series
 
@@ -94,6 +90,10 @@ To give readers a clear roadmap, the remaining four parts (scope only, not full 
 5. **Part 5: Pitfalls and Best Practices** — `timeout`, `selector`, `render` mode, error handling, version-change risk, and security boundary recommendations.
 
 Shared principle across the series: technical descriptions are based on verifiable source and docs; in-site applications use existing skills and flows as facts; any mention of future features is explicitly labeled as "not yet implemented" or "subject to change in preview."
+
+## Update log
+
+- 2026-11-23: Rewrote "What this article verifies" as "Version and scope".
 
 ## References
 

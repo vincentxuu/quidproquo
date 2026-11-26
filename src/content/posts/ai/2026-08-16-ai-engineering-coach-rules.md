@@ -10,7 +10,7 @@ description: "拆解 microsoft/AI-Engineering-Coach 的 45 條反模式規則：
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-ai-engineering-coach-rules-en)
+> :globe: [English version](/posts/ai/2026-08-16-ai-engineering-coach-rules-en)
 
 [AI Engineer Coach](https://github.com/microsoft/AI-Engineering-Coach) 是一個讀你本機 AI coding session log、然後告訴你哪裡用得不好的 VS Code extension。它有 3,548 顆星、MIT 授權、約 59,000 行 TypeScript，README 結尾寫明「這是微軟員工的開源社群專案，**不是** Microsoft 官方產品」。
 

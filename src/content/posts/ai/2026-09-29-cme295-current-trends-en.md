@@ -30,7 +30,7 @@ glossary:
     context: "The lecture uses it to show how diffusion moves from images to text."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-current-trends)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-current-trends)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

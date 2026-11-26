@@ -12,7 +12,7 @@ series:
   order: 45
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-20-funding-kastle)
+> :globe: [中文版](/posts/daily/2026-09-20-funding-kastle)
 
 ## Funding Details
 

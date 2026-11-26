@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool)
+> :globe: [中文版](/posts/daily/2026-09-17-tool-symfony-ai-mcp-tool)
 
 ## Tool Info
 
@@ -92,11 +92,11 @@ $eventDispatcher->addListener(ToolCallRequested::class, function (ToolCallReques
 
 | | symfony/ai-mcp-tool | Hand-written adapter | LangChain `langchain-mcp-adapters` (Python) |
 |---|---|---|---|
-| Officially maintained, tracks framework releases | ✅ | — | ✅ (LangChain-maintained) |
-| Auto-prefixes names across multiple servers | ✅ | You build it | ✅ |
-| Circuit breaker on connection failure | ✅ (`retryAfter`) | You build it | Depends on the underlying client |
-| Tool calls can be intercepted/denied | ✅ (event system) | You build it | You wrap it yourself |
-| PHP ecosystem | ✅ | ✅ | ❌ (Python) |
+| Officially maintained, tracks framework releases | ✓ | — | ✓ (LangChain-maintained) |
+| Auto-prefixes names across multiple servers | ✓ | You build it | ✓ |
+| Circuit breaker on connection failure | ✓ (`retryAfter`) | You build it | Depends on the underlying client |
+| Tool calls can be intercepted/denied | ✓ (event system) | You build it | You wrap it yourself |
+| PHP ecosystem | ✓ | ✓ | ✗ (Python) |
 
 ## Caveats
 

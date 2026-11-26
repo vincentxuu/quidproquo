@@ -10,7 +10,7 @@ description: "從一個真實的 AI Agent 不主動使用搜尋工具的案例�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-18-llm-tool-discovery-en)
+> :globe: [English version](/posts/ai/2026-09-18-llm-tool-discovery-en)
 
 Agent 有能力做一件事，跟 Agent 知道自己能做這件事，是兩回事。
 
@@ -86,9 +86,9 @@ WORKFLOW:
 
 | 寫法 | 效果 |
 |---|---|
-| ❌ 「Do NOT say you cannot find a file」 | Agent 知道不該說，但可能換個方式表達同樣的意思 |
-| ✅ 「Your FIRST step is list_workspaces」 | Agent 有明確的第一步行動 |
-| ✅✅ 兩者並用 | 正面指令在前，防護語在後 |
+| ✗ 「Do NOT say you cannot find a file」 | Agent 知道不該說，但可能換個方式表達同樣的意思 |
+| ✓ 「Your FIRST step is list_workspaces」 | Agent 有明確的第一步行動 |
+| ✓✓ 兩者並用 | 正面指令在前，防護語在後 |
 
 OpenAI 的建議同樣偏向正面指令：「Use the system prompt to describe when (and when not) to use each function. Generally, tell the model _exactly_ what to do.」——先說什麼時候用，再說什麼時候不用。
 
@@ -150,7 +150,7 @@ IMPORTANT: never tell the user you cannot find a file
 without completing this workflow first.
 ```
 
-差異：觸發條件（WHEN TO USE）、第一步行動、完整流程、防護語——全部在 tool description 裡，一個地方講完。用六要素檢查：Purpose ✅、Guidelines ✅、Limitations（隱含在 workflow 裡）、Parameter Explanation ✅、Length（約 120 字）、Examples（可再加）。
+差異：觸發條件（WHEN TO USE）、第一步行動、完整流程、防護語——全部在 tool description 裡，一個地方講完。用六要素檢查：Purpose ✓、Guidelines ✓、Limitations（隱含在 workflow 裡）、Parameter Explanation ✓、Length（約 120 字）、Examples（可再加）。
 
 ## 適用場景與限制
 

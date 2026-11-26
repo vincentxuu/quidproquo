@@ -30,7 +30,7 @@ glossary:
     context: "Most lead-anxiety studies test climbers onsight."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-mental-tactics-overview)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-mental-tactics-overview)
 
 You've just got your gym lead card. There's a 5.10a you've top-roped several times. On lead, one move above the third quickdraw, your hands clamp down, your legs start shaking, and you call take. Back on the ground you're confused: you know you can climb it, so what happened?
 

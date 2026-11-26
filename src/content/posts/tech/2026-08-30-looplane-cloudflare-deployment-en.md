@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-cloudflare-deployment)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-cloudflare-deployment)
 
 The [previous IDE/LSP bridge article](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge-en) completes the local path through orders 0–18. This capstone asks which local guarantees survive the Worker/container boundary and which responsibilities must move into a remote control plane.
 

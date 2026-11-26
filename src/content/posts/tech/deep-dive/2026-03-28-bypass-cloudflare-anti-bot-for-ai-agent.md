@@ -13,7 +13,7 @@ description: "實測三種方案繞過 Cloudflare 反爬蟲：原生 Playwright�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-bypass-cloudflare-anti-bot-for-ai-agent-en)
 
 AI agent 需要上網查資料，但越來越多網站用 Cloudflare 反爬蟲。標準的 Playwright 會直接被擋下來，這篇記錄從發現問題到建出 MCP server 的完整過程。
 

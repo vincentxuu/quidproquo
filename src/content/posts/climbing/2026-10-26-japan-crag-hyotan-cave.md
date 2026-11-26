@@ -13,7 +13,7 @@ description: "葫蘆洞攀岩指南：季節、大眾運輸、停車、在地出
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-hyotan-cave-en)
 
 岩泉的葫蘆洞以石灰岩洞穴和陡攀聞名，但モダン、若葉等子區也有較低級數。隊伍程度混合時，先查大家各自要去的岩面，別把「洞穴」理解成所有人都只能爬屋簷。
 
@@ -58,12 +58,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 
 
-
-```video-gallery
-key: japanHyotanCave
-lang: zh-TW
-layout: routes
-```
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -116,6 +110,12 @@ layout: routes
 | 「ピグモン」 | 5.11a | 5.11a | 未列 | 若葉エリア | 來源： [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「ポケモン」 | 5.11c | 5.11c | 未列 | 若葉エリア | 來源： [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 
+```video-gallery
+key: japanHyotanCave
+lang: zh-TW
+layout: routes
+```
+
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 
 石灰岩的陡度與連續動作是這一組的主題；不能因大洞窟和モダン靠近，就預設所有線長度相同。
@@ -149,6 +149,12 @@ layout: routes
 | 「スカイツリー２４」 | 5.11d | 5.11d | 未列 | 発掘エリア | 來源： [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「Dangerous father」 | 5.11d | 5.11d | 未列 | 発掘エリア | 來源： [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「HappyBirthdayOssa」 | 5.12a | 5.12a | 未列 | 発掘エリア | 來源： [RockTopo](https://www.rocktopo.net/areas/64/routes) |
+
+```video-gallery
+key: japanHyotanCave
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

@@ -13,7 +13,7 @@ description: "A guide to climbing in Salento at Ciolo and Mannute: rock, scale, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-salento)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-salento)
 
 Salento is the very tip of Italy's "heel", in the province of Lecce in Puglia. The climbing is at the southern end, near Santa Maria di Leuca, a few kilometres north along the SP358 coast road. One spot is the Ciolo fjord, which runs under the Ponte Ciolo bridge. The other is the Mannute caves, about 3 km south, hanging halfway up the sea cliffs. The limestone cliffs along the open sea are used for deep water solo (DWS).
 

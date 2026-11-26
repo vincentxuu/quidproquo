@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-scaleway-cloud-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-scaleway-cloud-platform-en)
 
 [Scaleway](https://www.scaleway.com/en/docs/) 是歐洲 public cloud。產品已涵蓋 CPU/GPU Instance、Elastic Metal、Kubernetes、Serverless Containers/Functions/Jobs 與 managed/serverless database。其他服務還有 object/block/file storage、VPC、IAM、secret/key manager、queue/event 與 Generative APIs。
 

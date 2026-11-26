@@ -13,7 +13,7 @@ description: "A step-by-step guide to the first two final-project deliverables i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-lit-review-experiment-protocol)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

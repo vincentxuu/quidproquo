@@ -10,7 +10,7 @@ description: "A component-by-component guide to Vapi phone and web calls, assist
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-08-22-vapi-voice-agents)
+:globe: [中文版](/posts/ai/2026-08-22-vapi-voice-agents)
 
 [Vapi](https://docs.vapi.ai/quickstart/introduction) is a managed voice-agent orchestration platform. It streams phone or WebRTC audio through speech-to-text (STT), an LLM, and text-to-speech (TTS), manages turns, interruptions, transfers, and tool calls, then records transcripts, latency, and outcomes for each call. It is not a better voice model. It is the runtime that prevents several realtime services from colliding inside one conversation.
 

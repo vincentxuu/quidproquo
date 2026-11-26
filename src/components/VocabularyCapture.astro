@@ -48,7 +48,11 @@ const en = lang === 'en';
   .vocabulary-capture p { margin: 0 0 .6rem; color: var(--text-primary); font-size: .875rem; font-weight: 400; }
   .vocabulary-capture .vocabulary-hint { font-size: .8rem; color: color-mix(in srgb, var(--text-primary) 72%, var(--bg-page)); margin-top: .65rem !important; }
   button { min-height: 44px; font: inherit; padding: .55rem .8rem; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-subtle); color: var(--text-primary); cursor: pointer; }
-  a { margin-left: .8rem; color: var(--brand-500); }
+  /* 跟本文連結同一套規則（PostLayout .content a）：深色字＋淡綠底線，hover 底線轉品牌綠；深色模式平時就用品牌綠底線、hover 字轉 --brand-900 */
+  a { margin-left: .8rem; color: var(--brand-700); text-decoration: underline; text-decoration-color: var(--brand-300); text-underline-offset: 3px; transition: text-decoration-color 0.15s; }
+  a:hover { text-decoration-color: var(--brand-500); }
+  :global([data-theme="dark"]) a { text-decoration-color: var(--brand-500); }
+  :global([data-theme="dark"]) a:hover { color: var(--brand-900); }
   dialog { width: min(680px, calc(100vw - 2rem)); max-height: 85dvh; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; background: var(--bg-card); color: var(--text-primary); padding: 1.25rem; }
   dialog::backdrop { background: rgb(0 0 0 / .5); }
   h2 { margin: 0 0 1rem; font-size: 1.2rem; }

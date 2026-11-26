@@ -10,7 +10,7 @@ description: "DeepSeek-OCR is not just another OCR model. Its architecture (Deep
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression)
+> :globe: [中文版](/posts/ai/2026-05-09-deepseek-ocr-contexts-optical-compression)
 
 October 2025 was an OCR explosion -- over six open-source OCR/VLM models released in a single month. But DeepSeek-OCR is not just another one riding the wave. Its paper is titled **Contexts Optical Compression**: OCR is the means; context compression is the goal. If this approach works out, the cost of long context in future LLMs may no longer be measured in token count, but in pixel count.
 

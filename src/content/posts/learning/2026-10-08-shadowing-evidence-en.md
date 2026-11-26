@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-08-shadowing-evidence)
+> :globe: [中文版](/posts/learning/2026-10-08-shadowing-evidence)
 
 In September I wrote [a post on practicing spoken English for work](/posts/learning/2026-09-03-work-english-speaking-tips-en) and put shadowing first among the methods. My sources were two articles from English-learning platforms. Over the past two days I went back to the research while building my own speaking practice area, and found that I had claimed more than the evidence supports. This post adds what the research says, what shadowing is good for, and what it does not train.
 

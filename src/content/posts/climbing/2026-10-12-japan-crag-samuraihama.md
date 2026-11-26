@@ -13,7 +13,7 @@ description: "介紹岩手縣久慈市侍浜的海岸花崗岩岩場：規模與
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-samuraihama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-samuraihama-en)
 
 侍浜（さむらいはま，Samuraihama）在岩手縣久慈市北邊的三陸海岸，[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%BE%8D%E6%B5%9C/) 標的地點是「岩手県久慈市北侍浜」，岩質是花崗岩。一個名字底下有抱石、bolt 運動攀登、crack 和頂繩四種攀登方式，CLIMBING-net 說「侍浜のエリアは10カ箇所以上ある」。這是本系列第一篇東北岩場。
 
@@ -129,7 +129,7 @@ ROCKTOPO 的子區域：
 
 ROCKTOPO 的「[侍浜の評価の高いルート](https://www.rocktopo.net/areas/63/popular_routes/all)」（2026-10-12）列出：
 
-- 入学試験（5.10a，展望台下エリア）：ROCKTOPO 描述「花崗岩の長いスラブフェイスの⭐️⭐️⭐️⭐️ルート。ムーブが楽しい」。
+- 入学試験（5.10a，展望台下エリア）：ROCKTOPO 描述「花崗岩の長いスラブフェイスの★★★★ルート。ムーブが楽しい」。
 - YellowWave（5.9，展望台下エリア）：「ダイクが面で剥がれたような、インパクトあるオレンジ色のスラブ」。
 - 海は広いな大きいな（5.8）、中間試験（5.10b）、追試（5.10b）、東風（やませ）（5.11c）：都在展望台下エリア。
 - 抱石：Cappellini（1級-，侍石エリア）、ブロンズ（7級，Voxボルダー）、ハングドッグフライヤーJr.（7級，Voxボルダー）。

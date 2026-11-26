@@ -15,7 +15,7 @@ glossary:
     definition: "web_fetch 的 render 參數（auto / never / always）；決定是否啟用瀏覽器渲染，直接影響來源證據（engine/backend）與操作成本。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-23-groundlane-series-5-en)
+> :globe: [English version](/posts/tech/2026-08-23-groundlane-series-5-en)
 
 這篇不重複前四篇的內容（概念、工具實戰、傳統對比、站內應用），而是把實際操作中最容易出錯的點整理為可執行的檢查清單。每條建議均可追溯至 `v0.1.0` 目前可驗證的行為（自述、文件結構、預設限制、安全說明），而非推測未來改進。若某項建議依賴未實作功能，會明確標示為「目前不可執行」而非建議執行。
 

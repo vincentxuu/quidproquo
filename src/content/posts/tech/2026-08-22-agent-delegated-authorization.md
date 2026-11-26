@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-agent-delegated-authorization-en)
+> :globe: [English version](/posts/tech/2026-08-22-agent-delegated-authorization-en)
 
 當 AI agent「代替使用者」寄信、付款或改 production，問題不只是 authentication。系統必須同時知道：誰委託、哪個 agent/client 在執行、能對哪個 resource 做哪個 action、有效多久，以及是否需要再次確認。
 

@@ -22,7 +22,7 @@ glossary:
     context: "TODO3 and TODO7 in HW1 use it to plot the family subcategory."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-hw1-word-analogy)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

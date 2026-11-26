@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-🌏 [English version](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en)
+:globe: [English version](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain-en)
 
 ## TL;DR
 

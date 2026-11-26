@@ -13,7 +13,7 @@ description: "Comparing code mode in codex and opencode, including looplane's im
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-code-mode)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-code-mode)
 
 This is part 37 of the series, and the topic is newer than previous entries: only two of the five reference projects have shipped it, both still iterating fast. Scope note as always — pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), claude-code (community decompiled v2.1.88). I actually grepped `code mode`, `codemode`, and `code_mode` in local clones: pi, omp, and claude-code have no corresponding implementation. So this post is honestly shorter, covering only the two that built it.
 

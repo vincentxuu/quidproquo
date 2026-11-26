@@ -14,7 +14,7 @@ description: "A guide to CMU 07-380 Fall 2026 Lecture 4, Motion Planning: config
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
+> :globe: [中文版](/posts/learning/2026-09-29-cmu-07380-lecture-04-motion-planning-rrt)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
@@ -141,7 +141,7 @@ Official sources:
 
 - [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Official materials and scope
 
@@ -157,6 +157,7 @@ Checked on 2026-10-10.
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-verified the live official course pages and public video sources; no public recording for this lecture was found, so the status stands.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

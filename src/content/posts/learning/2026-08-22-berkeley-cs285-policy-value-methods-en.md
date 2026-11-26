@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs285-policy-value-methods)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

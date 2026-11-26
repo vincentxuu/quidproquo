@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide)
 
 The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) mentioned that trusted commands can be whitelisted in `.claude/settings.json`; the [.claude directory tour](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory-en) covered the rest of the folder. This post finishes the story of the main character itself: settings.json is the control center for Claude Code behavior — default model, permission rules, hooks, status line, environment variables all come from here. Understanding it comes down to two questions: **which layer does a file live in**, and **when two layers set the same key, who wins**.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-kamal-deployment-tool-en)
+> :globe: [English version](/posts/tech/2026-08-22-kamal-deployment-tool-en)
 
 [Kamal](https://kamal-deploy.org/docs/installation/) 是從 CLI/CI 透過 SSH 部署 Docker image 的工具，不是常駐 dashboard 或 cluster scheduler。`config/deploy.yml` 宣告 service、image、servers、roles、registry、environment 與 proxy；遠端主機只需 Docker、kamal-proxy 和被部署的 containers。
 

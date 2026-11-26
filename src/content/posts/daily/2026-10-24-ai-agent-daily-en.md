@@ -12,7 +12,7 @@ series:
   order: 70
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-24-ai-agent-daily)
 
 ## Today's Take
 
@@ -92,8 +92,8 @@ caption: Time is measured from the start of password spraying (10/10) as T+0; wh
 
   <line class="dg-rule" x1="60" y1="76" x2="60" y2="136"/>
   <circle class="dg-dot" cx="60" cy="140" r="4"/>
-  <text class="dg-label" x="60" y="40" text-anchor="middle" dominant-baseline="central">Spraying begins</text>
-  <text class="dg-sub" x="60" y="62" text-anchor="middle" dominant-baseline="central">2,900/min × 2,250 tenants</text>
+  <text class="dg-label" x="48" y="40" text-anchor="start" dominant-baseline="central">Spraying begins</text>
+  <text class="dg-sub" x="48" y="62" text-anchor="start" dominant-baseline="central">2,900/min × 2,250 tenants</text>
 
   <line class="dg-rule" x1="310" y1="146" x2="310" y2="188"/>
   <circle class="dg-dot dg-dot--accent" cx="310" cy="140" r="6"/>
@@ -185,17 +185,17 @@ We also checked Taiwan and the Middle East today: the only Taiwan-specific hit w
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-github-digest-en)
-- 📄 [Framework Update｜CrewAI 1.15.29](/posts/daily/2026-10-24-framework-crewai-1.15.29-en)
-- 📄 [Framework Update｜Inngest v1.49.0](/posts/daily/2026-10-24-framework-inngest-v1.49.0-en)
-- 📄 [Funding Brief｜AuxoAI raises $20.7M Series A](/posts/daily/2026-10-24-funding-auxoai-en)
-- 📄 [Funding Brief｜Blacksmith raises $66M Series C](/posts/daily/2026-10-24-funding-blacksmith-en)
-- 📄 [Funding Brief｜Qualitate raises $25M Series A](/posts/daily/2026-10-24-funding-qualitate-en)
-- 📄 [Pricing Tracker｜Cursor folds into The X Subscription](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement-en)
-- 📄 [Tool of the Day｜broll-mcp](/posts/daily/2026-10-24-tool-broll-mcp-en)
-- 📄 [AI Engineer Interview Prep](/posts/daily/2026-10-24-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep](/posts/daily/2026-10-24-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-24](/posts/daily/2026-10-24-ai-agent-github-digest-en)
+- :file: [Framework Update｜CrewAI 1.15.29](/posts/daily/2026-10-24-framework-crewai-1.15.29-en)
+- :file: [Framework Update｜Inngest v1.49.0](/posts/daily/2026-10-24-framework-inngest-v1.49.0-en)
+- :file: [Funding Brief｜AuxoAI raises $20.7M Series A](/posts/daily/2026-10-24-funding-auxoai-en)
+- :file: [Funding Brief｜Blacksmith raises $66M Series C](/posts/daily/2026-10-24-funding-blacksmith-en)
+- :file: [Funding Brief｜Qualitate raises $25M Series A](/posts/daily/2026-10-24-funding-qualitate-en)
+- :file: [Pricing Tracker｜Cursor folds into The X Subscription](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement-en)
+- :file: [Tool of the Day｜broll-mcp](/posts/daily/2026-10-24-tool-broll-mcp-en)
+- :file: [AI Engineer Interview Prep](/posts/daily/2026-10-24-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep](/posts/daily/2026-10-24-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement)
+> :globe: [中文版](/posts/daily/2026-10-24-pricing-cursor-x-subscription-pro-retirement)
 
 ## Summary
 
@@ -68,7 +68,7 @@ Cursor's Super ($100) and Ultra ($200) land right on Claude Max's two price poin
 
 ## Timing Note
 
-⚠️ **Plan change**: since 2026-10-12, new users can only sign up for one of the five X Subscription tiers. The old Hobby/Pro/Pro+/Teams plans remain available to existing subscribers only, with no announced end date — assume it could be withdrawn at any time.
+:warning: **Plan change**: since 2026-10-12, new users can only sign up for one of the five X Subscription tiers. The old Hobby/Pro/Pro+/Teams plans remain available to existing subscribers only, with no announced end date — assume it could be withdrawn at any time.
 
 ## Today's Takeaway
 

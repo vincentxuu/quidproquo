@@ -18,7 +18,7 @@ glossary:
     context: "《無間警探》《冰血暴》都是選集劇，可以只挑其中一季看。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-05-us-tv-crime-mystery-politics-en)
+> :globe: [English version](/posts/film/2026-11-05-us-tv-crime-mystery-politics-en)
 
 這篇收的是美國的犯罪、推理與政治劇：從化學老師變毒梟、巴爾的摩的毒品戰爭，到路易斯安那的懸案、白宮的權謀和 CIA 的反恐戰。21 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。
 

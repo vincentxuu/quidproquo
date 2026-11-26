@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-speaking-practice-selection-guide)
+> :globe: [中文版](/posts/learning/2026-10-19-speaking-practice-selection-guide)
 
 After reading several English platform introductions, something about each may appeal: frequent lessons, a chosen tutor, a classroom or an intensive trip. The decision is which arrangement lets you keep working on your actual speaking difficulty.
 

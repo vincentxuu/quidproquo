@@ -21,17 +21,30 @@ const ROOT = resolve('.');
 const results = [];
 const execAsync = promisify(exec);
 
+// 會開瀏覽器的步驟（diagram-preview）一次最多跑 3 個：一次暫存幾十篇有圖的文章時，全部平行開瀏覽器會
+// 把機器塞滿、page.goto 逾時，紅燈其實不是圖壞了（2026-11-19 一次修 162 篇時 57 項全是逾時）。
+const BROWSER_SLOTS = 3;
+let browserBusy = 0;
+const browserQueue = [];
+const acquireBrowser = () => (browserBusy < BROWSER_SLOTS ? (browserBusy++, Promise.resolve()) : new Promise((r) => browserQueue.push(r)));
+const releaseBrowser = () => { const next = browserQueue.shift(); if (next) next(); else browserBusy--; };
+
 async function runStep(name, command) {
+  const usesBrowser = /diagram-preview/.test(command);
+  if (usesBrowser) await acquireBrowser();
   try {
-    await execAsync(command, {
+    const { stdout } = await execAsync(command, {
       cwd: ROOT,
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
-    return { name, ok: true };
+    const warnings = stdout.split('\n').filter((l) => l.startsWith('WARN check:'));
+    return { name, ok: true, warnings };
   } catch (error) {
     const out = [error.stdout, error.stderr].map((s) => s?.toString().trim()).filter(Boolean).join('\n');
     return { name, ok: false, detail: out || error.message };
+  } finally {
+    if (usesBrowser) releaseBrowser();
   }
 }
 
@@ -45,6 +58,13 @@ function checkProgress() {
     const lineCount = text.split('\n').length;
     if (!/^Last updated: \d{4}-\d{2}-\d{2}$/m.test(text)) {
       problems.push('progress.txt needs a "Last updated: YYYY-MM-DD" line');
+    }
+    // 每日 routine 一天十支都寫同幾行，本機有沒推的 commit 就必衝突（2026-11-09）。routine 改寫 .work/daily-log/。
+    const routineLines = text.split('\n').filter((l) => /^- \*\*daily-digest-/.test(l));
+    if (routineLines.length > 0) {
+      problems.push(
+        `progress.txt has ${routineLines.length} daily-digest routine entr${routineLines.length === 1 ? 'y' : 'ies'} — routines write .work/daily-log/<date>/<skill>.md instead (daily-digest-common E3)`
+      );
     }
     if (lineCount > 90) {
       problems.push(
@@ -145,6 +165,7 @@ const FULL_STEPS = [
   ['check:references', 'pnpm check:references'],
   ['check:post-quality', 'pnpm check:post-quality'],
   ['check:tw (台灣用語 A 級)', 'pnpm check:tw'],
+  ['chat-style regression tests', 'node scripts/check-chat-style.mjs --self-test'],
   ['check:chat-style', 'pnpm check:chat-style'],
   ['check:glossary', 'pnpm check:glossary'],
   ['check:series-order', 'pnpm check:series-order'],
@@ -154,6 +175,8 @@ const FULL_STEPS = [
   ['course source layout gate', 'node .agents/skills/post/scripts/check-course-guide-layout.mjs'],
   ['process-leak regression tests', 'node scripts/check-process-leak.mjs --self-test'],
   ['dev wrapper regression tests', 'node scripts/dev.mjs --self-test'],
+  // session-start 的 dirty 預警：pull 前要指出哪些未 commit 檔案會和 origin/main 撞（2026-11-13 事故）。
+  ['session-start git status regression tests', 'node scripts/session-start.mjs --self-test'],
   // 全站只計數（既有文章回填中）；被暫存的文章在 --staged 逐篇阻擋，含退回完整 verify 的情況。
   ['process-leak (全站計數)', 'node scripts/check-process-leak.mjs'],
   ['series-plan regression tests', 'node scripts/check-series-plan.mjs --self-test'],
@@ -166,10 +189,20 @@ const FULL_STEPS = [
   // 岩場文章（baseline 外）：模板條件段要有結論、影片統計要和分級表實際覆蓋一致（見 crag-guide-contract「條件段」）。
   ['crag coverage regression tests', 'node scripts/check-crag-coverage.mjs --self-test'],
   ['check:crag-coverage', 'pnpm check:crag-coverage'],
+  // layout: routes 沒緊接表格時，外掛拋錯、整篇內文變空白而 build 仍成功（2026-10-26 的 44 篇）。
+  ['route-video-fences regression tests', 'node scripts/check-route-video-fences.mjs --self-test'],
+  ['check:route-video-fences', 'node scripts/check-route-video-fences.mjs'],
+  ['rendered-posts regression tests', 'node scripts/check-rendered-posts.mjs --self-test'],
   // ```diagram 的連線幾何：箭頭尖端不可縮進框裡、不穿框、不交叉不跳線、只用直角（diagram skill primitives.md 連線規則）。
   // diagram-preview 只看文字，不看線；純 Node、全站不到 1 秒，所以全站與 --staged 都跑。
   ['diagram geometry regression tests', 'node scripts/check-diagram-geometry.mjs --self-test'],
   ['check:diagram-geometry', 'pnpm check:diagram-geometry'],
+  // 文字版面的靜態檢查：雲端排程沒有瀏覽器時 diagram-preview 會跳過，這支是那時唯一擋得住字疊字的檢查。
+  ['diagram text regression tests', 'node scripts/check-diagram-text.mjs --self-test'],
+  ['check:diagram-text', 'pnpm check:diagram-text'],
+  // 原始稿不放 emoji（網站用 koboyo 圖示；寫 :globe: 這類 shortcode 或 ✓ ✗ ★）。code 區塊裡的不算。修法：pnpm emoji:fix <檔案>。
+  ['no-emoji regression tests', 'pnpm exec tsx scripts/check-no-emoji.ts --self-test'],
+  ['check:no-emoji', 'pnpm check:no-emoji'],
   ['check:course-videos', 'pnpm check:course-videos'],
   ['check:seo-smoke', 'pnpm check:seo-smoke'],
   // 截圖比對不擋部署，但每個 compareScreenshot() 至少要有 -linux 基線，否則那組比對永遠紅、等於沒在審。
@@ -183,7 +216,14 @@ const FULL_STEPS = [
 // 安全邊界：暫存區只有文章、skill／docs 的 Markdown、.work、progress.txt 時才縮小範圍；
 // 只要動到程式碼、設定、腳本，或刪除／改名文章（別篇可能連過來），一律退回完整 verify。
 function stagedPlan() {
-  const out = execSync('git diff --cached --name-status -M', { cwd: ROOT, encoding: 'utf8' });
+  // merge commit（git pull 產生）時，對 HEAD 的 diff 會含遠端已推上去的全部改動，
+  // 等於替別人的 commit 重跑逐篇檢查（2026-11-09：194 篇遠端 daily 文章的圖表截圖擋住 merge）。
+  // 改成對 MERGE_HEAD 比，只檢查本機這一側帶進來的改動；遠端那側由它自己的 commit／CI 負責。
+  let base = '';
+  try {
+    base = execSync('git rev-parse -q --verify MERGE_HEAD', { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
+  } catch {}
+  const out = execSync(`git diff --cached --name-status -M ${base}`, { cwd: ROOT, encoding: 'utf8' });
   const entries = out.split('\n').filter(Boolean).map((line) => {
     const [status, ...paths] = line.split('\t');
     return { status: status[0], path: paths.at(-1) };
@@ -195,8 +235,11 @@ function stagedPlan() {
     || /^docs\/.+\.md$/.test(p)
     || p.startsWith('.work/')
     || p === 'progress.txt';
+  // 依賴與 CI 設定：不改原始碼，完整 verify（含 astro check）在 CI 跑；本機只跑 lint，
+  // 免得每次升版都在 pre-commit 卡半小時（2026-11-26 astro 升版卡 28 分鐘）。
+  const isDepsOrCi = (p) => p === 'package.json' || p === 'pnpm-lock.yaml' || p.startsWith('.github/');
   const fullReason =
-    entries.find((e) => !isSafe(e.path))?.path
+    entries.find((e) => !isSafe(e.path) && !isDepsOrCi(e.path))?.path
     ?? entries.find((e) => isPost(e.path) && (e.status === 'D' || e.status === 'R'))?.path;
   const posts = entries.filter((e) => isPost(e.path) && e.status !== 'D').map((e) => e.path);
   const quote = (files) => files.map((f) => `'${f.replaceAll("'", "'\\''")}'`).join(' ');
@@ -208,9 +251,13 @@ function stagedPlan() {
     ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
     ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
     ['crag-coverage (staged)', `node scripts/check-crag-coverage.mjs ${quote(posts)}`],
+    ['route-video-fences (staged)', `node scripts/check-route-video-fences.mjs ${quote(posts)}`],
     ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),
   ] : [];
-  if (fullReason) return { full: true, reason: fullReason, extra: leakStep };
+  // 課程影片查核日期過期是「時間到了」，不是這次 commit 造成的：pre-commit 只擋暫存的文章，
+  // 其餘過期項目印 WARN；全站過期由 CI 的完整 verify 擋 deploy（2026-11-09 全站同日過期擋住所有 commit）。
+  const courseVideosStep = ['check:course-videos', `node scripts/check-course-videos.mjs --stale-scope ${quote(posts)}`];
+  if (fullReason) return { full: true, reason: fullReason, extra: leakStep, courseVideosStep };
 
   const zhPosts = posts.filter((p) => !p.endsWith('-en.md'));
   const pick = (...names) => FULL_STEPS.filter(([name]) => names.includes(name));
@@ -225,8 +272,10 @@ function stagedPlan() {
     if (zhPosts.length > 0) steps.push(['check:tw (staged)', `node scripts/check-tw-terms.mjs ${quote(zhPosts)}`]);
     // 這些看的是文章之間的關係（系列編號、中英成對、課程標題與版面），本來就要全站看；實測每項 2 秒內。
     steps.push(...pick('check:chat-style', 'check:series-order', 'course title gate', 'course source layout gate',
-      'check:lang-parity', 'check:grades', 'check:course-videos', 'check:seo-smoke', 'check:diagram-geometry'));
+      'check:lang-parity', 'check:grades', 'check:seo-smoke', 'check:diagram-geometry', 'check:diagram-text'), courseVideosStep);
+    steps.push(['check:no-emoji (staged)', `pnpm exec tsx scripts/check-no-emoji.ts ${quote(posts)}`]);
   }
+  if (entries.some((e) => isDepsOrCi(e.path))) steps.push(...pick('lint (oxlint)'));
   if (entries.some((e) => /^(\.agents|\.claude)\/skills\//.test(e.path))) {
     steps.push(...pick('skills-sync (.agents ↔ .claude)', 'skill-anchors (章節連結)'));
   }
@@ -238,7 +287,7 @@ let header = '=== pnpm verify ===';
 if (process.argv.includes('--staged')) {
   const plan = stagedPlan();
   if (plan.full) {
-    steps = [...FULL_STEPS, ...plan.extra];
+    steps = [...FULL_STEPS.map((s) => (s[0] === 'check:course-videos' ? plan.courseVideosStep : s)), ...plan.extra];
     header = `=== pnpm verify --staged → 完整 verify（暫存區含 ${plan.reason}）===`;
   } else {
     steps = plan.steps;
@@ -258,6 +307,7 @@ let failed = 0;
 process.stdout.write(`\n${header}\n`);
 for (const r of results) {
   process.stdout.write(`${r.ok ? '✅' : '🔴'} ${r.name}\n`);
+  for (const w of r.warnings ?? []) process.stdout.write(`     ⚠ ${w.replace(/^WARN /, '')}\n`);
   if (!r.ok) {
     failed += 1;
     // 只印前 30 行會把 astro check 的錯誤截掉（警告先佔滿），改成錯誤行優先。

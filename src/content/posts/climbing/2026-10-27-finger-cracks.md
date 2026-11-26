@@ -26,7 +26,7 @@ glossary:
     context: "本文譯名。比周圍寬一塊、常能停下來休息的凹洞叫 pod。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-27-finger-cracks-en)
+> :globe: [English version](/posts/climbing/2026-10-27-finger-cracks-en)
 
 手掌裂隙一路往上，常會越來越窄，最後只剩手指塞得進去。很多人在這裡第一次覺得裂隙很可怕：要把身上最細的手指插進岩縫、扭一下，再把整個人的重量掛上去。
 
@@ -296,7 +296,7 @@ pin scar 往外張又淺，cam 不好放，〈Serenity Crack〉第 1 段就有�
 - [The FORBIDDEN 5.10 in Yosemite Valley. - Serenity Crack 5.10d（The Gravity Lab - Brant Hysell，2021）](https://www.youtube.com/watch?v=Qtq4HCEP_RA)
 - [Serenity Crack（Mountain Project）](https://www.mountainproject.com/route/105862912/serenity-crack)
 - [내 인생 최고의 등반! 선인봉 남측 코너크랙(5.10d), 리드 도전(핑크포인트)（쏘맥 클라이머，2023，韓文）](https://www.youtube.com/watch?v=BgHCXB6QDPA)
-- [B1フィンガー 5.11a 瑞牆 クラック地獄（今日からきみは‼-にわかアルピニスト，2025，日文）](https://www.youtube.com/watch?v=uM1dihjSyjg)
+- [B1フィンガー 5.11a 瑞牆 クラック地獄（今日からきみは!!-にわかアルピニスト，2025，日文）](https://www.youtube.com/watch?v=uM1dihjSyjg)
 - [地獄エリア（ROCKTOPO，日文）](https://www.rocktopo.net/rocks/1009)
 - [How to be a short climber – 10 tips from Hazel Findlay（Hazel Findlay，2024）](https://www.youtube.com/watch?v=CXNJnE8SQAc)
 - [Fillet Show（Mountain Project）](https://www.mountainproject.com/route/107991222/fillet-show)

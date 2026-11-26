@@ -13,7 +13,7 @@ description: "A guide to climbing in the Pale di San Martino: where the big-wall
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-pale-di-san-martino)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-pale-di-san-martino)
 
 The Pale di San Martino rise above the Primiero valley on the eastern edge of Trentino. The [San Martino di Castrozza tourist board](https://www.sanmartino.com/en/territory/the-italian-alps-spectacles-in-nature/the-dolomites/pale-di-san-martino) calls it "the largest mountain group in the Dolomites": a ring of summits around a limestone plateau of about 50 km² at roughly 2,700 m. The same page names the Solleder on Sass Maor, the Velo and Sass d'Ortiga arêtes and the Buhl on Cima Canali among the most famous classics in the Alps.
 

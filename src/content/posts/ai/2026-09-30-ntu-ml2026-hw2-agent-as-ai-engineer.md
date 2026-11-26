@@ -22,7 +22,7 @@ glossary:
     context: "HW2 的 Colab 起始碼改自 WecoAI 的 aideml 專案。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-hw2-agent-as-ai-engineer-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -125,11 +125,9 @@ node.metric = 1.0
 
 這條規定其實就是作業的教學目標：你真正交出去的，是**一套能讓 agent 穩定產出分類器的 prompt 與流程**。
 
-## 這一篇可以確認與不能確認的
+## 讀完之後
 
-可以確認：hw2.pdf 的全部規定與數字、Colab 起始碼的結構與預設值（逐格讀過）、資料集下載連結在 2026-09-30 仍可用。作業說明影片的標題與上傳者已用 YouTube oEmbed 核對。
-
-不能確認：本文沒有逐字聽寫作業說明影片，也沒有實際在 T4 上跑完整流程，所以沒有自己的 accuracy 數字。private baseline 門檻、JudgeBoi 排行榜與助教的批改結果，校外都拿不到。
+這篇的規定與數字照 hw2.pdf 與 Colab 起始碼整理，作業說明影片裡的口頭提示沒有收進來。這篇沒有在 T4 上跑完整流程，所以沒有附 accuracy 數字。private baseline 門檻、JudgeBoi 排行榜與助教的批改結果，校外都拿不到。
 
 **怎麼做**：今晚打開 Colab，先別換模型，只做兩件事：把 `parse_exec_result` 改成真的從執行輸出抽出驗證集 accuracy，再把 `steps` 調到 5。跑完之後看 Journal 裡哪幾個節點被標成 buggy、哪個是最佳節點。這一步做對了，後面所有的 prompt 調整才有回饋可看。
 
@@ -161,6 +159,7 @@ title: 影片：ML 2026 Spring hw2 AI Agent as an AI Engineer
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：嘗試依字幕核對影片內容，但影片沒有可取得的字幕，影片口述內容未核對；本文對作業的說明僅依 PDF 與 Colab。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

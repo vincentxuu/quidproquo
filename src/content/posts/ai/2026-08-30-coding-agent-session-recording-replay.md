@@ -13,7 +13,7 @@ description: "對照成熟 coding agent 的 session 錄製與 replay，並檢視
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-session-recording-replay-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-session-recording-replay-en)
 
 系列第二部第 33 篇。前一篇講 compaction，這篇換一個看起來「早就做了」的題目：session 錄製。
 

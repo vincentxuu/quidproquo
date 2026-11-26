@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 Lecture 21 slides, pages 74–82; from Lin et al., NeurIPS 2022."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-on-device-training)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-on-device-training)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

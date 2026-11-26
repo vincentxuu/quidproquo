@@ -13,7 +13,7 @@ description: "DeepSeek Harness (dsh) Cordis plugin kernel architecture, four run
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-deepseek-harness-dsh-plugin-kernel)
+> :globe: [中文版](/posts/tech/2026-08-22-deepseek-harness-dsh-plugin-kernel)
 
 On August 13, 2026, the same day DeepSeek announced V4-Pro going live, it open-sourced its own coding agent framework — [DeepSeek Harness](https://github.com/deepseek-ai/deepseek-harness) (the command is `dsh`). MIT license, TypeScript/Node.js, v0.1 developer preview.
 

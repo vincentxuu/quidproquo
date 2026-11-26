@@ -13,7 +13,7 @@ description: "微軟 AI-901（Azure AI Fundamentals）備考指南，依官方 s
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-10-08-microsoft-ai-901-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄，作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ai-901)，所有「怎麼準備」都指回微軟官方訓練，不含考古題。查證日期：2026-10-08，對照的是「Skills measured as of **April 15, 2026**」那一版。
 

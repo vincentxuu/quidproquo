@@ -20,7 +20,7 @@ draft: true
 {{ }} 是待填處；發佈前全部刪掉，連同這段註解。
 -->
 
-> 🌏 [English version](/posts/climbing/YYYY-MM-DD-{{country}}-crag-{{slug}}-en)
+> :globe: [English version](/posts/climbing/YYYY-MM-DD-{{country}}-crag-{{slug}}-en)
 
 {{開場 1–2 句：站在岩壁上（或接近途中）看到什麼，帶出這裡的特色；最後一句先點出常見誤判（例：「地鐵到得了山腳，不代表岩壁適合第一次戶外先鋒」）。}}
 

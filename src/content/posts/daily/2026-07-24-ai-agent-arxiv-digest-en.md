@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 61
 ---
-> 🌏 [中文版](/posts/daily/2026-07-24-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-24-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ This is the first paper to systematically compare mainstream Agent framework eco
 - LangChain serves as "shared infrastructure": 82.5% of cross-framework contributors are also active in the LangChain ecosystem, making it the hub of the entire Agent open-source community
 - Contributor retention drops most sharply in the first 30 days after joining and stabilizes around 90 days — nearly all frameworks exhibit this pattern
 - Better metrics for framework health: contributor density, cross-ecosystem participation ratio, and 90-day retention rate, rather than total star count
-- The paper does not publish complete rankings for each framework; commercial adoption rates, documentation quality, and other dimensions are not covered **⚠️**
+- The paper does not publish complete rankings for each framework; commercial adoption rates, documentation quality, and other dimensions are not covered **:warning:**
 
 ### Reviewer's One-Liner
 
@@ -126,7 +126,7 @@ This is the first time tool calling, planning, long-horizon reasoning, multi-age
 - **Failure Category 3: Long-horizon degradation** — As steps increase, context accumulates, and Agent performance gradually deteriorates; beyond a certain step count, failure becomes near-certain
 - **Failure Category 4: Multi-agent coordination failures** — When multiple Agents collaborate, inconsistent communication formats, ambiguous responsibility boundaries, and circular waits are frequent
 - **Failure Category 5: Safety and security failures** — Including prompt injection (where external malicious input takes control of the Agent) and harmful action execution
-- **Failure Category 6: Evaluation validity issues** — Many benchmarks suffer from data contamination (test questions appearing in training data) and over-reliance on static answers, inflating scores **⚠️**
+- **Failure Category 6: Evaluation validity issues** — Many benchmarks suffer from data contamination (test questions appearing in training data) and over-reliance on static answers, inflating scores **:warning:**
 - This is a meta-synthesis (literature integration), not an experimental paper — it proposes no new solutions and presents no new quantitative data
 
 ### Reviewer's One-Liner
@@ -180,7 +180,7 @@ Without building a separate knowledge graph or incurring additional API costs, i
 - Removing "profile expansion" (the cross-entity scanning mechanism) drops MemHop performance by 22.6 percentage points (pp), confirming it as the core mechanism for multi-hop memory
 - "Compression residuals" primarily improve non-multi-hop queries (exact dates, numbers) and complement the profile expansion feature
 - Tested on PersonaMem-v2, LongMemEval, and LoCoMo benchmarks, demonstrating cross-task generalization
-- Limitation: single-author paper where both the benchmark and method come from the same person, lacking external replication; applicability beyond social network scenarios (technical documents, process-type memory) remains unconfirmed **⚠️**
+- Limitation: single-author paper where both the benchmark and method come from the same person, lacking external replication; applicability beyond social network scenarios (technical documents, process-type memory) remains unconfirmed **:warning:**
 - Integration with mainstream frameworks like LangGraph and MemGPT is not discussed; production deployment requires designing your own profile storage layer
 
 ### Reviewer's One-Liner

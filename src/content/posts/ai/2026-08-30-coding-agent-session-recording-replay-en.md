@@ -13,7 +13,7 @@ description: "Comparing session recording and replay across mature coding agents
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-session-recording-replay)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-session-recording-replay)
 
 Part two of the series, entry 33. The previous post covered compaction; this one tackles something that looks "already done": session recording.
 

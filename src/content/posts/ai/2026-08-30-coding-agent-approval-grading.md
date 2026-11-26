@@ -13,7 +13,7 @@ description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-approval-grading-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-approval-grading-en)
 
 上一篇[總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)之後講完 loop 和 workspace 隔離，這篇處理第三個地基：哪些動作要問人、問完怎麼記錄、一次同意的範圍有多大。
 

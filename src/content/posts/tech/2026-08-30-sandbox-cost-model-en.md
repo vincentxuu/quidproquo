@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-sandbox-cost-model)
+> :globe: [中文版](/posts/tech/2026-08-30-sandbox-cost-model)
 
 ## What This Post Is
 
@@ -34,14 +34,14 @@ This post is the "cost" post (order 26) of the Sandbox Series. It doesn't compar
 Charges for **every second** the sandbox is alive, regardless of whether CPU is busy. As long as the sandbox isn't destroyed, it keeps billing.
 
 **Suitable for**: Long-running continuous tasks, sessions that need state retention.
-**Providers**: E2B, Daytona, Runloop, Modal (no idle charge exception), AWS Bedrock AgentCore, Azure Container Apps.
+**Providers**: E2B, Daytona, Runloop, Azure Container Apps; Modal bills at the higher of request and actual usage, so the CPU request can drop to 0.125 cores, but memory is still billed for the lifetime, which makes it close to wall-clock in practice.
 
 ### Active-CPU Billing
 
 Charges only for **actual CPU time executing code**. I/O wait and idle time are not billed.
 
 **Suitable for**: Bursty, short-execution, long-wait interactive agents.
-**Providers**: Vercel Sandbox, Cloudflare Sandboxes.
+**Providers**: Vercel Sandbox, Cloudflare Sandboxes, AWS Bedrock AgentCore Code Interpreter. All three still bill memory (and Cloudflare also disk) for the lifetime; only CPU skips the wait.
 
 ---
 
@@ -53,10 +53,10 @@ Charges only for **actual CPU time executing code**. I/O wait and idle time are 
 
 | Billing Model | Estimated Monthly Cost | Notes |
 |---------------|----------------------|-------|
-| active-CPU (Vercel/Cloudflare) | ~$36–$276 | Only actual CPU time, skips wait |
+| active-CPU (Cloudflare/AgentCore/Vercel) | ~$126–$276 | Only actual CPU time, skips wait; memory still billed |
 | wall-clock (E2B/Daytona) | ~$414 | Every second counts, idle also billed |
 
-**Conclusion**: Bursty scenarios can save 90%+ cost with active-CPU.
+**Conclusion**: Bursty scenarios save roughly 30–70% with active-CPU; not 90%, because memory is still billed for the whole lifetime.
 
 ### Scenario B: Long-Running Continuous Execution
 
@@ -64,8 +64,8 @@ Charges only for **actual CPU time executing code**. I/O wait and idle time are 
 
 | Billing Model | Estimated Monthly Cost | Notes |
 |---------------|----------------------|-------|
-| wall-clock (E2B/Daytona) | ~$1,200 | Fixed cost, predictable |
-| active-CPU (Vercel) | ~$1,500+ | Although only active CPU, long-running accumulates higher |
+| wall-clock (E2B/Daytona) | ~$2,650 | Fixed cost, predictable |
+| active-CPU (Vercel) | ~$3,800 | At high CPU utilization active-CPU saves little, and the unit price is higher |
 
 **Conclusion**: Long-running scenarios: wall-clock is more predictable and usually cheaper.
 
@@ -131,11 +131,11 @@ Assumptions:
 - Wall-clock billing, CPU rate $0.000014 / vCPU-s, memory $0.0000045 / GiB-s
 
 ```
-CPU hours = 10,000 × 10 minutes × 60 seconds × 30% = 180,000 seconds
-CPU cost = 180,000 × 2 vCPU × $0.000014 = $5.04
-Memory cost = 180,000 × 4 GB × $0.0000045 = $3.24
+Alive seconds = 10,000 × 10 minutes × 60 seconds = 6,000,000 seconds (wall-clock bills by lifetime; CPU utilization does not change the bill)
+CPU cost = 6,000,000 × 2 vCPU × $0.000014 = $168.00
+Memory cost = 6,000,000 × 4 GB × $0.0000045 = $108.00
 Network cost = 100 GB × $0.09 = $9.00
-Total ≈ $17.28/month
+Total ≈ $285/month
 ```
 
 ---
@@ -164,12 +164,18 @@ Total ≈ $17.28/month
 
 ---
 
+## Update Log
+
+- 2026-11-23: Recomputed Scenario A from each vendor's pricing page (active-CPU about $126–$276; the original "~$36" and "save 90%+" do not hold) and Scenario B (E2B about $2,650, Vercel about $3,800); fixed the example calculation (wall-clock bills by lifetime, about $285 in total); moved Bedrock AgentCore to active-CPU and described Modal as the higher of request and usage; moved the Cloudflare pricing link to its new path.
+
 ## References
 
 - [E2B Pricing](https://e2b.dev/pricing)
 - [Daytona Pricing](https://www.daytona.io/pricing)
 - [Vercel Sandbox Pricing](https://vercel.com/pricing)
-- [Cloudflare Sandbox Pricing](https://developers.cloudflare.com/sandbox/pricing/)
+- [Cloudflare Sandbox Pricing](https://developers.cloudflare.com/sandbox/sdk/platform/pricing/) and [Containers Pricing](https://developers.cloudflare.com/containers/platform/pricing/)
+- [Amazon Bedrock AgentCore Pricing](https://aws.amazon.com/bedrock/agentcore/pricing/)
+- [Modal resources billing](https://modal.com/docs/guide/resources)
 - [Modal Pricing](https://modal.com/pricing)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview-en)
 - [本站：雲端產品全景與選型矩陣（order 7）](/posts/tech/2026-08-30-sandbox-product-landscape-en)

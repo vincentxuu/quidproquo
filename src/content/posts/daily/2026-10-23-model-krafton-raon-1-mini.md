@@ -15,7 +15,7 @@ glossary:
     def: "KRAFTON AI 推出的開源語言／語音模型家族，Raon-1 mini 是其首款從零訓練的通用 LLM"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-model-krafton-raon-1-mini-en)
+> :globe: [English version](/posts/daily/2026-10-23-model-krafton-raon-1-mini-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | MMLU Pro | 76.5 | —（首款模型） | Qwen3.6-35B-A3B 85.9（Raon-1 mini 在通用知識基準明顯落後） |
 | BFCL v4 Overall（工具呼叫） | 59.8 | —（首款模型） | Qwen3.6-35B-A3B 64.7（參考：dense Qwen3.8-27B 72.4） |
 
-⚠️ 以上均為 KRAFTON 自測（評審模型 gpt-5.6-luna），尚待外部複現；Chatbot Korean 是未公開發布的內部基準，無法由第三方直接驗證。官方也註明這是 preview 版本，正式版規格與分數可能調整。
+:warning: 以上均為 KRAFTON 自測（評審模型 gpt-5.6-luna），尚待外部複現；Chatbot Korean 是未公開發布的內部基準，無法由第三方直接驗證。官方也註明這是 preview 版本，正式版規格與分數可能調整。
 
 ```diagram
 title: Raon-1 mini 與 Qwen3.6-35B-A3B 四項基準比較
@@ -71,14 +71,14 @@ caption: 資料來源：KRAFTON 官方 Hugging Face 模型卡自測（評審模�
     <rect class="dg-bar" x="234" y="76" width="44" height="224"/>
     <rect class="dg-bar" x="374" y="116" width="44" height="184"/>
     <rect class="dg-bar" x="514" y="77" width="44" height="223"/>
-    <text class="dg-text--series" x="116" y="44" text-anchor="middle" dominant-baseline="central">Raon-1 mini</text>
+    <text class="dg-text--series" x="452" y="32" text-anchor="end" dominant-baseline="central">Raon-1 mini</text>
   </g>
   <g class="dg-c-s1">
     <rect class="dg-bar" x="150" y="148" width="44" height="152"/>
     <rect class="dg-bar" x="290" y="77" width="44" height="223"/>
     <rect class="dg-bar" x="430" y="94" width="44" height="206"/>
     <rect class="dg-bar" x="570" y="121" width="44" height="179"/>
-    <text class="dg-text--series" x="172" y="44" text-anchor="middle" dominant-baseline="central">Qwen3.6-35B-A3B</text>
+    <text class="dg-text--series" x="612" y="32" text-anchor="end" dominant-baseline="central">Qwen3.6-35B-A3B</text>
   </g>
 
   <text class="dg-sub" x="116" y="120" text-anchor="middle" dominant-baseline="central">70.8</text>

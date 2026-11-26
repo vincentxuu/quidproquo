@@ -26,7 +26,7 @@ glossary:
     context: "本文用來說明「開外幣帳戶就能省刷卡手續費」是常見誤解。"
 ---
 
-> 🌏 [English version](/posts/travel/2026-08-17-foreign-currency-account-japan-korea-en)
+> :globe: [English version](/posts/travel/2026-08-17-foreign-currency-account-japan-korea-en)
 
 「很常去日本跟韓國，是不是該開個外幣帳戶，刷卡用外幣比較划算？」
 

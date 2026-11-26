@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-llamaindex-rag-framework-en)
+:globe: [English version](/posts/ai/2026-08-21-llamaindex-rag-framework-en)
 
 本站寫過三十幾篇 RAG 技法——[Chunking 策略](/posts/ai/2026-03-12-chunking-strategies)、[HyDE](/posts/ai/2026-03-12-hyde-hypothetical-document-embeddings)、[CRAG](/posts/ai/2026-03-12-corrective-rag-crag)、[GraphRAG](/posts/ai/2026-03-12-graph-rag)、[混合檢索與 RRF](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf)——但一篇都沒談過框架。讀完技法之後的下一個問題是很實際的：這些東西我要黏在什麼上面。這篇談那個「上面」的第一候選。
 
@@ -115,7 +115,7 @@ class RagFlow(Workflow):
 
 ## 五、繁中語料上的實際狀況
 
-這節是我實際跑出來的，因為查不到現成資料。環境：`llama-index-core` 0.14.24、`tiktoken`，語料是本站[llms.txt 那篇](/posts/tech/2026-08-21-llms-txt)的中英文版正文（去掉 code 與連結網址）。結論一句話：**預設值全是為英文調的，而且沉默地不合用**。
+這節是實測結果。環境：`llama-index-core` 0.14.24、`tiktoken`，語料是本站[llms.txt 那篇](/posts/tech/2026-08-21-llms-txt)的中英文版正文（去掉 code 與連結網址；繁中 2,573 字元／2,176 token，英文 5,543 字元／1,234 token）。結論一句話：**預設值全是為英文調的，而且沉默地不合用**。
 
 第一件事是 token 帳算不過來。`SentenceSplitter` 預設用 `tiktoken` 的 `gpt-3.5-turbo` 編碼（即 `cl100k_base`）數 token。同樣寫 `chunk_size=1024`，繁中裝進去的字元數只有英文的三成不到：
 
@@ -182,17 +182,19 @@ star 數與下載數指向相反方向，這本身就說明兩者測量的東西
 
 值不值得用，答案不在框架，在你的變化軸。如果你的不確定性在「要接什麼」，它替你買到可逆性；如果在「檢索本身要怎麼想」，它只是多一層。而不管哪一種，繁中的預設值你都要自己改。
 
-## 附錄：查證方法與日期
+## 附錄：數字的時間點與口徑
 
-所有數字皆為 2026-08-21 實查。
+文中數字都是 2026-08-21 的快照。PyPI 週下載取 pypistats 的 `last_week`。
 
-- **PyPI 下載數**：`pypistats.org/api/packages/<pkg>/recent`，取 `last_week`。
-- **版本歷史**：`pypi.org/pypi/llama-index/json` 的 `releases`，最早一版 0.4.4 發於 2023-02-16，至今 504 版，最新 0.14.24 發於 2026-08-19。`llama-index-workflows` 首版 0.1.0 發於 2025-06-10，現為 2.23.2（2026-08-17）。
-- **npm 下載數與發版時間**：`api.npmjs.org/downloads/point/last-week/<pkg>`、`registry.npmjs.org/<pkg>`。`llamaindex` 最新版 0.12.1，發布時間 2025-12-02T08:59:24Z；`@llamaindex/core` 0.6.23，2026-03-09。
-- **GitHub 數字**：`api.github.com/repos/<owner>/<repo>`。`run-llama/llama_index` 建立於 2022-11-02，授權 MIT；`run-llama/LlamaIndexTS` 與 `run-llama/workflows-ts` 的 `archived` 欄位皆為 `true`。
-- **整合套件數**：抓 `pypi.org/simple/` 全量索引，`grep -o 'llama-index-[a-z0-9-]*' | sort -u | wc -l`，得 950；各前綴分別計數得 readers 193、llms 123、vector-stores 100、embeddings 74。此法計的是「PyPI 上以此為前綴的套件名」，不等同官方維護數。
-- **繁中切塊實測**：`llama-index-core` 0.14.24 + `tiktoken`，語料為本站 llms.txt 一文中英版正文（去除 code fence 與連結網址），繁中 2,573 字元／2,176 token、英文 5,543 字元／1,234 token。Punkt 測試取該繁中語料前 400 字元、去除換行後呼叫 `globals_helper.punkt_tokenizer.span_tokenize()`，回傳 span 數為 1。
-- **`CHUNKING_REGEX`**：讀 `llama-index-core/llama_index/core/node_parser/text/sentence.py` 原始碼（main 分支）；預設 tokenizer 來自同 repo `core/utils.py` 的 `get_tokenizer(model_name="gpt-3.5-turbo")`。
+- **版本歷史**：`llama-index` 最早一版 0.4.4 發於 2023-02-16，最新 0.14.24 發於 2026-08-19。`llama-index-workflows` 首版 0.1.0 發於 2025-06-10，現為 2.23.2（2026-08-17）。
+- **npm**：`llamaindex` 最新版 0.12.1，發布時間 2025-12-02T08:59:24Z；`@llamaindex/core` 0.6.23，2026-03-09。
+- **GitHub**：`run-llama/llama_index` 建立於 2022-11-02，授權 MIT；`run-llama/LlamaIndexTS` 與 `run-llama/workflows-ts` 都已封存。
+- **整合套件數**：950 是 PyPI 上以 `llama-index-` 為前綴的套件名數量，不等同官方維護數。各前綴分別是 readers 193、llms 123、vector-stores 100、embeddings 74。
+- **`CHUNKING_REGEX`**：出自 `llama-index-core/llama_index/core/node_parser/text/sentence.py`（main 分支）；預設 tokenizer 來自同 repo `core/utils.py` 的 `get_tokenizer(model_name="gpt-3.5-turbo")`。
+
+## 更新紀錄
+
+- 2026-11-23：附錄改寫成數字的時間點與口徑，實測語料的字元與 token 數移到第五節。
 
 ## 參考資料
 

@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-28-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -103,18 +103,18 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-github-digest)
-- 📄 [框架更新｜CrewAI 1.15.18](/posts/daily/2026-08-28-framework-crewai-1.15.18)
-- 📄 [融資速報｜Deep Cogito Series A $43M](/posts/daily/2026-08-28-funding-deep-cogito)
-- 📄 [融資速報｜Instinct Series B $250M](/posts/daily/2026-08-28-funding-instinct)
-- 📄 [融資速報｜Keenable Seed $26M](/posts/daily/2026-08-28-funding-keenable)
-- 📄 [模型卡｜GLM-5.3-Flash](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash)
-- 📄 [定價追蹤｜DeepSeek 週末全時段降到離峰價](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount)
-- 📄 [資安警報｜OpenAI 公布事後報告：內部評估代理逃出沙箱入侵 Hugging Face](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape)
-- 📄 [工具推薦｜Vercel Run SDK](/posts/daily/2026-08-28-tool-vercel-run-sdk)
-- 📄 [AI Engineer 面試日練](/posts/daily/2026-08-28-ai-interview-daily)
-- 📄 [Product Builder 面試日練](/posts/daily/2026-08-28-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-github-digest)
+- :file: [框架更新｜CrewAI 1.15.18](/posts/daily/2026-08-28-framework-crewai-1.15.18)
+- :file: [融資速報｜Deep Cogito Series A $43M](/posts/daily/2026-08-28-funding-deep-cogito)
+- :file: [融資速報｜Instinct Series B $250M](/posts/daily/2026-08-28-funding-instinct)
+- :file: [融資速報｜Keenable Seed $26M](/posts/daily/2026-08-28-funding-keenable)
+- :file: [模型卡｜GLM-5.3-Flash](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash)
+- :file: [定價追蹤｜DeepSeek 週末全時段降到離峰價](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount)
+- :file: [資安警報｜OpenAI 公布事後報告：內部評估代理逃出沙箱入侵 Hugging Face](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape)
+- :file: [工具推薦｜Vercel Run SDK](/posts/daily/2026-08-28-tool-vercel-run-sdk)
+- :file: [AI Engineer 面試日練](/posts/daily/2026-08-28-ai-interview-daily)
+- :file: [Product Builder 面試日練](/posts/daily/2026-08-28-product-builder-interview-daily)
 
 ## 明日關注
 

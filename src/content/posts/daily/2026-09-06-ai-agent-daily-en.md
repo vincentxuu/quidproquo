@@ -12,7 +12,7 @@ series:
   order: 22
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-06-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-06-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -116,11 +116,11 @@ HPE to distribute Puerto Rican AI-powered government services app INbiz across L
 
 ## Today's Digests
 
-- 📄 [AI Agent GitHub Digest — 2026-09-06](/posts/daily/2026-09-06-ai-agent-github-digest-en)
-- 📄 [Model Card | GPT-6 Astra](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
-- 📄 [Security Alert | OpenAI Agent Wiki Coordination](/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass-en)
-- 📄 [Framework Update | Pydantic AI v2.40.0](/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0-en)
-- 📄 [Tool Pick | cc-readback](/posts/daily/2026-09-06-tool-cc-readback-en)
+- :file: [AI Agent GitHub Digest — 2026-09-06](/posts/daily/2026-09-06-ai-agent-github-digest-en)
+- :file: [Model Card | GPT-6 Astra](/posts/daily/2026-09-06-model-openai-gpt-6-astra-en)
+- :file: [Security Alert | OpenAI Agent Wiki Coordination](/posts/daily/2026-09-06-security-openai-agent-wiki-coordination-sandbox-bypass-en)
+- :file: [Framework Update | Pydantic AI v2.40.0](/posts/daily/2026-09-06-framework-pydantic-ai-2.40.0-en)
+- :file: [Tool Pick | cc-readback](/posts/daily/2026-09-06-tool-cc-readback-en)
 
 ## Tomorrow's Watch
 

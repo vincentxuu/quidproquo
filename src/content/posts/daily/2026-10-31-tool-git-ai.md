@@ -12,7 +12,7 @@ series:
   order: 69
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-tool-git-ai-en)
+> :globe: [English version](/posts/daily/2026-10-31-tool-git-ai-en)
 
 ## 工具資訊
 
@@ -117,10 +117,10 @@ gitai 要解決的「大量 agent 同時改一個 repo」場景，目前多數�
 
 | | gitai | GitHub merge queue／Mergify | 不用工具，手動排隊 |
 |---|---|---|---|
-| 大量 agent 同時 land，不靠序列佇列 | ✅ 每個 ref 一次 compare-and-swap，衝突批次重試 | ❌ 依序重新驗證，一筆沒過整組被踢出去重排 | ❌ |
-| client 不用完整 clone，歷史交給 server 算 | ✅ `ObjectService` 只給要的 object／sparse tree | ❌ 仍是標準 git clone | ❌ |
-| 衝突可選 LLM／規則自動解，驗證過才真的落地 | ✅ resolver + `verify.command`，AI 預設關閉 | ❌ 衝突一律退回人工處理 | ❌ |
-| 落地後自動測試、bisect 揪元兇再 revert | ✅ `graft-verify` | 部分（CI 可做，沒有內建 bisect／revert） | ❌ |
+| 大量 agent 同時 land，不靠序列佇列 | ✓ 每個 ref 一次 compare-and-swap，衝突批次重試 | ✗ 依序重新驗證，一筆沒過整組被踢出去重排 | ✗ |
+| client 不用完整 clone，歷史交給 server 算 | ✓ `ObjectService` 只給要的 object／sparse tree | ✗ 仍是標準 git clone | ✗ |
+| 衝突可選 LLM／規則自動解，驗證過才真的落地 | ✓ resolver + `verify.command`，AI 預設關閉 | ✗ 衝突一律退回人工處理 | ✗ |
+| 落地後自動測試、bisect 揪元兇再 revert | ✓ `graft-verify` | 部分（CI 可做，沒有內建 bisect／revert） | ✗ |
 | 授權 | MIT，自架 | 平台內建功能／商業 SaaS | — |
 
 ## 注意事項

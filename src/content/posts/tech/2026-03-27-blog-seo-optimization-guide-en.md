@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-blog-seo-optimization-guide)
+:globe: [中文版](/posts/tech/2026-03-27-blog-seo-optimization-guide)
 
 The core goal of technical SEO is simple: **help search engines understand your content at the lowest possible cost**. This guide uses an Astro static blog as a concrete example and walks through everything from meta tags to structured data. By the end, you'll know what each optimization does and why it matters.
 

@@ -51,7 +51,9 @@ export function AssistantThread({
     convertMessage: (message, idx) => ({
       ...message,
       id: message.id || `message-${idx}`,
-      status: message.status || { type: 'complete', reason: 'stop' },
+      ...(message.role === 'assistant' && {
+        status: message.status || { type: 'complete', reason: 'stop' },
+      }),
       metadata: message.metadata
         ? {
             ...message.metadata,

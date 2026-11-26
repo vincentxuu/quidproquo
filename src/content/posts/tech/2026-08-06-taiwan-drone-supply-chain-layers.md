@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
+> :globe: [English version](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers-en)
 
 「台灣有 267 家無人機業者」這個數字，過去半年被引用了無數次。但很少有人往下問一句：這 267 家分別在做什麼？
 

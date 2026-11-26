@@ -5,6 +5,7 @@ import type { Post } from '../utils/content';
 import type { Lang } from '../i18n/utils';
 import type { Page } from '../utils/pagination';
 import { getSeriesHref } from '../utils/series';
+import { getReadingTime } from '../utils/readingTime';
 
 interface Props {
   page: Page<Post>;
@@ -23,7 +24,7 @@ const { page, hrefFor, lang, showPinned = true } = Astro.props;
     tags={post.data.tags}
     description={post.data.description}
     tldr={post.data.tldr}
-    readingTime={post.data.readingTime}
+    readingTime={getReadingTime(post)}
     lang={lang}
     type={post.data.type}
     pinned={showPinned && post.data.pinned}

@@ -11,7 +11,7 @@ series:
   order: 60
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent-en)
+> :globe: [English version](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent-en)
 
 ## 事件概述
 

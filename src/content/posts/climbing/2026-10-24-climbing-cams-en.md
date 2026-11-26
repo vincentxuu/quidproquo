@@ -29,7 +29,7 @@ glossary:
     context: "DMM Dragon uses a thumb press instead; the Metolius Ultralight Master Cam has neither."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-cams)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-cams)
 
 Cams are the most expensive thing on a trad rack: common sizes run about US$70–160 each. They cover what nuts can't: cracks with parallel sides and no constriction to wedge into. Taiwanese climbers just call them cams, and some shops list them as 岩楔 (nuts), so check the model name before you buy.
 

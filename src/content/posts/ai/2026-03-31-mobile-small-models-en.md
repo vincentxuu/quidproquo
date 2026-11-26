@@ -10,7 +10,7 @@ description: "A roundup of small LLMs that can run on mobile devices in 2026, co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-31-mobile-small-models)
+> :globe: [中文版](/posts/ai/2026-03-31-mobile-small-models)
 
 Running LLMs on phones is no longer demo-grade stuff. In 2026, 1B-4B parameter models can achieve usable inference speeds on regular smartphones after quantization. This post surveys the main model options, inference frameworks, and real-world constraints to help you decide which combination fits your use case.
 

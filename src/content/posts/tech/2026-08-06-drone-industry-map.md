@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-06-drone-industry-map-en)
+> :globe: [English version](/posts/tech/2026-08-06-drone-industry-map-en)
 
 無人機產業最反直覺的一件事是：它看起來像消費電子，實際上運作起來像半導體——高度集中、少數國家掌握關鍵環節、地緣政治決定誰能買到什麼零件。2024 年 9 月中國限制飛控、碳纖機架、馬達、無線電模組出口到烏俄兩國之後，這件事就不再是分析師的說法，而是採購經理每天要處理的問題。
 

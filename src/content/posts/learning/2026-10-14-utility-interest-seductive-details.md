@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-utility-interest-seductive-details-en)
+> :globe: [English version](/posts/learning/2026-10-14-utility-interest-seductive-details-en)
 
 這是「教學文章怎麼寫」系列的第 14 篇，屬於第三部分「讀者帶著什麼來」。前兩部分談頁面上放什麼（[文字](/posts/learning/2026-10-13-teaching-text-evidence)、[圖](/posts/learning/2026-10-13-diagrams-in-teaching-articles)、[程式碼](/posts/learning/2026-10-14-code-in-teaching-articles)、[記號與術語](/posts/learning/2026-10-14-notation-jargon-terminology)、[影片](/posts/learning/2026-10-13-instructional-video-in-articles)、[影片和文字怎麼排](/posts/learning/2026-10-13-video-beside-text-layout)、[互動](/posts/learning/2026-10-14-interactive-figures-in-teaching-articles)），以及要讀者做什麼（[做中學的證據](/posts/learning/2026-10-14-active-learning-evidence)、[題目與回饋](/posts/learning/2026-10-13-teaching-text-questions-feedback)）。這一篇問的是讀者的動機：作者在文章裡講「這東西有什麼用」、讓讀者挑自己想看的例子、放一段好玩的故事，各自有沒有用，對誰有用。讀者的先備知識、已經相信錯的東西，前面的篇已經談過：[讀者程度不同怎麼寫](/posts/learning/2026-10-14-prior-knowledge-reader-level)、[「常見誤解」怎麼寫](/posts/learning/2026-10-14-misconceptions-in-teaching-articles)。
 

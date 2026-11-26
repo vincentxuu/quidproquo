@@ -14,7 +14,7 @@ description: "CMU 07-380 Fall 2026 Lecture 10 Bayes Nets 的 pre-reading 導讀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en)
+> :globe: [English version](/posts/learning/2026-09-29-cmu-07380-lecture-10-bayes-nets-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -202,12 +202,13 @@ P(+b,+e,+a,+j,+m) = 0.001 × 0.002 × 0.95 × 0.9 × 0.7 ≈ 1.2 × 10⁻⁶
 
 - [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

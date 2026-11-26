@@ -11,7 +11,7 @@ series:
   order: 46
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-30-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-30-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ None of this week's five rising repos push a new agent framework — all five ci
 
 ## Trending Repos
 
-### paperclip ⭐ 94.5k
+### paperclip ★ 94.5k
 
 [GitHub](https://github.com/paperclipai/paperclip)　·　TypeScript/Node.js　·　MIT
 
@@ -30,7 +30,7 @@ None of this week's five rising repos push a new agent framework — all five ci
 
 ---
 
-### Orca ⭐ 81.6k
+### Orca ★ 81.6k
 
 [GitHub](https://github.com/stablyai/orca)　·　TypeScript　·　MIT
 
@@ -41,7 +41,7 @@ None of this week's five rising repos push a new agent framework — all five ci
 
 ---
 
-### Hindsight ⭐ 42.8k
+### Hindsight ★ 42.8k
 
 [GitHub](https://github.com/vectorize-io/hindsight)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ None of this week's five rising repos push a new agent framework — all five ci
 
 ---
 
-### CLI-Anything ⭐ 51k
+### CLI-Anything ★ 51k
 
 [GitHub](https://github.com/HKUDS/CLI-Anything)　·　Python　·　Apache-2.0
 
@@ -63,7 +63,7 @@ None of this week's five rising repos push a new agent framework — all five ci
 
 ---
 
-### security-audit-skill ⭐ 23.2k
+### security-audit-skill ★ 23.2k
 
 [GitHub](https://github.com/cloudflare/security-audit-skill)　·　JavaScript　·　MIT
 

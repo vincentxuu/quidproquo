@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-evaluation-launch)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-evaluation-launch)
 
 A team evaluates its new AI knowledge base with 20 test questions: 80% of answers are correct, and everyone gets ready to launch. Then someone looks at retrieval: of the 14 answerable questions, the source passage appeared in the top 5 for only 9. How did the AI get the rest right?
 

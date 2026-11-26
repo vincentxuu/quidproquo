@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-08-funding-ampersand-en)
+> :globe: [English version](/posts/daily/2026-10-08-funding-ampersand-en)
 
 ## 融資資訊
 

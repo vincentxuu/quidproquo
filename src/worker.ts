@@ -14,7 +14,7 @@ import { handle } from '@astrojs/cloudflare/handler'
 import type { Env } from './lib/config/env'
 
 export { AgentSessionDO } from './server/agents/session-do'
-export { AgentSandbox } from './server/agents/agent-sandbox'
+export { AgentSandbox, ContainerProxy } from './server/agents/agent-sandbox'
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext) {

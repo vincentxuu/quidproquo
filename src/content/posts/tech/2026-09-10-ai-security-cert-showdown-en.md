@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-10-ai-security-cert-showdown)
+> :globe: [中文版](/posts/tech/2026-09-10-ai-security-cert-showdown)
 
 ISACA launched AAISM in August 2025. CompTIA shipped SecAI+ in February 2026. GIAC opened GASAE in April, then GAIPS in July. In 18 months, four major certification bodies each placed their bet on AI security. Per Cisco AI Workforce Consortium data cited in [Practical DevSecOps' market analysis](https://www.practical-devsecops.com/choosing-the-right-ai-security-certification-a-head-to-head-comparison), 28.5% of cybersecurity job postings between October 2025 and March 2026 required AI skills, up from 14.2% in the same period a year earlier. Demand is real — but which cert actually teaches you something?
 
@@ -202,12 +202,12 @@ Existing CISM/CISSP holders whose scope is expanding from traditional security m
 | OWASP risk | SecAI+ | CAISP | GAIPS | AAISM |
 |---|---|---|---|---|
 | LLM01 Prompt Injection | Concept + PBQ | **Deep lab** | **CyberLive** | Concept |
-| LLM02 Sensitive Info Disclosure | ✅ | ✅ | ✅ | Concept |
-| LLM03 Supply Chain | ✅ | **Hands-on** | **Hands-on** | ✅ Governance |
-| LLM04 Data & Model Poisoning | ✅ Concept | **TextAttack lab** | ✅ | Concept |
-| LLM05 Improper Output Handling | ✅ | ✅ | ✅ | — |
-| LLM06 Excessive Agency | Concept | ✅ | **✅ Agentic** | ✅ Governance |
-| LLM07 System Prompt Leakage | ✅ | ✅ | Partial | — |
+| LLM02 Sensitive Info Disclosure | ✓ | ✓ | ✓ | Concept |
+| LLM03 Supply Chain | ✓ | **Hands-on** | **Hands-on** | ✓ Governance |
+| LLM04 Data & Model Poisoning | ✓ Concept | **TextAttack lab** | ✓ | Concept |
+| LLM05 Improper Output Handling | ✓ | ✓ | ✓ | — |
+| LLM06 Excessive Agency | Concept | ✓ | **✓ Agentic** | ✓ Governance |
+| LLM07 System Prompt Leakage | ✓ | ✓ | Partial | — |
 | LLM08 Vector & Embedding | Partial | **RAG lab** | **RAG lab** | — |
 | LLM09 Misinformation | Concept | Partial | Partial | Concept |
 | LLM10 Unbounded Consumption | Partial | Partial | Partial | — |

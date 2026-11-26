@@ -1,0 +1,4 @@
+{
+  "note": "2026-11-20 全站轉換時沒有轉的文章：暫存它們會觸發本來就有的逐篇檢查問題（process-leak 查證過程句型、diagram-preview 圖表），跟 emoji 無關。全站模式不擋這些檔案；有人改到某篇時，--staged 會照樣要求轉換（pnpm emoji:fix），轉完把它從這裡移除。",
+  "grandfathered": []
+}

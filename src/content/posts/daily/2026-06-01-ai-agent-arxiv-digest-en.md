@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 8
 ---
-> 🌏 [中文版](/posts/daily/2026-06-01-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-01-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -123,7 +123,7 @@ The numbers speak for themselves: the best memory system hits only 46.0% overall
 ### Deep Dive
 
 - Core numbers: best memory system overall 46.0%; knowledge update 27.1%; term ambiguity 37.7% — all three dimensions consistently low (source: paper experimental results)
-- BM25 baseline "matches or exceeds" most agent memory systems on multiple subtasks **⚠️** (may reflect that some benchmark subtasks favor retrieval exact matching rather than requiring deep semantic reasoning; recommend reading the paper to confirm subtask design details)
+- BM25 baseline "matches or exceeds" most agent memory systems on multiple subtasks **:warning:** (may reflect that some benchmark subtasks favor retrieval exact matching rather than requiring deep semantic reasoning; recommend reading the paper to confirm subtask design details)
 - LangGraph / AutoGen relevance: both frameworks' memory modules default to single-user; adding speaker identity tracking requires manually extending the memory schema
 - MCP relevance: the current MCP memory server spec has no standard definition for speaker-attributed memory slots; GroupMemBench can serve as a requirements document for future spec design
 - Limitation: the benchmark's conversation scale, language coverage, and real vs. synthetic conversation ratio cannot be confirmed from available information — requires reading the paper directly; whether BM25 surpassing semantic systems is general or specific to benchmark design needs further validation
@@ -177,7 +177,7 @@ The results reveal a clear "watershed": small and mid-size open-source models ar
 ### Deep Dive
 
 - Benchmark design: 30 tasks, 6 tiers, 16 open-source models (0.27B-32B) + GPT-5, 16,542 scored runs; fully deterministic scoring, no LLM-as-judge (source: paper experimental design)
-- Key finding: small to mid-size open-source models can handle the "short-range, structured tool use" that dominates agent pipelines; the strongest open-source models match GPT-5 overall (per-tier breakdowns require reading the paper **⚠️**)
+- Key finding: small to mid-size open-source models can handle the "short-range, structured tool use" that dominates agent pipelines; the strongest open-source models match GPT-5 overall (per-tier breakdowns require reading the paper **:warning:**)
 - The "6 tiers" boundary definitions are the most engineering-valuable part: tier 1 (instruction following) → tier 2 (tool use) → tier 3 (multi-step coordination) → tier 4-6 (long-horizon planning, persistent constraints, compound reasoning)
 - LangGraph / AutoGen relevance: the 6-tier hierarchy can serve as a design blueprint for model routing middleware, dynamically selecting model size based on task tier
 - MCP relevance: AgentFloor's six-tier framework can evaluate the model capability requirements of different MCP server tools, helping platforms decide which model to pair with each server

@@ -10,7 +10,7 @@ description: "A guided reading of Felix Rieseberg's 'How to be more ambitious' (
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-16-felix-rieseberg-how-to-be-more-ambitious)
+> :globe: [中文版](/posts/ai/2026-10-16-felix-rieseberg-how-to-be-more-ambitious)
 
 "We're not ambitious enough with AI" is easy to repost and hard to act on. Felix Rieseberg, an engineering lead at Anthropic, tries to close that gap in [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) (2026-10-13). He splits ambition into four types and shows how to prompt for each, using a single quarterly business review (QBR) deck.
 

@@ -13,7 +13,7 @@ description: "Gozen Iwa climbing guide: seasons, access, management rules, publi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-gozeniwa)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-gozeniwa)
 
 Gozen Iwa is an intermediate-to-hard limestone sport destination in Okutama, where entry qualifications come before the route list. This guide helps you decide whether it suits your team, when to visit and what to confirm about transport and the approach.
 

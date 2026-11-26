@@ -10,7 +10,7 @@ description: "從生命週期與選型拆解 LiveKit Voice Agents：WebRTC room�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-livekit-voice-agents-en)
+> :globe: [English version](/posts/ai/2026-08-22-livekit-voice-agents-en)
 
 [LiveKit](https://livekit.io/) 最初是 WebRTC media server，後來才在上面長出 Agents SDK。這段歷史決定了它跟一般 voice-agent API 的差異：使用者、AI agent、電話與其他服務都是 room participant，音訊、視訊與 data track 先走 realtime media layer；STT、LLM、TTS 只是 agent session 內可替換的處理節點。
 

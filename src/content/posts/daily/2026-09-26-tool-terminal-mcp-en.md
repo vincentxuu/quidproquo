@@ -12,7 +12,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-26-tool-terminal-mcp)
+> :globe: [中文版](/posts/daily/2026-09-26-tool-terminal-mcp)
 
 ## Tool Info
 
@@ -95,13 +95,13 @@ terminal-mcp --sandbox --sandbox-config ~/.terminal-mcp-sandbox.json
 
 | | terminal-mcp | mcp-tty | iterm-mcp |
 |---|---|---|---|
-| Correctly renders full-screen TUI (vim, htop) | ✅ full VT100 emulation | ❌ README states ANSI is stripped, full-screen output won't render | Depends on the actual iTerm window, not an independent emulation |
-| Cross-platform | ✅ macOS/Linux/Windows | ✅ macOS/Linux/Windows | ❌ macOS only, requires iTerm2 installed |
-| Headless/CI use with no TTY | ✅ `--headless` single process | ✅ | ❌ requires a running iTerm2 app |
-| Multiple independent sessions | ✅ up to 5, `createSession`/`destroySession` | ✅ named sessions | ❌ drives whichever single iTerm tab you currently have |
-| Screenshot (PNG) | ✅ | ❌ | ❌ |
-| Session recording/replay (asciicast) | ✅ | ❌ | ❌ |
-| Sandboxed filesystem/network | ✅ macOS Seatbelt / Linux bubblewrap | ❌ | ❌ |
+| Correctly renders full-screen TUI (vim, htop) | ✓ full VT100 emulation | ✗ README states ANSI is stripped, full-screen output won't render | Depends on the actual iTerm window, not an independent emulation |
+| Cross-platform | ✓ macOS/Linux/Windows | ✓ macOS/Linux/Windows | ✗ macOS only, requires iTerm2 installed |
+| Headless/CI use with no TTY | ✓ `--headless` single process | ✓ | ✗ requires a running iTerm2 app |
+| Multiple independent sessions | ✓ up to 5, `createSession`/`destroySession` | ✓ named sessions | ✗ drives whichever single iTerm tab you currently have |
+| Screenshot (PNG) | ✓ | ✗ | ✗ |
+| Session recording/replay (asciicast) | ✓ | ✗ | ✗ |
+| Sandboxed filesystem/network | ✓ macOS Seatbelt / Linux bubblewrap | ✗ | ✗ |
 
 ## Things to Watch For
 

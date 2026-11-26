@@ -12,7 +12,7 @@ series:
   order: 68
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-22-ai-agent-daily)
 
 ## Today's Take
 
@@ -138,15 +138,15 @@ New Zealand's Labour Party criticized the government's lack of AI-governance rea
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Agno v3.1.8](/posts/daily/2026-10-22-framework-agno-3.1.8-en)
-- 📄 [Framework Update｜Pydantic AI v2.59.0](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0-en)
-- 📄 [Funding Brief｜Legora Series E \$550M](/posts/daily/2026-10-22-funding-legora-en)
-- 📄 [Funding Brief｜Pigment Series E \$250M](/posts/daily/2026-10-22-funding-pigment-en)
-- 📄 [Security Alert｜Symantec Catches "Skynet" Autonomous Attack Agent](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-22](/posts/daily/2026-10-22-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-22](/posts/daily/2026-10-22-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-22](/posts/daily/2026-10-22-ai-agent-github-digest-en)
+- :file: [Framework Update｜Agno v3.1.8](/posts/daily/2026-10-22-framework-agno-3.1.8-en)
+- :file: [Framework Update｜Pydantic AI v2.59.0](/posts/daily/2026-10-22-framework-pydantic-ai-v2.59.0-en)
+- :file: [Funding Brief｜Legora Series E \$550M](/posts/daily/2026-10-22-funding-legora-en)
+- :file: [Funding Brief｜Pigment Series E \$250M](/posts/daily/2026-10-22-funding-pigment-en)
+- :file: [Security Alert｜Symantec Catches "Skynet" Autonomous Attack Agent](/posts/daily/2026-10-22-security-skynet-llmjacking-autonomous-agent-en)
+- :file: [AI Engineer Interview Prep — 2026-10-22](/posts/daily/2026-10-22-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-22](/posts/daily/2026-10-22-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

@@ -30,7 +30,7 @@ glossary:
     context: "Climbers' medial elbow pain is sometimes this, but gets treated as tendinitis."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-elbow-wrist)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-elbow-wrist)
 
 You bouldered all evening, went home, scrolled your phone for half an hour, and now the inside of your elbow aches and your little finger feels a bit numb. Or you've been practising mantles (pressing down on a hold with your palms to push your body up over it), and the pinky side of your wrist stings every time you push. A friend says: "Golfer's elbow. Just rest it."
 

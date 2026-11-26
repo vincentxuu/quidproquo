@@ -26,7 +26,7 @@ glossary:
     context: "一項攀岩急性膝傷研究裡，最常見的結構傷害是內側半月板撕裂。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-knee-heel-hook-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-knee-heel-hook-en)
 
 陡牆上的 heel hook 掛得很穩，你把腳跟往下一拉，身體往牆貼近。下一秒大腿後面「啪」一聲，痛到整條腿放不下來。
 

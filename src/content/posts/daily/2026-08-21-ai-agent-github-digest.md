@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-21-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-21-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### cursor/plugins ⭐ 3,960+ (+470 今日)
+### cursor/plugins ★ 3,960+ (+470 今日)
 
 [GitHub](https://github.com/cursor/plugins)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### apache/maka (Incubating) ⭐ 1,900+ (+360 今日)
+### apache/maka (Incubating) ★ 1,900+ (+360 今日)
 
 [GitHub](https://github.com/apache/maka)　·　TypeScript　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### magnitudedev/magnitude ⭐ 1,440+ (+130 今日)
+### magnitudedev/magnitude ★ 1,440+ (+130 今日)
 
 [GitHub](https://github.com/magnitudedev/magnitude)　·　TypeScript　·　Apache-2.0
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### vercel/eve ⭐ 4,700+
+### vercel/eve ★ 4,700+
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0（公開 Beta）
 

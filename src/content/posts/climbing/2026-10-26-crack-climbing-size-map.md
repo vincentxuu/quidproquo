@@ -26,7 +26,7 @@ glossary:
     context: "本文譯名。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-crack-climbing-size-map-en)
+> :globe: [English version](/posts/climbing/2026-10-26-crack-climbing-size-map-en)
 
 站在一條裂隙底下，要先回答的問題是「它多寬」。寬度決定你要塞手指、手掌、拳頭，還是整隻手臂。換一個尺寸，幾乎就是換一種運動。
 

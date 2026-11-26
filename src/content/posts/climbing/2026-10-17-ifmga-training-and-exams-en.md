@@ -40,7 +40,7 @@ glossary:
         url: "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-training-and-exams)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-training-and-exams)
 
 This post answers two questions: what does an IFMGA guide actually practice in training, and how is exam day run and scored? If you are considering the path yourself, you will come away knowing how well you need to climb before you apply, and what you will be asked to do in the exams.
 

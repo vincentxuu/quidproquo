@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
+:globe: [中文版](/posts/tech/2026-03-27-cloudflare-workers-edge-compute)
 
 Cloudflare Workers is often compared to AWS Lambda, but the two have fundamentally different architectures. Lambda runs in containers; Workers runs in V8 Isolates. That single difference shapes everything.
 
@@ -33,13 +33,13 @@ Workers isn't a silver bullet — but the constraint that actually stops you is 
 - **CPU time**: counts only time the CPU spends executing your code. Waiting on `fetch()` or a D1 query does not count. 10ms on the free plan; on paid, the default is 30 seconds and can be raised to a 5-minute ceiling in configuration
 - **Wall time**: an incoming HTTP request has no hard limit while the client stays connected; `waitUntil()` extends execution for a while after the response is sent. Cron Triggers, Queue consumers, and Durable Object alarms are the invocation types with minute-scale wall-time caps
 - **Memory**: 128 MB per Worker, identical on both plans
-- **Worker size**: free and paid have different bundle-size ceilings; an over-fat bundle fails to deploy
+- **Worker size**: since 2026-09 both plans share a 64 MiB uncompressed limit and the compressed size no longer counts; a fat bundle still slows startup
 - **Subrequests**: there is a cap on outbound requests per invocation, much tighter on free; paid can raise it in configuration
-- **No full native Node.js API surface**: `fs`, `child_process` and friends are out, though most pure-JS packages work fine
+- **No full native Node.js API surface**: `node:fs` is only an in-memory virtual file system (read bundled modules, write scratch files under `/tmp`), `child_process` and friends are out, though most pure-JS packages work fine
 
 The exact numbers move. [Workers Limits](https://developers.cloudflare.com/workers/platform/limits/) is the only source worth trusting — it now carries separate tables for CPU time and wall time, and is worth reading end to end.
 
-The Workers runtime is not full Node.js. Built-ins like `node:crypto` and `node:buffer` come through the [Node.js compatibility layer](https://developers.cloudflare.com/workers/runtime-apis/nodejs/) and require the `nodejs_compat` compatibility flag.
+The Workers runtime is not full Node.js. Built-ins like `node:crypto` and `node:buffer` come through the [Node.js compatibility layer](https://developers.cloudflare.com/workers/runtime-apis/nodejs/): with a `compatibility_date` of 2026-08-04 or later it is on by default and needs no flag; only earlier compatibility dates need the `nodejs_compat` flag.
 
 ## The Simplest Possible Worker
 
@@ -119,7 +119,6 @@ The configuration file now comes in JSON and TOML flavours, and **Cloudflare rec
   "main": "src/index.ts",
   // Set this to the date you started the Worker
   "compatibility_date": "2026-08-18",
-  "compatibility_flags": ["nodejs_compat"],
   "d1_databases": [
     { "binding": "DB", "database_name": "my-db", "database_id": "<DATABASE_ID>" }
   ],
@@ -180,7 +179,7 @@ The core reasoning: a climbing community platform has unpredictable traffic. Run
 - Heavy CPU-bound workloads (ML training, image or video transcoding) — the hardest constraint; the CPU ceiling stops you outright
 - Anything whose working set exceeds 128 MB of memory
 - Packages that depend on native Node.js addons (some database drivers, `.node` binaries)
-- Anything requiring a local filesystem (`fs` is unavailable)
+- Anything requiring a persistent local filesystem (`node:fs` is only an in-memory virtual file system that does not outlive the request)
 
 Two things are **no longer** reasons to avoid Workers: long-lived WebSocket connections have [Durable Objects](https://developers.cloudflare.com/durable-objects/) (no wall-time cap while the caller stays connected), and long-running processes have Workflows. They are a different mental model, not a capability Workers lacks.
 
@@ -188,6 +187,7 @@ Compared to traditional VPS or container setups: what Workers gives up is **how 
 
 ## Changelog
 
+- 2026-11-23: Worker size limit is now 64 MiB uncompressed on both plans; the Node.js compatibility layer is on by default for compatibility dates from 2026-08-04; `node:fs` described as a virtual file system
 - 2026-08-19: Fact-checked against primary sources and refreshed; perishable details handed back to official docs. Added to the "Cloudflare Edge Stack" series.
 
 ## References

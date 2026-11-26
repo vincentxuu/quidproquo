@@ -15,7 +15,7 @@ glossary:
     def: "The commercial brand of Singapore startup Sapiens AI (founded by Bruce Yang), offering text, image, and video models through a single omni-modal API"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash)
+> :globe: [中文版](/posts/daily/2026-09-13-model-agnes-ai-agnes-3-0-flash)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | AA-LCR v1.1 (long-context reasoning) | 81% | 80% | 84.0% |
 | AA-Omniscience Accuracy (factual knowledge) | 25% | 49% | 46% |
 
-⚠️ Figures above are Artificial Analysis v4.3 results for the API/production Agnes 3.0 Flash (accessed 2026-09-11; the vendor labels the index score an estimate pending independent evaluation). The open-weight Preview checkpoint on Hugging Face reports different benchmark numbers and should not be cited interchangeably. DeepSeek V4.1 Flash figures are from yesterday's (2026-09-12) model card in this series.
+:warning: Figures above are Artificial Analysis v4.3 results for the API/production Agnes 3.0 Flash (accessed 2026-09-11; the vendor labels the index score an estimate pending independent evaluation). The open-weight Preview checkpoint on Hugging Face reports different benchmark numbers and should not be cited interchangeably. DeepSeek V4.1 Flash figures are from yesterday's (2026-09-12) model card in this series.
 
 ## Comparison with Predecessor/Competitors
 

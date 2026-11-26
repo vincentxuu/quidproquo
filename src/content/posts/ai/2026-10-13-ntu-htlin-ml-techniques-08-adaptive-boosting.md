@@ -27,7 +27,7 @@ glossary:
     context: "技法第 8 堂拿它當 AdaBoost 的弱基礎演算法，合稱 AdaBoost-Stump。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en)
+> :globe: [English version](/posts/ai/2026-10-13-ntu-htlin-ml-techniques-08-adaptive-boosting-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [208_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/208_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/25 到 25/25），寫「課堂上」的地方是轉述影片裡的說法。
 

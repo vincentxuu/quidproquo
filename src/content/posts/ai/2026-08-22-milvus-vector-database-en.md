@@ -10,7 +10,7 @@ description: "A practical deep dive into Milvus segments and disaggregated archi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-milvus-vector-database)
+> :globe: [中文版](/posts/ai/2026-08-22-milvus-vector-database)
 
 [Milvus](https://milvus.io/docs/architecture_overview.md) is an open-source database built for vector similarity search. It stores embeddings for text, images, or other content alongside primary keys and structured metadata, then provides approximate nearest-neighbor search, filtering, and hybrid retrieval. It is not an embedding model, and it does not decide how your application chunks documents or which data a user may access.
 

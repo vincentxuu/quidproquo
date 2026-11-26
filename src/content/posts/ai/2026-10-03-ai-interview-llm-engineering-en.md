@@ -42,7 +42,7 @@ glossary:
     context: "Used here to explain why guardrails belong outside the model."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-03-ai-interview-llm-engineering)
+> :globe: [中文版](/posts/ai/2026-10-03-ai-interview-llm-engineering)
 
 This is part 15 of the "AI Engineer Interview Prep" series. It covers the LLM engineering questions that come up often in interviews: when to fine-tune instead of using RAG, how RLHF, DPO, and GRPO differ, how to speed up inference, how to pick sampling parameters, where evaluation goes wrong, guardrails and the [OWASP](https://owasp.org/www-project-top-10-for-large-language-model-applications) LLM Top 10, and where hallucinations come from.
 

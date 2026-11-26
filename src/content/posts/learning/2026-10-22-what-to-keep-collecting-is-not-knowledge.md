@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge-en)
+> :globe: [English version](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge-en)
 
 打開你的書籤、稍後閱讀清單，或 Notion 裡那個「待讀」資料庫。上一次從裡面拿東西出來用，是什麼時候？MIT 的研究團隊做過一個瀏覽器側邊欄筆記工具 List-it，分析 420 位使用者留下的 6 萬多則筆記，只有約五分之一曾經被搜尋找出來過（[Van Kleek et al. 2011](https://doi.org/10.1145/1978942.1979374)）。這個數字只算搜尋，不算在側邊欄直接看到的，所以不代表其他筆記都沒用；但它提醒我們，存進去的東西，多數不會被特地找回來。
 

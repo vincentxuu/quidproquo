@@ -20,7 +20,7 @@ glossary:
     def: "Direct Preference Optimization — skipping the reward model and directly adjusting model weights using preference data"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-training-stages)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-training-stages)
 
 You open ChatGPT and ask "How do I write an apology letter?" It responds with a well-structured, appropriately-toned example. Feels natural — but remember what we covered in previous posts: the model's core ability is just "predicting the next token." How does a machine that only completes text become an assistant that answers questions?
 

@@ -24,11 +24,11 @@ glossary:
     context: "It corresponds to the variance term in the bias-variance decomposition."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
+> :globe: [中文版](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance)
 
 **Video status: Checked: no corresponding recording link listed on the public official page.** [Source details](#course-video-sources)
 
-> ⚠️ **Version and access**: This post follows [hw2 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2) (`hw2_release.tex/pdf/ipynb`) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The Section 2 and 3 handouts are labeled **Spring 2026**. The lecture scribe notes on the course site come from the **2024 term** (lec08 is dated `2/15/24`), not from 2026 lectures. The course rates **A3, enough for self-study**: homework, data, and section solutions are public, but there are **no public recording links listed for the corresponding lectures and no homework solutions**. Gradescope and Ed require enrollment.
+> :warning: **Version and access**: This post follows [hw2 in the CS181 s26 homeworks repo](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2) (`hw2_release.tex/pdf/ipynb`) and the [official 2026 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ). The Section 2 and 3 handouts are labeled **Spring 2026**. The lecture scribe notes on the course site come from the **2024 term** (lec08 is dated `2/15/24`), not from 2026 lectures. The course rates **A3, enough for self-study**: homework, data, and section solutions are public, but there are **no public recording links listed for the corresponding lectures and no homework solutions**. Gradescope and Ed require enrollment.
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/) (course number CS 1810 in 2026) titles HW2 **Classification and Bias-Variance Trade-offs**. Per `hw2_release.tex`, it is due February 27, 2026 at 11:59 PM, with four problems worth 30, 15, 30, and 15 points. The first line of the assignment states the scope:
 
@@ -173,12 +173,13 @@ Official sources:
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Re-read the official schedule and syllabus; they still list no public lecture video for this topic.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

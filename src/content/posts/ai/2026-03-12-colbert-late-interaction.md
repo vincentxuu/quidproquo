@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-colbert-late-interaction-en)
+> :globe: [English version](/posts/ai/2026-03-12-colbert-late-interaction-en)
 
 向量搜尋的架構可以分三類，理解三者的取捨，才能選到最適合的方案。
 
@@ -47,8 +47,8 @@ q4 和文件中所有 token 比較 → 取最高分
 |---|-----------|---------|--------------|
 | 查詢向量 | 1 個 | N_q 個（每 token） | N/A |
 | 文件向量 | 1 個 | N_d 個（每 token） | N/A（整合計算） |
-| 文件向量預計算 | ✅ | ✅ | ❌ |
-| Token 互動 | ❌ | 部分（MaxSim） | ✅（完整 attention） |
+| 文件向量預計算 | ✓ | ✓ | ✗ |
+| Token 互動 | ✗ | 部分（MaxSim） | ✓（完整 attention） |
 | 索引大小 | 小 | 大（N_d 倍） | N/A |
 | 搜尋速度 | 快 | 中 | 慢 |
 | 精度 | 低 | 中高 | 高 |

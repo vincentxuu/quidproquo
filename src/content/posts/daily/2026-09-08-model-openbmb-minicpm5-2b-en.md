@@ -15,7 +15,7 @@ glossary:
     def: "A family of lightweight on-device models from OpenBMB (ModelBest), built for local deployment on phones, PCs, and in-vehicle systems"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b)
+> :globe: [中文版](/posts/daily/2026-09-08-model-openbmb-minicpm5-2b)
 
 ## Model Information
 
@@ -47,10 +47,10 @@ glossary:
 | Artificial Analysis Intelligence Index v4.2 (neutral) | 15 | N/A (1B not in this version's comparison set) | Granite 4.2 3B: 11 |
 | GDPval-AA v2 Elo (neutral, real-world work) | 831 | N/A | Ling 3.0 Tiny: 718 |
 | τ³-Bench Banking (neutral, agentic tool use) | 21% (joint-first with Ling 3.0 Tiny) | N/A | Granite 4.2 8B: 8% |
-| SWE-bench Verified ⚠️ (vendor self-reported) | 46.4% | N/A | Qwen3.5-4B: 33.6% (best in the 4B comparison group) |
+| SWE-bench Verified :warning: (vendor self-reported) | 46.4% | N/A | Qwen3.5-4B: 33.6% (best in the 4B comparison group) |
 | Humanity's Last Exam (neutral) | 9% | N/A | Gemma 4 12B (Reasoning): 16% |
 
-⚠️ Except where noted, all figures are from independent Artificial Analysis testing. SWE-bench Verified is OpenBMB's own self-reported number (from the Hugging Face model card) and has not been independently reproduced. MiniCPM5-1B and MiniCPM5-2B were evaluated against different comparison sets (1B against Qwen3-0.6B, etc.; 2B against Qwen3.5-2B, etc.), so there are no directly comparable numbers — hence the "Predecessor" column is left blank.
+:warning: Except where noted, all figures are from independent Artificial Analysis testing. SWE-bench Verified is OpenBMB's own self-reported number (from the Hugging Face model card) and has not been independently reproduced. MiniCPM5-1B and MiniCPM5-2B were evaluated against different comparison sets (1B against Qwen3-0.6B, etc.; 2B against Qwen3.5-2B, etc.), so there are no directly comparable numbers — hence the "Predecessor" column is left blank.
 
 ## Comparison with Predecessor/Competitors
 

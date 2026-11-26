@@ -15,7 +15,7 @@ glossary:
     definition: "In-site groundlane skill judgment flow: check tool provenance → confirm three tools → call directly; if unavailable, use environment's actual tools and label fallback; never use deprecated stealth_fetch."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-4)
+> :globe: [繁體中文版](/posts/tech/2026-08-23-groundlane-series-4)
 
 This part does not assume any unimplemented site feature. Every workflow step is based on the observable `.claude/skills/groundlane` skill (with `mcp__groundlane__*` tool routes) and its `usage-modes.md` judgment flow, which includes the explicit constraint: never use the deprecated `stealth_fetch` or `web-fetch/fetch_page`; if Groundlane tools are not available, use the environment's actual available tools and label the result as a fallback rather than pretending Groundlane was used.
 

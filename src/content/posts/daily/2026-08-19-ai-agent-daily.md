@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-19-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-19-ai-agent-daily-en)
 
 ## 今日重點摘要
 

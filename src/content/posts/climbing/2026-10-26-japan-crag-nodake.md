@@ -13,7 +13,7 @@ description: "野岳 攀岩指南：岩質與風格、季節、交通與停車�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-nodake-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-nodake-en)
 
 野岳的行程要連岩壁、交通與當地土地使用一起安排。這篇協助你判斷風格是否合適、哪個季節去，以及第一次到訪要先確認哪些入口。
 
@@ -57,12 +57,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 
 清單收錄已核讀 ROCKTOPO 表中全部 76 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
 
-```video-gallery
-key: japanNodake
-lang: zh-TW
-layout: routes
-```
-
 ### 入門：6a 以下（YDS 5.10a 以下）
 
 先在 topo 找到「野岳 メインエリア」的線位。先確認保護與落地，不把低級數當作低風險。
@@ -72,6 +66,12 @@ layout: routes
 | 「迎賓館」 | 5.8 | 5.8 | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。 |
 | 「スポットライト」 | 5.8 | 5.8 | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。  [ROCKTOPO 綜合紀錄／收藏排序](https://www.rocktopo.net/areas/172/popular_routes/all)有列；這是社群排序，不是官方星等。 |
 | 「ミスター礫」 | 5.10a | 5.10a | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。  [ROCKTOPO 綜合紀錄／收藏排序](https://www.rocktopo.net/areas/172/popular_routes/all)有列；這是社群排序，不是官方星等。 |
+
+```video-gallery
+key: japanNodake
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -127,6 +127,12 @@ layout: routes
 | 「ごめんね！シジュカラ」 | 5.11c | 5.11c | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。 |
 | 「始発駅」 | 5.11c | 5.11c | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。 |
 | 「ホワイトブレス」 | 5.11c | 5.11c | 未列 | 野岳 メインエリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/172/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanNodake
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 

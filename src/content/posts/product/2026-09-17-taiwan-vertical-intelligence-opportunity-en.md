@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity)
+> :globe: [中文版](/posts/product/2026-09-17-taiwan-vertical-intelligence-opportunity)
 
 Think of an industry as a long night market. Visitors see what each stall is selling today. Delivery drivers, landlords, and electricians behind the scenes know which section is suddenly short of supplies, which equipment has developed a waiting list, and which vendor is preparing to expand.
 

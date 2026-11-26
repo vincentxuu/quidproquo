@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-🌏 [English version](/posts/tech/2026-03-27-claude-code-global-skills-not-found-en)
+:globe: [English version](/posts/tech/2026-03-27-claude-code-global-skills-not-found-en)
 
 裝好 global skills，CLI 用 `/` 斜線命令明明看得到，但開新 session 或換到 Desktop App，問 Claude「你有哪些 skills？」卻只回系統預設。每次都要手動提醒「去家目錄找一下」才行。
 

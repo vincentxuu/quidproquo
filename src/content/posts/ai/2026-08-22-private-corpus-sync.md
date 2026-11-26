@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-private-corpus-sync-en)
+> :globe: [English version](/posts/ai/2026-08-22-private-corpus-sync-en)
 
 把 SharePoint、Google Drive、內部 Wiki 或物件儲存空間接到搜尋系統，第一次全量匯入通常不難。真正麻煩的是第二次：文件改名、移動、權限變更或被刪掉時，索引裡的舊內容能不能正確更新，而不是多出一份幽靈副本。
 

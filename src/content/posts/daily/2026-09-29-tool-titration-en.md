@@ -12,7 +12,7 @@ series:
   order: 39
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-29-tool-titration)
+> :globe: [中文版](/posts/daily/2026-09-29-tool-titration)
 
 ## Tool Info
 
@@ -83,11 +83,11 @@ npm i -g @openai/codex
 
 | | Titration | Agent self-grading (single vendor) | Traditional eval frameworks (human-run) |
 |---|---|---|---|
-| Judge panel forced across vendors | ✅ requires agreement from ≥2 families | ❌ player is also referee | Depends on setup |
-| Baseline frozen, can't quietly drift easier | ✅ | ❌ | Partial (manual upkeep) |
-| Automatic classification of whether the prompt is even the issue | ✅ nine origins | ❌ | ❌ needs manual judgment |
-| Iteration memory shared across projects | ✅ searchable cards | ❌ | ❌ |
-| Free to start | ✅ subscription CLIs work at no extra cost | — | Depends on tool |
+| Judge panel forced across vendors | ✓ requires agreement from ≥2 families | ✗ player is also referee | Depends on setup |
+| Baseline frozen, can't quietly drift easier | ✓ | ✗ | Partial (manual upkeep) |
+| Automatic classification of whether the prompt is even the issue | ✓ nine origins | ✗ | ✗ needs manual judgment |
+| Iteration memory shared across projects | ✓ searchable cards | ✗ | ✗ |
+| Free to start | ✓ subscription CLIs work at no extra cost | — | Depends on tool |
 
 ## Things to Watch
 

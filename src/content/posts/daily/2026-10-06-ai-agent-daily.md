@@ -12,7 +12,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-06-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-06-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -118,16 +118,16 @@ OpenAI 公布因應 EU AI Act 的文字浮水印方案，數週內將對歐盟�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-github-digest)
-- 📄 [框架更新｜Mastra @mastra/core@1.74.0](/posts/daily/2026-10-06-framework-mastra-1.74.0)
-- 📄 [模型卡｜Cohere Embed 5](/posts/daily/2026-10-06-model-cohere-embed-5)
-- 📄 [資安警報｜GlassWorm 捲土重來](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain)
-- 📄 [融資速報｜OneByZero Series A $20M](/posts/daily/2026-10-06-funding-onebyzero)
-- 📄 [融資速報｜Valon Series D $150M](/posts/daily/2026-10-06-funding-valon)
-- 📄 [工具推薦｜Brickwise](/posts/daily/2026-10-06-tool-brickwise)
-- 📄 [AI Engineer 面試日練 — 2026-10-06](/posts/daily/2026-10-06-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-06](/posts/daily/2026-10-06-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-github-digest)
+- :file: [框架更新｜Mastra @mastra/core@1.74.0](/posts/daily/2026-10-06-framework-mastra-1.74.0)
+- :file: [模型卡｜Cohere Embed 5](/posts/daily/2026-10-06-model-cohere-embed-5)
+- :file: [資安警報｜GlassWorm 捲土重來](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain)
+- :file: [融資速報｜OneByZero Series A $20M](/posts/daily/2026-10-06-funding-onebyzero)
+- :file: [融資速報｜Valon Series D $150M](/posts/daily/2026-10-06-funding-valon)
+- :file: [工具推薦｜Brickwise](/posts/daily/2026-10-06-tool-brickwise)
+- :file: [AI Engineer 面試日練 — 2026-10-06](/posts/daily/2026-10-06-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-06](/posts/daily/2026-10-06-product-builder-interview-daily)
 
 ## 明日關注
 

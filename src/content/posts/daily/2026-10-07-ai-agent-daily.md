@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-10-07-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -24,7 +24,7 @@ series:
 
 證據 A：DeepSeek 原計畫募 75 億美元，因投資人熱烈認購擴大到逾 120 億美元，由 Tencent 與電池大廠 CATL 領投，公司籌劃 2027 年重組上市；同一天，Moonshot AI（月之暗面／Kimi）完成最後一輪私募，估值從今夏的 315 億美元跳升到 500 億美元，籌備 2027 Q1 香港 IPO，最高募資 50 億美元；快手旗下 Kling 也傳出尋求逾 10 億美元的香港 IPO。三家中國 AI 公司在同一時間窗口衝向資本市場，規模遠超過去任何一輪。
 
-證據 B：就在同一天，Mistral 發表 1 兆參數開權重模型 Large 4（代號 Le Chonk），官方說法是在 cyber、coding、金融與多模態任務上「追上中國以外最強的開源模型」。這句話本身就是訊號——Mistral 不是拿自己跟 Llama 或其他西方開源模型比，而是先把中國模型放在「最強」的位置上，自己的目標是「除此之外最強」。Cohere 同日推出企業級 agentic 平台 North 2，主打跨 session 記憶與嚴格存取控制，走的是用治理能力而非裸模型分數競爭的路線——某種程度上也是在迴避正面比拚開源權重的賽道。
+證據 B：就在同一天，Mistral 發表 1 兆參數開權重模型 Large 4（代號 Le Chonk），官方說法是在 cyber、coding、金融與多模態任務上「追上中國以外最強的開源模型」。這句話本身就是訊號——Mistral 不是拿自己跟 Llama 或其他西方開源模型比，而是先把中國模型放在「最強」的位置上，自己的目標是「除此之外最強」。Cohere 前一天（10/05）推出企業級 agentic 平台 North 2，主打跨 session 記憶與嚴格存取控制，走的是用治理能力而非裸模型分數競爭的路線——某種程度上也是在迴避正面比拚開源權重的賽道。
 
 對從業者的意義：當中國實驗室的資本量級可以持續供養更大的開源模型發布節奏,開源模型選型的參照標準會持續往中國傾斜。對台灣企業而言,這不只是「哪個模型更便宜好用」的技術選擇——選用中國開源權重模型自架,同時要把資料主權、供應鏈審查，以及近期 Artex AI 被用於入侵南韓銀行這類先例（見資安事件）一併納入採購評估，而不是等到出問題才回頭查。
 
@@ -106,17 +106,17 @@ Inngest v1.46.0 讓本機開發環境可以直接接上 Cloud sandbox 跑 agent 
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
-- 📄 [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
-- 📄 [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
-- 📄 [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
-- 📄 [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
-- 📄 [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
-- 📄 [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
-- 📄 [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
-- 📄 [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest)
+- :file: [框架更新｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0)
+- :file: [資安警報｜Protocol Pivoting 跨協定攻擊](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf)
+- :file: [融資速報｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian)
+- :file: [融資速報｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena)
+- :file: [融資速報｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci)
+- :file: [定價追蹤｜Anthropic 擴大新創方案](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion)
+- :file: [工具推薦｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
+- :file: [AI Engineer 面試日練 — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily)
 
 ## 明日關注
 

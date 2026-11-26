@@ -378,7 +378,10 @@ cd llama.cpp
 cmake -B build    # Metal 在 macOS 上預設啟用
 cmake --build build --config Release -j
 
-# 或用 Homebrew
+# 或用官方安裝腳本（跟著每日 build 更新）
+curl -LsSf https://llama.app/install.sh | sh
+
+# Homebrew 也能裝，但版本跟得比較慢
 brew install llama.cpp
 
 # 2. 下載模型
@@ -399,6 +402,8 @@ llama-server \
   --port 8080
 ```
 
+Homebrew 的 formula 只跟正式版號（2026-11-22 時是 11 月 13 日的 v1.0.0），每日 build 則已到 b12600 之後。要跑剛釋出的新架構，例如需要 b12600 以上的 Inkling 2 Mini，就用安裝腳本或 [releases](https://github.com/ggml-org/llama.cpp/releases) 的 `macos-arm64` 壓縮檔，先用 `llama --version` 確認版本。四個熱門開放模型在 32GB Mac 上各要哪個版本，整理在[本機跑模型系列第 4 篇](/posts/ai/2026-11-22-run-open-models-on-32gb-mac)。
+
 M3 Pro 36GB 的建議：8B 用 Q6_K（~5.5 GB），14B 用 Q4_K_M（~8.5 GB），32B 用 Q4_K_M（~20 GB）。剩餘記憶體留給 KV cache 和系統。
 
 ## 整體來說
@@ -408,6 +413,10 @@ llama.cpp 是本地 LLM 推論的基礎設施。Ollama、LM Studio、GPT4All 底
 2026 年的 llama.cpp 已經不只是「在 CPU 上跑 LLaMA」。它是一個成熟的多後端推論引擎，支援 50+ 模型架構，100K+ GitHub stars，ggml.ai 團隊加入 Hugging Face 後發展更快——MCP client 支援、Anthropic API 相容、音訊輸入、autoparser structured output 都是近期新增的。
 
 如果你已經在用 Ollama 而且滿意，不需要換。但如果你想更深入理解本地推論的每一個環節，或者需要 Ollama 不支援的功能（speculative decoding、grammar sampling、自訂量化），llama.cpp 就是下一站。
+
+## 更新紀錄
+
+- 2026-11-22：Mac 快速上手補上官方安裝腳本，說明 Homebrew 版本落後每日 build，並連到本機跑模型系列第 4 篇
 
 ## 參考資料
 

@@ -32,7 +32,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-openai-plugin-extensions)
+> :globe: [中文版](/posts/ai/2026-09-30-openai-plugin-extensions)
 
 I've been watching OpenAI's plugins for a while, for a simple reason: if they take off, the way a lot of software gets used will change with them. [OpenAI DevDay 2026](https://openai.com/index/devday-2026-recap/) on September 29, 2026 had a plugin story again, and this time it's called **Plugin Extensions**.
 
@@ -114,13 +114,13 @@ Not every entrypoint works everywhere. From the spec's support table (checked 20
 
 | Feature | Desktop | Web | iOS | Android |
 |---|---|---|---|---|
-| Sidebar (global) | ✅ | ✅ | ✅ | ✅ |
-| Conversation panel (thread) | ✅ | ✅ | ✅ | ✅ |
-| File viewer (file) | ✅ | ❌ | ❌ | ❌ |
-| Composer @-mentions | ✅ | ❌ | ❌ | ❌ |
-| Rich forms | ✅ | ✅ | ❌ | ❌ |
+| Sidebar (global) | ✓ | ✓ | ✓ | ✓ |
+| Conversation panel (thread) | ✓ | ✓ | ✓ | ✓ |
+| File viewer (file) | ✓ | ✗ | ✗ | ✗ |
+| Composer @-mentions | ✓ | ✗ | ✗ | ✗ |
+| Rich forms | ✓ | ✓ | ✗ | ✗ |
 
-The recap says "Available to all plans," but the docs add that web support for Free and Go users is "coming soon." File viewers are desktop-only for now — the biggest caveat for any team planning one.
+The recap says "Available to all plans," but the docs add that web support for Free and Go users is "coming soon." File viewers are desktop-only for now — the biggest caveat for any team planning one. Later revisions of the spec expanded the support table to more than a dozen rows, including a new **WebMCP** row, also desktop-only: tools a web page registers through [WebMCP](/posts/tech/2026-08-21-webmcp-browser-tools-en) can be called by the agent in the ChatGPT desktop app, and the viewer tools in the official sample plugin Bits & Bolts have moved to WebMCP.
 
 ## From Agent → Tool to Agent → Plugin
 
@@ -185,6 +185,10 @@ Something you can do tonight: list your product's three most common operations a
 MCP lets agents operate systems, Skills tell agents how to use them, Plugins make those capabilities installable and distributable, and Plugin Extensions fill in the last piece: user experience.
 
 Following the line API → MCP → Skill → Plugin → Plugin Extensions, the question has moved from "which interfaces do I expose?" to "in what form should my product be used?" The entry point to next-generation software may not only be your own app, but a slot in the sidebar of someone else's agent.
+
+## Update Log
+
+- 2026-11-23: Added the new WebMCP row in the spec's support table (desktop only) and the official sample plugin's move to WebMCP.
 
 ## References
 

@@ -12,7 +12,7 @@ series:
   order: 75
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-funding-vocca)
+> :globe: [中文版](/posts/daily/2026-10-08-funding-vocca)
 
 ## Deal Terms
 

@@ -14,7 +14,7 @@ series:
   order: 45
 ---
 
-> 🌏 [English version](/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en)
+> :globe: [English version](/posts/ai/2026-04-23-weaviate-legal-rag-architecture-en)
 
 法律文件搜尋是 RAG 最難的場景之一。不是因為資料量，而是因為精確度要求：使用者問的是 2024 年的合約，你不能回傳 2022 年語意相似的條款。日期、當事人、管轄法律、特定條款類型——任何一個維度出錯都是法律風險。
 

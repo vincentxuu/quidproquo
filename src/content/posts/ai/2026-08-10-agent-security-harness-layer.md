@@ -13,7 +13,7 @@ description: "為什麼 prompt injection 在模型層無解：指令與資料共
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-10-agent-security-harness-layer-en)
+> :globe: [English version](/posts/ai/2026-08-10-agent-security-harness-layer-en)
 
 前面四篇如果還讓人覺得「模型再強一點就好了」，這一篇可以徹底斷了這個念頭。
 

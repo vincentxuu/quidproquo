@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 56
 ---
-> 🌏 [中文版](/posts/daily/2026-07-19-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-19-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -76,7 +76,7 @@ For agent-platform developers, this layered thinking maps directly to the produc
 - Recursive System Nodes let agent systems nest like building blocks, supporting large-scale multi-agent architectures
 - Includes a visualization and monitoring tool for real-time inspection of agent execution state and decision paths
 - Experiments cover several representative agent applications, validating the feasibility of the "flexible design + performance analysis tradeoff"
-- Comparison with LangGraph: LangGraph's StateGraph is also graph-structured, but does not explicitly separate component/workflow/search layers **⚠️** (no quantitative comparison provided)
+- Comparison with LangGraph: LangGraph's StateGraph is also graph-structured, but does not explicitly separate component/workflow/search layers **:warning:** (no quantitative comparison provided)
 - Open-source code: [github.com/zzsfornlp/MyAG — maturity pending community validation](http://github.com/zzsfornlp/MyAG，成熟度待社群驗證)
 - Limitations: experiments are small-scale, lacking large-scale quantitative benchmarks against mainstream frameworks; reads more like a design proposal at this stage
 
@@ -136,7 +136,7 @@ The next competitive differentiator for agent platforms is likely "continuous po
 - "Self-induced" emphasizes that update signals come from the agent's own execution, not external human annotation — the key distinction from traditional RLHF
 - Covers application scenarios: coding agents, research agents, embodied agents, multi-agent system self-improvement
 - Evaluation challenge: most papers evaluate only task success rate, ignoring "improvement speed" and "improvement stability" — benchmarks are severely lacking
-- Safety risk: if self-induced updates are manipulated by malicious inputs, alignment drift may occur **⚠️** (discussion is conceptual; concrete mitigation methods are limited)
+- Safety risk: if self-induced updates are manipulated by malicious inputs, alignment drift may occur **:warning:** (discussion is conceptual; concrete mitigation methods are limited)
 - Includes a thorough treatment of Schmidhuber's early Gödelian agents and recursive self-improvement theory, providing complete historical context
 - Limitations: as a survey, it proposes no new methods; engineers wanting to implement will need to trace back to each sub-method's original paper — this is more of a "map" than a "recipe"
 
@@ -197,7 +197,7 @@ L3-type attacks are especially dangerous: attack time and trigger time are separ
 
 - L3 (context-triggered dormant attack) is the most covert: the attacker plants a trigger-payload pair that fires only when a specific context appears (e.g., user asks about a particular product); the attack remains completely silent afterward, making real-time monitoring nearly ineffective
 - Attack techniques in detail: uses semantic relational bridge, entity masquerading, and joint embedding optimization to ensure malicious memories survive selective retrieval and rewriting
-- Cross-model evaluation across 10 models reveals: resistance to memory poisoning varies significantly across models **⚠️** (specific attack success rates require reading the full paper)
+- Cross-model evaluation across 10 models reveals: resistance to memory poisoning varies significantly across models **:warning:** (specific attack success rates require reading the full paper)
 - The fundamental defense challenge: write-time filtering may kill legitimate memories; retrieval-time review adds latency; provenance binding requires architectural changes — all three directions involve effectiveness-vs-cost tradeoffs
 - Relevance to MCP (Model Context Protocol): tool return values in MCP are also a potential injection channel; this paper's 3 injection channel analysis maps directly to MCP scenarios
 - Prior work (SMSR, Plant-Persist-Trigger, etc.) focused on single attack types; this is the first large-scale benchmark spanning multiple attack types across memory substrates

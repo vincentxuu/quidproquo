@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-funding-nous-research)
+> :globe: [中文版](/posts/daily/2026-10-09-funding-nous-research)
 
 ## Deal Terms
 

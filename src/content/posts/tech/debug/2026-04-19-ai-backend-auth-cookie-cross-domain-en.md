@@ -10,7 +10,7 @@ description: "During local development, the AI backend recommendation API always
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain)
+:globe: [中文版](/posts/tech/debug/2026-04-19-ai-backend-auth-cookie-cross-domain)
 
 ## TL;DR
 

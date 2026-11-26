@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
+> :globe: [English version](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp-en)
 
 ## 工具資訊
 
@@ -65,9 +65,9 @@ caption: 簡化示意：實際還會列出偏差量與多個候選故障模式�
   <text class="dg-label" x="200" y="431" text-anchor="middle" dominant-baseline="central">診斷報告</text>
   <text class="dg-sub" x="200" y="451" text-anchor="middle" dominant-baseline="central">附頻率證據與嚴重度</text>
 
-  <rect class="dg-box dg-box--warn" x="380" y="232" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="470" y="248" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="470" y="266" text-anchor="middle" dominant-baseline="central">證據不足，不下判斷</text>
+  <rect class="dg-box dg-box--warn" x="380" y="228" width="180" height="56" rx="6"/>
+  <text class="dg-label" x="470" y="244" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="470" y="268" text-anchor="middle" dominant-baseline="central">證據不足，不下判斷</text>
 
   <text class="dg-edge" x="212" y="318" text-anchor="start" dominant-baseline="central">是</text>
   <text class="dg-edge dg-text--warn" x="344" y="244" text-anchor="middle" dominant-baseline="central">否</text>
@@ -123,10 +123,10 @@ assess_asset_change         # 把最新量測對照基準，依宣告的規則�
 
 | | Predictive Maintenance MCP | 商用振動分析軟體 | 通用 LLM 直接問診 |
 |---|---|---|---|
-| Agent／對話式操作 | ✅ MCP 原生，Claude／任何 MCP client | ❌ 多為獨立 GUI | ✅ 但沒有工具約束 |
-| 資料留在本機 | ✅ 原始訊號不出機器，只有運算結果給 LLM | 視廠商部署方式而定 | ❌ 訊號得整段餵進雲端模型 |
-| 判斷有頻譜證據支撐 | ✅ 拒絕檔名／猜測，強制比對故障頻率 | ✅ 多數商用工具也有 | ❌ 容易順著提示掰出故障 |
-| 開源、可重現 benchmark | ✅ MIT，CWRU 資料集上的盲測結果可重跑 | ❌ 演算法多為黑箱 | — |
+| Agent／對話式操作 | ✓ MCP 原生，Claude／任何 MCP client | ✗ 多為獨立 GUI | ✓ 但沒有工具約束 |
+| 資料留在本機 | ✓ 原始訊號不出機器，只有運算結果給 LLM | 視廠商部署方式而定 | ✗ 訊號得整段餵進雲端模型 |
+| 判斷有頻譜證據支撐 | ✓ 拒絕檔名／猜測，強制比對故障頻率 | ✓ 多數商用工具也有 | ✗ 容易順著提示掰出故障 |
+| 開源、可重現 benchmark | ✓ MIT，CWRU 資料集上的盲測結果可重跑 | ✗ 演算法多為黑箱 | — |
 | 授權成本 | 免費（MIT） | 常按機台數／年計費，可達數萬美元 | 依 API 用量計費 |
 
 ## 注意事項

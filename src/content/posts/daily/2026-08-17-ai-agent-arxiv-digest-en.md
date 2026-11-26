@@ -12,7 +12,7 @@ series:
   order: 85
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
 
 ## Today's Overview
 

@@ -12,7 +12,7 @@ series:
   order: 52
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-12-tool-decisionkit-en)
+> :globe: [English version](/posts/daily/2026-10-12-tool-decisionkit-en)
 
 ## 工具資訊
 
@@ -77,11 +77,11 @@ decisionkit score "How severe is this incident?" SEV4 SEV3 SEV2 SEV1 \
 
 | | decisionkit | 直接問 LLM（整段推理） | 自寫 keyword/regex 分類器 |
 |---|---|---|---|
-| 回傳機率分數 | ✅ | 需自行要求格式，常不穩定 | ❌ |
-| 速度與成本 | ✅ 135ms–1.8s／100 次 $0.0018–0.0045 | ❌ 明顯較慢較貴 | ✅ 最快 |
-| 能處理語意模糊案例 | ✅ | ✅ | ❌ |
-| 需要自行維護規則 | ❌ | ❌ | ✅ |
-| 原生 CLI／MCP／Claude Code plugin | ✅ | — | — |
+| 回傳機率分數 | ✓ | 需自行要求格式，常不穩定 | ✗ |
+| 速度與成本 | ✓ 135ms–1.8s／100 次 $0.0018–0.0045 | ✗ 明顯較慢較貴 | ✓ 最快 |
+| 能處理語意模糊案例 | ✓ | ✓ | ✗ |
+| 需要自行維護規則 | ✗ | ✗ | ✓ |
+| 原生 CLI／MCP／Claude Code plugin | ✓ | — | — |
 
 (速度與成本數字來自專案自己做的 100-task benchmark，見下方參考資料。)
 

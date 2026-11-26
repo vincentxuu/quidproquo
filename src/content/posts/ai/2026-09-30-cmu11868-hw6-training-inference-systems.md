@@ -22,7 +22,7 @@ glossary:
     context: "HW6 Problem 2 列出它和 dp_size、batch size 等，作為可以探索的加速參數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
+> :globe: [English version](/posts/ai/2026-09-30-cmu11868-hw6-training-inference-systems-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -129,12 +129,13 @@ glossary:
 
 - [CMU 11-868 Spring 2026 官方課表與教材](https://llmsystem.github.io/llmsystem2026spring/docs/Syllabus/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

@@ -23,7 +23,7 @@ glossary:
     context: "ICCV 2025 Best Student Paper FlowEdit used a flow model for image editing."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2025-cv)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2025-cv)
 
 2025 was a two-conference year for computer vision: CVPR in Nashville in June and ICCV in Honolulu in October. Both set submission records. Together they received more than 24,000 papers and accepted 5,500, nearly twice the combined totals from 2021. Four themes stood out: 3D Gaussian Splatting fully displaced NeRF, video generation moved from academia toward commerce, flow models challenged diffusion's dominance, and embodied AI drew visual understanding closer to robotic control.
 

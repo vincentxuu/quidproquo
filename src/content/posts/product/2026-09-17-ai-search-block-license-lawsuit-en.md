@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-ai-search-block-license-lawsuit)
+> :globe: [中文版](/posts/product/2026-09-17-ai-search-block-license-lawsuit)
 
 Imagine that you run a library. Blocking is the door policy: it determines whether the next visitor may enter. It can stop someone the system recognizes, but it cannot retrieve a book copied yesterday or make the person outside willing to pay.
 

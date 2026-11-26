@@ -13,7 +13,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-08-26-claude-code-on-the-web-en)
 
 上一篇 [Remote Control](/posts/tech/deep-dive/2026-03-28-claude-code-remote-control-guide) 講的是「程式跑在你機器上、瀏覽器當遙控器」。這篇講另一半：**程式根本不在你機器上跑**的雲端執行——Claude Code on the web。兩者共用 claude.ai/code 這個介面，差別只在 session 在哪裡執行；把這條邊界畫清楚，是這篇最主要的事。
 

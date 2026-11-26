@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-25-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-25-ai-agent-daily)
 
 ## Today's Call
 
@@ -136,14 +136,14 @@ The same week also saw several mid-sized rounds: Warp Sciences ($215M Series A, 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-github-digest-en)
-- 📄 [Benchmark Shift｜Arena Agent Leaderboard — 2026-10-25](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3-en)
-- 📄 [Framework Update｜Pydantic AI v2.61.0 — 2026-10-25](/posts/daily/2026-10-25-framework-pydantic-ai-v2.61.0-en)
-- 📄 [Funding Flash｜Pathos AI — 2026-10-25](/posts/daily/2026-10-25-funding-pathos-ai-en)
-- 📄 [Tool Pick｜photoshop-mcp — 2026-10-25](/posts/daily/2026-10-25-tool-photoshop-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-25](/posts/daily/2026-10-25-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-25](/posts/daily/2026-10-25-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-25](/posts/daily/2026-10-25-ai-agent-github-digest-en)
+- :file: [Benchmark Shift｜Arena Agent Leaderboard — 2026-10-25](/posts/daily/2026-10-25-benchmark-arena-agent-sonnet-top3-en)
+- :file: [Framework Update｜Pydantic AI v2.61.0 — 2026-10-25](/posts/daily/2026-10-25-framework-pydantic-ai-v2.61.0-en)
+- :file: [Funding Flash｜Pathos AI — 2026-10-25](/posts/daily/2026-10-25-funding-pathos-ai-en)
+- :file: [Tool Pick｜photoshop-mcp — 2026-10-25](/posts/daily/2026-10-25-tool-photoshop-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-25](/posts/daily/2026-10-25-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-25](/posts/daily/2026-10-25-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

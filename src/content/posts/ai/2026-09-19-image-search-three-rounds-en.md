@@ -10,7 +10,7 @@ description: "A three-round debugging journey taking RAG image retrieval from 'c
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-image-search-three-rounds)
+> :globe: [中文版](/posts/ai/2026-09-19-image-search-three-rounds)
 
 ## TL;DR
 

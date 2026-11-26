@@ -19,7 +19,7 @@ glossary:
     context: "本文用它說明「架構讓爛測試有機會被寫出來」是什麼意思。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-16-matt-pocock-18-agent-mistakes-en)
+> :globe: [English version](/posts/ai/2026-10-16-matt-pocock-18-agent-mistakes-en)
 
 如果你天天跟 coding agent 工作，還是覺得累，這篇想給你一張自我診斷表：Matt Pocock 這份 18 條清單怎麼分組、每組對應他公開過的什麼做法，以及今晚該先動哪一條。
 

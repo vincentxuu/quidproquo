@@ -15,7 +15,7 @@ glossary:
     def: "Edge0's streaming speech-recognition (ASR) model line; Audio8 ASR Infinite is its first public release"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite)
+> :globe: [中文版](/posts/daily/2026-09-28-model-edge0-audio8-asr-infinite)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | LibriSpeech test-other (English, WER) | 6.81% | **5.55%** | 7.14%@560ms |
 | Average error rate | **3.62%** | 10.25% (2 sets only) | 9.52% |
 
-⚠️ These are Edge0's own measurements at the 80ms audio clock with 480ms transcription delay (greedy decode, EOS suppressed). GitHub Issue #1 contains an independent third-party reproduction that matches the official table.
+:warning: These are Edge0's own measurements at the 80ms audio clock with 480ms transcription delay (greedy decode, EOS suppressed). GitHub Issue #1 contains an independent third-party reproduction that matches the official table.
 
 ## Versus Predecessors and Competitors
 

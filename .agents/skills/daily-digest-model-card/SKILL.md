@@ -29,8 +29,8 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -47,7 +47,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 
 ### 搜尋工具 fallback
 
-依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 progress.txt 記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
+依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 daily-log 本次紀錄記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
 
 只有使用者在當次對話指定「只能用 Groundlane」時才不降級。Fallback 只限公開資料，不得傳送 secrets、認證內容或私有資料。禁止已退役的 `stealth_fetch`、`web-fetch/fetch_page`。
 
@@ -216,6 +216,8 @@ query: "{model_name} benchmark results MMLU SWE-bench"
 max_results: 5
 ```
 
+**多欄 benchmark 表要對準欄位**：官方表頭常有合併儲存格（例如一個模型名底下分 1／2／4 loop、low／high effort 三欄，後面才接對照模型）。轉成 markdown 或抓摘要時欄位會錯開，把對照模型的分數讀成本模型的分數。遇到合併表頭或「欄數和表頭名數對不上」時，抓 README 原始碼（`https://huggingface.co/<org>/<model>/raw/main/README.md`）或 HTML，逐列數 `<td>` 對應哪個模型；寫進卡片前，確認每個分數的欄位名稱來自同一列表頭。（Nemotron Labs Dory 1.0 曾因此把 Qwen3.6-35B 的分數寫成 Dory 4-loop。）
+
 ---
 
 ## 輸出格式
@@ -286,7 +288,7 @@ glossary:
 |---|---|---|---|
 | {benchmark 名} | {分數} | {前代分數} | {競品名 + 分數} |
 
-{列出 3-5 個最重要的 benchmark。⚠️ 標注自測結果。}
+{列出 3-5 個最重要的 benchmark，標注哪些是自測結果。}
 
 ## 與前代/競品比較
 
@@ -360,7 +362,7 @@ glossary:
 | HumanEval | 96.8% | 92.1% | GPT-5 95.3% |
 | tau-bench (airline) | 68.5% | 55.2% | GPT-5 62.1% |
 
-⚠️ 以上均為 Anthropic 自測，需等外部複現。SWE-bench Verified 分數已由 OpenAI 獨立團隊確認。
+以上均為 Anthropic 自測，需等外部複現。SWE-bench Verified 分數已由 OpenAI 獨立團隊確認。
 
 ## 與前代/競品比較
 
@@ -389,7 +391,7 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] 定價精確到小數，不寫「約」
 - [ ] Context Window 寫具體數字
 - [ ] Benchmark 表列出至少 3 個，含前代和競品比較
-- [ ] 自測結果標注 ⚠️
+- [ ] 自測結果已標注
 - [ ] 「對 Agent 開發的意義」有具體的「如果你在做 X：」建議
 - [ ] 官方公告有完整 URL
 - [ ] 「今日收穫」是認知差，不是摘要
@@ -397,4 +399,4 @@ MCP server-side execution 是這次最大的架構變化。之前 Claude 只能�
 - [ ] `tags` 包含 `model-family-{family-slug}` 家族 tag
 - [ ] 模型資訊表包含「家族」和「HuggingFace」欄位（開源模型）
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

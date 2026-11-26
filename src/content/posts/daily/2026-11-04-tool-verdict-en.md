@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-04-tool-verdict)
+> :globe: [中文版](/posts/daily/2026-11-04-tool-verdict)
 
 ## Tool info
 
@@ -37,51 +37,51 @@ title: How Verdict classifies one tool call into 4 outcomes
 desc: Command, exit code, stdout, and stderr feed together into a 197 KB local classifier, which outputs one of success, failure, blocked, or unknown; in the pytest example shown here, no tests were collected, so the classifier calls it unknown, not success.
 caption: Simplified: omits hashed feature extraction and probability output details.
 ---
-<svg viewBox="0 0 560 280">
-  <path class="dg-line" d="M170 44H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 108H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 172H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M170 236H190" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 44H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 108H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 172H370" marker-end="url(#arrow)"/>
-  <path class="dg-line" d="M350 236H370" marker-end="url(#arrow)"/>
+<svg viewBox="0 0 560 312">
+  <path class="dg-line" d="M170 48H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 120H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 192H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M170 264H190" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 48H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 120H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 192H370" marker-end="url(#arrow)"/>
+  <path class="dg-line" d="M350 264H370" marker-end="url(#arrow)"/>
 
-  <rect class="dg-box" x="20" y="20" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="38" text-anchor="middle" dominant-baseline="central">Command</text>
-  <text class="dg-sub" x="95" y="56" text-anchor="middle" dominant-baseline="central">pytest tests/</text>
+  <rect class="dg-box" x="20" y="20" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="36" text-anchor="middle" dominant-baseline="central">Command</text>
+  <text class="dg-sub" x="95" y="60" text-anchor="middle" dominant-baseline="central">pytest tests/</text>
 
-  <rect class="dg-box" x="20" y="84" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="102" text-anchor="middle" dominant-baseline="central">Exit code</text>
-  <text class="dg-sub" x="95" y="120" text-anchor="middle" dominant-baseline="central">0</text>
+  <rect class="dg-box" x="20" y="92" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="108" text-anchor="middle" dominant-baseline="central">Exit code</text>
+  <text class="dg-sub" x="95" y="132" text-anchor="middle" dominant-baseline="central">0</text>
 
-  <rect class="dg-box" x="20" y="148" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="166" text-anchor="middle" dominant-baseline="central">stdout</text>
-  <text class="dg-sub" x="95" y="184" text-anchor="middle" dominant-baseline="central">no tests ran</text>
+  <rect class="dg-box" x="20" y="164" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="180" text-anchor="middle" dominant-baseline="central">stdout</text>
+  <text class="dg-sub" x="95" y="204" text-anchor="middle" dominant-baseline="central">no tests ran</text>
 
-  <rect class="dg-box" x="20" y="212" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="95" y="230" text-anchor="middle" dominant-baseline="central">stderr</text>
-  <text class="dg-sub" x="95" y="248" text-anchor="middle" dominant-baseline="central">(empty)</text>
+  <rect class="dg-box" x="20" y="236" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="95" y="252" text-anchor="middle" dominant-baseline="central">stderr</text>
+  <text class="dg-sub" x="95" y="276" text-anchor="middle" dominant-baseline="central">(empty)</text>
 
-  <rect class="dg-box dg-box--accent" x="190" y="20" width="160" height="240" rx="6"/>
-  <text class="dg-label" x="270" y="131" text-anchor="middle" dominant-baseline="central">Verdict classifier</text>
-  <text class="dg-sub" x="270" y="151" text-anchor="middle" dominant-baseline="central">197 KB・CPU・&lt;1ms</text>
+  <rect class="dg-box dg-box--accent" x="190" y="20" width="160" height="272" rx="6"/>
+  <text class="dg-label" x="270" y="144" text-anchor="middle" dominant-baseline="central">Verdict classifier</text>
+  <text class="dg-sub" x="270" y="168" text-anchor="middle" dominant-baseline="central">197 KB・CPU・&lt;1ms</text>
 
-  <rect class="dg-box" x="370" y="20" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="38" text-anchor="middle" dominant-baseline="central">success</text>
-  <text class="dg-sub" x="445" y="56" text-anchor="middle" dominant-baseline="central">positive evidence</text>
+  <rect class="dg-box" x="370" y="20" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="36" text-anchor="middle" dominant-baseline="central">success</text>
+  <text class="dg-sub" x="445" y="60" text-anchor="middle" dominant-baseline="central">positive evidence</text>
 
-  <rect class="dg-box" x="370" y="84" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="102" text-anchor="middle" dominant-baseline="central">failure</text>
-  <text class="dg-sub" x="445" y="120" text-anchor="middle" dominant-baseline="central">concrete failure</text>
+  <rect class="dg-box" x="370" y="92" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="108" text-anchor="middle" dominant-baseline="central">failure</text>
+  <text class="dg-sub" x="445" y="132" text-anchor="middle" dominant-baseline="central">concrete failure</text>
 
-  <rect class="dg-box" x="370" y="148" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="166" text-anchor="middle" dominant-baseline="central">blocked</text>
-  <text class="dg-sub" x="445" y="184" text-anchor="middle" dominant-baseline="central">env, not logic</text>
+  <rect class="dg-box" x="370" y="164" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="180" text-anchor="middle" dominant-baseline="central">blocked</text>
+  <text class="dg-sub" x="445" y="204" text-anchor="middle" dominant-baseline="central">env, not logic</text>
 
-  <rect class="dg-box dg-box--accent" x="370" y="212" width="150" height="48" rx="6"/>
-  <text class="dg-label" x="445" y="230" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="445" y="248" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
+  <rect class="dg-box dg-box--accent" x="370" y="236" width="150" height="56" rx="6"/>
+  <text class="dg-label" x="445" y="252" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="445" y="276" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
 </svg>
 ```
 
@@ -150,8 +150,8 @@ pytest -q
 |---|---|---|---|
 | Inference cost | 197 KB, CPU, median 0.54ms, zero API calls | Nearly free, but only one bit of signal | Every judgment needs another LLM API call — latency and cost |
 | Accuracy (48 CLI families unseen in training) | 93.2% | 47.9% | Not benchmarked head-to-head here; depends on the model and prompt used |
-| Offline, zero telemetry | ✅ No network calls | ✅ | ❌ Depends on an external API |
-| Reproducible training corpus and scripts | ✅ Public (CC0), `python training/train.py` reruns it | — | Mostly a black box, not reproducible |
+| Offline, zero telemetry | ✓ No network calls | ✓ | ✗ Depends on an external API |
+| Reproducible training corpus and scripts | ✓ Public (CC0), `python training/train.py` reruns it | — | Mostly a black box, not reproducible |
 | Output labels | 4 classes: success/failure/blocked/unknown, with probabilities | 2 classes: zero/non-zero | Custom per prompt, no standardized output contract |
 
 ## Things to watch out for

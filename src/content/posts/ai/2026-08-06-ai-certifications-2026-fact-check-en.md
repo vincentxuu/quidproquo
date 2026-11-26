@@ -25,7 +25,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)
+> :globe: [中文版](/posts/ai/2026-08-06-ai-certifications-2026-fact-check)
 
 All three major cloud vendors overhauled their AI certification tracks in the first half of 2026, so what you can actually register for looks quite different from a year ago. This piece lists every exam an engineer can sit right now, with prices, validity, and registration gates taken from official announcements.
 
@@ -103,7 +103,7 @@ Preparation paths: [AIF-C01](/posts/ai/2026-08-18-aws-aif-c01-prep-guide-en), [M
 
 ## Google: PMLE Is What You Can Take Now, and the Material Must Postdate Mid-2026
 
-Google has two AI certifications open for registration today: [Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader) (foundational) and [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) (professional). A third, [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect), covers building, orchestrating, and governing agents, and its general-availability registration opens on November 2, 2026. Until then PMLE is the only Google exam an engineer can take to demonstrate GenAI or agent capability, and its new exam guide already includes agentic content.
+Google has three AI certifications open for registration today: the [Generative AI Leader](https://cloud.google.com/learn/certification/generative-ai-leader) (foundational), the [Professional ML Engineer](https://cloud.google.com/learn/certification/machine-learning-engineer) (professional), and the [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) (professional), which covers building, orchestrating, and governing agents; its general-availability (GA) registration opened on November 2, 2026, and the page now lists GA specs. PMLE remains the general GenAI credential, while the Agentic Architect is the agent-specific one; its new exam guide already includes agentic content.
 
 Generative AI Leader is not worth $99 for an engineer. Google is blunt about the audience:
 
@@ -350,6 +350,7 @@ These three show up on recommendation lists, but none is an AI certification you
 
 ## Changelog
 
+- 2026-11-13: Google section rewritten — the Professional Agentic Architect is now GA, so three AI certifications are open for registration in Google's ecosystem; the agent-specific prep path is the new series order-31 post.
 - 2026-10-12: Added "Beyond the Exam Fee: Course Costs and Ways to Pay Less"; the Google section now includes Professional Agentic Architect, opening for registration in November, and PMLE chapter 6 is given as about 13%; iPAS registration for the second session has closed; added the AWS retake rule, the Claude training gate, and iPAS question sets; rewrote "Three Things That Are Not Individual AI Certifications" and "Three Things to Check Before You Register".
 - 2026-10-12: The series entry now links to the series page and the preparation-method article. The AWS section follows the current state: MLA-C01 in English ended 9/28 and the MLA-C02 English beta is what is delivered now, with a link to the MLA-C02 preparation path; "the only one offering Traditional Chinese" now reads as the only one of AWS's three.
 - 2026-10-08 (recheck): the AI-500 pages no longer carry a beta label and the wording is updated; added that AB-100 now requires an associate certification; added Google Professional Agentic Architect; the old URL for the Google PMLE exam guide is dead and now points to the official PDF.

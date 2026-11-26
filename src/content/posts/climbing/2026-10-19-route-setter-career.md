@@ -26,7 +26,7 @@ glossary:
     context: "源自法國楓丹白露的抱石區，岩點顏色可以混用。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-route-setter-career-en)
+> :globe: [English version](/posts/climbing/2026-10-19-route-setter-career-en)
 
 你一定卡過這種線：前面都很順，到了中間某一步，怎麼試都差一點。休息時你可能會想：這一步是故意的嗎？誰決定的？
 

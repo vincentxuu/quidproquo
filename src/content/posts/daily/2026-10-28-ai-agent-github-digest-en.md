@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, multi-agent, mcp-server, agent-platform, reverse-engineering]
 lang: en
 description: "Today's thread is managing a fleet of agents at once — Orca and Cindy are both racing for the same spot: multi-device, multi-agent, with your phone able to step in — while wigolo tries to zero out the search-API bill with local models"
-tldr: "**stablyai/orca** (⭐ 107,899) runs multiple coding agents in parallel, each in its own git worktree, with a mobile app for remote monitoring; **makecindy/cindy** (⭐ 7,342) wraps Claude Code and Codex into one multi-device interface; **KnockOutEZ/wigolo** (⭐ 5,507) is a keyless, fully local search-and-crawl MCP server; **morluto/rea** (⭐ 396,382) lets an agent reverse-engineer how an app's feature works without source code. pydantic-ai v2.62.0 ships several compatibility notes worth reading before you upgrade."
+tldr: "**stablyai/orca** (★ 107,899) runs multiple coding agents in parallel, each in its own git worktree, with a mobile app for remote monitoring; **makecindy/cindy** (★ 7,342) wraps Claude Code and Codex into one multi-device interface; **KnockOutEZ/wigolo** (★ 5,507) is a keyless, fully local search-and-crawl MCP server; **morluto/rea** (★ 396,382) lets an agent reverse-engineer how an app's feature works without source code. pydantic-ai v2.62.0 ships several compatibility notes worth reading before you upgrade."
 series:
   name: "AI Agent GitHub Digest"
   order: 74
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-28-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Two desktop apps on today's trending list are betting on the same future: a deve
 
 ## Trending Repos
 
-### stablyai/orca ⭐ 107,899
+### stablyai/orca ★ 107,899
 
 [GitHub](https://github.com/stablyai/orca) · TypeScript · MIT
 
@@ -30,7 +30,7 @@ Two desktop apps on today's trending list are betting on the same future: a deve
 
 ---
 
-### makecindy/cindy ⭐ 7,342
+### makecindy/cindy ★ 7,342
 
 [GitHub](https://github.com/makecindy/cindy) · TypeScript · Apache-2.0
 
@@ -41,7 +41,7 @@ Two desktop apps on today's trending list are betting on the same future: a deve
 
 ---
 
-### KnockOutEZ/wigolo ⭐ 5,507
+### KnockOutEZ/wigolo ★ 5,507
 
 [GitHub](https://github.com/KnockOutEZ/wigolo) · TypeScript · AGPL-3.0
 
@@ -52,7 +52,7 @@ Two desktop apps on today's trending list are betting on the same future: a deve
 
 ---
 
-### morluto/rea ⭐ 396,382
+### morluto/rea ★ 396,382
 
 [GitHub](https://github.com/morluto/rea) · TypeScript · MIT
 

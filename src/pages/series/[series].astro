@@ -8,6 +8,7 @@ import EnglishPostNav from '../../components/EnglishPostNav.astro';
 import { useTranslations } from '../../i18n/utils';
 import { getPublishedPosts } from '../../utils/content';
 import { getSeriesHref, getSeriesSummaries } from '../../utils/series';
+import { getReadingTime } from '../../utils/readingTime';
 
 const t = useTranslations('zh-TW');
 
@@ -50,7 +51,7 @@ const otherPosts = series.posts.slice(1);
         tags={introPost.data.tags}
         description={introPost.data.description}
         tldr={introPost.data.tldr}
-        readingTime={introPost.data.readingTime}
+        readingTime={getReadingTime(introPost)}
         lang="zh-TW"
         type={introPost.data.type}
         pinned={introPost.data.pinned}
@@ -71,7 +72,7 @@ const otherPosts = series.posts.slice(1);
           tags={post.data.tags}
           description={post.data.description}
           tldr={post.data.tldr}
-          readingTime={post.data.readingTime}
+          readingTime={getReadingTime(post)}
           lang="zh-TW"
           type={post.data.type}
           pinned={post.data.pinned}
@@ -106,7 +107,7 @@ const otherPosts = series.posts.slice(1);
   }
   h1 {
     margin: 0 0 0.35rem;
-    color: var(--brand-900);
+    color: var(--text-primary);
   }
   p {
     margin: 0;
@@ -126,9 +127,9 @@ const otherPosts = series.posts.slice(1);
     gap: 0.3rem;
     font-size: 0.7rem;
     font-weight: 700;
-    color: var(--brand-500);
-    background: var(--brand-50);
-    border: 1px solid var(--brand-300);
+    color: var(--text-secondary);
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
     border-radius: 3px;
     padding: 0.15rem 0.55rem;
     margin-bottom: 0.75rem;

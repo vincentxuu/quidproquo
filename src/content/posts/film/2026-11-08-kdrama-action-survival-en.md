@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-08-kdrama-action-survival)
+> :globe: [中文版](/posts/film/2026-11-08-kdrama-action-survival)
 
 This post covers Korean action, survival and superpower drama: death games, Joseon zombies, teenagers with superpowers and a model student who fights back against bullies. All 11 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. How K-dramas differ from American shows is covered at the start of the [romance post](/posts/film/2026-11-08-kdrama-romance-fantasy-en).
 

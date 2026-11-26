@@ -13,7 +13,7 @@ description: "微軟 AB-620（AI Agent Builder Associate）備考指南，依官
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-microsoft-ab-620-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/ab-620)，所有「怎麼準備」都指回微軟官方訓練，不含考古題。查證日期：2026-08-18。
 

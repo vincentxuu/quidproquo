@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-nebius-ai-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-nebius-ai-cloud)
 
 [Nebius AI Cloud](https://docs.nebius.com/) is a full cloud centered on AI workloads. Its infrastructure includes GPU VMs, InfiniBand GPU clusters, disk/file/object storage, and VPCs. Managed Kubernetes and Slurm-based Soperator provide orchestration; Serverless AI endpoints and jobs, MLflow, and packaged applications sit above them.
 
@@ -33,9 +33,13 @@ For Kubernetes or Slurm, test topology, RDMA, node remediation, queue fairness, 
 
 Give each workload a separate least-privilege service account and keep console or API keys out of images. Draw private subnets, public endpoints, NAT, registries, object storage, and observability paths. One cloud does not make traffic private or egress-free automatically.
 
-OCI images, Terraform, Kubernetes manifests, portable checkpoints, and standard object layouts reduce lock-in. GPU topology, managed APIs, and performance tuning remain provider-specific. Nebius fits teams growing from research into clusters and serving on one AI cloud; compare RunPod for isolated prototypes and Replicate for model-first APIs.
+OCI images, Terraform, Kubernetes manifests, portable checkpoints, and standard object layouts reduce lock-in. GPU topology, managed APIs, and performance tuning remain provider-specific. Nebius fits teams growing from research into clusters and serving on one AI cloud; compare Runpod for isolated prototypes and Replicate for model-first APIs.
 
 Kill a GPU node, disconnect shared storage, revoke service identity, and scale an endpoint from zero. The platform is ready only when recovery, audit, quotas, and spending limits remain visible.
+
+## Update log
+
+- 2026-11-23: Updated the company name to its current styling, Runpod (rebranded from RunPod in June 2025).
 
 ## References
 

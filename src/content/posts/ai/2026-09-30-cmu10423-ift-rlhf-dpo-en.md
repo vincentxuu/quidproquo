@@ -29,7 +29,7 @@ glossary:
     context: "Both the RLHF reward model and DPO use it to model human preferences."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-ift-rlhf-dpo)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

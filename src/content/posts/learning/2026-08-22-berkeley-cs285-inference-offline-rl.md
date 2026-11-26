@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs285-inference-offline-rl-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

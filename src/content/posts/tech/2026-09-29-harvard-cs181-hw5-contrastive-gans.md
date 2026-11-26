@@ -22,11 +22,11 @@ glossary:
     context: "HW5 Problem 2 要證明判別器最佳時，GAN 目標等於常數加上 JS divergence 項。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 10 週、[Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf)（標頭 Spring 2026）為準。第 10 週的講題（SSL、Contrastive、GAN、EBM）是 2026 新排的，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影，所以本篇的講課側資訊只來自 Section 8 與作業本身。作業解答未公開，Section 8 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 10 週、[Section 8](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08.pdf)（標頭 Spring 2026）為準。第 10 週的講題（SSL、Contrastive、GAN、EBM）是 2026 新排的，**2024 scribe notes 沒有對應講義**，官方課表未列這些講次的公開錄影，所以本篇的講課側資訊只來自 Section 8 與作業本身。作業解答未公開，Section 8 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec08/sec08_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 10 篇。上一篇是 [HW5（上）：K-means、HAC 與 PCA](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca)，下一篇是 [HW6（一）：自迴歸模型的解碼、KV Cache 與 Speculative Decoding](/posts/tech/2026-09-29-harvard-cs181-hw6-autoregressive-decoding)。
 
@@ -155,12 +155,13 @@ EBM 這一段作業沒有出題，只在 Section 8 出現。
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

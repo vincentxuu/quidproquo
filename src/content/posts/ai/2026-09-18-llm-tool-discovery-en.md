@@ -10,7 +10,7 @@ description: "Starting from a real case of an AI agent failing to use its search
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-18-llm-tool-discovery)
+> :globe: [中文版](/posts/ai/2026-09-18-llm-tool-discovery)
 
 An agent having the ability to do something and an agent knowing it can do something are two different things.
 
@@ -86,9 +86,9 @@ The [LangChain community](https://www.digitalapplied.com/blog/langchain-ai-agent
 
 | Approach | Effect |
 |---|---|
-| ❌ "Do NOT say you cannot find a file" | Agent knows not to say it, but may rephrase to the same effect |
-| ✅ "Your FIRST step is list_workspaces" | Agent has a clear first action |
-| ✅✅ Both combined | Positive instruction first, guardrail second |
+| ✗ "Do NOT say you cannot find a file" | Agent knows not to say it, but may rephrase to the same effect |
+| ✓ "Your FIRST step is list_workspaces" | Agent has a clear first action |
+| ✓✓ Both combined | Positive instruction first, guardrail second |
 
 OpenAI's advice leans the same way: "Use the system prompt to describe when (and when not) to use each function. Generally, tell the model _exactly_ what to do." — say when to use first, when not to use second.
 
@@ -150,7 +150,7 @@ IMPORTANT: never tell the user you cannot find a file
 without completing this workflow first.
 ```
 
-The difference: trigger condition (WHEN TO USE), first action, complete workflow, guardrail — all in the tool description, in one place. Checking against the six components: Purpose ✅, Guidelines ✅, Limitations (implicit in workflow), Parameter Explanation ✅, Length (~120 words), Examples (could add more).
+The difference: trigger condition (WHEN TO USE), first action, complete workflow, guardrail — all in the tool description, in one place. Checking against the six components: Purpose ✓, Guidelines ✓, Limitations (implicit in workflow), Parameter Explanation ✓, Length (~120 words), Examples (could add more).
 
 ## When This Applies (and When It Doesn't)
 

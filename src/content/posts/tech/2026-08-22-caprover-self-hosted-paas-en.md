@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-caprover-self-hosted-paas)
+> :globe: [中文版](/posts/tech/2026-08-22-caprover-self-hosted-paas)
 
 [CapRover](https://caprover.com/docs/get-started.html) is a self-hosted PaaS built on Docker Swarm, with a dashboard and CLI, Nginx, Let's Encrypt, and one-click apps. Applications deploy from source, Dockerfiles, or images, while `captain-definition` records the build and deployment recipe.
 

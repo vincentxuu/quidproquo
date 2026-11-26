@@ -25,7 +25,7 @@ glossary:
     context: "投影片說它在語意相似度任務上贏過 Sentence-BERT。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-rag-retrievers-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

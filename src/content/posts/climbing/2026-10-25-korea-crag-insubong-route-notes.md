@@ -13,7 +13,7 @@ description: "仁壽峰 20 條路線的逐段筆記：大斜板、Oasis、耳岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en)
+> :globe: [English version](/posts/climbing/2026-10-25-korea-crag-insubong-route-notes-en)
 
 [仁壽峰的選線文](/posts/climbing/2026-10-21-korea-crag-insubong)告訴你哪條線適合自己的繩隊，但站在北漢山（首爾）的岩壁底下，你還需要知道：這條線從哪裡起攀、每一段多長、難關在第幾段、爬完怎麼下來。這篇補的就是這些，範圍是仁壽峰的多段（多繩距）路線。它是選線文的附錄：先用選線文決定要爬哪一條，再回到這裡找起攀位置和逐段資料；選線文的路線表裡，每條有資料的路線都連到這裡對應的小節。
 

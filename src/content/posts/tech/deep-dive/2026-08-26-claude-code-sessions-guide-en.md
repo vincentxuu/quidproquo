@@ -13,7 +13,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-sessions-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-sessions-guide)
 
 The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) spent one section on sessions: "stored under `~/.claude/projects/`, resume appends to the same ID, fork copies the history." This post expands the full lifecycle — where transcripts live, how to get back in, how to branch off, how to clean up. The desktop app, the web version, and the VS Code extension each keep their own session history; this post covers the CLI only.
 

@@ -15,7 +15,7 @@ glossary:
     def: "A video generation model family developed by Alibaba Cloud's Tongyi Wan team"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-model-alibaba-wan3-0)
+> :globe: [中文版](/posts/daily/2026-08-26-model-alibaba-wan3-0)
 
 ## Model Information
 
@@ -49,7 +49,7 @@ glossary:
 | 1080P pricing (per second) | $0.20 | Not listed per-second (billed per generation) | $0.40 |
 | Document/web page input | Supported (doc/xls/ppt/pdf/md/web pages) | Not supported | Not supported |
 
-⚠️ The generation length, consistency, and lip-sync quality claims above are all from Alibaba's official demos. No third-party independent testing or standardized benchmark scores exist yet; pricing figures are from official announcements.
+:warning: The generation length, consistency, and lip-sync quality claims above are all from Alibaba's official demos. No third-party independent testing or standardized benchmark scores exist yet; pricing figures are from official announcements.
 
 ## Comparison with Predecessors and Competitors
 

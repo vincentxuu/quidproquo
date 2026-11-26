@@ -27,7 +27,7 @@ glossary:
         url: "https://www.ensm.sports.gouv.fr/formation-de-guide-haute-montagne/"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-france-switzerland-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-france-switzerland-en)
 
 法國和瑞士放在同一篇，是因為兩國都把高山嚮導當成國家管的職業：法國發國家文憑，瑞士發聯邦職業證書，沒證照收費帶客都有罰則。兩國也都是 [IFMGA](https://ifmga.net/member-associations/member-associations) 的創始會員，訓練量都超過 IFMGA 規定的 [94 天最低標準](https://ifmga.net/professional-mountain-guide/training-and-assessment)。
 

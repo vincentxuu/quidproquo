@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-04",
+  "date": "2026-11-25",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -8,24 +8,24 @@
     { "rank": 5, "model": "EPAM AI/Run Developer Agent + Atlassian Rovo Dev + Claude 4.5 Opus（三方並列 76.80）", "org": "EPAM／Atlassian／Anthropic", "score": 76.80 }
   ],
   "lmsys_agent_top5": [
-    { "rank": 1, "model": "Claude Opus 5.5 (Max)", "score": 20.04, "ci": "[17.92%, 22.15%]" },
-    { "rank": 2, "model": "Gemini 4 Carbon (High)", "score": 16.56, "ci": "[15.75%, 17.36%]" },
-    { "rank": 3, "model": "Claude Sonnet 5.5 (Max)", "score": 14.62, "ci": "[11.83%, 17.40%]" },
-    { "rank": 4, "model": "GPT-6 Astra (Max)", "score": 13.68, "ci": "[11.67%, 15.69%]" },
-    { "rank": 5, "model": "Claude Fable 5.1 (Max)", "score": 13.15, "ci": "[11.27%, 15.02%]" }
+    { "rank": 1, "model": "Claude Fable 5.2 (Max)", "score": 27.44, "ci": "[24.44%, 30.44%]" },
+    { "rank": 2, "model": "Claude Opus 5.5 (Max)", "score": 19.12, "ci": "[17.05%, 21.18%]" },
+    { "rank": 3, "model": "Gemini 4 Neon (High)", "score": 18.29, "ci": "[15.78%, 20.79%]" },
+    { "rank": 4, "model": "Gemini 4 Carbon (High)", "score": 16.13, "ci": "[15.44%, 16.82%]" },
+    { "rank": 5, "model": "Claude Sonnet 5.5 (Max)", "score": 15.21, "ci": "[12.31%, 18.11%]" }
   ],
   "aa_agentic_index_top3": [
-    { "rank": 1, "model": "Claude Opus 5 (Adaptive Reasoning, Max Effort)", "org": "Anthropic", "score": 59.2 },
-    { "rank": 2, "model": "GLM-5.3 (max)", "org": "Z.ai", "score": 59.1 },
-    { "rank": 3, "model": "Grok 4.6 (high)", "org": "xAI", "score": 58.7 }
+    { "rank": 1, "model": "Gemini 4 Neon (Antigravity CLI, xhigh)", "org": "Google", "score": 59 },
+    { "rank": 2, "model": "Claude Code + Fable 5.2 (xhigh) ／ Claude Code + Opus 5.5 (max)（並列）", "org": "Anthropic", "score": 58 },
+    { "rank": 3, "model": "Muse Code + Wonder Full (max)", "org": "Meta", "score": 54 }
   ],
   "cursorbench_top5": [
-    { "rank": 1, "model": "Opus 5.5 Max", "org": "Anthropic", "score": 57.8, "costPerTask": 13.43, "tokensPerTask": 218363 },
-    { "rank": 2, "model": "Opus 5.5 Extra High", "org": "Anthropic", "score": 56.0, "costPerTask": 6.98, "tokensPerTask": 101083 },
-    { "rank": 3, "model": "Opus 5.5 High", "org": "Anthropic", "score": 56.0, "costPerTask": 3.97, "tokensPerTask": 53078 },
-    { "rank": 4, "model": "Sonnet 5.5 Max", "org": "Anthropic", "score": 55.5, "costPerTask": 7.05, "tokensPerTask": 271920 },
-    { "rank": 5, "model": "Sonnet 5.5 Extra High", "org": "Anthropic", "score": 53.1, "costPerTask": 2.81, "tokensPerTask": 100158 }
+    { "rank": 1, "model": "Gemini 4 Neon (Extra High)", "org": "Google", "score": 65.4, "version": "4.1" },
+    { "rank": 2, "model": "Gemini 4 Carbon (High)", "org": "Google", "score": 61.5, "version": "4.1" },
+    { "rank": 3, "model": "Gemini 4 Hydrogen (High)", "org": "Google", "score": 61.4, "version": "4.1" },
+    { "rank": 4, "model": "Claude Fable 5.2", "org": "Anthropic", "score": 61.3, "version": "4.1" },
+    { "rank": 5, "model": "Claude Opus 5.5", "org": "Anthropic", "score": 58.1, "version": "4.1" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-04：SWE-bench Verified 用 Bash python3 -I 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json 解析 180 筆 Verified 結果，前 5 名與 11-03 逐位元相同（79.20／79.20／78.80／77.40，第 5 名仍是 76.80 三方並列），未異動。LMArena Agent 子集用 Groundlane web_fetch 打 HF datasets-server（lmarena-ai/leaderboard-dataset，config=agent，latest split，length=20），leaderboard_publish_date 終於從停滯 4 次快照的 10-28 推進到 11-02（新批次）；但前 3 名模型與名次不變（Opus 5.5 Max #1／Gemini 4 Carbon #2／Sonnet 5.5 Max #3），分數小幅波動（Opus 5.5 Max 20.94%→20.04%、Gemini 4 Carbon 16.04%→16.56%、Sonnet 5.5 Max 13.84%→14.62%），皆未達 >2 個百分點門檻；第 4／5 名互換（GPT-6 Astra 12.96%→13.68% 升至第 4，Claude Fable 5.1 13.35%→13.15% 降至第 5），但排名 4/5 不在「前 3 名」判定範圍，依 skill 規則不觸發。cursor.com/cursorbench 前 5 名與官網 changelog 皆與 11-03 相同（最後一筆仍是 10-07 定價調整），未異動；morphllm.com/leaderboard 直接 web_fetch 仍回 429（Vercel Security Checkpoint，既有已知阻塞）；artificialanalysis.ai/agents/coding-agents 改用 Groundlane web_fetch 重試，頁面仍為前端 JS 渲染、無法解析出表格數值（aa_agentic_index_top3 延用上次確認值，未能重新驗證）。Step 3b 兩組新聞信號查詢（Q1/Q2，timeRange: week）命中第三方聚合站（benchlm.ai、llm-stats.com、openlm.ai、arena.ai、swfte.com、felloai.com、polymarket 等）的排名與本站直連官方來源數字不一致，判定為非官方聚合雜訊，非四個追蹤榜單本身的排名變動；另命中 Gemini 4 Carbon 公告等既有已知事件，非新觸發。依 skill Step 4 判斷今日無 Benchmark 異動，不產出文章。"
+  "notes": "2026-11-25：Groundlane MCP 本次連線正常（`web_fetch`／`web_search` 皆成功回應，連續被拒兩天後恢復），四個常態追蹤榜單皆未達 Step 4 顯著變動門檻。SWE-bench Verified：`swebench.com/` 首頁 Groundlane `web_fetch` 仍 OUTPUT_LIMIT（既有已知限制），改用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（4,091,442 bytes），python3 -I 解析 180 筆 Verified 結果，前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與昨日逐位元相同。Arena Agent：Groundlane `web_fetch` 直連 datasets-server.huggingface.co（200）查 lmarena-ai/leaderboard-dataset，agent 子集 latest split，leaderboard_publish_date 仍是 2026-11-22（未推進新批次），前 5 名分數與排序逐位元相同（Fable 5.2 Max 27.44／Opus 5.5 Max 19.12／Gemini 4 Neon High 18.29／Gemini 4 Carbon High 16.13／Sonnet 5.5 Max 15.21）。CursorBench 4.1（Groundlane `web_fetch` 直連 cursor.com/en/cursorbench 官方頁，200）：53 組設定中依模型去重後前 5 名仍是 Gemini 4 Neon(Extra High) 65.4／Gemini 4 Carbon(High) 61.5／Gemini 4 Hydrogen(Extra High) 61.4／Fable 5.2(Max) 61.3／Opus 5.5(Max) 58.1，與昨日快照同一順位，changelog 仍停在 Nov 18 無新版本（新增觀察：Gemini 4 Neon High 63.7% 排在同模型 Extra High 65.4% 之後、於 Carbon High 61.5% 之前，屬同模型不同 reasoning effort 的既有列，不計入「前 5 名」去重口徑）。Artificial Analysis Coding Agent Index v2.1（Groundlane `web_search` 命中 orcarouter.ai 2026-11-19 發布的完整表）：前 5 名 Gemini 4 Neon(xhigh) 58.64／Fable 5.2(xhigh) 58.47／Devin Fusion CLI 58.40／Fable 5.2(high) 58.24／Opus 5.5(max) 58.16，與昨日快照順位一致（四捨五入後皆落在既有 59／58／58／58／58 區間內），來源未更新新批次。Q1/Q2 補充 web_search（day 範圍）未發現 watchlist 公司模型新登頂或新 SOTA 公告，僅有量化／蒸餾小模型（如 Ternary Bonsai 2.5 27B 75.6%、Qwen3-Coder-30B-A3B 52.2%）分數遠低於前 5 名門檻，不構成異動。morphllm.com/leaderboard 本次（Groundlane `web_fetch`，200 轉址後 404 Page Not Found）仍無排行榜頁面，維持既有 Q-023 阻塞，無新進展。"
 }

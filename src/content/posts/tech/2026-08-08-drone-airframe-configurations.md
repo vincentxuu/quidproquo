@@ -13,7 +13,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-drone-airframe-configurations-en)
+> :globe: [English version](/posts/tech/2026-08-08-drone-airframe-configurations-en)
 
 [上一篇](/posts/tech/2026-08-08-drone-endurance-physics)算完了多旋翼的懸停續航，結尾留了一句欠帳：
 

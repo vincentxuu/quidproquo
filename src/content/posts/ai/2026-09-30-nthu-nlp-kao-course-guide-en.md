@@ -23,7 +23,7 @@ glossary:
     context: "TAICA listed this course as 'Closed: mirror course / Conditional: satellite course' for Fall AY114 and as 'mirror course' for Fall AY115."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-kao-course-guide)
 
 **Video status: Videos included.** The intro embeds the Week 1 Tuesday recording (1 h 25 min); each week's recordings are in the individual posts. [Source details](#course-video-sources)
 

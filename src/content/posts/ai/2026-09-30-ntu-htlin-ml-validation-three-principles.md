@@ -31,7 +31,7 @@ glossary:
     context: "基石第 15 堂建議實務上用 5-fold 或 10-fold，不必做到 leave-one-out。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [15_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/15_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 

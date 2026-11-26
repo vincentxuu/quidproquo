@@ -15,7 +15,7 @@ glossary:
     definition: "Groundlane's RAG recall verification tool: given a query and expected source IDs, it reports recall, per-hit rank and score, and which sources were missed."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-09-11-groundlane-series-7)
+> :globe: [繁體中文版](/posts/tech/2026-09-11-groundlane-series-7)
 
 The first five parts established the operating baseline — tool contracts, comparison with traditional approaches, in-site application, pitfall checklists. This part shifts from "how to use" to "how to know the data you got is right": can a broken selector recover on its own, can corpus recall be verified before building a pipeline, and can document/search quality be measured with numbers.
 

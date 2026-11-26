@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
+> :globe: [English version](/posts/daily/2026-10-02-pricing-openai-ultrafast-pro-200-allowance-cut-en)
 
 ## 變更摘要
 
@@ -70,8 +70,8 @@ OpenAI 把速度分成三個價位帶（Standard／Fast／Ultrafast）而不是�
 
 ## 時效提醒
 
-⏰ **既有 Pro 200 用量上限保留到**：2026-10-29。10/30 起既有訂閱戶的 Codex／ChatGPT Work 用量上限從 20x Plus 降到新上限（10x Plus）。
-⏰ **一次性 $2,500 usage credit 到期日**：2026-12-31。降級後發放的 credit 若未用完，過期即失效，不會展延。
+:clock: **既有 Pro 200 用量上限保留到**：2026-10-29。10/30 起既有訂閱戶的 Codex／ChatGPT Work 用量上限從 20x Plus 降到新上限（10x Plus）。
+:clock: **一次性 $2,500 usage credit 到期日**：2026-12-31。降級後發放的 credit 若未用完，過期即失效，不會展延。
 
 ## 今日收穫
 

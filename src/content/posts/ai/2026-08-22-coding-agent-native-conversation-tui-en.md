@@ -15,7 +15,7 @@ glossary:
     definition: "The point where the model is about to read a file, modify one, or run a command; PCA applies policy and requests user approval at this boundary."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-coding-agent-native-conversation-tui)
+> :globe: [中文版](/posts/ai/2026-08-22-coding-agent-native-conversation-tui)
 
 ## TL;DR
 

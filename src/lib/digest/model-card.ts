@@ -162,7 +162,7 @@ ${model.pipelineTag ? `Pipeline：${model.pipelineTag}` : ''}
 請嚴格按以下結構撰寫（zh-TW）：
 1. ## 模型資訊（表格：Model ID、廠商、參數量、Context Window、定價、開源、發布日、官方公告、HuggingFace、家族）
 2. ## 能力亮點（2-4 個 bullet，含具體數字）
-3. ## Benchmark 表現（表格：Benchmark、分數、前代模型、競品最強，至少 3 個。⚠️ 標注自測結果）
+3. ## Benchmark 表現（表格：Benchmark、分數、前代模型、競品最強，至少 3 個，標注哪些是自測結果）
 4. ## 與前代/競品比較（2-3 段分析）
 5. ## 對 Agent 開發的意義（2-3 段，用「如果你在做 X：」句式）
 6. ## 今日收穫（認知差：之前以為 X → 現在知道 Y）

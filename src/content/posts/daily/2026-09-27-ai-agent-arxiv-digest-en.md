@@ -11,11 +11,11 @@ series:
   order: 126
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-27-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-27-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
-Today's three papers each stand at a different point in an agent system and puncture an assumption that seemed obvious. RPMem tackles the pain point of long-horizon agents losing their memory whenever the backbone model changes — it's the first design that lets accumulated memory keep working after a backbone swap, instead of starting over. Beyond Accuracy takes apart a common oversight intuition: having another LLM read a detailed procedural trace to audit an agent's output looks more rigorous, but signal-detection analysis shows the real effect is to push the overseer's decision threshold toward rejection, not to make it better at telling right from wrong. Just Ask Jev demonstrates that catching an agent's common failure modes — prompt injection, reward hacking — doesn't require an expensive LLM judge: a single call to a trained probabilistic model gets you there at 1/63 the cost of judge-style scoring. All three papers reach "substantial" evidence maturity, but each has a clear boundary: RPMem's claimed open-source code link currently returns 404; Beyond Accuracy only tested the case where disconfirming evidence stays visible, not whether overseers get fooled when evidence is actually hidden; Just Ask Jev's probabilities rank well but can't be used as a fixed threshold out of the box.
+Today's three papers each stand at a different point in an agent system and puncture an assumption that seemed obvious. RPMem tackles the pain point of long-horizon agents losing their memory whenever the backbone model changes — it's the first design that lets accumulated memory keep working after a backbone swap, instead of starting over. Beyond Accuracy takes apart a common oversight intuition: having another LLM read a detailed procedural trace to audit an agent's output looks more rigorous, but signal-detection analysis shows the real effect is to push the overseer's decision threshold toward rejection, not to make it better at telling right from wrong. Just Ask Jev demonstrates that catching an agent's common failure modes — prompt injection, reward hacking — doesn't require an expensive LLM judge: a single call to a trained probabilistic model gets you there at 1/63 the cost of judge-style scoring. All three papers reach "substantial" evidence maturity, but each has a clear boundary: RPMem's claimed open-source code isn't public yet; Beyond Accuracy only tested the case where disconfirming evidence stays visible, not whether overseers get fooled when evidence is actually hidden; Just Ask Jev's probabilities rank well but can't be used as a fixed threshold out of the box.
 
 ## Terms worth knowing before reading
 
@@ -48,17 +48,17 @@ RPMem uses a two-stage architecture that compiles each conversation session into
 | Venue | arXiv preprint (not peer-reviewed; primary cs.CL, cross-listed cs.AI) |
 | Citation velocity | Semantic Scholar reports citationCount 0; published 2026-09-20 (v2 revised 09-22), 7 days old, no citation data yet |
 | Institution | Fudan University + Alibaba (Qwen Business Unit) |
-| Community signal | Not found on HuggingFace Daily Papers; the paper claims code is open-sourced at github.com/Quark-Medical/rpmem, but this check found that link returning 404 — not yet confirmed live |
+| Community signal | Not found on HuggingFace Daily Papers; the paper claims code is open-sourced at github.com/Quark-Medical/rpmem, but the repo was not public at press time |
 | Credibility | Pass — Table 1 reports concrete numbers across 3 benchmarks (PERMA/PersonaMem-v2/PrefEval) against 6 baseline methods (Full Context, RAG, Rolling Summary, Mem0, LightMem, SFT, Metis-9B); Table 2 runs two separate ablations isolating the "memory compilation objective" and the "cross-session consolidation rule"; Section 7 Limitations explicitly acknowledges the learned consolidation policy's transfer to substantially different scenarios remains unstudied |
 | Evidence maturity | Substantial — generalization tested across 3 benchmarks × 5 backbones (Qwen3-4B/8B, Ministral-3-8B, Qwen3.5-9B/35B-A3B), plus deployment-efficiency profiling (Table 3: a 0.043-second update at 64 accumulated sessions) and general-capability retention (Table 4) |
-| Reproducibility | Not provided (current state) — the paper text claims code is released at github.com/Quark-Medical/rpmem, but that repo returned 404 when checked; public availability could not be confirmed |
+| Reproducibility | Not provided (current state) — the paper text claims code is released at github.com/Quark-Medical/rpmem, but the repo was not public at press time |
 | Why this paper | Direct — directly addresses the most common pain point in long-horizon agent deployment: whether accumulated memory can keep working after the underlying model is swapped |
 | Novelty | Substantive increment — existing parametric-memory methods (Doc-to-LoRA, SHINE, MemoryLLM, M+, Metis) are all coupled to a specific backbone; RPMem is the first to decouple memory so it remains decodable after backbone replacement |
 | Today's importance | High — production agent platforms routinely upgrade or swap their underlying model, and this paper directly answers whether accumulated memory can be preserved through that |
 | Practical link | Clear — worth comparing against existing memory modules in LangGraph, CrewAI, etc., to consider whether the memory layer should be decoupled from model versioning |
 | Editorial confidence | High — but since the code link currently can't be verified, claims should stay scoped to the paper's self-reported numbers rather than "externally reproduced" |
 | Reading recommendation | Must-read — for teams designing long-horizon agent memory architectures who care about model swappability |
-| Primary limitation | The paper claims open-source code, but the repo link returned 404 at the time of this check; the authors also acknowledge the learned cross-session consolidation policy's transfer to scenarios with substantially different memory needs remains to be studied |
+| Primary limitation | The paper claims open-source code, but the repo was not public at press time; the authors also acknowledge the learned cross-session consolidation policy's transfer to scenarios with substantially different memory needs remains to be studied |
 
 ### Field Context
 
@@ -72,7 +72,7 @@ Long-horizon agents need to remember content across many sessions. Text-based me
 
 ### Deep-Dive Points
 
-- On PERMA, RPMem with Qwen3-8B reaches 85.52%, beating Metis-9B by 5.32 points and Full Context by 12.98 points ⚠️ (self-reported by the authors, pending external reproduction)
+- On PERMA, RPMem with Qwen3-8B reaches 85.52%, beating Metis-9B by 5.32 points and Full Context by 12.98 points :warning: (self-reported by the authors, pending external reproduction)
 - Generalizes across 5 backbones with 5.95–20.41 point gains over the stronger reference; MMLU/GSM8K/IFEval general-capability drop is only 1.43–3.81 points
 - Deployment efficiency: at 64 accumulated sessions, writing one memory update takes 0.043 seconds — about 22x faster than rank concatenation and 292x faster than Mem0
 - Ablations: switching the compilation objective from hard labels to matching the full probability distribution contributes 16.45 points; switching cross-session consolidation from a fixed rule to a learned gate contributes another 31.31 points
@@ -81,7 +81,7 @@ Long-horizon agents need to remember content across many sessions. Text-based me
 
 ### Reviewer's One-Line Take
 
-The three-benchmark, five-backbone, dual-ablation design is solid, and the core claim — memory survives a backbone swap — has clear numbers behind it; but until someone actually gets the code running, "reproducible" is still just the authors' promise, since the linked repo currently returns 404.
+The three-benchmark, five-backbone, dual-ablation design is solid, and the core claim — memory survives a backbone swap — has clear numbers behind it; but until someone actually gets the code running, "reproducible" is still just the authors' promise, since the linked repo doesn't open yet.
 
 ### Your Take-Away
 
@@ -218,7 +218,7 @@ I used to think that adding another LLM review layer, or swapping in a cheaper d
 
 - [RPMem: Learning Long-Term Recurrent Parametric Memory Across Sessions for LLM Agents](https://arxiv.org/abs/2609.23466)
 - [RPMem — alphaxiv](https://www.alphaxiv.org/abs/2609.23466)
-- [RPMem — code (returned 404 at check time)](https://github.com/Quark-Medical/rpmem/tree/main)
+- [RPMem — code (not public at press time)](https://github.com/Quark-Medical/rpmem/tree/main)
 - [Beyond Accuracy: How Procedural Traces Shift the Decision Criterion of LLM Overseers](https://arxiv.org/abs/2609.18204)
 - [Beyond Accuracy — alphaxiv](https://www.alphaxiv.org/abs/2609.18204)
 - [Just Ask Jev: Reinforcement Learning for Calibrated Decisions as a Zero-Shot Detector of AI Alignment Failures](https://arxiv.org/abs/2609.29429)

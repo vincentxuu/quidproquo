@@ -18,7 +18,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en)
 
 [系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)查到，[Microsoft Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)裡 L1 guest 逃脫最高 250,000 美元。[上一篇](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)講了虛擬機和 hypervisor 之間那道牆。這一篇拿一個真實、已修補、有公開技術分析的案例，看牆上的洞長什麼樣子：[CVE-2021-28476](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-28476)。
 

@@ -12,7 +12,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot-en)
+> :globe: [English version](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot-en)
 
 ## 事件概述
 

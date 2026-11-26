@@ -33,7 +33,7 @@ glossary:
     context: "技法第 16 堂講義第 9 頁「拆成多步」三種做法中的第一種。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [216_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/216_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/21 到 21/21），寫「課堂上」的地方是轉述影片裡的說法。
 
@@ -614,7 +614,7 @@ title: Finale :: Machine Learning in Practice @ Machine Learning Techniques (機
 | [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) | W13（11/25）212u、213u → W14（12/02）modern deep learning：302u、303u → W15（12/09）停課，放 mlmai.ics 投影片 → W16（12/16）finale：1126 |
 | [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) | W13（12/02）停課，放 mlmai.ics → W14（12/09）期末考 → W15（12/16）212u、213u → W16（12/23）modern deep learning 與 finale：302u、303u、1126 |
 
-有兩件事值得注意。第一，兩個校內學期都沒有用 MOOC 的 216 講義，finale 那週用的是 1126。第二，Fall 2026 的 302u、303u、1126、mlmai.ics 路徑在 2026-10-13 打開都是 404，要等排定的週次才會公開，所以這一段以 Fall 2024 版為準。Fall 2026 的課程頁寫明有公開同步直播，但直播是否留下完整錄影，本文沒有逐支核對。
+有兩件事值得注意。第一，兩個校內學期都沒有用 MOOC 的 216 講義，finale 那週用的是 1126。第二，Fall 2026 的 302u、303u、1126、mlmai.ics 要等排定的週次才會公開，所以這一段以 Fall 2024 版為準。Fall 2026 的課程頁寫明有公開同步直播，直播有沒有留下完整錄影，以各週公開的連結為準。
 
 Fall 2024 的 HW7 在 W14 公布，題目涵蓋到技法第 12 堂的神經網路，沒有考 302u／303u 的內容。也就是說這一段沒有對應的作業可以練，要練得自己動手，下面兩處「怎麼做」是本文的建議。
 

@@ -17,7 +17,7 @@ glossary:
     definition: "A call record written to a local artifact that retains only the role, model, latency, tokens, and cost, excluding the prompt, error message, and credentials."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-3-tiered-llm-fallback)
 
 > **Building a Taiwan Stock Research Agent (Part 3 of 9):** [Previous: LangGraph Parallel Architecture—Five Analysts Working at Once](/posts/tech/2026-08-23-stock-agent-2-langgraph-parallel-architecture-en) ｜ [Next: Why Backtests Lie](/posts/tech/2026-08-23-stock-agent-4-backtest-accountability-en) ｜ [Complete contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

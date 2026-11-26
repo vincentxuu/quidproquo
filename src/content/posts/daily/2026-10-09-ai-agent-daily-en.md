@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-09-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-09-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -158,16 +158,16 @@ Australia's technology minister Andrew Charlton outlined a regulatory direction 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-github-digest-en)
-- 📄 [Funding Brief: Manus's First Independent Round, $500M+](/posts/daily/2026-10-09-funding-manus-en)
-- 📄 [Funding Brief: Nous Research Series B $90M](/posts/daily/2026-10-09-funding-nous-research-en)
-- 📄 [Funding Brief: Rein Security Series A $25M](/posts/daily/2026-10-09-funding-rein-security-en)
-- 📄 [Model Card: Claude Haiku 5.5](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5-en)
-- 📄 [Pricing Tracker: Claude Max/Team Subscribers Get Free Monthly API Credits](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits-en)
-- 📄 [Tool Pick: postgres2mcp](/posts/daily/2026-10-09-tool-postgres2mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-09: Coding](/posts/daily/2026-10-09-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-09: Growth & Experimentation](/posts/daily/2026-10-09-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-09](/posts/daily/2026-10-09-ai-agent-github-digest-en)
+- :file: [Funding Brief: Manus's First Independent Round, $500M+](/posts/daily/2026-10-09-funding-manus-en)
+- :file: [Funding Brief: Nous Research Series B $90M](/posts/daily/2026-10-09-funding-nous-research-en)
+- :file: [Funding Brief: Rein Security Series A $25M](/posts/daily/2026-10-09-funding-rein-security-en)
+- :file: [Model Card: Claude Haiku 5.5](/posts/daily/2026-10-09-model-anthropic-claude-haiku-5-5-en)
+- :file: [Pricing Tracker: Claude Max/Team Subscribers Get Free Monthly API Credits](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits-en)
+- :file: [Tool Pick: postgres2mcp](/posts/daily/2026-10-09-tool-postgres2mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-09: Coding](/posts/daily/2026-10-09-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-09: Growth & Experimentation](/posts/daily/2026-10-09-product-builder-interview-daily-en)
 
 ## Watch Tomorrow
 

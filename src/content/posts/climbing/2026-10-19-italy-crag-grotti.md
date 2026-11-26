@@ -13,7 +13,7 @@ description: "格羅蒂（Grotti）岩場介紹：Grotti Alta、Deposito、Canil
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-grotti-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-grotti-en)
 
 格羅蒂（Grotti）是拉齊奧（Lazio）北部列蒂（Rieti）省 Cittaducale 市的一個小村，在列蒂東南方的 Valle del Salto 河谷口。村子上方的岩壁是中義大利最有名的高難度運攀岩場之一：[Planetmountain](https://www.planetmountain.com/en/crags/grotti.html) 的圖說直接叫它「The great crag in central Italy」，[Oliunid](https://oliunid.com/blog/climbing-grotti-historic-routes-arrampicaroma-nord) 引 guidebook 作者 Riccardo Innocenti 的話，說 Grotti 是拉齊奧高難度攀登的據點之一。
 

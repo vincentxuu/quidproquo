@@ -25,7 +25,7 @@ glossary:
     definition: "比賽規則用語。選手已經控制住一顆標示的安全點（Safety Hold）、但對應的快扣還沒扣，或裁判認為再往上爬會不安全的那個位置。從這裡再做任何往上的動作，這次嘗試直接結束。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-competition-lead-rules-en)
+> :globe: [English version](/posts/climbing/2026-10-19-competition-lead-rules-en)
 
 先鋒決賽有一種很殘酷的畫面：選手爬到最後一段，手已經沒力，他抓著一顆點往上一撲，指尖碰到了下一顆，然後掉下來。比分板跳出「41+」。另一位選手在同一顆點掉下來，但沒有出手，成績是「41」。兩人只差一個加號，名次卻不一樣。
 

@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-26-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -113,13 +113,13 @@ Sharp 發表陪伴型對話 AI 機器人「Poketomo」第二代角色，結合�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-github-digest)
-- 📄 [模型卡｜Wan3.0](/posts/daily/2026-08-26-model-alibaba-wan3-0)
-- 📄 [資安警報｜NVIDIA NemoClaw DNS Rebinding 模型下毒](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning)
-- 📄 [框架更新｜Haystack 3.1.0](/posts/daily/2026-08-26-framework-haystack-3.1.0)
-- 📄 [融資速報｜Stability AI Series B $76M](/posts/daily/2026-08-26-funding-stability-ai)
-- 📄 [工具推薦｜agent-manager](/posts/daily/2026-08-26-tool-agent-manager)
+- :file: [AI Agent Arxiv Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-08-26](/posts/daily/2026-08-26-ai-agent-github-digest)
+- :file: [模型卡｜Wan3.0](/posts/daily/2026-08-26-model-alibaba-wan3-0)
+- :file: [資安警報｜NVIDIA NemoClaw DNS Rebinding 模型下毒](/posts/daily/2026-08-26-security-nemoclaw-ollama-dns-rebinding-model-poisoning)
+- :file: [框架更新｜Haystack 3.1.0](/posts/daily/2026-08-26-framework-haystack-3.1.0)
+- :file: [融資速報｜Stability AI Series B $76M](/posts/daily/2026-08-26-funding-stability-ai)
+- :file: [工具推薦｜agent-manager](/posts/daily/2026-08-26-tool-agent-manager)
 
 ## 明日關注
 

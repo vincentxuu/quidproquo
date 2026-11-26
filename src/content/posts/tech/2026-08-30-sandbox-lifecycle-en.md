@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-sandbox-lifecycle)
+> :globe: [中文版](/posts/tech/2026-08-30-sandbox-lifecycle)
 
 ## What This Post Is
 
@@ -63,10 +63,10 @@ Pause temporarily freezes sandbox execution, releases CPU resources, but retains
 | Provider | Pause/Resume API | Resume Speed | Retained Content |
 |----------|------------------|--------------|------------------|
 | E2B | pause/resume API | ~1 second | Memory + process + files |
-| Modal | pause/resume API | sub-second | Memory + process + files |
-| Vercel | pause API | 3–3 seconds | Files (memory rebuilt) |
-| Cloudflare | pause API | 2–3 seconds | Files (memory rebuilt) |
-| Azure Container Apps | pause/resume API | Depends on scale | Memory + process + files |
+| Modal | Memory snapshot (no pause API) | Depends on image | Memory + process + files (expires in 7 days) |
+| Vercel | Automatic snapshot on stop (persistent by default) | New session boots from snapshot | Files (memory rebuilt) |
+| Cloudflare | SDK 1.0 snapshot before shutdown | New instance starts from snapshot | Files (memory rebuilt) |
+| Azure Container Apps | auto-suspend / resume | Under 1 second (official) | Memory mode: memory + process + files; Disk mode: files |
 
 ### Caveats
 
@@ -87,8 +87,8 @@ Snapshot is a point-in-time copy of sandbox state, used for creating new sandbox
 | Feature | Pause | Snapshot |
 |---------|-------|----------|
 | Continue execution | Original sandbox continues | Create new sandbox |
-| Memory state | Retained | Not retained |
-| Process state | Retained | Not retained |
+| Memory state | Retained | Mostly not retained (Azure and Modal memory snapshots are exceptions) |
+| Process state | Retained | Mostly not retained (same exceptions) |
 | File state | Retained | Retained |
 | Applicable scenario | Short interruption | Long-term storage, cross-sandbox sharing |
 
@@ -116,10 +116,10 @@ Hibernation is a long-term idle state where the complete sandbox state (includin
 
 | Provider | Hibernation Support | Retention Time | Wake Speed |
 |----------|---------------------|----------------|------------|
-| Modal | No | N/A | N/A |
+| Modal | Memory snapshot | 7 days | Depends on image |
 | E2B | Yes | Unlimited | Seconds |
 | Blaxel | Yes (standby) | Unlimited | 25 ms |
-| Azure Container Apps | Yes | Depends on scale | Depends on scale |
+| Azure Container Apps | Yes (auto-suspend) | Set by auto-delete days | Under 1 second (official) |
 | Freestyle | Yes | Unlimited | Seconds |
 
 ---
@@ -170,11 +170,18 @@ ML model training or evaluation may take hours or days; sandbox can pause and re
 
 ---
 
+## Update Log
+
+- 2026-11-23: Updated the pause and hibernation tables from each vendor's docs: Modal has no pause API, so it now lists memory snapshots (7-day expiry); Vercel now snapshots automatically when a persistent sandbox stops; Cloudflare now reflects SDK 1.0 snapshots; Azure now lists auto-suspend in Memory and Disk modes; the claim that snapshots never keep memory now notes the Azure and Modal exceptions.
+
 ## References
 
 - [Azure Container Apps Sandboxes Documentation](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
 - [E2B Sandbox Persistence](https://e2b.dev/docs/sandbox/persistence)
 - [Modal Sandbox Snapshots](https://modal.com/docs/guide/sandbox-snapshots)
+- [Vercel Sandbox persistent sandboxes](https://vercel.com/docs/sandbox/concepts/persistent-sandboxes)
+- [Cloudflare Sandboxes: Lifetime](https://developers.cloudflare.com/sandbox/concepts/lifetime/)
+- [Azure Container Apps Sandboxes: Snapshots and state management](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
 - [Blaxel Sub-second Sandbox Startup 2026](https://blaxel.ai/blog/sub-second-sandbox-startup-2026)
 - [Beam: Best Stateful Sandboxes for Code Execution in 2026](https://www.beam.cloud/blog/best-stateful-sandbox-code-execution-2026)
 - [Kubernetes-sigs/agent-sandbox: Guest Agent Proposal](https://github.com/kubernetes-sigs/agent-sandbox/issues/1237)

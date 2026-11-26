@@ -10,7 +10,7 @@ description: "An introduction to oh-my-codex (OMX) architecture, core workflow S
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
+> :globe: [中文版](/posts/ai/2026-04-05-oh-my-codex-workflow-layer)
 
 OpenAI Codex CLI is powerful, but anyone who has used it knows the problem: **it has no concept of workflow**. You throw a prompt at it, it executes, and it's done — no task decomposition, no plan tracking, no state management across sessions. oh-my-codex (OMX) is the enhancement layer built to solve this problem.
 

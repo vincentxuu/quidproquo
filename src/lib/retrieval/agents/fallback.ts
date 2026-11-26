@@ -1,6 +1,6 @@
 import type { GraphState } from '../state'
 
-const WARNING = '⚠️ 此回答可能不完整'
+const WARNING = '注意：此回答可能不完整'
 
 export async function fallbackNode(state: GraphState): Promise<Partial<GraphState>> {
   const draft = state.draft.trim()

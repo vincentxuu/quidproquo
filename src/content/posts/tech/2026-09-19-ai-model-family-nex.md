@@ -1,12 +1,12 @@
 ---
-title: "Nex-N2.5——把視覺當介面的開源 agent 家族，從 35B mini 到 1.6T Max"
+title: "Nex-N2.5 與 N2.6——把視覺當介面的開源 agent 家族，從 35B mini 到 1.6T Max"
 date: 2026-09-19
 category: tech
 type: deep-dive
 tags: [ai-agent, llm, nex-agi, model-family-nex, moe, open-source, agentic-coding, model-selection]
 lang: zh-TW
-tldr: "Nex-N2.5 是 Nex AGI 的開源 agentic 模型家族：mini 以 35B-A3B 在 OSWorld-G 拿下 82.9 分，Pro 以 397B-A17B、87.4 分超車 Claude Opus 5，Max 以 1.6T 在 BrowseComp 以 92.6 分居全表之冠，三款都掛 Apache-2.0 開源。"
-description: "Nex AGI Nex-N2.5 模型家族完整介紹：從 Nex-N1 到 N2.5 的演化、mini／Pro／Max 三量級定位、視覺回饋自我修正的設計哲學、reasoning_effort 三檔推理控制、官方 benchmark 全表解讀、Apache-2.0 開源與部署生態，以及 Agent 開發者的選型指南"
+tldr: "Nex-N2.5 是 Nex AGI 的開源 agentic 模型家族：mini 以 35B-A3B 在 OSWorld-G 拿下 82.9 分，Pro 以 397B-A17B、87.4 分超車 Claude Opus 5，Max 以 1.6T 在 BrowseComp 以 92.6 分居全表之冠，三款都掛 Apache-2.0 開源。2026-11-10 的 Nex-N2.6 底模改成 GLM-5.3-Flash（約 321B、FP8 權重、Apache-2.0），接替 Pro 成為中量級主力，OSWorld 83.0；OpenRouter 免費層已下架，mini 與 Pro 改走付費端點。"
+description: "Nex AGI Nex-N2.5 模型家族完整介紹：從 Nex-N1 到 N2.5 的演化、mini／Pro／Max 三量級定位、視覺回饋自我修正的設計哲學、reasoning_effort 三檔推理控制、官方 benchmark 全表解讀、改以 GLM-5.3-Flash 為底的 Nex-N2.6、Apache-2.0 開源與部署生態，以及 Agent 開發者的選型指南"
 series:
   name: "AI 模型家族"
   order: 22
@@ -17,12 +17,12 @@ glossary:
   - term: "OSWorld-G"
     definition: "電腦操作定位（grounding）評測，測模型把「點哪裡」這件事定位準不準，是 computer-use agent 的座標基本功。"
   - term: "reasoning_effort"
-    definition: "Nex-N2.5 控制思考行為的參數：none 直接回答、medium（預設）自適應思考、high 強制思考。"
+    definition: "Nex 控制思考行為的參數。N2.5：none 直接回答、medium（預設）自適應思考、high 強制思考；N2.6：low、high、max 三檔，預設 max。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-19-ai-model-family-nex-en)
+> :globe: [English version](/posts/tech/2026-09-19-ai-model-family-nex-en)
 
-2026 年 9 月 8 日，[Nex AGI](https://nex-agi.com/) 發佈 [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini)——一個從 35B 到 1.6T 的開源 agentic 模型家族，全部掛 Apache-2.0。其中最抓眼球的不是最大的那個，而是中間的 Pro：在 [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) 電腦操作定位上拿下 87.4 分，贏過 [Claude Opus 5](https://www.anthropic.com/) 的 76.8 分；而最大的 Max 則在 BrowseComp 以 92.6 分居官方全表之冠。這是「AI 模型家族」系列的第二十二篇，追蹤 Nex 從 Nex-N2 到 N2.5 的完整路徑。
+2026 年 9 月 8 日，[Nex AGI](https://nex-agi.com/) 發佈 [Nex-N2.5](https://huggingface.co/nex-agi/Nex-N2.5-mini)——一個從 35B 到 1.6T 的開源 agentic 模型家族，全部掛 Apache-2.0。其中最抓眼球的不是最大的那個，而是中間的 Pro：在 [OSWorld-G](https://huggingface.co/nex-agi/Nex-N2.5-mini) 電腦操作定位上拿下 87.4 分，贏過 [Claude Opus 5](https://www.anthropic.com/) 的 76.8 分；而最大的 Max 則在 BrowseComp 以 92.6 分居官方全表之冠。2026 年 11 月 10 日接著發佈 [Nex-N2.6](https://huggingface.co/nex-agi/Nex-N2.6)：只出一個中量級模型，底模從 Qwen3.5 換成 GLM-5.3-Flash，重點是減少重複推理與不亂叫工具。這是「AI 模型家族」系列的第二十二篇，追蹤 Nex 從 Nex-N2、N2.5 到 N2.6 的路徑。
 
 怎麼解讀文中引用的 benchmark 數字，請參考[AI 模型評測來源指南](/posts/tech/2026-08-24-ai-model-evaluation-sources)。這篇是[AI 模型用途總覽](/posts/tech/2026-08-24-ai-model-landscape-overview)系列的一部分。mini 與 Pro 的單篇細節另見站上兩張模型卡：[模型卡｜Nex-N2.5-mini](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini)、[模型卡｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro)。
 
@@ -30,19 +30,31 @@ glossary:
 
 | 模型／產品線 | 定位 | 關鍵差異 | 存取方式 |
 |---|---|---|---|
-| Nex-N2.5-mini | 原型／低門檻自架 | 35B-A3B；多模態 | Apache-2.0 權重；OpenRouter 免費層 |
-| Nex-N2.5-Pro | 自架主力 | 397B-A17B；多模態 | Apache-2.0 權重；OpenRouter 免費層 |
+| Nex-N2.6 | 中量級主力（接替 Pro） | 約 321B、FP8 權重；底模 GLM-5.3-Flash；多模態 | Apache-2.0 權重；OpenRouter `nex-agi/nex-n2.6`（$0.12／$0.40） |
+| Nex-N2.5-mini | 原型／低門檻自架 | 35B-A3B；多模態 | Apache-2.0 權重；OpenRouter `nex-agi/nex-n2.5-mini`（$0.025／$0.10） |
+| Nex-N2.5-Pro | 單機 8×H100 自架 | 397B-A17B；多模態 | Apache-2.0 權重；OpenRouter `nex-agi/nex-n2.5-pro`（$0.075／$0.25） |
 | Nex-N2.5-Max | 純文字旗艦 | 1.6T MoE；多節點需求 | Apache-2.0 權重 |
+
+價格是 OpenRouter 上每百萬 token 的 input／output，唯一 provider 是 Nex AGI 自己（資料日期 2026-11-23）。原本 mini 與 Pro 的 `:free` 免費端點已經沒有 provider，不能再用。
 
 ### 三個量級：mini 跑量、Pro 居中、Max 攻頂
 
-**mini（35B-A3B）**：家族入門，[Hugging Face](https://huggingface.co/nex-agi/Nex-N2.5-mini) 上 35B 總參數、BF16，基於 Qwen3.5-35B-A3B-Base 後訓練。262,144 context、約 236K 最大輸出。單機 2×H100 就能跑（`--tp 2`），是三款裡部署門檻最低的。[OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini:free) 掛免費層，input／output 都是 $0.00。
+**mini（35B-A3B）**：家族入門，[Hugging Face](https://huggingface.co/nex-agi/Nex-N2.5-mini) 上 35B 總參數、BF16，基於 Qwen3.5-35B-A3B-Base 後訓練。262,144 context、約 236K 最大輸出。單機 2×H100 就能跑（`--tp 2`），是三款裡部署門檻最低的。[OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini) 付費端點每百萬 token $0.025／$0.10，是家族最便宜的託管入口。
 
-**Pro（397B-A17B）**：中堅，沿用前代 397B 總參數、約 17B 啟用的 MoE（基於 `Qwen3.5-397B-A17B`）。同樣 262,144 context。單一 8×H100 節點可服務（`--tp 8`），不需要 Max 的多節點叢集。[OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-pro:free) 同樣有免費層。
+**Pro（397B-A17B）**：中堅，沿用前代 397B 總參數、約 17B 啟用的 MoE（基於 `Qwen3.5-397B-A17B`）。同樣 262,144 context。單一 8×H100 節點可服務（`--tp 8`），不需要 Max 的多節點叢集。[OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-pro) 付費端點每百萬 token $0.075／$0.25。
 
 **Max（1.6T 純文字 MoE）**：旗艦，1.6 兆總參數的純文字 MoE，是 Nex 首次在兆參數規模做完完整後訓練。注意它和兩個弟弟不一樣：**純文字，不做多模態**。部署要 2 節點、16×H200（`--tp 16`），context 262,144。這個尺寸擺明不是給一般人自架的，是拿來證明「我們的後訓練方法在兆級也 work」。
 
-三款的分工很乾脆：**mini 验证迴圈、Pro 做主力、Max 刷榜證明上限**。
+三款的分工很乾脆：**mini 驗證迴圈、Pro 做主力、Max 刷榜證明上限**。
+
+### Nex-N2.6：中量級換底模
+
+[Nex-N2.6](https://huggingface.co/nex-agi/Nex-N2.6)（2026-11-10，Apache-2.0）是目前中量級的建議版本。模型卡寫明它「built on GLM-5.3-Flash」，HF 上的這份權重是 FP8，約 321B 參數，支援圖片輸入。官方把它定位成 N2.5-Pro 的後續，這一版主攻兩件事：
+
+- **少繞圈**：內部 checkpoint replay 評測裡，推理重複率從 N2.5-Pro 的 16.0% 降到 1.6%。
+- **只叫有宣告的工具**：有發出工具呼叫的回應中，100% 只用請求裡列出的工具（N2.5-Pro 是 80.5%）。
+
+N2.6 只出這一個尺寸，mini 與 Max 仍是 N2.5。自架要用支援 GLM-5.3-Flash 的推理框架，模型卡指向 SGLang 的 GLM-5.3-Flash 部署指南、選 FP8 相容配置，沒有列出最低硬體需求；指向的是上游 SGLang，而不是 N2.5 用的 Nex 自家 fork。
 
 ## 家族演化
 
@@ -52,9 +64,13 @@ glossary:
 |---|---|---|
 | 2025-12 | Nex-N1（8B～671B 四款＋N1.1） | 第一代：full-stack agent 平台，旗艦 DeepSeek-V3.1-Nex-N1（671B），SWE-bench Verified 70.6 分 |
 | 2026 年前 | Nex-N2（mini／Pro） | 前代：mini 是 35B-A3B 自主 agent 模型，Pro 是 397B-A17B；N2-mini 的 DeepSWE 只有 8.0 分，是 N2.5 暴衝的起點 |
-| 2026-09-08 | Nex-N2.5（mini／Pro／Max） | 次代全家桶：mini／Pro 沿用 N2 多模態基礎做後訓練強化，Max 首度完成兆參數規模的完整後訓練 |
+| 2026-09-08 | Nex-N2.5（mini／Pro／Max） | 次代全家桶：mini／Pro 沿用 N2 多模態基礎做後訓練強化，Max 首度完成兆參數規模的完整後訓練；mini 與 Pro 的單篇細節見[模型卡｜Nex-N2.5-mini](/posts/daily/2026-09-11-model-nex-agi-nex-n2-5-mini)、[模型卡｜Nex-N2.5-Pro](/posts/daily/2026-09-15-model-nex-agi-nex-n2-5-pro) |
+| 2026-09-28 | Nex-N2.5-Pro-DFlash／Max-DSpark | 推測解碼用的 draft 模型（1.29B／77.5B），只降延遲、輸出分布不變，要搭 Nex 的 sglang fork |
+| 2026-11-10 | Nex-N2.6 | 中量級改以 GLM-5.3-Flash 為底（約 321B、FP8），選型從「Pro 397B」換成 N2.6；推理檔位改成 low／high／max |
 
-Nex 的迭代邏輯和 [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna) 很像：**不換基座，換後訓練**。往前看還有第一代 [Nex-N1](https://github.com/nex-agi/Nex-N1)（2025-12，8B 到 671B 四款，旗艦是 DeepSeek-V3.1-Nex-N1），N2 在它之上把成績再墊高一層。官方明說 N2.5-mini／Pro 是延續 [Nex-N2](https://github.com/nex-agi/Nex-N2) 的多模態基礎，進步來自 agent 訓練環境、任務類型與生產場景覆蓋的擴大。證據是分數的形狀：mini 的 DeepSWE v1.1 從 8.0 跳到 36.1（4.5 倍），Pro 的 Terminal-Bench 2.1 從 75.3 拉到 82.7（+7.4pp）——參數沒變，漲的是長時程任務的成功率。
+到 N2.5 為止，Nex 的迭代邏輯和 [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna) 很像：**不換基座，換後訓練**。往前看還有第一代 [Nex-N1](https://github.com/nex-agi/Nex-N1)（2025-12，8B 到 671B 四款，旗艦是 DeepSeek-V3.1-Nex-N1），N2 在它之上把成績再墊高一層。官方明說 N2.5-mini／Pro 是延續 [Nex-N2](https://github.com/nex-agi/Nex-N2) 的多模態基礎，進步來自 agent 訓練環境、任務類型與生產場景覆蓋的擴大。證據是分數的形狀：mini 的 DeepSWE v1.1 從 8.0 跳到 36.1（4.5 倍），Pro 的 Terminal-Bench 2.1 從 75.3 拉到 82.7（+7.4pp）——參數沒變，漲的是長時程任務的成功率。
+
+N2.6 打破了這個慣例：中量級的底模從 Qwen3.5-397B-A17B 換成 GLM-5.3-Flash。這代表 Nex 的後訓練配方不綁特定基座，也代表 N2.5 的部署腳本、推理解析器設定不能直接沿用到 N2.6。
 
 ## 架構與訓練取捨
 
@@ -85,7 +101,7 @@ N2.5 全家族共用一句話的設計哲學，官方 [model card](https://huggi
 | Toolathlon Verified | 54.6 | 68.5 | 74.7 | Opus 5／Kimi-K3：76.5 |
 | AutomationBench | 32.3 | 44.2 | 50.2 | Opus 5：50.3 |
 
-選型邏輯：**要免費試 computer-use 迴圈——mini；要定位精度又hold得住單機——Pro；要文字推理上限——Max（但你得有 16×H200）**。Max 沒有 OSWorld 類分數，因為它是純文字模型，進不了 computer-use 領域——選型時別拿錯尺量。
+選型邏輯（N2.5 這一代）：**要低成本試 computer-use 迴圈——mini；要定位精度又 hold 得住單機——Pro；要文字推理上限——Max（但你得有 16×H200）**。中量級的新選項 N2.6 見本節後段「Nex-N2.6 的官方數字」。Max 沒有 OSWorld 類分數，因為它是純文字模型，進不了 computer-use 領域——選型時別拿錯尺量。
 
 ### 與競品的位置
 
@@ -95,13 +111,27 @@ N2.5 全家族共用一句話的設計哲學，官方 [model card](https://huggi
 
 提醒一句：全表是官方自測（NexAU／NexCUA），競品分數取自各家公開報告與 leaderboard，沒有第三方在同一 harness 下重跑。看的時候把「自家主場」折扣打進去。
 
+### Nex-N2.6 的官方數字
+
+N2.6 的模型卡另有一張表，比較對象換成它的底模與同級模型，不跟上面的 N2.5 全表混用：
+
+| Benchmark | GLM-5.3-Flash | DeepSeek-V4.1-Flash | Nex-N2.5-Pro | Nex-N2.6 |
+|---|---|---|---|---|
+| OSWorld | 78.0 | 71.7 | 82.2 | **83.0** |
+| Terminal-Bench 2.1 | 84.3 | 82.7 | 82.7 | 84.1 |
+| AutomationBench | 48.8 | 54.8 | 44.2 | 45.7 |
+
+同樣是 Nex 官方自報，模型卡註明分數依 harness 與設定而異。讀法：N2.6 比 N2.5-Pro 小幅進步，但 Terminal-Bench 2.1 略低於底模 GLM-5.3-Flash，AutomationBench 低於底模與 DeepSeek-V4.1-Flash。N2.6 的主要賣點是上一節的重複推理與工具遵循，這兩項是 Nex 用自家與合作團隊真實任務問題建的內部評測，沒有外部可複現的版本。
+
 ## 授權、價格與部署
 
 ### 開源策略與生態
 
-三款全掛 Apache-2.0，權重同時上 [Hugging Face](https://huggingface.co/collections/nex-agi/nex-n25) 和 [ModelScope](https://modelscope.cn/models/nex-agi/Nex-N2.5-mini)，託管走 [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.5-mini)（mini／Pro 有免費層）。部署吃自家 [sglang fork](https://github.com/nex-agi/Nex-N2.5)（`nexagi/sglang:v0.5.18-nex-patch`），也支援 [vLLM](https://github.com/vllm-project/vllm) 與 transformers。對比 Laguna 的 OpenMDW-1.1，Apache-2.0 是更無爭議的商用友善授權，企業法務阻力更小。
+N2.5 三款與 N2.6 全掛 Apache-2.0，N2.5 權重同時上 [Hugging Face](https://huggingface.co/collections/nex-agi/nex-n25) 和 [ModelScope](https://modelscope.cn/models/nex-agi/Nex-N2.5-mini)，N2.6 在 [Hugging Face](https://huggingface.co/nex-agi/Nex-N2.6)（FP8）。對比 Laguna 的 OpenMDW-1.1，Apache-2.0 是更無爭議的商用友善授權，企業法務阻力更小。
 
-免費層的策略值得記一筆：mini 和 Pro 同時掛 $0.00，等於把「試用」成本壓到零。跟 [Laguna](/posts/tech/2026-09-19-ai-model-family-laguna) 的免費 256K 限 context 不同，Nex 免費的是完整模型——代價是 rate limit，下量前先看 OpenRouter 的限流文件。
+託管入口是 [OpenRouter](https://openrouter.ai/nex-agi/nex-n2.6)，每百萬 token（input／output）：N2.6 $0.12／$0.40、N2.5-Pro $0.075／$0.25、N2.5-mini $0.025／$0.10，provider 都只有 Nex AGI 一家，Max 沒有託管端點。先前 mini 與 Pro 的 `:free` 免費端點已經沒有 provider，舊程式碼裡的 `:free` model ID 要換掉。N2.6 的 [GitHub README](https://github.com/sii-nex/Nex-N2.6) 另列了 MOSS 平台作為 API 入口。
+
+部署分兩套：N2.5 吃自家 [sglang fork](https://github.com/nex-agi/Nex-N2.5)（`nexagi/sglang:v0.5.18-nex-patch`），也支援 [vLLM](https://github.com/vllm-project/vllm) 與 transformers；2026-09-28 另釋出推測解碼用的 [Nex-N2.5-Pro-DFlash](https://huggingface.co/nex-agi/Nex-N2.5-Pro-DFlash)（1.29B draft，文字與多模態）與 [Nex-N2.5-Max-DSpark](https://huggingface.co/nex-agi/Nex-N2.5-Max-DSpark)（77.5B draft，純文字），只降延遲、輸出分布仍是目標模型，同樣要用那個 fork。N2.6 則改用上游 SGLang 的 GLM-5.3-Flash 路徑。
 
 ## Agent 使用與選型
 
@@ -109,7 +139,9 @@ N2.5 全家族共用一句話的設計哲學，官方 [model card](https://huggi
 
 N2.5 用 `reasoning_effort` 控制思考（[官方文件](https://huggingface.co/nex-agi/Nex-N2.5-mini)）：`none` 直接回答不留思考痕跡，`medium`（預設）自適應思考，`high` 強制思考。對比 [Laguna S 2.1](/posts/tech/2026-09-19-ai-model-family-laguna) 只有 `off`／`max` 兩檔，Nex 多給了一格「讓模型自己決定」的中間檔。
 
-配套的解析器也分兩套：mini／Pro 用 `--reasoning-parser qwen3`，Max 用 `--reasoning-parser deepseek-r1`；function calling 統一用 `--tool-call-parser qwen3_coder`。官方建議的採樣參數是 `temperature=0.7`、`top_p=0.95`、`top_k=40`——注意這和多數預設 `temperature=1.0` 的 coding 模型不同，評測時都用這組跑，BJ（benchmark judge）條件要對齊才好 cross-compare。
+N2.6 換了一套檔位：隨權重附的 chat template 接受 `low`、`high`、`max`，預設 `max`，沒有 `none`。從 N2.5 換到 N2.6 時，送 `none` 或 `medium` 的程式要改。
+
+配套的解析器（N2.5）也分兩套：mini／Pro 用 `--reasoning-parser qwen3`，Max 用 `--reasoning-parser deepseek-r1`；function calling 統一用 `--tool-call-parser qwen3_coder`。官方建議的採樣參數是 `temperature=0.7`、`top_p=0.95`、`top_k=40`——注意這和多數預設 `temperature=1.0` 的 coding 模型不同，評測時都用這組跑，BJ（benchmark judge）條件要對齊才好 cross-compare。
 
 ```python
 from openai import OpenAI
@@ -119,32 +151,35 @@ client = OpenAI(
     api_key="YOUR_OPENROUTER_KEY",
 )
 resp = client.chat.completions.create(
-    model="nex-agi/nex-n2.5-mini:free",
+    model="nex-agi/nex-n2.6",
     messages=[{"role": "user", "content": "Open the settings app and turn on dark mode."}],
-    extra_body={"reasoning_effort": "medium"},
+    extra_body={"reasoning_effort": "high"},  # N2.6：low／high／max；N2.5：none／medium／high
 )
 print(resp.choices[0].message.content)
 ```
 
 ### 對 Agent 開發者的意義
 
-如果你在做 **computer-use／browser-use 原型**：mini 是目前最便宜的驗證入口——免費層＋82.9 的定位分數，先驗證「視覺回饋修正」迴圈跑不跑得動，再決定要不要綁付費 API。
+如果你在做 **computer-use／browser-use 原型**：mini 是目前最便宜的驗證入口——每百萬 token $0.025／$0.10＋82.9 的定位分數，先驗證「視覺回饋修正」迴圈跑不跑得動，再決定要不要換大模型。
 
-如果你要**自架主力 agent**：Pro 是甜蜜點。87.4 的定位精度、82.7 的 TB 2.1、單機 8×H100，Apache-2.0 拿回去改也沒包袱。沿用 N2 的 sglang 部署腳本就能升級。
+如果你要**中量級主力 agent**：先試 N2.6。它在官方表上 OSWorld、Terminal-Bench 2.1 都略勝 N2.5-Pro，更大的差別是重複推理與亂叫工具少很多，長時程 agent 迴圈最怕的正是這兩種失誤。上線前用自己的任務量一下重複率與工具呼叫錯誤，因為那兩個數字只有內部評測。
+
+如果你要**沿用既有部署**：N2.5-Pro 還在。87.4 的定位精度、82.7 的 TB 2.1、單機 8×H100，沿用 N2 的 sglang 部署腳本就能升級；換 N2.6 則要改走 GLM-5.3-Flash 的推理設定。
 
 
 ## 限制與取捨
 
-不適合：要頂尖 coding 精度（SWE-Pro 61.2 離 Opus 5 的 79.2 還有 18pp）、要商用 SLA（本篇未整理獨立商用定價與 SLA，不能把 OpenRouter 免費層當成服務保證）、要純文字旗艦的多模態以外的能力（那是 Max 的地盤，且你要有兩節點 H200）。
+不適合：要頂尖 coding 精度（SWE-Pro 61.2 離 Opus 5 的 79.2 還有 18pp）、要商用 SLA（OpenRouter 上的端點只有 Nex AGI 一家 provider，本篇也未整理 SLA，不能當成服務保證）、要純文字旗艦的多模態以外的能力（那是 Max 的地盤，且你要有兩節點 H200）。
 
 ### 整體來說
 
 Nex-N2.5 的賭注和 Laguna 是同一枚硬幣的另一面：Laguna 賭「撐住的行為」，Nex 賭「**看見的迴圈**」——把視覺從輸入變成驗證介面，讓 agent 在真實環境裡自己把任務推完。mini 證明 35B 也能玩這套，Pro 證明這套能超車閉源，Max 證明這套能上兆級。
 
-後續觀察重點：NexCUA 開源後第三方能不能複現 OSWorld-G 的 87.4；以及 Max 的純文字路線會不會在下一代和多模態線合流——1.6T 只做文字，怎麼看都像未完成的拼圖。
+後續觀察重點：NexCUA 開源後第三方能不能複現 OSWorld-G 的 87.4；N2.6 換到 GLM-5.3-Flash 之後，mini 與 Max 會不會也跟著換底模；以及 Max 的純文字路線會不會在下一代和多模態線合流——1.6T 只做文字，怎麼看都像未完成的拼圖。
 
 ## 更新紀錄
 
+- 2026-11-23：補上 Nex-N2.6（2026-11-10，底模 GLM-5.3-Flash、約 321B FP8、Apache-2.0）：版本矩陣、家族演化、獨立的官方評測表、`reasoning_effort` 檔位差異與選型；N2.5 全表保留，未與 N2.6 混表。OpenRouter 的 mini／Pro `:free` 端點已無 provider，矩陣、定價段、程式範例與參考資料改成付費端點與價格。補 2026-09-28 的 DFlash／DSpark 推測解碼 draft 模型。修正「验证」錯字。
 - 2026-10-11：整理格式、版本矩陣與選型章節，沿用既有來源與日期；本次未重新查證事實。
 
 ## 參考資料
@@ -157,5 +192,10 @@ Nex-N2.5 的賭注和 Laguna 是同一枚硬幣的另一面：Laguna 賭「撐�
 - [GitHub：nex-agi/Nex-N2（前代 benchmark 與基座規格）](https://github.com/nex-agi/Nex-N2)
 - [GitHub：nex-agi/Nex-N1（第一代，8B～671B 四款）](https://github.com/nex-agi/Nex-N1)
 - [Hugging Face：Nex-N1 Collection](https://huggingface.co/collections/nex-agi/nex-n1)
-- [OpenRouter：nex-agi/nex-n2.5-mini:free](https://openrouter.ai/nex-agi/nex-n2.5-mini:free)
-- [OpenRouter：nex-agi/nex-n2.5-pro:free](https://openrouter.ai/nex-agi/nex-n2.5-pro:free)
+- [Hugging Face：nex-agi/Nex-N2.6（模型卡與官方評測）](https://huggingface.co/nex-agi/Nex-N2.6)
+- [GitHub：sii-nex/Nex-N2.6](https://github.com/sii-nex/Nex-N2.6)
+- [Hugging Face：nex-agi/Nex-N2.5-Pro-DFlash](https://huggingface.co/nex-agi/Nex-N2.5-Pro-DFlash)
+- [Hugging Face：nex-agi/Nex-N2.5-Max-DSpark](https://huggingface.co/nex-agi/Nex-N2.5-Max-DSpark)
+- [OpenRouter：nex-agi/nex-n2.6](https://openrouter.ai/nex-agi/nex-n2.6)
+- [OpenRouter：nex-agi/nex-n2.5-mini](https://openrouter.ai/nex-agi/nex-n2.5-mini)
+- [OpenRouter：nex-agi/nex-n2.5-pro](https://openrouter.ai/nex-agi/nex-n2.5-pro)

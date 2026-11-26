@@ -14,7 +14,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-08-pageindex-vectorless-rag)
+> :globe: [中文版](/posts/ai/2026-05-08-pageindex-vectorless-rag)
 
 VectifyAI's open-source PageIndex takes a fundamentally different approach from mainstream RAG: no chunking, no embedding, no vector storage — instead, an LLM reasons over a tree-structured table of contents. The number it is most often cited for is 98.7% accuracy on FinanceBench, and that number comes with conditions we will unpack in its own section below. First, the part that genuinely matters: it reopens an assumption most people take as a given — that doing RAG means doing vectors.
 

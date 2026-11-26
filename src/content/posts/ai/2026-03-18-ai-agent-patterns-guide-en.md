@@ -10,7 +10,7 @@ description: "A systematic navigation guide for AI Agent architecture: the Agent
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-18-ai-agent-patterns-guide)
+> :globe: [中文版](/posts/ai/2026-03-18-ai-agent-patterns-guide)
 
 You open the third Agent tutorial and realize it is talking about something on a completely different level from the previous two.
 

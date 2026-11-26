@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/film/2026-11-08-kdrama-crime-mystery-revenge-en)
+> :globe: [English version](/posts/film/2026-11-08-kdrama-crime-mystery-revenge-en)
 
 這篇收的是韓國的犯罪、懸疑與復仇劇：被霸凌的老師、私刑復仇的計程車、跨時空的無線電，以及檢察體系裡的貪腐。18 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。韓劇和美劇在集數、播法上的差別，寫在[愛情篇](/posts/film/2026-11-08-kdrama-romance-fantasy)開頭；動作、殭屍和生存遊戲另外放在[動作生存篇](/posts/film/2026-11-08-kdrama-action-survival)。
 

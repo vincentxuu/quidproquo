@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-08-interview-english-from-teaching-materials)
+> :globe: [中文版](/posts/learning/2026-10-08-interview-english-from-teaching-materials)
 
 My two earlier interview posts ([general patterns](/posts/learning/2026-10-07-interview-experience-english-en) and [my own stories](/posts/learning/2026-10-07-interview-agent-stories-english-en)) both started from the Chinese, and I then checked a dictionary for the pattern. For the situations themselves, the only thing I had read was one commercial job-search site. This time I changed the method: I read interview teaching materials and guidance first to see what they cover, then compared that with what I was missing.
 

@@ -9,7 +9,7 @@ description: "Typhoons Champi, Bavi, and Saudel all drew conflicting track forec
 draft: false
 ---
 
-> 🌏 [中文版](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics)
+> :globe: [中文版](/posts/weather/2026-10-24-typhoon-forecast-ai-vs-physics)
 
 Days before Typhoon Champi (薔琵) came near Taiwan, the news was already comparing two sets of forecasts. Forecast centers nudge the starting conditions slightly and run dozens to thousands of forecasts at once. Together they are called an ensemble forecast, and each run is a member. On October 20, United Daily News (in Mandarin) cited one weather expert's tally. [39 of the 50 members of ECMWF's traditional model, the IFS,](https://udn.com/news/story/7266/9825453) leaned toward landfall in the Hualien–Taitung area. Only 31 of Google's 1,000 members passed over Taiwan, most of them between Miyako and Ishigaki islands. Same typhoon, same day: nearly 80% on one side, about 3% on the other.
 

@@ -14,13 +14,18 @@ description: "A page-linked guide to the CS329Z Lecture 05 Frameworks & Orchestr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 77 minutes); this guide follows the public slides and readings and had each section start time checked against the recording's captions.
 
 Lecture 5 (Oct 7, Frameworks & Orchestration) looks at frameworks just as students start hand-building HW1: DSPy's signatures, modules and optimizers; LangGraph's state, nodes and edges; then a tour of open-source harnesses such as mini-SWE-agent, OpenHands and Pi, Temporal's durable orchestration, and observability tooling. The project proposal is due Friday, Oct 9.
 
 The assigned readings are Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714), the LangGraph docs and Arena's HarnessTax. This post digests DSPy: prompt templates graduate from handcraft into compilable, optimizable programs. Hand-building while reading framework papers is the tension of this lecture. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=q0Q-Hy8TTps
+title: DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan
+```
 
 ## Lecture 05 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.037
 
 ### Pages 1–18: Engineering combines data, systems, and evaluation
 
+[Recording 00:00–08:00](https://www.youtube.com/watch?v=q0Q-Hy8TTps)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=1" data-slide-page="1">Slides 1–18</a>
 
 The opening compares hand-written backprop with PyTorch: abstractions save work, while underlying behavior still matters. Data, system/model, and evaluation/metric form three pillars. Frameworks then occupy positions across models, workflows, and agents; observability and reliable execution form additional layers.
@@ -39,6 +46,8 @@ The opening compares hand-written backprop with PyTorch: abstractions save work,
 Identify the missing layer before choosing a framework: model interface, composable workflow, agent harness, or recoverable execution. A broad feature list does not establish that a tool addresses your failure mode.
 
 ### Pages 19–51: DSPy exposes contracts, composition, and measured optimization
+
+[Recording 08:00–42:21](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=480s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=19" data-slide-page="19">Slides 19–51</a>
 
@@ -48,6 +57,8 @@ Use pages 22 and 51 as structural anchors before inspecting the code screenshots
 
 ### Pages 52–77: LangGraph makes shared state and control flow explicit
 
+[Recording 42:21–55:36](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=2541s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=52" data-slide-page="52">Slides 52–77</a>
 
 State is the shared workspace, nodes are functions that read and update it, and edges define what runs next. Conditional edges branch from results. The slides build start/end nodes and a workflow, then an LLM/tool loop. Model decisions still operate inside a programmed graph and state representation.
@@ -55,6 +66,8 @@ State is the shared workspace, nodes are functions that read and update it, and 
 As an original exercise, separate email retrieval, drafting, and confirmation into nodes. Make “do not send before confirmation” an inspectable state condition. Compare abstractions according to control needs rather than assuming one-to-one feature equivalence with DSPy.
 
 ### Pages 78–89: Harnesses choose tools, history, and execution behavior
+
+[Recording 55:36–62:18](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=3336s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=78" data-slide-page="78">Slides 78–89</a>
 
@@ -66,6 +79,8 @@ A persistent shell can retain a directory and environment variables; independent
 
 ### Pages 90–122: Durable orchestration and telemetry support recovery
 
+[Recording 62:18–67:45](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=3738s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=90" data-slide-page="90">Slides 90–122</a>
 
 [Pages 92–93](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=92) first explain why this layer is needed: agents now work for long stretches, and a crash or API timeout halfway through wastes every completed step, while missing logs leave nothing to debug. These are old software-engineering lessons that carry over to agents. Temporal separates workflows from fallible activities, with a server retaining execution history, queues, and state while workers perform tasks. Backup demo pages cover retries and server-managed timing. MLflow, LangSmith, and Langfuse appear as observability tools for investigating calls and state.
@@ -73,6 +88,8 @@ A persistent shell can retain a directory and environment variables; independent
 Retries still require side-effect design. In an original email example, a service may accept a message while its response is lost. Repeating the operation can send twice. Record operation identity and outcome before deciding whether a retry is safe; durable orchestration does not automatically make arbitrary external effects occur once.
 
 ### Pages 123–132: Use traces and domain tasks to justify complexity
+
+[Recording 67:45–77:14](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=4065s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=123" data-slide-page="123">Slides 123–132</a>
 
@@ -146,10 +163,15 @@ Lecture 5 shows which decisions a framework makes for you; HW1 makes you build e
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan](https://www.youtube.com/watch?v=q0Q-Hy8TTps) (Stanford Online channel, uploaded 2026-11-13, about 77 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording's captions.
+- Content check: verified against the video transcript (2026-11-19): section start times were checked against the YouTube uploaded captions, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-19: Stanford Online published this lecture's recording on 2026-11-13; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-19: Checked section start times against the recording's captions and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 5 (Wed Oct 7), previously part of the "Week 3: plug tools in, take frameworks apart" guide; earlier entries below predate the split.
 - 2026-10-29: Rechecked every section's page range against the Lecture 04/05 PDFs; added the three-level tool-failure taxonomy and τ-bench version history (L04 pp. 64–67), the same-model harness gap and Meta-Harness (L05 pp. 86–88), and the motivation for durable orchestration (L05 pp. 92–93).
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.

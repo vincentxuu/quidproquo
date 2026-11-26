@@ -11,7 +11,7 @@ series:
   order: 152
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-23-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -77,7 +77,7 @@ Coding agents can now autonomously complete multi-step tasks that modify real en
 - Cost and efficiency: only $0.014 extra per task, using 7x fewer tokens and 31.7% lower latency than main-agent self-backup
 - Personalization: given stated user preferences, BackUpper's backup-worthiness judgment matches human annotations with an 84.5% F1 score
 - Self-improvement: the subagent's backup decisions can be distilled into reusable rules, doubling rule-based coverage after 30 tasks
-- Adoption bar: BackUpper is training-free and plugs into an existing harness without retraining the model ⚠️ (core numbers are the authors' own measurements, pending external replication beyond this self-built benchmark)
+- Adoption bar: BackUpper is training-free and plugs into an existing harness without retraining the model :warning: (core numbers are the authors' own measurements, pending external replication beyond this self-built benchmark)
 
 ### Reviewer's One-Line Take
 
@@ -137,7 +137,7 @@ Agent deployments typically define policies over which tools can be used under w
 - Ablation: updating the attacker archive (versus keeping it fixed) further reduces in-domain attack success; training also works with verifier-derived labels
 - External validation: violation detection tested on the external VIOLA benchmark, with performance checked for preservation on PolicyGuardBench across a scenario shift
 - Smaller-backbone replication: Qwen3-8B reproduces the same training effect, showing the method isn't limited to large models
-- Adoption bar: reproducing this pipeline requires an executable environment that binds policy to concrete tools and resources — a non-trivial engineering investment for most teams ⚠️ (core reduction figures are the authors' own measurements; PolicyGym scenarios are self-built, and external validation scope is still limited)
+- Adoption bar: reproducing this pipeline requires an executable environment that binds policy to concrete tools and resources — a non-trivial engineering investment for most teams :warning: (core reduction figures are the authors' own measurements; PolicyGym scenarios are self-built, and external validation scope is still limited)
 
 ### Reviewer's One-Line Take
 
@@ -159,7 +159,7 @@ Links: [arxiv](https://arxiv.org/abs/2610.28987) · [alphaxiv](https://www.alpha
 
 ### TL;DR
 
-PerMIT proposes two Lean 4 machine-checked integrity theorems guaranteeing that environment-derived information cannot reach a sensitive action unless confirmed by a human or LLM gate; it reports zero attack success on the Trojan Hippo test, and in simulation up to 90 autonomous agents can share a knowledge base safely. ⚠️ This paper's full text exceeded this round's research-tool size limit, so the following only verifies abstract-level evidence — readers should check the full paper themselves for details.
+PerMIT proposes two Lean 4 machine-checked integrity theorems guaranteeing that environment-derived information cannot reach a sensitive action unless confirmed by a human or LLM gate; it reports zero attack success on the Trojan Hippo test, and in simulation up to 90 autonomous agents can share a knowledge base safely. :warning: This paper's full text exceeded this round's research-tool size limit, so the following only verifies abstract-level evidence — readers should check the full paper themselves for details.
 
 ### Editorial Judgment
 
@@ -193,9 +193,9 @@ An agent's persistent memory — information retained across tasks and conversat
 ### Deep-Dive Points
 
 - Core mechanism: trusts only direct user input and gate-confirmed content; two integrity theorems, machine-checked in Lean 4, guarantee unconfirmed information cannot affect sensitive actions
-- Trojan Hippo test: reports zero observed attack success using self-verification and lightweight verifiers ⚠️ (verified at abstract level only this round; full experimental setup not checked)
-- tau^2-bench simulation: up to 90 autonomous agents jointly build a knowledge base with no direct memory injection observed to be promoted, and the resulting knowledge reportedly improves new agents on held-out tasks ⚠️ (same caveat — setup not independently checked)
-- The authors' proposed "co-scaling" property: under stated assumptions, as the community grows, the risk of promoting poisoned content and the risk of wrongly evicting benign knowledge both fall, while per-user verification effort doesn't rise ⚠️ (a theoretical claim; the full proof and simulation details were not checked this round)
+- Trojan Hippo test: reports zero observed attack success using self-verification and lightweight verifiers :warning: (verified at abstract level only this round; full experimental setup not checked)
+- tau^2-bench simulation: up to 90 autonomous agents jointly build a knowledge base with no direct memory injection observed to be promoted, and the resulting knowledge reportedly improves new agents on held-out tasks :warning: (same caveat — setup not independently checked)
+- The authors' proposed "co-scaling" property: under stated assumptions, as the community grows, the risk of promoting poisoned content and the risk of wrongly evicting benign knowledge both fall, while per-user verification effort doesn't rise :warning: (a theoretical claim; the full proof and simulation details were not checked this round)
 - Adoption bar: formal verification requires a team capable of maintaining Lean 4 proofs, an extra barrier for most engineering teams
 - Limitation: the biggest limitation here is procedural rather than about the paper itself — the full text couldn't be fetched due to its size, so all details and the authors' own stated limitations remain for readers to verify directly
 

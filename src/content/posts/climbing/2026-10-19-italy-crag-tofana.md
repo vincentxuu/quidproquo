@@ -13,7 +13,7 @@ description: "羅澤斯托法納峰（Tofana di Rozes）南壁攀登介紹：岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-tofana-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-tofana-en)
 
 羅澤斯托法納峰（Tofana di Rozes）是 Cortina d'Ampezzo 西邊 Tofane 山群最南的一座，海拔 3,225 公尺（[SummitPost](https://www.summitpost.org/tofana-di-rozes/151405)）。從 Cortina 開車往 Passo Falzarego，路左手邊一整面紅黃色的大岩壁就是它的南壁。SummitPost 形容它高將近 1,000 公尺，由「eight distinct pillars」組成。同一條路上的[五塔](/posts/climbing/2026-10-18-italy-crag-cinque-torri)是短多段，這裡是一爬就一整天的長路線。
 

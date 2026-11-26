@@ -14,7 +14,7 @@ description: "逐頁核對 CS329Z 第一堂 71 頁投影片，以十段導讀解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
+> :globe: [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
 **影片狀態：錄影需登入課程 Canvas。** [官方取得方式](https://cs329z.stanford.edu/logistics.html)。本文依公開投影片與原文整理，沒有課堂口述或時間碼。
 

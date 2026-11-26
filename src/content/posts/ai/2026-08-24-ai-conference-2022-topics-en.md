@@ -23,7 +23,7 @@ glossary:
     context: "Chinchilla showed that existing large models were severely undertrained: under the same compute budget, smaller models trained on more data did better."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2022-topics)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2022-topics)
 
 In 2021, leading AI conferences were still exploring diffusion theory, the limits of self-supervision, and the spread of Transformers. All accelerated in 2022. What made the year a dividing line was not one breakthrough but several directions maturing and intersecting at once: diffusion became a commercial product in DALL·E 2 and Stable Diffusion, Chinchilla rewrote scaling laws, Chain-of-Thought taught language models to reason, and RLHF moved from papers into ChatGPT’s core engine.
 

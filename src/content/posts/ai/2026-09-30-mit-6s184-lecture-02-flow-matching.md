@@ -26,7 +26,7 @@ glossary:
     context: "講義 Algorithm 3 用的就是這條路徑，條件向量場化簡成 z − ε。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-6s184-lecture-02-flow-matching-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -13,9 +13,11 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-replicate-model-api-en)
+> :globe: [English version](/posts/tech/2026-08-22-replicate-model-api-en)
 
 [Replicate](https://replicate.com/docs/reference/how-does-replicate-work) 的核心資源不是 VM，而是 model version 與 prediction。你可以呼叫公開模型，也能用 [Cog](https://replicate.com/docs/get-started/deploy-a-custom-model) 把自己的 weights、dependency 與 `predict()` 打包，再讓平台提供 API 與 GPU scaling。
+
+Replicate 在 2025-11 宣布[加入 Cloudflare](https://blog.cloudflare.com/replicate-joins-cloudflare/)，官方說明 Replicate 品牌與 API 照舊、既有模型繼續可用。Cloudflare 的方向是把 Replicate 模型接進 AI Gateway、讓 Cog 打包的自訂模型也能放上 Workers AI（[2026-04 公告](https://blog.cloudflare.com/ai-platform/)時仍標「即將推出」）。選型時要把 vendor 視為 Cloudflare：帳務、資料治理與 SLA 要對照它的條款，已經用 Workers／AI Gateway 的團隊則可以先確認同一模型能不能從 Cloudflare 那邊呼叫。
 
 ## Version 要釘死，模型名稱不夠
 
@@ -35,9 +37,16 @@ Cog 降低 packaging 成本，卻不是 model quality 保證。local `cog predic
 
 [Data retention](https://replicate.com/docs/topics/predictions/data-retention/) 對 API prediction 的 input/output/log 有自動清除行為；需要的檔案要立即複製。反過來，機密 input 是否允許送第三方、region/residency、training use、刪除與 audit 必須先過資料治理。
 
-Replicate 適合快速產品化公開或自訂模型。需要完整 training cluster、特殊 runtime/network 或極致成本調校時，RunPod/CoreWeave/Nebius 等較低階平台更合理。驗收要重送 webhook、讓 output 過期、切換 model version、打滿 max instance，確認冪等、保存、rollback 與 budget。
+Replicate 適合快速產品化公開或自訂模型。需要完整 training cluster、特殊 runtime/network 或極致成本調校時，Runpod/CoreWeave/Nebius 等較低階平台更合理。驗收要重送 webhook、讓 output 過期、切換 model version、打滿 max instance，確認冪等、保存、rollback 與 budget。
+
+## 更新紀錄
+
+- 2026-11-23：補上 Replicate 被 Cloudflare 收購後的現況（API 不變、模型將接進 AI Gateway／Workers AI）與選型影響。
 
 ## 參考資料
+
+- [Replicate is joining Cloudflare（Cloudflare Blog）](https://blog.cloudflare.com/replicate-joins-cloudflare/)
+- [Cloudflare’s AI Platform: an inference layer designed for agents](https://blog.cloudflare.com/ai-platform/)
 
 - [How Replicate works](https://replicate.com/docs/reference/how-does-replicate-work)
 - [Deploy a custom model with Cog](https://replicate.com/docs/get-started/deploy-a-custom-model)

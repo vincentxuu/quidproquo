@@ -26,7 +26,7 @@ glossary:
     context: "Sterling says three months in the sun can cost aramid up to half its strength."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-prusik-cord)
+> :globe: [中文版](/posts/climbing/2026-10-24-prusik-cord)
 
 You're rappelling, your brake hand slips, and the rope starts running through the belay device. A short piece of thin cord wrapped around the rope can grab it at that moment and hold you in place. Climbers in Taiwan mostly call this cord a "prusik", whether the hitch tied with it is a prusik or an autoblock. It's also basic self-rescue gear: ascending a rope, building a hauling system and escaping a belay all rely on two of these loops.
 

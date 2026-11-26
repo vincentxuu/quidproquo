@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-15-funding-temporal)
+> :globe: [中文版](/posts/daily/2026-09-15-funding-temporal)
 
 ## Funding Details
 

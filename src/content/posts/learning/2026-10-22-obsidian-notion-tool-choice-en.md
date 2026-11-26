@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-obsidian-notion-tool-choice)
+> :globe: [中文版](/posts/learning/2026-10-22-obsidian-notion-tool-choice)
 
 [Order 1](/posts/learning/2026-10-22-what-to-keep-collecting-is-not-knowledge-en) gave two examples of read-later services shutting down: Omnivore gave users about a month between its announcement and the end of exports, Pocket about six months. Note tools are no different: the software you're happy with today may not exist in ten years. A 2019 essay from the Ink & Switch lab puts it bluntly: if a service shuts down, the software stops working, and the data you created with it is lost ([Kleppmann et al. 2019](https://www.inkandswitch.com/local-first/)).
 

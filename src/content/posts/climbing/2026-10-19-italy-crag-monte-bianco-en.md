@@ -13,7 +13,7 @@ description: "A guide to alpine granite multi-pitch on the Italian side of Mont 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-monte-bianco)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-monte-bianco)
 
 The Italian side of Mont Blanc (Monte Bianco in Italian) is at Courmayeur, at the far western end of the Aosta Valley. Climbers come here in two very different ways. One is to ride the [Skyway Monte Bianco](https://www.montebianco.com/en/info/cableway-access-schedules) cable car to Punta Helbronner at 3,466 m and cross the glacier to the row of red granite towers on the south-east side of Mont Blanc du Tacul. The other is to drive into Val Ferret and walk up the moraines into the cirques for long routes.
 
@@ -110,7 +110,7 @@ This is the busiest grade band on the satellites. The closest is Rognon Vaudano,
 | Cric e Croc | 6b+ | 5.10d | About 150 m | Rognon Vaudano | Planetmountain: cracks and technical slab below the Dent du Géant |
 | [Dromi](https://www.planetmountain.com/it/itinerari/dromi-petit-greuvetta.html) | 6b+ (obligatory 6a) | 5.10d | 600 m | Petit Greuvetta (Val Ferret) | First ascent 1996; 12 mm bolts on the lower slabs, sparse protection in the upper cracks; 2 hours from Lavachey |
 | Bonne Ethique | 6c+ (hardest pitch) | 5.11c | Multi-pitch | Trident du Tacul | Planetmountain ED; the 6c+ fourth pitch depends on finger size |
-| [Calcul du Roi](https://www.planetmountain.com/it/itinerari/calcul-du-roi-roi-du-siam-petit-capucin.html) | 6c (or 6a+/A0), obligatory 6a | hardest 5.11a/b | 300 m, 10 pitches | Roi du Siam (Petit Capucin) | ⚠️ Loose slab found above belay 3 in July 2024; Planetmountain strongly advises against it |
+| [Calcul du Roi](https://www.planetmountain.com/it/itinerari/calcul-du-roi-roi-du-siam-petit-capucin.html) | 6c (or 6a+/A0), obligatory 6a | hardest 5.11a/b | 300 m, 10 pitches | Roi du Siam (Petit Capucin) | :warning: Loose slab found above belay 3 in July 2024; Planetmountain strongly advises against it |
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 

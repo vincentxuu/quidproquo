@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-vercel-sandbox)
+> :globe: [中文版](/posts/ai/2026-08-22-vercel-sandbox)
 
 [Vercel Sandbox](https://vercel.com/docs/sandbox) is an on-demand Linux execution environment controlled through an SDK or CLI. It runs AI-agent-generated code, uploaded scripts, and test workloads. This is not a permission prompt layered onto a Vercel Function. Untrusted work moves into a separate Firecracker microVM: the agent loop can remain in a Function while shell commands, package installation, and preview servers run in Sandbox.
 
@@ -49,7 +49,8 @@ The TypeScript SDK has a compact lifecycle. A Vercel deployment can use project 
 import { Sandbox } from '@vercel/sandbox';
 
 const sandbox = await Sandbox.create({
-  runtime: 'node24',
+  image: 'vercel/sandbox/node:24',
+  persistent: false,
   timeout: 5 * 60 * 1000,
   networkPolicy: 'deny-all',
 });
@@ -66,9 +67,9 @@ try {
 }
 ```
 
-The default system is Amazon Linux 2023, with built-in Node.js and Python runtimes and support for importing OCI images. Code inside the microVM may use `sudo`, Docker, or FUSE. Those capabilities sound broad, but they exist inside the microVM; they do not grant access to the Vercel project or host. That distinction is the product's core value.
+Since SDK 3.0, a sandbox with no image specified uses the Ubuntu-based `vercel/sandbox/universal` image (Node.js, Python, and common coding agents included). The old `runtime` option (`node24` on Amazon Linux 2023) is deprecated, so the example uses the equivalent `vercel/sandbox/node:24`; any OCI image can also be imported. The example sets `persistent: false` because sandboxes now snapshot automatically on stop, and a one-off job should not accumulate storage charges. Code inside the microVM may use `sudo`, Docker, or FUSE. Those capabilities sound broad, but they exist inside the microVM; they do not grant access to the Vercel project or host. That distinction is the product's core value.
 
-A session defaults to five minutes. As of August 2026, Hobby permits up to 45 minutes, while Pro and Enterprise permit up to 24 hours. Work that lasts longer should not merely maximize the timeout. Divide retryable work into stages and preserve state in snapshots, persistent sandboxes, or independent storage.
+A session defaults to five minutes. As of November 2026, Hobby permits up to 45 minutes, while Pro and Enterprise permit up to 24 hours. Work that lasts longer should not merely maximize the timeout. Divide retryable work into stages and preserve state in snapshots, persistent sandboxes, or independent storage.
 
 ## Isolation does not finish the security configuration
 
@@ -82,11 +83,11 @@ Three other boundaries remain necessary: cap timeouts and vCPUs to control runaw
 
 There are two lifecycle clocks. A session determines how long one VM boot runs; persistence determines whether files survive across sessions. A snapshot records the filesystem and installed packages, then stops the source sandbox. Snapshots expire after 30 days by default, with configurable retention. A useful pattern is snapshotting a prepared `node_modules` tree so every job does not repeat installation.
 
-Persistent sandboxes, introduced in March 2026, remain beta. A named sandbox becomes a durable identity: stopping automatically snapshots its filesystem, and retrieving its name restores state into a new session. This removes manual snapshot orchestration, but beta persistence is not a database. Data that must be shared across sandboxes, backed up independently, or retained long-term belongs in external storage.
+Persistent sandboxes launched in beta in March 2026, reached GA on 2026-05-26, and are now the default. A named sandbox becomes a durable identity: stopping automatically snapshots its filesystem, and retrieving its name restores state into a new session; those automatic snapshots are still billed as snapshot storage. Another option is a Drive: separately mounted storage that survives across runs, which only one sandbox at a time can mount read-write. These remove manual snapshot orchestration, but none of them is a database. Data that must be shared across sandboxes, backed up independently, or retained long-term belongs in external storage.
 
 ## Pricing has separate CPU and memory clocks
 
-[Vercel's public pricing](https://vercel.com/pricing) meters Sandbox through Active CPU, provisioned memory, creations, network, and snapshot storage. As of August 2026, starting rates are $0.128 per vCPU-hour and $0.0212 per GB-hour of memory; included allowances and regional rates vary by plan.
+[Vercel's public pricing](https://vercel.com/pricing) meters Sandbox through Active CPU, provisioned memory, creations, network, and snapshot storage. As of November 2026, starting rates are $0.128 per vCPU-hour and $0.0212 per GB-hour of memory; included allowances and regional rates vary by plan.
 
 Active CPU means waiting for an LLM or API does not incur CPU charges. It does not mean the entire sandbox is free while waiting: provisioned memory continues to accrue over session wall-clock time. This strongly favors I/O-heavy agents. A compiler or data job that holds substantial memory and saturates CPU needs an estimate based on its measured active ratio—not an unqualified application of Vercel's “up to 95%” savings claim.
 
@@ -97,7 +98,7 @@ Active CPU means waiting for an LLM or API does not incur CPU charges. It does n
 | [Vercel Sandbox](https://vercel.com/sandbox) | Next.js or Vercel Functions already form the control plane, and OIDC, Observability, preview URLs, and Agent Stack integration matter | Active CPU favors I/O waits; platform and persistence abstractions are more tightly coupled |
 | [E2B](https://e2b.dev/docs) | The sandbox API should be the center of a cloud- and framework-neutral agent runtime | More ecosystem-neutral; application deployment, identity, and observability need separate integration |
 | [Modal Sandboxes](https://modal.com/docs/guide/sandboxes) | Sandboxes are part of a broader Python, GPU, or batch compute platform | Broad compute options; a short-script Vercel web app has a longer integration path |
-| [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) | The control plane already runs in Workers and Durable Objects, alongside Cloudflare Containers | Close to Cloudflare's network; as of August 2026, new projects still face the 1.0-preview API choice |
+| [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) | The control plane already runs in Workers and Durable Objects, alongside Cloudflare Containers | Close to Cloudflare's network; since 2026-09, SDK 1.0 has your own Durable Object control the sandbox, and 0.x is maintained only until 2026-12-31 |
 
 The useful question is not “which microVM is safest?” but “who owns the control plane?” For an application already deployed to Vercel, `@vercel/sandbox` removes a separate identity, project mapping, and observability integration. If the agent must span clouds, schedule GPUs directly, or run on-premises, that convenience no longer determines the choice.
 
@@ -106,6 +107,10 @@ The useful question is not “which microVM is safest?” but “who owns the co
 Vercel Sandbox has a precise role: a trusted application on Vercel sends untrusted execution into an independent microVM. Its advantage is not inventing sandboxing. It connects OIDC, Fluid compute, Active CPU pricing, an SDK, network policy, snapshots, and Observability into one product path.
 
 A concrete test for tonight: create a `deny-all` sandbox in a test project, run the minimal Node.js command, then attempt to read a test environment variable from the parent Function and reach an external domain. Confirm that neither is available before allowing the exact files, domains, and brokered credentials the workload needs. A security boundary should begin with denial, not convenience defaults.
+
+## Update Log
+
+- 2026-11-23: Persistent sandboxes reached GA on 2026-05-26 and are now the default, so the example adds `persistent: false`; since SDK 3.0 `runtime` is deprecated and the default image is the Ubuntu-based `vercel/sandbox/universal`, so the example uses `image`; added Drives; updated the Cloudflare comparison row for SDK 1.0. Rates and session limits were unchanged against the official pricing page.
 
 ## References
 
@@ -116,6 +121,9 @@ A concrete test for tonight: create a `deny-all` sandbox in a test project, run 
 - [Vercel: Security boundaries in agentic architectures](https://vercel.com/blog/security-boundaries-in-agentic-architectures)
 - [Vercel Sandbox snapshots](https://vercel.com/docs/vercel-sandbox/concepts/snapshots)
 - [Vercel Sandbox automatic persistence beta](https://vercel.com/changelog/vercel-sandbox-persistent-sandboxes-beta)
+- [Vercel: Sandbox persistence is now GA](https://vercel.com/changelog/sandbox-persistence-is-now-ga)
+- [Vercel Sandbox persistent sandboxes](https://vercel.com/docs/sandbox/concepts/persistent-sandboxes) and [Runtimes (deprecated)](https://vercel.com/docs/sandbox/concepts/runtimes)
+- [Vercel Sandbox pricing and limits](https://vercel.com/docs/sandbox/pricing)
 - [Vercel: How Fluid compute was built](https://vercel.com/blog/fluid-how-we-built-serverless-servers)
 - [E2B documentation](https://e2b.dev/docs)
 - [Modal Sandboxes documentation](https://modal.com/docs/guide/sandboxes)

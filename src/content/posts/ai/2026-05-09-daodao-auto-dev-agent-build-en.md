@@ -20,7 +20,7 @@ description: "From Notion task board to GitHub PR automation: the plan, implemen
 draft: false
 ---
 
-🌏 [中文版](/posts/ai/2026-05-09-daodao-auto-dev-agent-build)
+:globe: [中文版](/posts/ai/2026-05-09-daodao-auto-dev-agent-build)
 
 ## TL;DR
 
@@ -142,7 +142,7 @@ The 3 reviewers converged on 5 must-fix items (3 HIGH + 2 MED):
 
 ### Test Pollution
 
-During verification, the verifier found that `daodao-storage` PR #42 had 2 test comments: "🛡️ Auto-PR refused (high-risk repo defense-in-depth)." worker-1 hit the live GitHub API when running the #13 fixture against the production repo (exit 6 + post comment), and the verifier hit it again during acceptance testing.
+During verification, the verifier found that `daodao-storage` PR #42 had 2 test comments: ":shield: Auto-PR refused (high-risk repo defense-in-depth)." worker-1 hit the live GitHub API when running the #13 fixture against the production repo (exit 6 + post comment), and the verifier hit it again during acceptance testing.
 
 Not serious tampering (no code was pushed, no PRs were opened), but two bot comments on a production repo issue looked like test residue. After user confirmation, they were cleared with `gh api -X DELETE`.
 
@@ -152,7 +152,7 @@ Not serious tampering (no code was pushed, no PRs were opened), but two bot comm
 
 3 fix tasks were dispatched in parallel and completed in 5 minutes.
 
-Round 2 verifier marked APPROVE: all 5 fixes ✅, 262/264 tests passing (2 failures were pre-existing in daodao-f2e showcase), all shell scripts pass shellcheck. Round 2 critic also marked APPROVE: logic consistent, defense-in-depth with two layers (state.ts Rule 0 + handler guard at entry), enforce.sh metachar rejection doesn't break the happy path.
+Round 2 verifier marked APPROVE: all 5 fixes ✓, 262/264 tests passing (2 failures were pre-existing in daodao-f2e showcase), all shell scripts pass shellcheck. Round 2 critic also marked APPROVE: logic consistent, defense-in-depth with two layers (state.ts Rule 0 + handler guard at entry), enforce.sh metachar rejection doesn't break the happy path.
 
 All 10 teammates shut down (5 workers + 3 reviewers + 2 round-2 reviewers), TeamDelete clean exit.
 
@@ -162,17 +162,17 @@ After `git push`, the user said "help me set up the Claude routine first." I ass
 
 The hidden path from the routine edit page to env vars:
 
-1. Click the ✏️ pencil icon to enter Edit
+1. Click the :pencil: pencil icon to enter Edit
 2. Below the Instructions box is a small line reading `☁️ Default`
 3. Click Default to expand the selector
 4. **Hover over the Default row** (don't click — hold for 1 second)
-5. A ⚙️ settings icon floats in from the right
-6. Click ⚙️ → "Update cloud environment" dialog opens
+5. A :settings: settings icon floats in from the right
+6. Click :settings: → "Update cloud environment" dialog opens
 7. In the Environment variables section, enter values in `.env` format
 
 The UI helpfully (?) warns "These are visible to anyone using this environment — don't add secrets or credentials." But Stripe Minions, Spotify Honk, and similar production systems actually do store secrets this way — the warning is aimed at shared team environments. For personal accounts it's fine.
 
-**Lesson**: Getting a routine running involves hidden UI design (hover-only ⚙️ icon) that's harder to navigate than expected. Next time, include "env var injection path" as an explicit risk item in the plan stage — don't assume the Console provides an obvious UI.
+**Lesson**: Getting a routine running involves hidden UI design (hover-only :settings: icon) that's harder to navigate than expected. Next time, include "env var injection path" as an explicit risk item in the plan stage — don't assume the Console provides an obvious UI.
 
 ## Looking Back
 

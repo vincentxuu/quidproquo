@@ -13,7 +13,7 @@ description: "A guide to Fudoiwa in Dojo, Kita Ward, Kobe: rock type, route coun
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-fudoiwa)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-fudoiwa)
 
 Fudoiwa (不動岩, ふどういわ) is in Kita Ward, Kobe, Hyogo Prefecture. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E4%B8%8D%E5%8B%95%E5%B2%A9/) files it under the Ura-Rokko (裏六甲) area. The rock is tuff, the climbing is mostly bolted lead, and the crag is a 15-minute walk from JR Dojo Station. CLIMBING-net says it has been climbed "since long ago" because the approach from the station is so short (「駅からのアプローチが近いということで古くから登られてきた」), which makes it one of the older crags in Kansai.
 

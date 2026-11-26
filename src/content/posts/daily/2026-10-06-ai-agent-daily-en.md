@@ -12,7 +12,7 @@ series:
   order: 52
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-06-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-06-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -118,16 +118,16 @@ Several smaller rounds also surfaced the same day: financial RL-agent-training i
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Mastra @mastra/core@1.74.0](/posts/daily/2026-10-06-framework-mastra-1.74.0-en)
-- 📄 [Model Card｜Cohere Embed 5](/posts/daily/2026-10-06-model-cohere-embed-5-en)
-- 📄 [Security Alert｜GlassWorm Returns](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain-en)
-- 📄 [Funding Brief｜OneByZero Series A $20M](/posts/daily/2026-10-06-funding-onebyzero-en)
-- 📄 [Funding Brief｜Valon Series D $150M](/posts/daily/2026-10-06-funding-valon-en)
-- 📄 [Tool Pick｜Brickwise](/posts/daily/2026-10-06-tool-brickwise-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-06](/posts/daily/2026-10-06-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-06](/posts/daily/2026-10-06-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-06](/posts/daily/2026-10-06-ai-agent-github-digest-en)
+- :file: [Framework Update｜Mastra @mastra/core@1.74.0](/posts/daily/2026-10-06-framework-mastra-1.74.0-en)
+- :file: [Model Card｜Cohere Embed 5](/posts/daily/2026-10-06-model-cohere-embed-5-en)
+- :file: [Security Alert｜GlassWorm Returns](/posts/daily/2026-10-06-security-glassworm-vscode-theme-supply-chain-en)
+- :file: [Funding Brief｜OneByZero Series A $20M](/posts/daily/2026-10-06-funding-onebyzero-en)
+- :file: [Funding Brief｜Valon Series D $150M](/posts/daily/2026-10-06-funding-valon-en)
+- :file: [Tool Pick｜Brickwise](/posts/daily/2026-10-06-tool-brickwise-en)
+- :file: [AI Engineer Interview Prep — 2026-10-06](/posts/daily/2026-10-06-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-06](/posts/daily/2026-10-06-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

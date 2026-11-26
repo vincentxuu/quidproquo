@@ -14,7 +14,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
+> :globe: [English version](/posts/ai/2026-03-12-self-reflection-llm-as-judge-en)
 
 RAG 系統生成答案後，怎麼知道這個答案是不是在胡說？
 

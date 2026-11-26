@@ -13,7 +13,7 @@ description: "A crag guide to Mitake Boulder in Tokyo: conflicting rock-type sou
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-mitake-boulder)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-mitake-boulder)
 
 御岳ボルダー (Mitake Boulder) is a bouldering area on the riverbed of the Tama River in Ome, Tokyo, and you can reach it by train from Shinjuku. According to [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%BE%A1%E5%B2%B3%E3%83%9C%E3%83%AB%E3%83%80%E3%83%BC/), development started in 1982 under 池田功 (Ikeda), and it became "関東で最も親しまれるエリア" (the best-loved area in the Kanto region). This guide covers what to know before you go: rock type, size, season, access, local rules, and the 2018 chipping incident that wiped out several classic problems.
 

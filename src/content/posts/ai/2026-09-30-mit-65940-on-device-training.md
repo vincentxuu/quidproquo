@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 L21 投影片第 74–82 頁，出自 Lin et al., NeurIPS 2022。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-on-device-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-on-device-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -7,6 +7,7 @@ import { ensureAgentOsEnabled } from './_guard'
 import type { Env } from '@/lib/config/env'
 import { env } from 'cloudflare:workers'
 import { createSessionManager } from '@/lib/agent/session-manager'
+import { getWaitUntil } from '@/lib/agent/routine-run'
 import type { SessionEvent } from '@/lib/agent/events'
 import { fromSessionEvent } from '@/lib/agent/events'
 
@@ -19,17 +20,6 @@ interface CreateChatBody {
   repo?: unknown
   branch?: unknown
   runner_provider?: unknown
-}
-
-function getWaitUntil(locals: unknown): ((promise: Promise<unknown>) => void) | undefined {
-  const typedLocals = locals as {
-    cfContext?: { waitUntil?: (promise: Promise<unknown>) => void }
-    runtime?: { ctx?: { waitUntil?: (promise: Promise<unknown>) => void } }
-  }
-  const cfContext = typedLocals.cfContext
-  if (cfContext?.waitUntil) return cfContext.waitUntil.bind(cfContext)
-  const runtimeCtx = typedLocals.runtime?.ctx
-  return runtimeCtx?.waitUntil?.bind(runtimeCtx)
 }
 
 function getAgentSessionStub(e: Env, id: string): DurableObjectStub {

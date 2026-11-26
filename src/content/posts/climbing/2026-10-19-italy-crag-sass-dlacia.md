@@ -13,7 +13,7 @@ description: "Sass Dlacia 岩場介紹：岩質、各來源的路線數與高度
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-sass-dlacia-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-sass-dlacia-en)
 
 Sass Dlacia 在南提洛（Südtirol／Alto Adige）Val Badia 谷地的最南端，San Cassiano 往 Passo Valparola 的路上，Armentarola 一帶的森林邊。義大利登山協會的《Lo Scarpone》在多洛米蒂東部夏季五大岩場一文裡寫：「Sass Dlacia rappresenta senza dubbio il non plus ultra per l'arrampicata in falesia」（[CAI Lo Scarpone](https://www.loscarpone.cai.it/dettaglio/fuga-dal-caldo-cinque-falesie-per-arrampicare-nelle-dolomiti-orientali/)），講的是 Val Badia 的單段岩場。
 

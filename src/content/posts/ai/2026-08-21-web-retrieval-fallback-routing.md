@@ -13,7 +13,7 @@ description: "AI Agent 的 Web retrieval fallback routing：Search、Fetch、Cra
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-web-retrieval-fallback-routing-en)
+> :globe: [English version](/posts/ai/2026-08-21-web-retrieval-fallback-routing-en)
 
 [系列前一篇](/posts/ai/2026-05-08-local-deep-research-walkthrough)談的是研究 Agent 怎麼規劃與整合來源。這篇把範圍縮到更底層：當 Agent 收到「找資料」或「讀這個網址」，到底該呼叫 Search、直接 Fetch、Crawler、Browser，還是受控的 stealth browser？
 

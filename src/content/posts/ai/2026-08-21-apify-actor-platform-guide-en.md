@@ -10,7 +10,7 @@ description: "A practical guide to Apify Actors, Tasks, Schedules, Datasets, Req
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-apify-actor-platform-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-apify-actor-platform-guide)
 
 [Apify](https://docs.apify.com/actors) is neither a new CSS selector system nor merely a cloud crawler. It is a scraping and automation execution platform: code becomes an Actor, reusable inputs become Tasks, Schedules trigger runs, and results flow into Datasets or other built-in stores.
 

@@ -11,7 +11,7 @@ series:
   order: 64
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-18-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-18-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Today's thread is agent execution environments moving from a single company's in
 
 ## Trending Repos
 
-### microsoft/mxc ⭐ 2,891
+### microsoft/mxc ★ 2,891
 
 [GitHub](https://github.com/microsoft/mxc)　·　Rust　·　MIT
 
@@ -30,7 +30,7 @@ Today's thread is agent execution environments moving from a single company's in
 
 ---
 
-### perplexityai/SPACE ⭐ 1,332
+### perplexityai/SPACE ★ 1,332
 
 [GitHub](https://github.com/perplexityai/SPACE)　·　Rust　·　Apache-2.0
 
@@ -41,7 +41,7 @@ Today's thread is agent execution environments moving from a single company's in
 
 ---
 
-### Niko1221/Strata ⭐ 26,784
+### Niko1221/Strata ★ 26,784
 
 [GitHub](https://github.com/Niko1221/Strata)　·　C++　·　MIT
 
@@ -52,7 +52,7 @@ Today's thread is agent execution environments moving from a single company's in
 
 ---
 
-### morluto/rea ⭐ 304,672
+### morluto/rea ★ 304,672
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -68,7 +68,7 @@ Today's thread is agent execution environments moving from a single company's in
 [Release Notes](https://github.com/pydantic/pydantic-ai/releases/tag/v2.57.0)
 
 - **Key changes**: `BackgroundTools` completions now carry namespaced `origin` and `tool_call_id` metadata. Gemini Live and GPT-Live realtime history, usage tracking, and reply-wait logic now come from the shared session core instead of being handled separately. `Skills` now honors the `disable-model-invocation` and `user-invocable` fields, and skips stray skill-library paths it can't find.
-- **Breaking changes**: The project flags all four of these as "⚠️ Compatibility Notes" — the `BackgroundTools` response shape gained fields, and the source of truth for realtime session state changed, both of which can affect code that parses the raw response format or manages realtime state itself.
+- **Breaking changes**: The project flags all four of these as ":warning: Compatibility Notes" — the `BackgroundTools` response shape gained fields, and the source of truth for realtime session state changed, both of which can affect code that parses the raw response format or manages realtime state itself.
 - **What this means for you**: If your project parses `BackgroundTools` completion results directly, or manages Gemini/GPT Live realtime state by hand, check the relevant PRs ([#10196](https://github.com/pydantic/pydantic-ai/pull/10196), [#10083](https://github.com/pydantic/pydantic-ai/pull/10083), [#10082](https://github.com/pydantic/pydantic-ai/pull/10082)) before upgrading to make sure nothing conflicts with your own logic. If you use Skills, this is a good moment to confirm `disable-model-invocation` is actually being respected the way you expect.
 
 ## Today's Takeaway

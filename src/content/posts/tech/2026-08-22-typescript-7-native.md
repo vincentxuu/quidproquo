@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-typescript-7-native-en)
+> :globe: [English version](/posts/tech/2026-08-22-typescript-7-native-en)
 
 [TypeScript 7](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/) 不是把既有 compiler 的熱點改寫成 native addon，而是把 compiler、project system 與 language service 重新實作成 Go 程式。TypeScript 團隊公布的整體改善約在 10 倍級。Slack 提供的實例則是 CI type check 從 7.5 分鐘降到 1.25 分鐘。這些數字不能直接套到每個 repo，但它們說明這次改版處理的是架構瓶頸，不是小幅調校。
 
@@ -25,7 +25,7 @@ TypeScript 7 的 Go 實作能使用共享記憶體與平行工作，不必把資
 
 ## 型別語意延續，工具 API 不保證原封不動
 
-原生重寫的目標是保持 TypeScript 語言與 type-checking 行為，而不是讓既有 JavaScript compiler API 相容。TypeScript 7.0 根本沒有 programmatic API，官方預計 7.1 才提供一套新的 API。一般應用只呼叫 `tsc`，遷移通常直接；會 import `typescript`、寫 language-service plugin、custom transformer、AST 工具或 build wrapper 的工具鏈，才是高風險區。
+原生重寫的目標是保持 TypeScript 語言與 type-checking 行為，而不是讓既有 JavaScript compiler API 相容。TypeScript 7.0 根本沒有 programmatic API。新的 API 在 7.1 才出現：2026-10-20 的 7.1 Beta 已附上 `typescript/sync`、`typescript/async`、`typescript/ast` 等分拆的 entry point，寫法與舊的 `ts.createProgram` 不同，物件也要用 `using` 或手動 dispose 釋放；正式版發布前，工具作者仍應把它當 beta。一般應用只呼叫 `tsc`，遷移通常直接；會 import `typescript`、寫 language-service plugin、custom transformer、AST 工具或 build wrapper 的工具鏈，才是高風險區。
 
 這也表示 Vue、Svelte、Astro、MDX 與 Angular template 等 embedded-language workflow，在 7.0 時點多半仍依賴 TypeScript 6。命令列 `tsc` 能升級，不代表 framework language tooling 已經跟上；兩條路要分開驗證。
 
@@ -59,7 +59,7 @@ pnpm exec tsc --noEmit
 
 TypeScript 7 仍是 TypeScript 語意的權威實作，解的是 type checking、declaration emit 與 editor intelligence。Oxc、SWC、esbuild 或 Rolldown 可以更快移除 type syntax、轉換 JSX、bundle 與 minify，但通常不執行完整 type check。兩者不是二選一：常見管線是 bundler 負責產物，`tsc --noEmit` 負責型別契約。
 
-Oxlint 的 type-aware mode 直接使用 typescript-go，顯示新的 compiler 已能成為其他工具的底層。不過越多工具共享它，升級時越要看每個 consumer 支援的 TypeScript 版本，不能只看 repo 裡 `typescript` dependency 的版本號。
+Oxlint 的 type-aware mode 可以用建在 typescript-go 上的 `tsgolint` 當 backend，顯示新的 compiler 已能成為其他工具的底層；後來 Oxlint 又多了 Rust 寫的 `tsrs` backend 可替換。不過越多工具共享它，升級時越要看每個 consumer 支援的 TypeScript 版本，不能只看 repo 裡 `typescript` dependency 的版本號。
 
 ## AI 時代真正改變的地方
 
@@ -67,8 +67,14 @@ Oxlint 的 type-aware mode 直接使用 typescript-go，顯示新的 compiler �
 
 但速度不能替代型別品質。到處加 `any`、斷言或 `@ts-ignore`，再快的 compiler 也只會更快宣布一份被掏空的契約通過。TypeScript 7 值得升級的前提，是 repo 同時禁止這類逃生口、保留 declaration 與 runtime tests，並讓同一條 type-check command 在本機與 CI 都能重現。
 
+## 更新紀錄
+
+- 2026-11-23：補上 TypeScript 7.1 Beta 的新 API 現況，以及 Oxlint type-aware 多了 `tsrs` backend。
+
 ## 參考資料
 
 - [Announcing TypeScript 7.0](https://devblogs.microsoft.com/typescript/announcing-typescript-7-0/)
+- [Announcing TypeScript 7.1 Beta](https://devblogs.microsoft.com/typescript/announcing-typescript-7-1-beta/)
+- [Oxlint：Type-Aware Linting](https://oxc.rs/docs/guide/usage/linter/type-aware.html)
 - [A 10x Faster TypeScript](https://devblogs.microsoft.com/typescript/typescript-native-port/)
 - [TypeScript 7 migration guide](https://github.com/microsoft/typescript-go/blob/main/_packages/typescript-go/MIGRATION.md)

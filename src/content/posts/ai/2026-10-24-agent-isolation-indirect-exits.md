@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-indirect-exits-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-indirect-exits-en)
 
 前兩篇談的是 agent 之間怎麼通訊。這篇換一個方向：agent 怎麼通往外面。兩者的防法不同：通道連的是兩個沙盒，出口連的是沙盒和網際網路。
 

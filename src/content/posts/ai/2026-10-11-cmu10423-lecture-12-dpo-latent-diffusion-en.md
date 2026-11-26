@@ -12,7 +12,7 @@ draft: false
 description: "Derive the DPO loss with a recomputable example, then trace shapes and conditioning paths in latent diffusion."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-12-dpo-latent-diffusion)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

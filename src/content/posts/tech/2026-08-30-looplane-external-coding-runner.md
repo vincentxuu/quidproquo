@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-external-coding-runner-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-external-coding-runner-en)
 
 依完整系列規劃，orders 4–6 先走完 Looplane 的 native lane：從 loop 到 provider contract，再到 routing 與 fallback。這一篇切到第二條 runtime lane——同樣要解任務，但 loop 屬於 Codex CLI、Claude Code CLI、OpenCode、Pi 或 OMP。Looplane 不接管那些 loop，只負責 handoff：送出任務與受限 workspace、收回 patch，再自行稽核。
 

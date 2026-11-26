@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-14-spaced-review-in-teaching-articles-en)
+> :globe: [English version](/posts/learning/2026-10-14-spaced-review-in-teaching-articles-en)
 
 這是「教學文章怎麼寫」系列的第 17 篇，屬於第四部分「隔一段時間之後」。[第 16 篇](/posts/learning/2026-10-14-spaced-practice-in-real-courses)查了分散練習離開實驗室、放進真實課程之後還剩多少效果。這篇往下問一步：如果間隔複習有用，寫文章的人能不能把它直接做進文章裡，讓讀者幾天、幾週後再回來答一次？
 

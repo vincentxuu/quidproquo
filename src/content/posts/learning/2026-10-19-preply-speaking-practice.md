@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-preply-speaking-practice-en)
+> :globe: [English version](/posts/learning/2026-10-19-preply-speaking-practice-en)
 
 工作會議裡，你可能說得出自己的想法，對方一問「為什麼選這個方案」，回答就散掉了。[Preply](https://preply.com/zh/online/english-tutors) 提供的練習方式，是挑一位線上老師，讓他持續聽你的表達、追問，再依目標安排一對一課程。
 

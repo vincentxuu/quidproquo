@@ -11,7 +11,7 @@ series:
   order: 70
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion)
+> :globe: [中文版](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion)
 
 ## What happened
 

@@ -25,7 +25,7 @@ glossary:
         url: "https://arxiv.org/abs/2112.10752"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-10-vae-to-diffusion-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

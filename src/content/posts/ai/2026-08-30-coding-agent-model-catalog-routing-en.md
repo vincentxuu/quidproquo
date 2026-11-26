@@ -13,7 +13,7 @@ description: "Comparing model catalogs and per-role routing across mature coding
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-model-catalog-routing)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-model-catalog-routing)
 
 Halfway through part two of this series, this post covers a capability that sounds like a configuration problem but is really an architecture problem: how to manage the model catalog, and how to decide which model handles which task. Evidence sources as usual: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), and claude-code (community-decompiled v2.1.88). Every `file#symbol` reference below was grepped from my local clones.
 

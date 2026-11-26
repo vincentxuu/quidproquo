@@ -10,7 +10,7 @@ description: "介紹 text/image/video 生成 Lottie 向量動畫的開源工具�
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-06-09-text-image-to-lottie-open-source-en)
+:globe: [English version](/posts/ai/2026-06-09-text-image-to-lottie-open-source-en)
 
 Lottie 是 Airbnb 在 2015 年推出的 JSON-based 向量動畫格式，現在幾乎是 iOS、Android、Web 上輕量 UI 動畫的預設選擇。但要把一句話描述或一張圖片轉成能直接跑的 Lottie 動畫，長期以來都沒有好用的開源工具。
 
@@ -91,7 +91,7 @@ npx @afromero/kin3o generate "toggle switch with on/off states" --interactive
 
 Text-Image-to-Lottie 任務上，OmniLottie 的速度比 AniClipart 快 **52 倍**（88s vs 1212s），成功率 93.3%。
 
-**限制**：推論約需 ~15 GB VRAM（⚠️ 數字來自 AnimTOON 的比較表，未從官方確認）、輸出幀率只有 8 fps、training code 尚未開源。
+**限制**：推論約需 ~15 GB VRAM（:warning: 數字來自 AnimTOON 的比較表，未從官方確認）、輸出幀率只有 8 fps、training code 尚未開源。
 
 ---
 
@@ -101,7 +101,7 @@ Text-Image-to-Lottie 任務上，OmniLottie 的速度比 AniClipart 快 **52 倍
 
 訓練資料更大：**LottieImage-15M**（1500 萬靜態）+ **LottieAnimation-660K**（66 萬動畫），並使用「先學靜態、再學動態」的兩段式訓練策略。
 
-**⚠️ 重要**：截至 2026-06-09，inference code 和 model weights **尚未釋出**（GitHub open-source plan 仍未勾選）。目前只能看論文，不能直接使用。
+**:warning: 重要**：截至 2026-06-09，inference code 和 model weights **尚未釋出**（GitHub open-source plan 仍未勾選）。目前只能看論文，不能直接使用。
 
 ---
 
@@ -157,10 +157,10 @@ layer Logo shape
 | | [LottieFiles Motion Copilot](https://lottiefiles.com/) | [Rive](https://rive.app/) | [Lottielab](https://www.lottielab.com/) |
 |---|---|---|---|
 | 輸入 | Text（在編輯器內）| 視覺編輯 | 視覺編輯 |
-| 骨骼動畫 | 否 | ✅ 含 mesh deformation | 否 |
-| Runtime 互動 | 有限 | ✅（滑鼠、滑桿）| 有限 |
+| 骨骼動畫 | 否 | ✓ 含 mesh deformation | 否 |
+| Runtime 互動 | 有限 | ✓（滑鼠、滑桿）| 有限 |
 | 開源 | 否 | Player 開源 | 否 |
-| LLM 可生成格式 | ✅（JSON）| ❌（二進位 .riv）| ✅（JSON）|
+| LLM 可生成格式 | ✓（JSON）| ✗（二進位 .riv）| ✓（JSON）|
 
 Rive 在骨骼動畫和 runtime 互動上遙遙領先，但它的 `.riv` 是二進位格式，LLM 無法直接生成。這是 Lottie 開源生態的機會所在——JSON 格式對 AI 天然友善。
 

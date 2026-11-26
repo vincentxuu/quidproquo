@@ -11,9 +11,9 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 21
 ---
-> 🌏 [中文版](/posts/daily/2026-06-14-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-14-ai-agent-arxiv-digest)
 
-[!callout|📌|blue_background]
+[!callout|:pin:|blue_background]
 ## Today's Overview
 
 Three papers tackle the same core question from different angles: **how to evaluate and operate AI Agents under real deployment conditions.** Emergence World builds a multi-agent sandbox that runs continuously for weeks, exposing behavioral drift and cross-model contamination invisible to short-term benchmarks; a survey paper establishes a complete taxonomy for agent environment design (8 attributes x 8 domains) and proposes symbolic vs. neural synthesis paradigms; Martin Monperrus's position paper declares outright that coding agents have crossed the threshold and human code review can retire.
@@ -37,18 +37,18 @@ Three papers tackle the same core question from different angles: **how to evalu
 
 **Authors**: Deepak Akkil, Ravi Kokku, Karthik Vikram, Tamer Abuelsaad, Aditya Vempaty, Satya Nitta (Emergence AI) · **arxiv**: 2606.08367
 **Links**: [arxiv](https://arxiv.org/abs/2606.08367) · [alphaxiv](https://www.alphaxiv.org/abs/2606.08367)
-[!callout|🎯|yellow_background]
+[!callout|:target:|yellow_background]
 
 ### TL;DR
 
 Groups of LLM Agents equipped with 120+ tools and three-layer persistent memory run in a shared sandbox for weeks, revealing behavioral drift and cross-model contamination that short-term benchmarks completely miss.
-[!callout|⭐|green_background]
+[!callout|★|green_background]
 
 ### Read Priority
 
 Must-read
 Directly addresses "what are the systematic blind spots in current agent eval" — essential for engineers and PMs designing eval pipelines.
-[!callout|🧭|gray_background]
+[!callout|:compass:|gray_background]
 
 ### Background
 
@@ -71,20 +71,20 @@ For the first time, researchers can systematically observe: how behavior changes
 
 ### Key Details
 
-- **120+ tool library**: the paper claims this is the largest published tool configuration ⚠️ (self-reported, no independent comparison)
+- **120+ tool library**: the paper claims this is the largest published tool configuration :warning: (self-reported, no independent comparison)
 - Three-layer persistent memory: **episodic**, **semantic**, **procedural** — mirroring the human memory architecture from cognitive psychology
 - **Democratic governance**: agents can vote to establish rules affecting the entire group, with consequences for violations, testing self-governance stability over long horizons
-- Observed **cross-model contamination**: when GPT-4 and Claude agents coexist, their behavior patterns influence each other ⚠️ (mechanism unclear)
-- **Voluntary self-termination**: some agents "decide" to stop during long-term tasks, behavioral mechanism awaiting deeper analysis ⚠️
-- Paper comes from commercial company Emergence AI; the evaluation framework heavily overlaps with their own product, raising reproducibility concerns ⚠️
+- Observed **cross-model contamination**: when GPT-4 and Claude agents coexist, their behavior patterns influence each other :warning: (mechanism unclear)
+- **Voluntary self-termination**: some agents "decide" to stop during long-term tasks, behavioral mechanism awaiting deeper analysis :warning:
+- Paper comes from commercial company Emergence AI; the evaluation framework heavily overlaps with their own product, raising reproducibility concerns :warning:
 - Difference from LangGraph / AutoGen: the latter focus on single-session workflow orchestration; Emergence World targets ecosystem dynamics over continuous weeks
 - High barrier to entry: continuous operation + real API costs make it difficult for academic labs to reproduce at the same scale
-[!callout|🧐|purple_background]
+[!callout||purple_background]
 
 ### Reviewer's One-Line Take
 
 The problem framing is solid — long-horizon agent evaluation is genuinely a blind spot in current benchmarks. But as a system paper from a commercial company, novel phenomena like "cross-model contamination" and "voluntary self-termination" should be treated cautiously without independent verification; the reported observations run ahead of the mechanistic explanations offered.
-[!callout|🎬|orange_background]
+[!callout|:film:|orange_background]
 
 ### Your Take-away
 
@@ -98,18 +98,18 @@ The problem framing is solid — long-horizon agent evaluation is genuinely a bl
 
 **Authors**: Jiachun Li, Zhuoran Jin, Tianyi Men et al., 15 authors (Chinese Academy of Sciences / Beijing institutions) · **arxiv**: 2606.12191
 **Links**: [arxiv](https://arxiv.org/abs/2606.12191) · [alphaxiv](https://www.alphaxiv.org/abs/2606.12191)
-[!callout|🎯|yellow_background]
+[!callout|:target:|yellow_background]
 
 ### TL;DR
 
 Systematizes "how to design AI Agent execution environments": a classification framework of 8 attributes x 8 application domains, plus symbolic vs. neural automated synthesis paradigms — an entry-level map for agent environment design.
-[!callout|⭐|green_background]
+[!callout|★|green_background]
 
 ### Read Priority
 
 Must-read
 Without this classification framework, it's hard to discuss or design agent benchmarks and training environments systematically — use it as a dictionary rather than reading cover to cover.
-[!callout|🧭|gray_background]
+[!callout|:compass:|gray_background]
 
 ### Background
 
@@ -132,20 +132,20 @@ This is the "map" for agent platform engineers. When building agent training dat
 
 ### Key Details
 
-- 15 authors, a large team likely from the Chinese Academy of Sciences / Peking University system ⚠️ (institutional affiliations not fully confirmed)
+- 15 authors, a large team likely from the Chinese Academy of Sciences / Peking University system :warning: (institutional affiliations not fully confirmed)
 - **8 environment attributes**: interactive, partially observable, dynamic, stochastic, multi-agent, open-world, etc.
 - **8 application domains**: software engineering, web navigation, scientific discovery, game, embodied robotics, etc.
 - **Symbolic synthesis**: hand-designed rules to generate environments, high controllability but slow to scale and labor-intensive
 - **Neural synthesis**: using LLMs to auto-generate environments or tasks, scalable but consistency is hard to guarantee — the concurrent EurekAgent (2606.13662) is a practical example
-- The survey itself proposes no new methods and may have coverage bias in paper selection ⚠️
+- The survey itself proposes no new methods and may have coverage bias in paper selection :warning:
 - Relation to mainstream frameworks: LangGraph / AutoGen solve agent orchestration; this survey addresses the more fundamental question — what environment the agent runs in
 - Extremely low barrier to adoption: a purely conceptual framework, immediately usable for reviewing your own eval design
-[!callout|🧐|purple_background]
+[!callout||purple_background]
 
 ### Reviewer's One-Line Take
 
 Broad coverage, well-structured framework, and a solid entry guide and reference. The neural synthesis section is the most forward-looking part. But the paper is primarily descriptive taxonomy, lacking systematic quantitative comparison across environments — more of a large-scale literature review than a breakthrough study, so calibrate expectations accordingly.
-[!callout|🎬|orange_background]
+[!callout|:film:|orange_background]
 
 ### Your Take-away
 
@@ -159,18 +159,18 @@ Broad coverage, well-structured framework, and a solid entry guide and reference
 
 **Authors**: Martin Monperrus (KTH Royal Institute of Technology, Sweden) · **arxiv**: 2606.13175
 **Links**: [arxiv](https://arxiv.org/abs/2606.13175) · [alphaxiv](https://www.alphaxiv.org/abs/2606.13175)
-[!callout|🎯|yellow_background]
+[!callout|:target:|yellow_background]
 
 ### TL;DR
 
 A sharply argued position paper: coding agents can already replace all traditional goals of human code review, and forcing humans to review AI-generated code is heading in the wrong direction.
-[!callout|⭐|green_background]
+[!callout|★|green_background]
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 No system experiments, but the argument directly challenges coding agent product positioning — PMs and engineering leads need to know this perspective.
-[!callout|🧭|gray_background]
+[!callout|:compass:|gray_background]
 
 ### Background
 
@@ -194,19 +194,19 @@ This points directly at the design direction for coding agent platforms: agents 
 ### Key Details
 
 - Martin Monperrus is a heavyweight scholar in automatic program repair and coding agents, long-tenured at KTH; this position statement carries considerable weight
-- Core argument: every traditional goal of code review can be accomplished by agents at lower cost ⚠️ (strong claims, lacking large-scale empirical evidence)
-- **This is a position paper** — no RCT (randomized controlled trial) or large-scale cross-organization comparison data ⚠️
+- Core argument: every traditional goal of code review can be accomplished by agents at lower cost :warning: (strong claims, lacking large-scale empirical evidence)
+- **This is a position paper** — no RCT (randomized controlled trial) or large-scale cross-organization comparison data :warning:
 - **Automation bias**: humans reviewing AI code tend to accept rather than truly scrutinize, making the quality assurance of human review itself questionable
-- The author advocates for an "agent-only pipeline" but insufficiently discusses practical applicability in security-sensitive and IP-sensitive environments ⚠️
+- The author advocates for an "agent-only pipeline" but insufficiently discusses practical applicability in security-sensitive and IP-sensitive environments :warning:
 - Indirectly provides academic backing for Anthropic's multi-agent code review feature released in April 2026
 - **Adoption challenges**: regulated industries like finance and healthcare typically mandate human review for compliance; agent-only is unrealistic in these contexts in the short term
 - Comparative reading: 2603.15911 "Human-AI Synergy in Agentic Code Review" takes a more conservative human-AI collaboration stance
-[!callout|🧐|purple_background]
+[!callout||purple_background]
 
 ### Reviewer's One-Line Take
 
 Bold and logically consistent, but "supersede" outruns the evidence. The author assumes coding agents are already good enough without providing systematic cross-organization comparison data. Worth reading, but treat it as a "provocative thought experiment" rather than a definitive empirical claim.
-[!callout|🎬|orange_background]
+[!callout|:film:|orange_background]
 
 ### Your Take-away
 

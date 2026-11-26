@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline-en)
+> :globe: [English version](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline-en)
 
 ## 變更摘要
 
@@ -74,8 +74,8 @@ Google 在官方 [Gemini Developer API 定價頁](https://ai.google.dev/gemini-a
 
 ## 時效提醒
 
-⏰ **Gemini 4 Argon 促銷到期日**：2026-11-30。12/1 起恢復標準價 $4.00/$20.00（USD/1M tokens）。
-⏰ **Gemini 3.8 Flash／前代 Flash 促銷到期日**：2026-12-31。2027-01-01 起恢復標準價 $1.50/$7.50（USD/1M tokens）。
+:clock: **Gemini 4 Argon 促銷到期日**：2026-11-30。12/1 起恢復標準價 $4.00/$20.00（USD/1M tokens）。
+:clock: **Gemini 3.8 Flash／前代 Flash 促銷到期日**：2026-12-31。2027-01-01 起恢復標準價 $1.50/$7.50（USD/1M tokens）。
 
 ## 今日收穫
 

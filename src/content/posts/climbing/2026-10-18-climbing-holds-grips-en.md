@@ -30,7 +30,7 @@ glossary:
     context: "The opposite of a sidepull: a sidepull pulls toward the body, a gaston pushes away."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-holds-grips)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-holds-grips)
 
 Somewhere around V2 or V3 the big jugs start to thin out and the holds shrink to edges that only take your fingertips. You notice your thumb clamps over your index finger on its own and your knuckles go white. The next morning, the base of your middle finger feels a bit off.
 

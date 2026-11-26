@@ -13,7 +13,7 @@ description: "An overview of the Malaysia crags series: a season, rock type and 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crags-overview)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crags-overview)
 
 Think of Malaysian climbing and the picture is limestone, caves, pockets and jungle. The country sits inside the limestone belt made famous by Krabi and Railay, yet it has crags of its own, spread from Perlis in the north down the peninsula, across the coast, and into Borneo. What they share is not a single big crag but scatter: mostly small, and each one has its own way in.
 

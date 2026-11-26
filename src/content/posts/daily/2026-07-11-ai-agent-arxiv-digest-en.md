@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 48
 ---
-> 🌏 [中文版](/posts/daily/2026-07-11-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-11-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -69,7 +69,7 @@ STRACE's framework can serve as a post-processing layer for Agent monitoring pla
 
 ### Deep Dive
 
-- **Main result**: On VeruSAGE-Bench (a task suite centered on Rust formal verification), success rate 42.5% → 58.5%, a 1.4× relative improvement ⚠️ (single-domain benchmark; generalization remains unverified)
+- **Main result**: On VeruSAGE-Bench (a task suite centered on Rust formal verification), success rate 42.5% → 58.5%, a 1.4× relative improvement :warning: (single-domain benchmark; generalization remains unverified)
 - **Textual dependency graph construction**: If a tool call's output is referenced by a subsequent step's input, a directed edge connects the two nodes; backward tracing from the failed final output precisely locates "which node severed the correct causal chain"
 - **Relation to DSPy**: DSPy's compile stage needs demonstration examples; STRACE's output (high-SNR representative failures + root cause localization) can directly serve as negative example input for DSPy, strengthening the optimization signal
 - **Limitation**: Formal verification tasks have clear pass/fail boundaries, making root causes relatively easy to identify by machine; migrating to open-ended tasks (Q&A, writing) where the definition of "root cause" itself is fuzzier — STRACE's effectiveness remains to be validated
@@ -156,7 +156,7 @@ Agent security evaluation currently only reports "did the attack succeed or not"
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Directly useful for engineers designing Agent security SLAs or doing Agent red-teaming evaluations; if you're mainly focused on feature development, save it for when security evaluation needs arise.
 
 ### Domain Background
@@ -189,7 +189,7 @@ L0-L6 scoring lets security teams ask more precise questions: "Is defense strate
 - **Test scope**: AgentDojo workspace suite (covering email, calendar, banking, and other workspace tasks); 4 victim models + 2 defense strategies
 - **Sources of the three dimensions**: Reversibility borrows from IT disaster recovery (RTO/RPO) concepts; scope crossing corresponds to the information security principle of least privilege; privilege expansion corresponds to privilege escalation in the attack kill chain
 - **Analogy with CVSS**: L0-L6 is similar to CVSS severity scores for software vulnerabilities (None/Low/Medium/High/Critical), but purpose-built for LLM agent tool-call behavior
-- **LLM Judge Panel vs Oracle agreement**: The paper claims high agreement between the two; specific agreement metrics (e.g., Cohen's kappa) are not found in the public abstract ⚠️
+- **LLM Judge Panel vs Oracle agreement**: The paper claims high agreement between the two; specific agreement metrics (e.g., Cohen's kappa) are not found in the public abstract :warning:
 - **Limitation**: Single-author paper (8 pages), not yet formally peer-reviewed; boundary ambiguity of the seven levels in complex scenarios is not deeply discussed; validated only on one benchmark (AgentDojo), generalization unknown
 - **Shared dependency with STRACE**: Both papers require complete tool-call trajectory records — proper trace logging is the prerequisite for both methodologies to work in practice
 - **Deployment insight**: Use these three dimensions (reversibility, scope crossing, privilege expansion) to design "risk labels" for Agent tools, building security classification into tool definitions from the start

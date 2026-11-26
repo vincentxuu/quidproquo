@@ -12,7 +12,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-team-wiki-maintenance-ownership)
+> :globe: [中文版](/posts/learning/2026-10-22-team-wiki-maintenance-ownership)
 
 A 200-person development team had a very active wiki, with hundreds of pages and dozens of contributors. Yet everyone interviewed had the same complaint: the wiki was "going to weed". A major contributor used to tidy formatting and fix wording regularly; after they left the team, a project manager was assigned to take over, and was soon reassigned to other work. The wiki stayed heavily used, but with no "gardener" it got messier, and a manager who saw the ragged-looking content withdrew the maintenance resources altogether ([Grudin & Poole 2010](https://doi.org/10.1145/1832772.1832780)).
 

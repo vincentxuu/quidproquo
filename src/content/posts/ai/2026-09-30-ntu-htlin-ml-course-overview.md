@@ -14,7 +14,7 @@ description: "台大林軒田《機器學習基石》《機器學習技法》系
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-htlin-ml-course-overview-en)
 
 **影片狀態：已附影片。** 導言附基石第 1 堂的 Course Introduction（11 分鐘），各堂錄影在各堂導讀。[影片來源與說明](#課程影片來源)
 

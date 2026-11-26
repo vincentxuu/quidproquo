@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset)
+> :globe: [中文版](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset)
 
 ## Summary of Changes
 
@@ -57,7 +57,7 @@ OpenAI's own notice-period policy is explicit: at least 6 months' notice for GA 
 
 ## Expiration Notice
 
-⚠️ **Shutdown date**: 2026-08-26 (already in effect, not a forecast). Calls to `/v1/assistants`, `/v1/threads`, and `/v1/threads/runs` all return errors, with no degraded mode and no extension. Migration guide: [Assistants migration guide](https://developers.openai.com/api/docs/assistants/migration).
+:warning: **Shutdown date**: 2026-08-26 (already in effect, not a forecast). Calls to `/v1/assistants`, `/v1/threads`, and `/v1/threads/runs` all return errors, with no degraded mode and no extension. Migration guide: [Assistants migration guide](https://developers.openai.com/api/docs/assistants/migration).
 
 ## Takeaway
 

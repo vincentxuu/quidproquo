@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-self-hosted-inference-overview-en)
+> :globe: [English version](/posts/tech/2026-08-25-self-hosted-inference-overview-en)
 
 這個系列介紹七套自架推論工具。但在選工具之前，先回答一個更根本的問題：**你真的需要自己跑模型嗎？**
 
@@ -101,10 +101,10 @@ draft: false
 | 引擎 | 核心技術 | 硬體 | 適合 |
 |------|---------|------|------|
 | [vLLM](/posts/ai/2026-03-14-vllm-inference-engine/) | PagedAttention | NVIDIA、AMD | 通用首選，生態系最大 |
-| [SGLang](/posts/tech/2026-08-22-sglang-inference-server/) | RadixAttention | NVIDIA、AMD | 共同前綴多的場景（structured output、few-shot） |
-| [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference/) | TensorRT 編譯最佳化 | 僅 NVIDIA | 追求極致吞吐量，願意花 28 分鐘編譯 |
+| [SGLang](/posts/tech/2026-08-22-sglang-inference-server/) | RadixAttention | NVIDIA、AMD、TPU、Apple Silicon 等 | 共同前綴多的場景（structured output、few-shot） |
+| [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference/) | NVIDIA 自家 kernel 與 FP8／FP4 量化 | 僅 NVIDIA | 在 NVIDIA GPU 上追求極致吞吐量 |
 
-vLLM 是目前的事實標準（89K+ GitHub stars）。SGLang 在 RadixAttention 共用前綴 KV cache 的場景下有優勢。TensorRT-LLM 在 NVIDIA GPU 上可以比 vLLM 快 15–30%，但只支援 NVIDIA、需要預編譯、彈性較低。
+vLLM 是目前的事實標準（97K+ GitHub stars）。SGLang 在 RadixAttention 共用前綴 KV cache 的場景下有優勢。TensorRT-LLM 在 NVIDIA GPU 上可以比 vLLM 快 15–30%，但只支援 NVIDIA。它過去要先把模型編譯成 TensorRT engine，2026-11 的 1.3 版移除了這條路，改成和 vLLM 一樣直接載入 Hugging Face 權重。
 
 三者都提供 OpenAI 相容 API，可以直接替換雲端 API 的 client。
 
@@ -167,7 +167,7 @@ HuggingFace 的 Text Generation Inference 是這波最佳化推論引擎的先�
 | 4 | [NVIDIA Triton](/posts/tech/2026-08-22-triton-inference-server/) | 多框架模型統一服務、動態批次、ensemble |
 | 5 | [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference/) | Python 服務圖、GPU 排程、自動擴縮 |
 | 6 | [TGI](/posts/tech/2026-08-25-tgi-text-generation-inference/) | HuggingFace 推論伺服器，已封存 |
-| 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference/) | NVIDIA GPU 專用最佳化，編譯換吞吐量 |
+| 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference/) | NVIDIA GPU 專用最佳化，1.3 版起不再需要編譯 engine |
 | 8 | [在 Colab 試跑 vLLM](/posts/ai/2026-10-20-vllm-colab-quickstart/) | 免費 T4 動手實作：開服務、併發請求、看 /metrics |
 
 ---
@@ -180,6 +180,10 @@ HuggingFace 的 Text Generation Inference 是這波最佳化推論引擎的先�
 
 如果你決定自架，從 vLLM 開始。它是目前的預設選擇，生態系最大，踩坑的人最多，踩過的坑也最多。有特殊需求時再往其他工具移動。
 
+
+## 更新紀錄
+
+- 2026-11-23：SGLang 的硬體支援補上 TPU、Apple Silicon 等；TensorRT-LLM 1.3 移除 TensorRT engine 編譯，第一層表格與系列索引改寫；vLLM stars 更新。
 
 ## 參考資料
 

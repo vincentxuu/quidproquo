@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-06-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-09-06-ai-interview-daily)
 
 ## This Week's Behavioral Practice
 

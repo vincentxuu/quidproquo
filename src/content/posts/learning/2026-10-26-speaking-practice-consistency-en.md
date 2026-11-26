@@ -13,7 +13,7 @@ description: "A cross-product analysis of getting started, reasons to return and
 draft: true
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-26-speaking-practice-consistency)
+> :globe: [中文版](/posts/learning/2026-10-26-speaking-practice-consistency)
 
 I have used plenty of vocabulary and learning apps without finding much motivation to keep practicing. My speaking practice with ChatGPT, Gemini and Grok has also been intermittent. The tools remain available; I do not keep returning.
 

@@ -16,7 +16,7 @@ tldr: "A local sandbox limits the blast radius of an agent on your machine; a cl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-sandbox-remote-execution)
 
 ## The Design Problem
 
@@ -70,6 +70,8 @@ One more design principle: **cleanup paths get bounds just like success paths**.
 
 The core model of the [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) is: one Durable Object class equals one container. Workers get a `getSandbox()` handle through the [Containers](https://developers.cloudflare.com/containers/) binding; each instance has its own filesystem and exec interface, with lifecycle managed by the platform. looplane uses the run id directly as the sandbox id, so "one disposable container per run" requires no scheduler of our own. The strong-consistency requirement for capabilities—budget consumption for the same run must not race—is precisely what [Durable Objects](https://developers.cloudflare.com/durable-objects/) are designed for: single-point serialization backed by SQLite storage. SSE is a common streaming transport choice for such SDKs, and its event framing comes at a price: consumers must use a matching decoder; MDN's description of the [EventSource data format](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) maps directly onto `streamFile()`'s input.
 
+The description above is Sandbox SDK 0.x, which looplane used at the time. SDK 1.0, released on 2026-09-30, has your own Durable Object class control the sandbox through `this.ctx.container`, so `getSandbox()` is no longer the main interface; 0.x receives only bug and security fixes until 2026-12-31. See [Cloudflare Sandboxes](/posts/ai/2026-08-22-cloudflare-sandboxes-en) for the differences and migration path.
+
 ## Improvement Roadmap
 
 In priority order:
@@ -80,6 +82,10 @@ In priority order:
 4. **Keep the local sandbox track alive.** Codex's Landlock/seccomp blueprint still applies—even inside a container, processes deserve a second wall. A "cloud sandbox" isn't a reason to skip local sandboxing; it's one more layer of insurance.
 
 In one sentence: all five projects teach you how to shrink the blast radius on **your** machine. Remote execution adds three new questions—credentials that never touch disk, someone owning the lifecycle, and a return channel you must decode properly—and none of them become concrete bugs until you actually deploy.
+
+## Update Log
+
+- 2026-11-23: The engineering rationale section now notes that Cloudflare Sandbox SDK 1.0 (2026-09-30) has your own Durable Object control the sandbox and that 0.x is maintained until 2026-12-31, marking this post's description as 0.x.
 
 ## References
 

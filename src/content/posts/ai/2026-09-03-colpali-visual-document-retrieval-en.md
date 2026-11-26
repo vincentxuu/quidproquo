@@ -13,7 +13,7 @@ series:
   order: 49
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-colpali-visual-document-retrieval)
+> :globe: [中文版](/posts/ai/2026-09-03-colpali-visual-document-retrieval)
 
 The standard RAG pipeline processes documents through OCR → text extraction → chunking → embedding. This works well for plain text, but on PDFs with tables, charts, and complex layouts, every step loses information. ColPali takes a fundamentally different approach: skip the entire text pipeline and treat each page as an image.
 
@@ -122,7 +122,7 @@ Per [arXiv:2602.12510](https://arxiv.org/abs/2602.12510) (Visual RAG Toolkit), 2
 | Vectors/document | ~200 (per token) | ~1,030 (per patch) | Storage ~5× |
 | Vector dimension | 128 | 128 | Same |
 | Index size vs Bi-Encoder | ~200× | ~1,030× | Significantly larger |
-| Full-text search (BM25) | ✅ Available | ❌ No text | Hybrid retrieval not possible |
+| Full-text search (BM25) | ✓ Available | ✗ No text | Hybrid retrieval not possible |
 | Inference hardware | CPU works | GPU required | Infrastructure cost |
 | Ingestion speed | Fast | Slow (VLM inference) | Large corpus ingestion takes time |
 

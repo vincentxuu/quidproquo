@@ -31,7 +31,7 @@ glossary:
     context: "Foundations Lecture 15 recommends 5-fold or 10-fold in practice, with no need to go all the way to leave-one-out."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-validation-three-principles)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [15_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/15_handout.pdf) and transcripts of this lecture's four official videos, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/22 to 22/22), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 

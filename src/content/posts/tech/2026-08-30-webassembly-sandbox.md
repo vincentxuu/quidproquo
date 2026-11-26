@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-webassembly-sandbox-en)
+> :globe: [English version](/posts/tech/2026-08-30-webassembly-sandbox-en)
 
 ## 為什麼需要第四層隔離
 
@@ -98,7 +98,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 | Runtime | 語言 | 冷啟動 | 記憶體開銷 | 特色 | 適用場景 |
 |---------|------|--------|------------|------|----------|
-| **Wasmtime** | Rust | 5–10 ms | < 1 MB | Bytecode Alliance 主導，Component Model 支援最完整，WASI Preview 2 實作最穩定 | Rust 生態、需要元件模型的複雜 agent 工作流 |
+| **Wasmtime** | Rust | 5–10 ms | < 1 MB | Bytecode Alliance 主導，Component Model 支援最完整，Wasmtime 46 起預設啟用 WASI 0.3 | Rust 生態、需要元件模型的複雜 agent 工作流 |
 | **WasmEdge** | C++ | 3–8 ms | < 1 MB | CNCF 成員，對 AI 推理與 Pyodide 整合優異，異步 I/O 支援良好 | 邊緣設備、本地 AI agent、Python 代碼執行 |
 | **Wasmer** | Rust | 8–15 ms | < 1 MB | 支援多語言 SDK（Python, Node.js, PHP, Postgres），可嵌入到應用程式庫中 | 需要嵌入式沙箱的應用、跨語言代碼執行 |
 
@@ -106,7 +106,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
 Wasmtime 由 Bytecode Alliance 開發，是 WebAssembly 標準的參考實作之一。其 Component Model 允許將 Wasm 模組組裝成更複雜的應用，每個元件有明確的界面合約（WIT）。對於 agent 沙箱，這意味著可以定義「這個 agent 只能呼叫這些函數」的嚴格契約。
 
-Wasmtime 的 WASI Preview 2 支援非同步 I/O，解決了早期 Wasm 無法做網路請求的限制，讓 agent 在沙箱內執行需要網路的任務成為可能。
+WASI 0.2（Preview 2）用 `wasi:io` 的 pollable 與 stream 做到非同步 I/O 與網路請求；2026-06-11 正式發布的 [WASI 0.3](https://bytecodealliance.org/articles/WASI-0.3) 把 `async func`、`stream`、`future` 直接放進 Component Model，由主機統一排程，跨元件的非同步也能組合。Wasmtime 46 起預設啟用 WASI 0.3，0.2 元件照樣能跑。
 
 **基準數據（2026 年）**：
 - 冷啟動：5–10 ms
@@ -205,7 +205,7 @@ result = instance.exports["run"]()
 
 ### 1. WASI 仍在演進
 
-檔案系統、網路、時鐘等系統調用的標準化程度低於 POSIX，某些功能可能無法直接使用。WASI Preview 2 已改善許多限制，但仍有缺口。
+檔案系統、網路、時鐘等系統調用的標準化程度低於 POSIX，某些功能可能無法直接使用。WASI 0.2 與 0.3 已改善許多限制，但仍有缺口。
 
 ### 2. 語言限制
 
@@ -230,6 +230,10 @@ Wasmtime 等 runtime 的 VMM 編譯器或 WASI 層若有漏洞，可能導致同
 5. Wasm 沙箱的限制：WASI 演進狀態、語言限制、host-function 審計、敵對多租戶風險。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：補上 2026-06-11 正式發布的 WASI 0.3（Component Model 原生 async，Wasmtime 46 起預設啟用），原「WASI Preview 2」相關敘述改為 0.2 與 0.3 並列。
 
 ## 參考資料
 

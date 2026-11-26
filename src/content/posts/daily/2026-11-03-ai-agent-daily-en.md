@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-03-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-03-ai-agent-daily)
 
 ## Take of the Day
 
@@ -159,15 +159,15 @@ caption: Evidence from today's three Arxiv Digest papers (human approval self-by
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Composio CLI 0.6.0](/posts/daily/2026-11-03-framework-composio-cli-0.6.0-en)
-- 📄 [Funding Brief｜Clark Seed $11M](/posts/daily/2026-11-03-funding-clark-en)
-- 📄 [Funding Brief｜Larridin Series A $30M](/posts/daily/2026-11-03-funding-larridin-en)
-- 📄 [Pricing Tracker｜Mistral Large 4's Promo Becomes Permanent Price](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price-en)
-- 📄 [Tool Pick｜AnythingMCP](/posts/daily/2026-11-03-tool-anythingmcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-11-03](/posts/daily/2026-11-03-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-11-03](/posts/daily/2026-11-03-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-03](/posts/daily/2026-11-03-ai-agent-github-digest-en)
+- :file: [Framework Update｜Composio CLI 0.6.0](/posts/daily/2026-11-03-framework-composio-cli-0.6.0-en)
+- :file: [Funding Brief｜Clark Seed $11M](/posts/daily/2026-11-03-funding-clark-en)
+- :file: [Funding Brief｜Larridin Series A $30M](/posts/daily/2026-11-03-funding-larridin-en)
+- :file: [Pricing Tracker｜Mistral Large 4's Promo Becomes Permanent Price](/posts/daily/2026-11-03-pricing-mistral-large-4-permanent-price-en)
+- :file: [Tool Pick｜AnythingMCP](/posts/daily/2026-11-03-tool-anythingmcp-en)
+- :file: [AI Engineer Interview Prep — 2026-11-03](/posts/daily/2026-11-03-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-11-03](/posts/daily/2026-11-03-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

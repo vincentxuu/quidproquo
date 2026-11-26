@@ -21,7 +21,7 @@ glossary:
     context: "Its three concepts still live inside the intuition of today's ML models — the best starting point for understanding the 'engagement ranking' mindset."
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-07-14-content-platform-feed-ranking)
+:globe: [中文版](/posts/tech/deep-dive/2026-07-14-content-platform-feed-ranking)
 
 Every feed pulls against two forces. One is **time** — the newest content should be seen. The other is **engagement** — the content most people like, comment on, and finish should be seen. Rank purely by time and good content gets washed away; rank purely by engagement and fresh, not-yet-reacted-to content sinks forever. Every ranking algorithm, at its core, is just tuning the mix of these two forces.
 

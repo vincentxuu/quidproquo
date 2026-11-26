@@ -13,7 +13,7 @@ description: "OpenClaw's agent runtime architecture: the built-in runtime's modu
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-pi-reference)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-pi-reference)
 
 This article used to be about "Pi integration architecture" — OpenClaw embedding a coding agent runtime called Pi, with OpenClaw as its Gateway shell.
 

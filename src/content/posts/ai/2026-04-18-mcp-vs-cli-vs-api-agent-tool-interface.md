@@ -80,18 +80,18 @@ LLM 對工具的「熟悉度」極不平均，這是決定成功率的關鍵變�
 
 | 方式 | Schema 來源 | Secret 由誰持 | 訓練覆蓋 | 跨 agent 共享 | 代表 |
 |---|---|---|---|---|---|
-| 生成 code | 無（看 docs） | env / prompt | ⭐⭐⭐ | ❌ | Claude Code、Code Interpreter |
-| 通用 HTTP tool | 無（LLM 填） | prompt | ⭐⭐⭐ | ❌ | `http_request(url, ...)` 工具 |
-| OpenAPI tools | API 提供者 | prompt / proxy | ⭐ | 難 | 早期 ChatGPT Plugins |
-| 平台 Actions | API + 平台 | 平台代持 | ⭐ | ❌（綁平台） | ChatGPT Actions |
-| MCP server | server 作者 | server 代持 | ⭐ | ✅ | Anthropic MCP 生態 |
-| CLI | 工具作者 | env / keychain | ⭐⭐⭐（熱門） | ❌ | `gh`、`wrangler`、`psql` |
+| 生成 code | 無（看 docs） | env / prompt | ★★★ | ✗ | Claude Code、Code Interpreter |
+| 通用 HTTP tool | 無（LLM 填） | prompt | ★★★ | ✗ | `http_request(url, ...)` 工具 |
+| OpenAPI tools | API 提供者 | prompt / proxy | ★ | 難 | 早期 ChatGPT Plugins |
+| 平台 Actions | API + 平台 | 平台代持 | ★ | ✗（綁平台） | ChatGPT Actions |
+| MCP server | server 作者 | server 代持 | ★ | ✓ | Anthropic MCP 生態 |
+| CLI | 工具作者 | env / keychain | ★★★（熱門） | ✗ | `gh`、`wrangler`、`psql` |
 
 把這張表反過來看，會發現 MCP 原本宣稱的三個賣點，每個都有對手：
 
 - **結構化 schema**：OpenAPI 早就有，且 API 廠商本來就在寫
 - **Server 代持 secret**：平台 Actions 也做得到（差別是「使用者本機 server」vs「平台代管」）
-- **跨 agent 共享**：✅ 這條是 MCP 真正獨家——一個 MCP server 可以同時被 Claude Desktop、Cursor、VS Code agent 使用，OpenAPI / Actions / CLI 都做不到
+- **跨 agent 共享**：✓ 這條是 MCP 真正獨家——一個 MCP server 可以同時被 Claude Desktop、Cursor、VS Code agent 使用，OpenAPI / Actions / CLI 都做不到
 
 ## MCP 真正的護城河，只有「跨平台共享」
 

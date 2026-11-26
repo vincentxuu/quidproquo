@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch)
+> :globe: [中文版](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch)
 
 ## Summary
 
@@ -56,9 +56,9 @@ This isn't a single story about a vendor rushing you to migrate. Claude Haiku 4.
 
 ## Timing Note
 
-⚠️ **Claude Haiku 4.5 retirement on Microsoft Foundry**: 2026-11-15 (about two weeks out). Foundry's own retirement schedule lists no replacement; Anthropic's own platforms (Claude API, Bedrock, Google Cloud) still mark Haiku 4.5 Active with no retirement announced. Suggested migration target: [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
+:warning: **Claude Haiku 4.5 retirement on Microsoft Foundry**: 2026-11-15 (about two weeks out). Foundry's own retirement schedule lists no replacement; Anthropic's own platforms (Claude API, Bedrock, Google Cloud) still mark Haiku 4.5 Active with no retirement announced. Suggested migration target: [Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview).
 
-⚠️ **Mistral Medium 3 / Ministral 3B retirement on Microsoft Foundry**: 2026-12-09. Both models have gone without upstream maintenance on Mistral's own platform for 100 days and 343 days, respectively, while still running on Foundry. Suggested migration target: Mistral Medium 3.5.
+:warning: **Mistral Medium 3 / Ministral 3B retirement on Microsoft Foundry**: 2026-12-09. Both models have gone without upstream maintenance on Mistral's own platform for 100 days and 343 days, respectively, while still running on Foundry. Suggested migration target: Mistral Medium 3.5.
 
 ## Today's Takeaway
 

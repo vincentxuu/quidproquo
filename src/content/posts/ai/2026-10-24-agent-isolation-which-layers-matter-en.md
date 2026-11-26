@@ -14,7 +14,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-which-layers-matter)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-which-layers-matter)
 
 This series covered five layers of isolation and two kinds of problem, with cases from OpenAI's research environment. At this point the practical question is: for my own agent, where do these risks rank?
 

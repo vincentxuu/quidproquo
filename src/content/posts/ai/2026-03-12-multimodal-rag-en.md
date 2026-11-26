@@ -14,7 +14,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-multimodal-rag)
+> :globe: [中文版](/posts/ai/2026-03-12-multimodal-rag)
 
 Climbing communities are rich with visual information: route topos, wall photos, screenshots from technique videos. These images carry things that text descriptions struggle to fully convey — the shape of a wall, the line a route takes, the exact body position at a crux move.
 

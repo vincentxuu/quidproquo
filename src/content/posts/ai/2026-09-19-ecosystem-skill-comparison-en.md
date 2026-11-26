@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-ecosystem-skill-comparison)
+> :globe: [中文版](/posts/ai/2026-09-19-ecosystem-skill-comparison)
 
 The previous article covered the project's own skill. This one covers **the community**.
 
@@ -89,10 +89,10 @@ Across all skills, these are **nearly universal**:
 | **Tool Boundary** | Strictly Groundlane | Mostly Tavily/Exa/Brave/Serper |
 | **Output Goal** | `.research/` → post skill publishing | Direct report output |
 | **Academic Quality** | Has A/B/C/D grading | Some have (hashbulla, Silence-view) |
-| **Adversarial Verification** | ❌ | ✅ Nearly all have it |
-| **Persistent Knowledge** | ❌ | ✅ hyperresearch has it |
-| **Benchmark Alignment** | ❌ | jamoeight v2 has BrowseConf |
-| **Cross-platform** | ❌ Agent-environment only | ✅ skills.sh / Multi-runtime |
+| **Adversarial Verification** | ✗ | ✓ Nearly all have it |
+| **Persistent Knowledge** | ✗ | ✓ hyperresearch has it |
+| **Benchmark Alignment** | ✗ | jamoeight v2 has BrowseConf |
+| **Cross-platform** | ✗ Agent-environment only | ✓ skills.sh / Multi-runtime |
 
 ## Designs Worth Learning
 

@@ -13,7 +13,7 @@ series:
   order: 34
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshooting-runtime)
 
 Installation works, login works — now the problems happen mid-session: fans spinning, a frozen screen, context compaction failing, search not finding a file that clearly exists. Following the official [troubleshooting](https://code.claude.com/docs/en/troubleshooting) docs' classification, this article turns the five runtime problem classes into steps you can follow, with symptoms, diagnostic commands, and fixes. For install or login failures, start with [the previous article](/posts/tech/deep-dive/2026-08-26-claude-code-troubleshoot-install); settings-not-applying and hooks-not-firing belong in the [configuration debugging article](/posts/tech/deep-dive/2026-08-26-claude-code-debug-config).
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-mcp-sandbox-integration-en)
+> :globe: [English version](/posts/ai/2026-08-30-mcp-sandbox-integration-en)
 
 ## 本文定位
 

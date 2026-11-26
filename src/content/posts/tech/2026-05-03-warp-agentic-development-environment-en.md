@@ -13,7 +13,7 @@ description: "Warp is more than a terminal — it's a development environment bu
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-05-03-warp-agentic-development-environment)
+:globe: [中文版](/posts/tech/2026-05-03-warp-agentic-development-environment)
 
 If you've spent any time on developer Twitter / X over the past few years, you've almost certainly seen someone showing off their terminal screenshots — and nine times out of ten, it's Warp. But Warp is more than a pretty terminal. In late 2025, it shipped Warp 2.0 and officially repositioned itself as an **Agentic Development Environment (ADE)**, embedding AI Agents directly into the development workflow. Then in April 2026, Warp went open-source under the AGPL license, with OpenAI as a founding sponsor.
 

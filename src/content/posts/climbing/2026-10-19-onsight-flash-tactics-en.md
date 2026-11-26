@@ -30,7 +30,7 @@ glossary:
     context: "Neil Gresham suggests a mid-grade route that gets you 60–80% pumped first."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-onsight-flash-tactics)
+> :globe: [中文版](/posts/climbing/2026-10-19-onsight-flash-tactics)
 
 You're standing under a 5.10d you've never climbed. The person next to you looked at it for thirty seconds and set off. You want to look longer, but you worry about holding everyone up. Up on the wall, just before the third quickdraw, you find your hands are the wrong way round. You swap hands twice and you're pumped out by half height.
 

@@ -13,7 +13,7 @@ description: "奧爾索馬爾索（Orsomarso）、Frascineto-Eianina 與 Acqua R
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-orsomarso-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-orsomarso-en)
 
 波利諾國家公園（Parco Nazionale del Pollino）橫跨卡拉布里亞（Calabria）與巴西利卡塔兩個大區，是義大利面積最大的新設保護區（[公園官網](https://www.parconazionalepollino.it/en)寫 192,565 公頃）。這篇收的是公園卡拉布里亞側、科森札省（Cosenza）的三處運攀岩場：第勒尼安海一側的 Orsomarso（Mercuri 谷），以及愛奧尼亞海一側的 Frascineto-Eianina 與 Cerchiara di Calabria 的 Acqua Rossa。
 

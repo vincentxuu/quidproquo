@@ -10,11 +10,11 @@ tldr: "Chrome 團隊官方維護的 chrome-devtools-mcp，把 DevTools 的能力
 description: "介紹 chrome-devtools-mcp：什麼是 CDP、Chrome 官方 MCP server 能做什麼、怎麼接到已經開著的 Chrome、要注意的隱私與限制，以及什麼時候才真的需要自己包 CDP。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 3
+  name: "AI 瀏覽器自動化"
+  order: 4
 ---
 
-> 🌏 [English version](/posts/tech/2026-06-20-chrome-devtools-mcp-en)
+> :globe: [English version](/posts/tech/2026-06-20-chrome-devtools-mcp-en)
 
 **這篇的前提在 2025 年之後變了：Chrome DevTools MCP 現在有官方套件。** [ChromeDevTools/chrome-devtools-mcp](https://github.com/ChromeDevTools/chrome-devtools-mcp)（npm 上是 `chrome-devtools-mcp`）由 Chrome 團隊維護，把 DevTools 的能力包成 MCP server，讓 AI agent 控制與檢查一個真實的 Chrome。它現在的官方名稱是「Chrome DevTools for agents」。
 

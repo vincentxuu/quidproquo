@@ -15,7 +15,7 @@ glossary:
     definition: "CSS selector structure for deterministic web_extract; each result maps to a node and can be explained line-by-line without hidden model inference."
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-08-23-groundlane-series-2)
+> :globe: [繁體中文版](/posts/tech/2026-08-23-groundlane-series-2)
 
 This part does not repeat the architecture explanation from Part 1 (why a controlled web access layer is needed, the three tools' responsibilities). It moves directly to the practical layer: which parameter combinations produce which response structures, which fields serve as verifiable provenance, and which boundaries are fixed security limits rather than tunable performance knobs. All descriptions trace back to the `v0.1.0` self-description and docs; no unimplemented feature is assumed.
 

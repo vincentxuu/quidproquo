@@ -25,7 +25,7 @@ glossary:
     context: "Slides 60–70 of the ADL Beyond Supervised Learning deck; CLIP applies it between images and text."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-beyond-supervised-multimodal)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

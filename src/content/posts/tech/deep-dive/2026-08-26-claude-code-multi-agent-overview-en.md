@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview)
 
 A single Claude Code session running start to finish is the normal case. But when a task gets big — fixing three unrelated bugs at once, an audit that sweeps the whole repo, splitting up a 500-file migration — one thread starts to strain. This is the overview post for the multi-agent cluster: what each of the four officially recognized approaches actually gives you, how to choose, and finally the one thing no choice escapes — parallel work needs worktrees to avoid file conflicts. The mechanics of a single subagent are already covered in [the previous post](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en); I won't repeat them here.
 

@@ -13,7 +13,7 @@ description: "GitHub Certified: Agentic AI Developer（GH-600）備考指南，�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-08-github-gh-600-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-10-08-github-gh-600-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄，作者沒有報考這張考試。所有「考什麼」都指回[官方 study guide](https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-600)，所有「怎麼準備」都指回官方訓練與 GitHub 文件，不含考古題。查證日期：2026-10-08。
 

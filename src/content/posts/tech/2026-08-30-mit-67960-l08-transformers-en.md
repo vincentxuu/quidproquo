@@ -19,7 +19,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l08-transformers)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l08-transformers)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -12,7 +12,7 @@ series:
   order: 50
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-tool-ai-agent-gateway)
+> :globe: [中文版](/posts/daily/2026-10-10-tool-ai-agent-gateway)
 
 ## Tool info
 
@@ -102,11 +102,11 @@ Once bound, a caller lying about which profile it wants in the header doesn't ma
 
 | | AI Agent Gateway | Credentials pasted into every MCP config | Generic cloud secret managers (Vault, AWS Secrets Manager) |
 |---|---|---|---|
-| Caller never sees the real backend credential | ✅ injected from an encrypted store | ❌ the credential sits in the config file | Partial — secrets are centralized, but who can use which secret still needs its own wiring |
-| Tool-level access control (which key can call which tool) | ✅ profile enforced on every `tools/call` | ❌ all-or-nothing | ❌ not a concept at the MCP protocol layer |
-| LLM calls under the same governance | ✅ one proxy for Anthropic/Bedrock/OpenAI/Gemini | ❌ | ❌ usually manages keys, not traffic |
-| Built-in access logs + cost tracking | ✅ bundled console | ❌ you wire up each service's own logs | Partial — secret-access logs, no LLM call detail |
-| Works with no self-hosting | ❌ you run Postgres + a Go service | ✅ | ✅ (managed) |
+| Caller never sees the real backend credential | ✓ injected from an encrypted store | ✗ the credential sits in the config file | Partial — secrets are centralized, but who can use which secret still needs its own wiring |
+| Tool-level access control (which key can call which tool) | ✓ profile enforced on every `tools/call` | ✗ all-or-nothing | ✗ not a concept at the MCP protocol layer |
+| LLM calls under the same governance | ✓ one proxy for Anthropic/Bedrock/OpenAI/Gemini | ✗ | ✗ usually manages keys, not traffic |
+| Built-in access logs + cost tracking | ✓ bundled console | ✗ you wire up each service's own logs | Partial — secret-access logs, no LLM call detail |
+| Works with no self-hosting | ✗ you run Postgres + a Go service | ✓ | ✓ (managed) |
 
 ## Things to watch
 

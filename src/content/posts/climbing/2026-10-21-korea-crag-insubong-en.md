@@ -14,7 +14,7 @@ description: "An Insubong climbing guide covering seasons, Bukhansan Ui Station 
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/climbing/2026-10-21-korea-crag-insubong)
+> :globe: [繁體中文版](/posts/climbing/2026-10-21-korea-crag-insubong)
 
 As you gain height on Insubong, Seoul gradually opens up behind the trees. This granite peak in Bukhansan National Park makes a city stay and a full day of multipitch climbing possible on the same trip. A subway connection to the foot of the mountain, however, does not make it an introductory outdoor lead venue.
 
@@ -320,3 +320,4 @@ ids: Id8LRtAsqlA, 1jX2tvG2Dhk
 - [달빛나그네: Insubong Sanchonji, 2024](https://m.blog.naver.com/PostView.naver?blogId=r9600495&logNo=223445895731)
 - [울트래블러 (채울): Insubong single-pitch day, 2022](https://m.blog.naver.com/PostView.naver?blogId=wooltraveler&logNo=222924647461)
 - [古山: Insubong Georyong-gil, 2007 (published)](https://gosan.tistory.com/271)
+

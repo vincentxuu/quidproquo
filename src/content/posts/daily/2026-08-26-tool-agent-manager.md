@@ -12,7 +12,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-26-tool-agent-manager-en)
+> :globe: [English version](/posts/daily/2026-08-26-tool-agent-manager-en)
 
 ## 工具資訊
 
@@ -85,8 +85,8 @@ review           # 宣告要 review 的 repo / merge base / diff 範圍
 |---|---|---|---|---|
 | 架構 | Go TUI + tmux | Electron 桌面 App | Tauri（Rust + Vue3）桌面 App | tmux 原生 |
 | Session 隔離 | tmux session | Git worktree（自動建立） | Terminal pane | 手動 |
-| 整檔 diff + 行內註解回傳 agent | ✅ | ✅（GUI） | 需靠整合 | ❌ |
-| Agent 透過 MCP 操作管理器本身 | ✅（spawn/message/review） | 有自己的 CLI（runpane） | 轉發 agent 自己的 | ❌ |
+| 整檔 diff + 行內註解回傳 agent | ✓ | ✓（GUI） | 需靠整合 | ✗ |
+| Agent 透過 MCP 操作管理器本身 | ✓（spawn/message/review） | 有自己的 CLI（runpane） | 轉發 agent 自己的 | ✗ |
 | 跨平台 | macOS / Linux（Windows 需 WSL2） | macOS / Windows / Linux | macOS / Windows / Linux | 依系統 tmux |
 | 遠端存取 | tmux detach/attach | 自架 daemon + 手機瀏覽器 | 規劃中 | tmux detach/attach |
 | GitHub Stars（2026-08） | 345 | 339 | 3,800 | — |

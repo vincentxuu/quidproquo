@@ -13,7 +13,7 @@ description: "Comparing dangerous-command escalation across five coding agents, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-dangerous-command-interception)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-dangerous-command-interception)
 
 This Part Two article originally treated dangerous-command grading as a missing capability. Looplane now has a deterministic allow / ask / deny classifier, deny-first rule layering, a critical-command floor, and approval-visible policy reasons. The evidence base remains pi, omp, opencode, codex, and claude-code; their implementations now test what Looplane's baseline still lacks in free-shell parsing depth, persistent-rule UX, and cross-platform sandbox parity.
 

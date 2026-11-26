@@ -13,7 +13,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide-en)
 
 這是「Claude Code 深入介紹」系列的 Agent Teams 篇。[F1 多代理全景](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview)畫過整張地圖，[D4 sub-agents](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution) 講過最輕量的平行方式；這篇處理的是重量級選項——多個 Claude Code instance 組成一個長期共存的團隊。功能目前是實驗性質，預設關閉，官方文件也明白列出已知限制，所以這篇一半在講怎麼用，一半在講什麼時候不該用。
 

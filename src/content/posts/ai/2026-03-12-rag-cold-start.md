@@ -14,7 +14,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-cold-start-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-cold-start-en)
 
 RAG 系統有個雞蛋問題：沒有資料就不能回答，但資料是隨著系統使用才慢慢累積的。
 

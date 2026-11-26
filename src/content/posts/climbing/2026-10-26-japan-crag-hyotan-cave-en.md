@@ -13,7 +13,7 @@ description: "Hyotan Cave climbing guide: seasons, public transport, parking, lo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-hyotan-cave)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-hyotan-cave)
 
 Hyotan Cave in Iwaizumi is known for steep limestone, while Modern and Wakaba sectors also offer easier lines. A mixed-level team should identify its sectors rather than assuming every climb is a roof.
 
@@ -58,12 +58,6 @@ Each row cites the public route list. Most entries lack length and pitch informa
 
 
 
-
-```video-gallery
-key: japanHyotanCave
-lang: en
-layout: routes
-```
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -116,6 +110,12 @@ Intermediate routes also occur around the cave. Check seepage, older bolts and t
 | 「ピグモン」 | 5.11a | 5.11a | not listed | 若葉エリア | Sources: [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「ポケモン」 | 5.11c | 5.11c | not listed | 若葉エリア | Sources: [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 
+```video-gallery
+key: japanHyotanCave
+lang: en
+layout: routes
+```
+
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
 Steep limestone and sustained sequences dominate many entries. Adjacent sectors do not imply equal route lengths.
@@ -149,6 +149,12 @@ Steep limestone and sustained sequences dominate many entries. Adjacent sectors 
 | 「スカイツリー２４」 | 5.11d | 5.11d | not listed | 発掘エリア | Sources: [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「Dangerous father」 | 5.11d | 5.11d | not listed | 発掘エリア | Sources: [RockTopo](https://www.rocktopo.net/areas/64/routes) |
 | 「HappyBirthdayOssa」 | 5.12a | 5.12a | not listed | 発掘エリア | Sources: [RockTopo](https://www.rocktopo.net/areas/64/routes) |
+
+```video-gallery
+key: japanHyotanCave
+lang: en
+layout: routes
+```
 
 ### Expert: 8a and up (YDS 5.13b and up)
 

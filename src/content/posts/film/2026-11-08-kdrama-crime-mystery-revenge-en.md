@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-08-kdrama-crime-mystery-revenge)
+> :globe: [中文版](/posts/film/2026-11-08-kdrama-crime-mystery-revenge)
 
 This post covers Korean crime, mystery and revenge: a bullied woman turned teacher, a vigilante taxi company, a walkie-talkie across time and corruption among prosecutors. All 18 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. How K-dramas differ from American shows is covered at the start of the [romance post](/posts/film/2026-11-08-kdrama-romance-fantasy-en); action, zombies and survival games are in the [action and survival post](/posts/film/2026-11-08-kdrama-action-survival-en).
 

@@ -14,7 +14,7 @@ series:
   order: 43
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-rag-token-quota-system)
+> :globe: [中文版](/posts/ai/2026-03-12-rag-token-quota-system)
 
 LLM APIs are billed per token — without usage controls, costs grow unchecked. Quota design for RAG systems looks simple on the surface, but the details are plentiful.
 

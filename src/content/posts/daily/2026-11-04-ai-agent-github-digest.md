@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, security, mcp, computer-use, coding-agent]
 lang: zh-TW
 description: "DeepSeek 開源一個會自己接 GitHub issue 來做的 coding agent、NVIDIA 的 skill 掃毒工具正好接上今天的 MCPhantom 資安新聞、Mika 讓手機背景畫面幫你操作 App——今天四個 repo 一半在擴張 agent 的自主權,一半在幫自主權收拾善後"
-tldr: "deepseek-ai/dsh-superagent-prototype(⭐16k)是 DeepSeek 開源的研究原型,聽 GitHub／Feishu 訊息,自己開工作項目、在獨立 session 裡做完、回原對話回報(通常是一個 PR);NVIDIA/SkillSpector(⭐24k)在裝 agent skill 前先掃有沒有 prompt injection、資料外流等 71 種漏洞模式,時間點正好接上同日曝光的 MCPhantom 資安報告;mksglu/context-mode(⭐33k)用 sandbox + SQLite FTS5 把工具呼叫塞進 context window 的原始資料壓縮 98%;wangzan101/Mika(⭐6k)讓手機背景畫面幫你操作任何 App 和網頁,登入、驗證碼、付款一律交還給你。框架端:Haystack v2.31.1 補了兩個透過 httpx/openai 間接依賴傳進來的 CVE;Pydantic AI v2.65.0 加了 ConversationStore 和一批 model fallback／錯誤分類的相容性調整。"
+tldr: "deepseek-ai/dsh-superagent-prototype(★16k)是 DeepSeek 開源的研究原型,聽 GitHub／Feishu 訊息,自己開工作項目、在獨立 session 裡做完、回原對話回報(通常是一個 PR);NVIDIA/SkillSpector(★24k)在裝 agent skill 前先掃有沒有 prompt injection、資料外流等 71 種漏洞模式,時間點正好接上同日曝光的 MCPhantom 資安報告;mksglu/context-mode(★33k)用 sandbox + SQLite FTS5 把工具呼叫塞進 context window 的原始資料壓縮 98%;wangzan101/Mika(★6k)讓手機背景畫面幫你操作任何 App 和網頁,登入、驗證碼、付款一律交還給你。框架端:Haystack v2.31.1 補了兩個透過 httpx/openai 間接依賴傳進來的 CVE;Pydantic AI v2.65.0 加了 ConversationStore 和一批 model fallback／錯誤分類的相容性調整。"
 series:
   name: "AI Agent GitHub Digest"
   order: 81
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-04-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-11-04-ai-agent-github-digest-en)
 
 
 ## 今日亮點
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### deepseek-ai/dsh-superagent-prototype ⭐ 16k
+### deepseek-ai/dsh-superagent-prototype ★ 16k
 
 [GitHub](https://github.com/deepseek-ai/dsh-superagent-prototype)　·　TypeScript　·　MIT
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### NVIDIA/SkillSpector ⭐ 24k
+### NVIDIA/SkillSpector ★ 24k
 
 [GitHub](https://github.com/NVIDIA/SkillSpector)　·　Python　·　Apache-2.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### mksglu/context-mode ⭐ 33k
+### mksglu/context-mode ★ 33k
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### wangzan101/Mika ⭐ 6k
+### wangzan101/Mika ★ 6k
 
 [GitHub](https://github.com/wangzan101/Mika)　·　Kotlin　·　Apache-2.0
 

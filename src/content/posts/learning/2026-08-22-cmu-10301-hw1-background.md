@@ -10,7 +10,7 @@ tldr: "HW1 是 written＋programming 作業：用機率、微積分、線代與 
 description: "導讀 CMU 10-301/601 Spring 2026 HW1 Background Material 的能力目標、公開資產與校外自評方式。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 1 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw1-background-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw1-background-en)
 
 [官方 ZIP 內的 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw1.zip) 完整題名是 **Homework 1: Background**，屬於 written＋programming。Written 題組包括 course policies、probability and statistics、linear algebra、calculus、geometry 與 CS foundations；程式部件則是 majority-vote classifier，要讀取 TSV、輸出 train/test labels 與 error metrics。ZIP 內有 heart／education 的 train/test data、LaTeX template 與兩組 reference output；沒有 `majority_vote.py` starter，hidden grader 仍在 Gradescope。
 

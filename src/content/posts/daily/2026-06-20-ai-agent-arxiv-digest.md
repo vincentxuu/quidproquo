@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 27
 ---
-> 🌏 [English version](/posts/daily/2026-06-20-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-20-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -72,7 +72,7 @@ EinsteinArena 是一個 agent-native 平台：每道題目都有自動驗證器�
 - 主要量化結果（截至 2026 年 5 月）：agents 共發現 **12 個新 SOTA 結果**，優於此前所有人類及 AI 解法
 - 代表性案例：第 11 維親吻數問題（Kissing Number dim 11）的下界從 **593 提升到 604**，是多年來的重大突破
 - 僅聚焦數學任務的原因：verifier 可機器判斷正確性；開放式任務缺乏精確 verifier，目前不在範疇
-- 框架關聯：這個架構本質上是在 agent runtime 外加一層「共享 episodic memory」，LangGraph 目前缺乏內建的 cross-agent persistent knowledge sharing；EinsteinArena 的設計可作為類似基礎設施的參考藍圖 ⚠️（本文聚焦科學任務，直接應用到通用 agent 平台需要額外設計 verifier 機制）
+- 框架關聯：這個架構本質上是在 agent runtime 外加一層「共享 episodic memory」，LangGraph 目前缺乏內建的 cross-agent persistent knowledge sharing；EinsteinArena 的設計可作為類似基礎設施的參考藍圖 :warning:（本文聚焦科學任務，直接應用到通用 agent 平台需要額外設計 verifier 機制）
 - 落地門檻：需要可機器驗證的成功指標；對「成功難以量化」的業務場景（如客服、內容生成），擴展需要額外設計
 - 提交日期：2026-06-09，作者來自 Together AI 與 Stanford，是可信賴的學術 + 業界聯合研究
 
@@ -129,15 +129,15 @@ APEX 定義三層同步演化：
 
 - Self-Harness 基準（2025）：Terminal-Bench-2.0 上單獨演化 harness 達 **14-21% 提升**；APEX 在此基礎上加 L2+L3
 - 實作環境：NVIDIA Agent Challenge 2026；Joe = NVIDIA Nemotron + 15 節點邊緣叢集管理；**114 筆真實任務**（非合成）
-- 論文規模：8 頁、1 個架構圖、4 張實驗表——較短，實驗規模有限 ⚠️（114 筆任務對統計顯著性而言偏少）
-- L2 原則蒸餾：從成功軌跡 pattern-mine 可在其他任務中複用的決策規則（具體演算法細節在公開搜尋結果中未見完整描述）⚠️
-- L3 拓撲演化：fitness-based selection 在不同分工結構之間選擇，但搜尋空間大小和策略不明確 ⚠️
+- 論文規模：8 頁、1 個架構圖、4 張實驗表——較短，實驗規模有限 :warning:（114 筆任務對統計顯著性而言偏少）
+- L2 原則蒸餾：從成功軌跡 pattern-mine 可在其他任務中複用的決策規則（具體演算法細節在公開搜尋結果中未見完整描述）:warning:
+- L3 拓撲演化：fitness-based selection 在不同分工結構之間選擇，但搜尋空間大小和策略不明確 :warning:
 - 與 Terminal-Bench 關聯：衍生實作 Apex2 使用 Claude Sonnet 4.5 在 Terminal-Bench 排行榜達到 **64.50% ± 1.77%**，超越前任 SOTA Ante 4.2 個百分點
 - 框架落地門檻：需要收集任務成功/失敗的結構化 trace；如果你的 agent 現在連 logging 都不完整，L2/L3 演化無從啟動
 
 ### Reviewer 一句話評
 
-三層演化的框架方向是對的，是真正填補 Self-Harness 空缺的嘗試；但 114 筆任務的實驗規模偏小，L2 和 L3 各自對最終效能的貢獻分析不清晰 ⚠️，目前更接近「有趣的設計提案 + 初步驗證」而非「嚴謹的大規模實驗結論」。
+三層演化的框架方向是對的，是真正填補 Self-Harness 空缺的嘗試；但 114 筆任務的實驗規模偏小，L2 和 L3 各自對最終效能的貢獻分析不清晰 :warning:，目前更接近「有趣的設計提案 + 初步驗證」而非「嚴謹的大規模實驗結論」。
 
 ### 給你的 take-away
 
@@ -158,7 +158,7 @@ APEX 定義三層同步演化：
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 若你在建構「需要產出可驗證定量結論」的 domain agent（金融、科學、工程），這個 RAG + 知識圖譜 + 正式模型執行的 grounding 模式值得仔細看；純平台架構開發者略讀了解設計模式即可。
 
 ### 領域背景
@@ -190,15 +190,15 @@ LLM 可以把「美國通膨為何上升」寫得頭頭是道，但「利率升 
 - 評測情境：美國通膨持續性分析（IS-LM 類總體模型）+ 聯準會貨幣政策情境模擬
 - KG 四種節點類型：文字報告、時序事實、模型規格、數學模型輸出——形成可追溯的推理鏈
 - 核心設計原則：「模型輸出才是事實來源，LLM 是撰稿員不是計算器」
-- 單一作者論文，學術性較強，缺乏大規模定量評測或與其他 agent 系統的比較 ⚠️
+- 單一作者論文，學術性較強，缺乏大規模定量評測或與其他 agent 系統的比較 :warning:
 - Limitation：KG 和計量模型庫目前是手動建的；如何自動擴充是開放問題，遷移到新 domain 成本高
 - 跨領域應用限制：建 KG + 整合正式計算模型需要大量領域工程，每個新 domain 都要重做
 - 與現有 RAG pipeline 的差異：不是「搜文本 → LLM 解讀」而是「搜模型規格 → 執行模型 → LLM 解讀輸出」，是現有 RAG 架構的升級版設計模式
-- 作者：Masahiro Kato（單一作者，機構未在公開摘要中明確列出）⚠️
+- 作者：Masahiro Kato（單一作者，機構未在公開摘要中明確列出）:warning:
 
 ### Reviewer 一句話評
 
-設計思路清晰、解決了真實痛點（LLM 定量幻覺）；但單一作者、缺乏與其他方法的系統比較、KG 是手動建的 ⚠️——這更像一篇精緻的系統設計提案，適合作為 domain agent 架構參考，但結論說服力有限。
+設計思路清晰、解決了真實痛點（LLM 定量幻覺）；但單一作者、缺乏與其他方法的系統比較、KG 是手動建的 :warning:——這更像一篇精緻的系統設計提案，適合作為 domain agent 架構參考，但結論說服力有限。
 
 ### 給你的 take-away
 

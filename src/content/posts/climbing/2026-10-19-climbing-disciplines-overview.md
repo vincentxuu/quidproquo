@@ -26,7 +26,7 @@ glossary:
     context: "大岩壁路線上常和自由攀登混用。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-disciplines-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-disciplines-overview-en)
 
 在岩館爬了一陣子，或者到龍洞爬過幾次運攀，你大概會在影片裡看過這些畫面：有人從海上的岩拱跳進水裡、有人睡在酋長岩半空中的吊帳、有人拿兩支冰斧爬結凍的瀑布、有人在 2026 年 1 月不帶繩爬上台北 101。
 

@@ -13,7 +13,7 @@ description: "A comparison of how Anthropic, Amp, Cursor, Factory, Atlassian, Co
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-context-full-seven-answers)
+> :globe: [中文版](/posts/ai/2026-08-21-context-full-seven-answers)
 
 You spend an afternoon coding with Claude Code, Cursor, or Codex, and at some point the interface tells you the context is nearly full and asks whether to compact. Behind that prompt sits an unsolved engineering problem. Every time the agent takes a turn, it resends the entire conversation to the model. Every file it read, every command output, every dead end it walked down is still in there.
 

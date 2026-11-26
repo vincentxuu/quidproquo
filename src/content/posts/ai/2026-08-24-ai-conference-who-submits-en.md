@@ -23,7 +23,7 @@ glossary:
     context: "Nearly 90% of notable models came from industry in 2024, while academia still led in highly cited papers."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-who-submits)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-who-submits)
 
 The [previous article](/posts/ai/2026-08-23-what-is-ai-top-conference-en) described the criteria for a "top conference" and listed the representative venues. This article asks a more concrete question: who actually writes the papers at those conferences?
 

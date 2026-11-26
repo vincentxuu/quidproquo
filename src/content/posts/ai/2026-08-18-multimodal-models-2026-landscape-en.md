@@ -10,7 +10,7 @@ description: "The architecture routes, benchmark disagreements, and known limits
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-18-multimodal-models-2026-landscape)
+> :globe: [中文版](/posts/ai/2026-08-18-multimodal-models-2026-landscape)
 
 Progress in multimodal models over the past two years has moved from "can it understand one image" to "can it, like a person, use eyes, ears, and sustained attention on a meeting or video spanning hours, and react in real time."
 

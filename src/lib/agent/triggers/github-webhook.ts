@@ -1,4 +1,5 @@
-import { createSessionManager } from '../session-manager'
+import type { Env } from '../../config/env'
+import { startRoutineRun, type WaitUntil } from '../routine-run'
 
 interface GitHubWebhookRow {
   webhook_id: string
@@ -40,11 +41,13 @@ export async function verifyGitHubSignature(
 }
 
 export async function handleGitHubWebhook(
-  db: D1Database,
+  env: Env,
   eventType: string,
   payload: string,
   signature: string,
+  waitUntil?: WaitUntil,
 ): Promise<{ matched: number; sessions: string[] }> {
+  const db = env.DB
   const body = JSON.parse(payload) as { repository?: { full_name?: string } }
   const repo = body.repository?.full_name
   if (!repo) return { matched: 0, sessions: [] }
@@ -75,18 +78,13 @@ export async function handleGitHubWebhook(
       .bind(wh.webhook_id)
       .all<RoutineWithGitHub>()
 
-    const sm = createSessionManager(db)
     for (const routine of routines.results) {
-      const session = await sm.create({
+      const { sessionId, run } = await startRoutineRun(env, routine, {
+        trigger: 'github',
         instruction: `[GitHub ${eventType}] ${routine.instructions}`,
-        model: routine.model ?? undefined,
-        repo: routine.repo ?? undefined,
       })
-      await db
-        .prepare('UPDATE routines SET last_run_id = ?, last_run_at = ?, last_run_status = ? WHERE id = ?')
-        .bind(session.id, Date.now(), 'running', routine.id)
-        .run()
-      sessions.push(session.id)
+      waitUntil?.(run)
+      sessions.push(sessionId)
     }
   }
 

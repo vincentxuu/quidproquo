@@ -13,7 +13,7 @@ description: "A guide to Pietra di Bismantova: calcarenite rock and size, aspect
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-bismantova)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-bismantova)
 
 Pietra di Bismantova sits in the Apennine hills of Reggio Emilia province, Emilia-Romagna, next to the town of Castelnovo ne' Monti. It is an isolated flat-topped rock: [Montagna.TV](https://www.montagna.tv/225832/bismantova-la-lunga-storia-di-una-pietra/) gives it a length of 1 km, a width of 240 m and a height of 300 m above the plateau below, and Dante mentions it in the Purgatorio. The same article calls it "la più grande palestra di roccia dell'Emilia Romagna".
 

@@ -18,7 +18,7 @@ series:
   order: 12
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)
+> :globe: [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-10-ai-era-bounty)
 
 [The previous post](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing-en) covered trusted execution environments. This one comes back to the more common situation: the target is an LLM product or an AI agent. How does a bug bounty work there? By the end you should be able to open any AI product's bounty page and tell which problems it accepts, which it does not, and roughly what it pays.
 

@@ -13,7 +13,7 @@ description: "MIT 6.S191 2026 Lab 1 雙語實作指南：執行順序、完成�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mit-6s191-lab1-music-generation-en)
+> :globe: [English version](/posts/ai/2026-08-22-mit-6s191-lab1-music-generation-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -43,18 +43,19 @@ draft: false
 [官方 notebook](https://github.com/MITDeepLearning/introtodeeplearning/blob/2026/lab1/PT_Part2_Music_Generation.ipynb)使用 Google Colab GPU，也會要求 Comet API key；校外讀者可以學完核心 TODO，但競賽與 MIT 回饋不可預期。
 
 ## 課程影片來源
-2026-10-10 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由官方 GitHub notebook提供）。
+2026-11-09 已即時回官方課程頁核對：公開頁只列講次錄影，沒有列出本篇對應的專屬錄影（lab 由官方 GitHub notebook提供）。
 
 課程與錄影入口：
 
 - [mit-6s191 — official course materials and recording index](https://introtodeeplearning.com/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時核對官方公開頁，仍只列講次錄影，沒有本篇對應的專屬錄影；狀態改為「已查核：官方公開頁未列對應錄影」。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

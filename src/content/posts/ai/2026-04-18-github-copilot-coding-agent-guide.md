@@ -166,7 +166,7 @@ jobs:
 | 執行地點 | GitHub 雲端 | 本機 | 本機 | 雲端 |
 | 觸發方式 | Issue、Actions、panel | CLI | IDE 內 | API / CLI |
 | 整合深度 | GitHub 原生 | 通用 | VS Code | 通用 |
-| 非同步 | ✅ | ❌（本機掛著） | ❌ | ✅ |
+| 非同步 | ✓ | ✗（本機掛著） | ✗ | ✓ |
 | 控制粒度 | 低（任務層） | 高（可中途介入） | 中 | 低 |
 | 模型 | GPT-4o / o3 | Claude | Claude / GPT | GPT-4o / o3 |
 
@@ -194,10 +194,10 @@ Copilot Coding Agent 目前開放給 **Copilot Pro+** 和 **Copilot Enterprise**
 
 | 方案 | 月費 | Premium requests/月 | Coding Agent |
 |---|---|---|---|
-| Copilot Free | 免費 | 50 | ❌ |
-| Copilot Pro | $10 | 300 | ❌ |
-| Copilot Pro+ | $39 | 1,500 | ✅ |
-| Copilot Enterprise | 另計 | 更高額度 | ✅ |
+| Copilot Free | 免費 | 50 | ✗ |
+| Copilot Pro | $10 | 300 | ✗ |
+| Copilot Pro+ | $39 | 1,500 | ✓ |
+| Copilot Enterprise | 另計 | 更高額度 | ✓ |
 
 超出額度的 premium request 另計 **$0.04/request**。
 

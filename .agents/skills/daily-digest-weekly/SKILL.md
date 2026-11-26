@@ -31,8 +31,8 @@ echo "本週範圍: ${WEEK_START} ~ ${TODAY}"
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -102,6 +102,23 @@ done
 - 本週 relevance ≥ 0.9 的高影響力信號
 - 不在 watchlist 中但本週出現 3+ 次的新公司（用於新創雷達）
 
+### Step 4b-2：讀取本週論文的隱含前提
+
+`daily-digest-arxiv` 的篩選紀錄會為每篇 `selected`／`watch` 候選記下 `hiddenAssumption`（結論需要、論文沒檢驗的前提）。用腳本只抽這幾個欄位，不要把整份 JSON 讀進 context：
+
+```bash
+for d in $(seq 0 6); do
+  DAY=$(date -d "${WEEK_START} + ${d} days" +%Y-%m-%d)
+  f=".research/daily-arxiv-screening/${DAY}.json"
+  [ -f "$f" ] && jq -r --arg d "$DAY" '.candidates[]
+    | select(.decision == "selected" or .decision == "watch")
+    | select(.hiddenAssumption != null and .hiddenAssumption != "not-assessed" and .hiddenAssumption != "none-found")
+    | [$d, .decision, .arxivId, .title, .hiddenAssumption] | @tsv' "$f"
+done
+```
+
+本週沒有任何一筆有 `hiddenAssumption`（欄位上線前的舊紀錄）就跳過，不補寫。用法見「論文前提的週彙整」。
+
 ### Step 4c：讀取 watchlist（比對新公司）
 
 ```bash
@@ -133,22 +150,37 @@ cat src/data/agent-watchlist.json | jq '[.companies[].slug]' > /tmp/watchlist-sl
 不是：「本週學到了 RAG 很重要」（這是摘要）
 而是：「之前以為 RAG 的瓶頸在向量資料庫選型，這週讀了三篇記憶管理論文後知道真正的瓶頸是 retrieval 的召回策略——資料庫只是基礎設施，策略才是差異化」
 
+### 論文前提的週彙整
+
+把 Step 4b-2 抽出的隱含前提歸類（同一個前提的不同說法併成一條），找兩種情況：
+
+| 情況 | 判斷 | 寫進哪裡 |
+|---|---|---|
+| **共享前提** | 本週 2 篇以上論文（不限同主題）依賴同一個未檢驗前提，例如都用 LLM-as-judge 打分卻沒回報與人類的一致性 | 「本週認知更新」或「下週值得追蹤的」：指出這批結果共同的地基，以及什麼證據會動搖它 |
+| **前提被檢驗** | 本週某篇論文的結果正好檢驗、支持或推翻了另一篇（含過去 14 天）依賴的前提 | 「本週最重要的 5 件事」P2「論文推翻常見假設」的候選 |
+
+規則：
+
+- 只用篩選紀錄裡已寫下的前提，週回顧不重新推測論文的前提。要寫進正文前，回到論文正文確認一次，並連結到原論文。
+- 兩種情況都沒出現就不寫，不為了這段硬湊。
+- 「推翻」要有實驗結果支撐；只是不同論文採用不同設定，不算推翻。
+
 ### 「觀察與洞察」的 MIS 框架
 
 同 `daily-digest-report` 的 MIS 框架要求。但週回顧可以做更大的推論——因為有一整週的數據支撐。
 
 ### Watchlist 更新建議
 
-**新增候選**（🆕）：
+**新增候選**：
 1. 統計本週所有 signals 中不在 watchlist 的公司出現次數
 2. 出現 ≥ 3 次 → 列為新增候選
 3. 附上：公司名、做什麼、本週出現的來源、建議放入哪個 section
 
-**移除候選**（⚠️）：
+**移除候選**：
 - **門檻極高**：只有公司**確認關閉**或**明確宣佈轉離 Agent 領域**才列
 - **必須附確認來源**（關閉公告 URL、收購且產品下線的新聞 URL）
 - 「最近沒動態」**不構成移除理由**
-- 若本週無符合條件的 → 寫 `✅ 無變動`
+- 若本週無符合條件的 → 寫 `無變動`
 
 ### 新創雷達
 
@@ -223,17 +255,17 @@ series:
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 | 公司 | 做什麼 | 本週出現次數 | 來源 | 建議 Section |
 |---|---|---|---|---|
 | {company} | {一句話} | {N} | {sources} | {section} |
 
-### ⚠️ 考慮移除
+### 考慮移除
 
 {公司名 — 理由 — [確認來源](URL)}
 
-或 `✅ 本週無符合移除條件的公司`
+或 `本週無符合移除條件的公司`
 
 ## 本週新創雷達
 
@@ -309,15 +341,15 @@ $150M C 輪，估值超過多數模型公司。市場在說：會推理的基礎
 
 ## Watchlist 更新建議
 
-### 🆕 建議加入
+### 建議加入
 
 | 公司 | 做什麼 | 本週出現次數 | 來源 | 建議 Section |
 |---|---|---|---|---|
 | Hyperplane | Agent 記憶基礎設施 | 4 | TechCrunch, HN, Product Hunt, Anthropic blog | B4 |
 
-### ⚠️ 考慮移除
+### 考慮移除
 
-✅ 本週無符合移除條件的公司
+本週無符合移除條件的公司
 
 ## 本週新創雷達
 
@@ -339,10 +371,11 @@ $150M C 輪，估值超過多數模型公司。市場在說：會推理的基礎
 - [ ] 「本週認知更新」嚴格使用「之前以為 X，現在知道 Y」句式
 - [ ] 「企業落地觀察」明確使用了至少 1 個 MIS 框架
 - [ ] zh-TW 版有台灣讀者位置：至少一處明確落回台灣／繁中 builder、企業導入、資料主權、人才或市場結構
-- [ ] Watchlist 移除候選附有確認來源 URL（或標記 ✅ 無變動）
+- [ ] Watchlist 移除候選附有確認來源 URL（或標記「無變動」）
 - [ ] 新創雷達列出的公司確實不在 watchlist 中
 - [ ] 所有事實附來源連結
 - [ ] 「我這週學到什麼」是認知差，不是「這週很精彩」
+- [ ] 已跑 Step 4b-2；引用的論文前提已回正文確認並附連結，沒有共享或被檢驗的前提時未硬寫
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

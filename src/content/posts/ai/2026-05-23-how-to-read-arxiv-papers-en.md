@@ -10,7 +10,7 @@ description: "From Keshav's three-pass reading method to post-2025 AI tools: rea
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-23-how-to-read-arxiv-papers)
+> :globe: [中文版](/posts/ai/2026-05-23-how-to-read-arxiv-papers)
 
 "Reading arXiv papers" is actually two problems stacked together: **how to read** (methodology) and **what to read with** (tools). The methodology hasn't changed much in decades — Keshav's 2007 paper "How to Read a Paper" remains the foundational framework today. What has been completely upended are the tools — since 2023, LLMs have rewritten each of the four stages: finding papers, understanding them, tracking new ones, and archiving them. This post combines both threads into a single map, with one core thesis: **tools are meant to shorten the time each pass takes in the methodology, not to replace your judgment**.
 

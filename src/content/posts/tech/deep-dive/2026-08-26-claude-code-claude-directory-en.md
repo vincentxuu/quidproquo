@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory)
+> :globe: [中文版](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory)
 
 Two weeks into using Claude Code, you notice strange files appearing in your project root and home directory: `.claude/settings.local.json`, `~/.claude.json`, a pile of markdown under `~/.claude/projects/` that you do not remember writing. This post maps the locations from Anthropic's docs that you usually need to reason about — who creates each one, whether it should be committed, and what overrides what. Application data such as plugin caches, transcripts, snapshots, and debug logs are scoped to short notes rather than a complete inventory. It is the most useful follow-up to [the agentic loop post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en), because every extension mechanism covered later in this series drops its files somewhere on this map.
 

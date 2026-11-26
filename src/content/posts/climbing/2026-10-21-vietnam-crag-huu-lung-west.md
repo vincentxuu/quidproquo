@@ -13,7 +13,7 @@ description: "Hữu Lũng 東側與新區攀岩指南：WoofStuck、Passe-Murail
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west-en)
+> :globe: [English version](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west-en)
 
 主谷的九面牆寫在[上一篇](/posts/climbing/2026-10-21-vietnam-crag-huu-lung)。這篇收同一個山谷的另一半：**Duc Bungalow 腳下的 WoofStuck 一帶、村子北邊的 Papaya Wall、村子南邊的 The Arch，以及 2023 到 2025 年間開出來的幾片新牆**。合計 12 個子區、120 條路線。
 

@@ -13,7 +13,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-09-drone-swarm-light-show-en)
+> :globe: [English version](/posts/tech/2026-08-09-drone-swarm-light-show-en)
 
 [資安檢測規範那篇](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec)結尾我留了第二筆欠帳：
 

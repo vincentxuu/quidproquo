@@ -20,7 +20,7 @@ glossary:
     def: "One complete pass through the entire training dataset"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-understanding-ai-models-gradient-descent)
+> :globe: [中文版](/posts/ai/2026-08-26-understanding-ai-models-gradient-descent)
 
 You've seen models improve from GPT-3 to GPT-4, from giving rambling answers to being precisely useful. But what does "improve" actually mean mechanically? Nobody sat down and tuned billions of parameters by hand — so how does it work?
 

@@ -27,7 +27,7 @@ glossary:
     definition: "A flat metal hook the second uses to push or pull a stuck nut out of a crack."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-nuts)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-nuts)
 
 A nut (Black Diamond calls it a stopper) is a wedge of metal on a steel cable that you slot into a narrowing in a crack. It has no moving parts and it's light and cheap: [UKClimbing's video](https://www.youtube.com/watch?v=Tadx1NCOScU) points out that a full set of 11 costs about the same as one cam. That's why many climbers start their first trad rack with a set of nuts.
 

@@ -19,7 +19,7 @@ description: "拆解 Stanford CS146S Fall 2026 第一週「The Internals of Codi
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-16-cs146s-agent-internals-en)
+> :globe: [English version](/posts/ai/2026-08-16-cs146s-agent-internals-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -146,7 +146,7 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 
 官網（themodernsoftware.dev 首頁與 fall2025 頁）、課程 GitHub 作業倉庫都沒有列出課堂錄影或 YouTube 連結；搜尋到的 YouTube「Wk01–Wk07 - Stanford CS146S」影片看起來是兩位主持人對談式的摘要節目，不是課堂錄影，因此沒有採用。
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 課程與錄影入口：
 
@@ -156,6 +156,7 @@ Fall 2026 的作業還沒公布，但 Fall 2025 的 [作業 repo](https://github
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。官網與作業倉庫仍未列課堂錄影；第三方「Wk0X」YouTube 摘要節目不採用。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-linkup-search-api-guide-en)
+> :globe: [English version](/posts/ai/2026-08-21-linkup-search-api-guide-en)
 
 [Linkup](https://docs.linkup.so/pages/documentation/get-started/introduction) 是給 AI 應用程式用的網路搜尋 API。它不只回傳網址，也能交付可供模型閱讀的搜尋內容、附來源的答案，或符合 JSON Schema 的物件。這篇把認識工具與實際串接放在一起：先選搜尋深度，再選輸出，最後才處理全文、重試與費用。
 
@@ -60,15 +60,16 @@ print(response)
 
 ## fast、standard、deep 怎麼選
 
-依[搜尋總覽](https://docs.linkup.so/pages/documentation/endpoints/search/overview)，目前有三種深度：
+依[搜尋總覽](https://docs.linkup.so/pages/documentation/endpoints/search/overview)，目前有四種深度：
 
 | 深度 | 實際行為 | 適合情境 |
 |---|---|---|
-| `fast`（beta） | 不呼叫 LLM，不改寫查詢，也不讀頁面 | 關鍵字式、低延遲的單點查詢 |
+| `flash`（alpha） | 只從 Linkup 自有索引回傳排序後的來源與片段，不呼叫 LLM，延遲低於 200ms | 對延遲最敏感、查詢已是關鍵字的場合 |
+| `fast` | 不呼叫 LLM，不改寫查詢，也不讀頁面，約 1 秒 | 關鍵字式、低延遲的單點查詢 |
 | `standard` | 單輪 agentic search，可平行拆成數個搜尋，也能讀取查詢中提供的一個 URL | 多數即時問答與 agent 工具呼叫 |
 | `deep` | 多輪搜尋、讀頁與評估，前一步結果可交給下一步 | 要找出網址後繼續讀、多來源循線研究 |
 
-實務上的預設值是 `standard`。如果問題只像「NVIDIA Q4 2024 revenue」，可試 `fast`；如果指令是「先找官方定價頁，再讀產品頁，最後整理方案差異」，才需要 `deep`。官方[最佳實務](https://docs.linkup.so/pages/documentation/endpoints/search/best-practices)也提醒，`fast` 會把整段指令當成關鍵字，不會理解「先做 A、再做 B」。
+實務上的預設值是 `standard`。如果問題只像「NVIDIA Q4 2024 revenue」，可試 `fast`；如果指令是「先找官方定價頁，再讀產品頁，最後整理方案差異」，才需要 `deep`。`flash` 與 `fast`、`standard` 同價。官方[最佳實務](https://docs.linkup.so/pages/documentation/endpoints/search/best-practices)也提醒，`fast` 會把整段指令當成關鍵字，不會理解「先做 A、再做 B」。2026-12-01 起，沒指定 `maxResults` 的 Search 預設回傳 10 筆（原為 20 筆）；依賴舊預設的程式要明寫 `maxResults`，Search 按次計價，筆數不影響費用。
 
 `standard` 與 `deep` 的查詢則要寫成檢索任務。與其問「告訴我這家公司」，不如明列要找的頁面、要抽取的欄位，以及希望怎麼呈現。日期範圍應放進 `fromDate`、`toDate`，來源限制用 `includeDomains` 或 `excludeDomains`；`includeDomains` 最多可放 100 個網域。
 
@@ -170,6 +171,10 @@ Linkup 適合想用一支 API 取得「搜尋結果、附來源答案、結構�
 
 上線前再補三道護欄：保留來源 URL、針對 `429` 先判斷餘額或併發、把區域與 ZDR 當成帳號／合約設定驗證。這三件事比把搜尋 prompt 寫得更華麗重要。
 
+## 更新紀錄
+
+- 2026-11-23：深度表補上 2026-09 推出的 `flash`（alpha），`fast` 已不再標 beta；補充 2026-12-01 起 Search 未指定 `maxResults` 時預設回傳 10 筆（原為 20 筆）。免費補值與各深度單價經重查未變。
+
 ## 參考資料
 
 - [Linkup API introduction](https://docs.linkup.so/pages/documentation/get-started/introduction)
@@ -187,4 +192,4 @@ Linkup 適合想用一支 API 取得「搜尋結果、附來源答案、結構�
 
 ---
 
-> 本文的免费额度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Linkup 屬「餘額補回」路線，eligible account 每月把餘額補回 $20，歸零回 429。同系列的文章也包括 [Keenable](/posts/ai/2026-08-29-keenable-agentic-search)（周期額度路线）與 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（持續限速路线）。
+> 本文的免費額度已收進 [免費搜尋、爬取與 Browser API 怎麼選](/posts/ai/2026-08-21-free-search-scraping-tools) 的判斷表：Linkup 屬「餘額補回」路線，eligible account 每月把餘額補回 $20，歸零回 429。同系列的文章也包括 [Keenable](/posts/ai/2026-08-29-keenable-agentic-search)（週期額度路線）與 [TinyFish Search/Fetch](/posts/ai/2026-08-29-tinyfish-search-fetch-free-tier)（每日額度加每分鐘限速）。

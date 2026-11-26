@@ -13,7 +13,7 @@ description: "Opencode 2 從 Bun/Tauri 遷移到 Node.js/Electron 的技術原�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en)
+> :globe: [English version](/posts/tech/2026-08-22-opencode-2-electron-rewrite-coding-agent-en)
 
 [三月那篇](/posts/tech/2026-03-31-opencode-ai-terminal-coding-agent)寫 opencode 的結論是：它是用 TypeScript 做的全功能 coding agent，雙 agent 模式（Build / Plan），75+ 模型支援，MIT 授權。
 

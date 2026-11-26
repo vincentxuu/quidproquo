@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-06-bias-variance-regularization)
 
 **Video status: Videos included.** This article is written from the English captions of the Spring 2026 Lecture 6 recording published by Stanford Online, with notation checked against Chapters 8 and 9 of the 2026 main lecture notes. Captions do not show the board or the slides, so the way the formulas are written here is reconstructed from what the lecturer says and from the notes.
 

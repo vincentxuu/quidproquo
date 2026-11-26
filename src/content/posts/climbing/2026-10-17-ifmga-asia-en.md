@@ -25,7 +25,7 @@ glossary:
     context: "JMGA asks foreign applicants for a copy of their residence card."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-asia)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-asia)
 
 [IFMGA](https://ifmga.net/member-associations/member-associations) has only three members in Asia: Japan, Nepal and Kyrgyzstan. Georgia sits on the Europe–Asia border, so it is covered here too. Taiwan, South Korea and China are not members, and none has a candidate association.
 

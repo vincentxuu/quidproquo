@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
+> :globe: [中文版](/posts/policy/2026-08-07-caa-drone-exam-question-bank)
 
 **Boundary first: I have not sat this exam, and this is not a study report.**
 

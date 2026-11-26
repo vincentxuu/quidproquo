@@ -13,7 +13,7 @@ description: "從同理心、人性與時間體驗，跨案例拆解英文口說
 draft: true
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-26-speaking-practice-consistency-en)
+> :globe: [English version](/posts/learning/2026-10-26-speaking-practice-consistency-en)
 
 單字和學習 app 用過不少，很多都沒有讓我想持續練的動力。用 ChatGPT、Gemini、Grok 練口說，也斷斷續續。工具一直都在，我卻沒有一直回去。
 

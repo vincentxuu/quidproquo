@@ -30,7 +30,7 @@ glossary:
     context: "Most people learn trad by seconding first and watching how the leader places gear."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-sport-vs-trad-overview)
+> :globe: [中文版](/posts/climbing/2026-10-17-sport-vs-trad-overview)
 
 You have your top-rope card at the gym and you've started leading. A friend invites you to Long Dong and says "there are loads of 5.8s, really easy." You bring a rack of quickdraws, walk up to the wall, and find that the 5.8 has no bolts at all.
 

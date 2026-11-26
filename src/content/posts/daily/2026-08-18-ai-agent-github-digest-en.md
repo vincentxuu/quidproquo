@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-18-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-18-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ The most interesting thing today isn't a new framework — it's two "context eng
 
 ## Trending Repos
 
-### headroom (headroomlabs-ai) ⭐ 66,541
+### headroom (headroomlabs-ai) ★ 66,541
 
 [GitHub](https://github.com/headroomlabs-ai/headroom)　·　Python + Rust　·　Apache-2.0
 
@@ -31,7 +31,7 @@ The most interesting thing today isn't a new framework — it's two "context eng
 
 ---
 
-### agentmemory (rohitg00) ⭐ 27,110
+### agentmemory (rohitg00) ★ 27,110
 
 [GitHub](https://github.com/rohitg00/agentmemory)　·　TypeScript + Python　·　Apache-2.0
 
@@ -42,7 +42,7 @@ The most interesting thing today isn't a new framework — it's two "context eng
 
 ---
 
-### openworker (andrewyng) ⭐ 14,339
+### openworker (andrewyng) ★ 14,339
 
 [GitHub](https://github.com/andrewyng/openworker)　·　Python + TypeScript　·　MIT
 
@@ -53,7 +53,7 @@ The most interesting thing today isn't a new framework — it's two "context eng
 
 ---
 
-### labs-OO-Agents (NVIDIA-NeMo) ⭐ 1,662
+### labs-OO-Agents (NVIDIA-NeMo) ★ 1,662
 
 [GitHub](https://github.com/NVIDIA-NeMo/labs-OO-Agents)　·　Python　·　NVIDIA License
 

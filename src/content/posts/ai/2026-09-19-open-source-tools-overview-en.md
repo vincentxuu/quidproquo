@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-open-source-tools-overview)
+> :globe: [中文版](/posts/ai/2026-09-19-open-source-tools-overview)
 
 The previous articles covered academic papers. This one covers the **open-source world's implementations**.
 

@@ -12,7 +12,7 @@ series:
   order: 93
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-25-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Existing agent benchmarks are typically designed around researchers' assumptions
 
 ### Deep Dive
 
-- Under a unified agent execution environment, the top model Kimi-K3 averaged 73.67% and GPT-5.6-sol averaged 73.61%, but using "strict acceptance" (a task must score 90+ to pass), no model completed more than one-third of tasks ⚠️ (author-tested)
+- Under a unified agent execution environment, the top model Kimi-K3 averaged 73.67% and GPT-5.6-sol averaged 73.61%, but using "strict acceptance" (a task must score 90+ to pass), no model completed more than one-third of tasks :warning: (author-tested)
 - High average scores don't mean high pass rates: Kimi models lead on average score but have lower pass rates than GPT-5.6-sol, showing models can achieve "mostly meets requirements" but struggle with "every single detail meets spec"
 - Primary failure causes are attributed to "complex instruction following" and "insufficient domain expertise," not basic tool-calling or planning ability
 - Among the six domains, finance, STEM/CS, and education/humanities are notably harder
@@ -103,7 +103,7 @@ Most existing agent benchmarks focus on tasks where "producing the correct answe
 
 ### Deep Dive
 
-- Across 12 public and open-source models tested, the best single-attempt pass@1 is 65.36%, the at-least-once pass@20 reaches 91.12%, but the all-correct pass^20 is only 25.25% ⚠️ (author-tested)
+- Across 12 public and open-source models tested, the best single-attempt pass@1 is 65.36%, the at-least-once pass@20 reaches 91.12%, but the all-correct pass^20 is only 25.25% :warning: (author-tested)
 - Many failure cases end with "clean" conversations where tool calls "successfully executed state changes" — but the changes were wrong, proving that surface signals (fluent responses, successful tool calls) cannot serve as proxy indicators for task completion
 - 30 of the 507 tasks additionally check final response wording rules (mandatory disclosures, confidentiality, consistency with actual execution results) — not just backend state
 - Five domains cover typical enterprise assistant scenarios: multi-step transactions, policy-constrained updates, user clarification requirements, record lookups, and irreversible or high-impact side effects
@@ -148,7 +148,7 @@ Previous benchmarks for "can agents do ML research" mostly tested whether agents
 
 ### Deep Dive
 
-- Under the 4×6-hour compute allocation, GPT-5 with Modular scaffolding achieves only 9.4% success rate; switching to ARG jumps to 33.9%; under 2×12 hours, GPT-5 ARG reaches 49.0% ⚠️ (author-tested)
+- Under the 4×6-hour compute allocation, GPT-5 with Modular scaffolding achieves only 9.4% success rate; switching to ARG jumps to 33.9%; under 2×12 hours, GPT-5 ARG reaches 49.0% :warning: (author-tested)
 - Modular scaffolding's specification gaming rate peaks at 47.9%, while all tested ARG configurations detected 0% cheating
 - Claude Sonnet 4 results are more nuanced: under the 12-hour setting, ARG (19.8%) actually underperforms Modular (22.9%), while Claude Modular's cheating rate rises from 33.3% to 47.9% — showing scaffolding effects aren't uniformly beneficial across all models
 - Extending single-run time (6h → 12h) improves per-run success rate but reduces overall task coverage from 62.5% to 56.2% due to fewer attempts — a clear depth-vs-breadth tradeoff

@@ -10,7 +10,7 @@ description: "A walkthrough of the eight multi-agent design patterns published b
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-google-multi-agent-patterns)
+> :globe: [中文版](/posts/ai/2026-03-28-google-multi-agent-patterns)
 
 In early 2026, Google published a [multi-agent design pattern guide](https://docs.google.com/architecture/choose-design-pattern-agentic-ai-system) through the Cloud Architecture Center, and Sergio De Simone at InfoQ wrote an excellent [summary article](https://www.infoq.com/news/2026/01/multi-agent-design-patterns/). The eight patterns are arranged from simple to complex, each solving a different class of problem.
 

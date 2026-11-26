@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-vercel-sandbox-en)
+> :globe: [English version](/posts/ai/2026-08-22-vercel-sandbox-en)
 
 [Vercel Sandbox](https://vercel.com/docs/sandbox) 是一個按需建立的 Linux 執行環境，讓應用程式透過 SDK 或 CLI 跑 AI Agent 產生的程式碼、使用者上傳的腳本與測試工作。它不是把 Vercel Function 加上一層權限提示，而是把不受信任的工作移到另一個 Firecracker microVM。Agent 的控制迴圈可以留在 Vercel Function，真正執行 shell、安裝套件與啟動預覽伺服器的部分則進 Sandbox。
 
@@ -49,7 +49,8 @@ TypeScript SDK 的基本流程很短。部署在 Vercel 時可自動使用專案
 import { Sandbox } from '@vercel/sandbox';
 
 const sandbox = await Sandbox.create({
-  runtime: 'node24',
+  image: 'vercel/sandbox/node:24',
+  persistent: false,
   timeout: 5 * 60 * 1000,
   networkPolicy: 'deny-all',
 });
@@ -66,9 +67,9 @@ try {
 }
 ```
 
-底層預設是 Amazon Linux 2023，內建 Node.js 與 Python runtime，也能匯入 OCI image。microVM 內可使用 `sudo`，甚至跑 Docker 或 FUSE；這聽來權限很大，但權限只存在 microVM 裡，不等於取得 Vercel 專案或宿主機權限。這個區分正是產品價值。
+SDK 3.0 起，沒指定映像的 sandbox 預設用 Ubuntu 為底的 `vercel/sandbox/universal`（內含 Node.js、Python 與常見 coding agent），舊的 `runtime` 參數（`node24` 跑在 Amazon Linux 2023）已標為 deprecated，範例改用對應的 `vercel/sandbox/node:24`；也能匯入任意 OCI image。範例設 `persistent: false`，因為現在預設會在停止時自動存 snapshot，一次性任務關掉才不會累積儲存費。microVM 內可使用 `sudo`，甚至跑 Docker 或 FUSE；這聽來權限很大，但權限只存在 microVM 裡，不等於取得 Vercel 專案或宿主機權限。這個區分正是產品價值。
 
-Sandbox 預設 session 長度為 5 分鐘；截至 2026 年 8 月，Hobby 最長 45 分鐘，Pro 與 Enterprise 最長 24 小時。需要更久的工作，不該只把 timeout 拉滿：應把可重試的工作切成階段，並把狀態留在 snapshot、persistent sandbox 或獨立儲存。
+Sandbox 預設 session 長度為 5 分鐘；截至 2026 年 11 月，Hobby 最長 45 分鐘，Pro 與 Enterprise 最長 24 小時。需要更久的工作，不該只把 timeout 拉滿：應把可重試的工作切成階段，並把狀態留在 snapshot、persistent sandbox 或獨立儲存。
 
 ## 隔離不等於安全設定完成
 
@@ -82,11 +83,11 @@ Sandbox 預設 session 長度為 5 分鐘；截至 2026 年 8 月，Hobby 最長
 
 生命週期其實有兩個時鐘：session 決定這次 VM 能跑多久，persistence 決定檔案能不能跨 session 留下。Snapshot 會保存檔案系統與已安裝套件，建立 snapshot 時會停止原 sandbox；預設 30 天到期，也能指定其他期限。這很適合把安裝完成的 `node_modules` 做成起始映像，避免每次重跑套件安裝。
 
-2026 年 3 月推出的 persistent sandbox 仍是 beta。它把具名 sandbox 視為持久身分，停止時自動 snapshot，下一次取回名稱就用新 session 還原。這比手動管理 snapshot 方便，但不要把 beta 功能當資料庫：需要跨 sandbox 分享、獨立備份或長期保存的資料，仍應放到外部儲存。
+Persistent sandbox 在 2026 年 3 月以 beta 推出，2026-05-26 GA，現在是預設行為。它把具名 sandbox 視為持久身分，停止時自動 snapshot，下一次取回名稱就用新 session 還原；自動 snapshot 一樣按 snapshot storage 計費。另一條路是 Drive：可掛載、跨 run 保留的獨立儲存，同一時間只能有一個 sandbox 以讀寫掛載。這些都比手動管理 snapshot 方便，但不要把它們當資料庫：需要跨 sandbox 分享、獨立備份或長期保存的資料，仍應放到外部儲存。
 
 ## 定價要看 CPU 與記憶體兩條線
 
-[Vercel 公開定價](https://vercel.com/pricing)將 Sandbox 拆成 Active CPU、provisioned memory、建立次數、網路與 snapshot storage。截至 2026 年 8 月，起始費率為每 vCPU 小時 0.128 美元、每 GB 小時記憶體 0.0212 美元；方案內含額度與區域價格可能不同。
+[Vercel 公開定價](https://vercel.com/pricing)將 Sandbox 拆成 Active CPU、provisioned memory、建立次數、網路與 snapshot storage。截至 2026 年 11 月，起始費率為每 vCPU 小時 0.128 美元、每 GB 小時記憶體 0.0212 美元；方案內含額度與區域價格可能不同。
 
 Active CPU 的好處是等待 LLM 或外部 API 時不收 CPU 費，並不代表整台 sandbox 暫停計價：記憶體仍按 session 的 wall-clock 時間計收。對 I/O 密集 Agent 很有利；對長時間配置大量記憶體、CPU 又幾乎滿載的編譯或資料處理，則要用真實的 active CPU 比例估算，不能直接套 Vercel 宣稱的「最高節省 95%」。
 
@@ -97,7 +98,7 @@ Active CPU 的好處是等待 LLM 或外部 API 時不收 CPU 費，並不代表
 | [Vercel Sandbox](https://vercel.com/sandbox) | Next.js／Vercel Function 已是控制面，需要 OIDC、Observability、預覽 URL 與 Agent Stack 一起運作 | Active CPU 對 I/O 等待友善；平台與持久化抽象綁得較深 |
 | [E2B](https://e2b.dev/docs) | 想要以 sandbox 為核心、跨雲端框架呼叫的 Agent 執行 API | 生態較中立；需另接應用部署、身分與觀測系統 |
 | [Modal Sandboxes](https://modal.com/docs/guide/sandboxes) | Sandbox 只是更大規模 Python／GPU／批次運算平台的一部分 | 運算選項廣；若只是 Vercel web app 跑短腳本，整合路徑較長 |
-| [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) | 控制面已在 Workers／Durable Objects，想沿用 Cloudflare Containers | 貼近 Cloudflare 網路；截至 2026-08，新專案仍面對 1.0 preview 的 API 選擇 |
+| [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/) | 控制面已在 Workers／Durable Objects，想沿用 Cloudflare Containers | 貼近 Cloudflare 網路；2026-09 起 SDK 1.0 改由自己的 Durable Object 控制 sandbox，0.x 只維護到 2026-12-31 |
 
 最實用的判斷不是「哪家 microVM 最安全」，而是誰負責控制面。若應用已部署在 Vercel，`@vercel/sandbox` 省掉一套認證、專案歸屬與觀測整合；若 Agent 必須跨雲端、需要自行排程 GPU，或要求 on-premises，這種便利就不足以主導選型。
 
@@ -106,6 +107,10 @@ Active CPU 的好處是等待 LLM 或外部 API 時不收 CPU 費，並不代表
 Vercel Sandbox 的定位很清楚：讓 Vercel 上的受信任應用，把不受信任的程式執行送進獨立 microVM。它的優勢不是發明了 sandbox，而是把 OIDC、Fluid compute、Active CPU 計價、SDK、網路 policy、snapshot 與 Observability 接成同一條產品路徑。
 
 今晚可以做的驗證很具體：在測試專案建立一個 `deny-all` sandbox，跑最小 Node.js 指令，再嘗試讀取上層 Function 的一個測試環境變數與外連網域。確認兩者都拿不到之後，才逐項開放真正需要的檔案、網域與憑證代理。安全邊界應從拒絕開始，不是從便利的預設開始。
+
+## 更新紀錄
+
+- 2026-11-23：persistent sandbox 已於 2026-05-26 GA 並成為預設，範例補 `persistent: false`；SDK 3.0 起 `runtime` deprecated、預設映像改為 Ubuntu 的 `vercel/sandbox/universal`，範例改用 `image`；補 Drive；Cloudflare 對照列改為 SDK 1.0 現況。費率與 session 上限對照官方定價頁後未變。
 
 ## 參考資料
 
@@ -116,6 +121,9 @@ Vercel Sandbox 的定位很清楚：讓 Vercel 上的受信任應用，把不受
 - [Vercel：Agent 架構的安全邊界](https://vercel.com/blog/security-boundaries-in-agentic-architectures)
 - [Vercel Sandbox snapshots](https://vercel.com/docs/vercel-sandbox/concepts/snapshots)
 - [Vercel Sandbox automatic persistence beta](https://vercel.com/changelog/vercel-sandbox-persistent-sandboxes-beta)
+- [Vercel：Sandbox persistence is now GA](https://vercel.com/changelog/sandbox-persistence-is-now-ga)
+- [Vercel Sandbox persistent sandboxes](https://vercel.com/docs/sandbox/concepts/persistent-sandboxes) 與 [Runtimes（deprecated）](https://vercel.com/docs/sandbox/concepts/runtimes)
+- [Vercel Sandbox 定價與限制](https://vercel.com/docs/sandbox/pricing)
 - [Vercel：Fluid compute 的底層架構](https://vercel.com/blog/fluid-how-we-built-serverless-servers)
 - [E2B 文件](https://e2b.dev/docs)
 - [Modal Sandboxes 文件](https://modal.com/docs/guide/sandboxes)

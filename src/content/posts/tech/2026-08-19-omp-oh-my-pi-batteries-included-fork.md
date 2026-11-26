@@ -13,7 +13,7 @@ description: "omp（Oh My Pi）與上游 Pi 的實質差異：工具數量、Rus
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork-en)
+:globe: [English version](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork-en)
 
 [Pi 是刻意做小的 coding harness](/posts/tech/2026-03-31-pi-coding-agent-minimal-terminal-harness)——只給模型 4 個工具，MCP、sub-agents、plan mode、權限彈窗全部明說不做。omp（Oh My Pi）是它的 fork，走的是完全相反的路：31 個內建工具、14 個 LSP 操作、28 個 DAP 操作、60+ 模型供應商，加上約 80,000 行 Rust。
 

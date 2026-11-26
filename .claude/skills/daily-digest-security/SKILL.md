@@ -30,8 +30,8 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "B7") 
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -134,7 +134,7 @@ web_fetch url: "https://incidentdatabase.ai/"
 - 新聞報導（The Hacker News、BleepingComputer）
 - CVE / NVD 記錄
 
-只有 1 個來源的事件 → 在文中標注「⚠️ 單一來源，待驗證」。
+只有 1 個來源的事件 → 在文中標注「單一來源，待驗證」。
 
 ---
 
@@ -313,7 +313,7 @@ series:
 
 ## 品質檢查清單（撰寫完成後逐項確認）
 
-- [ ] 事件有至少 2 個獨立來源（或標注 ⚠️ 單一來源）
+- [ ] 事件有至少 2 個獨立來源（或標注「單一來源」）
 - [ ] 攻擊面分析**不包含**可直接利用的 payload
 - [ ] 攻擊面對應到 OWASP LLM Top 10 的哪一項
 - [ ] 防禦做法有「立即動作」和「長期架構」兩層
@@ -323,4 +323,4 @@ series:
 - [ ] 「今日收穫」是認知差，不是摘要
 - [ ] description 和 tldr 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

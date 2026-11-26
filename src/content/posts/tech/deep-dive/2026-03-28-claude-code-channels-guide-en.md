@@ -13,7 +13,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-channels-guide)
 
 This is part of the automation cluster of the [Claude Code Deep Dives series](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works). Earlier posts covered hooks — scripts injected at specific points in the agentic loop. But those points are all events the loop generates itself. If you're away from the terminal and something happens outside the loop — a build fails, a monitor fires an alert, you think of a new instruction on your phone — Claude has no way to know. Channels fill exactly that gap.
 

@@ -30,7 +30,7 @@ glossary:
     context: "Most of Long Dong's lowering hooks are titanium; TOCC notes a batch of 316 stainless hooks at the Bulletin Board area already shows clear wear grooves."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-lower-or-rappel)
+> :globe: [中文版](/posts/climbing/2026-10-17-lower-or-rappel)
 
 In the gym, you reach the top, call "take," and your belayer lowers you. The rope is already rigged at the top; you don't touch anything.
 

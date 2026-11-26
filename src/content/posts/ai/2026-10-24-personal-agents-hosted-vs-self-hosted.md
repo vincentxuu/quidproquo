@@ -7,10 +7,15 @@ tags: [ai-agent, personal-agent, openclaw, hermes-agent, security, self-hosted]
 lang: zh-TW
 tldr: "Duet、Muse、Dots、Grok Bot 和 OpenClaw、Hermes 都能在背景替你處理信件與帳號，差別在電腦、憑證、審批、資料和模型這五層由誰掌握。代管型在寄信、付款前有審查模型和你的核准把關；OpenClaw 和 Hermes 預設把工具直接跑在主機上，OpenClaw 連核准都不跳，要照官方強化設定自己開沙盒。"
 description: "用一封要求改匯款的釣魚信，走過四個代管型個人 AI 助理與兩個開源自架方案：每一家在哪一關擋、憑證放哪、資料去哪、要花多少錢，以及今晚該改的設定。"
+series:
+  name: "常駐型 AI agent"
+  order: 18
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)
+> :globe: [English version](/posts/ai/2026-10-24-personal-agents-hosted-vs-self-hosted-en)
+
+這篇是〈常駐型 AI agent〉系列的安全篇：前面幾篇講 agent 自己會在哪裡停下來，這篇看有人故意讓它做錯時，誰擋得住。系列從[總覽](/posts/ai/2026-11-20-always-on-agents-overview)開始讀。
 
 2026 年 8 月到 10 月，xAI、Meta、OpenAI、Anthropic 先後推出一種新產品：不等你開口、會在背景自己做事的個人 AI 助理。它們有自己的雲端電腦，碰得到你的信箱和行事曆，你關掉 app 之後還繼續跑。開源這邊的 OpenClaw 和 Hermes Agent 早就在做同一件事。
 
@@ -215,7 +220,7 @@ step: 你核准之後，Sentinel 才在網路出口換上真憑證
 其他三家的細節：
 
 - **Dots** 的自訂規則有四種：直接做、你說了才做、做之前先問、交回給你。路徑在 Settings > Personalization > Custom rules（[Control your dot](https://learn.chatgpt.com/docs/dots/controls)）。規則關不掉 Auto-review，也關不掉改密碼要交回給你這類核心要求。
-- **Grok Bot** 的核准有三個按鈕：Allow once、Always allow、Deny。不是你發起的工作（排程、觸發器、別的 Bot 傳來的訊息）要求核准時，大約 10 分鐘沒回應就失效，動作不執行（[Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)）。Auto Review 不審查記憶寫入。
+- **Grok Bot** 的核准有三個按鈕：Allow once、Always allow、Deny。不是你發起的工作（排程、觸發器、別的 Bot 傳來的訊息）要求核准時，30 分鐘沒回應就失效，動作不執行（[Approvals](https://docs.x.ai/grok-bot/approvals-security-and-privacy)）。Auto Review 不審查記憶寫入。
 - **Duet** 遇到你沒空核准時，會先做完其他部分，之後再把待核准的動作拿回來給你。
 
 自架型這一層要自己顧。OpenClaw 的[信任模型](https://docs.openclaw.ai/gateway/security/trust-model)寫明，預設的主機執行設定是 `security="full"`、`ask="off"`，也就是不跳任何核准。官方說這是給「受信任的單一操作者」的刻意設計，本身不算漏洞。陌生人傳私訊會拿到一組配對碼，你核准之前不處理。但文件也提醒：你自己轉進來的內容、它抓到的網頁和附件，都不會被驗證。換句話說，你叫它「整理一下信箱」時讀到那封釣魚信，配對機制擋不到。模型一旦被信件說服，接下來的指令就在主機上以你的權限執行。
@@ -349,8 +354,12 @@ Hermes 在 `config.yaml` 把 `terminal.backend` 設成 `docker`，不要設 `GAT
 
 代管型換到的是這些隔離和審批，付出的是模型、資料政策和更新節奏都由廠商決定。自架型換到的是這三件事自己決定，代價是沙盒、更新和稽核也自己扛。兩邊都沒解決的是提示注入本身：擋住那封信的是審批和隔離，不是模型的保證。選哪一邊，等於選你想自己管哪幾層。
 
+不管選哪一邊，最後那一關都靠你看清楚再按。[下一篇](/posts/ai/2026-11-20-human-side-of-agents)轉向人：交給它越多，你還抓不抓得到它的錯。
+
 ## 更新紀錄
 
+- 2026-11-23：文末加一句承接系列下一篇（人的那一面）。
+- 2026-11-20：收進〈常駐型 AI agent〉系列，開頭加系列說明與總覽連結；Grok Bot 背景工作的核准失效時間依官方文件現況改為 30 分鐘（原寫約 10 分鐘）。
 - 2026-10-25：改用一封釣魚信貫穿全文；加入「五層由誰握著」分層圖、Muse 核准流程圖、Dots 系統卡數字圖，以及憑證、審批、資料、公開程度四張對照表；補上各家具體的隔離方式、設定路徑、OpenClaw 強化設定範例與 CVE 攻擊方式；修正 Dots 企業版設定的描述（本機存取需管理員另外開啟，自訂規則可由管理員關閉）。
 
 ## 參考資料

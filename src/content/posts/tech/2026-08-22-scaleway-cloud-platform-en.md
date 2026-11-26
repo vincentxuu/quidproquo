@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-scaleway-cloud-platform)
+> :globe: [中文版](/posts/tech/2026-08-22-scaleway-cloud-platform)
 
 [Scaleway](https://www.scaleway.com/en/docs/) is a European public cloud spanning CPU and GPU Instances, Elastic Metal, Kubernetes, serverless containers, functions and jobs, managed and serverless databases, object/block/file storage, VPCs, IAM, secret and key management, queues, events, and generative APIs.
 

@@ -31,7 +31,7 @@ draft: false
 | **[Antigravity CLI](/posts/tech/2026-03-31-gemini-cli-google-terminal-agent)** | 依 Google AI 方案 | 依方案 | Gemini 系列 | Google 生態系 |
 | **[OpenCode](/posts/ai/2026-04-02-agent-cli-opencode)** | 免費（開源） | 按 API 計費 | 75+ 模型供應商自由切換 | 模型自由、vendor 獨立 |
 
-> **⚠️ 這一格的價格半衰期大約一季。** 2026 上半年這六家幾乎全部改過計費：Codex 從每則訊息改成按 token 計 credit 並多了 $100 的 Pro 5x、Cursor 拆成兩個額度池、Kiro 多了 Pro Max 一層、Gemini CLI 的個人免費方案直接消失。下面的數字是 2026/8/18 查證的，決策前請以各家官方頁為準。
+> **:warning: 這一格的價格半衰期大約一季。** 2026 上半年這六家幾乎全部改過計費：Codex 從每則訊息改成按 token 計 credit 並多了 $100 的 Pro 5x、Cursor 拆成兩個額度池、Kiro 多了 Pro Max 一層、Gemini CLI 的個人免費方案直接消失。下面的數字是 2026/8/18 查證的，決策前請以各家官方頁為準。
 
 ## 各工具定位與特色
 
@@ -61,7 +61,7 @@ draft: false
 | Kiro CLI | 50 credits（永久） | 分數計費所以比帳面耐用，但用完就沒了 |
 | Codex CLI | ChatGPT Free 的有限額度 | 夠試不夠做事，實用門檻是 Go 方案 $8 |
 | Cursor CLI | Hobby 方案 | 有限的 Agent 請求，可用 Composer |
-| Antigravity / Gemini CLI | ❌ | **個人免費方案已於 2026/6/18 終止** |
+| Antigravity / Gemini CLI | ✗ | **個人免費方案已於 2026/6/18 終止** |
 
 免費這一格在 2026 上半年明顯縮水——最慷慨的那個選項直接消失了。現在真正「零成本可持續」的只剩 OpenCode 這種自備 key 的開源路線。
 

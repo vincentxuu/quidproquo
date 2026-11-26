@@ -13,7 +13,7 @@ series:
   order: 51
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-multi-hop-retrieval-rag)
+> :globe: [中文版](/posts/ai/2026-09-03-multi-hop-retrieval-rag)
 
 Standard RAG does one retrieval, one generation. That works for single-hop questions like "how do I use this API?", but real-world questions often aren't single-hop: "What was Company A's revenue last year, and how does it compare to Company B?" requires checking two annual reports and comparing them; "What proteins are involved in this drug's side-effect mechanism?" requires chaining findings across multiple papers. According to the [MuSiQue](https://arxiv.org/abs/2108.00573) benchmark design, such questions need 2-4 reasoning hops, and the benchmark deliberately excludes questions solvable through shortcut reasoning.
 

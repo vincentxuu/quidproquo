@@ -14,7 +14,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-text-to-sql-router-en)
+> :globe: [English version](/posts/ai/2026-03-12-text-to-sql-router-en)
 
 RAG 系統對「幾條」、「幾次」這種計數問題有個根本弱點：**語義搜尋找的是相似文件，不是統計事實**。
 

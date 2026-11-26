@@ -13,7 +13,7 @@ tldr: "推理是輸入與輸出之間的中間 token；RL 微調勝過模仿人�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning-en)
+> :globe: [English version](/posts/ai/2026-10-13-cs329a-session-15-llm-reasoning-en)
 
 「模型會不會推理」常被當成哲學問題吵。Google DeepMind 的 Denny Zhou 給了一個可以操作的定義：推理就是輸入與最終答案之間產生的中間 token。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 15 堂由他客座，題目是「LLM Reasoning」。讀完本文，你應能解釋中間 token 為什麼有用、SFT 與 RL 微調差在哪，並自己算一次 self-consistency。先備是知道語言模型一次預測一個 token，以及取樣與 greedy decoding 的差別。
 

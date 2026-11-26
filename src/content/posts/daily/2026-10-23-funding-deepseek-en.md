@@ -12,7 +12,7 @@ series:
   order: 101
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-funding-deepseek)
+> :globe: [中文版](/posts/daily/2026-10-23-funding-deepseek)
 
 ## Funding Details
 

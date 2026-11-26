@@ -10,7 +10,7 @@ tldr: "HW8 把 state、action、reward、transition 與 value update 接起來�
 description: "CMU 10-301/601 Spring 2026 HW8 Reinforcement Learning 的概念地圖與本機驗收策略。"
 series: { name: "CMU 10-301 機器學習完整課程導讀", order: 8 }
 ---
-> 🌏 [English version](/posts/learning/2026-08-22-cmu-10301-hw8-reinforcement-learning-en)
+> :globe: [English version](/posts/learning/2026-08-22-cmu-10301-hw8-reinforcement-learning-en)
 
 [官方 handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw8.zip) 完整題名是 **Homework 8: Reinforcement Learning**，屬於 written＋programming。Written 題組包含 synchronous/asynchronous value iteration、演算法比較與選擇、REINFORCE walkthrough、actor-critic/A2C 與 empirical questions；程式要在 Atari Pong 實作 policy/value networks、n-step returns、policy/value loss 與 A2C 訓練。ZIP 提供 `agent.py` starter、`environment.py`、`utils.py`、`test_runner.py` 與 `requirements.txt`；本次公開 bundle 未見 reference output，正式 hidden tests 仍在 Gradescope。
 

@@ -26,7 +26,7 @@ glossary:
     context: "本講用它串起 SEAL、HyperAgent 與 TTT 層、Titans 一類方法。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 
@@ -190,11 +190,9 @@ SEAL 的模型身兼兩職：解任務，也決定怎麼訓練自己。它輸出
 - **今晚就能做**：拿你手邊一個有 metric 的小任務，用 [DSPy](https://github.com/stanfordnlp/dspy) 跑一次 prompt optimization，然後拿一批沒看過的題目測。如果分數掉很多，你剛剛親眼看到的就是本講說的「更新 harness 也會 overfit」。
 - **延伸閱讀**：站上的 [Stanford CS329A 自我改進 agent 導讀](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents)有另一門課的完整講法；DSPy 本身見 [DSPy：用 Signature、Metric 與 Optimizer 編譯 AI 程式](/posts/ai/2026-08-22-dspy-ai-program-optimization)；harness 的背景見 [從 Prompt 到 Harness：AI 工程的三次演化](/posts/ai/2026-03-28-harness-engineering-evolution) 與本系列的 [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering)；curiosity 與 exploration 的 RL 脈絡見 [Berkeley CS285 L19–25](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems)。
 
-## 這一篇可以確認與不能確認的
+## 這篇沒涵蓋的部分
 
-可以確認：講義 64 頁的文字與內嵌連結、影片的 zh-TW 字幕、投影片引用的 24 篇 arXiv 論文標題（用 arXiv API 核對）、影片中引用的舊課錄影標題與上傳者（YouTube oEmbed）、課程頁那一列 `.ptx` 連結的 404。
-
-不能確認：投影片多為圖表，論文裡的數字（例如 Darwin Gödel Machine 的分數、各表格的正確率）本文只寫字幕描述的趨勢，沒有抄數字。第 14 頁的記憶論文與第 24 頁的聯合演化論文，是依字幕描述（「26 年 2 月的 paper」「今年年初的論文」）對到投影片上的 arXiv 編號。字幕把 R-Zero 聽成「R1-Zero」、把 AlphaEvolve 聽成「AlphaEvo」，本文以投影片為準。AlphaEvolve 與 ShinkaEvolve 那一頁講課時沒有逐一解說，本文只寫投影片上的迴圈圖。
+投影片多為圖表，論文裡的數字（例如 Darwin Gödel Machine 的分數、各表格的正確率）這篇只寫老師描述的趨勢，沒有抄數字。第 14 頁的記憶論文與第 24 頁的聯合演化論文，是依字幕描述（「26 年 2 月的 paper」「今年年初的論文」）對到投影片上的 arXiv 編號。字幕把 R-Zero 聽成「R1-Zero」、把 AlphaEvolve 聽成「AlphaEvo」，本文以投影片為準。AlphaEvolve 與 ShinkaEvolve 那一頁講課時沒有逐一解說，本文只寫投影片上的迴圈圖。
 
 系列導覽：[系列總覽](/posts/ai/2026-09-30-ntu-ml2026-course-overview)｜上一篇 [HW8：Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling)｜下一篇 [HW9：Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching)
 
@@ -227,6 +225,7 @@ title: 影片：AI 要跨越盧比孔河了嗎？自我成長的 AI 離我們多
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。對照官方課程頁與 YouTube，講次與嵌入影片一致、可公開嵌入，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。移除兩個無法驗證的精確時間點，其餘與字幕相符。
+- 2026-11-23：文末的查證說明改寫成讀者用得到的限制。
 
 ## 參考資料
 

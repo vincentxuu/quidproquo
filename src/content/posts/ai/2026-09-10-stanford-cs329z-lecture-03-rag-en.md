@@ -14,13 +14,18 @@ description: "A page-linked guide to the CS329Z Lecture 03 RAG slides, digests o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 77 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 
 Lecture 3 (Sep 30, Retrieval-Augmented Generation) is the first complete compound system: retrieve what the model does not know, then generate. The slides cover indexing (chunking, contextual retrieval, RAPTOR, HNSW), retrievers (BM25, DPR, hybrid), reranking, ColBERT and agentic RAG, and this lecture also introduces the course project.
 
 The assigned readings are Lewis et al.'s [RAG paper](https://arxiv.org/abs/2005.11401), Karpukhin et al.'s DPR, and Khattab and Zaharia's [ColBERT](https://arxiv.org/abs/2004.12832). This post digests RAG and ColBERT; together they form the blueprint for the email-retrieval pipeline at the start of [HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en). The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=psLc-46GqY0
+title: RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang
+```
 
 ## Lecture 03 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Lewis et al.'s [RAG paper](https://arxiv.org/abs/2005.
 
 ### Pages 1–9: Start a project with a question, data, and evaluation
 
+[Recording 00:00–05:55](https://www.youtube.com/watch?v=psLc-46GqY0)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=1" data-slide-page="1">Slides 1–9</a>
 
 Project guidance asks for a task, research question, data source, and success criteria before implementation. Suggested topics include schedule assistants, research discovery, and coding agents. A demo that succeeds once provides weak evidence; baselines, multiple tasks, and failure analysis make the result assessable.
@@ -39,6 +46,8 @@ Project guidance asks for a task, research question, data source, and success cr
 For an original internal knowledge-assistant exercise, collect real questions, identify supporting passages and unanswerable cases, then choose a retriever. This exposes missing data and scoring rules early.
 
 ### Pages 10–22: Retrieval motivation and the original RAG formulation
+
+[Recording 05:55–26:23](https://www.youtube.com/watch?v=psLc-46GqY0&t=355s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=10" data-slide-page="10">Slides 10–22</a>
 
@@ -48,6 +57,8 @@ Keep that jointly trained research architecture separate from a fixed retriever 
 
 ### Pages 23–31: Chunk boundaries determine whether evidence remains intact
 
+[Recording 26:23–36:48](https://www.youtube.com/watch?v=psLc-46GqY0&t=1583s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=23" data-slide-page="23">Slides 23–31</a>
 
 Different splits of the same grading policy can separate a deadline from its late-day restriction. Fixed-size chunks are simple but can cut meaning; sentence or structural splits preserve boundaries with less uniform lengths. Contextual retrieval adds document context to a passage; late chunking embeds a longer document before deriving chunk representations.
@@ -55,6 +66,8 @@ Different splits of the same grading policy can separate a deadline from its lat
 The ACME revenue example shows why a growth figure needs its company and quarter. Test whether retrieval identifies all three, and retain the original document identifier so generated context is not mistaken for quoted evidence.
 
 ### Pages 32–38: Cross-passage questions and approximate vector search
+
+[Recording 36:48–48:49](https://www.youtube.com/watch?v=psLc-46GqY0&t=2208s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=32" data-slide-page="32">Slides 32–38</a>
 
@@ -64,6 +77,8 @@ Vector search then addresses scale. Exact search compares every candidate; HNSW 
 
 ### Pages 39–54: Sparse, dense, hybrid, and reranking solve different problems
 
+[Recording 48:49–68:22](https://www.youtube.com/watch?v=psLc-46GqY0&t=2929s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=39" data-slide-page="39">Slides 39–54</a>
 
 BM25 scores lexical overlap with frequency saturation and length normalization. DPR embeds questions and passages separately. Their complementary failures motivate hybrid retrieval and rank fusion such as RRF. A cross-encoder models query–passage interaction over a smaller candidate set; ColBERT retains token vectors for late interaction.
@@ -71,6 +86,8 @@ BM25 scores lexical overlap with frequency saturation and length normalization. 
 Choose metrics to match the task: Hit@k asks whether any relevant result appears, Recall@k measures how much relevant evidence was recovered, MRR tracks the first relevant rank, and nDCG scores ranked relevance. A question needing two pieces of evidence can pass Hit@k while still lacking a necessary source.
 
 ### Pages 55–63: An agent decides when to retrieve and when to stop
+
+[Recording 68:22–76:31](https://www.youtube.com/watch?v=psLc-46GqY0&t=4102s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture03.pdf#page=55" data-slide-page="55">Slides 55–63</a>
 
@@ -214,10 +231,15 @@ Lecture 3 builds the first working pipeline; [Lecture 4](/posts/ai/2026-09-10-st
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang](https://www.youtube.com/watch?v=psLc-46GqY0) (Stanford Online channel, uploaded 2026-11-11, about 77 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-13. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording via a machine-generated transcript.
+- Content check: verified against the video (2026-11-13): section start times were checked against a machine-generated transcript, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-13: Stanford Online published this lecture's recording and opened the course playlist; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-13: Checked section start times against a machine-generated transcript and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 3 (Wed Sep 30), previously part of the "Week 2: workflows, agents, and a first hand-built RAG" guide; earlier entries below predate the split.
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 - 2026-10-23: Added a workflow/agent comparison and RAG architecture diagram to visualize existing explanations; no factual refresh.

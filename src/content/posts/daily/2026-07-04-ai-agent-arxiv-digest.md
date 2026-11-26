@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 41
 ---
-> 🌏 [English version](/posts/daily/2026-07-04-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-04-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -73,7 +73,7 @@ Memory 是幾乎所有 agent 平台的核心功能（LangGraph 的 checkpointing
 ### 深入要點
 
 - **5 任務框架**：reject → constrain → update → reconcile → leverage，系統性覆蓋 memory 在推理中的所有角色
-- **核心發現**：現有主流 memory 系統在這個 benchmark 上普遍有明顯 sycophancy，且加了 memory 往往比沒有 memory 更糟 ⚠️（具體模型數字需對照原文）
+- **核心發現**：現有主流 memory 系統在這個 benchmark 上普遍有明顯 sycophancy，且加了 memory 往往比沒有 memory 更糟 :warning:（具體模型數字需對照原文）
 - **評估焦點轉移**：不只測 recall/precision，而是測記憶對「決策合理性」的影響——這是評估方向的重要轉變
 - **與現有 memory benchmark 的差異**：MemoryArena、StreamMemBench、MemBench 等都沒有覆蓋這個維度
 - **LangGraph/AutoGen 關聯**：這些框架的 memory 接口沒有內建 sycophancy guard，開發者需自己設計 override 邏輯
@@ -83,7 +83,7 @@ Memory 是幾乎所有 agent 平台的核心功能（LangGraph 的 checkpointing
 
 ### Reviewer 一句話評
 
-問題定義清晰且極具 practical value——memory sycophancy 在業界是真實痛點，benchmark 方向是 field 真正需要的。但在看到完整實驗之前，覆蓋廣度和各模型具體數字仍是未知數；⚠️ 細節主要基於摘要，需對照原文驗證。
+問題定義清晰且極具 practical value——memory sycophancy 在業界是真實痛點，benchmark 方向是 field 真正需要的。但在看到完整實驗之前，覆蓋廣度和各模型具體數字仍是未知數；:warning: 細節主要基於摘要，需對照原文驗證。
 
 ### 給你的 take-away
 
@@ -104,7 +104,7 @@ Memory 是幾乎所有 agent 平台的核心功能（LangGraph 的 checkpointing
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對做 agent 安全測試的工程師很有啟發，但 benchmark 規模較小，目前更像框架提案而非成熟工具。
 
 ### 領域背景
@@ -137,7 +137,7 @@ Agent 安全測試的品質決定了你對 agent 有多少信心。如果評估�
 ### 深入要點
 
 - **語言學視角罕見**：絕大多數 agent safety benchmark 從安全攻防角度設計，這篇從語用學切入，覆蓋了日常語言模糊性帶來的風險
-- **Benchmark 規模偏小**：18 個種子題 + 54 行 pilot dataset ⚠️ 缺乏統計說服力，需社群擴充才能普遍化
+- **Benchmark 規模偏小**：18 個種子題 + 54 行 pilot dataset :warning: 缺乏統計說服力，需社群擴充才能普遍化
 - **5 維度評分**：拆開「成功了嗎」和「安全嗎」，解耦 capability 和 safety——這個設計本身值得借鑑
 - **Scaffold failure 單獨列出**：框架本身（如 input sanitization）的失敗獨立於模型失敗，在工程診斷上非常重要
 - **Limitation**：單一作者、語言學背景、無 LLM 實驗對比數據，目前是方法論提案而非實驗論文
@@ -167,7 +167,7 @@ Agent 安全測試的品質決定了你對 agent 有多少信心。如果評估�
 
 ### Read Priority
 
-⏭️ 跳過也可（對 multi-agent 可觀測性有興趣的讀 §3-4）
+跳過也可（對 multi-agent 可觀測性有興趣的讀 §3-4）
 Position paper，沒有程式碼或 benchmark；主要價值是提供一個思考框架，適合想理解 multi-agent interpretability 的讀者。
 
 ### 領域背景
@@ -200,7 +200,7 @@ Observability（可觀測性）是 multi-agent 平台工程的核心挑戰。這
 - **Limitation**：Position paper，缺乏嚴謹 empirical 驗證；「湧現行為」的定義和測量仍然模糊；沒有具體 framework 或工具
 - **AutoGen/LangGraph 關聯**：AutoGen 的 group chat、LangGraph 的 multi-agent supervisor 就是這裡說的 collective，conversation trace 即是主要 observability 工具
 - **MCP 關聯**：MCP 的 tool call log 和 message history 正是這篇說的「自然語言 trace」的具體實例
-- **潛在風險**：湧現行為不一定是好的——集群可能產生意外有害的協調行為（如多個 agent 共謀達成系統不允許的目標）⚠️
+- **潛在風險**：湧現行為不一定是好的——集群可能產生意外有害的協調行為（如多個 agent 共謀達成系統不允許的目標）:warning:
 
 ### Reviewer 一句話評
 

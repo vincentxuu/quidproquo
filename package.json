@@ -3,11 +3,11 @@
   "type": "module",
   "version": "0.0.1",
   "engines": {
-    "node": ">=22.12.0"
+    "node": "^22.12.0 || ^24.0.0"
   },
   "scripts": {
     "dev": "node scripts/prepare-pdf-viewer.mjs && ASTRO_DEV_BACKGROUND=0 astro dev",
-    "build": "node scripts/prepare-pdf-viewer.mjs && node scripts/create-cron-stub.mjs && astro build && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
+    "build": "node scripts/prepare-pdf-viewer.mjs && node scripts/create-cron-stub.mjs && astro build && node scripts/check-rendered-posts.mjs && node scripts/create-cron-entry.mjs && node scripts/generate-og-images.mjs",
     "deploy": "wrangler d1 migrations apply quidproquo-db --remote && pnpm build && wrangler deploy --config dist/server/wrangler.json",
     "preview": "astro preview",
     "astro": "astro",
@@ -23,6 +23,9 @@
     "check:tw": "node scripts/check-tw-terms.mjs",
     "check:chat-style": "node scripts/check-chat-style.mjs",
     "check:diagram-geometry": "node scripts/check-diagram-geometry.mjs",
+    "check:diagram-text": "tsx scripts/check-diagram-text.mjs",
+    "check:no-emoji": "tsx scripts/check-no-emoji.ts",
+    "emoji:fix": "tsx scripts/convert-emoji-to-source.ts --write",
     "check:series-order": "node scripts/check-series-order.mjs",
     "check:lang-parity": "node scripts/check-lang-parity.mjs",
     "check:course-videos": "node scripts/check-course-videos.mjs",
@@ -44,7 +47,8 @@
     "prepare": "simple-git-hooks",
     "test": "vitest run",
     "test:visual": "playwright test",
-    "test:visual:update": "playwright test --update-snapshots",
+    "test:visual:update": "VISUAL_SCREENSHOTS=1 playwright test tests/visual/chat.spec.ts tests/visual/three-column.spec.ts --update-snapshots",
+    "test:visual:screenshots": "VISUAL_SCREENSHOTS=1 playwright test tests/visual/chat.spec.ts tests/visual/three-column.spec.ts",
     "test:admin-session-thread": "node scripts/admin-session-thread-smoke.mjs",
     "test:watch": "vitest",
     "eval:rag": "node scripts/eval-rag-baseline.mjs",
@@ -62,12 +66,12 @@
   "dependencies": {
     "@ai-sdk/react": "^4.0.87",
     "@assistant-ui/react": "^0.15.17",
-    "@astrojs/cloudflare": "^14.3.1",
-    "@astrojs/markdown-remark": "^7.3.1",
-    "@astrojs/mdx": "^8.0.1",
-    "@astrojs/react": "^6.0.5",
+    "@astrojs/cloudflare": "^14.4.9",
+    "@astrojs/markdown-remark": "^7.3.10",
+    "@astrojs/mdx": "^8.1.6",
+    "@astrojs/react": "^6.0.6",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.4",
+    "@astrojs/sitemap": "^3.7.6",
     "@lanefoundry/gatelane-sdk": "^0.1.0",
     "@langchain/core": "^1.1.41",
     "@langchain/google-genai": "^2.1.28",
@@ -84,7 +88,7 @@
     "@tailwindcss/vite": "^4.3.3",
     "@xyflow/react": "^12.10.2",
     "ai": "^7.0.84",
-    "astro": "^7.3.2",
+    "astro": "^7.4.13",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "^1.1.1",
@@ -118,7 +122,7 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.10",
+    "@astrojs/check": "^0.9.12",
     "@axe-core/playwright": "^4.11.3",
     "@cloudflare/sandbox": "^0.12.9",
     "@cloudflare/workers-types": "5.20260914.1",
@@ -137,10 +141,11 @@
     "tsx": "^4.21.0",
     "vfile": "^6.0.3",
     "vitest": "^4.1.5",
-    "wrangler": "4.131.2"
+    "wrangler": "4.168.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm verify:staged"
+    "pre-commit": "pnpm verify:staged",
+    "pre-push": "node scripts/check-push.mjs"
   },
   "pnpm": {
     "overrides": {

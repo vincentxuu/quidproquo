@@ -17,7 +17,7 @@ Today's trending list splits into two ends. On one side, Nous Research open-sour
 
 ## Trending Repos
 
-### NousResearch/hermes-agent ⭐ 246,468
+### NousResearch/hermes-agent ★ 246,468
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 
@@ -28,7 +28,7 @@ Today's trending list splits into two ends. On one side, Nous Research open-sour
 
 ---
 
-### mksglu/context-mode ⭐ 23,362
+### mksglu/context-mode ★ 23,362
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2
 
@@ -39,7 +39,7 @@ Today's trending list splits into two ends. On one side, Nous Research open-sour
 
 ---
 
-### shinthink/blitzstrike ⭐ 634
+### shinthink/blitzstrike ★ 634
 
 [GitHub](https://github.com/shinthink/blitzstrike)　·　TypeScript　·　MIT
 
@@ -50,7 +50,7 @@ Today's trending list splits into two ends. On one side, Nous Research open-sour
 
 ---
 
-### pliablepixels/gap-trap ⭐ 164
+### pliablepixels/gap-trap ★ 164
 
 [GitHub](https://github.com/pliablepixels/gap-trap)　·　Shell　·　MIT
 

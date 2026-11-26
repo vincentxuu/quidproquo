@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 4: the information retr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week4-information-retrieval)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week4-information-retrieval)
 
 This is Week 4 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). The topic is information retrieval (IR): a user wants to know something, there is a large collection of documents, and the system has to find the most relevant ones and put them in order.
 

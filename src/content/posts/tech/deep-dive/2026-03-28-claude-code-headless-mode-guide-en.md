@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-headless-mode-guide)
 
 The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) established that Claude Code is, at its core, an agentic loop. Normally you sit in a terminal and push that loop forward by hand — but plenty of situations don't need you in the seat: batch-fixing lint errors, reviewing every PR in CI, feeding a build log to get a plain-language explanation. Those scenarios use the same tools and the same loop with the interactive layer removed: add a `-p` flag, and Claude Code goes from conversation partner to a component in a Unix pipeline.
 

@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca)
+> :globe: [中文版](/posts/ai/2026-10-12-stanford-cs229-lecture-10-em-pca)
 
 **Video status: Videos included.** This article is written from the English captions of the Spring 2026 Lecture 10 recording published by Stanford Online, with notation checked against Chapters 11 and 12 of the 2026 main lecture notes. I did not see the board, so wherever the lecturer points at it, the content is reconstructed from context and the notes.
 

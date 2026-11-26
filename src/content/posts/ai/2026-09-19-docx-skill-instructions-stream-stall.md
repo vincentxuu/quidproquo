@@ -10,7 +10,7 @@ description: "完整記錄一次 LLM skill instructions 差異導致生產環境
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-19-docx-skill-instructions-stream-stall-en)
+> :globe: [English version](/posts/ai/2026-09-19-docx-skill-instructions-stream-stall-en)
 
 ## TL;DR
 

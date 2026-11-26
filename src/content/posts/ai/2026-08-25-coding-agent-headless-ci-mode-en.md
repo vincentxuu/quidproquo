@@ -13,7 +13,7 @@ description: "A source-level comparison of headless/CI permission design across 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-headless-ci-mode)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-headless-ci-mode)
 
 The [previous post](/posts/ai/2026-08-30-coding-agent-toolset-design-philosophy-en) covered tool surface design; this one changes the scene: what happens when the same agent moves from your terminal into a CI pipeline.
 

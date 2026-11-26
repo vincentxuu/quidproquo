@@ -15,7 +15,7 @@ glossary:
     def: "上海的大型語言模型公司，以 M 系列（M1→M3）agentic 模型與 Hailuo 影片生成模型聞名"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-model-minimax-m3-1-flash-en)
+> :globe: [English version](/posts/daily/2026-10-20-model-minimax-m3-1-flash-en)
 
 ## 模型資訊
 
@@ -49,7 +49,7 @@ glossary:
 | Terminal Bench 4.0 | 38.1 | 未提供同基準分數 | Claude Opus 5：51.8（大幅領先） |
 | BabyVision（含工具） | 91.0 | 未提供同基準分數 | DeepSeek V4.1 Flash 1017：92.5 |
 
-⚠️ 以上四項分數均為 MiniMax 官方對照表公開數據，尚無獨立單位重跑復現。MiniMax 並未公開 M3.1 Flash 與前代 M3 在同一套 benchmark 上的逐項對照，只公開了「推理速度快 3 倍、agentic 任務加權平均成本從 $0.51 降到 $0.22／task」這兩個整體宣稱。
+:warning: 以上四項分數均為 MiniMax 官方對照表公開數據，尚無獨立單位重跑復現。MiniMax 並未公開 M3.1 Flash 與前代 M3 在同一套 benchmark 上的逐項對照，只公開了「推理速度快 3 倍、agentic 任務加權平均成本從 $0.51 降到 $0.22／task」這兩個整體宣稱。
 
 ## 與前代/競品比較
 

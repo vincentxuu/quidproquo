@@ -12,7 +12,7 @@ series:
   order: 90
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-22-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -103,7 +103,7 @@ Xinyi Fan, Miri Liu, Ruozhen Yang, Siru Ouyang, Jiawei Han（University of Illin
 ### 深入要點
 
 - StateMemBench：234 個多輪場景，橫跨三個領域、兩種對話長度區間、五種故障模式（status／salience／sequence／compound／anti-trap）
-- StateMem 在 DeepSeek-V4-Flash 上把當前狀態準確率從 0.205 拉到 0.363，比同 backbone 最強長上下文基準高 1.8 倍 ⚠️（作者自測，需等外部複現）
+- StateMem 在 DeepSeek-V4-Flash 上把當前狀態準確率從 0.205 拉到 0.363，比同 backbone 最強長上下文基準高 1.8 倍 :warning:（作者自測，需等外部複現）
 - 在 Qwen-3.5-9B 上，StateMem 比最強同類記憶系統（Mem0，0.149）高 1.6 倍，達到 0.233
 - StateMem 也能以輕量級「單次呼叫封裝器」形式套用在既有記憶系統上，在六種記憶／檢索後端上把當前狀態準確率提升 32 到 67 分
 - 對照組排除「多給脈絡」這個混淆因子後，其中 15 到 32 分的提升可歸因於「狀態結構」本身，不是單純多塞了上下文

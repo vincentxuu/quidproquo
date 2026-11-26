@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-sandbox-series-overview-en)
+> :globe: [English version](/posts/tech/2026-08-30-sandbox-series-overview-en)
 
 ## 本文定位
 
@@ -55,12 +55,12 @@ draft: false
 ### 路徑 B：正在比較雲端沙箱供應商
 > 建議順序：**這篇導讀 → order 7 雲端全景選型矩陣 → order 8–15 各家深入**
 
-先讀 order 7 看八家供應商的定位與定價對比，再依需求深入對應供應商（例如 E2B order 8、Daytona order 9、Runloop order 10、Vercel order 11、Cloudflare order 15、Modal order 13、Bedrock AgentCore order 14、Azure Container Apps order 16）。
+先讀 order 7 看八家供應商的定位與定價對比，再依需求深入對應供應商（例如 E2B order 8、Daytona order 9、Runloop order 10、Vercel order 11、Modal order 12、Bedrock AgentCore order 13、Azure Container Apps order 14、Cloudflare order 15）。
 
 ### 路徑 C：要把沙箱接進自有 agent 系統
-> 建議順序：**這篇導讀 → order 5 本地產品 → order 6–7 整合實作 → order 20 MCP Server 集成**
+> 建議順序：**這篇導讀 → order 5 本地產品 → order 18–19 整合實作 → order 20 MCP Server 集成**
 
-先讀 order 5 了解 Claude Code 等成熟產品怎麼做本地沙箱，再讀 order 6–7 學習 Cloudflare Sandbox 部署實戰與 OS 級沙箱，最後讀 order 20 了解 MCP Server 怎麼在沙箱中運行。
+先讀 order 5 了解 Claude Code 等成熟產品怎麼做本地沙箱，再讀 order 18–19 學習 Cloudflare Sandbox 部署實戰與 OS 級沙箱，最後讀 order 20 了解 MCP Server 怎麼在沙箱中運行。
 
 ### 路徑 D：負責安全審查或紅隊防禦
 > 建議順序：**這篇導讀 → order 21 權限邊界 → order 22 憑證與網路邊界 → order 23 可觀測性審計 → order 24 合規審計 → order 25 真實案例**
@@ -76,6 +76,10 @@ draft: false
 **這篇是地圖，不是目的地。** 具體的技術細節、架構拆解、程式碼範例、選型決策，都在各自的子系列文章裡。如果你已經知道要找什麼，可以直接跳到對應的文章。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：路徑 B、C 的 order 編號改成與各篇實際系列順序一致（Modal 12、Bedrock AgentCore 13、Azure Container Apps 14；整合實作為 order 18–19）。
 
 ## 參考資料
 

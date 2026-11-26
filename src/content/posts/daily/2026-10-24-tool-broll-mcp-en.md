@@ -12,7 +12,7 @@ series:
   order: 63
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-tool-broll-mcp)
+> :globe: [中文版](/posts/daily/2026-10-24-tool-broll-mcp)
 
 ## Tool Info
 
@@ -146,11 +146,11 @@ The environment variables worth knowing: `BROLL_HOME` (where the cache, keyframe
 
 | | broll-mcp | Manual ffmpeg cuts from archive.org | Commercial stock-footage APIs |
 |---|---|---|---|
-| Agent sees keyframes before choosing a shot | ✅ | ❌ | Depends on the vendor |
-| Automatic cut-length verification (±0.1s) | ✅ | Requires writing your own ffprobe check | N/A (usually full-length downloads) |
-| Auditable provenance record per clip | ✅ | Requires manual record-keeping | Partial (commercial license terms, not public-domain research) |
-| Free, no API key | ✅ | ✅ | ❌ (subscription or API key required) |
-| Repeated queries skip the upstream | ✅ (SQLite cache) | ❌ | N/A |
+| Agent sees keyframes before choosing a shot | ✓ | ✗ | Depends on the vendor |
+| Automatic cut-length verification (±0.1s) | ✓ | Requires writing your own ffprobe check | N/A (usually full-length downloads) |
+| Auditable provenance record per clip | ✓ | Requires manual record-keeping | Partial (commercial license terms, not public-domain research) |
+| Free, no API key | ✓ | ✓ | ✗ (subscription or API key required) |
+| Repeated queries skip the upstream | ✓ (SQLite cache) | ✗ | N/A |
 
 ## Things to Watch For
 

@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5)
+> :globe: [中文版](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5)
 
 ## What changed
 
@@ -24,10 +24,10 @@ Arena's (formerly LMSYS Chatbot Arena) latest official Agent-category publish (2
 
 | Rank | Model | Score | 10-02 Score | Change |
 |---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (High) | 14.33% | 13.82% (🥈) | ↑1 |
-| 🥈 | GPT-6 Astra (Max) | 13.09% | 12.27% (4) | ↑2 |
-| 🥉 | Claude Fable 5.1 (Max) | 12.66% | 14.31% (🥇) | ↓2 |
-| 4 | Claude Sonnet 5.5 (Max) | 11.95% | 12.52% (🥉) | ↓1 |
+| 1 | Claude Opus 5.5 (High) | 14.33% | 13.82% (2) | ↑1 |
+| 2 | GPT-6 Astra (Max) | 13.09% | 12.27% (4) | ↑2 |
+| 3 | Claude Fable 5.1 (Max) | 12.66% | 14.31% (1) | ↓2 |
+| 4 | Claude Sonnet 5.5 (Max) | 11.95% | 12.52% (3) | ↓1 |
 | 5 | GPT-6.1 Sol (Max) | 11.72% | 11.23% (5) | — |
 
 Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) (`agent` subset, `latest` split, `category=overall`) · Official publish date: 2026-10-08 · Retrieved: 2026-10-10
@@ -42,7 +42,7 @@ Claude Opus 5.5 (High) took #1 this round with only 940,970 observations — abo
 
 ### The methodology angle
 
-⚠️ Same caveat as the previous two posts in this series: Arena's score here is its own relative win-rate metric, not a traditional Elo rating. You can't compute a precise point-by-point delta between batches for the same model — only read the rank order and rough score magnitude.
+:warning: Same caveat as the previous two posts in this series: Arena's score here is its own relative win-rate metric, not a traditional Elo rating. You can't compute a precise point-by-point delta between batches for the same model — only read the rank order and rough score magnitude.
 
 The confidence intervals still overlap heavily this round. #1 Opus 5.5's 95% CI is `[12.15%, 16.51%]`, #2 GPT-6 Astra's is `[10.73%, 15.46%]`, and #3 Fable 5.1's is `[10.61%, 14.72%]` — all three ranges overlap by more than 2 percentage points, which means statistically you can't actually settle the true order of the top three. This mirrors the 10-04 post, where all four ranked models' CIs nearly fully overlapped. The headline "#1 changes hands" is more dramatic than the underlying score gap supports: what you can actually say is that these three models remain in the same statistical dead heat, and which one happens to sit on top this round may depend heavily on this particular sample's task mix.
 

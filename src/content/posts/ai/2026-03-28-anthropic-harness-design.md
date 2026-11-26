@@ -166,6 +166,6 @@ Anthropic 自己也承認還沒有定論的事：
 - [Harness Design for Long-Running Application Development](https://www.anthropic.com/engineering/harness-design-long-running-apps) — Anthropic 工程部落格原文，GAN 啟發的 Generator-Evaluator 迴圈實戰
 - [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic agent 設計哲學，六種可組合模式的起點
 - [Demystifying Evals for AI Agents](https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents) — Anthropic agent 評估方法論，與 evaluator agent 設計直接相關
-- [Claude Code Overview](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) — Claude Agent SDK 官方文件，理解 harness 的具體實作基礎
+- [Claude Code Overview](https://code.claude.com/docs/en/overview) — Claude Code 官方文件，理解 harness 的具體實作基礎
 - [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv 論文，LLM agent 系統的全面學術綜述
 - [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — MCP 官方文件，理解 agent 工具標準化協議

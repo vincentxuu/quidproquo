@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-08-drone-endurance-physics)
+> :globe: [中文版](/posts/tech/2026-08-08-drone-endurance-physics)
 
 The last several posts in this series have all been about institutions — regulations, tenders, testing specifications, licences. This one touches no legal text at all. It computes one thing: **why does multirotor endurance land almost universally between 30 and 45 minutes?**
 

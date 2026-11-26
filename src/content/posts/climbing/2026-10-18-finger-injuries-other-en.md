@@ -30,7 +30,7 @@ glossary:
     context: "Hooper's Beta lists sidepulls, gastons and wide moves that bend the wrist sideways as common mechanisms in climbers."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-finger-injuries-other)
+> :globe: [中文版](/posts/climbing/2026-10-18-finger-injuries-other)
 
 The previous post, [Finger Pulley Injuries](/posts/climbing/2026-10-18-finger-pulley-injury-en), covered what to do after a pop. Plenty of finger pain comes without a pop: a knuckle that is puffy every morning, one finger that stings on every small crimp, or a deep ache in the palm since that one-finger pocket.
 

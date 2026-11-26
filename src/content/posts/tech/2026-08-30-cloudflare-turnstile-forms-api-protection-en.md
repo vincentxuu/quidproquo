@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-turnstile-forms-api-protection)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-turnstile-forms-api-protection)
 
 Public forms and public APIs run into the same problem quickly: you want real people to comment, log in, sign up, subscribe, or join a waitlist, but you do not want bots to treat the endpoint as a free write path. [Cloudflare Turnstile](https://developers.cloudflare.com/turnstile/) is Cloudflare's CAPTCHA alternative. Instead of asking users to pick traffic lights, it runs client-side challenges that evaluate browser and visitor risk, then generates a token your backend must verify.
 

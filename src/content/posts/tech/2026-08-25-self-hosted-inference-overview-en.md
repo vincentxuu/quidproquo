@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-self-hosted-inference-overview)
+> :globe: [中文版](/posts/tech/2026-08-25-self-hosted-inference-overview)
 
 This series covers seven self-hosted inference tools. But before picking a tool, answer a more fundamental question: **do you actually need to run models yourself?**
 
@@ -101,10 +101,10 @@ Handle the lowest level: loading the model onto GPU, managing KV cache, continuo
 | Engine | Core Technology | Hardware | Best For |
 |--------|----------------|----------|----------|
 | [vLLM](/posts/ai/2026-03-14-vllm-inference-engine-en/) | PagedAttention | NVIDIA, AMD | General-purpose default, largest ecosystem |
-| [SGLang](/posts/tech/2026-08-22-sglang-inference-server-en/) | RadixAttention | NVIDIA, AMD | Shared-prefix workloads (structured output, few-shot) |
-| [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference-en/) | TensorRT compilation | NVIDIA only | Maximum throughput, willing to spend 28 min compiling |
+| [SGLang](/posts/tech/2026-08-22-sglang-inference-server-en/) | RadixAttention | NVIDIA, AMD, TPU, Apple Silicon, and more | Shared-prefix workloads (structured output, few-shot) |
+| [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference-en/) | NVIDIA's own kernels plus FP8/FP4 quantization | NVIDIA only | Maximum throughput on NVIDIA GPUs |
 
-vLLM is the current de facto standard (89K+ GitHub stars). SGLang has an edge when RadixAttention can reuse KV cache across shared prefixes. TensorRT-LLM can be 15–30% faster than vLLM on NVIDIA GPUs, but is NVIDIA-only, requires pre-compilation, and is less flexible.
+vLLM is the current de facto standard (97K+ GitHub stars). SGLang has an edge when RadixAttention can reuse KV cache across shared prefixes. TensorRT-LLM can be 15–30% faster than vLLM on NVIDIA GPUs, but is NVIDIA-only. It used to require compiling the model into a TensorRT engine first; version 1.3 (November 2026) removed that path, and it now loads Hugging Face weights directly, like vLLM.
 
 All three provide OpenAI-compatible APIs, so they can directly replace a cloud API client.
 
@@ -167,7 +167,7 @@ Complexity increases left to right, but so does the scale and range of scenarios
 | 4 | [NVIDIA Triton](/posts/tech/2026-08-22-triton-inference-server-en/) | Multi-framework unified serving, dynamic batching, ensembles |
 | 5 | [Ray Serve](/posts/tech/2026-08-22-ray-serve-inference-en/) | Python service graphs, GPU scheduling, autoscaling |
 | 6 | [TGI](/posts/tech/2026-08-25-tgi-text-generation-inference-en/) | HuggingFace inference server, archived |
-| 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference-en/) | NVIDIA GPU-specific optimization, compilation for throughput |
+| 7 | [TensorRT-LLM](/posts/tech/2026-08-25-tensorrt-llm-inference-en/) | NVIDIA GPU-specific optimization; no engine compilation since 1.3 |
 | 8 | [Trying vLLM on Colab](/posts/ai/2026-10-20-vllm-colab-quickstart-en/) | Hands-on on a free T4: start a server, fire concurrent requests, read /metrics |
 
 ---
@@ -180,6 +180,10 @@ If your only motivation is "save money," calculate your GPU utilization first. Y
 
 If you decide to self-host, start with vLLM. It's the current default choice — the largest ecosystem, the most people who've hit problems, and the most problems that have been solved. Move to other tools when you have a specific reason to.
 
+
+## Changelog
+
+- 2026-11-23: Added TPU, Apple Silicon and more to SGLang's hardware support; rewrote the layer-one table and series index after TensorRT-LLM 1.3 removed TensorRT engine compilation; updated vLLM's star count.
 
 ## References
 

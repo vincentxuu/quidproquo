@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-snyk-developer-security)
+> :globe: [中文版](/posts/tech/2026-08-22-snyk-developer-security)
 
 [Snyk](https://docs.snyk.io/scan-with-snyk) combines several application-security surfaces: Open Source scans dependencies and licenses, Code performs source analysis, Container inventories OS and application packages in final images, and IaC scans Terraform, Kubernetes, CloudFormation, and selected deployed cloud state.
 

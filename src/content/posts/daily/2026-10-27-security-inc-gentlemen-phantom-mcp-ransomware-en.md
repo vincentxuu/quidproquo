@@ -11,7 +11,7 @@ series:
   order: 64
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
+> :globe: [中文版](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware)
 
 ## Incident Overview
 
@@ -40,13 +40,13 @@ caption: Time is measured from 2026-09-25 (when STRU discovered the exposure) as
   <text class="dg-small" x="64" y="144" text-anchor="middle" dominant-baseline="central">0</text>
   <text class="dg-small" x="234" y="144" text-anchor="middle" dominant-baseline="central">10</text>
   <text class="dg-small" x="404" y="144" text-anchor="middle" dominant-baseline="central">20</text>
-  <text class="dg-small" x="618" y="124" dominant-baseline="central">days</text>
+  <text class="dg-small" x="606" y="124" dominant-baseline="central">days</text>
 
   <g>
     <line class="dg-rule" x1="64" y1="76" x2="64" y2="118"/>
     <circle class="dg-dot" cx="64" cy="124" r="4"/>
-    <text class="dg-label" x="64" y="40" text-anchor="middle" dominant-baseline="central">OPSEC failure exposes servers</text>
-    <text class="dg-sub" x="64" y="62" text-anchor="middle" dominant-baseline="central">09-25・all 7 servers found</text>
+    <text class="dg-label" x="48" y="40" dominant-baseline="central">OPSEC failure exposes servers</text>
+    <text class="dg-sub" x="48" y="62" dominant-baseline="central">09-25・all 7 servers found</text>
   </g>
   <g>
     <line class="dg-rule" x1="158" y1="130" x2="158" y2="172"/>

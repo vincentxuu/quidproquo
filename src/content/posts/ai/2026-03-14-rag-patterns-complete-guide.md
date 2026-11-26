@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
+> :globe: [English version](/posts/ai/2026-03-14-rag-patterns-complete-guide-en)
 
 你搜尋「RAG」，會得到幾百篇文章，每篇都在講不同的東西。
 

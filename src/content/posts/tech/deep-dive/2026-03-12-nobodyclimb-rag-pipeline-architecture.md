@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-🌏 [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
+:globe: [English version](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en)
 
 NobodyClimb 是一個台灣攀岩社群平台。在加入 AI 問答功能之前，使用者要找「龍洞有哪些 5.10 的路線」這種問題，只能靠自己爬文章。現在這個問題可以直接問 AI，然後拿到附有來源連結的答案。
 

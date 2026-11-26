@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-sandbox-observability-en)
+> :globe: [English version](/posts/tech/2026-08-30-sandbox-observability-en)
 
 ## 本文定位
 
@@ -224,7 +224,7 @@ def verify_log_entry(entry: dict, secret_key: bytes) -> bool:
 | SOC 2 | 邏輯存取控制、監控、變更管理 | 記錄所有工具呼叫與權限決策 |
 | HIPAA | 審計控制、唯一使用者識別 | 委譲鏈身份、不可篡改日誌 |
 | GDPR | 資料處理記錄、同意管理 | 記錄個資存取與傳輸 |
-| ISO 27001 | A.12.4 記錄與監控 | 系統化日誌收集與保留 |
+| ISO 27001:2022 | A.8.15 日誌、A.8.16 監控活動 | 系統化日誌收集與保留 |
 | EU AI Act | 風險管理、透明度 | 代理程式行為可追溯 |
 
 ---
@@ -239,6 +239,10 @@ def verify_log_entry(entry: dict, secret_key: bytes) -> bool:
 6. 沙箱審計軌跡如何支援 SOC 2、HIPAA、GDPR、ISO 27001、EU AI Act 等合規框架。
 
 ---
+
+## 更新紀錄
+
+- 2026-11-23：ISO 27001 控制項改為 2022 版編號（A.8.15 日誌、A.8.16 監控活動；A.12.4 是已被取代的 2013 版編號）。
 
 ## 參考資料
 

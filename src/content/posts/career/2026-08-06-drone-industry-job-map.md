@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/career/2026-08-06-drone-industry-job-map-en)
+> :globe: [English version](/posts/career/2026-08-06-drone-industry-job-map-en)
 
 「無人機產業很熱，我要不要進去？」這個問題沒辦法整體回答，因為**無人機產業不是一個職業市場，是五個**。第 2 層的動力系統工程師跟第 3 層的飛控韌體工程師，除了產品長得像，能力要求、可替代性、薪資結構幾乎沒有交集。
 

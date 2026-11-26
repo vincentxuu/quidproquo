@@ -15,7 +15,7 @@ glossary:
     def: "Meta 的多模態 AI 模型家族，涵蓋 Spark（文字／多模態 LLM）、Glimmer（本地端 agentic 模型）與 Voice（語音感知模型）等產品線"
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
+> :globe: [English version](/posts/daily/2026-09-03-model-meta-muse-voice-transcribe-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | Diarization 平均錯誤率（AMI-IHM／AMI-SDM／VoxConverse 平均） | 17.5% | — | 競品系統 21.1%～28.6%（Meta 自測） |
 | API 定價（每 1,000 分鐘音訊） | $3.00 | — | Cartesia Ink-2 $4.00；ElevenLabs Scribe v2 Realtime $6.50 |
 
-⚠️ Streaming WER 與延遲數字來自第三方 Artificial Analysis 的 AA-WER Streaming 測試；Diarization 誤差數字為 Meta 官方自測結果，尚待第三方獨立複現。
+:warning: Streaming WER 與延遲數字來自第三方 Artificial Analysis 的 AA-WER Streaming 測試；Diarization 誤差數字為 Meta 官方自測結果，尚待第三方獨立複現。
 
 ## 與前代/競品比較
 

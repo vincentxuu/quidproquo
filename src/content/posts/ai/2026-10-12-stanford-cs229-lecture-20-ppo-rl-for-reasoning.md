@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-20-ppo-rl-for-reasoning-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 20 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 21 章（Policy Gradient and its Variants）與第 18 章（Reasoning in LLMs）；沒看到板書畫面，板書上的式子是靠字幕口述與講義還原的。
 

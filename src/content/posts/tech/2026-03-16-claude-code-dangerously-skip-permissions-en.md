@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-🌏 [中文版](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions)
+:globe: [中文版](/posts/tech/2026-03-16-claude-code-dangerously-skip-permissions)
 
 > For the proper tiered approach (each permission mode and auto mode configuration), read [Permissions and Auto Mode](/posts/tech/deep-dive/2026-08-26-claude-code-permissions-auto-mode-en); this post covers what it costs when you still decide to bypass it all.
 

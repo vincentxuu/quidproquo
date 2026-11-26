@@ -21,7 +21,7 @@ glossary:
     context: "Lecture 8 lists it as the last way to make an agent faster, and warns that it only suits actions that can be undone."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-08-cost-latency-harness)
 
 **Video status: The course is not recorded.** This post is based on the public slides and the course note; the numerical examples are this site's additions. [Source notes](#course-video-sources)
 

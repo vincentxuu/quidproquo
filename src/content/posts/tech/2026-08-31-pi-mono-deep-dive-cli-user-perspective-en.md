@@ -13,7 +13,7 @@ description: "Complete walkthrough of pi CLI from user perspective: installation
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-cli-user-perspective)
 
 ## TL;DR
 
@@ -123,15 +123,15 @@ pi --rpc
 
 | Entry Type | Purpose | Enters LLM Context? |
 |---|---|---|
-| `message` | user/assistant/toolResult | ✅ |
-| `thinking_level_change` | Thinking level toggle | ✅ (via context settings) |
-| `model_change` | Model switch record | ✅ (via context settings) |
-| `compaction` | Summary compression point | ✅ (represents summarized history) |
-| `branch_summary` | Branch summary | ✅ |
-| `custom_message` | Extension-injected message | ✅ |
-| `custom` | Extension internal state | ❌ |
-| `label` | User bookmarks | ❌ |
-| `session_info` | Display name | ❌ |
+| `message` | user/assistant/toolResult | ✓ |
+| `thinking_level_change` | Thinking level toggle | ✓ (via context settings) |
+| `model_change` | Model switch record | ✓ (via context settings) |
+| `compaction` | Summary compression point | ✓ (represents summarized history) |
+| `branch_summary` | Branch summary | ✓ |
+| `custom_message` | Extension-injected message | ✓ |
+| `custom` | Extension internal state | ✗ |
+| `label` | User bookmarks | ✗ |
+| `session_info` | Display name | ✗ |
 
 ### Tree Structure: Branch, Reset, Fork
 

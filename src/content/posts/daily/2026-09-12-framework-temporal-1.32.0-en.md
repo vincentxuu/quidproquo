@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-12-framework-temporal-1.32.0)
+> :globe: [中文版](/posts/daily/2026-09-12-framework-temporal-1.32.0)
 
 ## Version Info
 

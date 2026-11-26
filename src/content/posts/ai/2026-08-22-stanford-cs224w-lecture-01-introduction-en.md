@@ -13,7 +13,7 @@ description: "The complete agenda and self-study notes for Stanford CS224W Fall 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-01-introduction)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs224w-lecture-01-introduction)
 
 **Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
 
@@ -128,9 +128,11 @@ Course and recording entries:
 - [Stanford Online CS224W public playlist (2021 offering, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rPLKxIpqhjhPgdQy7imNkDn)
 - [Stanford Online CS224W public playlist (2021 / 2023 offerings, not Fall 2025)](https://www.youtube.com/playlist?list=PLoROMvodv4rOP-ImU-O1rYRg2RFxomvFp)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
+
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 - 2026-10-11: Added an invented teaching example, worked reasoning, and a comprehension check with an answer.
 

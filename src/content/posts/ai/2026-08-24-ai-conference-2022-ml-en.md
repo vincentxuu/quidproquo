@@ -23,7 +23,7 @@ glossary:
     context: "Tri Dao and colleagues published FlashAttention at NeurIPS 2022. It later became a standard component of nearly every large-model training framework."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2022-ml)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2022-ml)
 
 2022 was the eve of ChatGPT. In hindsight, every piece needed for the explosion—revised scaling laws, an RLHF methodology, unlocked reasoning, and efficient attention—fell into place at that year’s leading conferences. NeurIPS exceeded 10,000 submissions for the first time and selected 13 Outstanding Papers, reflecting the extraordinary density of results. This article centers on NeurIPS, ICML, and ICLR, with highlights from AAAI and IJCAI, to review the award-winning and influential work of 2022.
 

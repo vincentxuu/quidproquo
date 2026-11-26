@@ -218,7 +218,7 @@ ${changeSummary}
 5. ## 參考資料
 
 注意：用繁體中文（台灣用語），不要用「技術棧」「數據」等中國用語。
-⚠️ 標注自測結果 vs 獨立複現。`
+標注自測結果 vs 獨立複現。不要用 emoji。`
 }
 
 export interface BenchmarkDigestInput {

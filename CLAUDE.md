@@ -7,7 +7,7 @@
 | Tier | 內容 |
 |---|---|
 | 0 自主執行 | 讀檔、跑檢查、依 skill 寫/改/譯文章、更新 progress.txt |
-| 1 過閘門 | 任何 commit（pre-commit 跑 `pnpm verify:staged`：只檢查暫存的檔案，動到程式碼／設定／腳本或刪改文章就自動跑完整 verify；完整 `pnpm verify` 在 CI，deploy 前必過。紅了修真問題，不准 `--no-verify`）；改 skill 後 `pnpm skills:sync` |
+| 1 過閘門 | 任何 commit（pre-commit 跑 `pnpm verify:staged`：只檢查暫存的檔案，動到程式碼／設定／腳本或刪改文章就自動跑完整 verify，只動依賴與 CI 設定時只跑 lint；完整 `pnpm verify` 在 CI，deploy 前必過。紅了修真問題，不准 `--no-verify`）；改 skill 後 `pnpm skills:sync` |
 | 2 先問再做 | schema 變更、D1 migration、production flag flip、deploy、刪/改已發佈文章的 slug 或 date、改 CI/hooks/權限、新 dependency、>20 檔批次改動 |
 | 3 禁止 | 手改 `.claude/skills/`、為了變綠而弱化檢查、無來源寫事實、未確認就 revert 使用者改動 |
 
@@ -56,7 +56,7 @@ pnpm build            # Full production build (cron stubs + astro build + OG ima
 pnpm deploy           # Build then wrangler deploy
 pnpm lint             # oxlint src/ (excludes *.astro)
 pnpm verify           # THE quality gate: lint + references + skills-sync + progress protocol（全站，約 40 秒；CI deploy 前必過）
-pnpm verify:staged    # pre-commit 用：只檢查暫存檔；暫存區含程式碼／設定／腳本或刪改文章時退回完整 verify
+pnpm verify:staged    # pre-commit 用：只檢查暫存檔；暫存區含程式碼／設定／腳本或刪改文章時退回完整 verify（只動依賴／CI 設定時只跑 lint）
 pnpm skills:sync      # Rebuild .claude/skills mirror from .agents/skills
 pnpm session:start    # Print pwd, latest commit, progress.txt, then run verify
 pnpm check:references # Verify internal post cross-references
@@ -90,7 +90,8 @@ pnpm sync:prod        # Sync posts to D1 (production)
 ## Important Decisions
 
 - **Feature flags are mandatory** for all advanced/experimental techniques (RAG, embeddings, AI features). Every such feature must be individually toggleable. Do not add unless an observed failure justifies it.
-- `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`.
+- **改文章 UI（PostLayout、文章頁樣式、tokens、remark 插件產生的元件）前先讀 `docs/design-system.md`**，顏色、圓角、字級只用 `src/styles/tokens.css` 的 token；改完在 dev server 看 `/styleguide/`（淺色、深色、390px），新元件要加進 `src/content/styleguide/styleguide.md`，`tests/visual/styleguide.spec.ts` 才會測到它。最後同步更新 design-system.md。
+- `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`. Daily-digest routines never touch it — they write `.work/daily-log/<date>/<skill>.md` (`daily-digest-common` E3; `pnpm verify` rejects `daily-digest-*` entries in progress.txt).
 - Never revert file changes without explicit user confirmation.
 - 網頁研究遵循全域 Web Fetch fallback 鏈：(1) Groundlane MCP → (2) Groundlane 直接 HTTP（`WebFetch` POST `groundlane.vincent-xu-work.workers.dev/mcp`，繞過 connector） → (3) Keenable keyless API（`GET api.keenable.ai/v1/search/public`，10 萬次/月免費） → (4) You.com keyless（`GET api.you.com/mcp?profile=free`，100 次/天免費） → (5) 雲端 MCP：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl` → (6) 內建 `WebFetch`。降級時記錄 `toolDegradation`。舊 `stealth_fetch` 與舊 `web-fetch/fetch_page` 已退役，不再使用。
   - 雲端 session（claude.ai/code）的 Groundlane 工具常是 deferred：名字在清單裡但要先用 ToolSearch 載入才能呼叫。沒載入過不算「不可用」。

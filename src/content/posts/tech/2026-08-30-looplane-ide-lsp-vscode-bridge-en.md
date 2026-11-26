@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge)
+> :globe: [中文版](/posts/tech/2026-08-30-looplane-ide-lsp-vscode-bridge)
 
 The [previous article](/posts/tech/2026-08-30-looplane-sdk-conversation-websocket-en) established the embedding boundary. When an editor connects, [Looplane](https://github.com/vincentxuu/looplane) does not expose the entire VS Code API or LSP to the model. It extracts two decision signals: current diagnostics and the files and positions the user is viewing.
 

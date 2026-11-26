@@ -10,7 +10,7 @@ description: "在同時使用 Codex 和 Claude Code 的多人協作專案中，�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-04-05-symlink-agents-md-claude-md-en)
+:globe: [English version](/posts/tech/2026-04-05-symlink-agents-md-claude-md-en)
 
 ## TL;DR
 

@@ -11,7 +11,7 @@ series:
   order: 124
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -135,7 +135,7 @@ Coding agents often work with contexts spanning millions of tokens, and once tha
 - On SWE-bench Verified, CliffCompaction lets GLM-5.1 and Kimi K2.6 preserve full-context success rates at context thresholds of only 32K and 16K tokens respectively
 - On Terminal-Bench 2.0, it achieves a higher success rate while cutting cost by 50%
 - Under parallel test-time scaling, CliffCompaction lets Kimi K2.6 match Opus 4.7's performance and beat Opus 4.6 and GPT-5.3 Codex at lower cost; on Terminal-Bench it adds over 10 percentage points of success rate for less than the cost of two full-context runs
-- On KernelBench, it sustains continual learning across sessions exceeding a million tokens: CUDA kernel speedups reach 2.23x after 200 steps and 3.58x after 400 steps, surpassing specialized search algorithms and trained specialist agents ⚠️ (the authors' own tests, not yet externally replicated)
+- On KernelBench, it sustains continual learning across sessions exceeding a million tokens: CUDA kernel speedups reach 2.23x after 200 steps and 3.58x after 400 steps, surpassing specialized search algorithms and trained specialist agents :warning: (the authors' own tests, not yet externally replicated)
 - Adoption threshold: the authors have open-sourced a scaffold-agnostic API-proxy implementation that plugs directly into existing harnesses like Claude Code and Codex without rewriting agent logic
 - Limitation (self-reported): the benefit varies by scaffold and task complexity, with fixed components like system prompts and tool definitions consuming part of the budget first, so different scaffolds need different minimum thresholds; the benefit is meaningful only for medium-to-long-horizon tasks; the comparison is limited to methods that act on conversation history at inference time, excluding methods that train the model to manage its own context or maintain an external memory store
 
@@ -195,7 +195,7 @@ Most existing long-horizon agent benchmarks only look at the end-to-end metric o
 - 502 fork questions, drawn from 2,677 graded engineering trajectories from SWE-bench Pro (517 tasks across 11 repositories) and 1,132 publicly released research trajectories from METR's MALT (subsets of RE-Bench and HCAST)
 - The strongest frontier model currently answers only 59.7% of the questions correctly
 - When a fork's deciding evidence appears later in the trajectory, every tested model's accuracy drops noticeably
-- A larger reasoning budget does not improve accuracy ⚠️ (the authors' own tests, not yet externally replicated)
+- A larger reasoning budget does not improve accuracy :warning: (the authors' own tests, not yet externally replicated)
 - Distilling the judgment of a teacher model that has seen the outcome into a student model improves the student's judgment on unseen tasks; injecting that judgment as advice into the agent also raises end-to-end success on held-out SWE-bench Pro tasks
 - Adoption threshold: the benchmark, evaluation code, and every evaluated model's results are fully released, but constructing the forks relies heavily on the authors' own collected agent execution pool — applying it to other task types or scaffolds requires remining forks from scratch
 - Limitation: the paper has no standalone "Limitations" section; every fork comes from two trajectory pools the authors collected themselves (a SWE-bench Pro subset and METR's MALT), so training and test data share some provenance to some degree

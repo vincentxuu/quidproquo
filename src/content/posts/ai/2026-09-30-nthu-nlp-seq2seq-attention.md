@@ -22,7 +22,7 @@ glossary:
     context: "W3 用它說明 RNN 的限制，接著介紹 LSTM。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

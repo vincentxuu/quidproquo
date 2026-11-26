@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-speak-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-speak-speaking-practice)
 
 You can write an explanation in English, but freeze when your turn arrives in a meeting. A private lesson feels intimidating too; you would prefer to rehearse without an audience first. [Speak](https://www.speak.com/tw/) offers phone-based AI speaking practice: learn an expression, answer aloud, then try a simulated situation.
 

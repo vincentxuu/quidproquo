@@ -17,7 +17,7 @@ glossary:
     context: "Bon Appétit, Your Majesty, Lovely Runner and Twinkling Watermelon are time-slip dramas."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-08-kdrama-romance-fantasy)
+> :globe: [中文版](/posts/film/2026-11-08-kdrama-romance-fantasy)
 
 This post covers Korean romance: a chef who lands in the Joseon era, an heiress who crash-lands in North Korea, a hotel for ghosts and a teenage fencer in 1998. All 18 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan. K-dramas are split into five posts and this is the first; life, family and period dramas are in the [life and family post](/posts/film/2026-11-08-kdrama-life-family-period-en).
 

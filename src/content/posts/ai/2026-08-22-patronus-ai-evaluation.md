@@ -10,7 +10,7 @@ description: "拆解 Patronus AI 的 evaluator、experiment 與 production monit
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-patronus-ai-evaluation-en)
+> :globe: [English version](/posts/ai/2026-08-22-patronus-ai-evaluation-en)
 
 [Patronus AI](https://docs.patronus.ai/) 是一套 AI 評估平台：先用 evaluator 對單筆模型輸出產生 pass/fail、分數與解釋，再把同一批 evaluators 套到離線資料集、版本比較與 production traces。它的重點不是多一個 dashboard，而是讓「這個回答是否符合要求」成為能重複執行的軟體單元。
 

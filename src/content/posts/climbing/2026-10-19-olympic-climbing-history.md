@@ -24,7 +24,7 @@ glossary:
     definition: "World Climbing 為肢體障礙和視障選手辦的攀岩比賽，依障礙類型與程度分成不同運動等級，用上方確保（top rope）比賽。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-olympic-climbing-history-en)
+> :globe: [English version](/posts/climbing/2026-10-19-olympic-climbing-history-en)
 
 2021 年東京奧運，波蘭的 Aleksandra Mirosław 在速度決賽跑出女子世界紀錄，最後卻沒拿到獎牌。三年後在巴黎，她拿下奧運史上第一面速度金牌。差別不在她變強，而在賽制改了。
 

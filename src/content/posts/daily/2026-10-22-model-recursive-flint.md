@@ -17,7 +17,7 @@ glossary:
     def: "Recursive 自家的自動化 AI 研發系統，負責提想法、實作、跑實驗、依結果決定下一步，官方稱 Flint 幾乎整個建構流程（架構搜尋、量化配方、推理 kernel）都由它完成"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-model-recursive-flint-en)
+> :globe: [English version](/posts/daily/2026-10-22-model-recursive-flint-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | Terminal-Bench 2.1 | 54.9% | 首發 | 同上 |
 | LiveCodeBench v6 | 80.3% | 首發 | 同上 |
 
-⚠️ 以上均為 Recursive 官方模型卡／部落格自測結果（溫度 1.0、top-p 0.95、top-k 20，agentic 任務至少 5 次嘗試取平均 pass@1），尚無外部單位獨立複現。官方在 Terminal-Bench 2.1、SWE-Bench Pro v2、SWE-Bench Verified、LiveCodeBench v6、IFBench、IFEval 六項測試的綜合平均排名中，只有阿里雲的 Qwen3.8-27B（dense、27B 全參數啟用）分數高於 Flint；Qwen3.8-27B 本身的個別測項分數官方部落格未逐項列出。
+:warning: 以上均為 Recursive 官方模型卡／部落格自測結果（溫度 1.0、top-p 0.95、top-k 20，agentic 任務至少 5 次嘗試取平均 pass@1），尚無外部單位獨立複現。官方在 Terminal-Bench 2.1、SWE-Bench Pro v2、SWE-Bench Verified、LiveCodeBench v6、IFBench、IFEval 六項測試的綜合平均排名中，只有阿里雲的 Qwen3.8-27B（dense、27B 全參數啟用）分數高於 Flint；Qwen3.8-27B 本身的個別測項分數官方部落格未逐項列出。
 
 ## 與前代/競品比較
 

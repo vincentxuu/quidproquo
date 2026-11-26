@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-11-diffusion-models-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 11 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 14 章；沒看到板書畫面，板書上的式子是靠字幕前後文與講義還原的。文中的時間是字幕段落的起點，跟實際畫面可能差幾十秒。
 

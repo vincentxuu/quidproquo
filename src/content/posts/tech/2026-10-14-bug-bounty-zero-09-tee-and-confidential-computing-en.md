@@ -19,7 +19,7 @@ series:
   order: 11
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)
+> :globe: [繁體中文版](/posts/tech/2026-10-14-bug-bounty-zero-09-tee-and-confidential-computing)
 
 [Part 13 of this series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) found that [Meta's WhatsApp Private Processing bounty page](https://bugbounty.meta.com/payout-guidelines/private-processing/) lists code execution, privilege escalation and VM escape inside a TEE at up to $300,000 each. [Part 9](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en) covered the wall between virtual machines, and [part 10](/posts/tech/2026-10-13-bug-bounty-zero-08-hyper-v-escape-case-study-en) took apart a case where that wall had a hole. This part looks at a different kind of wall: one that keeps out not only other customers but the operator of the machine too.
 

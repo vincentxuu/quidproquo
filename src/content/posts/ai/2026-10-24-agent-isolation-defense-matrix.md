@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-agent-isolation-defense-matrix-en)
+> :globe: [English version](/posts/ai/2026-10-24-agent-isolation-defense-matrix-en)
 
 前面幾篇談了兩類問題：agent 之間靠共用資源的快慢通訊（旁路通道，見〈[沒有網路也能傳資料](/posts/ai/2026-10-24-agent-isolation-covert-channels-intro)〉），以及 agent 靠被放行的服務通到外面（出口，見〈[出口不只一個](/posts/ai/2026-10-24-agent-isolation-indirect-exits)〉）。這篇回到防守：你手上那份清單，每一項到底在擋哪一類？
 

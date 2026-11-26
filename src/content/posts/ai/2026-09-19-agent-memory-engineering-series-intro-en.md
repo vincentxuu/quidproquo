@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-engineering-series-intro)
 
 You spend an afternoon coding with Claude Code and tell it to remember that "this repo uses pytest, not unittest." The next day you open a new session, and it asks what test framework you prefer.
 
@@ -36,15 +36,15 @@ This series covers the full design space of agent memory in ten posts.
 | # | Topic | What you get |
 |---|---|---|
 | **0 (this post)** | Series guide | Problem framing and reading map |
-| **1** | Four memory types and six design axes | A taxonomy — CoALA's four memory categories and six independent design axes (retrieval mode, write timing, fidelity, write-access ownership, forgetting mechanism, scope) for describing any memory system's design choices |
+| **1** | [Four memory types and six design axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en) | A taxonomy — CoALA's four memory categories and six independent design axes (retrieval mode, write timing, fidelity, write-access ownership, forgetting mechanism, scope) for describing any memory system's design choices |
 | **2** | [Seven Answers to a Full Context Window, and No Consensus](/posts/ai/2026-08-21-context-full-seven-answers-en) | Short-term memory (working memory) — comparing context management strategies across Anthropic, Amp, Cursor, Manus, and five other vendors |
-| **3** | How six coding agents remember things | Long-term memory, tool side — memory design and trade-offs in Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot, and Devin |
-| **4** | Memory APIs across five clouds | Long-term memory, platform side — dissecting OpenAI Agents SDK, Anthropic Managed Agents, Google Memory Bank, AWS AgentCore, and Microsoft Foundry |
-| **5** | Choosing an open-source memory framework | Long-term memory, open-source side — positioning and selection criteria for Mem0, Zep/Graphiti, Letta, LangGraph, LlamaIndex Memory, Cognee, and Supermemory |
+| **3** | [How nine coding agents remember things](/posts/ai/2026-09-19-coding-agent-memory-comparison-en) | Long-term memory, tool side — memory design and trade-offs in Claude Code, Codex, Antigravity CLI, Cursor, GitHub Copilot, Devin Desktop, plus Hermes Agent, OpenClaw, and Letta Code |
+| **4** | [Memory APIs across five clouds](/posts/ai/2026-09-19-cloud-platform-memory-apis-en) | Long-term memory, platform side — dissecting OpenAI Agents SDK, Anthropic Managed Agents, Google Memory Bank, AWS AgentCore, and Microsoft Foundry |
+| **5** | [Choosing an open-source memory framework](/posts/ai/2026-09-19-open-source-agent-memory-framework-selection-en) | Long-term memory, open-source side — positioning and selection criteria for Mem0, Zep/Graphiti, Letta, LangGraph, LlamaIndex Memory, Cognee, and Supermemory |
 | **6** | [Mem0 Complete Guide](/posts/ai/2026-08-22-mem0-agent-memory-en) | Deep dive — representative of the vector-extraction approach, from write pipeline to tenant isolation |
 | **7** | [OpenViking: Agent Memory as a Virtual Filesystem](/posts/ai/2026-08-22-openviking-agent-memory-en) | Deep dive — representative of the filesystem approach, three-tier loading averaging 550 tokens per retrieval |
-| **8** | The attack surface of agent memory | Security — SpAIware persistent exfiltration, MINJA conversational injection (>95% success rate), Bedrock memory poisoning, and the two defensive approaches the industry has adopted |
-| **9** | Where agent memory systems are headed in 2026 | Trends — files beating vectors, write access returning to humans, Dreaming as the new keyword, and the reality of broken benchmarks |
+| **8** | [The attack surface of agent memory](/posts/ai/2026-09-19-agent-memory-attack-surface-en) | Security — SpAIware persistent exfiltration, MINJA conversational injection (>95% success rate), Bedrock memory poisoning, and the two defensive approaches the industry has adopted |
+| **9** | [Where agent memory systems are headed in 2026](/posts/ai/2026-09-19-agent-memory-2026-trends-en) | Trends — files beating vectors, write access returning to humans, Dreaming as the new keyword, and the reality of broken benchmarks |
 
 ## Reading suggestions
 
@@ -70,6 +70,10 @@ The most surprising trend in agent memory in 2026 is the **shift toward files**.
 Vector and graph memory have not disappeared, but they have retreated to the role of pluggable backends. That story deserves a full analysis — which is what post 9 is for.
 
 Start with the taxonomy in post 1.
+
+## Update Log
+
+- 2026-11-23: Linked posts 1, 3, 4, 5, 8, and 9 in the roadmap; post 3 now lists the nine coding agents it actually compares (general Gemini CLI users have moved to Antigravity CLI)
 
 ## References
 

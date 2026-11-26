@@ -13,7 +13,7 @@ description: "Deep dive into pi-mono publish pipeline: Lockstep versioning strat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-release-pipeline)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-release-pipeline)
 
 ## TL;DR
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 47
 ---
-> 🌏 [English version](/posts/daily/2026-07-10-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-10-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -132,7 +132,7 @@ AgenticSTS 提出**有界記憶合約**（bounded memory contract）：每個決
 ### 深入要點
 
 - **Testbed**：《Slay the Spire 2》——一個閉合規則的隨機卡牌遊戲，每局需要幾百個戰術與戰略決策，是測試長任務規劃的嚴格環境
-- **消融結果** ⚠️（N=10，方向性而非統計顯著）：
+- **消融結果** :warning:（N=10，方向性而非統計顯著）：
 - Baseline（無任何記憶）：3/10 勝
 - Prompt-only（僅 L1/L2）：4/10 勝
 - 加入 L5 skills（Mode A/B）：**6/10 勝**
@@ -195,7 +195,7 @@ AI-native SQL 代表資料基礎設施層正在發生的典範轉移——分析
 
 ### 深入要點
 
-- **模型表現**：最強 proprietary 模型（GPT 系列）execution accuracy 約 **67%～70%** ⚠️；最佳開源模型達 **58.1%**；差距主要來自三個環節：predicate specification（條件撰寫）、schema grounding（資料表對應）、AI function parameterization（AI 函式參數填寫）
+- **模型表現**：最強 proprietary 模型（GPT 系列）execution accuracy 約 **67%～70%** :warning:；最佳開源模型達 **58.1%**；差距主要來自三個環節：predicate specification（條件撰寫）、schema grounding（資料表對應）、AI function parameterization（AI 函式參數填寫）
 - **反直覺發現**：為傳統 text-to-SQL 設計的複雜 agent（多輪 schema retrieval、table selection 等）**不比 minimal agent 好**——AI-native SQL 需要的能力不是 schema exploration，而是了解 AI 函式本身
 - **benchmark 建構方法**：用 agent pipeline 自動改寫任務，同時保持 ground truth 的可驗證性（執行結果一致）——這個建構方法本身也值得關注，是未來建立類似 benchmark 的參考
 - **對現有框架的啟示**：LangChain/LangGraph 的 SQL toolkit 需要擴展 AI-native SQL function 的 schema 描述；text-to-SQL fine-tuning dataset 需要補充 AI function 用法示例

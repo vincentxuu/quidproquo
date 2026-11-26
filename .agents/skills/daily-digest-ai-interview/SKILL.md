@@ -61,8 +61,8 @@ cat src/data/interview-focus.json | 讀取 ai-engineer.weights
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -76,7 +76,7 @@ cat src/data/interview-focus.json | 讀取 ai-engineer.weights
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（GitHub `gh` CLI 等） | 有 API 的來源不用搜尋工具 |
 
-Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 progress.txt 本次條目記 `toolDegradation`。
+Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 daily-log 本次紀錄記 `toolDegradation`。
 
 ---
 
@@ -266,4 +266,4 @@ series:
 - [ ] tags 包含 `ai-engineer-interview` + `daily` + 當日 topic tag
 - [ ] 文末有「## 參考資料」區段（`pnpm check:references` 會擋）
 - [ ] 星期日用特殊格式（STAR + 週回顧）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

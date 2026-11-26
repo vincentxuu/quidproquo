@@ -22,7 +22,7 @@ glossary:
     context: "Unlike American daytime soaps that run for decades, a telenovela has a planned ending."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-05-world-tv-drama-guide-overview)
+> :globe: [中文版](/posts/film/2026-11-05-world-tv-drama-guide-overview)
 
 Open any streaming app and the home page shows American, Korean, Japanese and Chinese dramas side by side, each billed as the show everyone is talking about. This series helps with two things. First, how dramas from each country differ in how much time they ask of you, whether they keep getting renewed, and how far their content goes. Second, a watchlist for each country, with the sources that recommend each show and legal streaming links in Taiwan.
 

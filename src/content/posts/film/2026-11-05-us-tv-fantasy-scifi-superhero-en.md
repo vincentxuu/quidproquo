@@ -26,7 +26,7 @@ glossary:
     context: "A large gap between the two means critics and audiences disagree."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero)
+> :globe: [中文版](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero)
 
 This post covers American fantasy, sci-fi, horror and superhero series, from dragons and thrones to alien civilisations, wastelands and superheroes who aren't very heroic. All 18 clear the bar set out in [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of the seven recommendation source types (award juries, critics polls, audience ratings, viewing data, buzz metrics, fan communities and Taiwanese viewers) back each show, and each can be watched legally in Taiwan.
 

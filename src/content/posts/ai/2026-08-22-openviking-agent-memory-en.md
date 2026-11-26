@@ -21,7 +21,7 @@ glossary:
     definition_en: "A benchmark that tests whether agents can complete tasks across multi-turn interactions in simulated customer service scenarios (retail, airline)."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-openviking-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-22-openviking-agent-memory)
 
 The most common failure mode in AI agents: misremembering facts, pulling in stale context, forgetting what matters. The root cause isn't model capability — it's that the memory infrastructure is too crude. Vector databases return whatever they return, and you can't even see what the agent has actually stored.
 
@@ -145,7 +145,11 @@ The main project is AGPLv3-licensed — commercial derivatives must be open-sour
 
 Notable limitations: benchmarks used Volcano Engine's own models (Doubao), and third-party validation on other models is still pending. AGPLv3 licensing creates friction for enterprise integration — using it as a CLI tool (Apache 2.0) is fine, but integrating it into your own service requires evaluating license obligations.
 
-31,700+ stars on GitHub, actively maintained, and worth watching.
+42,000+ stars on GitHub (2026-11), actively maintained, and worth watching.
+
+## Update Log
+
+- 2026-11-23: Updated the GitHub star count; benchmark figures are still the v0.3.22 results published in the README
 
 ## References
 

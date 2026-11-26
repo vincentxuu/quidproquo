@@ -10,7 +10,7 @@ description: "導讀 Felix Rieseberg 2026-10-13 的《How to be more ambitious�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-16-felix-rieseberg-how-to-be-more-ambitious-en)
+> :globe: [English version](/posts/ai/2026-10-16-felix-rieseberg-how-to-be-more-ambitious-en)
 
 「我們用 AI 還不夠有野心」這句話常被轉貼，卻很難照著做。Anthropic 工程主管 Felix Rieseberg 在 2026-10-13 發表的 [How to be more ambitious: A tutorial for humans with models](https://felixrieseberg.com/how-to-be-more-ambitious-a-tutorial-for-humans-with-models/) 就是在補這個缺口：他把「野心」拆成四種，再用一份季度經營匯報（QBR）簡報，示範每一種怎麼問。
 

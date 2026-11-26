@@ -13,7 +13,7 @@ description: "介紹如何安全地讓 AI Agent 操作已合法登入的網站�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
+> :globe: [English version](/posts/ai/2026-08-22-authenticated-web-agent-safety-en)
 
 公開網頁可以交給搜尋 API 或 crawler；登入後的網頁不一樣。Agent 一旦拿到 cookie、local storage 或完整 browser profile，拿到的不是「讀頁面能力」，而是使用者在那個網站上的身分。它可能看私人資料，也可能寄信、改權限、刪除內容或付款。
 

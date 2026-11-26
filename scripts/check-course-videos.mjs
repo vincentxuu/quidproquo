@@ -7,6 +7,11 @@
 //   2. 登錄表 video 為 null（尚無錄影）的文章，checkedAt 不能超過 staleAfterDays，
 //      過期就失敗——逼人回到原始來源即時重查，再更新登錄表。
 // 登錄表：scripts/config/course-videos.json。更新流程見 post-update skill「課程影片狀態」。
+//
+// --stale-scope <檔案...>（pre-commit 用）：查核日期過期只擋列出的文章；其他過期項目印 WARN 不擋。
+// 為什麼：同一天查核的 40 門課會在同一天一起過期，全站變紅後連無關的 commit 都卡住（2026-11-09）。
+// 全站過期照樣由 CI 的完整 `pnpm verify`（不帶 --stale-scope）擋 deploy。
+// 不論模式，WARN_BEFORE_DAYS 天內將過期的項目都會先印 WARN，讓人排重查而不是等全站紅。
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -44,6 +49,14 @@ const registry = JSON.parse(fs.readFileSync(REGISTRY, 'utf8'));
 const strictStaleMs = (registry.staleAfterDays ?? 7) * 86400000;
 const genericStaleMs = (registry.genericStaleAfterDays ?? 30) * 86400000;
 const problems = [];
+const WARN_BEFORE_DAYS = 7;
+const warnMs = WARN_BEFORE_DAYS * 86400000;
+const scopeIdx = process.argv.indexOf('--stale-scope');
+const staleScope = scopeIdx === -1 ? null : new Set(process.argv.slice(scopeIdx + 1).map((f) => path.relative(ROOT, path.resolve(f))));
+const inScope = (rel) => staleScope === null || staleScope.has(rel);
+const deferred = []; // 過期但不在 --stale-scope 內
+const expiringSoon = [];
+const stale = (rel, msg) => (inScope(rel) ? problems.push(msg) : deferred.push(msg));
 
 // ---------- 1. 通用規則：套用到每一篇帶「影片狀態」行（或課程標籤）的文章 ----------
 const pairs = new Map(); // slug -> { zh, en }
@@ -71,8 +84,11 @@ for (const file of walk(POSTS)) {
   if (!included) {
     const section = text.match(/^## (?:課程影片來源|Course video sources)\s*\n([\s\S]*?)(?=^## )/m)?.[1] ?? '';
     const d = section.match(/(?:查核日期|Checked(?: on)?|Verified)[：:]?\s*(\d{4}-\d{2}-\d{2})/)?.[1];
-    if (d && Date.now() - Date.parse(d) > genericStaleMs) {
-      problems.push(
+    const age = d ? Date.now() - Date.parse(d) : 0;
+    if (d && age <= genericStaleMs && age > genericStaleMs - warnMs) expiringSoon.push(rel);
+    if (d && age > genericStaleMs) {
+      stale(
+        rel,
         `${rel}: 影片來源查核日期 ${d} 已超過 ${registry.genericStaleAfterDays ?? 30} 天，` +
           `回原始來源即時重查後更新日期（或嵌入新找到的影片）`
       );
@@ -113,8 +129,10 @@ for (const [slug, entry] of Object.entries(registry.entries)) {
     problems.push(`${slug}: checkedAt 不是有效日期`);
     continue;
   }
+  const entryRels = Object.values(pairs.get(slug) ?? {}).map((p) => p.rel);
   if (entry.video === null && Date.now() - checked > strictStaleMs) {
-    problems.push(
+    stale(
+      entryRels.find(inScope) ?? `registry:${slug}`,
       `${slug}: 「尚無錄影」的查核已超過 ${registry.staleAfterDays} 天（checkedAt ${entry.checkedAt}）。` +
         `回 ${entry.source} 即時重查，再更新 checkedAt 或填入 video ID`
     );
@@ -135,6 +153,12 @@ for (const [slug, entry] of Object.entries(registry.entries)) {
   }
 }
 
+if (expiringSoon.length) {
+  console.log(`WARN check:course-videos: ${expiringSoon.length} 篇查核日期 ${WARN_BEFORE_DAYS} 天內過期，先回原始來源重查（post-update skill「課程影片狀態」）`);
+}
+if (deferred.length) {
+  console.log(`WARN check:course-videos: ${deferred.length} 項查核日期已過期（不在這次暫存範圍，不擋 commit；CI 完整 verify 會擋 deploy）`);
+}
 if (problems.length) {
   console.error(`check:course-videos: ${problems.length} problem(s)\n` + problems.slice(0, 80).map((p) => `  - ${p}`).join('\n'));
   if (problems.length > 80) console.error(`  ...還有 ${problems.length - 80} 項`);

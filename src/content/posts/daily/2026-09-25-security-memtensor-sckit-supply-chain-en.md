@@ -11,7 +11,7 @@ series:
   order: 37
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain)
+> :globe: [中文版](/posts/daily/2026-09-25-security-memtensor-sckit-supply-chain)
 
 ## Summary
 

@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-ai-kb-updates-deletion-en)
+> :globe: [English version](/posts/learning/2026-10-22-ai-kb-updates-deletion-en)
 
 人資在 9 月撤下了舊的〈遠端工作辦法〉，換上新版。10 月有同事問 AI「一週可以遠端幾天」，AI 答「三天」，那是舊版的規定。新版寫的是兩天，也在知識庫裡；但舊版的段落還留在向量庫，沒有人清。
 

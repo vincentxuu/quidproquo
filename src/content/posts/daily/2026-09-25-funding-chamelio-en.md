@@ -12,7 +12,7 @@ series:
   order: 49
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-25-funding-chamelio)
+> :globe: [中文版](/posts/daily/2026-09-25-funding-chamelio)
 
 ## Funding Details
 

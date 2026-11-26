@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-private-corpus-sync)
+> :globe: [中文版](/posts/ai/2026-08-22-private-corpus-sync)
 
 Connecting SharePoint, Google Drive, an internal wiki, or object storage to search is usually easy on the first full import. The second run is where things break: after a document is renamed, moved, permissioned differently, or deleted, can the index update the right copy instead of retaining a ghost duplicate?
 

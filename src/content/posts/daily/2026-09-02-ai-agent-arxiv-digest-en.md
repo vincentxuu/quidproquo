@@ -12,7 +12,7 @@ series:
   order: 101
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-02-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -65,7 +65,7 @@ Existing memory-management training approaches mostly rely on fixed rules (promp
 
 ### Deep-Dive Points
 
-- LoCoMo held-out test (975 questions): the local 8B policy reaches 77.5%, ahead of the API teacher (65.1%), budget-matched Mem0 (69.7%), and Mem0's official k=200 setting (74.7%, but at 8x the context tokens: 2,480 vs 19,600) ⚠️ (self-tested by the authors; same-scaffold comparisons are controlled, cross-system comparisons are system-level)
+- LoCoMo held-out test (975 questions): the local 8B policy reaches 77.5%, ahead of the API teacher (65.1%), budget-matched Mem0 (69.7%), and Mem0's official k=200 setting (74.7%, but at 8x the context tokens: 2,480 vs 19,600) :warning: (self-tested by the authors; same-scaffold comparisons are controlled, cross-system comparisons are system-level)
 - The reward ladder: outcome-only 63.4% → adding observational attribution 70.2% → adding intervention-calibrated branches 77.5%, showing "intervention-based verification" contributes more than "observational attribution" (+7.3 points vs. +6.8 points)
 - 2x2 ablation: the critic and the audited-signal components contribute roughly additively (6.0 + 7.6 points, interaction only +0.5); removing either from the full method costs 6.5 or 8.1 points
 - Critic-validity check: deleting top-scored entries costs 9.6 points, deleting random entries only 2.1, deleting bottom-scored entries only 0.8 — confirming the critic's scores are causally, not just correlationally, tied to actual memory value
@@ -120,7 +120,7 @@ In recent years, a number of agent memory systems (including Mem0's graph mode, 
 - Main LongMemEval result: graph memory scores token F1 0.417 vs. the flat vector baseline's 0.468; a paired bootstrap over 500 questions gives Delta = -0.050 (95% CI [-0.085, -0.016]) — a statistically significant gap
 - The largest gap: on questions requiring recall of a specific prior turn, judged correctness drops from 0.911 to 0.607, which the authors attribute to the surface form being discarded once a turn is decomposed into entities and relations
 - The forgetting module performs better: applied once to a persistent 27,021-node graph, it removes 9.8% of nodes and 9.5% of stored bytes; token F1 is essentially unchanged (+0.001, 95% CI [-0.015, +0.016]) and judged correctness drops only 1.6 points (95% CI upper bound of just 3.8 points)
-- ⚠️ Self-tested, scope deliberately narrowed: the extractor is a single small model tested on only one benchmark; the authors themselves state in the abstract that these results "characterise this extraction-based pipeline rather than graph-structured memory in general"
+- :warning: Self-tested, scope deliberately narrowed: the extractor is a single small model tested on only one benchmark; the authors themselves state in the abstract that these results "characterise this extraction-based pipeline rather than graph-structured memory in general"
 - Deployment threshold: if your agent memory system already uses a graph architecture, this paper offers a ready-made "swap the graph for matched-budget flat retrieval" control experiment you can rerun on your own scenario
 - Code and pipeline are fully open (GitHub: skhanzad/Selective-Amnesia), suitable for direct reproduction or adaptation into your own evaluation
 
@@ -174,7 +174,7 @@ Enterprise data agents (running SQL, checking permissions, looking up tables) of
 - In transfer tests across agent backbones and compressor architectures, the learned policy still yields positive token savings, and reduces token consumption by 18-25% on 5 held-out LOCA-bench environments
 - Interventional-rollout validation: the learned per-tool credit scores correlate with measured single-tool consequences (the outcome model's prediction of whether a tool will be re-invoked reaches Spearman rho = 0.72, with a Brier score of 0.07 for success prediction)
 - Deployment threshold: requires the ability to record a full keep-all replay baseline for production queries (5 reference runs per query), which may be costly for teams with only small-scale production traffic
-- ⚠️ Conditional pass, self-tested internally: the held-out test set is only 40 queries from a single company's single agent stack, and the institution and some compressor implementation details are not fully disclosed
+- :warning: Conditional pass, self-tested internally: the held-out test set is only 40 queries from a single company's single agent stack, and the institution and some compressor implementation details are not fully disclosed
 
 ### Reviewer's One-Line Take
 

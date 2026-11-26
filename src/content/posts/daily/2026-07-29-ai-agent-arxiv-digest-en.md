@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 66
 ---
-> 🌏 [中文版](/posts/daily/2026-07-29-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-29-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -72,7 +72,7 @@ Getting the layering right is how you build a maintainable architecture. MCP is 
 - The complementary logic: agents acquire tool capabilities via MCP (vertical integration) and form collaborative networks via A2A (horizontal scaling)
 - The paper identifies the biggest gap as "cross-vendor authentication and authorization": MCP has OAuth support, A2A is still evolving, and the permission model for cross-vendor agent ecosystems is not yet mature
 - Practical friction point: a single system needs to maintain both MCP servers and A2A endpoints simultaneously, doubling the operational burden
-- Framework relevance: LangGraph already has MCP integration, AutoGen is building A2A support, and CrewAI has both on its roadmap **⚠️ (roadmap claims not independently verified)**
+- Framework relevance: LangGraph already has MCP integration, AutoGen is building A2A support, and CrewAI has both on its roadmap **:warning: (roadmap claims not independently verified)**
 - Limitation: the prototype is small-scale (PoC-level) and has not stress-tested large agent clusters or error-retry scenarios
 
 ### Reviewer's One-Line Take
@@ -128,7 +128,7 @@ This directly impacts your on-call burden: if agents cannot tolerate tool change
 - The most damaging mutation types are "parameter renaming" and "adding required parameters" — models tend to rely on memorized old tool descriptions rather than re-reading the current schema
 - Observation: in multi-step tasks, a failed first call cascades and drags down the entire chain; errors compound
 - Architectural implication: runtime needs a "tool schema diff detection + automatic prompt refresh" mechanism rather than relying on the model to adapt on its own
-- Limitation: the 11 mutation operators are manually designed by researchers and may not fully cover all real-world upgrade patterns; the 123 servers are primarily open-source community servers, and enterprise private servers may behave differently **⚠️**
+- Limitation: the 11 mutation operators are manually designed by researchers and may not fully cover all real-world upgrade patterns; the 123 servers are primarily open-source community servers, and enterprise private servers may behave differently **:warning:**
 
 ### Reviewer's One-Line Take
 
@@ -179,7 +179,7 @@ This exposes a hidden "cloud backend dependency" security assumption, which is a
 
 - Evaluation scale: 2,100 attack paths, 8 attack families (tool poisoning, memory poisoning, indirect injection, etc.), 5 defense methods, 3 model backends
 - Key finding: on the Azure GPT-5 backend, a "completely safe" pipeline had 54 out of 60 tool/memory poisoning attacks blocked by Azure's server-side filters, not by the model itself
-- After switching to a backend without server-side filters, the attack success rate jumped from near 0% dramatically **⚠️ (exact figures pending verification in the final version of the paper)**
+- After switching to a backend without server-side filters, the attack success rate jumped from near 0% dramatically **:warning: (exact figures pending verification in the final version of the paper)**
 - ChannelGuard places an IB-Gate on each channel: planner→worker, worker→verifier, verifier→synthesizer
 - IB-Gate uses cosine similarity against a malicious-term lexicon; it needs no training data, makes no LLM calls per decision, and adds only vector-computation overhead
 - LangGraph relevance: the IB-Gate concept can be implemented as middleware on LangGraph edges, theoretically without modifying the agents themselves

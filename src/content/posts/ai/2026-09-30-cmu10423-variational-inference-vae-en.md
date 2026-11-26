@@ -21,7 +21,7 @@ glossary:
     context: "L9 uses it to reduce the variance of VAE gradient estimates; L7's x_t = √ᾱ_t x₀ + √(1 − ᾱ_t) ε is the same trick."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)
+> :globe: [中文版](/posts/ai/2026-09-30-cmu10423-variational-inference-vae)
 
 **Video status: recordings require login or course authorization.** [Recording source](#course-video-sources)
 

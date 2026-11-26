@@ -19,7 +19,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l10-memory-sequence)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l10-memory-sequence)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

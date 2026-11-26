@@ -12,7 +12,7 @@ series:
   order: 20
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits-en)
+> :globe: [English version](/posts/daily/2026-10-09-pricing-anthropic-claude-max-team-api-credits-en)
 
 ## 變更摘要
 
@@ -68,7 +68,7 @@ Anthropic 在發表 Claude Haiku 5.5 的同一篇公告裡，順帶宣布一件�
 
 ## 時效提醒（API sunset）
 
-⚠️ **舊方案已停用**：2026 年 6 月上線的 Agent SDK 月付額度方案，官方 FAQ 已明確表示「該額度已不再提供」，現行的 Claude API 額度（涵蓋 Claude API、Managed Agents、Agent SDK、Playground）是新的替代方案，兩者不可疊加或並存。
+:warning: **舊方案已停用**：2026 年 6 月上線的 Agent SDK 月付額度方案，官方 FAQ 已明確表示「該額度已不再提供」，現行的 Claude API 額度（涵蓋 Claude API、Managed Agents、Agent SDK、Playground）是新的替代方案，兩者不可疊加或並存。
 
 ## 今日收穫
 

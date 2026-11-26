@@ -22,7 +22,7 @@ glossary:
     context: "本文的尺度點數就是照這四級換算。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-05-us-tv-workplace-history-life-en)
+> :globe: [English version](/posts/film/2026-11-05-us-tv-workplace-history-life-en)
 
 這篇收的是不靠怪物和超能力、靠人撐起來的美劇：急診室裡的一個班、一間快倒的三明治店、一個媒體帝國的繼承戰，到戰國日本、二戰與車諾比，以及一個家庭幾十年的故事。
 

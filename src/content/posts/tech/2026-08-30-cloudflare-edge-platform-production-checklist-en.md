@@ -13,7 +13,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-edge-platform-production-checklist)
 
 The most common Cloudflare production issues are not always code bugs. They often come from routing, DNS, plan limits, maintenance pages, same-zone Worker calls, native modules, or log retention. A successful `wrangler deploy` means the Worker was uploaded. It does not prove the full production path is ready.
 
@@ -111,6 +111,7 @@ Pre-launch checks:
 - Do Free/Paid/Enterprise limits affect production?
 - Do high-risk features have per-tenant rate limits?
 - Is usage visible in a dashboard, or does it need Analytics Engine instrumentation?
+- Should you set a spend limit? Since 2026-11-13, Workers and Durable Objects each support [spending limits or email alerts](https://developers.cloudflare.com/changelog/post/2026-11-13-spend-management/) under Billing > Spend limits. When a limit takes effect, Cloudflare blocks new usage for that product (for example new Worker invocations); turn off Block usage if you only want alerts. Usage reporting lags, so recorded spend can exceed the limit.
 
 ## Minimal Launch Checklist
 
@@ -123,9 +124,13 @@ For a first Cloudflare app, I would write the checklist as:
 5. Observability, structured logs, and basic metrics are enabled.
 6. Secrets are not in code, logs, or R2 artifacts.
 7. Every paid service has a rough usage estimate.
-8. Deploy rollback or version strategy is known.
+8. Deploy rollback or version strategy is known. Workers can roll back only to the 100 most recent versions, and since 2026-11-19 versions older than 30 days that are outside those 100 and not currently deployed are deleted.
 
 This checklist will not make a system perfect, but it avoids the common Cloudflare launch mistake: treating "deploy succeeded" as proof that the app can handle production traffic.
+
+## Update Log
+
+- 2026-11-23: Added Workers / Durable Objects spend limits to the cost section and version retention rules to the rollback item.
 
 ## References
 

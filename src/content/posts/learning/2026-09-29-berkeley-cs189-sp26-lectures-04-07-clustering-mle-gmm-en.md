@@ -14,7 +14,7 @@ description: "A guide to Berkeley CS189 Spring 2026 Lectures 4 through the first
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-04-07-clustering-mle-gmm)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

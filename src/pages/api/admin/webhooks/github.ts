@@ -4,8 +4,9 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { handleGitHubWebhook } from '@/lib/agent/triggers/github-webhook'
+import { getWaitUntil } from '@/lib/agent/routine-run'
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   const e = env as unknown as Env
   const eventType = request.headers.get('x-github-event')
   const signature = request.headers.get('x-hub-signature-256')
@@ -15,7 +16,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
 
   const payload = await request.text()
-  const result = await handleGitHubWebhook(e.DB, eventType, payload, signature)
+  const result = await handleGitHubWebhook(e, eventType, payload, signature, getWaitUntil(locals))
 
   return new Response(JSON.stringify({ ok: true, ...result }), {
     status: 200,

@@ -13,7 +13,7 @@ description: "對照 pi、omp、opencode、codex、claude-code 五家原始碼�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-session-persistence-crash-recovery-en)
 
 本篇取證範圍：**pi**（badlogic/pi-mono）、**omp**（can1357/oh-my-pi）、**opencode**（sst/opencode）、**codex**（openai/codex Rust workspace）、**claude-code**（社群反編譯 v2.1.88，symbol 名稱可能與原版有出入），對照我自己的 **looplane**。所有引用都在本地 clone 實際讀過。
 

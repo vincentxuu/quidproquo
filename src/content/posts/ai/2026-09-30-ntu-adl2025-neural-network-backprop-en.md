@@ -13,7 +13,7 @@ description: "A guide to Lecture 2 of NTU Yun-Nung Chen's Applied Deep Learning,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-neural-network-backprop)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

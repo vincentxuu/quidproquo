@@ -10,7 +10,7 @@ description: "GitHub Actions workflow syntax, common patterns, secrets managemen
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-github-actions-ci-cd)
+:globe: [中文版](/posts/tech/2026-03-27-github-actions-ci-cd)
 
 The goal of CI/CD is simple: automate every manual step between "writing code" and "running in production." GitHub Actions is the lowest-setup-cost option available today — no standalone Jenkins server, no CircleCI account management. Your workflow config lives right in the repo, version-controlled alongside your code.
 

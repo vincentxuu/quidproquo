@@ -12,7 +12,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape-en)
+> :globe: [English version](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape-en)
 
 ## 事件概述
 

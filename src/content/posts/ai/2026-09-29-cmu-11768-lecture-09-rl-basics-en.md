@@ -25,7 +25,7 @@ glossary:
     context: "The lecture lists it as SFT's third gap; on-policy RL makes the model face its own mistakes during training."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-09-rl-basics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

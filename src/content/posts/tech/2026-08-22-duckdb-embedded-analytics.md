@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-duckdb-embedded-analytics-en)
+> :globe: [English version](/posts/tech/2026-08-22-duckdb-embedded-analytics-en)
 
 [DuckDB](https://duckdb.org/docs/stable/why_duckdb) 是 in-process analytical database。它像 library 一樣嵌入 Python、R、Node.js 或 CLI，不需另啟 database server；columnar execution 與 vectorized processing 則針對 scan、aggregation、join 等 OLAP workload。最實用的能力，是直接 query Parquet、CSV、JSON、DataFrame 與 object storage，不必先建一套 warehouse ingestion pipeline。
 

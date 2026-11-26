@@ -185,10 +185,10 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
   {
     slug: 'browser-automation-mcp',
     category: 'engineering',
-    names: { 'zh-TW': '瀏覽器自動化與 MCP', en: 'Browser Automation and MCP' },
+    names: { 'zh-TW': 'AI 瀏覽器自動化', en: 'AI Browser Automation' },
     descriptions: {
-      'zh-TW': '讓 agent 開瀏覽器的幾條路線：Playwright、Puppeteer、Chrome DevTools 三個 MCP server 的取捨，視覺驅動的 Midscene，以及各家 CLI agent 內建瀏覽器能力的差別。重點在什麼情況下哪條路線會失敗。',
-      en: 'The routes for putting a browser in an agent’s hands: the trade-offs between the Playwright, Puppeteer and Chrome DevTools MCP servers, vision-driven Midscene, and how the CLI agents differ in what they can drive natively. Focused on where each route breaks.',
+      'zh-TW': '讓 AI 操作瀏覽器，從上到下拆成五層：給 coding agent 的工具、寫程式用的 AI SDK、自己決定下一步的 agent、把動作送進瀏覽器的 driver 與協定，以及用什麼瀏覽器、跑在哪裡。每篇談一層裡的一個選擇，重點在它什麼時候會失敗。',
+      en: 'Putting a browser in an AI’s hands, taken apart layer by layer: tools for coding agents, AI SDKs you script against, agents that pick their own next step, the drivers and protocols that carry each action, and which browser runs where. Each post covers one choice in one layer, focused on where it breaks.',
     },
   },
   {
@@ -272,6 +272,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '把資料從外面弄進來的整條路：搜尋要租雲端 API 還是自己架、爬取工具怎麼選、被反爬擋住怎麼辦，最後怎麼把這些接成一條研究流程。每篇談一個決定，讀完能拼出一套自己的取得管道。',
       en: 'The full path for getting data in from outside: renting a cloud search API versus self-hosting one, choosing among the scraping tools, what to do when anti-bot defenses block you, and how to wire it all into a research pipeline. One decision per post.',
+    },
+  },
+  {
+    slug: 'always-on-agents',
+    category: 'ai-agents',
+    names: { 'zh-TW': '常駐型 AI agent', en: 'Always-On AI Agents' },
+    descriptions: {
+      'zh-TW': '關掉 app 還會自己決定做什麼的 agent。先拆它們的零件與「會自己醒來」的三個等級，再依「它在哪台電腦上跑」分四條路線看各家的設計取捨，最後談它們怎麼出錯、值不值得、出事誰負責、怎麼從唯讀開始用。',
+      en: 'Agents that keep deciding what to do after you close the app. The series takes apart their components and the three levels at which they wake, follows four routes defined by whose computer they run on, then covers how they go wrong, whether they are worth it, who is liable, and how to start read-only.',
     },
   },
   {
@@ -543,8 +552,8 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     category: 'courses',
     names: { 'zh-TW': 'Stanford CS329Z 導讀', en: 'Reading Stanford CS329Z' },
     descriptions: {
-      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：前九堂投影片附頁碼對照，各週指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理。',
-      en: 'A self-study guide to Stanford CS329Z Fall 2026: page-linked guides to nine slide decks and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants.',
+      'zh-TW': 'Stanford CS329Z Fall 2026 自學導讀：一堂一篇，投影片附頁碼對照，指定閱讀分篇深讀，從 agent 迴圈、記憶與協調走到評估、安全及主動式助理；錄影由 Stanford Online 公開上架（第 1–10 堂已上架）。',
+      en: 'A self-study guide to Stanford CS329Z Fall 2026: one post per lecture with page-linked slide guides and individual reading digests, from agent loops, memory and coordination to evaluation, safety and proactive assistants; recordings are published publicly by Stanford Online (Lectures 1–10 up).',
     },
   },
   {
@@ -1065,6 +1074,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     },
   },
   {
+    slug: 'understanding-benchmarks',
+    category: 'ai-agents',
+    names: { 'zh-TW': '認識 benchmark', en: 'Understanding AI Benchmarks' },
+    descriptions: {
+      'zh-TW': '模型發布表上的每個分數是怎麼量出來的、為什麼會失真、主要的 benchmark 各自在量什麼，以及怎麼自己建一個量得準的評測。',
+      en: 'How each score on a model release table is measured, why it gets distorted, what the major benchmarks actually measure, and how to build an evaluation of your own that measures what you mean.',
+    },
+  },
+  {
     slug: 'ai-native-sdlc-playbook',
     category: 'ai-agents',
     names: { 'zh-TW': 'AI-Native SDLC Playbook', en: 'AI-Native SDLC Playbook' },
@@ -1137,6 +1155,15 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '每週整理 AI Agent 領域的重要發布、論文與工具變化。',
       en: 'A weekly roundup of notable releases, papers, and tooling changes in the AI agent space.',
+    },
+  },
+  {
+    slug: 'ai-agent-monthly-report',
+    category: 'updates',
+    names: { 'zh-TW': 'AI Agent 月報', en: 'AI Agent Monthly Report' },
+    descriptions: {
+      'zh-TW': '每月整理 AI Agent 領域改變判斷的變化：月對月指標、三條主線、上期判斷回顧、更正與下月驗證。',
+      en: 'A monthly report on what changed judgments in the AI agent space: month-over-month metrics, three main threads, a review of past claims, corrections, and conditions to check next month.',
     },
   },
   {
@@ -1299,6 +1326,24 @@ const SERIES_DEFINITIONS: SeriesDefinition[] = [
     descriptions: {
       'zh-TW': '從練習方法與跟讀研究出發，接到日常、旅遊、衝浪、攀岩、工作與面試教材，再選擇真人平台、AI 工具或語言學校，安排回饋與複習。',
       en: 'A complete speaking practice path: methods and shadowing research, everyday and specialist scenarios, tutoring platforms, AI tools, language schools, feedback and review.',
+    },
+  },
+  {
+    slug: 'daodao-community-ops',
+    category: 'business',
+    names: { 'zh-TW': '島島阿學怎麼經營', en: 'How DaoDao Runs a Learning Community' },
+    descriptions: {
+      'zh-TW': '島島阿學原本想直接幫學習者養成學習習慣，後來轉向幫助開課、帶社群的老師與引導者，再用共同挑戰讓不同取向的人都有地方加入。這個系列拆解這套做法：三種學習形式各自負責什麼、軟體在哪裡頂替人、錢從哪來、怎麼量，以及怎麼讓社群不靠少數人撐下去。',
+      en: 'DaoDao set out to help learners build habits directly, then turned to helping the teachers and facilitators who run courses and communities, with open co-challenges for people with any goal. This series takes the approach apart: what each of three learning formats is for, where software stands in for people, who pays, what to measure, and how a community keeps going without resting on a few people.',
+    },
+  },
+  {
+    slug: 'mass-irrationality',
+    category: 'learning',
+    names: { 'zh-TW': '群體非理性閱讀地圖', en: 'The Mass Irrationality Reading Map' },
+    descriptions: {
+      'zh-TW': '從 1841 年的金融狂熱敘事到 2024 年的錯誤資訊辯論，用十一本書搭一條解釋鏈：群體非理性在歷史上怎麼反覆出現、群眾心理與認知科學怎麼解釋它、文化與制度怎麼放大它、當代平台機制又怎麼讓它更難被糾正。每篇導讀一本書，並列後來研究修正了什麼。',
+      en: 'Eleven books, one explanation chain: why collective delusions keep recurring in history, what crowd psychology and cognitive science say about why, how culture and institutions amplify them, and what contemporary platform mechanics change. Each post reads one book against later research, with the criticisms alongside.',
     },
   },
 ];

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-sandbox-observability)
+> :globe: [中文版](/posts/tech/2026-08-30-sandbox-observability)
 
 ## What This Post Is
 
@@ -224,7 +224,7 @@ Sandbox audit trails should support common compliance frameworks:
 | SOC 2 | Logical access control, monitoring, change management | Record all tool calls and authorization decisions |
 | HIPAA | Audit controls, unique user identification | Delegation-chain identity, immutable logs |
 | GDPR | Data processing records, consent management | Record personal data access and transfer |
-| ISO 27001 | A.12.4 Logging and monitoring | Systematic log collection and retention |
+| ISO 27001:2022 | A.8.15 Logging, A.8.16 Monitoring activities | Systematic log collection and retention |
 | EU AI Act | Risk management, transparency | Agent behavior traceable |
 
 ---
@@ -239,6 +239,10 @@ Sandbox audit trails should support common compliance frameworks:
 6. How sandbox audit trails support SOC 2, HIPAA, GDPR, ISO 27001, EU AI Act compliance frameworks.
 
 ---
+
+## Update Log
+
+- 2026-11-23: ISO 27001 controls now use the 2022 numbering (A.8.15 Logging, A.8.16 Monitoring activities; A.12.4 is the superseded 2013 numbering).
 
 ## References
 

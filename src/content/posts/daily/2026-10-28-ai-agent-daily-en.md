@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-28-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-28-ai-agent-daily)
 
 ## Today's Call
 
@@ -152,14 +152,14 @@ Application-layer startups Azoma (London, $11.2M Series A) and Opply ($7.5M) bot
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-github-digest-en)
-- 📄 [Framework Update: Pydantic AI v2.62.0](/posts/daily/2026-10-28-framework-pydantic-ai-v2.62.0-en)
-- 📄 [Funding Brief: Hyphenate Series A $45M](/posts/daily/2026-10-28-funding-hyphenate-en)
-- 📄 [Funding Brief: Infisical Series B $40M](/posts/daily/2026-10-28-funding-infisical-en)
-- 📄 [Tool Pick: noteful-mcp](/posts/daily/2026-10-28-tool-noteful-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-28](/posts/daily/2026-10-28-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-28](/posts/daily/2026-10-28-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-28](/posts/daily/2026-10-28-ai-agent-github-digest-en)
+- :file: [Framework Update: Pydantic AI v2.62.0](/posts/daily/2026-10-28-framework-pydantic-ai-v2.62.0-en)
+- :file: [Funding Brief: Hyphenate Series A $45M](/posts/daily/2026-10-28-funding-hyphenate-en)
+- :file: [Funding Brief: Infisical Series B $40M](/posts/daily/2026-10-28-funding-infisical-en)
+- :file: [Tool Pick: noteful-mcp](/posts/daily/2026-10-28-tool-noteful-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-28](/posts/daily/2026-10-28-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-28](/posts/daily/2026-10-28-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

@@ -13,7 +13,7 @@ description: "Civetta 西北壁介紹：岩壁規模與風格、季節、Alleghe
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-civetta-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-civetta-en)
 
 Civetta 在威尼托大區貝盧諾省（Belluno），夾在 Alleghe 和 Val di Zoldo 之間，主峰 3,220 公尺。面向 Alleghe 的西北壁從 Cima Su Alto 一路排到 Torre Coldai，[Le Dolomiti](https://ledolomiti.it/en/mountain-groups/civetta) 寫它最高約 1,200 公尺，攀登者叫它「the wall of walls」（牆中之牆）。1925 年 Solleder 和 Lettenbauer 開的路線，[Planetmountain](https://www.planetmountain.com/en/routes/solleder-lettenbauer-civetta-dolomites.html) 形容是「one of the legendary and most coveted routes in the entire Alpine arc」。
 

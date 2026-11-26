@@ -10,7 +10,7 @@ description: "A practical introduction to GPUtw.ai: product positioning, GPU cat
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud)
+> :globe: [中文版](/posts/tech/2026-08-29-gputw-ai-taiwan-gpu-cloud)
 
 [GPUtw.ai](https://gputw.ai/en) is a Taiwan-based GPU cloud platform. It provides short-rental GPU instances and emphasizes Taiwan data centers, Mandarin support, prepaid credits, per-second billing, Taiwan invoices, and templates for researchers and small teams: Jupyter, ComfyUI, Ollama, vLLM, Unsloth, and related environments.
 

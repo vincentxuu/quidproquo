@@ -26,7 +26,7 @@ glossary:
     definition_en: "Row Level Security — PostgreSQL's mechanism for controlling which rows each user can see and modify through declarative policies."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-supabase-postgres-platform)
+> :globe: [中文版](/posts/tech/2026-08-21-supabase-postgres-platform)
 
 [Supabase](https://supabase.com/) is often introduced as "the open-source Firebase alternative." That positioning isn't wrong, but it obscures the more interesting architectural decision: **the entire platform is built on PostgreSQL**, rather than inventing its own data model.
 
@@ -194,7 +194,7 @@ Compared to Firebase's Blaze plan, Supabase Pro's fixed $25/month is more predic
 
 ### Good fit
 
-- **Applications requiring relational data** — Supabase's foundation is PostgreSQL, so JOINs, transactions, and foreign keys are native. Firebase's Firestore is inherently weak here.
+- **Applications requiring relational data** — Supabase's foundation is PostgreSQL, so JOINs, transactions, and foreign keys are native. Firebase's Firestore is inherently weak here. Firebase also offers [SQL Connect](https://firebase.google.com/docs/sql-connect) (formerly Data Connect) on Cloud SQL for PostgreSQL, but queries are written as pre-deployed operations rather than SQL issued by the application and authorized through RLS.
 - **AI/RAG applications** — pgvector is built in, no separate vector database needed.
 - **Teams that want SQL access** — not just SDK calls, but direct PostgreSQL connections via pgAdmin, DBeaver, or any SQL tool.
 - **Teams that want migration flexibility** — the foundation is standard PostgreSQL. If you later need to move to self-managed RDS or Cloud SQL, your data and schema come with you.
@@ -215,6 +215,10 @@ Supabase's architectural choice directly echoes the core argument from ["Is Post
 Compared to [Cloudflare D1 used on this site](/posts/tech/2026-03-27-cloudflare-d1-sqlite-database), Supabase and D1 solve problems at different scales. D1 is an SQLite-based edge database for lightweight applications running on Workers; Supabase is a full backend platform for applications needing Auth, Storage, and Realtime. They're not mutually exclusive — you could use Supabase as your primary database and D1 as an edge cache.
 
 ---
+
+## Update history
+
+- 2026-11-23: Added how Firebase SQL Connect (on Cloud SQL for PostgreSQL) differs from Supabase under "applications requiring relational data".
 
 ## References
 

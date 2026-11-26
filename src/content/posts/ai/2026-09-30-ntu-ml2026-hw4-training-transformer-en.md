@@ -22,7 +22,7 @@ glossary:
     context: "HW4 requires FID and PDR to pass their thresholds at the same time."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-hw4-training-transformer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

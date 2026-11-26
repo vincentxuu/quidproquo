@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-webassembly-sandbox)
+> :globe: [中文版](/posts/tech/2026-08-30-webassembly-sandbox)
 
 ## Why a Fourth Isolation Layer
 
@@ -98,7 +98,7 @@ Key point: `preopened_dir("/tmp/sandbox", "/workspace")` explicitly grants the m
 
 | Runtime | Language | Cold Start | Memory Overhead | Features | Use Case |
 |---------|----------|------------|-----------------|----------|----------|
-| **Wasmtime** | Rust | 5–10 ms | < 1 MB | Bytecode Alliance led, most complete Component Model support, stable WASI Preview 2 | Rust ecosystem, complex agent workflows needing component model |
+| **Wasmtime** | Rust | 5–10 ms | < 1 MB | Bytecode Alliance led, most complete Component Model support, WASI 0.3 on by default since Wasmtime 46 | Rust ecosystem, complex agent workflows needing component model |
 | **WasmEdge** | C++ | 3–8 ms | < 1 MB | CNCF member, excellent AI inference and Pyodide integration, good async I/O | Edge devices, local AI agents, Python code execution |
 | **Wasmer** | Rust | 8–15 ms | < 1 MB | Multi-language SDKs (Python, Node.js, PHP, Postgres), embeddable into application libraries | Embedded sandbox in applications, cross-language code execution |
 
@@ -106,7 +106,7 @@ Key point: `preopened_dir("/tmp/sandbox", "/workspace")` explicitly grants the m
 
 Wasmtime is developed by Bytecode Alliance and is a reference implementation of the WebAssembly standard. Its Component Model allows assembling Wasm modules into more complex applications, with each component having explicit interface contracts (WIT). For agent sandboxing, this means defining strict contracts like "this agent can only call these functions."
 
-Wasmtime's WASI Preview 2 supports asynchronous I/O, solving the early Wasm limitation of unable to make network requests, enabling agents to run network-requiring tasks inside the sandbox.
+WASI 0.2 (Preview 2) handles async I/O and network requests through `wasi:io` pollables and streams; [WASI 0.3](https://bytecodealliance.org/articles/WASI-0.3), released on 2026-06-11, builds `async func`, `stream`, and `future` into the Component Model itself, with the host scheduling one shared event loop so async composes across components. Wasmtime 46 and later enable WASI 0.3 by default, and 0.2 components still run.
 
 **Benchmark data (2026)**:
 - Cold start: 5–10 ms
@@ -205,7 +205,7 @@ result = instance.exports["run"]()
 
 ### 1. WASI Still Evolving
 
-Filesystem, network, clock system calls standardization lower than POSIX; some features may not be directly usable. WASI Preview 2 has improved many limitations but gaps remain.
+Filesystem, network, clock system calls standardization lower than POSIX; some features may not be directly usable. WASI 0.2 and 0.3 have improved many limitations but gaps remain.
 
 ### 2. Language Limitations
 
@@ -230,6 +230,10 @@ Wasmtime VM compiler or WASI layer vulnerabilities could lead to same-host escap
 5. Wasm sandbox limitations: WASI evolution status, language limitations, host-function audit, hostile multi-tenancy risk.
 
 ---
+
+## Update Log
+
+- 2026-11-23: Added WASI 0.3, released on 2026-06-11 (native async in the Component Model, on by default since Wasmtime 46); the earlier "WASI Preview 2" statements now cover both 0.2 and 0.3.
 
 ## References
 

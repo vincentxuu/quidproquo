@@ -15,7 +15,7 @@ glossary:
     def: "A Shanghai-based large language model company known for its M-series (M1→M3) agentic models and the Hailuo video generation model"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-model-minimax-m3-1-flash)
+> :globe: [中文版](/posts/daily/2026-10-20-model-minimax-m3-1-flash)
 
 ## Model Info
 
@@ -49,7 +49,7 @@ glossary:
 | Terminal Bench 4.0 | 38.1 | Not disclosed on the same suite | Claude Opus 5: 51.8 (well ahead) |
 | BabyVision (with tools) | 91.0 | Not disclosed on the same suite | DeepSeek V4.1 Flash 1017: 92.5 |
 
-⚠️ All four scores above are from MiniMax's own published comparison table; no independent party has reproduced them yet. MiniMax has not published a row-by-row comparison between M3.1 Flash and predecessor M3 on the same benchmark suite — only two aggregate claims: "nearly 3x faster inference" and "agentic task weighted-average cost down from $0.51 to $0.22 per task."
+:warning: All four scores above are from MiniMax's own published comparison table; no independent party has reproduced them yet. MiniMax has not published a row-by-row comparison between M3.1 Flash and predecessor M3 on the same benchmark suite — only two aggregate claims: "nearly 3x faster inference" and "agentic task weighted-average cost down from $0.51 to $0.22 per task."
 
 ## Compared to Predecessors and Competitors
 

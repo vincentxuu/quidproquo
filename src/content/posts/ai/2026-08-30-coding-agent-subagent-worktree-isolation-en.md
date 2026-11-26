@@ -13,7 +13,7 @@ description: "Comparing subagent orchestration and isolation, then checking Loop
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-subagent-worktree-isolation)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-subagent-worktree-isolation)
 
 Seventh post in part two of the series. Scope note: pi (badlogic/pi-mono), omp (can1357/oh-my-pi), opencode (sst/opencode), codex (openai/codex Rust workspace), and claude-code (community decompiled v2.1.88; symbol names may differ from the original). Every citation was actually grepped in local clones. Worktrees themselves were covered in part one's "workspace isolation" post via EnterWorktreeTool — this post focuses on **subagent orchestration**, where a worktree is just one isolation option.
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-why-readers-dont-finish)
+> :globe: [中文版](/posts/learning/2026-10-14-why-readers-dont-finish)
 
 This is part 19 of the "Writing Articles That Teach" series and the last part of its fourth section, "after some time has passed." The three parts before it covered [how much of the spacing effect survives in real courses](/posts/learning/2026-10-14-spaced-practice-in-real-courses-en), [works that build review into the article](/posts/learning/2026-10-14-spaced-review-in-teaching-articles-en), and [the order of a series](/posts/learning/2026-10-14-series-order-in-teaching-articles-en). All of them assume the reader is still there. This part examines that assumption: when do online self-learners leave, do they come back, and how much can an author change?
 

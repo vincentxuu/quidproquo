@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-team-wiki-why-it-rots)
+> :globe: [中文版](/posts/learning/2026-10-22-team-wiki-why-it-rots)
 
 A new colleague asks in the group chat, for the third time, how to request annual leave. The wiki does have a page, but it describes the process from two years ago, and the person who wrote it has left. Many teams will recognize this. In Stack Overflow's 2024 developer survey, seven in ten respondents said they know where to find answers, but fewer than half agreed they can find up-to-date information ([Stack Overflow 2024](https://survey.stackoverflow.co/2024/professional-developers)).
 

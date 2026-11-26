@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-22-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-22-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -108,11 +108,11 @@ For Taiwan/Chinese-speaking builders: if your agent has human-in-the-loop review
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest-en)
-- 🛡️ [Security Alert｜AWS AgentCore Shell Tool Credential Exfiltration — 2026-09-22](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
-- 📄 [AI Engineer Interview Daily — 2026-09-22: Deep Learning & NLP](/posts/daily/2026-09-22-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-09-22: Metrics & Analytics](/posts/daily/2026-09-22-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest-en)
+- :shield: [Security Alert｜AWS AgentCore Shell Tool Credential Exfiltration — 2026-09-22](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration-en)
+- :file: [AI Engineer Interview Daily — 2026-09-22: Deep Learning & NLP](/posts/daily/2026-09-22-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-09-22: Metrics & Analytics](/posts/daily/2026-09-22-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

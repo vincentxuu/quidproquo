@@ -19,7 +19,7 @@ glossary:
     definition: "Cloudflare Workers' mechanism for attaching services such as KV, D1, Durable Objects, and Containers to the Worker runtime without going over the network and with zero network latency."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment)
+> :globe: [中文版](/posts/tech/2026-08-23-stock-agent-9-cloudflare-deployment)
 
 > **Building a Taiwan Stock Research Agent (Part 9 of 9)**: [Previous: The Boundary Between Research and Paper Orders—Content-Addressed Execution Contracts](/posts/tech/2026-08-23-stock-agent-8-execution-contracts-en) ｜ [Full table of contents in Part 1](/posts/tech/2026-08-23-stock-agent-1-why-taiwan-en)
 

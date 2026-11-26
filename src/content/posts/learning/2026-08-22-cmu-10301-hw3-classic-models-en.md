@@ -10,7 +10,7 @@ tldr: "HW3 is written work: a decision-tree review followed by K-NN, Perceptron,
 description: "A guide to the four-model comparison and self-assessment in CMU 10-301/601 Spring 2026 HW3."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 3 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw3-classic-models)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw3-classic-models)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw3.zip) is titled **Homework 3: Decision Trees, K-NN, Perceptron, Regression** and is entirely written. Its sections are decision tree revisited, regression tree, k-nearest neighbors, perceptron, and linear regression, with overfitting, error rates, and model selection inside them. The ZIP contains the PDF, LaTeX template, and figures—no starter code, dataset, or reference output.
 

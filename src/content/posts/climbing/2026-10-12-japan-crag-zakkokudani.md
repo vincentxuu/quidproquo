@@ -13,7 +13,7 @@ description: "介紹富山縣立山町称名川支流的雑穀谷岩場：花崗
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-zakkokudani-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-zakkokudani-en)
 
 雑穀谷（ざっこくだに，Zakkokudani；讀音依 [ROCKTOPO](https://www.rocktopo.net/areas/117)）在富山縣立山町，是称名川的一條支流，岩場就在往称名滝的縣道旁邊。岩質是花崗岩，以 bolt 運動攀登為主、夾幾條裂隙，[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E9%9B%91%E7%A9%80%E8%B0%B7/) 形容它是「富山県では数少ないフリークライミング中心の岩場」。
 

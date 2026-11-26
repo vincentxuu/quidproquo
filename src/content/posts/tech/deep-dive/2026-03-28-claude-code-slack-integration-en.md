@@ -13,7 +13,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration)
 
 Bug reports don't arrive in a terminal — they arrive in a Slack channel: a teammate pastes reproduction steps, error screenshots pile up, half a day of context accumulates in a thread. The highest-value move at that moment isn't copying it all into your terminal; it's typing `@Claude` right in that thread with "investigate and fix this," and letting it spin up a Claude Code session in the cloud and report back. This is the same agentic loop from the [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) with a different entry point — same loop, new trigger: team conversation instead of terminal.
 

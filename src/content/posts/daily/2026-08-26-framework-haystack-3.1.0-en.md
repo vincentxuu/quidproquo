@@ -14,7 +14,7 @@ series:
 
 <!-- [skip-harness] -->
 
-> 🌏 [中文版](/posts/daily/2026-08-26-framework-haystack-3.1.0)
+> :globe: [中文版](/posts/daily/2026-08-26-framework-haystack-3.1.0)
 
 ## Version Info
 

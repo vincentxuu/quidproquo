@@ -17,7 +17,7 @@ description: "227 posts, 49 broken links, 19 RAG design issues, 4 harness gaps �
 draft: false
 ---
 
-> 🌏 [中文版](/posts/product/2026-04-18-quidproquo-improvement-roadmap)
+> :globe: [中文版](/posts/product/2026-04-18-quidproquo-improvement-roadmap)
 
 I used my own articles on RAG, Agents, Context Engineering, and Harness Engineering to audit the blog itself — and found that I wrote "Intelligence without infrastructure is just a demo," yet the platform was missing exactly that infrastructure. This post compiles a complete, priority-ordered action list across five dimensions: content quality, site technology, RAG design fixes, harness infrastructure, and AI agent applications.
 
@@ -146,7 +146,7 @@ The entire plan is organized by "fix cost vs. impact scope" into four levels:
 
 **Critic fallback / degradation strategy**
 - Stripe's design: "If the LLM can't fix it in two tries, flag for human review — a third attempt just burns tokens"
-- If 2 retries still fall below the threshold → annotate the response with "⚠️ This answer may be incomplete; reading the source articles directly is recommended"
+- If 2 retries still fall below the threshold → annotate the response with ":warning: This answer may be incomplete; reading the source articles directly is recommended"
 - Do not call the LLM again
 
 **Rewrite prompts in "describe the end state" style**

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-prompt-instructions-memory-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-prompt-instructions-memory-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-disposable-clone-run-bundle)把 source repo、執行 workspace 與 run artifacts 分開了。workspace 準備好以後，模型還不能直接開工：Looplane 得先回答「這個任務有哪些規則、現在在哪個環境、哪些舊資訊可以帶進來」。Looplane 沒有任意拼接一大段字串；它建立了一條有順序、有上限、可追蹤來源的 context pipeline。
 

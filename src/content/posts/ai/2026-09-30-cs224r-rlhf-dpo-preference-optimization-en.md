@@ -26,7 +26,7 @@ glossary:
     context: "CS224R L9 names it as the core risk of RLHF and uses it to motivate verifiable rewards."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
+> :globe: [中文版](/posts/ai/2026-09-30-cs224r-rlhf-dpo-preference-optimization)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
@@ -223,13 +223,14 @@ Course and recording entries:
 
 - [Official course / lecture source](https://cs224r.stanford.edu/)
 
-The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-10-10.
+The Spring 2026 lecture recordings sit behind Stanford sign-in on Canvas/Panopto; the public YouTube playlist is Spring 2025. Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. Speaker and topic both match the post's statements; nothing needed correcting.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

@@ -31,6 +31,8 @@ node .agents/skills/post/scripts/check-course-titles.mjs src/content/posts/<cate
 
 格式整理與事實更新分開：搬段落保留仍成立的數字、來源、程式碼與舊更新紀錄，修正受影響的跨節指代；不能把今天寫成資料查證日期。`date`、slug、lang、category、series.order 不動；`series.name` 按規格語言化，並確認系列 registry 支援兩個名稱。重寫矩陣／tldr 是再一次宣稱，對照正文與原有來源；涉及新版本、價格、能力或授權的改動先走 post-verify。
 
+補新世代（換代）時照規格的「換代規則」：舊世代降到家族演化、連每日模型卡，不在主篇保留兩代詳細表格，也不能只改寫成新世代而不留轉折。
+
 中英同步整理。更新紀錄放參考資料前，明示本次重組範圍與是否重新核對事實。同系列完整導覽交給網站元件，有語意的跨篇轉手連結保留。執行 `node .agents/skills/post/scripts/check-model-family-format.mjs <中英檔案...>`，並逐篇讀接縫與選型結論，不能只靠段落數對齊交付。
 
 ## 何時用 post-update vs 重發新文章

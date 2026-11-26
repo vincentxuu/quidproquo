@@ -14,7 +14,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-output-handling)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-output-handling)
 
 Alice's summary contains an image whose URL triggers an outbound request when rendered. Another workflow passes a model-generated “report command” straight to a shell. Both begin as model text; the dangerous interpretation happens downstream.
 

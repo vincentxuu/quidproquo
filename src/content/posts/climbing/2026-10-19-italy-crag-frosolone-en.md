@@ -13,7 +13,7 @@ description: "A guide to Frosolone (Colle dell'Orso / Morgia Quadra): rock, scal
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-frosolone)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-frosolone)
 
 Frosolone is a mountain village in the province of Isernia in Molise. On the Colle dell'Orso ("Bear Hill") plateau outside the village sits a scatter of grey limestone blocks, the biggest of which is called Morgia Quadra. When climbers say "Frosolone", "Colle dell'Orso" or "Morgia Quadra", they mean the same place. [Planetmountain](https://www.planetmountain.com/it/falesie/colle-dell-orso.html) calls it "storicamente la più importante del Molise" (historically the most important crag in Molise).
 

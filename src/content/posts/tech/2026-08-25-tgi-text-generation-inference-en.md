@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [tgi, huggingface, llm-serving, inference, gpu, self-hosted]
 lang: en
-tldr: "Text Generation Inference (TGI) is HuggingFace's own LLM inference server, built in Rust and Python. It pioneered continuous batching and Flash Attention in open-source inference engines. The GitHub repository was archived on March 21, 2026, and HuggingFace recommends migrating to vLLM or SGLang. TGI still matters: it defined the architectural baseline that successor engines inherited, and many HuggingFace Inference Endpoints still run it."
+tldr: "Text Generation Inference (TGI) is HuggingFace's own LLM inference server, built in Rust and Python. It pioneered continuous batching and Flash Attention in open-source inference engines. It entered maintenance mode in December 2025 and the GitHub repository was archived in March 2026; HuggingFace recommends migrating to vLLM or SGLang. TGI still matters: it defined the architectural baseline that successor engines inherited, and many HuggingFace Inference Endpoints still run it."
 description: "TGI's core architecture (Rust router, continuous batching, Flash/Paged Attention), deployment, API, quantization support, hardware compatibility, performance positioning, why it entered maintenance mode, and migration paths."
 series:
   name: "Self-Hosted Inference"
@@ -13,11 +13,11 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-tgi-text-generation-inference)
+> :globe: [中文版](/posts/tech/2026-08-25-tgi-text-generation-inference)
 
 Text Generation Inference (TGI) is the LLM inference server built by HuggingFace. When it was open-sourced in 2023, it was the first production-grade solution to package continuous batching, Flash Attention, and token streaming into a "start with Docker and go" experience. HuggingChat and OpenAssistant both ran on it.
 
-On March 21, 2026, HuggingFace [archived the TGI GitHub repository](https://github.com/huggingface/text-generation-inference) as read-only, entering maintenance mode — accepting only minor bug fixes and documentation updates, with no new model architecture support. The official recommendation is to migrate to [vLLM](https://github.com/vllm-project/vllm) or [SGLang](https://github.com/sgl-project/sglang).
+On December 11, 2025, HuggingFace put TGI into maintenance mode, accepting only minor bug fixes and documentation updates, with no new model architecture support; v3.3.7, released that month, is the last version. On March 21, 2026, the GitHub repository was then [archived as read-only](https://github.com/huggingface/text-generation-inference), so not even fixes are accepted anymore. The official recommendation is to migrate to [vLLM](https://github.com/vllm-project/vllm) or [SGLang](https://github.com/sgl-project/sglang).
 
 This post covers TGI's architecture, capabilities, and limitations, and explains why understanding it still matters.
 
@@ -94,7 +94,7 @@ The simplest launch method:
 
 ```bash
 docker run --gpus all --shm-size 1g -p 8080:80 \
-  ghcr.io/huggingface/text-generation-inference:3.3.5 \
+  ghcr.io/huggingface/text-generation-inference:3.3.7 \
   --model-id meta-llama/Llama-3.1-8B-Instruct
 ```
 
@@ -104,7 +104,7 @@ Multi-GPU tensor parallelism:
 
 ```bash
 docker run --gpus all --shm-size 1g -p 8080:80 \
-  ghcr.io/huggingface/text-generation-inference:3.3.5 \
+  ghcr.io/huggingface/text-generation-inference:3.3.7 \
   --model-id meta-llama/Llama-3.1-70B-Instruct \
   --num-shard 4
 ```
@@ -128,7 +128,7 @@ Local installation requires dealing with CUDA versions, protobuf compilation, an
 
 ### HuggingFace Inference Endpoints
 
-TGI is the default backend for HuggingFace's managed inference service. Clicking "Deploy → Inference Endpoint" on HuggingFace Hub runs TGI underneath. However, HuggingFace has started offering vLLM as an alternative backend option.
+TGI used to be the default backend for HuggingFace's managed inference service. The [Inference Endpoints TGI page](https://huggingface.co/docs/inference-endpoints/engines/tgi) now opens by recommending vLLM or SGLang instead. An existing Endpoint cannot switch engines in place: create a new vLLM Endpoint with the same model and hardware, test it, move traffic over, then pause or delete the old one.
 
 ---
 
@@ -275,10 +275,16 @@ TGI's historical role is clear: it was the first open-source project to package 
 
 If you're deploying a new inference service today, you should not choose TGI. But if you're maintaining an existing TGI deployment, reading inference engine documentation, or trying to understand why vLLM is designed the way it is, TGI is where the story starts.
 
+## Changelog
+
+- 2026-11-23: Separated the two dates, maintenance mode (2025-12-11) and repository archiving (2026-03-21); switched the Docker examples to the final 3.3.7 release; rewrote the Inference Endpoints section with HuggingFace's current recommendation and migration steps.
+
 ## References
 
 - [TGI GitHub Repository (Archived)](https://github.com/huggingface/text-generation-inference) — Source code, archived as read-only on 2026-03-21
 - [TGI Official Documentation](https://huggingface.co/docs/text-generation-inference/index) — Installation, configuration, API, and model support
+- [Inference Endpoints: TGI](https://huggingface.co/docs/inference-endpoints/engines/tgi) — Maintenance-mode date and steps for migrating to vLLM
+- [TGI v3.3.7 Release](https://github.com/huggingface/text-generation-inference/releases/tag/v3.3.7) — The final release, including the maintenance-mode PR
 - [HuggingFace Blog: TGI Multi-Backend](https://huggingface.co/blog/tgi-multi-backend) — Technical details on TGI's attempt to integrate vLLM/TRT-LLM backends
 - [Flash Attention](https://github.com/Dao-AILab/flash-attention) — Dao et al.'s efficient attention implementation
 - [vLLM: PagedAttention](https://arxiv.org/abs/2309.06180) — Kwon et al., the paged KV cache later integrated by TGI

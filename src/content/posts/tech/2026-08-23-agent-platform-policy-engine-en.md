@@ -8,7 +8,7 @@ lang: en
 description: "A deep dive into the Agent Platform Policy Engine: versioned policy configuration, the four-layer guard pipeline for input, tools, output, and budgets, approval for external writes, loop detection and circuit breakers, escalation records, proxy-specific policies, and a standard research policy example."
 tldr: "The Policy Engine acts as the Agent Platform's constitution and enforcement layer: policies are versioned and bound to flows and presets; four guard layers enforce rules at step boundaries; budgets cap cost, tokens, runtime, iterations, and tool calls; external writes require human approval; loop detection trips circuit breakers; and escalation records provide an auditable trail. Rules are configuration-driven, so adding one means changing JSON rather than hard-coded logic."
 ---
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-policy-engine)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-policy-engine)
 
 ## TL;DR
 

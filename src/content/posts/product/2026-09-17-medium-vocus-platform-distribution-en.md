@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-medium-vocus-platform-distribution)
+> :globe: [中文版](/posts/product/2026-09-17-medium-vocus-platform-distribution)
 
 Think of a content platform as the food court inside a department store. You do not have to pull every passerby into your stall yourself. The store provides the location, featured placements, member notifications, and checkout counter. The catch is that customers become members of the store before they become regulars of yours.
 

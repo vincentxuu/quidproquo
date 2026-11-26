@@ -14,13 +14,18 @@ description: "A page-linked guide to the 176 slides of CS329Z Lecture 02, LLMs f
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 78 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 
 Lecture 2 (Sep 28, LLMs for Builders) is a crash course in model internals for agent builders: how decoding picks tokens, how attention reads earlier text, why context length has a cost, and why structured output is a contract between components. Every engineering trade-off later in the course comes back to these limits.
 
 The assigned readings are Vaswani et al. on the Transformer, Katharopoulos et al. on linear attention, and Anthropic's [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents). This post digests the last one; the mechanisms of the first two are covered in the slide guide. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=Vr1NzH8bT44
+title: LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan
+```
 
 ## Lecture 02 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Vaswani et al. on the Transformer, Katharopoulos et al
 
 ### Pages 1–23: From probability distributions to decoding
 
+[Recording 00:00–16:06](https://www.youtube.com/watch?v=Vr1NzH8bT44)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=1" data-slide-page="1">Slides 1–23</a>
 
 The opening locates this course at the application layer, then asks what a model actually produces. A sequence probability decomposes into conditional next-token probabilities. The animated “The class was about…” example shows multiple possible continuations; decoding chooses among them. Greedy selection takes the most likely token, top-k and top-p restrict sampling candidates, and beam search retains alternative sequences.
@@ -39,6 +46,8 @@ The opening locates this course at the application layer, then asks what a model
 For an agent, this affects the stability of tool selection and arguments. Lower temperature can reduce sampling variation; it cannot validate arguments. Repeat the same input with a fixed tool schema and record wrong-tool choices separately from malformed output.
 
 ### Pages 24–62: How a Transformer reads earlier tokens
+
+[Recording 16:06–30:12](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=966s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=24" data-slide-page="24">Slides 24–62</a>
 
@@ -48,6 +57,8 @@ Follow the changing arrows rather than treating every animation frame as a separ
 
 ### Pages 63–91: Linear attention trades stored detail for efficiency
 
+[Recording 30:12–36:05](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=1812s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=63" data-slide-page="63">Slides 63–91</a>
 
 Full softmax attention retains keys and values for earlier positions. Linear attention updates a compressed state and lets new tokens interact with that state. The slides animate state retention and replacement, compare scaling behavior, then discuss long-context limitations and hybrid architectures.
@@ -55,6 +66,8 @@ Full softmax attention retains keys and values for earlier positions. Linear att
 A long advertised window does not establish reliable access to every detail. As an original exercise, move the same constraint to the beginning, middle, and end of a long document in your working language. Compare answer correctness and latency before choosing a model for that workload.
 
 ### Pages 92–118: Training stages shape what the model has learned
+
+[Recording 36:05–52:42](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=2165s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=92" data-slide-page="92">Slides 92–118</a>
 
@@ -64,6 +77,8 @@ Fluent writing and successful execution in your tool environment require separat
 
 ### Pages 119–137: Prefill, decode, and the KV cache
 
+[Recording 52:42–59:54](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3162s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=119" data-slide-page="119">Slides 119–137</a>
 
 Prefill processes the input; decode generates output step by step. Retained keys and values form the KV cache, allowing later generation to reuse earlier computation. This motivates measuring time to first token, output speed, and total duration separately. Speculative decoding uses a smaller draft model to propose continuations for a target model to verify.
@@ -71,6 +86,8 @@ Prefill processes the input; decode generates output step by step. Retained keys
 For a multi-turn agent, inspect oversized tool results and repeatedly rewritten stable prefixes. These slides explain the mechanism; provider-specific cache eligibility and pricing require separate documentation. A KV cache, an application answer cache, and stored user memory serve different purposes.
 
 ### Pages 138–148: Extra inference compute needs a selection method
+
+[Recording 59:54–65:25](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3594s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=138" data-slide-page="138">Slides 138–148</a>
 
@@ -80,6 +97,8 @@ An original exercise is to divide the same budget between one longer attempt and
 
 ### Pages 149–159: Structured output supplies a component contract
 
+[Recording 65:25–70:12](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3925s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=149" data-slide-page="149">Slides 149–159</a>
 
 Compound systems need a field-level contract between components. This section introduces constrained decoding, DSPy signatures, and tool calls. Restricting allowed tokens helps maintain structure; schema validity does not establish factual correctness or authorization.
@@ -87,6 +106,8 @@ Compound systems need a field-level contract between components. This section in
 In an original email example, extracting a valid meeting intent from “Thursday works” still leaves the date, time zone, and recipient unresolved. Validate structure, then meaning and required information, before dispatching execution.
 
 ### Pages 160–176: Context engineering preserves decision-relevant information
+
+[Recording 70:12–77:53](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=4212s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=160" data-slide-page="160">Slides 160–176</a>
 
@@ -148,10 +169,15 @@ Lecture 2 treats the model as a component with costs and limits, which every lat
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan](https://www.youtube.com/watch?v=Vr1NzH8bT44) (Stanford Online channel, uploaded 2026-11-10, about 78 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-13. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording via a machine-generated transcript.
+- Content check: verified against the video (2026-11-13): section start times were checked against a machine-generated transcript, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-13: Stanford Online published this lecture's recording and opened the course playlist; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-13: Checked section start times against a machine-generated transcript and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 2 (Mon Sep 28), previously part of the "Week 2: workflows, agents, and a first hand-built RAG" guide; earlier entries below predate the split.
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 - 2026-10-23: Added a workflow/agent comparison and RAG architecture diagram to visualize existing explanations; no factual refresh.

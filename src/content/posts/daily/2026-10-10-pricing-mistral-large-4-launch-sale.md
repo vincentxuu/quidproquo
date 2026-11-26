@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
+> :globe: [English version](/posts/daily/2026-10-10-pricing-mistral-large-4-launch-sale-en)
 
 ## 變更摘要
 
@@ -70,7 +70,7 @@ Mistral 在 2026-10-06 公開預覽新旗艦模型 Large 4 時，官方公告正
 
 ## 時效提醒
 
-⏰ **促銷到期日**：官方未公布。Mistral Studio 和 OpenRouter 上的「50% off」標籤都沒有附帶期限，第三方分析站（Artificial Analysis、OpenRouter）在發表後數日內查證，也都確認找不到官方公布的到期日期。現在規劃成本的團隊應該同時用促銷價和標準價各算一份預算。
+:clock: **促銷到期日**：官方未公布。Mistral Studio 和 OpenRouter 上的「50% off」標籤都沒有附帶期限，第三方分析站（Artificial Analysis、OpenRouter）在發表後數日內查證，也都確認找不到官方公布的到期日期。現在規劃成本的團隊應該同時用促銷價和標準價各算一份預算。
 
 ## 今日收穫
 

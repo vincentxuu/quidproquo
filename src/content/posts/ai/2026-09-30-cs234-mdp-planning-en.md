@@ -25,7 +25,7 @@ glossary:
     context: "CS234 L2 proves it improves monotonically and ends within |A|^|S| rounds."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-mdp-planning)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-mdp-planning)
 
 **Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
 
@@ -289,7 +289,7 @@ Course and recording entries:
 
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-10-10.
+The Winter 2026 official Lecture Materials page lists slides only and no recordings; the public YouTube playlist is Spring 2024. Checked: 2026-11-09.
 
 Content check: verified against the video transcript (2026-10-10): Read the transcript of Spring 2024 Lecture 2, "Tabular MDP Planning" (about 65K characters): it covers Markov reward processes, policy evaluation, policy iteration and monotonic improvement, value iteration and contraction, finite horizons and the Mars rover example, matching this post. The quiz-by-quiz and proof details here come from the 2026 slides and were not compared one by one with the video.
 
@@ -298,6 +298,7 @@ Content check: verified against the video transcript (2026-10-10): Read the tran
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Embedded videos are from an earlier public term, not the 2026 course, so status changed to related supplementary.
 - 2026-10-10: Checked the video content against its transcript. The video topic matches; no claims needed changing.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

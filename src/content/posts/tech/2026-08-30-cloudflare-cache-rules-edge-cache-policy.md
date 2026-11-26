@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en)
 
 Cloudflare 的快取很容易被講成一句「把 CDN 打開就好」。實際上，產品一旦有登入頁、API、preview、圖片、RSS、OG image、文件下載、AI 產生的 artifact，真正要決定的是：哪些東西能進 shared cache，哪些東西必須保持 dynamic，TTL 由 origin 說了算還是由平台覆蓋，purge 時能不能精準清掉。
 
@@ -110,6 +110,8 @@ Cache key 決定「哪些 request 可以共用同一份 response」。預設 key
 
 Cloudflare 文件特別提醒：custom cache key 若包含 headers、cookies 或其他 request properties，dashboard 的 single-file purge 可能無法正常清掉，因為 dashboard purge request 無法帶齊那些值。這種情況要改用 API purge by URL 並帶完整 key 維度，或用 purge by host、prefix、tag、purge everything。
 
+2026-09 起，清快取多了一個比 purge 溫和的選項：[invalidate](https://developers.cloudflare.com/changelog/post/2026-09-28-cache-invalidation/)。它吃同一組選擇器（URL、tag、hostname、prefix、everything），但不刪內容，只標成 stale；下一次請求時 Cloudflare 帶 `ETag` 或 `Last-Modified` 回 origin 驗證，origin 回 `304` 就沿用既有內容。一個 tag 底下只有少數檔案真的變了時，用 invalidate 比 purge 省 origin 流量；前提是 origin 會回 validator、會處理 conditional request。要確實停止供應舊內容，還是用 purge。
+
 我會用這個順序判斷：
 
 1. URL path 已經唯一嗎？可以就不要改 cache key。
@@ -196,12 +198,16 @@ Smart Shield 則是 origin 保護策略。Cache Rules 決定哪些內容該 cach
 - HTML 的 browser TTL 保守，避免使用者長時間卡舊頁面。
 - API 只 cache public、可共用、可接受 stale 的 response。
 - Cache key 只納入真的會改變 response body 的維度。
-- 自訂 cache key 後，同步設計 purge by URL/header、prefix、host 或 tag。
+- 自訂 cache key 後，同步設計 purge／invalidate by URL/header、prefix、host 或 tag。
 - `BYPASS` 和 `DYNAMIC` 分開查，不用感覺猜。
 - 上 production 前用 Cloudflare Trace 和 `CF-Cache-Status` 驗證。
 - 規則用 API 或 Terraform 管理時，避免 PUT 範例直接覆蓋既有 ruleset。
 
 Cache Rules 的價值不在「快取越多越好」，而在把 shared cache 變成可 review 的平台政策。能共用的內容放到 edge，不能共用的內容明確 bypass，cache key 和 purge 一起設計，這樣 Cloudflare 才是在幫產品省 origin 成本，而不是替你保存一份錯的 response。
+
+## 更新紀錄
+
+- 2026-11-23：補上 2026-09 推出的 cache invalidate（標 stale 後回 origin 驗證），作為 purge 之外的選項
 
 ## 參考資料
 

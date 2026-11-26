@@ -23,7 +23,7 @@ glossary:
     context: "HW3's BearTensor stores it in the adjoint field."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-17-18-neural-networks-backprop)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

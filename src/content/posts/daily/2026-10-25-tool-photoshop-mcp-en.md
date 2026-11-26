@@ -12,7 +12,7 @@ series:
   order: 64
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-25-tool-photoshop-mcp)
+> :globe: [中文版](/posts/daily/2026-10-25-tool-photoshop-mcp)
 
 ## Tool Info
 
@@ -49,7 +49,7 @@ step: On success, render verifies the result and returns it; on failure, it auto
   <path class="dg-line" d="M280 112V144" marker-end="url(#arrow)" data-step="1"/>
   <path class="dg-line" d="M376 192H428" marker-end="url(#arrow)" data-step="2"/>
   <path class="dg-line" d="M280 236V268" data-step="3"/>
-  <path class="dg-line" d="M520 216V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line" d="M520 220V260Q520 268 512 268H288" marker-end="url(#arrow)" data-step="2"/>
   <path class="dg-line" d="M280 272V292" marker-end="url(#arrow)" data-step="3"/>
   <path class="dg-line" d="M280 348V372" marker-end="url(#arrow)" data-step="4"/>
   <path class="dg-line dg-line--accent" d="M376 416H428" marker-end="url(#arrow-accent)" data-step="5"/>
@@ -59,8 +59,8 @@ step: On success, render verifies the result and returns it; on failure, it auto
 
   <g data-step="1">
     <rect class="dg-box" x="196" y="60" width="168" height="52" rx="6"/>
-    <text class="dg-label" x="280" y="80" text-anchor="middle" dominant-baseline="central">Pin target document</text>
-    <text class="dg-sub" x="280" y="98" text-anchor="middle" dominant-baseline="central">docId pinning</text>
+    <text class="dg-label" x="280" y="75" text-anchor="middle" dominant-baseline="central">Pin target document</text>
+    <text class="dg-sub" x="280" y="99" text-anchor="middle" dominant-baseline="central">docId pinning</text>
   </g>
 
   <g data-step="2">
@@ -70,9 +70,9 @@ step: On success, render verifies the result and returns it; on failure, it auto
   </g>
 
   <g data-step="2">
-    <rect class="dg-box" x="432" y="168" width="176" height="48" rx="6"/>
-    <text class="dg-label" x="520" y="188" text-anchor="middle" dominant-baseline="central">Create checkpoint</text>
-    <text class="dg-sub" x="520" y="206" text-anchor="middle" dominant-baseline="central">snapshot + layered backup</text>
+    <rect class="dg-box" x="432" y="164" width="176" height="56" rx="6"/>
+    <text class="dg-label" x="520" y="180" text-anchor="middle" dominant-baseline="central">Create checkpoint</text>
+    <text class="dg-sub" x="520" y="204" text-anchor="middle" dominant-baseline="central">snapshot + layered backup</text>
   </g>
 
   <circle class="dg-dot" cx="280" cy="270" r="4" data-step="2 3"/>
@@ -153,8 +153,8 @@ Photoshop MCP integrations aren't a new idea — the community already has more 
 |---|---|---|
 | Platform | macOS only | Windows + macOS |
 | Tool count | ~20 (covers common editing operations) | 128 (includes one-shot "recipes") |
-| Auto checkpoint before edits | ✅ (history snapshot + layered disk backup) | Relies on Photoshop's native undo |
-| Document pinning (prevents wrong-file edits) | ✅ | Not documented |
+| Auto checkpoint before edits | ✓ (history snapshot + layered disk backup) | Relies on Photoshop's native undo |
+| Document pinning (prevents wrong-file edits) | ✓ | Not documented |
 | Telemetry/analytics by default | None | Anonymous usage analytics on by default (can be disabled) |
 | Built-in chat UI | None — needs an MCP client | Yes (`npx ... ui`) |
 | Community adoption | Just released, 0 stars | Listed on the MCP Registry, multilingual docs and contributors |

@@ -14,7 +14,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape)
+> :globe: [中文版](/posts/marketing/2026-04-21-aeo-geo-tracking-tools-landscape)
 
 AEO / GEO tools have grown from "SEO vendor add-on features" into a fully independent category over the past two years. The motivation is straightforward: Google search still matters, but more and more users are asking ChatGPT, Perplexity, Gemini, and Claude directly, getting synthesized answers — and whether your brand appears in those answers, where it ranks, and whose content gets cited are completely invisible to traditional SEO metrics.
 

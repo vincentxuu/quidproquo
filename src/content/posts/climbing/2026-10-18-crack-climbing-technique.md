@@ -30,7 +30,7 @@ glossary:
     context: "可以剪開手腕內側脫下，下次套回去再纏一次手腕就能重複用。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-crack-climbing-technique-en)
+> :globe: [English version](/posts/climbing/2026-10-18-crack-climbing-technique-en)
 
 第一次在龍洞爬裂隙的人，常有一樣的感想。台灣攀岩者 elliotway 在[介紹 Wild Country 裂隙教學影片的文章](https://elliotway.blogspot.com/2012/06/wild-country-crack-school.html)裡寫：一般攀岩是用抓、拉往上爬，爬裂隙則要「去戳、去擠、去塞」。他說指南上寫得超簡單的路線，在龍洞爬起來卻「機機歪歪的」。
 

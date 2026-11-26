@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ably-realtime-messaging-en)
+> :globe: [English version](/posts/tech/2026-08-22-ably-realtime-messaging-en)
 
 [Ably](https://ably.com/docs) 是 managed realtime messaging platform。Client 維持 Realtime connection，對 channel publish/subscribe，平台處理全球 routing、connection recovery、presence 與 history。它省掉 WebSocket fleet 和跨區 fan-out，不會替 application 定義哪一筆事件是 business truth。
 
@@ -29,7 +29,11 @@ Ably connection state 與 message serial 能支援暫時斷線恢復；超出 re
 
 History 可供短期 replay 與除錯，但 retention、pagination、ordering 和費用要核對 plan。若事件必須多年保存或驅動不可逆 workflow，先寫 durable database/log，再以 Ably 發通知；publish 成功也要處理 DB write 與 event publish 的 dual-write，通常用 outbox。
 
-Ably 適合全球 fan-out、device/mobile reconnect、presence 與不想自營 connection infrastructure 的團隊。Socket.IO 適合自架 Node event runtime；PartyKit/Durable Objects 適合 per-room code 與 state；Liveblocks 提供更高階 collaboration primitives。驗收包含 token renewal、capability deny、duplicate、gap、slow consumer、region/provider outage、history expiry、presence ghost 與成本上限。
+Ably 適合全球 fan-out、device/mobile reconnect、presence 與不想自營 connection infrastructure 的團隊。Socket.IO 適合自架 Node event runtime；[PartyServer（原 PartyKit）](/posts/tech/2026-08-22-partykit-realtime-rooms)/Durable Objects 適合 per-room code 與 state；Liveblocks 提供更高階 collaboration primitives。驗收包含 token renewal、capability deny、duplicate、gap、slow consumer、region/provider outage、history expiry、presence ghost 與成本上限。
+
+## 更新紀錄
+
+- 2026-11-23：PartyKit 託管平台已於 2026-10-23 關閉，比較對象改為後繼的 PartyServer
 
 ## 參考資料
 

@@ -26,7 +26,7 @@ glossary:
     context: "Used in this post for narrow starting ledges or a big weight difference."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-outdoor-belay)
+> :globe: [中文版](/posts/climbing/2026-10-17-outdoor-belay)
 
 You can belay in the gym, you can lower, and you passed the belay test. The first time you go to a crag with a friend, the moves are the same but everything around them changes. The ground isn't padded, rocks can fall, you have to look up how tall the wall is, and you may not hear what your partner yells from 30 meters up.
 

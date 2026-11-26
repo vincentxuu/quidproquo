@@ -28,6 +28,14 @@ export const DAILY_CHANNELS = [
     tags: ['weekly'],
   },
   {
+    id: 'monthly',
+    group: 'briefings',
+    label: '月報',
+    labelEn: 'Monthly report',
+    seriesNames: ['AI Agent 月報', 'AI Agent Monthly Report'],
+    tags: ['monthly'],
+  },
+  {
     id: 'region',
     group: 'briefings',
     label: '區域專題',

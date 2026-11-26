@@ -13,7 +13,7 @@ description: "A guide to Rocche del Crasto: the single pitches and multi-pitch o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-rocche-del-crasto)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-rocche-del-crasto)
 
 Rocche del Crasto is in the Nebrodi mountains of Messina province, in north-east Sicily. The Nebrodi are mostly sandstone hills; this cluster of limestone peaks is the exception. [UKC's Sicily guide](https://www.ukclimbing.com/articles/destinations/sicily-14498) lists "the wild Rocche del Crasto" among the multi-pitch areas in the east of the island, and the [official Sicilian tourism site](https://www.visitsicily.info/en/climbing-and-dws-in-sicily/) says that it and neighbouring Rocca Calanna and Rocca Traura are "immersed in rugged wild terrain, where eagles and griffons hover undisturbed".
 

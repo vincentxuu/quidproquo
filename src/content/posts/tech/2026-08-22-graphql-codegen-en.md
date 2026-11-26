@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-graphql-codegen)
+> :globe: [中文版](/posts/tech/2026-08-22-graphql-codegen)
 
 [GraphQL](https://graphql.org/learn/) lets clients select fields through queries while one server schema exposes types, fields, and operations. Converting the whole schema to TypeScript is insufficient because each query determines its own response shape. [GraphQL Code Generator](https://the-guild.dev/graphql/codegen/docs/getting-started) compiles schema and documents together into variables, results, typed documents, and resolver types.
 

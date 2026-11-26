@@ -14,7 +14,7 @@ series:
   order: 20
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-alert-triage)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-alert-triage)
 
 Alice’s request for S-1 receives 403. A security assistant suggests, “No data leaked; this is a false positive and can close.” It skipped the alert definition. Was the detector looking for successful disclosure, or unauthorized access attempts? A blocked attempt may be a valid alert under the latter definition.
 

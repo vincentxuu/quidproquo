@@ -15,7 +15,7 @@ glossary:
     def: "Moonshot AI 推出的對話與 agent 模型家族，K3.1 Pro 為 K3 的後訓練旗艦版本"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-model-moonshot-ai-kimi-k3-1-pro-en)
+> :globe: [English version](/posts/daily/2026-10-30-model-moonshot-ai-kimi-k3-1-pro-en)
 
 ## 模型資訊
 
@@ -50,7 +50,7 @@ glossary:
 | GDPval-AA（Elo，AA 獨立測試） | 1,846（第三） | 1,534 | Claude Opus 5.5 1,866 |
 | BenchCAD with tools（Moonshot 自測） | 92.7% | 未列出 | Claude Opus 5.5 96.2%、GPT-6 Astra 95.9% |
 
-⚠️ Terminal-Bench 4.0（Moonshot 自測版）、BenchCAD、OfficeQA Pro v2、xdev-bench-hard 均為 Moonshot 官方自測，尚無第三方獨立複現；Terminal-Bench 4.0（獨立版）、Intelligence Index、GDPval-AA 為 Artificial Analysis 第三方平台獨立測得。兩家對同一題 Terminal-Bench 4.0 給出不同分數（67% vs 65.7%），測試 harness 與設定不同，結果不能直接相加比較。
+:warning: Terminal-Bench 4.0（Moonshot 自測版）、BenchCAD、OfficeQA Pro v2、xdev-bench-hard 均為 Moonshot 官方自測，尚無第三方獨立複現；Terminal-Bench 4.0（獨立版）、Intelligence Index、GDPval-AA 為 Artificial Analysis 第三方平台獨立測得。兩家對同一題 Terminal-Bench 4.0 給出不同分數（67% vs 65.7%），測試 harness 與設定不同，結果不能直接相加比較。
 
 ```diagram
 title: Kimi K3.1 Pro 在 Intelligence Index 上追到只差 Claude Opus 5.5 2.5 分

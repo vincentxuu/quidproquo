@@ -10,7 +10,7 @@ description: "How to diagnose and resolve Cloudflare intercepting all requests w
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-15-cloudflare-origin-health-check-502)
+:globe: [中文版](/posts/tech/2026-03-15-cloudflare-origin-health-check-502)
 
 ## TL;DR
 

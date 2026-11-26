@@ -28,7 +28,7 @@ glossary:
     context: "In A1 Part 3, run_python lets a chess search make hundreds of simulate_move calls in one step."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -223,11 +223,12 @@ Official sources:
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-Checked on 2026-10-10.
+Checked on 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

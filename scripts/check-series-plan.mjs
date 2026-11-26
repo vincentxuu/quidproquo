@@ -70,9 +70,30 @@ export function researchProblems(text, exists = existsSync) {
   return miss;
 }
 
-export function reviewProblems(text) {
-  return REVIEW_REQUIRED.filter(([, re]) => !re.test(text)).map(([label]) => label);
+// 書籍導讀（tags 含 reading-guide）另需「## 冷讀」：只給子代理正文，答得出事件／論點、作者與研究的差異、
+// 讀完能做什麼與系列收穫。審稿者讀過研究筆記看不出缺口，Mackay 篇三節全綠仍被讀者說「沒頭沒尾」（2026-11-20）。
+// 規則：.agents/skills/post/references/book-guide-contract.md「冷讀」。只在指定檔案（pre-commit）時查，舊文改到才補。
+const COLD_READ = ['## 冷讀', /^##\s*冷讀/m];
+
+// 書籍導讀的審稿紀錄不准留「能研究卻沒做」的缺口：寫了已知缺口、未處理、待補、另外研究的那一行，
+// 同一行要附「已試：<試過的工具／來源>」或「使用者同意不補」。2026-11-23 Mackay 篇把工資尺度與反方研究
+// 列成「已知缺口（需要另外研究）」交給使用者，被問「不處理的原因？」——兩項都查得到，只是沒做。
+// 只看條列開頭的缺口標籤與「需要另外研究」：正文轉述「書評說原書未處理某事」不算。
+const OPEN_GAP = /^\s*[-*]\s*\**\s*(已知缺口|未處理|待補|之後再補|尚未研究|未研究)|需要另外研究/;
+const GAP_JUSTIFIED = /(已試[：:]|使用者同意不補)/;
+
+export function openGaps(text) {
+  return text.split('\n').filter((l) => OPEN_GAP.test(l) && !GAP_JUSTIFIED.test(l)).map((l) => l.trim().slice(0, 60));
 }
+
+export function reviewProblems(text, { coldRead = false } = {}) {
+  const required = coldRead ? [...REVIEW_REQUIRED, COLD_READ] : REVIEW_REQUIRED;
+  const miss = required.filter(([, re]) => !re.test(text)).map(([label]) => label);
+  if (coldRead) for (const g of openGaps(text)) miss.push(`沒做完的缺口（補完，或同一行寫「已試：…」／「使用者同意不補」）：${g}`);
+  return miss;
+}
+
+const isBookGuide = (text) => /^tags:.*\breading-guide\b/m.test(text.match(/^---\n([\s\S]*?)\n---/)?.[1] ?? '');
 
 function seriesNameOf(text) {
   const fm = text.match(/^---\n([\s\S]*?)\n---/);
@@ -112,11 +133,12 @@ function run(files, explicit) {
   const reviewed = explicit ? gated : gated.filter((s) => !rewriting.has(s.slug));
   const nameToSlug = new Map(reviewed.flatMap((s) => s.names.map((n) => [n, s.slug])));
   for (const f of files) {
-    const series = seriesNameOf(readFileSync(f, 'utf8'));
+    const postText = readFileSync(f, 'utf8');
+    const series = seriesNameOf(postText);
     if (!series || !nameToSlug.has(series)) continue;
     const review = join(REVIEWS, `${postSlug(f)}.md`);
     if (!existsSync(review)) { errors.push(`${f} 沒有審稿紀錄 ${review}（post-verify＋post-review＋post-polish）`); continue; }
-    const miss = reviewProblems(readFileSync(review, 'utf8'));
+    const miss = reviewProblems(readFileSync(review, 'utf8'), { coldRead: explicit && isBookGuide(postText) });
     if (miss.length) errors.push(`${review} 缺：${miss.join('、')}`);
   }
   return { errors, gated: gated.length };
@@ -137,6 +159,15 @@ function selfTest() {
   assert(researchProblems('`.work/research/a-b/research-note.md`', () => true).length === 1, '缺五關判準會擋');
   assert(reviewProblems('## post-verify\n## post-review\n## post-polish').length === 0, '三節齊全的審稿紀錄通過');
   assert(reviewProblems('## post-verify\n只做了查證').length === 2, '只有查證會擋');
+  assert(reviewProblems('## post-verify\n## post-review\n## post-polish', { coldRead: true }).length === 1, '書籍導讀缺冷讀會擋');
+  assert(reviewProblems('## post-verify\n## post-review\n## post-polish\n## 冷讀\n- a', { coldRead: true }).length === 0, '書籍導讀有冷讀通過');
+  assert(openGaps('- 未處理：金額沒有工資尺度').length === 1, '未附理由的缺口會被抓');
+  assert(openGaps('- 已知缺口：某書付費牆（已試：Exa、Tavily、jina、Firecrawl）').length === 0, '附已試的缺口通過');
+  assert(openGaps('- 待補：中譯本比對（使用者同意不補）').length === 0, '使用者同意不補的缺口通過');
+  assert(openGaps('- 兩側書評（Chu：軼事、專家分歧未處理）✅').length === 0, '轉述內容裡的「未處理」不算缺口');
+  assert(openGaps('兩項都需要另外研究，你要補的話跟我說').length === 1, '「需要另外研究」會被抓');
+  assert(reviewProblems('## post-verify\n## post-review\n## post-polish\n## 冷讀\n- 未處理：反方研究', { coldRead: true }).length === 1, '書籍導讀有未處理缺口會擋');
+  assert(isBookGuide('---\ntags: [series, reading-guide]\n---\n') && !isBookGuide('---\ntags: [x]\n---\nreading-guide'), '只看 frontmatter tags 判斷書籍導讀');
   assert(postSlug('src/content/posts/tech/2026-10-13-x-en.md') === '2026-10-13-x', '中英共用審稿紀錄');
   assert(seriesNameOf('---\ntitle: t\nseries:\n  name: "A B"\n  order: 1\n---\n') === 'A B', '讀 frontmatter 的系列名');
   assert(seriesNameOf('---\ndraft: true\nseries:\n  name: "A B"\n---\n') === null, '草稿不檢查');

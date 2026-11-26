@@ -269,7 +269,7 @@ Allow: /
 | **最適合** | RAG pipeline、LangChain 整合 | 自建、隱私優先團隊 | 快速原型 |
 | **AI 萃取** | Schema-based | 支援 local LLM | 有限 |
 | **Anti-Bot** | 付費方案支援 | 要自己處理 | 有限 |
-| **MCP Server** | ✅ | ✅（Docker 部署內含，見 [README](https://github.com/unclecode/crawl4ai)） | ✅ |
+| **MCP Server** | ✓ | ✓（Docker 部署內含，見 [README](https://github.com/unclecode/crawl4ai)） | ✓ |
 
 **這裡刻意不寫價格**：三家的免費額度與價格帶在這一年內都改過不只一次，寫死只會誤導。要決策請直接看各家 pricing 頁。真正該拿來取捨的是這三件事：
 

@@ -21,7 +21,7 @@ glossary:
     context: "This post uses it to explain why performing well and understanding have to be measured separately."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)
+> :globe: [中文版](/posts/ai/2026-09-29-cs224u-intro-evolution-of-nlu)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

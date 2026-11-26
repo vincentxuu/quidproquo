@@ -14,7 +14,7 @@ series:
   order: 43
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-rag-token-quota-system-en)
+> :globe: [English version](/posts/ai/2026-03-12-rag-token-quota-system-en)
 
 LLM API 是按 token 計費的，不控制用量就是讓成本自由生長。RAG 系統的配額設計看起來簡單，但細節很多。
 

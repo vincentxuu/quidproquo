@@ -5,7 +5,7 @@ category: ai
 type: deep-dive
 tags: [composio, ai-agent, oauth, mcp, tool-use, multi-tenant]
 lang: zh-TW
-tldr: "站上把 MCP 寫得很齊，卻從沒寫過它下面那一層：agent 要代表一萬個終端使用者去讀他們各自的 Gmail 時，refresh token 存在誰家、怎麼更新、怎麼撤銷。Composio 是這層目前最完整的一家——SDK 是 MIT，執行與託管 OAuth 是雲端服務；官方自稱 1,000+ toolkit，但託管 OAuth 清單實際列出 121 個，另外 96 個要你自備憑證。2026-08-15 起的新價目：免費 10 萬次 tool call、Pro $29/月。這篇拆它的授權模型到可操作的深度，並劃出「自己接 MCP server」與「用整合平台」的分界。"
+tldr: "站上把 MCP 寫得很齊，卻從沒寫過它下面那一層：agent 要代表一萬個終端使用者去讀他們各自的 Gmail 時，refresh token 存在誰家、怎麼更新、怎麼撤銷。Composio 是這層目前最完整的一家——SDK 是 MIT，執行與託管 OAuth 是雲端服務；官方自稱 1,700+ toolkit，但支援 OAuth 的 toolkit 裡，託管 OAuth 清單實際列出 133 個，另外 315 個要你自備 OAuth app。2026-08-15 起的新價目：免費 10 萬次 tool call、Pro $29/月；託管 app 的超量費 2026-11-03 起改成依 app 分級。這篇拆它的授權模型到可操作的深度，並劃出「自己接 MCP server」與「用整合平台」的分界。"
 description: "Composio 深入介紹：user ID / auth config / connected account 三層授權模型、託管 OAuth 與自備 OAuth app 的分野、撤銷與退場路徑、Connect Link 的 OAuth session fixation 防護，以及 2026-08 實查的定價與選型判準。"
 series:
   name: "AI 時代的技術選擇"
@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/ai/2026-08-21-composio-agent-tool-integration-en)
+:globe: [English version](/posts/ai/2026-08-21-composio-agent-tool-integration-en)
 
 這個站把 MCP 這條線寫得算齊。[協定本身](/posts/ai/2026-03-22-mcp-model-context-protocol)、[Playwright](/posts/tech/2026-06-20-playwright-mcp) 與 [Chrome DevTools](/posts/tech/2026-06-20-chrome-devtools-mcp) 兩支瀏覽器 server、[把自己的爬蟲包成 MCP server](/posts/tech/2026-03-20-mcp-server-job-scraper)、[Claude Code 怎麼掛](/posts/tech/deep-dive/2026-03-28-claude-code-mcp-server-integration)、[協定層之間怎麼分工](/posts/ai/2026-08-10-mcp-a2a-skills-protocol-layer)，都有專文。
 
@@ -31,7 +31,7 @@ draft: false
 
 **不開源的是執行面。** 託管 OAuth、憑證保管、tool 目錄、dashboard、沙箱都在 Composio 的雲上，官方文件裡我沒有查到自架路徑。
 
-規模數字要分兩層看。「1,000+ toolkits」出現在首頁、README 與價目表，是廠商自稱。可以獨立核對的是[託管認證清單](https://docs.composio.dev/toolkits/managed-auth)這一頁。它列出 **121 個** Composio 已經替你註冊好 OAuth app 的 toolkit，Gmail、Slack、GitHub、Notion、Salesforce、HubSpot 都在裡面。另外 **96 個**必須你自備憑證，包括 Shopify、Snowflake、ServiceNow、Twitter、Xero。
+規模數字要分兩層看。「1,700+ toolkits」出現在價目表等官方頁面，是廠商自稱。可以獨立核對的是[託管認證清單](https://docs.composio.dev/toolkits/managed-auth)這一頁，它只列支援 OAuth 的 toolkit（只用 API key、bearer token 或不需認證的不在內）。其中 **133 個**是 Composio 已經替你註冊好 OAuth app 的，Gmail、Slack、GitHub、Notion、Salesforce、HubSpot 都在裡面；另外 **315 個**必須你自備 OAuth app，包括 Shopify、Snowflake、ServiceNow、Twitter、Xero。
 
 這頁只涵蓋有認證概念的 toolkit，不等於全部目錄。但它是唯一一個能逐條數的數字。
 
@@ -82,7 +82,7 @@ session 這個概念本身也是為了 context 而生。它預設不把幾百個
 
 還有一條混合路徑值得知道：你可以把**自己已經跑完 OAuth 拿到的 access token**，以 `BEARER_TOKEN` scheme 匯入成 connected account。這條路適用於所有支援 OAuth2 的 toolkit。但代價寫在文件上：「既然 token 是你提供的，Composio 不會處理 OAuth 更新。你要自己在你那邊更新，並在每次變動時用 PATCH 推新值過來。」換句話說，**你可以只買工具目錄不買授權託管**，但那樣就等於自己扛 refresh 迴圈。
 
-**怎麼做**：今晚就能決定的一件事——列出你要接的前五個 toolkit，逐個去[託管認證清單](https://docs.composio.dev/toolkits/managed-auth)查它在 121 那組還是 96 那組。落在 96 那組的，你本來就得註冊自己的 OAuth app，那託管認證的省事優勢對你的專案其實不存在。
+**怎麼做**：今晚就能決定的一件事——列出你要接的前五個 toolkit，逐個去[託管認證清單](https://docs.composio.dev/toolkits/managed-auth)查它在 133 那組還是 315 那組。落在 315 那組的，你本來就得註冊自己的 OAuth app，那託管認證的省事優勢對你的專案其實不存在。
 
 ## 撤銷、過期、與退場
 
@@ -142,7 +142,7 @@ claude mcp add --scope user --transport http composio \
 
 ## 價目表（2026-08-15 起）
 
-Composio 在 2026-08-15 換了新價目。以下是[官方價目頁](https://composio.dev/pricing)實查的內容：
+Composio 在 2026-08-15 換了新價目。以下是 [SDK 平台的官方價目頁](https://composio.dev/pricing/platform)的內容（`composio.dev/pricing` 現在是給一般使用者的 seat 方案，不是這張表）：
 
 | 項目 | Free | Pro（$29/月） | 超量 |
 |---|---|---|---|
@@ -153,13 +153,21 @@ Composio 在 2026-08-15 換了新價目。以下是[官方價目頁](https://com
 | 團隊成員 | 3 人 | 無限 | — |
 | log 保留 | 7 天 | 30 天 | Enterprise 可客製 |
 
-兩個時程要記：既有客戶留在原方案到 2026-12-31；premium tool 的計費從 2026-09-01 起對所有人生效。
+兩個時程要記：既有客戶留在原方案到 2026-12-31；instant tool（舊稱 premium tool）的計費從 2026-09-10 起對所有人生效，包括 08-15 前註冊的客戶。
 
-用 Composio 託管的 OAuth app 另有一組**較貴、且吃同一個免費額度**的費率。十萬次免費額度裡，最多兩萬次能走託管 app，之後每次 $0.0005；連線數超過一千個之後每個 $0.10。這條設計把「省事」明碼標價了——不註冊自己的 OAuth app，你的免費額度直接砍到五分之一。
+用 Composio 託管的 OAuth app 另有一組**較貴、且吃同一個免費額度**的費率。十萬次免費額度裡，最多兩萬次能走託管 app；Pro 超過之後依 app 分三級計價（2026-11-03 起註冊的帳號適用）：
+
+| 託管 app 的 tool call | 每次 |
+|---|---|
+| Salesforce、YouTube、Reddit、Google Ads、QuickBooks、LinkedIn 等 | $0.01 |
+| Gmail、Google Calendar、Google Drive、Slack、HubSpot、Jira、Microsoft Teams 等 | $0.002 |
+| 其餘託管 app | $0.0005 |
+
+連線數超過一千個之後每個一次性收 $0.10；託管 app 的 trigger 事件每月一萬次免費，之後 polling 型（Gmail、Google Sheets）每次 $0.006、realtime 型（Slack、Jira）每次 $0.003。這條設計把「省事」明碼標價了：不註冊自己的 OAuth app，免費額度直接砍到五分之一，超量後最貴的一級是自備 app（$0.0003）的三十多倍。Composio 自己的說法也很直接：託管 app 能上 production，但不是為 production 規模設計，規模大了要換成自己的 OAuth app。
 
 還有兩個容易被忽略的加購。零資料留存（ZDR）是 Pro 以上的加購，按 tool call 與 trigger 事件各收一筆；在 session 之外做 direct execution 也要加錢。Free 方案是硬上限，撞到就停到下個月，不會產生帳單。
 
-premium tool 走成本轉嫁：Composio 說它「原價轉嫁再加 5% 平台費，不另外加價」。清單裡包含 Browser Use、Veo 影片生成，以及 [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents) 與 Tavily 的搜尋。Exa 那條可以對帳：Composio 開約 $0.008 一次，而系列前一篇查到 Exa 直接買是 $7/千次——轉嫁那 5% 對得上。
+instant tool 是用 Composio 自己的供應商帳號代跑，你不必另外申請 API key，費用從 Composio 餘額扣。官方現在寫的是供應商費用 **0% markup**，但每次照樣算一般的 tool call 費。清單裡包含 Browser Use，以及 [Exa](/posts/ai/2026-08-21-exa-neural-search-for-agents) 與 Tavily 的搜尋。Exa 那條可以對帳：Composio 標 Exa search 每次 $0.007，跟系列前一篇查到的 Exa 直接買 $7/千次相同。
 
 ## 自己接 vs 用平台：分界在哪
 
@@ -191,10 +199,14 @@ Composio 沒有轉型也沒有被併購，它現在是這一層最完整、文�
 
 但它賣的東西要看清楚：**開源的是 SDK，護城河是那一億份 token 的保管與更新**。你買的不是「不用懂 OAuth」，你買的是「不用把 OAuth 的維運乘以整合數再乘以使用者數」。這兩句話的差別，會在你第一次要回答「請把某位使用者的所有授權撤乾淨」的時候顯現出來。
 
+## 更新紀錄
+
+- 2026-11-23：價目連結改指 `composio.dev/pricing/platform`（原連結現在是一般使用者的 seat 方案）；託管 app 超量費從一律 $0.0005 改成 2026-11-03 起依 app 分三級（$0.01／$0.002／$0.0005），補上託管 trigger 費率；premium tool 改名 instant tool，計費生效日更正為 2026-09-10，轉嫁規則改為 0% markup；toolkit 數更新為 1,700+，託管認證清單更新為 133 個託管、315 個要自備 OAuth app。
+
 ## 參考資料
 
 - [Composio 官網](https://composio.dev/)
-- [Composio 價目表](https://composio.dev/pricing)（2026-08-21 讀取；新價目自 2026-08-15 生效）
+- [Composio 平台價目表](https://composio.dev/pricing/platform)（新價目自 2026-08-15 生效；託管 app 依 app 分級自 2026-11-03 起）
 - [ComposioHQ/composio（GitHub，MIT）](https://github.com/ComposioHQ/composio)
 - [Authentication — Composio Docs](https://docs.composio.dev/docs/authentication)
 - [What is a session? — Composio Docs](https://docs.composio.dev/docs/how-composio-works)

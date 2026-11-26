@@ -13,7 +13,7 @@ description: "A guide to Lumignano: rock and sector sizes, seasons, the SVT bus 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-italy-crag-lumignano)
+> :globe: [中文版](/posts/climbing/2026-10-18-italy-crag-lumignano)
 
 Lumignano is a village in the comune of Longare, in the province of Vicenza in the Veneto, at the eastern foot of the [Colli Berici](https://colliberici.it/en/the-berici-s-hills/sport) (Berici Hills). Above the village runs a long band of limestone streaked red, orange and grey. [Planetmountain](https://planetmountain.com/en/crags/lumignano.html) calls it "one of the most important crags in Northern Italy", and says that in the 1980s, as modern sport climbing began, Lumignano Classica was "the focal point for many of the best climbers in the world".
 

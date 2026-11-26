@@ -13,7 +13,7 @@ description: "Stanford CS224U（Spring 2023）NLP methods 單元後半段導讀�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-datasets-model-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

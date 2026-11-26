@@ -14,13 +14,18 @@ description: "依實體頁碼帶讀 CS329Z Lecture 05 Frameworks & Orchestration
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 77 分鐘；本文依公開投影片與指定讀物整理，並已依錄影字幕核對各節起點。
 
 第 5 堂（10/7，Frameworks & Orchestration）在學生剛開始手刻 HW1 時，回頭看框架：DSPy 的 signature、module 與 optimizer，LangGraph 的 state、node 與 edge，再巡一遍 mini-SWE-agent、OpenHands、Pi 等開源 harness、Temporal 的 durable orchestration 與觀測工具。週五（10/9）要交 project proposal。
 
 指定讀物有 Khattab 等人的 [DSPy](https://arxiv.org/abs/2310.03714)、LangGraph 文件與 Arena 的 HarnessTax。本文深讀 DSPy：prompt 模板從手工藝變成可編譯、可優化的程式。一邊手刻、一邊讀框架論文，這堂的張力就在這裡。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=q0Q-Hy8TTps
+title: DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan
+```
 
 ## Lecture 05 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–18 頁：工程的三根支柱：資料、系統與評估
 
+[錄影 00:00–08:00](https://www.youtube.com/watch?v=q0Q-Hy8TTps)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=1" data-slide-page="1">投影片第 1–18 頁</a>
 
 開頭用手寫 backprop 與 PyTorch 的差異比喻框架：抽象能省工，仍要知道底層做了什麼。課堂把資料、system／model、evaluation／metric 畫成三根支柱，再依控制流程從 model、workflow 到 agent 排出框架位置。觀測與可靠執行工具又是另一層。
@@ -39,6 +46,8 @@ draft: false
 選型時先列出自己缺哪一層：是模型呼叫介面、可組合流程、agent harness，還是失敗後可恢復的執行？把這幾件事都叫「agent framework」，容易選到功能很多卻無法回答自己問題的工具。
 
 ### 第 19–51 頁：DSPy：契約、組合與可量測的優化
+
+[錄影 08:00–42:21](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=480s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=19" data-slide-page="19">投影片第 19–51 頁</a>
 
@@ -48,6 +57,8 @@ Signature 宣告輸入輸出，module 決定如何完成契約，optimizer 在�
 
 ### 第 52–77 頁：LangGraph：共享 state 與明確控制流
 
+[錄影 42:21–55:36](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=2541s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=52" data-slide-page="52">投影片第 52–77 頁</a>
 
 State 是節點共同讀寫的工作區，node 是讀寫 state 的函式，edge 決定下一步；conditional edge 讓結果導向不同分支。課堂先逐格畫出 start／end 與節點，再展示 LLM 和 tools 形成迴圈。Agent 的模型決策仍被放在程式定義的圖與狀態裡。
@@ -55,6 +66,8 @@ State 是節點共同讀寫的工作區，node 是讀寫 state 的函式，edge 
 自擬練習可把查信、摘要、等待確認拆成節點，讓「未確認不得寄出」成為可檢查的 state 與分支條件。比較 DSPy 時應問哪種抽象更適合自己的控制需求，而非把兩者當成所有功能一一對應的替代品。
 
 ### 第 78–89 頁：Harness 把工具、歷史與執行方式定下來
+
+[錄影 55:36–62:18](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=3336s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=78" data-slide-page="78">投影片第 78–89 頁</a>
 
@@ -66,6 +79,8 @@ Mini-SWE-agent、OpenHands、Pi 與 OpenClaw 展示不同取捨。投影片比�
 
 ### 第 90–122 頁：Temporal 與 telemetry：失敗後怎麼繼續
 
+[錄影 62:18–67:45](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=3738s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=90" data-slide-page="90">投影片第 90–122 頁</a>
 
 [第 92–93 頁](https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=92)先交代為什麼需要這一層：agent 能連續工作的時間越來越長，跑到一半當機或 API 逾時，前面做完的步驟就白費；沒有紀錄，也無從除錯。這些是軟體工程早就學過的教訓，搬到 agent 上同樣成立。Temporal 把 workflow 與會失敗的 activity 分開，由 server 保存執行歷史、佇列與狀態，worker 執行工作。備用 demo 畫面接著示範 retry 與 server 管理的時間。MLflow、LangSmith 與 Langfuse 則放在觀測端，用來追查呼叫與狀態。
@@ -73,6 +88,8 @@ Mini-SWE-agent、OpenHands、Pi 與 OpenClaw 展示不同取捨。投影片比�
 可靠重試仍要考慮副作用。本文自擬的寄信流程如果 API 已收件但回應遺失，直接重跑可能重複寄出；應保存操作識別與執行結果，確認可否安全重試。這是從課堂機制延伸的工程檢查，不是 Temporal 自動保證任何外部操作只發生一次。
 
 ### 第 123–132 頁：用 trace 與自己的任務評估選型
+
+[錄影 67:45–77:14](https://www.youtube.com/watch?v=q0Q-Hy8TTps&t=4065s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture05.pdf#page=123" data-slide-page="123">投影片第 123–132 頁</a>
 
@@ -146,10 +163,15 @@ DSPy 論文的開場白很嗆：現在的模型管線全是硬編碼提示模板
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan](https://www.youtube.com/watch?v=q0Q-Hy8TTps)（Stanford Online 頻道，2026-11-13 上架，全片約 77 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影字幕核對各節起點。
+- 內容核對：已依字幕核對（2026-11-19）：以 YouTube 上傳字幕核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-19：Stanford Online 於 2026-11-13 公開上架本堂錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-19：以錄影字幕核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 5（10/7 週三）的內容，原屬「第 3 週：工具接進來，框架拆開看」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：對照 Lecture 04／05 投影片重核各節頁碼；補上工具失敗三層分類與 τ-bench 版本演進（L04 第 64–67 頁）、同模型換 harness 的成功率差距與 Meta-Harness（L05 第 86–88 頁），以及需要 durable orchestration 的理由（L05 第 92–93 頁）。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。

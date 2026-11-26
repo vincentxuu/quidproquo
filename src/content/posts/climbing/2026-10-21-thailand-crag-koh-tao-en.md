@@ -13,7 +13,7 @@ description: "A Koh Tao climbing guide: the spread of granite bouldering and spo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-thailand-crag-koh-tao)
+> :globe: [中文版](/posts/climbing/2026-10-21-thailand-crag-koh-tao)
 
 Koh Tao is an island off Suratthani in southern Thailand, where the ferries and the diving are the main trade. **For climbers, though, it is Thailand's only genuine granite bouldering destination** — theCrag logged 496 routes on 21 October 2026, graded with the Font bouldering system from 1A+ up to 8A+.
 

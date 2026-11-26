@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-sandbox-product-landscape)
+> :globe: [中文版](/posts/tech/2026-08-30-sandbox-product-landscape)
 
 ## What This Post Is
 
@@ -33,13 +33,13 @@ This post is the "cloud landscape" post (order 7) of the Sandbox Series. It does
 |----------|---------------|------------|---------------|-------------------|-----------|------------|
 | **E2B** | Firecracker microVM | ~150 ms | wall-clock | Coding agent, long tasks | pause/resume preserves memory, open-source runtime | No GPU, 24-hour session limit |
 | **Daytona** | Docker / Kata | ~90 ms | wall-clock | Parallel evaluation, snapshot fork | Snapshots & forks, long lifecycle | Open-source repo no longer maintained |
-| **Runloop** | microVM | ~150 ms | wall-clock | Evaluation, Blueprint workflow | Devbox blueprint, parallel Devboxes | Smaller ecosystem |
+| **Runloop** | microVM | ~150 ms | wall-clock | Evaluation, Blueprint workflow | Devbox blueprint, parallel Devboxes | Smaller ecosystem, roughly 2× E2B's unit price |
 | **Vercel Sandbox** | Firecracker microVM | ~1.8 s | active-CPU | Agents already on Vercel | Shortest integration path with Vercel ecosystem | Memory billing, persistence needs self-design |
-| **Cloudflare Sandboxes** | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare Workers ecosystem | Three-layer architecture (Worker + DO + Container) | Three-layer billing, persistent data needs self-design |
-| **Modal** | gVisor / microVM | sub-second | wall-clock (no idle charge) | GPU workloads, high concurrency | $300M–$1B ARR, GPU sandbox | Managed only, price ~3× function rate |
-| **AWS Bedrock AgentCore** | microVM | ~1–2 s | wall-clock | AWS-native agent | AWS ecosystem integration, Code Interpreter | AWS lock-in |
-| **Alibaba OpenSandbox** | gVisor | ~200 ms | wall-clock | Multi-language SDK (Python/Go/Java) | Alibaba Cloud ecosystem, BYOC | Less international region support |
-| **Azure Container Apps Sandboxes** | microVM | ~1–2 s | wall-clock | Azure-native agent | Microsoft ecosystem, lifecycle policy | Azure lock-in |
+| **Cloudflare Sandboxes** | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare Workers ecosystem | Three-layer architecture (Worker + DO + Container); SDK 1.0 can save snapshots | Three-layer billing, memory and processes don't survive across instances |
+| **Modal** | gVisor / microVM | sub-second | Higher of request and actual usage | GPU workloads, high concurrency | Sandboxes alone at ~$300M run rate, GPU sandbox | Managed only, priced at 3× the regular function rate |
+| **AWS Bedrock AgentCore** | microVM (Runtime) / container (Code Interpreter) | ~1–2 s | active-CPU | AWS-native agent | AWS ecosystem integration, Code Interpreter | AWS lock-in; Code Interpreter runs only Python / JS / TS |
+| **OpenSandbox** (open-sourced by Alibaba, now an AAIF project) | runc by default; gVisor / Kata / Firecracker optional | Firecracker creation P50 64 ms (official) | Open source, self-hosted, you pay for compute | Running on your own Docker / Kubernetes | SDKs in five languages, Credential Vault | You own the control plane and operations |
+| **Azure Container Apps Sandboxes** | microVM | under 1 s (official claim) | Per second while running; no compute charge when stopped | Azure-native agent | GA in 2026-09, memory snapshots, lifecycle policy | Azure lock-in |
 
 ---
 
@@ -47,7 +47,7 @@ This post is the "cloud landscape" post (order 7) of the Sandbox Series. It does
 
 Cloud sandbox pricing models fall into two main categories, directly affecting monthly cost:
 
-### 1. Wall-clock Billing (E2B, Daytona, Runloop, Modal, Bedrock AgentCore, OpenSandbox, Azure)
+### 1. Wall-clock Billing (E2B, Daytona, Runloop, Modal, Azure)
 
 Wall-clock billing charges for every second the sandbox is alive, regardless of whether CPU is busy.
 
@@ -55,11 +55,12 @@ Wall-clock billing charges for every second the sandbox is alive, regardless of 
 |----------|----------|-------------|--------------|
 | E2B | $0.000014 / vCPU-s | $0.0000045 / GiB-s | Per second |
 | Daytona | $0.000014 / vCPU-s | $0.0000045 / GiB-s | Per second |
-| Runloop | Similar to E2B | Similar to E2B | Per second |
-| Modal | $0.00003942 / core-s | $0.00000672 / GiB-s | Per second |
-| Bedrock AgentCore | AWS standard rates | AWS standard rates | Per second |
+| Runloop | $0.00003 / CPU-s | $0.000007 / GB-s | Per second |
+| Modal | $0.00003942 / core-s (1 core = 2 vCPU) | $0.00000667 / GiB-s | Per second |
 
-### 2. Active-CPU Billing (Vercel, Cloudflare)
+Modal is a special case: both CPU and memory are billed at the higher of your request and actual usage. The CPU request can go as low as 0.125 cores, so idle CPU is cheap, but memory is still billed for the whole lifetime. Azure bills per core-second and GiB-second while a sandbox runs and charges no compute once it is stopped. OpenSandbox is open-source and self-hosted, so it has no vendor rate.
+
+### 2. Active-CPU Billing (Vercel, Cloudflare, Bedrock AgentCore)
 
 Charges only for actual CPU time executing code, not I/O wait time.
 
@@ -67,6 +68,7 @@ Charges only for actual CPU time executing code, not I/O wait time.
 |----------|----------|-------------|--------------|---------|
 | Vercel | $0.128 / vCPU-hr | $0.0212 / GB-hr | Per hour | Only active CPU billed, memory billed by wall-clock |
 | Cloudflare | $0.072 / vCPU-hr | $0.009 / GiB-hr | Per 10 ms | Memory and disk billed by provisioned size |
+| Bedrock AgentCore Code Interpreter | $0.0895 / vCPU-hr | $0.00945 / GB-hr | Per second | No CPU charge during I/O wait; memory billed over the session |
 
 ---
 
@@ -76,27 +78,30 @@ This scenario simulates "burst interactive agent" workloads: each session lives 
 
 | Provider | Estimated Monthly Cost | Notes |
 |----------|----------------------|-------|
-| **Modal** | ~$36 | Almost no idle CPU charge, best for burst scenarios |
+| **Cloudflare** | ~$126 | Active CPU only; disk, Workers, and Durable Objects are extra |
+| **Bedrock AgentCore** | ~$139 | Code Interpreter skips CPU during I/O wait |
 | **Vercel** | ~$276 | Active-CPU billing skips wait time |
+| **Modal** | ~$315–$595 | About $315 with a 0.125-core CPU request, about $595 with a 1-core request; memory alone is about $240 |
 | **E2B / Daytona / Blaxel** | ~$414 | Full-duration billing, every second counts |
-| **Cloudflare** | Depends on provisioned size | 10 ms billing unit, suitable for extremely short executions |
 
-**Conclusion**: If your agent workload is "bursty, short execution, long wait," active-CPU billing (Vercel, Cloudflare) or no-idle-charge (Modal) will be much cheaper; if your workload is "long-running continuous execution," wall-clock billing providers (E2B, Daytona) are more suitable.
+**Conclusion**: If your agent workload is "bursty, short execution, long wait," active-CPU billing (Cloudflare, Bedrock AgentCore, Vercel) will be much cheaper; if your workload is "long-running continuous execution," wall-clock billing providers (E2B, Daytona) are more suitable.
 
 ---
 
 ## Cold Start & Resume Speed Comparison
 
+The table below is from the [ComputeSDK Burst TTI leaderboard](https://www.computesdk.com/benchmarks/sandboxes/burst-tti) run of November 20, 2026. TTI (time to interactive) is the time from the SDK's `create()` call to the first successful command inside the sandbox; each provider launches 100 sandboxes at once, and the benchmark reruns weekly.
+
 | Provider | Median TTI | P95 | P99 | Success Rate |
 |----------|-----------|-----|-----|--------------|
-| Daytona | 0.27 s | 0.43 s | 0.44 s | 37% |
-| Vercel | 0.67 s | 1.04 s | 1.12 s | 100% |
-| Modal | 0.88 s | 1.00 s | 1.08 s | 100% |
-| Runloop | 0.89 s | 3.27 s | 3.50 s | 100% |
-| E2B | 1.61 s | 1.77 s | 1.81 s | 100% |
-| Cloudflare | 5.06 s | 6.04 s | 6.48 s | 100% |
+| Vercel | 0.31 s | 0.46 s | 0.59 s | 100% |
+| Daytona | 0.48 s | 0.67 s | 0.69 s | 100% |
+| Modal | 0.66 s | 0.85 s | 0.88 s | 100% |
+| Cloudflare | 0.87 s | 1.12 s | 1.17 s | 100% |
+| E2B | 1.04 s | 1.33 s | 1.46 s | 100% |
+| Runloop | Not listed | — | — | — |
 
-**Daytona's success rate is lower (37%)** possibly due to test conditions, but its cold start speed is indeed industry-leading.
+Treat these numbers as a starting point only. The leaderboard reruns weekly, and rankings and success rates move from run to run; even within one run, some providers succeed on fewer than half of 100 launches, which makes a fast median meaningless. Method shapes the result too: launching 100 at once (burst) differs a lot from launching one at a time (sequential), and the metric covers only `create()` to the first command, not image size, region, warm pools, or snapshot restore. The cold-start column in the landscape table above is mostly vendor-stated, under differing conditions. Before choosing, measure with your own image, region, and expected concurrency, and look at P95/P99 and failure rate rather than the median alone.
 
 ---
 
@@ -105,7 +110,7 @@ This scenario simulates "burst interactive agent" workloads: each session lives 
 ```
 Starting point: Your agent workload characteristics
 │
-├─ Need GPU? ──→ Modal (GPU sandbox) or Bedrock AgentCore
+├─ Need GPU? ──→ Modal or Daytona (both offer GPU sandboxes)
 │
 ├─ Already in Vercel ecosystem? ──→ Vercel Sandbox (shortest integration path)
 │
@@ -115,7 +120,7 @@ Starting point: Your agent workload characteristics
 │
 ├─ Already in AWS ecosystem? ──→ Bedrock AgentCore
 │
-├─ Already in Alibaba Cloud ecosystem? ──→ Alibaba OpenSandbox
+├─ Want to self-host on your own Docker / Kubernetes? ──→ OpenSandbox
 │
 ├─ Need pause/resume preserving memory? ──→ E2B
 │
@@ -123,7 +128,7 @@ Starting point: Your agent workload characteristics
 │
 ├─ Need evaluation & Blueprint workflow? ──→ Runloop
 │
-├─ Bursty interactive, cost-sensitive? ──→ Modal or Vercel (active-CPU)
+├─ Bursty interactive, cost-sensitive? ──→ Cloudflare, Bedrock AgentCore, or Vercel (active-CPU)
 │
 └─ Other: Long tasks, no special ecosystem binding ──→ E2B or Daytona
 ```
@@ -140,6 +145,10 @@ Starting point: Your agent workload characteristics
 
 ---
 
+## Update Log
+
+- 2026-11-23: Recomputed the cost scenario from each vendor's pricing page (the original ~$36 estimate for Modal does not hold; now $315–$595; added Cloudflare and Bedrock AgentCore); moved Bedrock AgentCore to active-CPU; added Runloop's actual rates; OpenSandbox is now described as open-source and self-hosted (runc by default, gVisor / Kata / Firecracker optional, now under AAIF); Azure Container Apps Sandboxes reached GA in 2026-09; Cloudflare Sandbox SDK 1.0 can save snapshots; the GPU branch now points to Modal or Daytona; the cold-start table now uses ComputeSDK Burst TTI numbers from November 20, 2026, with the method's limits explained.
+
 ## References
 
 - [E2B Documentation](https://e2b.dev/docs)
@@ -148,9 +157,13 @@ Starting point: Your agent workload characteristics
 - [Vercel Sandbox](https://vercel.com/docs/sandbox)
 - [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
 - [Modal Sandbox Guide](https://modal.com/docs/guide/sandbox)
-- [AWS Bedrock AgentCore](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
-- [Alibaba OpenSandbox](https://www.alibabacloud.com/)
-- [Azure Container Apps Sandboxes](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
+- [AWS Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
+- [Amazon Bedrock AgentCore Pricing](https://aws.amazon.com/bedrock/agentcore/pricing/)
+- [OpenSandbox GitHub](https://github.com/opensandbox-group/OpenSandbox)
+- [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview)
+- [Modal Pricing](https://modal.com/pricing) and [Modal resources billing](https://modal.com/docs/guide/resources)
+- [Runloop Pricing](https://runloop.ai/pricing)
+- [ComputeSDK Sandbox Burst TTI Benchmarks](https://www.computesdk.com/benchmarks/sandboxes/burst-tti)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview-en)
 - [本站：E2B Agent Sandbox（order 8）](/posts/ai/2026-08-22-e2b-agent-sandbox-en)
 - [本站：Daytona Agent Sandbox（order 9）](/posts/ai/2026-08-22-daytona-agent-sandbox-en)

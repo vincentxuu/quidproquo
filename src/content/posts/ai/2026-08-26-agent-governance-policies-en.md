@@ -32,7 +32,7 @@ glossary:
     definition_en: "Credentials never enter the agent's memory; the egress proxy injects them only for allowed requests, reducing exfiltration and prompt-stealing risk."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-agent-governance-policies)
+> :globe: [中文版](/posts/ai/2026-08-26-agent-governance-policies)
 
 The last two posts positioned [Omnigent](https://github.com/omnigent-ai/omnigent): [part 1 covered Runner/Server/Omnibox and the Polly example](/posts/ai/2026-08-26-omnigent-meta-harness-en), [part 2 mapped four layers with ACP, HarnessAgent and Flue](/posts/ai/2026-08-26-meta-harness-layers-en). This one drills into the layer most often hand-waved as "just add an allowlist" — why [Omnigent](https://omnigent.ai/) models governance as Python functions, how spend and call caps work, why [Omnibox](https://omnigent.ai/docs/policies/os-sandbox) avoids Docker, and how five peers compare: [FailproofAI](https://github.com/FailproofAI/failproofai), [DashClaw](https://github.com/dashclaw/dashclaw), [custodian-kernel](https://github.com/custodian-kernel/custodian-kernel), [Microsoft agent-governance-toolkit](https://github.com/microsoft/agent-governance-toolkit) and [herdr](https://github.com/herdrdev/herdr).
 

@@ -13,7 +13,7 @@ series:
   order: 25
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-agent-teams-guide)
 
 This is the Agent Teams installment of the "Claude Code Deep Dives" series. [F1, the multi-agent overview](/posts/tech/deep-dive/2026-08-26-claude-code-multi-agent-overview), mapped the whole territory, and [D4 on sub-agents](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution) covered the lightweight way to parallelize; this post handles the heavyweight option — multiple Claude Code instances forming a long-lived team. The feature is experimental and disabled by default, and the official docs are upfront about its known limitations, so half of this post is about how to use it and the other half is about when not to.
 

@@ -10,7 +10,7 @@ description: "Agent 接了大量 MCP／Connector 工具後，從目錄過大、�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-16-agent-tool-search-at-scale-en)
+> :globe: [English version](/posts/ai/2026-10-16-agent-tool-search-at-scale-en)
 
 Agent 接的工具一多，最直覺的做法是把全部工具定義都送給模型。這樣做有兩個代價，[Claude 的 tool search 文件](https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool)寫得很直接。第一，同時可用的工具超過 30–50 支，Claude 挑對工具的能力就會下降。第二，context 被吃掉：接了 GitHub、Slack、Sentry、Grafana、Splunk 的典型設定，光工具定義就約 55k tokens。
 

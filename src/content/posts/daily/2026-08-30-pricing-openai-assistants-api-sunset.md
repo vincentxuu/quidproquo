@@ -12,7 +12,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
+> :globe: [English version](/posts/daily/2026-08-30-pricing-openai-assistants-api-sunset-en)
 
 ## 變更摘要
 
@@ -57,7 +57,7 @@ OpenAI 自己的通知期政策寫得很明白：GA 模型至少 6 個月通知�
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-08-26（已生效，非預告）。呼叫 `/v1/assistants`、`/v1/threads`、`/v1/threads/runs` 一律回傳錯誤，無降級模式、無延長選項。遷移指南：[Assistants migration guide](https://developers.openai.com/api/docs/assistants/migration)。
+:warning: **停用日期**：2026-08-26（已生效，非預告）。呼叫 `/v1/assistants`、`/v1/threads`、`/v1/threads/runs` 一律回傳錯誤，無降級模式、無延長選項。遷移指南：[Assistants migration guide](https://developers.openai.com/api/docs/assistants/migration)。
 
 ## 今日收穫
 

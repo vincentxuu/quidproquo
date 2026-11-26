@@ -13,7 +13,7 @@ description: "微軟 AI-103、AI-500、AB-620、AB-100 四張 AI 認證的選擇
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en)
+> :globe: [English version](/posts/ai/2026-08-19-microsoft-ai-certifications-which-one-en)
 >
 > 本文是從官方資料建出來的選擇指南，不是應考實錄 —— 作者沒有報考這些考試。所有「考什麼」都指回各張的官方 study guide，所有規格都指回微軟官方頁面，不含考古題。查證日期：2026-08-19。
 
@@ -110,10 +110,10 @@ AB-100 是四張裡唯一不考「怎麼做」的。它的 Plan 那塊考 ROI �
 
 | | 官方學習路徑 | 講師課 | 練習測驗 |
 |---|---|---|---|
-| **AI-103** | ✅ 四條全部可用（等同講師課 AI-103T00-A 的教材） | 有 | 已搬到 AI Skills Navigator，**免費與否官方未說明** |
-| **AI-500** | ❌ 考試頁列了四條，**公開網址全部 404**；認證頁自己寫「Learning paths or modules are not yet available for this certification」 | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天），開課預告已拿掉 | ❌ 尚未提供 |
-| **AB-620** | ✅ 三條可用（標示時數合計 8 小時 29 分） | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天），開課預告已拿掉 | ❌ 尚未提供（官方寫「usually available within 8 weeks of the exam being out of beta and generally available」） |
-| **AB-100** | ✅ [Architect agentic AI business solutions](https://learn.microsoft.com/en-us/training/paths/architect-agentic-ai-business-solutions/) | 有，但官方自述非考前準備課 | ✅ **有，而且免費** |
+| **AI-103** | ✓ 四條全部可用（等同講師課 AI-103T00-A 的教材） | 有 | 已搬到 AI Skills Navigator，**免費與否官方未說明** |
+| **AI-500** | ✗ 考試頁列了四條，**公開網址全部 404**；認證頁自己寫「Learning paths or modules are not yet available for this certification」 | [AI-500T00](https://learn.microsoft.com/en-us/training/courses/ai-500t00)（四天），開課預告已拿掉 | ✗ 尚未提供 |
+| **AB-620** | ✓ 三條可用（標示時數合計 8 小時 29 分） | [AB-620T00-A](https://learn.microsoft.com/en-us/training/courses/ab-620t00)（三天），開課預告已拿掉 | ✗ 尚未提供（官方寫「usually available within 8 weeks of the exam being out of beta and generally available」） |
+| **AB-100** | ✓ [Architect agentic AI business solutions](https://learn.microsoft.com/en-us/training/paths/architect-agentic-ai-business-solutions/) | 有，但官方自述非考前準備課 | ✓ **有，而且免費** |
 
 **三個可操作的結論**：
 

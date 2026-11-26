@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline)
+> :globe: [中文版](/posts/daily/2026-10-17-pricing-google-gemini-argon-flash-promo-deadline)
 
 ## Summary
 
@@ -74,8 +74,8 @@ Even after the hike, Argon's standard price ($4 / $20) sits between Claude Sonne
 
 ## Timing Alert
 
-⏰ **Gemini 4 Argon promo deadline**: 2026-11-30. Standard pricing of $4.00 / $20.00 (USD per million tokens) applies from December 1.
-⏰ **Gemini 3.8 Flash / previous-gen Flash promo deadline**: 2026-12-31. Standard pricing of $1.50 / $7.50 (USD per million tokens) applies from January 1, 2027.
+:clock: **Gemini 4 Argon promo deadline**: 2026-11-30. Standard pricing of $4.00 / $20.00 (USD per million tokens) applies from December 1.
+:clock: **Gemini 3.8 Flash / previous-gen Flash promo deadline**: 2026-12-31. Standard pricing of $1.50 / $7.50 (USD per million tokens) applies from January 1, 2027.
 
 ## Today's Takeaway
 

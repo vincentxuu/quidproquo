@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-climbing-gym-beta-english-en/)
+> :globe: [English version](/posts/learning/2026-10-25-climbing-gym-beta-english-en/)
 
 朋友剛做過你卡住的動作，你想問他怎麼過，卻只會指著岩點說 *this, this*。其實可以把問題拆成三步：先問整個動作，再問腳的位置，還不清楚就請對方示範。
 

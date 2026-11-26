@@ -12,7 +12,7 @@ series:
   order: 35
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-19-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-09-19-ai-agent-daily)
 
 ## The One-Line Take
 
@@ -158,15 +158,15 @@ North America, Europe (Health Force's funding round), Latin America (Cognition's
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-github-digest-en)
-- 📄 [AI Engineer Interview Prep — 2026-09-19: Paper Reading](/posts/daily/2026-09-19-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-09-19: Technical PM](/posts/daily/2026-09-19-product-builder-interview-daily-en)
-- 📄 [Funding Brief｜CADDi Series D $114M](/posts/daily/2026-09-19-funding-caddi-en)
-- 📄 [Funding Brief｜Hang Ten Systems Seed Extension $53M](/posts/daily/2026-09-19-funding-hang-ten-systems-en)
-- 📄 [Funding Brief｜Magentic Series A $18M](/posts/daily/2026-09-19-funding-magentic-en)
-- 📄 [Pricing Tracker｜xAI X Search Switches to Per-Post Billing](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
-- 📄 [Tool Pick｜TrustDex](/posts/daily/2026-09-19-tool-trustdex-en)
+- :file: [AI Agent Arxiv Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-09-19](/posts/daily/2026-09-19-ai-agent-github-digest-en)
+- :file: [AI Engineer Interview Prep — 2026-09-19: Paper Reading](/posts/daily/2026-09-19-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-09-19: Technical PM](/posts/daily/2026-09-19-product-builder-interview-daily-en)
+- :file: [Funding Brief｜CADDi Series D $114M](/posts/daily/2026-09-19-funding-caddi-en)
+- :file: [Funding Brief｜Hang Ten Systems Seed Extension $53M](/posts/daily/2026-09-19-funding-hang-ten-systems-en)
+- :file: [Funding Brief｜Magentic Series A $18M](/posts/daily/2026-09-19-funding-magentic-en)
+- :file: [Pricing Tracker｜xAI X Search Switches to Per-Post Billing](/posts/daily/2026-09-19-pricing-xai-x-search-billing-change-en)
+- :file: [Tool Pick｜TrustDex](/posts/daily/2026-09-19-tool-trustdex-en)
 
 ## Tomorrow's Watch
 

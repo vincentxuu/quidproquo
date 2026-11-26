@@ -14,13 +14,18 @@ description: "A page-linked guide to the 68 slides of CS329Z Lecture 04, Tool Us
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)
+> :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online has published the recording (about 79 minutes); this guide follows the public slides and readings and had each section start time checked against the recording via a machine-generated transcript.
 
 Lecture 4 (Oct 5, Tool Use & Function Calling) asks why models need tools and how they learn to use them: from Toolformer, Gorilla and ToolLLM to standard interfaces such as REST, function calling and MCP, evaluated with BFCL, ToolBench and τ-bench. The same day, [HW1 is released](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en): no agent frameworks, a single chat-completion call, and a company-internal AI assistant built from scratch.
 
 The assigned readings are Toolformer, Gorilla and the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18). This post digests MCP: tools get a standard plug, so integrations no longer need rewriting per vendor. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=s0S38lz6O7M
+title: How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang
+```
 
 ## Lecture 04 slide guide
 
@@ -32,6 +37,8 @@ The assigned readings are Toolformer, Gorilla and the [MCP specification](https:
 
 ### Pages 1–14: Finish the evidence problem in RAG
 
+[Recording 00:00–17:44](https://www.youtube.com/watch?v=s0S38lz6O7M)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=1" data-slide-page="1">Slides 1–14</a>
 
 The lecture first finishes RAG: retrieving more documents does not ensure that generation uses them better. Lost-in-the-middle and citation-quality figures ask distinct questions: did the model use the evidence, and does its citation support the claim? Clickable sources still require claim-level checking.
@@ -39,6 +46,8 @@ The lecture first finishes RAG: retrieving more documents does not ensure that g
 As an original diagnostic exercise, keep the model fixed while changing evidence position and irrelevant-document count, then inspect cited passages. This separates retrieval misses, evidence-use failures, and unsupported citations.
 
 ### Pages 15–21: Tools delegate computation and access to external programs
+
+[Recording 17:44–31:49](https://www.youtube.com/watch?v=s0S38lz6O7M&t=1064s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=15" data-slide-page="15">Slides 15–21</a>
 
@@ -48,6 +57,8 @@ Inspect tool selection, actual dispatch, and use of the returned value. A model 
 
 ### Pages 22–35: Toolformer executes candidates before filtering them
 
+[Recording 31:49–50:52](https://www.youtube.com/watch?v=s0S38lz6O7M&t=1909s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=22" data-slide-page="22">Slides 22–35</a>
 
 Toolformer samples API-call candidates from a few demonstrations, executes them, and retains calls whose results reduce subsequent prediction loss. Those augmented examples become fine-tuning data. This creates a tool-training signal from a language-model objective; it does not establish reliable multi-step execution.
@@ -55,6 +66,8 @@ Toolformer samples API-call candidates from a few demonstrations, executes them,
 ToolkenGPT instead represents tools as special tokens and learns their embeddings, switching into argument generation when one is selected. Read the comparison by identifying what is trained before comparing tool counts.
 
 ### Pages 36–45: At scale, retrieve the right API before generating a call
+
+[Recording 50:52–63:43](https://www.youtube.com/watch?v=s0S38lz6O7M&t=3052s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=36" data-slide-page="36">Slides 36–45</a>
 
@@ -64,6 +77,8 @@ API existence, valid arguments, and task success are separate checks. An origina
 
 ### Pages 46–56: REST, function calling, MCP, and two authentication boundaries
 
+[Recording 63:43–75:24](https://www.youtube.com/watch?v=s0S38lz6O7M&t=3823s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=46" data-slide-page="46">Slides 46–56</a>
 
 REST exposes service endpoints, function calling supplies model-facing schemas, and MCP provides discovery and invocation across hosts. The slides walk through tools/list and tools/call, then turn LMS routes for assignments, submissions, and grading into tools. Treat the code as a lecture illustration and consult the adopted specification for implementation.
@@ -71,6 +86,8 @@ REST exposes service endpoints, function calling supplies model-facing schemas, 
 Inbound authorization governs agent access to the MCP server; outbound authorization governs the server’s LMS access. Connecting successfully does not authorize every grading action. The executor must check user, resource, and operation scope. The versioned MCP digest below explains host, client, and server roles.
 
 ### Pages 57–68: From valid calls to repeatable task completion
+
+[Recording 75:24–79:15](https://www.youtube.com/watch?v=s0S38lz6O7M&t=4524s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture04.pdf#page=57" data-slide-page="57">Slides 57–68</a>
 
@@ -160,10 +177,15 @@ Tools are the first component of the HW1 harness. [Lecture 5](/posts/ai/2026-09-
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang](https://www.youtube.com/watch?v=s0S38lz6O7M) (Stanford Online channel, uploaded 2026-11-12, about 79 minutes)
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-13. The earlier statement that recordings require the course Canvas login no longer applies; this guide follows the public PDFs and readings and had each section start time checked against the recording via a machine-generated transcript.
+- Content check: verified against the video (2026-11-13): section start times were checked against a machine-generated transcript, and each slides subsection carries a recording time link.
 
 ## Update log
 
+- 2026-11-13: Stanford Online published this lecture's recording and opened the course playlist; embedded the video, switched the status to videos included, and rewrote the video sources section.
+- 2026-11-13: Checked section start times against a machine-generated transcript and added recording time links to each slides subsection.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 4 (Mon Oct 5), previously part of the "Week 3: plug tools in, take frameworks apart" guide; earlier entries below predate the split.
 - 2026-10-29: Rechecked every section's page range against the Lecture 04/05 PDFs; added the three-level tool-failure taxonomy and τ-bench version history (L04 pp. 64–67), the same-model harness gap and Meta-Harness (L05 pp. 86–88), and the motivation for durable orchestration (L05 pp. 92–93).
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.

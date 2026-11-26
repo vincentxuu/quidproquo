@@ -15,7 +15,7 @@ glossary:
     def: "A large language model family from China Telecom Artificial Intelligence Technology, successor to TeleChat; Xing4.0 is its latest generation"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b)
+> :globe: [中文版](/posts/daily/2026-09-18-model-china-telecom-xing4-0-29b-a4b)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | DeepresearchBII | 60.80 | No comparable score disclosed for TeleChat3 on this benchmark | Qwen3.6-35B-A3B 59.70 |
 | AIME2026 | 90.00 | No comparable score disclosed for TeleChat3 on this benchmark | Qwen3.6-35B-A3B 92.70 (trails here) |
 
-⚠️ All figures are self-reported by China Telecom (via the GitHub/Hugging Face model card) and have not been independently reproduced. Sampling parameters (temperature ranging 0.8–1.0) vary by benchmark and were each set by the vendor, which may affect cross-model comparability.
+:warning: All figures are self-reported by China Telecom (via the GitHub/Hugging Face model card) and have not been independently reproduced. Sampling parameters (temperature ranging 0.8–1.0) vary by benchmark and were each set by the vendor, which may affect cross-model comparability.
 
 ## Comparison with Predecessor/Competitors
 

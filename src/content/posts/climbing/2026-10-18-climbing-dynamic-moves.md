@@ -22,7 +22,7 @@ glossary:
     context: "很多人把所有動態動作都叫 dyno；本系列只用它指四肢全離牆的那一種。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-dynamic-moves-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-dynamic-moves-en)
 
 你在一條題目上卡了一個動作：下一個點在手臂伸直還差十公分的地方。你慢慢站高、鎖住手臂、伸手，指尖碰到點的那一刻，手已經沒力了。旁邊的人走過來，屈膝、一彈，手就搭上去了。
 

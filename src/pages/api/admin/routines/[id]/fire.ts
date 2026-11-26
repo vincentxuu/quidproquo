@@ -4,9 +4,9 @@ import type { APIRoute } from 'astro'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { json, badRequest, unauthorized } from '@/lib/api/response'
-import { createSessionManager } from '@/lib/agent/session-manager'
+import { getWaitUntil, startRoutineRun } from '@/lib/agent/routine-run'
 
-export const POST: APIRoute = async ({ params, request }) => {
+export const POST: APIRoute = async ({ params, request, locals }) => {
   const e = env as unknown as Env
   const routineId = params.id
   if (!routineId) return badRequest('id required')
@@ -20,18 +20,13 @@ export const POST: APIRoute = async ({ params, request }) => {
   if (!routine.api_token || routine.api_token !== token) return unauthorized()
   if (Number(routine.enabled) === 0) return json({ error: 'routine_paused' }, 400)
 
-  const sessions = createSessionManager(e.DB)
-  const session = await sessions.create({
-    instruction: String(routine.instructions ?? ''),
-    model: routine.model ? String(routine.model) : undefined,
-    repo: routine.repo ? String(routine.repo) : undefined,
-    trigger: 'api',
-    routineId,
-  })
+  const { sessionId, run } = await startRoutineRun(e, {
+    id: routineId,
+    instructions: String(routine.instructions ?? ''),
+    model: routine.model ? String(routine.model) : null,
+    repo: routine.repo ? String(routine.repo) : null,
+  }, { trigger: 'api' })
+  getWaitUntil(locals)?.(run)
 
-  await e.DB.prepare(
-    'UPDATE routines SET last_run_id = ?, last_run_at = ?, last_run_status = ?, updated_at = ? WHERE id = ?',
-  ).bind(session.id, Date.now(), 'running', Date.now(), routineId).run()
-
-  return json({ sessionId: session.id, routineId })
+  return json({ sessionId, routineId })
 }

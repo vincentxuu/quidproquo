@@ -25,7 +25,7 @@ glossary:
     definition: "Once the foot is in the crack and you start to weight it, letting the heel sit lower than the toes. The thin little-toe edge goes in deeper and pressure comes off the toe knuckles."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-27-foot-jams)
+> :globe: [中文版](/posts/climbing/2026-10-27-foot-jams)
 
 Most of your weight in a crack should be on your feet. However good your hand jams are, if your feet keep slipping and hurting, your arms will be done fast. The good news: a crack that takes hand jams usually takes your feet too, and a good foot jam is secure enough to rest on and place gear from.
 

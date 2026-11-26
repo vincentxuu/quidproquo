@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
+> :globe: [English version](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
 
 ## 版本資訊
 

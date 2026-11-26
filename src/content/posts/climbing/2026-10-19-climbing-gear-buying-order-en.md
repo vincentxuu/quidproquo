@@ -26,7 +26,7 @@ glossary:
     context: "The CE mark on gear usually appears alongside an EN number."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-gear-buying-order)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-gear-buying-order)
 
 On your first gym visit you rented shoes, and the front desk handed you a chalk bag. A few months later you start wondering: is it time to buy my own shoes? What about a harness? A friend offers to sell you a rope he's used for a few years, cheap. Should you take it?
 

@@ -30,7 +30,7 @@ glossary:
     context: "Cut it off at the inside of the wrist and it can be slipped back on and re-wrapped next time."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-crack-climbing-technique)
+> :globe: [中文版](/posts/climbing/2026-10-18-crack-climbing-technique)
 
 People climbing their first cracks at Long Dong tend to say the same thing. In a [post introducing the Wild Country Crack School videos](https://elliotway.blogspot.com/2012/06/wild-country-crack-school.html) (in Chinese), Taiwanese climber elliotway wrote that normal climbing means grabbing and pulling, while cracks mean poking, squeezing and stuffing. Routes that look trivial in the guidebook, he said, felt awkward and clumsy at Long Dong.
 

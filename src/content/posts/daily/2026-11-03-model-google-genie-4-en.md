@@ -17,7 +17,7 @@ glossary:
     def: "An AI system that generates an environment the user can actually act inside, frame by frame, rather than playing back a fixed video — keyboard input and text prompts change what happens next"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-model-google-genie-4)
+> :globe: [中文版](/posts/daily/2026-11-03-model-google-genie-4)
 
 ## Model Info
 
@@ -53,15 +53,15 @@ step: If it didn't succeed, or the scene changed, or the user stepped in — rep
 step: If it succeeded, check whether there is a next step
 step: If there is, go back to decomposing; only once every step succeeds is the task done
 ---
-<svg viewBox="0 0 640 460">
+<svg viewBox="0 0 640 470">
   <path class="dg-line" d="M288 34V60" marker-end="url(#arrow)" data-step="1"/>
   <path class="dg-line" d="M288 116V148" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M288 204V236" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--warn" d="M384 280H440" marker-end="url(#arrow-warn)" data-step="3"/>
+  <path class="dg-line" d="M288 204V232" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--warn" d="M416 280H440" marker-end="url(#arrow-warn)" data-step="3"/>
   <path class="dg-line dg-line--warn dg-line--dashed" d="M524 252V184Q524 176 516 176H392" marker-end="url(#arrow-warn)" data-step="3"/>
-  <path class="dg-line" d="M288 324V368" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line dg-line--dashed" d="M192 412H72Q64 412 64 404V96Q64 88 72 88H184" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--accent" d="M384 412H440" marker-end="url(#arrow-accent)" data-step="5"/>
+  <path class="dg-line" d="M288 328V364" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line dg-line--dashed" d="M160 412H72Q64 412 64 404V96Q64 88 72 88H184" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--accent" d="M416 412H440" marker-end="url(#arrow-accent)" data-step="5"/>
 
   <circle class="dg-dot" cx="288" cy="28" r="6" data-step="1"/>
 
@@ -78,7 +78,7 @@ step: If there is, go back to decomposing; only once every step succeeds is the 
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M288 236L384 280L288 324L192 280Z"/>
+    <path class="dg-box" d="M288 232L416 280L288 328L160 280Z"/>
     <text class="dg-label" x="288" y="270" text-anchor="middle" dominant-baseline="central">Step succeeded?</text>
     <text class="dg-sub" x="288" y="292" text-anchor="middle" dominant-baseline="central">frame-checked</text>
   </g>
@@ -90,7 +90,7 @@ step: If there is, go back to decomposing; only once every step succeeds is the 
   </g>
 
   <g data-step="4">
-    <path class="dg-box" d="M288 368L384 412L288 456L192 412Z"/>
+    <path class="dg-box" d="M288 364L416 412L288 460L160 412Z"/>
     <text class="dg-label" x="288" y="402" text-anchor="middle" dominant-baseline="central">Next step left?</text>
     <text class="dg-sub" x="288" y="424" text-anchor="middle" dominant-baseline="central">multi-step task</text>
   </g>
@@ -101,17 +101,17 @@ step: If there is, go back to decomposing; only once every step succeeds is the 
     <text class="dg-sub" x="524" y="424" text-anchor="middle" dominant-baseline="central">next prompt</text>
   </g>
 
-  <text class="dg-edge dg-text--warn" x="412" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">no</text>
+  <text class="dg-edge dg-text--warn" x="428" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">no</text>
   <text class="dg-edge dg-text--warn" x="534" y="216" text-anchor="start" dominant-baseline="central" data-step="3">re-render</text>
   <text class="dg-edge" x="300" y="346" text-anchor="start" dominant-baseline="central" data-step="4">yes</text>
-  <text class="dg-edge" x="128" y="80" text-anchor="middle" dominant-baseline="central" data-step="5">step left</text>
-  <text class="dg-edge dg-text--accent" x="412" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">none (done)</text>
+  <text class="dg-edge" x="112" y="398" text-anchor="middle" dominant-baseline="central" data-step="5">step left</text>
+  <text class="dg-edge dg-text--accent" x="428" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">no</text>
 </svg>
 ```
 
 ## Benchmarks
 
-⚠️ The official announcement includes no benchmark scores or quantitative comparison against other world models, and as of 2026-10-28 no independent third-party evaluation or score reproduction had surfaced either (source: DataCamp's writeup on Genie 4). The table below lists verifiable capability and limitation differences instead — it is not a quantitative benchmark:
+:warning: The official announcement includes no benchmark scores or quantitative comparison against other world models, and as of 2026-10-28 no independent third-party evaluation or score reproduction had surfaced either (source: DataCamp's writeup on Genie 4). The table below lists verifiable capability and limitation differences instead — it is not a quantitative benchmark:
 
 | Dimension | Genie 3 (released 2025-08) | Genie 4 (released 2026-10-27) |
 |---|---|---|

@@ -13,7 +13,7 @@ description: "Five trends shaping agent memory systems in 2026 — from the desi
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-agent-memory-2026-trends)
+> :globe: [中文版](/posts/ai/2026-09-19-agent-memory-2026-trends)
 
 This is the tenth post (order 9) in the [AI Agent Memory Engineering series](/posts/ai/2026-09-19-agent-memory-engineering-series-intro), and its finale. The previous nine posts dissected [short-term context management](/posts/ai/2026-08-21-context-full-seven-answers-en), coding-agent and cloud-platform memory designs, open-source framework selection, deep dives into [Mem0](/posts/ai/2026-08-22-mem0-agent-memory-en) and [OpenViking](/posts/ai/2026-08-22-openviking-agent-memory-en), and the attack surface. This post introduces no new systems. Instead, it steps back to survey the field: what is actually happening in 2026, and where should you place your bets.
 
@@ -40,7 +40,7 @@ The most sensitive operation in a memory system is not retrieval — it's writin
 
 Five independent product decisions in 2026 point the same direction: returning the final step of memory writes to humans.
 
-- **Gemini CLI Auto Memory** ([docs](https://geminicli.com/docs/cli/auto-memory)): the agent drafts memory patches and SKILL.md candidates, places them in a review inbox, and they take effect only after user approval
+- **Gemini CLI Auto Memory** ([docs](https://geminicli.com/docs/cli/auto-memory)): the agent drafts memory patches and SKILL.md candidates, places them in a review inbox, and they take effect only after user approval (since 2026-06-18 Gemini CLI serves only Code Assist enterprise licenses and paid API keys; users who moved to Antigravity CLI use [`/learn`](https://antigravity.google/docs/commands/learn/), which likewise drafts a proposal and writes a rule or skill only after approval)
 - **LangSmith Fleet** (2026-01-13 GA): memories are files in a `memories/` folder; every update requires user approval
 - **Devin Knowledge Suggestions** ([docs](https://docs.devin.ai/product-guides/knowledge)): auto-suggests Knowledge entries from conversation feedback; user approves before they're written
 - **Cursor 1.2** ([changelog](https://cursor.com/changelog/1-2)): added an approval flow for background-generated memories (later, 2.1.17 removed the Memories feature entirely)
@@ -135,6 +135,10 @@ Based on these five trends, if you're adding memory to your agent today, here's 
 
 Memory is not a feature you bolt on. It's an architecture decision — one that determines your agent's cross-session behavioral consistency, user trust, security boundary, and operational complexity. The good news in 2026 is that the industry is finally converging on these dimensions. The bad news is that nobody has gotten all of them right yet.
 
+## Update Log
+
+- 2026-11-23: Noted the change in who Gemini CLI serves, and Antigravity CLI's propose-then-approve `/learn` write path
+
 ## References
 
 - [Anthropic — Claude Code Memory docs](https://code.claude.com/docs/en/memory)
@@ -146,6 +150,7 @@ Memory is not a feature you bolt on. It's an architecture decision — one that 
 - [OpenAI — Dreaming: Better memory for ChatGPT (2026-06-04)](https://openai.com/index/chatgpt-memory-dreaming)
 - [OpenAI — Building reliable agents: memory & compaction (cookbook, 2026-05-01)](https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction)
 - [Google — Gemini CLI Auto Memory docs](https://geminicli.com/docs/cli/auto-memory)
+- [Google Antigravity — /learn command docs](https://antigravity.google/docs/commands/learn/)
 - [GitHub Engineering — Building an agentic memory system for GitHub Copilot](https://github.blog/ai-and-ml/github-copilot/building-an-agentic-memory-system-for-github-copilot)
 - [Cursor — 1.2 Changelog](https://cursor.com/changelog/1-2)
 - [Cognition — Devin Knowledge docs](https://docs.devin.ai/product-guides/knowledge)

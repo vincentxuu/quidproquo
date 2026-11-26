@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1)
+> :globe: [繁體中文版](/posts/daily/2026-10-15-benchmark-arena-agent-fable-5-1)
 
 ## Shift Summary
 
@@ -24,9 +24,9 @@ The Arena Agent leaderboard published a new batch on 2026-10-13, and third place
 
 | Rank | Model | Score | 95% CI | 10-12 score (rank) | Change |
 |---|---|---|---|---|---|
-| 🥇 | Claude Opus 5.5 (Max) | 17.01% | [13.50%, 20.53%] | 17.89% (1) | — |
-| 🥈 | GPT-6.1 Sol (Max) | 15.05% | [12.95%, 17.16%] | 13.81% (2) | — |
-| 🥉 | Claude Fable 5.1 (Max) | 14.32% | [12.28%, 16.37%] | 11.74% (6) | ↑3 |
+| 1 | Claude Opus 5.5 (Max) | 17.01% | [13.50%, 20.53%] | 17.89% (1) | — |
+| 2 | GPT-6.1 Sol (Max) | 15.05% | [12.95%, 17.16%] | 13.81% (2) | — |
+| 3 | Claude Fable 5.1 (Max) | 14.32% | [12.28%, 16.37%] | 11.74% (6) | ↑3 |
 | 4 | GPT-6 Astra (Max) | 13.69% | [11.35%, 16.03%] | 12.34% (5) | ↑1 |
 | 5 | Gemini 4 Argon (High) | 13.59% | [12.01%, 15.17%] | 12.37% (4) | ↓1 |
 | 6 | Claude Sonnet 5.5 (Max) | 13.00% | [9.83%, 16.16%] | 10.75% (7) | ↑1 |
@@ -44,7 +44,7 @@ The gaps are tighter than in the last batch: second through sixth all sit betwee
 
 ### Methodology
 
-⚠️ Arena scores are relative win-rate scores, not Elo; across batches, only order and magnitude are meaningful.
+:warning: Arena scores are relative win-rate scores, not Elo; across batches, only order and magnitude are meaningful.
 
 The confidence intervals matter more: for second through sixth, the 95% CI lower bounds run from 9.83% to 12.95% and the upper bounds from 15.17% to 17.16%, overlapping heavily; even first place's lower bound of 13.50% falls inside every interval from second to sixth. Statistically, the order of these six models can't be distinguished. Third place changing three times in a week is exactly what random movement within overlapping intervals looks like, not models getting stronger or weaker.
 

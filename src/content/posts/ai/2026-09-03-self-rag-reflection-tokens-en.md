@@ -10,7 +10,7 @@ description: "Self-RAG's reflection token mechanism, training pipeline, inferenc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-03-self-rag-reflection-tokens)
+> :globe: [中文版](/posts/ai/2026-09-03-self-rag-reflection-tokens)
 
 RAG systems face a fundamental tension: standard RAG retrieves on every query, wasting cycles on questions that don't need external knowledge; skipping retrieval leads to hallucination when facts are required. Self-RAG (Asai et al., ICLR 2024 Oral, top 1%) resolves this by letting the model itself decide—not through an external controller or pipeline rules, but by adding four reflection tokens to the model's vocabulary, making self-critique an integral part of the generation process.
 

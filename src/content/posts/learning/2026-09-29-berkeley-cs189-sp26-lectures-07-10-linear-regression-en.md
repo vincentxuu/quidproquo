@@ -14,7 +14,7 @@ description: "A guide to Berkeley CS189 Spring 2026 (Listgarten / Dimakis), seco
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
+> :globe: [中文版](/posts/learning/2026-09-29-berkeley-cs189-sp26-lectures-07-10-linear-regression)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

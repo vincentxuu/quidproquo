@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 11
 ---
-> 🌏 [中文版](/posts/daily/2026-06-04-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-04-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -67,7 +67,7 @@ Platform engineers can finally answer "how expensive is a multi-model architectu
 
 ### Deep Dive
 
-- **GAIATrace scale**: MiroThinker completed 103 tasks using 1,491 main-model calls + 591 sub-model calls; OWL completed 165 tasks using 2,669 main-model calls + 2,737 sub-model calls **⚠️** (numbers from the paper, but both studied systems are the authors' own products—potential selection bias)
+- **GAIATrace scale**: MiroThinker completed 103 tasks using 1,491 main-model calls + 591 sub-model calls; OWL completed 165 tasks using 2,669 main-model calls + 2,737 sub-model calls **:warning:** (numbers from the paper, but both studied systems are the authors' own products—potential selection bias)
 - **OWL averages** ~16 main-model calls + ~17 sub-model calls per task, the most concrete multi-model Agent cost baseline available today
 - **Vidur-Agent** is an Agent extension of the existing LLM inference simulator Vidur, supporting trace replay on simulated hardware environments and comparison of different scheduling strategies
 - **GAIA benchmark** is the most widely used general-task evaluation suite for agentic AI, proposed by Meta et al., with three difficulty levels
@@ -126,7 +126,7 @@ This puts "the memory architecture itself" into a self-improvement loop, rather 
 - **Evolution targets more than just prompts**: MemPro also modifies executable code (e.g., memory store indexing strategies, filtering logic), providing a much larger adaptation space than pure prompt-tuning
 - **Failure-mode guided editing**: Changes aren't random but targeted based on diagnosed failure modes, making evolution more efficient than random search
 - **Relation to MemEvolve (2512.18746)**: MemEvolve explores meta-evolution; MemPro goes further on the dimension of pipeline-as-program
-- **Limitation**: Version tree management itself has computational costs; the Evolving Agent is also an LLM, so diagnostic quality is limited by the underlying model's capability; no direct quantitative comparison with mainstream memory systems like MemGPT on public benchmarks **⚠️**
+- **Limitation**: Version tree management itself has computational costs; the Evolving Agent is also an LLM, so diagnostic quality is limited by the underlying model's capability; no direct quantitative comparison with mainstream memory systems like MemGPT on public benchmarks **:warning:**
 - **Relation to LangGraph/AutoGen**: MemPro's evolution mechanism could theoretically serve as a plug-in memory layer, but integration effort and API compatibility are unclear
 - **Adoption barrier**: Requires maintaining version tree infrastructure and designing automated test suites to evaluate version quality
 
@@ -153,7 +153,7 @@ Most existing Agent continual learning benchmarks are too lenient—they can't d
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 If you're evaluating or designing Agent continual learning and memory capabilities, this provides a more rigorous methodology. If you just want the gist, the TL;DR and deep dive points are sufficient.
 
 ### Background
@@ -182,7 +182,7 @@ This is an upgrade to Agent evaluation methodology. With AgentCL, you can more r
 - **Key finding—naive vs. controlled stream**: The paper found that naive streams have limited discriminative power across memory designs; controlled streams can more clearly differentiate a design's "plasticity"—i.e., the memory architecture's ability to genuinely learn from past tasks
 - **Three evaluation domains**: coding (programming problem streams), deep research (multi-step research tasks), language understanding/reasoning
 - **Relation to Paper 2 (MemPro)**: AgentCL's framework could be directly used to evaluate the effectiveness of self-evolving memory systems like MemPro—the two papers complement each other
-- **Limitation**: Controlled streams require manual curation, making scaling expensive; evaluation is primarily English-language; full result numbers are not yet fully disclosed in searchable sources **⚠️**
+- **Limitation**: Controlled streams require manual curation, making scaling expensive; evaluation is primarily English-language; full result numbers are not yet fully disclosed in searchable sources **:warning:**
 - **Implications for LangGraph/AutoGen developers**: The design principles here can serve directly as methodology for "Agent memory module A/B testing"—use controlled streams to verify whether a memory upgrade genuinely produces transfer gain
 
 ### Reviewer's One-Line Take

@@ -22,7 +22,7 @@ glossary:
     context: "The content dots in this post convert those four levels."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-05-us-tv-workplace-history-life)
+> :globe: [中文版](/posts/film/2026-11-05-us-tv-workplace-history-life)
 
 This post covers American dramas carried by people rather than monsters or powers: one ER shift, a failing sandwich shop, a fight over a media empire, feudal Japan, World War II, Chernobyl, and a family across decades.
 

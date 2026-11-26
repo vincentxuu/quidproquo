@@ -13,7 +13,7 @@ description: "白妙橋攀岩指南：季節、交通、管理規範、公開路
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-shiromyo-bashi-en)
 
 白妙橋是奧多摩日原川旁的石灰岩運攀區，短接近路不代表容易，舊管理提醒也需要出發前再確認。 這篇幫你判斷適不適合同行者、選哪個季節，以及交通與接近路要先確認什麼。
 

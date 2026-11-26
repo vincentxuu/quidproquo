@@ -13,7 +13,7 @@ series:
   order: 17
 ---
 
-> 🌏 [English version](/posts/product/2026-08-07-agri-drone-unit-economics-en)
+> :globe: [English version](/posts/product/2026-08-07-agri-drone-unit-economics-en)
 
 [產業地圖](/posts/tech/2026-08-06-drone-industry-map)講四大需求板塊時，給農業的評語是「最成熟、最無聊、也最賺錢」，理由是它「是少數不需要 BVLOS、單機日產值明確、投資回收期能算清楚的應用」。
 

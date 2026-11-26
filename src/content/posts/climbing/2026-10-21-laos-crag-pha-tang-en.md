@@ -13,7 +13,7 @@ description: "A Pha Tang guide: the grade spread of its 48 routes, named routes 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tang)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-pha-tang)
 
 Pha Tang is north of Vang Vieng, in the village of the same name, where the main road crosses the Nam Song River. The wall is actually called **Na Pha Daeng**; because there is a similarly named Pha Daeng sector nearby, The Crag Journal's 2023 author used the village name to avoid confusion.
 

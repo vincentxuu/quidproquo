@@ -18,7 +18,7 @@ glossary:
     context: "《暴君的廚師》《背著善宰跑》《閃亮的西瓜》都是穿越劇。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-08-kdrama-romance-fantasy-en)
+> :globe: [English version](/posts/film/2026-11-08-kdrama-romance-fantasy-en)
 
 這篇收的是韓國的愛情劇：穿越到朝鮮的主廚、迫降北韓的財閥千金、只接待鬼魂的飯店，還有 1998 年的擊劍少女。18 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。韓劇共拆成五篇，這是第一篇；人生、家庭與古裝年代劇在[人生家庭篇](/posts/film/2026-11-08-kdrama-life-family-period)。
 

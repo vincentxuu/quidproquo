@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-11-funding-clay)
+> :globe: [中文版](/posts/daily/2026-09-11-funding-clay)
 
 ## Funding Details
 

@@ -10,7 +10,7 @@ description: "A task-by-task comparison of Gemini, Claude, ChatGPT, and Grok: lo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task)
+> :globe: [中文版](/posts/ai/2026-10-25-gemini-claude-chatgpt-grok-by-task)
 
 Gemini, Claude, ChatGPT, and Grok are the four assistants most often compared side by side. The usual story gives each one territory the others can't touch: Gemini for long video, Claude for code, Grok for X, ChatGPT for everything. Most of those claims have official documentation behind them, but "can't touch" is too strong in a few places.
 
@@ -76,31 +76,31 @@ caption: Simplified. Green boxes are steps you do yourself first.
   <text class="dg-edge" x="122" y="304" dominant-baseline="central">no prep steps</text>
 
   <rect class="dg-box" x="20" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="74" text-anchor="middle" dominant-baseline="central">Video</text>
-  <text class="dg-sub" x="110" y="92" text-anchor="middle" dominant-baseline="central">with audio</text>
+  <text class="dg-label" x="110" y="70" text-anchor="middle" dominant-baseline="central">Video</text>
+  <text class="dg-sub" x="110" y="94" text-anchor="middle" dominant-baseline="central">with audio</text>
   <rect class="dg-box" x="20" y="136" width="180" height="112" rx="6"/>
   <text class="dg-label" x="110" y="172" text-anchor="middle" dominant-baseline="central">Gemini API</text>
   <text class="dg-sub" x="110" y="196" text-anchor="middle" dominant-baseline="central">whole file</text>
   <text class="dg-sub" x="110" y="214" text-anchor="middle" dominant-baseline="central">in one call</text>
   <rect class="dg-box" x="20" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="110" y="378" text-anchor="middle" dominant-baseline="central">Notes</text>
-  <text class="dg-sub" x="110" y="396" text-anchor="middle" dominant-baseline="central">with timestamps</text>
+  <text class="dg-label" x="110" y="374" text-anchor="middle" dominant-baseline="central">Notes</text>
+  <text class="dg-sub" x="110" y="398" text-anchor="middle" dominant-baseline="central">with timestamps</text>
 
   <rect class="dg-box" x="240" y="56" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="74" text-anchor="middle" dominant-baseline="central">Video</text>
-  <text class="dg-sub" x="330" y="92" text-anchor="middle" dominant-baseline="central">with audio</text>
+  <text class="dg-label" x="330" y="70" text-anchor="middle" dominant-baseline="central">Video</text>
+  <text class="dg-sub" x="330" y="94" text-anchor="middle" dominant-baseline="central">with audio</text>
   <rect class="dg-box dg-box--accent" x="268" y="136" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="154" text-anchor="middle" dominant-baseline="central">Frames</text>
-  <text class="dg-sub" x="332" y="172" text-anchor="middle" dominant-baseline="central">screenshots</text>
+  <text class="dg-label" x="332" y="150" text-anchor="middle" dominant-baseline="central">Frames</text>
+  <text class="dg-sub" x="332" y="174" text-anchor="middle" dominant-baseline="central">screenshots</text>
   <rect class="dg-box dg-box--accent" x="268" y="200" width="128" height="48" rx="6"/>
-  <text class="dg-label" x="332" y="218" text-anchor="middle" dominant-baseline="central">Transcript</text>
-  <text class="dg-sub" x="332" y="236" text-anchor="middle" dominant-baseline="central">audio to text</text>
+  <text class="dg-label" x="332" y="214" text-anchor="middle" dominant-baseline="central">Transcript</text>
+  <text class="dg-sub" x="332" y="238" text-anchor="middle" dominant-baseline="central">audio to text</text>
   <rect class="dg-box" x="240" y="280" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="298" text-anchor="middle" dominant-baseline="central">Model</text>
-  <text class="dg-sub" x="330" y="316" text-anchor="middle" dominant-baseline="central">reads images + text</text>
+  <text class="dg-label" x="330" y="294" text-anchor="middle" dominant-baseline="central">Model</text>
+  <text class="dg-sub" x="330" y="318" text-anchor="middle" dominant-baseline="central">reads images + text</text>
   <rect class="dg-box" x="240" y="360" width="180" height="48" rx="6"/>
-  <text class="dg-label" x="330" y="378" text-anchor="middle" dominant-baseline="central">Notes</text>
-  <text class="dg-sub" x="330" y="396" text-anchor="middle" dominant-baseline="central">with timestamps</text>
+  <text class="dg-label" x="330" y="374" text-anchor="middle" dominant-baseline="central">Notes</text>
+  <text class="dg-sub" x="330" y="398" text-anchor="middle" dominant-baseline="central">with timestamps</text>
 </svg>
 ```
 

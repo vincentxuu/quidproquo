@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-socketio-realtime-events)
+> :globe: [中文版](/posts/tech/2026-08-22-socketio-realtime-events)
 
 [Socket.IO](https://socket.io/docs/v4/) provides named events, automatic reconnection, acknowledgements, rooms, namespaces, and adapters above Engine.IO transports. It commonly uses WebSocket and can upgrade from HTTP long-polling. A Socket.IO client cannot connect directly to a plain WebSocket server because the wire protocols differ.
 
@@ -29,7 +29,11 @@ Rooms are server-side memberships and fan-out targets for documents, tenants, or
 
 Multiple instances broadcast through adapters. Recovery support varies: plain Redis Pub/Sub cannot retain packets, whereas a durable adapter such as Redis Streams may support it. Test load balancing, sticky sessions, polling, and adapter failure against the selected transport configuration.
 
-Socket.IO fits browser and app event APIs needing fallback, rooms, and a mature Node ecosystem. Native WebSocket leaves protocol design to the application; SSE handles one-way push; Ably manages messaging; PartyKit places room state in edge servers. Acceptance should cover offline replay, fan-out, slow consumers, auth renewal, deployment draining, and adapter outages—not only a working chat demo.
+Socket.IO fits browser and app event APIs needing fallback, rooms, and a mature Node ecosystem. Native WebSocket leaves protocol design to the application; SSE handles one-way push; Ably manages messaging; [PartyServer (formerly PartyKit)](/posts/tech/2026-08-22-partykit-realtime-rooms-en) places room state in Durable Objects. Acceptance should cover offline replay, fan-out, slow consumers, auth renewal, deployment draining, and adapter outages—not only a working chat demo.
+
+## Update Log
+
+- 2026-11-23: The hosted PartyKit platform shut down on 2026-10-23, so the comparison now points to its successor, PartyServer.
 
 ## References
 

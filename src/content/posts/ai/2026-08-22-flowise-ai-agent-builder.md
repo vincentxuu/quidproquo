@@ -10,7 +10,7 @@ description: "沿產品生命週期介紹 Flowise 的三種視覺化 builder、n
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-flowise-ai-agent-builder-en)
+> :globe: [English version](/posts/ai/2026-08-22-flowise-ai-agent-builder-en)
 
 [Flowise](https://docs.flowiseai.com/) 是用視覺化畫布建立 LLM workflow 與 AI Agent 的開放原始碼平台。它的核心不是通用 SaaS 自動化，也不是包辦知識庫、營運後台與應用發布的完整產品平台。它把模型、retriever、memory、tool、條件、迴圈與人工確認組成可執行的 AI 流程。
 

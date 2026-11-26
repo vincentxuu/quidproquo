@@ -13,7 +13,7 @@ description: "阿瑪菲海岸（Positano／Montepertuso）岩場介紹：Pareton
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-amalfi-coast-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-amalfi-coast-en)
 
 阿瑪菲海岸（Costiera Amalfitana）在坎帕尼亞（Campania）大區 Salerno 省，是 Sorrento 半島南側沿海的一串小鎮。攀岩集中在 Positano：[Climbing Spot Factory](https://climbingspotfactory.com/en/climbadvisor/positano/info_about) 寫，這裡的岩場「all accessible on foot from a parking spot in the middle of the small town of Montepertuso」（都能從 Montepertuso 小村中心的停車場走路到）。Montepertuso 是 Positano 上方山腰的小村，岩壁就在村子後面的 Monte Gambera 一帶，Planetmountain 寫，從 Paretone 看得到 Positano 層層疊疊的房子和小巷。
 

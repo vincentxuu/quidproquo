@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-ngrok-ingress-tunnel-en)
+> :globe: [English version](/posts/tech/2026-08-22-ngrok-ingress-tunnel-en)
 
 [ngrok](https://ngrok.com/docs/what-is-ngrok) 是全球 reverse proxy 與 ingress 平台。Local agent 先對 ngrok cloud 建立 outbound persistent TLS connection，外部 client 連到 public endpoint，再由 cloud 沿 tunnel 轉送到 upstream。防火牆不必開 inbound port，但服務已經有新的公開入口，兩件事不能混為一談。
 

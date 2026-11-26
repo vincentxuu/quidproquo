@@ -13,7 +13,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/product/2026-08-07-drone-inspection-taiwan-en)
+> :globe: [English version](/posts/product/2026-08-07-drone-inspection-taiwan-en)
 
 寫完[農噴](/posts/product/2026-08-07-agri-drone-unit-economics)與[救災](/posts/product/2026-08-07-drone-sar-value)之後，我原本準備把巡檢、物流、測繪合成一篇，題目叫「卡在同一道門後面的三個應用」——因為[產業地圖](/posts/tech/2026-08-06-drone-industry-map)說巡檢「需求穩定，卡在合規」，而 [C3 那篇](/posts/tech/2026-08-06-bvlos-three-jurisdictions)查證過台灣根本沒有 BVLOS 框架。
 

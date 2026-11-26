@@ -22,7 +22,7 @@ glossary:
     context: "本文保留英文名稱，台灣攀岩圈沒有通用的中文譯名。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-climbing-warm-up-en)
+> :globe: [English version](/posts/climbing/2026-10-18-climbing-warm-up-en)
 
 週五下班衝到岩館，朋友已經在爬你上週沒完攻的那條。你想直接上去試，旁邊的教練說：「先暖身，不然很容易受傷。」
 

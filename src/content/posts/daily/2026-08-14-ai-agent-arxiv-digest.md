@@ -12,7 +12,7 @@ series:
   order: 82
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-14-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-14-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -59,7 +59,7 @@ Coding Agent 的指令遵從率被系統性高估——模型「本來就會做�
 
 - 12 個前沿模型的遵從率 72.1-85.9%，但 AP-Acc 只有 66.1-78.6%
 - 每個模型的虛高幅度不同（3.6-7.4 個百分點），意味著模型排名可能被改變
-- 指令優先級不遵循 prompt 深度：system prompt、project files、user instructions 優先於 tool 和 skill descriptions ⚠️（作者自測，9 個 build 的 pilot）
+- 指令優先級不遵循 prompt 深度：system prompt、project files、user instructions 優先於 tool 和 skill descriptions :warning:（作者自測，9 個 build 的 pilot）
 - 落地門檻：需要為每條規則建「拿掉後重跑」的 probe build，成本不低
 - 與 Claude Code 的 CLAUDE.md 架構直接相關：project files 的優先級高於 tool descriptions
 - Limitation：642 條規則庫目前限於 coding 場景，是否推廣到其他 agent 類型未驗證
@@ -104,7 +104,7 @@ Wanying Qu, Qinghua Mao, Yu Li et al.（上海 AI Lab / 復旦 / 上交 / 港科
 
 - 基準：Agent-SafetyBench（6 種攻擊條件），ASR 從 17.1% 降到 5.5%（vs. 靜態 SafeHarness）
 - 正確率（UA）同時從 31.6% 提升到 47.6%——安全和效用不是零和
-- Held-out AgentHarm：Harm Score 從 19.8% 降到 9.8%，拒絕率從 78.4% 升到 86.4% ⚠️（SHE 團隊自測）
+- Held-out AgentHarm：Harm Score 從 19.8% 降到 9.8%，拒絕率從 78.4% 升到 86.4% :warning:（SHE 團隊自測）
 - 演化模型可換：GPT-5.5（R17 最佳）、DeepSeek-V3.2（R03 最佳）、GLM-5.2（R05 最佳）各有不同安全-效用取捨
 - 落地門檻：需要可重跑的軌跡環境和結構化評分；20 輪 × 90 次 rollout 的演化成本不低
 - 與 MCP / LangGraph 架構可整合：四元件對應到現有 harness 的 system prompt、middleware、memory、tool permissions
@@ -150,7 +150,7 @@ Agent 自我改進有兩條路：一是 Gödel Machine 風格的遞迴自我修�
 
 - Travel：Composite 84 vs. HGM-C 83，Budget 733 vs. 4000（5.5× 更省）
 - Shopping：Match 94 vs. HGM-C 91，Case Accuracy 79 vs. 70（+9），Budget 989 vs. 4000（4× 更省）
-- 86% 的效能增益來自 F1 ≥ 0.80 的驗證器——學不好的驗證器不如不學 ⚠️（作者自測，2 次平均）
+- 86% 的效能增益來自 F1 ≥ 0.80 的驗證器——學不好的驗證器不如不學 :warning:（作者自測，2 次平均）
 - 驗證器和修復策略可跨模型遷移：GPT-5.4-mini 學的策略直接用在 Mistral 上仍有 +9.9 提升
 - 購物任務的修復策略幾乎不呼叫 LLM，而是用程式碼直接改購物車——優化器自己發現了這條捷徑
 - 優化器還發現了 Shopping 評分指標的漏洞：多加商品不扣分（純 recall），因此策略學會只加不刪

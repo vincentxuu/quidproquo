@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-private-corpus-boundaries)
+> :globe: [中文版](/posts/ai/2026-08-22-private-corpus-boundaries)
 
 “The data stays on the corporate network” is not a security design for private-corpus search. Once a document enters the pipeline, its content can appear in connector staging, parsed output, lexical indexes, vectors, query logs, traces, and model requests. The real boundary is whether each data type is allowed to cross each component boundary.
 

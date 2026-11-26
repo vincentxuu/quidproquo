@@ -12,7 +12,7 @@ draft: false
 description: "A complete worked example and answered variations for Cross-Attention and DiT: How Conditions Enter a Denoiser."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-14-cross-attention-dit)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

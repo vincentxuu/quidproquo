@@ -12,7 +12,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-10-funding-cymphony)
+> :globe: [中文版](/posts/daily/2026-09-10-funding-cymphony)
 
 ## Funding Details
 

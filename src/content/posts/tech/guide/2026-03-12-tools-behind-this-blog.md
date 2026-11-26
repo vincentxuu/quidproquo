@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [English version](/posts/tech/guide/2026-03-12-tools-behind-this-blog-en)
+:globe: [English version](/posts/tech/guide/2026-03-12-tools-behind-this-blog-en)
 
 這個部落格跑在 Astro + Cloudflare Workers 上，搭配 D1、R2、KV、Vectorize、Workers AI。選這套組合的核心邏輯是：內容網站不需要複雜的 server，但需要夠靈活的基礎設施在對的時候做對的事。
 

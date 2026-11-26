@@ -11,7 +11,7 @@ series:
   order: 138
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-09-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-10-09-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -46,7 +46,7 @@ A vision-based web agent can be hijacked into clicking an attacker-chosen elemen
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI/cs.CL, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | University of Utah |
 | Community signal | Not found on HF Daily Papers (checked against the 2026-10-07/10-08 listings) or Papers with Code; code is publicly released on GitHub (MoonTea0416/WebMirage) |
 | Credibility | Pass — formally defines an end-to-end "grounding-to-execution" threat model, uses a role-slot abstraction and webpage recomposition to model candidate-element competition, aligns the optimization target to the actually-executed browser command via CodeQL dataflow analysis, and includes full ablations and defense testing |
@@ -76,7 +76,7 @@ Vision-based web agents (SeeAct, WebVoyager, etc.) decide their next action from
 - Evaluation covers SeeAct and WebVoyager as generalist agent frameworks, paired with LLaVA-v1.5-13B, LLaVA-v1.6-34B, MiniCPM-o-8B, Phi-3-Vision-4B, Qwen2-VL-7B, plus CogVLM in the VisualWebArena sandbox — six VLM backbones in total
 - The attack transfers to VLM backbones not used during optimization, indicating it isn't overfit to a single model
 - Three existing agent-level defenses have limited effect; adapted adaptive defenses only reduce attack success when they also substantially cut clean-task performance
-- Deployment bar: the attacker needs white-box access to the agent's code and open-source VLM weights during offline synthesis, but at test time only needs to control a single third-party image — no DOM or agent-configuration modification required ⚠️ (white-box assumption; real deployments mostly wrap closed-source frontier models, so the real-world threat level still needs further study)
+- Deployment bar: the attacker needs white-box access to the agent's code and open-source VLM weights during offline synthesis, but at test time only needs to control a single third-party image — no DOM or agent-configuration modification required :warning: (white-box assumption; real deployments mostly wrap closed-source frontier models, so the real-world threat level still needs further study)
 - Limitation: only tested on open-source VLMs, not frontier commercial models like GPT-4V/Claude/Gemini; the white-box offline-synthesis assumption is not the same as a real black-box attacker's capability
 
 ### Reviewer's One-line Take
@@ -106,7 +106,7 @@ An attacker only needs to embed an optimized malicious prompt in a community-sha
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | Duke University |
 | Community signal | Not found on HF Daily Papers or Papers with Code; the paper does not provide a public code link of its own (the malicious packages were built in a controlled local PyPI mirror and not released) |
 | Credibility | Pass — formally defines the "package hallucination attack" threat model, proposes an evolutionary search framework that uses a trajectory-level signal to address sparse feedback and self-attributed refinement to address dilution in long rule files, systematically evaluates across 3 coding benchmarks, 8 agent frameworks (including Claude Code and Cursor), and 13 backbone LLMs, and explains attack effectiveness via attention analysis |
@@ -166,7 +166,7 @@ Secure-CUA uses "bounded endorsement" to lock down both the action-generation an
 | Dimension | Assessment |
 |---|---|
 | Venue | arXiv preprint (primary category cs.CR, cross-listed cs.AI, not peer-reviewed) |
-| Citation velocity | Published 2 days ago; Semantic Scholar queries kept returning HTTP 429, unconfirmed; presumed near 0 given the paper's age |
+| Citation velocity | Published 2 days ago; presumed near 0 given the paper's age |
 | Institution | University of Wisconsin–Madison + Google + Google DeepMind |
 | Community signal | Not found on HF Daily Papers or Papers with Code; the authors state evaluation code will be made public, but it is not released yet |
 | Credibility | Pass — formally defines two security requirements, "generation integrity" and "grounding integrity," proves by induction under an ideal execution model that satisfying both at every step protects the entire execution trace (full proof in Appendix A), and backs this with a large-scale benign-condition empirical evaluation of utility cost |
@@ -195,7 +195,7 @@ Computer-use agents (CUAs) must handle trusted interface controls (buttons, fiel
 - 400 WebArena tasks × 3 frontier models (Claude Opus 5, GPT-5.6-Sol, Gemini 3.8 Flash) × 5 seeds, totaling 6,000 execution traces under benign conditions
 - Secure-CUA averages 53.55% task success, versus Vanilla-CUA's (undefended baseline) 55.12% — only a 1.57-point gap
 - The prior CaMeL-CUA defense drops task success to just 13.17% under the same conditions, showing that "completely wall off untrusted content" designs severely sacrifice task utility
-- The authors demonstrate an existing defense's gap with a real attack: attacking CaMeL-CUA's grounding mechanism on a WebArena Postmill upvoting task causes it to locate coordinates on the wrong post — proving that fixing "what to do" alone isn't enough; grounding remains an opening ⚠️ (a demonstrated attack from the paper itself, not a large-scale systematic red-team evaluation)
+- The authors demonstrate an existing defense's gap with a real attack: attacking CaMeL-CUA's grounding mechanism on a WebArena Postmill upvoting task causes it to locate coordinates on the wrong post — proving that fixing "what to do" alone isn't enough; grounding remains an opening :warning: (a demonstrated attack from the paper itself, not a large-scale systematic red-team evaluation)
 - Secure-CUA generates a fresh action transaction at every step, letting it adapt to interface changes (e.g. re-rendered layouts) while maintaining utility
 - Deployment bar: requires first defining which content in an application counts as trusted (e.g. official field labels) versus untrusted (e.g. user reviews, ads) — currently done via manually authored rules, with no automated tooling yet
 - Limitation: bounded endorsement guarantees a query response can only flow to permitted places, not that the response itself is truthful; execution latency remains an open problem; only validated on the web WebArena environment, and the authors themselves note that applicability to desktop and mobile still needs assessment

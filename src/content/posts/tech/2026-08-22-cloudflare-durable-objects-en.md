@@ -18,7 +18,7 @@ additionalSeries:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-cloudflare-durable-objects)
+> :globe: [中文版](/posts/tech/2026-08-22-cloudflare-durable-objects)
 
 [Cloudflare Workers](https://developers.cloudflare.com/workers/) are excellent for stateless requests: auth, routing, rendering, API handlers, and small transformations. The next layer is harder: a chat room needs broadcast coordination, a collaborative document needs ordered patches, a booking flow cannot sell the same seat twice, and an agent run cannot let concurrent steps spend the same budget twice. These cases need a place where operations for the same key are decided serially. [Cloudflare Durable Objects](https://developers.cloudflare.com/durable-objects/) are that state and coordination primitive for Cloudflare's serverless runtime.
 
@@ -152,6 +152,8 @@ Hibernation clears memory. Per-connection metadata needed after wake-up should g
 
 Hibernation does not remove all realtime work. Slow clients, broadcast batching, reconnect catch-up, authorization renewal, deploy draining, and hot rooms are still application concerns. High-frequency tiny messages can overwhelm a single object through context-switch overhead; Cloudflare recommends batching logical messages into fewer, larger frames.
 
+The platform now covers part of the deploy story. Since 2026-10-30, Durable Objects [defer code updates by default](https://developers.cloudflare.com/changelog/post/2026-10-30-durable-objects-deferred-code-updates/): after a deploy, an active object can keep running its current code for up to 5 minutes while it waits to hibernate, and WebSockets using the Hibernation API stay connected when it adopts the new code. An object that has not hibernated by the deadline is reset onto the new code; both the delay and an immediate mode are configurable through `code_update_strategy`. Deferral is best effort, so reconnect catch-up is still your job.
+
 ## Alarms are per-object schedules
 
 [Durable Objects Alarms](https://developers.cloudflare.com/durable-objects/api/alarms/) let an object wake itself at a future time and run `alarm()`. They are finer-grained than Cron Triggers because every object can have its own alarm. Use cases:
@@ -162,6 +164,8 @@ Hibernation does not remove all realtime work. Slow clients, broadcast batching,
 - Flush usage counters per tenant.
 
 Each object can have one alarm scheduled at a time. If you need many scheduled events, store the schedule in storage, process due events in `alarm()`, then set the next alarm. Alarms are at-least-once and retry with exponential backoff up to 6 times when the handler throws. The handler must be idempotent, and external side effects need dedupe keys.
+
+Caller-side retries changed too. Since 2026-11-05, when a `fetch()` or RPC call from a Worker or another Durable Object fails with a retryable error before reaching the object, the runtime [retries it automatically](https://developers.cloudflare.com/changelog/post/2026-11-05-durable-objects-automatic-retries/), up to four times by default. Errors thrown by your object code and errors with `.overloaded` set are not retried. If the connection drops and the runtime cannot tell whether the first attempt arrived, it still retries, but the object rejects the duplicate, so a method never runs twice because of a retry unless you mark it with `retryable()`. You can drop hand-written retry loops; the idempotency requirement stays.
 
 ```ts
 export class AgentRun extends DurableObject<Env> {
@@ -227,6 +231,7 @@ Durable Objects are powerful, but they do not remove the need for data modeling.
 
 ## Update Log
 
+- 2026-11-23: Added default deferred code updates (up to 5 minutes, since 2026-10-30) and automatic caller-side retries (since 2026-11-05).
 - 2026-08-30: Rewrote the post for the Cloudflare Edge Platform / AI Stack content paths, adding SQLite-backed storage, `exports` configuration, WebSocket hibernation, alarms, control/data planes, and AI app architecture roles.
 
 ## References

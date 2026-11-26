@@ -10,7 +10,7 @@ description: "ClickHouse is an open-source column-oriented analytics database de
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-27-clickhouse-analytics-database)
+:globe: [中文版](/posts/tech/2026-03-27-clickhouse-analytics-database)
 
 PostgreSQL is hard to beat for CRUD operations. But when you need to "aggregate all user learning behavior events over the past 30 days, group them by type, and calculate usage rates per feature," a table with millions of rows starts to hurt.
 

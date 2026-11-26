@@ -10,13 +10,13 @@ description: "A verified comparison of recurring quotas, rate limits, one-time t
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-free-search-scraping-tools)
+> :globe: [中文版](/posts/ai/2026-08-21-free-search-scraping-tools)
 
 Pricing pages for search, scraping, and browser agents all like the word “Free.” Underneath, however, a plan may reset daily or monthly, restore a balance to a ceiling, impose only an RPM limit, grant credits once at signup, or simply let you download the software. Those models have completely different long-term costs.
 
 This article does not rank search quality or repeat dozens of product descriptions. It answers an earlier question that is easier to get wrong: **will the free usage you see today return in the next period?**
 
-The data was first collected on August 21, 2026, updated from official material on August 22, and expanded with TinyFish plan details on August 29. Recheck the official page and authenticated Billing screen before adopting any service.
+The data was first collected on August 21, 2026, updated from official material on August 22, and expanded with TinyFish plan details on August 29, then fully rechecked against official pricing pages on November 23. Recheck the official page and authenticated Billing screen before adopting any service.
 
 ## Start with the Route That Matches Your Need
 
@@ -53,9 +53,9 @@ Use [SearXNG](/posts/ai/2026-08-21-searxng-complete-guide-en) to discover public
 
 | Model | How to identify it | Examples | Best use |
 |---|---|---|---|
-| Recurring allowance | The provider explicitly says daily, monthly, or billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits), [SerpAPI](https://serpapi.com/pricing), [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | Sustainable low-volume services |
-| Balance top-up | The remaining balance is restored to a ceiling instead of incremented by a fixed amount | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing) | Search prototypes with a bounded allowance |
-| Persistent rate limit | There is no monthly credit pool, only an RPM or QPS ceiling | [Jina Reader](https://jina.ai/en-US/reader/), [TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) | Low-volume content reading and agent retrieval |
+| Recurring allowance | The provider explicitly says daily, monthly, or billing cycle | [Tavily](https://docs.tavily.com/documentation/api-credits), [SerpAPI](https://serpapi.com/pricing), [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/), [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Sustainable low-volume services |
+| Balance top-up | The remaining balance is restored to a ceiling instead of incremented by a fixed amount | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing), [Exa](https://exa.ai/pricing?tab=api) | Search prototypes with a bounded allowance |
+| Persistent rate limit | There is no monthly credit pool, only an RPM or QPS ceiling | [Jina Reader](https://jina.ai/en-US/reader/) | Low-volume content reading |
 | One-time trial | Signup or trial credits do not return after exhaustion | [Serper](https://serper.dev/), [You.com API](https://you.com/docs/administration/billing), [Hyperbrowser](https://www.hyperbrowser.ai/pricing) | API validation and short benchmarks |
 | Local or self-hosted | There is no SaaS quota; the cost moves to compute, proxies, and operations | [SearXNG](https://github.com/searxng/searxng), [Crawl4AI](https://github.com/unclecode/crawl4ai), [Qdrant](https://github.com/qdrant/qdrant) | Private data and stable high-volume workloads |
 
@@ -78,15 +78,16 @@ The sections below preserve each service's published allowance, card requirement
 
 | Service | Published allowance | Card, reset, and overage behavior |
 |---|---|---|
-| [Exa](https://exa.ai/pricing?tab=api) | A one-time $20 signup grant, then $10 in monthly credits | No payment method required; reset date, timezone, and rollover are not published |
+| [Exa](https://exa.ai/pricing?tab=api) | $10 in credits at signup, with the free balance reset to $10 on the first of every month; a one-time extra $10 for completing onboarding | No payment method required; $10 covers up to about 2,500 `lite` searches, while `auto` costs $7 per 1,000 |
 | [Tavily](https://docs.tavily.com/documentation/api-credits) | 1,000 credits per month | No card; endpoints and search depth consume different amounts; exact reset date and rollover are not published |
 | [Firecrawl](https://www.firecrawl.dev/pricing) | 1,000 credits per month | No card; Search, Scrape, and Crawl share credits; Free credits do not roll over and normal PAYG is unavailable, so users must upgrade |
 | [Linkup](https://docs.linkup.so/pages/documentation/platform/pricing) | $20 at signup with a professional email; eligible accounts are topped back up to $20 monthly | Prepaid balance; zero balance returns HTTP 429; eligibility and the exact top-up date are not fully published |
-| [Brave Search API](https://brave.com/search/api/) | $5 in credits automatically applied each month | A payment card is required for fraud prevention; overage uses PAYG; rollover is not published |
-| [SerpAPI](https://serpapi.com/pricing) | 250 successful searches per billing cycle | Resets when a new cycle starts; cached, failed, and errored searches do not count; Free rollover is not published |
+| [Brave Search API](https://brave.com/search/api/) | No standalone free plan; each of four plans, including Search and Answers, applies $5 in credits per month (up to $20 combined) | A payment card is required and billing is now prepaid; unused free credits do not accumulate, and usage beyond them draws from the prepaid balance |
+| [SerpAPI](https://serpapi.com/pricing) | 250 successful searches per billing cycle | Resets when a new cycle starts; capped at 50 per hour; cached, failed, and errored searches do not count; Free rollover is not published |
 | [Parallel](https://parallel.ai/blog/free-tier-parallel) | $5 in monthly credits for eligible organizations | A card is required; credits expire at month-end and do not roll over; overage is charged at standard rates |
-| [You.com free MCP](https://you.com/docs/quickstart) | 100 keyless `you-search` queries per day | Search only; Contents, Research, and Finance are excluded; reset time and timezone are not published |
-| [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Search 30 requests/min; Fetch 150 URLs/min | No card, no monthly minimum, and usable with a $0 Wallet balance; only Agent and Browser draw from Wallet funds |
+| [You.com free MCP](https://you.com/docs/quickstart) | 100 calls per day on the keyless `/mcp/free` endpoint | Tools include `you-search`, `you-extract`, and `you-discover`; reset time and timezone are not published |
+| [TinyFish Search/Fetch](https://www.tinyfish.ai/pricing) | Search 30 requests/min, 500 per hour, 12,000 per day; Fetch 150 URLs/min and 1,000 successful URLs per day | Resets at 00:00 UTC; no card, and new accounts start with $8 in Wallet funds; after the daily free allowance, requests need a positive Wallet balance |
+| [Valyu](https://docs.valyu.ai/pricing) | 2,000 credits per month with a work email; 1,000 per month with a personal or university email | No card for work email; personal email needs a card from the second month (not charged); Search, Contents, and DeepResearch share the balance |
 
 Linkup is easy to misread. The official wording says an eligible account is topped **back to $20** each month. That restores the balance to a ceiling; it does not add another $20. If $7 remains when the top-up occurs, the grant is $13. The exact top-up date is not public, so it should not be described as a month-end settlement.
 
@@ -100,27 +101,26 @@ Parallel has a different risk. Its recurring grant is real, but the account must
 | [AgentQL](https://www.agentql.com/pricing) | 50 API calls per month on Starter, plus 10 browser hours | Published overage is $0.02 per call and $0.12 per browser hour; hard-stop behavior without a payment method and the exact browser-hour reset are unclear |
 | [Browserbase](https://docs.browserbase.com/account/billing/plans) | Monthly allocation of 1 browser hour, 3 Agents, 1,000 Search, and 1,000 Fetch; concurrency 3 | Reset date, rollover, and Free-plan exhaustion behavior are not published clearly |
 | [Diffbot](https://www.diffbot.com/pricing) | 10,000 credits per billing period | Resets when a new billing period begins; APIs consume different amounts; Free exhaustion returns 429 |
-| [Bright Data Free Tier](https://docs.brightdata.com/general/account/billing-and-pricing/free-tier) | 5,000 general Free Tier credits per month, renewed on the first day of the month | Web Unlocker, SERP, Web Scraper, and Scraper Studio share the general pool; the [MCP plan](https://brightdata.com/pricing/mcp-server) separately lists 5,000 requests per month, but public material does not prove whether the pools are shared or separate |
-| [Browserless](https://www.browserless.io/pricing) | 1,000 units per month, 2 concurrent browsers, and sessions up to 1 minute | A browser connection costs 1 unit per 30 seconds; residential proxy traffic costs 6 units/MB, datacenter proxy traffic 2 units/MB, and a successful CAPTCHA 10 units; rollover and exhaustion behavior are not published |
-| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-rendering/pricing/) | 10 browser minutes per UTC day on Workers Free; concurrency 3 | Exhaustion returns 429 until the next UTC day; Paid includes 10 hours per month, then costs $0.09/hour, with session concurrency tracked separately |
+| [Bright Data Free Tier](https://docs.brightdata.com/general/account/billing-and-pricing/free-tier) | 5,000 Free Tier credits per month, renewed on the first day of the month | Web Unlocker, SERP, Web Scraper, Scraper Studio, and Browser API (5 credits per MB) share the pool; the official [MCP plan](https://brightdata.com/pricing/mcp-server) states its 5,000 monthly requests are the same shared allowance; proxies are outside the free pool and get a one-time $2, 7-day trial instead |
+| [Browserless](https://www.browserless.io/pricing) | 1,000 units per month, 2 concurrent browsers, and sessions up to 2 minutes | A browser connection costs 1 unit per 30 seconds; residential proxy traffic costs 6 units/MB, datacenter proxy traffic 2 units/MB, and a successful CAPTCHA 10 units; rollover and exhaustion behavior are not published |
+| [Cloudflare Browser Run](https://developers.cloudflare.com/browser-run/pricing/) | 10 browser minutes per UTC day on Workers Free; concurrency 3 | Exhaustion returns 429 until the next UTC day; Paid includes 10 hours per month, then costs $0.09/hour, with session concurrency tracked separately |
 | [ZenRows](https://www.zenrows.com/pricing) | 5,000 credits per month; concurrency 5 | No card, monthly refresh, no rollover, and no Free top-up; Fetch costs 1, JavaScript 5, premium proxy 10, and both together 25 credits |
-| [Browser Use Cloud](https://browser-use.com/pricing) | 10 agent tasks per month; 3 concurrent sessions | Further usage uses top-ups or PAYG; browser, proxy, and token costs are separate; whether ordinary Free signup requires a payment method is not published |
 
 Browserless demonstrates why headline quota is not enough. Its 1,000 units do not mean 1,000 arbitrary requests: connection time, proxy bandwidth, and CAPTCHA solving can all draw from the same unit system. A short session and a high-bandwidth job therefore have very different practical capacities.
 
-Bright Data also cannot be summarized as “every product gets 5,000.” Several scraping products share the general Free Tier pool, while the MCP page describes its monthly plan in `requests`. Public documents do not establish whether those two allowances share a pool. Verify the authenticated billing dashboard and usage response before integration.
+Bright Data also cannot be summarized as “every product gets 5,000.” The official docs state that Unlocker, SERP, Web Scraper, Scraper Studio, Browser API, and MCP all draw from one monthly 5,000 pool; the MCP page simply counts in `requests`, and Browser API deducts 5 credits per MB of traffic. Heavy agent use through MCP therefore consumes the allowance of the other scraping products too.
 
 ### One-Time Credits Belong in the Adoption Budget
 
 | Service | One-time grant | Exhaustion, expiry, or other constraint |
 |---|---|---|
-| [Serper](https://serper.dev/) | 2,500 signup queries | Not monthly; further usage requires a top-up |
-| [You.com API](https://you.com/docs/administration/billing) | $100 in complimentary API credits for new accounts, with no card | Not monthly; add funds after exhaustion; auto top-up is opt-in and separate from the keyless MCP's 100 daily searches |
+| [Serper](https://serper.dev/) | 2,500 signup queries | Not monthly; further usage requires a top-up, starting at $50 for 50k queries, and paid credits are valid for 6 months |
+| [You.com API](https://you.com/docs/administration/billing) | $10 in API credits at signup plus $90 after account verification, with no card | Not monthly; add funds after exhaustion; auto top-up is opt-in and separate from the keyless MCP's 100 daily searches |
 | [SearchAPI.io](https://www.searchapi.io/pricing) | 100 successful signup requests, with no card | Only HTTP 200 responses count; refresh, expiry, and the zero-balance HTTP behavior are not published |
 | [ScrapingBee](https://www.scrapingbee.com/pricing/) | 1,000 API credits, with no card | JavaScript rendering defaults to 5 credits; proxy options and some APIs cost more; expiry is not published |
 | [Steel Cloud](https://docs.steel.dev/overview/pricinglimits) | $30 in usage credits valid for 90 days | Browser, proxy, CAPTCHA, and Browser Tools share the balance; proxy and CAPTCHA require a $10 paid balance for verification |
 | [Zyte API](https://www.zyte.com/pricing/) | $5 for 30 days or the first billing month | Only successful responses are charged; the account is suspended after exhaustion or expiry |
-| [Valyu](https://www.valyu.ai/pricing) | The pricing page lists $10 at signup, while separate official material says $20 with a work email; no card | Search, Answer, Contents, and DeepResearch share the balance; published retrieval and token billing descriptions conflict, so measure the returned API cost |
+| [Browser Use Cloud](https://browser-use.com/pricing) | A one-time $1 signup credit | No subscription and no monthly free allowance, so usage is pay-as-you-go afterward; 10 concurrent browsers from the start, browsers at $0.06/hour, with proxy and task costs separate |
 | [Hyperbrowser](https://www.hyperbrowser.ai/pricing) | 5,000 credits, with no card | The official FAQ describes them as testing credits; a Free user must upgrade after exhaustion; expiry of unused credit is not published |
 | [Bocha](https://aq6ky2b8nql.feishu.cn/wiki/RWdvw557Li3IJekGeLkcDFa3n1f) | A public promotion page listed a one-time package of 1,000 calls, with a possible second package via promo code | No recurring reset; current redemption and expiry require authenticated verification. Standard Web Search is CNY 36 per 1,000 calls; CNY 3.6 per 1,000 is a promotional resource package |
 
@@ -132,13 +132,13 @@ A large one-time grant is still not steady-state capacity. Serper's 2,500 querie
 
 #### TinyFish: Free Search and Fetch, Paid Interactive Tasks
 
-[TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) follows the same persistent-rate-limit model: Search allows 30 requests/min, Fetch allows 150 URLs/min, a $0 Wallet balance still works, and failed Fetch URLs do not count. The difference from Jina is scope. TinyFish runs pages through its Chromium infrastructure and returns cleaned Markdown, JSON, or HTML, so it is closer to a complete discovery-plus-reading layer for agents than a plain article reader.
+[TinyFish Search/Fetch](https://www.tinyfish.ai/blog/search-and-fetch-are-now-free-for-every-agent-everywhere) also has per-minute limits: Search allows 30 requests/min, Fetch allows 150 URLs/min, a $0 Wallet balance still works, and failed Fetch URLs do not count. It no longer relies on rate limits alone, though: Search also has free caps of 500 per hour and 12,000 per day, and Fetch is free for 1,000 successful URLs per day, both resetting at 00:00 UTC; beyond that, requests need a positive Wallet balance. The difference from Jina is scope. TinyFish runs pages through its Chromium infrastructure and returns cleaned Markdown, JSON, or HTML, so it is closer to a complete discovery-plus-reading layer for agents than a plain article reader.
 
-TinyFish's paid boundary is also explicit: Search and Fetch are free, while Agent costs $0.016/step and Browser costs $0.002/min. In practice, public discovery and page reading can stay on the free rate-limited path; login, clicking, form filling, and long-lived browser sessions move into Wallet billing. Handle `429` carefully: a response with `details.limit` / `details.unit` means the account hit its per-minute limit and should respect `Retry-After` or upgrade; a response without `details` may indicate upstream throttling or capacity, so retry with backoff instead of treating it as a plan-limit problem.
+TinyFish's paid boundary is also explicit: Search and Fetch are free within their daily allowances, while Agent costs $0.016/step and Browser costs $0.002/min. In practice, public discovery and page reading can stay on the free rate-limited path; login, clicking, form filling, and long-lived browser sessions move into Wallet billing. Handle `429` carefully: a response with `details.limit` / `details.unit` means the account hit its per-minute limit and should respect `Retry-After` or upgrade; a response without `details` may indicate upstream throttling or capacity, so retry with backoff instead of treating it as a plan-limit problem. If `details.reason` is `free_allowance_exhausted`, the daily free allowance is used up; wait for 00:00 UTC or enable Wallet spending, because short-interval retries will not help.
 
 ### A Free Web Product Does Not Mean a Free API
 
-[Perplexity Search API](https://docs.perplexity.ai/docs/getting-started/pricing) has no complimentary API credits. Free, Pro, and Max consumer subscriptions do not include API usage. Search API costs $5 per 1,000 successful requests, requires prepaid credits, and blocks the API key when the balance reaches zero.
+[Perplexity Search API](https://docs.perplexity.ai/docs/getting-started/pricing) has no standing free API allowance; only some new accounts receive a one-time signup credit that expires after 60 days. Free, Pro, and Max consumer subscriptions do not include API usage. Search API costs $5 per 1,000 successful requests, and Fast Search, added in September 2026, costs $1; it requires prepaid credits, and blocks the API key when the balance reaches zero.
 
 [Google Custom Search JSON API](https://developers.google.com/custom-search/v1/overview) is closed to new customers. Existing customers retain 100 queries per day until the service shuts down on January 1, 2027. Google's free, ad-supported Standard Search Element is a client-side JavaScript widget, not a backend JSON API for an agent.
 
@@ -160,6 +160,7 @@ The most sustainable free plan is not the one with the largest headline number. 
 
 ## Update Log
 
+- 2026-11-23: Rechecked every plan against official pricing pages. Exa now grants $10 at signup and resets the free balance to $10 monthly; Brave has no standalone free plan and is now prepaid; You.com's signup credit is split into $10 + $90 and the keyless MCP adds extract and discover tools; TinyFish Search/Fetch gained hourly and daily free caps and moved to recurring allowances; Valyu switched to monthly credits and moved to recurring allowances; Browser Use Cloud dropped its monthly free tasks and moved to one-time credits; Bright Data's free pool now includes Browser API and is officially shared with MCP; Browserless sessions now run up to 2 minutes; Serper gained paid unit prices and credit validity; Perplexity gained the one-time signup credit and Fast Search; Cloudflare links now use the Browser Run documentation paths.
 - 2026-08-30: Reordered the article to put three starting scenarios first, keep the complete allowance tables as lookup material, and separate rate-limited access from free API allowances.
 - 2026-08-29: Added TinyFish Search/Fetch's persistent free rate limit, $0 Wallet boundary, Agent/Browser paid boundary, and 429 handling distinction.
 - 2026-08-22: Separated recurring allowances, persistent rate limits, and one-time trials; added Search, browser, and scraping services.
@@ -183,6 +184,8 @@ The most sustainable free plan is not the one with the largest headline number. 
 - [TinyFish Pricing](https://www.tinyfish.ai/pricing)
 - [TinyFish Developer Documentation](https://docs.tinyfish.ai/)
 - [TinyFish Error Codes](https://docs.tinyfish.ai/error-codes)
+- [TinySearch API Reference](https://docs.tinyfish.ai/tinysearch/reference)
+- [TinyFetch API Reference](https://docs.tinyfish.ai/tinyfetch/reference)
 
 ### Browser, Scraping, and Rate-Limited Access
 
@@ -195,8 +198,8 @@ The most sustainable free plan is not the one with the largest headline number. 
 - [Bright Data MCP Pricing](https://brightdata.com/pricing/mcp-server)
 - [Browserless Pricing](https://www.browserless.io/pricing)
 - [Browserless Unit Consumption](https://docs.browserless.io/overview/unit-consumption)
-- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-rendering/pricing/)
-- [Cloudflare Browser Rendering Limits](https://developers.cloudflare.com/browser-rendering/platform/limits/)
+- [Cloudflare Browser Run Pricing](https://developers.cloudflare.com/browser-run/pricing/)
+- [Cloudflare Browser Run Limits](https://developers.cloudflare.com/browser-run/limits/)
 - [ZenRows Pricing](https://www.zenrows.com/pricing)
 - [Browser Use Cloud Pricing](https://browser-use.com/pricing)
 - [Jina Reader](https://jina.ai/en-US/reader/)
@@ -212,7 +215,7 @@ The most sustainable free plan is not the one with the largest headline number. 
 - [Steel Pricing and Limits](https://docs.steel.dev/overview/pricinglimits)
 - [Zyte Pricing](https://www.zyte.com/pricing/)
 - [Zyte API Pricing Details](https://docs.zyte.com/zyte-api/pricing.html)
-- [Valyu Pricing](https://www.valyu.ai/pricing)
+- [Valyu Pricing](https://docs.valyu.ai/pricing)
 - [Hyperbrowser Pricing](https://www.hyperbrowser.ai/pricing)
 - [Hyperbrowser Credit Rules](https://www.hyperbrowser.ai/docs/pricing)
 - [Bocha Free Resource Package](https://aq6ky2b8nql.feishu.cn/wiki/RWdvw557Li3IJekGeLkcDFa3n1f)

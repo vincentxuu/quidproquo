@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-grpc-connect-rpc)
+> :globe: [中文版](/posts/tech/2026-08-22-grpc-connect-rpc)
 
 [gRPC](https://grpc.io/docs/what-is-grpc/introduction/) defines services, methods, and messages in `.proto`, then generates client stubs and server interfaces for multiple languages. The contract is an independent IDL rather than TypeScript inference. [Connect](https://connectrpc.com/docs/introduction/) uses the same Protobuf schema with implementations built on standard HTTP libraries and supports gRPC, gRPC-Web, and the Connect protocol together.
 

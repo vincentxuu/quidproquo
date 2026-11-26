@@ -10,7 +10,7 @@ tldr: "HW6 combines generalization, MLE/MAP, probabilistic learning, fairness me
 description: "Theory, estimation, and fairness analysis in CMU 10-301/601 Spring 2026 HW6."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 6 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw6-theory-ethics)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw6-theory-ethics)
 
 The PDF in the [official HW6 ZIP](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw6.zip) is titled **Homework 6: Learning Theory, MLE/MAP, Fairness Metrics, and Societal Impact**; the [coursework index](https://www.cs.cmu.edu/~mgormley/courses/10601/coursework.html) shortens this to Learning Theory and Ethics. It is entirely written. Sections cover learning theory, MLE/MAP, probabilistic learning, fairness metrics, societal impacts and unintended consequences, and society/ethics/ML. The ZIP includes a PDF, LaTeX template, fairness CSV, and figures, but no starter code or reference answers.
 

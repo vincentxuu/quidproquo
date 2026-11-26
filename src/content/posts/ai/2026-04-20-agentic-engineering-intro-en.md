@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-20-agentic-engineering-intro)
+> :globe: [中文版](/posts/ai/2026-04-20-agentic-engineering-intro)
 
 There's a problem in software development that AI coding agents have never truly solved: **cross-team coordination friction**.
 

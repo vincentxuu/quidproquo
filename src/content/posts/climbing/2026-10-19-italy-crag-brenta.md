@@ -13,7 +13,7 @@ description: "Brenta 與 Campanile Basso 攀登介紹：塔的歷史與岩質、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-brenta-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-brenta-en)
 
 Brenta 群（Dolomiti di Brenta）在特倫托自治省西部，夾在 Madonna di Campiglio 和 Molveno 之間，是多洛米蒂最西邊的山群。群中的 Campanile Basso，[SummitPost](https://www.summitpost.org/campanile-basso-di-brenta/151122) 稱它「The most famous pinnacle of the "dolomites"」，也是多洛米蒂大山峰裡最後一座被登頂的。
 

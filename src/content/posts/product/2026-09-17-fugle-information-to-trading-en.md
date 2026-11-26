@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-fugle-information-to-trading)
+> :globe: [中文版](/posts/product/2026-09-17-fugle-information-to-trading)
 
 Imagine a store that lends you maps and traffic reports for free and lets you save familiar routes. When you decide to travel, the store does not drive the vehicle. It connects its interface to a licensed transportation company. Developers can also pay for a traffic API and build their own navigation tools.
 

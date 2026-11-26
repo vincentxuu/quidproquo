@@ -12,7 +12,7 @@ series:
   order: 111
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-28-funding-hyphenate)
+> :globe: [中文版](/posts/daily/2026-10-28-funding-hyphenate)
 
 ## Funding Details
 

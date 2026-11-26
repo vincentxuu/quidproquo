@@ -13,7 +13,7 @@ series:
   order: 23
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-07-drone-spec-sheet-reading)
+> :globe: [中文版](/posts/tech/2026-08-07-drone-spec-sheet-reading)
 
 **Boundary first: I have never flown a drone, and this piece recommends no models.**
 

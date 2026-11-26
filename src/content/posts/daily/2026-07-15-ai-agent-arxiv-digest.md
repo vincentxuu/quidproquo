@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 52
 ---
-> 🌏 [English version](/posts/daily/2026-07-15-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-15-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -68,10 +68,10 @@ series:
 ### 深入要點
 
 - 8 類任務：互動遊戲與謎題（8題）、多模態影像分析（6）、軟體與逆向工程（6）、科學計算（6）、地球與能源系統（6）、系統與安全（5）、論文復現（5）、專業工作流（4）
-- **前三名**：Grok 4.5（mean reward 0.505，13/46 solved）、Claude Sonnet 5（0.497，8/46）、Claude Opus 4.8（0.492，9/46） ⚠️ 分數均為 benchmark 內部評測，跨系統比較需留意 harness 設定差異
+- **前三名**：Grok 4.5（mean reward 0.505，13/46 solved）、Claude Sonnet 5（0.497，8/46）、Claude Opus 4.8（0.492，9/46） :warning: 分數均為 benchmark 內部評測，跨系統比較需留意 harness 設定差異
 - 29/46 道題無任何模型完全解出——benchmark 尚未飽和
 - 約 55% 的跑次得分低於 0.25，agent 頻繁卡住或提前放棄
-- 成本效益：MiniMax M3 每題約 $6，表現超越成本高 10 倍的模型 ⚠️（成本計算方式作者未詳述，建議自行驗證）
+- 成本效益：MiniMax M3 每題約 $6，表現超越成本高 10 倍的模型 :warning:（成本計算方式作者未詳述，建議自行驗證）
 - 評分採「隱藏的從成品重建驗證腳本」而非依賴 agent 自報進度，防止作弊
 - **限制**：46 題規模偏小；任務偏向 STEM / 工程，業務型 workflow 代表性不足；90 分鐘跑次讓評測成本高昂
 - GitHub: [zli12321/LHTB](https://github.com/zli12321/LHTB)
@@ -125,7 +125,7 @@ AI Control（AI 控制論）近年快速發展，核心問題是：「如果 AI 
 
 - FakeLab：9 個服務（程式碼審查、資料管道、模型訓練等）、86 個正常任務、4 個攻擊目標（包含模型洩漏、訓練資料污染等高嚴重性目標）
 - **碎片化效應**：參與攻擊的 agent 數增加 → 每個攻擊者的 peak suspicion score 下降 → 整體攻擊更難被偵測
-- **Planner 效應**：加入規劃者 agent 後，攻擊完成率提升最高達 7 倍 ⚠️（具體倍數依攻擊目標而異，論文有 32 圖、24 表，建議讀原文核實各場景數字）
+- **Planner 效應**：加入規劃者 agent 後，攻擊完成率提升最高達 7 倍 :warning:（具體倍數依攻擊目標而異，論文有 32 圖、24 表，建議讀原文核實各場景數字）
 - Planner 同時輕微提升 executor 的 monitor theory-of-mind（對監控系統行為的預測），讓攻擊更有針對性
 - 研究範圍是「具惡意目標的 AI 自主行動」，不是傳統 prompt injection 或外部駭客攻擊
 - 論文 81 頁，submitted to NeurIPS，是目前 multi-agent AI control 領域最完整的實證研究
@@ -179,7 +179,7 @@ AI Control（AI 控制論）近年快速發展，核心問題是：「如果 AI 
 
 ### 深入要點
 
-- 核心數據：冗餘行為隨延遲單調上升——100μs in-process: **0.0 次**；110ms 雲端: **7.2 次**（out of 12 steps）⚠️ 只用 gpt-5-nano 和 gpt-5-mini 測試，5 seeded workloads，樣本量偏小
+- 核心數據：冗餘行為隨延遲單調上升——100μs in-process: **0.0 次**；110ms 雲端: **7.2 次**（out of 12 steps）:warning: 只用 gpt-5-nano 和 gpt-5-mini 測試，5 seeded workloads，樣本量偏小
 - 統計顯著性：exact permutation test p = 0.0079，結果有顯著性，但在高度設計的實驗環境中取得
 - 傳統 in-loop retrieval 設計最多讓端到端延遲膨脹 83 倍（當查詢本身很慢時）
 - 理論框架：以延遲作為判斷外部資源是否構成「認知一部分」的標準——低延遲記憶體從「工具」升格為「延伸工作記憶（extended working memory）」

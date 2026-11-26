@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-ai-era-tech-choices-guide-en)
+:globe: [English version](/posts/tech/2026-08-21-ai-era-tech-choices-guide-en)
 
 先講一個具體的難題，這個系列是從它長出來的。
 
@@ -149,10 +149,10 @@ draft: false
 | **建置與工具鏈** | Vite 8 與 Rolldown、Vitest、oxlint / Oxc、TypeScript 7 | 完全空白 |
 | **訊息佇列與事件串流** | Kafka、RabbitMQ、NATS、Redpanda、Pulsar、Redis Streams、AWS SQS / SNS、Cloudflare Queues | 有 BullMQ 與 Celery 兩篇任務佇列 |
 | **Durable execution** | Inngest、Restate、Hatchet | 已有 Temporal 與 Trigger.dev 專文 |
-| **後端的合約層** | tRPC、oRPC、ts-rest、Zodios、Hono RPC；OpenAPI 那側的 openapi-typescript、Stainless、Speakeasy；跨語言的 gRPC / Connect、Protobuf / Buf、GraphQL 與 Codegen | 完全空白 |
+| **後端的合約層** | tRPC、oRPC、ts-rest（2026-10 已封存）、Zodios（2023-08 後未再發版）、Hono RPC；OpenAPI 那側的 openapi-typescript、Stainless（2026-05 併入 Anthropic，已停止對外服務）、Speakeasy；跨語言的 gRPC / Connect、Protobuf / Buf、GraphQL 與 Codegen | 完全空白 |
 | **資料存取** | Kysely | 已有 Drizzle 與 Prisma 專文 |
 | **認證與授權** | Better Auth，以及 agent 代表使用者行動時的授權模型 | 完全空白 |
-| **三大雲的運算層** | AWS Lambda / Fargate / App Runner、Google Cloud Run / GKE、Azure Container Apps / App Service | 只有 AI 證照備考文，沒有平台選型文 |
+| **三大雲的運算層** | AWS Lambda / Fargate / App Runner（2026-04-30 起停收新客戶，新專案改用 ECS Express Mode）、Google Cloud Run / GKE、Azure Container Apps / App Service | 只有 AI 證照備考文，沒有平台選型文 |
 | **GPU 與推論專用雲** | CoreWeave、Lambda Labs、RunPod、Nebius、Crusoe、Replicate、Hugging Face | 完全空白 |
 | **二線雲與地端** | DigitalOcean、Hetzner、Vultr、Linode、Scaleway、OVHcloud、Oracle OCI；地端的 Proxmox、OpenStack | 完全空白 |
 | **託管 PaaS** | Vercel、Netlify、Render、Railway、Fly.io、Koyeb、Deno Deploy、DigitalOcean App Platform | Cloudflare 那條線覆蓋得厚，其餘空白 |
@@ -216,6 +216,7 @@ Agent 介面元件也補齊了。[CopilotKit](/posts/tech/2026-08-22-copilotkit-
 
 ## 更新紀錄
 
+- 2026-11-23：roadmap 的 App Runner 註明 2026-04-30 起停收新客戶，新專案改用 ECS Express Mode。
 - 2026-08-22：依站內實際文章重新盤點 roadmap，將 Tavily、Linkup、Crawl4AI、Apify、Meilisearch、Qdrant、Pagefind、Jina Reader、Hugging Face、Serper、SerpAPI、Brave Search API、CopilotKit、assistant-ui 改列為已有專文。
 - 2026-08-21：系列更新至 order 20，補入後續十二篇閱讀路徑，並同步修正 roadmap 的已覆蓋與未覆蓋項目。
 

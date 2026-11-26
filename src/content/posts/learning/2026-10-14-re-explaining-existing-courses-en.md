@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-re-explaining-existing-courses)
+> :globe: [中文版](/posts/learning/2026-10-14-re-explaining-existing-courses)
 
 This is Part 27 of the "Writing Articles That Teach" series, in its last section, "how to know it works, and how to make it". Earlier parts covered what the signals in an author's hands actually measure, and what large-scale experiments and rubrics can tell us. This part steps back to a more basic question: should this kind of article be written at all?
 

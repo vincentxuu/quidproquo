@@ -12,7 +12,7 @@ series:
   order: 46
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-tool-brickwise)
+> :globe: [中文版](/posts/daily/2026-10-06-tool-brickwise)
 
 ## Tool Info
 
@@ -93,8 +93,8 @@ find_related("data-persistence/orderedstore-save-retry")
 
 | | Brickwise | Asking the AI assistant directly | Reading DevForum / Creator Docs yourself |
 |---|---|---|---|
-| Reflects 2026 API changes | ✅ | ❌ stuck at training cutoff | ✅ |
-| Cites a source you can verify | ✅ | ❌ often fabricates something plausible | ✅ (it is the source) |
+| Reflects 2026 API changes | ✓ | ✗ stuck at training cutoff | ✓ |
+| Cites a source you can verify | ✓ | ✗ often fabricates something plausible | ✓ (it is the source) |
 | Query cost | Reads a summary first, full text only on a hit | Free, but might be wrong | You spend the time searching and reading |
 | Coverage | Free: 8 categories, 50 entries. Paid: 19 categories, 600+ | Whatever made it into training data | Everything, but you have to find it |
 

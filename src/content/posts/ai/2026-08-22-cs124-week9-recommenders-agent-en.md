@@ -11,7 +11,7 @@ description: "A guide to Stanford CS124 Winter 2026 Week 9: formalizing the reco
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)
+> :globe: [中文版](/posts/ai/2026-08-22-cs124-week9-recommenders-agent)
 
 This is Week 9 of [Reading Stanford CS124](/posts/ai/2026-08-21-stanford-cs124-languages-to-information-en). The data changes from text to people's behavior: who gave which movie how many stars. The question is: **how do you guess whether someone will like something they have not seen?**
 

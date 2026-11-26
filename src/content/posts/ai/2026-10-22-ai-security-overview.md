@@ -14,7 +14,7 @@ description: "AI 資安實戰系列總覽：共用資料流與授權基礎，分
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-overview-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-overview-en)
 
 你替公司做了一個中文客服助理。它會讀知識庫、查工單，也能替客服產生回覆。客戶問得更快、模型答得更順，接著有人問：「換個工單編號，它會不會把別家客戶的資料交出來？」
 

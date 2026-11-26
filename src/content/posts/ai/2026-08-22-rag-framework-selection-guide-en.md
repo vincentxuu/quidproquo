@@ -10,7 +10,7 @@ description: "A shared decision framework for LlamaIndex, Haystack, RAGFlow, Dif
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-rag-framework-selection-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-rag-framework-selection-guide)
 
 Putting [LlamaIndex](https://developers.llamaindex.ai/python/framework/), [Haystack](https://docs.haystack.deepset.ai/), [RAGFlow](https://github.com/infiniflow/ragflow), [Dify](https://github.com/langgenius/dify), and [R2R](https://github.com/SciPhi-AI/R2R) into one "RAG framework ranking" starts with the wrong comparison. Their problem spaces overlap, but their deliverables sit at different product layers: the first two primarily ship Python abstractions, RAGFlow and Dify ship operable platforms, and R2R ships a self-hostable retrieval API.
 

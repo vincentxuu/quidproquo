@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-15-tool-dearagent-en)
+> :globe: [English version](/posts/daily/2026-09-15-tool-dearagent-en)
 
 ## 工具資訊
 
@@ -99,11 +99,11 @@ curl -X POST $DA/webhooks -H "Authorization: Bearer $KEY" -d '{
 | | DearAgent | AgentMail(託管） | 自己寫 SMTP webhook 服務 |
 |---|---|---|---|
 | 郵件存放位置 | 你自己的 Cloudflare 帳號(D1 + R2) | 對方雲端 | 自己維運的基礎設施 |
-| 原始碼可讀／可稽核 | ✅ 一份 repo,AGPL-3.0 | ❌ 封閉 | ✅(但要自己從零寫) |
-| 內建 MCP server | ✅（`/mcp`，15 個工具） | 需自行整合 | 需自行整合 |
-| Threading／附件／webhook | ✅ 內建 | ✅（產品功能） | 需自行實作 |
+| 原始碼可讀／可稽核 | ✓ 一份 repo,AGPL-3.0 | ✗ 封閉 | ✓(但要自己從零寫) |
+| 內建 MCP server | ✓（`/mcp`，15 個工具） | 需自行整合 | 需自行整合 |
+| Threading／附件／webhook | ✓ 內建 | ✓（產品功能） | 需自行實作 |
 | 計費模式 | 你的 Workers 帳單(收信免費,寄信需 Workers Paid) | 依 inbox／訊息數計費 | 依你自架的基礎設施而定 |
-| 多租戶／per-agent 權限 | ❌ 單一 API key,全權限 | ✅ 產品內建 | 需自行實作 |
+| 多租戶／per-agent 權限 | ✗ 單一 API key,全權限 | ✓ 產品內建 | 需自行實作 |
 
 ## 注意事項
 

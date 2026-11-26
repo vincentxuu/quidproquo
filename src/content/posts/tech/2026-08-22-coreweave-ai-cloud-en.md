@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-coreweave-ai-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-coreweave-ai-cloud)
 
 [CoreWeave](https://docs.coreweave.com/) is cloud infrastructure focused on AI and HPC. It is more than hourly GPUs: the platform includes CoreWeave Kubernetes Service (CKS), Slurm on Kubernetes, object/file/block storage, VPCs, and serverless or dedicated inference.
 
@@ -33,7 +33,11 @@ Hourly GPU price is insufficient. If a serverless wrapper blocks runtime, parall
 
 The same GPU model does not make clusters equivalent. Regional capacity, reservations, interconnect, CPU/RAM ratios, storage egress, support, and quotas affect delivery. Terraform and Kubernetes manifests, OCI images, portable checkpoints, and S3-compatible artifacts reduce switching cost, but network and performance tuning remain provider-specific.
 
-Fail a node, storage mount, and network path before launch. Confirm jobs resume from checkpoints and inference drains and reschedules. CoreWeave fits teams for which GPUs are production infrastructure; small experiments and API-first products may prefer RunPod, Replicate, or a general hyperscaler.
+Fail a node, storage mount, and network path before launch. Confirm jobs resume from checkpoints and inference drains and reschedules. CoreWeave fits teams for which GPUs are production infrastructure; small experiments and API-first products may prefer Runpod, Replicate, or a general hyperscaler.
+
+## Update log
+
+- 2026-11-23: Updated the company name to its current styling, Runpod (rebranded from RunPod in June 2025).
 
 ## References
 

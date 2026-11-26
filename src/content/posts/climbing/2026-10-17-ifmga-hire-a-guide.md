@@ -20,7 +20,7 @@ glossary:
         url: "https://www.amga.com/programs/climbing-instructor-programs/single-pitch-instructor-program"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-hire-a-guide-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-hire-a-guide-en)
 
 這篇給打算出國請嚮導的人。你在霞慕尼、采爾馬特或日本找到一位自稱「mountain guide」的人。要怎麼確認他是 IFMGA？一天要花多少錢？報價沒寫的錢有哪些？結束時要不要給小費？
 

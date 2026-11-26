@@ -6,14 +6,14 @@ type: deep-dive
 tags: [learning-science, metrics, web-analytics, mooc, self-learning, course-guide, blog]
 lang: en
 description: "What the signals in the hands of an author without exams each measure: self-rated learning, feeling that something was explained well, liking and engagement, video viewing time, how much learners got right during practice, models that predict passing, Duolingo's proxy metrics, and why there is no research to cite on time on page. It ends by checking each one against the data this site can see and its course-guide spec."
-tldr: "In a crossover experiment in a Harvard physics course, the class in which students scored 0.46 standard deviations higher on the test was the one they rated 0.56 lower; in an experiment with generative AI available, self-ratings rose more than actual improvement could explain. Viewing time, platform activity, and models predicting a pass mostly measure how much was done, not learning measured separately. This site's traffic statistics are aggregate, and none of its signals can measure whether readers learned."
+tldr: "In a crossover experiment in a Harvard physics course, the class in which students scored 0.46 standard deviations higher on the test was the one they rated 0.56 lower (the rating was a four-item composite that included how much they liked the class); in an experiment with generative AI available, an exploratory analysis found self-ratings slightly ahead of actual improvement, though they still broadly tracked it. Viewing time, platform activity, and models predicting a pass mostly measure how much was done, not learning measured separately. This site's traffic statistics are aggregate, and none of its signals can measure whether readers learned."
 series:
   name: "Writing Articles That Teach"
   order: 25
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-14-reader-signals-vs-learning)
+> :globe: [中文版](/posts/learning/2026-10-14-reader-signals-vs-learning)
 
 This is Part 25 of the "Writing Articles That Teach" series and the first part of its sixth section, "how to know it works, and how to make it". [Part 15](/posts/learning/2026-10-14-metacomprehension-in-teaching-articles-en) looked at this from the reader's side: readers are poor at telling which articles they understood and which they didn't. Without any intervention, the within-person correlation between their judgments and their scores averages only about 0.18; answering questions before judging, or writing keywords after reading everything, makes the judgments somewhat more accurate. This part moves to the author's side. If readers' judgments are inaccurate, how much can the things readers tell the author, and the behavioral traces they leave, tell the author?
 

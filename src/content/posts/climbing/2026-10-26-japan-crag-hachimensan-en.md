@@ -13,7 +13,7 @@ description: "Hachimensan climbing guide: seasons, transport, local access rules
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-hachimensan)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-hachimensan)
 
 A visit to Hachimensan requires choosing both a climbing sector and a workable local approach. This guide helps you assess the style, season and access checks needed for a first visit.
 
@@ -54,12 +54,6 @@ Routes and original YDS grades below come from [ROCKTOPO](https://www.rocktopo.n
 Video labels follow uploader metadata, and may use different grades or versions. A linked clip does not certify access or protection. Clips with unverified embedding are external links.
 
 The inventory includes all 171 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
-
-```video-gallery
-key: japanHachimensan
-lang: en
-layout: routes
-```
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -146,6 +140,12 @@ Start by locating 中部エリア（Bサイド）, 上部エリア in the topo. 
 | 「砂の岬」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
 | 「白日」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
 | 「アムニージア」 | 5.11c | 5.11c | Not listed | 中部エリア（Bサイド） | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanHachimensan
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 
@@ -266,6 +266,12 @@ Additional graded inventory: roped lines and boulders require separate protectio
 | 「石舞台正面ダイレクトB」 | 3級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
 | 「石舞台正面ダイレクトA」 | 3級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
 | 「フラワー」 | 1級 | — | — | 石舞台エリア | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/177/routes)；single source. |
+
+```video-gallery
+key: japanHachimensan
+lang: en
+layout: routes
+```
 
 
 ## Where to look things up

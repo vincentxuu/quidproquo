@@ -19,7 +19,7 @@ description: "A 2026 survey of AI courses organized into four tiers — AI-curio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-10-ai-courses-2026-guide)
+> :globe: [中文版](/posts/ai/2026-07-10-ai-courses-2026-guide)
 
 In the first half of 2026, three frontier labs independently decided that teaching you to use AI was part of the product. OpenAI Academy launched three core courses in June. Anthropic reorganized its entire Academy into Claude Academy, sorted by product. Google shipped a new AI Professional Certificate. Around the same time, Stanford ran a for-credit course on how to direct coding agents, with the creator of Claude Code on the guest list.
 
@@ -38,7 +38,7 @@ A note on method. Every number below comes from an official page I actually fetc
 
 Prices and languages come from **current official pages**, never from old blog posts. This matters more than it sounds. The AWS announcement introducing subscriptions lists $299/year and 12 languages — but that post is from 2022. The current pricing page says $449 and the current FAQ says 17 languages. The widely circulated Google Cloud post about free badges is from 2023. **Citing an official source is not the same as citing the current state.** Always check the date.
 
-Three items remain marked "unverified," and not because I didn't look hard enough — they are **structurally unavailable**: OpenAI Academy's per-course syllabus sits behind a login on Gradual; the Maven paid cohort page shows Sold out and lists no price; NVIDIA's self-paced course pages don't state a language.
+Three pieces of information are **structurally unavailable** on public pages: OpenAI Academy's per-course syllabus sits behind a login on Gradual; the Maven paid cohort page shows Sold out and lists no price; NVIDIA's self-paced course pages don't state a language.
 
 ## Tier 1: AI-curious — you don't know what to do with it yet
 
@@ -60,7 +60,7 @@ All three issue completion certificates, but OpenAI explicitly states these are 
 
 The path ends at *directing agents*, not *writing better prompts*. That ordering is itself a signal: OpenAI considers the 2026 baseline skill to have moved from prompting to workflow design and delegation.
 
-Whether course content is localized: **unverified**. I confirmed only that the help documentation exists in Traditional Chinese variants; the Academy site itself and every public course page are in English. The per-lesson syllabus requires a Gradual login, which I did not get past.
+Whether course content is localized: **not visible from public pages**. The help documentation exists in Traditional Chinese variants, but the Academy site itself and every public course page are in English; the per-lesson syllabus requires a Gradual login.
 
 ### Claude Academy (formerly Anthropic Academy)
 
@@ -174,11 +174,11 @@ Most people get stuck here, and stay stuck. Tier two teaches you to issue instru
 
 ### Stanford CS146S: the only vendor-neutral field guide
 
-[`themodernsoftware.dev`](https://themodernsoftware.dev/) looks like an independent course platform. It's actually the official site for **Stanford's for-credit course "CS146S: The Modern Software Developer"** (Fall 2025): 3 units, 10 weeks, roughly 10–12 hours per week, with programming experience equivalent to CS111 as prerequisite. This site has a [week-by-week breakdown series](/posts/ai/2026-08-16-cs146s-course-map-en) on it.
+[`themodernsoftware.dev`](https://themodernsoftware.dev/) looks like an independent course platform. It's actually the official site for **Stanford's for-credit course "CS146S: The Modern Software Developer"**: 3 units, 10 weeks, roughly 10–12 hours per week. Its second run is under way in fall 2026; the site now reads "Fall 2026 / Fall 2025," the prerequisite is CS111/CS161-equivalent programming experience with CS221 or CS229 recommended, and the new course description centers on MCP, agent skills, spec-driven development, loop engineering, and the software factory. For how the two outlines differ, see this site's [CS146S course map](/posts/ai/2026-08-16-cs146s-course-map-en) and its week-by-week series.
 
 Taught by Mihail Eric: Stanford NLP Group alum (advisors including Manning, Percy Liang, Potts), former Amazon Alexa AI scientist, co-founder of YC-backed Storia AI.
 
-Crucially, **the weekly slides, reading lists, and [GitHub assignments](https://github.com/mihail911/modern-software-dev-assignments) are all public** — effectively a free self-study curriculum. The 10-week outline:
+Crucially, **the weekly slides, reading lists, and [GitHub assignments](https://github.com/mihail911/modern-software-dev-assignments) are all public** — effectively a free self-study curriculum. The Fall 2025 10-week outline:
 
 ```
 1  Introduction to Coding LLMs
@@ -193,11 +193,11 @@ Crucially, **the weekly slides, reading lists, and [GitHub assignments](https://
 10 What's Next for AI SWE
 ```
 
-The guest speaker list is faintly absurd: **Boris Cherney (creator of Claude Code)**, Silas Alberti (research lead, Cognition/Devin), Zach Lloyd (CEO, Warp), Isaac Evans (CEO, Semgrep), Gaspar Garcia (AI research lead, Vercel), Martin Casado (GP, a16z).
+The Fall 2025 guest speaker list is faintly absurd: **Boris Cherney (creator of Claude Code)**, Silas Alberti (research lead, Cognition/Devin), Zach Lloyd (CEO, Warp), Isaac Evans (CEO, Semgrep), Gaspar Garcia (AI research lead, Vercel), Martin Casado (GP, a16z).
 
 Its biggest difference from OpenAI Academy and Claude Academy is **vendor neutrality**: one course covering Cursor, Claude Code, Windsurf, and Warp together rather than one vendor's product. Assignments include hand-building a coding agent and an MCP server from scratch.
 
-The same material has a [paid cohort version on Maven](https://maven.com/the-modern-software-developer/ai-course), "AI Software Development: From First Prompt to Production Code": 4 weeks, 8 live sessions, 14 lessons, 4 projects, private Discord, completion certificate, now on its third cohort. **Price unverified** — the page shows Sold out with no figure listed.
+The same material has a [paid cohort version on Maven](https://maven.com/the-modern-software-developer/ai-course), "AI Software Development: From First Prompt to Production Code": 4 weeks, 8 live sessions, 14 lessons, 4 projects, private Discord, completion certificate, now on its third cohort. **Price not listed** — the page shows Sold out with no figure.
 
 Discount the reputation signals. The 4.9 rating (50 reviews) on the Maven page is the course's own page, not a neutral third party. There's a Reddit r/theprimeagen thread, but the site blocks scraping, so the comments are unavailable — meaning I also can't claim the reception is uniformly good. Marketing lines like "the world's first course of its kind" and "10x productivity" are marketing claims, independently unverified.
 
@@ -243,7 +243,7 @@ If what you want is structure plus a certificate without paying and without tyin
 
 ### Microsoft: the sturdiest open-source option
 
-[`microsoft/generative-ai-for-beginners`](https://github.com/microsoft/generative-ai-for-beginners) is a 21-lesson open-source course under MIT License, roughly 113k stars and 60.6k forks. Each lesson has a short video, a README, and Python/TypeScript examples.
+[`microsoft/generative-ai-for-beginners`](https://github.com/microsoft/generative-ai-for-beginners) is a 21-lesson open-source course under MIT License, roughly 124k stars and 66.8k forks. Each lesson has a short video, a README, and Python/TypeScript examples.
 
 It has two advantages rare among these resources. First, **the README ships in 50+ language translations** — a level of localization coverage nothing else on this list matches. Second, it's still actively maintained in 2026; the most recent commits are migrating from Azure OpenAI to the Responses API, not a course collecting dust.
 
@@ -263,7 +263,7 @@ Short courses give a completion marker. **Specializations on Coursera cost money
 
 [**NVIDIA Deep Learning Institute**](https://www.nvidia.com/en-us/training/) is hybrid: most popular self-paced courses are free (for example Find the Bottleneck: Optimize AI Pipelines With Nsight Systems, 3 hours), while instructor-led workshops cost money, typically 8 hours a session (Building AI Agents with Multimodal Models). Some courses grant a DLI certificate; paid certification exams are separate. The platform is active — the site was advertising SIGGRAPH training sessions in July 2026.
 
-NVIDIA also runs a network of officially authorized DLI partners delivering workshops in local languages — worth checking whether one operates in your region, since the curriculum and certificate are the same as the English original. Whether the self-paced courses on learn.nvidia.com have localized interfaces is **unverified**; the current course pages don't state a language.
+NVIDIA also runs a network of officially authorized DLI partners delivering workshops in local languages — worth checking whether one operates in your region, since the curriculum and certificate are the same as the English original. Whether the self-paced courses on learn.nvidia.com have localized interfaces is **not stated**: the current course pages don't list a language.
 
 [**AWS Skill Builder**](https://aws.amazon.com/training/digital) is freemium: the free tier has **500+ on-demand digital courses** (the homepage separately claims "1,000+ free learning resources" and "900+ free self-paced courses" — three numbers, three ways of counting), while an individual subscription is **$29/month or $449/year** (the annual adds expert-led Digital Classrooms), and team plans are also $449 per seat per year. Subscriptions include Builder Labs and certification prep.
 
@@ -283,7 +283,7 @@ There's exactly one good reason to be here: you want to know why it behaves the 
 
 If you read Mandarin faster than English, this section matters more than the three that follow — there is no equivalent in any other non-English language on this list.
 
-Professor Hung-yi Lee at National Taiwan University teaches **entirely in Mandarin, free, with all slides and video public**, no formal certificate. He ships a new edition every year, and two current courses are worth separating:
+Professor Hung-yi Lee at National Taiwan University teaches **entirely in Mandarin, free, with all slides and video public**, no formal certificate. He ships a new edition every year, and the two newest on [his homepage](https://speech.ee.ntu.edu.tw/~hylee/index.php) are worth separating (this site has an [ML 2026 course overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) and lecture guides):
 
 - [**Machine Learning 2026 Spring**](https://speech.ee.ntu.edu.tw/~hylee/ml/2026-spring.php) — the newest edition, and clearly shifted toward agents: the first two lectures cover AI agent mechanics and context engineering, the middle runs through Flash Attention, KV Cache, and positional embeddings, and the ten assignments include AI Agent as an AI Engineer, LLM Fast Inference, Test-Time Scaling, and Model Merging. **It straddles tiers three and four** rather than sitting in "fundamentals" — for a Mandarin reader wanting agent engineering, nothing else comes close on value.
 - [**Introduction to Generative AI and Machine Learning, 2025 Fall**](https://speech.ee.ntu.edu.tw/~hylee/GenAI-ML/2025-fall.php) — 10 lectures on how models get trained: training tricks, post-training and catastrophic forgetting, image generation, spoken language models. Pick this one for foundations.
@@ -298,13 +298,13 @@ The lowest prerequisites of the three: calculus and linear algebra, with **Pytho
 
 The [2026 edition](https://introtodeeplearning.com/) finished on May 25, and **all nine lectures, slides, and labs are open-sourced and posted** — you get everything at once, no waiting for weekly releases. Labs run on Google Colab. Content spans neural network fundamentals, deep sequence modeling, computer vision, generative modeling, and reinforcement learning, through large language models and AI for science, closing with The Three Laws of AI and Secrets to Massively Parallel Training. It updates yearly; the 2026 edition expanded the LLM and agentic AI coverage.
 
-If you want to understand why models behave as they do without hand-writing kernels on day one, this is the sensible first stop.
+If you want to understand why models behave as they do without hand-writing kernels on day one, this is the sensible first stop. For which external services the three labs need and how to pace them, see this site's [MIT 6.S191 course overview](/posts/ai/2026-08-21-mit-6s191-introduction-to-deep-learning-en).
 
 ### Harvard CS50 AI: the AI that isn't an LLM
 
 CS50's Introduction to Artificial Intelligence with Python deserves its own mention because what it teaches is **deliberately not only LLMs**: search algorithms, knowledge representation and logic, probability, optimization, machine learning, neural networks, and natural language processing.
 
-In a year when every course teaches prompts and agents, adding one on search and logic is what gives you judgment about which problems call for an LLM and which ones shouldn't touch one.
+In a year when every course teaches prompts and agents, adding one on search and logic is what gives you judgment about which problems call for an LLM and which ones shouldn't touch one. For a seven-week reading plan, see this site's [CS50 AI course overview](/posts/ai/2026-08-26-harvard-cs50-ai-guide-en).
 
 [Free with a certificate on Harvard OpenCourseWare](https://www.classcentral.com/report/harvard-cs50-guide); the verified certificate on edX costs $299. The course page says 7 weeks; the weekly hours differ by source — [Harvard's own page](https://pll.harvard.edu/course/cs50s-introduction-artificial-intelligence-python) says 10–30 hours, Class Central says 20.
 
@@ -312,9 +312,11 @@ In a year when every course teaches prompts and agents, adding one on search and
 
 If DeepLearning.AI is the breadth benchmark, CS336: Language Modeling from Scratch is the depth benchmark at the other end. For where it sits on Stanford's full prerequisite ladder, see this site's [Stanford CS course guide](/posts/learning/2026-08-20-stanford-cs-course-map-en).
 
-The [site](https://cs336.stanford.edu/), slides, assignment specs, and YouTube recordings are all public and free (formal credit and Gradescope grading are Stanford-only). The site is now on the **Spring 2026 edition**, taught by Tatsunori Hashimoto and Percy Liang, 19 lectures with 5 large assignments: hand-writing a tokenizer, model, and optimizer, then FlashAttention2 and Triton kernels, then scaling laws and data processing, ending with SFT + RL.
+The [site](https://cs336.stanford.edu/), slides, assignment specs, and YouTube recordings are all public and free (formal credit and Gradescope grading are Stanford-only). The course runs only in spring, and the site is still on the **Spring 2026 edition**, taught by Tatsunori Hashimoto and Percy Liang, 19 lectures with 5 large assignments: hand-writing a tokenizer, model, and optimizer, then FlashAttention2 and Triton kernels, then scaling laws and data processing, ending with SFT + RL.
 
 The prerequisites are honestly steep: fluent Python, PyTorch, deep learning and systems fundamentals, plus calculus, linear algebra, and probability. The course describes itself as involving **"at least an order of magnitude more implementation than other courses."** No certificate.
+
+For budgeting GPU time across the five assignments, see this site's [CS336 course overview](/posts/ai/2026-08-21-stanford-cs336-language-modeling-from-scratch-en).
 
 Its difference from Hung-yi Lee's course is depth, not direction: Lee makes you understand what the model is doing; CS336 makes you build the whole thing. The sensible order is Lee first, then CS336, with a stretch of actually writing things in between.
 
@@ -328,48 +330,48 @@ This isn't theoretical. All of the following are widely recommended, extremely h
 
 | Material | Stars | Last updated |
 |---|---|---|
-| `d2l-ai/d2l-zh` (*Dive into Deep Learning*, Chinese) | 79.8k | **2024-07** |
-| `karpathy/LLM101n` | 37.5k | **2024-08** (the written material was never finished) |
-| `karpathy/nn-zero-to-hero` | 24.0k | **2024-08** |
-| `fastai/course22` | 3.7k | **2024-10** |
+| `d2l-ai/d2l-zh` (*Dive into Deep Learning*, Chinese) | 82.7k | **2024-07** |
+| `karpathy/LLM101n` | 37.5k | **2024-08** (the written material was never finished; the repo is now archived) |
+| `karpathy/nn-zero-to-hero` | 25.9k | **2024-08** |
+| `fastai/course22` | 3.8k | **2024-10** |
 
 What they teach about CNNs, RNNs, backpropagation, and from-scratch implementation doesn't expire, and they remain usable as foundations. But anything after 2024 — modern LLM training recipes, agents, inference optimization, evals — simply isn't there and never will be. **Treating them as current material builds in a two-year gap.**
 
-Below is the same list filtered by the same rule: **still being updated in 2026** (stars and last-updated dates checked 2026-08-21).
+Below is the same list filtered by the same rule: **still being updated in 2026** (stars and last-updated dates checked 2026-11-23).
 
 ### Building a model from scratch
 
 | Repo | Stars | Last updated | What it is |
 |---|---|---|---|
-| [`rasbt/LLMs-from-scratch`](https://github.com/rasbt/LLMs-from-scratch) | **103.1k** | 2026-08 | Sebastian Raschka's step-by-step LLM build. Highest star count on this list and still moving — **this is the current occupant of the seat Karpathy vacated** |
-| [`karpathy/nanochat`](https://github.com/karpathy/nanochat) | 57.4k | 2026-08 | "The best ChatGPT that $100 can buy." Strictly a project rather than a course, but the learning density of reading the code is high |
-| [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) | 33.1k | 2026-08 | Simplified Chinese, building an LLM from zero. Essentially the 2026 version of what D2L set out to do and never finished |
+| [`rasbt/LLMs-from-scratch`](https://github.com/rasbt/LLMs-from-scratch) | **108.9k** | 2026-11 | Sebastian Raschka's step-by-step LLM build. Highest star count on this list and still moving — **this is the current occupant of the seat Karpathy vacated** |
+| [`karpathy/nanochat`](https://github.com/karpathy/nanochat) | 60.8k | 2026-09 | "The best ChatGPT that $100 can buy." Strictly a project rather than a course, but the learning density of reading the code is high |
+| [`datawhalechina/happy-llm`](https://github.com/datawhalechina/happy-llm) | 35.1k | 2026-08 | Simplified Chinese, building an LLM from zero. Essentially the 2026 version of what D2L set out to do and never finished |
 
 ### Agents and RAG (matching tier three)
 
 | Repo | Stars | Last updated | What it is |
 |---|---|---|---|
-| [`microsoft/ai-agents-for-beginners`](https://github.com/microsoft/ai-agents-for-beginners) | 72.9k | 2026-08 | Microsoft's agent intro, same series as generative-ai-for-beginners above |
-| [`NirDiamant/RAG_Techniques`](https://github.com/NirDiamant/RAG_Techniques) | 29.1k | 2026-08 | A runnable collection of RAG techniques |
-| [`NirDiamant/GenAI_Agents`](https://github.com/NirDiamant/GenAI_Agents) | 23.9k | 2026-08 | The same author's agent equivalent |
-| [`DataTalksClub/llm-zoomcamp`](https://github.com/DataTalksClub/llm-zoomcamp) | 7.1k | 2026-08 | **A free cohort-based course** — with intakes, classmates, and deadlines. The only option here where you aren't alone |
+| [`microsoft/ai-agents-for-beginners`](https://github.com/microsoft/ai-agents-for-beginners) | 80.8k | 2026-11 | Microsoft's agent intro, same series as generative-ai-for-beginners above |
+| [`NirDiamant/RAG_Techniques`](https://github.com/NirDiamant/RAG_Techniques) | 30.5k | 2026-11 | A runnable collection of RAG techniques |
+| [`NirDiamant/GenAI_Agents`](https://github.com/NirDiamant/GenAI_Agents) | 25.1k | 2026-11 | The same author's agent equivalent |
+| [`DataTalksClub/llm-zoomcamp`](https://github.com/DataTalksClub/llm-zoomcamp) | 7.7k | 2026-11 | **A free cohort-based course** — with intakes, classmates, and deadlines. The only option here where you aren't alone |
 
 ### Engineering and shipping
 
 | Repo | Stars | Last updated | What it is |
 |---|---|---|---|
-| [`openai/openai-cookbook`](https://github.com/openai/openai-cookbook) | 75.4k | 2026-08 | The official cookbook, updated daily |
-| [`google-gemini/cookbook`](https://github.com/google-gemini/cookbook) | 17.7k | 2026-08 | The Gemini equivalent |
-| [`liguodongiot/llm-action`](https://github.com/liguodongiot/llm-action) | 24.9k | 2026-07 | Simplified Chinese, LLM engineering and production deployment |
-| [`stas00/ml-engineering`](https://github.com/stas00/ml-engineering) | 18.7k | 2026-08 | The engineering reality of training large models — hardware, parallelism, debugging. Almost no course teaches this angle |
-| [`datawhalechina/llm-universe`](https://github.com/datawhalechina/llm-universe) | 13.8k | 2026-07 | Simplified Chinese, LLM application development for beginners |
-| [`huggingface/smol-course`](https://github.com/huggingface/smol-course) | 6.7k | 2026-08 | Aligning small models |
+| [`openai/openai-cookbook`](https://github.com/openai/openai-cookbook) | 77.4k | 2026-11 | The official cookbook, updated daily |
+| [`google-gemini/cookbook`](https://github.com/google-gemini/cookbook) | 18.0k | 2026-11 | The Gemini equivalent |
+| [`liguodongiot/llm-action`](https://github.com/liguodongiot/llm-action) | 25.3k | 2026-10 | Simplified Chinese, LLM engineering and production deployment |
+| [`stas00/ml-engineering`](https://github.com/stas00/ml-engineering) | 19.7k | 2026-11 | The engineering reality of training large models — hardware, parallelism, debugging. Almost no course teaches this angle |
+| [`datawhalechina/llm-universe`](https://github.com/datawhalechina/llm-universe) | 14.3k | 2026-08 | Simplified Chinese, LLM application development for beginners |
+| [`huggingface/smol-course`](https://github.com/huggingface/smol-course) | 6.8k | 2026-11 | Aligning small models |
 
-One borderline case: [`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) has 81.9k stars and tops many lists, but its last update was 2026-02 — six months quiet. Not dormant yet, but worth watching.
+One borderline case: [`mlabonne/llm-course`](https://github.com/mlabonne/llm-course) has 85.2k stars and tops many lists, but its last update was 2026-02 — nine months quiet and close to joining the dormant table above.
 
 ### Not material, an index: csdiy.wiki
 
-One last entry, separate because it's a different species from everything above. [**csdiy.wiki**](https://csdiy.wiki/) ([`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning), **75.1k stars, 7,988 forks, 100+ contributors**, last updated 2026-08) teaches you nothing. What it does is **turn public university courses into comparable entries**: institution, prerequisites, programming language, a difficulty rating, estimated hours, and working links to the actual materials and assignments. Bilingual, with an `.en` page for every entry.
+One last entry, separate because it's a different species from everything above. [**csdiy.wiki**](https://csdiy.wiki/) ([`PKUFlyingPig/cs-self-learning`](https://github.com/PKUFlyingPig/cs-self-learning), **76.8k stars, 8,033 forks, 100+ contributors**, last updated 2026-09) teaches you nothing. What it does is **turn public university courses into comparable entries**: institution, prerequisites, programming language, a difficulty rating, estimated hours, and working links to the actual materials and assignments. Bilingual, with an `.en` page for every entry.
 
 Its AI coverage fills this article's biggest blind spot — **university courses outside Stanford**:
 
@@ -382,13 +384,15 @@ Its AI coverage fills this article's biggest blind spot — **university courses
 | Advanced ML | CMU 10-708, CS229M, STA4273 |
 | Deep generative models | MIT 6.S184, large language models |
 
+Several of these already have overviews on this site: the [Berkeley AI/ML course guide](/posts/learning/2026-08-21-berkeley-ai-ml-course-map-en) (where CS188, CS189, and CS285 sit), the [CS189 Spring 2026 course map](/posts/learning/2026-09-29-berkeley-cs189-sp26-course-map-en), [CS229](/posts/ai/2026-08-21-stanford-cs229-machine-learning-en), [CS224N](/posts/ai/2026-08-21-stanford-cs224n-nlp-deep-learning-en), [CS224W](/posts/ai/2026-08-21-stanford-cs224w-ml-with-graphs-en), [CMU 11-785](/posts/ai/2026-08-22-cmu-11785-course-overview-en), [MIT 6.7960](/posts/ai/2026-08-26-mit-67960-deep-learning-guide-en), and [MIT 6.S184](/posts/ai/2026-09-30-mit-6s184-flow-matching-diffusion-overview-en).
+
 But the reason it belongs here isn't the length of that list — it's that **somebody fixes the broken links**. Recent commits include `[Fix] update MIT calculus course links` and `Update web links`, alongside a steady stream of additions (CMU 15-442, CMU 11-785, MIT 6.7960, NYU DLSP21, UCSD CSE234).
 
-Which closes this section neatly: **star count can't tell you whether material is still alive, and an index whose maintainers repair dead links is precisely the thing that keeps answering "is this course still there?"** This article can only give you an August 2026 snapshot. An index is the thing that moves with time.
+Which closes this section neatly: **star count can't tell you whether material is still alive, and an index whose maintainers repair dead links is precisely the thing that keeps answering "is this course still there?"** This article can only give you a snapshot in time. An index is the thing that moves with time.
 
 The right way to use it is as **a table of contents, not a textbook** — pick a course from it, then go read that course's own site.
 
-**One structural point about the Chinese-language material above deserves calling out**: three of those four repos come from Datawhale, a live community organization rather than a single maintainer, which is why updates keep coming. That's exactly what D2L lacks — D2L has more than double happy-llm's stars, but one stopped in 2024 and the other shipped last month. Maintainer structure predicts freshness better than popularity does.
+**One structural point about the Chinese-language material above deserves calling out**: three of those four repos come from Datawhale, a live community organization rather than a single maintainer, which is why updates keep coming. That's exactly what D2L lacks — D2L has more than double happy-llm's stars, but one stopped in 2024 and the other was still updating in 2026. Maintainer structure predicts freshness better than popularity does.
 
 ## Interactive platforms: the no-setup category
 
@@ -452,6 +456,12 @@ The bottleneck was never access. It's whether you're willing to actually finish 
 ---
 
 ## Changelog
+
+- **2026-11-23**: Updated the fall 2026 status of the university courses and the repo figures.
+  - **Stanford CS146S is running its second offering in fall 2026**: the site now reads "Fall 2026 / Fall 2025," prerequisites are CS111/CS161 with CS221/229 recommended, and the course description centers on MCP, agent skills, spec-driven development, loop engineering, and the software factory; the original 10-week outline and speaker list are now labeled Fall 2025.
+  - **CS336** confirmed still on the Spring 2026 edition (spring-only); **Hung-yi Lee**'s homepage still lists ML 2026 Spring and GenAI-ML 2025 Fall as the newest.
+  - Added links to this site's course overviews in the Hung-yi Lee, MIT 6.S191, CS50 AI, and CS336 sections, and for the Berkeley, Stanford, CMU, and MIT courses indexed by csdiy.wiki.
+  - Rechecked repo stars and last-updated dates; `karpathy/LLM101n` is archived; `mlabonne/llm-course` has been quiet since 2026-02; csdiy.wiki is now 76.8k stars, last updated 2026-09.
 
 - **2026-08-21**: Re-verified pricing, course counts, and term schedules six weeks after publication. **Stale content was rewritten rather than annotated.**
   - **The Anthropic sections were rewritten wholesale**: Anthropic Academy was reorganized into **Claude Academy** on 2026-08-20, moving from `anthropic.skilljar.com` to `academy.claude.com` with a product-based catalog. Durations and lesson counts were all re-timed — AI Fluency foundations went from 1.1 hours to 4, AI Capabilities and Limitations from 0.25 hours to 3.5, Building with the Claude API from 84 lessons/8.1 hours to 67 lessons/9 hours, Claude Code in Action from 15 lessons to 9. Claude Platform 101 and a Tutorial format are new. Certification expanded from one exam to four and stayed on skilljar.

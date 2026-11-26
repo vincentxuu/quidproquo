@@ -25,7 +25,7 @@ glossary:
     context: "Both Argentina and Chile use this name."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-ifmga-south-america)
+> :globe: [中文版](/posts/climbing/2026-10-17-ifmga-south-america)
 
 [IFMGA](https://ifmga.net/member-associations/member-associations) has five members in South America: Argentina, Chile, Peru, Bolivia and Ecuador. They belong together because they share one trait: all of them teach in Spanish (Chile and Bolivia do not say so; this is an inference), and three of them are **No Ski associations**.
 

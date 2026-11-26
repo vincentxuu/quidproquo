@@ -10,13 +10,13 @@ tldr: "server-puppeteer 是 MCP 官方 monorepo 裡的 Puppeteer 封裝，工具
 description: "@modelcontextprotocol/server-puppeteer 的設計、截圖導向的取捨，以及它被封存之後該遷移到哪裡。"
 draft: false
 series:
-  name: "瀏覽器自動化與 MCP"
-  order: 2
+  name: "AI 瀏覽器自動化"
+  order: 3
 ---
 
-> 🌏 [English version](/posts/tech/2026-06-20-puppeteer-mcp-en)
+> :globe: [English version](/posts/tech/2026-06-20-puppeteer-mcp-en)
 
-> ⚠️ **這個 server 已被官方封存，不要用在新專案。**
+> :warning: **這個 server 已被官方封存，不要用在新專案。**
 > `@modelcontextprotocol/server-puppeteer` 已從 MCP 官方 servers monorepo 移出，搬到 [`servers-archived`](https://github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer)；npm 上最後一個版本停在 `2025.5.12`，之後沒有再發佈。套件還裝得起來，但不再收 bug fix，也不會跟上 MCP spec 的變動。
 >
 > 要遷移的話有兩個方向：想要 Puppeteer 底層 + 截圖／除錯能力，換 Chrome 團隊官方維護的 [chrome-devtools-mcp](/posts/tech/2026-06-20-chrome-devtools-mcp)（它本身就是建在 Puppeteer 上的）；想要一般網頁自動化，換 [@playwright/mcp](/posts/tech/2026-06-20-playwright-mcp)。
@@ -132,11 +132,11 @@ server-puppeteer 最主要的特性是用截圖（`puppeteer_screenshot`）來�
 | 維護狀態 | **已封存，最後版本 2025.5.12** | 持續更新 |
 | 頁面狀態回傳 | 截圖（base64）| accessibility tree（預設）|
 | Token 消耗 | 高 | 低 |
-| Auto-wait | ❌ | ✅ |
+| Auto-wait | ✗ | ✓ |
 | 工具數量 | 7（固定） | 核心一組，其餘用 `--caps` 開 |
-| 跨 tab 支援 | 有限 | ✅ `browser_tabs` |
+| 跨 tab 支援 | 有限 | ✓ `browser_tabs` |
 | 瀏覽器支援 | Chromium only | Chromium / Firefox / WebKit |
-| 自訂 JS 執行 | ✅ evaluate | ✅ evaluate |
+| 自訂 JS 執行 | ✓ evaluate | ✓ evaluate |
 | 維護方 | Anthropic MCP 官方（已封存） | 微軟 / Playwright 官方 |
 
 工具數量少不代表功能弱——`puppeteer_evaluate` 本質上是萬用逃生口。但對需要可靠互動（等待、多 tab、複雜 locator）的 agent，Playwright MCP 的工具集更完整；何況現在多了一項決定性差異：一邊還在更新，一邊沒有了。

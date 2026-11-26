@@ -13,7 +13,7 @@ description: "對照 codex、opencode、pi、omp、claude-code 五家的測試�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent-en)
+> :globe: [English version](/posts/ai/2026-08-25-coding-agent-testing-a-moving-agent-en)
 
 [系列總覽](/posts/ai/2026-08-30-coding-agent-design-series-overview)說好每篇五段、證據給到 `repo/path/file.ext#symbolName`。這篇的主題是最難寫的那種測試：受測系統自己不聽話。
 

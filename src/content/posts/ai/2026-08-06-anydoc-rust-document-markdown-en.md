@@ -25,7 +25,7 @@ glossary:
     context: "Most converters only handle OOXML. Legacy OLE support is one of the main differences between anydoc and MarkItDown."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-06-anydoc-rust-document-markdown)
+> :globe: [中文版](/posts/ai/2026-08-06-anydoc-rust-document-markdown)
 
 [Firecrawl](https://github.com/firecrawl) has open-sourced [anydoc](https://github.com/firecrawl/anydoc), a Rust library that converts documents to Markdown. MIT licensed, 14 supported office formats, and a median conversion time of 4.7 milliseconds.
 

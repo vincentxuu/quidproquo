@@ -13,7 +13,7 @@ description: "Comparing the headless machine interfaces of codex, claude-code, o
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-external-cli-backend)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-external-cli-backend)
 
 The [previous post](/posts/ai/2026-08-30-coding-agent-approval-grading-en) covered approval grading. This one tackles a more pragmatic question: your harness already has its own loop and verification gate, but the user's machine may have a logged-in Codex CLI and Claude Code sitting right there — rebuild everything against raw APIs, or just wrap those CLIs as backends?
 

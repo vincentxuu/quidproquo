@@ -13,7 +13,7 @@ description: "Ulu Piah climbing guide: how to notify the landowner and the phone
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-ulu-piah)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-ulu-piah)
 
 Ulu Piah is private limestone on the Mount Hugh Low massif near [Tambun](https://www.thecrag.com/en/climbing/malaysia/area/10135722960) and [Ipoh](https://www.thecrag.com/en/climbing/malaysia/area/10135722960) in [Perak](https://www.thecrag.com/en/climbing/malaysia/area/10135722960): 27 routes with a grade spread from 5c to 8b, one of the few Malaysian crags with genuine 8s. It is not a walk-in crag. **You have to notify the landowner before you go**, the approach road is bad enough to want ground clearance, and community reports describe a fatal rockfall risk. This guide handles the three things that decide your day: who to call, how to drive in, and what to bring.
 

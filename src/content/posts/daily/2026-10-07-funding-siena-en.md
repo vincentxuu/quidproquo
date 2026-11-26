@@ -12,7 +12,7 @@ series:
   order: 72
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-funding-siena)
+> :globe: [中文版](/posts/daily/2026-10-07-funding-siena)
 
 ## Deal Terms
 

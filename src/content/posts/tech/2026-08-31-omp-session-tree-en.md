@@ -267,11 +267,11 @@ This is what `buildSessionContext`, compaction, prune, shake all use as "the cur
 
 | Selection Target | New Leaf | Prefill Editor | Use Case |
 |---|---|---|---|
-| **User message** | `parentId` (root → `null`) | ✅ Text + images | Restart from a prompt, edit & resend |
-| **Custom_message (non skill-prompt)** | `parentId` | ✅ Same | Same idea |
-| **Skill-prompt custom_message** | `targetId` | ❌ | Like ordinary node |
-| **Ask tool result** | Re-open question UI | ❌ | Re-answer; old answer becomes sibling |
-| **Other** | `targetId` | ❌ | Pure navigation, inspect context |
+| **User message** | `parentId` (root → `null`) | ✓ Text + images | Restart from a prompt, edit & resend |
+| **Custom_message (non skill-prompt)** | `parentId` | ✓ Same | Same idea |
+| **Skill-prompt custom_message** | `targetId` | ✗ | Like ordinary node |
+| **Ask tool result** | Re-open question UI | ✗ | Re-answer; old answer becomes sibling |
+| **Other** | `targetId` | ✗ | Pure navigation, inspect context |
 
 ### Summary-on-Switch Flow
 
@@ -426,9 +426,9 @@ interface SessionStorage {
 
 | Implementation | Purpose | Persistent |
 |---|---|---|
-| `FileSessionStorage` | Real local files | ✅ |
-| `MemorySessionStorage` | In-memory map/chunk, **ephemeral sessions**, **tests** | ❌ |
-| `IndexedSessionStorage` | **Shared local index + ordered remote publish** (Redis/SQL-backed) | ✅ (dual-write) |
+| `FileSessionStorage` | Real local files | ✓ |
+| `MemorySessionStorage` | In-memory map/chunk, **ephemeral sessions**, **tests** | ✗ |
+| `IndexedSessionStorage` | **Shared local index + ordered remote publish** (Redis/SQL-backed) | ✓ (dual-write) |
 
 ### 3. `IndexedSessionStorage`: Local Index + Ordered Remote Publish
 

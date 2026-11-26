@@ -30,7 +30,7 @@ glossary:
     context: "Long-horizon tasks almost never reach a perfect score; rubrics are what keep the signal non-zero."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-07-computer-use-agents)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

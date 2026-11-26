@@ -11,9 +11,9 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 5
 ---
-> 🌏 [English version](/posts/daily/2026-05-29-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-29-ai-agent-arxiv-digest-en)
 
-[!callout icon="📌" color="blue_background"]
+[!callout icon=":pin:" color="blue_background"]
 ## 今日總覽
 
 今天三篇論文從三個切面同時問「如何讓 agentic AI 跑得更好」：第一篇（UIUC × Intel）量測 agent 真實工作負載，發現瓶頸在 KV-cache 管理而非長 prompt；第二篇（PwC）用對照實驗打臉 RAG-first 預設，指出 grep 在 agent loop 裡常勝過向量搜尋；第三篇（Microsoft Research）開源完整 agent 訓練框架，讓社群不靠閉源 API 也能訓練出同量級 SOTA 的 agent。
@@ -37,18 +37,18 @@ series:
 
 **作者**: Yichao Yuan、Nishil Talati（UIUC）、Ankita Nayak（Gimlet Labs）、Souvik Kundu（Intel）　·　**arxiv**: 2605.26297
 **連結**: [arxiv](https://arxiv.org/abs/2605.26297) · [alphaxiv](https://www.alphaxiv.org/abs/2605.26297)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 你以為 agent 的效能瓶頸是「prompt 太長」——錯了。真正的瓶頸是 token 生成速度與 KV-cache 管理，serving 系統需要為此重新設計。
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 必讀
 任何在做 LLM serving 或 agent runtime 的工程師都應讀：這是 agentic 工作負載的第一份量化特性報告，結論直接影響基礎設施選型。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -73,18 +73,18 @@ LLM serving 系統（如 vLLM、SGLang）長期以「優化 prefill（處理長 
 
 ### 深入要點
 
-- 測試了 5 個 agentic benchmark，跨 reasoning / non-reasoning 模型（Gemma、Qwen），論文未完整列出所有 benchmark 名稱與 task 數量 ⚠️
-- 「decode-dominated」結論的前提是 effective context caching 已就位；若 serving stack 無 KV-cache 重用，prefill 仍可能很貴 ⚠️
+- 測試了 5 個 agentic benchmark，跨 reasoning / non-reasoning 模型（Gemma、Qwen），論文未完整列出所有 benchmark 名稱與 task 數量 :warning:
+- 「decode-dominated」結論的前提是 effective context caching 已就位；若 serving stack 無 KV-cache 重用，prefill 仍可能很貴 :warning:
 - 工具呼叫「早讀晚寫」的時序模式，對設計 cache eviction 策略有直接意義（先別驅逐任務早期建立的 KV）
 - 與 framework 的關聯：LangGraph / AutoGen 的 message history 累積，正是長壽命 KV-cache 的實際來源；vLLM prefix caching、SGLang RadixAttention 是對應的技術解法
 - 落地門檻：論文給方向性結論，無開源 tracer，工程師需自行在 serving stack 驗證
 - 同週相關工作：2605.26289（Stateful Inference for Low-Latency Multi-Agent Tool Calling）可一起閱讀
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 問題問對了，方向有價值，但現有結果較高層次，缺乏讓人直接複現或量化比較的細節——目前更像一份指路牌而非完整系統論文；方向性結論強，但具體數字要謹慎推論。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 
@@ -98,18 +98,18 @@ LLM serving 系統（如 vLLM、SGLang）長期以「優化 prefill（處理長 
 
 **作者**: Sahil Sen、Akhil Kasturi、Elias Lumer、Anmol Gulati、Vamse Kumar Subbiah（PricewaterhouseCoopers US）　·　**arxiv**: 2605.15184
 **連結**: [arxiv](https://arxiv.org/abs/2605.15184) · [alphaxiv](https://www.alphaxiv.org/abs/2605.15184)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 在 agent loop 裡找資料，直接用 grep（字串比對）往往比向量搜尋（semantic search）更準——但真正影響結果的是你用哪個 harness，不只是搜尋方法本身。
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 必讀
 對在 agent 裡加 RAG 的工程師，這是直接的挑戰：你的向量資料庫不一定是最佳解，這篇有量化對照數據。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -134,19 +134,19 @@ RAG（Retrieval-Augmented Generation）是目前主流 agent 記憶方案：把�
 
 ### 深入要點
 
-- 實驗樣本：116 題，來自 LongMemEval 子集，規模偏小，結論需謹慎推論 ⚠️
-- Codex 部分實驗資料尚未完整，論文承認「scaling 相關結論為條件性的」⚠️
-- 四種 harness 各搭配不同 LLM，模型效果與 harness 效果難以完全解耦 ⚠️
+- 實驗樣本：116 題，來自 LongMemEval 子集，規模偏小，結論需謹慎推論 :warning:
+- Codex 部分實驗資料尚未完整，論文承認「scaling 相關結論為條件性的」:warning:
+- 四種 harness 各搭配不同 LLM，模型效果與 harness 效果難以完全解耦 :warning:
 - Grep 勝出的可能解釋：LongMemEval 以事實型問題為主（精確數字、人名），正好是 lexical search 強項；語意理解型問題可能結論不同
 - Inline vs. file-based 呈現方式影響顯著：工具輸出「怎麼讓 LLM 看」本身就是關鍵設計點
 - 對 LangChain / LangGraph 生態的挑戰：目前幾乎預設向量 store，這篇給出了系統性反例
 - Chronos harness 已在論文中描述；Claude Code、Codex CLI、Gemini CLI 為第三方工具
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 問題有趣且挑戰了業界預設，但 116 題樣本太小、Codex 資料缺失、模型未統一控制，結論的普遍性仍存疑——是一篇值得重視的 negative result，但不宜直接當成「停用向量搜尋」的依據。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 
@@ -160,18 +160,18 @@ RAG（Retrieval-Augmented Generation）是目前主流 agent 記憶方案：把�
 
 **作者**: Microsoft Research（多位作者）　·　**arxiv**: 2605.15040
 **連結**: [arxiv](https://arxiv.org/abs/2605.15040) · [alphaxiv](https://www.alphaxiv.org/abs/2605.15040)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 Microsoft 開源完整的 agent 模型訓練框架，讓小模型靠資料蒸餾 + 特製 RL 在 SWE / GUI / 助理任務上達到同量級開源 SOTA，不需要依賴 GPT-4o API。
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 必讀
 目前社群可直接用的最完整 agent 訓練開源方案之一，benchmark 數字紮實，框架設計有直接參考價值。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -198,19 +198,19 @@ Orchard 分三層：
 ### 深入要點
 
 - **Orchard-SWE**（軟體工程 agent）：Qwen3-30B-A3B-Thinking，SWE-bench Verified SFT 64.3% → SFT+RL 67.5%，同量級開源模型 SOTA
-- **Orchard-GUI**（瀏覽器 GUI agent）：4B VLM，0.4K 條蒸餾軌跡，WebVoyager 74.1% / Online-Mind2Web 67.0% / DeepShop 64.0% ⚠️（極少軌跡，需留意過擬合風險）
+- **Orchard-GUI**（瀏覽器 GUI agent）：4B VLM，0.4K 條蒸餾軌跡，WebVoyager 74.1% / Online-Mind2Web 67.0% / DeepShop 64.0% :warning:（極少軌跡，需留意過擬合風險）
 - **Orchard-Claw**（個人助理 agent）：0.2K 合成任務，Claw-Eval pass@3 59.6%；搭配 ZeroClaw harness 升至 73.9% pass@3
-- 蒸餾源模型（MiniMax-M2.5、Qwen3.5-397B）未開源，資料蒸餾階段難以完整複現 ⚠️
+- 蒸餾源模型（MiniMax-M2.5、Qwen3.5-397B）未開源，資料蒸餾階段難以完整複現 :warning:
 - Credit-assignment SFT 是本篇最有技術含量的貢獻：解決 long-horizon task 中「partial credit」的訓練難題，有別於傳統 filter-then-SFT 做法
-- 0.4K / 0.2K 的超小資料量數字亮眼，但此為針對特定 benchmark 微調的結果，泛化能力待驗 ⚠️
+- 0.4K / 0.2K 的超小資料量數字亮眼，但此為針對特定 benchmark 微調的結果，泛化能力待驗 :warning:
 - Orchard Env 的 sandbox lifecycle primitives 設計對想自建 agent training infra 的團隊有直接架構參考價值
 - 開源倉庫：[github.com/microsoft/Orchard](http://github.com/microsoft/Orchard)
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 紮實的工程貢獻：benchmark 數字有說服力，credit-assignment SFT 是真正新穎的想法，框架設計務實；蒸餾源模型不公開讓「完全可重現」打了折扣——但在目前開源 agent 訓練框架稀缺的環境下，仍是本週最值得 bookmark 的一篇。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 

@@ -11,7 +11,7 @@ series:
   order: 59
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-21-security-opencode-console-api-key-breach-en)
+> :globe: [English version](/posts/daily/2026-10-21-security-opencode-console-api-key-breach-en)
 
 ## 事件概述
 

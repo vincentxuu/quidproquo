@@ -26,7 +26,7 @@ glossary:
     context: "It requires a wall to be marked with the manufacturer, the standard number, the installation date and the date of the next major inspection."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-gym-safety-waivers)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-gym-safety-waivers)
 
 On your first visit to a climbing gym, the front desk asks you to sign something on a tablet or on paper. Most people sign without reading it. What does it say? If you get hurt inside, does it stop you from being compensated? And when the gym says "we're insured", is that insurance for you?
 

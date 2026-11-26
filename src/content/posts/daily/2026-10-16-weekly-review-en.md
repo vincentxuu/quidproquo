@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-weekly-review)
+> :globe: [中文版](/posts/daily/2026-10-16-weekly-review)
 
 ## The 5 things that mattered most this week
 
@@ -59,13 +59,13 @@ The implication for Taiwan: the FSC's advisory regulates by use case rather than
 
 ## Watchlist update suggestions
 
-### 🆕 Candidates to add
+### Candidates to add
 
-✅ No company crossed the ≥3-mention threshold needed for a formal addition this week — most new funding and startup news each appeared only once or twice, in a single report plus this site's own coverage, without independent cross-event repetition. Companies that are new this week but below that threshold are listed in the startup radar below.
+✓ No company crossed the ≥3-mention threshold needed for a formal addition this week — most new funding and startup news each appeared only once or twice, in a single report plus this site's own coverage, without independent cross-event repetition. Companies that are new this week but below that threshold are listed in the startup radar below.
 
-### ⚠️ Candidates to remove
+### :warning: Candidates to remove
 
-✅ No company met the removal criteria this week.
+✓ No company met the removal criteria this week.
 
 ## This week's startup radar
 

@@ -15,7 +15,7 @@ glossary:
     def: "OpenAI's large language model family; Astra is its current flagship generation"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-06-model-openai-gpt-6-astra)
+> :globe: [中文版](/posts/daily/2026-09-06-model-openai-gpt-6-astra)
 
 ## Model Information
 
@@ -50,7 +50,7 @@ glossary:
 | Humanity's Last Exam (with tools) | 57.2% | Not disclosed | Claude Fable 5.1: 65.0% |
 | Terminal-Bench Science 0.1 | 64.6% | 22.4% | Claude Fable 5.1: 52.6% |
 
-⚠️ Most figures above are OpenAI's own self-reported results (the 99.9% ARC-AGI-3 score from OpenAI's own harness is omitted from the table in favor of ARC Prize's independent standardized-harness rerun). The Artificial Analysis Intelligence Index is a neutral third-party evaluation with a different methodology from OpenAI's hand-picked benchmarks, and the two paint noticeably different pictures.
+:warning: Most figures above are OpenAI's own self-reported results (the 99.9% ARC-AGI-3 score from OpenAI's own harness is omitted from the table in favor of ARC Prize's independent standardized-harness rerun). The Artificial Analysis Intelligence Index is a neutral third-party evaluation with a different methodology from OpenAI's hand-picked benchmarks, and the two paint noticeably different pictures.
 
 ## Comparison with Predecessor/Competitors
 

@@ -11,7 +11,7 @@ series:
   order: 71
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-03-security-langflow-mcp-unauthenticated-rce)
+> :globe: [中文版](/posts/daily/2026-11-03-security-langflow-mcp-unauthenticated-rce)
 
 ## Summary
 

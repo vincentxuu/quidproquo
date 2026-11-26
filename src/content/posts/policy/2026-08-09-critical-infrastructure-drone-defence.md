@@ -13,7 +13,7 @@ series:
   order: 32
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-09-critical-infrastructure-drone-defence-en)
+> :globe: [English version](/posts/policy/2026-08-09-critical-infrastructure-drone-defence-en)
 
 [機場那篇](/posts/policy/2026-08-09-airport-drone-incursions-taiwan)的結論是：機場是[六個場域授權表](/posts/policy/2026-08-09-who-may-down-a-drone)裡最弱的一格，只拿到「取締」。
 

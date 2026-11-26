@@ -17,7 +17,7 @@ glossary:
     context: "True Detective and Fargo are anthologies: you can pick a single season."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-05-us-tv-crime-mystery-politics)
+> :globe: [中文版](/posts/film/2026-11-05-us-tv-crime-mystery-politics)
 
 This post covers American crime, mystery and political drama: a chemistry teacher turned drug lord, Baltimore's drug war, a Louisiana cold case, White House scheming and the CIA's war on terror. All 21 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan.
 

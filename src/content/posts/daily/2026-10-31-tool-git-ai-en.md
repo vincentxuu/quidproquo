@@ -12,7 +12,7 @@ series:
   order: 69
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-tool-git-ai)
+> :globe: [中文版](/posts/daily/2026-10-31-tool-git-ai)
 
 ## Tool info
 
@@ -117,10 +117,10 @@ Most teams facing "many agents changing one repo at once" today either lean on a
 
 | | gitai | GitHub merge queue / Mergify | No tool, manual queuing |
 |---|---|---|---|
-| Many agents land at once, without a serial queue | ✅ one compare-and-swap per ref, batched retries on conflict | ❌ sequential revalidation; one failure kicks the whole group out to be requeued | ❌ |
-| Client doesn't need a full clone; history is computed server-side | ✅ `ObjectService` serves only the objects/sparse tree you ask for | ❌ still a standard git clone | ❌ |
-| Conflicts auto-resolved by LLM/rules, only land after verification | ✅ resolver + `verify.command`, AI off by default | ❌ every conflict goes back to a human | ❌ |
-| Auto-tests after landing, bisects and reverts the culprit | ✅ `graft-verify` | Partial (CI can do this, but no built-in bisect/revert) | ❌ |
+| Many agents land at once, without a serial queue | ✓ one compare-and-swap per ref, batched retries on conflict | ✗ sequential revalidation; one failure kicks the whole group out to be requeued | ✗ |
+| Client doesn't need a full clone; history is computed server-side | ✓ `ObjectService` serves only the objects/sparse tree you ask for | ✗ still a standard git clone | ✗ |
+| Conflicts auto-resolved by LLM/rules, only land after verification | ✓ resolver + `verify.command`, AI off by default | ✗ every conflict goes back to a human | ✗ |
+| Auto-tests after landing, bisects and reverts the culprit | ✓ `graft-verify` | Partial (CI can do this, but no built-in bisect/revert) | ✗ |
 | License | MIT, self-hosted | Platform feature / commercial SaaS | — |
 
 ## Things to watch out for

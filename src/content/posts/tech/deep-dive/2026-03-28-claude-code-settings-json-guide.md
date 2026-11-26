@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-settings-json-guide-en)
 
 [系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)提過，信任的指令可以寫進 `.claude/settings.json` 白名單；[.claude 目錄導覽](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory)則看過這個目錄裡還住了誰。這篇把主角本身講完：settings.json 是 Claude Code 的行為控制中心——預設模型、權限規則、hooks、狀態列、環境變數都從這裡讀。要搞懂它，核心只有兩個問題：**檔案放哪一層**，以及**兩層設了同一個 key 時聽誰的**。
 

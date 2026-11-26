@@ -11,7 +11,7 @@ series:
   order: 69
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-23-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### vercel/eve ⭐ 5,653
+### vercel/eve ★ 5,653
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### PrimeIntellect-ai/prime-agent ⭐ 22,266
+### PrimeIntellect-ai/prime-agent ★ 22,266
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Rust　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### NousResearch/hermes-agent ⭐ 256,186
+### NousResearch/hermes-agent ★ 256,186
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### mksglu/context-mode ⭐ 31,807
+### mksglu/context-mode ★ 31,807
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2（Elastic License v2，非完全開源，商用前建議先讀授權條款）
 

@@ -13,19 +13,23 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-zerotier-virtual-network-en)
+> :globe: [English version](/posts/tech/2026-08-22-zerotier-virtual-network-en)
 
 [ZeroTier](https://docs.zerotier.com/) 建立軟體定義的 virtual Ethernet network。每個 node 有 cryptographic identity；加入 network 後，controller 決定 membership、分配 managed IP、routes 與 capabilities，data plane 優先直接 peer-to-peer，必要時經 root infrastructure relay。
 
 ## Controller 管設定，node 傳資料
 
-Hosted ZeroTier Central 是常用 controller，也能 self-host controller。Self-host 不代表完全脫離公共 root：controller 與 root/planet 扮演不同角色；若要自建 root infrastructure，還需規劃 moon／custom planet、discovery、升級與可用性。Controller outage 對既有 flow 和新授權的影響也應實測。
+Hosted ZeroTier Central 是常用 controller，也能 self-host controller，但授權要先看：1.16.0（2025-09）起，controller 程式碼移到 repo 的 `nonfree/`，改用 source-available 授權，只准非商業使用，公司、政府或非營利組織自架都要另簽商業授權；裝在各 node 上的 agent 仍是 MPL-2.0。Self-host 不代表完全脫離公共 root：controller 與 root/planet 扮演不同角色；若要自建 root infrastructure，還需規劃 moon／custom planet、discovery、升級與可用性。Controller outage 對既有 flow 和新授權的影響也應實測。
 
 Managed routes 可把實體 LAN subnet 經某個 member 宣告給 virtual network。若舊設備不能安裝 client，可做 routing 或 layer-2 bridging；bridge 會帶入 broadcast、loop、MTU 與 failure-domain 問題，非必要不要把整個 broadcast domain 延伸跨站點。
 
 Flow Rules 在分散式 data plane 執行，可依 source/destination tag、IP、protocol 與 port accept、drop、redirect 或 rate-limit。規則語言比單純 peer list 強，也更容易因寬鬆預設造成橫向移動。Policy 要 deny-first、版本控制、用測試 node 驗證，並保留 controller audit。
 
 ZeroTier 適合跨 OS 裝置、branch network、lab、遊戲或需要 L2 semantics 的場景。WireGuard 更小且手動；Tailscale 以 WireGuard 與 identity ACL 為中心；Twingate 聚焦 user-to-resource；Teleport 聚焦 audited infrastructure session。驗收需涵蓋 NAT traversal、relay fallback、overlapping CIDR、DNS、IPv6、MTU、controller compromise、member revoke、route spoofing 與 bridge loop。
+
+## 更新紀錄
+
+- 2026-11-23：補上 1.16.0 起 self-hosted controller 改為非商業 source-available 授權、商業自架需另簽授權
 
 ## 參考資料
 
@@ -34,3 +38,4 @@ ZeroTier 適合跨 OS 裝置、branch network、lab、遊戲或需要 L2 semanti
 - [Network controllers](https://docs.zerotier.com/controller/)
 - [Rules engine](https://docs.zerotier.com/rules/)
 - [Route between physical and virtual networks](https://docs.zerotier.com/route-between-phys-and-virt/)
+- [ZeroTier source-available license (nonfree/LICENSE.md)](https://github.com/zerotier/ZeroTierOne/blob/dev/nonfree/LICENSE.md)

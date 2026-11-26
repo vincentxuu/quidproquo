@@ -13,7 +13,7 @@ description: "義大利岩場系列的總覽：70 個岩場依大區排列的季
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crags-overview-en)
 
 這個系列一次介紹一個義大利岩場：岩質與攀登風格、適合的季節和原因、搭大眾運輸和開車怎麼去、去之前要知道的在地規範。不寫行程、機票或住宿價格，因為那些很快就過時；岩場的季節和規矩相對穩定。
 

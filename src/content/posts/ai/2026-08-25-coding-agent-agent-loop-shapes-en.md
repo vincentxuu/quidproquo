@@ -13,7 +13,7 @@ description: "Comparing pi, claude-code, and codex source code across four desig
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-agent-loop-shapes)
 
 The [series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en) set the rules: five sections per post, evidence at file#symbol level. The first real topic is the foundation — the agent loop.
 

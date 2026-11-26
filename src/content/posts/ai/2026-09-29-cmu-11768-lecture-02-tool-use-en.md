@@ -26,7 +26,7 @@ glossary:
     context: "With parallel calls, results come back out of order and the call ID is the only way to match them."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-02-tool-use)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

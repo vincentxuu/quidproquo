@@ -24,7 +24,7 @@ glossary:
     context: "Slide 9 of the NLG Evaluation deck stresses that it evaluates the generative model itself, not any single output."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-nlg-decoding-evaluation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

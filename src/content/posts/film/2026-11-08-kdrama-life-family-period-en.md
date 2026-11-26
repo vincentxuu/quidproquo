@@ -17,7 +17,7 @@ glossary:
     context: "My Mister and My Liberation Notes are often called slice-of-life dramas."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-08-kdrama-life-family-period)
+> :globe: [中文版](/posts/film/2026-11-08-kdrama-life-family-period)
 
 This post covers Korean slice-of-life, family and period drama: a Jeju woman's whole life, a Seoul alley in 1988, office workers with two-hour commutes, and the Joseon court. All 14 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan.
 

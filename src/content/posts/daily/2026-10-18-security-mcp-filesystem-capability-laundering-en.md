@@ -11,7 +11,7 @@ series:
   order: 57
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-18-security-mcp-filesystem-capability-laundering)
+> :globe: [繁體中文版](/posts/daily/2026-10-18-security-mcp-filesystem-capability-laundering)
 
 ## What Happened
 

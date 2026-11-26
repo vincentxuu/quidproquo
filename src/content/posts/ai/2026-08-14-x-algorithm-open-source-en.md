@@ -26,7 +26,7 @@ glossary:
     context: "Used here to explain what the August 2026 release actually added."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-14-x-algorithm-open-source)
+> :globe: [中文版](/posts/ai/2026-08-14-x-algorithm-open-source)
 
 On 2026-08-13, [xai-org/x-algorithm](https://github.com/xai-org/x-algorithm) landed a commit adding 363,246 lines across 2,053 changed files, and handed over the thing people had been demanding for three years: the ranking weights.
 

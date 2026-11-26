@@ -21,7 +21,7 @@ glossary:
     context: "W3 uses it to explain the limits of RNNs before introducing LSTM."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-seq2seq-attention)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

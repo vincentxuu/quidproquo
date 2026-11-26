@@ -10,7 +10,7 @@ description: "Self-host changedetection.io with Docker, then configure watches, 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-21-changedetection-web-monitoring-guide)
+> :globe: [中文版](/posts/ai/2026-08-21-changedetection-web-monitoring-guide)
 
 [changedetection.io](https://github.com/dgtlmoon/changedetection.io) periodically retrieves a known URL, stores snapshots, compares versions, and sends a notification when the content changes. It answers “did this page change?” It does not discover relevant pages across the web or crawl an entire site.
 

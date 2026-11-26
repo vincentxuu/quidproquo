@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-02-benchmark-arena-agent-en)
+> :globe: [English version](/posts/daily/2026-10-02-benchmark-arena-agent-en)
 
 ## 異動摘要
 
@@ -24,11 +24,11 @@ Arena（前身 LMSYS Chatbot Arena）的 Agent 類別排行榜（真人投票評
 
 | 排名 | 模型 | 分數 | 09-28 分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | Claude Fable 5.1（Max） | 14.55% | 14.06% | — |
-| 🥈 | Claude Opus 5.5（High） | 13.78% | 11.84% | — |
-| 🥉 | GPT-6 Astra（Max） | 12.18% | 10.36% | — |
+| 1 | Claude Fable 5.1（Max） | 14.55% | 14.06% | — |
+| 2 | Claude Opus 5.5（High） | 13.78% | 11.84% | — |
+| 3 | GPT-6 Astra（Max） | 12.18% | 10.36% | — |
 | 4 | GPT-6 Sol（Max） | 10.65% | 8.80% | — |
-| 5 | Claude Opus 5（High） | 8.76% | 9.47%（🥉→4→5） | ↓ |
+| 5 | Claude Opus 5（High） | 8.76% | 9.47%（3→4→5） | ↓ |
 
 來源：[Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset)（`agent` 子集、`latest` split）· 官方發布日期：2026-09-30 · 抓取日期：2026-10-02
 
@@ -36,9 +36,9 @@ Arena（前身 LMSYS Chatbot Arena）的 Agent 類別排行榜（真人投票評
 
 | 排名 | 模型 | 分數 |
 |---|---|---|
-| 🥇 | Claude Opus 5（High） | 12.99% |
-| 🥈 | Claude Opus 5（Max） | 12.73% |
-| 🥉 | Claude Fable 5（High） | 11.70% |
+| 1 | Claude Opus 5（High） | 12.99% |
+| 2 | Claude Opus 5（Max） | 12.73% |
+| 3 | Claude Fable 5（High） | 11.70% |
 
 這組舊快照沒有明確日期——因為 2026-09-03 起 Groundlane 對 `swebench.com`／`arena.ai`／`morphllm.com` 三個排行榜網頁的渲染持續失敗，本站每天只能原樣沿用這組舊值（詳見下方方法論面）。根據新找到的官方資料集回溯，Claude Fable 5.1（Max）最晚在 09-24 就已經是 Agent 類別第一名，Claude Opus 5.5（High）則在發布五天後的 09-27 進入前三——也就是說，這次「換血」實際上已經發生至少一週以上，只是本站的偵測工具到今天才追上。
 
@@ -50,7 +50,7 @@ Claude Opus 5.5 於 2026-09-22 發布時，Anthropic 官方宣稱它「效能接
 
 ### 方法論面
 
-⚠️ 這裡的分數不是傳統 Elo 積分，是 Arena 自家的相對勝率量化分數：數值越高越好，但會隨對手池（哪些模型同時在榜）變化而小幅浮動，同一模型在不同天的分數不能直接拿來做百分之百精確的「漲跌百分點」計算，只能看排名順序與分數量級。
+:warning: 這裡的分數不是傳統 Elo 積分，是 Arena 自家的相對勝率量化分數：數值越高越好，但會隨對手池（哪些模型同時在榜）變化而小幅浮動，同一模型在不同天的分數不能直接拿來做百分之百精確的「漲跌百分點」計算，只能看排名順序與分數量級。
 
 更重要的方法論紀錄：本站 `daily-digest-benchmark` routine 從 2026-09-03 起連續超過一個月，每天對 `swebench.com`／`arena.ai`／`morphllm.com` 三個排行榜網頁直接渲染擷取都失敗（分別是 `OUTPUT_LIMIT`、`js_empty_document`、Vercel 429 安全檢查頁），今天才找到繞過方法：Arena 官方在 2026-04-02 的部落格公告（[Arena Leaderboard Dataset](https://arena.ai/blog/arena-leaderboard-dataset)）其實已經把全部排行榜歷史資料發布成結構化的 Hugging Face 資料集（`lmarena-ai/leaderboard-dataset`），透過 Hugging Face 的 `datasets-server` REST API（`/rows`、`/splits`、`/size`）可以直接拿到乾淨的 JSON，完全不需要渲染網頁。這是 Arena 官方自己發布的一手資料，不是第三方聚合站轉述，可信度等同官方排行榜頁面本身。`swebench.com` 與 `morphllm.com` 目前還沒有找到類似的結構化資料出口，渲染擷取仍然失敗，所以本次只確認了 Arena Agent 這一個排行榜的異動。
 

@@ -20,7 +20,7 @@ glossary:
     context: "Lecture 4 places it on one timeline with prompt engineering and harness engineering."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)
+> :globe: [中文版](/posts/ai/2026-10-21-cs2680-lecture-04-tool-design-context-engineering)
 
 **Video status: The course is not recorded.** This post is based on the public slides; the code and numerical examples are this site's additions. [Source notes](#course-video-sources)
 

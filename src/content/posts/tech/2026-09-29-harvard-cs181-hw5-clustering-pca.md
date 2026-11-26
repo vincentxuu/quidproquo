@@ -22,11 +22,11 @@ glossary:
     context: "linkage 決定 HAC 會長出鏈狀大群還是緊湊小群。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw5-clustering-pca-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb` 與 `data/*.npy`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 9 週、[Section 7](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07.pdf)（標頭 Spring 2026）為準。官方課表未列對應講次的公開錄影；lecture scribe notes 是 **2024** 版（K-means 在 [lec12，2024-02-29](https://harvard-ml-courses.github.io/cs181-web/static/lec12/12-scribe-notes.pdf)，PCA 在 [lec15，2024-03-21](https://harvard-ml-courses.github.io/cs181-web/static/lec15/15-scribe-notes.pdf)，lec13 缺檔）。作業解答未公開，Section 7 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
+> :warning: **版本與存取**：以 [CS1810 Spring 2026 HW5](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw5)（`hw5_release.tex/.pdf/.ipynb` 與 `data/*.npy`）、[官方 schedule](https://harvard-ml-courses.github.io/cs181-web/schedule) 第 9 週、[Section 7](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07.pdf)（標頭 Spring 2026）為準。官方課表未列對應講次的公開錄影；lecture scribe notes 是 **2024** 版（K-means 在 [lec12，2024-02-29](https://harvard-ml-courses.github.io/cs181-web/static/lec12/12-scribe-notes.pdf)，PCA 在 [lec15，2024-03-21](https://harvard-ml-courses.github.io/cs181-web/static/lec15/15-scribe-notes.pdf)，lec13 缺檔）。作業解答未公開，Section 7 有 [soln](https://harvard-ml-courses.github.io/cs181-web/static/sec07/sec07_soln.pdf)。存取分級 **A3**，同[系列總覽](/posts/tech/2026-08-27-harvard-cs181-overview)。
 
 本篇是 [Harvard CS181 逐週導讀](/posts/tech/2026-08-27-harvard-cs181-overview)第 9 篇。上一篇是 [HW4（下）：決策樹、隨機森林與 MoE](/posts/tech/2026-09-29-harvard-cs181-hw4-trees-forests-moe)，下一篇是 [HW5（下）：SimCLR 對比學習與 GAN](/posts/tech/2026-09-29-harvard-cs181-hw5-contrastive-gans)。
 
@@ -142,12 +142,13 @@ Section 7 第 3 節把 PCA 講成三件事，剛好對應這四題：
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

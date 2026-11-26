@@ -14,7 +14,7 @@ description: "CMU 07-380 Fall 2026 Lecture 5 Linear Programming 導讀：Diet Pr
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
+> :globe: [English version](/posts/learning/2026-09-29-cmu-07380-lecture-05-linear-programming-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
@@ -143,7 +143,7 @@ flowchart LR
 
 - [CMU 07-380 Fall 2026 官方課表與教材](https://www.cs.cmu.edu/~07380/)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 官方材料與讀取範圍
 
@@ -159,6 +159,7 @@ flowchart LR
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時回官方課程頁與公開影音來源查證，仍未找到該講公開錄影，狀態維持不變。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-26-d1-fts5-hybrid-search-cjk-recall)
+> :globe: [中文版](/posts/tech/2026-08-26-d1-fts5-hybrid-search-cjk-recall)
 
 > **Optional companion reading:** Beginners can read this article directly. For extra context, see [Hybrid Search](/posts/ai/2026-03-12-hybrid-search-bm25-vector-rrf-en) and [RAG Common Failure Modes](/posts/ai/2026-03-12-rag-failure-modes-en).
 

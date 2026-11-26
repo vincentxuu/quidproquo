@@ -11,7 +11,7 @@ series:
   order: 58
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-12-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-12-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### morluto/rea ⭐ 96,754
+### morluto/rea ★ 96,754
 
 [GitHub](https://github.com/morluto/rea)　·　TypeScript　·　MIT
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### mhtsec/ARTEX ⭐ 3,121
+### mhtsec/ARTEX ★ 3,121
 
 [GitHub](https://github.com/mhtsec/ARTEX)　·　Go　·　AGPL-3.0
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### zhongerxin/iPhone-use ⭐ 2,983
+### zhongerxin/iPhone-use ★ 2,983
 
 [GitHub](https://github.com/zhongerxin/iPhone-use)　·　Python　·　MIT
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### rociiu/talorys ⭐ 719
+### rociiu/talorys ★ 719
 
 [GitHub](https://github.com/rociiu/talorys)　·　TypeScript　·　MIT
 

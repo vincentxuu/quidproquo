@@ -33,7 +33,7 @@ glossary:
     context: "The email-deletion incident at the start of the lecture happened because compaction lost the instruction to ask first."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)
+> :globe: [中文版](/posts/ai/2026-09-29-cmu-11768-lecture-01-what-is-an-agent)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

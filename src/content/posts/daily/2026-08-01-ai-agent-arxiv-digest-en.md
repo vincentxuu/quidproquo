@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 69
 ---
-> 🌏 [中文版](/posts/daily/2026-08-01-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-01-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,7 +68,7 @@ Among five frontier agents (Claude Opus 4.7, Sonnet 4.6, GPT-5.5, GLM-5, DeepSee
 
 - Task design along three dimensions: report detail (detailed → vague), time-to-detection (immediate → hours delayed), co-occurring faults (single → multiple), totaling 1,079 tasks
 - Real telemetry interfaces: agents call Prometheus, Jaeger, and OpenSearch via tool use — not reading static dumps — closer to actual SRE workflows
-- Best overall RCA Accuracy: 40% (GLM-5); Medium difficulty (closest to realistic settings) peaks at 25.3% ⚠️ — the two numbers come from different difficulty conditions, per the original paper
+- Best overall RCA Accuracy: 40% (GLM-5); Medium difficulty (closest to realistic settings) peaks at 25.3% :warning: — the two numbers come from different difficulty conditions, per the original paper
 - Removing source code access → all agents drop on all metrics, confirming code grounding is critical for RCA — telemetry alone is not enough
 - Rigorous evaluation: SRE-reviewed ground truth + LLM judge dual scoring, human cross-validation κ_w = 0.90 (high agreement)
 - High-difficulty tasks (vague report + delayed detection + multiple faults) cause significant degradation across all models

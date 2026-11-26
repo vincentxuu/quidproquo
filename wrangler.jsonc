@@ -14,7 +14,8 @@
 		}
 	],
 	"compatibility_flags": [
-		"nodejs_compat"
+		"nodejs_compat",
+		"durable_object_io_tasks_prevent_eviction"
 	],
 	"durable_objects": {
 		"bindings": [

@@ -13,7 +13,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-31-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-08-31-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -143,13 +143,13 @@ GitHub 熱門榜今天集中在 Agent Skills 生態：`can1357/oh-my-pi` 靠死�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent GitHub Digest — 2026-08-31](/posts/daily/2026-08-31-ai-agent-github-digest)
-- 📄 [框架更新｜Agno 3.0.2](/posts/daily/2026-08-31-framework-agno-3.0.2)
-- 📄 [融資速報｜Owner Series D $240M](/posts/daily/2026-08-31-funding-owner)
-- 📄 [資安警報｜LiteLLM MCP 測試端點命令注入可串成未授權 RCE](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot)
-- 📄 [工具推薦｜Sovereign MCP](/posts/daily/2026-08-31-tool-sovereign-mcp)
-- 📄 [AI Engineer 面試日練 — 2026-08-31：ML Fundamentals](/posts/daily/2026-08-31-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-08-31：Product Sense](/posts/daily/2026-08-31-product-builder-interview-daily)
+- :file: [AI Agent GitHub Digest — 2026-08-31](/posts/daily/2026-08-31-ai-agent-github-digest)
+- :file: [框架更新｜Agno 3.0.2](/posts/daily/2026-08-31-framework-agno-3.0.2)
+- :file: [融資速報｜Owner Series D $240M](/posts/daily/2026-08-31-funding-owner)
+- :file: [資安警報｜LiteLLM MCP 測試端點命令注入可串成未授權 RCE](/posts/daily/2026-08-31-security-litellm-mcp-rce-honeypot)
+- :file: [工具推薦｜Sovereign MCP](/posts/daily/2026-08-31-tool-sovereign-mcp)
+- :file: [AI Engineer 面試日練 — 2026-08-31：ML Fundamentals](/posts/daily/2026-08-31-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-08-31：Product Sense](/posts/daily/2026-08-31-product-builder-interview-daily)
 
 ## 明日關注
 

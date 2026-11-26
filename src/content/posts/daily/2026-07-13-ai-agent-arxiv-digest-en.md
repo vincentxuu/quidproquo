@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 50
 ---
-> 🌏 [中文版](/posts/daily/2026-07-13-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-13-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -71,7 +71,7 @@ This architecture is essentially a prototype of an "automatic MCP tool registry"
 - Deployment scenario: Amazon Fulfillment Center alarm-triage, a real production system — not a lab benchmark
 - Architecture layers: offline tool-maker (tool synthesis phase) + online production agent (tool invocation phase), with clear separation of concerns
 - Tool repair loop: automatically validates candidate tool functions against labeled cases, ensuring accuracy meets a threshold before going live
-- **⚠️ p50 latency -42%, error rate -53%** come from Amazon's internal production system — not externally reproducible
+- **:warning: p50 latency -42%, error rate -53%** come from Amazon's internal production system — not externally reproducible
 - Error rate reduction: pre-compilation eliminates run-to-run variance (the randomness from generating code each time)
 - Fallback mechanism: edge cases not covered by the tool library still use real-time generation, maintaining system robustness
 - Cold start problem: insufficient execution traces early on mean low tool coverage; effectiveness requires accumulation over time
@@ -131,7 +131,7 @@ The paper proposes **ProMem**: an independent memory agent that runs in parallel
 - Memory bank categories: task requirements / environment facts / past attempts / diagnostic results / pending sub-goals — this taxonomy itself is a reusable design reference
 - Injection timing is a key design point: too many injections distract the action agent; too few are ineffective — the memory agent needs sufficient capability to judge
 - Difference from LangGraph persistence: LangGraph's memory sits at the checkpointing layer and relies on the agent to actively retrieve; ProMem is an independent agent that actively pushes
-- **⚠️ The memory agent's token / latency overhead is not detailed in the paper** — a notable gap for estimating real deployment costs
+- **:warning: The memory agent's token / latency overhead is not detailed in the paper** — a notable gap for estimating real deployment costs
 - Limitation: the memory agent's own quality directly affects results; performance with a weak model as memory agent is insufficiently discussed
 - Limitation: for very short tasks with few steps, overhead may not be worthwhile
 
@@ -159,7 +159,7 @@ Recursively decomposes complex web research tasks across multi-layer agents work
 
 ### Read Priority
 
-📖 Skim
+:book: Skim
 The concept of recursive multi-agent decomposition has precedent, but WebSwarm applies it specifically to deep web research. Worth understanding the architectural pattern if you're designing research-oriented agent pipelines — no need to dig into details.
 
 ### Domain Background
@@ -183,7 +183,7 @@ This architecture explains why Deep Research products are so much stronger than 
 
 ### Deep Dive
 
-- **⚠️ This paper is a work in progress** — detailed benchmark results are not yet fully disclosed; effectiveness numbers await future versions
+- **:warning: This paper is a work in progress** — detailed benchmark results are not yet fully disclosed; effectiveness numbers await future versions
 - Recursive depth dynamically adjusts: decomposition layers are determined by problem complexity, but the mechanism preventing infinite expansion is not detailed
 - Comparison with LangGraph subgraphs: LangGraph supports statically defined subgraphs; WebSwarm's recursion is dynamic — more flexible but harder to control
 - Orchestrator-worker communication overhead: multi-layer recursion increases inter-agent token and latency costs; the paper does not quantify this

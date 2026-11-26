@@ -19,7 +19,7 @@ description: "Stanford CS146S Fall 2026 Week 4, 'Customizing Your Agent and Repo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs146s-agent-customization)
+> :globe: [中文版](/posts/ai/2026-08-16-cs146s-agent-customization)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -33,7 +33,7 @@ The course actually lists **four** techniques for directing agents: instruction 
 
 The matching Fall 2025 session was Week 4, "How to be an agent manager," with [public slides](https://docs.google.com/presentation/d/19mgkwAnJDc7JuJy0zhhoY0ZC15DiNpxL8kchPDnRkRQ/edit) and Boris Cherny as that week's guest too. It opens by drawing an evolution: a single developer managing their own output → a lead managing many developers → a lead managing many developers with AI assistance → **a single developer managing many agents' worth of work**. The course describes the endpoint as "every developer operates as a tech lead controlling their own army of agents."
 
-Then it gives a table marking who owns each of the seven steps of a software task (🟩 human, 🟦 agent):
+Then it gives a table marking who owns each of the seven steps of a software task (:green-square: human, :blue-square: agent):
 
 ```
 Provide high level requirements          🟩
@@ -177,7 +177,7 @@ This article covers the Fall 2026 syllabus and assigned readings. A public lectu
 
 Neither the official site (the themodernsoftware.dev home page and its fall2025 page) nor the course GitHub assignments repo lists a lecture recording or YouTube link. The YouTube videos titled "Wk01-Wk07 - Stanford CS146S" appear to be two-host discussion-style summary episodes rather than lecture recordings, so they are not used here.
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 Course and recording entries:
 
@@ -187,6 +187,7 @@ Course and recording entries:
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The official site and GitHub repo still list no lecture recording; the unofficial "Wk0X" YouTube summaries were not used.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

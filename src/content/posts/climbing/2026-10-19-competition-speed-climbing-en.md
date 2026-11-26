@@ -24,7 +24,7 @@ glossary:
     context: "The traditional head-to-head format is called Speed 2."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-competition-speed-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-competition-speed-climbing)
 
 Speed is the easiest climbing event to follow. Two athletes (sometimes four, from 2026) stand side by side, the signal sounds, and whoever slaps the timing pad 15 metres up first wins. The best men finish in under five seconds; the best women are around six.
 

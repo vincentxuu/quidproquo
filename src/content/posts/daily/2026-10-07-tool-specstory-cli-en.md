@@ -12,7 +12,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-tool-specstory-cli)
+> :globe: [中文版](/posts/daily/2026-10-07-tool-specstory-cli)
 
 ## Tool Info
 
@@ -80,11 +80,11 @@ Once Lore is installed, run `/lore` in Claude Code (`$lore` in Codex, or just as
 
 | | SpecStory CLI | Manual copy-paste | Agent's own session resume |
 |---|---|---|---|
-| Unified format across tools (Claude/Codex/Cursor CLI, etc.) | ✅ | Depends on habit | ❌ Each vendor is siloed |
-| Local-first, cloud sync optional | ✅ | ✅ | Varies by tool |
-| Full-text searchable history | ✅ (local or Cloud) | ❌ | Mostly unsupported |
-| Auto-distills history into new skills (Lore) | ✅ | ❌ | ❌ |
-| Shared team knowledge base | ✅ (requires Cloud login) | ❌ Scattered files | ❌ |
+| Unified format across tools (Claude/Codex/Cursor CLI, etc.) | ✓ | Depends on habit | ✗ Each vendor is siloed |
+| Local-first, cloud sync optional | ✓ | ✓ | Varies by tool |
+| Full-text searchable history | ✓ (local or Cloud) | ✗ | Mostly unsupported |
+| Auto-distills history into new skills (Lore) | ✓ | ✗ | ✗ |
+| Shared team knowledge base | ✓ (requires Cloud login) | ✗ Scattered files | ✗ |
 
 ## Caveats
 

@@ -10,7 +10,7 @@ description: "深入介紹 LiteLLM 的 Python SDK 與 Proxy Gateway、路由與 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-litellm-gateway-en)
+> :globe: [English version](/posts/ai/2026-08-22-litellm-gateway-en)
 
 [LiteLLM](https://github.com/BerriAI/litellm) 不是另一家賣 token 的模型供應商。它是一層放在應用程式與模型 API 中間的開放原始碼介面：小專案可以把它當 Python 套件，團隊則能把同一套能力架成集中式 AI Gateway。官方目前宣稱支援 [100+ 家 LLM provider](https://docs.litellm.ai/)，並把輸入、輸出與例外盡量整理成 OpenAI 相容格式。
 

@@ -13,7 +13,7 @@ description: "堡壘岩 攀岩指南：岩質與風格、季節、交通與停�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-horuiiwa-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-horuiiwa-en)
 
 堡壘岩的行程要連岩壁、交通與當地土地使用一起安排。這篇協助你判斷風格是否合適、哪個季節去，以及第一次到訪要先確認哪些入口。
 
@@ -54,12 +54,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 影片依上傳者片名與描述辨識，級數或版本可能與表格不同；影片連結不代表線位仍開放或固定點已確認。嵌入狀態未核實的影片以外部連結開啟。
 
 清單收錄已核讀 ROCKTOPO 表中全部 54 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
-
-```video-gallery
-key: japanHoruiiwa
-lang: zh-TW
-layout: routes
-```
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -108,6 +102,12 @@ layout: routes
 | 「西稜ハングVar1」 | 5.10a | 5.10a | 未列 | 西陵 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO 單一出處。 |
 | 「西稜クラック」 | 5.7 | 5.7 | 未列 | 西陵 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO 單一出處。 |
 
+```video-gallery
+key: japanHoruiiwa
+lang: zh-TW
+layout: routes
+```
+
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
 先在 topo 找到「中央稜 南東面」、「中央稜西面」的線位。選擇當日狀態合適的線，線位與下降仍要逐條確認。
@@ -135,6 +135,12 @@ layout: routes
 | 路線 | 難度 | YDS | 長度／段數 | 子區 | 備註 |
 |---|---|---|---|---|---|
 | 「大ハングルート」 | 5.12a | 5.12a | 未列 | 中央稜 南東面 | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/150/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanHoruiiwa
+lang: zh-TW
+layout: routes
+```
 
 ### 高手：8a 以上（YDS 5.13b 以上）
 

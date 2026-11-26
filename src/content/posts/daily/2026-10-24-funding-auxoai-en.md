@@ -12,7 +12,7 @@ series:
   order: 106
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-24-funding-auxoai)
+> :globe: [中文版](/posts/daily/2026-10-24-funding-auxoai)
 
 ## Funding Details
 

@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 39
 ---
-> 🌏 [English version](/posts/daily/2026-07-02-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-02-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -126,7 +126,7 @@ Agent 之間不需直接通訊，只需讀/寫共享狀態。每個 agent 的 co
 
 ### 深入要點
 
-- **SWE-bench Verified**：使用 Gemini 3-Flash，達到 65.7%，比最強中央式 baseline 高 **+10.5pp**，成本低約 **50%** ⚠️（VentureBeat 報導數字，需對照論文原始 Table 確認）
+- **SWE-bench Verified**：使用 Gemini 3-Flash，達到 65.7%，比最強中央式 baseline 高 **+10.5pp**，成本低約 **50%** :warning:（VentureBeat 報導數字，需對照論文原始 Table 確認）
 - **LongBench-v2 Multi-Doc QA**：在四個前沿模型上都拿到最高平均精度；說明這個架構不只適合 coding，也適合長文件推理
 - **Shared Context 的驗證機制**：Agent 寫回的資訊需通過驗證才進 Context，防止錯誤資訊汙染後續 agent；具體驗證方式（unit test、LLM judge？）細節待查論文 Section 3
 - **與 AutoGen / LangGraph 的關係**：DeLM 提出的是一個架構模式（pattern），理論上可在 LangGraph 之上實作類似的 shared-state node
@@ -157,7 +157,7 @@ Web Agent 執行完任務後，HANSEL 自動從瀏覽歷史中抽出「最關鍵
 
 ### Read Priority
 
-📖 略讀
+:book: 略讀
 對「Agent 可解釋性 / 使用者信任」有興趣的人值得快讀；如果你現在最大痛點不是 Web Agent observability，可以先存著。
 
 ### 領域背景

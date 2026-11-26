@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-model-google-gemini-3-7-flash)
+> :globe: [中文版](/posts/daily/2026-08-16-model-google-gemini-3-7-flash)
 
 ## Model Info
 
@@ -47,7 +47,7 @@ series:
 | GDM-MRCR v2 (128k long context) | 97.0% | 91.8% | GPT-5.6 Terra 93.5% |
 | HLE-Verified (cross-domain expert reasoning) | 53.6% | 51.2% | GPT-5.6 Terra 51.1% |
 
-⚠️ These are Google's internally reported evaluation results (including cross-vendor model comparisons), not third-party reproductions published by each vendor. Actual performance may vary depending on evaluation setup.
+:warning: These are Google's internally reported evaluation results (including cross-vendor model comparisons), not third-party reproductions published by each vendor. Actual performance may vary depending on evaluation setup.
 
 ## Comparison with Predecessor & Competitors
 

@@ -140,7 +140,7 @@ OpenAI 的 auth 和 runtime 是分開的，所以可以做這件事：`openai/gp
 
 有一個容易誤會的地方：用環境變數隱含開長保留（`OPENCLAW_CACHE_RETENTION=long` 而沒有明確的 `cacheRetention`）**只在 `api.anthropic.com` 或 Vertex AI 的主機上會升級成 1 小時**，其他主機仍是 5 分鐘。
 
-搭配用的兩個設定：`contextPruning.mode: "cache-ttl"` 會在 cache TTL 視窗過後修剪舊的工具結果，避免閒置之後的請求把過大的歷史重新 cache 一次；`heartbeat` 可以讓長壽命 agent 的 cache 保持溫熱（例如 TTL 一小時就設 `every: "55m"`），但只對真的受益於熱 cache 的 agent 開。
+搭配用的兩個設定：`contextPruning.mode: "cache-ttl"` 會在 cache TTL 視窗過後修剪舊的工具結果，避免閒置之後的請求把過大的歷史重新 cache 一次。另外，如果已經有一個在同一段持續 session 裡做有用檢查的 automation，可以用 `openclaw automations edit <job-id> --every 55m` 讓它的間隔落在一小時的 TTL 內，順便保溫。隔離執行的工作溫不到別段對話的 cache；靜默時段和忙碌延後也可能讓檢查晚跑，而且每次檢查都花 token，要看總用量再決定。
 
 ## 整體來說
 
@@ -152,6 +152,7 @@ OpenClaw 的答案是有分寸的：設定檔的預設可以自動退到別的�
 
 ## 更新紀錄
 
+- 2026-11-20：用 `heartbeat` 保溫 cache 的建議改成官方現行做法：在同一段持續 session 裡的 automation 設 `--every 55m`，並補上隔離工作溫不到、每次都花 token 的限制。
 - 2026-08-18：對照官方文件現況大改。**修掉兩處錯誤數字**：一般失敗的冷卻實際是 30 秒 → 1 分鐘 → 5 分鐘（上限），原文寫「1 分鐘 → 5 分鐘 → 25 分鐘 → 1 小時」；帳務失敗不是「5 小時 → 24 小時」的遞增冷卻，而是把 profile 標成 disabled 走較長退避。**修掉一處路徑錯誤**：auth profile 已改存於每個 agent 的 `openclaw-agent.sqlite`，原文寫的 `auth-profiles.json` 現在是 legacy，且執行期對未遷移的 agent 是 fail closed。新增：fallback 為 turn-local、選擇來源決定嚴格度（使用者手動選的模型失敗會報錯而非改用他模）、哪些錯誤不推進 fallback（格式錯誤、context 溢出）、overload 的整輪重試與 30 秒通知、SDK `Retry-After` 的 60 秒上限、輪替順序補上靜態 token 這一層、Codex 訂閱與 API key 備援的 `auth.order`。Prompt caching 的設定鍵更新為 `cacheRetention`（`cacheControlTtl` 為 legacy），並補上 Google `cachedContents` 與 OpenAI 相容端點的實際差異。
 
 ## 參考資料

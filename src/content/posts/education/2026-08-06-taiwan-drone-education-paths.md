@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/education/2026-08-06-taiwan-drone-education-paths-en)
+> :globe: [English version](/posts/education/2026-08-06-taiwan-drone-education-paths-en)
 
 [職業地圖](/posts/career/2026-08-06-drone-industry-job-map)列了十一種角色，但沒回答一個更前面的問題：**這些能力要去哪裡學？**
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-sandbox-product-landscape-en)
+> :globe: [English version](/posts/tech/2026-08-30-sandbox-product-landscape-en)
 
 ## 本文定位
 
@@ -33,13 +33,13 @@ draft: false
 |--------|----------|--------|----------|----------|------|------|
 | **E2B** | Firecracker microVM | ~150 ms | wall-clock | Coding agent、長任務 | pause/resume 保留記憶體、開源 runtime | 無 GPU、24 小時 session 上限 |
 | **Daytona** | Docker / Kata | ~90 ms | wall-clock | 平行評測、快照分支 | 快照與 fork、長生命週期 | 開源 repo 已停止維護 |
-| **Runloop** | microVM | ~150 ms | wall-clock | 評測、Blueprint 工作流 | Devbox 藍圖、平行 Devbox | 生態較小 |
+| **Runloop** | microVM | ~150 ms | wall-clock | 評測、Blueprint 工作流 | Devbox 藍圖、平行 Devbox | 生態較小、單價約 E2B 兩倍 |
 | **Vercel Sandbox** | Firecracker microVM | ~1.8 s | active-CPU | 已在 Vercel 上的 agent | 與 Vercel 生態最短整合路徑 | 記憶體計費、持久化需自行設計 |
-| **Cloudflare Sandboxes** | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare Workers 生態 | 三層架構（Worker + DO + Container） | 三層費用、持久資料需自行設計 |
-| **Modal** | gVisor / microVM | sub-second | wall-clock（無 idle 計費） | GPU 工作負載、大規模併發 | $300M–$1B ARR、GPU 沙箱 | 託管 only、價格約 3× function 費率 |
-| **AWS Bedrock AgentCore** | microVM | ~1–2 s | wall-clock | AWS 原生 agent | AWS 生態整合、Code Interpreter | AWS 鎖定 |
-| **Alibaba OpenSandbox** | gVisor | ~200 ms | wall-clock | 多語言 SDK（Python/Go/Java） | 阿里雲生態、BYOC | 國際地區支持較少 |
-| **Azure Container Apps Sandboxes** | microVM | ~1–2 s | wall-clock | Azure 原生 agent | Microsoft 生態、lifecycle policy | Azure 鎖定 |
+| **Cloudflare Sandboxes** | Container in VM | ~2–3 s | active-CPU (10ms) | Cloudflare Workers 生態 | 三層架構（Worker + DO + Container）；SDK 1.0 可存 snapshot | 三層費用、記憶體與 process 不跨 instance 保留 |
+| **Modal** | gVisor / microVM | sub-second | 按 request 與實際用量取高者 | GPU 工作負載、大規模併發 | 沙箱單獨約 3 億美元年化營收、GPU 沙箱 | 託管 only、價格為一般 function 的 3 倍 |
+| **AWS Bedrock AgentCore** | microVM（Runtime）／容器（Code Interpreter） | ~1–2 s | active-CPU | AWS 原生 agent | AWS 生態整合、Code Interpreter | AWS 鎖定、Code Interpreter 只跑 Python／JS／TS |
+| **OpenSandbox**（阿里巴巴開源，現屬 AAIF） | 預設 runc，可選 gVisor／Kata／Firecracker | Firecracker 建立 P50 64 ms（官方） | 開源自架，算力自付 | 想在自有 Docker／Kubernetes 上跑 | 五種語言 SDK、Credential Vault | 控制面與維運要自己扛 |
+| **Azure Container Apps Sandboxes** | microVM | 官方稱 1 秒內 | 運行時按秒計費，停止不收運算費 | Azure 原生 agent | 2026-09 GA、記憶體快照、lifecycle policy | Azure 鎖定 |
 
 ---
 
@@ -47,7 +47,7 @@ draft: false
 
 雲端沙箱的定價模式主要分為兩大類，這直接影響月成本：
 
-### 1. Wall-clock 計費（E2B、Daytona、Runloop、Modal、Bedrock AgentCore、OpenSandbox、Azure）
+### 1. Wall-clock 計費（E2B、Daytona、Runloop、Modal、Azure）
 
 壁時計費對沙箱存活期間的每一秒收費，無論 CPU 是否忙碌。
 
@@ -55,11 +55,12 @@ draft: false
 |--------|----------|------------|----------|
 | E2B | $0.000014 / vCPU-s | $0.0000045 / GiB-s | 每秒 |
 | Daytona | $0.000014 / vCPU-s | $0.0000045 / GiB-s | 每秒 |
-| Runloop | 類似 E2B | 類似 E2B | 每秒 |
-| Modal | $0.00003942 / core-s | $0.00000672 / GiB-s | 每秒 |
-| Bedrock AgentCore | AWS 標準費率 | AWS 標準費率 | 每秒 |
+| Runloop | $0.00003 / CPU-s | $0.000007 / GB-s | 每秒 |
+| Modal | $0.00003942 / core-s（1 core = 2 vCPU） | $0.00000667 / GiB-s | 每秒 |
 
-### 2. Active-CPU 計費（Vercel、Cloudflare）
+Modal 比較特別：CPU 與記憶體都按「request 與實際用量取高者」計費，CPU request 可以壓到 0.125 core，所以閒置時的 CPU 費用很低，但記憶體照樣按整段存活時間收。Azure 在沙箱運行時按 core-秒與 GiB-秒計費，停止後不收運算費。OpenSandbox 是開源自架，沒有供應商費率。
+
+### 2. Active-CPU 計費（Vercel、Cloudflare、Bedrock AgentCore）
 
 只對實際執行代碼的 CPU 時間收費，等待 I/O 的時間不計費。
 
@@ -67,6 +68,7 @@ draft: false
 |--------|----------|------------|----------|------|
 | Vercel | $0.128 / vCPU-hr | $0.0212 / GB-hr | 每小時 | 僅計 active CPU，記憶體按 wall-clock |
 | Cloudflare | $0.072 / vCPU-hr | $0.009 / GiB-hr | 每 10 ms | 記憶體與磁碟按 provisioned 大小 |
+| Bedrock AgentCore Code Interpreter | $0.0895 / vCPU-hr | $0.00945 / GB-hr | 每秒 | I/O 等待不計 CPU，記憶體按 session 期間用量 |
 
 ---
 
@@ -76,27 +78,30 @@ draft: false
 
 | 供應商 | 預估月成本 | 說明 |
 |--------|-----------|------|
-| **Modal** | ~$36 | 幾乎不計 idle CPU，最適合突發場景 |
+| **Cloudflare** | ~$126 | 只計 active CPU；另加磁碟、Workers 與 Durable Objects 費用 |
+| **Bedrock AgentCore** | ~$139 | Code Interpreter 跳過 I/O 等待的 CPU |
 | **Vercel** | ~$276 | Active-CPU 計費跳過等待時間 |
+| **Modal** | ~$315–$595 | CPU request 壓到 0.125 core 約 $315，request 1 core 約 $595；記憶體一項就約 $240 |
 | **E2B / Daytona / Blaxel** | ~$414 | 全時長計費，每秒都算 |
-| **Cloudflare** | 視 provisioned 大小而定 | 10 ms 計費單位，適合極短執行 |
 
-**結論**：如果你的 agent 工作負載是「突發性、短執行、長等待」，active-CPU 計費（Vercel、Cloudflare）或無 idle 計費（Modal）會便宜很多；如果是「長時間持續執行」，wall-clock 計費的供應商（E2B、Daytona）更適合。
+**結論**：如果你的 agent 工作負載是「突發性、短執行、長等待」，active-CPU 計費（Cloudflare、Bedrock AgentCore、Vercel）會便宜很多；如果是「長時間持續執行」，wall-clock 計費的供應商（E2B、Daytona）更適合。
 
 ---
 
 ## 冷啟動與恢復速度比較
 
+下表取自 [ComputeSDK Burst TTI 榜單](https://www.computesdk.com/benchmarks/sandboxes/burst-tti) 2026-11-20 那次的結果。TTI（time to interactive）是從 SDK 呼叫 `create()` 到沙箱裡第一個指令成功的時間；每家一次同時開 100 個沙箱，每週重跑。
+
 | 供應商 | 中位數 TTI | P95 | P99 | 成功率 |
 |--------|-----------|-----|-----|--------|
-| Daytona | 0.27 s | 0.43 s | 0.44 s | 37% |
-| Vercel | 0.67 s | 1.04 s | 1.12 s | 100% |
-| Modal | 0.88 s | 1.00 s | 1.08 s | 100% |
-| Runloop | 0.89 s | 3.27 s | 3.50 s | 100% |
-| E2B | 1.61 s | 1.77 s | 1.81 s | 100% |
-| Cloudflare | 5.06 s | 6.04 s | 6.48 s | 100% |
+| Vercel | 0.31 s | 0.46 s | 0.59 s | 100% |
+| Daytona | 0.48 s | 0.67 s | 0.69 s | 100% |
+| Modal | 0.66 s | 0.85 s | 0.88 s | 100% |
+| Cloudflare | 0.87 s | 1.12 s | 1.17 s | 100% |
+| E2B | 1.04 s | 1.33 s | 1.46 s | 100% |
+| Runloop | 未列入 | — | — | — |
 
-** Daytona 的成功率較低（37%）** 可能與其測試條件有關，但其冷啟動速度確實是業界領先。
+這類數字只能當起點。這份榜單每週重跑，名次與成功率都會變動；同一次結果裡也有供應商 100 次只成功不到一半，中位數再快也沒用。測法也決定結果：同時開 100 個（burst）與一次開一個（sequential）差很多，量的也只是 `create()` 到第一個指令，不含映像大小、區域、warm pool 與 snapshot 還原。上面全景表裡的冷啟動欄位多半是供應商自己的說法，條件各不相同。選型前請用自己的映像、區域與預期併發量自己量，看 P95／P99 與失敗率，不要只看中位數。
 
 ---
 
@@ -105,7 +110,7 @@ draft: false
 ```
 起點：你的 agent 工作負載特徵
 │
-├─ 需要 GPU？ ──→ Modal（GPU 沙箱）或 Bedrock AgentCore
+├─ 需要 GPU？ ──→ Modal 或 Daytona（都有 GPU 沙箱）
 │
 ├─ 已在 Vercel 生態？ ──→ Vercel Sandbox（最短整合路徑）
 │
@@ -115,7 +120,7 @@ draft: false
 │
 ├─ 已在 AWS 生態？ ──→ Bedrock AgentCore
 │
-├─ 已在阿里雲生態？ ──→ Alibaba OpenSandbox
+├─ 要在自有 Docker／Kubernetes 上自架？ ──→ OpenSandbox
 │
 ├─ 需要 pause/resume 保留記憶體？ ──→ E2B
 │
@@ -123,7 +128,7 @@ draft: false
 │
 ├─ 需要評測與 Blueprint 工作流？ ──→ Runloop
 │
-├─ 突發性互動式，敏感於成本？ ──→ Modal 或 Vercel（active-CPU）
+├─ 突發性互動式，敏感於成本？ ──→ Cloudflare、Bedrock AgentCore 或 Vercel（active-CPU）
 │
 └─ 其他：長任務、無特殊生態綁定 ──→ E2B 或 Daytona
 ```
@@ -140,6 +145,10 @@ draft: false
 
 ---
 
+## 更新紀錄
+
+- 2026-11-23：依各家定價頁重算成本情境（Modal 原估 ~$36 不成立，改為 $315–$595；補 Cloudflare、Bedrock AgentCore）；Bedrock AgentCore 改列 active-CPU；Runloop 補實際費率；OpenSandbox 改為開源自架（預設 runc，可選 gVisor／Kata／Firecracker，現屬 AAIF）；Azure Container Apps Sandboxes 2026-09 GA；Cloudflare Sandbox SDK 1.0 可存 snapshot；GPU 分支改為 Modal 或 Daytona；冷啟動表改用 ComputeSDK Burst TTI 2026-11-20 的數字並說明測法限制。
+
 ## 參考資料
 
 - [E2B Documentation](https://e2b.dev/docs)
@@ -148,9 +157,13 @@ draft: false
 - [Vercel Sandbox](https://vercel.com/docs/sandbox)
 - [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
 - [Modal Sandbox Guide](https://modal.com/docs/guide/sandbox)
-- [AWS Bedrock AgentCore](https://docs.aws.amazon.com/bedrock/latest/userguide/agentcore.html)
-- [Alibaba OpenSandbox](https://www.alibabacloud.com/)
-- [Azure Container Apps Sandboxes](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-snapshots-state-management)
+- [AWS Bedrock AgentCore Code Interpreter](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/code-interpreter-tool.html)
+- [Amazon Bedrock AgentCore Pricing](https://aws.amazon.com/bedrock/agentcore/pricing/)
+- [OpenSandbox GitHub](https://github.com/opensandbox-group/OpenSandbox)
+- [Azure Container Apps Sandboxes overview](https://learn.microsoft.com/en-us/azure/container-apps/sandboxes-overview)
+- [Modal Pricing](https://modal.com/pricing) 與 [Modal resources billing](https://modal.com/docs/guide/resources)
+- [Runloop Pricing](https://runloop.ai/pricing)
+- [ComputeSDK Sandbox Burst TTI Benchmarks](https://www.computesdk.com/benchmarks/sandboxes/burst-tti)
 - [本站：沙箱系列導讀（order 0）](/posts/tech/2026-08-30-sandbox-series-overview)
 - [本站：E2B Agent Sandbox（order 8）](/posts/ai/2026-08-22-e2b-agent-sandbox)
 - [本站：Daytona Agent Sandbox（order 9）](/posts/ai/2026-08-22-daytona-agent-sandbox)

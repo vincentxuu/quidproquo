@@ -14,7 +14,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-query-classification-adaptive-routing)
+> :globe: [中文版](/posts/ai/2026-03-12-query-classification-adaptive-routing)
 
 One of the most common inefficiencies in RAG systems is running every query through the full vector search + LLM generation pipeline — even when most queries don't need it.
 

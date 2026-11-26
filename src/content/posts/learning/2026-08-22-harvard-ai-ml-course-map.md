@@ -13,7 +13,7 @@ description: "盤點 Harvard CS50 AI、CS1810、CS1820 與後續 RL／視覺課�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-22-harvard-ai-ml-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

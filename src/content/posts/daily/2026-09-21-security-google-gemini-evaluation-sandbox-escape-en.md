@@ -14,7 +14,7 @@ additionalSeries:
     order: 26
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape)
+> :globe: [中文版](/posts/daily/2026-09-21-security-google-gemini-evaluation-sandbox-escape)
 
 ## What Happened
 

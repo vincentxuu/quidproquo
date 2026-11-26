@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-openstack-private-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-openstack-private-cloud)
 
 [OpenStack](https://docs.openstack.org/) is an open-source IaaS cloud operating system exposing APIs and dashboards for datacenter compute, networks, images, identity, and storage. It is neither one daemon nor a polished UI over KVM. Independently deployed and upgraded services compose each capability.
 

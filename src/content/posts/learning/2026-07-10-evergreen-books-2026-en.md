@@ -23,7 +23,7 @@ glossary:
     context: "The core term in 2026's 'spend now vs. save with discipline' debates."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-07-10-evergreen-books-2026)
+> :globe: [中文版](/posts/learning/2026-07-10-evergreen-books-2026)
 
 There is no shortage of book lists, but most of them are lists of books that *used to* sell. This study asks a different question: **which evergreen books are people still actively posting about in 2026?**
 

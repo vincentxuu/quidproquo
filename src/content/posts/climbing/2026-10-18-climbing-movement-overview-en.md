@@ -25,7 +25,7 @@ glossary:
     context: "One of the few English climbing terms commonly heard in Taiwanese gyms."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-movement-overview)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-movement-overview)
 
 Three months into gym climbing, you may find yourself stuck at the same grade. The person next to you floats up the same holds while your forearms are already blown. The first instinct is usually "I need to get stronger", so you start hanging on a fingerboard and doing pull-ups.
 

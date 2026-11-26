@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-lambda-cloud-gpu-en)
+> :globe: [English version](/posts/tech/2026-08-22-lambda-cloud-gpu-en)
 
 [Lambda Cloud](https://docs.lambda.ai/public-cloud/) 的核心是 Linux GPU VM 與多節點 1-Click Cluster。單台 instance 適合 notebook、fine-tuning、prototype inference；cluster 可選 Kubernetes 或 Slurm 等環境，面向 distributed training 與較大規模 serving。
 
@@ -33,9 +33,13 @@ On-Demand Cloud 讓你取得 SSH/Jupyter 可用的 GPU VM。這對研究迭代�
 
 ## 跟其他 GPU 雲怎麼選
 
-Lambda Cloud 適合需要直接 VM/cluster、熟悉 Linux、會自管 training 或 inference stack 的團隊。需要 Kubernetes 平台與更完整雲服務可比較 CoreWeave/Nebius；零散廉價 GPU 與快速 prototype 可看 RunPod；只想用模型 API 可看 Replicate。
+Lambda Cloud 適合需要直接 VM/cluster、熟悉 Linux、會自管 training 或 inference stack 的團隊。需要 Kubernetes 平台與更完整雲服務可比較 CoreWeave/Nebius；零散廉價 GPU 與快速 prototype 可看 Runpod；只想用模型 API 可看 Replicate。
 
 採購前驗證 region/型號容量、reservation、interconnect、shared storage、egress、support 與 quota。用同一 container、dataset shard 與 checkpoint 跑端到端 benchmark，計算完成一次有效 training step 或千次成功 inference 的成本，而不是只比標價。
+
+## 更新紀錄
+
+- 2026-11-23：比較段的「RunPod」改成現行品牌寫法 Runpod（2025-06 起更名）。
 
 ## 參考資料
 

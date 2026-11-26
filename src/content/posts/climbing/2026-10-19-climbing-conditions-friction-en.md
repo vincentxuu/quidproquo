@@ -22,7 +22,7 @@ glossary:
     context: "Home-improvement articles in Taiwan say it peaks in March–May; at the crag, shaded walls on warm days after a cold front may sweat (inference)."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-conditions-friction)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-conditions-friction)
 
 Last Saturday you were working your project at Longdong. The sloper at the crux slipped no matter how you held it, and by the third go it felt like grabbing soap. On Wednesday evening a friend sends a photo: same route, someone sent it first go, with the caption "so dry today".
 

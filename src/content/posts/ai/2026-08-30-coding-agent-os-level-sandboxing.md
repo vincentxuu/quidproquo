@@ -16,7 +16,7 @@ tldr: "OS 沙箱是 path policy 之外的核心防線。looplane 已落地 fail-
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing-en)
+> :globe: [English version](/posts/ai/2026-08-30-coding-agent-os-level-sandboxing-en)
 
 ## 能力問題
 
@@ -78,6 +78,10 @@ Codex 的 macOS policy 第一行 `(deny default)` 直接註明致敬 [Chrome ren
 
 Linux Landlock/seccomp 有本機 smoke 與 CI workflow，macOS 包裝也有單元測試。不過目前 containment 主要涵蓋 native verification commands，還不是任意 agent process 的全面沙箱；外部 CI run 結果與更廣平台矩陣也仍待確認。因此能宣稱的是「沙箱設定鏈與拒絕預設已落地」，不是「所有執行都已 production 隔離」。
 
+## 更新紀錄
+
+- 2026-11-23：Cloudflare Sandbox SDK 的參考連結改到現行的 `/sandbox/` 文件（舊 `/agents/api-reference/sandbox/` 已失效）。
+
 ## 參考資料
 
 - [Looplane CommandSandbox（固定 commit）](https://github.com/vincentxuu/looplane/blob/2ed5efb94cb1f344f8b360256fd6b4aae60fe34c/src/looplane/runtime.py)
@@ -89,5 +93,5 @@ Linux Landlock/seccomp 有本機 smoke 與 CI workflow，macOS 包裝也有單�
 - [Chromium macOS sandboxing design](https://chromium.googlesource.com/chromium/src/+/HEAD/docs/mac_sandboxing.md)
 - [bubblewrap — unprivileged sandboxing tool](https://github.com/containers/bubblewrap)
 - [openai/codex — codex-rs/sandboxing](https://github.com/openai/codex/tree/main/codex-rs/sandboxing)
-- [Cloudflare Sandbox SDK](https://developers.cloudflare.com/agents/api-reference/sandbox/)
+- [Cloudflare Sandbox SDK](https://developers.cloudflare.com/sandbox/)
 - [SWE-agent: Agent-Computer Interfaces Enable Automated Software Engineering (arXiv)](https://arxiv.org/abs/2405.15793)

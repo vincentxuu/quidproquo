@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-convex-reactive-backend-en)
+> :globe: [English version](/posts/tech/2026-08-22-convex-reactive-backend-en)
 
 [Convex](https://docs.convex.dev/) 是 TypeScript-first reactive backend：schema、document database、server functions、scheduler、file storage 與 client subscriptions 由同一平台協作。Frontend 呼叫 generated API，而不是直接取得 database connection。
 

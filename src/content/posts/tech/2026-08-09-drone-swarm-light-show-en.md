@@ -13,7 +13,7 @@ series:
   order: 38
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-09-drone-swarm-light-show)
+> :globe: [中文版](/posts/tech/2026-08-09-drone-swarm-light-show)
 
 [The cybersecurity-spec post](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en) left a second debt in print:
 

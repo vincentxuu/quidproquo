@@ -12,7 +12,7 @@ series:
   order: 15
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-ai-kb-metadata-schema)
+> :globe: [中文版](/posts/learning/2026-10-22-ai-kb-metadata-schema)
 
 The company has a leave policy for its Taipei office and one for Singapore. They're nearly identical except for the number of annual leave days. A Taipei colleague asks the AI, "How many days of annual leave after one year?", and the AI cites the Singapore policy. Neither document is wrong, and their chunks look almost the same, so retrieval has no reason to prefer one. What's missing is a field: which region this policy applies to.
 

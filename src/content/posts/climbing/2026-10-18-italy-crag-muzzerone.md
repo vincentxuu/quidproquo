@@ -13,7 +13,7 @@ description: "穆澤羅內（Muzzerone）岩場介紹：岩質與各子區規模
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-muzzerone-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-muzzerone-en)
 
 穆澤羅內（Muzzerone）是利古里亞（Liguria）東端、[韋內雷港（Porto Venere）](https://www.visitportovenere.com/it/cosa-fare-a-portovenere/arrampicata)上方的一座海岬，西側是一整排直落海面的白、灰色石灰岩壁。這一帶屬於[韋內雷港區域自然公園（Parco Naturale Regionale di Porto Venere）](https://parconaturaleportovenere.it/palestra-di-roccia/)。公園官網的攀岩頁開頭寫：「Il Muzzerone e le sue falesie sono diventati uno dei luoghi più amati e frequentati da migliaia di arrampicatori provenienti da tutta Europa」（穆澤羅內和它的岩壁，已經成為來自全歐洲數千名攀岩者最喜愛、最常去的地方之一）。
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-19-vercel-ai-elements-en)
+:globe: [English version](/posts/tech/2026-08-19-vercel-ai-elements-en)
 
 做過 AI 聊天介面的人都知道，難的不是那個輸入框，而是周邊的一切：串流中的 Markdown 要即時渲染、推理過程要能折疊、引用來源要展開、工具呼叫要顯示參數與結果、重新生成後要能在多個版本間切換。AI Elements 是 Vercel 為 AI SDK 生態推出的 React 元件庫，把這些「ChatGPT 式介面的標準配備」全部做成現成元件——而且走 shadcn 模式，原始碼直接複製進你的專案，不是裝一個黑盒子依賴。
 

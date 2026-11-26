@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-renovate-dependency-updates-en)
+> :globe: [English version](/posts/tech/2026-08-22-renovate-dependency-updates-en)
 
 [Renovate](https://docs.renovatebot.com/) 掃描 repository 內 package manifests、lockfiles、Docker image、GitHub Actions、Terraform 等依賴宣告，透過 manager 抽取目前版本、datasource 查新版本，再依 configuration 產 branch/PR。真正價值是把更新頻率、風險分級與責任寫成 policy，而不是累積一排 bot PR。
 

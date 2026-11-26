@@ -34,7 +34,7 @@ glossary:
     context: "基石第 12 堂由多項式轉換的遞迴定義得到這個結構，據此建議先試 H₁。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation-en)
+> :globe: [English version](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-12-nonlinear-transformation-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [12_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/12_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/22 到 22/22），寫「課堂上」的地方是轉述影片裡的說法。
 

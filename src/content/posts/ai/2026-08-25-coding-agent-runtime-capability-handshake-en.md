@@ -14,7 +14,7 @@ tldr: "Five external CLIs expose five different machine interfaces: JSONL event 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-runtime-capability-handshake)
 
 ## The Design Problem
 

@@ -26,7 +26,7 @@ glossary:
     context: "兩個分數差很多，代表影評人和觀眾意見分歧。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en)
+> :globe: [English version](/posts/film/2026-11-05-us-tv-fantasy-scifi-superhero-en)
 
 這篇收的是美國的奇幻、科幻、恐怖與超級英雄影集，從龍與王座、外星文明、末日廢土，到一群不太像英雄的超級英雄。18 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)說明的門檻：在獎項評審、影評人投票、觀眾評分、收視數據、話題指標、劇迷口碑、台灣觀眾七類推薦來源裡，至少有三類都推它，而且台灣有合法串流管道。
 

@@ -15,7 +15,7 @@ glossary:
     def: "A newly surfaced AI lab whose first release is IQuest-Q1, a MoE model built for agentic coding"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-model-iquestlab-iquest-q1)
+> :globe: [中文版](/posts/daily/2026-10-02-model-iquestlab-iquest-q1)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | NL2Repo (repo-level code generation) | 63.0% | First release, no predecessor | Claude Opus 5 75.3% |
 | JobBench (office-work tasks) | 55.7% | First release, no predecessor | Claude Opus 5 65.7% |
 
-⚠️ All figures are IQuest's own self-reported benchmarks (harness: mini-SWE-agent for DeepSWE v1.1, Claude Code `2.1.140` / Codex `0.142` for the rest; a 6-hour cap for CyberGym and an 8-hour cap for Terminal-Bench 2.1), with no independent third-party reproduction yet.
+:warning: All figures are IQuest's own self-reported benchmarks (harness: mini-SWE-agent for DeepSWE v1.1, Claude Code `2.1.140` / Codex `0.142` for the rest; a 6-hour cap for CyberGym and an 8-hour cap for Terminal-Bench 2.1), with no independent third-party reproduction yet.
 
 ## Versus Predecessor / Competitors
 

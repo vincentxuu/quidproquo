@@ -21,7 +21,7 @@ glossary:
     context: "Slides 45–52 of the ADL Transformer deck list four design criteria, rule out three naive schemes, and then introduce the sinusoidal version."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-adl2025-attention-transformer)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

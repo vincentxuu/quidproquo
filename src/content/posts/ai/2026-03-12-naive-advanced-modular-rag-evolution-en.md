@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution)
+> :globe: [中文版](/posts/ai/2026-03-12-naive-advanced-modular-rag-evolution)
 
 RAG systems evolved rapidly between 2023 and 2026, growing from a simple three-step process into sophisticated modular pipelines. Understanding that evolutionary arc makes it much easier to see what problem each design decision was actually solving.
 

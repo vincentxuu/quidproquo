@@ -14,7 +14,7 @@ series:
   order: 16
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-16-ctc-beam-search)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-16-ctc-beam-search)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

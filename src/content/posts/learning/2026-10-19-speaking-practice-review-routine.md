@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-19-speaking-practice-review-routine-en)
+> :globe: [English version](/posts/learning/2026-10-19-speaking-practice-review-routine-en)
 
 口說課上得很開心，老師也幫你改了幾句。隔天同事問到類似的事，你卻又回到原本的說法。這時候可以先改複習流程：把一堂課接到下一次真正開口，而不只把課堂筆記收進資料夾。
 

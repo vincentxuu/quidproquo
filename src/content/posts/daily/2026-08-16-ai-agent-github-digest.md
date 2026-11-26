@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-16-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-08-16-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -20,7 +20,7 @@ series:
 
 ## Trending Repos
 
-### eve (vercel) ⭐ 4,647
+### eve (vercel) ★ 4,647
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -31,7 +31,7 @@ series:
 
 ---
 
-### prime-agent (PrimeIntellect-ai) ⭐ 16,301
+### prime-agent (PrimeIntellect-ai) ★ 16,301
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Python　·　MIT
 
@@ -42,7 +42,7 @@ series:
 
 ---
 
-### hive (aden-hive) ⭐ 10,915
+### hive (aden-hive) ★ 10,915
 
 [GitHub](https://github.com/aden-hive/hive)　·　Python　·　Apache-2.0
 
@@ -53,7 +53,7 @@ series:
 
 ---
 
-### nanobot (HKUDS) ⭐ 47,044 — v0.3.0「The Agency Release」
+### nanobot (HKUDS) ★ 47,044 — v0.3.0「The Agency Release」
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 

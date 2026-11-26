@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-21-trigger-dev-durable-tasks-en)
+> :globe: [English version](/posts/tech/2026-08-21-trigger-dev-durable-tasks-en)
 
 站上已經有 [Temporal](/posts/tech/2026-08-21-temporal-durable-execution) 的專文，講的是 replay 模型的 durable execution——崩了從頭重跑 workflow 碼，用事件歷史跳過已完成的步驟。那篇最後留了一條軸線：**復原時要不要重跑你的編排碼？** [Trigger.dev](https://trigger.dev/docs/introduction) 站在另一邊。它用 [CRIU](https://criu.org/Main_Page)（Checkpoint/Restore In Userspace）對整個 Node.js 行程做記憶體快照，還原時從中斷處直接續跑，一行你的程式碼都不重跑。
 

@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5-en)
+> :globe: [English version](/posts/daily/2026-10-10-benchmark-arena-agent-opus-5-5-en)
 
 ## 異動摘要
 
@@ -24,10 +24,10 @@ Arena（前身 LMSYS Chatbot Arena）Agent 類別排行榜最新一次官方發�
 
 | 排名 | 模型 | 分數 | 10-02 分數 | 變化 |
 |---|---|---|---|---|
-| 🥇 | Claude Opus 5.5（High） | 14.33% | 13.82%（🥈） | ↑1 |
-| 🥈 | GPT-6 Astra（Max） | 13.09% | 12.27%（4） | ↑2 |
-| 🥉 | Claude Fable 5.1（Max） | 12.66% | 14.31%（🥇） | ↓2 |
-| 4 | Claude Sonnet 5.5（Max） | 11.95% | 12.52%（🥉） | ↓1 |
+| 1 | Claude Opus 5.5（High） | 14.33% | 13.82%（2） | ↑1 |
+| 2 | GPT-6 Astra（Max） | 13.09% | 12.27%（4） | ↑2 |
+| 3 | Claude Fable 5.1（Max） | 12.66% | 14.31%（1） | ↓2 |
+| 4 | Claude Sonnet 5.5（Max） | 11.95% | 12.52%（3） | ↓1 |
 | 5 | GPT-6.1 Sol（Max） | 11.72% | 11.23%（5） | — |
 
 來源：[Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset)（`agent` 子集、`latest` split，`category=overall`）· 官方發布日期：2026-10-08 · 抓取日期：2026-10-10
@@ -42,7 +42,7 @@ Claude Opus 5.5（High）這次登頂時觀測數（940,970 次）只有 Claude 
 
 ### 方法論面
 
-⚠️ 跟前兩篇一樣的提醒：Arena 這裡的分數是自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同批次的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級的相對變化。
+:warning: 跟前兩篇一樣的提醒：Arena 這裡的分數是自家的相對勝率量化分數，不是傳統 Elo 積分，同一模型不同批次的分數不能直接做精確的「漲跌百分點」計算，只能看排名順序與分數量級的相對變化。
 
 信賴區間這次仍然大面積重疊：第一名 Opus 5.5 的 95% CI 是 `[12.15%, 16.51%]`，第二名 GPT-6 Astra 是 `[10.73%, 15.46%]`，第三名 Fable 5.1 是 `[10.61%, 14.72%]`——三個區間互相交疊超過 2 個百分點的範圍，統計上無法明確分出前三名的真正勝負順序。這跟 10-04 那次「四個名次 CI 幾乎完全重疊」的情況如出一轍，意味著「排名易主」這個標題本身比底層分數差異更戲劇化：真正能確定的只是「這三個模型目前仍在同一個無法明確分高下的集團內」，而集團內誰暫時站在最前面，可能很大程度取決於這一批抽樣的任務組合。
 

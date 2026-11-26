@@ -26,7 +26,7 @@ glossary:
     context: "Lattice sets ARC at about 2/10 RPE and 1 on 1 off at about 4/10."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-endurance-training)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-endurance-training)
 
 You're leading a 5.10c at the gym. The first half goes fine. Around the fifth or sixth clip your forearms start to harden, your fingers won't close, and you're off. You lower, shake your hands out, and think: "My endurance is bad. From now on I'll climb until I'm completely pumped every session."
 

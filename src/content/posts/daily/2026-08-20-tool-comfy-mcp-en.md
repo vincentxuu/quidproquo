@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-20-tool-comfy-mcp)
+> :globe: [中文版](/posts/daily/2026-08-20-tool-comfy-mcp)
 
 ## Tool Info
 
@@ -91,11 +91,11 @@ comfy-mcp vary_workflow \
 
 | | comfy-mcp | Manual ComfyUI Web UI | Comfy Cloud MCP |
 |---|---|---|---|
-| Agent can execute workflows directly | ✅ | ❌ | ✅ |
-| Runs on your machine with your GPU/models | ✅ | ✅ | ❌ (runs on Comfy Cloud GPU) |
-| No cloud credits needed | ✅ | ✅ | ❌ (pay-per-use) |
-| Workflow dependency checks (nodes/models) | ✅ | Manual troubleshooting | Guaranteed by cloud environment |
-| Officially maintained | ✅ Comfy-Org | — | ✅ Comfy-Org |
+| Agent can execute workflows directly | ✓ | ✗ | ✓ |
+| Runs on your machine with your GPU/models | ✓ | ✓ | ✗ (runs on Comfy Cloud GPU) |
+| No cloud credits needed | ✓ | ✓ | ✗ (pay-per-use) |
+| Workflow dependency checks (nodes/models) | ✓ | Manual troubleshooting | Guaranteed by cloud environment |
+| Officially maintained | ✓ Comfy-Org | — | ✓ Comfy-Org |
 
 ## Caveats
 

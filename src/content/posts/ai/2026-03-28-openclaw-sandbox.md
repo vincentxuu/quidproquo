@@ -1,5 +1,5 @@
 ---
-title: "OpenClaw 沙箱機制：四種後端、三個獨立開關，與「以為在沙箱裡其實沒有」"
+title: "OpenClaw 沙箱機制：五種後端、三個獨立開關，與「以為在沙箱裡其實沒有」"
 date: 2026-03-28
 type: guide
 category: ai
@@ -12,7 +12,7 @@ additionalSeries:
   - name: "沙箱系列"
     order: 16
 tldr: "沙箱由三個獨立設定決定：mode（何時套用）、scope（開幾個容器）、backend（在哪執行）。最容易出事的是預期落差——`tools.exec.host` 現在預設是 auto，所以「沒設就等於在沙箱裡」已經不成立，安全稽核有一條專門抓這個。"
-description: "OpenClaw 沙箱完整指南：mode／scope／backend 三個獨立設定、Docker/Podman/SSH/OpenShell 四種後端的能力差異、預設的加固設定、workspace 存取模式，以及 Docker-out-of-Docker 的路徑陷阱。"
+description: "OpenClaw 沙箱完整指南：mode／scope／backend 三個獨立設定、Docker/Podman/SSH/OpenShell/Crabbox 五種後端的能力差異、預設的加固設定、workspace 存取模式，以及 Docker-out-of-Docker 的路徑陷阱。"
 draft: false
 ---
 
@@ -66,7 +66,7 @@ openclaw security audit
 openclaw security audit --deep   # 會嘗試對執行中的 Gateway 做實際探測
 ```
 
-## 四種後端的能力差異
+## 五種後端的能力差異
 
 | | Docker / Podman | SSH | OpenShell |
 |---|---|---|---|
@@ -78,6 +78,8 @@ openclaw security audit --deep   # 會嘗試對執行中的 Gateway 做實際探
 | 裝套件／runtime | 烤自訂 image，或用 `setupCommand` | 在遠端主機上準備 | 放進來源 image，或政策允許時安裝 |
 
 Workspace 存取三種都一樣：`none`、`ro`、`rw`。
+
+第五種是 `backend: "crabbox"`：`exec`、檔案工具與媒體讀取改在 [Crabbox](https://github.com/openclaw/crabbox) 租來的拋棄式雲端機器上跑，Gateway、agent loop、channel 與模型憑證留在本機。適合不想讓模型產生的指令碰主機、又不能或不想裝 Docker 的個人 Gateway。官方的 [Crabbox backend 文件](https://docs.openclaw.ai/gateway/sandboxing/crabbox-backend)寫明目前只支援 Daytona 的租用，需要 Crabbox 0.83.2 以上；每個 scope 固定一個 lease ID，`openclaw sandbox recreate` 才會釋放並換一台新機器。provider 憑證只留在本機的 Crabbox 程序，不會自動帶進遠端指令的環境。
 
 ## Docker 後端的預設是加固過的
 
@@ -138,6 +140,7 @@ Workspace 存取三種都一樣：`none`、`ro`、`rw`。
 
 ## 更新紀錄
 
+- 2026-11-23：後端從四種更新為五種，補上 `crabbox`（在 Crabbox 租用的雲端機器上執行工具，目前只支援 Daytona，需 Crabbox 0.83.2 以上）；標題與說明同步。
 - 2026-08-18：對照官方文件現況大改。**後端從三種更新為四種**——Podman 現在是獨立的一級後端（`docker`、`podman`、`ssh`、`openshell`）。**新增最重要的一段**：`tools.exec.host` 預設已改為 `auto`，「沒設就等於在沙箱裡」不再成立，安全稽核有專門的「執行期預期落差」與「政策落差」檢查。新增：Docker 後端的實際加固預設（network none、readOnlyRoot、capDrop ALL、init 與 no-new-privileges、`openclaw-sandbox:bookworm-slim`）、`docker.gpus` 選項與 Podman 5.0 需求、非 shared 執行期身分納入 workspace 路徑造成的一次性重置、原生 plugin 與 Gateway 同程序共享信任邊界、以及 Docker-out-of-Docker 的主機路徑限制與 `EACCES` heartbeat 症狀。
 
 ## 參考資料

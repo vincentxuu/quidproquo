@@ -10,7 +10,7 @@ description: "A guided read of Dan Koe's September 2026 video: his three-layer s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack)
+> :globe: [中文版](/posts/career/2026-10-12-dan-koe-multiple-interests-ai-skill-stack)
 
 [Read the full bilingual transcript and play any sentence](#video-practice-0-transcript)
 

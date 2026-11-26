@@ -21,7 +21,7 @@ glossary:
     context: "TODO6 in HW2 scores the eval set with it, and requires generating each full answer with the generator."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-pytorch-hw2-arithmetic)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

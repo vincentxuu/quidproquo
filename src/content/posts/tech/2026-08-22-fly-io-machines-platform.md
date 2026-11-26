@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-fly-io-machines-platform-en)
+> :globe: [English version](/posts/tech/2026-08-22-fly-io-machines-platform-en)
 
 [Fly.io Machines](https://fly.io/docs/machines/overview/) 是可透過 API 建立、啟動、停止與銷毀的輕量 VM primitive。`fly launch` 和 `fly deploy` 提供 PaaS 體驗，但底層思維更接近「把 container VM 放到指定 region」，不是把所有 topology 隱藏起來。
 

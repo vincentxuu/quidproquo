@@ -11,7 +11,7 @@ series:
   order: 115
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-16-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-09-16-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -74,7 +74,7 @@ The industry-standard way to compare agent quality is to have persona-driven sim
 
 - 57.5% of conversations the blind human panel rated "satisfied" (≥5 on a 7-point scale) had objectively failed the task -- a gap that holds across five rater populations, two benchmarks, and every subjective dimension rated
 - Overall ranking correlation is actually decent (ρ=0.94), but the decision-disagreement rate is <1% for lopsided candidate pairs and jumps to 31% for near-equal pairs -- exactly the scenario release decisions usually face
-- Same-family judges show a +0.75/7 self-preference bonus toward their own model family ⚠️ (author-measured, not yet independently replicated)
+- Same-family judges show a +0.75/7 self-preference bonus toward their own model family :warning: (author-measured, not yet independently replicated)
 - A zero-cost, judge-free "did the conversation complete" signal catches severe degradations like truncated models more reliably (ρ=0.87) than the satisfaction score itself (ρ=0.80)
 - Adoption threshold: this kind of audit requires at least one benchmark with objectively checkable outcomes -- if your product has no verifiable ground truth at all, the method has no direct foothold
 - Limitation: the calibrated trust region must be recalibrated for every new configuration; the authors themselves report this cross-setting transfer failure as a negative result in Section 4.6
@@ -134,7 +134,7 @@ One of the most heated questions in coding-agent circles lately is whether the "
 
 - Opus 4.8: native harness 48.8% vs. neutral harness 50.0%, a -1.25 pp gap, 95% CI [-10.0, +7.5] (includes zero)
 - GPT-5.5: native harness 55.6% vs. neutral harness 54.4%, a +1.25 pp gap, 95% CI [-4.4, +6.9] (includes zero)
-- Opus 4.8's average conceals two opposite-signed strata: the native harness trails by 9.0 pp on the 61 repository tasks yet leads by 23.7 pp on the 19 contest tasks (permutation test p=0.003) ⚠️ (this partition was chosen after seeing the data -- a post-hoc split the authors themselves say needs a designed replication to confirm)
+- Opus 4.8's average conceals two opposite-signed strata: the native harness trails by 9.0 pp on the 61 repository tasks yet leads by 23.7 pp on the 19 contest tasks (permutation test p=0.003) :warning: (this partition was chosen after seeing the data -- a post-hoc split the authors themselves say needs a designed replication to confirm)
 - The neutral harness costs 1.2-2.1x more per solved task on Opus 4.8 (depending on pricing basis) and 1.05-1.33x more on GPT-5.5; but 58 runs on the Anthropic account left no usage record, and allocating that spend to either side would move the ratio between 0.7 and 2.3, leaving the billing order itself "unresolved"
 - Adoption threshold: the core 256 tasks remain private for contamination control, so outside teams cannot rerun the exact same task set -- they can only rerun the released orchestrator and oracle against their own tasks
 - Limitation: this is a revised paper -- the original August manuscript's cost conclusions rested on a usage-semantics defect in the study's own telemetry (different SDKs use different conventions for counting cache tokens, and a normalizer applied one convention to all three harnesses); this revision re-derives every cost figure from raw per-turn events and publishes the correction record
@@ -194,7 +194,7 @@ As agent systems move toward self-improvement -- learning from failed trajectori
 
 - On MegaRCA-Mix, Continual Search raises GPT-5.5's F1 from 0.349 to 0.498, a gain of over 40%, versus only 0.401 for the Passive Continuation control
 - On another long-horizon benchmark, TRAIL, four turns of Continual Search raise GPT-5.5's Weighted F1 from 0.426 to 0.500, versus only 0.451 for Passive Continuation
-- Across the same four turns, the deduplicated evidence Continual Search reads grows from 42K to 58K tokens, while Passive Continuation only grows to 48K -- the extra gain directly tracks the judge actually reading more previously-unseen evidence ⚠️ (author-measured; MegaRCA-Mix is a new benchmark built by this paper's own authors, with no external replication yet)
+- Across the same four turns, the deduplicated evidence Continual Search reads grows from 42K to 58K tokens, while Passive Continuation only grows to 48K -- the extra gain directly tracks the judge actually reading more previously-unseen evidence :warning: (author-measured; MegaRCA-Mix is a new benchmark built by this paper's own authors, with no external replication yet)
 - On existing short-trajectory benchmarks (AgentRx, Who&When), additional search turns don't just fail to help -- they actively hurt, forcing the judge to reconsider an answer that had already covered most of the available evidence, and often flipping a correct diagnosis to an incorrect one
 - Adoption threshold: the method requires no model retraining -- it's a prompt-level, multi-turn search strategy -- but it needs the judge to access the full execution log and tools, and doesn't directly apply to systems that only retain final outcomes without execution logs
 - Limitation: MegaRCA-Mix has only 50 trials, curated and annotated by the authors themselves from Harbor Index execution logs; the paper itself acknowledges the method can backfire on short trajectories rather than being uniformly better than existing methods

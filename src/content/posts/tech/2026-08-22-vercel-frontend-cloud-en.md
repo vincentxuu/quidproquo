@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-vercel-frontend-cloud)
+> :globe: [中文版](/posts/tech/2026-08-22-vercel-frontend-cloud)
 
 [Vercel](https://vercel.com/docs/deployments/overview) is a framework-aware frontend cloud. It understands static assets, routes, middleware, SSR, and function output from frameworks such as Next.js. Every commit becomes an immutable deployment, and production aliases or preview URLs point to one version.
 

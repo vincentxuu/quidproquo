@@ -13,7 +13,7 @@ description: "萬榮攀岩指南：Sleeping Wall、Steep Roof、Secret Canyon、
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-laos-crag-vang-vieng-en)
+> :globe: [English version](/posts/climbing/2026-10-21-laos-crag-vang-vieng-en)
 
 萬榮（Vang Vieng）在永珍北方約 150 公里，是寮國第二大攀岩區。theCrag 在 2026-10-21 列出 154 條路線，分布在鎮外幾座喀斯特岩塔上。和他曲不同，這裡沒有「營地＋走路到岩場」的基地：岩場散在 13 號公路兩側，多數人住鎮上，每天騎機車出去。
 

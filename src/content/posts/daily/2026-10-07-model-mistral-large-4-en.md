@@ -15,7 +15,7 @@ glossary:
     def: "A large language model family from the French AI company Mistral AI, known for open weights and self-built European compute infrastructure"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-07-model-mistral-large-4)
+> :globe: [中文版](/posts/daily/2026-10-07-model-mistral-large-4)
 
 ## Model Details
 
@@ -50,7 +50,7 @@ glossary:
 | DeepSWE v1.1 (self-reported) | 61.7% | Not listed | ~74% (GPT-6 Astra / Gemini 3.8 Flash / Claude Opus 5, per the live leaderboard) |
 | AutomationBench (self-reported) | 59.9% | Not listed | Kimi K3, MiMo-V2.6-Pro, DeepSeek V4 Pro (all below 59.9%, per Mistral's own figures) |
 
-⚠️ Except for the Artificial Analysis Intelligence Index, all figures above are Mistral's own self-reported benchmarks with no independent reproduction yet. DeepSWE v1.1 is self-reported against competitors Mistral chose itself (DeepSeek V4 Pro, Qwen3.8 Max), which makes 61.7% look competitive — but tech outlet VentureBeat checked the live DeepSWE leaderboard (each model's best currently published agent setup) and found GLM-5.3 and Kimi K3 around 69%, and GPT-6 Astra, Gemini 3.8 Flash, and Claude Opus 5 around 74%. Against the actual leading pack, Large 4 trails by over 10 points.
+:warning: Except for the Artificial Analysis Intelligence Index, all figures above are Mistral's own self-reported benchmarks with no independent reproduction yet. DeepSWE v1.1 is self-reported against competitors Mistral chose itself (DeepSeek V4 Pro, Qwen3.8 Max), which makes 61.7% look competitive — but tech outlet VentureBeat checked the live DeepSWE leaderboard (each model's best currently published agent setup) and found GLM-5.3 and Kimi K3 around 69%, and GPT-6 Astra, Gemini 3.8 Flash, and Claude Opus 5 around 74%. Against the actual leading pack, Large 4 trails by over 10 points.
 
 ## vs. Previous Generation / Competitors
 

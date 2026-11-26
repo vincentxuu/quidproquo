@@ -11,7 +11,7 @@ series:
   order: 48
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
+> :globe: [English version](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
 
 ## 事件概述
 

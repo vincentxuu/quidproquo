@@ -12,7 +12,7 @@ series:
   order: 125
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-05-funding-fal-en)
+> :globe: [English version](/posts/daily/2026-11-05-funding-fal-en)
 
 ## 融資資訊
 

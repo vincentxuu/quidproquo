@@ -23,7 +23,7 @@ glossary:
     context: "本系列引用的投影片封面與錄影標題都用這個名字。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-course-overview-en)
 
 **影片狀態：已附影片。** 導言附第 1 講錄影（1 小時 6 分），各講錄影在各篇導讀。[影片來源與說明](#課程影片來源)
 

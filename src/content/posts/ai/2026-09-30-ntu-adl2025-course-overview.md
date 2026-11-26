@@ -14,7 +14,7 @@ description: "台大陳縕儂《深度學習之應用》ADL Fall 2025 系列入�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-adl2025-course-overview-en)
 
 **影片狀態：已附影片。** 導言附第 0 堂課程介紹（29 分 36 秒），各堂分段影片在各堂導讀。[影片來源與說明](#課程影片來源)
 

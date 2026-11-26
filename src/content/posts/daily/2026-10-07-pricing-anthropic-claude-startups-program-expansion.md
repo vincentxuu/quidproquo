@@ -12,7 +12,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
+> :globe: [English version](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
 
 ## 變更摘要
 
@@ -68,8 +68,8 @@ Anthropic 在舊金山科技週期間宣布擴大 Claude for Startups，把 5 �
 
 ## 時效提醒
 
-⏰ **API 額度到期日**：核准後 6 個月內未用完即失效，不是從申請日起算，而是從額度實際發放當天起算。
-⏰ **Claude Team 免費年資格**：僅限「從未使用過 Claude Team 方案」的組織，已是 Team 使用者的新創不適用此項福利。
+:clock: **API 額度到期日**：核准後 6 個月內未用完即失效，不是從申請日起算，而是從額度實際發放當天起算。
+:clock: **Claude Team 免費年資格**：僅限「從未使用過 Claude Team 方案」的組織，已是 Team 使用者的新創不適用此項福利。
 
 ## 今日收穫
 

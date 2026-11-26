@@ -9,7 +9,7 @@ tldr: "Groq Console is the developer portal for Groq's in-house LPU chip, offeri
 description: "An introduction to Groq Console's core features, how LPU differs from GPU, how to use the OpenAI-compatible API, and trade-offs compared to inference platforms like OpenAI, Together, and Fireworks."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-06-groq-console-introduction)
+> :globe: [中文版](/posts/ai/2026-05-06-groq-console-introduction)
 
 Groq is not a model-training company -- it is an inference chip company. Groq Console (`console.groq.com`) is the public-facing portal for its LPU chip: apply for an API key, test models in the Playground, check usage, and read the docs. For developers, its value proposition is straightforward -- the same Llama 3 model runs several times faster here than on GPU-based providers, and there is a free tier to get started.
 

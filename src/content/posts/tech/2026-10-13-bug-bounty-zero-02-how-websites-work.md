@@ -14,7 +14,7 @@ series:
   order: 2
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-02-how-websites-work-en)
 
 這是系列第 2 篇。第 1 篇教你選計畫、讀範圍；這篇回答：按下連結後，實際發生了什麼？看懂瀏覽器送什麼、伺服器回什麼，以及工作階段 Cookie 的角色，就能接著在第 3 篇檢查請求。
 

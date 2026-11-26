@@ -13,7 +13,7 @@ series:
   order: 22
 ---
 
-🌏 [中文版](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)
+:globe: [中文版](/posts/tech/deep-dive/2026-05-09-claude-code-scheduled-tasks-guide)
 
 You write a prompt telling Claude: "Scan these four repos for GitHub issues labeled `auto`, implement them, then open a PR." Then you set it to run every 2 hours.
 

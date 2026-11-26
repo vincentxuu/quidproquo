@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes)
+> :globe: [中文版](/posts/daily/2026-09-04-pricing-multi-vendor-pricing-changes)
 
 ## Summary of Changes
 
@@ -84,7 +84,7 @@ Fable 5.1's base price is still the most expensive of any mainstream model — t
 
 ## Expiration Notice
 
-⏰ **Gemini 3.8 Flash promo expires**: 2026-12-31. Starting 2027-01-01, input and output pricing both double to $1.50/$7.50 per million tokens.
+:clock: **Gemini 3.8 Flash promo expires**: 2026-12-31. Starting 2027-01-01, input and output pricing both double to $1.50/$7.50 per million tokens.
 
 ## Takeaway
 

@@ -23,7 +23,7 @@ glossary:
     context: "An emerging direction that entered a pre-breakout stage with four-fold growth in 2025."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-ai-conference-2025-topics)
+> :globe: [中文版](/posts/ai/2026-08-24-ai-conference-2025-topics)
 
 2025 brought the largest submission volumes in top-AI-conference history: NeurIPS received 21,575 papers, CVPR 13,008, ICML 12,107, and AAAI 12,957, each a record. The more important story was the topic distribution. Khanbayov and Kurban's 2026 analysis of 80,814 Main Track papers at ACL, CVPR, ICLR, ICML, and NeurIPS from 2017 through 2025 found that AI topics undergo "topical phase transitions": years at the margin followed by simultaneous cross-conference breakout within one to three years.
 

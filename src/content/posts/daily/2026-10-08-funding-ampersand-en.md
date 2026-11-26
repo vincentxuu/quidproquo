@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-08-funding-ampersand)
+> :globe: [中文版](/posts/daily/2026-10-08-funding-ampersand)
 
 ## Deal Terms
 

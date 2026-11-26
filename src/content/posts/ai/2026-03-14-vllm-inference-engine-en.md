@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-14-vllm-inference-engine)
+> :globe: [中文版](/posts/ai/2026-03-14-vllm-inference-engine)
 
 vLLM is currently the most widely adopted open-source LLM inference engine. The core problem it solves is clear: **prevent GPUs from wasting memory and compute when serving LLMs**. This post covers its key technologies, comparisons with other solutions, how to use it, and the latest developments in 2026.
 
@@ -25,7 +25,7 @@ Traditional LLM serving allocates a contiguous chunk of GPU memory for each requ
 
 How PagedAttention works:
 
-- The KV cache is divided into fixed-size **blocks** (default: 16 tokens/block)
+- The KV cache is divided into fixed-size **blocks** (default on CUDA: 64 tokens/block since v0.34, previously 16)
 - Each request maintains a **block table** that maps logical blocks to physical locations scattered across GPU memory
 - The model thinks it's reading contiguous memory, but it's actually using indirect addressing through the block table
 
@@ -66,15 +66,15 @@ Ideal scenarios:
 |---|---|---|---|---|
 | Positioning | Production GPU serving | Production GPU serving | NVIDIA peak performance | Local / edge / CPU |
 | Ease of use | High | High | Low (manual tuning required) | Very high |
-| Hardware support | NVIDIA, AMD, Intel, TPU | NVIDIA, AMD | NVIDIA only | CPU, Apple Silicon, GPU |
+| Hardware support | NVIDIA, AMD, Intel, TPU | NVIDIA, AMD, TPU, Apple Silicon, and more | NVIDIA only | CPU, Apple Silicon, GPU |
 | Throughput | Very high | Very high | Highest (on NVIDIA) | Moderate |
-| Community | Largest (74.7k stars) | Growing rapidly | Enterprise-backed | Very large |
+| Community | Largest (97k stars) | Growing rapidly | Enterprise-backed | Very large |
 
 Key takeaways:
 
 - **SGLang** is vLLM's closest competitor. SGLang's RadixAttention has a 10-20% advantage in multi-turn conversation scenarios, but vLLM V1's prefix caching has significantly closed the gap.
 - **TensorRT-LLM** has the lowest per-request latency on NVIDIA hardware, but the configuration complexity is much higher, and it only supports NVIDIA.
-- **Hugging Face TGI** entered maintenance mode in December 2025, with the official recommendation to switch to vLLM or SGLang.
+- **Hugging Face TGI** entered maintenance mode in December 2025 and its GitHub repo was archived in March 2026, with the official recommendation to switch to vLLM or SGLang.
 - **llama.cpp / Ollama** are suited for local development; a common 2026 pipeline is Ollama for development, vLLM for production.
 
 ## Basic Usage
@@ -84,7 +84,7 @@ Key takeaways:
 ```python
 from vllm import LLM, SamplingParams
 
-llm = LLM(model="meta-llama/Llama-3.1-8B-Instruct")
+llm = LLM(model="Qwen/Qwen3.5-9B")
 
 sampling_params = SamplingParams(
     temperature=0.7,
@@ -106,7 +106,7 @@ for output in outputs:
 Start the server:
 
 ```bash
-vllm serve meta-llama/Llama-3.1-8B-Instruct
+vllm serve Qwen/Qwen3.5-9B
 ```
 
 Call it with the OpenAI SDK:
@@ -120,7 +120,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
+    model="Qwen/Qwen3.5-9B",
     messages=[
         {"role": "user", "content": "What is PagedAttention?"}
     ]
@@ -133,10 +133,10 @@ This is one of vLLM's killer features — your code barely needs to change. Just
 ### Multi-GPU Inference
 
 ```bash
-vllm serve meta-llama/Llama-3.3-70B-Instruct --tensor-parallel-size 4
+vllm serve Qwen/Qwen3.8-27B --tensor-parallel-size 2
 ```
 
-Run a 70B model across 4 GPUs — one line is all it takes.
+Split a 27B dense model across 2 GPUs — one line is all it takes.
 
 ## vLLM in 2026
 
@@ -148,7 +148,11 @@ V1 is a complete architectural rewrite:
 - **Unified scheduling**: removes the prefill/decode phase distinction; all tokens are processed uniformly
 - **Persistent batch**: input tensors are cached via NumPy and updated incrementally, eliminating Python-side reconstruction on every step
 
-V1 achieves up to **1.7x throughput improvement** over V0 on Llama 3.1 8B and 3.3 70B.
+V1 achieves up to **1.7x throughput improvement** over V0 on Llama 3.1 8B and 3.3 70B. V0 was later removed entirely; v0.34.0 (November 2026) also dropped the old Model Runner V1, leaving Model Runner V2 as the only GPU runner.
+
+### Self-sizing KV cache (default since v0.34)
+
+v0.34.0 turned on the extensible KV cache by default: the cache is sized from the memory actually free **after** CUDA graph capture and warmup instead of from an estimate, and `gpu_memory_utilization` now defaults to 1.0. The official advice is to drop that flag in most setups and set it only when sharing the GPU with other processes. The trade-off is higher per-token decode latency on some models at high concurrency; opt out with `--no-enable-extensible-kv-cache`. Before upgrading, also note the new default block size of 64 and that PyPI wheels now ship only for CUDA 13.
 
 ### Speculative Decoding
 
@@ -168,7 +172,11 @@ vLLM's core trade-off is: **engineering complexity in exchange for memory effici
 
 Ideal scenarios: high-concurrency, multi-user LLM services, especially production environments with GPUs. If you just want to run a model locally for chatting, Ollama is simpler. If you're on NVIDIA hardware chasing the lowest possible latency and willing to spend time tuning, TensorRT-LLM might be faster. But for most teams, vLLM is the default choice for self-hosted LLMs in 2026.
 
-Background: vLLM was created in 2023 by Woosuk Kwon and others at UC Berkeley's Sky Computing Lab and is now managed by the PyTorch Foundation. The team founded Inferact, raising a $150 million seed round led by a16z and Lightspeed at an $800 million valuation. The project has 74,700+ stars and 2,000+ contributors on GitHub.
+Background: vLLM was created in 2023 by Woosuk Kwon and others at UC Berkeley's Sky Computing Lab and is now managed by the PyTorch Foundation. The team founded Inferact, raising a $150 million seed round led by a16z and Lightspeed at an $800 million valuation. The project has 97,000+ stars on GitHub, and v0.34.0 alone had 412 contributors.
+
+## Changelog
+
+- 2026-11-23: Updated the default block size per v0.34.0 (16 to 64) and added the removal of Model Runner V1 and the now-default extensible KV cache; added SGLang's new hardware support and star counts to the comparison table; noted that the TGI repo is archived; switched the example models from Llama 3.x to Qwen3.5-9B and Qwen3.8-27B.
 
 ---
 
@@ -177,6 +185,7 @@ Background: vLLM was created in 2023 by Woosuk Kwon and others at UC Berkeley's 
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention (arXiv:2309.06180)](https://arxiv.org/abs/2309.06180)
 - [vLLM Official Documentation](https://docs.vllm.ai/en/latest/)
 - [vLLM GitHub Repository](https://github.com/vllm-project/vllm)
+- [vLLM v0.34.0 Release Notes](https://github.com/vllm-project/vllm/releases/tag/v0.34.0)
 - [vLLM V1 Alpha Release Blog](https://vllm.ai/blog/v1-alpha-release)
 - [vLLM Performance Dashboard](https://docs.vllm.ai/en/latest/benchmarking/dashboard/)
 - [Speculators Library](https://github.com/vllm-project/speculators)

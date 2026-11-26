@@ -23,7 +23,7 @@ glossary:
     definition: "The maximum number of athletes a country may enter in an international event. World Climbing allocates quotas based on the previous year's world ranking."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-why-japan-climbing-strong)
+> :globe: [中文版](/posts/climbing/2026-10-19-why-japan-climbing-strong)
 
 Watch climbing competitions for a while and you notice something: boulder and lead finals often have several Japanese names. At the 2026 Asian Games in Aichi–Nagoya, Japan won 2 golds, 3 silvers and 1 bronze and topped the climbing medal table. Taiwan's national-team coach Yang Dong-wei says Taiwan's training model "leans towards the Japanese system" ([OUTSiDERS](https://www.outsiders.com.tw/post/47417), in Mandarin). So why is Japan so strong?
 

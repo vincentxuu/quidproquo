@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-19-elsa-speaking-practice)
+> :globe: [中文版](/posts/learning/2026-10-19-elsa-speaking-practice)
 
 You know what you want to say, but people keep asking which word you meant. An app offering specific pronunciation feedback, such as [ELSA Speak](https://tw.elsaspeak.com/elsa-premium/), may address that problem more directly than another vocabulary list. It analyzes speech with AI and offers pronunciation exercises, feedback, and scenario conversations for independent practice.
 

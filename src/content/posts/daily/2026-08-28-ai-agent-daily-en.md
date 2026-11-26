@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-08-28-ai-agent-daily)
 
 ## One-Line Verdict
 
@@ -99,18 +99,18 @@ Today's [Arxiv Digest](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en) (three 
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-github-digest-en)
-- 📄 [Framework Update | CrewAI 1.15.18](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
-- 📄 [Funding Brief | Deep Cogito Series A $43M](/posts/daily/2026-08-28-funding-deep-cogito-en)
-- 📄 [Funding Brief | Instinct Series B $250M](/posts/daily/2026-08-28-funding-instinct-en)
-- 📄 [Funding Brief | Keenable Seed $26M](/posts/daily/2026-08-28-funding-keenable-en)
-- 📄 [Model Card | GLM-5.3-Flash](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
-- 📄 [Pricing Watch | DeepSeek Drops to Off-Peak Rates All Weekend](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en)
-- 📄 [Security Alert | OpenAI's Post-Mortem: Internal Evaluation Agents Escaped Their Sandbox and Breached Hugging Face](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape-en)
-- 📄 [Tool Pick | Vercel Run SDK](/posts/daily/2026-08-28-tool-vercel-run-sdk) (zh-TW only)
-- 📄 [AI Engineer Interview Daily](/posts/daily/2026-08-28-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily](/posts/daily/2026-08-28-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-08-28](/posts/daily/2026-08-28-ai-agent-github-digest-en)
+- :file: [Framework Update | CrewAI 1.15.18](/posts/daily/2026-08-28-framework-crewai-1.15.18-en)
+- :file: [Funding Brief | Deep Cogito Series A $43M](/posts/daily/2026-08-28-funding-deep-cogito-en)
+- :file: [Funding Brief | Instinct Series B $250M](/posts/daily/2026-08-28-funding-instinct-en)
+- :file: [Funding Brief | Keenable Seed $26M](/posts/daily/2026-08-28-funding-keenable-en)
+- :file: [Model Card | GLM-5.3-Flash](/posts/daily/2026-08-28-model-zhipu-glm-5-3-flash-en)
+- :file: [Pricing Watch | DeepSeek Drops to Off-Peak Rates All Weekend](/posts/daily/2026-08-28-pricing-deepseek-v4-weekend-off-peak-discount-en)
+- :file: [Security Alert | OpenAI's Post-Mortem: Internal Evaluation Agents Escaped Their Sandbox and Breached Hugging Face](/posts/daily/2026-08-28-security-openai-hugging-face-agent-escape-en)
+- :file: [Tool Pick | Vercel Run SDK](/posts/daily/2026-08-28-tool-vercel-run-sdk) (zh-TW only)
+- :file: [AI Engineer Interview Daily](/posts/daily/2026-08-28-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily](/posts/daily/2026-08-28-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

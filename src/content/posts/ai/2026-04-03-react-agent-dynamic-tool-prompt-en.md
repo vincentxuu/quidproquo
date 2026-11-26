@@ -10,7 +10,7 @@ description: "Analyzing how Claude Code dynamically generates tool descriptions,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-03-react-agent-dynamic-tool-prompt)
+> :globe: [中文版](/posts/ai/2026-04-03-react-agent-dynamic-tool-prompt)
 
 Most AI Agent tool descriptions are hardcoded strings. Written once, pasted into the system prompt, identical for every user and every model.
 

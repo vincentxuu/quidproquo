@@ -10,7 +10,7 @@ description: "A guide to Phil Schmid's The Importance of Agent Harness in 2026 �
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-phil-schmid-agent-harness)
+> :globe: [中文版](/posts/ai/2026-03-28-phil-schmid-agent-harness)
 
 Phil Schmid (formerly of Hugging Face) wrote [The Importance of Agent Harness in 2026](https://www.philschmid.de/agent-harness-2026) in early 2026, opening with a bold claim: **If 2025 was the year of the agent, 2026 is the year of the agent harness.**
 

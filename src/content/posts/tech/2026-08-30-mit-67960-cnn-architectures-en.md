@@ -13,7 +13,7 @@ description: "MIT 6.7960 Fall 2024 OCW Lecture 4: Architectures: Grids. Deep div
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-cnn-architectures)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-cnn-architectures)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

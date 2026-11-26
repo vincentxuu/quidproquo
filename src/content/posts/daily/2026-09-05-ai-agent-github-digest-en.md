@@ -12,7 +12,7 @@ series:
   order: 21
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-09-05-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ GitHub Trending today is almost entirely the Claude Code / Codex skills ecosyste
 
 ## Trending Repos
 
-### mattpocock/skills ⭐ 249,833 (+2,757)
+### mattpocock/skills ★ 249,833 (+2,757)
 
 [GitHub](https://github.com/mattpocock/skills) · Shell · MIT
 
@@ -31,7 +31,7 @@ GitHub Trending today is almost entirely the Claude Code / Codex skills ecosyste
 
 ---
 
-### anthropics/skills ⭐ 174,029 (+512)
+### anthropics/skills ★ 174,029 (+512)
 
 [GitHub](https://github.com/anthropics/skills) · Python · Apache-2.0 (document skills are source-available)
 
@@ -42,7 +42,7 @@ GitHub Trending today is almost entirely the Claude Code / Codex skills ecosyste
 
 ---
 
-### anomalyco/opencode ⭐ 203,949 (+314)
+### anomalyco/opencode ★ 203,949 (+314)
 
 [GitHub](https://github.com/anomalyco/opencode) · TypeScript · MIT
 
@@ -53,7 +53,7 @@ GitHub Trending today is almost entirely the Claude Code / Codex skills ecosyste
 
 ---
 
-### 2akouwu/reverify ⭐ 866
+### 2akouwu/reverify ★ 866
 
 [GitHub](https://github.com/2akouwu/reverify) · Python · MIT
 

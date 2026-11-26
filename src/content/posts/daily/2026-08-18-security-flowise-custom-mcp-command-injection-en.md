@@ -12,7 +12,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection)
+> :globe: [中文版](/posts/daily/2026-08-18-security-flowise-custom-mcp-command-injection)
 
 ## Incident Overview
 

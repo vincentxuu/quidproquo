@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-images-pipeline)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-images-pipeline)
 
 Once a site has many images, maintenance work appears quickly: thumbnails, crops, WebP/AVIF, retina sizes, social previews, user uploads, cache invalidation, and original-image access. You can prebuild every size at build time, or put images in S3/R2 and maintain a transformation service. [Cloudflare Images](https://developers.cloudflare.com/images/) offers a third path: dynamic transformation, optimization, and caching at the Cloudflare edge, with optional image storage handled by Cloudflare too.
 
@@ -61,7 +61,7 @@ If originals already live in [R2](/posts/tech/2026-03-27-cloudflare-r2-object-st
 - Cache hit: serve the optimized version from the edge without contacting origin or re-running the transformation.
 - Cache miss: fetch the original, apply parameters such as `width`, `format`, `quality`, and `fit`, cache the transformed result, then serve it.
 
-The same original image with the same parameter set is one unique transformation. That matters: `width=800,format=auto` and `width=1200,format=auto` are separate versions; `quality=80` and `quality=85` split again. Too many free-form parameters create both cost and cache fragmentation.
+The same original image with the same parameter set is one unique transformation. That matters: `width=800,format=auto` and `width=1200,format=auto` are separate versions. [Billing](https://developers.cloudflare.com/images/pricing/) excludes `format` and `quality` when deciding uniqueness, so `quality=80` and `quality=85` count once, but they are still two entries in the edge cache. Too many free-form parameters create both cost and cache fragmentation.
 
 I would constrain sizes to a small set:
 
@@ -158,7 +158,7 @@ export default {
 };
 ```
 
-For public images, the URL interface is simplest. When images have permissions, tenants, watermarks, or plan differences, putting a Worker in the pipeline starts to make sense.
+For public images, the URL interface is simplest. When images have permissions, tenants, or plan differences, putting a Worker in the pipeline starts to make sense. Watermarks no longer require a Worker: since 2026-11 the URL interface can add borders and overlays (a logo or text watermark) directly, and its parameter structure now matches the Worker `cf.image` options, with the old syntax still working (see the [changelog](https://developers.cloudflare.com/changelog/post/2026-11-18-consistent-optimization-interfaces/)).
 
 ## Limits: Remote and Hosted Images Differ
 
@@ -174,7 +174,7 @@ GIF/WebP animation limits are based on total megapixels across all frames. Anima
 
 Format support differs by direction:
 
-- input: PNG, JPEG, GIF, WebP, SVG, HEIC; AVIF input requires Enterprise.
+- input: PNG, JPEG, GIF, WebP, SVG, HEIC, TIFF (first page only, since 2026-11); AVIF input requires Enterprise.
 - output: PNG, JPEG, GIF, WebP, SVG, AVIF.
 - SVG is not resized. Cloudflare sanitizes SVGs with `svg-hush`, removing risky features such as scripts, hyperlinks, and cross-origin references.
 
@@ -194,7 +194,7 @@ The Free plan currently includes 5,000 unique transformations per month. After t
 Cost rules to keep in mind:
 
 - Different sizes of the same image are different unique transformations.
-- Different `quality` or `fit` values also split transformations.
+- Different `fit` values also split transformations; different `format` or `quality` values count as one.
 - `format=auto` does not create separate billable transformations for AVIF/WebP/JPEG.
 - R2 + Images transformations should count both R2 storage/operations and Images transformed usage.
 - Hosted Images delivery URLs count as Images Delivered, not Images Transformed; optimizing a hosted image through the Images binding counts as Images Transformed.
@@ -235,6 +235,10 @@ Before launch, I would check:
 - If OpenNext / Next image optimization uses Cloudflare Images, confirm supported formats and extra cost.
 
 Cloudflare Images fills the media-pipeline role in the Edge Platform: where originals live, how they are transformed, how they are delivered, and how they are priced. Paired with R2, Cache Rules, and Smart Shield, it turns "images load faster" into "the product does not need to run its own image service."
+
+## Update Log
+
+- 2026-11-23: Corrected billing rules (`format` and `quality` do not count toward unique transformations); added TIFF input; the URL interface can now add overlay watermarks directly
 
 ## References
 

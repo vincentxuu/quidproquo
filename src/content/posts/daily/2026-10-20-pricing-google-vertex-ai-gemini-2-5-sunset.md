@@ -12,7 +12,7 @@ series:
   order: 25
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset-en)
+> :globe: [English version](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset-en)
 
 ## 變更摘要
 
@@ -74,7 +74,7 @@ Google Cloud 的 Vertex AI（現稱 Gemini Enterprise Agent Platform）在 2026 
 
 ## 時效提醒
 
-⚠️ **停用日期**：2026-10-20（今天）。`gemini-2.5-pro`、`gemini-2.5-flash`、`gemini-2.5-flash-lite` 在 Vertex AI／Gemini Enterprise Agent Platform 上全面停用,過期請求直接失敗,官方表示遷移後時程「可能延長,但不會提前」。遷移指南：[Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions)。
+:warning: **停用日期**：2026-10-20（今天）。`gemini-2.5-pro`、`gemini-2.5-flash`、`gemini-2.5-flash-lite` 在 Vertex AI／Gemini Enterprise Agent Platform 上全面停用,過期請求直接失敗,官方表示遷移後時程「可能延長,但不會提前」。遷移指南：[Model versions and lifecycle](https://docs.cloud.google.com/gemini-enterprise-agent-platform/models/model-versions)。
 
 ## 今日收穫
 

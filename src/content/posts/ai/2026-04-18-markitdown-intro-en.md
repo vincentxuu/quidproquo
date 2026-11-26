@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-18-markitdown-intro)
+> :globe: [中文版](/posts/ai/2026-04-18-markitdown-intro)
 
 Before feeding documents in various formats to an LLM, you always face the same problem: PDFs have layout noise, Word files have hidden styles, images contain no text, and Excel files are in binary format. MarkItDown is a Microsoft open-source Python tool that does exactly one thing — converts all these formats into unified Markdown so LLMs can read them directly.
 
@@ -53,7 +53,7 @@ pip install 'markitdown[all]'
 pip install 'markitdown[pdf,docx,pptx]'
 ```
 
-Supported extras include: `pdf`, `docx`, `pptx`, `xlsx`, `xls`, `outlook`, `audio-transcription`, `youtube-transcription`, `az-doc-intel`.
+Supported extras include: `pdf`, `docx`, `pptx`, `xlsx`, `xls`, `outlook`, `audio-transcription`, `youtube-transcription`, `az-doc-intel`, `az-content-understanding`. Python 3.10–3.14 is required.
 
 ## Usage
 
@@ -129,7 +129,7 @@ msg = client.messages.create(
 
 ## Limitations
 
-- **Limited effectiveness with scanned PDFs**: If a PDF consists of scanned images, basic text extraction will fail. You'll need to pair it with OCR or Azure Document Intelligence
+- **Limited effectiveness with scanned PDFs**: If a PDF consists of scanned images, the built-in converters' text extraction fails. The official `markitdown-ocr` plugin (`pip install markitdown-ocr`, enabled with `enable_plugins=True`) sends images inside PDF, DOCX, PPTX, and XLSX files to an LLM vision model you specify for OCR; without an `llm_client` it doesn't error, it silently skips OCR. If you don't want content going to an LLM, use one of the cloud Azure backends or another OCR solution
 - **Complex layouts are hard to reproduce**: Multi-column layouts, nested tables, and other complex formatting may produce broken conversion results
 - **Media conversion requires system dependencies**: Audio-to-text requires `ffmpeg`; OCR requires corresponding libraries
 
@@ -139,11 +139,17 @@ The Azure Document Intelligence backend works better for complex PDFs:
 md = MarkItDown(docintel_endpoint="https://<your-endpoint>.cognitiveservices.azure.com/")
 ```
 
+v0.1.6 (May 2026) added an Azure Content Understanding backend (`--use-cu --cu-endpoint`), which handles audio and video as well as document layout and OCR, and writes extracted fields as YAML front matter. Both Azure backends are pay-per-call cloud APIs.
+
 ## Overall
 
 MarkItDown has a clear positioning: a Swiss Army knife for format conversion. It doesn't do chunking, embedding, or anything beyond parsing. It solves the problem of "turning various files into something an LLM can read" well enough, then lets you decide how to handle the rest.
 
 Good fit: batch processing of heterogeneous document formats, RAG pipeline preprocessing, quickly converting company documents into a queryable format. Not a good fit: cases requiring pixel-perfect PDF layout reproduction, or processing large volumes of scanned documents (which need a dedicated OCR solution).
+
+## Update Log
+
+- 2026-11-23: Added the official `markitdown-ocr` plugin, the Azure Content Understanding backend, the `az-content-understanding` extra, and the Python 3.10–3.14 requirement. v0.1.8 and v0.1.9 (September and October 2026) were mostly fixes; the rest of the post is unchanged.
 
 ## References
 
@@ -151,3 +157,6 @@ Good fit: batch processing of heterogeneous document formats, RAG pipeline prepr
 - [MarkItDown PyPI — pip install markitdown Installation Guide](https://pypi.org/project/markitdown/)
 - [Anthropic Claude API — Integrating MarkItDown with LLM Document Preprocessing](https://docs.anthropic.com/en/api/getting-started)
 - [Azure Document Intelligence — MarkItDown Complex PDF Processing Backend](https://learn.microsoft.com/en-us/azure/ai-services/document-intelligence/overview)
+- [markitdown-ocr plugin — GitHub](https://github.com/microsoft/markitdown/tree/main/packages/markitdown-ocr)
+- [MarkItDown v0.1.6 release note — OCR and Content Understanding](https://github.com/microsoft/markitdown/releases/tag/v0.1.6)
+- [Azure Content Understanding — Microsoft Learn](https://learn.microsoft.com/azure/ai-services/content-understanding/)

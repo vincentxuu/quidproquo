@@ -18,7 +18,7 @@ glossary:
     context: "《我的大叔》《我的出走日記》常被劇迷叫做人生劇。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-08-kdrama-life-family-period-en)
+> :globe: [English version](/posts/film/2026-11-08-kdrama-life-family-period-en)
 
 這篇收的是韓國的人生劇、家庭劇和年代劇：濟州海女的一生、1988 年的首爾巷弄、通勤兩小時的上班族，以及朝鮮宮廷。14 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。
 

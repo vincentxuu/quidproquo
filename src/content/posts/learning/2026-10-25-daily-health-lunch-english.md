@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-daily-health-lunch-english-en)
+> :globe: [English version](/posts/learning/2026-10-25-daily-health-lunch-english-en)
 
 早上遇到同事，對方聽出你的聲音和平常不一樣，問了一句怎麼了。你想說「我喉嚨痛，快講不出話了」，腦中卻只剩下 cold。中午坐下吃飯，又想問對方今天吃什麼、是不是從家裡帶來的。
 

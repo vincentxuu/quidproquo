@@ -13,7 +13,7 @@ description: "A guide to the Konpirayama crag in Ohara, Kyoto: rock type, route 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-konpirasan)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-konpirasan)
 
 Konpirayama (金比羅山, こんぴらやま) is in Ohara, in Kyoto's Sakyo Ward, on the hillside behind Ebumi Shrine (江文神社, えぶみじんじゃ). The rock is chert (チャート). People have climbed here since the days of rock climbing in mountain boots: [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E9%87%91%E6%AF%94%E7%BE%85%E5%B1%B1/) describes it as a long-standing practice ground for Japanese alpine climbing ("日本のアルパインクライミングの練習場") that went free in the 1980s, and the two characters still live side by side.
 

@@ -12,7 +12,7 @@ series:
   order: 71
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-02-tool-agent-cockpit-en)
+> :globe: [English version](/posts/daily/2026-11-02-tool-agent-cockpit-en)
 
 ## 工具資訊
 
@@ -140,11 +140,11 @@ node bin/cockpit.mjs demo --restore    # 改回去：雜湊重新對上，結論
 
 | | Agent Cockpit | 人工追 git log/diff | 只問 agent「你改了什麼」 |
 |---|---|---|---|
-| 偵測未回報的檔案改動 | ✅ 內容雜湊比對，agent 不報也抓得到 | 要人記得自己去比對，容易漏 | ❌ agent 說沒改就當沒改 |
-| 結論過期會自動標紅並往下游擴散 | ✅ | 需自行手動追每個結論依賴哪個檔案 | ❌ |
-| 需要呼叫 LLM 才能檢查 | ❌ 零 token，純規則判斷 | — | 本身就是在問 LLM，答案不可靠 |
-| 多個 agent 交接同一個專案 | ✅ 身分來自 MCP handshake，看板共用 | 靠口頭交接或文件，容易斷點 | 容易斷點 |
-| 事後能回放整個事件序列 | ✅ append-only event log，可逐步重播 | 看 git log 猜測順序 | ❌ |
+| 偵測未回報的檔案改動 | ✓ 內容雜湊比對，agent 不報也抓得到 | 要人記得自己去比對，容易漏 | ✗ agent 說沒改就當沒改 |
+| 結論過期會自動標紅並往下游擴散 | ✓ | 需自行手動追每個結論依賴哪個檔案 | ✗ |
+| 需要呼叫 LLM 才能檢查 | ✗ 零 token，純規則判斷 | — | 本身就是在問 LLM，答案不可靠 |
+| 多個 agent 交接同一個專案 | ✓ 身分來自 MCP handshake，看板共用 | 靠口頭交接或文件，容易斷點 | 容易斷點 |
+| 事後能回放整個事件序列 | ✓ append-only event log，可逐步重播 | 看 git log 猜測順序 | ✗ |
 
 ## 注意事項
 

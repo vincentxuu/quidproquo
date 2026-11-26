@@ -10,7 +10,7 @@ description: "Comparing free tiers and pricing across 40+ LLM inference provider
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)
+> :globe: [中文版](/posts/ai/2026-05-09-llm-inference-free-tier-comparison)
 
 For side projects, toy demos, and RAG prototypes, nobody wants to swipe a credit card on day one. The problem is there are too many LLM inference providers, pricing pages change too fast, formerly free options may have been killed, and formerly paid ones may have gone permanently free. This article tiers 40+ options still operating as of 2026/05 by the **nature** of their free resources, noting credit-card requirements, key supported models, paid starting prices, and the catch for each free tier.
 

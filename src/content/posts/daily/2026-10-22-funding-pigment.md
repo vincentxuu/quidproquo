@@ -12,7 +12,7 @@ series:
   order: 100
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-22-funding-pigment-en)
+> :globe: [English version](/posts/daily/2026-10-22-funding-pigment-en)
 
 ## 融資資訊
 

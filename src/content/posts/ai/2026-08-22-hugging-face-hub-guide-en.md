@@ -10,7 +10,7 @@ description: "A practical map of Hugging Face Hub repositories, Datasets, Spaces
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-hugging-face-hub-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-hugging-face-hub-guide)
 
 The [Hugging Face Hub](https://huggingface.co/docs/hub/index) is not merely a model download site. It is a collaboration platform for machine-learning assets: model weights, configuration files, datasets, and demo applications can live in versioned repositories, while model cards, dataset cards, search filters, and access controls provide context around them.
 

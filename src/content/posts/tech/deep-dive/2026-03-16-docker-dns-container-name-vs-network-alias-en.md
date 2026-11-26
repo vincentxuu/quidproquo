@@ -10,7 +10,7 @@ description: "Explains how Docker DNS resolution behaves within a single Compose
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-16-docker-dns-container-name-vs-network-alias)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-16-docker-dns-container-name-vs-network-alias)
 
 In Docker, containers discover each other through DNS. But which names are resolvable depends on the relationship between containers — whether they belong to the same Compose project or span across projects sharing an external network.
 

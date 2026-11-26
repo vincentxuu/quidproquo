@@ -12,7 +12,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-knowledge-base-three-readers-en)
+> :globe: [English version](/posts/learning/2026-10-22-knowledge-base-three-readers-en)
 
 三個常見的場景。你讀到一篇好文章存進 Notion，三個月後要用，搜了半天找不到，最後重新 Google。新同事第三次在群組問「年假怎麼請」，因為 wiki 上那頁寫的是兩年前的流程。公司的 AI 助理被問到同一題，引用了那頁舊文件，答得頭頭是道，但答錯了。
 

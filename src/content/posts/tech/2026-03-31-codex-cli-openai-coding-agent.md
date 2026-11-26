@@ -13,7 +13,7 @@ description: "OpenAI Codex CLI 的安裝、核心功能、模型演進與現況�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en)
+:globe: [English version](/posts/tech/2026-03-31-codex-cli-openai-coding-agent-en)
 
 Codex CLI 是 OpenAI 推出的開源 coding agent，直接跑在你的終端機裡。它能讀取、修改、執行你機器上的程式碼，用 Rust 寫成，啟動快、效能好。
 
@@ -64,7 +64,7 @@ GPT-5 進一步針對 agentic coding 最佳化的版本。同時擅長快速互�
 |---|---|---|
 | 介面 | 終端機 | 桌面應用（macOS / Windows） |
 | 特色 | 輕量、可腳本化 | 多 agent 管理、平行作業、長期任務協作 |
-| 開源 | ✅ | ❌ |
+| 開源 | ✓ | ✗ |
 
 Codex App 於 2026 年 3 月支援 Windows，提供更視覺化的多 agent 管理介面。
 

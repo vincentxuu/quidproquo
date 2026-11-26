@@ -13,7 +13,7 @@ description: "A lecture-by-lecture reading of Stanford CS221 Autumn 2025 Lecture
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks)
+> :globe: [中文版](/posts/ai/2026-08-22-stanford-cs221-lecture-04-learning-deep-networks)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

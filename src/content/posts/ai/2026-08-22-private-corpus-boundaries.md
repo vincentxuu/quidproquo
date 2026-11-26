@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-private-corpus-boundaries-en)
+> :globe: [English version](/posts/ai/2026-08-22-private-corpus-boundaries-en)
 
 「資料放在公司內網」不是私有語料搜尋的安全設計。文件一旦進入管線，內容還會出現在 connector 暫存區、解析結果、全文索引、向量、查詢紀錄、追蹤資料與模型請求裡。真正的邊界不是一條網路線，而是每一份資料在每個元件之間能不能流動。
 

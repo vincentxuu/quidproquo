@@ -13,7 +13,7 @@ description: "A full read-through of Stanford CS230 (Autumn 2025) Lecture 5: why
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)
+> :globe: [中文版](/posts/ai/2026-08-16-cs230-deep-rl-and-rlhf)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -150,7 +150,7 @@ Implementation detail: that term inside Y is technically differentiable, but **w
 
 **A stumble mentioned in class**: running the same preprocessing across 50-odd Atari games, they uniformly stripped the color channels, "and in one of them — I think it was Seaquest — **the fish disappeared**, and that game became unwinnable."
 
-> **⚠️ I couldn't find any corroboration for this.** He says in class himself that he doesn't remember which game. The **documented** analogous problem in Atari preprocessing is a different one: **flickering** — some objects only appear on even or odd frames, and DQN's fix is to take the **element-wise maximum over two consecutive frames.** That's a different mechanism from "removing color made objects disappear." The classroom version may be a garbled recollection of it.
+> **:warning: I couldn't find any corroboration for this.** He says in class himself that he doesn't remember which game. The **documented** analogous problem in Atari preprocessing is a different one: **flickering** — some objects only appear on even or odd frames, and DQN's fix is to take the **element-wise maximum over two consecutive frames.** That's a different mechanism from "removing color made objects disappear." The classroom version may be a garbled recollection of it.
 
 (Grayscale itself really is part of standard DQN preprocessing: the original paper converts RGB to grayscale, downsamples to 110×84, then crops to 84×84.)
 

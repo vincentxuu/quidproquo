@@ -13,7 +13,7 @@ series:
   order: 26
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-08-drone-endurance-physics-en)
+> :globe: [English version](/posts/tech/2026-08-08-drone-endurance-physics-en)
 
 這個系列最近幾篇都在解釋制度——法規、標案、檢測規範、授權條款。這篇不碰任何條文，只算一件事：**為什麼多旋翼無人機的續航幾乎都落在 30 到 45 分鐘？**
 

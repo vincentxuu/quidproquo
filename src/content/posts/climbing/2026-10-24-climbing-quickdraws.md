@@ -30,13 +30,13 @@ glossary:
     context: "長度通常以扁帶算，常見 12 cm 與 17–18 cm。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-quickdraws-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-quickdraws-en)
 
 快扣是兩個鉤環用一段縫合扁帶連起來的東西。先鋒時你把它一端掛上 bolt，另一端掛上繩子，墜落時繩子就靠它接住你。岩館的先鋒路線多半已經預掛好快扣；開始去戶外運攀，你就得有自己的一組。
 
 這篇只回答一件事：要買哪一組快扣。快扣怎麼掛、方向怎麼對，在〈[岩館先鋒](/posts/climbing/2026-10-17-gym-lead-climbing)〉；第一次去戶外先鋒前要準備什麼，在〈[第一條戶外運攀先鋒](/posts/climbing/2026-10-17-first-outdoor-sport-lead)〉；有鎖鉤環怎麼挑，在〈[鉤環](/posts/climbing/2026-10-24-climbing-carabiners)〉。讀完你應該能說出自己要哪種門、多長的扁帶，並從後面的表挑出一款。
 
-> ⚠️ **召回提醒：迪卡儂 SIMOND 登山快扣**
+> :warning: **召回提醒：迪卡儂 SIMOND 登山快扣**
 >
 > [經濟部標準檢驗局 2026-10-19 公告](https://www.bsmi.gov.tw/SafetyGIP/wSite/ct?xItem=130064&ctNode=8206&mp=65)：台灣迪卡儂召回 SIMOND「登山快扣」，型號 **8589547、8589548、8608405、8935765、8935909**，2022 年 1 月 1 日至 2026 年 7 月 22 日在台灣售出。公告寫的瑕疵是部分快扣的鋼絲鉚接處有缺陷，可能讓鋼絲門斷裂，墜落時有快扣斷裂的風險。SIMOND 的[召回頁](https://simondrecallquickdraw.fandi.fr)把這五個型號對應到 Alpinism 11 cm、Alpinism 17 cm、Alpinism 5 入組、Vertika 11 cm、Vertika 17 cm。
 >

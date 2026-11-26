@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [繁體中文版](/posts/learning/2026-10-25-surf-conditions-entry-english/)
+> :globe: [繁體中文版](/posts/learning/2026-10-25-surf-conditions-entry-english/)
 
 At an unfamiliar surf spot, “Are the waves good?” is only one possible question. You may want to ask about conditions, find out whether the other person knows the spot, and then ask where people paddle out or wait for waves. Separate questions make those intentions easier to express.
 

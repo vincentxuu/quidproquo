@@ -24,11 +24,11 @@ glossary:
     context: "對應 bias-variance 分解中的 variance 項。"
 ---
 
-> 🌏 [English version](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
+> :globe: [English version](/posts/tech/2026-09-29-harvard-cs181-hw2-classification-bias-variance-en)
 
 **影片狀態：已查核：官方公開頁未列對應錄影。** [影片來源與說明](#課程影片來源)
 
-> ⚠️ **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw2](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2)（`hw2_release.tex/pdf/ipynb`）與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 2、3 講義標頭是 **Spring 2026**；課站上的 lecture scribe notes 是 **2024 學期**的筆記（lec08 標頭 `2/15/24`），不是 2026 的講課內容。整門課屬 **A3 足以自學**：作業、資料與 section 解答都公開，但**官方課表未列對應講次的公開錄影、沒有作業解答**，Gradescope／Ed 需要選課。
+> :warning: **版本與存取**：本篇以 [CS181 s26 homeworks 的 hw2](https://github.com/harvard-ml-courses/cs181-s26-homeworks/tree/main/hw2)（`hw2_release.tex/pdf/ipynb`）與 [2026 官方 schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ) 為準。Section 2、3 講義標頭是 **Spring 2026**；課站上的 lecture scribe notes 是 **2024 學期**的筆記（lec08 標頭 `2/15/24`），不是 2026 的講課內容。整門課屬 **A3 足以自學**：作業、資料與 section 解答都公開，但**官方課表未列對應講次的公開錄影、沒有作業解答**，Gradescope／Ed 需要選課。
 
 [Harvard CS181](https://harvard-ml-courses.github.io/cs181-web/)（2026 課號 CS 1810）的 HW2 標題是 **Classification and Bias-Variance Trade-offs**。依 `hw2_release.tex`，截止時間是 2026 年 2 月 27 日 23:59，共四題：30、15、30、15 分。作業開頭一句話講完它的範圍：
 
@@ -173,12 +173,13 @@ flowchart LR
 - [CS1810 Spring 2026 official schedule](https://docs.google.com/spreadsheets/d/13sqhDtt1mYDFJ_vkeMpSVLg9T-aqdATKlch4VXFeOJQ/edit?usp=sharing)
 - [CS1810 Spring 2026 syllabus](https://harvard-ml-courses.github.io/cs181-web/syllabus)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。重讀官方課表與 syllabus，仍未列出此主題的公開講課影片。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

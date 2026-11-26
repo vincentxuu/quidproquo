@@ -10,7 +10,7 @@ description: "Full investigation of a RAG tool's top_k setting being inconsisten
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-topk-override-four-layer-inconsistency)
+> :globe: [中文版](/posts/ai/2026-09-19-topk-override-four-layer-inconsistency)
 
 ## TL;DR
 

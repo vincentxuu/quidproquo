@@ -17,7 +17,7 @@ glossary:
     def: "逐格生成使用者可實際操作、而非固定播放的影片的 AI 系統，鍵盤輸入與文字提示會改變接下來發生的事"
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-model-google-genie-4-en)
+> :globe: [English version](/posts/daily/2026-11-03-model-google-genie-4-en)
 
 ## 模型資訊
 
@@ -53,15 +53,15 @@ step: 沒達成或場景改變、使用者介入，就調整計畫、回到 Geni
 step: 達成就檢查還有沒有下一步驟
 step: 還有步驟就回到拆解；所有步驟都完成才算任務完成
 ---
-<svg viewBox="0 0 640 460">
+<svg viewBox="0 0 640 470">
   <path class="dg-line" d="M288 34V60" marker-end="url(#arrow)" data-step="1"/>
   <path class="dg-line" d="M288 116V148" marker-end="url(#arrow)" data-step="1"/>
-  <path class="dg-line" d="M288 204V236" marker-end="url(#arrow)" data-step="2"/>
-  <path class="dg-line dg-line--warn" d="M384 280H440" marker-end="url(#arrow-warn)" data-step="3"/>
+  <path class="dg-line" d="M288 204V232" marker-end="url(#arrow)" data-step="2"/>
+  <path class="dg-line dg-line--warn" d="M416 280H440" marker-end="url(#arrow-warn)" data-step="3"/>
   <path class="dg-line dg-line--warn dg-line--dashed" d="M524 252V184Q524 176 516 176H392" marker-end="url(#arrow-warn)" data-step="3"/>
-  <path class="dg-line" d="M288 324V368" marker-end="url(#arrow)" data-step="4"/>
-  <path class="dg-line dg-line--dashed" d="M192 412H72Q64 412 64 404V96Q64 88 72 88H184" marker-end="url(#arrow)" data-step="5"/>
-  <path class="dg-line dg-line--accent" d="M384 412H440" marker-end="url(#arrow-accent)" data-step="5"/>
+  <path class="dg-line" d="M288 328V364" marker-end="url(#arrow)" data-step="4"/>
+  <path class="dg-line dg-line--dashed" d="M160 412H72Q64 412 64 404V96Q64 88 72 88H184" marker-end="url(#arrow)" data-step="5"/>
+  <path class="dg-line dg-line--accent" d="M416 412H440" marker-end="url(#arrow-accent)" data-step="5"/>
 
   <circle class="dg-dot" cx="288" cy="28" r="6" data-step="1"/>
 
@@ -78,7 +78,7 @@ step: 還有步驟就回到拆解；所有步驟都完成才算任務完成
   </g>
 
   <g data-step="2">
-    <path class="dg-box" d="M288 236L384 280L288 324L192 280Z"/>
+    <path class="dg-box" d="M288 232L416 280L288 328L160 280Z"/>
     <text class="dg-label" x="288" y="270" text-anchor="middle" dominant-baseline="central">步驟達成？</text>
     <text class="dg-sub" x="288" y="292" text-anchor="middle" dominant-baseline="central">核對畫面進度</text>
   </g>
@@ -90,7 +90,7 @@ step: 還有步驟就回到拆解；所有步驟都完成才算任務完成
   </g>
 
   <g data-step="4">
-    <path class="dg-box" d="M288 368L384 412L288 456L192 412Z"/>
+    <path class="dg-box" d="M288 364L416 412L288 460L160 412Z"/>
     <text class="dg-label" x="288" y="402" text-anchor="middle" dominant-baseline="central">還有下一步驟？</text>
     <text class="dg-sub" x="288" y="424" text-anchor="middle" dominant-baseline="central">多步驟任務</text>
   </g>
@@ -101,17 +101,17 @@ step: 還有步驟就回到拆解；所有步驟都完成才算任務完成
     <text class="dg-sub" x="524" y="424" text-anchor="middle" dominant-baseline="central">回到下一個提示</text>
   </g>
 
-  <text class="dg-edge dg-text--warn" x="412" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">否</text>
+  <text class="dg-edge dg-text--warn" x="428" y="268" text-anchor="middle" dominant-baseline="central" data-step="3">否</text>
   <text class="dg-edge dg-text--warn" x="534" y="216" text-anchor="start" dominant-baseline="central" data-step="3">重新渲染</text>
   <text class="dg-edge" x="300" y="346" text-anchor="start" dominant-baseline="central" data-step="4">是</text>
-  <text class="dg-edge" x="128" y="80" text-anchor="middle" dominant-baseline="central" data-step="5">有下一步驟</text>
-  <text class="dg-edge dg-text--accent" x="412" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">無（完成）</text>
+  <text class="dg-edge" x="112" y="398" text-anchor="middle" dominant-baseline="central" data-step="5">有下一步驟</text>
+  <text class="dg-edge dg-text--accent" x="428" y="400" text-anchor="middle" dominant-baseline="central" data-step="5">否</text>
 </svg>
 ```
 
 ## Benchmark 表現
 
-⚠️ 官方公告未附任何 benchmark 分數或與其他世界模型的量化比較，截至 2026-10-28 也未見第三方獨立評測或分數重現（來源：DataCamp 對 Genie 4 的整理）。以下改列可驗證的能力/限制差異，不是量化基準：
+:warning: 官方公告未附任何 benchmark 分數或與其他世界模型的量化比較，截至 2026-10-28 也未見第三方獨立評測或分數重現（來源：DataCamp 對 Genie 4 的整理）。以下改列可驗證的能力/限制差異，不是量化基準：
 
 | 項目 | Genie 3（2025-08 發布） | Genie 4（2026-10-27 發布） |
 |---|---|---|

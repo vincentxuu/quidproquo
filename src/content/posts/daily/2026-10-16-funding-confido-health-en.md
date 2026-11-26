@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-16-funding-confido-health)
+> :globe: [中文版](/posts/daily/2026-10-16-funding-confido-health)
 
 ## Funding details
 

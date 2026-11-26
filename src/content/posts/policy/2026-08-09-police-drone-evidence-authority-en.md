@@ -13,7 +13,7 @@ series:
   order: 33
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-09-police-drone-evidence-authority)
+> :globe: [中文版](/posts/policy/2026-08-09-police-drone-evidence-authority)
 
 [The privacy post](/posts/policy/2026-08-07-drone-privacy-taiwan-en) concluded that the Civil Aviation Act's drone chapter contains no privacy provision anywhere, so anyone overflown is thrown back on the Criminal Code. That post was about a private person filming you with a drone.
 

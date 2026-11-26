@@ -18,7 +18,7 @@ series:
   order: 8
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)
 
 [The previous post](/posts/tech/2026-10-13-bug-bounty-zero-05-how-programs-use-memory-en) covered how a program uses memory: where variables live, how the stack differs from the heap, and where a function returns to when it finishes. This post asks one concrete question: why can writing a few characters too many let someone take control of a program? By the end you should be able to read a short C program, point at the line that can overflow and say why, and rewrite it with a length-limited call.
 

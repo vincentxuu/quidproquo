@@ -10,7 +10,7 @@ description: "如何用 scp 搭配 SSH config alias 從 VPS 下載檔案到本�
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-03-15-scp-ssh-config-alias-en)
+:globe: [English version](/posts/tech/2026-03-15-scp-ssh-config-alias-en)
 
 ## TL;DR
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-google-kubernetes-engine-en)
+> :globe: [English version](/posts/tech/2026-08-22-google-kubernetes-engine-en)
 
 [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs/concepts/kubernetes-engine-overview) 是代管 Kubernetes。Google 維護 control plane；你仍用 Deployment、Service、Job、Gateway、policy 與 controller 組出平台。真正的第一個選擇不是 machine type，而是 Autopilot 或 Standard。
 

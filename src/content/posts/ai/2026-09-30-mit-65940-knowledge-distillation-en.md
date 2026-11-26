@@ -32,7 +32,7 @@ glossary:
         url: "https://arxiv.org/abs/2110.08890"
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-knowledge-distillation)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

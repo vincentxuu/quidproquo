@@ -24,7 +24,7 @@ glossary:
     context: "Boaz 用它區分以能力定義與以衝擊定義的 AGI。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en)
+> :globe: [English version](/posts/ai/2026-09-30-cs2881r-lecture-01-introduction-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

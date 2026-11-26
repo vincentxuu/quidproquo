@@ -12,7 +12,7 @@ series:
   order: 100
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-funding-pigment)
+> :globe: [中文版](/posts/daily/2026-10-22-funding-pigment)
 
 ## Funding Details
 

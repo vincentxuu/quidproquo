@@ -13,7 +13,7 @@ description: "萊科與格里涅（Lecco／Grigne）岩場介紹：Galbiate、Sa
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-lecco-grigne-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-lecco-grigne-en)
 
 萊科（Lecco）在科莫湖東南端的湖口，背後是格里涅（Grigne）與 Resegone 兩座石灰岩山。[萊科觀光局](https://leccotourism.it/en/climbing-in-lecco)說這裡有「over a hundred equipped crags and thousands of routes」，稱它是「one of the undisputed capitals of sport climbing in northern Italy」。Riccardo Cassin、Walter Bonatti 和 Ragni di Lecco 都是在這些岩壁上練出來的。
 

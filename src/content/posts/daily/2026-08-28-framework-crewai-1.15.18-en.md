@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-28-framework-crewai-1.15.18)
+> :globe: [中文版](/posts/daily/2026-08-28-framework-crewai-1.15.18)
 
 ## Version Info
 

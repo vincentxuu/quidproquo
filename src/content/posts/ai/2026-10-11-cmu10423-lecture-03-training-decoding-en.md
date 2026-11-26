@@ -13,7 +13,7 @@ description: "A teaching guide based on public Spring 2026 materials: Training a
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-03-training-decoding)
 
 **Video status: recordings require sign-in or course authorization.** This guide uses public slides and assignments; numerical examples are site-authored, not a lecture transcript.
 

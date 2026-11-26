@@ -10,7 +10,7 @@ description: "The root cause of nginx's dynamic upstream DNS cache expiry causin
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-03-15-nginx-first-request-502)
+:globe: [中文版](/posts/tech/2026-03-15-nginx-first-request-502)
 
 ## TL;DR
 

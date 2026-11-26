@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-coolify-self-hosted-paas)
+> :globe: [中文版](/posts/tech/2026-08-22-coolify-self-hosted-paas)
 
 [Coolify](https://next.coolify.io/docs/core/what-is-coolify) is an open-source, self-hostable PaaS control plane. Over SSH it builds or pulls images and manages Docker containers, networks, volumes, proxies, domains, TLS, health checks, and deployments on servers the team supplies.
 

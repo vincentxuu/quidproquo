@@ -48,8 +48,8 @@ ls src/content/posts/daily/*-region-*.md 2>/dev/null | grep -v -- '-en\.md$' | s
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
 # E1: 產英文版（invoke post-translate）
 # E2: 修 check:references WARN
-# E3: 更新 progress.txt Last updated 行
-# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview + progress.txt 格式）
+# E3: 寫當日 routine 紀錄 .work/daily-log/${TODAY}/<skill>.md（不碰 progress.txt）
+# E4: targeted verify（check:references + check:lang-parity + check:tw + check:series-order + diagram-preview）
 # E5: git add / commit / push
 ```
 
@@ -256,7 +256,7 @@ done
 | 技術宣稱（benchmark 分數） | 查 arxiv 原文或官方 blog |
 | 政策引述 | 查政府官方網站原文 |
 
-若無法交叉驗證 → 在文中標注「⚠️ 僅見於 {來源}，待交叉驗證」。
+若無法交叉驗證 → 在文中標注「僅見於 {來源}，待交叉驗證」。
 
 ---
 
@@ -359,7 +359,7 @@ series:
 
 DeepSeek 在 GitHub 上開源 DeepAgent，定位為 LangGraph 的中國替代方案。框架原生支援 DeepSeek-R1 和 V3 模型的推理能力，內建工具呼叫、記憶管理和多 Agent 協作。一週內 GitHub stars 破 8k。（[來源](https://github.com/deepseek-ai/deepagent)）
 
-技術亮點：推理延遲比 LangGraph + Claude 組合低 40%（⚠️ DeepSeek 自測，使用自家推理基礎設施，需獨立複現），原因是框架和模型的推理路徑做了端到端最佳化。
+技術亮點：推理延遲比 LangGraph + Claude 組合低 40%（DeepSeek 自測，使用自家推理基礎設施，需獨立複現），原因是框架和模型的推理路徑做了端到端最佳化。
 
 ### 阿里通義 Qwen Office 整合釘釘
 
@@ -394,7 +394,7 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 
 - [ ] 區域選擇有據（基於 Step 4b 覆蓋缺口 + 本週信號量統計，不是隨便選的）
 - [ ] 本週動態至少 3 個，每個都有來源連結
-- [ ] 中文來源的具體數字已嘗試交叉驗證（或標注 ⚠️）
+- [ ] 中文來源的具體數字已嘗試交叉驗證（或標注「待交叉驗證」）
 - [ ] 「深度分析」使用了至少 1 個 MIS 框架（明確標記）
 - [ ] 「對台灣創業者的啟示」給的是具體建議（「如果你在做 X：Y」），不是泛泛的「值得關注」
 - [ ] 「今日收穫」是認知差
@@ -402,4 +402,4 @@ CAC 的管理辦法則增加了新的競爭門檻（五力的「進入壁壘」�
 - [ ] 全球覆蓋缺口統計沒有排除 CA、AU、NZ、非洲或拉丁美洲國家；IL 已計入 middle-east
 - [ ] `description` 和 `tldr` 已填寫
 - [ ] 文末有「## 參考資料」區段，每個事實主張附連結（`pnpm check:references` 會擋）
-- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / progress.txt / verify / push）— 見 `daily-digest-common`
+- [ ] Commit Epilogue 六步完成（圖解 / 英文版 / references WARN / daily-log / verify / push）— 見 `daily-digest-common`

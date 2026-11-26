@@ -6,7 +6,7 @@ type: digest
 tags: [ai-agent, model-release, daily, qwen, model-family-qwen-image]
 lang: en
 description: "Alibaba's Qwen team open-sourced Qwen-Image-2.1 — a 7B visual generator with native transparent-image (RGBA) generation and editing plus up to 10 reference images; its self-reported Qwen-Image-Bench score of 60.28 edges out Nano Banana 2.0 and GPT Image 1.5"
-tldr: "Qwen-Image-2.1 (Alibaba Qwen): open-sourced 2026-09-20, a 7B visual generation module (32-layer single-stream DiT) plus a Qwen3-VL 8B encoder, keeping the same 7B class as predecessor 2.0 but adding native transparent-image generation (64-channel RGBA VAE) and multi-image editing with up to 10 reference images; Qwen's own Qwen-Image-Bench score is 60.28, ahead of Nano Banana 2.0 (59.82) and GPT Image 1.5 (59.65) ⚠️ self-reported, not independently reproduced; the SGLang team independently verified a single-sample RGBA PSNR of 60.69 dB; licensed under the Qwen Research License Agreement, non-commercial only, with no official hosted API pricing; for agent development it can remove a separate background-removal/compositing step, making it a fit for e-commerce asset generation and multi-scene storyboard workflows"
+tldr: "Qwen-Image-2.1 (Alibaba Qwen): open-sourced 2026-09-20, a 7B visual generation module (32-layer single-stream DiT) plus a Qwen3-VL 8B encoder, keeping the same 7B class as predecessor 2.0 but adding native transparent-image generation (64-channel RGBA VAE) and multi-image editing with up to 10 reference images; Qwen's own Qwen-Image-Bench score is 60.28, ahead of Nano Banana 2.0 (59.82) and GPT Image 1.5 (59.65) self-reported, not independently reproduced; the SGLang team independently verified a single-sample RGBA PSNR of 60.69 dB; licensed under the Qwen Research License Agreement, non-commercial only, with no official hosted API pricing; for agent development it can remove a separate background-removal/compositing step, making it a fit for e-commerce asset generation and multi-scene storyboard workflows"
 series:
   name: "AI Model Tracker"
   order: 27
@@ -17,7 +17,7 @@ glossary:
     def: "Red-Green-Blue-Alpha: an extra transparency (alpha) channel beyond the color channels, letting an image have partially or fully transparent regions for easier compositing"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-20-model-qwen-image-2-1)
+> :globe: [中文版](/posts/daily/2026-09-20-model-qwen-image-2-1)
 
 ## Model Info
 
@@ -40,16 +40,16 @@ glossary:
 - Native transparent-image (RGBA) generation and editing: a 64-channel RGBA VAE with 16x spatial compression makes the alpha channel part of the latent space itself, rather than something added by a separate background-removal pass afterward. The SGLang team independently verified a single-sample RGBA PSNR of 60.69 dB, and transparent PNG generation plus FP8-quantized configurations both passed correctness checks.
 - Accepts up to 10 reference images for multi-subject compositional editing in a single pass, with circle-marking, freehand painting, or a separate mask to specify local edit regions while preserving fidelity for portraits and products.
 - Mixed-granularity attention: text still uses a token-level causal mask, while image content switches to a chunk-level mask paired with a prefix KV cache — reference images and instructions are cached after the first denoising step and reused across the rest, with the biggest efficiency gains showing up on multi-image inputs.
-- The visual generation module stays at the same 7B class as predecessor 2.0 rather than scaling up, yet Qwen's own Qwen-Image-Bench score of 60.28 edges out Nano Banana 2.0 (59.82) and GPT Image 1.5 (59.65) ⚠️.
+- The visual generation module stays at the same 7B class as predecessor 2.0 rather than scaling up, yet Qwen's own Qwen-Image-Bench score of 60.28 edges out Nano Banana 2.0 (59.82) and GPT Image 1.5 (59.65) :warning:.
 
 ## Benchmark Results
 
 | Benchmark | Score | Predecessor | Best Competitor |
 |---|---|---|---|
-| Qwen-Image-Bench total ⚠️ | 60.28 | Did not participate (2.1 is the first version to publish a score on this benchmark; no 2.0 figure exists) | Nano Banana 2.0 59.82 / GPT Image 1.5 59.65 |
+| Qwen-Image-Bench total :warning: | 60.28 | Did not participate (2.1 is the first version to publish a score on this benchmark; no 2.0 figure exists) | Nano Banana 2.0 59.82 / GPT Image 1.5 59.65 |
 | RGBA transparency correctness (SGLang independent verification, single sample PSNR) | 60.69 dB | Not applicable (2.0 had no native transparent-image generation) | Not applicable (most closed-source competitors' transparency is a post-processing API parameter rather than native latent-space output, so the same metric doesn't apply) |
 
-⚠️ The Qwen-Image-Bench total is Qwen's own self-reported result; neither the scoring method nor the comparison set has been independently reproduced, and as of publication Qwen-Image-2.1 does not yet appear on any independent image-model leaderboard. The RGBA PSNR figure comes from a single-sample test the SGLang team ran to verify their own inference-framework integration was correct — the team itself stresses this is a correctness check, not a general quality benchmark. Because this card was written within 24 hours of release, these two data points are all the verifiable quantitative numbers currently available, fewer than a typical model card — and that gap is itself the most notable takeaway from today.
+:warning: The Qwen-Image-Bench total is Qwen's own self-reported result; neither the scoring method nor the comparison set has been independently reproduced, and as of publication Qwen-Image-2.1 does not yet appear on any independent image-model leaderboard. The RGBA PSNR figure comes from a single-sample test the SGLang team ran to verify their own inference-framework integration was correct — the team itself stresses this is a correctness check, not a general quality benchmark. Because this card was written within 24 hours of release, these two data points are all the verifiable quantitative numbers currently available, fewer than a typical model card — and that gap is itself the most notable takeaway from today.
 
 ## Comparison with Predecessor and Competitors
 

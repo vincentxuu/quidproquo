@@ -30,7 +30,7 @@ glossary:
     context: "可以加 + 或 −，ED 再細分 ED1、ED2、ED3。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-alpine-climbing-en)
+> :globe: [English version](/posts/climbing/2026-10-19-alpine-climbing-en)
 
 一條高山路線，岩段可能只有 5.4，比你在岩館熱身的線還簡單。但你要在半夜出發，走過冰河、跨過裂隙，在天氣變壞前爬完、下撤到安全的地方。
 

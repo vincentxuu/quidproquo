@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-aws-sqs-sns-en)
+> :globe: [English version](/posts/tech/2026-08-22-aws-sqs-sns-en)
 
 [Amazon SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html) 和 [Amazon SNS](https://docs.aws.amazon.com/sns/latest/dg/welcome.html) 常一起出現，但責任不同。SQS 保存訊息，consumer pull 後處理並刪除；SNS 接收 publication，立即 push 給 HTTP、Lambda、email、SQS 等 subscriptions。需要多個服務各自可靠處理同一事件時，典型拓撲是 SNS fan-out 到多個 SQS queue。
 

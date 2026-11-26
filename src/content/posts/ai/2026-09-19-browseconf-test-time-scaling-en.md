@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-browseconf-test-time-scaling)
+> :globe: [中文版](/posts/ai/2026-09-19-browseconf-test-time-scaling)
 
 The previous articles covered training, architecture, evaluation. This one covers a new dimension: **test-time compute allocation**.
 

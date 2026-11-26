@@ -12,7 +12,7 @@ series:
   order: 79
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-11-02-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-11-02-ai-agent-daily)
 
 ## Take of the Day
 
@@ -114,13 +114,13 @@ This round also ran a same-day supplemental scan (Groundlane `web_search`, `time
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-github-digest-en)
-- 📄 [Pricing Watch | OpenAI Cuts Cursor's Model Access Over SpaceX Acquisition, Effective 11/12](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff-en)
-- 📄 [Security Alert | Blockchain Analytics Firm Chainalysis Breached via "Offensive Agentic Techniques"](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion-en)
-- 📄 [Tool Pick | Agent Cockpit — Making Every Research Agent's Conclusion Traceable Back to the Code That Produced It](/posts/daily/2026-11-02-tool-agent-cockpit-en)
-- 📄 [AI Engineer Interview Drill — 2026-11-02: ML Fundamentals](/posts/daily/2026-11-02-ai-interview-daily-en)
-- 📄 [Product Builder Interview Drill — 2026-11-02: Product Sense](/posts/daily/2026-11-02-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-11-02](/posts/daily/2026-11-02-ai-agent-github-digest-en)
+- :file: [Pricing Watch | OpenAI Cuts Cursor's Model Access Over SpaceX Acquisition, Effective 11/12](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff-en)
+- :file: [Security Alert | Blockchain Analytics Firm Chainalysis Breached via "Offensive Agentic Techniques"](/posts/daily/2026-11-02-security-chainalysis-agentic-intrusion-en)
+- :file: [Tool Pick | Agent Cockpit — Making Every Research Agent's Conclusion Traceable Back to the Code That Produced It](/posts/daily/2026-11-02-tool-agent-cockpit-en)
+- :file: [AI Engineer Interview Drill — 2026-11-02: ML Fundamentals](/posts/daily/2026-11-02-ai-interview-daily-en)
+- :file: [Product Builder Interview Drill — 2026-11-02: Product Sense](/posts/daily/2026-11-02-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

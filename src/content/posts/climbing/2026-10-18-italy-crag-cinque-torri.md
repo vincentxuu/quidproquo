@@ -13,7 +13,7 @@ description: "五塔（Cinque Torri）岩場介紹：白雲岩塔的岩質與規
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-18-italy-crag-cinque-torri-en)
+> :globe: [English version](/posts/climbing/2026-10-18-italy-crag-cinque-torri-en)
 
 五塔（Cinque Torri）在義大利威尼托大區（Veneto）的 [Cortina d'Ampezzo](https://cortina.dolomiti.org/en/arrampicata-sportiva/cinque-torri-en) 西邊、往 Passo Falzarego 的路上，是一群散在草坡上的白雲岩塔。Cortina 觀光局的岩場頁開頭就寫：「Cinque Torri is without a doubt the best known and historically most important climbing area in Cortina」，同一頁寫，當地登山團體 [Scoiattoli](https://www.guidedolomiti.com/en/climbing/cinque-torri-crag) 1939 年成立時，第一批成員就在這裡練爬。
 

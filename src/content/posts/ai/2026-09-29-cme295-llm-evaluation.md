@@ -8,7 +8,7 @@ lang: zh-TW
 series:
   name: "Stanford CME295 導讀"
   order: 8
-tldr: "CME295 第 8 講從「人工評分又慢又貴、BLEU/ROUGE 看不懂換句話說」出發，講 LLM-as-a-Judge 的做法、位置／冗長／自我偏好三種偏誤與六條實務原則，再把 agent 的錯誤拆成工具選擇、工具執行、回答生成三段，最後用 MMLU、AIME、SWE-bench、HarmBench、τ-bench 說明 benchmark 各量什麼，以及 pass^k 和 Goodhart 定律。"
+tldr: "CME295 第 8 講從「人工評分又慢又貴、BLEU/ROUGE 看不懂換句話說」出發，講 LLM-as-a-Judge 的做法、位置／冗長／自我偏好三種偏誤與六條實務原則，再把 agent 的錯誤拆成工具選擇、工具執行、回答生成三段，最後用 MMLU、AIME、SWE-bench、HarmBench、τ-bench 說明 benchmark 各量什麼，以及 pass^k 和 Goodhart 定律。2026 版保留評審與 agent 兩段，benchmark 改以綜合指數、benchmaxxing 與 Arena 的 Elo 重寫，並新增替自己的 agent 建評估的實務段落。"
 description: "Stanford CME295 Lecture 8 導讀：人工評分與 Cohen's kappa、BLEU/ROUGE/METEOR 的侷限、LLM-as-a-Judge 的 pointwise 與 pairwise、偏誤與補救、事實性分解評分、agent 工具呼叫的失敗模式、常見 benchmark、pass^k、資料污染與 Goodhart 定律，以及 2026 版的變化。"
 draft: false
 glossary:
@@ -30,9 +30,11 @@ glossary:
     context: "投影片列了 canary 字串、工具 blocklist、換新版測試三種預防做法。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cme295-llm-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-29-cme295-llm-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
+
+如果你跟的是 2026 版，請開啟[第 7 堂錄影](https://www.youtube.com/watch?v=uoSynlTDyMs)與[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf)。評審與 agent 兩段跟本文大致相同，但事實性評分那節拿掉了，benchmark 那段也整個換掉；本文保留 2025 版第 8 講的內容，版本差異見文末「2026 版改了什麼」。
 
 本篇對應 Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview) 2025 版第 8 講「LLM evaluation」（2025 年 11 月 21 日）。主要來源是 [170 頁投影片](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)，錄影在 [YouTube](https://www.youtube.com/watch?v=8fNP4N46RRo)；本文只根據投影片上的內容寫。
 
@@ -216,7 +218,7 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 - **看 Pareto 前緣**：品質對上成本或延遲、品質對上安全、品質對上 context 長度，選的是取捨，不是冠軍。
 - **小心資料污染**：題目線索可能早就在訓練資料裡。投影片列了三種預防：在 benchmark 檔案放可識別的 canary 字串（[BIG-bench](https://github.com/google/BIG-bench/blob/main/docs/doc.md) 的做法）、模型可以用工具時，用 blocklist 擋掉題目來源、改用新版本測試。
 
-投影片最後引了 Goodhart 定律：「When a measure becomes a target, it ceases to be a good measure.」它給的結論是不要過度看重 benchmark，要搭配像 [Chatbot Arena](https://lmarena.ai/) 這樣的真人偏好排名，以及「自己試幾個模型」。
+投影片最後引了 Goodhart 定律：「When a measure becomes a target, it ceases to be a good measure.」它給的結論是不要過度看重 benchmark，要搭配像 [Chatbot Arena](https://arena.ai/)（現在叫 Arena）這樣的真人偏好排名，以及「自己試幾個模型」。
 
 ## 連回你用的模型
 
@@ -229,9 +231,64 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 
 ## 2026 版改了什麼
 
-2026 版投影片尚未釋出，以下只根據兩版課表比對。2026 版第 7 講「LLM evaluation」的主題清單是：LLM-as-a-judge overview、best practices and benefits、biases and pitfalls、**agent evaluation**、**benchmarks**。前三項跟 2025 版課表完全相同，多出後兩項。
+2026 版對應本講的是第 7 講「LLM evaluation」（2026 年 11 月 13 日上課），[投影片](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf)與[錄影](https://www.youtube.com/watch?v=uoSynlTDyMs)都已上架。投影片跟 2025 版一樣是 170 頁，但章節改成六段：動機、規則式指標、LLM-as-a-Judge、agent 評估、benchmark、實務做法。以下逐頁對照兩版投影片，並參考錄影內容。大致可以這樣看：評審與 agent 兩段多半沿用，benchmark 整段換掉，最後新增一段「怎麼替自己的 agent 建評估」。
 
-不過 2025 版投影片其實已經有 agent 工具呼叫的失敗模式、τ-bench 和整段 benchmark，只是 2025 課表沒列出來。所以 2026 版的差別可能是把這兩段正式升格、講得更完整，而不是從零新增。實際內容要等 2026 投影片上架（課表日期 2026 年 11 月 13 日）才能確認。另外，2026 版把 agent 那一講擴充成 MCP、context compaction、harness、coding agents 等主題，agent evaluation 可能也會跟著這些新題材調整。
+### 開場與規則式指標：多了 pass@k
+
+- **開場換了框架**。2025 版先把「評估」切成輸出品質和系統表現，只談前者；2026 版改列三大類指標（可靠度、品質、產品，產品一類包括使用者成果、採用率與參與度），再列四個難處：任務種類多、品質有很多面向、同一題有很多種好答案，以及系統越來越複雜（agent 會在迴圈裡跑很多圈）。
+- **Cohen's kappa 照講**。錄影補了一句經驗值：kappa 大約到 0.8 才算一致性不錯；投影片拿掉了 2025 版提到的 Krippendorff's alpha。
+- **規則式指標拆成兩類**。新的一類是「推理型」：程式題跑測試案例、數學題跟標準答案比對。2025 放在[第 6 講](/posts/ai/2026-09-29-cme295-llm-reasoning)的 pass@k 搬到這裡，投影片給了 [Chen 等人](https://arxiv.org/abs/2107.03374)的無偏估計，並把三個指標的用途並列：pass@k 適合「容易驗證、等得起」的情境，pass@1 適合只看一次生成的情境，cons@k 則是 k 次多數決的答案對不對（引自 DeepSeek-R1），錄影說它用在推論時無從驗證答案的情境。錄影另外講了 pass@k 跟 temperature 的關係：溫度 0 時多試幾次也一樣，調高才會探索到別的解，但太高又會開始亂答，中間有個甜蜜點。
+- 另一類「自然語言型」就是 BLEU、METEOR、ROUGE，三條限制與 2025 版相同。
+
+### LLM-as-a-Judge：多了「怎麼調評審」，原則剩五條
+
+- **好處從兩條變四條**：不需要參考答案、天生能處理換句話說、換任務只要改 prompt、理由讓分數可以解讀。
+- **pointwise／pairwise 那頁拿掉了**。pairwise 改到後面的 benchmark 與 Arena 段落才出現。
+- **新增「Tune LLM-as-a-Judge」四步**：先人工標一小批輸出、用簡單 prompt 建 baseline、反覆修 prompt（看評審漏抓或誤抓哪些例子，改 prompt 再跑）、最後定稿。錄影說得更具體：先標大約 10 組問答就好，用 precision／recall 量評審跟人工標註的差距，設一個目標（例如「失敗案例的 recall 要超過 90%」），而且這個迴圈現在幾乎沒人手動跑，直接交給 coding agent 去優化。這一步把上面「用人工評分校準評審」那條原則變成了可以照做的流程。
+- **六條原則剩五條**：拿掉「評分準則寫清楚」；「溫度調低」改成「讓結果可重現」，除了降溫，也可以多跑幾次取多數決（self-consistency）。三種偏誤與補救不變。
+- **事實性評分刪掉了**：2025 版的評估面向清單（任務表現與對齊），以及上面「事實性：把一段話拆成一條條事實」那套加權分解評分，2026 投影片都沒有。
+- **新提一個方向**：評審這段的最後一頁提到「decision models」，問的是「做判斷一定要先生成文字嗎？」。錄影的說法是這類模型不生成文字，直接在幾個答案選項上輸出校準過的機率，可能改變上面的最佳實務，細節留到最後一講。
+
+### Agent 評估：三段失敗模式照舊，多了 time horizon
+
+上面「Agent 出錯時，錯在哪一段」那張表，2026 版幾乎逐頁沿用，連找熊的例子都一樣。新增的只有一頁：METR（Model Evaluation & Threat Research）的「X% time horizon」，也就是 agent 能以 X% 成功率完成、人類專家要花多久的任務。錄影看的是 50% 那條線，隨時間拉長，代表模型在 ReAct 迴圈裡越來越能撐長任務、從錯誤中恢復。
+
+### Benchmark：整段重寫
+
+這是改最多的地方。2025 版的 MMLU、AIME、PIQA、SWE-bench、HarmBench、τ-bench、pass^k、Gemini 3 成績表，以及資料污染的三種預防，在 2026 投影片裡都沒有了。新的講法圍繞三件事。
+
+**一、用一個綜合指數當地圖。** 投影片以 Artificial Analysis Intelligence Index v5.0.1 為骨架，把「聰明」拆成四類、各佔 25%：
+
+| 類別 | 成分（權重） | 投影片挑來細講的那一個 |
+|---|---|---|
+| General（一般知識） | AA-Omniscience 15%、HLE-Diamond 10% | AA-Omniscience：6,000 題、42 個主題，只公開 10%；不准用工具；答錯扣 1 分、不答 0 分；LLM 評審對照標準答案判分 |
+| Knowledge（知識工作） | AA-Briefcase 15%、AutomationBench-AA 5%、GDP.pdf 5% | AA-Briefcase：數週份量的白領工作情境（資料科學、產品管理、銀行營運等），給一堆 email、Slack 訊息、報告，裡面刻意放矛盾；不准上網、最多 500 回合；LLM 評審逐條依二元 rubric 判過或不過，簡報品質則改用兩份交付物 pairwise 比較 |
+| Coding | FrontierCode 2.0 15%、Terminal-Bench 4.0 10% | Terminal-Bench 4.0：66 題終端機任務，給 Docker 環境、可上網、每題 8 小時，用隱藏測試判分，不用 LLM 評審 |
+| Science | Terminal-Bench-Science 15%、CritPt v2 10% | Terminal-Bench-Science：70 題科學研究任務，同樣的設定；例如從觀測資料推小行星的位置與速度，誤差在門檻內才算對 |
+
+這張表本身就把前面幾段串起來了：知識題用 LLM 評審，難定義的「好簡報」用 pairwise，能寫成測試的程式與科學題就用確定性的檢查。錄影的態度很明確：知識工作最難評，LLM 評審只是代理指標；能用確定性檢查就不要用評審。
+
+**二、分數會被「刷」，指數也跟著改。** 投影片用「benchmaxxing」稱呼「分數漂亮、使用者用起來卻不好」的現象，列了三個可能原因：針對公開指標優化、跟使用者期待脫節、傳統機器學習的好習慣被丟掉。佐證是 MaxxBench：把一個程式 benchmark 的題目稍微改一下（時間改用另一種格式、檔名改成小寫），各模型分數大掉、排名大洗牌。投影片列的原因包括模型自己想像出題目沒要求的限制、賭新規則不會被測、對測試做 reward hacking、用網路去呼叫別的模型。補救分三種：SWE-Bench Pro 留一部分題目不公開、公司自建不公開的內部 benchmark（投影片舉 Databricks、DoorDash、Ramp），或反過來把自家領域的 benchmark 開源，讓模型商來優化（Harvey 的法律 agent benchmark）。綜合指數這一方也在回應使用者觀感：v4.2（2026 年 9 月）到 v5.0.1（11 月），成分有換有留，多項升版，權重也重新分配。
+
+**三、benchmark 本身也要被檢查。** 2025 版談的是題目混進訓練資料，這個顧慮在 2026 版併進上面 benchmaxxing 那段；這裡改談題目本身的品質與 agent 作弊。題目可能有錯字、互相矛盾或根本無解，投影片介紹用 LLM 來稽核 benchmark（BenchGuard）。agent 則會走捷徑，投影片列成症狀對補救：去翻 git 歷史找答案 → 每次開新 repo；用 task ID 搜解答 → 隨機化 ID；從 GitHub／GitLab 下載答案 → 封鎖位址；其他可疑模式 → 掃 log 補洞，並標明「離解決還很遠」。投影片還推薦讀 METR 對 OpenAI／Hugging Face 駭入事件的調查，那起事件就發生在評測過程中。
+
+成本與 Pareto 前緣仍在，取捨的軸改成品質對成本、時間、輸出 token 數、context 長度。Goodhart 定律也仍在，結論一樣：不要過度看重 benchmark。
+
+### 真人手感：從評分量表推到 Elo
+
+2025 版最後是建議搭配 Chatbot Arena 與自己試幾個模型；2026 版把 Arena 為什麼要這樣設計一步步推出來：請人打 1–5 分再平均（有細節，但雜訊大、絕對尺度難打）→ 改成二元通過率（比較好打，但仍是絕對尺度）→ 改成兩兩比較算勝率（最好打，但勝率取決於跟誰比）→ 考慮對手強弱的 Elo 分數。這段推導課堂上沒講，只在投影片裡。投影片列的限制有四條：貴、慢、主觀，以及分數收斂之後可能掩蓋瑕疵。錄影補充：一般使用者不一定分得出哪個答案正確，有些問題本來就不該交給使用者選。
+
+### 新增收尾：替自己的 agent 建評估
+
+最後一段是 2025 版沒有的實務指南。錄影把它叫做 eval-driven：先把評估建好，再拿評審調整流程那一套去調 prompt、工具與設計。投影片列了幾個步驟：
+
+- **先想清楚要回答的四個問題**：我的 agent 強弱在哪？這週有沒有退步？跟使用者要的一致嗎？下一步怎麼進步？
+- **指標**：把系統目標拆成幾個可量化的面向，分成元件層級（設計要成立，哪一步必須做對）與整條軌跡層級（使用者在乎的結果），做法是先找出 failure mode 再量化。
+- **資料分三級**：P0 是關鍵案例，約 10 筆；P1 是一般支援的情境，約 100 筆；P2 是加分項，約 1,000 筆。來源有專家手寫、使用者 log（反映真實分布）和合成資料（投影片說「通常不太好」）。
+- **評分者三種**：確定性程式邏輯、LLM 評審、agent 評審（需要自己去調查才能判斷的情況）。錄影的建議是能寫成確定性檢查就這樣做，LLM 評審和 agent 評審都難調。
+- **拿到結果後可以轉的旋鈕**：換模型或推理強度、調 prompt／skills／工具、修評分者或資料，通常要組合著用。
+
+四個問題各有對應：綜合評估看強弱、P0 案例抓退步、log 看是否對齊使用者、ARC Prize 這類前瞻 benchmark 指方向。
 
 ## 自我檢測
 
@@ -253,32 +310,42 @@ k 越大，pass^k 越低、pass@k 越高。兩個數字可以差很遠。
 
 ## 課程影片來源
 
-下列影片取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單；2026-10-10 已即時對照播放清單的講次標題與影片 ID，兩者相符。
+第一支取自 Stanford Online 的 CME295 Autumn 2025 官方播放清單（第 8 講），2026-10-10 已即時對照講次標題與影片 ID，相符；第二支是官方 2026 課表第 7 講「LLM evaluation」所列的 Autumn 2026 錄影，2026-11-23 即時對照課表連結，相符。
 
 ```youtube
 url: https://www.youtube.com/watch?v=8fNP4N46RRo
 title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation
 ```
 
-原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)
+```youtube
+url: https://www.youtube.com/watch?v=uoSynlTDyMs
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evaluation
+```
 
-內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 8 講 LLM Evaluation（頁面日期 2025-11-21，長 1:49:25）；章節是 inter-rater agreement、rule-based 指標（METEOR／BLEU／ROUGE）、LLM-as-a-judge 與其偏見（position／verbosity／self-enhancement）、factuality、agent evaluation、benchmarks（MMLU、AIME／PIQA、SWE-bench、HarmBench、Tau-Bench），與本文主題一致。本文只引投影片，沒有轉述課堂口述。
+原始影片：[Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evaluation](https://www.youtube.com/watch?v=8fNP4N46RRo)、[Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 7 - LLM Evaluation](https://www.youtube.com/watch?v=uoSynlTDyMs)
+
+內容核對：已依字幕核對（2026-10-10）：抽樣讀取字幕的前／中／後段並以關鍵字搜尋，另對照頁面描述的章節表（非逐字比對）。確認影片是 Autumn 2025 第 8 講 LLM Evaluation（頁面日期 2025-11-21，長 1:49:25）；章節是 inter-rater agreement、rule-based 指標（METEOR／BLEU／ROUGE）、LLM-as-a-judge 與其偏見（position／verbosity／self-enhancement）、factuality、agent evaluation、benchmarks（MMLU、AIME／PIQA、SWE-bench、HarmBench、Tau-Bench），與本文主題一致。本文正文只引 2025 投影片，沒有轉述課堂口述。uoSynlTDyMs 是 Autumn 2026 第 7 講 LLM Evaluation（長 1:44:59），沒有人工字幕，以機器轉錄稿通讀全片，並與 2026 投影片逐頁對照；「2026 版改了什麼」一節的口述補充都出自這支錄影。
 
 課程與錄影入口：
 
 - [官方課程／講次來源](https://cme295.stanford.edu/syllabus/2025/)
+- [2026 版課表](https://cme295.stanford.edu/syllabus/)
 - [CME295 Autumn 2025 播放清單（Stanford Online，9 支）](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
 
-查核日期：2026-10-10。
+查核日期：2026-11-23。
 
 ## 更新紀錄
 
+- 2026-11-23：LMArena 已於 2026-01 改名 Arena、網址搬到 arena.ai，連結與名稱跟著更新。
+- 2026-11-23：2026 版第 7 講錄影與投影片已上架，依兩版投影片逐頁對照與錄影改寫「2026 版改了什麼」：記下規則式指標新增 pass@k、評審調整流程、原則由六條改五條、agent 段新增 time horizon，以及 benchmark 整段改以綜合指數、benchmaxxing、agent 作弊與 Arena 的 Elo 重寫，並新增替自己的 agent 建評估的段落；補上 2026 錄影與投影片入口。
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
 - 2026-10-10：重查影片狀態。即時對照 Stanford Online 的 CME295 Autumn 2025 播放清單，講次與影片 ID 相符，狀態改為已附影片。
 - 2026-10-10：依字幕核對影片內容。影片是 2025 第 8 講，主題與日期皆與本文相符，沒有需修正之處。
 
 ## 參考資料
 
+- [2026 版第 7 講錄影](https://www.youtube.com/watch?v=uoSynlTDyMs)
+- [2026 版第 7 講投影片（PDF）](https://cme295.stanford.edu/slides/fall26-cme295-lecture7.pdf)
 - [CME 295 2025 版課表](https://cme295.stanford.edu/syllabus/2025/)／[2026 版課表](https://cme295.stanford.edu/syllabus/)
 - [2025 版第 8 講投影片（PDF）](https://cme295.stanford.edu/slides/fall25-cme295-lecture8.pdf)
 - [2025 版第 8 講錄影](https://www.youtube.com/watch?v=8fNP4N46RRo)
@@ -299,5 +366,5 @@ title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 8 - LLM Evalu
 - [Chen et al., Evaluating Large Language Models Trained on Code (2021)](https://arxiv.org/abs/2107.03374)
 - [Google, Gemini 3 發表文 (2025)](https://blog.google/products/gemini/gemini-3/)
 - [BIG-bench 文件（canary 字串）](https://github.com/google/BIG-bench/blob/main/docs/doc.md)
-- [LMArena（Chatbot Arena）](https://lmarena.ai/)
+- [Arena（原 LMArena、Chatbot Arena）](https://arena.ai/)
 - [Stanford CME295 導讀（本系列總覽）](/posts/ai/2026-09-29-cme295-course-overview)

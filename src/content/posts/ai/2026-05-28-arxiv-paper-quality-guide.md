@@ -79,13 +79,13 @@ Papers With Code 於 2025 年 7 月被 Meta 關閉，曾追蹤 79,817 篇論文�
 
 | 工具 | 用途 | 免費 |
 |---|---|---|
-| [Semantic Scholar](https://www.semanticscholar.org) | 引用品質分析（Highly Influential Citations）、TLDR 摘要、200M+ 論文索引 | ✅ |
+| [Semantic Scholar](https://www.semanticscholar.org) | 引用品質分析（Highly Influential Citations）、TLDR 摘要、200M+ 論文索引 | ✓ |
 | [Connected Papers](https://www.connectedpapers.com) | 從種子論文視覺化探索相關領域（基於相似度，非引用圖） | 每月 5 張圖 |
-| [OpenReview](https://openreview.net) | 直接看 ICLR 等會議的 reviewer 意見和評分 | ✅ |
-| [HF Daily Papers](https://huggingface.co/papers) | AI 領域每日熱門論文、社群投票 | ✅ |
-| [CodeSOTA](https://www.codesota.com) | PWC 精神繼承者，SOTA leaderboard（有復現驗證） | ✅ |
-| [ar5iv](https://ar5iv.labs.arxiv.org) / arXiv HTML | 論文 HTML 版，比 PDF 好讀好搜尋 | ✅ |
-| [DBLP](https://dblp.org) | 確認作者發表紀錄、查會議論文列表 | ✅ |
+| [OpenReview](https://openreview.net) | 直接看 ICLR 等會議的 reviewer 意見和評分 | ✓ |
+| [HF Daily Papers](https://huggingface.co/papers) | AI 領域每日熱門論文、社群投票 | ✓ |
+| [CodeSOTA](https://www.codesota.com) | PWC 精神繼承者，SOTA leaderboard（有復現驗證） | ✓ |
+| [ar5iv](https://ar5iv.labs.arxiv.org) / arXiv HTML | 論文 HTML 版，比 PDF 好讀好搜尋 | ✓ |
+| [DBLP](https://dblp.org) | 確認作者發表紀錄、查會議論文列表 | ✓ |
 
 ### 推薦工作流
 

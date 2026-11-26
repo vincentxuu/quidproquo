@@ -13,7 +13,7 @@ description: "介紹沖縄本島北端辺戸岬・宇佐浜岩場：岩質、四
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-hedo-usahama-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-hedo-usahama-en)
 
 辺戸岬・宇佐浜（辺戸岬讀作へどみさき；英文常寫 Cape Hedo／Usa Beach）在沖縄縣国頭郡国頭村，也就是沖縄本島的最北端。岩場沿著宇佐浜的海灘排開，從停車場走下沙灘、沿岸走 10～15 分鐘就到，全部是 bolt 運動攀登。[ROCKTOPO](https://www.rocktopo.net/areas/185) 收 42 條，5.7 到 5.13d 都有，5.11 台最多。
 

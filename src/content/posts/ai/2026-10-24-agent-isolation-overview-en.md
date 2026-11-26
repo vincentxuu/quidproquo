@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-24-agent-isolation-overview)
+> :globe: [中文版](/posts/ai/2026-10-24-agent-isolation-overview)
 
 Product pages for coding agents, code interpreters, and cloud sandboxes many say the code "runs in an isolated environment." That sentence leaves out three things: what is isolated, which layer does the isolating, and what is still shared.
 

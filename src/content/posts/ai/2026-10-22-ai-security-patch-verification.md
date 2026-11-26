@@ -14,7 +14,7 @@ series:
   order: 18
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-patch-verification-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-patch-verification-en)
 
 AI 替 F-17 補上租戶檢查，跨公司的測試失敗了，看起來修好了。可是 Alice 讀 Bob 的 N-2 仍成功。另一個建議更乾脆：全部回 403。漏洞確實不能利用，客服也不能工作了。
 

@@ -10,7 +10,7 @@ description: "A practical Serper Search API guide covering requests, result shap
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-serper-search-api-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-serper-search-api-guide)
 
 [Serper](https://serper.dev/) is a third-party Google SERP API. Your application sends a query to Serper; Serper obtains the Google Search Engine Results Page and turns organic results, the knowledge graph, People Also Ask, and other page sections into JSON.
 

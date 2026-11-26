@@ -15,7 +15,7 @@ glossary:
     def: "BreezeBlue's family of real-time interactive text-to-speech models, built around voice design, voice direction, and low-latency streaming"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2)
+> :globe: [中文版](/posts/daily/2026-08-30-model-breezeblue-breeze-tts-2)
 
 ## Model Information
 
@@ -51,7 +51,7 @@ glossary:
 | TTS Voice Direction Benchmark | 4.25 | MiMo-v2.5-TTS: 3.76 | BreezeBlue's own open-sourced benchmark; SPK_SIM 0.67 |
 | Throughput (characters/second) | 45 | Fish Audio S2 Pro: 102 | Breeze TTS 2's throughput is less than half of the competitor's |
 
-⚠️ Provider Voices / Controlled Voices Elo scores come from Artificial Analysis, an independent third-party blind arena, and carry higher confidence. The Voice Design / Voice Direction / Latency benchmarks are BreezeBlue's own — but with open-sourced evaluation code, not a black-box self-report — though they haven't yet seen large-scale independent reproduction. Throughput figures are sourced from AlphaSignal's reporting on Artificial Analysis data.
+:warning: Provider Voices / Controlled Voices Elo scores come from Artificial Analysis, an independent third-party blind arena, and carry higher confidence. The Voice Design / Voice Direction / Latency benchmarks are BreezeBlue's own — but with open-sourced evaluation code, not a black-box self-report — though they haven't yet seen large-scale independent reproduction. Throughput figures are sourced from AlphaSignal's reporting on Artificial Analysis data.
 
 ## Comparison with Predecessor/Competitors
 

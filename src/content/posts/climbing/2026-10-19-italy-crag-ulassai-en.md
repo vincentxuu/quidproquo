@@ -13,7 +13,7 @@ description: "A guide to climbing at Ulassai and Jerzu: the scale of the limesto
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-ulassai)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-ulassai)
 
 Ulassai and Jerzu are two villages about 5 km apart in the Ogliastra hills of eastern Sardinia, surrounded by the flat-topped limestone tablelands known locally as "tacchi". The local climbing association Climbing Sardinia opens its [Ulassai & Jerzu area page](https://climbingitaly.com/area/ulassai/) with: "Ulassai and Jerzu are the most popular climbing destination in Sardinia during the summer".
 

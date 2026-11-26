@@ -21,7 +21,6 @@ const PRESET_MODELS: Record<string, string[]> = {
     '@cf/qwen/qwen2.5-coder-32b-instruct',
   ],
   nvidia: ['meta/llama-4-scout-17b-16e-instruct', 'deepseek-ai/deepseek-r1', 'nvidia/llama-3.3-nemotron-super-49b-v1'],
-  cerebras: ['llama-4-scout-17b-16e-instruct', 'qwen-3-32b'],
   openrouter: ['openrouter/auto'],
   opencode: ['deepseek-v4-0324', 'qwen-3-32b', 'llama-4-maverick'],
   ollama_cloud: ['llama3.3', 'qwen2.5-72b'],
@@ -198,14 +197,6 @@ async function fetchProviderModels(provider: string, envFallbacks: Partial<Recor
     return fetchOpenAiLikeModels(
       'https://integrate.api.nvidia.com/v1/models',
       envFallbacks.NVIDIA_API_KEY,
-      provider,
-    )
-  }
-
-  if (provider === 'cerebras') {
-    return fetchOpenAiLikeModels(
-      'https://api.cerebras.ai/v1/models',
-      envFallbacks.CEREBRAS_API_KEY,
       provider,
     )
   }

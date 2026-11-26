@@ -13,7 +13,7 @@ description: "A guide to Stanford CS336 Spring 2026 Lecture 4: linear attention,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cs336-attention-moe)
+> :globe: [中文版](/posts/ai/2026-08-22-cs336-attention-moe)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

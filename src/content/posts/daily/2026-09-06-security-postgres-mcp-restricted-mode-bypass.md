@@ -12,7 +12,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass-en)
+> :globe: [English version](/posts/daily/2026-09-06-security-postgres-mcp-restricted-mode-bypass-en)
 
 ## 事件概述
 
@@ -54,7 +54,7 @@ series:
 
 ## 影響範圍
 
-這起事件的時間線本身就是一個警訊:研究者 6 月 6 日就已透過 GitHub Issue 公開回報(廠商的安全信箱 `info@crystaldba.ai` 早已無法送達,GitHub Security Advisory 功能也未啟用,研究者別無選擇只能公開發問題),CVE 卻拖到 9 月 4 日才正式編號公開,中間有近三個月的時間,這個漏洞雖然技術細節已公開在 GitHub 上,卻沒有正式的 CVE 追蹤與修補壓力。截至本文撰寫時間,`crystaldba/postgres-mcp` 倉庫仍未發布修補版本。根據 [cryptorank.io 引用的產業報告](https://cryptorank.io/news/feed/4624f-postgres-mcp-pro-restricted-mode-bypass-exposes-the-gap-in-ai-database-security)(⚠️ 單一來源，規模數據待其他管道交叉驗證),MCP 生態圈整體已有超過 1 萬個公開伺服器與每月近億次 SDK 下載量,這起事件是同一批「AI 資料庫中介層安全模型跟不上採用速度」問題裡的一個具體案例。
+這起事件的時間線本身就是一個警訊:研究者 6 月 6 日就已透過 GitHub Issue 公開回報(廠商的安全信箱 `info@crystaldba.ai` 早已無法送達,GitHub Security Advisory 功能也未啟用,研究者別無選擇只能公開發問題),CVE 卻拖到 9 月 4 日才正式編號公開,中間有近三個月的時間,這個漏洞雖然技術細節已公開在 GitHub 上,卻沒有正式的 CVE 追蹤與修補壓力。截至本文撰寫時間,`crystaldba/postgres-mcp` 倉庫仍未發布修補版本。根據 [cryptorank.io 引用的產業報告](https://cryptorank.io/news/feed/4624f-postgres-mcp-pro-restricted-mode-bypass-exposes-the-gap-in-ai-database-security)(:warning: 單一來源，規模數據待其他管道交叉驗證),MCP 生態圈整體已有超過 1 萬個公開伺服器與每月近億次 SDK 下載量,這起事件是同一批「AI 資料庫中介層安全模型跟不上採用速度」問題裡的一個具體案例。
 
 如果你的 agent 系統把 `postgres-mcp` 接到生產資料庫,且連線角色權限沒有收斂到最小必要範圍,這起事件代表限制模式提供的保護目前形同虛設。由於漏洞細節與可重現的技術報告已經完全公開超過三個月,任何知道這個弱點的人都能直接套用,不需要再自行研究。
 

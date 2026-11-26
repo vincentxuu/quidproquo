@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-06-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-06-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -58,7 +58,7 @@ Agent 記憶研究長期被分成兩條線：長期記憶（怎麼存）和短�
 ### 深入要點
 
 - Qwen2.5-7B 上：ALFWorld 46.3%、SciWorld 43.4%、BabyAI 65.6%、HotpotQA 62.8%
-- 比最強基線 AgeMem 平均高 5-8 分 ⚠️（作者自測，需等外部複現）
+- 比最強基線 AgeMem 平均高 5-8 分 :warning:（作者自測，需等外部複現）
 - Qwen3-4B 上同樣領先，HotpotQA 達 63.6%（AgeMem 55.5%）
 - 效率面：在受控 token 預算下達到最強的效率-效能前沿
 - 只在 HotpotQA 訓練集微調，直接遷移到 ALFWorld、SciWorld、PDDL、BabyAI
@@ -105,7 +105,7 @@ Mayur Akewar, Ravi Ranjan（Florida International University）　·　arxiv: 26
 ### 深入要點
 
 - 單一世界推理：不安全行動率 41.2%，任務成功率 58.8%
-- SafeCommit（含探測）：UCR 2.6%，任務成功率 97.4%，平均僅 0.55 次探測 ⚠️（受控模擬器結果，非真實 LLM Agent 部署）
+- SafeCommit（含探測）：UCR 2.6%，任務成功率 97.4%，平均僅 0.55 次探測 :warning:（受控模擬器結果，非真實 LLM Agent 部署）
 - 四種記憶失敗模式都測了：過時(1.2%)、衝突(1.2%)、中毒(3.9%)、授權漂移(3.5%)
 - 探測預算消融：0 次探測時任務完成率僅 44.7%，1 次就跳到 95.1%
 - α 調控：1% 目標 → UCR 0.6%；5% → 2.6%；10% → 4.8%，提供可調的安全-效用前沿
@@ -152,7 +152,7 @@ LLM Agent 的工具規劃目前有兩條路線：直接靠 LLM 從工具描述�
 ### 深入要點
 
 - ID 基準（HuggingFace、Multimedia）：比最強基線高 1.4-1.5 分
-- OOD 基準（DailyLifeAPIs、Seal-Tools、ToolAlpaca）：比最強基線高 3.2-4.9 分 ⚠️（作者自測）
+- OOD 基準（DailyLifeAPIs、Seal-Tools、ToolAlpaca）：比最強基線高 3.2-4.9 分 :warning:（作者自測）
 - 稀有工具組增益最大——Multimedia 上稀有工具準確率比 Tool-graph 高 2.8 分
 - 中長鏈任務（3-4 步）受益最明顯，短鏈改善空間有限
 - 用 Qwen2.5-7B 和 Llama-3.1-8B 兩個骨幹都驗證了一致性

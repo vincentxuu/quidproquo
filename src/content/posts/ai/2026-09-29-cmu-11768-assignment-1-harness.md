@@ -29,7 +29,7 @@ glossary:
     context: "A1 Part 3 的 run_python 讓棋局搜尋可以一次跑完數百次 simulate_move。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
+> :globe: [English version](/posts/ai/2026-09-29-cmu-11768-assignment-1-harness-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 
@@ -224,11 +224,12 @@ starter 已經幫你做好一件事：工具輸出超過 10,000 字元時，保�
 
 - [cmu-11-768-ai-agents — official course materials and recording index](https://www.cmu-agents.com/#/schedule)
 
-查核日期：2026-10-10。
+查核日期：2026-11-09。
 
 ## 更新紀錄
 
 - 2026-10-10：標註影片狀態，核對錄影來源與取得方式。
+- 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 
 ## 參考資料
 

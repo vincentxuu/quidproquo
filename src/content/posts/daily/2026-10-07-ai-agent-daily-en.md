@@ -12,7 +12,7 @@ series:
   order: 53
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-07-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-07-ai-agent-daily)
 
 ## The One-Line Verdict
 
@@ -24,7 +24,7 @@ I think the thing worth connecting today isn't which model scores higher — it'
 
 Evidence A: DeepSeek originally planned to raise $7.5B; investor demand pushed the round past $12B, led by Tencent and battery giant CATL, with the company planning a 2027 restructuring and IPO. The same day, Moonshot AI (Kimi) closed its final private round at a $50B valuation — up from $31.5B this summer — lining up a Hong Kong IPO in early 2027 for up to $5B. Kuaishou's video model Kling is also reportedly shopping banks for a Hong Kong IPO north of $1B. Three Chinese AI companies converging on capital markets in the same window, at a scale beyond any previous round.
 
-Evidence B: on that same day, Mistral unveiled a 1-trillion-parameter open-weight model, Large 4 ("Le Chonk"), with official language claiming it "catches up to the strongest open-weight models outside China" on cyber, coding, finance and multimodal tasks. That phrasing is itself the signal — Mistral isn't benchmarking itself against Llama or other Western open models; it's placing Chinese models at the top and defining its own target as "strongest besides that." Cohere's enterprise agentic platform North 2, launched the same day, leans on governance and persistent memory rather than competing head-on on raw open-weight scores — in its own way, also a step sideways from that fight.
+Evidence B: on that same day, Mistral unveiled a 1-trillion-parameter open-weight model, Large 4 ("Le Chonk"), with official language claiming it "catches up to the strongest open-weight models outside China" on cyber, coding, finance and multimodal tasks. That phrasing is itself the signal — Mistral isn't benchmarking itself against Llama or other Western open models; it's placing Chinese models at the top and defining its own target as "strongest besides that." Cohere's enterprise agentic platform North 2, launched the day before (October 5), leans on governance and persistent memory rather than competing head-on on raw open-weight scores — in its own way, also a step sideways from that fight.
 
 What this means for practitioners: as long as Chinese labs' capital base keeps funding an ever-larger cadence of open-weight releases, the open-weight reference point keeps drifting toward them. For Taiwanese enterprises, this isn't just a "which model is cheaper and better" choice — self-hosting a Chinese open-weight model also means weighing data sovereignty, supply-chain scrutiny, and precedents like Artex AI being used to breach South Korean banks (see Security below) as part of procurement, not something discovered only after the fact.
 
@@ -106,17 +106,17 @@ Three vertical AI agent funding rounds also landed the same day: Dutch pentestin
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest-en)
-- 📄 [Framework Update｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
-- 📄 [Security Alert｜Protocol Pivoting Cross-Protocol Attack](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
-- 📄 [Funding Brief｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian-en)
-- 📄 [Funding Brief｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena-en)
-- 📄 [Funding Brief｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci-en)
-- 📄 [Pricing Watch｜Anthropic Expands Startup Program](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
-- 📄 [Tool Pick｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
-- 📄 [AI Engineer Interview Prep — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-07](/posts/daily/2026-10-07-ai-agent-github-digest-en)
+- :file: [Framework Update｜Inngest v1.46.0](/posts/daily/2026-10-07-framework-inngest-1.46.0-en)
+- :file: [Security Alert｜Protocol Pivoting Cross-Protocol Attack](/posts/daily/2026-10-07-security-mcp-protocol-pivoting-ssrf-en)
+- :file: [Funding Brief｜Hadrian Series B $40M](/posts/daily/2026-10-07-funding-hadrian-en)
+- :file: [Funding Brief｜Siena Series A $17M](/posts/daily/2026-10-07-funding-siena-en)
+- :file: [Funding Brief｜Vinci Series B $250M](/posts/daily/2026-10-07-funding-vinci-en)
+- :file: [Pricing Watch｜Anthropic Expands Startup Program](/posts/daily/2026-10-07-pricing-anthropic-claude-startups-program-expansion-en)
+- :file: [Tool Pick｜SpecStory CLI](/posts/daily/2026-10-07-tool-specstory-cli)
+- :file: [AI Engineer Interview Prep — 2026-10-07](/posts/daily/2026-10-07-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-07](/posts/daily/2026-10-07-product-builder-interview-daily-en)
 
 ## Tomorrow's Watch
 

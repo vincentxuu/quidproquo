@@ -13,7 +13,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first)
+> :globe: [中文版](/posts/ai/2026-04-21-openai-harness-engineering-codex-agent-first)
 
 OpenAI engineer Ryan Lopopolo published a firsthand report in early 2026 describing how their internal team built a complete product using Codex: a 3-person team, 5 months, 0 lines of hand-written code, approximately 1 million lines of code produced, averaging 3.5 PRs merged per person per day. This wasn't a proof of concept — it was a real product that shipped. This article distills their core understanding of the agent-first development model from that experience.
 
@@ -87,7 +87,7 @@ For teams wanting to adopt this approach, the most important preparation isn't c
 
 ## References
 
-- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/de-DE/index/harness-engineering/) — Ryan Lopopolo, OpenAI (Feb 11, 2026)
+- [Harness engineering: leveraging Codex in an agent-first world](https://openai.com/index/harness-engineering/) — Ryan Lopopolo, OpenAI (Feb 11, 2026)
 - [OpenAI Codex CLI — Harness Engineering and AGENTS.md agent-first development foundation](https://github.com/openai/codex)
 - [OpenAI introduces Codex: Agentic Coding and agent-first engineering model](https://openai.com/index/introducing-codex/)
 - [Unrolling the Codex agent loop — Technical details of the Codex Harness Engineering agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/)

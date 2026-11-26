@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-cmoney-content-tool-community)
+> :globe: [中文版](/posts/product/2026-09-17-cmoney-content-tool-community)
 
 Imagine a free investing study group. Members exchange notes, discuss unusual stocks, and follow teachers they trust. Next door is not a ticket booth but a tool shop selling market screens, stock-picking apps, courses, and research systems.
 

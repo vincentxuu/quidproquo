@@ -12,7 +12,7 @@ series:
   order: 114
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-30-funding-serval)
+> :globe: [中文版](/posts/daily/2026-10-30-funding-serval)
 
 ## Funding Details
 
@@ -53,7 +53,7 @@ title: Serval's valuation climb, Aug 2025 to Oct 2026
 desc: Serval's valuation rose from $232M in August 2025 to $1B at its December Series B, then to $3B at its October 2026 Series C — roughly a 13x increase in 14 months.
 caption: Valuation figures compiled from Crypto Briefing, citybiz, and Dealroom reporting; axis starts at 0, each gridline = $1B.
 ---
-<svg viewBox="0 0 640 348">
+<svg viewBox="0 0 640 360">
   <text class="dg-small" x="64" y="32" dominant-baseline="central">Valuation (US$M)</text>
   <line class="dg-grid" x1="72" y1="220" x2="612" y2="220"/>
   <line class="dg-grid" x1="72" y1="140" x2="612" y2="140"/>
@@ -74,9 +74,9 @@ caption: Valuation figures compiled from Crypto Briefing, citybiz, and Dealroom 
 
   <text class="dg-sub" x="180" y="316" text-anchor="middle" dominant-baseline="central">2025/08</text>
   <text class="dg-sub" x="320" y="316" text-anchor="middle" dominant-baseline="central">2025/12</text>
-  <text class="dg-sub" x="320" y="332" text-anchor="middle" dominant-baseline="central">Series B</text>
+  <text class="dg-sub" x="320" y="338" text-anchor="middle" dominant-baseline="central">Series B</text>
   <text class="dg-label dg-text--accent" x="460" y="316" text-anchor="middle" dominant-baseline="central">2026/10</text>
-  <text class="dg-label dg-text--accent" x="460" y="332" text-anchor="middle" dominant-baseline="central">Series C</text>
+  <text class="dg-label dg-text--accent" x="460" y="338" text-anchor="middle" dominant-baseline="central">Series C</text>
 </svg>
 ```
 

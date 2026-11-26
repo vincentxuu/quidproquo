@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-teleport-infrastructure-access)
+> :globe: [中文版](/posts/tech/2026-08-22-teleport-infrastructure-access)
 
 [Teleport](https://goteleport.com/docs/core-concepts/) is not a generic VPN. It is an infrastructure access platform aware of SSH, Kubernetes, databases, web apps, Windows desktops, and cloud APIs. It replaces long-lived static credentials with short-lived certificates constrained by identities, roles, and resource labels, while collecting audit events and session recordings.
 

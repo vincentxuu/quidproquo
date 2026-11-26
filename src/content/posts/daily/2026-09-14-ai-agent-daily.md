@@ -140,11 +140,11 @@ Altman、Musk、Hassabis 同聲附議 Amodei 提出的獨立監督呼籲,同一�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-github-digest)
-- 📄 [模型卡｜Edge0-35B-A3B](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b)
-- 📄 [AI Engineer 面試日練 — 2026-09-14：ML Fundamentals](/posts/daily/2026-09-14-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-14：Product Sense](/posts/daily/2026-09-14-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-14](/posts/daily/2026-09-14-ai-agent-github-digest)
+- :file: [模型卡｜Edge0-35B-A3B](/posts/daily/2026-09-14-model-edge0-ai-edge0-35b-a3b)
+- :file: [AI Engineer 面試日練 — 2026-09-14：ML Fundamentals](/posts/daily/2026-09-14-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-14：Product Sense](/posts/daily/2026-09-14-product-builder-interview-daily)
 
 ## 明日關注
 

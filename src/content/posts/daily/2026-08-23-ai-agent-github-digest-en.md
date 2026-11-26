@@ -12,7 +12,7 @@ series:
   order: 8
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-23-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-23-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ Today's thread is "who ships faster than the vendor" — Bruno's community MCP s
 
 ## Trending Repos
 
-### CopilotKit/OpenBot ⭐ 2,289
+### CopilotKit/OpenBot ★ 2,289
 
 [GitHub](https://github.com/CopilotKit/OpenBot)　·　TypeScript　·　MIT
 
@@ -42,7 +42,7 @@ Today's thread is "who ships faster than the vendor" — Bruno's community MCP s
 
 ---
 
-### browser-use/macos-harness ⭐ 8 (just launched, growing)
+### browser-use/macos-harness ★ 8 (just launched, growing)
 
 [GitHub](https://github.com/browser-use/macos-harness)　·　Python　·　MIT
 
@@ -53,7 +53,7 @@ Today's thread is "who ships faster than the vendor" — Bruno's community MCP s
 
 ---
 
-### anomalyco/opencode (formerly sst/opencode) ⭐ ~199,000
+### anomalyco/opencode (formerly sst/opencode) ★ ~199,000
 
 [GitHub](https://github.com/anomalyco/opencode)　·　TypeScript
 

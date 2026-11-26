@@ -10,7 +10,7 @@ tldr: "HW8 connects states, actions, rewards, transitions, and value updates whi
 description: "The conceptual map and local validation strategy for CMU 10-301/601 Spring 2026 HW8 Reinforcement Learning."
 series: { name: "Reading CMU 10-301 Machine Learning", order: 8 }
 ---
-> 🌏 [中文版](/posts/learning/2026-08-22-cmu-10301-hw8-reinforcement-learning)
+> :globe: [中文版](/posts/learning/2026-08-22-cmu-10301-hw8-reinforcement-learning)
 
 The [official handout](https://www.cs.cmu.edu/~mgormley/courses/10601/homework/hw8.zip) is titled **Homework 8: Reinforcement Learning** and contains written plus programming work. Written sections cover synchronous/asynchronous value iteration, algorithm comparison and selection, a REINFORCE walkthrough, actor-critic/A2C, and empirical questions. Programming implements policy/value networks, n-step returns, policy/value losses, and A2C training for Atari Pong. The ZIP supplies `agent.py`, `environment.py`, `utils.py`, `test_runner.py`, and `requirements.txt`; this public bundle contains no reference output, while hidden tests remain on Gradescope.
 

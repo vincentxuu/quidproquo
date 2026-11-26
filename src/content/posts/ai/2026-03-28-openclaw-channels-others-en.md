@@ -13,7 +13,7 @@ description: "A tour of OpenClaw's remaining chat channels: Reef's agent-to-agen
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-channels-others)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-channels-others)
 
 Beyond the main and enterprise channels there is a long tail. Rather than walking through each one's setup, this article picks **the two that are mechanically different** and gives a status map for the rest.
 

@@ -12,7 +12,7 @@ series:
   order: 94
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-26-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-26-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Previous approaches to runtime intervention either called in a stronger expert m
 ### Deep Dive
 
 - Test environments: WebShop, ALFWorld, τ³-Retail, paired with three different actor models
-- All nine evaluation settings (3 environments × 3 actors) improved, outperforming baselines ⚠️ (author-reported, pending independent replication)
+- All nine evaluation settings (3 environments × 3 actors) improved, outperforming baselines :warning: (author-reported, pending independent replication)
 - Training data built from pairwise comparisons of "same-prefix counterfactual branches" — no need to label optimal solutions, only relative quality
 - Deployment prerequisite: requires the ability to generate same-prefix counterfactual branch data; this is challenging for real-world deployments without a replayable simulation environment
 - Framework fit: can serve as a lightweight "sidecar" comparator inside a LangGraph / AutoGen execution loop without rewriting actor logic
@@ -103,7 +103,7 @@ Agentic Search (letting the Agent autonomously decide when to retrieve and how t
 ### Deep Dive
 
 - Test scenarios: single-hop and multi-hop QA datasets
-- Results: simultaneously improved reasoning accuracy and "significantly reduced" unnecessary tool calls (the abstract reports qualitative conclusions without a single specific percentage) ⚠️ (author-reported, pending independent replication)
+- Results: simultaneously improved reasoning accuracy and "significantly reduced" unnecessary tool calls (the abstract reports qualitative conclusions without a single specific percentage) :warning: (author-reported, pending independent replication)
 - Core mechanisms: APS dynamically adjusts retrieval document count; ACI dynamically calibrates the confidence threshold during GRPO training
 - Deployment prerequisite: the team needs familiarity with the conformal prediction statistical toolkit and integration into an existing GRPO / RL pipeline
 - Framework fit: can be viewed as a plug-in trustworthiness layer for the RL fine-tuning pipeline of RAG / Agentic Search systems
@@ -147,7 +147,7 @@ Most Agent authorization today stops at the moment of "approving the request" (a
 
 ### Deep Dive
 
-- 210 Stripe vendor contract tests, all matching expected outcomes ⚠️ (author-reported, pending independent replication)
+- 210 Stripe vendor contract tests, all matching expected outcomes :warning: (author-reported, pending independent replication)
 - Two SaaS vendors, 40 "terminate-then-follow-up" schedules, 30 overlapping Stripe confirm/cancel race conditions, 10 Stripe crash-recovery schedules — all completed with no duplicate effects
 - Under the "fully compromised agent" assumption, all 44 attacks blocked while all 44 legitimate requests allowed through
 - Trade-off: strict exact-manifest mode reduces benign usability by 35.4–43.8 percentage points; the more relaxed Typed-3x mode completes 9–10 additional benign tasks over Exact-1x with no security incidents

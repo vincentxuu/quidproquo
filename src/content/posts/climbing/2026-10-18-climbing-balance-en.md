@@ -26,7 +26,7 @@ glossary:
     context: "Hooper's Beta uses the term to explain why hugging the wall too tightly while moving makes you swing off."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-climbing-balance)
+> :globe: [中文版](/posts/climbing/2026-10-18-climbing-balance)
 
 A few months into gym climbing, you have learned to watch your feet, but your arms still burn out halfway up. People around you say "three points of contact", "hips to the wall", "straight arms". You follow all three, and some moves get harder.
 

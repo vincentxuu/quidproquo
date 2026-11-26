@@ -12,7 +12,7 @@ series:
   order: 38
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-22-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-22-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -108,11 +108,11 @@ series:
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest)
-- 🛡️ [資安警報｜AWS AgentCore shell 工具憑證外洩 — 2026-09-22](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration)
-- 📄 [AI Engineer 面試日練 — 2026-09-22：Deep Learning & NLP](/posts/daily/2026-09-22-ai-interview-daily)
-- 📄 [Product Builder 面試日練 — 2026-09-22：Metrics & Analytics](/posts/daily/2026-09-22-product-builder-interview-daily)
+- :file: [AI Agent Arxiv Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-22](/posts/daily/2026-09-22-ai-agent-github-digest)
+- :shield: [資安警報｜AWS AgentCore shell 工具憑證外洩 — 2026-09-22](/posts/daily/2026-09-22-security-aws-agentcore-shell-credential-exfiltration)
+- :file: [AI Engineer 面試日練 — 2026-09-22：Deep Learning & NLP](/posts/daily/2026-09-22-ai-interview-daily)
+- :file: [Product Builder 面試日練 — 2026-09-22：Metrics & Analytics](/posts/daily/2026-09-22-product-builder-interview-daily)
 
 ## 明日關注
 

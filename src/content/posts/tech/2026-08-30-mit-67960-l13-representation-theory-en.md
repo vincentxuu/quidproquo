@@ -19,7 +19,7 @@ series:
   order: 18
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l13-representation-theory)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l13-representation-theory)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -26,7 +26,7 @@ glossary:
     context: "長庚楊智淵的生成式 AI 課程頁就是政大蔡炎龍主導課的衛星班頁面。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-09-30-taiwan-ai-course-map-en)
+> :globe: [English version](/posts/learning/2026-09-30-taiwan-ai-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

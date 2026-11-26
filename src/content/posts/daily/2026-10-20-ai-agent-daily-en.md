@@ -12,7 +12,7 @@ series:
   order: 66
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-20-ai-agent-daily)
+> :globe: [中文版](/posts/daily/2026-10-20-ai-agent-daily)
 
 ## Today's Take
 
@@ -116,14 +116,14 @@ Middle East (incl. Israel): Searched against the global regional matrix; no qual
 
 ## Today's Digests
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-github-digest-en)
-- 📄 [Security Alert | Fake Web3 Accelerator Hijacks AI Coding Agent Traffic via npm](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack-en)
-- 📄 [Funding Brief | Town Series B $108M](/posts/daily/2026-10-20-funding-town-en)
-- 📄 [Pricing Tracker | Vertex AI Retires Gemini 2.5 Today](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset-en)
-- 📄 [Tool of the Day | Audio Studio MCP](/posts/daily/2026-10-20-tool-audio-studio-mcp-en)
-- 📄 [AI Engineer Interview Prep — 2026-10-20](/posts/daily/2026-10-20-ai-interview-daily-en)
-- 📄 [Product Builder Interview Prep — 2026-10-20](/posts/daily/2026-10-20-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-20](/posts/daily/2026-10-20-ai-agent-github-digest-en)
+- :file: [Security Alert | Fake Web3 Accelerator Hijacks AI Coding Agent Traffic via npm](/posts/daily/2026-10-20-security-apex-accelerator-npm-mcp-hijack-en)
+- :file: [Funding Brief | Town Series B $108M](/posts/daily/2026-10-20-funding-town-en)
+- :file: [Pricing Tracker | Vertex AI Retires Gemini 2.5 Today](/posts/daily/2026-10-20-pricing-google-vertex-ai-gemini-2-5-sunset-en)
+- :file: [Tool of the Day | Audio Studio MCP](/posts/daily/2026-10-20-tool-audio-studio-mcp-en)
+- :file: [AI Engineer Interview Prep — 2026-10-20](/posts/daily/2026-10-20-ai-interview-daily-en)
+- :file: [Product Builder Interview Prep — 2026-10-20](/posts/daily/2026-10-20-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

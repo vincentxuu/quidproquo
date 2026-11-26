@@ -13,7 +13,7 @@ description: "Deep dive into pi-agent-core Harness System: AgentHarness Class Re
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-agent-harness)
+> :globe: [中文版](/posts/tech/2026-08-31-pi-mono-deep-dive-agent-harness)
 
 ## TL;DR
 

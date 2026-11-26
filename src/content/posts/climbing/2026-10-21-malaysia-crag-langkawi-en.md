@@ -13,7 +13,7 @@ description: "Langkawi climbing guide: the 20 routes and single Gua Batu Beach s
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-langkawi)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-langkawi)
 
 Langkawi is where most people go on holiday, but there is real climbing off its west coast: Pulau Tuba, a short boat ride from the jetty, has 20 limestone sport routes, and neighbouring Pulau Jong is deep-water bouldering. Both are **private land** — which is the first thing this article needs to make clear. These are not free wilderness crags; they are private sites you have to arrange permission for by phone.
 

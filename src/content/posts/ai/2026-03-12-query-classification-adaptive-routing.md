@@ -14,7 +14,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-query-classification-adaptive-routing-en)
+> :globe: [English version](/posts/ai/2026-03-12-query-classification-adaptive-routing-en)
 
 RAG 系統有個常見的浪費：每個查詢都走完整的向量搜尋 + LLM 生成流程，但很多查詢其實不需要這樣。
 

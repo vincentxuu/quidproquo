@@ -10,7 +10,7 @@ description: "Where the Gemini API CLI sits in the Gemini developer stack, how i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-24-gemini-api-cli-shell-agents)
+> :globe: [中文版](/posts/tech/2026-10-24-gemini-api-cli-shell-agents)
 
 The Gemini API CLI (command name `gemini-api`) is an [experimental preview](https://aistudio.google.com/learn/introducing-the-gemini-api-cli) Google released on October 19, 2026, currently at v0.4.x. It is a single binary written in Go that exposes Gemini's text models, image/speech/music/video generation, file analysis, and managed agents as shell commands.
 
@@ -43,16 +43,16 @@ caption: Simplified from Google's three-layer description. Antigravity belongs i
   <path class="dg-line" d="M290 216V284" marker-end="url(#arrow)"/>
 
   <rect class="dg-box" x="16" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="80" y="46" text-anchor="middle" dominant-baseline="central">App backend</text>
-  <text class="dg-sub" x="80" y="64" text-anchor="middle" dominant-baseline="central">Web apps, APIs</text>
+  <text class="dg-label" x="80" y="40" text-anchor="middle" dominant-baseline="central">App backend</text>
+  <text class="dg-sub" x="80" y="66" text-anchor="middle" dominant-baseline="central">Web apps, APIs</text>
 
   <rect class="dg-box" x="156" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="220" y="46" text-anchor="middle" dominant-baseline="central">Local tools</text>
-  <text class="dg-sub" x="220" y="64" text-anchor="middle" dominant-baseline="central">Plugins, scripts</text>
+  <text class="dg-label" x="220" y="40" text-anchor="middle" dominant-baseline="central">Local tools</text>
+  <text class="dg-sub" x="220" y="66" text-anchor="middle" dominant-baseline="central">Plugins, scripts</text>
 
   <rect class="dg-box" x="296" y="24" width="128" height="56" rx="6"/>
-  <text class="dg-label" x="360" y="46" text-anchor="middle" dominant-baseline="central">Coding agent</text>
-  <text class="dg-sub" x="360" y="64" text-anchor="middle" dominant-baseline="central">e.g. Claude Code</text>
+  <text class="dg-label" x="360" y="40" text-anchor="middle" dominant-baseline="central">Coding agent</text>
+  <text class="dg-sub" x="360" y="66" text-anchor="middle" dominant-baseline="central">e.g. Claude Code</text>
 
   <rect class="dg-box" x="16" y="152" width="128" height="64" rx="6"/>
   <text class="dg-label" x="80" y="176" text-anchor="middle" dominant-baseline="central">Gen AI SDK</text>

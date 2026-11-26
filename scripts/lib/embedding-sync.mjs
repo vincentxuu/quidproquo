@@ -35,13 +35,14 @@ export async function runEmbeddingSync({
         failure = error
       }
       const resourceLimit = response?.status === 503 && /1102|Worker exceeded resource limits/i.test(text)
-      const transient = failure || [429, 502, 503, 504].includes(response?.status)
+      const transient = failure || [429, 500, 502, 503, 504].includes(response?.status)
       if (!failure && response.ok) {
         try { payload = JSON.parse(text) } catch { throw new Error('Embedding sync returned invalid JSON') }
         break
       }
       const status = response ? `HTTP ${response.status}` : 'network/timeout failure'
-      const detail = `${status}${resourceLimit ? ' (Worker resource limit)' : ''}; limit=${currentLimit}`
+      const body = text.replace(/\s+/g, ' ').trim().slice(0, 300)
+      const detail = `${status}${resourceLimit ? ' (Worker resource limit)' : ''}; limit=${currentLimit}${body ? `; body=${body}` : ''}`
       // A failed response may follow a committed reset. Retrying full=true could
       // erase checkpoints again, so operators must resume incrementally instead.
       if (reset) throw new Error(`Full rebuild response failed: ${detail}. Reset outcome is unknown; inspect state and resume without --full.`)

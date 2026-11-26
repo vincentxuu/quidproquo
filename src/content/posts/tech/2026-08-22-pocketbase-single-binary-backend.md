@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-pocketbase-single-binary-backend-en)
+> :globe: [English version](/posts/tech/2026-08-22-pocketbase-single-binary-backend-en)
 
 [PocketBase](https://pocketbase.io/docs/) 是一個小型 Go executable，內含 SQLite、REST-ish API、Auth、file storage、SSE realtime 與 admin dashboard，也能當 Go framework 或用 JavaScript hooks 擴充。它把「一個產品後端」壓到一個 process 和 `pb_data`，非常適合原型與單機服務。
 

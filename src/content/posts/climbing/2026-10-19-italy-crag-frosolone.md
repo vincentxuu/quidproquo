@@ -13,7 +13,7 @@ description: "弗羅索洛內（Frosolone）Colle dell'Orso／Morgia Quadra 岩�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-italy-crag-frosolone-en)
+> :globe: [English version](/posts/climbing/2026-10-19-italy-crag-frosolone-en)
 
 弗羅索洛內（Frosolone）是莫利塞（Molise）大區 Isernia 省的山村。村外的 Colle dell'Orso（熊丘）高原上，散著一群灰色石灰岩巨岩，其中最大的叫 Morgia Quadra。攀岩者講「Frosolone」「Colle dell'Orso」「Morgia Quadra」，指的都是這裡。[Planetmountain](https://www.planetmountain.com/it/falesie/colle-dell-orso.html) 稱它「storicamente la più importante del Molise」（莫利塞歷史上最重要的岩場）。
 

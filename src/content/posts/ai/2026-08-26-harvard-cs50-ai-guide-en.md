@@ -13,7 +13,7 @@ description: "Course overview of Harvard CS50's Introduction to Artificial Intel
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-26-harvard-cs50-ai-guide)
+> :globe: [中文版](/posts/ai/2026-08-26-harvard-cs50-ai-guide)
 
 **Video status: Videos included.** Runtime 1:53. It is the first video in the official playlist: a short course introduction that previews the topics of the seven weeks. It is not any week's lecture and has no subtitle track, so this post paraphrases it from a machine transcript; each of the seven lecture recordings is embedded in that week's guide, with time links in every section. [Source details](#course-video-sources)
 

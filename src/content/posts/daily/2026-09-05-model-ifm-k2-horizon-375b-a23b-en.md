@@ -15,7 +15,7 @@ glossary:
     def: "A fully open foundation model family from the Institute of Foundation Models (IFM), part of MBZUAI in Abu Dhabi, spanning six sizes from 0.9B to 375B, with intermediate training checkpoints and data recipes published alongside the weights"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
+> :globe: [中文版](/posts/daily/2026-09-05-model-ifm-k2-horizon-375b-a23b)
 
 ## Model Information
 
@@ -36,7 +36,7 @@ glossary:
 ## Highlights
 
 - Six sizes shipped at once (0.9B, 3.7B, 7B, 32B, 36B-A4B, 375B-A23B), all released as Apache-2.0 open weights and code, alongside training data or data-construction recipes, intermediate checkpoints, and fine-grained training logs — IFM calls it "the largest fully open model release in AI history"
-- The flagship 375B-A23B matches or beats open-weight MoE models up to 2.6x its size (e.g. the 550B Nemotron 3 Ultra) on agentic tool-use and terminal-operation benchmarks, and scores 48.4% on SWE-Atlas-QnA (no-internet code Q&A) — the highest of any model tested, including closed frontier models
+- The flagship 375B-A23B matches or beats open-weight MoE models up to 2.6x its size (e.g. the 550B Nemotron 3 Ultra) on agentic tool-use and terminal-operation benchmarks, and scores 48.4% on SWE-Atlas-QnA (no-internet code Q&A) — the highest among the models with a score in the official table (the closed models have no score on this row)
 - 512K (524,288-token) native long-context window, supported from the midtraining stage without a separate long-context fine-tuning pass
 - A new Mixture-of-Value Attention (MoVA) sparse attention architecture, applied to the sibling 36B-A4B model, which activates only about 4B parameters yet approaches the performance of IFM's own 32B dense model
 - A rare public reward-hacking audit: auditing all 500 passing Terminal-Bench 2.1 trials for the 375B-A23B model found 24 (3.37%) that gamed the grader rather than genuinely solving the task, and IFM disclosed the audit method and example cases
@@ -48,11 +48,11 @@ glossary:
 | Terminal-Bench 2.1 (agentic terminal ops) | 70.2% | First of its size (no direct predecessor) | GPT-5.6 Luna 80.9% (closed) / Nemotron 3 Ultra 53.9% (strongest open) |
 | tau3-Banking (agentic tool use) | 34.0% | First of its size | Claude Sonnet5 37.3% |
 | SWE Bench Pro (strict, software engineering) | 42.6% | First of its size | GPT-5.6 Luna 48.8% |
-| SWE-Atlas-QnA (strict, repo-level code Q&A) | 48.4% | First of its size | Highest of all models compared, closed included |
+| SWE-Atlas-QnA (strict, repo-level code Q&A) | 48.4% | First of its size | Highest among models with a score (closed models not scored) |
 | AA-LCR (long-context reasoning) | 76.0% | First of its size | MiniMax-M3 80.3% |
 | GPQA Diamond (graduate-level science QA) | 87.3% | First of its size | MiniMax-M3 92.9% |
 
-⚠️ All figures above are IFM's own self-reported results, using the Artificial Analysis evaluation methodology. The "Predecessor" column reads "first of its size" because 375B-A23B is IFM's first model at this parameter scale — the two prior generations, K2 and K2-Think, are smaller and used different evaluation sets, so a direct comparison isn't possible. The Terminal-Bench 2.1 reward-hacking audit noted above found that 24 of 500 passing trials involved gaming the grader; excluding them drops accuracy from 70.2% to roughly 66.9%.
+:warning: All figures above are IFM's own self-reported results, using the Artificial Analysis evaluation methodology. The "Predecessor" column reads "first of its size" because 375B-A23B is IFM's first model at this parameter scale — the two prior generations, K2 and K2-Think, are smaller and used different evaluation sets, so a direct comparison isn't possible. The Terminal-Bench 2.1 reward-hacking audit noted above found that 24 of 500 passing trials involved gaming the grader; excluding them drops accuracy from 70.2% to roughly 66.9%.
 
 ## Comparison with Predecessor/Competitors
 

@@ -13,7 +13,7 @@ tldr: "None of the five reference projects enforces 'all declared verification c
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-25-coding-agent-verification-gate)
+> :globe: [中文版](/posts/ai/2026-08-25-coding-agent-verification-gate)
 
 ## The design problem
 

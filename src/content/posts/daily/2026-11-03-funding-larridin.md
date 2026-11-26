@@ -12,7 +12,7 @@ series:
   order: 120
 ---
 
-> 🌏 [English version](/posts/daily/2026-11-03-funding-larridin-en)
+> :globe: [English version](/posts/daily/2026-11-03-funding-larridin-en)
 
 ## 融資資訊
 

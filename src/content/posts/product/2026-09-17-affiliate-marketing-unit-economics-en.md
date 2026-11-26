@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-17-affiliate-marketing-unit-economics)
+> :globe: [中文版](/posts/product/2026-09-17-affiliate-marketing-unit-economics)
 
 Imagine a real-estate agent showing a buyer several homes. The agent did not build the properties and does not own the developer's checkout. The job is to understand the buyer, eliminate poor fits, and bring qualified demand to the seller. If a transaction closes, the agent receives a referral fee.
 

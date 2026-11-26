@@ -10,7 +10,7 @@ description: "A practical guide to CopilotKit's React frontend, Runtime, AG-UI e
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-copilotkit-agent-ui)
+> :globe: [中文版](/posts/tech/2026-08-22-copilotkit-agent-ui)
 
 [CopilotKit](https://docs.copilotkit.ai/) is a frontend stack for bringing AI agents into React applications. It includes ready-made interfaces such as `CopilotChat` and `CopilotSidebar`, but its defining job is deeper: expose agent state to the UI, offer callable application tools, render tool results, and ask a person to decide before a risky action continues.
 

@@ -17,7 +17,7 @@ glossary:
     def: "Recursive's in-house automated AI research system, which proposes ideas, implements them, runs experiments, and decides what to try next; the company says it drove nearly the entire Flint build pipeline — architecture search, quantization recipe, inference kernels"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-22-model-recursive-flint)
+> :globe: [中文版](/posts/daily/2026-10-22-model-recursive-flint)
 
 ## Model Overview
 
@@ -51,7 +51,7 @@ glossary:
 | Terminal-Bench 2.1 | 54.9% | First release | Same as above |
 | LiveCodeBench v6 | 80.3% | First release | Same as above |
 
-⚠️ All figures above are Recursive's own self-reported results from the model card and blog (temperature 1.0, top-p 0.95, top-k 20; agentic tasks averaged over at least 5 attempts, pass@1), with no independent third-party reproduction yet. In Recursive's aggregate ranking across six tests — Terminal-Bench 2.1, SWE-Bench Pro v2, SWE-Bench Verified, LiveCodeBench v6, IFBench, and IFEval — only Alibaba's Qwen3.8-27B (a dense model with all 27B parameters active) scored higher than Flint; Recursive's blog doesn't break out Qwen3.8-27B's individual per-benchmark scores.
+:warning: All figures above are Recursive's own self-reported results from the model card and blog (temperature 1.0, top-p 0.95, top-k 20; agentic tasks averaged over at least 5 attempts, pass@1), with no independent third-party reproduction yet. In Recursive's aggregate ranking across six tests — Terminal-Bench 2.1, SWE-Bench Pro v2, SWE-Bench Verified, LiveCodeBench v6, IFBench, and IFEval — only Alibaba's Qwen3.8-27B (a dense model with all 27B parameters active) scored higher than Flint; Recursive's blog doesn't break out Qwen3.8-27B's individual per-benchmark scores.
 
 ## Versus Predecessors and Competitors
 

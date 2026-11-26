@@ -12,7 +12,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-weekly-review-summarize-ai-en)
+> :globe: [English version](/posts/learning/2026-10-22-weekly-review-summarize-ai-en)
 
 剛開始整理筆記的第一個月，通常很順：收件匣每週清、資料夾照新規則放、連結也寫了理由。三個月後，收件匣又堆了兩百則，你已經想不起上次打開 MOC 是什麼時候。筆記系統最常見的結局不是壞掉，是被忘記。
 
@@ -104,7 +104,7 @@ Tiago Forte 的[漸進摘要（Progressive Summarization）](https://fortelabs.c
 
 [order 0](/posts/learning/2026-10-22-knowledge-base-three-readers) 的例子是一則個人筆記：「年假：問 HR，表單在 Slack 置頂」。對你自己，這一句就夠，因為你記得是哪個 HR、哪個頻道。把它搬到團隊 wiki，新同事讀到時，「我知道這是什麼意思」就不成立了：他不知道要找誰、哪個頻道，也不知道這是不是去年的規定。
 
-讀者從自己換成同事，前面五篇的四個問題都要重新回答一次：收什麼、怎麼組織、怎麼讓別人找到、誰來維護。這是團隊段要談的事，從 order 6〈團隊知識庫為什麼會爛掉，以及要寫哪幾種文件〉（撰寫中）開始。
+讀者從自己換成同事，前面五篇的四個問題都要重新回答一次：收什麼、怎麼組織、怎麼讓別人找到、誰來維護。這是團隊段要談的事，從 order 6〈團隊知識庫為什麼會爛掉，以及要寫哪幾種文件〉開始。
 
 ## 研究的限制
 

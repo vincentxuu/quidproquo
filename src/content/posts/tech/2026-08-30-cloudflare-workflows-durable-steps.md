@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-workflows-durable-steps-en)
 
 [Cloudflare Queues](/posts/tech/2026-08-22-cloudflare-queues) 把慢工作搬出 request path，但它處理的是「收到一件事，晚點處理」。當工作變成一串流程，問題就不一樣了：先讀 R2 檔案、產生 embedding、寫入 Vectorize、寄信、等人工審核、隔天再同步外部 API。你需要知道哪一步完成了、哪一步該重試、等人回來時要從哪裡繼續。
 
@@ -253,7 +253,7 @@ await step.do(
 
 ## 成本和限制
 
-Workflows 可用在 Workers Free 和 Paid plan，但 2026-08-10 起，官方文件列出 step 和 storage usage 會開始計費。它沿用 Workers Standard 的 request 和 CPU time 計價，另外還看 storage 與 steps。
+Workflows 可用在 Workers Free 和 Paid plan，step 和 storage usage 自 2026-08-10 起計費。它沿用 Workers Standard 的 request 和 CPU time 計價，另外還看 storage 與 steps。
 
 幾個設計上要先知道的限制：
 
@@ -262,7 +262,8 @@ Workflows 可用在 Workers Free 和 Paid plan，但 2026-08-10 起，官方文�
 - 每個 instance 可保存的總 state，Free 和 Paid 上限不同。
 - Free plan 每個 Workflow 最多 1,024 steps；Paid 預設 10,000 steps，可設定到 25,000。
 - `step.sleep()` 最長 365 天。
-- completed instance state 會保留一段時間；Free 和 Paid 保留期不同，也可以在 create instance 時縮短。
+- completed instance state 會保留一段時間：Free 3 天；Paid 預設 7 天（2026-09-10 起的新 Workflow，之前建立的仍預設 30 天），最多可設 30 天，也可以在 create instance 時縮短。
+- 同時執行的 instance 數受帳號上限管（Free 100、Paid 50,000），預設單一 Workflow 可以吃滿整個帳號的額度。2026-11-10 起可以在 workflow binding 加 `concurrency.limit` 替單一 Workflow 設上限，超過的 instance 會排隊；下游資料庫或第三方 API 扛不住並發時用它。
 - Workflows 目前不能部署到 Workers for Platforms namespaces。
 
 我的設計習慣是：payload 放 immutable pointer，結果放 R2/D1/Vectorize，Workflow state 放「足夠恢復流程」的摘要。不要把大型文件、模型完整輸出或長期審計資料塞成 step output；那會把 Workflows storage 當成資料湖用。
@@ -280,6 +281,10 @@ Workflows 可用在 Workers Free 和 Paid plan，但 2026-08-10 起，官方文�
 我不會用它取代所有 background-jobs。單步寄信、寫 log、批次 flush、短任務 fan-out，用 Queues 比較輕。需要同一個 user/session/entity 的同步鎖、WebSocket、即時狀態，Durable Objects 比較直接。需要既有 Postgres/MySQL 連線，Hyperdrive 是資料庫連線層，Workflows 只管流程。
 
 Cloudflare Workflows 的定位因此很實用：它不是另一個 queue，也不是把所有 business logic 變成 YAML。它讓你用 TypeScript 寫流程，同時把完成的 step、等待、retry、rollback 和 instance lifecycle 交給平台保管。
+
+## 更新紀錄
+
+- 2026-11-23：計費改為已生效的寫法；補上 completed instance 保留天數（Paid 預設改為 7 天）與 2026-11-10 起的單一 Workflow concurrency 上限
 
 ## 參考資料
 

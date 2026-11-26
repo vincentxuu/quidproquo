@@ -11,7 +11,7 @@ series:
   order: 69
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-23-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Two fairly heavyweight agent CLIs — hermes-agent and prime-agent — both ship
 
 ## Trending Repos
 
-### vercel/eve ⭐ 5,653
+### vercel/eve ★ 5,653
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ Two fairly heavyweight agent CLIs — hermes-agent and prime-agent — both ship
 
 ---
 
-### PrimeIntellect-ai/prime-agent ⭐ 22,266
+### PrimeIntellect-ai/prime-agent ★ 22,266
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Rust　·　MIT
 
@@ -41,7 +41,7 @@ Two fairly heavyweight agent CLIs — hermes-agent and prime-agent — both ship
 
 ---
 
-### NousResearch/hermes-agent ⭐ 256,186
+### NousResearch/hermes-agent ★ 256,186
 
 [GitHub](https://github.com/NousResearch/hermes-agent)　·　Python　·　MIT
 
@@ -52,7 +52,7 @@ Two fairly heavyweight agent CLIs — hermes-agent and prime-agent — both ship
 
 ---
 
-### mksglu/context-mode ⭐ 31,807
+### mksglu/context-mode ★ 31,807
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　ELv2 (Elastic License v2 — not fully open source; read the license terms before commercial use)
 

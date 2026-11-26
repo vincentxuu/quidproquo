@@ -13,7 +13,7 @@ description: "A complete reading guide to the OpenClaw open-source AI gateway do
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-overview)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-overview)
 
 OpenClaw is an open-source, self-hosted AI gateway — a single Gateway program that connects WhatsApp, Telegram, Discord, iMessage, and 24+ other chat platforms to an AI agent. Its documentation spans **16 directories and 335 files**, covering everything from installation to threat modeling. This article is the starting point for the entire series: get the big picture first, then decide where to dive in.
 
@@ -134,7 +134,7 @@ This series contains 32 articles organized into 12 sections. Below is a summary 
 
 | # | Title | What You'll Learn |
 |---|---|---|
-| 24 | Choosing Among Six Automation Mechanisms | Automations (exact) versus Heartbeat (contextual); failure semantics |
+| 24 | Choosing an Automation Mechanism | Picking by time, event or rule; monitoring after Heartbeat migrated into scheduled jobs; failure semantics |
 | 25 | Standing Orders | Authorization versus clock; bootstrap injects only six files |
 
 **Best for:** Anyone scheduling work or delegating routine tasks.
@@ -198,6 +198,7 @@ This series will break down every section in detail. Next up: installation.
 
 ## Changelog
 
+- 2026-11-20: Updated the part 24 summary (Heartbeat has migrated into scheduled jobs; no longer six mechanisms).
 - 2026-08-18 (second pass): After all 32 articles were revised against the current official docs, the series map was rebuilt — every title and focus line changed (for example #32 moved from "Pi integration architecture" to "Agent runtime architecture", since Pi has been absorbed into core), and the "Which Reader Are You?" routes were reordered with a new "I care about security" path.
 - 2026-08-18: Corrected the series map. The series was planned as 36 articles but landed at 32 — multi-gateway and background processes, the Gateway API, a standalone plugin-building guide, and the CLI quick-reference appendix were never published separately, with multi-gateway and plugin development folded into existing articles instead. Numbering from #26 onward, the section headings, and the "Which Reader Are You?" routes have all been realigned to the articles that actually exist.
 

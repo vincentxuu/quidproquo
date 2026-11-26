@@ -16,7 +16,7 @@ additionalSeries:
     order: 13
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-observability-analytics-engine)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-observability-analytics-engine)
 
 After moving a site or app to Cloudflare, the first question is usually how to run it. The next question appears quickly: where do you look when something breaks? Workers do not give you a machine to SSH into, and there is no traditional `/var/log` sitting on a VM. What you have is a distributed runtime: edge requests, binding calls, queue consumers, Durable Objects, Email handlers, AI Gateway calls, and R2/KV/D1 operations.
 

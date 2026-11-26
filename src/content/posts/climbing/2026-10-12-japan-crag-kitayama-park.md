@@ -13,7 +13,7 @@ description: "介紹兵庫縣西宮市北山公園的抱石區：岩質、題數
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-kitayama-park-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-kitayama-park-en)
 
 北山公園（きたやまこうえん，Kitayama Park；Mountain Project 寫作 Kitayama Boulders）位在兵庫縣西宮市，CLIMBING-net 歸在「六甲」區域。岩質是花崗岩，只有抱石，[ROCKTOPO](https://www.rocktopo.net/areas/146) 登錄 126 題，多數落在 7 級到 1 級之間。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E5%8C%97%E5%B1%B1%E5%85%AC%E5%9C%92/) 說這裡「1980年代初頭より登られ」，又因為「大阪、神戸から近く、交通の便も良く多くのクライマーに利用されてきた」。
 

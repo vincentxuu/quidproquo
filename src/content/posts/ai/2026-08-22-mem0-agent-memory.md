@@ -13,7 +13,7 @@ description: "從記憶抽取、分區、搜尋與刪除，到開源版和代管
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-mem0-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-08-22-mem0-agent-memory-en)
 
 [Mem0](https://docs.mem0.ai/platform/overview) 是 AI 應用程式的外接記憶層。它不替你執行 agent，也不是單純把完整對話塞進向量資料庫；它把互動轉成較短、可搜尋、可刪除的記憶，再於後續請求中取回相關項目。
 
@@ -57,7 +57,7 @@ result = memory.search(
 )
 ```
 
-這段採用目前 Platform v2 的 filter 形狀。Mem0 開源版與代管平台的 API 並非完全相同；照舊文章抄 `user_id` 到 `search()` 頂層，可能直接遇到 breaking change。
+這段採用目前 Platform API 的 filter 形狀（REST 端點是 `/v3/memories/search/`）。Mem0 開源版與代管平台的 API 並非完全相同；照舊文章抄 `user_id` 到 `search()` 頂層，可能直接遇到 breaking change。
 
 ## 開源版與 Platform 是兩條路
 
@@ -92,6 +92,10 @@ Mem0 適合保存偏好、人物關係、已確認的專案事實，以及跨 se
 ## 上線前的最小測試
 
 用同一位測試使用者寫入三組互相衝突的偏好，再逐次查詢：舊事實是否仍出現、結果有沒有來源與時間、刪除後是否還能被搜尋。接著換另一個 `user_id` 重問一次，確認結果為空。這組測試比 demo 裡「記住我喜歡披薩」更接近 production 風險。
+
+## 更新紀錄
+
+- 2026-11-23：Platform API 版本說明改為現行的 v3 REST 端點；範例的 `filters` 寫法仍與官方 Quickstart 一致
 
 ## 參考資料
 

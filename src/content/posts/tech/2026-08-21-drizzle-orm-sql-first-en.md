@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-21-drizzle-orm-sql-first)
+> :globe: [中文版](/posts/tech/2026-08-21-drizzle-orm-sql-first)
 
 This series keeps returning to one criterion: **when choosing a data access layer, optimize for auditability**. Agents will write queries for you, but you need to be able to read what they wrote in a diff and judge whether it's correct. Drizzle ORM's core value proposition sits squarely on this line — its query builder reads like SQL, not a separate DSL.
 
@@ -89,9 +89,9 @@ Drizzle has zero dependencies and weighs approximately 7.4 KB gzipped, purpose-b
 | MySQL | `mysql2` | Traditional servers |
 | SQLite | `better-sqlite3` | Local development |
 
-For this blog (running on Cloudflare Workers + D1), Drizzle is one of the few ORMs that can connect to D1 directly via Workers bindings — the setup is just `drizzle(env.DB)`, no HTTP proxy layer needed.
+For this blog (running on Cloudflare Workers + D1), Drizzle connects to D1 directly via Workers bindings — the setup is just `drizzle(env.DB)`, no HTTP proxy layer needed.
 
-Prisma also supports edge runtimes (via Prisma Accelerate), but requires routing through Prisma's proxy service. Drizzle goes through the binding directly with nothing in between.
+Since [Prisma 7.0 (2025-11)](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0), the Prisma client is a TypeScript implementation without the Rust engine, and every database connection goes through a driver adapter; for D1, `@prisma/adapter-d1` takes the Workers binding, with no Accelerate proxy required. That narrows the edge gap. The remaining difference is that Prisma still generates a client from the `.prisma` schema, while Drizzle has no codegen step.
 
 ## Schema Definition and Migrations
 
@@ -122,7 +122,7 @@ Turso, Neon, and Replit have embedded Drizzle Studio into their own services —
 
 ## The Honest Take on 0.x
 
-16.9 million weekly downloads, 35,500 GitHub stars — but the version is still 0.45.2, no 1.0. This is not a fact to ignore.
+16.9 million weekly downloads, 35,500 GitHub stars — but the version is still 0.45.2, no 1.0. This is not a fact to ignore. As of 2026-11, npm's `latest` is 0.45.4 and [1.0 has reached release candidate](https://www.npmjs.com/package/drizzle-orm?activeTab=versions) (the `rc` tag is 1.0.0-rc.6); the stable release has not shipped.
 
 **Practical impact**: 0.x means no guarantee of backward compatibility. Drizzle has a track record of breaking changes — `drizzle-kit`'s versioning is even decoupled from `drizzle-orm` (currently at 0.31.10), and the compatibility matrix between them requires attention. When upgrading a production project, you need to read the changelog.
 
@@ -139,9 +139,9 @@ This blog already has a dedicated [Prisma post](/posts/tech/2026-03-27-prisma-or
 | Design philosophy | SQL-first, stays close to SQL | Schema-first, custom query language |
 | Schema definition | TypeScript files | `.prisma` DSL |
 | Type safety | Inferred from TypeScript schema | Generated from `.prisma` via codegen |
-| Edge support | Direct bindings, zero intermediaries | Requires Prisma Accelerate proxy |
-| Bundle size | ~7.4 KB gzipped, zero deps | Larger (includes Rust engine) |
-| Version status | 0.45.2 (no 1.0) | 6.x (stable) |
+| Edge support | Direct bindings, zero intermediaries | Driver adapters since 7.0 (D1 via binding), no Accelerate required |
+| Bundle size | ~7.4 KB gzipped, zero deps | TypeScript client without the Rust engine since 7.0, about 90% smaller per Prisma; still needs codegen |
+| Version status | 0.45.x (1.0 in RC) | 7.x (stable; 8.0 in RC) |
 | Weekly downloads | 16.9M | 13.8M |
 
 **How to choose**: If your project runs on an edge runtime, you care about bundle size, or you want agent-written queries that you can audit with raw SQL knowledge — Drizzle is the better fit. If you need a mature migration toolchain, stable version commitments, or your team is already fluent in Prisma's mental model — Prisma remains a good choice. They are different trade-offs, not replacements.
@@ -162,7 +162,13 @@ Returning to this series' core theme, Drizzle has several concrete advantages fo
 
 Drizzle bets on a simple judgment: **SQL is the most stable API of the past 50 years — don't build another language on top of it**. This judgment has earned a bonus in the AI era — when your queries are written by agents, "the output looks just like SQL" shifts from a developer preference to an engineering requirement. Combined with zero dependencies, native edge support, and ecosystem validation from 16.9 million weekly downloads, Drizzle is an option that TypeScript projects in 2026 should seriously evaluate — provided you accept the 0.x version reality.
 
+## Update history
+
+- 2026-11-23: The comparison target Prisma moved to a TypeScript client without the Rust engine and to driver adapters for edge runtimes in 7.0 (2025-11); corrected the edge support, bundle size, and version status comparison, and noted that Drizzle 1.0 has reached release candidate.
+
 ## References
+
+- [Announcing Prisma 7](https://www.prisma.io/blog/announcing-prisma-orm-7-0-0)
 
 - [Drizzle ORM Official Docs](https://orm.drizzle.team/)
 - [Drizzle ORM GitHub](https://github.com/drizzle-team/drizzle-orm)

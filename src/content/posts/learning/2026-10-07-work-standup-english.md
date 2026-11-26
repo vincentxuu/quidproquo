@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-07-work-standup-english-en)
+> :globe: [English version](/posts/learning/2026-10-07-work-standup-english-en)
 
 英文口說練習區的「工作」情境原本只有兩句。這篇補上十句，範圍是軟體工程師在站立會議和日常協作裡會反覆做的四件事。這次的句子不是從某一段真實對話改出來的，是我先列出想說的中文，再逐句找字典依據。
 

@@ -14,7 +14,7 @@ series:
   order: 0
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-15-bug-bounty-how-it-works-en)
+> :globe: [English version](/posts/tech/2026-10-15-bug-bounty-how-it-works-en)
 
 這篇是 `從零開始的資安獵人` 系列的閱讀入口。整個系列共 15 篇（第 0–14 篇），沿著一條弧線排列：**先讀懂計畫規則與獎金表，再架好可重現的工作台，從網站漏洞（XSS、IDOR）走到 RCE，接著往下層的記憶體、緩衝區溢位、虛擬機逃脫與 TEE，最後回到 AI 產品漏洞獎金與獎金地圖查核，收尾是證照與練習地圖。**
 

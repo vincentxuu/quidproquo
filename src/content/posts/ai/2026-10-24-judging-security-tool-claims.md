@@ -13,7 +13,7 @@ description: "用 OWASP Agentic Top 10 與 LLM Top 10 2026 當共同詞彙，整
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-judging-security-tool-claims-en)
+> :globe: [English version](/posts/ai/2026-10-24-judging-security-tool-claims-en)
 
 這是系列的最後一篇，不介紹新的防護工具。前七篇每一類工具都附帶了一堆數字與宣稱，這一篇把拆解它們的問題整理成一份檢查表，並先交代共同使用的詞彙。前七篇的例子不夠用的地方，會補幾個新案例，每個在第一次出現時先用一句話說明它是什麼。
 

@@ -27,7 +27,7 @@ glossary:
     context: "林軒田基石第 16 堂的第三個學習原則。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles-en)
+> :globe: [English version](/posts/ai/2026-10-13-ntu-htlin-ml-foundations-16-three-learning-principles-en)
 
 **影片狀態：已附影片。** 這篇依官方 MOOC 講義 [16_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/16_handout.pdf) 與這堂四支官方影片的機器轉錄逐字稿寫成，公式以講義為準；逐字稿未經人工校對。每一節開頭附該節的官方影片與大致的時間區段。文中的頁碼指投影片右下角的編號（0/25 到 25/25），寫「課堂上」的地方是轉述影片裡的說法。
 

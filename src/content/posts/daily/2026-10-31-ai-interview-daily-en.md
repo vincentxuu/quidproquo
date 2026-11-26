@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-31-ai-interview-daily)
+> :globe: [中文版](/posts/daily/2026-10-31-ai-interview-daily)
 
 ## Today's Focus
 
@@ -38,7 +38,7 @@ desc: The five-level task chain forces later levels to depend on knowledge accum
 caption: The strongest system still clears only 47.7% of levels, and completes all five levels on just 23.3% of tasks; feedback plus revision raises the median completion rate by only 5.3 percentage points
 ---
 <svg viewBox="0 0 640 320">
-  <rect class="dg-zone" x="40" y="40" width="560" height="112" rx="8"/>
+  <rect class="dg-zone" x="40" y="40" width="560" height="136" rx="8"/>
   <text class="dg-tag" x="56" y="60" dominant-baseline="central">Task chain (5 levels)</text>
   <rect class="dg-box" x="64" y="84" width="88" height="52" rx="6"/>
   <text class="dg-label" x="108" y="110" text-anchor="middle" dominant-baseline="central">L1</text>
@@ -54,7 +54,7 @@ caption: The strongest system still clears only 47.7% of levels, and completes a
   <path class="dg-line" d="M264 110H284" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M376 110H396" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M488 110H508" marker-end="url(#arrow)"/>
-  <text class="dg-sub" x="332" y="66" text-anchor="middle" dominant-baseline="central">Each level reuses knowledge from the ones before it; unreached levels all count as failed</text>
+  <text class="dg-sub" x="320" y="156" text-anchor="middle" dominant-baseline="central">Each level reuses knowledge from the ones before it; unreached levels all count as failed</text>
 
   <rect class="dg-box" x="64" y="204" width="220" height="80" rx="6"/>
   <text class="dg-label" x="174" y="230" text-anchor="middle" dominant-baseline="central">Single submission</text>

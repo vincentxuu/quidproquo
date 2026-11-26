@@ -26,7 +26,7 @@ glossary:
     context: "MIT 6.5940 Lecture 23 slides, pages 41–42."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-course-summary-quantum-ml)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

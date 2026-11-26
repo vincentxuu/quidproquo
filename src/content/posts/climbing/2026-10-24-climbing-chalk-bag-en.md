@@ -29,7 +29,7 @@ glossary:
     context: "Some climbers clip their chalk bag to this loop with a carabiner instead of using the bag's belt."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-24-climbing-chalk-bag)
+> :globe: [中文版](/posts/climbing/2026-10-24-climbing-chalk-bag)
 
 A chalk bag is a small pouch of climbing chalk tied around your waist: when your hands get slippery mid-route, you reach in and chalk up. It's usually bought alongside your first shoes: renting one at a gym costs NT$80 a visit ([T-UP Wanhua price list](https://tupclimbing.tw/pricing/84), checked 2026-10-19), so if you go regularly, owning one pays off. The bigger, wide-mouthed version that sits on the floor is a chalk bucket, popular with boulderers.
 

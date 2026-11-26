@@ -13,7 +13,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-cloudflare-email-service-workers-en)
+> :globe: [English version](/posts/tech/2026-08-30-cloudflare-email-service-workers-en)
 
 產品一旦有註冊、登入、付款、通知、客服，就會碰到 email。你可以接 SendGrid、Postmark、SES，也可以自己管 SMTP。但如果你的 app 已經跑在 Workers 上，[Cloudflare Email Service](https://developers.cloudflare.com/email-service/) 的吸引力在於少一段外部 infra：HTTP request 進 Worker，資料寫 D1/R2/Queue，交易信直接從 Worker 送出；使用者寄到 `support@` 或 `orders@`，也能 route 到 Worker 做分類、轉寄或自動回覆。
 
@@ -139,7 +139,7 @@ Cloudflare Email Service 的限制會直接影響產品設計：
 
 - 一封信的 `to`、`cc`、`bcc` 合計最多 50 個收件人。
 - subject 最多 998 characters。
-- 一般 message size 上限 5 MiB；寄給 verified destination address 時可到 25 MiB。
+- 寄出的 message size（含附件）上限 25 MiB，不再區分是否寄給 verified destination address。
 - custom headers 合計 16 KB。
 - Routing rule 每個 domain 最多 200 條。
 - 每個 account 最多 200 個 destination addresses。
@@ -149,7 +149,7 @@ Cloudflare Email Service 的限制會直接影響產品設計：
 
 ## Pricing：不用猜，先看兩件事
 
-以 2026-06-09 的官方 pricing 頁面來看，Email Routing 在 Workers Free 和 Workers Paid 都可用，inbound emails unlimited。Email Sending 的任意收件人寄送需要 Workers Paid，包含每月 3,000 封 outbound emails，之後每 1,000 封 $0.35。
+依官方 [pricing 頁面](https://developers.cloudflare.com/email-service/platform/pricing/)，Email Routing 在 Workers Free 和 Workers Paid 都可用，inbound emails unlimited。Email Sending 的任意收件人寄送需要 Workers Paid，包含每月 3,000 封 outbound emails，之後每 1,000 封 $0.35。
 
 這裡有兩個容易誤解的點。
 
@@ -180,6 +180,10 @@ Email Service 的價值在這裡會比較清楚：它不是取代所有專業 em
 - 你需要已成熟的 deliverability tooling、專屬 IP、複雜 suppression/complaint workflow。
 
 這些場景用專門 email 平台比較實際。Cloudflare Email Service 比較像 Edge Platform 的 product email primitive：讓 Workers 產品能寄該寄的信、收該收的信，並把後續處理接回同一套 serverless 架構。
+
+## 更新紀錄
+
+- 2026-11-23：寄出 message size 上限改為一律 25 MiB（原為一般 5 MiB、verified destination 25 MiB）
 
 ## 參考資料
 

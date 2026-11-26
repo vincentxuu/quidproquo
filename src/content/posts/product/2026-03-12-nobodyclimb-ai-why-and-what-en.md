@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-🌏 [中文版](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what)
+:globe: [中文版](/posts/product/2026-03-12-nobodyclimb-ai-why-and-what)
 
 NobodyClimb is a Taiwanese climbing community platform. A few months ago, we added an AI Q&A feature. This post isn't about the technical implementation — it's about why this feature exists, how we decided to build it, and what happened after.
 

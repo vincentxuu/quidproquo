@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 45
 ---
-> 🌏 [中文版](/posts/daily/2026-07-08-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-08-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -127,7 +127,7 @@ This is the first paper to clearly articulate that "the bottleneck for enterpris
 - Ant Group's background means the paper's design accounts for high concurrency, compliance (trajectory de-identification), and other enterprise realities — more grounded than purely academic systems
 - Relevance to existing tools: LangSmith / Langfuse can be seen as early forms of the data proxy; AutoGen's conversation logging can serve as a foundation for the trajectory data protocol
 - This is v2 (2026-07-02), indicating community feedback has already prompted revisions — worth tracking future versions
-- Limitation: currently leans toward a "system design paper" without large-scale end-to-end experimental results; interactions and conflicts between the 5 update paths are not fully described **⚠️**
+- Limitation: currently leans toward a "system design paper" without large-scale end-to-end experimental results; interactions and conflicts between the 5 update paths are not fully described **:warning:**
 
 ### Reviewer's Take
 
@@ -152,7 +152,7 @@ On ComfyUI (a node-based image generation tool), an agent distills each executio
 
 ### Read Priority
 
-📖 Skim.
+:book: Skim.
 Interesting if you care about agent platform skill management mechanisms or are building domain-specific agentic workflows. For general agent interests, the abstract is sufficient.
 
 ### Background
@@ -177,12 +177,12 @@ This paper is a concrete demonstration of "skill evolution" in real image genera
 ### Deep Dive
 
 - Skill distillation takes three inputs: trajectories, execution errors, and verifier feedback — considering all three makes skills more robust
-- Across 4 benchmark splits, 3 agent models, and 2 image backbones, ComfyClaw achieves the best average evaluation score in all 6 agent configurations **⚠️** (internal evaluation, no independent external verification yet)
+- Across 4 benchmark splits, 3 agent models, and 2 image backbones, ComfyClaw achieves the best average evaluation score in all 6 agent configurations **:warning:** (internal evaluation, no independent external verification yet)
 - Human annotation experiments show annotators prefer ComfyClaw over versions without skill evolution, consistent with automatic metrics
 - The key to "progressive disclosure": skills are not all dumped on the agent at once, but dynamically selected based on task context, avoiding context explosion
 - Relevance to LangGraph: LangGraph's subgraph/node concepts can be seen as base units for a skill harness; ComfyClaw's skill library can be understood as a meta-layer that dynamically manages these nodes
 - Limitation: currently validated only in image generation; generalizability to code generation, data analysis, and other domains is unverified; verifier design relies on visual evaluation, requiring redesign for text-based tasks
-- The skill library's "cold start problem" (bootstrapping strategy when there's no execution history) receives limited attention in the paper **⚠️**
+- The skill library's "cold start problem" (bootstrapping strategy when there's no execution history) receives limited attention in the paper **:warning:**
 
 ### Reviewer's Take
 

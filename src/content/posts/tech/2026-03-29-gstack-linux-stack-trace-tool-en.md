@@ -10,7 +10,7 @@ description: "An introduction to Garry Tan's open-source gstack project: its des
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-03-29-gstack-linux-stack-trace-tool)
+> :globe: [中文版](/posts/tech/2026-03-29-gstack-linux-stack-trace-tool)
 
 Garry Tan (CEO of Y Combinator) claims to ship 10,000–20,000 lines of code per day using Claude Code — all while running YC full-time. He open-sourced his entire Claude Code setup under the name gstack. It has 54,000+ stars and an MIT license.
 

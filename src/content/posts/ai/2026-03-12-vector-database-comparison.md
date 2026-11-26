@@ -14,7 +14,7 @@ series:
   order: 8
 ---
 
-> 🌏 [English version](/posts/ai/2026-03-12-vector-database-comparison-en)
+> :globe: [English version](/posts/ai/2026-03-12-vector-database-comparison-en)
 
 向量資料庫是 RAG 系統的核心基礎設施。選型時，大多數人先看 benchmark（ANN 搜尋速度、recall@K），但實際上決定選哪個的通常是：**部署平台、規模需求、已有的tech stack**。
 

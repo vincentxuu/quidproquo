@@ -26,7 +26,7 @@ glossary:
     context: "World Climbing's class codes are B (visual), AL (lower limb), AU (upper limb) and RP (power, range of motion), four groups in all."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-kids-adaptive-climbing)
+> :globe: [中文版](/posts/climbing/2026-10-19-kids-adaptive-climbing)
 
 Weekend afternoons at the gym are busy: a row of kids in full-body harnesses on the wall, a row of parents filming on their phones. A rarer scene: a climber who can't see, moving up as someone on the ground calls out "two o'clock, a big hold".
 

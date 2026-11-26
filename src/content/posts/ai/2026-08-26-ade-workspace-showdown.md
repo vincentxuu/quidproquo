@@ -32,7 +32,7 @@ glossary:
         url: "https://www.ade-app.dev/docs/quickstart"
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-ade-workspace-showdown-en)
+> :globe: [English version](/posts/ai/2026-08-26-ade-workspace-showdown-en)
 
 上一篇把 [Omnigent](https://github.com/omnigent-ai/omnigent) 定位為 harness 之上的**控制面**——管接入、治理與跨裝置 Session；這篇把鏡頭轉回**工作台**。同樣掛著 ADE 名號的四個專案——[arul28/ADE](https://github.com/arul28/ADE)、[superset-sh/superset](https://github.com/superset-sh/superset)、[herdrdev/herdr](https://github.com/herdrdev/herdr) 與 [Kadro ADE](https://kadrotools.ai/ade)/[Orca](https://github.com/stablyai/orca)——做的都是「讓多個 agent 在同一台機器同一個 repo 裡並行、看得見、合得起來」，但抽象與取捨差很多。選對工作台，才不會把本該用 Lane 解決的衝突丟去用 Policy 硬擋。
 

@@ -13,7 +13,7 @@ series:
   order: 7
 ---
 
-> 🌏 [English version](/posts/film/2026-11-08-kdrama-action-survival-en)
+> :globe: [English version](/posts/film/2026-11-08-kdrama-action-survival-en)
 
 這篇收的是韓國的動作、生存與超能力劇：死亡遊戲、朝鮮殭屍、有超能力的高中生，還有用拳頭對抗霸凌的模範生。11 部都過了[〈各國影劇怎麼挑〉](/posts/film/2026-11-05-world-tv-drama-guide-overview)的門檻：七類推薦來源裡至少三類都推它，而且台灣有合法串流管道。韓劇和美劇在集數、播法上的差別，寫在[愛情篇](/posts/film/2026-11-08-kdrama-romance-fantasy)開頭。
 

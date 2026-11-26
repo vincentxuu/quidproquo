@@ -26,7 +26,7 @@ glossary:
     context: "2025 年起世界盃抱石：zone 10 分、完攀 25 分。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-competition-mindset-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-competition-mindset-en)
 
 你報名了第一場地區賽。平常在岩館爬得不錯，可是比賽那天，你要先在一個看不到牆的房間等一個多小時。被叫出去之後只有幾分鐘看路線，接著在一群人面前爬一次。爬完就結束，沒有第二次。
 

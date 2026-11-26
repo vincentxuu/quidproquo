@@ -8,7 +8,7 @@ lang: en
 description: "A deep dive into Agent Platform's core Flow Runtime subsystem: immutable FlowVersions, Step DAG execution, checkpoint persistence, resume and retry-step controls, and the actual structure of the Deep Research seed flow."
 tldr: "Flow Runtime is the heart of Agent Platform: a Flow becomes immutable when published, each Run is bound to a specific version and preset, Steps move through a DAG according to edge conditions, every boundary saves a checkpoint, and resume/retry-step preserves the complete trace history."
 ---
-> 🌏 [中文版](/posts/tech/2026-08-23-agent-platform-flow-runtime)
+> :globe: [中文版](/posts/tech/2026-08-23-agent-platform-flow-runtime)
 
 tags: ["ai-agent", "workflow", "flow-runtime", "checkpoint", "versioning", "agent-platform", "durable-execution", "step-dag"]
 ## TL;DR

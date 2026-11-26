@@ -27,7 +27,7 @@ glossary:
     context: "第 14 講第 47 頁，用 27 個視覺 token、5 個 query 的例子說明形狀變化。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-mit-65940-llm-post-training-en)
+> :globe: [English version](/posts/ai/2026-09-30-mit-65940-llm-post-training-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

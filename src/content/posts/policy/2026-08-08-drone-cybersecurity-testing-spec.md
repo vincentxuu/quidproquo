@@ -13,7 +13,7 @@ series:
   order: 24
 ---
 
-> 🌏 [English version](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
+> :globe: [English version](/posts/policy/2026-08-08-drone-cybersecurity-testing-spec-en)
 
 這個系列引用過《遙控無人機資安檢測規範》四次——[規格表那篇](/posts/tech/2026-08-07-drone-spec-sheet-reading)用它定義「系列產品」、[飛控那篇](/posts/tech/2026-08-08-px4-vs-ardupilot)問過換韌體算不算新系列、[遙控鏈路那篇](/posts/tech/2026-08-08-drone-radio-link)和 [GNSS 那篇](/posts/tech/2026-08-08-gps-jamming-flight-controller)各拆了它點名的一個模組。
 

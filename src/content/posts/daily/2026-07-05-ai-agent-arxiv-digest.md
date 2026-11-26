@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 42
 ---
-> 🌏 [English version](/posts/daily/2026-07-05-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-05-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,7 +71,7 @@ ReContext 像 wrapper（包裝器）一樣套在任何 LLM 之前，現有架構
 ### 深入要點
 
 - 在 8 個 long-context benchmark、128K context 長度下，backbones 為 Qwen3-4B、Qwen3-8B、Llama3-8B，ReContext 在三個 backbone 上均達到最佳平均排名
-- **⚠️** 論文提供「平均排名」而非具體分數增幅，讀者需查原文 Table 確認實際數字
+- **:warning:** 論文提供「平均排名」而非具體分數增幅，讀者需查原文 Table 確認實際數字
 - 計算成本：需額外一次 forward pass 取得 attention score，推理 latency 會上升，更適合非即時的批次任務
 - 和 RAG 的差異：RAG 需要獨立 embedding model 和向量庫；ReContext 直接使用語言模型的 attention，部署更輕量，但效果受模型 attention 品質影響
 - 在 LangGraph / LangChain 框架中，可在 generate 節點前插入一個 attention-based evidence filtering 步驟來實作
@@ -135,7 +135,7 @@ Multi-agent debate（多個 LLM 互相辯論來提升答案品質）是目前 ag
 - 對 LangGraph multi-agent orchestrator 的啟示：若需真正獨立的 agent review，persona 設計中應避免包含任何階層/地位資訊
 - 對 LLM-as-judge 的挑戰：若 judge 知道被評分者的「身份」或「地位」，分數可能系統性偏高或偏低
 - Limitation：情境是人工設計的，現實 multi-agent 系統的社會結構更隱性複雜；目前只測英文
-- **⚠️** 論文未列出所測試 10 個模型的具體名單；divergence 評分標準需查原文 scoring rubric
+- **:warning:** 論文未列出所測試 10 個模型的具體名單；divergence 評分標準需查原文 scoring rubric
 
 ### Reviewer 一句話評
 
@@ -189,7 +189,7 @@ Coding agent 的能力評估越來越依賴 performance-optimization benchmark�
 - **SWE-fficiency**：498 個任務中，有 **411 個（82%）** 可靠，是三者中最穩定的
 - SWE-Perf 最脆弱的根本原因：設計上允許「微小優化」就算通過，但微小的 runtime 差距天生對環境噪音極度敏感
 - 這直接衝擊近期引用這些 benchmark 刷排名的 coding agent 論文
-- **⚠️** 論文驗證的是 reference patches 的穩定性，並未直接評測 coding agent 的相對排名；如果所有 agent 都在同一固定環境執行，相對排名仍可能成立
+- **:warning:** 論文驗證的是 reference patches 的穩定性，並未直接評測 coding agent 的相對排名；如果所有 agent 都在同一固定環境執行，相對排名仍可能成立
 - 和 SWE-bench 的差異：SWE-bench 評估「能否修好 bug」（pass/fail 二元判斷），對環境噪音更穩定；效能類 benchmark 天生更脆弱
 - Benchmark 設計的改進方向：需要最低 effect size threshold（避免微小改善算通過）、多次重複執行取平均、明確的統計顯著性測試
 

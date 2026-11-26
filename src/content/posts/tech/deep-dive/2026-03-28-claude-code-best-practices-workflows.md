@@ -13,7 +13,7 @@ series:
   order: 5
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-best-practices-workflows-en)
 
 這是「Claude Code 深入介紹」系列的第五篇。[入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)拆解了 agentic loop 的機制，[.claude 目錄導覽](/posts/tech/deep-dive/2026-08-26-claude-code-claude-directory)講了設定檔住哪；這篇講你怎麼**操作**這個 loop——素材來自官方 best practices、common workflows 與 prompt library 三份文件，按一輪完整的工作循環重排：探索、規劃、實作、驗證、收尾。想看這套循環跑在真專案上的樣子，可以搭配[先前那篇 OpenSpec 到部署的實戰記錄](/posts/tech/deep-dive/2026-03-27-ai-driven-dev-workflow-openspec-to-deploy)。
 

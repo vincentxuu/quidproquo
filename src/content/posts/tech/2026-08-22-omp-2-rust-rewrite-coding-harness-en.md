@@ -13,7 +13,7 @@ description: "OMP 2 evolved from a Pi fork into a fully independent Rust codebas
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-omp-2-rust-rewrite-coding-harness)
+> :globe: [中文版](/posts/tech/2026-08-22-omp-2-rust-rewrite-coding-harness)
 
 The [previous OMP article](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork-en) covered v1 — Pi's batteries-included fork, with a TypeScript core plus six Rust crates as an acceleration layer. The conclusion then was "the difference isn't whether you can stack things on, it's whether you want to decide what gets stacked."
 

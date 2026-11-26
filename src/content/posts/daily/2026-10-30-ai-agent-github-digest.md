@@ -5,13 +5,13 @@ category: daily
 tags: [ai-agent, github, open-source, daily, agent-memory, agent-governance, multi-agent]
 lang: zh-TW
 description: "claude-mem 衝破 10 萬星的同一天，GitHub trending 冒出教育 agent、遊戲工作室樣板，還有一個讓任何 repo 一行指令生出自己 harness 的工具"
-tldr: "**thedotmack/claude-mem**（⭐ 104,523，今日 +459）正式衝破 10 萬星，同時補上 Codex subagent 的記憶時間軸；**HKUDS/DeepTutor**（⭐ 49,631，今日 +1,926）把個人化家教做成會自己維護知識庫的多代理系統；**Donchitos/Claude-Code-Game-Studios**（⭐ 28,954，今日 +538）把 Claude Code 包成 49 個 agent 的遊戲工作室樣板；**ruvnet/metaharness**（⭐ 729）讓任何 repo 一行指令生出自己品牌的 agent harness，內建治理政策與審批閘門。release 這邊 Mastra 1.80.0 開放終端使用者各自綁 OAuth 連線（含 4 項 breaking change），crewAI v1.15.33 補上技能搜尋與 flow 參數傳遞。"
+tldr: "**thedotmack/claude-mem**（★ 104,523，今日 +459）正式衝破 10 萬星，同時補上 Codex subagent 的記憶時間軸；**HKUDS/DeepTutor**（★ 49,631，今日 +1,926）把個人化家教做成會自己維護知識庫的多代理系統；**Donchitos/Claude-Code-Game-Studios**（★ 28,954，今日 +538）把 Claude Code 包成 49 個 agent 的遊戲工作室樣板；**ruvnet/metaharness**（★ 729）讓任何 repo 一行指令生出自己品牌的 agent harness，內建治理政策與審批閘門。release 這邊 Mastra 1.80.0 開放終端使用者各自綁 OAuth 連線（含 4 項 breaking change），crewAI v1.15.33 補上技能搜尋與 flow 參數傳遞。"
 series:
   name: "AI Agent GitHub Digest"
   order: 76
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-30-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-10-30-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### thedotmack/claude-mem ⭐ 104,523 (+459)
+### thedotmack/claude-mem ★ 104,523 (+459)
 
 [GitHub](https://github.com/thedotmack/claude-mem)　·　TypeScript　·　Apache-2.0
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### HKUDS/DeepTutor ⭐ 49,631 (+1,926)
+### HKUDS/DeepTutor ★ 49,631 (+1,926)
 
 [GitHub](https://github.com/HKUDS/DeepTutor)　·　Python　·　Apache-2.0
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### Donchitos/Claude-Code-Game-Studios ⭐ 28,954 (+538)
+### Donchitos/Claude-Code-Game-Studios ★ 28,954 (+538)
 
 [GitHub](https://github.com/Donchitos/Claude-Code-Game-Studios)　·　Shell　·　MIT
 
@@ -52,7 +52,7 @@ series:
 
 ---
 
-### ruvnet/metaharness ⭐ 729
+### ruvnet/metaharness ★ 729
 
 [GitHub](https://github.com/ruvnet/metaharness)　·　TypeScript　·　MIT
 

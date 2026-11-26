@@ -10,7 +10,7 @@ description: "An introduction to GitBook: a Git-based documentation platform cov
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-02-gitbook-documentation-platform)
+:globe: [中文版](/posts/tech/2026-04-02-gitbook-documentation-platform)
 
 GitBook is a platform that lets you manage documentation the same way you manage code. It uses Git under the hood for version control, Markdown for content, and produces a polished documentation site complete with search, navigation, and custom domain support. If you've ever found yourself torn between Notion, Confluence, or a self-hosted wiki for your technical docs, GitBook is worth a serious look.
 

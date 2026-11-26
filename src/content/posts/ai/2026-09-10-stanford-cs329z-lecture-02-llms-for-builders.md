@@ -14,13 +14,18 @@ description: "依實體頁碼帶讀 CS329Z Lecture 02 LLMs for Builders 的 176 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en)
+> :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 78 分鐘；本文依公開投影片與指定讀物整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 
 第 2 堂（9/28，LLMs for Builders）是給 agent 開發者的模型內部速成：解碼怎麼選字、注意力怎麼讀前文、為什麼 context 長度有代價，以及結構化輸出為什麼是元件之間的契約。後面每一堂的工程取捨，都會回到這幾個限制。
 
 指定讀物有 Vaswani 等人的 Transformer、Katharopoulos 等人的線性注意力，以及 Anthropic 的 [Effective Context Engineering for AI Agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)。本文深讀最後一篇，前兩篇的機制已在投影片導讀中說明。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=Vr1NzH8bT44
+title: LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan
+```
 
 ## Lecture 02 投影片導讀
 
@@ -32,6 +37,8 @@ draft: false
 
 ### 第 1–23 頁：從機率分布到解碼策略
 
+[錄影 00:00–16:06](https://www.youtube.com/watch?v=Vr1NzH8bT44)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=1" data-slide-page="1">投影片第 1–23 頁</a>
 
 開頭先把本課放在 LLM application 層，再回到模型到底輸出什麼：一串 token 的機率可以拆成逐步條件機率。投影片用「The class was about…」逐格展開，說明下一個 token 有許多候選；生成時的選擇方式才是 decoding。Greedy 每次取最高機率，top-k／top-p 縮小抽樣集合，beam search 同時保留候選序列。
@@ -39,6 +46,8 @@ draft: false
 做 agent 時，這會影響工具選擇與參數是否穩定。低 temperature 可以減少抽樣變化，卻不能替代參數驗證。自測時固定同一個工具 schema，重跑相同輸入，分開記錄「選錯工具」與「格式不合法」，別把兩種失敗都算成模型不夠聰明。
 
 ### 第 24–62 頁：Transformer：每個位置如何讀取前文
+
+[錄影 16:06–30:12](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=966s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=24" data-slide-page="24">投影片第 24–62 頁</a>
 
@@ -48,6 +57,8 @@ draft: false
 
 ### 第 63–91 頁：線性注意力以壓縮狀態換取效率
 
+[錄影 30:12–36:05](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=1812s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=63" data-slide-page="63">投影片第 63–91 頁</a>
 
 完整 softmax attention 保留過去位置的 key／value；線性注意力則逐步更新壓縮狀態，讓新 token 與狀態互動。投影片先畫出狀態保存與更新，再比較序列長度增加時的計算與記憶體需求，接著指出長 context 的取用能力仍要實測，並展示混合兩類注意力的設計。
@@ -55,6 +66,8 @@ draft: false
 不要從「視窗很長」直接推論「能找回所有細節」。挑一份實際會交給助理的繁中長文件，把同一條限制移到前、中、後段，檢查答案與延遲。這是本文的自擬測法；它把架構比較轉成選模型時可用的證據。
 
 ### 第 92–118 頁：訓練階段決定模型學過什麼
+
+[錄影 36:05–52:42](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=2165s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=92" data-slide-page="92">投影片第 92–118 頁</a>
 
@@ -64,6 +77,8 @@ draft: false
 
 ### 第 119–137 頁：Prefill、decode 與 KV cache
 
+[錄影 52:42–59:54](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3162s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=119" data-slide-page="119">投影片第 119–137 頁</a>
 
 Prefill 先處理輸入，decode 再逐步產生輸出。圖中保留下來的 key／value 就是 KV cache：後續生成可重用既有計算。這解釋了為何長 prompt 的首次等待、逐字輸出速度與整段耗時應分開觀察。Speculative decoding 則讓較小的 draft model 提議續文，再交由 target model 驗證。
@@ -71,6 +86,8 @@ Prefill 先處理輸入，decode 再逐步產生輸出。圖中保留下來的 k
 對多輪 agent，可先檢查工具結果是否過長、穩定前綴是否一直改寫。投影片提供的是推論機制；實際供應商的快取條件與費率仍需看其文件。不要把 KV cache、應用層答案快取與保存使用者記憶混成同一件事。
 
 ### 第 138–148 頁：多花推論算力，需要選出好答案的方法
+
+[錄影 59:54–65:25](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3594s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=138" data-slide-page="138">投影片第 138–148 頁</a>
 
@@ -80,6 +97,8 @@ Prefill 先處理輸入，decode 再逐步產生輸出。圖中保留下來的 k
 
 ### 第 149–159 頁：結構化輸出是元件間的契約
 
+[錄影 65:25–70:12](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=3925s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=149" data-slide-page="149">投影片第 149–159 頁</a>
 
 複合系統不能只靠「看起來像答案」的字串連接。這段從欄位契約談到 constrained decoding，並展示 DSPy signature 與工具呼叫。限制可生成的 token，有助於維持結構；schema 合法仍不代表內容正確，更不代表操作已獲授權。
@@ -87,6 +106,8 @@ Prefill 先處理輸入，decode 再逐步產生輸出。圖中保留下來的 k
 例如繁中郵件寫「週四可以談」，抽出 meeting intent 合法，卻沒有時區、日期與收件人確認。先驗證結構，再查語意與必要欄位，最後才交給執行器。這個例子是本文延伸，不是投影片中的作業解答。
 
 ### 第 160–176 頁：Context engineering：保留決策需要的資訊
+
+[錄影 70:12–77:53](https://www.youtube.com/watch?v=Vr1NzH8bT44&t=4212s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture02.pdf#page=160" data-slide-page="160">投影片第 160–176 頁</a>
 
@@ -148,10 +169,15 @@ Anthropic 的 [Effective Context Engineering for AI Agents](https://www.anthropi
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan](https://www.youtube.com/watch?v=Vr1NzH8bT44)（Stanford Online 頻道，2026-11-10 上架，全片約 78 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-13。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開 PDF 與指定讀物帶讀，並已依錄影（機器轉錄逐字稿）核對各節起點。
+- 內容核對：已依影片核對（2026-11-13）：以機器轉錄逐字稿核對各節起點，投影片導讀各小節附錄影時間連結。
 
 ## 更新紀錄
 
+- 2026-11-13：Stanford Online 公開上架本堂錄影並建立課程播放清單，嵌入影片、狀態改為已附影片，改寫影片來源區。
+- 2026-11-13：以機器轉錄逐字稿核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 2（9/28 週一）的內容，原屬「第 2 週：先分清 workflow 和 agent，再手刻第一個 RAG」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 - 2026-10-23：補入workflow／agent 對照表與 RAG 架構圖，只將既有解說視覺化，未重新查核事實。

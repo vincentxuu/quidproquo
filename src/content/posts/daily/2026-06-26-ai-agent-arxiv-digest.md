@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 33
 ---
-> 🌏 [English version](/posts/daily/2026-06-26-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-06-26-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -71,8 +71,8 @@ RigorBench 錄下 agent 完成任務的完整執行軌跡（trajectory），分�
 - RigorBench 是第一個把 coding agent「工程流程品質」形式化為可量測指標的 benchmark
 - 五個維度分數可獨立看，也可合成整體 process discipline score，支援多維度跨 agent 比較
 - 評估基於 trajectory 分析，對 agent 的 scaffolding（如何觸發工具、如何組織步驟）設計有直接回饋意義
-- 論文作者為 Georgia Tech 兩位研究者（Madiraju 兄弟），相對小型研究團隊 **⚠️**
-- 目前沒有看到具體的跨 agent 比較分數（如 Claude Code vs GPT-4o 的 process score），論文偏向框架提案 **⚠️**
+- 論文作者為 Georgia Tech 兩位研究者（Madiraju 兄弟），相對小型研究團隊 **:warning:**
+- 目前沒有看到具體的跨 agent 比較分數（如 Claude Code vs GPT-4o 的 process score），論文偏向框架提案 **:warning:**
 - 與 LangGraph / AutoGen 的關聯：這些框架記錄 execution log，RigorBench 可作為 evaluator 插入 CI pipeline
 - 落地門檻：需存取完整 trajectory log；對只做黑盒 API 呼叫的場景幫助有限
 
@@ -124,11 +124,11 @@ LLM multi-agent 系統在研究 demo 上表現亮眼，但企業部署面臨兩�
 ### 深入要點
 
 - Stage 1 的客製化路線（CPT → SFT → 偏好最佳化）是業界常見 LLM 精調路徑，亮點在於明確說明此流程能保留 agentic 能力（tool use、multi-turn reasoning）
-- Stage 2 的 Speculative Decoding + FP8 是近年推理加速標準組合；4.48x 吞吐量提升的基準是內部 enterprise workload **⚠️** — 未指明與哪些 baseline 比較，需謹慎引用
+- Stage 2 的 Speculative Decoding + FP8 是近年推理加速標準組合；4.48x 吞吐量提升的基準是內部 enterprise workload **:warning:** — 未指明與哪些 baseline 比較，需謹慎引用
 - 作者群背景具企業 AI 落地實戰經驗（IBM Research 等機構），論文偏向 production guideline 而非純學術研究
 - 與 LangGraph / AutoGen / CrewAI 等框架的關聯：這篇聚焦 model layer 優化，框架層 orchestration 不在範圍，兩者互補
 - 落地門檻：Stage 1 需業務領域資料與 GPU 算力；Stage 2 需支援 FP8 和 speculative decoding 的推理引擎（如 vLLM）
-- 未詳述客製化後在公開 agentic benchmark 上的成績，能力退化程度不明 **⚠️**
+- 未詳述客製化後在公開 agentic benchmark 上的成績，能力退化程度不明 **:warning:**
 
 ### Reviewer 一句話評
 

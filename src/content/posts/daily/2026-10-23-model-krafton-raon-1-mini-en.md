@@ -15,7 +15,7 @@ glossary:
     def: "KRAFTON AI's open model family for language and speech models; Raon-1 mini is its first general-purpose LLM trained from scratch"
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-23-model-krafton-raon-1-mini)
+> :globe: [中文版](/posts/daily/2026-10-23-model-krafton-raon-1-mini)
 
 ## Model Info
 
@@ -50,7 +50,7 @@ glossary:
 | MMLU Pro | 76.5 | — (first model) | Qwen3.6-35B-A3B 85.9 (Raon-1 mini noticeably trails on general knowledge) |
 | BFCL v4 Overall (tool calling) | 59.8 | — (first model) | Qwen3.6-35B-A3B 64.7 (for reference: dense Qwen3.8-27B 72.4) |
 
-⚠️ All figures are KRAFTON's own measurements (judged by gpt-5.6-luna) and await independent reproduction. Chatbot Korean is an unreleased internal benchmark that can't be verified directly by third parties. KRAFTON also notes this is a preview — specs and scores may change before a final release.
+:warning: All figures are KRAFTON's own measurements (judged by gpt-5.6-luna) and await independent reproduction. Chatbot Korean is an unreleased internal benchmark that can't be verified directly by third parties. KRAFTON also notes this is a preview — specs and scores may change before a final release.
 
 ```diagram
 title: Raon-1 mini vs. Qwen3.6-35B-A3B across four benchmarks
@@ -71,14 +71,14 @@ caption: Source — KRAFTON's own measurements on its official Hugging Face mode
     <rect class="dg-bar" x="234" y="76" width="44" height="224"/>
     <rect class="dg-bar" x="374" y="116" width="44" height="184"/>
     <rect class="dg-bar" x="514" y="77" width="44" height="223"/>
-    <text class="dg-text--series" x="116" y="44" text-anchor="middle" dominant-baseline="central">Raon-1 mini</text>
+    <text class="dg-text--series" x="452" y="32" text-anchor="end" dominant-baseline="central">Raon-1 mini</text>
   </g>
   <g class="dg-c-s1">
     <rect class="dg-bar" x="150" y="148" width="44" height="152"/>
     <rect class="dg-bar" x="290" y="77" width="44" height="223"/>
     <rect class="dg-bar" x="430" y="94" width="44" height="206"/>
     <rect class="dg-bar" x="570" y="121" width="44" height="179"/>
-    <text class="dg-text--series" x="172" y="44" text-anchor="middle" dominant-baseline="central">Qwen3.6-35B-A3B</text>
+    <text class="dg-text--series" x="612" y="32" text-anchor="end" dominant-baseline="central">Qwen3.6-35B-A3B</text>
   </g>
 
   <text class="dg-sub" x="116" y="120" text-anchor="middle" dominant-baseline="central">70.8</text>

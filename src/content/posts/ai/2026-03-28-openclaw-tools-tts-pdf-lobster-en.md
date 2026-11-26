@@ -13,7 +13,7 @@ description: "How OpenClaw handles large tool catalogs: Code Mode's QuickJS-WASI
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-tools-tts-pdf-lobster)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-tools-tts-pdf-lobster)
 
 The first three articles covered individual tools. This one covers **what happens when there are too many** — a problem every agent system eventually hits, and one OpenClaw answers two different ways.
 

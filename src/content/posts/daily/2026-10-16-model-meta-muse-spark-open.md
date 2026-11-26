@@ -17,7 +17,7 @@ glossary:
     def: "第三方評測機構 Artificial Analysis 綜合多項 benchmark 算出的模型智能綜合分數；題庫與模型池會隨時間持續校正，不同時間點的分數不能直接跨期比較"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-16-model-meta-muse-spark-open-en)
+> :globe: [English version](/posts/daily/2026-10-16-model-meta-muse-spark-open-en)
 
 ## 模型資訊
 
@@ -29,7 +29,7 @@ glossary:
 | Context Window | 1,048,576 tokens |
 | Input 定價 (USD/1M tokens) | $1.25（快取 input $0.15） |
 | Output 定價 (USD/1M tokens) | $4.25 |
-| 開源 | 是（Muse Model License，自訂條款：年營收超過 2,000 萬美元的 Model-as-a-Service 須另與 Meta 簽約，其餘用途含商業使用皆免費） |
+| 開源 | 是（Muse Model License，自訂條款：所有使用它或衍生模型的產品都要標示「Built with Muse Spark Open」；本身與關係企業 12 個月總營收超過 2,000 萬美元、且以 API 對外提供模型的業者須通知 Meta 並另簽協議；其餘用途含商業使用免費） |
 | 發布日 | 2026-10-15 |
 | 官方公告 | [Meta AI Research：Introducing Muse Spark Open](https://research.meta.ai/blog/muse-spark-open) |
 | HuggingFace | [meta-models/Muse-Spark-Open-816B-A42B](https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B) |
@@ -46,13 +46,13 @@ glossary:
 
 | Benchmark | Muse Spark Open | 前代／對照 | 競品最強（Meta 官方表格） |
 |---|---|---|---|
-| AA Intelligence Index | 39 | 閉源 Muse Spark 1.2：57（⚠️ 見下方說明，不可直接比較） | GLM 5.3 45 |
+| AA Intelligence Index | 39 | 閉源 Muse Spark 1.2：57（:warning: 見下方說明，不可直接比較） | GLM 5.3 45 |
 | JobBench（agentic） | **61.8** | 未測 | Kimi K3 54.3（Muse Spark Open 自己最高） |
 | MCP-Atlas（agentic） | **89.2** | 未測 | Kimi K3 82.3（Muse Spark Open 自己最高） |
 | Terminal-Bench 2.1 | 76.4 | 閉源 Muse Spark 1.2 的 Terminal-Bench v2.1：80%（不同 agent harness，僅供參考） | Kimi K3 85.0 |
 | StrongREJECT v2（越獄測試，分數越低越安全） | **0.5** | 未測 | Kimi K3 66.6 |
 
-⚠️ AA Intelligence Index 由 Artificial Analysis 持續校正題庫與模型池，Muse Spark 1.2 的 57 分（2026-08）與 Muse Spark Open 的 39 分（2026-10）相隔近兩個月、題庫版本不同，不能直接解讀為「退步 18 分」。以上均為 Meta 自測或 Artificial Analysis 既有公開分數，尚待第三方針對 Muse Spark Open 本身重新複現。
+:warning: AA Intelligence Index 由 Artificial Analysis 持續校正題庫與模型池，Muse Spark 1.2 的 57 分（2026-08）與 Muse Spark Open 的 39 分（2026-10）相隔近兩個月、題庫版本不同，不能直接解讀為「退步 18 分」。以上均為 Meta 自測或 Artificial Analysis 既有公開分數，尚待第三方針對 Muse Spark Open 本身重新複現。
 
 ## 與前代/競品比較
 
@@ -64,7 +64,7 @@ Muse Spark Open 不是單純的「下一代升級」，而是 Meta 第一次把�
 
 ## 對 Agent 開發的意義
 
-如果你在做需要自建或地端部署的 agent（資料隱私、法規限制場景）：Muse Spark Open 目前是 agentic benchmark 分數最高的開放權重選項（JobBench／MCP-Atlas 官方表格最高分），搭配 Muse Model License 的商業條款（年營收超過 2,000 萬美元才需另簽約），對中小規模企業部署幾乎沒有授權負擔。
+如果你在做需要自建或地端部署的 agent（資料隱私、法規限制場景）：Muse Spark Open 目前是 agentic benchmark 分數最高的開放權重選項（JobBench／MCP-Atlas 官方表格最高分），搭配 Muse Model License 的商業條款（以 API 對外提供模型且營收超過 2,000 萬美元才需另簽約），對中小規模企業部署的授權負擔不大；但不論規模，產品都要標示「Built with Muse Spark Open」。
 
 如果你在做長任務、多步驟的 coding agent：Terminal-Bench 2.1 76.4、DeepSWE 1.1 60 分雖不是開放權重裡最高分（Kimi K3 更高），但原生支援 SGLang、vLLM、TensorRT-LLM、llama.cpp 等主流推理框架，還有自家 Helion GPU kernel 優化（NVIDIA／AMD 加速 1.03–3.95 倍），落地門檻相對低。
 
@@ -75,6 +75,10 @@ Muse Spark Open 不是單純的「下一代升級」，而是 Meta 第一次把�
 ## 今日收穫
 
 開放權重模型的「最強」宣稱常常只在特定維度成立——Muse Spark Open 在 agentic 測試（JobBench／MCP-Atlas）拿下 Meta 官方表格最高分，但原始智能分數（AA Intelligence Index 39）卻輸給 GLM 5.3 和 Kimi K3。看到「最強開放權重模型」這類宣稱時，要先確認「哪個維度最強」，而不是假設所有維度都領先。
+
+## 更新紀錄
+
+- 2026-11-20：補上授權的標示義務。原文寫「其餘用途含商業使用皆免費」，漏了授權第 2 條：所有使用 Muse Spark Open 或其衍生模型的產品，都要在介面、文件、網站或設定選單標示「Built with Muse Spark Open」，這項義務沒有營收門檻。
 
 ## 參考資料
 

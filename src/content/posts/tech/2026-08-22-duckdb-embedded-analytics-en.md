@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-duckdb-embedded-analytics)
+> :globe: [中文版](/posts/tech/2026-08-22-duckdb-embedded-analytics)
 
 [DuckDB](https://duckdb.org/docs/stable/why_duckdb) is an in-process analytical database. It embeds as a library in Python, R, Node.js, or a CLI instead of running a separate server. Columnar, vectorized execution targets scans, aggregations, and joins. Its practical advantage is querying Parquet, CSV, JSON, DataFrames, and object storage without first building a warehouse ingestion pipeline.
 

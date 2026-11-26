@@ -9,7 +9,7 @@ tldr: "No budget needed: Tailscale plus built-in Screen Sharing is free and the 
 description: "A complete guide to remoting back into a Mac laptop without paying: comparing free Tailscale + built-in VNC, Jump Desktop, RustDesk, and Chrome Remote Desktop, with a 5-minute setup and fixes for lid-close and sleep issues."
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk)
+> :globe: [中文版](/posts/tech/2026-08-25-mac-remote-desktop-tailscale-jump-rustdesk)
 
 Bringing only a light laptop or iPad while leaving your main Mac at home or the office? [Chrome Remote Desktop](https://remotedesktop.google.com/) works in a pinch, but daily use will wear you down with lag, drops, sleep issues, and resolution headaches. This guide compares four mainstream approaches for Mac and gives you the no-cost long-term stack — [Tailscale](https://tailscale.com/) plus built-in Screen Sharing (entirely free) — with a 5-minute setup and fixes for the three pitfalls that always bite. Consider paid [Jump Desktop](https://jumpdesktop.com/) only if you want it smoother.
 

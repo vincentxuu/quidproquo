@@ -10,7 +10,7 @@ description: "從 build-time indexing、瀏覽器查詢、篩選與多語系一�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-pagefind-static-search-en)
+> :globe: [English version](/posts/tech/2026-08-22-pagefind-static-search-en)
 
 [Pagefind](https://pagefind.app/docs/) 是給靜態網站用的全文搜尋工具。它不在使用者查詢時呼叫搜尋 API，而是在網站 build 完成後掃描產出的 HTML，建立可跟網站一起部署的索引、JavaScript 與 WebAssembly 檔案。搜尋發生在瀏覽器裡，所以 production 不需要另外養 Elasticsearch、Meilisearch 或資料庫查詢端點。
 

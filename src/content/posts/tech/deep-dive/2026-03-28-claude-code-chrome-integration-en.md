@@ -13,7 +13,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration)
+> :globe: [中文版](/posts/tech/deep-dive/2026-03-28-claude-code-chrome-integration)
 
 The [series entry post](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works) describes Claude Code's agentic loop as three stages: gather context, take action, verify results. But the loop could only reach the terminal and the file system — the final judge of frontend changes is the browser, yet verification meant you switching windows, refreshing, and opening DevTools yourself. Chrome integration fills that gap: through the [Claude in Chrome extension](https://chromewebstore.google.com/detail/claude/fcoeoabgfenejglbffodgkkbkcdhcgfn), the browser becomes a set of tools inside the loop, so "build → verify in the browser → go back and fix" runs within a single conversation. The other G-cluster companion piece covers a different surface — [Slack integration and Claude Tag](/posts/tech/deep-dive/2026-03-28-claude-code-slack-integration); this one focuses on the browser.
 

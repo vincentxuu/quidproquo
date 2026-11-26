@@ -20,7 +20,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l14-generative-basics)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l14-generative-basics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

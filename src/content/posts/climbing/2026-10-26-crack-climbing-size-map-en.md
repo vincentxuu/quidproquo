@@ -24,7 +24,7 @@ glossary:
     definition: "A crack your body fits into sideways but can't turn around in, between an offwidth and a chimney."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-crack-climbing-size-map)
+> :globe: [中文版](/posts/climbing/2026-10-26-crack-climbing-size-map)
 
 When you stand under a crack, the first question is how wide it is. Width decides whether you jam fingers, a hand, a fist or a whole arm. Change the size and you're almost doing a different sport.
 

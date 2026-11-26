@@ -12,7 +12,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-08-16-ai-agent-github-digest)
 
 ## Today's Highlights
 
@@ -20,7 +20,7 @@ The common thread across today's four newcomers: they all reject "compile an exe
 
 ## Trending Repos
 
-### eve (vercel) ⭐ 4,647
+### eve (vercel) ★ 4,647
 
 [GitHub](https://github.com/vercel/eve)　·　TypeScript　·　Apache-2.0
 
@@ -31,7 +31,7 @@ The common thread across today's four newcomers: they all reject "compile an exe
 
 ---
 
-### prime-agent (PrimeIntellect-ai) ⭐ 16,301
+### prime-agent (PrimeIntellect-ai) ★ 16,301
 
 [GitHub](https://github.com/PrimeIntellect-ai/prime-agent)　·　Python　·　MIT
 
@@ -42,7 +42,7 @@ The common thread across today's four newcomers: they all reject "compile an exe
 
 ---
 
-### hive (aden-hive) ⭐ 10,915
+### hive (aden-hive) ★ 10,915
 
 [GitHub](https://github.com/aden-hive/hive)　·　Python　·　Apache-2.0
 
@@ -53,7 +53,7 @@ The common thread across today's four newcomers: they all reject "compile an exe
 
 ---
 
-### nanobot (HKUDS) ⭐ 47,044 — v0.3.0 "The Agency Release"
+### nanobot (HKUDS) ★ 47,044 — v0.3.0 "The Agency Release"
 
 [GitHub](https://github.com/HKUDS/nanobot)　·　Python　·　MIT
 

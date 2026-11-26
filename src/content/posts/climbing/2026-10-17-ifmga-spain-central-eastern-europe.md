@@ -21,7 +21,7 @@ glossary:
     definition: "2016 年成立、2019 年成為 IFMGA 正式會員的跨國協會，替沒有自己 IFMGA 協會的東歐、東南歐國家培訓嚮導。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe-en)
+> :globe: [English version](/posts/climbing/2026-10-17-ifmga-spain-central-eastern-europe-en)
 
 這六個協會放在一起，是因為它們示範了「國家把嚮導培訓收進體制」的幾種做法：
 

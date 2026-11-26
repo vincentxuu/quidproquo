@@ -15,7 +15,7 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
       - name: Test UI scope detection
         run: node --test scripts/ui-change-scope.test.mjs
       - id: scope
@@ -35,7 +35,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - name: Verify (lint + references + skills-sync + progress)
@@ -52,7 +52,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22.22.0
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm --dir evals/rag install --frozen-lockfile
@@ -73,7 +73,11 @@ jobs:
     name: Visual regression (required for UI changes)
     needs: ui-scope
     if: needs.ui-scope.outputs.required == 'true'
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      # dev server 把全站渲染結果放在記憶體：7,309 篇時已用到約 3.8GB，貼著 Node 預設的 4GB 上限，
+      # 2026-11-20 多了文章內圖示就 OOM（webServer exit 134）。runner 有 16GB，給 6GB 留成長空間。
+      NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -81,7 +85,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium
@@ -102,7 +106,11 @@ jobs:
     needs: ui-scope
     if: needs.ui-scope.outputs.required == 'true'
     continue-on-error: true
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    env:
+      # dev server 把全站渲染結果放在記憶體：7,309 篇時已用到約 3.8GB，貼著 Node 預設的 4GB 上限，
+      # 2026-11-20 多了文章內圖示就 OOM（webServer exit 134）。runner 有 16GB，給 6GB 留成長空間。
+      NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -110,7 +118,7 @@ jobs:
           version: 10.33.3
       - uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: npx playwright install --with-deps chromium

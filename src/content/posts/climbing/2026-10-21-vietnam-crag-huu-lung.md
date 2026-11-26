@@ -13,7 +13,7 @@ description: "Hữu Lũng 主谷攀岩指南：Head、Dragon、Drone、Dead End�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-en)
+> :globe: [English version](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-en)
 
 Hữu Lũng 是一個山谷，不是一面牆。岩壁散在 Yên Thịnh 村周邊五公里內的果園與稻田之間，每一面有自己的屋主、自己的通行費、自己的日照。這篇收主谷的九個子區：Head、Chúc Sức Khỏe、Squirrel、L'Ile Noire、La Conche、Dragon、Drone、Dead End、K Wall。同一個山谷的東側與較新的牆寫在[下一篇](/posts/climbing/2026-10-21-vietnam-crag-huu-lung-west)。
 

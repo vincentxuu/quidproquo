@@ -10,7 +10,7 @@ description: "How Slack Code works, its launch partners, competitive comparison 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-slack-code-multiplayer-coding)
+> :globe: [中文版](/posts/ai/2026-08-22-slack-code-multiplayer-coding)
 
 On August 20, 2026, Salesforce announced [Slack Code](https://slack.com/blog/news/slack-code-channels-for-agents) at Dreamforce 2026. Marc Benioff's launch post read: "Don't code alone. Humans and agents. Same channel. Same work." The core claim is simple — most AI coding work today happens between one person and one agent in a terminal, invisible to everyone else. Slack Code makes that work visible, steerable, and approvable by the whole team.
 

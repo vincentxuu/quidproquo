@@ -13,7 +13,7 @@ description: "本匠 攀岩指南：岩質與風格、季節、交通與停車�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-honjo-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-honjo-en)
 
 本匠的行程要連岩壁、交通與當地土地使用一起安排。這篇協助你判斷風格是否合適、哪個季節去，以及第一次到訪要先確認哪些入口。
 
@@ -54,12 +54,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 影片依上傳者片名與描述辨識，級數或版本可能與表格不同；影片連結不代表線位仍開放或固定點已確認。嵌入狀態未核實的影片以外部連結開啟。
 
 清單收錄已核讀 ROCKTOPO 表中全部 131 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
-
-```video-gallery
-key: japanHonjo
-lang: zh-TW
-layout: routes
-```
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -164,6 +158,12 @@ layout: routes
 | 「免許皆伝」 | 5.11b | 5.11b | 未列 | 魚道エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO 單一出處。 |
 | 「ブラックアンドホワイト」 | 5.11c | 5.11c | 未列 | 魚道エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO 單一出處。 |
 | 「巨人の胃袋」 | 5.11c | 5.11c | 未列 | 魚道エリア | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/176/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanHonjo
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 

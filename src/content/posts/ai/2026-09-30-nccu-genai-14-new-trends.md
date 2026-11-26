@@ -22,7 +22,7 @@ glossary:
     context: "L14 以 Inception Labs 的 Mercury 為例，並提到 Google 宣布 Gemini Diffusion。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nccu-genai-14-new-trends-en)
+> :globe: [English version](/posts/ai/2026-09-30-nccu-genai-14-new-trends-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

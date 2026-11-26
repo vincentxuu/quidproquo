@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-26-multi-agent-task-four-ways-en)
+> :globe: [English version](/posts/ai/2026-08-26-multi-agent-task-four-ways-en)
 
 上一篇把 [Omnigent](https://github.com/omnigent-ai/omnigent)（[omnigent.ai](https://omnigent.ai/)）、[Zed ACP](https://agentclientprotocol.com/)、[Vercel HarnessAgent](https://vercel.com/changelog/use-acp-compatible-harnesses-with-the-ai-sdk-harness-layer) 與 [Cloudflare Flue](https://blog.cloudflare.com/agents-platform-flue-sdk/) 放進四層模型，這篇直接動手：拿 **同一個任務**，用四種技術各寫一次。
 

@@ -13,7 +13,7 @@ tldr: "Wrapping an SDK directly buys you three walls within months: usage fields
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-model-provider-abstraction)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-model-provider-abstraction)
 
 ## The design problem
 

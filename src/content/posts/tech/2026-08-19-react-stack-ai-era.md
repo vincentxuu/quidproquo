@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-19-react-stack-ai-era-en)
+:globe: [English version](/posts/tech/2026-08-19-react-stack-ai-era-en)
 
 React 套件選型的老三樣判準——功能覆蓋、生態規模、維護活躍度——現在要加上第四樣：**你的 AI coding agent 用它順不順手**。當越來越多程式碼由 agent 產出，「這個庫 agent 會不會寫、寫錯了能不能自己發現」開始實質影響開發速度。這篇記錄純 SPA 陣營目前最有共識的一套組合（以 TanStack Router + TanStack Query + Zustand 為核心），把周邊每一層的預設選擇與替代方案攤開（npm 下載數據全部 2026-08 實查），最後整理 AI 時代冒出來的新選型判準。
 
@@ -33,7 +33,7 @@ URL 狀態          → TanStack Router（路由、params、search params）
 
 ### 路由市場現況：主流與挑戰者
 
-npm 週下載（2026-08 實查）：react-router **44.2M**、@tanstack/react-router **19.7M**。所以精確的說法是：**React Router 仍是主流，TanStack Router 是「主流的第二選擇」**——約前者四成，對一個 1.0 才兩年多的路由器是罕見的追趕速度。React Router 這幾年版本動盪（v5→v6 破壞性重寫、v7 併入 Remix 又分裂出 library/framework 兩種形態）累積了社群疲勞；TanStack Router 打的型別安全和 search params 是後補追不平的架構層差距。既有專案沒有理由遷移；新的 TypeScript 重度後台，天平已經倒向 TanStack。
+npm 週下載（2026-08 實查）：react-router **44.2M**、@tanstack/react-router **19.7M**。所以精確的說法是：**React Router 仍是主流，TanStack Router 是「主流的第二選擇」**——約前者四成，對一個 1.0 才兩年多的路由器是罕見的追趕速度。React Router 這幾年版本動盪（v5→v6 破壞性重寫、v7 併入 Remix 又分裂出 library/framework 兩種形態）累積了社群疲勞；2026-06 的 v8 則刻意做成「無聊」的升級（破壞性變更都能先在 v7 用 future flag 吃下），並改成每年固定出一個 major，想止住這種疲勞；TanStack Router 打的型別安全和 search params 是後補追不平的架構層差距。既有專案沒有理由遷移；新的 TypeScript 重度後台，天平已經倒向 TanStack。
 
 ## 整層 Stack 的其他選擇
 
@@ -82,14 +82,14 @@ llms.txt 是讓 LLM 直接抓取全站文件純文字版的慣例。實測各家
 
 | 文件站 | /llms.txt |
 |---|---|
-| tanstack.com | ✅ 200 |
-| ui.shadcn.com | ✅ 200 |
-| zustand.docs.pmnd.rs | ✅ 200 |
-| ai-sdk.dev | ✅ 200 |
-| nextjs.org | ✅ 200 |
-| reactrouter.com | ❌ 404 |
+| tanstack.com | ✓ 200 |
+| ui.shadcn.com | ✓ 200 |
+| zustand.docs.pmnd.rs | ✓ 200 |
+| ai-sdk.dev | ✓ 200 |
+| nextjs.org | ✓ 200 |
+| reactrouter.com | ✗ 404 |
 
-這個表本身就說明了各團隊對 agent 開發流的態度。當你的 agent 需要查一個 API 的正確用法，有 llms.txt 的文件站可以整包餵進 context；沒有的就得靠爬頁面或訓練語料的記憶——後者正是幻覺的來源。
+這個表本身就說明了各團隊對 agent 開發流的態度。React Router 那格要補一句：它的 /llms.txt 仍是 404，但 2026-06 的 v8 改把文件隨套件裝進 `node_modules`，`create-react-router` 也會替新專案裝官方 Agent Skill，走的是另一條把文件交給 agent 的路。當你的 agent 需要查一個 API 的正確用法，有 llms.txt 的文件站可以整包餵進 context；沒有的就得靠爬頁面或訓練語料的記憶——後者正是幻覺的來源。
 
 ### 二、型別安全 = agent 的護欄
 
@@ -109,12 +109,18 @@ shadcn 模式（shadcn/ui、AI Elements）把元件原始碼直接複製進專�
 
 而 AI 時代的選型心法可以濃縮成一句：**選錯誤能被機器抓到的（強型別）、文件能被機器讀到的（llms.txt / MCP）、原始碼能被機器改到的（copy-in 模式）**——因為寫程式碼的那個「人」，越來越常不是人。
 
+## 更新紀錄
+
+- 2026-11-23：補上 React Router v8（2026-06）的升級方式與每年一個 major 的節奏，以及它把文件隨套件附給 agent 的做法。
+
 ## 參考資料
 
 - [TanStack Router](https://tanstack.com/router/latest)
 - [TanStack Query](https://tanstack.com/query/latest)
 - [Zustand](https://zustand.docs.pmnd.rs/)
 - [React Router](https://reactrouter.com/)
+- [React Router v8（Remix Blog）](https://remix.run/blog/react-router-v8)
+- [Remix Newsletter #44（v8 的 agent 支援）](https://remix.run/newsletter/44)
 - [Vite](https://vite.dev/)
 - [react-hook-form](https://react-hook-form.com/)
 - [Zod](https://zod.dev/)

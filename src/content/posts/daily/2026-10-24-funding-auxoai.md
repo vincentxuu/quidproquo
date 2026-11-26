@@ -12,7 +12,7 @@ series:
   order: 106
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-24-funding-auxoai-en)
+> :globe: [English version](/posts/daily/2026-10-24-funding-auxoai-en)
 
 ## 融資資訊
 

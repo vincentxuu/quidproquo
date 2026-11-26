@@ -17,7 +17,7 @@ Today's biggest signal is DeepSeek stepping into agent harness territory itself 
 
 ## Trending Repos
 
-### deepseek-ai/deepseek-harness ⭐ 213,907
+### deepseek-ai/deepseek-harness ★ 213,907
 
 [GitHub](https://github.com/deepseek-ai/deepseek-harness)　·　TypeScript　·　MIT
 
@@ -28,7 +28,7 @@ Today's biggest signal is DeepSeek stepping into agent harness territory itself 
 
 ---
 
-### DietrichGebert/ponytail ⭐ 129,035
+### DietrichGebert/ponytail ★ 129,035
 
 [GitHub](https://github.com/DietrichGebert/ponytail)　·　JavaScript　·　MIT
 
@@ -39,7 +39,7 @@ Today's biggest signal is DeepSeek stepping into agent harness territory itself 
 
 ---
 
-### magnitudedev/magnitude ⭐ 3,580
+### magnitudedev/magnitude ★ 3,580
 
 [GitHub](https://github.com/magnitudedev/magnitude)　·　TypeScript　·　Apache-2.0
 
@@ -50,7 +50,7 @@ Today's biggest signal is DeepSeek stepping into agent harness territory itself 
 
 ---
 
-### KnockOutEZ/wigolo ⭐ 5,123
+### KnockOutEZ/wigolo ★ 5,123
 
 [GitHub](https://github.com/KnockOutEZ/wigolo)　·　TypeScript　·　AGPL-3.0 (GitHub's license field shows unlicensed/Other, which doesn't match the README's claim — worth confirming the actual terms before adopting)
 

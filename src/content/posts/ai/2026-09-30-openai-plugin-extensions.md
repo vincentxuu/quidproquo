@@ -33,7 +33,7 @@ glossary:
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-openai-plugin-extensions-en)
+> :globe: [English version](/posts/ai/2026-09-30-openai-plugin-extensions-en)
 
 我一直在關注 OpenAI 的 plugin。理由很單純：它一旦做起來，很多軟體的使用方式都會跟著改。2026 年 9 月 29 日的 [OpenAI DevDay 2026](https://openai.com/index/devday-2026-recap/) 果然又有 plugin 的戲，這次叫 **Plugin Extensions**。
 
@@ -115,13 +115,13 @@ const toolMetadata = {
 
 | 功能 | 桌面版 | Web | iOS | Android |
 |---|---|---|---|---|
-| Sidebar（global） | ✅ | ✅ | ✅ | ✅ |
-| Conversation panel（thread） | ✅ | ✅ | ✅ | ✅ |
-| File viewer（file） | ✅ | ❌ | ❌ | ❌ |
-| Composer @ 提及 | ✅ | ❌ | ❌ | ❌ |
-| Rich forms | ✅ | ✅ | ❌ | ❌ |
+| Sidebar（global） | ✓ | ✓ | ✓ | ✓ |
+| Conversation panel（thread） | ✓ | ✓ | ✓ | ✓ |
+| File viewer（file） | ✓ | ✗ | ✗ | ✗ |
+| Composer @ 提及 | ✓ | ✗ | ✗ | ✗ |
+| Rich forms | ✓ | ✓ | ✗ | ✗ |
 
-recap 寫「Available to all plans」，但文件補了一句：Web 版的 Free 與 Go 使用者「coming soon」。檔案檢視器目前只在桌面版，這對想做 file viewer 的團隊是最大的前提。
+recap 寫「Available to all plans」，但文件補了一句：Web 版的 Free 與 Go 使用者「coming soon」。檔案檢視器目前只在桌面版，這對想做 file viewer 的團隊是最大的前提。spec 後來的版本把支援表擴成十幾列，其中新增一列 **WebMCP**，同樣只在桌面版支援：網頁用 [WebMCP](/posts/tech/2026-08-21-webmcp-browser-tools) 註冊的工具，ChatGPT 桌面版的 agent 叫得動；官方範例 plugin Bits & Bolts 的檢視器工具也已改走 WebMCP。
 
 ## 從 Agent → Tool 到 Agent → Plugin
 
@@ -186,6 +186,10 @@ flowchart LR
 MCP 讓 agent 能操作系統，Skill 讓 agent 知道怎麼用，Plugin 讓這些能力能被安裝與分發，Plugin Extensions 把最後一塊使用者體驗補起來。
 
 API → MCP → Skill → Plugin → Plugin Extensions，這條線走下來，問題已經從「我要開放哪些介面」變成「我的產品要以什麼形式被使用」。下一代軟體的入口，可能不只是你自己的 App，而是別人的 agent 裡面那一格側邊欄。
+
+## 更新紀錄
+
+- 2026-11-23：補上 spec 支援表新增的 WebMCP 一列（只在桌面版），以及官方範例改走 WebMCP。
 
 ## 參考資料
 

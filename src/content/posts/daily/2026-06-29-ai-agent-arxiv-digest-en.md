@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 36
 ---
-> 🌏 [中文版](/posts/daily/2026-06-29-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-29-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -79,7 +79,7 @@ The question this paper raises matters more than its answer: "Does your agent pl
 - Compared to **LangGraph**: LangGraph is a workflow orchestration layer; Agent libOS is a lower-level runtime foundation — the two are complementary
 - Compared to **AutoGen**: AutoGen's agent communication model is relatively flat; Agent libOS has explicit process hierarchy and capability control
 - Distinction from **AOS (2606.01508)**: AOS integrates the agentic control plane into a traditional OS; Agent libOS takes the library OS route, keeping control at the agent process layer
-- **Adoption barrier**: single author, no institutional backing, prototype stage, no performance benchmarks — best used as an architectural reference rather than for production deployment ⚠️
+- **Adoption barrier**: single author, no institutional backing, prototype stage, no performance benchmarks — best used as an architectural reference rather than for production deployment :warning:
 
 ### Reviewer's One-Liner
 
@@ -136,7 +136,7 @@ This is a concrete realization of the "agentic data flywheel." For agent platfor
 
 - Experimental tasks: CS research tasks, legal reasoning, mathematical object reasoning
 - Meta-optimization improved data creation pass rate from **62.1% to 79.6%**
-- Legal tasks: a **4B parameter model trained with Autodata beat a 397B baseline** ⚠️ (Meta internal baseline, details undisclosed — interpret the numbers cautiously)
+- Legal tasks: a **4B parameter model trained with Autodata beat a 397B baseline** :warning: (Meta internal baseline, details undisclosed — interpret the numbers cautiously)
 - Agent-generated data consistently outperformed traditional synthetic data methods (across all three domains)
 - Requires a strong model as judge for data quality assessment; actual usage costs need case-by-case estimation
 - Current experimental domains are narrow (3); applicability to general agent tasks remains unvalidated
@@ -200,10 +200,10 @@ For enterprise customers, "is your agent platform compliant?" is the core pre-pu
 
 ### Deep Dive
 
-- Key metric: analytical modeling shows **84–97% agentic coding efficiency retained** (median estimate 91%) ⚠️ This is an analytical estimate, not A/B tested
+- Key metric: analytical modeling shows **84–97% agentic coding efficiency retained** (median estimate 91%) :warning: This is an analytical estimate, not A/B tested
 - Primary case study based on Bank of Thailand 2025 AI Risk Policy; cross-jurisdictional applicability requires individual verification
 - OCM uses deterministic rules without LLM judgment, reducing uncertainty in edge cases and simplifying audits
-- Author Richard Kang; institutional affiliation not disclosed ⚠️
+- Author Richard Kang; institutional affiliation not disclosed :warning:
 - The NIST AI RMF mapping is the paper's most actionable section — PMs should focus here
 - The three-tier architecture aligns closely with existing agent frameworks' human-in-the-loop node designs; LangGraph's interrupt mechanism maps directly
 - Limitation: OCM's four dimensions may struggle with edge cases (e.g., "writing tests, but the tests cover core accounting logic")

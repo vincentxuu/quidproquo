@@ -10,7 +10,7 @@ description: "當線上課程普及後，真正的市場空白不在內容，而
 draft: false
 ---
 
-🌏 [English version](/posts/product/2026-03-12-daodao-market-opportunity-en)
+:globe: [English version](/posts/product/2026-03-12-daodao-market-opportunity-en)
 
 2012 年，Coursera 與 edX 相繼上線，媒體用「MOOC 元年」來描述那個時刻——全球頂尖課程免費開放，教育民主化的時代降臨。十多年後，我們有了更清醒的數字：這類平台的平均完課率，始終徘徊在 5% 到 15% 之間。
 

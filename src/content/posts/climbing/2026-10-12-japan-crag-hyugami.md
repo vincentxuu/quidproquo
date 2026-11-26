@@ -13,7 +13,7 @@ description: "介紹福岡縣八女市日向神峡的日向神岩場：安山岩
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-hyugami-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-hyugami-en)
 
 日向神（ひゅうがみ，Hyugami；讀音依 [ROCKTOPO](https://www.rocktopo.net/areas/168)）位在福岡縣最南端、八女市矢部村的日向神峡，岩場就在日向神ダム（水庫）周邊。[CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E6%97%A5%E5%90%91%E7%A5%9E/) 的描述是：「安山岩の大きな一枚岩が谷をはさんで連立している姿は圧巻である」。這些一枚岩過去開了很多以人工攀登為主的長路線，現在的主流是岩壁基部的單段 bolt 運動攀登。
 

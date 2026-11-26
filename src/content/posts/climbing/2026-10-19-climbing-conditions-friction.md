@@ -22,7 +22,7 @@ glossary:
     context: "居家文章常說好發於 3–5 月；套到岩場，冷鋒後回暖的日子陰影處可能反潮（推論）。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-climbing-conditions-friction-en)
+> :globe: [English version](/posts/climbing/2026-10-19-climbing-conditions-friction-en)
 
 上週六你在龍洞試 project，crux 那顆斜點怎麼抓都滑，第三趟手指一碰就像抓肥皂。這週三下班，朋友傳來一張照片：同一條線，有人一趟就送了，留言寫「今天超乾」。
 

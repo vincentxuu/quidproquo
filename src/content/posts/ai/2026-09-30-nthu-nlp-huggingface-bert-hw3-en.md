@@ -20,7 +20,7 @@ glossary:
     context: "Slide 29 of the tutorial shows it on the first example in the IMDb validation set."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-huggingface-bert-hw3)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

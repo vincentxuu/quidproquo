@@ -10,7 +10,7 @@ description: "When a team uses both Codex and Claude Code, maintaining duplicate
 draft: false
 ---
 
-🌏 [中文版](/posts/tech/2026-04-05-symlink-agents-md-claude-md)
+:globe: [中文版](/posts/tech/2026-04-05-symlink-agents-md-claude-md)
 
 ## TL;DR
 

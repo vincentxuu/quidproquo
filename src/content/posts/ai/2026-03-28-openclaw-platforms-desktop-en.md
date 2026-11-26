@@ -13,7 +13,7 @@ description: "OpenClaw support across macOS, Linux, and Windows: the hard Node r
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-platforms-desktop)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-platforms-desktop)
 
 OpenClaw core is TypeScript, and one hard requirement comes first:
 

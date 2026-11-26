@@ -10,7 +10,7 @@ description: "A complete debugging walkthrough of how a subtle difference in LLM
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-19-docx-skill-instructions-stream-stall)
+> :globe: [中文版](/posts/ai/2026-09-19-docx-skill-instructions-stream-stall)
 
 ## TL;DR
 

@@ -18,7 +18,7 @@ series:
   order: 14
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-mit-67960-l09-hackers-guide)
+> :globe: [中文版](/posts/tech/2026-08-30-mit-67960-l09-hackers-guide)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

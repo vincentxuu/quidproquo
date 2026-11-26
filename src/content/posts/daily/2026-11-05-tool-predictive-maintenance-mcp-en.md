@@ -12,7 +12,7 @@ series:
   order: 74
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
+> :globe: [中文版](/posts/daily/2026-11-05-tool-predictive-maintenance-mcp)
 
 ## Tool info
 
@@ -43,7 +43,7 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <path class="dg-line" d="M220 196V224" marker-end="url(#arrow)"/>
   <path class="dg-line" d="M220 320V348" marker-end="url(#arrow)"/>
   <path class="dg-line dg-line--accent" d="M220 404V428" marker-end="url(#arrow-accent)"/>
-  <path class="dg-line dg-line--warn" d="M360 272H432" marker-end="url(#arrow-warn)"/>
+  <path class="dg-line dg-line--warn" d="M400 272H448" marker-end="url(#arrow-warn)"/>
 
   <circle class="dg-dot" cx="220" cy="28" r="6"/>
 
@@ -55,7 +55,7 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <text class="dg-label" x="220" y="159" text-anchor="middle" dominant-baseline="central">FFT analysis</text>
   <text class="dg-sub" x="220" y="179" text-anchor="middle" dominant-baseline="central">envelope spectrum</text>
 
-  <path class="dg-box" d="M220 224L360 272L220 320L80 272Z"/>
+  <path class="dg-box" d="M220 224L400 272L220 320L40 272Z"/>
   <text class="dg-label" x="220" y="262" text-anchor="middle" dominant-baseline="central">Fault frequency found?</text>
   <text class="dg-sub" x="220" y="284" text-anchor="middle" dominant-baseline="central">vs. noise floor</text>
 
@@ -67,12 +67,12 @@ caption: Simplified: the real flow also reports the deviation and multiple candi
   <text class="dg-label" x="220" y="447" text-anchor="middle" dominant-baseline="central">Diagnostic report</text>
   <text class="dg-sub" x="220" y="467" text-anchor="middle" dominant-baseline="central">with matched evidence</text>
 
-  <rect class="dg-box dg-box--warn" x="432" y="248" width="220" height="48" rx="6"/>
-  <text class="dg-label" x="542" y="264" text-anchor="middle" dominant-baseline="central">unknown</text>
-  <text class="dg-sub" x="542" y="282" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
+  <rect class="dg-box dg-box--warn" x="448" y="244" width="212" height="56" rx="6"/>
+  <text class="dg-label" x="554" y="260" text-anchor="middle" dominant-baseline="central">unknown</text>
+  <text class="dg-sub" x="554" y="284" text-anchor="middle" dominant-baseline="central">insufficient evidence</text>
 
   <text class="dg-edge" x="232" y="334" text-anchor="start" dominant-baseline="central">Yes</text>
-  <text class="dg-edge dg-text--warn" x="396" y="260" text-anchor="middle" dominant-baseline="central">No</text>
+  <text class="dg-edge dg-text--warn" x="424" y="260" text-anchor="middle" dominant-baseline="central">No</text>
 </svg>
 ```
 
@@ -126,10 +126,10 @@ It also installs as a Claude Code plugin, adding 8 auto-triggered diagnostic ski
 
 | | Predictive Maintenance MCP | Commercial vibration analysis software | General LLM asked directly |
 |---|---|---|---|
-| Agent / conversational use | ✅ MCP-native, works with Claude or any MCP client | ❌ Mostly standalone GUIs | ✅ but no tool-enforced constraints |
-| Data stays local | ✅ Raw signals never leave the machine, only results go to the LLM | Depends on the vendor's deployment | ❌ The whole signal has to go to the cloud model |
-| Verdicts backed by spectral evidence | ✅ Refuses filename guesses, requires a matched fault frequency | ✅ Most commercial tools do this too | ❌ Prone to inventing a fault that follows the prompt |
-| Open source, reproducible benchmark | ✅ MIT, blind results on the CWRU dataset are rerunnable | ❌ Algorithms are mostly black boxes | — |
+| Agent / conversational use | ✓ MCP-native, works with Claude or any MCP client | ✗ Mostly standalone GUIs | ✓ but no tool-enforced constraints |
+| Data stays local | ✓ Raw signals never leave the machine, only results go to the LLM | Depends on the vendor's deployment | ✗ The whole signal has to go to the cloud model |
+| Verdicts backed by spectral evidence | ✓ Refuses filename guesses, requires a matched fault frequency | ✓ Most commercial tools do this too | ✗ Prone to inventing a fault that follows the prompt |
+| Open source, reproducible benchmark | ✓ MIT, blind results on the CWRU dataset are rerunnable | ✗ Algorithms are mostly black boxes | — |
 | Licensing cost | Free (MIT) | Often billed per machine per year, can reach tens of thousands of dollars | Billed by API usage |
 
 ## Things to watch out for

@@ -26,7 +26,7 @@ glossary:
     context: "L3 uses it as one criterion for choosing which neurons to prune."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
+> :globe: [中文版](/posts/ai/2026-09-30-mit-65940-pruning-granularity-criteria)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

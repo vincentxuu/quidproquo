@@ -13,7 +13,7 @@ series:
   order: 9
 ---
 
-> 🌏 [中文版](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
+> :globe: [中文版](/posts/policy/2026-08-06-taiwan-drone-regulation-guide)
 
 There is no shortage of Taiwanese drone regulation explainers. The problem is that **they mix three different things**: currently effective provisions, rules that have already been amended away, and draft amendments not yet in force. Blended together, a reader has no way to tell which sentence is usable today.
 

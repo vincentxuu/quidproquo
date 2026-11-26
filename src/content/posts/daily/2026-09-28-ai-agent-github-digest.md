@@ -11,7 +11,7 @@ series:
   order: 44
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-28-ai-agent-github-digest-en)
+> :globe: [English version](/posts/daily/2026-09-28-ai-agent-github-digest-en)
 
 ## 今日亮點
 
@@ -19,7 +19,7 @@ series:
 
 ## Trending Repos
 
-### BuilderIO/agent-native ⭐ 6,860
+### BuilderIO/agent-native ★ 6,860
 
 [GitHub](https://github.com/BuilderIO/agent-native)　·　TypeScript　·　未附 LICENSE
 
@@ -30,7 +30,7 @@ series:
 
 ---
 
-### yynxxxxx/Codex-X ⭐ 3,959
+### yynxxxxx/Codex-X ★ 3,959
 
 [GitHub](https://github.com/yynxxxxx/Codex-X)　·　Rust　·　MIT
 
@@ -41,7 +41,7 @@ series:
 
 ---
 
-### career-ops-hq/career-ops ⭐ 72,920
+### career-ops-hq/career-ops ★ 72,920
 
 [GitHub](https://github.com/career-ops-hq/career-ops)　·　JavaScript　·　MIT
 

@@ -22,7 +22,6 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'openrouter', envKey: 'OPENROUTER_API_KEY', label: 'OPENROUTER_API_KEY', required: false, sensitive: true },
   { provider: 'opencode', envKey: 'OPENCODE_API_KEY', label: 'OPENCODE_API_KEY', required: false, sensitive: true },
   { provider: 'nvidia', envKey: 'NVIDIA_API_KEY', label: 'NVIDIA_API_KEY', required: false, sensitive: true },
-  { provider: 'cerebras', envKey: 'CEREBRAS_API_KEY', label: 'CEREBRAS_API_KEY', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_API_TOKEN', label: 'CLOUDFLARE_API_TOKEN', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_ACCOUNT_ID', label: 'CLOUDFLARE_ACCOUNT_ID', required: false, sensitive: false },
   { provider: 'ollama_cloud', envKey: 'OLLAMA_API_KEY', label: 'OLLAMA_API_KEY', required: false, sensitive: true },
@@ -83,7 +82,6 @@ function normalizeProviderApiKeys(values: ProviderApiKeys): ProviderApiKeys {
   if (values.ANTHROPIC_API_KEY && !values.anthropic) normalized.anthropic = values.ANTHROPIC_API_KEY
   if (values.OPENROUTER_API_KEY && !values.openrouter) normalized.openrouter = values.OPENROUTER_API_KEY
   if (values.NVIDIA_API_KEY && !values.nvidia) normalized.nvidia = values.NVIDIA_API_KEY
-  if (values.CEREBRAS_API_KEY && !values.cerebras) normalized.cerebras = values.CEREBRAS_API_KEY
   if (values.OLLAMA_API_KEY && !values.ollama) normalized.ollama = values.OLLAMA_API_KEY
   if (values.OLLAMA_API_KEY && !values.ollama_cloud) normalized.ollama_cloud = values.OLLAMA_API_KEY
   if (values.OLLAMA_CLOUD_API_KEY) {

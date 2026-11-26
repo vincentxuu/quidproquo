@@ -28,7 +28,7 @@ glossary:
     context: "Assignment 1 Q4 uses a modified 6-state version with three current strengths."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)
+> :globe: [中文版](/posts/ai/2026-09-30-cs234-a1-mdp-bellman-riverswim)
 
 **Video status: Official entry or recording index only.** [Source details](#course-video-sources)
 
@@ -209,12 +209,13 @@ Course and recording entries:
 - [Stanford CS234 Spring 2024 YouTube playlist](https://www.youtube.com/playlist?list=PLoROMvodv4rN4wG6Nk6sNpTEbuOSosZdX)
 - [Official course / lecture source](https://web.stanford.edu/class/cs234/)
 
-Checked: 2026-10-10.
+Checked: 2026-11-09.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Checked the official page and public playlist again; no matching public recording, so status unchanged.
+- 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 
 ## References
 

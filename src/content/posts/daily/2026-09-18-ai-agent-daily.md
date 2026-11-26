@@ -12,7 +12,7 @@ series:
   order: 34
 ---
 
-> 🌏 [English version](/posts/daily/2026-09-18-ai-agent-daily-en)
+> :globe: [English version](/posts/daily/2026-09-18-ai-agent-daily-en)
 
 ## 一句話判斷
 
@@ -158,14 +158,14 @@ CloudSEK 最新《Middle East Cyber Threat Landscape 2025–2026》報告指出�
 
 ## 今日 Digest 一覽
 
-- 📄 [AI Agent Arxiv Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-arxiv-digest)
-- 📄 [AI Agent GitHub Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-github-digest)
-- 📄 [AI Engineer 面試日練 — 2026-09-18](/posts/daily/2026-09-18-ai-interview-daily)
-- 📄 [框架更新｜CrewAI 1.15.22](/posts/daily/2026-09-18-framework-crewai-1.15.22)
-- 📄 [框架更新｜Pydantic AI v2.44.0](/posts/daily/2026-09-18-framework-pydantic-ai-2.44.0)
-- 📄 [融資速報｜AIUC Series A $40M](/posts/daily/2026-09-18-funding-aiuc)
-- 📄 [Product Builder 面試日練 — 2026-09-18](/posts/daily/2026-09-18-product-builder-interview-daily)
-- 📄 [工具推薦｜codebase-memory-mcp](/posts/daily/2026-09-18-tool-codebase-memory-mcp)
+- :file: [AI Agent Arxiv Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-arxiv-digest)
+- :file: [AI Agent GitHub Digest — 2026-09-18](/posts/daily/2026-09-18-ai-agent-github-digest)
+- :file: [AI Engineer 面試日練 — 2026-09-18](/posts/daily/2026-09-18-ai-interview-daily)
+- :file: [框架更新｜CrewAI 1.15.22](/posts/daily/2026-09-18-framework-crewai-1.15.22)
+- :file: [框架更新｜Pydantic AI v2.44.0](/posts/daily/2026-09-18-framework-pydantic-ai-2.44.0)
+- :file: [融資速報｜AIUC Series A $40M](/posts/daily/2026-09-18-funding-aiuc)
+- :file: [Product Builder 面試日練 — 2026-09-18](/posts/daily/2026-09-18-product-builder-interview-daily)
+- :file: [工具推薦｜codebase-memory-mcp](/posts/daily/2026-09-18-tool-codebase-memory-mcp)
 
 ## 明日關注
 

@@ -11,7 +11,7 @@ series:
   order: 47
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-01-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 
 ## Trending Repos
 
-### dots ⭐ 1,932
+### dots ★ 1,932
 
 [GitHub](https://github.com/feder-cr/dots)　·　Python　·　MIT
 
@@ -30,7 +30,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 
 ---
 
-### context-mode ⭐ 24,478
+### context-mode ★ 24,478
 
 [GitHub](https://github.com/mksglu/context-mode)　·　TypeScript　·　Elastic License 2.0 (source-available, not a standard OSS license)
 
@@ -41,7 +41,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 
 ---
 
-### openrig ⭐ 2,996
+### openrig ★ 2,996
 
 [GitHub](https://github.com/mvschwarz/openrig)　·　TypeScript　·　Apache-2.0
 
@@ -52,7 +52,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 
 ---
 
-### dbx ⭐ 23,153
+### dbx ★ 23,153
 
 [GitHub](https://github.com/t8y2/dbx)　·　Rust　·　Apache-2.0
 
@@ -63,7 +63,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 
 ---
 
-### universal-modder ⭐ 790
+### universal-modder ★ 790
 
 [GitHub](https://github.com/rehan-remade/universal-modder)　·　Python　·　MIT
 
@@ -89,7 +89,7 @@ Not one of today's rising repos is selling a smarter agent — every one of them
 [Release Notes](https://github.com/deepset-ai/haystack/releases/tag/v3.3.0-rc1)
 
 - **What changed**: Patches anyio's [CVE-2026-63374](https://github.com/advisories/GHSA-82r6-8w77-94w6) (pulled in transitively through httpx/openai; requires anyio 4.14.2+). `InMemoryDocumentStore` with BM25L or BM25Plus no longer pads out `top_k` with documents that contain none of the query terms. `SentenceWindowRetriever` now queries the Document Store once per call instead of once per retrieved document, cutting latency directly.
-- **Breaking changes**: Listed under "⬆️ Upgrade Notes" rather than called out as breaking, but it does change existing retrieval scores and result counts — anyone filtering with a fixed score threshold needs to re-check it.
+- **Breaking changes**: Listed under "↑ Upgrade Notes" rather than called out as breaking, but it does change existing retrieval scores and result counts — anyone filtering with a fixed score threshold needs to re-check it.
 - **Impact**: Anyone using Haystack's built-in BM25 retriever with a fixed score threshold may see fewer documents come back after upgrading and should recalibrate; the anyio CVE fix is worth pulling regardless.
 
 ## Today's Takeaway

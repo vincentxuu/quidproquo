@@ -108,10 +108,10 @@ series:
 | **工具邊界** | 嚴格只用 Groundlane | 多用 Tavily/Exa/Brave/Serper |
 | **輸出目標** | `.research/` → post skill 發文 | 直接輸出報告 |
 | **學術品質** | 有 A/B/C/D 分級 | 部分有（hashbulla、Silence-view） |
-| **對抗驗證** | ❌ | ✅ 幾乎都有 |
-| **持久化知識庫** | ❌ | ✅ hyperresearch 有 |
-| **benchmark 對齊** | ❌ | jamoeight v2 有 BrowseConf |
-| **跨平台** | ❌ 僅限 agent 環境 | ✅ skills.sh / 多 runtime |
+| **對抗驗證** | ✗ | ✓ 幾乎都有 |
+| **持久化知識庫** | ✗ | ✓ hyperresearch 有 |
+| **benchmark 對齊** | ✗ | jamoeight v2 有 BrowseConf |
+| **跨平台** | ✗ 僅限 agent 環境 | ✓ skills.sh / 多 runtime |
 
 ## 值得學習的設計
 

@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-hatchet-durable-workflows-en)
+> :globe: [English version](/posts/tech/2026-08-22-hatchet-durable-workflows-en)
 
 [Hatchet](https://github.com/hatchet-dev/hatchet) 不只是一個 durable workflow SDK。它把 durable task queue、靜態 DAG、dynamic workflow、排程、rate limit、結果保存、observability 與 dashboard 放在同一個 Postgres-backed 平台，worker 則用 Python、TypeScript 或 Go 執行你的程式。
 
@@ -58,6 +58,8 @@ const research = hatchet.durableTask({
 
 Hatchet Cloud 代管 control plane，worker 可留在自己的 VPC。自架包含 Hatchet engine、REST API、dashboard 與 PostgreSQL；RabbitMQ 是高吞吐即時 dispatch 的選配，也可用 Postgres-backed messaging。worker 獨立運行，透過 gRPC 連到 engine。
 
+2026-11 的 [Hatchet v2](https://hatchet.run/announcement/hatchet-v2) 多了第二種執行方式：[serverless endpoint](https://docs.hatchet.run/v1/serverless)。Cloudflare Workers、Vercel 這類平台上的函式可以註冊成 endpoint，由 Hatchet 透過公開 HTTPS 呼叫，不必另外跑長駐 worker。代價是 task 時長受平台 request timeout 限制，durable task 也要平台支援 websocket 才能跑；長時間或重狀態的工作仍建議用 worker。v2 同時加入 durable streams（可從 cursor 重讀的 topic）與 sandbox 整合，Python SDK v2 則要求 durable task 一律寫成 async。engine 仍是 MIT 授權。
+
 單機 CLI／Docker Compose 適合開發或小型部署，Kubernetes／Helm 適合正式環境。但「只依賴 Postgres」不代表零維運：資料庫 HA、backup、connection budget、event retention、engine upgrade、worker credential 與 gRPC ingress 都是 production responsibility。
 
 ## AI agent 的優勢是動態 fan-out
@@ -68,11 +70,18 @@ Hatchet Cloud 代管 control plane，worker 可留在自己的 VPC。自架包�
 
 ## 什麼時候選 Hatchet
 
-團隊想用一個平台涵蓋背景 queue、DAG、排程與動態 durable workflow，又偏好 Python／TypeScript／Go 和 Postgres 自架路徑，Hatchet 值得優先試。只要事件驅動 serverless function 與 managed flow control，Inngest 較直接；需要 keyed durable state 與 service semantics，Restate 更鮮明；成熟的大型 durable workflow 治理可比較 Temporal。
+團隊想用一個平台涵蓋背景 queue、DAG、排程與動態 durable workflow，又偏好 Python／TypeScript／Go 和 Postgres 自架路徑，Hatchet 值得優先試。只要事件驅動 serverless function 與 managed flow control，Inngest 較直接，不過 Hatchet v2 也能直接呼叫 serverless endpoint，這條界線已經變窄；需要 keyed durable state 與 service semantics，Restate 更鮮明；成熟的大型 durable workflow 治理可比較 Temporal。
 
 PoC 不要只測 happy path。請在 child side effect 後 kill worker、在 wait 中重啟 control plane、升級 workflow code，再確認 history、duplicate handling 與人工重跑是否符合團隊的 failure contract。
 
+## 更新紀錄
+
+- 2026-11-23：補上 Hatchet v2（serverless endpoint、durable streams、sandbox 整合）對執行模型與「何時改選 Inngest」判準的影響。
+
 ## 參考資料
+
+- [Hatchet v2 announcement](https://hatchet.run/announcement/hatchet-v2)
+- [Hatchet serverless endpoints](https://docs.hatchet.run/v1/serverless)
 
 - [Hatchet repository and platform overview](https://github.com/hatchet-dev/hatchet)
 - [Hatchet durable tasks](https://github.com/hatchet-dev/hatchet/blob/main/frontend/docs/pages/v1/durable-tasks.mdx)

@@ -17,7 +17,7 @@ series:
   order: 9
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
+> :globe: [English version](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor-en)
 
 [上一篇](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow)講了記憶體漏洞，那是「程式自己出錯」的一面。這一篇換成「牆」的一面：一台實體電腦怎麼切給很多人用，那些隔開彼此的牆又是什麼做的。讀完你應該能向別人解釋，[Hyper-V 獎金表](https://www.microsoft.com/en-us/msrc/bounty-hyper-v)上的 L1 guest 逃脫與 L2 guest 逃脫，各是哪一道牆被穿過，以及[系列第 13 篇](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check)提到的 25 萬美元為什麼落在這一格。
 

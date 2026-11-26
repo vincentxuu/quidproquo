@@ -1,0 +1,1 @@
+今日無 Benchmark 異動，未產出文章。檢查範圍：SWE-bench Verified（官方 JSON）、LMArena Agent 子集（HF datasets-server）、CursorBench 4.0（benchlm.ai）均與 2026-11-17 快照逐位元相同；AA Agentic Index 沿用上次值未重新驗證（artificialanalysis.ai 仍為前端 JS 圖表、不可抓表）；MorphLLM leaderboard 持續 404。已更新 `src/data/daily-signals/benchmark-snapshot.json` 的 date 與 notes。

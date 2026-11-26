@@ -14,7 +14,7 @@ series:
   order: 28
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-cmu-11785-28-boltzmann-machines)
+> :globe: [中文版](/posts/ai/2026-08-22-cmu-11785-28-boltzmann-machines)
 
 **Video status: Videos included; playback has not been rechecked individually.** [Source details](#course-video-sources)
 

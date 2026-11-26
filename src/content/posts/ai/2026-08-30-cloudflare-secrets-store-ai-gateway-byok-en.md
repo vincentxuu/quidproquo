@@ -16,7 +16,7 @@ additionalSeries:
     order: 24
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-secrets-store-ai-gateway-byok)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-secrets-store-ai-gateway-byok)
 
 AI apps quickly accumulate secrets: OpenAI keys, Anthropic keys, Gemini keys, webhook secrets, GitHub tokens, internal API tokens, and tenant-owned provider keys. If every Worker stores its own copy, rotation, permissions, environment separation, and audit become messy.
 

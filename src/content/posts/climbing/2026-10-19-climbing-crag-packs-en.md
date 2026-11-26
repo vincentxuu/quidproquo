@@ -13,7 +13,7 @@ series:
   order: 6
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-crag-packs)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-crag-packs)
 
 On a climbing day at Railay in Thailand, the walk from your bungalow to the wall might take fifteen minutes. If you stay in Ao Nang instead, you start each day on a longtail boat. On Kalymnos, many people rent a scooter to reach the crags. The pack on your back works very differently on those days. On a boat or a scooter it has to sit on your lap or stay tight to your body. Once you reach the wall, it has to open wide for the rope, draws, and shoes.
 

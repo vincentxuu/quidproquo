@@ -13,7 +13,7 @@ series:
   order: 13
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
+> :globe: [中文版](/posts/tech/2026-08-06-taiwan-drone-supply-chain-layers)
 
 "Taiwan has 267 drone companies" has been quoted endlessly over the past six months. Very few people ask the follow-up: what are those 267 companies actually doing?
 

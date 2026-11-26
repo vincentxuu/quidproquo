@@ -22,7 +22,7 @@ glossary:
     context: "CS224U 投影片把它和標準的 IID 評估並列成兩套五步驟流程。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-29-cs224u-behavioral-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

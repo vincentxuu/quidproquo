@@ -12,7 +12,7 @@ series:
   order: 73
 ---
 
-> 🌏 [繁體中文版](/posts/daily/2026-10-27-ai-agent-daily)
+> :globe: [繁體中文版](/posts/daily/2026-10-27-ai-agent-daily)
 
 ## Today's Call
 
@@ -156,12 +156,12 @@ Also today: a dedicated [Funding Alert: Nous Raises $17M New Round](/posts/daily
 
 ## Today's Digest Roundup
 
-- 📄 [AI Agent Arxiv Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-arxiv-digest-en)
-- 📄 [AI Agent GitHub Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-github-digest-en)
-- 📄 [Funding Alert: Nous Raises $17M New Round — 2026-10-27](/posts/daily/2026-10-27-funding-nous-en)
-- 📄 [Security Alert: INC/Gentlemen Ransomware Exposes Full AI Co-Operation Record — 2026-10-27](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware-en)
-- 📄 [AI Engineer Interview Daily — 2026-10-27: Deep Learning & NLP](/posts/daily/2026-10-27-ai-interview-daily-en)
-- 📄 [Product Builder Interview Daily — 2026-10-27: Metrics & Analytics](/posts/daily/2026-10-27-product-builder-interview-daily-en)
+- :file: [AI Agent Arxiv Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-arxiv-digest-en)
+- :file: [AI Agent GitHub Digest — 2026-10-27](/posts/daily/2026-10-27-ai-agent-github-digest-en)
+- :file: [Funding Alert: Nous Raises $17M New Round — 2026-10-27](/posts/daily/2026-10-27-funding-nous-en)
+- :file: [Security Alert: INC/Gentlemen Ransomware Exposes Full AI Co-Operation Record — 2026-10-27](/posts/daily/2026-10-27-security-inc-gentlemen-phantom-mcp-ransomware-en)
+- :file: [AI Engineer Interview Daily — 2026-10-27: Deep Learning & NLP](/posts/daily/2026-10-27-ai-interview-daily-en)
+- :file: [Product Builder Interview Daily — 2026-10-27: Metrics & Analytics](/posts/daily/2026-10-27-product-builder-interview-daily-en)
 
 ## Watching Tomorrow
 

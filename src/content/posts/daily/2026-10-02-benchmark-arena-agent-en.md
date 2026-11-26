@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-02-benchmark-arena-agent)
+> :globe: [中文版](/posts/daily/2026-10-02-benchmark-arena-agent)
 
 ## Summary
 
@@ -24,11 +24,11 @@ Arena's (formerly LMSYS Chatbot Arena) Agent-category leaderboard — where huma
 
 | Rank | Model | Score | 09-28 score | Change |
 |---|---|---|---|---|
-| 🥇 | Claude Fable 5.1 (Max) | 14.55% | 14.06% | — |
-| 🥈 | Claude Opus 5.5 (High) | 13.78% | 11.84% | — |
-| 🥉 | GPT-6 Astra (Max) | 12.18% | 10.36% | — |
+| 1 | Claude Fable 5.1 (Max) | 14.55% | 14.06% | — |
+| 2 | Claude Opus 5.5 (High) | 13.78% | 11.84% | — |
+| 3 | GPT-6 Astra (Max) | 12.18% | 10.36% | — |
 | 4 | GPT-6 Sol (Max) | 10.65% | 8.80% | — |
-| 5 | Claude Opus 5 (High) | 8.76% | 9.47% (🥉→4→5) | ↓ |
+| 5 | Claude Opus 5 (High) | 8.76% | 9.47% (3→4→5) | ↓ |
 
 Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/leaderboard-dataset) (`agent` subset, `latest` split) · Official publish date: 2026-09-30 · Fetched: 2026-10-02
 
@@ -36,9 +36,9 @@ Source: [Arena Leaderboard Dataset](https://huggingface.co/datasets/lmarena-ai/l
 
 | Rank | Model | Score |
 |---|---|---|
-| 🥇 | Claude Opus 5 (High) | 12.99% |
-| 🥈 | Claude Opus 5 (Max) | 12.73% |
-| 🥉 | Claude Fable 5 (High) | 11.70% |
+| 1 | Claude Opus 5 (High) | 12.99% |
+| 2 | Claude Opus 5 (Max) | 12.73% |
+| 3 | Claude Fable 5 (High) | 11.70% |
 
 That old snapshot carries no precise date — Groundlane's rendering of `swebench.com`, `arena.ai`, and `morphllm.com` has failed every single day since 2026-09-03, so this site had no choice but to carry the same stale values forward each day (see the methodology section below). Tracing back through the newly discovered official dataset, Claude Fable 5.1 (Max) was already in first place by at least 09-24, and Claude Opus 5.5 (High) entered the top three on 09-27, five days after its release. In other words, this turnover happened at least a week ago — the detection tooling simply hadn't caught up until today.
 
@@ -50,7 +50,7 @@ When Claude Opus 5.5 launched on 2026-09-22, Anthropic's own announcement claime
 
 ### Methodology angle
 
-⚠️ The score here isn't a classic Elo rating — it's Arena's own relative win-rate metric. Higher is better, but the number shifts slightly depending on which models happen to be in the comparison pool on a given day, so day-to-day score deltas for the same model shouldn't be read as precise percentage-point changes; only the ranking order and score magnitude are reliable signals.
+:warning: The score here isn't a classic Elo rating — it's Arena's own relative win-rate metric. Higher is better, but the number shifts slightly depending on which models happen to be in the comparison pool on a given day, so day-to-day score deltas for the same model shouldn't be read as precise percentage-point changes; only the ranking order and score magnitude are reliable signals.
 
 The more important methodology note: this site's `daily-digest-benchmark` routine has failed to render `swebench.com`, `arena.ai`, and `morphllm.com` directly every single day for over a month straight since 2026-09-03 (hitting `OUTPUT_LIMIT`, `js_empty_document`, and a Vercel 429 security checkpoint, respectively). Today we finally found a workaround: Arena's own blog post from 2026-04-02 ([Arena Leaderboard Dataset](https://arena.ai/blog/arena-leaderboard-dataset)) announced that the entire history of every leaderboard had already been published as a structured Hugging Face dataset (`lmarena-ai/leaderboard-dataset`). Hugging Face's `datasets-server` REST API (`/rows`, `/splits`, `/size`) returns clean JSON directly, with no page rendering required at all. This is Arena's own first-party data, not a third-party aggregator's retelling, so its credibility matches the official leaderboard page itself. No equivalent structured export has been found yet for `swebench.com` or `morphllm.com` — rendering those still fails — so this post only confirms a shift on the Arena Agent leaderboard specifically.
 

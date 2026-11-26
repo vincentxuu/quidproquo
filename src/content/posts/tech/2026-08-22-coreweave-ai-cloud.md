@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-coreweave-ai-cloud-en)
+> :globe: [English version](/posts/tech/2026-08-22-coreweave-ai-cloud-en)
 
 [CoreWeave](https://docs.coreweave.com/) 是聚焦 AI/HPC 的雲端基礎設施。它不只有一張「每小時 GPU」價目表。產品包含 CoreWeave Kubernetes Service（CKS）、Slurm-on-Kubernetes、object/file/block storage、VPC，以及 serverless 與 dedicated inference。
 
@@ -33,7 +33,11 @@ serverless inference 適合按請求部署、縮放與減少 idle；dedicated in
 
 GPU 型號相同不代表 cluster 等價。region capacity、reservation、interconnect、CPU/RAM 比例、storage egress、support 與 quota 都會影響交付。Terraform/Kubernetes manifest、OCI image、portable checkpoint 與 S3-compatible artifact layout 可降低供應商切換成本，但網路與效能調校仍不可攜。
 
-上線前讓一個 node、storage mount 與一條 network path 故障，確認 job 能 checkpoint/resume、inference 能排空與重排。CoreWeave 適合 GPU 是核心生產資源的團隊；小規模實驗或 API-first 產品，RunPod、Replicate 或一般 hyperscaler 可能更省心。
+上線前讓一個 node、storage mount 與一條 network path 故障，確認 job 能 checkpoint/resume、inference 能排空與重排。CoreWeave 適合 GPU 是核心生產資源的團隊；小規模實驗或 API-first 產品，Runpod、Replicate 或一般 hyperscaler 可能更省心。
+
+## 更新紀錄
+
+- 2026-11-23：比較段的「RunPod」改成現行品牌寫法 Runpod（2025-06 起更名）。
 
 ## 參考資料
 

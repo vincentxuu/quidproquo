@@ -13,7 +13,7 @@ description: "黑風洞五面牆的比較指南：各自的收費、土地狀態
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-other-walls-en)
+> :globe: [English version](/posts/climbing/2026-10-21-malaysia-crag-batu-caves-other-walls-en)
 
 黑風洞不是一面牆，是一群牆，而且每一面的收費、土地狀況、日照方向與岩栓年齡都不一樣。這五面牆裡，White Wall 免費、Comic Wall 是私有地只能「被容忍」、Gua Lepak 收遊客 RM10、Red Rocks 軟到像磨光的水泥、Nanyang 一半是公有地。這篇幫你一次比較完這五面牆，決定當天去哪一面、付多少錢，以及哪些路徑上有人回報過落石、玻璃與蜂群。
 

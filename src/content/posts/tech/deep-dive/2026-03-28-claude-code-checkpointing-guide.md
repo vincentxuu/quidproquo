@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-checkpointing-guide-en)
 
 這是「[Claude Code 深入介紹](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)」系列第 4 篇。入口篇把 Claude Code 的安全設計分成兩道防線：checkpoints 讓你收回檔案變更，permission modes 控制它不問你就能做多少。這篇展開第一道：snapshot 怎麼存、rewind 怎麼按、哪些東西它其實救不回來。
 

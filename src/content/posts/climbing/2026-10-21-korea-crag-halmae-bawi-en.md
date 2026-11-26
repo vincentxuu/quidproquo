@@ -13,7 +13,7 @@ description: "Gochang Halmae-bawi guide: climbing style, transport, farmland acc
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-korea-crag-halmae-bawi)
+> :globe: [中文版](/posts/climbing/2026-10-21-korea-crag-halmae-bawi)
 
 If Seonunsan’s steep photographs make a Gochang trip look like nothing but hard projects, nearby Halmae-bawi offers another option: more vertical terrain, pockets and short sport routes. This guide helps you choose warm-ups and objectives, arrange the last leg without a car and avoid the wrong namesake or farmland entrance.
 

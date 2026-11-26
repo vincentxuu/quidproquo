@@ -30,7 +30,7 @@ glossary:
     context: "The inReach Mini 3 uses the older SBD short-burst platform; the Mini 3 Plus and Messenger Plus use the newer IMT, which allows longer messages, photos and voice."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-11-01-satellite-messengers-plb)
+> :globe: [中文版](/posts/climbing/2026-11-01-satellite-messengers-plb)
 
 At Longdong you usually have phone signal. Below a cliff on a mid-elevation peak, down in a river gorge, or on a Dolomites north face, you might have none at all. That's what satellite messengers and personal locator beacons (PLBs) are for: they skip the cell towers and send a distress signal and coordinates straight to a satellite, which relays it to rescuers. A two-way messenger also lets you text back and forth with the rescue centre and tell them who's hurt, how badly, and whether you have warm gear.
 

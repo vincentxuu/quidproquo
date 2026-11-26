@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-sglang-inference-server)
+> :globe: [中文版](/posts/tech/2026-08-22-sglang-inference-server)
 
 [SGLang](https://docs.sglang.io/) is an inference framework for large language and multimodal generative models. It combines a model execution engine, an OpenAI-compatible HTTP API, parallelism, and cache management so applications can point an existing client at a GPU endpoint they operate.
 
@@ -27,13 +27,14 @@ That does not guarantee proportional gains for every workload. Requests with lit
 
 SGLang also supports continuous batching, quantization, speculative decoding, structured outputs, and tensor, pipeline, and expert parallelism. These features live in the same serving layer, but each added optimization expands the compatibility and debugging surface.
 
+Hardware is no longer just NVIDIA and AMD: the official README also lists Google TPU, Intel GPUs and CPUs, Apple Silicon (Metal/MLX), and Huawei Ascend, and DGX Spark and the RTX 50 series appear in the NVIDIA list. Feature coverage differs by platform, so check the platform page before committing to non-NVIDIA hardware.
+
 ## Start a server behind an OpenAI-compatible API
 
-The official [OpenAI-compatible API](https://docs.sglang.io/basic_usage/openai_api_completions.html) avoids rewriting the client protocol. The minimum launch command is below. A production deployment should pin a model revision, restrict network access, and verify the model license.
+The official [OpenAI-compatible API](https://docs.sglang.io/docs/basic_usage/openai_api_completions) avoids rewriting the client protocol. The minimum launch command is below (the official quickstart now uses `sglang serve`; the older `python -m sglang.launch_server` form still shows up in older docs and examples). The default images and packages need an NVIDIA driver that supports CUDA 13. A production deployment should pin a model revision, restrict network access, and verify the model license.
 
 ```bash
-python -m sglang.launch_server \
-  --model-path Qwen/Qwen3-8B \
+sglang serve Qwen/Qwen3.5-9B \
   --host 0.0.0.0 \
   --port 30000
 ```
@@ -47,7 +48,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="Qwen/Qwen3-8B",
+    model="Qwen/Qwen3.5-9B",
     messages=[{"role": "user", "content": "Explain KV cache in three bullets."}],
     temperature=0.2,
 )
@@ -58,7 +59,7 @@ API compatibility lowers migration cost; it does not make every vendor extension
 
 ## Multi-GPU and multi-node serving require systems work
 
-The [server arguments](https://docs.sglang.io/advanced_features/server_arguments.html) expose tensor parallelism, data parallelism, and distributed initialization. Tensor parallelism is a starting point when a model does not fit on one GPU. Data parallelism is usually easier when one replica fits but aggregate throughput is insufficient. Multi-node serving also needs fast interconnects, reproducible images, weight distribution, failure handling, and health checks.
+The [server arguments](https://docs.sglang.io/docs/advanced_features/server_arguments) expose tensor parallelism, data parallelism, and distributed initialization. Tensor parallelism is a starting point when a model does not fit on one GPU. Data parallelism is usually easier when one replica fits but aggregate throughput is insufficient. Multi-node serving also needs fast interconnects, reproducible images, weight distribution, failure handling, and health checks.
 
 Measure time to first token, inter-token latency, throughput, GPU memory, error rate, and queue depth. Optimizing only aggregate tokens per second can produce an impressive load test and a sluggish interactive product.
 
@@ -76,11 +77,17 @@ Build a fixed request set covering a long system prompt, multi-turn chat, short 
 
 SGLang trades specialization for performance and control over generative serving. It also leaves GPU capacity planning, model compatibility, and reliability with the operator. Without sustained load or GPU operations expertise, a usage-based API may still cost less.
 
+## Changelog
+
+- 2026-11-23: Switched the launch command to the official quickstart's `sglang serve` and the example model to Qwen3.5-9B; added TPU, Apple Silicon, Ascend and other hardware support plus the CUDA 13 driver requirement; moved documentation links to the new paths.
+
 ## References
 
 - [SGLang Documentation](https://docs.sglang.io/)
-- [SGLang OpenAI-Compatible APIs](https://docs.sglang.io/basic_usage/openai_api_completions.html)
-- [SGLang Server Arguments](https://docs.sglang.io/advanced_features/server_arguments.html)
-- [SGLang Structured Outputs](https://docs.sglang.io/advanced_features/structured_outputs.html)
+- [SGLang Quickstart](https://docs.sglang.io/docs/get-started/quickstart)
+- [SGLang GitHub README (supported hardware)](https://github.com/sgl-project/sglang)
+- [SGLang OpenAI-Compatible APIs](https://docs.sglang.io/docs/basic_usage/openai_api_completions)
+- [SGLang Server Arguments](https://docs.sglang.io/docs/advanced_features/server_arguments)
+- [SGLang Structured Outputs](https://docs.sglang.io/docs/advanced_features/structured_outputs)
 - [SGLang: Efficient Execution of Structured Language Model Programs](https://arxiv.org/abs/2312.07104)
 - [On this site: the cost threshold for self-hosting vLLM](/posts/ai/2026-08-21-vllm-self-host-decision-en)

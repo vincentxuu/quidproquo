@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-kubernetes-container-orchestration-en)
+> :globe: [English version](/posts/tech/2026-08-22-kubernetes-container-orchestration-en)
 
 [Kubernetes](https://kubernetes.io/docs/concepts/) 是管理 containerized workloads 的 declarative control plane。團隊提交 API objects 描述 desired state，controllers 持續觀察 actual state 並收斂差異。價值在通用 scheduling、service discovery、rollout、self-healing 與 extensibility，而不是把所有維運變成 YAML。
 

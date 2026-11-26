@@ -13,7 +13,7 @@ description: "介紹高知縣大月町足摺宇和海國立公園內的大堂海
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-12-japan-crag-odo-kaigan-en)
+> :globe: [English version](/posts/climbing/2026-10-12-japan-crag-odo-kaigan-en)
 
 大堂海岸的白色花崗岩斷崖直接落進太平洋，裂隙沿著海面往上延伸。來這裡爬的吸引力，是靠自己放保護、沿著岩石的弱點找線；要自己處理的，也包括確保站、潮汐和回到崖上的路。
 

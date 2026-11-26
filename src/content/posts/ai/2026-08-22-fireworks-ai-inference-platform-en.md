@@ -10,7 +10,7 @@ description: "A deep dive into Fireworks AI Serverless, On-demand dedicated depl
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-fireworks-ai-inference-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-fireworks-ai-inference-platform)
 
 [Fireworks AI](https://fireworks.ai/) is a training and inference platform for open-weight models. It is more than a model aggregator that forwards requests: the same model can begin on a shared Serverless API, move onto dedicated GPUs, and eventually incorporate fine-tuned or uploaded weights. The application keeps almost the same calling convention while capacity, billing, and operational control change underneath it.
 

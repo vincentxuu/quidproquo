@@ -22,7 +22,7 @@ glossary:
     context: "作業 3 的三個指標之一；每題時間也是用同樣方式除以解出題數。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt-en)
+> :globe: [English version](/posts/ai/2026-10-21-cs2680-assignment-3-mads-opt-en)
 
 **影片狀態：課程不錄影。** 本文依公開作業頁面、作業投影片與 starter 檔整理，手算例子為本站補充，不是官方解答。[來源說明](#課程影片來源)
 

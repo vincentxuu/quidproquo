@@ -22,7 +22,7 @@ glossary:
     context: "Most etiquette guides say to ask first before offering beta."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-climbing-partners-gym-culture)
+> :globe: [中文版](/posts/climbing/2026-10-19-climbing-partners-gym-culture)
 
 The sentence you hear most often in a climbing gym is probably "Can anyone give me a belay?" Bouldering works alone; roped climbing needs a second person holding the rope. You trust that person with your life, and they trust you with theirs, so choosing who to climb with is a safety decision as well as a social one.
 

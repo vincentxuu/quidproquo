@@ -12,7 +12,7 @@ series:
   order: 29
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch-en)
+> :globe: [English version](/posts/daily/2026-10-31-pricing-azure-foundry-claude-haiku-mistral-retirement-mismatch-en)
 
 ## 變更摘要
 
@@ -56,9 +56,9 @@ Haiku 5.5 這個價是「prompt 在 10 萬 token 以內」的區間（本場景�
 
 ## 時效提醒
 
-⚠️ **Claude Haiku 4.5 在 Microsoft Foundry 停用日期**：2026-11-15（約 2 週後）。Foundry 官方退場表未列替代模型；Anthropic 自家平台（Claude API、Bedrock、Google Cloud）仍列 Haiku 4.5 為 Active，尚未公告退場。遷移建議：[Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview)。
+:warning: **Claude Haiku 4.5 在 Microsoft Foundry 停用日期**：2026-11-15（約 2 週後）。Foundry 官方退場表未列替代模型；Anthropic 自家平台（Claude API、Bedrock、Google Cloud）仍列 Haiku 4.5 為 Active，尚未公告退場。遷移建議：[Claude Haiku 5.5](https://platform.claude.com/docs/en/models/haiku-5-5/overview)。
 
-⚠️ **Mistral Medium 3／Ministral 3B 在 Microsoft Foundry 停用日期**：2026-12-09。兩個模型已分別在 Mistral 自家平台停用 100 天與 343 天，Foundry 期間缺乏上游維護。遷移建議：Mistral Medium 3.5。
+:warning: **Mistral Medium 3／Ministral 3B 在 Microsoft Foundry 停用日期**：2026-12-09。兩個模型已分別在 Mistral 自家平台停用 100 天與 343 天，Foundry 期間缺乏上游維護。遷移建議：Mistral Medium 3.5。
 
 ## 今日收穫
 

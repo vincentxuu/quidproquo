@@ -17,7 +17,7 @@ additionalSeries:
     order: 22
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-22-ai-security-sandbox-credentials)
+> :globe: [中文版](/posts/ai/2026-10-22-ai-security-sandbox-credentials)
 
 Even a well-validated ticket tool may run as a process that can read your home directory, reach arbitrary hosts, and inherit deployment credentials. A tool vulnerability can then escape the intended ticket boundary.
 

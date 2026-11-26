@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 9 週導讀：推薦問題的形式
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week9-recommenders-agent-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week9-recommenders-agent-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 9 週。資料從文字換成人的行為：誰給哪部電影幾顆星。要回答的問題是：**一個人沒看過的東西，怎麼猜他會不會喜歡？**
 

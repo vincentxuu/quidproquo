@@ -13,7 +13,7 @@ series:
   order: 1
 ---
 
-> 🌏 [中文版](/posts/product/2026-09-16-the-information-exclusive-news)
+> :globe: [中文版](/posts/product/2026-09-16-the-information-exclusive-news)
 
 Once a game is over, the final score is free everywhere. The information that can change a decision is knowing, before kickoff, that the star player will sit out—and trusting the report enough to change your lineup.
 

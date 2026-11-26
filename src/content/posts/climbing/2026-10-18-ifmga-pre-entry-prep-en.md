@@ -28,7 +28,7 @@ glossary:
         url: "https://risingsunguides.com/ast-1/"
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-18-ifmga-pre-entry-prep)
+> :globe: [中文版](/posts/climbing/2026-10-18-ifmga-pre-entry-prep)
 
 You can lead at [Long Dong](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en), you have climbed a few of Taiwan's 3,000 m peaks, and you have done a winter snow course. The [previous post](/posts/climbing/2026-10-17-ifmga-taiwan-path-en) covered why Taiwanese climbers have to train abroad. This one asks an earlier question: **before you apply, which parts of your experience are missing, and where do you go to fill each one?**
 
@@ -52,19 +52,19 @@ France sets the hardest grades but not always the highest counts: 15 ski tours i
 
 ## One table: where each skill can be trained
 
-✅ trainable　△ partly　❌ not trainable　— no public information
+✓ trainable　△ partly　✗ not trainable　— no public information
 
 | Requirement | Taiwan | Japan | Korea | New Zealand | Alps |
 |---|---|---|---|---|---|
-| 6b onsight in rock shoes | ✅ [Long Dong](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en) | ✅ [Ogawayama](/posts/climbing/2026-10-12-japan-crag-ogawayama-en) | ✅ [Insubong](https://ukclimbing.com/logbook/crags/insubong-27109) | ✅ | ✅ |
-| 300 m+ rock routes on your own gear | ❌ | △ [Mizugakiyama](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en) multi-pitch | ✅ [Seoraksan](https://www.mountainproject.com/area/115392007/seoraksan-national-park-sokcho) | ✅ | ✅ |
-| 50–60° ice slopes, crampon technique | △ depends on the year's snow | ✅ Yatsugatake, Northern Alps | — | ✅ | ✅ |
-| WI4 ice falls | ❌ | ✅ Yatsugatake | ✅ Pandae, Gugok Falls | △ July–August only | ✅ |
-| Skiing any snow with a pack | ❌ | ✅ Hakuba, Niseko | — | ✅ | ✅ |
-| Ski touring | ❌ | △ Tateyama in spring | ❌ | ✅ | ✅ |
-| Glacier travel, glacier ski touring | ❌ | ❌ | ❌ | ✅ | ✅ |
-| D+ alpine routes of about 800 m | ❌ | △ smaller scale | ❌ | ✅ | ✅ |
-| Avalanche courses | ❌ | ✅ JAN, English AST1 | — | ✅ ASC1, ASC2 | ✅ |
+| 6b onsight in rock shoes | ✓ [Long Dong](/posts/climbing/2026-10-17-taiwan-crags-rock-type-en) | ✓ [Ogawayama](/posts/climbing/2026-10-12-japan-crag-ogawayama-en) | ✓ [Insubong](https://ukclimbing.com/logbook/crags/insubong-27109) | ✓ | ✓ |
+| 300 m+ rock routes on your own gear | ✗ | △ [Mizugakiyama](/posts/climbing/2026-10-12-japan-crag-mizugakiyama-en) multi-pitch | ✓ [Seoraksan](https://www.mountainproject.com/area/115392007/seoraksan-national-park-sokcho) | ✓ | ✓ |
+| 50–60° ice slopes, crampon technique | △ depends on the year's snow | ✓ Yatsugatake, Northern Alps | — | ✓ | ✓ |
+| WI4 ice falls | ✗ | ✓ Yatsugatake | ✓ Pandae, Gugok Falls | △ July–August only | ✓ |
+| Skiing any snow with a pack | ✗ | ✓ Hakuba, Niseko | — | ✓ | ✓ |
+| Ski touring | ✗ | △ Tateyama in spring | ✗ | ✓ | ✓ |
+| Glacier travel, glacier ski touring | ✗ | ✗ | ✗ | ✓ | ✓ |
+| D+ alpine routes of about 800 m | ✗ | △ smaller scale | ✗ | ✓ | ✓ |
+| Avalanche courses | ✗ | ✓ JAN, English AST1 | — | ✓ ASC1, ASC2 | ✓ |
 
 The evidence for each cell is in the sections below.
 

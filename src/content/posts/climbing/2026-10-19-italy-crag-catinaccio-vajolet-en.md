@@ -13,7 +13,7 @@ description: "A guide to Catinaccio/Rosengarten and the Vajolet Towers: the layo
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-italy-crag-catinaccio-vajolet)
+> :globe: [中文版](/posts/climbing/2026-10-19-italy-crag-catinaccio-vajolet)
 
 Catinaccio (Rosengarten in German, "rose garden") is the dolomite massif between Val di Fassa and Val di Tires in South Tyrol. At its centre stand the Vajolet Towers, which [UKC](https://www.ukclimbing.com/logbook/crags/vajolet_towers-21057) calls "one of the most famous rock formations in the Dolomites"; the opening scene of *Cliffhanger* was filmed here.
 

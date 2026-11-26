@@ -13,7 +13,7 @@ description: "A Lan Hạ Bay climbing guide: beach sport climbing at Tiger Beach
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-vietnam-crag-lan-ha)
+> :globe: [中文版](/posts/climbing/2026-10-21-vietnam-crag-lan-ha)
 
 Lan Hạ Bay is the least climbing-like crag of this Vietnam trip: you take a boat first, then walk in from the beach. **Some routes are on the limestone walls behind the beach, some grow straight out of the water** — the latter are deep water soloing (Deep Water Solo, DWS), with no rope and no fixed points, so if you fall off, you fall into the water.
 

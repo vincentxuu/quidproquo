@@ -73,13 +73,13 @@ Fork 模式在巢狀 spawn 時會造成 context 指數膨脹。考慮這個情�
 
 依 [Anthropic 的多 agent 研究系統實戰](https://www.anthropic.com/engineering/multi-agent-research-system)，他們的 orchestrator-worker 架構中，worker 的回覆會被壓縮後才合併進 orchestrator 的 context。這防止了一個常見問題：某個 worker 回了一大段，佔掉了後續 worker 回覆的 context 空間。
 
-[Antigravity（原 Gemini CLI）](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)走得更徹底——**所有** subagent 的結果都強制壓縮後才回傳主 session。這是 Antigravity 的設計哲學：主 agent 的 context 是寶貴資源，子 agent 不能隨便汙染。
+[Gemini CLI 的 subagent 設計](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)走得更徹底——**所有** subagent 的結果都強制壓縮後才回傳主 session。這是它的設計哲學：主 agent 的 context 是寶貴資源，子 agent 不能隨便汙染。
 
 ### 歷史截斷（History Truncation）
 
 Fork 模式不帶完整歷史，而是截斷到最近 N 條訊息或做摘要。
 
-依 Microsoft Agent Framework 的 [TokenOps 理念](https://github.com/microsoft/agents)，接近預算時的第一反應不是停止，而是壓縮 context。原 AutoGen 0.2 的 `TransformMessages` 機制可以在訊息傳給 agent 前做截斷或摘要——雖然 API 已過時，概念被 MAF 繼承。
+依 Microsoft Agent Framework 的 [compaction 文件](https://learn.microsoft.com/en-us/agent-framework/concepts/agents/conversations/compaction)，接近預算時的第一反應不是停止，而是壓縮 context：`TokenBudgetComposedStrategy` 由輕到重依序收起舊 tool 結果、摘要、滑動視窗，壓到預算以下就停。原 AutoGen 0.2 的 `TransformMessages` 機制可以在訊息傳給 agent 前做截斷或摘要——雖然 API 已過時，概念被 MAF 繼承。
 
 實務建議：
 - Fork 模式預設只帶最近 20 條訊息（或 ~8K tokens）
@@ -114,6 +114,10 @@ Context 管理的核心取捨是**資訊充分性 vs token 效率**：
 
 最後一個容易被忽略的點：**context 管理不只影響成本，也影響品質**。依 [Google Research 的實驗](https://arxiv.org/abs/2512.08296)，資訊過載的 agent 表現反而比資訊精簡的差——模型被無關訊息淹沒後，會忽略真正重要的指令。少即是多。
 
+## 更新紀錄
+
+- 2026-11-23：subagent 結果壓縮的例子改標為 Gemini CLI（它不是改名成 Antigravity，一般使用者是另外移往 Antigravity CLI）；Microsoft Agent Framework 連結改為官方文件；壓縮段改引 MAF 的 compaction 文件（官方沒有「TokenOps」這個名稱）
+
 ## 參考資料
 
 - [Anthropic — Building effective agents](https://docs.anthropic.com/en/docs/agents)
@@ -121,7 +125,7 @@ Context 管理的核心取捨是**資訊充分性 vs token 效率**：
 - [Anthropic — Claude models & pricing](https://docs.anthropic.com/en/docs/about-claude/models)
 - [Claude Code — Subagent types (Fork vs Fresh)](https://code.claude.com/docs/en/workflows)
 - [OpenAI — Codex GA 官方公告](https://openai.com/index/codex-now-generally-available/)
-- [Antigravity — Subagents 文件](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)
-- [Microsoft Agent Framework](https://github.com/microsoft/agents)
+- [Gemini CLI — Subagents 文件](https://github.com/google-gemini/gemini-cli/blob/main/docs/core/subagents.md)
+- [Microsoft Agent Framework 官方文件](https://learn.microsoft.com/en-us/agent-framework/)
 - [LangGraph Documentation](https://langchain-ai.github.io/langgraph/)
 - [Google Research — Towards a Science of Scaling Agent Systems (arXiv 2512.08296)](https://arxiv.org/abs/2512.08296)

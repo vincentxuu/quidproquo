@@ -13,18 +13,18 @@ series:
   order: 26
 ---
 
-> 🌏 [中文版](/posts/tech/2026-10-10-ai-model-family-apodex)
+> :globe: [中文版](/posts/tech/2026-10-10-ai-model-family-apodex)
 
 [Apodex](https://apodex.ai/) is a **reasoning-first** model family developed by the **Apodex** team. The official model card positions Apodex for **long-horizon research, forecasting, and verifiable reasoning** — the official agent service emphasizes verifiable deliverables; reproducibility still depends on the tools, data, and execution records.
 
-The flagship open model is **Apodex 1.1 Mini** (`apodex/apodex-1.1-mini:free`), a Mixture-of-Experts model with a 262K token context window, offered as a free model on OpenRouter.
+The current generation is Apodex 1.1: the flagship **Apodex 1.1** (397B) is API-only, while **Apodex 1.1 Mini** (35B, Mixture-of-Experts) is available both through the official API and as Apache 2.0 open weights. Both have a 262,144-token context window. Mini's official API price is $0.10 input and $1.00 output per million tokens; OpenRouter no longer has a working Apodex endpoint.
 
 ## Family positioning and model matrix
 
 | Model / product line | Positioning | Key differences | Access |
 |---|---|---|---|
-| Apodex 1.1 Mini | Long-horizon research and forecasting | MoE; 262,144 tokens | Open weights; free OpenRouter route |
-| Apodex core API | Text reasoning | `apodex-1.1` / `apodex-1.1-mini`; no tool execution | Official model API |
+| Apodex 1.1 Mini | Long-horizon research, forecasting, high-volume work | 35B MoE; 262,144 tokens | Apache 2.0 open weights; official API `apodex-1.1-mini` |
+| Apodex 1.1 | Hard reasoning, quality-critical work | 397B; 262,144 tokens | Official API `apodex-1.1` (Hugging Face hosts Mini weights only) |
 | Deep Research service | Research agents | Search, sandbox, MCP, and agent runtime | Official Apodex platform |
 
 ### Models and the agent service are separate layers
@@ -45,13 +45,13 @@ This article focuses on Apodex 1.1 Mini and distinguishes the core API from the 
 |------|---------------|
 | **Architecture** | Mixture-of-Experts (MoE) |
 | **Context Window** | 262,144 tokens |
-| **Parameter count** | See the official model configuration and weights repository |
+| **Parameter count** | Mini 35B; flagship Apodex 1.1 is 397B (official API docs) |
 | **Trainer** | **Apodex** |
-| **Access / licensing** | OpenRouter free model (`:free` suffix); also via official Apodex platform |
+| **Access / licensing** | Mini weights are Apache 2.0; hosted access goes through the official Apodex API |
 | **Input modalities** | Text, including code and data represented as text; core API file content parts are not supported |
 | **Output modalities** | Text, reasoning content, tool-call requests; artifacts are produced by the runtime |
 
-> ⚠️ The model and the hosted agent service are separate layers. AgentOS and Agent Team provide the execution workflow; a raw model API requires tool schemas and a host loop to execute calls. Mini can also be deployed locally.
+> :warning: The model and the hosted agent service are separate layers. AgentOS and Agent Team provide the execution workflow; a raw model API requires tool schemas and a host loop to execute calls. Mini can also be deployed locally.
 
 ## Evaluation and alternatives
 
@@ -63,25 +63,36 @@ For related selection questions, compare [Cohere](/posts/tech/2026-08-24-ai-mode
 
 ### Deployment and access options
 
-#### OpenRouter (free tier)
+#### Official Apodex API
+
+Core models are served over the OpenAI-compatible `https://api.apodex.ai/v1/chat/completions`, and also over the Anthropic Messages format (`/v1/messages`) at the same prices.
+
+| Model ID | Parameters | Input / cached input / output (per million tokens) |
+|---|---|---|
+| `apodex-1.1` | 397B | $0.30 / $0.03 / $3.00 |
+| `apodex-1.1-mini` | 35B | $0.10 / $0.01 / $1.00 |
+
+- Requests with more than 200K input tokens are billed at 2x for the entire request (input, cached input, and output).
+- Non-streaming requests cap `max_tokens` at 32,768, and reasoning tokens count toward it; turn on `stream` for longer outputs.
+- Deep Research 1.1 ($5 / $20) and Deep Solve 1.1 ($5 / $25) are agent tasks with per-use fees for search, fetch, and sandbox tools; Deep Discover 1.1 Preview requires an access request. These are research-agent services, not core models.
+
 ```python
 import os
 import openai
 client = openai.OpenAI(
-    api_key=os.environ["OPENROUTER_API_KEY"],
-    base_url="https://openrouter.ai/api/v1"
+    api_key=os.environ["APODEX_API_KEY"],
+    base_url="https://api.apodex.ai/v1"
 )
 resp = client.chat.completions.create(
-    model="apodex/apodex-1.1-mini:free",
+    model="apodex-1.1-mini",
     messages=[{"role": "user", "content": "..."}]
 )
 ```
-- Free endpoints have quotas and rate limits; check the policy for your OpenRouter account.
-- Ideal for prototyping, personal research, and low-frequency batch tasks
+
+The earlier free OpenRouter route `apodex/apodex-1.1-mini:free` no longer has a working endpoint, so do not use it as an entry point.
 
 #### Apodex official platform
-- The official hosted agent service provides AgentOS and Agent Team workflows
-- Confirm enterprise pricing and private deployment options directly with Apodex.
+- The official hosted agent service provides AgentOS and Agent Team workflows.
 
 #### Local / private deployment
 - **Apodex-1.1-mini open weights are available**; the official model card documents local SGLang and vLLM deployment under Apache 2.0
@@ -119,20 +130,21 @@ This is an application design example, not a tested performance result. Record t
 
 A long context window can hold more material, but does not guarantee correct retrieval or analysis. Tool access, state persistence, concurrency, and attachments are runtime responsibilities. Mini's suitability for a specific task should be measured with your own data; the sources do not establish that it is uniformly poor at chat or that the larger model is always required.
 
-The model card describes local SGLang and vLLM deployment and Apache 2.0 licensing. Local deployment still needs adequate memory and matching reasoning/tool parsers. Free hosted access is useful for experiments; check provider availability, account quotas, and data-retention terms before relying on it.
+The model card describes local SGLang and vLLM deployment and Apache 2.0 licensing. Local deployment still needs adequate memory and matching reasoning/tool parsers. The hosted API is billed per token; check account quotas and data-retention terms before production use, and watch the 2x billing for inputs above 200K tokens.
 
 ## Update history
 
+- 2026-11-23: OpenRouter's `apodex/apodex-1.1-mini:free` no longer has a working endpoint, so the introduction, model matrix, spec table, and deployment section now point to the official Apodex API. Added the official price table (1.1 and 1.1 Mini), parameter counts (397B / 35B), and the 2x billing above 200K input tokens; the matrix now includes the flagship Apodex 1.1. The model generation is unchanged (still 1.1).
 - 2026-10-11: Reorganized the article into the common family structure and added a model matrix using existing material; factual verification dates remain unchanged.
 - 2026-10-11: Verified model and API documentation before publication; separated core models from the agent service and removed unsupported IDE, deployment, and comparative-performance claims.
 
-*Last updated: 2026-10-11. Model specs, free tier policies, and access options may change; always verify against the official docs.*
+*Last updated: 2026-11-23. Model specs, pricing, and access options may change; always verify against the official docs.*
 
 ## References
 
 - [Apodex-1.1-mini official model card and local deployment](https://huggingface.co/apodex/Apodex-1.1-mini)
 
 - [Apodex official site](https://apodex.ai/)
-- [Apodex on OpenRouter](https://openrouter.ai/apodex/apodex-1.1-mini:free)
+- [Apodex API pricing](https://platform.apodex.ai/docs/pricing)
 - [Apodex core-model API documentation](https://platform.apodex.ai/docs/models)
 - [Apodex model configuration](https://huggingface.co/apodex/Apodex-1.1-mini/raw/main/config.json)

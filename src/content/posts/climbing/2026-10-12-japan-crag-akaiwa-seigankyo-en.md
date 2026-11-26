@@ -13,7 +13,7 @@ description: "A guide to Akaiwa Seigankyo in Shimukappu, Hokkaido: rock type, ro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo)
+> :globe: [中文版](/posts/climbing/2026-10-12-japan-crag-akaiwa-seigankyo)
 
 Akaiwa Seigankyo (赤岩青巌峡, あかいわせいがんきょう) is a cluster of red chert boulders and walls in the Mukawa River gorge, in Shimukappu village (占冠村), Yufutsu District, Hokkaido. [CLIMBING-net](https://www.climbing-net.com/iwaba_detail/%E8%B5%A4%E5%B2%A9%E9%9D%92%E5%B7%8C%E5%B3%A1/) calls it "北海道を代表するエリア" and adds "特に5.12台、5.13台がこれほど充実したエリアは他に類を見ない" (nowhere else is the 5.12–5.13 range this deep). Most walls are a few steps from the road.
 

@@ -8,12 +8,12 @@ lang: zh-TW
 series:
   name: "搜尋與爬取實戰"
   order: 2
-tldr: "Tavily 和 Exa 都是純雲端 API，不能自己架。能自己組的是 SearXNG（269 個上游引擎、82 個預設開啟）+ Crawl4AI（78.8k stars、Apache-2.0），現成的 Tavily 相容 wrapper 都還是幾十顆星的個人專案，不建議直接用。但 SearXNG 沒有自己的索引，而且從機房 IP 跑會被搜尋引擎打成空結果——這兩件事決定了自架划不划算。"
+tldr: "Tavily 和 Exa 都是純雲端 API，不能自己架。能自己組的是 SearXNG（261 個上游引擎、80 個預設開啟）+ Crawl4AI（87.7k stars、Apache-2.0），現成的 Tavily 相容 wrapper 都還是幾十顆星的個人專案，不建議直接用。但 SearXNG 沒有自己的索引，而且從機房 IP 跑會被搜尋引擎打成空結果——這兩件事決定了自架划不划算。"
 description: "為什麼 Tavily 和 Exa 不能自己架，以及 SearXNG + Crawl4AI 這套自架替代方案的實際組成、現成 wrapper 為什麼還不能用、想複製 Exa 自建索引的開源專案現況，還有機房 IP 被封這個最常翻車的坑。"
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-21-self-hosted-search-stack-en)
+> :globe: [English version](/posts/ai/2026-08-21-self-hosted-search-stack-en)
 
 [系列前一篇](/posts/ai/2026-05-07-ai-search-mcp-tools)把 agent 能接的搜尋 MCP 服務比了一輪，但整篇有個沒說破的前提：那些全部是雲端 API，你的每一次查詢都會經過別人的伺服器，而且按次計費。這篇處理另一半——如果不想付錢、或資料不能外流，能不能自己架一套？
 
@@ -23,10 +23,10 @@ draft: false
 
 | 你想要的 | 地端可行性 |
 |---|---|
-| Tavily 那種「查了就回乾淨結果」的 API 介面 | ✅ 容易，一個 `docker compose` |
-| 語意排序，不要一堆 SEO 垃圾 | ✅ 容易，本地小模型就夠 |
-| Exa 那種自建索引 + 神經檢索 | ⚠️ 有開源同構品，規模差幾個數量級 |
-| 全網覆蓋 + 持續重爬的新鮮度 | ❌ 複製不了 |
+| Tavily 那種「查了就回乾淨結果」的 API 介面 | ✓ 容易，一個 `docker compose` |
+| 語意排序，不要一堆 SEO 垃圾 | ✓ 容易，本地小模型就夠 |
+| Exa 那種自建索引 + 神經檢索 | :warning: 有開源同構品，規模差幾個數量級 |
+| 全網覆蓋 + 持續重爬的新鮮度 | ✗ 複製不了 |
 
 ## 官方確實沒有地端方案
 
@@ -45,11 +45,11 @@ Tavily 同樣是 API-only，公開文件裡沒有自架路徑。
 
 SearXNG 是這套的核心。依官方文件（2026.8.20 build）：
 
-> SearXNG supports 269 search engines of which 82 are enabled by default.
+> SearXNG supports 261 search engines of which 80 are enabled by default.
 
-也就是說它自己不做索引，而是把查詢分發給 Google、Bing、DuckDuckGo、Brave、Mojeek 這些上游，再把結果去重合併。35.8k stars、AGPL-3.0。
+也就是說它自己不做索引，而是把查詢分發給 Google、Bing、DuckDuckGo、Brave、Mojeek 這些上游，再把結果去重合併。39.8k stars、AGPL-3.0。
 
-抓取那端最常見的搭配是 [Crawl4AI](https://github.com/unclecode/crawl4ai)（78,805 stars、Apache-2.0），Python + Playwright，抓回來直接吐 Markdown：
+抓取那端最常見的搭配是 [Crawl4AI](https://github.com/unclecode/crawl4ai)（87,690 stars、Apache-2.0），Python + Playwright，抓回來直接吐 Markdown：
 
 ```python
 import asyncio
@@ -68,7 +68,7 @@ asyncio.run(main())
 
 安裝要記得跑 `crawl4ai-setup`，它負責裝 Playwright 瀏覽器；漏了這步第一次 `arun()` 會直接找不到 Chromium。版型固定的站台用 `JsonCssExtractionStrategy` 寫 CSS schema，零 token 成本；版型不固定才上 `LLMExtractionStrategy`，而且 provider 可以指向 Ollama，讓整條鏈路都不出網段。
 
-另一個選擇是自架 [Firecrawl](https://docs.firecrawl.dev/contributing/self-host)（170k stars、AGPL-3.0），但官方自架文件把閹割講得很白：
+另一個選擇是自架 [Firecrawl](https://docs.firecrawl.dev/contributing/self-host)（207k stars、AGPL-3.0），但官方自架文件把閹割講得很白：
 
 > Screenshots or page actions: Not available in the default stack. Fetch and Playwright both report no support; both require Fire-engine.
 
@@ -78,17 +78,17 @@ asyncio.run(main())
 
 搜尋 GitHub 會找到一批把整套包好的「Tavily 開源替代品」，但**這一層目前普遍不成熟**——多數是個位數到數十顆星的個人專案，沒有第二個維護者，看架構可以，放進正式環境不行。
 
-比較有樣子的是 [searcharvester](https://github.com/vakovalskii/searcharvester)（256 stars、AGPL-3.0），一行 `docker compose up` 起 SearXNG + trafilatura，額外提供 `/research` 深度研究端點，有預先建好的 GHCR image。即使如此，256 stars 仍然代表你要有自己接手維護的準備。
+比較有樣子的是 [searcharvester](https://github.com/vakovalskii/searcharvester)（283 stars、AGPL-3.0），一行 `docker compose up` 起 SearXNG + trafilatura，額外提供 `/research` 深度研究端點，有預先建好的 GHCR image。即使如此，283 stars 仍然代表你要有自己接手維護的準備。
 
-反過來看，底層元件都是社群夠大的東西——SearXNG（35.8k）、Crawl4AI（78.8k）、[trafilatura](https://github.com/adbar/trafilatura)（6,673 stars、Apache-2.0）。**把這三個黏起來的膠水程式碼不到三百行，自己寫反而比依賴一個隨時會停更的 wrapper 可控。**
+反過來看，底層元件都是社群夠大的東西——SearXNG（39.8k）、Crawl4AI（87.7k）、[trafilatura](https://github.com/adbar/trafilatura)（7,161 stars、Apache-2.0）。**把這三個黏起來的膠水程式碼不到三百行，自己寫反而比依賴一個隨時會停更的 wrapper 可控。**
 
 ## 第二層：想複製 Exa 的自建索引
 
 Exa 真正的差異不在 API 形狀，而在它有自己爬的索引、用 embedding 做語意檢索。開源世界確實有同構品，但現況要先看清楚：
 
 - **[DawnSearch](https://github.com/dawn-search/dawnsearch)**：設計上最像——索引 Common Crawl、用 all-MiniLM-L6-v2 產 embedding、USearch 做向量檢索、Rust 寫的分散式 P2P。但 **14 stars，最後一次 push 停在 2023-08-14**，已經是死專案，只能當設計參考。
-- **[Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch)**（1,917 stars、Java）：活的，2026-07 還在更新。它明確支援跑成你自己的白牌搜尋引擎——官方 README 說「can both be run as a copy of Marginalia Search, or as a white-label search engine for your own data」。硬體門檻寫得很誠實：32GB RAM 跑得動，但正式規模要企業級 SSD 加額外數 TB 硬碟存爬取資料。
-- **[YaCy](https://github.com/yacy/yacy_search_server)**（4,013 stars）：老牌 P2P 搜尋引擎，也能關掉網路只查本地索引，當純內網搜尋設備用。
+- **[Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch)**（2,241 stars、Java）：活的，2026-11 仍在更新。它明確支援跑成你自己的白牌搜尋引擎——官方 README 說「can both be run as a copy of Marginalia Search, or as a white-label search engine for your own data」。硬體門檻寫得很誠實：32GB RAM 跑得動，但正式規模要企業級 SSD 加額外數 TB 硬碟存爬取資料。
+- **[YaCy](https://github.com/yacy/yacy_search_server)**（4,108 stars）：老牌 P2P 搜尋引擎，也能關掉網路只查本地索引，當純內網搜尋設備用。
 
 共同的硬限制是**新鮮度**。Common Crawl 是快照，自己爬則受限於你的頻寬與 IP。你會得到一個語意檢索還可以、但內容是舊的索引——而 Exa 的核心賣點恰好是持續重爬。**自架版本最先掉的東西，正是你想買的東西。**
 
@@ -116,7 +116,7 @@ Exa 真正的差異不在 API 形狀，而在它有自己爬的索引、用 embe
             ▼                         ▼
      ┌─────────────┐          ┌──────────────┐
      │  SearXNG    │          │  Crawl4AI    │
-     │ 269 引擎    │          │  Playwright  │
+     │ 261 引擎    │          │  Playwright  │
      └──────┬──────┘          └──────┬───────┘
             │                        │
             ▼                        ▼
@@ -145,14 +145,18 @@ Exa 真正的差異不在 API 形狀，而在它有自己爬的索引、用 embe
 
 下一篇回到工具本身，看[爬蟲工具全景圖](/posts/ai/2026-07-25-ai-web-scraping-tools-landscape)怎麼在 34 個開源專案裡選；把這些接成完整研究流程的做法，則在[Local Deep Research 導讀](/posts/ai/2026-05-08-local-deep-research-walkthrough)。
 
+## 更新紀錄
+
+- 2026-11-23：依 SearXNG 官方文件把引擎數更新為 261 個、預設開啟 80 個（原 269／82），並以 GitHub API 更新 SearXNG、Crawl4AI、Firecrawl、searcharvester、Marginalia、YaCy、trafilatura 的星數。結論不變。
+
 ## 參考資料
 
-- [Crawl4AI](https://github.com/unclecode/crawl4ai) — 78,805 stars、Apache-2.0（2026-08-21 查詢）
+- [Crawl4AI](https://github.com/unclecode/crawl4ai) — 87,690 stars、Apache-2.0（2026-11-23 查詢）
 - [SearXNG](https://github.com/searxng/searxng) — 35,834 stars、AGPL-3.0
-- [SearXNG Configured Engines](https://docs.searxng.org/user/configured_engines.html) — 269 個引擎、82 個預設開啟
+- [SearXNG Configured Engines](https://docs.searxng.org/user/configured_engines.html) — 261 個引擎、80 個預設開啟
 - [Firecrawl 自架文件](https://docs.firecrawl.dev/contributing/self-host) — 自架版功能限制對照表
 - [trafilatura](https://github.com/adbar/trafilatura) — 內文抽取函式庫
-- [searcharvester](https://github.com/vakovalskii/searcharvester) — Tavily 相容自架 API（256 stars、AGPL-3.0）
+- [searcharvester](https://github.com/vakovalskii/searcharvester) — Tavily 相容自架 API（283 stars、AGPL-3.0）
 - [Marginalia Search](https://github.com/MarginaliaSearch/MarginaliaSearch) — 可自架的白牌搜尋引擎
 - [YaCy](https://github.com/yacy/yacy_search_server) — P2P 搜尋引擎與內網搜尋設備
 - [DawnSearch](https://github.com/dawn-search/dawnsearch) — Common Crawl 語意檢索（2023 停更）

@@ -13,7 +13,7 @@ description: "以 MIT Course 6-4 正式學位要求、2025–2026 實際開課�
 draft: false
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
+> :globe: [English version](/posts/learning/2026-08-21-mit-ai-ml-course-map-en)
 
 **影片狀態：僅附官方入口或錄影清單。** [影片來源與說明](#課程影片來源)
 

@@ -13,7 +13,7 @@ series:
   order: 11
 ---
 
-🌏 [中文版](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain)
+:globe: [中文版](/posts/tech/debug/2026-03-12-cloudflare-workers-custom-domain)
 
 ## TL;DR
 

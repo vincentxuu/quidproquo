@@ -12,7 +12,7 @@ series:
   order: 112
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-29-funding-casap)
+> :globe: [中文版](/posts/daily/2026-10-29-funding-casap)
 
 ## Funding Details
 

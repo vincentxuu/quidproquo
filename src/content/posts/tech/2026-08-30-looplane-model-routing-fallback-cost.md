@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost-en)
+> :globe: [English version](/posts/tech/2026-08-30-looplane-model-routing-fallback-cost-en)
 
 [上一篇](/posts/tech/2026-08-30-looplane-model-provider-multigateway)處理的是 protocol：各家 API 怎麼收斂成 canonical `ModelTurn`。這篇才處理一次 request 遇到失敗時往哪裡走，以及 cache 與 cost 資訊到底代表什麼。
 

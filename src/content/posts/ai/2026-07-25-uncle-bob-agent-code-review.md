@@ -23,7 +23,7 @@ glossary:
     definition: "掃 JSON IR、找出重複、近似重複與疑似同義的 Gherkin step 文字，讓 agent 把規格正規化、剪掉冗餘的工具。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-07-25-uncle-bob-agent-code-review-en)
+> :globe: [English version](/posts/ai/2026-07-25-uncle-bob-agent-code-review-en)
 
 2026 年 7 月 23 日 11:44 UTC，Robert C. Martin（Uncle Bob）發了一則 533 個字元的回覆，到目前為止累積 418 萬次瀏覽、1.6 萬個讚、1.1 萬次收藏、530 則回覆。《Clean Code》的作者說他不讀程式碼了。
 

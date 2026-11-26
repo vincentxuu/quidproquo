@@ -11,7 +11,7 @@ series:
   order: 54
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-15-security-langflow-mcp-stdio-rce)
+> :globe: [中文版](/posts/daily/2026-10-15-security-langflow-mcp-stdio-rce)
 
 ## What happened
 

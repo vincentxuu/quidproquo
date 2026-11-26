@@ -12,7 +12,7 @@ series:
   order: 40
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-14-framework-mastra-1.76.0-en)
+> :globe: [English version](/posts/daily/2026-10-14-framework-mastra-1.76.0-en)
 
 ## 版本資訊
 

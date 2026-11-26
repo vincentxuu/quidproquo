@@ -14,9 +14,9 @@ description: "逐頁核對 CS329Z 第一堂 71 頁投影片，以十段導讀解
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en)
+> :globe: [English version](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en)
 
-**影片狀態：錄影需登入課程 Canvas。** [官方取得方式](https://cs329z.stanford.edu/logistics.html)。本文依公開投影片與原文整理，沒有課堂口述或時間碼。
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 70 分鐘；本文依公開投影片與原文整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
 
 Stanford CS329Z 第一堂的三份讀物，從不同角度談同一件事：模型之外的流程，如何改變 AI 的實際表現？BAIR 提出系統設計的問題；Andrew Ng 整理可迭代的工作模式；Si 等人則把研究構想交給程式與 GPU 實驗檢驗。下文先介紹投影片的主線，再逐篇深讀，也分清觀點文章與實驗論文的證據差別。
 
@@ -36,11 +36,18 @@ Stanford CS329Z 第一堂的三份讀物，從不同角度談同一件事：模�
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
 </div>
 
+```youtube
+url: https://www.youtube.com/watch?v=DGI4vucR71w
+title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang
+```
+
 ## 第一堂投影片導讀：從 71 頁理解 agent 如何判斷、行動與接受檢驗
 
 這份 [Intro to Agentic Systems](https://web.stanford.edu/class/cs329z/slides/lecture01.pdf)不只介紹複合系統。它先交代課程與 agent 的歷史，再拆解推理、記憶與工具，最後用可靠性與安全問題檢查整套架構。以下依投影片順序合併課務與重複的章節分隔頁，保留每段的機制與案例；頁碼採 PDF 的實體頁數，點連結可在頁內對照。
 
 ### 第 1–17 頁：這門課要同時理解模型與軟體系統
+
+[錄影 00:00–07:35](https://www.youtube.com/watch?v=DGI4vucR71w)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=1" data-slide-page="1">投影片第 1–17 頁</a>
 
@@ -54,6 +61,8 @@ Stanford CS329Z 第一堂的三份讀物，從不同角度談同一件事：模�
 
 ### 第 18–27 頁：agent 不是從聊天模型才開始，重點一直是感知與行動
 
+[錄影 07:35–22:01](https://www.youtube.com/watch?v=DGI4vucR71w&t=455s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=18" data-slide-page="18">投影片第 18–27 頁</a>
 
 這段歷史的用途不是背年份。早期 actor、任務協商與 Society of Mind，已經在討論會行動的單位及其協作；1990 年代的定義又強調自主、反應、主動與社會互動。第 21 頁引用的感測器／致動器定義，把共同骨架說得很清楚：系統接收環境資訊，再透過動作影響環境。
@@ -65,6 +74,8 @@ Stanford CS329Z 第一堂的三份讀物，從不同角度談同一件事：模�
 **理解檢查**：能寫一份完整計畫的模型，是否已經執行任務？沒有。計畫仍是輸出；只有動作確實執行、結果回到系統，才能判斷計畫是否可行。
 
 ### 第 29–34 頁：五個元件如何接成真正的行動迴圈？
+
+[錄影 22:01–31:48](https://www.youtube.com/watch?v=DGI4vucR71w&t=1321s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=29" data-slide-page="29">投影片第 29–34 頁</a>
 
@@ -109,6 +120,8 @@ caption: 依第 29–34 頁簡化的行動迴圈；證據足夠時可以回答�
 
 ### 第 35–37 頁：Apple Remote 案例，查詢失敗也可以是下一步的線索
 
+[錄影 31:48–35:05](https://www.youtube.com/watch?v=DGI4vucR71w&t=1908s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=35" data-slide-page="35">投影片第 35–37 頁</a>
 
 這裡有一個完整、能沿著來源追查的課堂例子。問題是：**除了 Apple Remote，還有什麼裝置能控制它最初搭配的那個程式？** 要先找「原本控制哪個程式」，再找那個程式的其他控制方式。
@@ -132,6 +145,8 @@ caption: 依第 29–34 頁簡化的行動迴圈；證據足夠時可以回答�
 
 ### 第 38–43 頁：取樣、反思、辯論與協調，回饋的來源並不相同
 
+[錄影 35:05–43:10](https://www.youtube.com/watch?v=DGI4vucR71w&t=2105s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=38" data-slide-page="38">投影片第 38–43 頁</a>
 
 這一段不是替「多想幾次」換幾個名稱，而是區分不同的資訊流：
@@ -151,6 +166,8 @@ caption: 依第 29–34 頁簡化的行動迴圈；證據足夠時可以回答�
 
 ### 第 44–50 頁：記憶要分清保存經驗、歸納知識與重用技能
 
+[錄影 43:10–46:45](https://www.youtube.com/watch?v=DGI4vucR71w&t=2590s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=44" data-slide-page="44">投影片第 44–50 頁</a>
 
 第 44 頁先回到總架構、標出 memory，再用第 45 頁說明需求：事件流不可能全部常駐 context，即使能放進去，也不表示模型能找到相關資訊。記憶設計因此包含「怎麼寫」與「怎麼讀」，不只是把聊天紀錄存起來。
@@ -167,6 +184,8 @@ caption: 依第 29–34 頁簡化的行動迴圈；證據足夠時可以回答�
 
 ### 第 51–53 頁：會呼叫工具，還包含選擇時機、參數與結果利用
 
+[錄影 46:45–53:41](https://www.youtube.com/watch?v=DGI4vucR71w&t=2805s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=51" data-slide-page="51">投影片第 51–53 頁</a>
 
 Toolformer 把工具使用拆成一組學習問題：選哪個 API、何時呼叫、填什麼參數，以及如何將結果接回生成。第 51 頁用計算器、問答、搜尋、翻譯與日曆示例，說明工具能補上外部資訊或運算。輸出一段看似正確的呼叫語法，仍然只完成其中一部分。
@@ -176,6 +195,8 @@ Toolformer 把工具使用拆成一組學習問題：選哪個 API、何時呼�
 第 53 頁把工具重新放回完整架構。工具結果可能成為觀察，影響推理與記憶；因此工具不是裝上就算整合成功。**理解檢查**：計算器回傳正確數值，最後答案仍引用了另一個舊數值，錯在哪裡？工具執行沒有錯，但結果沒有被正確接回判斷；要檢查回傳如何進入 context，以及模型是否採用它。
 
 ### 第 55–59 頁：system、data、evals 如何落到 RAG、工具呼叫與 MCP？
+
+[錄影 53:41–61:13](https://www.youtube.com/watch?v=DGI4vucR71w&t=3221s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=55" data-slide-page="55">投影片第 55–59 頁</a>
 
@@ -200,6 +221,8 @@ Toolformer 把工具使用拆成一組學習問題：選哪個 API、何時呼�
 
 ### 第 61–64 頁：一次成功、可靠地成功與安全地成功，要分開測
 
+[錄影 61:13–64:55](https://www.youtube.com/watch?v=DGI4vucR71w&t=3673s)
+
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=61" data-slide-page="61">投影片第 61–64 頁</a>
 
 第 61 頁把可靠性、訓練、長任務、安全與評估列為核心挑戰。長迴圈中的錯誤可能傳到下一步；訓練則面對回饋稀少、時程長與 rollout 成本高；context 不斷增加，也可能讓目標與限制逐漸偏移。這些不是「最終答案錯了」的一種原因，而是需要分別定位的系統問題。
@@ -217,6 +240,8 @@ Toolformer 把工具使用拆成一組學習問題：選哪個 API、何時呼�
 **理解判準**：助理正確摘要所有延期信，卻未經確認寄給外部收件者，不能算「整體通過」。答案內容可能完成，執行授權仍然失敗；測試需要把兩項條件分開，再檢查是否同時成立。
 
 ### 第 65–71 頁：協作、攻擊與隱私，為什麼不能只靠完成率把關？
+
+[錄影 64:55–69:36](https://www.youtube.com/watch?v=DGI4vucR71w&t=3895s)
 
 <a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf#page=65" data-slide-page="65">投影片第 65–71 頁</a>
 
@@ -482,8 +507,17 @@ BAIR 讓我們把改善單位放到整套系統；Ng 提供改變工作方式的
 
 帶著這些問題讀[第 6 堂的 workflow](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)與[第 3 堂的 RAG](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)，再到[第 4 堂的工具](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)與[第 5 堂的框架](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)。HW1 是後續實作，本文的閱讀判斷與自擬例子不代替官方作業規範。
 
+## 課程影片來源
+
+- 錄影：[What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang](https://www.youtube.com/watch?v=DGI4vucR71w)（Stanford Online 頻道，2026-11-09 上架，全片約 70 分鐘）
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-13。上架前「錄影需登入課程 Canvas」的說法已不再適用；本文依公開投影片與原文整理，並已依錄影（機器轉錄逐字稿）核對各節起點。
+- 內容核對：已依影片核對（2026-11-13）：以機器轉錄逐字稿核對各節起點，投影片導讀各小節附錄影時間連結。
+
 ## 更新紀錄
 
+- 2026-11-13：Stanford Online 公開上架本堂錄影並建立課程播放清單，嵌入影片、狀態改為已附影片，新增影片來源區。
+- 2026-11-13：以機器轉錄逐字稿核對各節起點，投影片導讀各小節加上錄影時間連結。
 - 2026-10-29：系列由一週一篇改為一堂一篇，本篇改為「第 1 堂」並換用新網址，舊網址自動轉到這裡。
 - 2026-10-23：逐頁核對 71 頁投影片後擴寫十段導讀，補足原始案例、記憶讀寫與安全問題；新增行動迴圈圖、對應頁碼，以及無縮圖的頁內投影片對照。
 

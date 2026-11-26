@@ -55,7 +55,7 @@ LangGraph    Claude Code    CrewAI    Cursor    Codex    Devin    AutoGen
 
 [Devin Fusion](https://cognition.com/blog/devin-fusion) 更進一步：lead model 自主決定哪些任務交給便宜的 sidekick model，各自有獨立 toolset 和 context。
 
-已進入維護模式的 AutoGen GroupChat 是最極端的例子——多個 agent 在群聊裡自由對話，selector 決定誰發言，對話歷史就是狀態。靈活到極致，但也因此造成了[社群回報的 40% 預算超支](https://github.com/microsoft/autogen/discussions/7066)。
+已封存（2026-10）的 AutoGen GroupChat 是最極端的例子——多個 agent 在群聊裡自由對話，selector 決定誰發言，對話歷史就是狀態。靈活到極致，但也因此造成了[社群回報的 40% 預算超支](https://github.com/microsoft/autogen/discussions/7066)。
 
 **優勢**：靈活、能處理預期外的情境、開發快
 **劣勢**：不可預測——同樣的 prompt 每次可能 spawn 不同數量的 agent，成本波動大
@@ -105,6 +105,10 @@ LangGraph    Claude Code    CrewAI    Cursor    Codex    Devin    AutoGen
 
 沒有一個模式適合所有場景。但如果你剛開始做 multi-agent，建議從腳本派入手——至少你知道系統會做什麼、花多少錢。等你對成本和行為有了足夠的觀測數據，再逐步放鬆控制。
 
+## 更新紀錄
+
+- 2026-11-23：AutoGen 從維護模式改為已封存
+
 ## 參考資料
 
 - [Anthropic — Claude Code Workflows 官方文件](https://code.claude.com/docs/en/workflows)
@@ -118,4 +122,5 @@ LangGraph    Claude Code    CrewAI    Cursor    Codex    Devin    AutoGen
 - [LangChain — Benchmarking Multi-Agent Architectures](https://www.langchain.com/blog/benchmarking-multi-agent-architectures)
 - [CrewAI Documentation](https://docs.crewai.com/)
 - [Microsoft — AutoGen 進入維護模式](https://github.com/microsoft/autogen/discussions/7066)
+- [Microsoft — AutoGen repo（已封存）](https://github.com/microsoft/autogen)
 - [Google Research — Towards a Science of Scaling Agent Systems (arXiv 2512.08296)](https://arxiv.org/abs/2512.08296)

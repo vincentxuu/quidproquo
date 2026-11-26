@@ -21,7 +21,7 @@ glossary:
     context: "HW4 的作業說明用 exact matching 評估生成結果；starter notebook 的註解則寫「答案出現在回覆中就算對」，兩者寬鬆程度不同。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-rag-lab-hw4-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

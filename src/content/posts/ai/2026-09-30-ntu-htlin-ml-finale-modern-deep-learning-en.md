@@ -32,7 +32,7 @@ glossary:
     context: "The first of the three ways of \"splitting into multiple steps\" on page 9 of the Techniques Lecture 16 handout."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-htlin-ml-finale-modern-deep-learning)
 
 **Video status: Videos included.** This article is written from the official MOOC handout [216_handout.pdf](https://www.csie.ntu.edu.tw/~htlin/mooc/doc/216_handout.pdf) and transcripts of this lecture's four official videos, with formulas following the handout. The transcripts are machine transcripts made for this article (Whisper), not official captions, and no human has proofread them. The videos are taught in Mandarin; the slides are in English. Each section opens with its official video and the approximate time ranges. Page numbers refer to the number at the lower right of each slide (0/21 to 21/21), and wherever the text says "in the lecture" it is paraphrasing what is said in the video.
 
@@ -613,7 +613,7 @@ The same course ends in three differently arranged ways across three versions:
 | [Fall 2024](https://www.csie.ntu.edu.tw/~htlin/course/ml24fall/) | W13 (11/25) 212u, 213u → W14 (12/02) modern deep learning: 302u, 303u → W15 (12/09) no class, the mlmai.ics slides are posted → W16 (12/16) finale: 1126 |
 | [Fall 2026](https://www.csie.ntu.edu.tw/~htlin/course/ml26fall/) | W13 (12/02) no class, mlmai.ics is posted → W14 (12/09) final exam → W15 (12/16) 212u, 213u → W16 (12/23) modern deep learning and finale: 302u, 303u, 1126 |
 
-Two things are worth noting. First, neither on-campus semester uses the MOOC's 216 handout; the finale week uses 1126. Second, the Fall 2026 paths for 302u, 303u, 1126, and mlmai.ics all returned 404 when opened on 2026-10-13 and will be made public only in their scheduled weeks, so this section follows the Fall 2024 version. The Fall 2026 course page states that there is a public simultaneous live stream, but this article did not check, video by video, whether the live streams leave complete recordings.
+Two things are worth noting. First, neither on-campus semester uses the MOOC's 216 handout; the finale week uses 1126. Second, the Fall 2026 302u, 303u, 1126, and mlmai.ics will be made public only in their scheduled weeks, so this section follows the Fall 2024 version. The Fall 2026 course page states that there is a public simultaneous live stream; whether the streams leave complete recordings depends on the links posted each week.
 
 Fall 2024's HW7 was released in W14, and its questions cover material up to the neural networks of Techniques Lecture 12; it does not test the content of 302u/303u. In other words this section has no corresponding homework to practice on, and practice means doing it yourself; the two "How to do it" items below are this article's suggestions.
 

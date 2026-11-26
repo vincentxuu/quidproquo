@@ -17,7 +17,7 @@ series:
 
 ## Trending Repos
 
-### microsoft/agent-governance-toolkit ⭐ 6,303
+### microsoft/agent-governance-toolkit ★ 6,303
 
 [GitHub](https://github.com/microsoft/agent-governance-toolkit)　·　Python（另有 TypeScript／.NET／Rust／Go SDK）　·　MIT
 
@@ -28,7 +28,7 @@ series:
 
 ---
 
-### akitaonrails/ai-memory ⭐ 7,575
+### akitaonrails/ai-memory ★ 7,575
 
 [GitHub](https://github.com/akitaonrails/ai-memory)　·　Rust　·　MIT
 
@@ -39,7 +39,7 @@ series:
 
 ---
 
-### anthropics/financial-services ⭐ 35,728
+### anthropics/financial-services ★ 35,728
 
 [GitHub](https://github.com/anthropics/financial-services)　·　Python　·　Apache-2.0
 
@@ -50,7 +50,7 @@ series:
 
 ---
 
-### modelcontextprotocol/inspector ⭐ 10,916
+### modelcontextprotocol/inspector ★ 10,916
 
 [GitHub](https://github.com/modelcontextprotocol/inspector)　·　TypeScript　·　MIT
 
@@ -61,7 +61,7 @@ series:
 
 ---
 
-### coder/coder ⭐ 16,345
+### coder/coder ★ 16,345
 
 [GitHub](https://github.com/coder/coder)　·　Go　·　AGPL-3.0
 

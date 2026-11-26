@@ -13,7 +13,7 @@ description: "OMP 2 從 Pi fork 演變為完全獨立的 Rust codebase，本文�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-omp-2-rust-rewrite-coding-harness-en)
+> :globe: [English version](/posts/tech/2026-08-22-omp-2-rust-rewrite-coding-harness-en)
 
 [上一篇 OMP 介紹](/posts/tech/2026-08-19-omp-oh-my-pi-batteries-included-fork)講的是 v1——Pi 的 batteries-included fork，TypeScript 主體加上六個 Rust crate 做加速層。那時的結論是「差別不在能不能疊起來，在於你想不想自己決定疊什麼」。
 

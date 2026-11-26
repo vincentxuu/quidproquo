@@ -12,7 +12,7 @@ series:
   order: 92
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-24-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-08-24-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -58,7 +58,7 @@ Long-horizon multi-agent systems write each agent's observations, summaries, and
 
 ### Deep Dive
 
-- On MemoryAgentBench (DeepSeek-V4-Flash backbone), CAMA scores 67.3 overall vs. the strongest baseline MADAM-RAG at 63.4; LongMemEval F1 59.1 vs. 54.3; LOCOMO F1 53.8 vs. 49.5 ⚠️ (author-reported, compared against self-built baselines)
+- On MemoryAgentBench (DeepSeek-V4-Flash backbone), CAMA scores 67.3 overall vs. the strongest baseline MADAM-RAG at 63.4; LongMemEval F1 59.1 vs. 54.3; LOCOMO F1 53.8 vs. 49.5 :warning: (author-reported, compared against self-built baselines)
 - On the CMR metric specifically measuring false-majority detection ability (higher is better), CAMA hits 71.2 on MemoryAgentBench vs. MADAM-RAG's 60.7 — roughly 10 percentage points higher; the residual redundancy metric RS (lower is better) drops from 15.3 to 7.8
 - Ablation shows removing the "evidence decoupling" module causes the largest drop (MemoryAgentBench overall from 67.3 to 58.4), confirming it's the core mechanism rather than a nice-to-have
 - Efficiency-wise, CAMA achieves 1.10 ΔAcc/kToken (accuracy gain per 1000 tokens consumed), vs. the next-best baseline MADAM-RAG at 0.42 — the extra compute goes toward identifying independent evidence, not redundantly aggregating correlated memories
@@ -103,7 +103,7 @@ Recent memory frameworks mostly focus on "how to extract, store, update, and ret
 
 ### Deep Dive
 
-- On Gemini-3-Flash-Preview and Qwen3-30B-A3B-Instruct-2507, every tested memory framework loses to the no-memory baseline on MemTrapBench, with even the best-performing method dropping over 10 percentage points ⚠️ (author-reported)
+- On Gemini-3-Flash-Preview and Qwen3-30B-A3B-Instruct-2507, every tested memory framework loses to the no-memory baseline on MemTrapBench, with even the best-performing method dropping over 10 percentage points :warning: (author-reported)
 - Controlled experiments show the performance degradation is driven by "trap-inducing memory semantics," not simply by longer context
 - The authors' proposed mitigation, AdaptiveMem (prompt-based, instructing the model to identify potential traps before using memory), lifts LightMem's MemTrapBench performance by 14.9 percentage points on Gemini-3-Flash-Preview without sacrificing performance on standard memory benchmarks
 - AdaptiveMem doesn't require architectural changes to the memory framework — it can be inserted as a prompt into different memory systems, making deployment straightforward

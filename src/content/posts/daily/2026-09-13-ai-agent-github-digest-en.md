@@ -17,7 +17,7 @@ Today's trending projects share a direction: agents aren't just "helping you wri
 
 ## Trending Repos
 
-### max-sixty/worktrunk ⭐ 7,140 (+137)
+### max-sixty/worktrunk ★ 7,140 (+137)
 
 [GitHub](https://github.com/max-sixty/worktrunk)　·　Rust　·　MIT OR Apache-2.0
 
@@ -28,7 +28,7 @@ Today's trending projects share a direction: agents aren't just "helping you wri
 
 ---
 
-### melgarafael/DeskcommCRM ⭐ 1,707 (+505)
+### melgarafael/DeskcommCRM ★ 1,707 (+505)
 
 [GitHub](https://github.com/melgarafael/DeskcommCRM)　·　TypeScript　·　MIT
 
@@ -39,7 +39,7 @@ Today's trending projects share a direction: agents aren't just "helping you wri
 
 ---
 
-### alsk1992/CloddsBot ⭐ 2,411 (+377)
+### alsk1992/CloddsBot ★ 2,411 (+377)
 
 [GitHub](https://github.com/alsk1992/CloddsBot)　·　TypeScript　·　MIT
 
@@ -50,7 +50,7 @@ Today's trending projects share a direction: agents aren't just "helping you wri
 
 ---
 
-### vxcontrol/pentagi ⭐ 23,286 (+193)
+### vxcontrol/pentagi ★ 23,286 (+193)
 
 [GitHub](https://github.com/vxcontrol/pentagi)　·　Go　·　Custom license (includes an EULA)
 

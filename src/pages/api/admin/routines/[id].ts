@@ -4,7 +4,8 @@ import { requireAdmin } from '@/lib/auth/admin'
 import { json, badRequest } from '@/lib/api/response'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
-import { createSessionManager } from '@/lib/agent/session-manager'
+import { getWaitUntil, startRoutineRun } from '@/lib/agent/routine-run'
+import { nextRoutineRunAt, parseCron } from '@/lib/agent/cron-schedule'
 
 export const GET: APIRoute = async ({ cookies, params }) => {
   const auth = await requireAdmin(cookies)
@@ -12,7 +13,7 @@ export const GET: APIRoute = async ({ cookies, params }) => {
   const e = env as unknown as Env
   const row = await e.DB.prepare('SELECT * FROM routines WHERE id = ?').bind(params.id).first()
   if (!row) return json({ error: 'not found' }, 404)
-  const runs = await e.DB.prepare('SELECT id, status, created_at FROM agent_sessions WHERE agent_id = ? ORDER BY created_at DESC LIMIT 20')
+  const runs = await e.DB.prepare('SELECT id, status, created_at FROM agent_sessions WHERE routine_id = ? ORDER BY created_at DESC LIMIT 20')
     .bind(params.id)
     .all()
     .catch(() => ({ results: [] as unknown[] }))
@@ -35,7 +36,17 @@ export const PUT: APIRoute = async ({ cookies, params, request }) => {
   if (body.notification_channels !== undefined) { fields.push('notification_channels = ?'); vals.push(JSON.stringify(body.notification_channels)) }
   if (body.behavior_auto_fix_pr !== undefined) { fields.push('behavior_auto_fix_pr = ?'); vals.push(body.behavior_auto_fix_pr ? 1 : 0) }
   if (body.behavior_auto_create_pr !== undefined) { fields.push('behavior_auto_create_pr = ?'); vals.push(body.behavior_auto_create_pr ? 1 : 0) }
+  if (body.cron !== undefined && body.cron !== null && body.cron !== '' && !parseCron(String(body.cron))) {
+    return badRequest('invalid cron expression (5 fields, UTC)')
+  }
   if (!fields.length) return badRequest('no fields')
+  // A changed cron or a resumed routine starts from the next slot, not a stale one.
+  if (body.cron !== undefined || body.enabled) {
+    const current = await e.DB.prepare('SELECT cron, stagger_seconds FROM routines WHERE id = ?').bind(params.id)
+      .first<{ cron: string | null; stagger_seconds: number }>()
+    const cron = body.cron !== undefined ? (body.cron ? String(body.cron) : null) : current?.cron ?? null
+    fields.push('next_run_at = ?'); vals.push(cron ? nextRoutineRunAt(cron, current?.stagger_seconds ?? 0) : null)
+  }
   fields.push('updated_at = ?'); vals.push(Date.now()); vals.push(params.id)
   await e.DB.prepare(`UPDATE routines SET ${fields.join(', ')} WHERE id = ?`).bind(...(vals as unknown[])).run()
   const row = await e.DB.prepare('SELECT * FROM routines WHERE id = ?').bind(params.id).first()
@@ -50,7 +61,7 @@ export const DELETE: APIRoute = async ({ cookies, params }) => {
   return json({ ok: true })
 }
 
-export const POST: APIRoute = async ({ cookies, params, request }) => {
+export const POST: APIRoute = async ({ cookies, params, request, locals }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
   const e = env as unknown as Env
@@ -59,18 +70,13 @@ export const POST: APIRoute = async ({ cookies, params, request }) => {
   const routine = await e.DB.prepare('SELECT * FROM routines WHERE id = ?').bind(params.id).first() as Record<string, unknown> | null
   if (!routine) return json({ error: 'not found' }, 404)
 
-  const sessions = createSessionManager(e.DB)
-  const session = await sessions.create({
-    instruction: String(routine.instructions ?? ''),
-    model: routine.model ? String(routine.model) : undefined,
-    repo: routine.repo ? String(routine.repo) : undefined,
-    trigger: 'manual',
-    routineId: String(params.id),
-  })
+  const { sessionId, run } = await startRoutineRun(e, {
+    id: String(params.id),
+    instructions: String(routine.instructions ?? ''),
+    model: routine.model ? String(routine.model) : null,
+    repo: routine.repo ? String(routine.repo) : null,
+  }, { trigger: 'manual' })
+  getWaitUntil(locals)?.(run)
 
-  await e.DB.prepare(
-    'UPDATE routines SET last_run_id = ?, last_run_at = ?, last_run_status = ?, updated_at = ? WHERE id = ?',
-  ).bind(session.id, Date.now(), 'running', Date.now(), params.id).run()
-
-  return json({ sessionId: session.id, routineId: params.id })
+  return json({ sessionId, routineId: params.id })
 }

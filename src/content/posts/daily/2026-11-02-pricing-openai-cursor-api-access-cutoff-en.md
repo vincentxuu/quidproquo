@@ -12,7 +12,7 @@ series:
   order: 30
 ---
 
-> 🌏 [中文版](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff)
+> :globe: [中文版](/posts/daily/2026-11-02-pricing-openai-cursor-api-access-cutoff)
 
 ## Summary
 
@@ -63,7 +63,7 @@ Standard pricing for the models relevant to this story (input / output, USD per 
 
 ## Timing Note
 
-⚠️ **Shutoff date**: 2026-11-12 (OpenAI's proposed date, about 10 days out; OpenAI says this is the maximum notice its contract allows, and the exact date could still shift depending on negotiations with Cursor/SpaceX). After that, Cursor will no longer offer direct integration with OpenAI models — set up BYOK before then, or evaluate switching to another model.
+:warning: **Shutoff date**: 2026-11-12 (OpenAI's proposed date, about 10 days out; OpenAI says this is the maximum notice its contract allows, and the exact date could still shift depending on negotiations with Cursor/SpaceX). After that, Cursor will no longer offer direct integration with OpenAI models — set up BYOK before then, or evaluate switching to another model.
 
 ## Today's Takeaway
 

@@ -23,7 +23,7 @@ glossary:
     context_en: "Enables CI/CD regression testing and reproducible bug reports for video rendering."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-07-06-hyperframes-html-video-agents)
+> :globe: [中文版](/posts/ai/2026-07-06-hyperframes-html-video-agents)
 
 [HyperFrames](https://github.com/heygen-com/hyperframes) is a video rendering framework open-sourced by HeyGen in April 2026. Its core thesis fits in one sentence: **a video is an HTML page**. Define timelines with `data-*` attributes, animate with browser-native tools, hand it to headless Chrome for frame-by-frame capture, and let FFmpeg encode the result into MP4. No React, no build step — AI agents write HTML to produce video.
 

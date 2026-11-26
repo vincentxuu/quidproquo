@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-vitest-testing-framework-en)
+> :globe: [English version](/posts/tech/2026-08-22-vitest-testing-framework-en)
 
 [Vitest](https://vitest.dev/guide/) 是以 Vite 為底層的 JavaScript／TypeScript 測試框架。它提供熟悉的 `describe`、`test`、`expect` 與 mock API，但「像 Jest」不是核心價值；真正的差別是測試預設讀取 `vite.config.*`，直接沿用 alias、transform 與 framework plugin。應用怎麼解讀原始碼，測試就盡量怎麼解讀，少維護一份平行設定。
 
@@ -21,7 +21,7 @@ draft: false
 
 前端測試最常見的浪費，不是 assertion 寫錯，而是測試 runner 不懂應用的 module alias、CSS module、JSX transform 或虛擬模組。團隊於是在 Jest config 重建一次 bundler 世界，升級時再讓兩份設定慢慢分岔。
 
-Vitest 把 Vite 的 module graph、transform pipeline 與 HMR 思路帶進測試。watch mode 能只重跑受變更影響的測試；workspace／projects 可把 Node、DOM 模擬環境與 Browser Mode 分成不同測試專案。這對 coding agent 很重要：快速且確定的紅綠訊號，通常比多寫一段 prompt 更能約束修改範圍。
+Vitest 把 Vite 的 module graph、transform pipeline 與 HMR 思路帶進測試。watch mode 能只重跑受變更影響的測試；`test.projects`（舊稱 workspace，已由 projects 取代）可把 Node、DOM 模擬環境與 Browser Mode 分成不同測試專案。Vitest 5 起，inline 定義的 project 預設繼承根設定（`extends: true`），包括 `plugins` 與 `resolve.alias`；陣列型設定如 `setupFiles` 是合併不是覆蓋，要隔離的 project 得明寫 `extends: false`。這對 coding agent 很重要：快速且確定的紅綠訊號，通常比多寫一段 prompt 更能約束修改範圍。
 
 ```ts
 // src/price.test.ts
@@ -35,17 +35,21 @@ describe("total", () => {
 });
 ```
 
-CI 應使用 `vitest run`，不要依賴互動式 watch mode。Coverage 可選 V8 或 Istanbul provider；選擇時看 instrumentation 相容性與報表需求，不要把 coverage 百分比當成行為正確的代理指標。
+CI 應使用 `vitest run`，不要依賴互動式 watch mode。Vitest 5 需要 Node.js 22.12 以上與 Vite 6.4 以上，`vite` 也改成 peer dependency，Yarn 使用者要自己把 `vite` 加進 `devDependencies`。Coverage 可選 V8 或 Istanbul provider；選擇時看 instrumentation 相容性與報表需求，不要把 coverage 百分比當成行為正確的代理指標。
 
 ## Mock 很方便，也最容易測到假的系統
 
 Vitest 支援 function、timer、module 與 global mock。API 與 Jest 接近，遷移成本通常不高；但 ESM module mock 會被 hoist，factory 執行順序也不是一般函式呼叫順序。若測試必須 mock 掉資料庫、網路、時間、router 與 framework runtime 才能通過，它證明的可能只是 mock 彼此相容。
+
+Vitest 5 把 `clearMocks` 預設改成 `true`：每個 test 開始前清掉所有 mock 的呼叫紀錄（實作保留）。在 setup file、module 頂層或 `beforeAll` 裡記錄呼叫、再到 test 裡 assert 的寫法，升級後會直接失敗；要保留舊行為就把 `clearMocks` 設回 `false`。
 
 更穩的切法是把純邏輯留在 Node 測試，把需要 DOM 的互動放進 Browser Mode 或最小 DOM 模擬，再用 Playwright 驗證跨頁流程。mock 只放在真正不可控的邊界，並至少保留一條不 mock 的整合路徑。
 
 ## Browser Mode 是 component test，不是 E2E 替身
 
 [Vitest Browser Mode](https://vitest.dev/guide/browser/) 透過 Playwright 或 WebdriverIO provider，在真實瀏覽器執行測試。它能抓到 jsdom／happy-dom 模擬不完整造成的 false positive，例如 layout、focus、原生事件與瀏覽器 API 差異。測試仍使用 Vitest runner、mock 與 coverage，因此很適合元件和瀏覽器相依模組。
+
+Vitest 5 另外加了 Browser Mode 專用的 Trace View：開 `browser.traceView` 後，每個互動與 assertion 都存成 DOM snapshot，失敗後能逐步回放，CI 上的失敗也看得到。
 
 官方同時明說它不是獨立 E2E runner 的 drop-in replacement。Browser Mode 啟動瀏覽器較慢，而且測試焦點仍是單一元件或模組。登入、導頁、後端整合、跨 tab 與 production deployment 應交給 Playwright、Cypress 或 WebdriverIO 的端到端測試。
 
@@ -61,8 +65,15 @@ Vitest 對 agent 的價值有兩層。第一層是廣泛採用與 Jest 相容語
 
 因此，不要把「agent 會寫 Vitest」當成選型理由。要看的是 repo 能否提供固定測試指令、測試名稱是否描述行為、失敗輸出能否定位問題，以及 Browser Mode／E2E 邊界是否明確。工具提供迴圈，測試契約才決定迴圈會不會收斂。
 
+## 更新紀錄
+
+- 2026-11-23：Vitest 5（2026-09）上線，補上 `clearMocks` 預設改為 `true`、inline project 預設 `extends: true` 與 Browser Mode Trace View；workspace 改稱 `projects`；升級需要 Node.js 22.12 以上、Vite 6.4 以上，且 `vite` 改為 peer dependency。
+
 ## 參考資料
 
 - [Vitest getting started](https://vitest.dev/guide/)
+- [Vitest 5 announcement](https://vitest.dev/blog/vitest-5)
+- [Migrating to Vitest 5](https://vitest.dev/guide/migration)
+- [Test Projects](https://vitest.dev/guide/projects)
 - [Vitest 4 announcement](https://vitest.dev/blog/vitest-4)
 - [Why Browser Mode](https://vitest.dev/guide/browser/why)

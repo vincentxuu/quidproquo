@@ -26,7 +26,7 @@ glossary:
     context: "Used here to explain why 'open a foreign currency account to save on card fees' is a common misconception."
 ---
 
-> 🌏 [中文版](/posts/travel/2026-08-17-foreign-currency-account-japan-korea)
+> :globe: [中文版](/posts/travel/2026-08-17-foreign-currency-account-japan-korea)
 
 "I go to Japan and Korea a lot — should I open a foreign currency account and pay by card in foreign currency to save money?"
 

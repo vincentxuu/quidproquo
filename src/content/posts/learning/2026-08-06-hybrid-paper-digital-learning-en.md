@@ -10,7 +10,7 @@ description: "Where physical paper still holds up now that digital study tools a
 draft: false
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-06-hybrid-paper-digital-learning)
+> :globe: [中文版](/posts/learning/2026-08-06-hybrid-paper-digital-learning)
 
 Learning something today has a default path, and it is digital end to end. Online courses, PDFs, a notes app, a tablet and stylus, a spaced repetition scheduler. You can run the whole chain without touching paper.
 

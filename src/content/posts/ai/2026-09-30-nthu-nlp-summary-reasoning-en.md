@@ -13,7 +13,7 @@ description: "A guide to week 14 of NTHU Prof. Hung-Yu Kao's Natural Language Pr
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)
+> :globe: [中文版](/posts/ai/2026-09-30-nthu-nlp-summary-reasoning)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

@@ -14,7 +14,7 @@ series:
   order: 4
 ---
 
-> 🌏 [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-surface)
+> :globe: [繁體中文版](/posts/ai/2026-10-22-ai-security-attack-surface)
 
 You have a support-ticket assistant and want AI to help test it. Where do you begin? Asking “find every vulnerability” often produces a list of SQL injection, XSS, and authorization problems without showing which routes exist.
 

@@ -13,7 +13,7 @@ description: "深入 pi-coding-agent 工具系統：從定義到執行的完整�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system-en)
+> :globe: [English version](/posts/tech/2026-08-31-pi-mono-deep-dive-tool-system-en)
 
 ## TL;DR
 
@@ -114,9 +114,9 @@ export interface AgentTool<TArgs = unknown, TResult = unknown> {
 | 特性 | ToolDefinition | AgentTool |
 |---|---|---|
 | 用途 | LLM 知道怎麼呼叫 | 實際執行邏輯 |
-| execute | ❌ | ✅ |
-| prepareArguments | ❌ | ✅ |
-| executionMode | ❌ | ✅ |
+| execute | ✗ | ✓ |
+| prepareArguments | ✗ | ✓ |
+| executionMode | ✗ | ✓ |
 | 參數驗證 | LLM 端（Schema） | 執行前再驗證一次 |
 
 ---

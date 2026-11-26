@@ -14,7 +14,7 @@ series:
   order: 1
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-identity-and-authorization-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-identity-and-authorization-en)
 
 你替公司做了一個工單助理。使用者登入後，問「幫我看一下 N-1 的進度」，模型呼叫讀取工具，後端找到工單，再把內容交給模型回答。
 

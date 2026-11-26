@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-yjs-crdt-collaboration)
+> :globe: [中文版](/posts/tech/2026-08-22-yjs-crdt-collaboration)
 
 [Yjs](https://docs.yjs.dev/) is a network-agnostic CRDT implementation. Applications manipulate `Y.Text`, `Y.Map`, `Y.Array`, and other shared types inside a `Y.Doc`; transactions produce compressed binary updates. Updates are commutative, associative, and idempotent, so replicas converge despite ordering and duplication once they possess the same update set.
 
@@ -30,7 +30,7 @@ title.insert(0, "Collaborative editing");
 
 `encodeStateVector` summarizes known client clocks, letting another replica call `encodeStateAsUpdate(doc, vector)` for missing updates. This is a synchronization optimization, not authorization proof. Verify document read or write access before accepting an update. Opaque binary updates can be oversized or malicious, requiring size, rate, document-growth, and merge-resource limits.
 
-Providers supply transport and persistence through WebSocket, WebRTC, Liveblocks, PartyKit, or custom servers; IndexedDB supports local offline caches. Yjs core does not guarantee provider durability, authentication, multi-region behavior, or backup. Awareness carries ephemeral cursors, selections, and status outside the `Y.Doc`; disconnected clients must not remain permanently present.
+Providers supply transport and persistence through WebSocket, WebRTC, Liveblocks, [PartyServer (formerly PartyKit)](/posts/tech/2026-08-22-partykit-realtime-rooms-en), or custom servers; IndexedDB supports local offline caches. Yjs core does not guarantee provider durability, authentication, multi-region behavior, or backup. Awareness carries ephemeral cursors, selections, and status outside the `Y.Doc`; disconnected clients must not remain permanently present.
 
 ## Convergence is not business correctness
 
@@ -38,7 +38,11 @@ CRDTs merge concurrent data-structure edits but cannot decide domain invariants 
 
 Long-lived documents accumulate updates and tombstones; append forever is not a plan. Periodically create snapshots, test restoration, and compact according to provider semantics. Permanent undo or history requires understanding garbage collection and UndoManager scope. Subdocuments split large content at the price of loading, permission, and lifecycle complexity.
 
-Yjs fits rich text, canvases, diagrams, and forms with offline concurrent editing. Liveblocks is a hosted collaboration product; PartyKit and Durable Objects can host custom providers or coordinators; Ably can transport updates while persistence remains separate. Test real document sizes, initial load, offline merge, schema upgrades, hostile clients, revocation, and restoration time.
+Yjs fits rich text, canvases, diagrams, and forms with offline concurrent editing. Liveblocks is a hosted collaboration product; PartyServer and Durable Objects can host custom providers or coordinators; Ably can transport updates while persistence remains separate. Test real document sizes, initial load, offline merge, schema upgrades, hostile clients, revocation, and restoration time.
+
+## Update Log
+
+- 2026-11-23: The hosted PartyKit platform shut down on 2026-10-23, so the comparison now points to its successor, PartyServer.
 
 ## References
 

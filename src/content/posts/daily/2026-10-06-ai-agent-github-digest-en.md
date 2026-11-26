@@ -11,7 +11,7 @@ series:
   order: 52
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-06-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-06-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ The repos trending today sit in very different scenes — cloning a whole app, l
 
 ## Trending Repos
 
-### replica-skill ⭐ 469 (3 days old)
+### replica-skill ★ 469 (3 days old)
 
 [GitHub](https://github.com/Jakeschincariol/replica-skill) · Python · MIT
 
@@ -30,7 +30,7 @@ The repos trending today sit in very different scenes — cloning a whole app, l
 
 ---
 
-### qiaomu-codex-imagegen ⭐ 91 (2 days old)
+### qiaomu-codex-imagegen ★ 91 (2 days old)
 
 [GitHub](https://github.com/joeseesun/qiaomu-codex-imagegen) · JavaScript · MIT
 
@@ -41,7 +41,7 @@ The repos trending today sit in very different scenes — cloning a whole app, l
 
 ---
 
-### mesh-avatar-studio ⭐ 228 (2 days old)
+### mesh-avatar-studio ★ 228 (2 days old)
 
 [GitHub](https://github.com/shinshin86/mesh-avatar-studio) · TypeScript · MIT
 
@@ -52,7 +52,7 @@ The repos trending today sit in very different scenes — cloning a whole app, l
 
 ---
 
-### easyread ⭐ 803 (5 days old)
+### easyread ★ 803 (5 days old)
 
 [GitHub](https://github.com/Edwardxlai/easyread) · Python · MIT
 

@@ -5,7 +5,7 @@ category: tech
 type: deep-dive
 tags: [tgi, huggingface, llm-serving, inference, gpu, self-hosted]
 lang: zh-TW
-tldr: "Text Generation Inference（TGI）是 HuggingFace 自家的 LLM 推論伺服器，用 Rust + Python 實作，率先在開源推論引擎裡引入 continuous batching 與 Flash Attention。2026 年 3 月 GitHub 倉庫歸檔進入維護模式，官方建議遷移到 vLLM 或 SGLang。了解 TGI 仍然重要：它定義了後繼引擎的架構基線，而且許多 HuggingFace Inference Endpoint 上的既有服務仍在跑它。"
+tldr: "Text Generation Inference（TGI）是 HuggingFace 自家的 LLM 推論伺服器，用 Rust + Python 實作，率先在開源推論引擎裡引入 continuous batching 與 Flash Attention。2025 年 12 月進入維護模式、2026 年 3 月 GitHub 倉庫歸檔，官方建議遷移到 vLLM 或 SGLang。了解 TGI 仍然重要：它定義了後繼引擎的架構基線，而且許多 HuggingFace Inference Endpoint 上的既有服務仍在跑它。"
 description: "介紹 TGI 的核心架構（Rust router、continuous batching、Flash/Paged Attention）、部署方式、API、量化支援、硬體相容性、效能定位，以及它進入維護模式的原因和遷移路徑。"
 series:
   name: "自架推論服務"
@@ -13,11 +13,11 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-25-tgi-text-generation-inference-en)
+> :globe: [English version](/posts/tech/2026-08-25-tgi-text-generation-inference-en)
 
 Text Generation Inference（TGI）是 HuggingFace 開發的 LLM 推論伺服器。2023 年開源時，它是第一個把 continuous batching、Flash Attention 和 token streaming 打包成「Docker 啟動就能用」的生產級方案，HuggingChat 和 OpenAssistant 都用它跑推論。
 
-2026 年 3 月 21 日，HuggingFace 將 TGI 的 GitHub 倉庫[歸檔為唯讀](https://github.com/huggingface/text-generation-inference)，正式進入維護模式——只接受小 bug 修復和文件更新，不再支援新模型架構。官方建議遷移到 [vLLM](https://github.com/vllm-project/vllm) 或 [SGLang](https://github.com/sgl-project/sglang)。
+HuggingFace 在 2025 年 12 月 11 日宣布 TGI 進入維護模式，只接受小 bug 修復和文件更新，不再支援新模型架構；同月的 v3.3.7 是最後一個版本。2026 年 3 月 21 日，GitHub 倉庫再被[歸檔為唯讀](https://github.com/huggingface/text-generation-inference)，連修補都不再收。官方建議遷移到 [vLLM](https://github.com/vllm-project/vllm) 或 [SGLang](https://github.com/sgl-project/sglang)。
 
 這篇介紹 TGI 的架構、能力和限制，並說明為什麼了解它仍然重要。
 
@@ -94,7 +94,7 @@ TGI 支援多種量化方法，讓大模型能在較小的 GPU 上運行：
 
 ```bash
 docker run --gpus all --shm-size 1g -p 8080:80 \
-  ghcr.io/huggingface/text-generation-inference:3.3.5 \
+  ghcr.io/huggingface/text-generation-inference:3.3.7 \
   --model-id meta-llama/Llama-3.1-8B-Instruct
 ```
 
@@ -104,7 +104,7 @@ docker run --gpus all --shm-size 1g -p 8080:80 \
 
 ```bash
 docker run --gpus all --shm-size 1g -p 8080:80 \
-  ghcr.io/huggingface/text-generation-inference:3.3.5 \
+  ghcr.io/huggingface/text-generation-inference:3.3.7 \
   --model-id meta-llama/Llama-3.1-70B-Instruct \
   --num-shard 4
 ```
@@ -128,7 +128,7 @@ text-generation-launcher --model-id meta-llama/Llama-3.1-8B-Instruct
 
 ### HuggingFace Inference Endpoints
 
-TGI 是 HuggingFace 託管推論服務的預設後端。在 HuggingFace Hub 上點「Deploy → Inference Endpoint」，底層就是跑 TGI。不過 HuggingFace 已經開始提供 vLLM 作為替代後端選項。
+TGI 曾是 HuggingFace 託管推論服務的預設後端。現在 [Inference Endpoints 的 TGI 文件](https://huggingface.co/docs/inference-endpoints/engines/tgi)開頭就建議改選 vLLM 或 SGLang。既有 Endpoint 不能直接切換引擎，要用同樣的模型與硬體新建一個 vLLM Endpoint，測過之後把流量切過去，再停掉舊的。
 
 ---
 
@@ -275,10 +275,16 @@ TGI 的歷史角色很明確：它是第一個把 LLM 推論的關鍵最佳化�
 
 如果你今天要部署新的推論服務，不應該選 TGI。但如果你在維護既有的 TGI 部署、在讀推論引擎的文件、或想理解為什麼 vLLM 要那樣設計，TGI 是故事的起點。
 
+## 更新紀錄
+
+- 2026-11-23：分開寫維護模式（2025-12-11）與倉庫歸檔（2026-03-21）兩個時間點；Docker 範例改用最後一版 3.3.7；Inference Endpoints 一節改成官方現在的建議與遷移步驟。
+
 ## 參考資料
 
 - [TGI GitHub 倉庫（歸檔）](https://github.com/huggingface/text-generation-inference) — 原始碼，2026-03-21 歸檔為唯讀
 - [TGI 官方文件](https://huggingface.co/docs/text-generation-inference/index) — 安裝、設定、API 與模型支援
+- [Inference Endpoints：TGI](https://huggingface.co/docs/inference-endpoints/engines/tgi) — 維護模式日期與遷移到 vLLM 的步驟
+- [TGI v3.3.7 Release](https://github.com/huggingface/text-generation-inference/releases/tag/v3.3.7) — 最後一版，含維護模式 PR
 - [HuggingFace Blog: TGI Multi-Backend](https://huggingface.co/blog/tgi-multi-backend) — TGI 嘗試整合 vLLM/TRT-LLM 後端的技術細節
 - [Flash Attention](https://github.com/Dao-AILab/flash-attention) — Dao et al. 的高效 attention 實作
 - [vLLM: PagedAttention](https://arxiv.org/abs/2309.06180) — Kwon et al., TGI 後來整合的分頁 KV cache

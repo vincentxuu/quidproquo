@@ -13,7 +13,7 @@ tldr: "AlphaGeometry2 靠符號引擎、AlphaProof 靠 Lean 驗證，2024 年合
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning-en)
+> :globe: [English version](/posts/ai/2026-10-13-cs329a-session-16-superhuman-math-reasoning-en)
 
 國際數學奧林匹亞（IMO）每年六題，每題 7 分，滿分 42。它對 AI 有吸引力，是因為證明對不對有明確標準。[CS329A](https://cs329a.stanford.edu/) Autumn 2025 第 16 堂由 Google DeepMind 的 Thang Luong 客座，題目是「Towards AI Superhuman Reasoning: AlphaProof, AlphaGeometry & Gemini IMO Gold Medal」。讀完本文，你應能說明這三套系統各自由誰判定答案正確，並看出 2024 到 2025 之間改變的是哪一段。先備是知道搜尋樹與強化學習的大概意思；不需要會 Lean。
 

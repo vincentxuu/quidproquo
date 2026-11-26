@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-oxc-oxlint)
+> :globe: [中文版](/posts/tech/2026-08-22-oxc-oxlint)
 
 [Oxc](https://oxc.rs/) is not a single linter. It is a Rust implementation of JavaScript and TypeScript compiler primitives: a parser, AST, resolver, transformer, minifier, and semantic analysis. [Oxlint](https://oxc.rs/docs/guide/usage/linter.html) is the linter built on that foundation. Its published benchmark places it 50–100 times ahead of ESLint, but the real selection question is whether it can carry the rule contract your repository currently expresses through ESLint.
 
@@ -44,14 +44,14 @@ This default supports incremental adoption: put high-confidence defects in fast 
 
 ## How type-aware linting connects to TypeScript 7
 
-Ordinary Oxlint rules execute in Rust. Type-dependent rules use `oxlint-tsgolint`, which creates programs with the Go implementation of TypeScript 7 and returns diagnostics to Oxlint. The current documentation reports support for 59 of 61 typescript-eslint type-aware rules. Install the additional package and enable `--type-aware`; the experimental `--type-check` can also include compiler diagnostics in the same command.
+Ordinary Oxlint rules execute in Rust. Type-dependent rules go to a separately installed type-aware backend, which builds TypeScript programs and returns diagnostics to Oxlint. There are now two backends: `oxlint-tsgolint` uses the Go implementation of TypeScript 7.0, and `tsrs` is a Rust port based on TypeScript 7.1; when `tsrs` is installed, Oxlint uses it automatically. Both share the same CLI flags and configuration, and the current documentation reports support for 60 of 62 typescript-eslint type-aware rules. Install one backend and enable `--type-aware`; `--type-check` can also include compiler diagnostics in the same command.
 
 ```bash
-pnpm add -D oxlint oxlint-tsgolint
+pnpm add -D oxlint oxlint-tsgolint   # or the Rust backend: pnpm add -D oxlint tsrs
 pnpm exec oxlint --type-aware
 ```
 
-The mode has explicit costs. It resolves `tsconfig` files and dependency graphs, so it cannot match syntax-only lint speed. Monorepos may need dependent packages built first so their `.d.ts` files exist. It also requires TypeScript 7, which can force migration away from old compiler options. Do not apply syntax-only benchmark multipliers to type-aware CI.
+The mode has explicit costs. It resolves `tsconfig` files and dependency graphs, so it cannot match syntax-only lint speed. Monorepos may need dependent packages built first so their `.d.ts` files exist. Either backend follows TypeScript 7's configuration rules: legacy `tsconfig` options such as `baseUrl` are unsupported, and settings deprecated in TypeScript 6.0 or removed in 7.0 must be migrated first. Do not apply syntax-only benchmark multipliers to type-aware CI.
 
 ## ESLint plugin compatibility is broad, not complete
 
@@ -64,6 +64,10 @@ The safest migration is staged. Convert configuration with `@oxlint/migrate`, le
 Oxlint has a clear payoff in large monorepos where linting is a CI bottleneck and most rules come from mainstream plugins. New projects can also start with correctness-first rules without a large ESLint dependency tree. Repositories that rely on custom parsers, processors, framework-template rules, or obscure plugins have good reasons to keep ESLint.
 
 The AI-era criterion is feedback latency. `oxlint path/to/file.ts` is fast enough for an agent's post-edit loop. Yet if rule semantics or autofixes diverge from the repository contract, speed only accelerates the wrong outcome. Run it in shadow mode first and compare diagnostics, false positives, omissions, and fix diffs before handing it the quality gate.
+
+## Update history
+
+- 2026-11-23: Type-aware linting gained a Rust `tsrs` backend (based on TypeScript 7.1), so `oxlint-tsgolint` is no longer the only path; rule support updated from 59 of 61 to 60 of 62.
 
 ## References
 

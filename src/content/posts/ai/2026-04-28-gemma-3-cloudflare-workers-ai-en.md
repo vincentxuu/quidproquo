@@ -13,17 +13,17 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
+> :globe: [中文版](/posts/ai/2026-04-28-gemma-3-cloudflare-workers-ai)
 
 Choosing an LLM isn't about picking "the most powerful one" -- it's about picking "the one that works within your constraints." nobodyclimb runs on Cloudflare Workers, and AI inference stays within the Cloudflare ecosystem. Under that constraint, the Gemma family has consistently been the smoothest option for Traditional Chinese.
 
-> **Model status (2026-08)**: this post was originally built around `@cf/google/gemma-3-12b-it`, which Workers AI marked deprecated on 2026-05-30 (the model page and its pricing are still up, but it is on the way out). The current equivalent is `@cf/google/gemma-4-26b-a4b-it`, and every example here has been updated to Gemma 4. The three reasons for choosing Gemma over Llama still hold for Gemma 4, so that analysis stays.
+> **Model status (2026-11)**: this post was originally built around `@cf/google/gemma-3-12b-it`, which Workers AI marked deprecated on 2026-05-30; its model page has since been pulled from the catalog (the pricing page still carries the old row). The current equivalent is `@cf/google/gemma-4-26b-a4b-it`, and every example here has been updated to Gemma 4. The three reasons for choosing Gemma over Llama still hold for Gemma 4, so that analysis stays.
 
 ## What Is Cloudflare Workers AI
 
 Cloudflare Workers AI is Cloudflare's inference service that lets you call hosted models directly from the Workers environment without managing GPU infrastructure. Billing is token-based.
 
-Supported models span text generation, embedding, image generation, speech-to-text, and more. On the LLM side, mainstream open-source families currently available include Gemma, Llama, Qwen, GLM, gpt-oss, and Kimi.
+Supported models span text generation, embedding, image generation, speech-to-text, and more. On the LLM side, mainstream open-source families currently available include Gemma, Llama, Qwen, GLM, gpt-oss, and DeepSeek.
 
 ```typescript
 // In the Workers environment, bindings work like this
@@ -49,7 +49,7 @@ nobodyclimb started on `llama-3.1-8b-instruct` and later moved to what was then 
 
 **Gemma's multilingual training**: Google's Gemma training data has broader multilingual coverage, with a higher proportion of Chinese (including Traditional) than Llama 3.1's published training setup.
 
-None of this says Llama is bad — it says that for this specific use case, Traditional Chinese RAG, Gemma fits better. Worth noting: both model IDs in that original comparison were marked deprecated in the same 2026-05-30 wave. [The official wording](https://developers.cloudflare.com/workers-ai/changelog/) is *will be deprecated* — their pages and prices are still up, but neither is what you start a new project on.
+None of this says Llama is bad — it says that for this specific use case, Traditional Chinese RAG, Gemma fits better. Worth noting: both model IDs in that original comparison were marked deprecated in the same 2026-05-30 wave. [The official wording](https://developers.cloudflare.com/workers-ai/changelog/) is *will be deprecated*; both model pages have since been pulled from the catalog, and neither is what you start a new project on.
 
 ## Basic Usage
 
@@ -124,7 +124,7 @@ Not spelling these out leads to painful surprises later:
 
 **CPU time limits**: Workers have a CPU time cap (30 seconds on the Paid plan, though AI calls count against wall time rather than CPU time). A pipeline with several LLM calls (HyDE + generation + judge) can exceed the Workers execution limit in aggregate. nobodyclimb handles this by writing judge results asynchronously (not blocking the main flow) and enabling HyDE only for complex queries.
 
-**Models get retired, and versions are opaque**: Cloudflare manages model versions, you cannot pin a specific checkpoint, and behavior can change without notice. Worse, entire model IDs get put on a retirement track. The 2026-05-30 sweep marked 18 IDs deprecated at once, including the whole Llama 2/3/3.1 line, Mistral 7B, and Gemma 3 12B. The implication is that model IDs should not be scattered as string literals throughout your code — collapse them into a single constant or config value so a swap touches one place. You also want monitoring that detects output quality regressions.
+**Models get retired, and versions are opaque**: Cloudflare manages model versions, you cannot pin a specific checkpoint, and behavior can change without notice. Worse, entire model IDs get put on a retirement track. The 2026-05-30 sweep marked 18 IDs deprecated at once, including the whole Llama 2/3/3.1 line, Mistral 7B, and Gemma 3 12B; on 2026-11-20 another 24 were retired outright, with requests returning HTTP 410, including DeepSeek V4 and GLM-5.3 Flash that had only arrived in August (full list in the [selection guide](/posts/ai/2026-08-18-workers-ai-model-guide-en)). The implication is that model IDs should not be scattered as string literals throughout your code — collapse them into a single constant or config value so a swap touches one place. You also want monitoring that detects output quality regressions.
 
 **No fine-tuning**: hosted models on Workers AI cannot be fine-tuned today. Domain adaptation has to come from prompt engineering and RAG.
 
@@ -162,7 +162,7 @@ Overall: under the constraint of "don't leave the Cloudflare ecosystem," this is
 
 ## Migrating from Gemma 3 to Gemma 4
 
-`@cf/google/gemma-3-12b-it` was marked deprecated on 2026-05-30. Cloudflare suggested three replacements: `@cf/zai-org/glm-4.7-flash` (fast tool calling), `@cf/google/gemma-4-26b-a4b-it` (efficient open model), and `@cf/moonshotai/kimi-k2.6` (agentic plus vision, but requires a paid plan). Coming from Gemma 3, Gemma 4 is the most direct move.
+`@cf/google/gemma-3-12b-it` was marked deprecated on 2026-05-30. Cloudflare suggested three replacements: `@cf/zai-org/glm-4.7-flash` (fast tool calling), `@cf/google/gemma-4-26b-a4b-it` (efficient open model), and `@cf/moonshotai/kimi-k2.6` (agentic plus vision, but requires a paid plan). `kimi-k2.6` was itself retired on 2026-11-20; the smaller-model replacements recommended in that wave were Gemma 4 and `@cf/qwen/qwen3.8-27b`. Coming from Gemma 3, Gemma 4 is the most direct move.
 
 **Architecture change: MoE**
 Gemma 4 uses a Mixture-of-Experts architecture. 26B total parameters, but only about 4B activate per inference (a4b = active 4 billion). It is faster than Gemma 3 12B in practice while performing better on most tasks.
@@ -193,11 +193,24 @@ const response = await env.AI.run("@cf/google/gemma-4-26b-a4b-it", {
 
 An identical interface does not mean identical output. Re-run your prompt evaluation after the swap — JSON formatting instructions that lean on few-shot examples or specific phrasing are the first thing to break when the model changes.
 
+## Gemma 4 Family Positioning: Only the 26B on Workers AI
+
+Gemma 4 is a family, not a single model. Google splits it into two groups: E2B / E4B for mobile and IoT (maximum compute and memory efficiency), and 12B / 26B / 31B for "frontier intelligence on personal computers" (unprecedented intelligence-per-parameter). On Cloudflare Workers AI, however, the core Gemma 4 lineup is represented by just one model, `@cf/google/gemma-4-26b-a4b-it` — for 31B you have to go through Google AI Studio / the Gemini API (this site's LiveKit voice agent post calls `google/gemma-4-31b-it` through LiveKit Inference, not Workers AI).
+
+The license is the real news in Gemma 4: Google moved Gemma 4 to **Apache 2.0** (plus a separate prohibited-use policy), whereas Gemma 1 / 2 / 3 / 3n used Google's own Gemma Terms of Use (on Hugging Face you had to log in and click to accept before downloading — `google/gemma-3n-E2B-it`, for example, is tagged `license:gemma` and gated). In practice, self-hosting, fine-tuning, and commercial redistribution no longer go through a click-through license — the first time the "open-weights line" fully lives up to the name.
+
+Workers AI carries two Gemma relatives, both already covered in this site's [Workers AI model guide](/posts/ai/2026-08-18-workers-ai-model-guide-en); here is just where they fit:
+
+- `@cf/google/embeddinggemma-2`: Google DeepMind's multimodal embedding model, mapping text, images, video, and audio into one 768-dimensional space across 100+ languages, at $0.0017 per M input tokens — worth a look if you want the vector side of your RAG to stay in the Google lineage too. It replaces its predecessor `embeddinggemma-300m`, retired on 2026-11-20; vectors built with the old model have to be rebuilt in full
+- `@cf/aisingapore/gemma-sea-lion-v4-27b-it`: AI Singapore's Gemma-based variant, pretrained and instruction-tuned for Southeast Asian languages (note the model ID prefix is `@cf/aisingapore`, not `@cf/google`), 128K context, $0.351 / $0.555 per M tokens — worth evaluating for Southeast Asian markets, but for Traditional Chinese the main Gemma 4 model is still the workhorse
+
+The mobile line (E2B / E4B, and the previous generation 3n's PLE memory technique) is a different battleground; see this site's [mobile small model roundup](/posts/ai/2026-03-31-mobile-small-models-en). In one sentence: if you are staying in the Workers AI ecosystem for Traditional Chinese RAG, Gemma 4 26B is the answer today; you only need to leave this ID if you want bigger (31B), smaller (E2B/E4B), or a specific language (SEA-LION).
+
 ## Update Log
 
-- 2026-08-18: `gemma-3-12b-it` was marked deprecated on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
-
+- 2026-11-23: Gemma 3 12B's model page has been pulled from the catalog, so the status notes are rewritten; added the 2026-11-20 retirement wave (which includes the originally suggested replacement `kimi-k2.6`); the embedding entry now covers `embeddinggemma-2` ($0.0017 per M), which replaces `embeddinggemma-300m`. Gemma 4 context, pricing, and capabilities checked against the official model page; unchanged.
 - 2026-09-19: Added "Gemma 4 family positioning" section: Workers AI only hosts the core Gemma 4 26B MoE (31B available via AI Studio / Gemini API); Gemma 4 license changed to Apache 2.0 (previous generations used Gemma Terms of Use); added SEA-LION and embeddinggemma positioning with internal links. All examples and pricing (256K, $0.10 / $0.30, Vision / Function calling / Reasoning) verified against official model pages; no changes.
+- 2026-08-18: `gemma-3-12b-it` was marked deprecated on 2026-05-30; all examples updated to `gemma-4-26b-a4b-it`, with a new migration section and a GLM-4.7-Flash comparison. Two factual corrections: Gemma 3's context window on Workers AI was 80,000 tokens (previously stated as 8192), and Gemma 3 did have published pricing at $0.35 / $0.56 per M tokens (previously stated as unpublished).
 
 ## References
 
@@ -206,7 +219,11 @@ An identical interface does not mean identical output. Re-run your prompt evalua
 - [Workers AI changelog: the 2026-05-30 deprecations and recommended replacements](https://developers.cloudflare.com/workers-ai/changelog/)
 - [Workers AI pricing](https://developers.cloudflare.com/workers-ai/platform/pricing/)
 - [Workers AI: gemma-4-26b-a4b-it model page](https://developers.cloudflare.com/workers-ai/models/gemma-4-26b-a4b-it/)
-- [Workers AI: gemma-3-12b-it model page (marked Deprecated)](https://developers.cloudflare.com/workers-ai/models/gemma-3-12b-it/)
+- [Workers AI: embeddinggemma-2 model page](https://developers.cloudflare.com/workers-ai/models/embeddinggemma-2/)
+- [Planned model deprecations on Workers AI (2026-11-05)](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/)
 - [Workers AI: glm-4.7-flash model page](https://developers.cloudflare.com/workers-ai/models/glm-4.7-flash/)
 - [Google Gemma official docs](https://ai.google.dev/gemma/docs)
+- [Introducing Gemma 4 (2026-04, official blog)](https://blog.google/innovation-and-ai/technology/developers-tools/gemma-4/)
+- [Gemma 4 license: Apache 2.0](https://ai.google.dev/gemma/docs/gemma_4_license)
+- [Google DeepMind Gemma page (family overview: E2B/E4B, 12B/26B/31B)](https://deepmind.google/models/gemma/)
 - [NobodyClimb RAG Pipeline Architecture](/posts/tech/deep-dive/2026-03-12-nobodyclimb-rag-pipeline-architecture-en) — how Gemma is used across the 20-node pipeline

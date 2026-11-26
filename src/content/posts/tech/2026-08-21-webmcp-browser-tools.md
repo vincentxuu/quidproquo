@@ -13,11 +13,11 @@ series:
 draft: false
 ---
 
-🌏 [English version](/posts/tech/2026-08-21-webmcp-browser-tools-en)
+:globe: [English version](/posts/tech/2026-08-21-webmcp-browser-tools-en)
 
 [系列上一篇](/posts/tech/2026-08-21-llms-txt)講的是讓機器**讀得懂**你的文件。這篇是它的下一步：讓機器**呼叫得動**你的頁面。
 
-WebMCP 是一組瀏覽器 API。它讓網頁在自己的 JavaScript 裡宣告一組「工具」，每個工具有名稱、自然語言說明、JSON Schema 輸入格式。瀏覽器內的 AI agent 於是能直接呼叫，不必看著截圖猜哪個按鈕是「結帳」。提案人是 Microsoft Edge 與 Google Chrome 的工程師，孵化場地在 W3C 的 Web Machine Learning 社群群組。最新一版規格是 2026 年 8 月 19 日的 Draft Community Group Report。規格自己在狀態欄寫得很清楚：**這不是 W3C 標準，也不在標準軌道上。**
+WebMCP 是一組瀏覽器 API。它讓網頁在自己的 JavaScript 裡宣告一組「工具」，每個工具有名稱、自然語言說明、JSON Schema 輸入格式。瀏覽器內的 AI agent 於是能直接呼叫，不必看著截圖猜哪個按鈕是「結帳」。提案人是 Microsoft Edge 與 Google Chrome 的工程師，孵化場地在 W3C 的 Web Machine Learning 社群群組。最新一版規格是 2026 年 11 月 19 日的 Draft Community Group Report。規格自己在狀態欄寫得很清楚：**這不是 W3C 標準，也不在標準軌道上。**（TPAC 之後它往標準軌道移動的進展見後文。）
 
 先講一個容易誤會的地方：**WebMCP 不是 MCP**。Anthropic 的 MCP 是後端協定，跑 JSON-RPC，服務在伺服器上、獨立於有沒有人開著瀏覽器。WebMCP 完全跑在瀏覽器分頁裡，工具的壽命就是分頁的壽命。它天生繼承使用者已登入的 session，所以不必另外部署伺服器，也不必再處理一次驗證。規格的說法是，用了 WebMCP 的網頁「可以被想成把工具實作在客戶端腳本、而不是後端的 MCP 伺服器」。共用的只有「工具」這個詞彙，不是同一條線路。
 
@@ -86,11 +86,12 @@ WebMCP 的工具跑在使用者已登入的分頁裡。這是它最大的優勢�
 
 ## 誰真的要做這件事
 
-| 引擎 | 狀態（2026-08） |
+| 引擎 | 狀態（2026-11） |
 |---|---|
 | Chrome | Dev Trial 146、Origin Trial 149–156、預計 157 進 stable |
 | Edge | Origin Trial 自 150 起 |
-| Brave | Leo AI 聊天中的實驗性支援 |
+| Brave | Leo AI 聊天，1.102.2 起支援（預計 2027-01 發布） |
+| ChatGPT Desktop | 已支援（不是瀏覽器引擎，是桌面 agent） |
 | Firefox | 標準立場：**neutral** |
 | Safari | 標準立場：**oppose** |
 
@@ -108,6 +109,8 @@ WebKit 的第二個論點更尖銳：他們認為可靠性的承諾是假的。a
 
 Chrome 方面的回應也公開在同一串裡。重點是：現實中的 agent 本來就在用注入 JavaScript、甚至 `chrome.debugger` 這類手段操作網頁，所以「agent 不可被觀測」這個前提在今天並不成立。這個反駁有力，但它證明的是現狀不理想，不等於證明 WebMCP 是對的解法。
 
+**TPAC 之後的變化。** 2026-10-30 的 TPAC Agentic Web breakout（共同主持人之一是在 WebKit 那串代表 oppose 立場回覆的 Marcos Cáceres）對成立 **Agentic Web Working Group** 有普遍支持。章程草案的第一個規範性交付物叫「Site Capabilities for Agents」，由 WebMCP 規格演進而來，名字多半會改；W3C 的目標是 11 月底前送會員審查，明年初讓工作群組開始運作。換句話說，WebMCP 的想法正在走進標準軌道，但 WebKit 的 oppose 立場文沒有撤回，Mozilla 仍是 neutral，工作群組成立也不等於各引擎會實作。
+
 ## 要不要現在投資
 
 我的判斷分成三種情況。
@@ -124,7 +127,11 @@ Chrome 方面的回應也公開在同一串裡。重點是：現實中的 agent 
 
 WebMCP 賭的前提跟 llms.txt 是同一個——網站的讀者結構已經永久改變了——但它比 llms.txt 激進得多。llms.txt 只是一份 Markdown 索引，錯了頂多沒人讀；WebMCP 要你把可執行的能力交出去，交給一個機率性的、可能被注入的呼叫者。
 
-所以這篇的結論不是「這是未來，快上車」，而是：**宣告式那一半現在就做，命令式那一半跟著引擎共識走**。目前為止，這件事上唯一達成的共識是「人類介面優先、人要留在迴圈裡」——這也剛好是三方立場文裡都同意的一句。其餘的，等 TPAC。
+所以這篇的結論不是「這是未來，快上車」，而是：**宣告式那一半現在就做，命令式那一半跟著引擎共識走**。目前為止，這件事上唯一達成的共識是「人類介面優先、人要留在迴圈裡」——這也剛好是三方立場文裡都同意的一句。其餘的，要看 Agentic Web 工作群組的章程定案之後，各引擎怎麼表態。
+
+## 更新紀錄
+
+- 2026-11-23：補上 TPAC 2026 對成立 Agentic Web 工作群組的共識（WebMCP 演進為「Site Capabilities for Agents」）、規格版本改到 2026-11-19，實作表加 ChatGPT Desktop、更新 Brave。
 
 ## 參考資料
 
@@ -141,4 +148,6 @@ WebMCP 賭的前提跟 llms.txt 是同一個——網站的讀者結構已經永
 - [WebMCP — Chrome Platform Status（里程碑）](https://chromestatus.com/feature/5117755740913664)
 - [Mozilla standards-positions #1412（neutral）](https://github.com/mozilla/standards-positions/issues/1412)
 - [WebKit standards-positions #670（oppose）](https://github.com/WebKit/standards-positions/issues/670)
+- [The Agentic Web：TPAC 2026 breakout 會議紀錄（W3C）](https://www.w3.org/2026/10/30-the-agentic-web-minutes.html)
+- [W3C Newsletter，2026 年 10 月（Agentic Web WG 章程）](https://www.w3.org/blog/2026/w3c-newsletter-october-2026/)
 - 站內相關：[llms.txt：把文件寫給機器讀的那一份](/posts/tech/2026-08-21-llms-txt)、[shadcn registry 與 MCP](/posts/tech/2026-08-21-shadcn-registry-mcp)、[AI 時代的 React 套件選型](/posts/tech/2026-08-19-react-stack-ai-era)、[AI-ready 內容策略](/posts/ai/2026-03-30-ai-ready-content)

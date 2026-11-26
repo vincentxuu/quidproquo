@@ -10,7 +10,7 @@ description: "沿 API 資源生命週期介紹 R2R 的 document ingestion、coll
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-r2r-retrieval-api-en)
+> :globe: [English version](/posts/ai/2026-08-22-r2r-retrieval-api-en)
 
 [R2R](https://github.com/SciPhi-AI/R2R) 是開放原始碼的 AI retrieval system，把文件處理、搜尋、RAG、knowledge graph、Agent 與管理能力放在 REST API 後面。它不是讓內容人員畫 workflow 的平台，也不是嵌進 Python 程式的節點 library；它比較像一個可自行架設的 retrieval backend。
 

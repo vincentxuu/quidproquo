@@ -13,7 +13,7 @@ description: "Credential management in OpenClaw: the recommended path for model 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-28-openclaw-auth-secrets)
+> :globe: [中文版](/posts/ai/2026-03-28-openclaw-auth-secrets)
 
 The Gateway manages two credential classes: **model provider authentication** and **access control for the Gateway itself**. This article covers the former and the shared secrets machinery beneath it — which grew a great deal after March.
 

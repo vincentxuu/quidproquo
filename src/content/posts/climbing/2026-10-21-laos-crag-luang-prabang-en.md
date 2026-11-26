@@ -13,7 +13,7 @@ description: "A Luang Prabang climbing guide: route counts and grades at Pak Ou 
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-laos-crag-luang-prabang)
+> :globe: [中文版](/posts/climbing/2026-10-21-laos-crag-luang-prabang)
 
 Luang Prabang sits in northern Laos at the confluence of the Mekong and the Nam Ou, and is a UNESCO World Heritage old town. Climbing here is not the main event; it is one piece you can fit into a larger trip. theCrag lists only **19 routes** in the whole area, split between two crags: **Pak Ou (Eagle Wall)** upstream and **Gecko Wall** downstream.
 

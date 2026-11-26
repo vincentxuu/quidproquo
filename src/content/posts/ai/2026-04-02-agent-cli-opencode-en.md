@@ -13,7 +13,7 @@ description: "OpenCode's open-source architecture, multi-provider support, the C
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-04-02-agent-cli-opencode)
+> :globe: [中文版](/posts/ai/2026-04-02-agent-cli-opencode)
 
 In the 2025-2026 boom of Agent CLIs, most tools are locked to a single model provider -- Claude Code to Anthropic, Codex CLI to OpenAI, Gemini CLI to Google. OpenCode took a different path: **fully open-source, zero vendor lock-in, supporting 75+ model providers**.
 
@@ -23,7 +23,7 @@ This post provides an in-depth analysis of OpenCode's architecture, pricing, cor
 
 [OpenCode](https://github.com/anomalyco/opencode) is an open-source coding agent written in **TypeScript** and licensed under **MIT**, maintained under the [anomalyco](https://github.com/anomalyco) org.
 
-> **⚠️ A common case of mistaken identity**: an earlier project called `opencode-ai/opencode` was written in Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea), and it is not the same codebase as this OpenCode. Much of the "OpenCode is written in Go and licensed Apache-2.0" claim circulating online — including in the previous version of this post — traces back to that confusion. Go by the current repo: TypeScript, MIT.
+> **:warning: A common case of mistaken identity**: an earlier project called `opencode-ai/opencode` was written in Go with [Bubble Tea](https://github.com/charmbracelet/bubbletea), and it is not the same codebase as this OpenCode. Much of the "OpenCode is written in Go and licensed Apache-2.0" claim circulating online — including in the previous version of this post — traces back to that confusion. Go by the current repo: TypeScript, MIT.
 
 The terminal interface is far from a bare-bones text-only experience — OpenCode offers a full TUI with panel switching, syntax highlighting, and interactive operations. It runs in the terminal but feels close to a GUI. Beyond the TUI there is now also a **desktop app** with platform-specific downloads and an IDE extension.
 

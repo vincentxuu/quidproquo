@@ -15,7 +15,7 @@ glossary:
     def: "Google DeepMind 開發的大型語言模型家族，Argon 為其最新旗艦分支"
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-05-model-google-gemini-4-argon-en)
+> :globe: [English version](/posts/daily/2026-10-05-model-google-gemini-4-argon-en)
 
 ## 模型資訊
 
@@ -51,7 +51,7 @@ glossary:
 | LVBench（長影片理解） | 91.7%（SOTA） | 未列出次高分 |
 | Artificial Analysis Intelligence Index | 53 | GPT-6.1 Sol 54、Claude Opus 5.5 58 |
 
-⚠️ 以上除 Artificial Analysis 外均為 Google 官方自測，尚無第三方獨立複現；DeepSWE v1.1／CWE-bench 分數來自官方部落格圖表，FrontierSWE v2 數字來自第三方整理（AIFire）。注意 Argon 並非每項都領先——FrontierSWE v2、Artificial Analysis Intelligence Index 兩項都輸給至少一個競品，顯示這是「特定場景領先」而非全面碾壓。
+:warning: 以上除 Artificial Analysis 外均為 Google 官方自測，尚無第三方獨立複現；DeepSWE v1.1／CWE-bench 分數來自官方部落格圖表，FrontierSWE v2 數字來自第三方整理（AIFire）。注意 Argon 並非每項都領先——FrontierSWE v2、Artificial Analysis Intelligence Index 兩項都輸給至少一個競品，顯示這是「特定場景領先」而非全面碾壓。
 
 ## 與前代/競品比較
 

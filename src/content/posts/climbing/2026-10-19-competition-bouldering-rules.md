@@ -26,7 +26,7 @@ glossary:
     context: "2026 年規則是每題 5 分鐘。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-19-competition-bouldering-rules-en)
+> :globe: [English version](/posts/climbing/2026-10-19-competition-bouldering-rules-en)
 
 抱石決賽的轉播常常是這樣：選手第五次撲向完攀點，終於抓住，比分板從 10.0 跳到 24.6，主播大叫，選手名次一口氣往上爬了三名。差一次嘗試只差 0.1 分，完攀卻一次多 15 分，這就是 2025 年改制後的抱石賽。
 

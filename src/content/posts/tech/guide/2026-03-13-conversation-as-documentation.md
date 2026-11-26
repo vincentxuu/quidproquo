@@ -10,7 +10,7 @@ draft: false
 type: guide
 ---
 
-🌏 [English version](/posts/tech/guide/2026-03-13-conversation-as-documentation-en)
+:globe: [English version](/posts/tech/guide/2026-03-13-conversation-as-documentation-en)
 
 每次解完一個問題，我都知道應該記下來。但大多數時候不會，因為要重新整理思緒、打開編輯器、想標題、寫 frontmatter，光是這些就夠讓人放棄了。
 

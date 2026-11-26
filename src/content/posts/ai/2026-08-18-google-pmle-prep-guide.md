@@ -13,11 +13,11 @@ description: "Google Professional Machine Learning Engineer（PMLE）的備考�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-18-google-pmle-prep-guide-en)
+> :globe: [English version](/posts/ai/2026-08-18-google-pmle-prep-guide-en)
 >
 > 本文是從官方資料建出來的備考路徑，不是應考實錄 —— 作者沒有報考這張考試。所有「考什麼」都指回 [官方 exam guide](https://services.google.com/fh/files/misc/professional_machine_learning_engineer_exam_guide_english_new.pdf)，所有「怎麼準備」都指回官方學習路徑或 Google Cloud 文件，不含考古題。查證日期：2026-08-18。
 
-Google 的 AI 認證裡，工程師現在能報名並證明能力的只有 Professional Machine Learning Engineer（PMLE）這一張。新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 考 agent 的開發、編排與治理，beta 報名已關閉，正式版 2026 年 11 月 2 日才開放報名。另一張 Generative AI Leader 官方自己說「for anyone in any job role, with or without hands-on technical experience」，對寫程式的人鑑別度太低。
+Google 的 AI 認證裡，工程師現在能報名並證明能力的只有 Professional Machine Learning Engineer（PMLE）這一張。新開的 [Professional Agentic Architect](https://cloud.google.com/learn/certification/agentic-architect) 考 agent 的開發、編排與治理，beta 報名已關閉，正式版（GA）2026 年 11 月 2 日開放報名。另一張 Generative AI Leader 官方自己說「for anyone in any job role, with or without hands-on technical experience」，對寫程式的人鑑別度太低。
 
 而 PMLE 現在有個特殊狀況：**名字沒變、價格沒變、官網長得一樣，但考綱被重寫過**。認證頁頂端掛著一行警語：
 
@@ -187,6 +187,7 @@ PMLE 是 Professional 級，**效期兩年**，可在到期前 **60 天**開始�
 
 - 2026-10-08：官方考試指南的舊網址已失效（404），全文改連認證頁「View exam guide」現在指向的官方 PDF；六章權重未變。
 - 2026-10-08：開頭原寫「Google 的 AI 認證只有兩張」。Google 已新增 Professional Agentic Architect（正式版 2026-11-02 開放報名），改寫該句並補上連結。PMLE 的考綱與準備方式未變動。
+- 2026-11-13：Professional Agentic Architect 已進入 GA（正式版報名自 2026-11-02 開放），PMLE 本身的考綱與準備方式未變動；agent 專屬的備考路徑已另行發佈，系列 order 31。
 
 ## 參考資料
 

@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-19-flying-with-climbing-gear)
+> :globe: [中文版](/posts/climbing/2026-10-19-flying-with-climbing-gear)
 
 [What to Bring on a Climbing Trip Abroad](/posts/climbing/2026-10-19-climbing-trip-gear-list-by-destination-en) turned the trip into a packing list and a total weight. The next question is how that pile gets through the airport. What can go in the cabin? What has to be checked? How are checked and cabin weights counted?
 

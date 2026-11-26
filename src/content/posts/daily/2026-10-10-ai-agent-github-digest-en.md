@@ -11,7 +11,7 @@ series:
   order: 56
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-10-ai-agent-github-digest)
+> :globe: [中文版](/posts/daily/2026-10-10-ai-agent-github-digest)
 
 ## Today's Highlight
 
@@ -19,7 +19,7 @@ Four of today's top six GitHub Trending repos are AI agent skills/MCP tools, wit
 
 ## Trending Repos
 
-### mattpocock/skills ⭐ 283,680
+### mattpocock/skills ★ 283,680
 
 [GitHub](https://github.com/mattpocock/skills) · Shell · MIT
 
@@ -30,7 +30,7 @@ Four of today's top six GitHub Trending repos are AI agent skills/MCP tools, wit
 
 ---
 
-### morluto/rea ⭐ 61,585
+### morluto/rea ★ 61,585
 
 [GitHub](https://github.com/morluto/rea) · TypeScript · MIT
 
@@ -41,7 +41,7 @@ Four of today's top six GitHub Trending repos are AI agent skills/MCP tools, wit
 
 ---
 
-### cathrynlavery/diagram-design ⭐ 48,496
+### cathrynlavery/diagram-design ★ 48,496
 
 [GitHub](https://github.com/cathrynlavery/diagram-design) · HTML · MIT
 
@@ -52,7 +52,7 @@ Four of today's top six GitHub Trending repos are AI agent skills/MCP tools, wit
 
 ---
 
-### anthropics/knowledge-work-plugins ⭐ 28,593
+### anthropics/knowledge-work-plugins ★ 28,593
 
 [GitHub](https://github.com/anthropics/knowledge-work-plugins) · Python · Apache-2.0
 
@@ -63,7 +63,7 @@ Four of today's top six GitHub Trending repos are AI agent skills/MCP tools, wit
 
 ---
 
-### mksglu/context-mode ⭐ 26,062
+### mksglu/context-mode ★ 26,062
 
 [GitHub](https://github.com/mksglu/context-mode) · TypeScript · Elastic License 2.0
 

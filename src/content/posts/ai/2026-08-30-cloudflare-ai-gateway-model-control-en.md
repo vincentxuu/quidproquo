@@ -16,7 +16,7 @@ additionalSeries:
     order: 20
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control)
+> :globe: [中文版](/posts/ai/2026-08-30-cloudflare-ai-gateway-model-control)
 
 After the first [Workers AI](https://developers.cloudflare.com/workers-ai/) demo works, the next problem is usually not "can the model answer?" It is "how do I debug LLM calls, stop runaway traffic, understand cost, and switch providers without rewriting the app?" [Cloudflare AI Gateway](https://developers.cloudflare.com/ai-gateway/) sits there: a control layer for model calls across logs, analytics, cache, rate limits, retry/fallback, provider keys, and billing.
 
@@ -46,6 +46,7 @@ That layer solves production problems:
 - **Provider management**: one gateway can front [Workers AI](https://developers.cloudflare.com/workers-ai/), OpenAI, Anthropic, Google AI Studio, Groq, Mistral, OpenRouter, Perplexity, and other supported [providers](https://developers.cloudflare.com/ai-gateway/usage/providers/).
 - **Centralized secrets**: [BYOK](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/) keeps provider API keys on Cloudflare instead of in app deployments.
 - **Consolidated billing**: [Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/) lets supported provider calls draw from Cloudflare AI Gateway credits.
+- **Web search**: the [Web Search API](https://developers.cloudflare.com/web-search/) launched in October 2026 (open beta) also runs through AI Gateway. You pick Ceramic.ai, Exa, or Linkup as the provider; searches show up in gateway logs and are paid from AI Gateway credits at the provider's list price, or with your own provider key.
 
 If you have one internal script calling a model ten times per day, direct provider APIs are fine. AI Gateway becomes useful once you have users, multiple models, production logs, or platform-level cost controls.
 
@@ -59,7 +60,7 @@ Inside a Worker, the [AI Gateway Workers binding](https://developers.cloudflare.
 export default {
   async fetch(request, env) {
     const result = await env.AI.run(
-      "@cf/zai-org/glm-5.3-flash",
+      "@cf/google/gemma-4-26b-a4b-it",
       {
         messages: [
           { role: "system", content: "Reply in Traditional Chinese." },
@@ -95,7 +96,7 @@ curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/ai/v1/chat/compl
   -H "cf-aig-gateway-id: default" \
   -H "Content-Type: application/json" \
   -d '{
-    "model": "@cf/zai-org/glm-5.3-flash",
+    "model": "@cf/google/gemma-4-26b-a4b-it",
     "messages": [
       { "role": "user", "content": "Summarize this issue." }
     ]
@@ -136,7 +137,7 @@ This is the best migration path for existing applications: switch the base URL t
 
 [AI Gateway analytics](https://developers.cloudflare.com/ai-gateway/observability/analytics/) aggregates requests, token usage, costs, errors, and cached responses. You can inspect it in the dashboard or query it with GraphQL. For an AI app, this is more useful than knowing "the model is expensive" in the abstract: you can group by feature, user, team, tenant, or experiment.
 
-[Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/) is per request. Logs can include provider, timestamp, status, token usage, cost, duration, user agent, prompt, and response. Decide the privacy policy before turning this into production telemetry. Logs are enabled by default; if you do not want raw payloads stored, set `cf-aig-collect-log-payload: false` on the request. That keeps metadata while skipping prompts and responses. Use `cf-aig-collect-log: false` only when you want to skip the whole log.
+[Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/) is per request. Logs can include provider, timestamp, status, token usage, cost, duration, user agent, prompt, and response. Decide the privacy policy before turning this into production telemetry. Logs are enabled by default. Accounts that created their first gateway on or after 2026-09-24 store logs in Workers Logs and follow [Workers Logs pricing and retention](https://developers.cloudflare.com/workers/observability/logs/workers-logs/#pricing); accounts with an earlier gateway stay on Legacy Logs (10 million logs per gateway on paid, 100,000 per account on free). New gateways also always require [authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/); provider-native endpoints take it in the `cf-aig-authorization` header. If you do not want raw payloads stored, set `cf-aig-collect-log-payload: false` on the request. That keeps metadata while skipping prompts and responses. Use `cf-aig-collect-log: false` only when you want to skip the whole log.
 
 I treat metadata as required:
 
@@ -184,14 +185,14 @@ Do not treat this as semantic cache. AI Gateway caches exact requests. Similar-q
 
 [Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/) applies fixed or sliding windows at the gateway layer. Requests over the limit return `429 Too Many Requests`. A basic setup limits requests per minute for a gateway; a better setup separates free users, paid users, and internal jobs with metadata or routes.
 
-[Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/) goes further. A route flow can include conditions, percentage splits, model nodes, rate limits, budget limits, and fallbacks. Typical uses:
+[Dynamic Routing](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/) goes further. A route flow can include conditions, percentage splits, model nodes, rate limits, budget limits, and fallbacks. Typical uses:
 
 - Free tier on a cheaper model; paid tier on a stronger model.
 - A team that exhausts its daily budget moves to a smaller model or gets rejected.
 - A new model starts at 5% traffic before a wider rollout.
 - If the primary provider fails, route to another provider.
 
-Two current constraints matter: Dynamic Routing requires an authenticated gateway and BYOK; the docs also state that dynamic routes currently use the OpenAI-compatible `/compat/chat/completions` endpoint and are not yet available on the standard REST API. For single-model calls, use the newer REST path. For route flows, follow the dynamic routing endpoint.
+Two constraints matter: Dynamic Routing requires an authenticated gateway and BYOK, and routes accept only the OpenAI chat completions request shape. Call a route by putting its name in place of the model (for example `dynamic/support`) through the REST API at `/ai/v1/chat/completions`, the AI binding in a Worker, or the OpenAI-compatible `/compat/chat/completions` endpoint. The `/ai/run` endpoint and other formats such as Anthropic Messages return `400`. On the REST API, set `cf-aig-gateway-id` to the gateway that owns the route; otherwise the request resolves against the default gateway and returns `404`.
 
 ## BYOK, Unified Billing, and Secrets Store
 
@@ -244,6 +245,10 @@ Before putting AI Gateway in production, decide:
 
 The point is not to make a demo faster. The point is to make a production AI app observable, bounded, and replaceable at the model layer.
 
+## Update Log
+
+- 2026-11-23: Switched the example model from `glm-5.3-flash` (shut down on 2026-11-20) to `gemma-4-26b-a4b-it`; Dynamic Routing now also works on the REST API `/ai/v1/chat/completions` and the AI binding, not only the compat endpoint; added that new gateways require authentication, that accounts new since 2026-09-24 log to Workers Logs, and the Web Search API (open beta).
+
 ## References
 
 - [Cloudflare AI Gateway — Overview](https://developers.cloudflare.com/ai-gateway/)
@@ -252,11 +257,15 @@ The point is not to make a demo faster. The point is to make a production AI app
 - [Cloudflare AI Gateway — Providers](https://developers.cloudflare.com/ai-gateway/usage/providers/)
 - [Cloudflare AI Gateway — Caching](https://developers.cloudflare.com/ai-gateway/features/caching/)
 - [Cloudflare AI Gateway — Rate limiting](https://developers.cloudflare.com/ai-gateway/features/rate-limiting/)
-- [Cloudflare AI Gateway — Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/dynamic-routing/)
+- [Cloudflare AI Gateway — Dynamic routing](https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/)
 - [Cloudflare AI Gateway — Analytics](https://developers.cloudflare.com/ai-gateway/observability/analytics/)
 - [Cloudflare AI Gateway — Logging](https://developers.cloudflare.com/ai-gateway/observability/logging/)
 - [Cloudflare AI Gateway — Bring your own keys](https://developers.cloudflare.com/ai-gateway/configuration/bring-your-own-keys/)
 - [Cloudflare AI Gateway — Unified Billing](https://developers.cloudflare.com/ai-gateway/features/unified-billing/)
 - [Cloudflare AI Gateway — Limits](https://developers.cloudflare.com/ai-gateway/reference/limits/)
+- [Cloudflare AI Gateway — Authentication](https://developers.cloudflare.com/ai-gateway/configuration/authentication/)
+- [Cloudflare AI Gateway — Pricing](https://developers.cloudflare.com/ai-gateway/reference/pricing/)
+- [Cloudflare Web Search API](https://developers.cloudflare.com/web-search/)
+- [Workers AI changelog: Planned model deprecations (2026-11-05)](https://developers.cloudflare.com/changelog/post/2026-11-05-planned-model-deprecations/)
 - [Cloudflare Secrets Store](https://developers.cloudflare.com/secrets-store/)
 - [Cloudflare Workers AI](https://developers.cloudflare.com/workers-ai/)

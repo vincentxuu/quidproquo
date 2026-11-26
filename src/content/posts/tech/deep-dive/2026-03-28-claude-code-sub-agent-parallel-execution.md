@@ -13,7 +13,7 @@ series:
   order: 15
 ---
 
-> 🌏 [English version](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en)
+> :globe: [English version](/posts/tech/deep-dive/2026-03-28-claude-code-sub-agent-parallel-execution-en)
 
 [系列入口篇](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works)把 subagents 一筆帶過：「開新的 context window 分擔工作」。這篇展開講這句話背後的機制——它怎麼定義、怎麼被觸發、跑在哪裡、能用什麼工具。
 

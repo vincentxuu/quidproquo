@@ -10,7 +10,7 @@ description: "從 CopilotKit 的 React 前端、Runtime、AG-UI、共享狀態�
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-copilotkit-agent-ui-en)
+> :globe: [English version](/posts/tech/2026-08-22-copilotkit-agent-ui-en)
 
 [CopilotKit](https://docs.copilotkit.ai/) 是一套把 AI Agent 接進 React 應用程式的前端堆疊。它有 `CopilotChat`、`CopilotSidebar` 等現成介面，但真正的重點是讓前端能看見 Agent 狀態、提供可呼叫工具、渲染工具結果，並在高風險動作前向使用者取得決定。
 

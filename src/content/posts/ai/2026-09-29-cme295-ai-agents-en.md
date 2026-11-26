@@ -1,369 +1,567 @@
 ---
-title: "AI Agents: From Calling Tools to Managing Context and Tuning the Harness | Stanford CME295 2026 Edition Lecture 6"
+title: "AI Agents: From Retrieval and Tool Calls to the Harness and Coding Agents | Stanford CME295 2026 Edition Lecture 6"
 date: 2026-09-29
 category: ai
 type: deep-dive
-tags: [cme295, ai-agent, context-engineering, harness-engineering, coding-agent, agent-skills]
+tags: [cme295, ai-agent, rag, tool-calling, harness-engineering, coding-agent, stanford]
 lang: en
+math: true
 series:
   name: "Reading Stanford CME295"
   order: 12
-tldr: "The 2026 syllabus for CME295 Lecture 6 (November 6, 2026) lists seven topics. Tool calling, MCP and retrieval were already covered in the 2025 Lecture 7; the genuinely new ones are context compaction, harness optimization, coding agents, and skills/plugins. This pre-lecture edition explains those four using engineering posts from Anthropic and OpenAI, the MCP 2026-07-28 spec, and the Meta-Harness paper."
-description: "A pre-lecture guide to Stanford CME295 2026 Lecture 6, \"AI Agents\": context compaction (summarization, tool-result clearing, Codex's compact endpoint), harness optimization (Anthropic's long-running agents, OpenAI's harness engineering, Meta-Harness automated search), the gather-act-verify loop of coding agents, progressive disclosure in Agent Skills and plugin packaging, mapped against what the 2025 Lecture 7 already covered."
+tldr: "Lecture 6 of the 2026 CME295 starts from two limits of LLMs: their knowledge stops at the training data, and they cannot act. The first 40 minutes cover retrieval (chunking, bi-encoder candidate retrieval, cross-encoder re-ranking, metrics such as NDCG, and why coding uses grep instead). Next come the three steps of tool calling, conflicts between tools and tool selection, MCP, and why fixed content must go at the front of the prompt to hit the cache. The last 15 minutes define the harness as everything except the model, pass through ReAct, compaction and memory, and then look at coding agents: auto-approval, grep, AGENTS.md, skills and subagents."
+description: "A guide to Stanford CME295 2026 Lecture 6, \"AI Agents\", based on the recording and the 152-slide deck: RAG chunking and two-stage retrieval (bi-encoder, BM25, HyDE, contextual retrieval, cross-encoder re-ranking), NDCG / RR / Recall@k / Precision@k, grep for code retrieval; the three steps of tool calling, teaching tools via SFT versus prompting, tool conflicts and tool selection, MCP, prompt caching and prompt ordering; the definition of a harness, ReAct, A2A, three kinds of context compaction, short- and long-term memory; and coding agents' auto-approval, AGENTS.md, skills, computer use, subagents and agent teams."
 draft: false
 glossary:
   - term: "harness"
     aliases: ["agent harness", "agentic harness"]
-    definition: "The code wrapped around the model: it decides what context the model sees each turn, which tools it has, how tool results are fed back, and when to compact or stop."
-    context: "The Claude Code docs define Claude Code itself as the agentic harness around Claude models; the syllabus item \"harness optimization\" means improving this layer."
-    links:
-      - label: "How Claude Code works"
-        url: "https://code.claude.com/docs/en/how-claude-code-works"
+    definition: "Everything outside the model that turns it into an agent: tools, the ordering of actions, the compaction strategy, memory, all the surrounding prompting, and guardrails."
+    context: "Slide 105 of the lecture cites Databricks for this definition; the speaker's analogy is that the model is the engine and the harness is the rest of the car."
   - term: "context compaction"
     aliases: ["compaction"]
-    definition: "When a conversation nears the context window limit, condense the history into a summary (or a more compact representation) and continue in a fresh context built from it."
-    context: "The first new topic in this post; Claude Code's /compact and Codex's automatic compaction both work this way."
-  - term: "progressive disclosure"
-    definition: "Loading information in layers: start with a minimal index (such as a name and one-line description) and read the next layer only when the model decides it needs it."
-    context: "Agent Skills use three layers of progressive disclosure, so an agent with many skills installed pays only a small context cost by default."
-  - term: "context rot"
-    definition: "The observation that as the number of tokens in context grows, a model's ability to accurately recall information from it declines; the term comes from Chroma's research."
-    context: "This is why compaction exists: fitting in the window is not the same as working well."
-    links:
-      - label: "Chroma: Context Rot"
-        url: "https://www.trychroma.com/research/context-rot"
+    definition: "Ways to free up room when the context window fills: delete content that is no longer needed, keep only a recent sliding window, or summarize the conversation so far into fixed fields and continue from that."
+    context: "The lecture places it in the harness section and lists deletion, sliding window and summarization."
+  - term: "bi-encoder / cross-encoder"
+    aliases: ["bi-encoder", "cross-encoder", "re-ranker"]
+    definition: "A bi-encoder encodes the query and the document separately into vectors and compares them, so document vectors can be precomputed. A cross-encoder feeds the query and document together as one sequence and outputs a relevance score directly: more accurate, but nothing can be precomputed."
+    context: "In the lecture's two-stage retrieval, stage one retrieves candidates with a bi-encoder and stage two re-ranks them with a cross-encoder."
+  - term: "NDCG@k"
+    aliases: ["NDCG", "Normalized Discounted Cumulative Gain"]
+    definition: "A ranking-quality metric: relevant documents in the top k score higher the earlier they appear, and the result is divided by the score of a perfect ranking so it falls between 0 and 1."
+    context: "The first metric the lecture introduces for evaluating retrieval."
+  - term: "prompt caching"
+    aliases: ["prompt cache", "cached input"]
+    definition: "The provider stores the computation for the identical beginning of a prompt and reuses it when the next request starts the same way, billing it at a much lower rate. It only works for an exactly identical prefix."
+    context: "The lecture uses it to explain why tool definitions belong at the very start of the prompt."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
+> :globe: [中文版](/posts/ai/2026-09-29-cme295-ai-agents)
 
-**Video status: Related supplementary video included; the original lecture recording has not been verified.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources)
 
-> **Pre-lecture edition**: written on September 29, 2026. Lecture 6 of the 2026 edition (November 6, 2026) has not happened yet. This post is based on the topic list in the 2026 syllabus, material already covered in the 2025 slides, and primary sources. It will be revised against the video and slides once they are published.
+This post covers Lecture 6, "AI Agents," of the 2026 edition of Stanford's [CME295](/posts/ai/2026-09-29-cme295-course-overview-en) (November 6, 2026). It is based on the English captions of the lecture recording and the [152-slide deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture6.pdf). Afshine Amidi teaches retrieval for the first 44 minutes; Shervine Amidi then covers tool calling, the harness and coding agents. About half the material (RAG, tool calling, tool selection, MCP, ReAct, A2A) is the same as the 2025 Lecture 7, which our [Lecture 7 guide](/posts/ai/2026-09-29-cme295-agentic-llms-en) already covers from the 2025 slides. This post walks through the 2026 recording again and explains the segments added this year.
 
-This post covers Lecture 6, "AI Agents", of the 2026 edition of Stanford [CME295](/posts/ai/2026-09-29-cme295-course-overview-en). The lecture has not been given, so there are no slides to quote. The only source that speaks for the 2026 course is the seven-line topic list on the [syllabus](https://cme295.stanford.edu/syllabus/). Everything else comes from the 2025 Lecture 7 [slides](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf), engineering posts from Anthropic and OpenAI, the [MCP specification](https://modelcontextprotocol.io/specification/versioning), and papers. Each section says which is which.
+Prerequisites: encoder-only models (BERT) and the CLS token ([Lecture 2 guide](/posts/ai/2026-09-29-cme295-transformer-tricks-en)), and the KV cache and cached-input pricing ([Lecture 5 guide](/posts/ai/2026-09-29-cme295-llm-systems-en)).
 
-Why write it early? Slide 6 of the 2026 Lecture 1 [deck](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf), "Difference with last year's edition", lists three new items for this year, and AI Agents is one of them. The timeline in the same deck ends on a box labeled "Agentic era!" holding four coding agents: Claude Code, Cursor, Codex and Antigravity. A course about Transformers now puts coding agents at the end of its timeline, and that is a signal worth reading.
+The video runs 1 hour 40 minutes and this post covers all of it; each section starts with a timestamp link into the recording.
 
-## Where this lecture sits in the 2026 syllabus
-
-Lecture 6 comes after Lecture 5, "LLM systems" (KV cache, speculative decoding), and before Lecture 7, "LLM evaluation" (which lists agent evaluation). The seven topics on the syllabus:
-
-| Syllabus topic | Covered in 2025? | How this post handles it |
-|---|---|---|
-| Tool calling | Yes, 2025 Lecture 7 | Bridge only; details in [order 7](/posts/ai/2026-09-29-cme295-agentic-llms-en) |
-| MCP | Yes, a section in the 2025 slides (not on the syllabus) | Bridge, plus what changed in the 2026 spec |
-| Memory, retrieval | Retrieval yes (two RAG topics); memory no | Add agent memory and just-in-time retrieval |
-| Context compaction | No | **New, expanded** |
-| Harness optimization | No | **New, expanded** |
-| Coding agents | Only the closing slide: "Personal favorite use case: coding!" | **New, expanded** |
-| Skills, plugins | No | **New, expanded** |
-
-The seven lines read as one thread. Models learned to call tools (tool calling, MCP), then ran out of context (memory, compaction), so people started improving the code wrapped around the model (the harness). Coding agents are the most mature instance, and skills and plugins are the newest way to extend them. The rest of the post follows that order.
-
-```mermaid
-flowchart TD
-  subgraph H["harness: the code around the model"]
-    direction TB
-    C["Assemble context<br/>system prompt, CLAUDE.md,<br/>skill names and descriptions, tool list"] --> M["LLM<br/>decides next step"]
-    M -->|"tool call"| T["Run tool<br/>read files, run tests, MCP server"]
-    T -->|"result fed back"| B{"Context<br/>nearly full?"}
-    B -->|"no"| M
-    B -->|"yes"| K["Compaction<br/>summarize, clear old tool results"]
-    K --> M
-    M -->|"needs a skill"| S["Load SKILL.md<br/>and bundled files"]
-    S --> M
-  end
-  U["User task"] --> C
-  M -->|"done and verified"| O["Result"]
-  O -.->|"scores and traces"| OPT["Harness optimization<br/>change this layer by hand or automatically"]
-  OPT -.-> H
+```youtube
+url: https://www.youtube.com/watch?v=nU2a2lm6vDE
+title: Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 6 - AI Agents
 ```
 
-## Bridge: tool calling, MCP, retrieval
+## How the lecture is organized: two limits, five parts
 
-### Tool calling and MCP: covered in 2025, and the spec has moved since
+[Recording 00:00–05:11](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=0s)
 
-The three steps of tool calling (the model writes the call, the backend runs it, the model reads the result), the two ways to teach it (SFT and prompting), tool selection, and MCP's host, client and server roles are all in [order 7](/posts/ai/2026-09-29-cme295-agentic-llms-en), based on the 2025 slides. No need to repeat them.
+The speaker opens with how coding has changed (slides 3–6): in 2023 you copy-pasted code into a chat window, in 2024 you pressed tab for autocomplete in the IDE, in 2025 you handed over whole tasks, and in 2026 an agent writes the code, writes the tests, runs them and deploys. This lecture is about that gap.
 
-What is worth adding is the "Tools summary" slide (slide 105) from 2025, which listed three challenges: more tools lowers performance, finite context length does not scale, and every tool has to be defined by hand. A year later the industry has new answers to each, and they line up with the second half of the 2026 syllabus:
+The gap comes from two limits of LLMs:
 
-- **Tool definitions don't fit in context**: by default Claude Code now puts only MCP tool names in context and loads full schemas on demand through tool search (per the [Claude Code context window docs](https://code.claude.com/docs/en/context-window), checked 2026-09-29). It is the same direction as the router in the 2025 slides, except the model does the searching
-- **MCP went stateless**: MCP versions are dates, and the current version as of 2026-09-29 is [2026-07-28](https://modelcontextprotocol.io/specification/2026-07-28/changelog). The biggest change from the previous 2025-11-25 revision is removing the `initialize` handshake and protocol-level sessions; every request carries its own version and client capabilities, and servers must implement a new `server/discover`
-- **Friendlier to prompt caching**: the same changelog says servers "SHOULD return tools from `tools/list` in a deterministic order" to improve client-side caching and LLM prompt cache hit rates. The order of a tool list affects your bill, which comes up again under compaction
+1. **Knowledge stops at the training data.** The speaker uses the GPT-6 Astra model card as an example, with a knowledge cutoff of April 30, 2026; it would not know the results of the US midterm election held that week. It has never seen your private codebase either.
+2. **It can only answer, not act.** Ask it to "order a 17-inch teddy bear for me" and it has no way to actually place the order.
 
-### Memory and retrieval: from pre-computed to just-in-time
+Retrieval handles the first limit and tools handle the second. The agenda on slide 2 has five parts; here is how the time actually splits:
 
-Retrieval in 2025 meant RAG: chunk the documents, embed them, and pull the most relevant chunks into the prompt when a question arrives (see [order 7](/posts/ai/2026-09-29-cme295-agentic-llms-en)). The 2026 syllabus puts retrieval on the same line as memory, and the pairing makes sense. For an agent that runs many turns, "look up an external document" and "look up something I wrote down earlier" are the same action.
-
-Anthropic's [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) (September 29, 2025) describes a shift. Many applications retrieve with embeddings before inference; more teams are adding "just in time" strategies, where the agent keeps lightweight references such as file paths, stored queries and links, and loads content with tools only when needed. The example is Claude Code: CLAUDE.md goes into context up front, and everything else is found with glob and grep when needed, which avoids maintaining an index.
-
-Memory is moving toward files too. The same post lists structured note-taking (the agent periodically writes notes outside the context window and reads them back later) as one of three techniques for long tasks. The [memory tool](https://claude.com/blog/context-management) Anthropic launched on the Claude Developer Platform the same day is a file-based memory directory whose storage the developer controls. The site's [agent memory engineering series](/posts/ai/2026-09-19-agent-memory-taxonomy-en) maps out the design space in full.
-
-## New topic 1: Context compaction
-
-### Scenario
-
-You ask a coding agent to fix a bug. It reads a dozen files and runs the tests three times, each producing a thousand lines of output. Half an hour in, most of the context window is gone. Keep going and either the request exceeds the limit and fails, or it still fits but the model starts ignoring constraints you gave it early on.
-
-### Intuition: fitting is not the same as remembering
-
-The obvious move is to wait for bigger context windows. Anthropic's post says no. It cites Chroma's [context rot](https://www.trychroma.com/research/context-rot) research: as tokens in context increase, the model's ability to recall information accurately decreases, and "this characteristic emerges across all models". The explanation goes back to Lecture 1's attention: n tokens have n² pairwise relationships, and as length grows the model's attention is spread thin. Context should be treated as a finite resource with diminishing returns.
-
-This extends 2025 final exam question III.9, which asks why you might use RAG even with a 1M-token context window. Compaction answers the other half of that question: even without retrieval, the conversation itself fills up the context.
-
-### Mechanism: three approaches, light to heavy
-
-Anthropic groups long-task context strategies into three: compaction, structured note-taking, and sub-agents. Compaction itself ranges from light to heavy:
-
-1. **Clear old tool results.** The post calls this "one of the safest lightest touch forms of compaction": once a tool was called long ago, the agent doesn't need the raw output again. Context editing on the Claude Developer Platform automatically clears stale tool calls and results as the limit approaches
-2. **Summarize and restart.** Hand the conversation to the model for a summary, then continue in a new context built from it. Anthropic describes Claude Code keeping architectural decisions, unresolved bugs and implementation details, discarding redundant tool output, and adding the five most recently accessed files (as described in September 2025; the implementation may have changed)
-3. **Compress to an opaque representation.** In [Unrolling the Codex agent loop](https://openai.com/index/unrolling-the-codex-agent-loop/) (January 23, 2026), OpenAI describes a `/responses/compact` endpoint in the Responses API. It returns a list of items that can replace the previous input, including a `type=compaction` item with opaque `encrypted_content` that preserves the model's "latent understanding" of the original conversation. Codex calls it automatically once `auto_compact_limit` is exceeded
-
-<details>
-<summary>Skeleton of a compaction loop (illustrative)</summary>
-
-```
-loop:
-    response = model(context)
-    if response has a tool call:
-        result = run_tool(response.call)
-        context.append(response, result)
-    else:
-        return response
-
-    if tokens(context) > threshold:                # e.g. some fraction of the window
-        # step 1: cheapest, clear old tool results first
-        context = drop_old_tool_results(context, keep_last=k)
-        if tokens(context) > threshold:
-            # step 2: ask the model for a summary and restart from it
-            summary = model("Summarize: keep decisions, open issues, next steps", context)
-            context = [system_prompt, project_instructions, summary, recently_used_files]
-```
-
-The advice for tuning the summary prompt comes from the same Anthropic post: first maximize recall so nothing needed is lost, then iterate on precision to cut the excess. Whatever a summary drops is gone for good, and its importance often only shows up later.
-
-</details>
-
-Compaction has two costs that are easy to miss. The summary itself costs a model call. And a summary rewrites the front of the context; prompt caching depends on an identical prefix, so after each compaction the cache has to build up again from that point. The link between KV cache and inference cost is in [order 10](/posts/ai/2026-09-29-cme295-llm-systems-en).
-
-Compaction is not a cure-all either. Anthropic's [Effective harnesses for long-running agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) (November 26, 2025) says plainly that "compaction isn't sufficient": for work spanning many context windows, passing everything through summaries loses things. That leads to the next topic.
-
-### Back to the model you use
-
-Typing `/compact` in Claude Code, or watching Codex compact automatically, is approach 2 or 3 above. One practical detail: per the [Claude Code docs](https://code.claude.com/docs/en/context-window) (checked 2026-09-29), the skill listing loaded at startup is not re-injected after `/compact`; only skills you actually invoked are preserved. If an agent "forgets" a skill after compaction, this may be why. The site has a [comparison of seven answers](/posts/ai/2026-08-21-context-full-seven-answers-en) coding agents give to a full context window.
-
-## New topic 2: Harness optimization
-
-### What a harness is
-
-The [Claude Code docs](https://code.claude.com/docs/en/how-claude-code-works) give a clean definition. The agentic loop has two components, models that reason and tools that act; Claude Code is the layer around the model that provides the tools and manages the context the model sees, and "This surrounding layer is what the term agentic harness refers to."
-
-In the mermaid diagram above, everything except the LLM box is harness: assembling context, running tools, deciding when to compact and when to stop. The same model in a different harness can perform very differently, which makes the harness something to optimize.
-
-### Tuning by hand: work backward from failures
-
-Most harnesses today are tuned by people fixing failure cases one by one. Two first-hand reports:
-
-- **Anthropic's long-running coding agent** ([post](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)). Three failure modes: trying to one-shot the whole app and running out of context midway; a later session seeing progress and declaring the job done; marking features complete without testing. The fix splits the work across two agents. The initializer agent in the first session sets up an `init.sh`, a `claude-progress.txt` progress file, a full feature list and an initial git commit. The coding agent in each later session does one feature at a time, leaves structured updates, and only counts a feature as done after testing it end to end with browser automation, as a user would
-- **OpenAI's harness engineering** ([post](https://openai.com/index/harness-engineering/), February 11, 2026). A team used Codex for five months to build an internal product of roughly a million lines, with no hand-written code. Early progress was slower than expected because "the environment was underspecified", and the engineers' main job became enabling the agents to do useful work. One concrete practice: keep AGENTS.md to about 100 lines as a map: "instead of treating AGENTS.md as the encyclopedia, we treat it as the table of contents"
-
-What the two share: neither changed the model. They changed the files, processes and checks around it.
-
-### Tuning automatically: Meta-Harness
-
-The syllabus says harness *optimization*, which suggests an outer loop that searches automatically. A representative primary source for that direction is Stanford's [Meta-Harness](https://arxiv.org/abs/2603.28052) (March 30, 2026, first author Yoonho Lee). There is no public information linking this paper to the CME295 lecture; it is presented here as one research approach to the topic.
-
-The paper's framing: a harness is "the code that determines what information to store, retrieve, and present to the model", still mostly written by hand, and existing text optimizers "compress feedback too aggressively" for this setting. Its approach uses an agent as the proposer, which reads the source code, scores and execution traces of every prior candidate harness through a filesystem, then proposes new harness code.
-
-<details>
-<summary>Meta-Harness outer loop (illustrative, based on the abstract)</summary>
-
-```
-archive = [initial harness]               # each candidate: source, score, execution traces
-for round in 1..N:
-    # the proposer is itself a coding agent browsing the archive via the filesystem
-    new_code = proposer_agent(read_access=archive)
-    score, traces = evaluate(new_code, task_set)
-    archive.add(new_code, score, traces)
-return highest-scoring harness in archive
-```
-
-The difference from prompt optimizers is the resolution of feedback: the proposer sees full traces, not a single score or a one-line summary. That matches the lesson from compaction: compress too hard and you can't get it back.
-
-</details>
-
-Results from the abstract: on online text classification it beats a state-of-the-art context management system by 7.7 points while using 4x fewer context tokens; on TerminalBench-2, an agentic coding benchmark, the discovered harnesses surpass the best hand-engineered baselines. These numbers come from the abstract; the experimental conditions are in the full paper. The site's [Same Name, Different Layer](/posts/ai/2026-08-26-meta-harness-layers-en) separates this "optimization loop" sense of meta-harness from the control-plane sense used for governing multiple agents.
-
-### Back to the model you use
-
-Your CLAUDE.md, AGENTS.md, hooks and custom slash commands are hand-tuning the harness. How do you know a change helped? You need a fixed task set you can re-run and score, which is exactly the agent evaluation item on the next lecture of the 2026 syllabus (Lecture 7), and the 2025 version of that topic is in [order 8](/posts/ai/2026-09-29-cme295-llm-evaluation-en).
-
-## New topic 3: Coding agents
-
-### Why coding
-
-The last slide of the 2025 closing section says "Personal favorite use case: coding!" A year later coding agents are a syllabus item of their own. One way to see why is through the old agent problems: the 2025 closing slides list "hallucination is a (big) problem" and "evaluation is challenging", and programming has built-in answers to both. Code can be run, tests can check it, and deciding whether the result is right needs less human judgment.
-
-### Mechanism: gather, act, verify
-
-The [Claude Code docs](https://code.claude.com/docs/en/how-claude-code-works) describe the agentic loop as three blended phases: gather context, take action, verify results, repeated until the task is done, with the user able to interrupt at any point. Built-in tools fall into five categories: file operations, search, execution (shell, tests, git), web, and code intelligence.
-
-Compared with ReAct's Observe, Plan, Act in [order 7](/posts/ai/2026-09-29-cme295-agentic-llms-en), the addition is an explicit **verify** phase. The third failure mode in Anthropic's long-running agent, marking features done without testing, is what happens when that phase is missing.
-
-Coding agents are also where the earlier topics meet:
-
-| Earlier topic | What it looks like in a coding agent |
-|---|---|
-| retrieval | No index; glob and grep find files just in time |
-| memory | CLAUDE.md, AGENTS.md, progress files, git history |
-| compaction | `/compact`, automatic compaction |
-| harness optimization | project rules, hooks, verification gates, subagent delegation |
-
-### Back to the model you use
-
-The four tools on the 2026 Lecture 1 timeline: [Claude Code](https://code.claude.com/docs/en/overview), [Cursor](https://cursor.com/), [Codex](https://openai.com/codex/) and [Antigravity](https://antigravity.google/). They use different models, yet their loops look alike; the differences are mostly in the harness: how they find files, edit files, isolate execution, and compact. The site's [How Claude Code Works](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en) walks through one of them end to end.
-
-## New topic 4: Skills and plugins
-
-### Scenario
-
-You want the agent to learn your company's PDF form workflow, internal API conventions, or publishing rules. Put it all in the system prompt and you pay those tokens every turn, though most turns don't need them. Build an MCP server and it's too heavy; much of this knowledge is just "follow these steps" plus a script or two.
-
-### Intuition: an onboarding manual you open when needed
-
-Anthropic's [Equipping agents for the real world with Agent Skills](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills) (October 16, 2025) compares a skill to an onboarding guide for a new hire: a folder with a `SKILL.md`, optionally bundling other documents and scripts. On December 18, 2025, Anthropic published the format as an [open standard](https://agentskills.io/).
-
-### Mechanism: three levels of progressive disclosure
-
-1. **Level 1**: at startup, only each skill's `name` and `description` (the YAML frontmatter of `SKILL.md`) go into the system prompt
-2. **Level 2**: when the model decides a skill is relevant, it reads the full `SKILL.md` into context
-3. **Level 3 and beyond**: other files referenced from `SKILL.md` are read only as needed; bundled scripts can be executed without their contents entering context
-
-<details>
-<summary>Why progressive disclosure scales (illustrative arithmetic)</summary>
-
-```
-Suppose n skills are installed, each with a description of about d tokens
-and full content of about D tokens (D much larger than d)
-
-Everything in the system prompt:  cost per turn ≈ n × D
-Progressive disclosure:           cost per turn ≈ n × d  +  (k skills used this time) × D
-
-With n = 50, d = 100, D = 5,000, k = 1 (hypothetical numbers)
-  everything: 250,000 tokens      progressive: 5,000 + 5,000 = 10,000 tokens
-```
-
-This addresses the second challenge on the 2025 "Tools summary" slide: finite context length means capabilities don't scale. The cost is an extra "should I load this?" decision; a poorly written description means the skill never triggers.
-
-</details>
-
-The post also flags security: skills carry instructions and code, so a malicious skill could direct the agent to exfiltrate data. Install from trusted sources only, and read the bundled files before using one.
-
-### Plugins: packaging and distribution
-
-The [Claude Code docs](https://code.claude.com/docs/en/plugins) define a plugin as a directory that can hold skills, subagent definitions, hooks and MCP servers, named by a `.claude-plugin/plugin.json` manifest and usually installed from a marketplace. The docs' rule of thumb: each of these components works on its own; reach for a plugin when you want to package several as one unit, share them with a team, or publish versioned releases. They also warn that an enabled plugin is part of every session, and the names and descriptions of its skills and agents occupy context on every turn.
-
-How the three divide the work:
-
-| | MCP | Skill | Plugin |
+| Part | Recording | Speaker | What it addresses |
 |---|---|---|---|
-| What it gives the agent | Callable tools and data | Procedures and knowledge (may bundle scripts) | A package of the first two plus hooks and subagents |
-| Where it lives | A separate process or remote server | The agent's filesystem | A folder installed from a marketplace |
-| Context cost | Tool definitions (can be deferred) | Only name and description by default | Depends on contents |
+| Retrieval | 05:11–44:28 | Afshine | Knowledge that is not fresh or private enough |
+| Tool calling | 44:28–1:22:54 | Shervine | Cannot act; conflicts and cost once there are many tools |
+| Harness engineering | 1:22:54–1:33:33 | Shervine | The layer outside the model: ReAct, compaction, memory |
+| Coding agents | 1:33:33–1:38:58 | Shervine | What all of the above looks like in a coding agent |
+| Discussion | 1:38:58–1:40:43 | Shervine | Multiple agents, wins and risks |
 
-### Back to the model you use
+The [2026 syllabus](https://cme295.stanford.edu/syllabus/) lists tool calling, MCP, memory/retrieval, context compaction, harness optimization, coding agents and skills/plugins. Against the recording: retrieval and tool calling take three quarters of the video; context compaction and memory together take about four minutes; the syllabus says harness *optimization* while the slides say harness *engineering*, and the lecture defines the harness without covering how to optimize it automatically or systematically; skills get about a minute in the coding-agent part, and plugins are not discussed on their own.
 
-When you type `/some-skill` in Claude Code, or the model decides on its own to read a `SKILL.md`, that is level 2 of disclosure. The site has a [breakdown](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en) of how mature coding agents layer hooks, skills and plugins.
+**Self-check**: Why doesn't "paste everything that happened after training into the prompt" work? The speaker gives three reasons.
 
-## Where the 2025 edition covered this
+<details>
+<summary>Answer</summary>
 
-| 2026 syllabus topic | 2025 counterpart | Status |
+One, the context window is finite: GPT-6 Astra has about a million tokens, nowhere near enough for everything since training. Two, even if it fit, models perform worse on longer inputs (the needle-in-a-haystack test). Three, input is billed per token, so longer is more expensive. Criteria: all three points, and the second must say "longer gets worse," not just "it doesn't fit."
+
+</details>
+
+## Retrieval: putting only what is relevant into the prompt
+
+[Recording 05:11–15:54](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=311s)
+
+### Why not stuff everything in
+
+Slides 10–12 pair each of the three reasons with a figure. The second uses Kamradt's 2023 [needle in a haystack](https://github.com/gkamradt/needle-in-a-haystack) chart: the x-axis is input length and the y-axis is where the "needle" sits in the document. The speaker's reading: with short inputs the model almost always finds it; as inputs get long, facts placed toward the top of the document start to get lost.
+
+The conclusion is to include only what is relevant to the task. That is **RAG** (retrieval-augmented generation, [Lewis et al. 2020](https://arxiv.org/abs/2005.11401)): retrieve relevant documents, augment the prompt with them, generate the answer.
+
+The Q&A adds two cost points: retrieved documents count as input tokens, and a reasoning model's reasoning tokens are billed even when you are not shown them. So retrieval should be as precise as possible. Another student asks how the model knows which parts were retrieved; the speaker says they are usually wrapped in special tags.
+
+Of the three steps, the first matters most: if retrieval is wrong, nothing downstream can fix it. The difficulty is that natural language can say the same thing in different words, so matching the literal words of the query is not enough.
+
+### Building the knowledge base
+
+[Recording 12:36](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=756s)
+
+Collect documents, divide them into chunks, compute an embedding vector per chunk. Slide 25 lists three hyperparameters; the speaker's orders of magnitude:
+
+| Hyperparameter | Typical size | The speaker's reasoning |
 |---|---|---|
-| Tool calling | Lecture 7 function calling section, including the three steps and two teaching methods | Covered; see [order 7](/posts/ai/2026-09-29-cme295-agentic-llms-en) |
-| MCP | Lecture 7 MCP section (from slide 111), not on the 2025 syllabus | Covered; the 2026 spec is now stateless, and whether that makes it in awaits the slides |
-| Memory, retrieval | Lecture 7 RAG and advanced RAG | Retrieval covered; agent memory is new |
-| Context compaction | Lecture 7 slide 14 lists "Limited context size" as a RAG motivation; "Tools summary" lists "Finite context length" | Problem raised; compaction as a solution is new |
-| Harness optimization | Closing slides: "start simple", "observability helps debuggability" | New |
-| Coding agents | Last slide: "Personal favorite use case: coding!" | New |
-| Skills, plugins | None; A2A's `AgentSkill` in the 2025 slides is a different concept | New |
+| Embedding size | Thousands | The harder or more nuanced the documents, the larger it can be |
+| Chunk size | Hundreds of tokens | Too large defeats the point of keeping inputs short |
+| Chunk overlap | About 10% | Avoids cutting a sentence in the middle so it loses its meaning |
 
-Two more notes. ReAct and A2A from 2025 are not on the 2026 syllabus, but a syllabus lists topics and doesn't rule out mentions in class. The 2025 agent safety material (ToolSword, Agent-SafetyBench, the AI-orchestrated espionage report) also has no matching line on the 2026 syllabus.
+A student asks whether the chunks change from one request to the next. The speaker says the chunks are fixed and only the query changes; the knowledge base itself is not fixed, though, and you can add documents any time, such as internal docs that arrive daily; the one thing to watch is to **use the same embedding model**, so similarity comparisons stay apples to apples.
 
-## Self-check
+## Two-stage retrieval: first recall, then precision
 
-The first three are adapted from Part III, "Agentic LLMs", of the [2025 final exam](https://cme295.stanford.edu/exams/fall25-cme295-final.pdf), with answers in the [solutions PDF](https://cme295.stanford.edu/exams/fall25-cme295-final-solutions.pdf). The last three are **written by this site** for the new 2026 topics and have no official answers.
+[Recording 15:54–35:02](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=954s)
 
-1. MCP aims to standardize the connection between which two sides? (Question III.5)
-2. What is the key difference between a standard chatbot and an agent? (Question III.6)
-3. Why might you use RAG even with a 1M-token context window? (Question III.9, also used in post 7; the second half is this site's extension) Which of those reasons also explain why compaction is needed?
-4. (Written by this site) Compaction comes in three forms: clearing old tool results, summarizing and restarting, and compressing to an opaque representation. Why is clearing tool results considered the safest? What does summarizing and restarting do to the prompt cache?
-5. (Written by this site) An agent has 40 skills installed, and only one is relevant to the task. Under the three levels of progressive disclosure, what is in context this turn? If a skill never triggers, which field would you check first?
-6. (Written by this site) Meta-Harness says existing text optimizers "compress feedback too aggressively." What information does it give the proposer to avoid this, and what does that idea have in common with the trade-off in compaction?
+| | Stage 1: candidate retrieval | Stage 2: ranking |
+|---|---|---|
+| Goal | Maximize recall | Maximize precision |
+| Documents considered | Thousands to millions | About 100 candidates |
+| Method | Cheap similarity comparison | A more expensive, more detailed model |
+
+### Stage 1: bi-encoder, BM25 and hybrid
+
+**Semantic search.** The query and each chunk go through an encoder separately to get vectors, then a similarity score is computed (the slides cite [Sentence-BERT](https://arxiv.org/abs/1908.10084)). This is a **bi-encoder**. It is cheap because chunk vectors can be computed ahead of time; at inference you only embed the query and use an approximate nearest-neighbor algorithm to find the closest chunks.
+
+The speaker shows its blind spot with an example. The query is "Where is Cuddly?" (Cuddly is a teddy bear) and the knowledge base has four chunks:
+
+1. Huggy likes to work downstairs
+2. Where is Paris located?
+3. he was in a cuddly mood
+4. Cuddly spends most days surrounded by books
+
+Semantic search might retrieve the first two: Huggy is close in meaning to Cuddly (cuddle, hug), and "Where is Paris located?" is also a where-question. But the answer is in chunk 4.
+
+**BM25** compares the exact words the query and document share; in this example it retrieves chunks 3 and 4, which both contain "Cuddly." The speaker adds that he could just as well show examples where BM25 alone is not enough: matching only keywords misses rephrasings. In practice people combine the two, merging the semantic ranks and keyword ranks into a **hybrid rank** that usually beats either one alone.
+
+**Narrowing the gap between query and document.** Queries are mostly questions and documents mostly statements, so embeddings from the same encoder may not land in the same "region." [HyDE](https://arxiv.org/abs/2212.10496) (hypothetical document embeddings) has an LLM write a fake answer document from the query and compares that against the chunks. The speaker also mentions another family: when a query packs several questions, rewrite it into sub-questions and retrieve for each.
+
+**Contextual retrieval.** Even with overlap, a chunk can be unreadable on its own. Anthropic's [contextual retrieval](https://www.anthropic.com/research/contextual-retrieval) has an LLM read the whole document and write a sentence situating each chunk, then embeds the augmented chunk. Slides 36–37 show the prompt, and the speaker points out its layout: the whole document goes first and the chunk to process goes after, so every chunk from the same document shares the same opening and can use the cached-input price from last lecture. The OpenAI pricing page on slide 38 lists GPT-6 Astra at USD 10 per million input tokens and USD 1 for cached input, a 10× difference. Our [contextual retrieval post](/posts/ai/2026-03-12-contextual-retrieval-en) has the full method.
+
+### Stage 2: cross-encoder re-ranking
+
+[Recording 28:36](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=1716s)
+
+With only about 100 candidates left, you can afford a more expensive model. A **cross-encoder** concatenates the query and a chunk into one sequence (separated by special tokens) and feeds it to an encoder, so tokens on both sides interact through self-attention; the CLS token's output is projected to a relevance score between 0 and 1, the same setup as BERT in Lecture 2. Training data is query–chunk pairs labeled relevant or not relevant.
+
+The speaker's example: "find the teddy bear with the red scarf and blue socks" and "blue scarf and red socks" may compress to very similar single vectors; in one shared encoder, "red" and "blue" get a chance to line up with the matching spots in the document. Each candidate is scored once, and the scores give the final ranking.
+
+Three points from the Q&A at the end of the retrieval part (from 42:46):
+
+- **Where vector databases come in**: only in stage 1, to store chunks and their vectors. Stage 2 scores need the query and chunk computed together, so nothing can be stored ahead of time.
+- **Do all top k go into the prompt?** Usually yes; you can also add a score threshold.
+- **Do you tell the model which chunk is more relevant?** It depends on the implementation; usually they are ordered from most to least relevant.
+
+### Measuring retrieval quality
+
+[Recording 35:15](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=2115s)
+
+You need a dataset labeled with which chunks are relevant to which query, and you compare the system's top k against it. The four metrics on slides 45–48, where $\text{rel}_i \in \{0, 1\}$ says whether rank i is relevant:
+
+$$
+\text{DCG@}k = \sum_{i=1}^{k} \frac{\text{rel}_i}{\log_2(i+1)}, \qquad \text{NDCG@}k = \frac{\text{DCG@}k}{\text{IDCG@}k}
+$$
+
+IDCG@k is the DCG@k of a perfect ranking. Dividing by it matters because DCG on its own has no fixed upper bound and is hard to interpret; normalized, it lies between 0 and 1, and closer to 1 is better. The $\log_2(i+1)$ in the denominator discounts relevant documents that appear lower.
+
+$$
+\text{RR} = \frac{1}{\text{rank of the first relevant chunk}}, \qquad
+\text{Recall@}k = \frac{|\text{relevant in top } k|}{|\text{relevant}|}, \qquad
+\text{Precision@}k = \frac{|\text{relevant in top } k|}{k}
+$$
+
+When the speaker asks who has heard of NDCG, no one raises a hand, so this part goes slowly.
+
+<details>
+<summary>This post's example: four metrics for one ranking</summary>
+
+A query has 3 relevant chunks. The system's top 3 are: not relevant, relevant, relevant (the third relevant chunk is at rank 5). With k = 3:
+
+```
+DCG@3  = 0/log2(2) + 1/log2(3) + 1/log2(4) = 0 + 0.631 + 0.5 = 1.131
+IDCG@3 = 1/log2(2) + 1/log2(3) + 1/log2(4) = 1 + 0.631 + 0.5 = 2.131
+NDCG@3 = 1.131 / 2.131 ≈ 0.531
+
+RR          = 1/2 = 0.5        (first relevant chunk at rank 2)
+Recall@3    = 2/3 ≈ 0.667      (2 of the 3 relevant chunks retrieved)
+Precision@3 = 2/3 ≈ 0.667      (2 of the top 3 are relevant)
+```
+
+Swap ranks 1 and 2 and NDCG@3 rises to $1.5 / 2.131 \approx 0.704$ and RR to 1, while Recall and Precision stay the same. That is what it means for NDCG and RR to care about order and for Recall and Precision not to.
+
+</details>
+
+### For code, use grep
+
+[Recording 41:00](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=2460s)
+
+The speaker returns to the opening coding-agent example. For code questions you usually want a particular function; semantically similar code is not much help, and what you want is an **exact match**. So coding agents use grep (global regular expression print): give it a string and it lists every location in the codebase where it occurs. The semantic and keyword search above mostly applies to natural-language problems.
+
+**Self-check**: A query has 4 relevant chunks, and the system's top 5 have relevance (1, 0, 0, 1, 0). Compute RR, Recall@5 and Precision@5. What would happen if you replaced the bi-encoder with a cross-encoder scoring all one million chunks directly?
+
+<details>
+<summary>Answer</summary>
+
+RR = 1 (rank 1 is relevant); Recall@5 = 2/4 = 0.5; Precision@5 = 2/5 = 0.4. A cross-encoder must run the query together with each chunk through the model and cannot precompute anything, so a million forward passes is far too slow and expensive; that is why a bi-encoder first narrows things to about 100 candidates. Criteria: correct metrics, and the point that a cross-encoder cannot be precomputed.
+
+</details>
+
+## Tool calling: letting the model act
+
+[Recording 44:28–57:01](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=2668s)
+
+### Problems RAG cannot solve
+
+Shervine takes over and puts two questions side by side (slides 51–54). "Where is Cuddly?" works with RAG, because Cuddly does not move much and a knowledge base updated daily contains "Cuddly spends most days surrounded by books." "Find a bear near me!" does not: it needs **real-time** data (where bears are now) and needs to know **where you are** (a GPS lookup on your device). RAG would only retrieve stale, static data such as "Cuddle Bear spends his days at the library reading Persian poetry," and the model could only say "Not sure, but check at the library."
+
+### Three steps
+
+Slides 56–58:
+
+1. **The LLM predicts what to call**: given the available function APIs, it does not answer directly but writes "get the location with `my_position()`, then call `find_teddy_bear()`"
+2. **The backend executes it**: it actually calls the API and returns `{"name": "Teddy", ...}`. This step has nothing to do with the LLM
+3. **The LLM reads the result and answers**: "A happy Teddy is in the room next door!"
+
+The speaker says once you fully internalize these three steps, nothing about tools will scare you. A student asks whether you have to wait during the call: yes, but usually it is not the dominant latency; getting a GPS fix is nearly instant, and a web search is noticeable but typically still faster than generating the answer.
+
+### What a tool looks like
+
+[Recording 50:48](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=3048s)
+
+Slides 59–61 show a full `find_teddy_bear.py`. The speaker highlights three things:
+
+- **The model only sees the API description**: function name, parameters and types, docstring, return type. The code inside (which API it calls, how it computes distance) is not shown to the model, so a clear docstring matters.
+- **Inputs should be interpretable**: the parameter is named `location` and its type says `(latitude, longitude)`.
+- **Outputs should be interpretable too**: it returns a dataclass with `name`, `distance_meters`, `mood` and `message` fields. The result is fed back for the model to read, which is why tools often use structured types such as enums.
+
+Common tools (slides 63–67) fall into three groups:
+
+| Group | Examples | The speaker's notes |
+|---|---|---|
+| Real-time information | Web search, weather, stocks, codebase queries | "Searching the web" in the UI is a tool call, and also helps the user tolerate the wait |
+| Computation | Calculator, code execution (often Python) | Next-token prediction is poor at arithmetic, so a deterministic program is most reliable; plots you see in a chat are the output of code execution |
+| Action | Sending emails or messages, other computer actions | Turn your intent into an email, then send it on your behalf |
+
+**Self-check**: Suppose `find_teddy_bear` has an excellent docstring but returns an unlabeled tuple such as `("Teddy", 12.3, "happy")`. Which step breaks?
+
+<details>
+<summary>Answer</summary>
+
+Step 3. The model has to understand what the backend returned and turn it into natural language; without field names it has to guess whether 12.3 is a distance or something else. Criteria: identify "the output must be interpretable by the model" as a step-3 requirement, separate from the step-1 API description.
+
+</details>
+
+## How to teach a model to use tools
+
+[Recording 57:01–1:02:49](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=3421s)
+
+A student asks: is the set of tools a model can use fixed at training time? The speaker says that a year or two ago the answer would have been yes. The practice then was **SFT** with two kinds of examples: one teaching the model to predict the tool call and its arguments from the query and the API list, the other teaching it to turn the backend result back into natural language (slides 68–69).
+
+Not anymore. The training pipeline teaches general tool-use skills (such as using Python), but specific tools are not baked into the weights; instead you use **prompting**, writing clear usage notes in places such as the docstring. The speaker adds that as these become native capabilities, the need for extra explanation keeps shrinking as long as the tool's inputs and outputs are well designed.
+
+So how do you write those descriptions? The speaker asks the class. One student says "have another model write them," and the speaker says that works. Another says "use MCP," and the speaker says that is orthogonal: MCP standardizes where descriptions go, not what to write. His answer (slides 70–71):
+
+1. Collect queries you care about and the **expected answers** (the hardest part to get; you need experts, and LLM-generated synthetic answers often do not match what you want)
+2. Run the current prompt to get the **actual answers**
+3. Have a reasoning model look at expected and actual answers side by side and iterate on the tool descriptions until the actual answers approach the expected ones
+
+This uses the same kind of input/output pairs as SFT as an evaluation set, except what changes is the prompt, not the weights.
+
+## Many tools: conflicts, tool selection and context bloat
+
+[Recording 1:02:49–1:12:56](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=3769s)
+
+An LLM provider's incentive is to offer as many useful tools as possible. The speaker asks what could go wrong, and a student says "conflicts."
+
+**Benign conflicts.** For "show me my teddy bear's morning routine," either `get_drive` or `get_doc` might pick up the task. Their capabilities overlap, but the result is about the same, so the conflict is benign.
+
+**Problematic conflicts.** For "can you find me my teddy bear?", `list_files` finds `teddy-profile-pic.jpg` on your computer while `find_teddy_bear` tells you it is in the next room. One sentence, two interpretations, completely different answers.
+
+Students push back twice:
+
+- **Isn't that the user's fault for being vague?** Partly, the speaker says, but users often do not know which tools are active, and the people who define the tools and the people who serve them are often different teams. If answers stop matching user intent, you may have enabled too many tools.
+- **What about setting temperature to 0 for determinism?** It can help, but quality usually drops, and determinism might just make the vague question "always wrong."
+
+### Tool selection
+
+[Recording 1:08:21](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=4101s)
+
+Instead of facing every tool, the model gets a subset. Slides 84–85 (citing Robert et al. 2024, *Automatic Tool Selection to Reduce Large Language Model Latency*) list four signals a router can use:
+
+| Signal | The speaker's example |
+|---|---|
+| Conversation | If the chat has been about where a physical teddy bear is, "find my bear" should go to `find_teddy_bear` |
+| Memory | Similar, more specific questions the user asked before can guide this one |
+| User profile | In a company, finance staff use finance tools, engineers use another set |
+| Settings | Which tools the user enabled; whether to suggest enabling one they turned off is a product call |
+
+So tool selection has two steps: the router picks a subset and puts it in context, then the main model chooses within it. The router is usually a very light LLM, since the task is easy but latency matters; it has its own prompt too, for example a rule like "if A is selected, do not select B" to handle overlapping tools.
+
+**Context bloat.** Even with no conflicts and perfect prediction, too many tools still hurt: as the needle-in-a-haystack chart showed, longer context means more misses, a phenomenon the speaker calls context rot. Providers are therefore careful about what goes into context and do not want users to carry a big bundle of tool definitions from the very first query.
+
+## MCP: write a tool once, use it anywhere
+
+[Recording 1:12:56–1:16:18](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=4376s)
+
+Without a standard, giving the same tool to three LLMs means writing it three times in three formats. **MCP** (Model Context Protocol, introduced by Anthropic in 2024) standardizes this. Everyone in the room had heard of MCP, so this part goes quickly.
+
+- **MCP server**: holds the tool implementations and business logic
+- **MCP client**: the side that calls the server; the user interacts with the client (slide 89 also draws the host that contains the client, such as Claude Desktop)
+- A server offers three kinds of things: **tools** (standardized arguments and outputs), **prompts** (shortcuts into specific workflows that use the tools), and **resources** (data the application layer can provide to the tools)
+
+The speaker's example (slide 90): a book-provider server that recommends poetry to a teddy bear, with tools "find" and "recommend," prompts "find title" and "recommend by taste," and resources such as the bear's personal collection and top-book lists.
+
+## Cost: put fixed content first
+
+[Recording 1:16:18–1:22:54](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=4578s)
+
+The speaker raises his own objection: if we keep stuffing tool instructions into the prompt, won't the bill explode? A student answers: prompt caching. Slide 91 shows the Gemini, Claude and OpenAI pricing pages under the heading "10–40x cheaper" for cached input; the speaker says it is on the order of 10×. He also points out that pricing pages now show "5-minute write" and "1-hour write" columns: the first time you send a prompt you pay a write fee to store it, and within its time to live you can reuse the same opening. For a high-volume flow that reuses it every minute, five minutes is enough.
+
+Then comes a short exercise (slides 92–101). The prompt has three parts:
+
+- **User prompt**: what you are asking this time
+- **Tool definitions**: the ones selected by tool selection, or a fixed set
+- **User context**: what the provider silently adds, for example "The user's IP address approximately corresponds to Stanford, CA. Today's date is 2026-11-06. It is 4:55 PM PT." Asking what day it is needs no tool; the model reads it from here
+
+The speaker shows three orderings and asks which is good. The first two are "Bad" because the fixed part is not at the front; the right one is **tool definitions → user context → user prompt**. Slide 101's takeaway: "Frontload all fixed parts to the beginning of the prompt!" User context carries the time and changes every request; the user prompt obviously changes; tool definitions, if they are a fixed set or a batch of requests happens to select the same set, form a reusable prefix.
+
+A student asks what happens when you change a tool description: the cache is gone and must be "reheated." The speaker says that is no big deal: you change descriptions at most once a day, while requests arrive by the hundreds every minute.
+
+**Self-check**: An agent's prompt is, in order, "system rules (fixed) → current time → tool definitions (fixed) → user question." How much of it can the cache reuse? How would you fix it?
+
+<details>
+<summary>Answer</summary>
+
+Only up to the system rules: the current time changes every request, so the tool definitions after it are no longer part of an identical prefix even though they are the same. Reorder to "system rules → tool definitions → current time → user question," putting both fixed parts before anything that varies. Criteria: say that caching only recognizes an exactly identical beginning.
+
+</details>
+
+## The harness: everything except the model
+
+[Recording 1:22:54–1:33:33](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=4974s)
+
+The speaker says the long time on tool calling was because it is the foundation of agentic systems. He asks who has heard of a harness; everyone raises a hand, and he calls it "the trendy keyword of 2026."
+
+### Definition and analogy
+
+Slides 103–105 cite Databricks' 2026 *What is an AI Agent Harness?*: an agent consists of a **model** and a **harness**, and the harness is everything except the model. Six items are listed:
+
+- Tools
+- The succession of actions
+- The compaction strategy
+- Memory
+- All surrounding prompting
+- Guardrails
+
+The analogy is a car: the model is the engine and the harness is the rest. They are complementary; a weak model with a strong harness will not work, and neither will the reverse.
+
+### ReAct: observe, plan, act
+
+[Recording 1:24:41](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5081s)
+
+[ReAct](https://arxiv.org/abs/2210.03629) (Yao et al., 2023) formalized what many people were doing in their own ways: given an input, **observe** (summarize what is currently known) → **plan** (decide what to do and which tool to call) → **act** (execute) → observe again, until satisfied, then output. Slides 108–122 walk through a thermostat example step by step:
+
+| Round | Observe | Plan | Act |
+|---|---|---|---|
+| 1 | The bear is cold, possibly due to room temperature, which is unknown | Check the room temperature | `get_current_room_temperature()` |
+| 2 | It is 65°F, about 5°F below a typical comfortable temperature | Raise it by 5°F | `increase_temperature(value=5)` |
+| 3 | The thermostat is set to 70°F, which should be warm enough | — | Output: "The thermostat is now set to 70F. Your teddy bear should soon feel warmer." |
+
+The input need not be typed by a user; it can be an external event, such as a metric crossing a threshold.
+
+A student asks whether these three steps are learned in training. Yes: largely during training the model learns to use tools, and it becomes a native capability. Another asks whether reasoning is involved. The speaker says every tool execution needs a step that recaps what happened; that is **necessary** reasoning, different from the extra layer of thinking in reasoning models (see [order 6](/posts/ai/2026-09-29-cme295-llm-reasoning-en)), and non-reasoning models do these three steps too.
+
+### A2A
+
+[Recording 1:28:47](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5327s)
+
+Besides a thermostat agent there could be occupancy, energy-management and air-quality agents, and they need to talk to each other. Tools have MCP; agents have Google's 2025 **A2A** (Agent2Agent). Slide 127 shows the structure: each agent has an `AgentCard` (name, URL, version, list of skills), each `AgentSkill` has an id, a description and examples, and an `AgentExecutor` handles execution and cancellation. The speaker says he will go faster here; this part takes under a minute.
+
+### Context compaction: making room
+
+[Recording 1:29:24](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5364s)
+
+Keep calling tools and you eventually hit the context window limit, at which point you must do something or nothing more fits. Slides 130–132 list three approaches, which can be combined:
+
+| Approach | Based on | The speaker's notes |
+|---|---|---|
+| Deletion | Whether content is still needed | Many tool outputs are only needed on the next turn and can be removed afterwards |
+| Sliding window | Time | The longer ago something was said, the less it matters; keep only recent content |
+| Summarization | Generation | The most popular. Structure everything so far into fixed fields and continue the conversation from that short summary |
+
+For the summary fields the slides cite the format in the documentation of Pi, a coding agent: **current progress, constraints, remaining work, references**.
+
+A student asks whether reasoning traces survive compaction. The speaker says it depends on whether they contribute to the fields, but they would usually not be the bulk of what remains; the summary is more a high-level description of what the user wanted, not the reasoning trace as is.
+
+### Memory: information that outlives a conversation
+
+[Recording 1:31:12](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5472s)
+
+Compaction works within one conversation. Keeping information across conversations is memory:
+
+- **Short-term memory**: the speaker says this is just a fancy name for the context window, what has been said so far.
+- **Long-term memory**: for example, you once brainstormed holiday gifts and said "a teddy bear could be a great gift," and next time you ask for gift ideas you want it to remember.
+
+Two ways to do long-term memory (slides 135–136):
+
+1. **RAG**: retrieve from past conversations whatever is relevant to the current topic, the same method as the start of the lecture
+2. **A memory tool**: in a structured way similar to compaction summaries, when the model notices a cue that something should be remembered, it calls a memory tool to store it, possibly somewhere that is included in the context window every time
+
+**Self-check**: An agent has made 200 tool calls and its context is nearly full. What kind of information does deletion, a sliding window and summarization each drop? Which is most likely to lose a constraint like "the user said at the start not to change the database schema"?
+
+<details>
+<summary>Answer</summary>
+
+Deletion drops tool outputs judged no longer needed, which usually does not include constraints. A sliding window keeps only recent content, so a constraint from the first turn is the first to go; this is the highest risk. Summarization with a fixed "constraints" field (as in Pi's format) deliberately keeps it. Criteria: point out that a sliding window drops by time, which conflicts with information whose importance does not decay over time.
+
+</details>
+
+## Coding agents: putting it all together
+
+[Recording 1:33:33–1:38:58](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5613s)
+
+Slides 138–143 use the overview figure from [Liu et al.'s 2026 paper analyzing Claude Code's architecture](https://arxiv.org/abs/2604.14228). The speaker says a coding agent is ReAct at its core: the agent loop in the middle is a series of tool calls and observations. The big difference from ordinary chat is that it touches your system directly, through an **execution environment**. He highlights four spots on the figure:
+
+**Auto-approval.** Whether an action the agent wants to take is safe is a problem ordinary chat does not have. The speaker says about a year ago you had to click allow or deny on every action; that is largely no longer the case. A lighter model looks at everything so far and judges the safety of the proposed action independently.
+
+**Agentic retrieval.** Echoing Afshine's part: coding agents largely skip traditional RAG. Guessing a few variants of what you are looking for and grepping for them is efficient and fast and feeds directly into the reasoning step, which is why you see grep everywhere.
+
+**AGENTS.md: how the agent should behave.** Earlier, user context was something the provider adds and you cannot control; a coding agent lets you write rules it follows every session in [AGENTS.md](https://agents.md/), persisting your preferences.
+
+**Skills: reusable recipes.** For workflows you repeat and do not want to re-describe each time, write a skill ([Agent Skills](https://agentskills.io/)): a folder with prompting and, when needed, the tool calls or scripts to run. The speaker notes that skills are usually not written from scratch: a more efficient way is to do the task end to end once, then ask the coding agent to turn that workflow into a skill.
+
+### The main coding agents
+
+[Recording 1:37:40](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5860s)
+
+Slide 145 splits them into open and closed:
+
+| Open | Closed |
+|---|---|
+| Codex, Pi, Hermes Agent, DeepSeek Harness (DSH) | Claude Code, Cursor, Antigravity |
+
+The speaker singles out **Pi**: its harness is minimal, with the prompting around each ReAct step kept to a minimum, so you see the model close to its rawest form. That is also why it is often used to compare models under a single harness, which he says the class will see next week (Lecture 7, LLM evaluation).
+
+**Computer use** (slide 146): letting agents control your computer. The speaker says it is currently very inefficient because it takes screenshots and predicts the next action from them, and anyone who has used it may have been frustrated; in two lectures there may be some hope about next steps.
+
+**Self-check**: For "find where this function is called," why does grep beat the semantic retrieval from the first half of the lecture? Conversely, what kind of question does grep miss?
+
+<details>
+<summary>Answer</summary>
+
+You are looking for an exact identifier; grep lists every exact match, quickly and without misses, while semantic retrieval returns code that is "similar in meaning" but not that function. grep misses questions phrased in natural language without the exact name, such as "where do we handle failed user logins?"; then the agent must guess possible names first and search for those. Criteria: state the difference between exact matching and similarity in meaning.
+
+</details>
+
+## Discussion: multiple agents, wins and risks
+
+[Recording 1:38:58–1:40:43](https://www.youtube.com/watch?v=nU2a2lm6vDE&t=5938s)
+
+Slides 148–149 cite two orchestration patterns from the Claude Code docs:
+
+- **Subagents**: each has a specific task and they do not communicate. Used to spin off work that does not need much reasoning and can be delegated. The speaker says they have a cost: each one needs its own context, a full agent loop of its own, which is why minimal harnesses such as Pi boast of not supporting them or supporting them minimally.
+- **Agent team**: the subagents become "teammates" with a communication channel to share progress and divide work. The speaker refers to this kind of multi-agent collaboration as agent swarms and says it is a growing use case.
+
+The last two slides are a contrast. "Wins" shows OpenAI's September 8, 2026 announcement "On the Navier–Stokes Millennium Prize Problem"; the speaker mentions recent mathematical advances made this way. "Vulnerabilities" shows OpenAI's July 21, 2026 announcement "OpenAI and Hugging Face partner to address security incident during model evaluation," which the speaker calls the Hugging Face hack, recommending a Black Hat talk from August 2026 and a METR report from the same month. He closes on these two slides: the more power you give agents, the more they can do and the more vulnerabilities they expose.
+
+## Syllabus topics the lecture did not expand on
+
+This section is this post's own summary, not lecture content.
+
+- **Harness optimization**: the lecture defined the harness but did not cover changing it systematically. Comparing harnesses by repeatedly scoring them on a fixed task set is exactly the agent evaluation of the next lecture (see [order 8](/posts/ai/2026-09-29-cme295-llm-evaluation-en)). Research that hands the harness itself to another agent for automated search is summarized in our post on [meta-harness layers](/posts/ai/2026-08-26-meta-harness-layers-en).
+- **Plugins**: not mentioned. How skills, hooks and plugins layer in mature coding agents is covered in [this breakdown](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en).
+- **Compaction details**: the lecture only lists three approaches. How various coding agents actually handle a full context is in [What to do when the context is full](/posts/ai/2026-08-21-context-full-seven-answers-en); the design space for memory systems is in [four kinds of memory and six design axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en).
+
+## Connecting back to the models you use
+
+- **When building RAG**: build a small evaluation set labeled for relevance and compute Recall@k and NDCG@k before deciding whether to add BM25 hybrid search, HyDE or a re-ranker. Without one, tuning chunk size is guesswork.
+- **When writing tools**: the docstring and parameter names are all the model sees; return structured outputs with named fields. If answers start missing user intent because there are many tools, consider tool selection before writing longer descriptions.
+- **When assembling prompts**: put fixed content such as system rules and tool definitions first, and the time, user data and question after. A single changing timestamp at the start kills the cache.
+- **When using coding agents**: put rules to follow every session in AGENTS.md; after doing a repeated workflow once, ask the agent to turn it into a skill; every subagent adds its own context cost.
+
+## Compared with the 2025 edition
+
+| 2026 Lecture 6 content | 2025 (Lecture 7) | What changed in 2026 |
+|---|---|---|
+| RAG, two-stage retrieval, evaluation metrics | Covered, nearly the same structure (contextual retrieval with prompt caching was already there) | Added "use grep for code" |
+| Tool calling, teaching methods, use cases | Covered (with a one-line "use SFT pairs as evaluation + a reasoning model writes the description") | States that prompting has replaced SFT, and uses an expected/actual table to show how to iterate descriptions |
+| Tool selection, MCP | Covered | Added context bloat, prompt caching and the prompt-ordering exercise |
+| Agent definition | A quoted definition of an agent | Now "model + harness" |
+| ReAct, A2A | Covered | Largely the same; A2A only mentioned briefly |
+| Context compaction, memory | None | New |
+| Coding agents, AGENTS.md, skills, computer use | Only "Personal favorite use case: coding!" on the last slide | A whole new segment |
+| Subagents, agent teams | None | New |
+| Agent safety (ToolSword, Agent-SafetyBench) | A section | Replaced by the final "vulnerabilities" slide |
+
+The 2025 recording: [Lecture 7, Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg).
+
+## Cumulative self-check
+
+Questions 1–8 are adapted from Part III, "Agentic LLMs," of the [2025 final exam](https://cme295.stanford.edu/exams/fall25-cme295-final.pdf), with answers in the [solutions PDF](https://cme295.stanford.edu/exams/fall25-cme295-final-solutions.pdf). Question 6 (a nonexistent tool) and the second half of question 8 (a tool returning an error) are not covered directly in the 2026 lecture and have to be inferred from tool descriptions, the router and ReAct's observe step; everything else they test is covered. Questions 9 and 10 are written by this post for the new 2026 segments. The 2026 final exam is on December 9.
+
+1. Which limitation of frozen LLMs does RAG primarily solve? (Q III.1)
+2. What does "contextual retrieval" mean in RAG? (Q III.2)
+3. What is the ReAct framework? (Q III.3)
+4. After an LLM outputs `find_teddy_bear(loc='Stanford')`, who executes the function? (Q III.4)
+5. MCP standardizes the connection between which two ends? (Q III.5)
+6. An agent hallucinates a tool that does not exist. What is a common remedy? (Q III.7)
+7. Why might one use RAG even with a 1M-token context window? Name one challenge specific to RAG. (Q III.9)
+8. Describe the three steps of a tool execution loop. What happens if the tool returns an error? (Q III.10)
+9. Using the lecture's harness definition, place "the tool-selection router," "the compaction summary fields" and "AGENTS.md" under the six items.
+10. A service sends 3,000 tokens of tool definitions with every request, and cached input costs 1/10 of normal input. What do those 3,000 tokens cost (normal input price = 1) when placed at the start of the prompt versus after the user question?
+
+<details>
+<summary>Criteria for questions 9 and 10</summary>
+
+- Question 9: the router belongs under "tools" (it decides which tools the model gets this time), or arguably surrounding prompting; the compaction summary fields belong under "compaction strategy"; AGENTS.md belongs under "all surrounding prompting," and it also acts as cross-session memory. There is no single answer; give reasons.
+- Question 10: at the start with a cache hit, about 3,000 × 0.1 = 300; after a user question that differs every time, the prefix differs, nothing is cached, and the cost is 3,000. This ignores the one-time cache write fee.
+
+</details>
 
 ## Going deeper
 
-- How coding agents disagree on a full context: [Seven Answers to a Full Context Window, and No Consensus](/posts/ai/2026-08-21-context-full-seven-answers-en)
-- The design space of memory systems: [Four Types of Memory and Six Design Axes](/posts/ai/2026-09-19-agent-memory-taxonomy-en)
-- Layers of "harness" and Stanford's Meta-Harness: [Same Name, Different Layer](/posts/ai/2026-08-26-meta-harness-layers-en)
-- One coding agent's full loop: [How Claude Code Works](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)
-- Learning coding agent design from source code: [Learning Agent Design from Mature Coding Agents: Series Overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)
-- Layering skills and plugins: [Hooks, Skills, Plugins](/posts/ai/2026-08-30-coding-agent-hooks-skills-plugins-en)
-
-## Update plan
-
-Once the video and slides for 2026 Lecture 6 are published (the syllabus date is November 6, 2026), this post will be revised against these questions:
-
-- Which examples and papers each of the four new topics uses, and whether the teddy bear scenario carries over
-- Whether "harness optimization" means hand-tuning, automated search (such as Meta-Harness), or both
-- Whether the MCP section reflects the stateless changes in the 2026-07-28 spec
-- How "memory" is defined: file-based notes, vector memory, or in-context working memory
-- Whether ReAct, A2A and agent safety from 2025 are still in the slides
-- Replace the pre-lecture notice with an actual source note and remove any speculation the slides contradict
+- The full guide to the same topics in 2025 (with slide details on tool calling, MCP and A2A): [Lecture 7 guide](/posts/ai/2026-09-29-cme295-agentic-llms-en)
+- How contextual retrieval works and how well: [Contextual Retrieval](/posts/ai/2026-03-12-contextual-retrieval-en)
+- ReAct inside a RAG loop: [Agentic RAG](/posts/ai/2026-03-12-agentic-rag-react-loop-en)
+- A coding agent's full loop: [How Claude Code works](/posts/tech/deep-dive/2026-08-26-claude-code-how-it-works-en)
+- Learning coding-agent design from source: [Learning from mature coding agents: series overview](/posts/ai/2026-08-30-coding-agent-design-series-overview-en)
+- The other new 2026 lectures: [RL with LLMs](/posts/ai/2026-09-29-cme295-rl-with-llms-en), [LLM systems](/posts/ai/2026-09-29-cme295-llm-systems-en), [Diffusion LLMs](/posts/ai/2026-09-29-cme295-diffusion-llms-en)
 
 ## Course video sources
 
-This article is a pre-written guide to CME295 2026 Lecture 6 (AI Agents, November 6). The official 2026 syllabus, read on 2026-10-10, still marks that lecture "Coming soon", so the original lecture recording is not yet available. The video below is the public 2025 Lecture 7, "Agentic LLMs"; the article itself notes that tool calling, MCP and retrieval were already covered there, so it is included only as related background and is not the 2026 Lecture 6 recording.
+This post is based on the CME295 2026 Lecture 6 recording ([Stanford CME295 Transformers & LLMs | Autumn 2026 | Lecture 6 - AI Agents](https://www.youtube.com/watch?v=nU2a2lm6vDE), 1:40:43) and the [2026 slides](https://cme295.stanford.edu/slides/fall26-cme295-lecture6.pdf); the player is in the introduction. The captions are YouTube's human-made English captions; names follow the slides.
 
-```youtube
-url: https://www.youtube.com/watch?v=h-7S6HNq0Vg
-title: Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs
-```
-
-Original videos: [Stanford CME295 Transformers & LLMs | Autumn 2025 | Lecture 7 - Agentic LLMs](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
-
-Content check: verified against the video transcript (2026-10-10): sampled the beginning, middle and end of the transcript, searched keywords, and compared against the chapter list in the video description (not a word-by-word comparison). The embedded video is Autumn 2025 Lecture 7, Agentic LLMs (not the 2026 Lecture 6, as the post already says); its chapters include RAG, tool calling, tool selection, MCP, ReAct and safety, confirming the post's statement that tool calling, MCP and retrieval were already covered there and the video is only related background. The 2026 Lecture 6 recording is not up, so there is no video to check the post's advance write-up of the 2026 content against.
+Content check: verified against the video transcript (2026-11-23): read the full human-made English captions with timestamps; section timestamp links come from the caption timecodes; classroom explanations and Q&A are paraphrased from the captions, while formulas, numbers and examples follow the slides (pages 25, 45–48, 59–61, 84–85, 89–91, 101, 105, 108–122, 127, 130–136, 138–145, 148–151).
 
 Course and recording entries:
 
-- [Official course / lecture source](https://cme295.stanford.edu/syllabus/2025/)
-- [CME295 Autumn 2025 playlist (Stanford Online, 9 videos)](https://www.youtube.com/playlist?list=PLoROMvodv4rOCXd21gf0CF4xr35yINeOy)
+- [Official 2026 syllabus](https://cme295.stanford.edu/syllabus/)
+- [CME295 Autumn 2026 playlist](https://www.youtube.com/playlist?list=PLakGfbKCei80)
 
-Checked: 2026-10-10.
+Checked: 2026-11-23.
 
 ## Update Log
 
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. The 2026 Lecture 6 recording is not yet published; the 2025 Lecture 7 video is included as related supplementary material.
 - 2026-10-10: Checked the video content against its transcript. The video is 2025 Lecture 7 and does cover tool calling, MCP and retrieval, matching the post's "related supplement" label; there is no 2026 Lecture 6 video to check against.
+- 2026-11-09: Rechecked video status. The official syllabus now lists the Lecture 6 slides; the recording is still not available, so the status is unchanged.
+- 2026-11-23: Rewrote the whole post from the 2026 Lecture 6 captions and the 152-slide deck. It now follows the actual lecture order (retrieval → tool calling → harness → coding agents → discussion) and adds two-stage retrieval, NDCG and the other metrics, grep, tool conflicts and tool selection, the prompt-caching ordering exercise, the harness definition, three kinds of compaction, short- and long-term memory, auto-approval, AGENTS.md, skills, subagents and agent teams. Removed the sections on MCP spec changes, Meta-Harness and various engineering posts that the lecture did not cover. Moved the recording to the introduction, set the status to videos included, and added timestamp links and self-checks to each section.
 
 ## References
 
 - [CME 295 2026 syllabus](https://cme295.stanford.edu/syllabus/)
-- [CME 295 2025 syllabus](https://cme295.stanford.edu/syllabus/2025/)
-- [2026 Lecture 1 slides (PDF)](https://cme295.stanford.edu/slides/fall26-cme295-lecture1.pdf)
-- [2025 Lecture 7 slides (PDF)](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf)
+- [2026 Lecture 6 slides (PDF)](https://cme295.stanford.edu/slides/fall26-cme295-lecture6.pdf) / [recording](https://www.youtube.com/watch?v=nU2a2lm6vDE)
+- [2025 Lecture 7 slides (PDF)](https://cme295.stanford.edu/slides/fall25-cme295-lecture7.pdf) / [recording](https://www.youtube.com/watch?v=h-7S6HNq0Vg)
 - [2025 final exam](https://cme295.stanford.edu/exams/fall25-cme295-final.pdf) / [solutions](https://cme295.stanford.edu/exams/fall25-cme295-final-solutions.pdf)
-- [Anthropic, Effective context engineering for AI agents (2025-09-29)](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents)
-- [Anthropic, Managing context on the Claude Developer Platform (2025-09-29)](https://claude.com/blog/context-management)
-- [Anthropic, Equipping agents for the real world with Agent Skills (2025-10-16)](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills)
-- [Anthropic, Effective harnesses for long-running agents (2025-11-26)](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents)
-- [Agent Skills open standard](https://agentskills.io/)
-- [Chroma, Context Rot](https://www.trychroma.com/research/context-rot)
-- [OpenAI, Unrolling the Codex agent loop (2026-01-23)](https://openai.com/index/unrolling-the-codex-agent-loop/)
-- [OpenAI, Harness engineering: leveraging Codex in an agent-first world (2026-02-11)](https://openai.com/index/harness-engineering/)
-- [Lee et al., Meta-Harness: End-to-End Optimization of Model Harnesses (2026)](https://arxiv.org/abs/2603.28052)
-- [MCP versioning](https://modelcontextprotocol.io/specification/versioning) / [2026-07-28 changelog](https://modelcontextprotocol.io/specification/2026-07-28/changelog) (checked 2026-09-29)
-- [Claude Code docs: How Claude Code works](https://code.claude.com/docs/en/how-claude-code-works) (checked 2026-09-29)
-- [Claude Code docs: Explore the context window](https://code.claude.com/docs/en/context-window) (checked 2026-09-29)
-- [Claude Code docs: Plugins overview](https://code.claude.com/docs/en/plugins) (checked 2026-09-29)
+- [Lewis et al., Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks (2020)](https://arxiv.org/abs/2005.11401)
+- [Kamradt, Needle in a Haystack (2023)](https://github.com/gkamradt/needle-in-a-haystack)
+- [Reimers & Gurevych, Sentence-BERT (2019)](https://arxiv.org/abs/1908.10084)
+- [Gao et al., Precise Zero-Shot Dense Retrieval without Relevance Labels (HyDE, 2022)](https://arxiv.org/abs/2212.10496)
+- [Anthropic, Introducing Contextual Retrieval (2024)](https://www.anthropic.com/research/contextual-retrieval)
+- [Yao et al., ReAct: Synergizing Reasoning and Acting in Language Models (2023)](https://arxiv.org/abs/2210.03629)
+- [Liu et al., Dive into Claude Code: The Design Space of Today's and Future AI Agent Systems (2026)](https://arxiv.org/abs/2604.14228)
+- [AGENTS.md](https://agents.md/)
+- [Agent Skills](https://agentskills.io/)
 - [Reading Stanford CME295 (series overview)](/posts/ai/2026-09-29-cme295-course-overview-en)

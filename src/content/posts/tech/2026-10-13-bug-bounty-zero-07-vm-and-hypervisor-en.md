@@ -17,7 +17,7 @@ series:
   order: 9
 ---
 
-> 🌏 [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
+> :globe: [繁體中文版](/posts/tech/2026-10-13-bug-bounty-zero-07-vm-and-hypervisor)
 
 The [previous post](/posts/tech/2026-10-13-bug-bounty-zero-06-memory-bugs-buffer-overflow-en) covered memory bugs, the "a program makes its own mistake" side of the story. This one covers the "wall" side: how one physical computer gets sliced up for many people, and what the walls between them are made of. By the end you should be able to explain what an L1 guest escape and an L2 guest escape each mean in the [Hyper-V bounty table](https://www.microsoft.com/en-us/msrc/bounty-hyper-v), and where the $250,000 figure from [post 13 of the series](/posts/tech/2026-10-13-bug-bounty-top-payouts-fact-check-en) sits in it.
 

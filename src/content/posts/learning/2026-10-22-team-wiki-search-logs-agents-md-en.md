@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-team-wiki-search-logs-agents-md)
+> :globe: [中文版](/posts/learning/2026-10-22-team-wiki-search-logs-agents-md)
 
 HR wrote a page on the wiki called "Time-off policy". It's complete and it has an owner. But a new hire types "leave" into the search box, finds nothing, and goes back to asking in the group chat. The page isn't missing; it's written but unfindable.
 

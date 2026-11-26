@@ -10,7 +10,7 @@ description: "A process-ordered deep dive into Marin 535B-A23B: why a ladder fir
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-24-marin-535b-hero-run)
+> :globe: [中文版](/posts/ai/2026-08-24-marin-535b-hero-run)
 
 This post introduces Stanford Marin's ongoing **535B-A23B hero run**.
 

@@ -12,7 +12,7 @@ series:
   order: 16
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
+> :globe: [English version](/posts/daily/2026-10-04-pricing-google-gemini-4-argon-intro-pricing-en)
 
 ## 變更摘要
 
@@ -73,7 +73,7 @@ Google 在 2026-09-30 發表 Gemini 4 Argon，官方部落格把定價寫在正�
 
 ## 時效提醒
 
-⏰ **促銷到期日**：官方未公布。Google 僅在發表文章的註腳聲明「促銷期結束後」價格調整為 $4/$20，沒有給出任何時間範圍。多家第三方分析（DataCamp、NeuralTrust、Artificial Analysis）在發表後數日內查證，均確認官方公告裡找不到到期日。現在規劃成本的團隊應該同時用促銷價和標準價各算一份預算，而不是只用促銷價。
+:clock: **促銷到期日**：官方未公布。Google 僅在發表文章的註腳聲明「促銷期結束後」價格調整為 $4/$20，沒有給出任何時間範圍。多家第三方分析（DataCamp、NeuralTrust、Artificial Analysis）在發表後數日內查證，均確認官方公告裡找不到到期日。現在規劃成本的團隊應該同時用促銷價和標準價各算一份預算，而不是只用促銷價。
 
 ## 今日收穫
 

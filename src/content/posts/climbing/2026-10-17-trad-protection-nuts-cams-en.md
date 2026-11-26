@@ -30,7 +30,7 @@ glossary:
     context: "A straight rope line and extended placements are the main fixes."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
+> :globe: [中文版](/posts/climbing/2026-10-17-trad-protection-nuts-cams)
 
 Open the [Defulan crag page](https://nobodyclimb.cc/crag/defulan) on nobodyclimb and look at a 5.11b called [Miruku](https://nobodyclimb.cc/crag/defulan/route/DF-FL-010). The protection field says only "需小號cam, nut": needs small cams and nuts. There are no bolts on the route, only an anchor at the top.
 

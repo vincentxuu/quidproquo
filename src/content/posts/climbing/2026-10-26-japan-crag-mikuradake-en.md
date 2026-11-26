@@ -13,7 +13,7 @@ description: "Mikuradake climbing guide: seasons, transport, local access rules,
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-26-japan-crag-mikuradake)
+> :globe: [中文版](/posts/climbing/2026-10-26-japan-crag-mikuradake)
 
 Japan’s granite crack destinations extend beyond Ogawayama and Mizugaki. At Mikuradake, cracks, friction slabs and multipitch routes share a mountain; choosing the wall matters as much as choosing the grade.
 
@@ -64,12 +64,6 @@ Routes and original YDS grades below come from [ROCKTOPO](https://www.rocktopo.n
 Video labels follow uploader metadata, and may use different grades or versions. A linked clip does not certify access or protection. Clips with unverified embedding are external links.
 
 The inventory includes all 199 graded entries in the opened ROCKTOPO list, excluding ungraded entries; additional verified sources and discrepancies are attached to the relevant rows. It is not a substitute for the full topo or current access notices.
-
-```video-gallery
-key: japanMikuradake
-lang: en
-layout: routes
-```
 
 ### Beginner: up to 6a (YDS 5.10a and below)
 
@@ -128,6 +122,12 @@ Compare cracks at Gensuke-kuzure and around Aojiro Hang. Lower grades still dema
 | 「葉がくれ 右」 | 5.10a | 5.10a | Not listed | サトケンロック・見晴岩スラブ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
 | 「セストグラディスト」 | 5.9 | 5.9 | Not listed | 黒ダキ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
 | 「スティッキー」 | 5.10a | 5.10a | Not listed | 黒ダキ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanMikuradake
+lang: en
+layout: routes
+```
 
 ### Intermediate: 6a+ to 6c+ (YDS 5.10b–5.11c)
 
@@ -257,6 +257,12 @@ This band mixes short cracks and multipitch climbing. Suisho Crack’s hardest g
 | 「シャイニングアーチ」 | 5.10b | 5.10b | Not listed | 黒ダキ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
 | 「スナフキン」 | 5.10b | 5.10b | Not listed | 黒ダキ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
 | 「スニフ」 | 5.10b | 5.10b | Not listed | 黒ダキ | Sources: [ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO only. |
+
+```video-gallery
+key: japanMikuradake
+lang: en
+layout: routes
+```
 
 ### Advanced: 7a to 7c+ (YDS 5.11d–5.13a)
 

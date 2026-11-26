@@ -13,7 +13,7 @@ tldr: "Looplane's disposable clone and SafePathPolicy protect the source repo. `
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-30-coding-agent-workspace-isolation)
+> :globe: [中文版](/posts/ai/2026-08-30-coding-agent-workspace-isolation)
 
 ## The Design Problem
 

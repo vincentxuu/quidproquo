@@ -10,7 +10,7 @@ description: "完整介紹 Cognee 的三種儲存、DataPoint／Task／Pipeline�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cognee-memory-engine-en)
+> :globe: [English version](/posts/ai/2026-08-22-cognee-memory-engine-en)
 
 [Cognee](https://docs.cognee.ai/core-concepts/overview) 是把文件、文字與結構化資料轉成可搜尋 AI memory 的開源工具。它不只建立 embedding，也會抽取 entity 與 relationship，將來源、向量與知識圖保存在不同儲存層。
 

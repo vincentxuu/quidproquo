@@ -13,7 +13,7 @@ series:
   order: 12
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection)
+> :globe: [中文版](/posts/tech/2026-08-30-cloudflare-smart-shield-origin-protection)
 
 [Cache Rules](/posts/tech/2026-08-30-cloudflare-cache-rules-edge-cache-policy-en) answer which content can be cached, how long it should stay cached, and how cache keys are built. [Cloudflare Smart Shield](https://developers.cloudflare.com/smart-shield/) answers a different question: when cache misses, traffic spikes, global visitors, and origin connections pile up, how do you make the origin do less work?
 
@@ -101,6 +101,7 @@ Important gates:
 - The response needs `Content-Length`.
 - With Image transformations, originals can be eligible; resized variants are not, because transformation happens after Cache Reserve in the response flow.
 - Smart Shield Advanced currently includes 2 TB of Cache Reserve storage.
+- Purge behavior changed in 2026-09: whether you purge by tag, hostname, prefix, or everything, the next request is now a Cache Reserve miss, the origin has to send the full object again, and writing it back to Cache Reserve is another Class A operation. To keep the content and only revalidate it, use [invalidate](https://developers.cloudflare.com/changelog/post/2026-09-28-cache-reserve-purge-behavior/) instead: a `304` from the origin reuses the stored copy.
 
 This layer fits sites where origin egress is expensive, assets are numerous, and popularity has a long tail. If the content changes every minute, cannot be stale, or is API JSON, Cache Reserve is usually not the right answer.
 
@@ -159,11 +160,15 @@ Before launch, I would check:
 - Smart Tiered Cache changes are measured against cache hit ratio and origin request volume.
 - Dynamic request latency is proven before adding Argo.
 - Cache Reserve only stores cacheable assets with long enough TTL and `Content-Length`.
-- Purge behavior is tested across edge cache and Cache Reserve.
+- Purge and invalidate behavior is tested across edge cache and Cache Reserve.
 - Health Checks cover an endpoint that represents real origin health, not just the homepage.
 - Dedicated CDN Egress IPs are tested with firewall allowlists before cutting over.
 
 Smart Shield's value is that the origin is no longer directly consumed by every cache miss, every geography, and every new connection. Cache Rules decide what can be cached. Smart Shield decides how cache misses and dynamic requests reach origin more gently. Together, they form the origin-protection part of the Cloudflare Edge Platform.
+
+## Update Log
+
+- 2026-11-23: Cache Reserve purges now always force a miss (since 2026-09); added invalidate as the way to keep content and revalidate it
 
 ## References
 

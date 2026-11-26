@@ -21,7 +21,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en)
+> :globe: [English version](/posts/tech/2026-10-14-bug-bounty-zero-11-reports-and-expected-value-en)
 
 這是「從零開始的資安獵人」第 6 篇。前一篇[什麼是 RCE](/posts/tech/2026-10-13-bug-bounty-zero-04-what-is-rce)看了伺服器執行程式的風險。這篇回到兩個很實際的問題：找到洞之後，一份報告怎麼寫才不會被打折？以及，整件事到底值不值得你花時間？
 

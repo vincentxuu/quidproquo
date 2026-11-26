@@ -13,7 +13,7 @@ description: "三倉岳 攀岩指南：岩質與風格、季節、交通與停�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-26-japan-crag-mikuradake-en)
+> :globe: [English version](/posts/climbing/2026-10-26-japan-crag-mikuradake-en)
 
 想在日本爬花崗岩裂隙，行程不只小川山與瑞牆。廣島的三倉岳把裂隙、摩擦面攀與多繩距放在同一座山裡；選對岩壁，和只挑一個舒服的級數同樣重要。
 
@@ -64,12 +64,6 @@ YDS／V 級換算照 [Mountain Project 國際難度對照表](https://www.mounta
 影片依上傳者片名與描述辨識，級數或版本可能與表格不同；影片連結不代表線位仍開放或固定點已確認。嵌入狀態未核實的影片以外部連結開啟。
 
 清單收錄已核讀 ROCKTOPO 表中全部 199 條有級數資料，不含未定級條目；其他已核實來源及差異附在原列。完整 topo 與現行使用公告仍要另外攜帶、確認。
-
-```video-gallery
-key: japanMikuradake
-lang: zh-TW
-layout: routes
-```
 
 ### 入門：6a 以下（YDS 5.10a 以下）
 
@@ -128,6 +122,12 @@ layout: routes
 | 「葉がくれ 右」 | 5.10a | 5.10a | 未列 | サトケンロック・見晴岩スラブ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
 | 「セストグラディスト」 | 5.9 | 5.9 | 未列 | 黒ダキ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
 | 「スティッキー」 | 5.10a | 5.10a | 未列 | 黒ダキ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanMikuradake
+lang: zh-TW
+layout: routes
+```
 
 ### 中級：6a+ 到 6c+（YDS 5.10b–5.11c）
 
@@ -257,6 +257,12 @@ layout: routes
 | 「シャイニングアーチ」 | 5.10b | 5.10b | 未列 | 黒ダキ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
 | 「スナフキン」 | 5.10b | 5.10b | 未列 | 黒ダキ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
 | 「スニフ」 | 5.10b | 5.10b | 未列 | 黒ダキ | 來源：[ROCKTOPO](https://www.rocktopo.net/areas/155/routes)；ROCKTOPO 單一出處。 |
+
+```video-gallery
+key: japanMikuradake
+lang: zh-TW
+layout: routes
+```
 
 ### 進階：7a 到 7c+（YDS 5.11d–5.13a）
 

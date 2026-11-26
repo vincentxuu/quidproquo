@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 32
 ---
-> 🌏 [中文版](/posts/daily/2026-06-25-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-06-25-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -70,12 +70,12 @@ Fugu Ultra achieves 73.7% on SWE-Bench Pro while also reaching public SOTA on Te
 - The TRINITY orchestrator has only ~0.6B parameters, far smaller than the worker models it directs (typically tens to hundreds of billions of parameters)
 - Training: TRINITY uses CMA-ES (evolutionary strategy, no gradients), Conductor uses reinforcement learning — combining two non-traditional training approaches
 - Built on two ICLR 2026 papers: "Trinity: An Evolved LLM Coordinator" and "Learning to Orchestrate Agents"
-- SWE-Bench Pro 73.7% is Sakana's self-reported number with no independent third-party replication yet **⚠️**
-- Fully closed-source, only accessible through Sakana's API, cannot be self-hosted **⚠️**
-- Users have reported complex tasks taking 30+ minutes; latency issues remain unresolved **⚠️**
+- SWE-Bench Pro 73.7% is Sakana's self-reported number with no independent third-party replication yet **:warning:**
+- Fully closed-source, only accessible through Sakana's API, cannot be self-hosted **:warning:**
+- Users have reported complex tasks taking 30+ minutes; latency issues remain unresolved **:warning:**
 - Relationship to LangGraph/AutoGen: Fugu "learns how to orchestrate," while the other two are "programmed to orchestrate" — a higher level of abstraction
 - MCP connection: Fugu can serve as a higher-level coordinator, deciding which worker calls which MCP tools
-Learned orchestration is a genuinely new direction, but SWE-Bench Pro 73.7% is only self-reported, fully closed-source, and latency issues persist — claims of "surpassing all public models" should be discounted until independent third-party replication. **⚠️**
+Learned orchestration is a genuinely new direction, but SWE-Bench Pro 73.7% is only self-reported, fully closed-source, and latency issues persist — claims of "surpassing all public models" should be discounted until independent third-party replication. **:warning:**
 
 ### Your Take-aways
 
@@ -123,10 +123,10 @@ The best configuration achieves 17.8% Surpass-SOTA rate (g > 0.1 threshold). Ana
 - 90 tasks spanning 6 scientific domains, 97.1% Python codebase, Docker containerization ensures cross-machine reproducibility
 - Each task includes: task description + dataset + hidden test set + automated evaluator — thorough design
 - Supported agent backends: Claude Code, Codex, Gemini CLI (all 3 mainstream tools covered)
-- Performance varies unevenly across six scientific domains, with some domains significantly below 17.8% (specific per-domain numbers not disclosed) **⚠️**
+- Performance varies unevenly across six scientific domains, with some domains significantly below 17.8% (specific per-domain numbers not disclosed) **:warning:**
 - Released: benchmark data, NatureGym pipeline code, public leaderboard (with official reproduction)
-- Limitations: 90 tasks is a small scale, Nature journals skew toward English-language and openly available datasets **⚠️**
-- "Methodological Translation" is currently a qualitative analysis, lacking rigorous quantitative validation **⚠️**
+- Limitations: 90 tasks is a small scale, Nature journals skew toward English-language and openly available datasets **:warning:**
+- "Methodological Translation" is currently a qualitative analysis, lacking rigorous quantitative validation **:warning:**
 - Compared to SWE-Bench: SWE-Bench tests "fixing existing bugs," NatureBench tests "inventing better methods" — vastly different in difficulty and nature
 The NatureGym pipeline engineering and Information Firewall are the biggest highlights; the 17.8% result is sobering. However, 90 tasks is on the small side, domain coverage is limited, and the "Methodological Translation" conclusion lacks quantitative support — overall solid but scale and analysis depth need expansion.
 
@@ -176,9 +176,9 @@ This paper provides a systematic framework: if you want to bring agentic AI into
 - 5 challenges (C1-C5) + 5 capabilities (A1-A5) + 16 case studies — well-structured, suitable as a reference framework for product roadmaps
 - Supply chain analysis is one of the case studies, and currently the most mature application direction for agentic AI in security
 - Position paper: no experiments of its own, cites existing literature, no new experimental data
-- Depth varies across the 16 case studies; some have only a few lines of description without in-depth analysis **⚠️**
-- Insufficient discussion of agent failure modes in security scenarios (prompt injection attacks, mass-blocking from false positives) **⚠️**
-- The C1-C5/A1-A5 mapping feels too neat, potentially a post-hoc framework assembly **⚠️**
+- Depth varies across the 16 case studies; some have only a few lines of description without in-depth analysis **:warning:**
+- Insufficient discussion of agent failure modes in security scenarios (prompt injection attacks, mass-blocking from false positives) **:warning:**
+- The C1-C5/A1-A5 mapping feels too neat, potentially a post-hoc framework assembly **:warning:**
 - Relationship to LangGraph/AutoGen: the security scenarios described (log analysis, vulnerability auditing) can all be implemented today with existing frameworks' tool use + RAG
 Strong author backgrounds, well-organized framework, but lacks experimental validation. The most serious gap is the near-absence of discussion on "agents being attacked" (prompt injection, adversarial input) and "agents causing mass blocking from false positives" — these are the biggest obstacles to deploying agents in security scenarios.
 

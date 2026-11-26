@@ -13,7 +13,7 @@ series:
   order: 4
 ---
 
-> 🌏 [中文版](/posts/ai/2026-03-30-harness-engineering-patterns)
+> :globe: [中文版](/posts/ai/2026-03-30-harness-engineering-patterns)
 
 In previous articles, we examined Harness Engineering from different angles: [Three Evolutions](/posts/ai/2026-03-28-harness-engineering-evolution-en) traced the timeline from Prompt to Context to Harness, [Anthropic's Hands-On Approach](/posts/ai/2026-03-28-anthropic-harness-design-en) demonstrated dual-Agent architecture and cross-session state management, and [Phil Schmid's Perspective](/posts/ai/2026-03-28-phil-schmid-agent-harness-en) positioned the Harness as the operating system for AI systems.
 
@@ -97,7 +97,7 @@ This structure aligns with OpenAI function calling, Anthropic tool use format, a
 
 ### MCP Integration
 
-MCP is a tool standardization protocol proposed by Anthropic that lets different tool servers expose tool definitions in a unified format. Tool Registry is a natural consumer of MCP:
+MCP is a tool standardization protocol proposed by Anthropic (donated in 2025-12 to the Agentic AI Foundation under the Linux Foundation) that lets different tool servers expose tool definitions in a unified format. Tool Registry is a natural consumer of MCP:
 
 ```
 ┌──────────┐     ┌──────────┐     ┌──────────┐
@@ -1003,11 +1003,16 @@ Each pattern is straightforward on its own. But without any one of them, your Ag
 
 These aren't theoretical. If you're building an Agent system, start with Guard System and Checkpoint — they have the highest ROI, are the most straightforward to implement, and you'll be most grateful for them when things go wrong.
 
+## Update Log
+
+- 2026-11-23: Noted that MCP is now hosted by the Agentic AI Foundation under the Linux Foundation.
+
 ## References
 
 - [Building Effective Agents](https://www.anthropic.com/research/building-effective-agents) — Anthropic's agent design philosophy; the source for Guard System and tool design principles
 - [Effective Harnesses for Long-Running Agents](https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents) — Anthropic's hands-on guide with concrete checkpoint and progress file implementations
 - [Model Context Protocol Introduction](https://modelcontextprotocol.io/introduction) — The MCP protocol, the standard interface for Tool Registry integration
+- [Anthropic — Donating the Model Context Protocol and establishing the Agentic AI Foundation](https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation) — official announcement of MCP moving to the AAIF
 - [LangGraph GitHub Repository](https://github.com/langchain-ai/langgraph) — A mainstream agent framework with built-in durable execution and checkpointing
 - [A Survey on Large Language Model based Autonomous Agents](https://arxiv.org/abs/2308.11432) — arXiv paper providing academic research background on agent safety and controllability
 - [Circuit Breaker Pattern — Microsoft Azure Architecture](https://learn.microsoft.com/en-us/azure/architecture/patterns/circuit-breaker) — The authoritative reference for the Circuit Breaker design pattern, the theoretical foundation for Section 6

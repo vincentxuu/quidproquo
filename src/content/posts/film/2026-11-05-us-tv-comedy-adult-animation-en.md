@@ -17,7 +17,7 @@ glossary:
     context: "The Office and What We Do in the Shadows are mockumentary comedies."
 ---
 
-> 🌏 [中文版](/posts/film/2026-11-05-us-tv-comedy-adult-animation)
+> :globe: [中文版](/posts/film/2026-11-05-us-tv-comedy-adult-animation)
 
 This post covers American sitcoms, comedy-dramas and adult animation: a mad scientist across infinite universes, a paper company's office, a Hollywood studio, an English football club and vampires on Staten Island. All 22 clear the bar from [How to Pick a Show by Country](/posts/film/2026-11-05-world-tv-drama-guide-overview-en): at least three of seven recommendation source types back each show, and each can be watched legally in Taiwan.
 

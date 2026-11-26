@@ -14,7 +14,7 @@ series:
   order: 14
 ---
 
-> 🌏 [English version](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
+> :globe: [English version](/posts/tech/2026-10-14-bug-bounty-zero-12-certifications-and-learning-map-en)
 
 ## 先決定要練什麼，再決定要不要考
 

@@ -11,7 +11,7 @@ description: "Stanford CS124 Winter 2026 第 5 週導讀：distributional hypoth
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp-en)
+> :globe: [English version](/posts/ai/2026-08-22-cs124-week5-embeddings-social-nlp-en)
 
 這是 [Stanford CS124 導讀](/posts/ai/2026-08-21-stanford-cs124-languages-to-information)的第 5 週，也是整門課的轉折點。前三週的表示都是人設計的：第 3 週的特徵是人挑的，第 4 週的向量是直接數出來的。從這週開始，表示由資料學出來。
 

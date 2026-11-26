@@ -12,7 +12,7 @@ series:
   order: 59
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-01-funding-restate)
+> :globe: [中文版](/posts/daily/2026-10-01-funding-restate)
 
 ## Funding Details
 

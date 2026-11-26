@@ -12,7 +12,7 @@ series:
   order: 19
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-02-funding-tripo-ai)
+> :globe: [中文版](/posts/daily/2026-09-02-funding-tripo-ai)
 
 ## Funding Details
 

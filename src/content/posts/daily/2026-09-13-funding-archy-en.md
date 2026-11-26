@@ -12,7 +12,7 @@ series:
   order: 32
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-13-funding-archy)
+> :globe: [中文版](/posts/daily/2026-09-13-funding-archy)
 
 ## Funding Details
 

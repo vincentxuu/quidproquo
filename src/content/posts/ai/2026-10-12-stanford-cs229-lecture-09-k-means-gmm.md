@@ -14,7 +14,7 @@ draft: false
 math: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm-en)
+> :globe: [English version](/posts/ai/2026-10-12-stanford-cs229-lecture-09-k-means-gmm-en)
 
 **影片狀態：已附影片。** 這篇依 Stanford Online 公開的 Spring 2026 第 9 堂錄影的英文字幕寫成，公式記號對照 2026 主講義第 10 章與第 11 章前半；沒看到板書畫面，講者手繪的圖只能靠口述還原。
 

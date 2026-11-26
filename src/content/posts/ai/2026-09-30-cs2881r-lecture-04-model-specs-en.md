@@ -25,7 +25,7 @@ glossary:
     context: "In L4, Barak finds that models still refused to translate such content even though the spec allows it."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
+> :globe: [中文版](/posts/ai/2026-09-30-cs2881r-lecture-04-model-specs)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

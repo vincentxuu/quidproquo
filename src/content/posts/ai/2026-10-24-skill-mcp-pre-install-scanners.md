@@ -13,7 +13,7 @@ description: "比較四個公開原始碼的 skill 與 MCP 安裝前掃描器的
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners-en)
+> :globe: [English version](/posts/ai/2026-10-24-skill-mcp-pre-install-scanners-en)
 
 你從 GitHub 找到一個看起來很實用的 skill，準備放進自己的 skill 目錄。安裝前掃描器做的事很單純：在你裝之前，先讀它的檔案和說明，找有沒有惡意的模式，例如偷讀憑證、把資料送到外面、藏在說明裡的指令。
 

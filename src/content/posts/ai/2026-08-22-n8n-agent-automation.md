@@ -10,7 +10,7 @@ description: "沿一條自動化的生命週期介紹 n8n：Trigger、AI Agent�
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-n8n-agent-automation-en)
+> :globe: [English version](/posts/ai/2026-08-22-n8n-agent-automation-en)
 
 [n8n](https://github.com/n8n-io/n8n) 是低程式碼 workflow automation 平台，AI 是它近年加入的重要能力，但不是整個產品的起點。典型流程先接住 webhook、排程或 SaaS 事件，再整理資料、呼叫 AI Agent、更新外部系統，最後留下執行紀錄。
 

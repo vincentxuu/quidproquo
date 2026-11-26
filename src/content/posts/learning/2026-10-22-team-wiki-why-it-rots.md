@@ -12,7 +12,7 @@ series:
   order: 6
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-22-team-wiki-why-it-rots-en)
+> :globe: [English version](/posts/learning/2026-10-22-team-wiki-why-it-rots-en)
 
 新同事第三次在群組問「年假怎麼請」。wiki 上其實有一頁，只是寫的是兩年前的流程，而寫那頁的人已經離職了。很多團隊對這種事都不陌生。Stack Overflow 2024 年的開發者調查裡，七成的人說自己知道去哪裡找答案，但只有不到一半的人同意自己找得到最新的資訊（[Stack Overflow 2024](https://survey.stackoverflow.co/2024/professional-developers)）。
 

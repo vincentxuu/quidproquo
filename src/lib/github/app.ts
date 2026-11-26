@@ -358,7 +358,8 @@ export function publicCloneUrl(repo: string): string {
 export async function resolveCloneUrl(env: Env, repo: string): Promise<string> {
   const normalized = normalizeGitHubRepoInput(repo)
   const stored = await findStoredGitHubRepository(env.DB, normalized).catch(() => null)
-  if (!stored || !stored.private) return publicCloneUrl(repo)
+  // Any repo installed through the GitHub App gets a token, so agent runs can push to it.
+  if (!stored?.installationId) return publicCloneUrl(repo)
   const token = await createInstallationToken(env, stored.installationId)
   return `https://x-access-token:${encodeURIComponent(token)}@github.com/${stored.fullName}.git`
 }

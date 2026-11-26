@@ -13,7 +13,7 @@ description: "A guide to CMU 11-768 AI Agents Lecture 14, OpenHands (written fro
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands)
+> :globe: [中文版](/posts/ai/2026-10-10-cmu-11768-lecture-14-openhands)
 
 <<<<<<< Updated upstream
 **Video status: Videos included.** [Source details](#course-video-sources)

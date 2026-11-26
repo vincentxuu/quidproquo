@@ -12,7 +12,7 @@ series:
   order: 0
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-22-knowledge-base-three-readers)
+> :globe: [中文版](/posts/learning/2026-10-22-knowledge-base-three-readers)
 
 Three familiar scenes. You save a good article to Notion, need it three months later, search for a while, give up and Google it again. A new colleague asks the team chat "how do I request annual leave?" for the third time, because the wiki page describes the process from two years ago. Someone asks the company's AI assistant the same question, and it quotes that old page, confidently and wrongly.
 

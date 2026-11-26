@@ -13,7 +13,7 @@ description: "越南岩場總覽：Hữu Lũng、吉婆島、蘭夏灣的風格�
 draft: false
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-21-vietnam-crags-overview-en)
+> :globe: [English version](/posts/climbing/2026-10-21-vietnam-crags-overview-en)
 
 想到越南攀岩，最先浮現的常常是下龍灣的喀斯特島群：海面上一千六百座石灰岩島，崖壁從水裡直插出來。但下龍灣本體攀岩是違法的，港警常驅趕。真正能安心規劃的，是北邊三個地方：諒山山谷的 **Hữu Lũng**、海島的**吉婆島 Cat Ba**、以及海灣的**蘭夏灣 Vịnh Lan Hạ**。
 

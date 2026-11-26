@@ -10,7 +10,7 @@ description: "A deep dive into Together AI serverless and dedicated endpoints, i
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-together-ai-inference-platform)
+> :globe: [中文版](/posts/ai/2026-08-22-together-ai-inference-platform)
 
 [Together AI](https://www.together.ai/) is an AI cloud platform centered on open-weight models. It is more than a catalog behind one model API: from the same account, you can test models such as Llama, Qwen, DeepSeek, and FLUX on serverless endpoints, move a chosen model onto reserved hardware through a dedicated endpoint, and train and deploy your own fine-tuned variant.
 

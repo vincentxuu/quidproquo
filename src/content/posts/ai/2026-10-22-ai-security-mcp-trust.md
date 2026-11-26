@@ -14,7 +14,7 @@ series:
   order: 13
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-22-ai-security-mcp-trust-en)
+> :globe: [English version](/posts/ai/2026-10-22-ai-security-mcp-trust-en)
 
 你昨天審過一個 `read_ticket` 工具，描述說「只讀自己的工單」。今天描述完全相同，遠端伺服器卻在查詢時多做了一次匯出。昨天的批准能證明今天的什麼？
 

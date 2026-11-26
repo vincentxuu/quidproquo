@@ -10,7 +10,7 @@ description: "Compare seven 2026 agent frameworks by orchestration primitive, du
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-agent-framework-selection-guide)
+> :globe: [中文版](/posts/ai/2026-08-22-agent-framework-selection-guide)
 
 These seven names often appear on the same “agent framework” list, but they solve different problems. [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) is a low-level orchestration runtime. [CrewAI](https://docs.crewai.com/) and [AG2](https://docs.ag2.ai/latest/docs/user-guide/advanced-concepts/pattern-cookbook/overview/) start with multi-agent collaboration. [Microsoft Agent Framework](https://learn.microsoft.com/en-us/agent-framework/overview/) (MAF below) and [Mastra](https://mastra.ai/ai-workflows) combine agents with explicit workflows. [Pydantic AI](https://ai.pydantic.dev/agents/) starts from typed Python agents. [DSPy](https://dspy.ai/) treats prompts, tool use, and reasoning strategies as programs that can be optimized against data.
 

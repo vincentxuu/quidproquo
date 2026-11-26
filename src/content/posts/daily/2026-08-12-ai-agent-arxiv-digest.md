@@ -12,7 +12,7 @@ series:
   order: 80
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-12-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-08-12-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -60,7 +60,7 @@ Agent 工具設計過去主要在擴展「能做什麼」——加更多工具�
 - 結構化低階介面比純 bash 提升一致性最多 4.7 倍
 - 自然語言搜尋讓 Agent 接觸相關檔案的比例提升 11%+
 - Python CodeAct 步驟少 41.6%、token 少 56.3%，任務完成率相近
-- 「認知鷹架」工具（讓 Agent 記錄中間推理）幾乎沒有效果 ⚠️（與直覺相反）
+- 「認知鷹架」工具（讓 Agent 記錄中間推理）幾乎沒有效果 :warning:（與直覺相反）
 - 6 架構 × 3 模型 × 多次重複 = 11,700 條軌跡，統計功效充足
 - Limitation：僅測 coding agent，其他領域結論可能不同
 
@@ -102,7 +102,7 @@ Taeil Kim, Kangsan Kim, Sung Ju Hwang（KAIST）　·　arxiv: 2608.07169
 
 ### 深入要點
 
-- AppWorld: +27.2%p、BFCL V3: +11.2%p、ToolSandbox: +3.4%p ⚠️（KAIST 自測，需等外部複現）
+- AppWorld: +27.2%p、BFCL V3: +11.2%p、ToolSandbox: +3.4%p :warning:（KAIST 自測，需等外部複現）
 - 三層記憶中 Subtask memory 貢獻最大
 - 4B 模型受益最多——越小的模型越需要結構化指導
 - Teacher 選擇有相容性因素：不是越強的 teacher 越好

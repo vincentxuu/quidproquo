@@ -12,7 +12,7 @@ draft: false
 series: { name: "Berkeley CS288 導讀", order: 3 }
 ---
 
-> 🌏 [English version](/posts/learning/2026-08-22-berkeley-cs288-post-training-en)
+> :globe: [English version](/posts/learning/2026-08-22-berkeley-cs288-post-training-en)
 
 [08–12 組教材](https://cal-cs288.github.io/sp26/)處理的是模型完成架構後，如何經過 pre-training、fine-tuning、prompting 與 post-training，成為可以部署與評估的系統。Generation 和 evaluation 不是附錄：同一組 logits 經不同 decoding policy，會形成不同品質、成本與風險。
 

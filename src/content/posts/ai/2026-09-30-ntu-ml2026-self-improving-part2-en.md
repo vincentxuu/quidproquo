@@ -26,7 +26,7 @@ glossary:
     context: "The lecture uses it to connect SEAL, HyperAgent, TTT layers, and Titans."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)
+> :globe: [中文版](/posts/ai/2026-09-30-ntu-ml2026-self-improving-part2)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 
@@ -190,11 +190,9 @@ The closing: people may only need to supply a very simple intrinsic motivation t
 - **Something to try tonight**: take a small task you have with a metric, run one round of prompt optimization with [DSPy](https://github.com/stanfordnlp/dspy), then test on unseen examples. If the score drops a lot, you've just watched "harness updates overfit too" happen.
 - **Related reading**: the site's [Stanford CS329A guide on self-improving agents](/posts/ai/2026-08-20-stanford-cs329a-self-improving-agents-en) covers another course's take; DSPy itself is in [DSPy: compiling AI programs with Signatures, Metrics, and Optimizers](/posts/ai/2026-08-22-dspy-ai-program-optimization-en); for harness background see [From Prompt to Harness](/posts/ai/2026-03-28-harness-engineering-evolution-en) and this series' [Harness Engineering](/posts/ai/2026-09-30-ntu-ml2026-harness-engineering-en); for the RL side of curiosity and exploration see [Berkeley CS285 L19–25](/posts/learning/2026-08-22-berkeley-cs285-exploration-open-problems-en).
 
-## What this post could and couldn't verify
+## What this post leaves out
 
-Verified: the text and embedded links of all 64 slides, the zh-TW captions of the video, the titles of the 24 arXiv papers cited in the slides (checked with the arXiv API), the titles and uploaders of the older lecture videos referenced (YouTube oEmbed), and the 404 on the `.ptx` link in the course page row.
-
-Not verified: most slides are figures, so for numbers inside the papers (Darwin Gödel Machine scores, accuracy tables) this post only reports the trends described in the captions. The memory paper on slide 14 and the joint-evolution paper on slide 24 were matched to their arXiv IDs from the captions' descriptions ("a February 2026 paper", "a paper from early this year"). The captions render R-Zero as "R1-Zero" and AlphaEvolve as "AlphaEvo"; this post follows the slides. The AlphaEvolve and ShinkaEvolve slide wasn't walked through in the lecture, so this post describes only the loop diagram on it.
+Most slides are figures, so for numbers inside the papers (Darwin Gödel Machine scores, accuracy tables) this post only reports the trends Lee describes. The memory paper on slide 14 and the joint-evolution paper on slide 24 were matched to their arXiv IDs from the captions' descriptions ("a February 2026 paper", "a paper from early this year"). The captions render R-Zero as "R1-Zero" and AlphaEvolve as "AlphaEvo"; this post follows the slides. The AlphaEvolve and ShinkaEvolve slide wasn't walked through in the lecture, so this post describes only the loop diagram on it.
 
 Series navigation: [Series overview](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en) | Previous: [HW8: Test-Time Scaling](/posts/ai/2026-09-30-ntu-ml2026-hw8-test-time-scaling-en) | Next: [HW9: Flow Matching](/posts/ai/2026-09-30-ntu-ml2026-hw9-flow-matching-en)
 
@@ -227,6 +225,7 @@ Content check: verified against the video transcripts (2026-10-10): Part 2 (cQLK
 - 2026-10-10: Added explicit video status and checked recording sources and access notes.
 - 2026-10-10: Rechecked video status. Matched against the official course page and YouTube: lecture and embedded videos agree and are publicly embeddable, so status is now Videos included.
 - 2026-10-10: Checked the video content against its transcript. Removed two timestamps that could not be verified; everything else matches.
+- 2026-11-23: Rewrote the closing verification notes as the limits that matter to readers.
 
 ## References
 

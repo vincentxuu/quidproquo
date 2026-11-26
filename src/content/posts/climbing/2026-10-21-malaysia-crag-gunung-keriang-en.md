@@ -13,7 +13,7 @@ description: "Gunung Keriang climbing guide: free access inside a Kedah recreati
 draft: false
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-21-malaysia-crag-gunung-keriang)
+> :globe: [中文版](/posts/climbing/2026-10-21-malaysia-crag-gunung-keriang)
 
 If you want to fit half a day of climbing into Kedah, Gunung Keriang is the easiest option: the wall sits inside a park, entry is free, and the approach is a walk from the car. It is also the thinnest one: a single named route is published online, and the page carries neither a rock type nor approach notes. This guide helps you judge whether it is worth a half day, what transport to arrange, and why you cannot pick routes from the online list alone.
 

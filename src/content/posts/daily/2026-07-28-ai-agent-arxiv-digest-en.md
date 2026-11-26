@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 65
 ---
-> 🌏 [中文版](/posts/daily/2026-07-28-ai-agent-arxiv-digest)
+> :globe: [中文版](/posts/daily/2026-07-28-ai-agent-arxiv-digest)
 
 ## Today's Overview
 
@@ -68,9 +68,9 @@ This framework makes "reproducible evaluation" the default rather than a luxury.
 ### Deep Dive
 
 - The three-layer decoupled design makes community contributions easier: adding a new benchmark doesn't require modifying the harness, and swapping an LLM backend doesn't require changing the benchmark
-- The async runtime enables concurrent execution of multiple agent rollouts, accelerating large-scale evaluation (specific speedup numbers not disclosed **⚠️**)
+- The async runtime enables concurrent execution of multiple agent rollouts, accelerating large-scale evaluation (specific speedup numbers not disclosed **:warning:**)
 - **Trajectory analysis is the highlight**: automatically flags reward hacking behaviors, such as an agent modifying test files instead of actually fixing the code
-- 5 capability dimensions cover planning, tool use, coding, web browsing, and other mainstream agent tasks (exact dimension names require reading the full paper **⚠️**)
+- 5 capability dimensions cover planning, tool use, coding, web browsing, and other mainstream agent tasks (exact dimension names require reading the full paper **:warning:**)
 - Already supports 20+ mainstream benchmarks as a direct replacement for manually setting up evaluation environments
 - Limitation: focuses on evaluation infrastructure and doesn't provide agent training or deployment capabilities; for large teams with mature evaluation pipelines, migration costs may be significant
 - Relationship with LangGraph/AutoGen: AgentCompass sits at the evaluation layer — you can "plug in" agents built with LangGraph/AutoGen for evaluation; they're complementary, not competing
@@ -126,7 +126,7 @@ The paper identifies three recurring success patterns: **validation pipelines** 
 - Finance case: compliance requirements force explicit human confirmation nodes in the agent pipeline, creating a fundamental tension with the research goal of "fully autonomous agents"
 - **Open challenges**: error propagation in long-chain tasks currently has no general solution; observability tools for multi-agent systems remain very immature
 - Relationship with LangGraph: LangGraph's interrupt/checkpoint mechanisms are exactly the engineering practice of the human-in-the-loop design this paper describes — they reinforce each other
-- Limitation: tutorial/position paper that relies on case studies for depth analysis, lacking large-scale quantitative data; some conclusions are systematic organization of "common sense" **⚠️**
+- Limitation: tutorial/position paper that relies on case studies for depth analysis, lacking large-scale quantitative data; some conclusions are systematic organization of "common sense" **:warning:**
 - Implications for MCP: the paper's emphasis on "tools must have fallback on failure" directly matters for MCP server designers — every tool should declare its failure modes and retry semantics
 
 ### Reviewer's One-Liner
@@ -176,17 +176,17 @@ Scoring 63.6 on SWE-Bench Verified (vs. Qwen3.5-9B's 53.1 and Gemma4-12B's 44.2)
 
 ### Deep Dive
 
-- **SWE-Bench Verified**: 63.6 (Nanbeige4.2-3B) vs 53.1 (Qwen3.5-9B) vs 44.2 (Gemma4-12B) — numbers are self-reported **⚠️**, independent third-party evaluation pending
+- **SWE-Bench Verified**: 63.6 (Nanbeige4.2-3B) vs 53.1 (Qwen3.5-9B) vs 44.2 (Gemma4-12B) — numbers are self-reported **:warning:**, independent third-party evaluation pending
 - The core Looped Transformer trade-off: no increase in memory, but per-token FLOPs increase — latency impact needs to be measured in the target scenario
 - The agentic RL component uses both outcome reward (final task result) and process reward (intermediate step quality), which is the mainstream approach for stabilizing long-chain agent training
 - Open-sourced on HuggingFace (Nanbeige/Nanbeige4.2-3B), available for immediate download and testing
 - Relationship with LangGraph/AutoGen: can be used directly as a backbone in any agent framework supporting an OpenAI-compatible API
-- Limitation: benchmarks are primarily focused on coding agents (SWE-Bench family) — performance on web browsing and general knowledge agent tasks remains unclear **⚠️**; the additional computational latency from Looped Transformer is not sufficiently quantified in the paper **⚠️**
+- Limitation: benchmarks are primarily focused on coding agents (SWE-Bench family) — performance on web browsing and general knowledge agent tasks remains unclear **:warning:**; the additional computational latency from Looped Transformer is not sufficiently quantified in the paper **:warning:**
 - BOSS Zhipin's product domain (resume analysis, job matching) may bias the training data toward specific task distributions — watch for generalization issues when transferring to other domains
 
 ### Reviewer's One-Liner
 
-The benchmark numbers are eye-catching, but all self-reported and concentrated on coding tasks, raising questions about cherry-picked comparisons **⚠️**; whether the Looped Transformer advantage comes from the architecture itself or from training data diversity is unclear due to insufficient ablation studies. Overall a solid engineering paper, but not a technical breakthrough.
+The benchmark numbers are eye-catching, but all self-reported and concentrated on coding tasks, raising questions about cherry-picked comparisons **:warning:**; whether the Looped Transformer advantage comes from the architecture itself or from training data diversity is unclear due to insufficient ablation studies. Overall a solid engineering paper, but not a technical breakthrough.
 
 ### Your Takeaway
 

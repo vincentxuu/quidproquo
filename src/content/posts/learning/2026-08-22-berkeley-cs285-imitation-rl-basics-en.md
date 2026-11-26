@@ -13,7 +13,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
+> :globe: [中文版](/posts/learning/2026-08-22-berkeley-cs285-imitation-rl-basics)
 
 **Video status: Videos included.** [Source details](#course-video-sources)
 

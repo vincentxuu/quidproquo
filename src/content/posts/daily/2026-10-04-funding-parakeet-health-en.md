@@ -12,7 +12,7 @@ series:
   order: 65
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-04-funding-parakeet-health)
+> :globe: [中文版](/posts/daily/2026-10-04-funding-parakeet-health)
 
 ## Deal Terms
 

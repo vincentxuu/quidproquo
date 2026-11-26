@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [中文版](/posts/tech/2026-08-22-lambda-cloud-gpu)
+> :globe: [中文版](/posts/tech/2026-08-22-lambda-cloud-gpu)
 
 [Lambda Cloud](https://docs.lambda.ai/public-cloud/) centers on Linux GPU VMs and multi-node 1-Click Clusters. One instance fits notebooks, fine-tuning, and prototype inference. Clusters can use Kubernetes or Slurm for distributed training and larger serving systems.
 
@@ -33,9 +33,13 @@ Understand stop, termination, and storage lifecycles before shutting down. Do no
 
 ## Comparing GPU clouds
 
-Lambda Cloud fits teams wanting direct VMs or clusters and able to own Linux, training, or serving stacks. Compare CoreWeave or Nebius for broader Kubernetes platforms, RunPod for scattered experimental capacity, and Replicate for model APIs.
+Lambda Cloud fits teams wanting direct VMs or clusters and able to own Linux, training, or serving stacks. Compare CoreWeave or Nebius for broader Kubernetes platforms, Runpod for scattered experimental capacity, and Replicate for model APIs.
 
 Validate regional hardware capacity, reservations, interconnect, shared storage, egress, support, and quotas. Run the same container, dataset shard, and checkpoint end to end. Compare cost per useful training step or thousand successful inferences, not the listed GPU-hour alone.
+
+## Update log
+
+- 2026-11-23: Updated the company name to its current styling, Runpod (rebranded from RunPod in June 2025).
 
 ## References
 

@@ -12,7 +12,7 @@ series:
   order: 55
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-15-tool-agentconfig-doctor-en)
+> :globe: [English version](/posts/daily/2026-10-15-tool-agentconfig-doctor-en)
 
 ## 工具資訊
 
@@ -71,11 +71,11 @@ README 也附了只需要 `contents: read`、不用任何 secret 的 GitHub Acti
 
 | | AgentConfig Doctor | 通用 secret scanner（gitleaks 等） | 手動 code review |
 |---|---|---|---|
-| 抓外洩金鑰 | ✅ | ✅ | 看人 |
-| 認得 MCP／agent 設定結構（server、hook、allow 規則） | ✅ | ❌ | 看人 |
-| 抓危險組合（如自動啟用所有專案 MCP server） | ✅ | ❌ | 容易漏 |
-| 跟基準比對權限變化 | ✅ | ❌ | ❌ |
-| 不執行被掃描的內容、可在 fork PR 上跑 | ✅ | ✅ | — |
+| 抓外洩金鑰 | ✓ | ✓ | 看人 |
+| 認得 MCP／agent 設定結構（server、hook、allow 規則） | ✓ | ✗ | 看人 |
+| 抓危險組合（如自動啟用所有專案 MCP server） | ✓ | ✗ | 容易漏 |
+| 跟基準比對權限變化 | ✓ | ✗ | ✗ |
+| 不執行被掃描的內容、可在 fork PR 上跑 | ✓ | ✓ | — |
 
 ## 注意事項
 

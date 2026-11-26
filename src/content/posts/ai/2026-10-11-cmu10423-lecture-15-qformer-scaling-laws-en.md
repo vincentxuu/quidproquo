@@ -12,7 +12,7 @@ draft: false
 description: "Trace Q-Former queries and two-stage training, then compute a model/data split under a fixed compute budget."
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)
+> :globe: [中文版](/posts/ai/2026-10-11-cmu10423-lecture-15-qformer-scaling-laws)
 
 **Video status: recordings require login or course authorization.** [Sources](#course-video-sources)
 

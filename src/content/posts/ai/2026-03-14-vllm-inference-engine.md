@@ -23,7 +23,7 @@ vLLM 最核心的創新是 **PagedAttention**，靈感來自作業系統的虛�
 
 PagedAttention 的做法：
 
-- 把 KV cache 切成固定大小的 **block**（預設 16 tokens/block）
+- 把 KV cache 切成固定大小的 **block**（v0.34 起 CUDA 上預設 64 tokens/block，之前是 16）
 - 每個 request 維護一張 **block table**，把邏輯 block 對應到散落在 GPU 記憶體各處的實體位置
 - 模型以為自己在讀連續記憶體，實際上是透過 block table 做間接定址
 
@@ -64,15 +64,15 @@ V1 引擎把 prefix caching **預設開啟且零額外開銷**。即使 cache hi
 |---|---|---|---|---|
 | 定位 | 生產級 GPU serving | 生產級 GPU serving | NVIDIA 極致效能 | 本地 / 邊緣 / CPU |
 | 易用性 | 高 | 高 | 低（需手動調優） | 非常高 |
-| 硬體支援 | NVIDIA, AMD, Intel, TPU | NVIDIA, AMD | 僅 NVIDIA | CPU, Apple Silicon, GPU |
+| 硬體支援 | NVIDIA, AMD, Intel, TPU | NVIDIA, AMD, TPU, Apple Silicon 等 | 僅 NVIDIA | CPU, Apple Silicon, GPU |
 | Throughput | 非常高 | 非常高 | 最高（NVIDIA 上） | 中等 |
-| 社群 | 最大（74.7k stars） | 快速成長中 | 企業支持 | 非常大 |
+| 社群 | 最大（97k stars） | 快速成長中 | 企業支持 | 非常大 |
 
 幾個重點：
 
 - **SGLang** 是 vLLM 目前最接近的競爭者。SGLang 的 RadixAttention 在多輪對話場景有 10-20% 優勢，但 vLLM V1 的 prefix caching 已經大幅縮小差距。
 - **TensorRT-LLM** 在 NVIDIA 硬體上的單一 request 延遲最低，但設定複雜度高很多，而且只支援 NVIDIA。
-- **Hugging Face TGI** 已在 2025 年 12 月進入維護模式，官方建議改用 vLLM 或 SGLang。
+- **Hugging Face TGI** 已在 2025 年 12 月進入維護模式，2026 年 3 月 GitHub repo 封存，官方建議改用 vLLM 或 SGLang。
 - **llama.cpp / Ollama** 適合本地開發；常見的 2026 pipeline 是 Ollama 開發、vLLM 上線。
 
 ## 基本使用方式
@@ -82,7 +82,7 @@ V1 引擎把 prefix caching **預設開啟且零額外開銷**。即使 cache hi
 ```python
 from vllm import LLM, SamplingParams
 
-llm = LLM(model="meta-llama/Llama-3.1-8B-Instruct")
+llm = LLM(model="Qwen/Qwen3.5-9B")
 
 sampling_params = SamplingParams(
     temperature=0.7,
@@ -104,7 +104,7 @@ for output in outputs:
 啟動 server：
 
 ```bash
-vllm serve meta-llama/Llama-3.1-8B-Instruct
+vllm serve Qwen/Qwen3.5-9B
 ```
 
 用 OpenAI SDK 呼叫：
@@ -118,7 +118,7 @@ client = OpenAI(
 )
 
 response = client.chat.completions.create(
-    model="meta-llama/Llama-3.1-8B-Instruct",
+    model="Qwen/Qwen3.5-9B",
     messages=[
         {"role": "user", "content": "What is PagedAttention?"}
     ]
@@ -131,10 +131,10 @@ print(response.choices[0].message.content)
 ### 多 GPU 推論
 
 ```bash
-vllm serve meta-llama/Llama-3.3-70B-Instruct --tensor-parallel-size 4
+vllm serve Qwen/Qwen3.8-27B --tensor-parallel-size 2
 ```
 
-70B 模型跑 4 張 GPU，一行搞定。
+27B 稠密模型切到 2 張 GPU，一行搞定。
 
 ## 2026 年的 vLLM
 
@@ -146,7 +146,11 @@ V1 是完整的架構重寫：
 - **統一排程**：移除 prefill / decode 的階段區分，所有 token 統一處理
 - **Persistent batch**：input tensor 透過 NumPy 快取並增量更新，不再每次用 Python 重建
 
-V1 在 Llama 3.1 8B 和 3.3 70B 上比 V0 **throughput 提升最高 1.7 倍**。
+V1 在 Llama 3.1 8B 和 3.3 70B 上比 V0 **throughput 提升最高 1.7 倍**。V0 之後被整個移除；2026-11 的 v0.34.0 再拿掉舊的 Model Runner V1，GPU 上只剩 Model Runner V2。
+
+### 自動配置的 KV cache（v0.34 起預設）
+
+v0.34.0 把 extensible KV cache 改成預設：KV cache 的大小改依 CUDA graph 擷取與暖機**之後**實際剩下的記憶體來決定，不再靠事先估算，`gpu_memory_utilization` 預設變成 1.0。官方的建議是多數情況直接拿掉這個參數，只有要和其他程式共用 GPU 時才設。代價是某些模型在高併發下每個 token 的解碼延遲會變高，不想要可以加 `--no-enable-extensible-kv-cache`。升級前另外要注意 block size 預設改成 64、PyPI 版只附 CUDA 13 的 wheel。
 
 ### Speculative Decoding
 
@@ -166,7 +170,11 @@ vLLM 的核心取捨是：**用工程複雜度換取記憶體效率和吞吐量*
 
 適合的場景：需要高併發、多使用者的 LLM 服務，特別是有 GPU 的生產環境。如果你只是本地跑個模型聊天，Ollama 更簡單；如果你在 NVIDIA 硬體上追求極致延遲且願意花時間調優，TensorRT-LLM 可能更快。但對大多數團隊來說，vLLM 是 2026 年自架 LLM 的預設選擇。
 
-背景：vLLM 由 UC Berkeley Sky Computing Lab 的 Woosuk Kwon 等人在 2023 年創建，目前由 PyTorch Foundation 管理。團隊成立了 Inferact 公司，拿到 a16z 和 Lightspeed 領投的 1.5 億美元種子輪，估值 8 億美元。GitHub 上有 74,700+ stars、2,000+ contributors。
+背景：vLLM 由 UC Berkeley Sky Computing Lab 的 Woosuk Kwon 等人在 2023 年創建，目前由 PyTorch Foundation 管理。團隊成立了 Inferact 公司，拿到 a16z 和 Lightspeed 領投的 1.5 億美元種子輪，估值 8 億美元。GitHub 上有 97,000+ stars，v0.34.0 一版就有 412 位貢獻者。
+
+## 更新紀錄
+
+- 2026-11-23：依 v0.34.0 更新 block size 預設值（16→64）、補上 Model Runner V1 移除與 extensible KV cache 預設開啟；比較表補上 SGLang 的新硬體支援與 stars；TGI 補上 repo 封存；範例模型從 Llama 3.x 換成 Qwen3.5-9B 與 Qwen3.8-27B。
 
 ---
 
@@ -175,6 +183,7 @@ vLLM 的核心取捨是：**用工程複雜度換取記憶體效率和吞吐量*
 - [Efficient Memory Management for Large Language Model Serving with PagedAttention (arXiv:2309.06180)](https://arxiv.org/abs/2309.06180)
 - [vLLM 官方文件](https://docs.vllm.ai/en/latest/)
 - [vLLM GitHub Repository](https://github.com/vllm-project/vllm)
+- [vLLM v0.34.0 Release Notes](https://github.com/vllm-project/vllm/releases/tag/v0.34.0)
 - [vLLM V1 Alpha Release Blog](https://vllm.ai/blog/v1-alpha-release)
 - [vLLM Performance Dashboard](https://docs.vllm.ai/en/latest/benchmarking/dashboard/)
 - [Speculators Library](https://github.com/vllm-project/speculators)

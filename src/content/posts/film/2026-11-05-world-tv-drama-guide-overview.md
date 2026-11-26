@@ -22,7 +22,7 @@ glossary:
     context: "跟美國那種一演幾十年的日間肥皂劇不同，telenovela 有預定的結局。"
 ---
 
-> 🌏 [English version](/posts/film/2026-11-05-world-tv-drama-guide-overview-en)
+> :globe: [English version](/posts/film/2026-11-05-world-tv-drama-guide-overview-en)
 
 打開串流平台，首頁同時擺著美劇、韓劇、日劇、陸劇，每一部都說自己是話題之作。這個系列要幫你做兩件事：先知道各國的劇在「要花多少時間」「會不會一直續」「尺度到哪」上差在哪，再拿到一份每國都有、附推薦來源和台灣合法串流連結的片單。
 

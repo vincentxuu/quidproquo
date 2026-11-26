@@ -12,7 +12,7 @@ series:
   order: 10
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-25-tool-mcp-guardrail-en)
+> :globe: [English version](/posts/daily/2026-08-25-tool-mcp-guardrail-en)
 
 ## 工具資訊
 
@@ -97,10 +97,10 @@ rules:
 
 | | mcp-guardrail | 直接裸接 real server | 通用 secret scanner（gitleaks 等） | Host 原生工具權限設定 |
 |---|---|---|---|---|
-| Tool 層級 allow/deny policy | ✅（glob pattern） | ❌ | ❌（不懂 MCP 語意） | 依 host 而異，通常較粗 |
-| 呼叫稽核紀錄可事後查 | ✅（本機 JSONL） | ❌ | ❌ | 多數 host 沒有獨立可攜出的稽核檔 |
-| 針對 MCP config 的密鑰掃描 | ✅ | ❌ | 部分（通用 pattern,非 MCP 專用啟發） | ❌ |
-| 換 MCP client 仍可沿用同一份設定 | ✅（proxy 層,與 host 無關） | — | — | ❌（權限設定綁在特定 host） |
+| Tool 層級 allow/deny policy | ✓（glob pattern） | ✗ | ✗（不懂 MCP 語意） | 依 host 而異，通常較粗 |
+| 呼叫稽核紀錄可事後查 | ✓（本機 JSONL） | ✗ | ✗ | 多數 host 沒有獨立可攜出的稽核檔 |
+| 針對 MCP config 的密鑰掃描 | ✓ | ✗ | 部分（通用 pattern,非 MCP 專用啟發） | ✗ |
+| 換 MCP client 仍可沿用同一份設定 | ✓（proxy 層,與 host 無關） | — | — | ✗（權限設定綁在特定 host） |
 | 需要額外服務或帳號 | 不需要,純 CLI | — | 不需要 | 不需要 |
 
 ## 注意事項

@@ -12,7 +12,7 @@ series:
   order: 2
 ---
 
-> 🌏 [中文版](/posts/daily/2026-08-16-security-deadbugz-mcp-supply-chain)
+> :globe: [中文版](/posts/daily/2026-08-16-security-deadbugz-mcp-supply-chain)
 
 ## Incident Overview
 

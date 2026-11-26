@@ -9,7 +9,7 @@ tldr: "Saw a trading post about going from NT$150k to NT$2.4M in half a year. Di
 description: "Starting from a post about a 16x return in six months, this explains what warrants, stock futures, maintenance margin ratio, and position scaling actually mean."
 ---
 
-> 🌏 [中文版](/posts/investing/2026-06-21-trading-performance-stock-futures)
+> :globe: [中文版](/posts/investing/2026-06-21-trading-performance-stock-futures)
 
 I recently came across a post where someone said they went from NT$150,000 to NT$2,400,000 in six months of trading.
 

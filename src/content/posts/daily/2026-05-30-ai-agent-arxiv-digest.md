@@ -11,9 +11,9 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 6
 ---
-> 🌏 [English version](/posts/daily/2026-05-30-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-05-30-ai-agent-arxiv-digest-en)
 
-[!callout icon="📌" color="blue_background"]
+[!callout icon=":pin:" color="blue_background"]
 ## 今日總覽
 
 今天三篇分別從「設計語言」、「安全地圖」、「認知侷限」三個面向挑戰 AI Agent 實務：第一篇建立雙軸分類框架，讓工程師和研究者有共同語言溝通 agent 架構的設計取捨；第二篇系統整理 agentic AI 在工具呼叫、記憶體、多步驟執行中的安全與隱私風險全景；第三篇最具衝擊——用近 4 萬個 AI 生成想法的大規模實驗揭示，AI 研究 agent 傾向圍著舊文獻打轉而非真正拓寬科學探索。
@@ -37,18 +37,18 @@ series:
 
 **作者**: Jia Huang、Joey Tianyi Zhou（A*STAR & CFAR, Singapore）　·　arxiv**: 2605.13850
 **連結**: [arxiv](https://arxiv.org/abs/2605.13850) · [alphaxiv](https://www.alphaxiv.org/abs/2605.13850)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 業界教你「怎麼接線」，學術界教你「agent 在想什麼」——這篇說兩個都要，並提出雙軸框架幫你把兩種語言對起來。
-[!callout icon="📖" color="green_background"]
+[!callout icon=":book:" color="green_background"]
 
 ### Read Priority
 
 略讀
 適合打算設計或評估 agent 架構的 PM / 架構師；是一張「對話用的地圖」，幫你和隊友用同一套詞彙討論「我們的 agent 在哪個格子裡」。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -73,17 +73,17 @@ LangGraph、AutoGen 等 framework 的圖表，都在講「資料怎麼流」（O
 
 - **7 類 Cognitive Function**：Context Engineering（管理 prompt 脈絡）、Memory（短期 / 長期記憶）、Reasoning（思考鏈）、Action（工具呼叫）、Reflection（自我評估）、Collaboration（多 agent 互動）、Governance（安全 / 稽核）
 - **6 種 Execution Topology**：Chain（串行）、Route（條件分支）、Parallel（並行）、Orchestrate（主控 + 工作者）、Loop（迴圈重試）、Hierarchy（多層委派）
-- 論文為純分類 / 概念框架，無實驗驗證——框架的「正確性」來自對既有文獻的系統整理，非量化評估 ⚠️
+- 論文為純分類 / 概念框架，無實驗驗證——框架的「正確性」來自對既有文獻的系統整理，非量化評估 :warning:
 - 與 Anthropic 官方《Building Effective Agents》、Google 白皮書、LangChain 教學的分類直接對比，點出各家只看拓樸維度的侷限
 - Governance 被列為獨立 cognitive function 類別，是少數把「安全管控」視為 agent 設計一等公民的分類方法
 - 落地應用：可直接當 code review checklist，檢查 agent PR 的 cognitive function 是否和 execution topology 設計一致
 - 機構背景：A*STAR（新加坡科技研究局）+ CFAR（前沿 AI 研究中心），新加坡國家級 AI 研究體系
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 框架清晰有說服力，填補業界與學術語言不對齊的真實空缺；但純分類論文缺乏實驗，框架好不好用、有沒有漏例，讀者需自行用自己的 agent 案例驗證——整體是「概念整合貢獻」而非「實證研究貢獻」，有其獨特價值但勿過度解讀。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 
@@ -97,18 +97,18 @@ LangGraph、AutoGen 等 framework 的圖表，都在講「資料怎麼流」（O
 
 **作者**: Jinhu Qi、Muzhi Li、Jiahong Liu、Yuqin Shu、Dianzhi Yu、Shicheng Ma、Wenqian Cui、Yiyang Zhao、Yiyi Chen、Ruoxi Jiang、Irwin King（CUHK）、Zenglin Xu　·　**arxiv**: 2605.23989
 **連結**: [arxiv](https://arxiv.org/abs/2605.23989) · [alphaxiv](https://www.alphaxiv.org/abs/2605.23989)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 agentic AI 會自己呼叫工具、存取記憶體、多步驟執行——這些能力讓它比純 LLM 更危險。這篇是把這些新型風險系統整理成「風險地圖」的 survey。
-[!callout icon="📖" color="green_background"]
+[!callout icon=":book:" color="green_background"]
 
 ### Read Priority
 
 略讀
 最適合當參考書：不用整篇讀完，遇到「我的 agent 要怎麼做資安審查？」時，翻這篇的分類框架找對應的威脅與緩解策略。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -136,17 +136,17 @@ Survey 從兩個核心維度切入 agentic AI 的信任問題：
 
 - **Agent 特有攻擊面**：Prompt Injection（注入在外部資料裡的惡意指令）、Memory Poisoning（污染 agent 長期記憶）、Tool Misuse（誘使 agent 呼叫非預期的工具參數）、Data Exfiltration（透過工具呼叫滲漏資料）
 - Agent workflow 各階段都有對應風險：規劃階段（goal hijacking）、工具選擇（tool substitution attack）、執行階段（side-channel leakage）、記憶讀寫（memory poisoning）
-- 論文為 survey，無新技術貢獻——其價值在分類完整性與廣度，而非新演算法 ⚠️
+- 論文為 survey，無新技術貢獻——其價值在分類完整性與廣度，而非新演算法 :warning:
 - 12 位作者包含 CUHK 的 Irwin King（知名 AI 安全研究者），機構背景可信
 - 緩解策略方面，MCP 的 permission model 與 tool sandboxing 是值得對照閱讀的實務解法
-- 尚未充分涵蓋：agent 間信任傳播（multi-agent 系統中一個 agent 被攻陷的連鎖效應）⚠️
+- 尚未充分涵蓋：agent 間信任傳播（multi-agent 系統中一個 agent 被攻陷的連鎖效應）:warning:
 - 可搭配 OWASP LLM Top 10 2025 一起閱讀，後者涵蓋更多落地防禦技術細節
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 分類框架清楚、填補了明確空缺，但 survey 本身難逃「廣而不深」的問題；對已熟悉 LLM 安全的讀者，部分章節只是把舊知識貼上新標籤——真正值得細讀的是那幾個 agent-specific 的新攻擊向量，其他當參考書查就夠了。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 
@@ -160,18 +160,18 @@ Survey 從兩個核心維度切入 agentic AI 的信任問題：
 
 **作者**: Yixuan Tang、Yi Yang　·　**arxiv**: 2605.27905
 **連結**: [arxiv](https://arxiv.org/abs/2605.27905) · [alphaxiv](https://www.alphaxiv.org/abs/2605.27905)
-[!callout icon="🎯" color="yellow_background"]
+[!callout icon=":target:" color="yellow_background"]
 
 ### TL;DR
 
 AI 研究 agent 生成的想法比人類更集中、更接近舊文獻、且更不可能被後來研究引用——大規模實驗顯示 AI 擅長「在已知附近深挖」，不擅長「真正往未知方向探索」。
-[!callout icon="⭐" color="green_background"]
+[!callout icon="★" color="green_background"]
 
 ### Read Priority
 
 必讀
 任何在用 AI agent 輔助研究、idea generation 或產品發現的人都該讀：這是第一份大規模量化「AI 研究 agent 如何影響探索範圍」的實驗，結論直接影響你對這類工具的使用策略。
-[!callout icon="🧭" color="gray_background"]
+[!callout icon=":compass:" color="gray_background"]
 
 ### 領域背景
 
@@ -197,20 +197,20 @@ AI Scientist、ResearchAgent 等工具讓人興奮的地方在於「規模化創
 - **4 個跨框架、跨模型一致出現的模式**：
 1. AI 想法的語意集中度顯著高於同領域人類論文
 1. AI 想法在向量空間中比人類後續研究更靠近 seed 文獻
-1. 與 AI 想法最相似的論文，後來引用次數偏低 ⚠️（相關性，不代表因果）
+1. 與 AI 想法最相似的論文，後來引用次數偏低 :warning:（相關性，不代表因果）
 1. AI 想法和既有研究的差異，主要來自「技術方法重組」而非「提出新研究問題」
 - 37,802 個想法是目前此類研究最大規模資料集，涵蓋多個 AI/ML 子領域，統計可信度高
-- **結論的邊界**：seed 文獻只來自 AI/ML，是否適用於生物、材料等領域尚未知 ⚠️
-- 使用的 4 個框架未在摘要具名（正文應有細節），可重現性需待讀者確認 ⚠️
+- **結論的邊界**：seed 文獻只來自 AI/ML，是否適用於生物、材料等領域尚未知 :warning:
+- 使用的 4 個框架未在摘要具名（正文應有細節），可重現性需待讀者確認 :warning:
 - 研究意涵：現有 agent 架構更像 RL 中的「exploiting」（在已知附近深挖），缺乏「exploring」（往未知方向走）的設計
 - 與 LangChain / AutoGen 的 research assistant 範例直接相關：那些「讓 agent 幫你 survey 文獻」的 recipe，可能有系統性的探索盲點
 - 對 agent 平台設計的啟示：research agent 需顯式設計 diversity-seeking 機制（例如 diversity penalty、多 seed 組合策略）
-[!callout icon="🧐" color="purple_background"]
+[!callout icon="" color="purple_background"]
 
 ### Reviewer 一句話評
 
 研究設計紮實，樣本量夠大，4 個模式跨框架跨模型一致出現讓結論說服力很強；唯一要注意的是「AI 想法和低引用論文相似」的發現可能有 reverse causality（低引用也可能是因為「難做」）——整體是今天最值得書籤的一篇，empirical finding 清晰，平台 implication 直接。
-[!callout icon="🎬" color="orange_background"]
+[!callout icon=":film:" color="orange_background"]
 
 ### 給你的 take-away
 

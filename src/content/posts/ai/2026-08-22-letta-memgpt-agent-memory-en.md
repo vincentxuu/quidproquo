@@ -10,7 +10,7 @@ description: "From the MemGPT paper to current Letta: memory blocks, conversatio
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-08-22-letta-memgpt-agent-memory)
+> :globe: [中文版](/posts/ai/2026-08-22-letta-memgpt-agent-memory)
 
 [Letta](https://docs.letta.com/) is a runtime for stateful agents; MemGPT is its research origin and former name. The central analogy treats the context window as RAM, allowing an agent to decide what stays resident, what moves to external memory, and when to retrieve it.
 

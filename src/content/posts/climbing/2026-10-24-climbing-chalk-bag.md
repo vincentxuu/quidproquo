@@ -30,7 +30,7 @@ glossary:
     context: "有人用鉤環把粉袋掛在這個環上，代替粉袋附的腰帶。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-24-climbing-chalk-bag-en)
+> :globe: [English version](/posts/climbing/2026-10-24-climbing-chalk-bag-en)
 
 粉袋是裝止滑粉的小袋子，綁在腰上，爬到一半手滑了，伸手進去補一把。它通常和攀岩鞋同一批買：岩館一次租 NT$80（[原岩萬華店價目表](https://tupclimbing.tw/pricing/84)，2026-10-19 查），常去的話，買一個比租划算。放在地上、開口更大的叫粉桶，抱石的人常用。
 

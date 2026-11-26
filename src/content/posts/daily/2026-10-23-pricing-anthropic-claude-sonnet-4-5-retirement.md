@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement-en)
+> :globe: [English version](/posts/daily/2026-10-23-pricing-anthropic-claude-sonnet-4-5-retirement-en)
 
 ## 變更摘要
 
@@ -75,7 +75,7 @@ Sonnet 5.5 退役後接手的定位，跟 GPT-6 Sol 卡在完全相同的 $2/$10
 
 ## 時效提醒（如有促銷/sunset）
 
-⚠️ **停用日期**：2026-11-30。`claude-sonnet-4-5-20250929`（含別名 `claude-sonnet-4-5`）在 Claude API、Claude Platform on AWS、Microsoft Foundry 上停止回應請求，無寬限期。Amazon Bedrock 與 Google Cloud 各自訂時程，需另查對應 model table。遷移指南：[Claude Sonnet 5.5 Migration Guide](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide)。
+:warning: **停用日期**：2026-11-30。`claude-sonnet-4-5-20250929`（含別名 `claude-sonnet-4-5`）在 Claude API、Claude Platform on AWS、Microsoft Foundry 上停止回應請求，無寬限期。Amazon Bedrock 與 Google Cloud 各自訂時程，需另查對應 model table。遷移指南：[Claude Sonnet 5.5 Migration Guide](https://platform.claude.com/docs/en/models/sonnet-5-5/migration-guide)。
 
 ## 今日收穫
 

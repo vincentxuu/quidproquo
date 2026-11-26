@@ -12,7 +12,7 @@ series:
   order: 27
 ---
 
-> 🌏 [中文版](/posts/daily/2026-09-11-tool-dart-skills-cli)
+> :globe: [中文版](/posts/daily/2026-09-11-tool-dart-skills-cli)
 
 ## Tool Info
 
@@ -81,11 +81,11 @@ skills remove serverpod
 
 | | skills (Dart) | `npx skills` (skills.sh, Vercel Labs) | Hand-written CLAUDE.md / .cursorrules |
 |---|---|---|---|
-| Auto-discovers skills via the project's own dependency tree | ✅ | ❌ (each source named explicitly) | ❌ |
-| One command installs every dependency's skills | ✅ `skills get` | Partial (run `add` per source) | ❌ |
-| Auto-detects and writes to the right IDE directory | ✅ (7 tools) | ✅ | Manual |
-| Cleans up skills after a dependency is removed | ✅ `skills prune` | ❌ | Manual |
-| Cross-language public skill marketplace | ❌ (can pull GitHub registries, still Dart-centric) | ✅ (skills.sh indexes 70K+ public skills) | ❌ |
+| Auto-discovers skills via the project's own dependency tree | ✓ | ✗ (each source named explicitly) | ✗ |
+| One command installs every dependency's skills | ✓ `skills get` | Partial (run `add` per source) | ✗ |
+| Auto-detects and writes to the right IDE directory | ✓ (7 tools) | ✓ | Manual |
+| Cleans up skills after a dependency is removed | ✓ `skills prune` | ✗ | Manual |
+| Cross-language public skill marketplace | ✗ (can pull GitHub registries, still Dart-centric) | ✓ (skills.sh indexes 70K+ public skills) | ✗ |
 
 `npx skills` follows an npm-style package-manager model: a skill's source is any GitHub repo, and you need to know that repo's name to `add` it. `skills` (Dart) instead ties a skill to the package's own dependency relationship — as long as your project depends on the package, `skills get` pulls its skill along automatically, with no separate skill manifest to maintain.
 

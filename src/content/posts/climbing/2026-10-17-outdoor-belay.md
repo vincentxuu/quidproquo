@@ -26,7 +26,7 @@ glossary:
     context: "本文用在起攀點狹窄、或攀爬者明顯比確保者重的情況。"
 ---
 
-> 🌏 [English version](/posts/climbing/2026-10-17-outdoor-belay-en)
+> :globe: [English version](/posts/climbing/2026-10-17-outdoor-belay-en)
 
 在岩館，你會確保、會下放，也通過了確保考試。第一次跟朋友去戶外岩場，動作一樣，周圍的條件全變了。地面不是軟墊，頭上可能掉石頭。牆有多高要自己查，對方在 30 公尺上方喊什麼，你可能聽不到。
 

@@ -25,7 +25,7 @@ glossary:
     context: "投影片用「the the the the the the」只拿到 1/6 的例子說明。"
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en)
+> :globe: [English version](/posts/ai/2026-09-30-nthu-nlp-decoding-evaluation-en)
 
 **影片狀態：已附影片。** [影片來源與說明](#課程影片來源)
 

@@ -14,7 +14,7 @@ description: "台大李宏毅《機器學習 2026 Spring》系列入口：三段
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
+> :globe: [English version](/posts/ai/2026-09-30-ntu-ml2026-course-overview-en)
 
 **影片狀態：已附影片。** 導言附課程簡介（27 分鐘），各講錄影在各講導讀。[影片來源與說明](#課程影片來源)
 

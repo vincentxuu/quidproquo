@@ -13,7 +13,7 @@ description: "建立 Crawl4AI、Firecrawl、Jina Reader 與 Mozilla Readability 
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-08-22-web-extraction-quality-benchmark-en)
+> :globe: [English version](/posts/ai/2026-08-22-web-extraction-quality-benchmark-en)
 
 > **已發布的實測規格。** 本文已固定 20 個 URL、輸出 contract、評分 rubric 與失敗分類，但 2026-08-22 的環境沒有 `FIRECRAWL_API_KEY`，也尚未把四條 adapter 鎖在同一次 raw run。沒有 raw artifacts 就沒有排名；結果表要等同版本 raw run 完成後再補。
 

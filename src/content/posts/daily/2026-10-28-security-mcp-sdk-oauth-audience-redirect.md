@@ -11,7 +11,7 @@ series:
   order: 66
 ---
 
-> 🌏 [English version](/posts/daily/2026-10-28-security-mcp-sdk-oauth-audience-redirect-en)
+> :globe: [English version](/posts/daily/2026-10-28-security-mcp-sdk-oauth-audience-redirect-en)
 
 ## 事件概述
 

@@ -12,7 +12,7 @@ series:
   order: 108
 ---
 
-> 🌏 [中文版](/posts/daily/2026-10-26-funding-azoma)
+> :globe: [中文版](/posts/daily/2026-10-26-funding-azoma)
 
 ## Funding Snapshot
 

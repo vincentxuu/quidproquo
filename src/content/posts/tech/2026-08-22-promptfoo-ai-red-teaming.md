@@ -13,7 +13,7 @@ series:
 draft: false
 ---
 
-> 🌏 [English version](/posts/tech/2026-08-22-promptfoo-ai-red-teaming-en)
+> :globe: [English version](/posts/tech/2026-08-22-promptfoo-ai-red-teaming-en)
 
 [Promptfoo red teaming](https://www.promptfoo.dev/docs/red-team/quickstart/) 把生成式 AI 攻擊測試拆成四塊：plugin 定義要測的 weakness，strategy 決定如何包裝/迭代 payload，target 是模型或完整 application endpoint，grader 判斷是否突破 policy。這篇聚焦 security workflow；站上既有 Promptfoo 一般 evaluation 文章處理的是較廣的 prompt/model 比較。
 
@@ -27,13 +27,17 @@ Strategies 從 base64、jailbreak templates 等 static transformation，到 iter
 
 只把 system prompt 丟給模型，測不到 retrieval ACL、tool argument validation、user/tenant isolation 或 sandbox egress。Staging target 應使用 synthetic accounts/data、mock 或 reversible tools、最小 credentials；真實 send/delete/payment 不得被 red-team suite 觸發。Coding-agent test 要比對 protected file hash、filesystem diff、commands、network 與 verifier evidence。
 
-Promptfoo 的 attack generation/grading provider 與 target provider 是分開的。部分 community plugins 可能使用 remote generation endpoint；敏感 system prompt、policy、attack transcript 或 customer data 是否外送要依 plugin/provider 設定查清，可配置自有 provider或禁止 remote generation。Scanner local execution 不等於所有 inference 都 local。
+Promptfoo 的 attack generation/grading provider 與 target provider 是分開的。部分 community plugins 可能使用 remote generation endpoint；敏感 system prompt、policy、attack transcript 或 customer data 是否外送要依 plugin/provider 設定查清，可配置自有 provider或禁止 remote generation。Scanner local execution 不等於所有 inference 都 local。2026-03 OpenAI 宣布收購 Promptfoo，雙方承諾繼續維護開源版；走 Promptfoo 託管服務的攻擊產生與評分，資料的接收方因此也要重新放進評估，詳見 [Promptfoo 評測篇](/posts/ai/2026-08-22-promptfoo-llm-evaluation)。
 
 ## Pass rate 不是安全分數
 
 LLM grader 有 false positive/negative，先對一組人工標註 cases 校準。每個 confirmed exploit 固化成 deterministic regression case，PR 跑低成本高訊號 subset，nightly 跑 dynamic/multi-turn，release 前人工 attack。Gate 可用「已知 critical regression 不得復發」，不要因隨機 pass-rate 小幅波動封鎖全部部署。
 
 Promptfoo 找得到 attack path，Model Armor 是 runtime filter，sandbox/authorization 限制成功攻擊的影響。修補後要問控制落在哪一層：prompt、retrieval filter、tool schema、permission、confirmation、network policy或 output filter，並用原 attack重跑。
+
+## 更新紀錄
+
+- 2026-11-23：補上 2026-03 OpenAI 宣布收購 Promptfoo，以及它對 remote generation 資料去向評估的影響
 
 ## 參考資料
 
@@ -44,3 +48,5 @@ Promptfoo 找得到 attack path，Model Armor 是 runtime filter，sandbox/autho
 - [Strategies](https://www.promptfoo.dev/docs/red-team/strategies/)
 - [Agent and RAG red-team guides](https://www.promptfoo.dev/docs/red-team/guides/)
 - [Coding-agent plugins](https://www.promptfoo.dev/docs/red-team/plugins/coding-agent/)
+- [OpenAI to acquire Promptfoo](https://openai.com/index/openai-to-acquire-promptfoo/)
+- [Promptfoo is joining OpenAI](https://www.promptfoo.dev/blog/promptfoo-joining-openai/)

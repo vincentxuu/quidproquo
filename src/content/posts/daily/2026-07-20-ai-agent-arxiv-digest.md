@@ -11,7 +11,7 @@ series:
   name: "AI Agent Arxiv Digest"
   order: 57
 ---
-> 🌏 [English version](/posts/daily/2026-07-20-ai-agent-arxiv-digest-en)
+> :globe: [English version](/posts/daily/2026-07-20-ai-agent-arxiv-digest-en)
 
 ## 今日總覽
 
@@ -135,7 +135,7 @@ BPO 把「在哪裡做比較」這件事，從「每次從頭開始」改成「�
 - **與 GRPO 的差異**：GRPO 是「對同一個 prompt 跑 G 條獨立軌跡再算 group mean advantage」；BPO 是「在一條軌跡執行途中找到高熵點，只在那邊分叉 K 次」，比較發生在任務最重要的地方
 - **適用場景**：最適合長水平（long-horizon）且有真實 sandbox 環境的 agent 訓練——coding agent、terminal agent、tool-use agent
 - **Sandbox snapshot 的技術需求**：快照並恢復整個 sandbox（含進行中的執行狀態）需要對基礎設施有一定控制，是導入成本的主要來源
-- **已被 WAIC Academic 2026 接受**，但目前未找到 SWE-bench 等主流 benchmark 的詳細數字 **⚠️**（需讀全文確認實驗規模與結果）
+- **已被 WAIC Academic 2026 接受**，但目前未找到 SWE-bench 等主流 benchmark 的詳細數字 **:warning:**（需讀全文確認實驗規模與結果）
 - **Limitation**：會議論文形式，實驗規模有限；高熵點偵測的準確性與 snapshot overhead 對整體訓練成本的影響尚不清楚
 
 ### Reviewer 一句話評
@@ -192,7 +192,7 @@ Position paper：以電網研究為案例，展示如何用 MCP（Model Context 
 - **MCP 作為中間層的核心價值**：MCP 讓 agent 能動態發現工具（不需要在 system prompt 硬編碼所有工具清單），且工具更新時 agent 端不需要改動，降低維護成本
 - **Hierarchical multi-agent 模式**：orchestrator agent 負責任務分解，specialist agents 各自執行特定仿真步驟——這是標準的分層 multi-agent 模式，在電網場景獲得具體落地案例
 - **Human-in-the-loop 設計**：電網場景要求工程師在特定審批點介入，論文討論如何在 MCP 協議中設計這些「暫停點」讓 agent 等待人工確認再繼續
-- **這是 Position Paper** **⚠️**：無大量實驗數據，是作者對架構方向的主張，已被 IJCAI AISE 2026 workshop 接受
+- **這是 Position Paper** **:warning:**：無大量實驗數據，是作者對架構方向的主張，已被 IJCAI AISE 2026 workshop 接受
 - **對 LangGraph / AutoGen 的啟示**：這篇展示的 MCP-native multi-agent 模式，是 LangGraph 或 AutoGen 搭配 MCP 工具整合的具體落地範例，可作為設計參考
 - **Limitation**：工程成本不低——需要熟悉目標領域工具的工程師把既有軟體包成 MCP server；且作為 position paper，實際效果未經嚴格量化
 

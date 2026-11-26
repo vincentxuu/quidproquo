@@ -38,7 +38,7 @@ glossary:
     context: "Petzl requires the directional to be of excellent quality, since it takes the highest load in a lead fall."
 ---
 
-> 🌏 [中文版](/posts/climbing/2026-10-17-multi-pitch-basics)
+> :globe: [中文版](/posts/climbing/2026-10-17-multi-pitch-basics)
 
 After a while of single-pitch trad, you start looking at routes that do not end after one rope length: climb to a ledge, build a belay, bring your partner up, carry on. Multi-pitch has no new trick. It takes what you already know from [trad protection](/posts/climbing/2026-10-17-trad-protection-nuts-cams-en), [building anchors](/posts/climbing/2026-10-17-building-anchors-en) and [lowering and rappelling](/posts/climbing/2026-10-17-lower-or-rappel-en) and repeats it several times, tens of meters off the ground. The hard part is getting it right every time, and doing it fast enough.
 

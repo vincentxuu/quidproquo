@@ -12,7 +12,7 @@ series:
   order: 3
 ---
 
-> 🌏 [English version](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount-en)
+> :globe: [English version](/posts/daily/2026-08-22-pricing-gpt-5-6-sol-openrouter-cloudflare-discount-en)
 
 ## 變更摘要
 
@@ -69,7 +69,7 @@ OpenAI 自家開發者平台（developers.openai.com）的 GPT-5.6 Sol 標準費
 
 ## 時效提醒
 
-⏰ **促銷到期日**：2026-09-18。到期後 OpenRouter／Cloudflare 上的 GPT-5.6 Sol 費率預期打回標準價（Input $5.00、Output $30.00、Flex $2.50/$15.00），OpenAI 自家 API 費率則從未變動。
+:clock: **促銷到期日**：2026-09-18。到期後 OpenRouter／Cloudflare 上的 GPT-5.6 Sol 費率預期打回標準價（Input $5.00、Output $30.00、Flex $2.50/$15.00），OpenAI 自家 API 費率則從未變動。
 
 ## 今日收穫
 
