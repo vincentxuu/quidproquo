@@ -54,7 +54,7 @@ import { checkCostThresholds } from '../src/lib/console/cost/threshold.ts';
 import { detectToolDrift } from '../src/lib/mcp-proxy/drift-detector.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 export { AgentSessionDO } from '../src/server/agents/session-do.ts';
-export { AgentSandbox } from '../src/server/agents/agent-sandbox.ts';
+export { AgentSandbox, ContainerProxy } from '../src/server/agents/agent-sandbox.ts';
 
 export default {
   // 保留 Astro 的所有 handlers
