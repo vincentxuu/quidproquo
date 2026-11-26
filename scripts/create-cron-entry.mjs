@@ -251,6 +251,9 @@ if (existsSync(SERVER_WRANGLER)) {
     ],
   }
   wranglerConfig.main = '../cron-entry.js'
+  // Wrangler 4.150+ uploads source maps by default; this Worker's maps exceed the 60 MiB
+  // upload limit and fail the deploy (code 10021), so keep the pre-4.150 behaviour.
+  wranglerConfig.upload_source_maps = false
   wranglerConfig.no_bundle = false
   wranglerConfig.rules = [
     { type: 'ESModule', globs: ['**/*.js', '**/*.mjs', '**/*.ts'] },
