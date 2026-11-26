@@ -209,7 +209,7 @@ import '@/styles/globals.css';
       state.providers = Array.isArray(payload.providers) ? payload.providers : [];
       state.catalog = Array.isArray(payload.catalog?.models) ? payload.catalog.models : [];
     } catch {
-      state.providers = ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'cerebras', 'openrouter', 'ollama_cloud', 'ollama'];
+      state.providers = ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'ollama_cloud', 'ollama'];
       state.catalog = defaultCatalog;
     }
 

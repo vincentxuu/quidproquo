@@ -49,7 +49,6 @@ const PROVIDER_ALIASES: Record<string, ModelProvider> = {
   openrouter: 'openrouter',
   opencode: 'opencode',
   nvidia: 'nvidia',
-  cerebras: 'cerebras',
   ollama_cloud: 'ollama_cloud',
   ollama: 'ollama',
 }
@@ -63,7 +62,6 @@ function defaultModelForProvider(provider: ModelProvider): string {
     openrouter: 'openrouter/auto',
     opencode: 'deepseek-v4-flash',
     nvidia: 'deepseek-ai/deepseek-r1',
-    cerebras: 'gpt-oss-120b',
     cloudflare: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
   }
   return defaults[provider] ?? DEFAULT_MODEL
