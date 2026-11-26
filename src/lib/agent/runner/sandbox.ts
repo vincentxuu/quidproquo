@@ -10,8 +10,10 @@ import type {
 import type { SessionRecord } from '../session-manager'
 import { getSandbox } from '@cloudflare/sandbox'
 
-// Idle containers stop billing once asleep; agent runs are short, so sleep soon.
-const SANDBOX_SLEEP_AFTER = '5m'
+// A sleeping container loses /workspace, so the idle limit must outlast the longest
+// gap between commands in a run (one model call can take minutes with retries).
+// Runs destroy the container when they finish, so this only bounds abandoned runs.
+const SANDBOX_SLEEP_AFTER = '20m'
 
 export class SandboxProvider implements SandboxRunnerProvider {
   id = 'sandbox'
@@ -76,6 +78,7 @@ interface SandboxStub {
   exec(command: string): Promise<{ exitCode: number; stdout: string; stderr: string }>
   readFile(path: string): Promise<{ content: string }>
   writeFile(path: string, content: string): Promise<unknown>
+  destroy(): Promise<void>
 }
 
 /** The SDK runs a shell command string; quote each argv element for POSIX sh. */
@@ -126,8 +129,16 @@ class SandboxHandle implements RunnerHandle {
     })
   }
 
-  /** Commits and pushes any workspace changes; throws when either step fails. */
+  /** Commits and pushes any workspace changes, then destroys the container; throws when saving fails. */
   async stop(): Promise<void> {
+    try {
+      await this.save()
+    } finally {
+      await this.stub.destroy().catch(() => {})
+    }
+  }
+
+  private async save(): Promise<void> {
     const status = await this.exec(['git', '-C', '/workspace', 'status', '--porcelain'])
     if (status.exitCode !== 0) throw new Error(`workspace status failed: ${redact(status.stderr)}`)
     if (!status.stdout.trim()) return
