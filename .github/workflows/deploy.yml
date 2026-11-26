@@ -162,9 +162,17 @@ jobs:
       cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
+      # wrangler-action runs `npx --no-install wrangler`; without node_modules it
+      # falls back to `npm i wrangler@4`, which hits ERESOLVE against the repo's
+      # pnpm peer-dependency graph. Keep the install so the action finds wrangler.
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.3
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
       - uses: actions/download-artifact@v7
         with:
           name: dist
