@@ -150,13 +150,19 @@ The last row has data behind it. [Omdia's analysis of Netflix's first-half 2024 
 | 5 | [Korea: romance, time-slip and fantasy](/posts/film/2026-11-08-kdrama-romance-fantasy-en) | Bon Appétit, Your Majesty, Lovely Runner, Crash Landing on You, Queen of Tears and 14 more: where to start? |
 | 6 | [Korea: crime, mystery and revenge](/posts/film/2026-11-08-kdrama-crime-mystery-revenge-en) | The Glory, Taxi Driver, Signal, Stranger and 14 more: how dark do they get? |
 | 7 | [Korea: action, survival and superpowers](/posts/film/2026-11-08-kdrama-action-survival-en) | Squid Game, Kingdom, Moving, Weak Hero and 7 more: who are they for? |
-| 8 | Korea: medical, legal and workplace | The Trauma Code, Extraordinary Attorney Woo, Resident Playbook and more: are they worth it? |
+| 8 | [Korea: medical, legal and workplace](/posts/film/2026-11-09-kdrama-medical-legal-workplace-en) | The Trauma Code, Extraordinary Attorney Woo, Resident Playbook and 11 more: are they worth it? |
 | 9 | [Korea: life, family and period dramas](/posts/film/2026-11-08-kdrama-life-family-period-en) | When Life Gives You Tangerines, Reply 1988, My Mister and 11 more: how to pick a slow-burn life drama? |
-| 10 | Japanese dramas | How does the quarterly drama schedule work? |
-| 11 | Chinese dramas | How do you pick one you'll actually finish at 40 episodes? |
-| 12 | Taiwanese dramas | What genres has Taiwanese TV moved into? |
-| 13 | British dramas | How does a six-episode series pace differently from an American season? |
-| 14 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
+| 10 | [Japan: romance, comedy and BL](/posts/film/2026-11-10-jdrama-romance-comedy-bl-en) | Then You Try Making It!, The Hot Spot, The Full-Time Wife Escapist, Silent and 13 more |
+| 11 | [Japan: mystery, crime and action](/posts/film/2026-11-10-jdrama-mystery-crime-action-en) | VIVANT, Unnatural, Light of My Lion, Alice in Borderland and 14 more |
+| 12 | [Japan: workplace, family and period](/posts/film/2026-11-11-jdrama-work-family-period-en) | Unmet, Mr. Mikami’s Classroom, Asura, Unbound and 12 more |
+| 13 | [China: costume romance and xianxia](/posts/film/2026-11-12-cdrama-costume-romance-xianxia-en) | The Prisoner of Beauty, Flourished Peony, The Legend of Shen Li, Pursuit of Jade and 14 more |
+| 14 | [China: intrigue, mystery, wuxia and fantasy](/posts/film/2026-11-12-cdrama-intrigue-mystery-wuxia-en) | Joy of Life, Strange Tales of Tang Dynasty II, Legend of Zang Hai, The Long Season and 11 more |
+| 15 | [China: urban romance, family and era](/posts/film/2026-11-13-cdrama-urban-family-era-en) | Blossoms Shanghai, Meet Yourself, The First Frost, To the Wonder and 17 more |
+| 16 | Taiwan: mystery, crime and thrillers | Copycat Killer, Light the Night, The Victims’ Game, Port of Lies and more |
+| 17 | Taiwan: society, work and history | The World Between Us, Wave Makers, The Outlaw Doctor, Gold Leaf and more |
+| 18 | Taiwan: romance, family and youth | Someday or One Day, The Making of an Ordinary Woman, Imperfect Us and more |
+| 19 | British dramas | How does a six-episode series pace differently from an American season? |
+| 20 | European and Latin American non-English dramas | Beyond Money Heist, what else comes from Spain, France, the Nordics, Germany and Latin America? |
 
 Posts without links are still being written. Other countries with long lists will also be split by genre. Whether a Thai post follows depends on how the earlier ones go.
 
