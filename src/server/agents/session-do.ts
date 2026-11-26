@@ -649,6 +649,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
     const toBaseMessage = loopMessageToLangChain
     let runner: RunnerHandle | undefined
+    let saveError: unknown
     let repoContext = ''
 
     if (options.repo && (options.runnerProvider ?? session.runner_provider) === 'sandbox' && this.env.SANDBOX) {
@@ -774,8 +775,13 @@ export class AgentSessionDO extends DurableObject<Env> {
         },
       )
     } finally {
-      if (runner) await runner.stop().catch(() => {})
+      // stop() commits and pushes the workspace; its failure means the run's changes were lost.
+      if (runner) {
+        saveError = await runner.stop().then(() => undefined, (e: unknown) => e)
+        if (saveError) console.error('[session-do] workspace save failed', session.id, saveError instanceof Error ? saveError.message : saveError)
+      }
     }
+    if (saveError) throw saveError
 
     await mgr.transition(session.id, 'done')
     await recordRoutineRunStatus(this.env.DB, session.id, 'done').catch(() => {})

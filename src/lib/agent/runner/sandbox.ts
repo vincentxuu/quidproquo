@@ -126,7 +126,21 @@ class SandboxHandle implements RunnerHandle {
     })
   }
 
+  /** Commits and pushes any workspace changes; throws when either step fails. */
   async stop(): Promise<void> {
-    await this.exec(['sh', '-c', 'cd /workspace && git add -A && git diff --cached --quiet || git commit -m "auto-save" && git push 2>/dev/null || true'])
+    const status = await this.exec(['git', '-C', '/workspace', 'status', '--porcelain'])
+    if (status.exitCode !== 0) throw new Error(`workspace status failed: ${redact(status.stderr)}`)
+    if (!status.stdout.trim()) return
+
+    const commit = await this.exec(['sh', '-c', 'cd /workspace && git add -A && git commit -m "auto-save"'])
+    if (commit.exitCode !== 0) throw new Error(`auto-save commit failed: ${redact(commit.stderr || commit.stdout)}`)
+
+    const push = await this.exec(['git', '-C', '/workspace', 'push', 'origin', 'HEAD'])
+    if (push.exitCode !== 0) throw new Error(`auto-save push failed: ${redact(push.stderr || push.stdout)}`)
   }
+}
+
+/** Strips credentials embedded in clone URLs from git output. */
+function redact(text: string): string {
+  return text.replace(/\/\/[^/@\s]+@/g, '//***@').trim().slice(0, 500)
 }
