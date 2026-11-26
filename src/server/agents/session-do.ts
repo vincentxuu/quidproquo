@@ -455,23 +455,27 @@ export class AgentSessionDO extends DurableObject<Env> {
       }
       const sessionId = body.sessionId ?? url.searchParams.get('sessionId') ?? `sess_${Date.now()}`
       const prompt = body.prompt ?? 'hello'
-      try {
-        await this.startRun(sessionId, prompt, {
-          skill: body.skill,
-          mode: body.mode,
-          model: body.model,
-          repo: body.repo,
-          branch: body.branch,
-          runnerProvider: body.runner_provider,
-          trigger: 'manual',
-        })
-      } catch (error) {
-        // The caller may have stopped waiting, so the failure is recorded here too.
+      // The run outlives the request: callers stop waiting after their own waitUntil
+      // window (30s), so the DO owns the run and records its failure itself.
+      const run = this.startRun(sessionId, prompt, {
+        skill: body.skill,
+        mode: body.mode,
+        model: body.model,
+        repo: body.repo,
+        branch: body.branch,
+        runnerProvider: body.runner_provider,
+        trigger: 'manual',
+      }).catch(async (error) => {
+        const msg = error instanceof Error ? error.message : String(error)
+        console.error('[session-do] run failed', sessionId, msg)
+        const failedEvent: SessionEvent = { type: 'result', content: `Session failed: ${msg}`, totalTokens: 0, totalCostUsd: 0 }
+        await this.persistEventToD1(sessionId, failedEvent).catch(() => {})
+        this.broadcast(failedEvent)
         await createSessionManager(this.env.DB).transition(sessionId, 'failed').catch(() => {})
         await recordRoutineRunStatus(this.env.DB, sessionId, 'failed').catch(() => {})
-        throw error
-      }
-      return Response.json({ sessionId })
+      })
+      this.ctx.waitUntil(run)
+      return Response.json({ sessionId }, { status: 202 })
     }
     if (url.pathname.endsWith('/approve') && request.method === 'POST') {
       const body = (await request.json().catch(() => ({}))) as { requestId?: string; decision?: string }
