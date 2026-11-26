@@ -1,0 +1,191 @@
+---
+// src/pages/dev/motion-demo.astro
+// Dev-only 試驗頁：三種「廣告風」動畫手法的純 CSS／SVG 樣本，不新增 dependency。
+//   A. 骨架動畫：SVG 關節群組 + @keyframes rotate，姿勢在 crouch ↔ bird-dog 之間循環
+//   B. 動態字：逐字彈出 + 數字倒數，可重播
+//   C. 介面點擊示範：游標移動 → 點擊漣漪 → 卡片放大彈出
+// 規則：預設樣式就是「動畫結束後的靜態畫面」，動畫只放在 prefers-reduced-motion: no-preference 裡。
+export const prerender = false;
+
+if (!import.meta.env.DEV) {
+  return new Response('Not found', { status: 404 });
+}
+
+import '../../styles/tokens.css';
+
+const days = Array.from({ length: 12 }, (_, i) => i + 1);
+---
+<!doctype html>
+<html lang="zh-TW" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Motion demo</title>
+  </head>
+  <body>
+    <main>
+      <h1>動畫手法試驗</h1>
+      <p class="lede">三個樣本都是純 CSS／SVG。看完告訴我哪個要正式化。</p>
+
+      <section>
+        <h2>A. 骨架動畫（姿勢循環）</h2>
+        <div class="stage" role="img" aria-label="線條人體在四足跪姿與對側抬手抬腿之間循環">
+          <svg class="fig" viewBox="0 0 600 340" aria-hidden="true">
+            <ellipse class="shadow" cx="300" cy="306" rx="230" ry="9" />
+            <g class="rig">
+              <!-- 支撐腿：大腿 + 小腿貼地 -->
+              <g class="limb"><path class="m" d="M210 170 V292 L140 292" /><path class="f" d="M210 170 V292 L140 292" /></g>
+              <!-- 抬起的腿：以髖為軸旋轉 -->
+              <g class="lift-leg"><g class="limb"><path class="m" d="M210 170 V300" /><path class="f" d="M210 170 V300" /></g></g>
+              <!-- 軀幹 -->
+              <g class="limb torso"><path class="m" d="M210 170 H380" /><path class="f" d="M210 170 H380" /></g>
+              <!-- 支撐手 -->
+              <g class="limb"><path class="m" d="M380 170 V296" /><path class="f" d="M380 170 V296" /></g>
+              <!-- 前伸的手：以肩為軸旋轉 -->
+              <g class="reach-arm"><g class="limb"><path class="m" d="M380 170 V296" /><path class="f" d="M380 170 V296" /></g></g>
+              <circle class="head" cx="418" cy="160" r="22" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section>
+        <h2>B. 動態字</h2>
+        <div class="stage stage--type" id="type-stage">
+          <div class="type">
+            <span class="count" id="count">15</span>
+            <p class="line"><span class="w" style="--i:0">On</span> <span class="w hot" style="--i:1">Monday,</span></p>
+            <p class="line"><span class="w hot" style="--i:2">November</span> <span class="w" style="--i:3">15</span></p>
+          </div>
+          <button type="button" class="replay" id="replay-type">重播</button>
+        </div>
+      </section>
+
+      <section>
+        <h2>C. 介面點擊示範</h2>
+        <div class="stage stage--ui" role="img" aria-label="手指點擊第 1 天，彈出課程卡片">
+          <div class="ui">
+            <div class="ui__bar"><span>1 of 28 workouts</span><i></i></div>
+            <div class="grid">
+              {days.map((d) => (
+                <div class={`tile${d === 1 ? ' tile--open' : ''}`}>
+                  <span class="tile__lock" aria-hidden="true"></span>
+                  <small>Day {d}</small>
+                </div>
+              ))}
+            </div>
+            <div class="cursor" aria-hidden="true"><b></b></div>
+            <div class="card" aria-hidden="true">Full Body Conditioning</div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <style is:global>
+      :root {
+        --stage-bg: #07090d;
+        --stage-line: #dfe8f2;
+        --stage-fill: #1b2431;
+        --stage-accent: #d7f26a;
+        --stage-text: #f3f6fa;
+      }
+      body { margin: 0; background: var(--bg-page); color: var(--text-primary); font-family: system-ui, -apple-system, 'Noto Sans TC', sans-serif; }
+      main { max-width: 760px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+      h1 { margin: 0 0 .25rem; }
+      h2 { margin: 2.5rem 0 .75rem; font-size: 1.1rem; }
+      .lede { color: var(--text-secondary); margin: 0; }
+      .stage { position: relative; background: var(--stage-bg); border-radius: 12px; overflow: hidden; }
+
+      /* ---- A. 骨架 ---- */
+      .fig { display: block; width: 100%; height: auto; }
+      .shadow { fill: #fff; opacity: .06; }
+      .limb { filter: drop-shadow(0 0 5px rgb(180 205 235 / .55)); }
+      .limb path { fill: none; stroke-linecap: round; stroke-linejoin: round; }
+      .limb .m { stroke: var(--stage-fill); stroke-width: 30; }
+      /* 肌纖維：同一條路徑再疊一條細虛線 */
+      .limb .f { stroke: var(--stage-line); stroke-width: 18; stroke-dasharray: 1 6; opacity: .8; }
+      .head { fill: var(--stage-fill); stroke: var(--stage-line); stroke-width: 1.4; filter: drop-shadow(0 0 5px rgb(180 205 235 / .55)); }
+      .lift-leg { transform-origin: 210px 170px; transform: rotate(92deg); }
+      .reach-arm { transform-origin: 380px 170px; transform: rotate(-88deg); }
+
+      /* ---- B. 動態字 ---- */
+      .stage--type { min-height: 260px; display: grid; place-items: center; padding: 2rem 1rem; }
+      .type { text-align: center; }
+      .count { display: block; font: 800 3.5rem/1 system-ui, sans-serif; color: var(--stage-accent); margin-bottom: .75rem; }
+      .line { margin: 0; font: 800 clamp(1.8rem, 7vw, 3rem)/1.2 system-ui, sans-serif; color: var(--stage-text); }
+      .w.hot { color: var(--stage-accent); }
+      .replay { position: absolute; right: .75rem; bottom: .75rem; background: transparent; color: var(--stage-text); border: 1px solid #ffffff55; border-radius: 999px; padding: .3rem .8rem; cursor: pointer; }
+
+      /* ---- C. UI 點擊 ---- */
+      .stage--ui { padding: 1.25rem; }
+      .ui { position: relative; max-width: 420px; margin: 0 auto; background: #f4f1ea; border-radius: 12px; padding: 1rem; color: #17120d; }
+      .ui__bar { display: flex; justify-content: space-between; font-size: .85rem; margin-bottom: .6rem; }
+      .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: .6rem; }
+      .tile { aspect-ratio: 1; background: #cfcac0; border-radius: 8px; position: relative; display: grid; place-items: end center; padding-bottom: .25rem; }
+      .tile--open { background: #1b2431; color: #fff; }
+      .tile small { font-size: .65rem; }
+      .tile__lock { position: absolute; top: 30%; left: 50%; width: 14px; height: 12px; margin-left: -7px; background: #5a564e; border-radius: 3px; }
+      .tile--open .tile__lock { display: none; }
+      .cursor { position: absolute; left: 30px; top: 42px; width: 36px; height: 36px; pointer-events: none; }
+      .cursor b { position: absolute; inset: 0; border-radius: 50%; background: rgb(255 255 255 / .85); box-shadow: 0 2px 8px rgb(0 0 0 / .4); }
+      .card { position: absolute; left: 12%; top: 18%; background: #1b2431; color: #fff; border-radius: 10px; padding: 1.8rem 1.2rem .8rem; font-size: .75rem; width: 46%; box-shadow: 0 10px 24px rgb(0 0 0 / .45); }
+
+      @media (prefers-reduced-motion: no-preference) {
+        /* A：6 秒一圈，手腳錯開起落，身體輕微起伏 */
+        .reach-arm { animation: reach 6s ease-in-out infinite; }
+        .lift-leg { animation: lift 6s ease-in-out infinite; }
+        .rig { animation: bob 6s ease-in-out infinite; }
+        .head { animation: glow 3s ease-in-out infinite alternate; }
+        @keyframes reach { 0%, 12% { transform: rotate(0deg); } 40%, 70% { transform: rotate(-88deg); } 92%, 100% { transform: rotate(0deg); } }
+        @keyframes lift { 0%, 18% { transform: rotate(0deg); } 46%, 72% { transform: rotate(92deg); } 96%, 100% { transform: rotate(0deg); } }
+        @keyframes bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+        @keyframes glow { to { filter: drop-shadow(0 0 12px rgb(215 242 106 / .6)); } }
+
+        /* B：每個字依 --i 延遲彈出；重播時 JS 重設 class */
+        .stage--type.is-playing .w { animation: pop .5s cubic-bezier(.2, .9, .3, 1.3) both; animation-delay: calc(var(--i) * .35s + .3s); }
+        .stage--type.is-playing .count { animation: fade .4s ease both; }
+        @keyframes pop { from { opacity: 0; transform: translateY(.6em) scale(.9); } to { opacity: 1; transform: none; } }
+        @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+        /* C：8 秒一圈：游標移到 Day 1 → 點擊 → 卡片彈出 → 收起 */
+        .cursor { animation: move 8s ease-in-out infinite; }
+        .cursor b { animation: tap 8s ease-in-out infinite; }
+        .card { animation: card 8s ease-in-out infinite; transform-origin: 20% 20%; }
+        @keyframes move { 0%, 8% { transform: translate(180px, 180px); opacity: 0; } 20% { opacity: 1; } 35%, 70% { transform: translate(0, 0); opacity: 1; } 90%, 100% { transform: translate(40px, 120px); opacity: 0; } }
+        @keyframes tap { 0%, 34% { transform: scale(1); } 38% { transform: scale(.7); } 44%, 100% { transform: scale(1); } }
+        @keyframes card { 0%, 38% { opacity: 0; transform: scale(.4); } 50%, 82% { opacity: 1; transform: scale(1); } 92%, 100% { opacity: 0; transform: scale(.4); } }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .card { opacity: 1; }
+        .cursor { display: none; }
+      }
+    </style>
+
+    <script is:inline>
+      (function () {
+        var stage = document.getElementById('type-stage');
+        var btn = document.getElementById('replay-type');
+        if (!stage || !btn) return;
+        var count = document.getElementById('count');
+        var timer;
+        function play() {
+          stage.classList.remove('is-playing');
+          void stage.offsetWidth; // 強制 reflow，動畫才會重跑
+          stage.classList.add('is-playing');
+          clearInterval(timer);
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { count.textContent = '15'; return; }
+          var n = 20;
+          count.textContent = String(n);
+          timer = setInterval(function () {
+            n -= 1;
+            count.textContent = String(n);
+            if (n <= 15) clearInterval(timer);
+          }, 160);
+        }
+        btn.addEventListener('click', play);
+        play();
+      })();
+    </script>
+  </body>
+</html>
