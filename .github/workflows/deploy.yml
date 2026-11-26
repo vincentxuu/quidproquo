@@ -67,14 +67,12 @@ jobs:
     uses: ./.github/workflows/seo-observability.yml
     secrets: inherit
 
-  deploy-worker:
-    name: Deploy production Worker
-    needs: [quality]
-    if: needs.quality.result == 'success'
+  # Build and quality are independent before deploy: the site has ~15k static
+  # pages (~11 min) while pnpm verify takes ~4 min. Splitting them removes the
+  # verify time from the deploy critical path. Deploy still requires both.
+  build:
+    name: Build
     runs-on: ubuntu-latest
-    concurrency:
-      group: production-worker-deploy
-      cancel-in-progress: false
     steps:
       - uses: actions/checkout@v7
       - uses: pnpm/action-setup@v6
@@ -110,6 +108,71 @@ jobs:
         run: pnpm build
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      - name: Upload build output
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
+  # `wrangler deploy` rebuilds the sandbox image from sandbox/Dockerfile on
+  # every deploy (~2.3 min). Build/push it here in parallel and give the deploy
+  # step a registry reference instead, so the image work is off the critical
+  # path. The tag is derived from the Dockerfile hash so each deploy uses the
+  # image that matches the source being deployed.
+  sandbox-image:
+    name: Build sandbox image
+    runs-on: ubuntu-latest
+    outputs:
+      image_ref: ${{ steps.build.outputs.image_ref }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+        with:
+          version: 10.33.3
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - name: Build and push image
+        id: build
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+        run: |
+          set -euo pipefail
+          dockerfile_hash="${{ hashFiles('sandbox/Dockerfile') }}"
+          image_tag="quidproquo-sandbox:${dockerfile_hash:0:12}"
+          output_file="$(mktemp)"
+          npx wrangler containers build ./sandbox --tag "$image_tag" --push 2>&1 | tee "$output_file"
+          image_ref="$(grep -oE 'registry\.cloudflare\.com/[^[:space:]]+' "$output_file" | tail -1 || true)"
+          if [[ -z "$image_ref" ]]; then
+            echo "::error::could not find registry image reference in wrangler output"
+            exit 1
+          fi
+          echo "image_ref=$image_ref" >> "$GITHUB_OUTPUT"
+
+  deploy-worker:
+    name: Deploy production Worker
+    needs: [quality, build, sandbox-image]
+    if: needs.quality.result == 'success' && needs.build.result == 'success' && needs.sandbox-image.result == 'success'
+    runs-on: ubuntu-latest
+    concurrency:
+      group: production-worker-deploy
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - uses: actions/download-artifact@v7
+        with:
+          name: dist
+          path: dist
+      - name: Use pre-built sandbox image
+        env:
+          SANDBOX_IMAGE_REF: ${{ needs.sandbox-image.outputs.image_ref }}
+        run: node scripts/apply-sandbox-image.mjs
       - name: Apply D1 migrations
         uses: cloudflare/wrangler-action@v4
         with:
