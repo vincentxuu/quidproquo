@@ -32,8 +32,10 @@ type StartRunOptions = {
 
 type ModelProvider = RagRuntimeConfig['defaultProvider']
 
-const DEFAULT_PROVIDER: ModelProvider = 'groq'
-const DEFAULT_MODEL = 'openai/gpt-oss-120b'
+// Groq's free tier caps every chat model at 8K tokens per minute, below a single agent
+// request, so agent sessions default to Gemini.
+const DEFAULT_PROVIDER: ModelProvider = 'gemini'
+const DEFAULT_MODEL = 'gemini-4-hydrogen'
 const PROVIDER_ALIASES: Record<string, ModelProvider> = {
   'llm.groq': 'groq',
   'llm.openai': 'openai',
@@ -55,10 +57,10 @@ const PROVIDER_ALIASES: Record<string, ModelProvider> = {
 
 function defaultModelForProvider(provider: ModelProvider): string {
   const defaults: Partial<Record<ModelProvider, string>> = {
-    groq: DEFAULT_MODEL,
+    groq: 'openai/gpt-oss-120b',
     openai: 'gpt-4.1-mini',
-    google: 'gemini-3.7-flash',
-    gemini: 'gemini-3.7-flash',
+    google: DEFAULT_MODEL,
+    gemini: DEFAULT_MODEL,
     openrouter: 'openrouter/auto',
     opencode: 'deepseek-v4-flash',
     nvidia: 'deepseek-ai/deepseek-r1',
@@ -101,6 +103,8 @@ function stringifyModelContent(content: unknown): string {
   if (Array.isArray(content)) {
     return content.map((part) => {
       if (typeof part === 'string') return part
+      // Function calls are returned separately as tool_calls.
+      if (part && typeof part === 'object' && ('functionCall' in part || (part as { type?: unknown }).type === 'functionCall')) return ''
       if (part && typeof part === 'object' && 'text' in part) {
         return String((part as { text?: unknown }).text ?? '')
       }
@@ -177,9 +181,10 @@ function loopMessageToLangChain(m: LoopMessage): BaseMessageLike {
           name: tc.name,
           args: (typeof tc.input === 'object' && tc.input !== null ? tc.input : {}) as Record<string, unknown>,
         })),
+        additional_kwargs: m.providerMetadata ?? {},
       })
     }
-    return new AIMessage({ content: m.content })
+    return new AIMessage({ content: m.content, additional_kwargs: m.providerMetadata ?? {} })
   }
   return new SystemMessage(m.content)
 }
@@ -383,6 +388,7 @@ interface ModelInvokeResult {
   content: string
   toolCalls?: ToolCallResult[]
   stopReason: string
+  providerMetadata?: Record<string, unknown>
 }
 
 async function invokeModelWithTools(
@@ -407,6 +413,8 @@ async function invokeModelWithTools(
   const aiMsg = response as unknown as AIMessage
 
   const content = stringifyModelContent(aiMsg.content)
+  const extra = aiMsg.additional_kwargs
+  const providerMetadata = extra && Object.keys(extra).length > 0 ? (extra as Record<string, unknown>) : undefined
   const rawCalls = (aiMsg as unknown as { tool_calls?: Array<{ id?: string; name: string; args: Record<string, unknown> }> }).tool_calls
   if (rawCalls && rawCalls.length > 0) {
     return {
@@ -417,9 +425,10 @@ async function invokeModelWithTools(
         input: tc.args,
       })),
       stopReason: 'tool_use',
+      providerMetadata,
     }
   }
-  return { content, stopReason: 'stop' }
+  return { content, stopReason: 'stop', providerMetadata }
 }
 
 export class AgentSessionDO extends DurableObject<Env> {
@@ -721,8 +730,9 @@ export class AgentSessionDO extends DurableObject<Env> {
               ]
               return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
             } catch (e) {
+              // A model failure ends the run as failed instead of passing for an answer.
               const msg = e instanceof Error ? e.message : String(e)
-              return { content: `model error: ${msg} (skill: ${options.skill ?? 'none'})`, stopReason: 'stop' }
+              throw new Error(`model error: ${msg}`)
             }
           },
           syscall: async (name, input) => {
@@ -856,7 +866,7 @@ export class AgentSessionDO extends DurableObject<Env> {
               return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
-              return { content: `model error: ${msg}`, stopReason: 'stop' }
+              throw new Error(`model error: ${msg}`)
             }
           },
           syscall: async (name, input) => {
