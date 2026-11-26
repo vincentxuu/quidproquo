@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-25",
+  "date": "2026-11-27",
   "swebench_verified_top5": [
     { "rank": 1, "model": "Sonar Foundation Agent + Claude 4.5 Opus", "org": "Sonar", "score": 79.20 },
     { "rank": 2, "model": "live-SWE-agent + Claude 4.5 Opus medium", "org": "UIUC", "score": 79.20 },
@@ -22,10 +22,10 @@
   "cursorbench_top5": [
     { "rank": 1, "model": "Gemini 4 Neon (Extra High)", "org": "Google", "score": 65.4, "version": "4.1" },
     { "rank": 2, "model": "Gemini 4 Carbon (High)", "org": "Google", "score": 61.5, "version": "4.1" },
-    { "rank": 3, "model": "Gemini 4 Hydrogen (High)", "org": "Google", "score": 61.4, "version": "4.1" },
-    { "rank": 4, "model": "Claude Fable 5.2", "org": "Anthropic", "score": 61.3, "version": "4.1" },
-    { "rank": 5, "model": "Claude Opus 5.5", "org": "Anthropic", "score": 58.1, "version": "4.1" }
+    { "rank": 3, "model": "Gemini 4 Hydrogen (Extra High)", "org": "Google", "score": 61.4, "version": "4.1" },
+    { "rank": 4, "model": "Claude Fable 5.2 (Max)", "org": "Anthropic", "score": 61.3, "version": "4.1" },
+    { "rank": 5, "model": "Claude Opus 5.5 (Max)", "org": "Anthropic", "score": 58.1, "version": "4.1" }
   ],
   "morphllm_top3": null,
-  "notes": "2026-11-25：Groundlane MCP 本次連線正常（`web_fetch`／`web_search` 皆成功回應，連續被拒兩天後恢復），四個常態追蹤榜單皆未達 Step 4 顯著變動門檻。SWE-bench Verified：`swebench.com/` 首頁 Groundlane `web_fetch` 仍 OUTPUT_LIMIT（既有已知限制），改用 Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json（4,091,442 bytes），python3 -I 解析 180 筆 Verified 結果，前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與昨日逐位元相同。Arena Agent：Groundlane `web_fetch` 直連 datasets-server.huggingface.co（200）查 lmarena-ai/leaderboard-dataset，agent 子集 latest split，leaderboard_publish_date 仍是 2026-11-22（未推進新批次），前 5 名分數與排序逐位元相同（Fable 5.2 Max 27.44／Opus 5.5 Max 19.12／Gemini 4 Neon High 18.29／Gemini 4 Carbon High 16.13／Sonnet 5.5 Max 15.21）。CursorBench 4.1（Groundlane `web_fetch` 直連 cursor.com/en/cursorbench 官方頁，200）：53 組設定中依模型去重後前 5 名仍是 Gemini 4 Neon(Extra High) 65.4／Gemini 4 Carbon(High) 61.5／Gemini 4 Hydrogen(Extra High) 61.4／Fable 5.2(Max) 61.3／Opus 5.5(Max) 58.1，與昨日快照同一順位，changelog 仍停在 Nov 18 無新版本（新增觀察：Gemini 4 Neon High 63.7% 排在同模型 Extra High 65.4% 之後、於 Carbon High 61.5% 之前，屬同模型不同 reasoning effort 的既有列，不計入「前 5 名」去重口徑）。Artificial Analysis Coding Agent Index v2.1（Groundlane `web_search` 命中 orcarouter.ai 2026-11-19 發布的完整表）：前 5 名 Gemini 4 Neon(xhigh) 58.64／Fable 5.2(xhigh) 58.47／Devin Fusion CLI 58.40／Fable 5.2(high) 58.24／Opus 5.5(max) 58.16，與昨日快照順位一致（四捨五入後皆落在既有 59／58／58／58／58 區間內），來源未更新新批次。Q1/Q2 補充 web_search（day 範圍）未發現 watchlist 公司模型新登頂或新 SOTA 公告，僅有量化／蒸餾小模型（如 Ternary Bonsai 2.5 27B 75.6%、Qwen3-Coder-30B-A3B 52.2%）分數遠低於前 5 名門檻，不構成異動。morphllm.com/leaderboard 本次（Groundlane `web_fetch`，200 轉址後 404 Page Not Found）仍無排行榜頁面，維持既有 Q-023 阻塞，無新進展。"
+  "notes": "2026-11-27：Groundlane MCP 連線正常（web_fetch／web_search 皆成功）。SWE-bench Verified（Bash curl 直連 raw.githubusercontent.com/SWE-bench/swe-bench.github.io/master/data/leaderboards.json，4,091,442 bytes，python3 -I 解析 180 筆 Verified 結果）：前 5 名 79.20／79.20／78.80／77.40／76.80（三方並列）與 2026-11-25 快照逐位元相同。LMSYS Arena Agent（Groundlane web_fetch 直連 datasets-server.huggingface.co，修正 config 從 default 改為 agent 後 200）：leaderboard_publish_date 仍是 2026-11-22（未推進新批次），前 5 名分數與排序逐位元相同（Fable 5.2 Max 27.44／Opus 5.5 Max 19.12／Gemini 4 Neon High 18.29／Gemini 4 Carbon High 16.13／Sonnet 5.5 Max 15.21）。CursorBench 4.1（Groundlane web_fetch 直連 cursor.com/en/cursorbench，200）：53 組設定依模型去重後前 5 名仍是 Gemini 4 Neon(Extra High) 65.4／Gemini 4 Carbon(High) 61.5／Gemini 4 Hydrogen(Extra High) 61.4／Fable 5.2(Max) 61.3／Opus 5.5(Max) 58.1，與 2026-11-25 快照同一順位，changelog 仍停在 Nov 18 無新版本。Artificial Analysis Coding Agent Index v2.1（Groundlane web_search 命中 2026-11-20 發布的 Instagram/Atlascloud 二次引用，無更新批次）：前 5 名仍落在 59／58／58／58／58 區間，與昨日快照一致。Q1/Q2 補充 web_search（day 範圍）未發現 watchlist 公司模型新登頂或新 SOTA 公告，僅有 PrismML Ternary Bonsai 2.5 27B（SWE-bench Verified 75.6%）、JetBrains Mellum 2.1 Instruct（40.4%）等量化／小模型分數遠低於前 5 名門檻；另見 BenchLeader 自家 Agents Index、SemiAnalysis 新發布的 GDPx 綜合 benchmark，皆非本 skill 追蹤的 5 個榜單、也無 watchlist 公司首次登頂等觸發條件，不構成異動。morphllm.com/leaderboard 本次（Groundlane web_fetch，200 轉址後 404 Page Not Found）仍無排行榜頁面，維持既有 Q-023 阻塞，無新進展。"
 }
