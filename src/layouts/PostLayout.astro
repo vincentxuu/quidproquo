@@ -8,6 +8,7 @@ import '../styles/tokens.css';
 import '../styles/chat.css';
 import '../styles/videoPractice.css';
 import '../styles/videoGallery.css';
+import '../styles/videoChapters.css';
 import '../styles/flowDiagram.css';
 import '../styles/diagram.css';
 import '../styles/slideReader.css';
@@ -1576,6 +1577,8 @@ const pageTitle =
   import { initYoutubeClipLoops, disposeYoutubeClipLoops, handleYoutubeTimeLinkClick } from '../lib/youtubeClipLoop';
   import { initVideoPractice, disposeVideoPractice } from '../lib/videoPractice';
   import { initVideoGallery, disposeVideoGallery } from '../lib/videoGallery';
+  import { initVideoChapters, disposeVideoChapters } from '../lib/videoChapters';
+  import { uiFeatures } from '../data/ui-features';
   import { initFlowDiagrams, disposeFlowDiagrams } from '../lib/flowDiagram';
   import { initSlideReader, disposeSlideReader } from '../lib/slideReader';
   initSlideReader();
@@ -1597,6 +1600,13 @@ const pageTitle =
   window.addEventListener('pagehide', disposeVideoGallery);
   void initYoutubeClipLoops();
   document.addEventListener('click', handleYoutubeTimeLinkClick);
+  // After the embeds exist; chapters and the dock read them, the mini player listens to their state.
+  const videoOptions = { sidebar: uiFeatures.videoSidebar, chapters: uiFeatures.videoChapters, miniPlayer: uiFeatures.videoMiniPlayer };
+  initVideoChapters(videoOptions);
+  document.addEventListener('astro:page-load', () => initVideoChapters(videoOptions));
+  document.addEventListener('astro:before-swap', disposeVideoChapters);
+  window.addEventListener('pagehide', disposeVideoChapters);
+  window.addEventListener('pageshow', (event) => { if (event.persisted) initVideoChapters(videoOptions); });
   document.addEventListener('astro:page-load', () => { void initYoutubeClipLoops(); });
   document.addEventListener('astro:before-swap', disposeYoutubeClipLoops);
   window.addEventListener('pagehide', disposeYoutubeClipLoops);
