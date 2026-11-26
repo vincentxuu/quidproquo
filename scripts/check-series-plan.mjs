@@ -14,7 +14,12 @@
 //
 // 用法：
 //   node scripts/check-series-plan.mjs                 全站（verify／CI）
-//   node scripts/check-series-plan.mjs <post.md ...>   只看指定文章的審稿紀錄，系列規劃仍全看（pre-commit）
+//   node scripts/check-series-plan.mjs <post.md ...>   只看指定文章的審稿紀錄，系列規劃仍全看
+//   node scripts/check-series-plan.mjs --staged <post.md ...>
+//                                                      pre-commit：規劃表也只看這些文章所屬的系列。
+//                                                      為什麼：2026-11-25 認識 benchmark 系列缺規劃表，全站 daily-digest 的
+//                                                      commit 全被擋（Q-054），他人欠的債不該由無關的 commit 承擔。
+//                                                      全站缺口仍由完整 verify／CI 擋 deploy；暫存 series.ts 時 pre-commit 退回完整 verify。
 //   node scripts/check-series-plan.mjs --self-test
 
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
@@ -114,7 +119,11 @@ function allPosts() {
   return files;
 }
 
-function run(files, explicit) {
+export function scopeGated(gated, seriesNames) {
+  return gated.filter((s) => s.names.some((n) => seriesNames.has(n)));
+}
+
+function run(files, explicit, scoped = false) {
   const cfg = JSON.parse(readFileSync(BASELINE, 'utf8'));
   const baseline = new Set(cfg.grandfathered);
   const rewriting = new Set(cfg.rewriting ?? []);
@@ -122,7 +131,10 @@ function run(files, explicit) {
   const gated = parseSeries(readFileSync(SERIES_TS, 'utf8')).filter((s) => !baseline.has(s.slug));
   const errors = [];
 
-  for (const s of gated) {
+  const planScope = scoped
+    ? scopeGated(gated, new Set(files.map((f) => seriesNameOf(readFileSync(f, 'utf8'))).filter(Boolean)))
+    : gated;
+  for (const s of planScope) {
     const plan = join(PLANS, `${s.slug}.md`);
     if (!existsSync(plan)) { errors.push(`系列 ${s.slug} 沒有規劃表 ${plan}（先跑 series-curriculum-design）`); continue; }
     const text = readFileSync(plan, 'utf8');
@@ -170,6 +182,9 @@ function selfTest() {
   assert(isBookGuide('---\ntags: [series, reading-guide]\n---\n') && !isBookGuide('---\ntags: [x]\n---\nreading-guide'), '只看 frontmatter tags 判斷書籍導讀');
   assert(postSlug('src/content/posts/tech/2026-10-13-x-en.md') === '2026-10-13-x', '中英共用審稿紀錄');
   assert(seriesNameOf('---\ntitle: t\nseries:\n  name: "A B"\n  order: 1\n---\n') === 'A B', '讀 frontmatter 的系列名');
+  const g = [{ slug: 'a', names: ['甲', 'A'] }, { slug: 'b', names: ['乙', 'B'] }];
+  assert(scopeGated(g, new Set(['A'])).map((x) => x.slug).join() === 'a', '--staged 只留暫存文章所屬的系列');
+  assert(scopeGated(g, new Set()).length === 0, '--staged 暫存文章不屬任何受管系列時不查規劃表');
   assert(seriesNameOf('---\ndraft: true\nseries:\n  name: "A B"\n---\n') === null, '草稿不檢查');
 }
 
@@ -178,7 +193,7 @@ if (args.includes('--self-test')) {
   selfTest();
 } else {
   const files = args.filter((a) => !a.startsWith('--'));
-  const { errors, gated } = run(files.length ? files : allPosts(), files.length > 0);
+  const { errors, gated } = run(files.length ? files : allPosts(), files.length > 0, args.includes('--staged') && files.length > 0);
   if (errors.length) {
     console.log(errors.map((e) => `🔴 ${e}`).join('\n'));
     console.log('規則見 .agents/skills/series-curriculum-design/SKILL.md「規劃表存檔與閘門」與 post skill「系列文章閘門」。');

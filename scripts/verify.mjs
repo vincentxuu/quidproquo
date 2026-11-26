@@ -249,7 +249,7 @@ function stagedPlan() {
   const diagramPosts = posts.filter((p) => /^```(?:diagram|flow-diagram)$/m.test(readFileSync(resolve(ROOT, p), 'utf8')));
   const leakStep = posts.length > 0 ? [
     ['process-leak (staged)', `node scripts/check-process-leak.mjs ${quote(posts)}`],
-    ['series-plan (staged)', `node scripts/check-series-plan.mjs ${quote(posts)}`],
+    ['series-plan (staged)', `node scripts/check-series-plan.mjs --staged ${quote(posts)}`],
     ['crag-coverage (staged)', `node scripts/check-crag-coverage.mjs ${quote(posts)}`],
     ['route-video-fences (staged)', `node scripts/check-route-video-fences.mjs ${quote(posts)}`],
     ...diagramPosts.map((p) => [`diagram-preview (staged): ${p}`, `pnpm exec tsx scripts/diagram-preview.ts ${quote([p])} --skip-if-no-browser`]),

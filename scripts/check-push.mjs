@@ -5,7 +5,7 @@
 // 治理依據：docs/governance/operating-charter.md「8.1 多 session 共用工作目錄」。
 
 import { execFileSync } from 'node:child_process';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 
 const ZERO_SHA = /^0+$/;
 
@@ -52,4 +52,30 @@ try {
   console.error('   先跑 git pull --rebase origin main，再 push。');
   console.error('   （守門腳本：scripts/check-push.mjs）');
   process.exit(1);
+}
+
+// 系列規劃閘門：這次推送若動到 series.ts 或系列文章，立刻檢查，不等 CI 在 deploy 才發現。
+// 為什麼：2026-11-24 認識 benchmark 系列沒帶規劃表就進了 main，CI 在 deploy 前才紅燈，
+// 隔天整條 daily-digest 產線被同一個紅燈擋住（Q-054）。
+// 只看這次推送的範圍（origin/main..target），不因 main 上別人欠的債擋住無關的推送。
+let changed = null;
+try {
+  changed = git(['diff', '--name-only', 'origin/main', target]).split('\n').filter(Boolean);
+} catch {
+  // 讀不到差異時不擋，CI 的完整 verify 仍是最後一關。
+}
+if (changed) {
+  const posts = changed.filter((f) => /^src\/content\/posts\/.+\.md$/.test(f) && existsSync(f));
+  const seriesChanged = changed.includes('src/utils/series.ts') || changed.some((f) => f.startsWith('.work/series-plans/'));
+  const args = seriesChanged ? [] : posts.length ? ['--staged', ...posts] : null;
+  if (args) {
+    try {
+      execFileSync('node', ['scripts/check-series-plan.mjs', ...args], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] });
+    } catch (error) {
+      console.error('✋ push 被擋：系列規劃表或審稿紀錄不齊。');
+      console.error(String(error.stdout ?? '').trim());
+      console.error('   （守門腳本：scripts/check-push.mjs → check-series-plan.mjs）');
+      process.exit(1);
+    }
+  }
 }

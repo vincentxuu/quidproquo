@@ -9,7 +9,7 @@ description: "Pydantic AI v2.75.0 把兩處「誰的話算指令」的邊界收�
 tldr: "Pydantic AI v2.75.0 的主軸是指令權限：RepoContext／Skills／Memory 讀到的低權限 workspace 檔案不再混進系統提示，改成資料傳給模型；capability 的 with_authority 現在也管得到 MCP 伺服器自己送的指令。另外新增 ModelEmptyResponseError／ModelInvalidResponseError，讓 FallbackModel 碰到空回應或壞掉的回應也能切換模型，不會直接中斷。"
 series:
   name: "AI Framework Changelog"
-  order: 72
+  order: 73
 ---
 
 > :globe: [English version](/posts/daily/2026-11-26-framework-pydantic-ai-v2.75.0-en)

@@ -9,7 +9,7 @@ description: "Pydantic AI v2.75.0 tightens the boundary on whose words count as 
 tldr: "Pydantic AI v2.75.0 is mainly about instruction authority: low-authority workspace files read by RepoContext, Skills and Memory no longer get mixed into the system prompt — they're handed to the model as data instead. with_authority on capabilities now also covers instructions an MCP server sends itself. It also adds ModelEmptyResponseError and ModelInvalidResponseError so FallbackModel can switch models on an empty or malformed response instead of crashing outright."
 series:
   name: "AI Framework Changelog"
-  order: 72
+  order: 73
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-26-framework-pydantic-ai-v2.75.0)

@@ -9,7 +9,7 @@ description: "Mastra @mastra/core v1.86.0 讓資料實驗也能崩潰後復原�
 tldr: "Mastra @mastra/core v1.86.0 三個重點：(1) startExperimentAsync() 可以跑成 durable 的 evented workflow，worker 崩潰或重新部署不會讓實驗卡在 running；(2) 新增實驗性的 Knowledge importer 契約，讓外部來源可以用 batching／lease／replay protection 安全同步進 Knowledge；(3) principals／author 讓 host 在 agent run 之外呼叫 Knowledge 工具時，身分只能由 host 指定，不能從 request 帶進來，專門給 MCP／外部 agent 情境用。四項 breaking change 範圍都偏窄（prerelease 套件、MCP 欄位改名、playground UI）。"
 series:
   name: "AI Framework Changelog"
-  order: 73
+  order: 74
 ---
 
 > :globe: [English version](/posts/daily/2026-11-26-framework-mastra-core-v1.86.0-en)
