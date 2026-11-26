@@ -39,15 +39,13 @@
 - 站主手工欄位（**AI 永不代勞**）：評分、觀看狀態、私人筆記、一句話感受
 - 簡介由 AI 草擬，git diff 時人工確認
 
-### 4.2 心得草稿 — 模式 B：小格子填空 → 產生
+### 4.2 評價工作台 — 快評＋慢評（`scripts/collection-review.mjs`，已實作）
 
-- 執行 `pnpm collection:review <slug>`，互動式填四格：
-  1. 一句話整體感受
-  2. 挑 1~3 個最愛場景/角色（從作品資料帶出）
-  3. 想推給誰（所有人/同好/特定朋友/不推）
-  4. 選填：零碎筆記
-- 產生 300~600 字心得草稿寫回 data 檔 → 在 git diff / 編輯器裡逐段改 → 定稿
-- prompt 由腳本拼接，要求「站主本人的聲音、禁止空洞形容詞」
+- 用法與各步驟的輸入格式見腳本開頭註解；`--list` 列待快評、待慢評、主題曲待確認。
+- **快評**（必填）：分數＋收藏等級。`rating` 為 0 就是「待評」，作品頁在快評前不顯示等級與評價區塊（`tier` 只是預設值）。
+- **慢評**（每項可跳過）：一句話、推薦給、最愛角色（從 meta 角色牆勾選）、最愛場景、主題曲影片逐首確認（拒絕的標 `rejected`，頁面不嵌入、重跑抓影片腳本不覆蓋）。
+- **一句話的邊界（2026-11-26 站主決定）**：站主隨口打感想，工具只把原話切成句子與子句當候選，站主選一句、可小改；工具不改寫、不生成。原話可選擇存成 `review`。
+- 原規劃的「AI 依四格產生 300~600 字心得草稿」未實作：心得只收站主原話。
 
 ### 4.3 深度頁（真愛專屬）— 模式 B
 
@@ -89,7 +87,7 @@
 | Nav 連結 | header nav 加「收藏」 | `src/layouts/PostLayout.astro` L114-136 + `src/i18n/ui.ts` |
 | 主題色 | 若需新 badge 色只改 tokens | `src/styles/tokens.css`（`--cat-anime`、`--cat-film` 已存在） |
 | 海報圖 | `public/images/collection/` | 公開目錄直用 |
-| AI 腳本 | `scripts/collection-{add,review,deep}.mjs` + `package.json` scripts | 模式同既有 scripts 慣例 |
+| AI 腳本 | `scripts/collection-{add,review,deep}.mjs`（review 已實作；跟既有收藏館腳本一樣用 `node scripts/…` 執行） | 模式同既有 scripts 慣例 |
 
 ## 7. 可控性檢查
 

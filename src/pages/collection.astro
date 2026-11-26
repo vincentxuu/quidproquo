@@ -115,7 +115,7 @@ const posterAlt = (w: CollectionWork) => `${w.title} 海報`;
           <p class="spotlight-meta">{typeLabels[no1.type]} · {no1.year} · {no1.originalTitle}</p>
           {no1.oneLiner && <blockquote class="spotlight-quote">{no1.oneLiner}</blockquote>}
           <h3><a href={`/collection/${no1.slug}`}>{no1.title}</a></h3>
-          <p class="spotlight-rating"><b>{no1.rating}</b><span>/ 10</span></p>
+          {no1.rating > 0 && <p class="spotlight-rating"><b>{no1.rating}</b><span>/ 10</span></p>}
           <p class="spotlight-synopsis">{no1.synopsis}</p>
           {no1.favoriteScenes.length > 0 && (
             <div class="spotlight-scenes">

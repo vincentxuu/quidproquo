@@ -37,6 +37,9 @@ const next = idx < ranked.length - 1 ? ranked[idx + 1] : null;
 const sameType = getWorksByType(work.type).filter((w) => w.slug !== work.slug);
 
 const watches = work.watches ?? [];
+// 站主做過快評（分數＋等級）才算評過；沒評過時 tier 只是預設值，不顯示
+const reviewed = work.rating > 0;
+const hasVerdict = reviewed || Boolean(work.oneLiner || work.review) || watches.length > 0;
 const deepScenes = work.deep.scenes ?? [];
 const deepCharacters = work.deep.characters ?? [];
 // 場景：站主寫了看法的在前，其餘 favoriteScenes 補在後面
@@ -92,8 +95,8 @@ const specs: [string, string][] = [
     ? [[work.type === 'film' ? '片長' : '單集', formatRuntime(meta.runtime)] as [string, string]]
     : []),
   ['狀態', getStatusLabel(work.status, 'zh-TW')],
-  ['收藏等級', tierLabels[work.tier]],
-  ['推薦給', work.audience || '—'],
+  ...(reviewed ? [['收藏等級', tierLabels[work.tier]] as [string, string]] : []),
+  ...(work.audience ? [['推薦給', work.audience] as [string, string]] : []),
   ['排行', `第 ${idx + 1} / ${ranked.length}`],
 ];
 const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabels, string][]) : [];
@@ -118,7 +121,7 @@ const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabel
           {work.poster ? <img src={work.poster} alt={`${work.title} 海報`} /> : <b>{work.title}</b>}
         </div>
         <div class="work-hero-text">
-          <p class="collection-eyebrow">{typeLabels[work.type]} · {work.year} · {tierLabels[work.tier]}</p>
+          <p class="collection-eyebrow">{typeLabels[work.type]} · {work.year}{reviewed && ` · ${tierLabels[work.tier]}`}</p>
           <h1>{work.title}</h1>
           {work.originalTitle !== work.title && <p class="work-hero-original">{work.originalTitle}</p>}
           {meta?.tagline && <p class="work-hero-tagline">{meta.tagline}</p>}
@@ -131,14 +134,11 @@ const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabel
       <div class="work-layout">
         <div class="work-main">
           <!-- 2. 我的評價 -->
+          {hasVerdict && (
           <section class="work-section work-verdict">
             <h2>我的評價</h2>
             <div class="work-verdict-body">
-              {work.rating > 0 ? (
-                <p class="spotlight-rating"><b>{work.rating}</b><span>/ 10</span></p>
-              ) : (
-                <p class="work-hero-unrated">尚未評分</p>
-              )}
+              {reviewed && <p class="spotlight-rating"><b>{work.rating}</b><span>/ 10</span></p>}
               {work.oneLiner && <blockquote class="work-oneliner">{work.oneLiner}</blockquote>}
             </div>
             {work.review && <p class="work-review">{work.review}</p>}
@@ -153,6 +153,7 @@ const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabel
               </div>
             )}
           </section>
+          )}
 
           <section class="work-section work-synopsis">
             <h2>簡介</h2>
@@ -215,7 +216,7 @@ const sources = meta ? (Object.entries(meta.source) as [keyof typeof sourceLabel
                   <b class="cast-name">{c.character ?? '—'}</b>
                   {c.characterRomaji && c.characterRomaji !== c.character && <small>{c.characterRomaji}</small>}
                   {c.name && <small class="cast-actor">{work.type === 'anime' ? 'CV ' : ''}{c.name}</small>}
-                  {pick && <em class="cast-take">{pick.take}</em>}
+                  {pick?.take && <em class="cast-take">{pick.take}</em>}
                 </li>
               );
             })}

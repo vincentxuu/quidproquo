@@ -876,12 +876,6 @@ body.is-collection #main-content {
   font-size: 4rem;
 }
 
-.work-hero-unrated {
-  margin: 0;
-  font-size: var(--fs-sm);
-  color: var(--coll-muted);
-}
-
 .work-oneliner {
   flex: 1 1 18rem;
   font-size: clamp(1.2rem, 2.6vw, 1.55rem);

@@ -5,7 +5,7 @@
  * - 來源優先序：MyAnimeList 附的 YouTube Music 連結（meta 的 themes[].youtube）→ YouTube 公開搜尋頁（不需 key），
  *   只收原唱者對得上的官方來源：認證歌手頻道、「- Topic」官方音源、官方頻道
  * - 每支候選都用 oEmbed 確認可嵌入（下架回 404、禁止嵌入回 401）
- * - 自動挑的結果 confirmed: false，站主確認後改成 true；之後重跑不會覆蓋 confirmed 的項目
+ * - 自動挑的結果 confirmed: false，站主確認後改成 true；之後重跑不會覆蓋 confirmed 或 rejected（站主判定不對）的項目
  * - collection-meta.mjs 重抓 meta 時不會動這個檔
  *
  * 用法：node scripts/collection-youtube.mjs [slug ...] [--force]
@@ -124,7 +124,7 @@ for (const [slug, work] of Object.entries(meta.works)) {
   out.works[slug] ??= {};
   for (const t of themes) {
     const prev = out.works[slug][t.title];
-    if (prev && (prev.confirmed || !force)) continue;
+    if (prev && (prev.confirmed || prev.rejected || !force)) continue;
     try {
       // 1. MyAnimeList 附的 YouTube Music 官方音源
       if (t.youtube) {

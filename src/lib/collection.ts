@@ -117,6 +117,8 @@ export interface ThemeVideo {
   videoTitle: string;
   source: 'myanimelist' | 'search';
   confirmed: boolean;
+  /** 站主判定不對（collection-review 按 n）：頁面不嵌入，重跑抓影片腳本也不覆蓋 */
+  rejected?: boolean;
 }
 
 const meta = mediaCollectionMeta as unknown as { works: Record<string, WorkMeta> };
@@ -126,9 +128,10 @@ export function getWorkMeta(slug: string): WorkMeta | null {
   return meta.works[slug] ?? null;
 }
 
-/** 已確認可嵌入的官方影片；沒有就回 null（頁面只顯示 Spotify） */
+/** 自動挑選或站主確認過的官方影片；沒有或被站主拒絕就回 null（頁面只顯示 Spotify） */
 export function getThemeVideo(slug: string, themeTitle: string): ThemeVideo | null {
-  return videos.works[slug]?.[themeTitle] ?? null;
+  const video = videos.works[slug]?.[themeTitle];
+  return video && !video.rejected ? video : null;
 }
 
 /** Spotify 歌曲網址 → 嵌入播放器用的 track id */
