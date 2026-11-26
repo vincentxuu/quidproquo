@@ -1,0 +1,24 @@
+# 2026-11-26-tdrama-society-work-history — 審稿紀錄
+
+日期：2026-11-26。範圍：zh-TW 與 en 兩檔（系列 order 17，台劇｜社會、職人與時代（15 部））。審稿者：本篇作者自審（同一 session）；卡片由子代理依資料檔撰寫，作者逐項抽查，未另派獨立審稿者。
+
+## post-verify
+
+事實來源：`.work/research/world-tv-drama-guide/tw/factsheets-tw2.md`、`reviews-tw2.md`（2026-11-26 MCP 恢復後回讀原文）、`candidates-*.md`、`merged-candidates.md`、`tw-availability-1/2.md`。
+
+- 規則：三類以上推薦來源；金鐘獎算 A；LINE TODAY 只算 G；公視+、TaiwanPlus、電視台官方 YouTube 全集算合法管道；愛奇藝國際站不算。
+- 開頭與前三表逐項對照資料卡：A、G 各 14 部，C 4 部、D 1 部；11 部在公視+；限制段初稿寫 Brian Hioe 3 部，卡片實際只用 2 部，已改；一把青依 fans 檔範圍外規則只剩兩類，列候補說明。
+- 豆瓣：評分欄只放新聞或年度榜讀到原文的分數；美妝網站（beauty321）整理的分數只寫在劇評句並標明。
+- 劇評：引述只來自 read 或 partial 讀到的段落；只評前幾集的都寫明；徐佑德的製作公司背景、鏡週刊與鏡文學同集團都寫明。
+
+未驗：IMDb 多為 Exa 快取；Netflix 台灣上架多靠媒體或官方預告；台灣分級只有少數平台頁有標。
+
+## post-review
+
+- 機械檢查：check:tw 0 blocking；check-process-leak、check-post-quality、check:no-emoji、check:diagram-text 通過；長句 0；diagram-preview 中英皆 ✓，淺色、深色截圖已看過。
+- 圖：故事年代時間軸（1867 到現代）。
+- 總覽篇系列地圖第 17 列中英加連結。
+
+## post-polish
+
+register-scan：中文長句 0；phrase-ledger 無命中。

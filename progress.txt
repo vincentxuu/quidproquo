@@ -1,6 +1,6 @@
 # quidproquo progress
 Last updated: 2026-11-26
-- **各國影劇導讀（world-tv-drama-guide，2026-11-26）**：美劇 0–4、韓劇 5–9、日劇 10–12、陸劇 13–15 中英都已提交（只在分支、未部署；總覽地圖 0–20 已同步）。2026-11-26 合併 origin/main 後 check:course-videos 轉綠，pending 已清空。台劇 16（懸疑 13 部）、17（社會時代 15 部）資料卡與劇評已回讀原文，下一步寫文章；18（愛情家庭青春，含此時此刻、忘了我記得）待研究；英劇 19、歐拉 20 未開始。
+- **各國影劇導讀（world-tv-drama-guide，2026-11-26）**：美劇 0–4、韓劇 5–9、日劇 10–12、陸劇 13–15、台劇 16（懸疑 13 部）與 17（社會時代 15 部）中英都已提交（只在分支、未部署；總覽地圖 0–20 已同步）。下一步台劇 18（愛情家庭青春，含此時此刻、忘了我記得，研究未開始），等使用者看過 16、17；英劇 19、歐拉 20 未開始。
 - **收藏館 /collection（Phase 1 已上 main；Phase 2 進行中 2026-11-26）**：規格 `docs/product/collection/collection PRD.md`。7 部作品（動漫 5、電影 2），客觀資料由 `scripts/collection-{meta,posters,youtube}.mjs` 抓；站主評價欄位除進擊的巨人外都空。11-26 定流程：add → review（快評：分數＋等級；慢評：一句話從站主原話挑句〔站主選 B，不改寫不生成〕、角色勾選、場景、主題曲確認）→ deep 只給真愛；作品頁沒評過不顯示等級與評價區塊。已做：空區塊隱藏、`scripts/collection-review.mjs`。下一步：站主跑 review 填 6 部；`collection-add`（搜 AniList/TMDB 候選＋接三支抓取腳本）；有清單就匯入；`collection-deep`。備註：Node 25 dev 有 OOM，預覽用 `python3 -m http.server 4322 -d dist/client`。
 - **認識 benchmark 系列（understanding-benchmarks）2026-11-24**：25 篇，規劃表 `.work/series-plans/understanding-benchmarks.md`、研究 `.work/research/understanding-benchmarks/`；order 0 總覽、order 1 拆零件中英四稿完成並登錄 series.ts，審稿紀錄 `.work/reviews/2026-11-24-*`。舊文〈模型成績單怎麼看〉Arena 段同步 post-update。下一篇 order 2 誤差（硬幣直覺先行、公式折疊）。
 - **常駐型 AI agent 系列（always-on-agents）完成 2026-11-24**：order 0–24 中英全上線，規劃表 `.work/series-plans/always-on-agents.md`，審稿紀錄 `.work/reviews/2026-11-20-*`；完整進度已封存到 docs/progress-archive.md。Muse 開放地區已補墨西哥、澳洲（11-24）。
