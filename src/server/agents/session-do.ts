@@ -497,7 +497,14 @@ export class AgentSessionDO extends DurableObject<Env> {
       if (!sessionId || !message) {
         return Response.json({ error: 'sessionId and message required' }, { status: 400 })
       }
-      await this.resumeRun(sessionId, message)
+      try {
+        await this.resumeRun(sessionId, message)
+      } catch (error) {
+        // resumeRun marks the session running first; a failure must not leave it there.
+        await createSessionManager(this.env.DB).transition(sessionId, 'failed').catch(() => {})
+        await recordRoutineRunStatus(this.env.DB, sessionId, 'failed').catch(() => {})
+        throw error
+      }
       return Response.json({ ok: true, sessionId })
     }
     if (url.pathname.endsWith('/stop') && request.method === 'POST') {

@@ -1,5 +1,6 @@
 import type { Env } from '../config/env'
 import { startRoutineRun, type WaitUntil } from './routine-run'
+import { nextRoutineRunAt } from './cron-schedule'
 
 interface RoutineRow {
   id: string
@@ -45,7 +46,7 @@ export function createRoutineTrigger(env: Env, waitUntil?: WaitUntil) {
   async function triggerRoutine(routine: RoutineRow): Promise<TriggerResult> {
     try {
       // Advance next_run_at before starting so an overlapping tick cannot fire the same slot twice.
-      const nextRunAt = routine.cron ? computeNextRun(routine.cron, routine.stagger_seconds) : null
+      const nextRunAt = routine.cron ? nextRoutineRunAt(routine.cron, routine.stagger_seconds) : null
       await db
         .prepare('UPDATE routines SET next_run_at = ?, updated_at = ? WHERE id = ?')
         .bind(nextRunAt, Date.now(), routine.id)
@@ -69,15 +70,8 @@ export function createRoutineTrigger(env: Env, waitUntil?: WaitUntil) {
     const now = Date.now()
     const due = await findDueRoutines(now)
     const results: TriggerResult[] = []
+    // next_run_at already includes the routine's stagger.
     for (const routine of due) {
-      const staggerMs = routine.stagger_seconds * 1000
-      if (staggerMs > 0 && routine.next_run_at) {
-        const staggeredAt = routine.next_run_at + staggerMs
-        if (now < staggeredAt) {
-          results.push({ routineId: routine.id, sessionId: '', status: 'skipped' })
-          continue
-        }
-      }
       results.push(await triggerRoutine(routine))
     }
     return results
@@ -90,43 +84,4 @@ export function createRoutineTrigger(env: Env, waitUntil?: WaitUntil) {
   }
 
   return { findDueRoutines, triggerRoutine, triggerDueRoutines, triggerById }
-}
-
-function computeNextRun(cron: string, staggerSeconds: number): number | null {
-  const now = new Date()
-  const parts = cron.trim().split(/\s+/)
-  if (parts.length !== 5) return null
-
-  const [minStr, hourStr, domStr, _monStr, dowStr] = parts
-
-  if (minStr === '*' && hourStr === '*') {
-    return now.getTime() + 60 * 60 * 1000 + staggerSeconds * 1000
-  }
-
-  const min = minStr === '*' ? 0 : parseInt(minStr, 10)
-  const hour = hourStr === '*' ? now.getUTCHours() : parseInt(hourStr, 10)
-
-  const next = new Date(now)
-  next.setUTCMinutes(min, 0, 0)
-  next.setUTCHours(hour)
-
-  if (dowStr !== '*') {
-    const targetDow = parseInt(dowStr, 10)
-    const currentDow = next.getUTCDay()
-    let daysAhead = targetDow - currentDow
-    if (daysAhead <= 0) daysAhead += 7
-    next.setUTCDate(next.getUTCDate() + daysAhead)
-  } else if (domStr !== '*') {
-    const targetDom = parseInt(domStr, 10)
-    next.setUTCDate(targetDom)
-    if (next.getTime() <= now.getTime()) {
-      next.setUTCMonth(next.getUTCMonth() + 1)
-    }
-  } else {
-    if (next.getTime() <= now.getTime()) {
-      next.setUTCDate(next.getUTCDate() + 1)
-    }
-  }
-
-  return next.getTime() + staggerSeconds * 1000
 }
