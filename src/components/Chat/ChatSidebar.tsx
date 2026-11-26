@@ -3,7 +3,6 @@ import { ChatWidget, type ChatPage } from './ChatWidget'
 import { chatT } from '@/i18n/chat'
 import { defaultLang, type Lang } from '@/i18n/ui'
 
-const SIDEBAR_WIDTH = 380
 const BODY_CLASS = 'has-chat-sidebar'
 const STORAGE_KEY = 'chat_sidebar_open' // sessionStorage：關標籤即忘，不跨階段殘留
 
@@ -104,7 +103,6 @@ export function ChatSidebar({ lang = defaultLang, page }: { lang?: Lang; page?: 
         <aside
           ref={panelRef}
           className="chat-sidebar-panel"
-          style={{ width: SIDEBAR_WIDTH }}
           aria-label={t('chat.sidebar.subtitle')}
         >
           <ChatWidget

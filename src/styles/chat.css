@@ -131,8 +131,84 @@ textarea[data-slot="input-group-control"]::placeholder {
 .chat-cloud .chat-cloud-delete { flex-shrink: 0; color: var(--chat-ui-muted); }
 .chat-cloud .chat-cloud-delete:hover:not(:disabled) { color: var(--danger); }
 
-/* 送出鍵：跟站內圓形 launcher 同語言（深綠圓＋白圖示），hover 用亮度避免 inline 背景蓋掉偽類 */
+/* ===== 訊息列 =====
+   寬版（/chat）：頭像＋回答卡片。窄版（側欄、浮動窗）：拿掉頭像與卡片框，
+   回答直接鋪滿整欄，字數空間留給內容。用 container query 判斷的是對話區寬度，不是視窗。 */
+.chat-thread-log { background: var(--bg-subtle); container: chat-log / inline-size; }
+.chat-msg { display: flex; align-items: flex-start; gap: 0.6rem; min-width: 0; max-width: 100%; }
+.chat-msg-assistant { align-self: stretch; }
+.chat-msg-user { align-self: flex-end; justify-content: flex-end; width: min(100%, 82%); }
+.chat-msg-avatar { flex: 0 0 2rem; width: 2rem; height: 2rem; border: 1px solid var(--border); border-radius: 50%; background: var(--bg-card); }
+.chat-msg-author { display: flex; flex: 0 0 auto; align-items: center; gap: 0.45rem; }
+.chat-msg-name { display: none; color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; line-height: 1; }
+.chat-msg-panel { flex: 1; min-width: 0; padding: 0.95rem 1rem; border: 1px solid var(--border); border-radius: var(--corner-md, 8px); background: var(--bg-card); box-shadow: var(--shadow-card-hover); }
+.chat-msg-bubble { min-width: 0; padding: 0.6rem 0.85rem; border-radius: var(--corner-lg, 12px); background: color-mix(in srgb, var(--brand-500) 10%, var(--bg-card)); color: var(--text-primary); }
+
+.chat-msg-content { min-width: 0; color: inherit; font-size: 1rem; line-height: 1.7; overflow-wrap: anywhere; word-break: break-word; }
+.chat-msg-content p { margin: 0 0 0.85rem; }
+.chat-msg-content :is(p, ul, ol, blockquote):last-child { margin-bottom: 0; }
+.chat-msg-content :is(ul, ol) { margin: 0 0 0.85rem; padding-left: 1.25rem; }
+.chat-msg-content li { margin: 0.25rem 0; padding-left: 0.1rem; }
+.chat-msg-content li > :is(ul, ol) { margin: 0.2rem 0 0; padding-left: 1.1rem; }
+.chat-msg-content li > p { margin: 0; }
+.chat-msg-content li::marker { color: var(--text-muted); }
+.chat-msg-content :is(h1, h2, h3) { margin: 1.1rem 0 0.45rem; color: var(--text-primary); font-weight: 700; line-height: 1.45; }
+.chat-msg-content > div > :is(h1, h2, h3):first-child, .chat-msg-content > :is(h1, h2, h3):first-child { margin-top: 0; }
+.chat-msg-content h1 { font-size: 1.12rem; }
+.chat-msg-content h2 { font-size: 1.05rem; }
+.chat-msg-content h3 { font-size: 1rem; }
+
+/* 參考來源／延伸閱讀：空間小時和動作列同一個視覺層級（小字、次要色、chevron） */
+.chat-msg-links { margin-top: 0.9rem; padding-top: 0.65rem; border-top: 1px solid var(--border); }
+.chat-msg-links + .chat-msg-links { margin-top: 0.5rem; padding-top: 0.5rem; }
+.chat-msg-links > summary { display: inline-flex; align-items: center; gap: 0.35rem; min-height: 1.75rem; list-style: none; cursor: pointer; color: var(--text-secondary); font-size: 0.8rem; font-weight: 600; line-height: 1.2; }
+.chat-msg-links > summary::-webkit-details-marker { display: none; }
+.chat-msg-links > summary::before { content: ""; width: 0.4rem; height: 0.4rem; border-right: 1.5px solid var(--brand-500); border-bottom: 1.5px solid var(--brand-500); transform: rotate(-45deg); transition: transform 0.15s ease; }
+.chat-msg-links[open] > summary::before { transform: rotate(45deg); }
+.chat-msg-links > summary:hover { color: var(--brand-700); }
+.chat-msg-links > summary:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; border-radius: 4px; }
+
+@container chat-log (max-width: 600px) {
+  /* 使用者那側靠右的泡泡已經夠清楚，不放頭像；AI 那側頭像縮成 24px 橫列在回答上方 */
+  .chat-msg-user .chat-msg-avatar { display: none; }
+  .chat-msg-assistant { flex-direction: column; gap: 0.45rem; }
+  .chat-msg-assistant .chat-msg-avatar { flex-basis: 1.5rem; width: 1.5rem; height: 1.5rem; }
+  .chat-msg-name { display: inline; }
+  .chat-msg-assistant .chat-msg-panel { flex: none; width: 100%; }
+  .chat-msg-panel { padding: 0; border: 0; border-radius: 0; background: transparent; box-shadow: none; }
+  .chat-msg-user { width: auto; max-width: 88%; }
+  .chat-msg-content { font-size: 0.9375rem; line-height: 1.68; }
+}
+/* 嵌入式（側欄、浮動窗）回答沒有卡片底，對話區跟 header／輸入區用同一層底色 */
+.chat-widget.is-embedded .chat-thread-log { background: var(--bg-card); }
+
+/* ===== 輸入區 ===== */
+.chat-composer { padding: 0.6rem 0.75rem 0.5rem; border-top: 1px solid var(--border); background: var(--bg-card); }
+.chat-composer [data-slot="input-group"] { border-radius: var(--corner-lg, 12px); background: var(--bg-card); box-shadow: none; }
+/* shadcn 預設 3px 半透明 ring 在窄欄裡太重，收成邊框轉色＋淡光暈 */
+/* 站內全域 :focus-visible outline 會畫在 textarea 上，被 group overflow:hidden 裁到只剩右邊一條直線；
+   焦點改由外框表示（下一條），鍵盤使用者仍看得到。 */
+.chat-composer [data-slot="input-group-control"]:focus-visible { outline: none; }
+.chat-composer [data-slot="input-group"]:has([data-slot="input-group-control"]:focus-visible) { border-color: var(--brand-500); box-shadow: 0 0 0 3px color-mix(in srgb, var(--brand-500) 16%, transparent); }
+.chat-composer-note { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.4rem; padding: 0 0.25rem; color: var(--text-muted); font-size: 0.75rem; line-height: 1rem; }
+
+/* 目前文章 chip：輸入框上方的一顆膠囊，寬度跟內容走、標題過長截斷 */
+.chat-page-chip { display: inline-flex; align-items: center; gap: 0.35rem; max-width: 100%; min-height: 1.75rem; margin: 0 0 0.45rem; padding: 0 0.25rem 0 0.6rem; border: 1px solid var(--border); border-radius: var(--corner-pill, 999px); background: var(--bg-subtle); color: var(--text-secondary); font-size: 0.78rem; line-height: 1.3; }
+.chat-page-chip-icon { flex: 0 0 auto; width: 0.85rem; height: 0.85rem; color: var(--brand-500); }
+.chat-page-chip-label { flex: 0 0 auto; color: var(--text-muted); }
+.chat-page-chip-title { min-width: 0; overflow: hidden; color: var(--text-primary); font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.chat-page-chip-remove { appearance: none; flex: 0 0 auto; display: inline-flex; align-items: center; justify-content: center; width: 1.5rem; height: 1.5rem; margin: 0; padding: 0; border: 0; border-radius: 50%; background: transparent; color: var(--text-muted); cursor: pointer; }
+.chat-page-chip-remove svg { width: 0.8rem; height: 0.8rem; }
+.chat-page-chip-remove:hover { background: var(--bg-card); color: var(--text-primary); }
+.chat-page-chip-remove:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 1px; }
+
+/* 送出鍵：跟站內圓形 launcher 同語言（深綠圓＋白圖示），hover 用亮度避免 inline 背景蓋掉偽類。
+   它是 input-group 的直接子項且 group overflow:hidden，不留右邊距會被外框裁掉一彎。 */
 .chat-send-btn {
+  flex: 0 0 auto;
+  align-self: flex-end;
+  margin: 0 0.4rem 0.4rem 0;
+  border: 0; /* 公開頁沒 preflight，<button> 會留 UA 的 2px 邊框，圓外多一圈 */
   border-radius: 999px;
 }
 .chat-send-btn:hover {
@@ -454,6 +530,7 @@ body.has-chat-sidebar {
   display: flex;
   flex-direction: column;
   background: var(--bg-page);
+  width: var(--ask-ai-sidebar-width, 420px);
   border-left: 1px solid var(--border);
   box-shadow: var(--shadow-panel);
   animation: chat-sidebar-slide-in 0.3s cubic-bezier(0.22, 1, 0.36, 1);
@@ -552,6 +629,7 @@ body.has-chat-sidebar {
   }
   .chat-activity-chevron { transition: none; }
   .chat-sidebar-panel { animation: none; }
+  .chat-msg-links > summary::before { transition: none; }
   body.has-chat-sidebar { transition: none; }
 }
 
@@ -568,7 +646,9 @@ body.has-chat-sidebar {
 /* Mobile composer: the scrollable message region yields space, never the input. */
 .chat-widget, .chat-thread-root, .chat-thread-log { min-height: 0; min-width: 0; }
 .chat-thread-root > :not(.chat-thread-log) { flex-shrink: 0; }
-.chat-widget .chat-send-btn, .chat-widget .chat-scroll-button { min-width: 44px; min-height: 44px; }
+.chat-widget .chat-scroll-button { min-width: 44px; min-height: 44px; }
+.chat-widget .chat-send-btn { width: 36px; height: 36px; }
+@media (max-width: 640px) { .chat-widget .chat-send-btn { width: 44px; height: 44px; } }
 @media (max-width: 640px) {
   html body.chat-page { height: var(--chat-viewport-height, 100dvh); min-height: 0; overflow: hidden; }
   body.chat-page .page { height: 100%; min-height: 0; box-sizing: border-box; display: flex; flex-direction: column; padding: calc(8px + env(safe-area-inset-top)) 8px calc(8px + env(safe-area-inset-bottom)); }

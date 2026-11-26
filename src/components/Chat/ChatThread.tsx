@@ -22,13 +22,15 @@ interface ChatThreadProps {
   onRetry?: (assistantId: string) => void
   /** 貼在輸入框正上方（建議問題） */
   beforeComposer?: ReactNode
+  /** 輸入框同一塊底、輸入框上方（目前文章 chip） */
+  composerTop?: ReactNode
   /** 輸入框下方一行小字（免責、額度） */
   footerNote?: ReactNode
   /** 傳給輸入框 textarea 的 ref，讓父元件可聚焦輸入框（如 Ask AI 面板開啟時） */
   inputRef?: RefObject<HTMLTextAreaElement | null>
 }
 
-export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeComposer, footerNote, inputRef }: ChatThreadProps) {
+export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeComposer, composerTop, footerNote, inputRef }: ChatThreadProps) {
   const { t } = useChatLocale()
   const threadMessages: ThreadMessageLike[] = useMemo(
     () =>
@@ -91,7 +93,7 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
   return (
     <AssistantRuntimeProvider runtime={runtime}>
       <ThreadPrimitive.Root className="chat-thread-root flex min-h-0 flex-1 flex-col overflow-hidden">
-        <Conversation className="chat-thread-log min-h-0 flex-1" style={{ background: 'var(--bg-subtle)' }} aria-label={t('chat.log.aria')}>
+        <Conversation className="chat-thread-log min-h-0 flex-1" aria-label={t('chat.log.aria')}>
           {/* scrollClassName 靜態給 overflow-y-auto：use-stick-to-bottom 要到 hydration 後的
               effect 才補 overflow:auto，在那之前 scrollbar-gutter 不生效，傳統捲軸的瀏覽器
               會看到內容左右跳 15px（視覺回歸也因此偶發紅燈）。 */}
@@ -107,8 +109,9 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
           <ConversationScrollButton className="chat-scroll-button" aria-label={t('chat.action.latest')} />
         </Conversation>
         {beforeComposer}
-        <div className="border-t px-3 pt-2 pb-1.5" style={{ borderColor: 'var(--border)', background: 'var(--bg-card)' }}>
-          <PromptInput onSubmit={handleSubmit}>
+        <div className="chat-composer">
+          {composerTop}
+          <PromptInput onSubmit={handleSubmit} className="chat-composer-form">
             <PromptInputTextarea
               ref={inputRef}
               placeholder={t('chat.placeholder')}
@@ -127,7 +130,7 @@ export function ChatThread({ messages, loading, onSend, onStop, onRetry, beforeC
             />
           </PromptInput>
           {footerNote && (
-            <div className="mt-1.5 flex items-center gap-3 px-1 text-xs leading-4" style={{ color: 'var(--text-muted)' }}>
+            <div className="chat-composer-note">
               {footerNote}
             </div>
           )}

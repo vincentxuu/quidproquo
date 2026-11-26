@@ -171,9 +171,8 @@ export function CloudChatHistory({ messages, threadId, loading, lang, onLoad }: 
   }
   const hasConversation = serializeTranscript(threadId, messages, 'welcome') !== null;
   return <div ref={menuRoot} className="chat-cloud-menu">
-    <button ref={menuTrigger} className="chat-history-trigger" type="button" aria-expanded={open} onClick={() => { positionMenu(); setOpen(!open); if (!open && !busy) void list(); }}>
+    <button ref={menuTrigger} className="chat-history-trigger chat-icon-btn" type="button" aria-expanded={open} aria-label={en ? 'History' : '對話紀錄'} title={en ? 'History' : '對話紀錄'} onClick={() => { positionMenu(); setOpen(!open); if (!open && !busy) void list(); }}>
       <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5M12 7v5l3 2"/></svg>
-      <span>{en ? 'History' : '對話紀錄'}</span>
     </button>
     {open && createPortal(<section ref={menuPanel} style={{ left: menuPosition.left, top: menuPosition.top, width: menuPosition.width, maxHeight: menuPosition.maxHeight }} className="chat-cloud chat-history-panel" onMouseDown={event => event.stopPropagation()} aria-label={en ? 'Private conversations' : '私人對話'} aria-busy={busy}>
       <div className="chat-history-heading"><strong>{en ? 'Conversation history' : '對話紀錄'}</strong><button className="chat-cloud-action" type="button" aria-label={en ? 'Close history' : '關閉對話紀錄'} onClick={() => { setOpen(false); menuTrigger.current?.focus(); }}>×</button></div>
