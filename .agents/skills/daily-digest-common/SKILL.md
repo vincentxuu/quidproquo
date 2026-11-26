@@ -71,8 +71,24 @@ pnpm install --frozen-lockfile
 - 不准動 `.git/hooks/` 底下任何檔案（`rm`、改內容、`chmod` 都不行）。
 - 不准為了讓 install 過而改 `package.json`／`pnpm-lock.yaml`（包括「暫時拿掉再還原」）。
 - 不准 `SKIP_SIMPLE_GIT_HOOKS=1`、`--no-verify`、`core.hooksPath` 之類繞 hook。
-- pre-commit 紅燈時：紅在**自己這次新增／修改的檔案** → 修到綠；紅在**既有檔案** → 修它（A 級用語替換、series order 撞號這類 5 分鐘內能修的）並一起 commit；修不動的 → 把紅燈輸出寫進 `docs/governance/escalation-queue.md` 新條目，**不 commit、直接結束**，讓人隔天處理。四個選項裡沒有「繞過」。
+- pre-commit 紅燈時：紅在**自己這次新增／修改的檔案** → 修到綠；紅在**既有檔案** → 修它（A 級用語替換、series order 撞號這類 5 分鐘內能修的）並一起 commit；修不動的 → 走下方「被擋住時：成品落地」，把成品推上去、登錄 `docs/governance/escalation-queue.md`，讓人隔天處理。四個選項裡沒有「繞過」。
 - 為什麼這麼嚴：2026-09-20／21 四支 routine（日報、arxiv、funding、tool）都是寫完文章後卡在 `rm .git/hooks/pre-commit` 的權限提示，session 永遠等不到人按，文章全部遺失。繞 hook 比紅燈本身代價更高。
+
+**被擋住時：成品落地（2026-11-26，Q-054）**：只 `git add` 留在暫存區等於沒做。暫存區只存在這個容器裡，容器一回收，整天的成品就蒸發（Q-053、Q-054 兩次都是這樣；2026-11-25 一整天的 daily 文章因此補不回來）。紅燈修不動時：
+
+```bash
+mkdir -p ".work/blocked/${TODAY}/${SKILL_NAME}"
+git reset -q                                                    # 先清掉暫存區，只提交落地檔
+cp src/content/posts/daily/${TODAY}-*<本次檔名>*.md ".work/blocked/${TODAY}/${SKILL_NAME}/"   # 本次新增的文章（中英）
+# 連同 daily-log 與 escalation-queue 新條目一起提交；這三處都在 pre-commit 的安全路徑，不會觸發文章檢查
+git add ".work/blocked/${TODAY}/${SKILL_NAME}" ".work/daily-log/${TODAY}/${SKILL_NAME}.md" docs/governance/escalation-queue.md
+git commit -m "docs(governance): 登錄 <Q 編號>，${SKILL_NAME} 成品暫存於 .work/blocked" -- ".work/blocked/${TODAY}/${SKILL_NAME}" ".work/daily-log/${TODAY}/${SKILL_NAME}.md" docs/governance/escalation-queue.md
+git push origin main || { git pull --rebase origin main && git push origin main; }
+```
+
+- escalation 條目要寫明：被擋的檢查與完整輸出、成品在 `.work/blocked/<日期>/<skill>/`、解除後接手第一步 `git mv` 回 `src/content/posts/daily/` 再 commit，不需重做內容或重新查證。
+- 不要把文章留在 `src/content/posts/` 底下 commit（會被同一個紅燈擋），也不要改檔名去閃避檢查。
+- 連 `.work/` 的 commit 都被擋，才可以結束，並在最終回覆寫出被擋的完整輸出。
 
 ```bash
 # 只跑會擋 CI 的檢查，確認新檔不引入紅燈
