@@ -9,7 +9,7 @@ description: "Pydantic AI v2.73.0 warns when a request targets a model Anthropic
 tldr: "Pydantic AI v2.73.0 emits DeprecatedModelWarning for models Anthropic or OpenAI has deprecated; SubAgents can pass a delegate's deferred tool calls to the caller and resume once they are answered; Agent.override gains capabilities. Compatibility changes to check: the openai floor moves to 3.50.0, and unified settings that Claude, Gemini and Grok reject are now dropped, so FallbackModel no longer reaches the next model via a 400 error."
 series:
   name: "AI Framework Changelog"
-  order: 74
+  order: 72
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0)

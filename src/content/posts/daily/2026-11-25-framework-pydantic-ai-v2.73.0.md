@@ -9,7 +9,7 @@ description: "Pydantic AI v2.73.0 把「用到已被廠商棄用的模型」變�
 tldr: "Pydantic AI v2.73.0 對 Anthropic、OpenAI 已棄用的模型發出 DeprecatedModelWarning；SubAgents 可以把子代理的 deferred 工具呼叫交給呼叫端回覆後再繼續；Agent.override 新增 capabilities。要注意的相容性變更：openai 套件下限升到 3.50.0，Claude／Gemini／Grok 不支援的統一設定改成直接丟掉，FallbackModel 因此不再靠 400 錯誤切到下一個模型。"
 series:
   name: "AI Framework Changelog"
-  order: 74
+  order: 72
 ---
 
 > :globe: [English version](/posts/daily/2026-11-25-framework-pydantic-ai-v2.73.0-en)

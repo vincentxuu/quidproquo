@@ -9,7 +9,7 @@ description: "開源 Apache-2.0 CLI，用決定性 Python 排程器（不是 LLM
 tldr: "Bernstein 是一個開源 CLI，用決定性排程器（不是 LLM）管控多個 coding agent 平行工作。安裝：pipx install bernstein。解決了平行跑多個 agent 時誰在做什麼、有沒有過測試、能不能事後稽核這幾件事沒人管的問題。"
 series:
   name: "AI Tool of the Day"
-  order: 89
+  order: 90
 ---
 
 > :globe: [English version](/posts/daily/2026-11-26-tool-bernstein-en)

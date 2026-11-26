@@ -8,7 +8,7 @@ description: "Amazon 揭露疑似中國關聯駭客用開源 AI 滲透框架 Cai
 tldr: "Amazon 威脅情報團隊揭露：攻擊者只給 Cairn 一句「取得 shell」，AI agent 就自己在醫療影像標註伺服器 MONAI Label 找到路徑穿越 0-day，約 11 分鐘從摸清 API 到任意寫檔，再寫入 sitecustomize.py 取得 root shell。CISA 已把 CVE-2026-133968 列入 KEV；0.8.5 以前的版本受影響，升級到 0.8.6 並開啟認證、斷開不受信任網路。"
 series:
   name: "AI Security Alert"
-  order: 87
+  order: 86
 ---
 
 > :globe: [English version](/posts/daily/2026-11-25-security-monai-label-cairn-zero-day-cisa-kev-en)

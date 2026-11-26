@@ -9,7 +9,7 @@ description: "Mastra @mastra/core v1.86.0 makes dataset experiments crash-recove
 tldr: "Three things stand out in Mastra @mastra/core v1.86.0: (1) startExperimentAsync() can now run as a durable evented workflow, so a worker crash or redeploy no longer leaves an experiment stuck running; (2) an experimental Knowledge importer contract lets external sources sync into Knowledge safely with batching, leases and replay protection; (3) principals/author mean a host calling Knowledge tools outside an agent run must supply the identity itself — it can never come from the request — built for MCP and external-agent scenarios. The four breaking changes are all narrow in scope (a prerelease package, an MCP field rename, playground UI)."
 series:
   name: "AI Framework Changelog"
-  order: 73
+  order: 74
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-26-framework-mastra-core-v1.86.0)

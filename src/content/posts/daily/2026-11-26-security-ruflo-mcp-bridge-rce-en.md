@@ -8,7 +8,7 @@ description: "Security researchers at Noma Security found that the MCP Bridge in
 tldr: "Noma Security found that Ruflo (formerly Claude Flow, 80k+ GitHub stars) shipped a docker-compose default that exposed its MCP Bridge's 233 tools on 0.0.0.0:3001 with no authentication at all. A single request could run arbitrary shell commands, steal every configured LLM provider key, and poison the AgentDB learning store so every future agent output on that instance stays under the attacker's influence — upgrading to the patched version doesn't undo that poisoning, so operators have to audit and clean it up by hand."
 series:
   name: "AI Security Alert"
-  order: 86
+  order: 87
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-26-security-ruflo-mcp-bridge-rce)

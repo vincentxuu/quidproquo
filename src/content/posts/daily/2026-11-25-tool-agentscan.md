@@ -9,7 +9,7 @@ description: "開源 MIT 授權的本機 CLI，掃描 Claude、Cursor、VS Code�
 tldr: "agentscan 是一個在本機執行的開源 CLI，掃 MCP 設定檔的三類風險：寫死的金鑰、沒鎖版本的套件、明文傳輸。安裝：pip install agentscan-si，執行 agentscan scan。作者拿它掃了 84,813 份公開設定檔，3.3% 的 repo 有看起來像真的金鑰。"
 series:
   name: "AI Tool of the Day"
-  order: 90
+  order: 89
 ---
 
 > :globe: [English version](/posts/daily/2026-11-25-tool-agentscan-en)

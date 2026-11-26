@@ -8,7 +8,7 @@ description: "資安研究公司 Noma Security 發現開源 AI agent 協調平�
 tldr: "Noma Security 發現 Ruflo（前身 Claude Flow，GitHub 8 萬+ star）的 docker-compose 預設把 MCP Bridge 233 個工具開在 0.0.0.0:3001 且零認證，單一請求即可執行任意 shell 指令、竊取全部 LLM 供應商金鑰，還能毒化 AgentDB 讓同一實例未來所有 agent 輸出被攻擊者操控——升級到修補版也清不掉已被植入的毒化資料，必須手動稽核清除。"
 series:
   name: "AI Security Alert"
-  order: 86
+  order: 87
 ---
 
 > :globe: [English version](/posts/daily/2026-11-26-security-ruflo-mcp-bridge-rce-en)

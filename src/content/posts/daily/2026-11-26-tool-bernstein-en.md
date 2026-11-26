@@ -9,7 +9,7 @@ description: "Open-source Apache-2.0 CLI that decomposes a goal into tasks with 
 tldr: "Bernstein is an open-source CLI that runs multiple coding agents in parallel under a deterministic scheduler instead of an LLM. Install: pipx install bernstein. It fixes the problem of nobody tracking who's doing what, whether tests passed, or what happened after the fact when you fan agents out across a codebase."
 series:
   name: "AI Tool of the Day"
-  order: 89
+  order: 90
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-26-tool-bernstein)

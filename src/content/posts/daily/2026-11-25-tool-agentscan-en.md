@@ -9,7 +9,7 @@ description: "An open-source, MIT-licensed local CLI that scans MCP config files
 tldr: "agentscan is an open-source CLI that runs locally and checks MCP config files for three kinds of risk: hardcoded secrets, unpinned packages and plaintext transport. Install: pip install agentscan-si, then run agentscan scan. The author scanned 84,813 public config files and found likely-real credentials in 3.3% of repos."
 series:
   name: "AI Tool of the Day"
-  order: 90
+  order: 89
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-25-tool-agentscan)

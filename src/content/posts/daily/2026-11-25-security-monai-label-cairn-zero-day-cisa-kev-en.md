@@ -8,7 +8,7 @@ description: "Amazon reports that a suspected China-nexus actor gave the open-so
 tldr: "Amazon Threat Intelligence says the attacker gave Cairn one goal, 'obtain shell access,' and its AI agents found a path traversal zero-day in the medical imaging annotation server MONAI Label by themselves: about 11 minutes from API mapping to arbitrary file write, then a root shell via sitecustomize.py. CISA has added CVE-2026-133968 to KEV. Versions up to 0.8.5 are affected; upgrade to 0.8.6, turn on authentication, and take servers off untrusted networks."
 series:
   name: "AI Security Alert"
-  order: 87
+  order: 86
 ---
 
 > :globe: [中文版](/posts/daily/2026-11-25-security-monai-label-cairn-zero-day-cisa-kev)
