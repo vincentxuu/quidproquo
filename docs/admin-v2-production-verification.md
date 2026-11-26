@@ -96,12 +96,12 @@ Admin v2 部署狀態：
 - [x] D1 migrations 已透過 CI 自動 apply 至 production。
 - [x] Cloudflare bindings（DO、D1、R2、Queue）已生效。
 - [x] Worker bundle 已部署。
-- [ ] production 完成一次手動 session E2E。
-- [ ] production 完成一次 Routine trigger E2E。
-- [ ] 至少一個 runner provider 完成真實 agent loop。
-- [ ] 至少一個通知通道成功送達。
-- [ ] 至少一個 MCP tool 經 proxy 成功執行。
-- [ ] 權限核准流程在手機寬度可操作。
+- [ ] production 完成一次手動 session E2E。——後端通過、前端詳情頁空白（2026-11-26，見 §5）
+- [ ] production 完成一次 Routine trigger E2E。——production 沒有任何 routine，未測
+- [x] 至少一個 runner provider 完成真實 agent loop。——DO 內 agent loop（無 repo，不開 sandbox）2026-11-26 通過；sandbox 未測
+- [ ] 至少一個通知通道成功送達。——未測（依附 routine）
+- [ ] 至少一個 MCP tool 經 proxy 成功執行。——production 沒有任何 MCP server，未測
+- [ ] 權限核准流程在手機寬度可操作。——Home／列表 390px 通過；核准卡因詳情頁空白無法測
 
 ## 4. 下一步
 
@@ -110,3 +110,27 @@ Admin v2 部署狀態：
 3. 跑一次 Sandbox cold start + artifact 寫入。
 4. 跑一次 MCP proxy smoke。
 5. 將證據回填到本檔 §2 各節。
+
+## 5. 2026-11-26 production 實測
+
+方式：Playwright 開 `https://quidproquo.cc/admin`（Cloudflare Access 由使用者手動登入）。截圖在 `.work/admin-v2-prod-verify/2026-11-26/`。
+
+| 項目 | 結果 | 證據 |
+|---|---|---|
+| Home 載入、admin auth | 通過 | `01-home.png`；admin 頁 console 無錯 |
+| Home composer 建 session | 通過 | `POST /api/admin/sessions` 200 → 轉址 `sess_1795664028529_eh02` |
+| 後端事件流 | 通過 | `GET /api/admin/sessions/:id`：`system/init` → `user` → `assistant`（「收到」）→ `result`，status `done`，約 6 秒；模型 `cloudflare:@cf/meta/llama-3.3-70b-instruct-fp8-fast` |
+| Session 詳情頁渲染 | **失敗** | `02-session.png` 空白；console `Error: status is only supported for assistant messages` |
+| Session 列表狀態 | 通過 | `03-sessions-list.png`，新 session 顯示 done |
+| 390px（Home、列表） | 通過 | `04-sessions-390.png`、`05-home-390.png`；scrollWidth = clientWidth = 390 |
+| Routine trigger、通知 | 未測 | `/api/admin/routines` 回 `[]` |
+| MCP proxy、Marketplace | 未測 | `mcp-servers`、`marketplace` 皆回空 |
+| 核准卡（手機寬度） | 未測 | 依附詳情頁，詳情頁空白 |
+
+### 5.1 發現的問題
+
+1. **Session 詳情頁空白（所有 session）**（已修，見本次 commit）：`src/components/assistant-ui/thread.tsx:54` 的 `convertMessage` 對每則訊息都塞 `status`；`@assistant-ui/core@0.3.16` 的 `fromThreadMessageLike` 對非 assistant 訊息帶 `status` 直接 throw。公開站 `src/components/Chat/ChatThread.tsx:68` 已只對 assistant 加，admin 版漏了。
+2. **Session token／費用恆為 0**：`src/server/agents/session-do.ts:764`、`:889` 的 `result` 事件寫死 `totalTokens: 0, totalCostUsd: 0`，`agent_sessions.total_tokens`／`total_cost_usd` 也是 0。
+3. **兩筆殭屍 session**：72 天前的兩筆「嗨」停在 `running`，沒有逾時收尾。
+4. **`runner_provider` 標示**：沒帶 repo 時一律記 `sandbox`，實際在 DO 內跑（`session-do.ts:635` 只有帶 repo 才 provision）；列表／詳情顯示的 runner 與實際不符。
+5. **模型下拉未過濾**：composer 的模型清單混入 embedding、TTS、影像、reranker 模型；預設值顯示 `groq / allam-2-7b`。
