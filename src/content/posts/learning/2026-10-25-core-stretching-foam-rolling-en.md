@@ -22,7 +22,7 @@ glossary:
     context: "This post keeps the two apart."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-core-stretching-foam-rolling)
+> :globe: [中文版](/posts/learning/2026-10-25-core-stretching-foam-rolling)
 
 "Train your core and your back won't hurt." "Stretch before exercise so you don't get injured." "Roll tight muscles out with a foam roller." All three are common sayings, and the evidence behind them is very uneven in thickness.
 

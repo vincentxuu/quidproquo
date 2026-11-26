@@ -26,7 +26,7 @@ glossary:
     context: "All six steps in this post end inside the sarcomere."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-24-how-muscles-contract)
+> :globe: [中文版](/posts/learning/2026-10-24-how-muscles-contract)
 
 Clench your fist, then let go. It takes less than a second, but every muscle cell (muscle fiber) in your forearm that got the call went through the same chain of events.
 

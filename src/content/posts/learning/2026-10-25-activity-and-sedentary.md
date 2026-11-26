@@ -26,7 +26,7 @@ glossary:
     context: "本文用它說明活動量越多、效益是否一直增加。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-activity-and-sedentary-en)
+> :globe: [English version](/posts/learning/2026-10-25-activity-and-sedentary-en)
 
 一週要動多少才夠？久坐有那麼糟嗎？每天要不要走一萬步？這些數字在網路上到處都是，很少有人說它們的證據多強。
 

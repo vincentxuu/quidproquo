@@ -38,7 +38,7 @@ glossary:
     context: "本文的來源把它當成一項結果來測量。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-what-is-pain-en)
+> :globe: [English version](/posts/learning/2026-10-25-what-is-pain-en)
 
 跌倒或扭到之後會痛，很自然會想：痛，就是哪裡壞了；不痛，就沒事。痛和受傷是同一件事嗎？這篇先看國際疼痛研究學會（IASP）怎麼定義疼痛，再看一種叫「疼痛神經科學教育」的做法，在慢性下背痛的研究裡證據有多確定。
 

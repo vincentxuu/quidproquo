@@ -26,7 +26,7 @@ glossary:
     context: "Used here because one trial measured trunk fat with it."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-body-composition-and-spot-reduction)
+> :globe: [中文版](/posts/learning/2026-10-25-body-composition-and-spot-reduction)
 
 "Do crunches and the fat on your belly goes away" is an old claim. It says that wherever you train, the fat there shrinks more, which is called spot reduction. What does the evidence say?
 

@@ -22,7 +22,7 @@ glossary:
     context: "本文說明三條補充 ATP 的途徑中最快的一條。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-24-energy-systems-en)
+> :globe: [English version](/posts/learning/2026-10-24-energy-systems-en)
 
 常聽到「這是有氧運動」「那是無氧運動」。這個分法對嗎？肌肉用的能量，到底從哪來？
 

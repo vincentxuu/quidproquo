@@ -26,7 +26,7 @@ glossary:
     context: "本文用它當作神經適應的間接證據。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-neural-adaptation-en)
+> :globe: [English version](/posts/learning/2026-10-25-neural-adaptation-en)
 
 剛開始練重量的人，常在前幾週就覺得變強了，肌肉卻看不出變大。常見的說法是：這時進步的主要是神經，不是肌肉。
 

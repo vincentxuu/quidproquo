@@ -30,7 +30,7 @@ glossary:
     context: "本文的肩膀研究與一篇脊椎研究都是這種類型。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-imaging-findings-and-pain-en)
+> :globe: [English version](/posts/learning/2026-10-25-imaging-findings-and-pain-en)
 
 拿到核磁共振或 X 光報告，上面寫著「椎間盤退化」「骨刺」「鈣化」，很自然會想：原來我痛的原因就是這個。這個推論有多可靠？
 

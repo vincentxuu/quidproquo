@@ -26,7 +26,7 @@ glossary:
     context: "本文的六個步驟，最後都發生在肌小節裡。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-24-how-muscles-contract-en)
+> :globe: [English version](/posts/learning/2026-10-24-how-muscles-contract-en)
 
 把手握成拳，再放開。這個動作不到一秒，但前臂裡每一條被叫到的肌肉細胞（肌纖維），都走過同一串事件。
 

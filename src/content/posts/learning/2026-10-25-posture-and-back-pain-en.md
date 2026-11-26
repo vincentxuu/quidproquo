@@ -26,7 +26,7 @@ glossary:
     context: "Used here to describe the link between lumbar lordosis and low back pain."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-posture-and-back-pain)
+> :globe: [中文版](/posts/learning/2026-10-25-posture-and-back-pain)
 
 "Poor posture causes back pain" sounds reasonable and is often treated as fact. This post asks what the research actually saw.
 

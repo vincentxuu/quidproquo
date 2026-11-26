@@ -26,7 +26,7 @@ glossary:
     context: "本文用它和彈性模數對照。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-24-tendons-and-load-en)
+> :globe: [English version](/posts/learning/2026-10-24-tendons-and-load-en)
 
 手指吊在小岩點上，力從前臂傳到手指，中間要經過肌腱。常聽到的說法是「負荷會讓肌腱變強」。那手指的肌腱呢？
 

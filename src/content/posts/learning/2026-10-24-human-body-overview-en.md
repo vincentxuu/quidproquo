@@ -26,7 +26,7 @@ glossary:
     context: "Used here with a meta-analysis of 61 studies to show the limits of evidence."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-24-human-body-overview)
+> :globe: [中文版](/posts/learning/2026-10-24-human-body-overview)
 
 How heavy should you lift? Should you stretch a lot? Is back pain a posture problem? Ask the same question and different people give different answers. Each sounds reasonable, and each comes with someone saying there is research behind it.
 

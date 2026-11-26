@@ -30,7 +30,7 @@ glossary:
     context: "本文的第一個來源是這一類研究。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-menstrual-cycle-and-training-en)
+> :globe: [English version](/posts/learning/2026-10-25-menstrual-cycle-and-training-en)
 
 月經週期會影響訓練嗎？有些人覺得某幾天特別累，也有人聽說「前半段適合練重的、後半段要放輕」。這些說法常說得很確定。
 

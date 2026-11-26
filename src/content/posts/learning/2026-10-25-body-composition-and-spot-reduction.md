@@ -26,7 +26,7 @@ glossary:
     context: "本文的一個試驗用它量軀幹脂肪。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-body-composition-and-spot-reduction-en)
+> :globe: [English version](/posts/learning/2026-10-25-body-composition-and-spot-reduction-en)
 
 「練腹肌就能減肚子的脂肪」這類說法流傳很久，意思是練哪個部位，哪裡的脂肪就減得比較多，這叫局部減脂。證據怎麼說？
 

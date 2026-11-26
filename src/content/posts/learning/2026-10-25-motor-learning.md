@@ -34,7 +34,7 @@ glossary:
     context: "本文用它判斷實際場景的結果能不能確定。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-motor-learning-en)
+> :globe: [English version](/posts/learning/2026-10-25-motor-learning-en)
 
 同一個動作練了一個星期，變順了。這代表你學會了嗎？還是只是練習當下的手感？〈[新手前幾週變強，神經和肌肉各出多少力](/posts/learning/2026-10-25-neural-adaptation)〉談過力量的早期進步；〈[暖身能讓表現更好、少受傷嗎](/posts/learning/2026-10-25-warm-up-and-training-load)〉談的是練習之前的準備。這篇換成技巧，只問一個窄問題：練習的次序怎麼排，會不會影響學到多少。
 

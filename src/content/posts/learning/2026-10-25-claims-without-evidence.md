@@ -30,7 +30,7 @@ glossary:
     context: "本文用它當單槓懸吊最接近的研究類型。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-claims-without-evidence-en)
+> :globe: [English version](/posts/learning/2026-10-25-claims-without-evidence-en)
 
 有些說法聽起來很合理，也常被引用，但你想找一篇研究來對照，卻不知道該找哪一篇。這篇挑兩個：zone 2 訓練，和單槓懸吊可以讓脊椎減壓。
 

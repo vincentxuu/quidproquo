@@ -30,7 +30,7 @@ glossary:
     context: "本文用它描述適能高與低的死亡風險差距。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-heart-lungs-oxygen-en)
+> :globe: [English version](/posts/learning/2026-10-25-heart-lungs-oxygen-en)
 
 〈[肌肉的能量從哪來](/posts/learning/2026-10-24-energy-systems)〉說過，持續的活動主要靠有氧呼吸補 ATP，而有氧呼吸需要氧。氧氣怎麼從空氣一路到肌肉？「心肺適能好」又代表什麼，證據有多確定？
 

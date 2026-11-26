@@ -10,7 +10,7 @@ description: "A walkthrough of the OpenVLHarness paper and official repo: the ni
 draft: false
 ---
 
-> 🌏 [中文版](/posts/ai/2026-10-23-openvlharness-visual-agent-memory)
+> :globe: [中文版](/posts/ai/2026-10-23-openvlharness-visual-agent-memory)
 
 Multimodal models tend to fail on images in three ways: they miscount in crowded scenes, they miss small text in a corner, and they cannot name an object that needs outside knowledge to identify. [OpenVLHarness](https://arxiv.org/abs/2610.26860) (arXiv:2610.26860) attacks all three the same way. It leaves the model weights alone and wraps the model in tools, so it can crop, locate, search, and compute before it answers.
 

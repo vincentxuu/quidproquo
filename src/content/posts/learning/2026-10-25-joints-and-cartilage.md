@@ -34,7 +34,7 @@ glossary:
     context: "本文括號裡的範圍就是信賴區間。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-joints-and-cartilage-en)
+> :globe: [English version](/posts/learning/2026-10-25-joints-and-cartilage-en)
 
 「跑步會傷膝蓋」「深蹲不要蹲太深」「爬樓梯對關節不好」，這類說法很常聽到。這篇讀幾份整理膝關節炎的文獻，看運動和關節炎風險之間量到什麼。我讀得到的研究幾乎都在談膝蓋，所以範圍只到膝蓋，而且主要回答「會不會得關節炎、會不會痛」；至於「軟骨是不是被磨掉了」這個結構問題，這篇只有間接的證據。
 

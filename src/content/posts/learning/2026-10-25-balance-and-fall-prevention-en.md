@@ -34,7 +34,7 @@ glossary:
     context: "Used here to judge whether test-score gains are big enough."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-balance-and-fall-prevention)
+> :globe: [中文版](/posts/learning/2026-10-25-balance-and-fall-prevention)
 
 Earlier posts covered muscle, energy and the heart and lungs. This one asks: can balance be trained, and if you train it, do you actually fall less?
 

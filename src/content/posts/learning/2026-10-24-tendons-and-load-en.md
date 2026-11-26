@@ -26,7 +26,7 @@ glossary:
     context: "Used here as the counterpart to modulus."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-24-tendons-and-load)
+> :globe: [中文版](/posts/learning/2026-10-24-tendons-and-load)
 
 When you hang from a small hold, force travels from your forearm to your fingers, and it has to pass through tendons. A common saying is that "load makes tendons stronger". What about the tendons in your fingers?
 

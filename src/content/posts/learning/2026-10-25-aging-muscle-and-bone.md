@@ -29,7 +29,7 @@ glossary:
     definition: "單位面積內的骨礦含量，常用 DXA 掃描測量。它是骨強度的指標之一，但不等於骨折風險。"
     context: "本文的骨相關來源，主要結果指標都是骨密度。"
 ---
-> 🌏 [English version](/posts/learning/2026-10-25-aging-muscle-and-bone-en)
+> :globe: [English version](/posts/learning/2026-10-25-aging-muscle-and-bone-en)
 
 前面幾篇談的證據，多半來自健康成人，例如〈[要練多重、幾組、練到力竭嗎](/posts/learning/2026-10-25-strength-and-hypertrophy)〉。年紀大了，這些規律是否還成立，要另外看。
 

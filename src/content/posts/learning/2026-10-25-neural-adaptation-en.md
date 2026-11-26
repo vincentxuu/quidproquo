@@ -26,7 +26,7 @@ glossary:
     context: "Used here as indirect evidence for neural adaptation."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-neural-adaptation)
+> :globe: [中文版](/posts/learning/2026-10-25-neural-adaptation)
 
 People who start lifting weights often feel stronger within a few weeks, even though their muscles do not look bigger. A common claim is that what improves at this stage is mainly the nervous system, not the muscle.
 

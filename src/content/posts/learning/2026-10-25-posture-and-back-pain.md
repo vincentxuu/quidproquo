@@ -26,7 +26,7 @@ glossary:
     context: "本文用它描述腰椎前凸與下背痛的關聯。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-posture-and-back-pain-en)
+> :globe: [English version](/posts/learning/2026-10-25-posture-and-back-pain-en)
 
 「姿勢不良會造成背痛」，這句話聽起來很合理，也常被當成事實。這篇想問的是：研究實際看到了什麼？
 

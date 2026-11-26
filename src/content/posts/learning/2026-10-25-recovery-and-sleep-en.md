@@ -30,7 +30,7 @@ glossary:
     context: "Used here to explain why improved soreness ratings should be read cautiously."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-recovery-and-sleep)
+> :globe: [中文版](/posts/learning/2026-10-25-recovery-and-sleep)
 
 How much does sleeping less cost you in exercise performance? And after a hard session, do massage or cold baths help with soreness?
 

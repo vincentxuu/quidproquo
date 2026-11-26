@@ -30,7 +30,7 @@ glossary:
     context: "Used here as the closest research type to hanging from a bar."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-claims-without-evidence)
+> :globe: [中文版](/posts/learning/2026-10-25-claims-without-evidence)
 
 Some claims sound reasonable and get repeated a lot, but when you try to find a study to check them against, you do not know which one to look for. This post picks two: zone 2 training, and the idea that hanging from a pull-up bar decompresses the spine.
 

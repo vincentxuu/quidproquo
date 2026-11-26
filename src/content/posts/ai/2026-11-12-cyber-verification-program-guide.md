@@ -11,8 +11,6 @@ description: "Anthropic Cyber Verification Program（CVP）的 Defense、Red Tea
 draft: true
 ---
 
-> 🌏 [English version](/posts/ai/2026-11-12-cyber-verification-program-guide-en)
-
 請 Claude 幫你看自家程式有沒有漏洞，現在就能做。但如果你要它分析一個可疑的惡意程式，或驗證某個漏洞能不能真的被利用，它很可能直接拒絕。Anthropic 為這類工作開了一條路：[Cyber Verification Program](https://support.claude.com/en/articles/14604842-cyber-verification-program)（簡稱 CVP），通過驗證的人可以使用資安限制較少的 Claude。這篇說明誰需要申請、三個層級怎麼選，以及申請前要先備妥的帳號安全設定。
 
 ## 先看你需不需要申請

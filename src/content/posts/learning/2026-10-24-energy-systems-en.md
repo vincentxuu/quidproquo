@@ -22,7 +22,7 @@ glossary:
     context: "Used here as the fastest of the three ways to resupply ATP."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-24-energy-systems)
+> :globe: [中文版](/posts/learning/2026-10-24-energy-systems)
 
 You often hear "that's an aerobic sport" or "that's an anaerobic one". Is that split right? Where does the energy for muscle actually come from?
 
