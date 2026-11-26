@@ -145,8 +145,10 @@ async function executeTool(
     const inp = input as Record<string, unknown>
     switch (toolName) {
       case 'Bash':
+        // The model sends a shell command line; run it through bash so arguments,
+        // pipes and redirects work. An argv array is executed as given.
         return deps.runner.exec(
-          Array.isArray(inp.command) ? inp.command : [String(inp.command ?? '')],
+          Array.isArray(inp.command) ? inp.command.map(String) : ['bash', '-c', String(inp.command ?? '')],
         )
       case 'Read':
         return deps.runner.readFile(String(inp.file_path ?? inp.path ?? ''))

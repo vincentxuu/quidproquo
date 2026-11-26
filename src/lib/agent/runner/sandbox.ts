@@ -115,8 +115,9 @@ class SandboxHandle implements RunnerHandle {
   }
 
   async glob(pattern: string): Promise<string[]> {
-    const result = await this.exec(['sh', '-c', `find /workspace -path '${pattern}' -type f 2>/dev/null`])
-    if (result.exitCode !== 0) return []
+    // find -path matches the whole path, so anchor relative patterns at the workspace root.
+    const absolute = pattern.startsWith('/') ? pattern : `/workspace/${pattern.replace(/^\.\//, '')}`
+    const result = await this.exec(['find', '/workspace', '-path', absolute, '-type', 'f'])
     return result.stdout.trim().split('\n').filter(Boolean)
   }
 
