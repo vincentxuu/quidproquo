@@ -34,7 +34,7 @@ glossary:
     context: "The ranges in brackets in this post are confidence intervals."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-joints-and-cartilage)
+> :globe: [中文版](/posts/learning/2026-10-25-joints-and-cartilage)
 
 "Running ruins your knees." "Don't squat too deep." "Stairs are bad for your joints." Claims like these are everywhere. This post reads several reviews of knee osteoarthritis to see what has been measured about exercise and arthritis risk. The studies I could read are almost all about the knee, so the scope stops there, and it mainly answers "will I get arthritis, will it hurt". On the structural question, "is cartilage actually being worn away", this post has only indirect evidence.
 

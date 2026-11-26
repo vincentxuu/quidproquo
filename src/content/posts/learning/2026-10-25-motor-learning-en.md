@@ -34,7 +34,7 @@ glossary:
     context: "Used here to judge whether the result in real settings is firm."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-motor-learning)
+> :globe: [中文版](/posts/learning/2026-10-25-motor-learning)
 
 You practice the same movement for a week and it gets smoother. Does that mean you have learned it, or only that your hands feel good right now? [How Much of a Beginner's Early Strength Is Nerves and How Much Is Muscle](/posts/learning/2026-10-25-neural-adaptation-en) covers early strength gains; [Does Warming Up Prevent Injury?](/posts/learning/2026-10-25-warm-up-and-training-load-en) covers preparation before practice. This post turns to skill and asks one narrow question: does the order of practice change how much is learned?
 

@@ -29,7 +29,7 @@ glossary:
     definition: "The amount of bone mineral per unit area, usually measured by DXA scan. It is one indicator of bone strength but is not the same as fracture risk."
     context: "The main outcome in the bone sources in this post."
 ---
-> 🌏 [中文版](/posts/learning/2026-10-25-aging-muscle-and-bone)
+> :globe: [中文版](/posts/learning/2026-10-25-aging-muscle-and-bone)
 
 The evidence in earlier posts mostly comes from healthy adults, for example [How Heavy, How Many Sets, To Failure or Not](/posts/learning/2026-10-25-strength-and-hypertrophy-en). Whether those patterns still hold in older age has to be looked at separately.
 

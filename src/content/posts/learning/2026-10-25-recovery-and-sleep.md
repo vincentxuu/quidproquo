@@ -30,7 +30,7 @@ glossary:
     context: "本文說明為什麼痠痛評分的改善要保守解讀。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-recovery-and-sleep-en)
+> :globe: [English version](/posts/learning/2026-10-25-recovery-and-sleep-en)
 
 少睡一點，運動表現會差多少？運動後痠痛，按摩、泡冷水這些方法有用嗎？
 

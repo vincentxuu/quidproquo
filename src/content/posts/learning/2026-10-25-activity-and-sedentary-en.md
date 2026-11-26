@@ -26,7 +26,7 @@ glossary:
     context: "Used here to ask whether more activity keeps adding benefit."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-activity-and-sedentary)
+> :globe: [中文版](/posts/learning/2026-10-25-activity-and-sedentary)
 
 How much do you need to move each week? Is sitting really that bad? Should you walk 10,000 steps a day? These numbers are everywhere online, and few sources say how strong the evidence behind them is.
 

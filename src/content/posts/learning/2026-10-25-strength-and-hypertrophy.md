@@ -26,7 +26,7 @@ glossary:
     context: "本文的主要來源是這一類研究。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-strength-and-hypertrophy-en)
+> :globe: [English version](/posts/learning/2026-10-25-strength-and-hypertrophy-en)
 
 要練多重？一個動作做幾組？每組要不要做到力竭，也就是做到完成不了下一下？這三個問題，健身圈常有斬釘截鐵的答案，彼此還互相衝突。
 

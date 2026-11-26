@@ -38,7 +38,7 @@ glossary:
     context: "Measured as one outcome in this post's source."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-what-is-pain)
+> :globe: [中文版](/posts/learning/2026-10-25-what-is-pain)
 
 After a fall or a sprain it hurts, and it is natural to think: it hurts, so something is broken; it does not hurt, so it is fine. Are pain and injury the same thing? This post first looks at how the International Association for the Study of Pain (IASP) defines pain, then at a method called pain neuroscience education, and how certain the evidence is in research on chronic low back pain.
 

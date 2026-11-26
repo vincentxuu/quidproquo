@@ -26,7 +26,7 @@ glossary:
     context: "Used here to describe the gap between exercise and control groups."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-bones-and-joints)
+> :globe: [中文版](/posts/learning/2026-10-25-bones-and-joints)
 
 [How Muscles Contract](/posts/learning/2026-10-24-how-muscles-contract-en) and [How Tendons Respond to Load](/posts/learning/2026-10-24-tendons-and-load-en) covered how force from muscle passes through tendon and pulls on bone so the body moves. This post looks at the end that gets pulled: what do bones and joints look like, and when people say "load makes bone stronger", what has research actually measured?
 

@@ -34,7 +34,7 @@ glossary:
     context: "本文用它判斷測驗分數的進步是否夠大。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-balance-and-fall-prevention-en)
+> :globe: [English version](/posts/learning/2026-10-25-balance-and-fall-prevention-en)
 
 前面的篇章談了肌肉、能量和心肺。這一篇回到一個問題：平衡練得起來嗎？練了，會不會真的比較少跌倒？
 

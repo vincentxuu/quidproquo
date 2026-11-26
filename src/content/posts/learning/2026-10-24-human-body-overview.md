@@ -26,7 +26,7 @@ glossary:
     context: "本文用一篇整合 61 項研究的統合分析，示範證據的限制。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-24-human-body-overview-en)
+> :globe: [English version](/posts/learning/2026-10-24-human-body-overview-en)
 
 肌肉要練多重？該不該常常伸展？背痛是不是姿勢不好？同一個問題，不同的人給你不同的答案，每個答案聽起來都有道理，也都有人說有研究。
 

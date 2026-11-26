@@ -22,7 +22,7 @@ glossary:
     context: "本文把兩者分開寫。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-core-stretching-foam-rolling-en)
+> :globe: [English version](/posts/learning/2026-10-25-core-stretching-foam-rolling-en)
 
 「核心要練強，背才不會痛。」「運動前要伸展，才不會受傷。」「肌肉緊就拿滾筒滾開。」這三句話都很常聽到，證據的厚度卻差很多。
 

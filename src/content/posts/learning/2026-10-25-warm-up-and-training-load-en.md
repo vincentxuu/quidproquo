@@ -30,7 +30,7 @@ glossary:
     context: "Used here to describe the results of a warm-up programme and of load management."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-warm-up-and-training-load)
+> :globe: [中文版](/posts/learning/2026-10-25-warm-up-and-training-load)
 
 "Warming up prevents injury" and "train too much and you'll get hurt" are both things you hear all the time. This post splits them into three questions: can a warm-up improve this session's performance, can it keep you injury-free over time, and how do you know you trained too much?
 

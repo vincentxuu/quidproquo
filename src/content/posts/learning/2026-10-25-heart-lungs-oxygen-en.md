@@ -30,7 +30,7 @@ glossary:
     context: "Used here to describe the gap in mortality risk between higher and lower fitness."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-heart-lungs-oxygen)
+> :globe: [中文版](/posts/learning/2026-10-25-heart-lungs-oxygen)
 
 [Where Muscle Gets Its Energy](/posts/learning/2026-10-24-energy-systems-en) said that sustained activity mostly resupplies ATP through aerobic respiration, which needs oxygen. How does oxygen get from the air to the muscle? And what does "good cardiorespiratory fitness" mean, and how certain is the evidence?
 

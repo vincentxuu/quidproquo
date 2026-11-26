@@ -26,7 +26,7 @@ glossary:
     context: "Used here because the main source is this type of study."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-strength-and-hypertrophy)
+> :globe: [中文版](/posts/learning/2026-10-25-strength-and-hypertrophy)
 
 How heavy should you lift? How many sets of each exercise? Should every set go to failure, meaning until you cannot do the next rep? The fitness world has confident answers to all three, and they conflict with one another.
 

@@ -30,7 +30,7 @@ glossary:
     context: "The shoulder study and one of the spine studies are of this type."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-imaging-findings-and-pain)
+> :globe: [中文版](/posts/learning/2026-10-25-imaging-findings-and-pain)
 
 You get an MRI or X-ray report that says "disc degeneration", "bone spur" or "calcification", and it is natural to think: so that is what is causing my pain. How reliable is that inference?
 

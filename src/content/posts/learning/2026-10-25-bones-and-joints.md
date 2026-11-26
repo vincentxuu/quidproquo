@@ -26,7 +26,7 @@ glossary:
     context: "本文用它描述運動組與對照組的差。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-bones-and-joints-en)
+> :globe: [English version](/posts/learning/2026-10-25-bones-and-joints-en)
 
 〈[肌肉怎麼收縮](/posts/learning/2026-10-24-how-muscles-contract)〉和〈[肌腱怎麼對負荷反應](/posts/learning/2026-10-24-tendons-and-load)〉講過，肌肉出的力經過肌腱，拉動骨頭，身體才動。這一篇看被拉的那一端：骨頭和關節長什麼樣子？常聽到「負荷會讓骨頭變強」，研究實際量到什麼？
 

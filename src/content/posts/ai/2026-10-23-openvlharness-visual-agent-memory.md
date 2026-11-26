@@ -10,7 +10,7 @@ description: "整理 OpenVLHarness 的論文與官方程式庫：九種視覺工
 draft: false
 ---
 
-> 🌏 [English version](/posts/ai/2026-10-23-openvlharness-visual-agent-memory-en)
+> :globe: [English version](/posts/ai/2026-10-23-openvlharness-visual-agent-memory-en)
 
 多模態模型看圖常見三種錯：擁擠的畫面數錯數量，角落的小字沒讀到，需要查外部資料才認得的物件答不出來。[OpenVLHarness](https://arxiv.org/abs/2610.26860)（arXiv:2610.26860）處理這三種錯的方式一致：不改模型權重，在模型外面接上工具，讓它先裁切、定位、查詢、計算，再回答。
 

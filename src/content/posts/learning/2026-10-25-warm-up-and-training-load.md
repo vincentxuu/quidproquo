@@ -30,7 +30,7 @@ glossary:
     context: "本文用它描述暖身計畫與負荷管理的結果。"
 ---
 
-> 🌏 [English version](/posts/learning/2026-10-25-warm-up-and-training-load-en)
+> :globe: [English version](/posts/learning/2026-10-25-warm-up-and-training-load-en)
 
 「暖身可以預防受傷」「練太多會受傷」，這兩句話很常聽到。這篇把它拆成三個問題：暖身能不能讓這一次的表現更好？能不能讓你長期少受傷？練太多又要怎麼知道？
 

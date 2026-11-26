@@ -30,7 +30,7 @@ glossary:
     context: "The first source in this post is this type of study."
 ---
 
-> 🌏 [中文版](/posts/learning/2026-10-25-menstrual-cycle-and-training)
+> :globe: [中文版](/posts/learning/2026-10-25-menstrual-cycle-and-training)
 
 Does the menstrual cycle affect training? Some people notice certain days feel harder. Others have heard "lift heavy in the first half, go easy in the second." Such claims are often stated with great confidence.
 
