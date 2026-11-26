@@ -36,6 +36,9 @@ jobs:
   update:
     name: Regenerate -linux snapshots
     runs-on: ubuntu-24.04
+    env:
+      # 與 quality.yml 的 visual／screenshots 同理：dev server 全站內容貼著 Node 預設 4GB heap。
+      NODE_OPTIONS: --max-old-space-size=6144
     steps:
       - uses: actions/checkout@v7
         with:
