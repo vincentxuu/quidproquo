@@ -6,23 +6,31 @@ FROM docker.io/cloudflare/sandbox:0.12.9-python
 ENV DEBIAN_FRONTEND=noninteractive
 
 # Document conversion, OCR and CJK fonts used by the file-producing skills.
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    fonts-noto-cjk \
-    fontconfig \
-    libcairo2 \
-    libreoffice-core \
-    libreoffice-writer \
-    libreoffice-calc \
-    libreoffice-impress \
-    libreoffice-l10n-zh-tw \
-    poppler-utils \
-    pandoc \
-    qpdf \
-    tesseract-ocr \
-    tesseract-ocr-eng \
-    tesseract-ocr-chi-tra \
-    && rm -rf /var/lib/apt/lists/* \
-    && fc-cache -f
+# CI builds this image from scratch on every deploy. Ubuntu mirrors briefly serve an
+# index that points at package versions they no longer host (404), so a failed install
+# refreshes the index and retries instead of failing the deploy.
+RUN set -e; \
+    for attempt in 1 2 3; do \
+      if apt-get update && apt-get install -y --no-install-recommends \
+        fonts-noto-cjk \
+        fontconfig \
+        libcairo2 \
+        libreoffice-core \
+        libreoffice-writer \
+        libreoffice-calc \
+        libreoffice-impress \
+        libreoffice-l10n-zh-tw \
+        poppler-utils \
+        pandoc \
+        qpdf \
+        tesseract-ocr \
+        tesseract-ocr-eng \
+        tesseract-ocr-chi-tra; then break; fi; \
+      if [ "$attempt" = 3 ]; then exit 1; fi; \
+      rm -rf /var/lib/apt/lists/*; sleep 60; \
+    done; \
+    rm -rf /var/lib/apt/lists/*; \
+    fc-cache -f
 
 RUN python3 -m pip install --no-cache-dir \
     numpy \
