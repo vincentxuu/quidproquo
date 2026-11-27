@@ -1,3 +1,6 @@
+// 文章參考資料閘門：技術類分類（ai、tech、learning、education、policy、design、marketing、product）要有
+// 「參考資料／References」區段，區段裡要有有效連結、不能留 placeholder；站內文章連結不能指向不存在的文章。
+// 連結數偏少、或參考資料和段落標題對不上關鍵詞，只警告不擋。
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';

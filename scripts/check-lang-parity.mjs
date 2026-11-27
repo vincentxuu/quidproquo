@@ -1,3 +1,5 @@
+// 雙語閘門：技術類與 daily 分類已發布的 zh-TW 文章，同目錄要有 -en.md 英文版；兩個語言版本的 lang、date、
+// series.order、更新紀錄筆數要一致，章節數差超過 25% 也擋（通常是只改了一邊）。
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';
