@@ -72,7 +72,7 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
   </section>
 </AdminV2Layout>
 
-<script is:inline>
+<script is:inline define:vars={{ SUPPORTED_SEARCH_TOOL_PROVIDERS }}>
   const form = document.getElementById('settings-form');
   const traceList = document.getElementById('trace-list');
   const shadowList = document.getElementById('shadow-list');

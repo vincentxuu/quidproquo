@@ -458,7 +458,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
               <p data-empty-history class="m-0 text-(length:--fs-sm) text-muted-foreground">尚無回填紀錄。</p>
             ) : (
               recentBackfillRows.map((row) => (
-                <div class="backfill-history-row grid items-center gap-x-2.5 rounded-md border border-border bg-secondary px-3 py-2.5 text-(length:--fs-sm) max-[1100px]:grid-cols-1" style="grid-template-columns: minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto">
+                <div class="backfill-history-row grid items-center gap-x-2.5 rounded-md border border-border bg-secondary px-3 py-2.5 text-(length:--fs-sm) grid-cols-[minmax(140px,1.2fr)_minmax(180px,1.4fr)_repeat(4,minmax(80px,auto))_auto] max-[1100px]:grid-cols-1">
                   <span class="font-mono text-[0.85em]">{row.createdAt}</span>
                   <strong class="font-mono text-[0.85em] text-foreground">{row.range}</strong>
                   <span>{row.rows} 列</span>
@@ -483,7 +483,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
         </div>
       </AdminPanel>
 
-      <div class="grid gap-4 max-[1100px]:grid-cols-1" style="grid-template-columns: 1fr 340px">
+      <div class="grid grid-cols-[minmax(0,1fr)_340px] gap-4 max-[1100px]:grid-cols-1">
         <AdminPanel title={`依 ${dimensionLabel} 分類費用 — ${activePeriod.label}`} class="cost-main">
           {dailyRows.length === 0 ? (
             <AdminState tone="empty">尚無彙總資料。請執行費用回填以填入此資料表。</AdminState>
@@ -758,11 +758,10 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       historyBody.querySelector('[data-empty-history]')?.remove();
       const tokensTotal = Number(summary.tokensIn || 0) + Number(summary.tokensOut || 0);
       const row = document.createElement('div');
-      const baseCls = 'backfill-history-row grid items-center gap-x-2.5 rounded-md border px-3 py-2.5 text-(length:--fs-sm)';
+      const baseCls = 'backfill-history-row grid grid-cols-[minmax(140px,1.2fr)_minmax(180px,1.4fr)_repeat(4,minmax(80px,auto))_auto] items-center gap-x-2.5 rounded-md border px-3 py-2.5 text-(length:--fs-sm) max-[1100px]:grid-cols-1';
       row.className = opts.failed
         ? baseCls + ' border-destructive/30 bg-destructive/5 text-destructive'
         : baseCls + ' border-border bg-secondary';
-      row.style.gridTemplateColumns = 'minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto';
       const cells = [
         { tag: 'span', cls: 'font-mono text-[0.85em]', text: '剛剛' },
         { tag: 'strong', cls: 'font-mono text-[0.85em] text-foreground', text: formatDay(summary.fromDay) + ' → ' + formatDay(summary.toDay) },

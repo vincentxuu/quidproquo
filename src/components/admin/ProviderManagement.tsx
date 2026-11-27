@@ -583,28 +583,29 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
             return (
               <Collapsible key={provider} open={isOpen} onOpenChange={(open: boolean) => setOpenProviders(prev => { const n = new Set(prev); if (open) { n.add(provider) } else { n.delete(provider) } return n })}>
                 <div className="rounded-lg border border-border bg-card overflow-hidden">
-                  <CollapsibleTrigger asChild>
-                    <button className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left hover:bg-muted/50">
-                      <div className="flex min-w-0 items-center gap-2">
+                  {/* 展開鈕與「同步模型」是兄弟節點：button 裡不能再放 button，否則伺服器 HTML 被瀏覽器拆開、hydration 失敗後整塊重繪兩份 */}
+                  <div className="flex items-center gap-3 pr-4 hover:bg-muted/50">
+                    <CollapsibleTrigger asChild>
+                      <button type="button" className="flex min-w-0 flex-1 items-center gap-2 py-2.5 pl-4 text-left">
                         <ChevronRight className={cn('size-4 shrink-0 text-muted-foreground transition-transform', isOpen && 'rotate-90')} />
                         <strong className="truncate text-sm">{provider}</strong>
                         <span className="shrink-0 text-xs text-muted-foreground">
                           {(m.modelsEnabled || '').replace('{active}', String(activeCount)).replace('{total}', String(models.length))}
                         </span>
-                      </div>
-                      <div className="flex min-w-0 items-center gap-2" onClick={e => e.stopPropagation()}>
-                        <InlineStatus feedback={providerFeedback} />
-                        <Button
-                          variant="outline" size="xs"
-                          disabled={syncing}
-                          onClick={() => syncProvider(provider)}
-                        >
-                          {syncing ? <Loader2 className="size-3 animate-spin" aria-hidden /> : <RefreshCw className="size-3" aria-hidden />}
-                          {m.syncModels}
-                        </Button>
-                      </div>
-                    </button>
-                  </CollapsibleTrigger>
+                      </button>
+                    </CollapsibleTrigger>
+                    <div className="flex min-w-0 items-center gap-2">
+                      <InlineStatus feedback={providerFeedback} />
+                      <Button
+                        variant="outline" size="xs"
+                        disabled={syncing}
+                        onClick={() => syncProvider(provider)}
+                      >
+                        {syncing ? <Loader2 className="size-3 animate-spin" aria-hidden /> : <RefreshCw className="size-3" aria-hidden />}
+                        {m.syncModels}
+                      </Button>
+                    </div>
+                  </div>
                   <CollapsibleContent>
                     <div className="border-t border-border">
                       {models.length ? models.map(model => {
