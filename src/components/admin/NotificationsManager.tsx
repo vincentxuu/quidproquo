@@ -119,7 +119,7 @@ export default function NotificationsManager() {
 
   return (
     <div className="space-y-4">
-      <Card className="border-emerald-500/40">
+      <Card className="border-[color-mix(in_srgb,var(--success)_40%,transparent)]">
         <CardHeader>
           <CardTitle className="flex flex-wrap items-center gap-2">
             傳送端狀態

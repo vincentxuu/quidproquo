@@ -45,23 +45,23 @@ const { rows } = Astro.props;
   .mgmt-table td {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--admin-border);
+    border-bottom: 1px solid var(--border);
   }
   .mgmt-table th {
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
   .mgmt-table tbody tr:hover {
-    background: var(--admin-surface-subtle);
+    background: var(--bg-subtle);
   }
   .mgmt-table .desc {
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     max-width: 420px;
   }
   .mgmt-table a {
-    color: var(--admin-accent);
+    color: var(--brand-700);
     text-decoration: none;
   }
   .mgmt-table .actions a + a {

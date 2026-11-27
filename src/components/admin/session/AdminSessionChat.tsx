@@ -106,20 +106,20 @@ function StatusIndicator({ state, message }: { state: StatusIndicatorState; mess
   if (!state) return null
   if (state === 'finished') {
     return (
-      <span className="inline-flex items-center gap-1.5 text-xs text-[var(--admin-text-muted)]">
-        <Check className="size-3 text-[var(--admin-success)]" />
+      <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
+        <Check className="size-3 text-[var(--success)]" />
         {message || 'Agent finished'}
       </span>
     )
   }
   const tone =
     state === 'error'
-      ? 'bg-[var(--admin-danger)]'
+      ? 'bg-[var(--danger)]'
       : state === 'waiting_approval'
-        ? 'bg-[var(--admin-warning)]'
+        ? 'bg-[var(--warning)]'
         : 'bg-[var(--brand-500)]'
   return (
-    <span className="inline-flex items-center gap-1.5 text-xs text-[var(--admin-text-muted)]">
+    <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
       <span className={cn('size-2 rounded-full', tone, state !== 'error' && 'animate-pulse')} />
       {message || (state === 'waiting_approval' ? 'Waiting for approval' : 'Agent is working...')}
     </span>
@@ -131,20 +131,20 @@ function ProvisionBar({ steps }: { steps: Record<string, string> }) {
   if (!hasActivity) return null
 
   return (
-    <div className="flex items-center overflow-x-auto border-b border-[var(--admin-border)] bg-[var(--admin-color-surface-subtle)] px-4 py-2">
+    <div className="flex items-center overflow-x-auto border-b border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-2">
       {PROV_STEPS.map((step, index) => {
         const status = steps[step] || 'pending'
         return (
           <div className="flex shrink-0 items-center" key={step}>
-            {index > 0 && <div className="mx-2 h-px w-6 bg-[var(--admin-border)]" />}
+            {index > 0 && <div className="mx-2 h-px w-6 bg-[var(--border)]" />}
             <span
               className={cn(
                 'inline-flex items-center gap-1.5 rounded px-1.5 py-1 text-xs',
-                status === 'pending' && 'text-[var(--admin-text-muted)] opacity-50',
-                status === 'started' && 'font-medium text-[var(--admin-color-info)]',
-                status === 'completed' && 'text-[var(--admin-success)]',
-                status === 'failed' && 'text-[var(--admin-danger)]',
-                status === 'skipped' && 'text-[var(--admin-text-muted)] line-through opacity-60',
+                status === 'pending' && 'text-[var(--text-secondary)] opacity-50',
+                status === 'started' && 'font-medium text-[var(--text-secondary)]',
+                status === 'completed' && 'text-[var(--success)]',
+                status === 'failed' && 'text-[var(--danger)]',
+                status === 'skipped' && 'text-[var(--text-secondary)] line-through opacity-60',
               )}
             >
               {status === 'started' ? (
@@ -181,11 +181,11 @@ function ApprovalRow({
   const plan = asString(input.plan)
 
   return (
-    <div className="rounded-xl border border-[var(--admin-color-warning)] bg-[var(--admin-color-warning-soft)] p-3">
-      <div className="flex items-start gap-2 text-sm font-medium text-[var(--admin-text)]">
-        <AlertTriangle className="mt-0.5 size-4 shrink-0 text-[var(--admin-warning)]" />
+    <div className="rounded-xl border border-[var(--warning)] bg-[var(--warning-bg)] p-3">
+      <div className="flex items-start gap-2 text-sm font-medium text-[var(--text-primary)]">
+        <AlertTriangle className="mt-0.5 size-4 shrink-0 text-[var(--warning)]" />
         <span>
-          {displayName} <span className="font-normal text-[var(--admin-text-muted)]">{reason}</span>
+          {displayName} <span className="font-normal text-[var(--text-secondary)]">{reason}</span>
         </span>
       </div>
       {isExitPlan && plan ? <pre className="max-h-80 overflow-auto rounded-md bg-muted/50 p-3 text-xs leading-5 whitespace-pre-wrap break-all">{truncate(plan, 2000)}</pre> : null}
@@ -230,7 +230,7 @@ function PendingAdminEvents({
   if (!pending.length) return null
 
   return (
-    <div className="border-t border-[var(--admin-border)] px-4 py-3 sm:px-6">
+    <div className="border-t border-[var(--border)] px-4 py-3 sm:px-6">
       <div className="mx-auto max-w-[760px] space-y-2">
         {pending.map(row => {
           if (row.type === 'control_request') {
@@ -543,14 +543,14 @@ export function AdminSessionChat({
   }), [sessionId, updateStatus])
 
   return (
-    <div className="flex h-full flex-col overflow-hidden bg-[var(--admin-surface)]">
+    <div className="flex h-full flex-col overflow-hidden bg-[var(--bg-card)]">
       {/* Compact header */}
-      <div className="flex items-center gap-2 border-b border-[var(--admin-border)] px-3 py-2 sm:px-4 sm:py-2.5">
+      <div className="flex items-center gap-2 border-b border-[var(--border)] px-3 py-2 sm:px-4 sm:py-2.5">
         <div className="flex min-w-0 flex-1 items-center gap-2 overflow-hidden">
-          <h2 className="hidden truncate text-sm font-semibold text-[var(--admin-text)] sm:block">{sessionName}</h2>
+          <h2 className="hidden truncate text-sm font-semibold text-[var(--text-primary)] sm:block">{sessionName}</h2>
           <Badge variant={badgeVariant(sessionStatus)} className="shrink-0">{sessionStatus}</Badge>
           {sessionModel ? (
-            <span className="hidden items-center gap-1 truncate rounded-md bg-[var(--admin-color-surface-subtle)] px-2 py-0.5 text-xs text-[var(--admin-text-muted)] sm:inline-flex">
+            <span className="hidden items-center gap-1 truncate rounded-md bg-[var(--bg-subtle)] px-2 py-0.5 text-xs text-[var(--text-secondary)] sm:inline-flex">
               <Cpu className="size-3 shrink-0" />
               <span className="truncate">{sessionModel.includes(':') ? sessionModel.split(':').pop() : sessionModel}</span>
             </span>
@@ -636,8 +636,8 @@ export function AdminSessionChat({
                   {(diff.files || []).map(file => (
                     <div key={file.name} className="flex items-center gap-2 rounded px-2 py-1 font-mono text-xs hover:bg-accent">
                       <span className="min-w-0 flex-1 truncate">{file.name}</span>
-                      <span className="min-w-10 text-right font-semibold text-green-600">+{file.additions || 0}</span>
-                      <span className="min-w-10 text-right font-semibold text-red-600">-{file.deletions || 0}</span>
+                      <span className="min-w-10 text-right font-semibold text-success">+{file.additions || 0}</span>
+                      <span className="min-w-10 text-right font-semibold text-destructive">-{file.deletions || 0}</span>
                     </div>
                   ))}
                 </div>

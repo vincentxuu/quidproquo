@@ -91,7 +91,7 @@ export default function BehaviorManager() {
 
   return (
     <div className="space-y-4">
-      <Card className="border-amber-500/40">
+      <Card className="border-[color-mix(in_srgb,var(--warning)_40%,transparent)]">
         <CardHeader>
           <CardTitle className="flex flex-wrap items-center gap-2">
             生效狀態

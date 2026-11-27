@@ -489,8 +489,8 @@ const artifactExportMessages = {
           data-version-id={currentVersionId}
           data-current-status={targetVersion.approval_status}
         >
-          <button type="button" class="h-9 rounded-md border border-green-500 bg-green-50 px-3 text-sm font-medium text-green-800 hover:bg-green-100" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
-          <button type="button" class="h-9 rounded-md border border-red-500 bg-red-50 px-3 text-sm font-medium text-red-900 hover:bg-red-100" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
+          <button type="button" class="h-9 rounded-md border border-[var(--success-border)] bg-[var(--success-bg)] px-3 text-sm font-medium text-success hover:bg-[color-mix(in_srgb,var(--success)_10%,var(--success-bg))]" data-artifact-action="approved" aria-label={`核准產出物 ${artifactId}`}>核准</button>
+          <button type="button" class="h-9 rounded-md border border-destructive bg-[var(--danger-bg)] px-3 text-sm font-medium text-destructive hover:bg-[color-mix(in_srgb,var(--danger)_10%,var(--danger-bg))]" data-artifact-action="rejected" aria-label={`拒絕產出物 ${artifactId}`}>拒絕</button>
           <label for="export-destination" class="text-sm text-muted-foreground whitespace-nowrap">匯出</label>
           <select id="export-destination" class="h-9 rounded-md border border-input bg-card px-2.5 text-sm text-foreground" disabled={!canExport}>
             {exportDestinations.map((destination) => (
@@ -654,8 +654,8 @@ const artifactExportMessages = {
                   <td class="border-b border-border px-3 py-2"><span class="section-status text-sm capitalize text-muted-foreground">{s.approval_status}</span></td>
                   <td class="border-b border-border px-3 py-2">
                     <div class="flex flex-wrap gap-1.5">
-                      <button type="button" class="h-7 rounded border border-green-500 bg-green-50 px-2 text-xs font-medium text-green-800" data-section-action="approved">核准</button>
-                      <button type="button" class="h-7 rounded border border-red-500 bg-red-50 px-2 text-xs font-medium text-red-900" data-section-action="rejected">拒絕</button>
+                      <button type="button" class="h-7 rounded border border-[var(--success-border)] bg-[var(--success-bg)] px-2 text-xs font-medium text-success" data-section-action="approved">核准</button>
+                      <button type="button" class="h-7 rounded border border-destructive bg-[var(--danger-bg)] px-2 text-xs font-medium text-destructive" data-section-action="rejected">拒絕</button>
                     </div>
                   </td>
                 </tr>
@@ -690,9 +690,9 @@ const artifactExportMessages = {
                   <td class="border-b border-border px-3 py-2">
                     <span class:list={[
                       'inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold capitalize',
-                      row.status === 'done' ? 'bg-green-50 text-green-800' :
-                      row.status === 'pending' ? 'bg-blue-50 text-blue-800' :
-                      row.status === 'failed' ? 'bg-red-50 text-red-900' :
+                      row.status === 'done' ? 'bg-[var(--success-bg)] text-success' :
+                      row.status === 'pending' ? 'bg-[var(--info-bg)] text-muted-foreground' :
+                      row.status === 'failed' ? 'bg-[var(--danger-bg)] text-destructive' :
                       'bg-muted text-muted-foreground'
                     ]}>
                       {exportStatusLabel(row.status)}
@@ -791,9 +791,9 @@ const artifactExportMessages = {
     actionStatus.hidden = false;
     actionStatus.textContent = message;
     actionStatus.className = tone === 'success'
-      ? 'rounded-md border border-green-300 bg-green-50 p-3 text-sm text-green-800'
+      ? 'rounded-md border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] p-3 text-sm text-success'
       : tone === 'error'
-        ? 'rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-900'
+        ? 'rounded-md border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] p-3 text-sm text-destructive'
         : 'rounded-md border border-border bg-card p-3 text-sm text-muted-foreground';
   }
 
@@ -821,7 +821,7 @@ const artifactExportMessages = {
     const status = currentApprovalStatus();
     if (!destination) {
       operationPreview.textContent = artifactExportMessages.selectExportDestination;
-      operationPreview.className = 'w-full mt-0.5 rounded-md border border-yellow-400 bg-yellow-50 p-2 text-sm leading-snug text-yellow-800';
+      operationPreview.className = 'w-full mt-0.5 rounded-md border border-[var(--warning-border)] bg-[var(--warning-bg)] p-2 text-sm leading-snug text-warning';
       return;
     }
     const warning = status !== 'approved' && status !== 'published'
@@ -829,8 +829,8 @@ const artifactExportMessages = {
       : '此版本已核准，可送出匯出。';
     operationPreview.textContent = `匯出目的地：${exportDestinationLabel(destination)}。${warning}`;
     operationPreview.className = status !== 'approved' && status !== 'published'
-      ? 'w-full mt-0.5 rounded-md border border-yellow-400 bg-yellow-50 p-2 text-sm leading-snug text-yellow-800'
-      : 'w-full mt-0.5 rounded-md border border-green-300 bg-green-50 p-2 text-sm leading-snug text-green-800';
+      ? 'w-full mt-0.5 rounded-md border border-[var(--warning-border)] bg-[var(--warning-bg)] p-2 text-sm leading-snug text-warning'
+      : 'w-full mt-0.5 rounded-md border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] p-2 text-sm leading-snug text-success';
   }
 
   function humanExportError(error, destination) {
@@ -963,9 +963,9 @@ const artifactExportMessages = {
     const status = document.createElement('span');
     const statusValue = String(row.status || 'pending');
     const statusColors = {
-      done: 'bg-green-50 text-green-800',
-      pending: 'bg-blue-50 text-blue-800',
-      failed: 'bg-red-50 text-red-900',
+      done: 'bg-[var(--success-bg)] text-success',
+      pending: 'bg-[var(--info-bg)] text-muted-foreground',
+      failed: 'bg-[var(--danger-bg)] text-destructive',
     };
     status.className = `inline-flex items-center rounded-full px-2 py-0.5 text-xs font-bold capitalize ${statusColors[statusValue] || 'bg-muted text-muted-foreground'}`;
     status.textContent = exportStatusLabel(statusValue);

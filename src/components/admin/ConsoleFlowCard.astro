@@ -8,14 +8,14 @@ interface Props {
 const { card } = Astro.props
 
 const statusColors: Record<string, string> = {
-  succeeded: 'var(--color-success)',
-  failed: 'var(--color-error)',
-  running: 'var(--color-accent)',
-  queued: 'var(--color-muted)',
-  cancelled: 'var(--color-muted)',
+  succeeded: 'var(--success)',
+  failed: 'var(--danger)',
+  running: 'var(--brand-700)',
+  queued: 'var(--text-secondary)',
+  cancelled: 'var(--text-secondary)',
 }
 
-const statusColor = card.lastStatus ? (statusColors[card.lastStatus] ?? 'var(--color-muted)') : 'var(--color-muted)'
+const statusColor = card.lastStatus ? (statusColors[card.lastStatus] ?? 'var(--text-secondary)') : 'var(--text-secondary)'
 const lastRunLabel = card.lastRunAt
   ? new Date(card.lastRunAt).toLocaleString('zh-TW', { dateStyle: 'short', timeStyle: 'short' })
   : '—'
@@ -54,14 +54,14 @@ const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.
     display: grid;
     gap: 0.45rem;
     padding: 1rem 1.25rem;
-    border: 1px solid var(--color-border, #e2e8f0);
+    border: 1px solid var(--border);
     border-radius: 8px;
     color: inherit;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
   .flow-card:hover {
-    border-color: var(--color-accent, #4f46e5);
-    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    border-color: var(--brand-700);
+    box-shadow: var(--shadow-hairline);
   }
   .flow-card__header {
     display: flex;
@@ -75,7 +75,7 @@ const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.
     flex-wrap: wrap;
     gap: 0.3rem 0.75rem;
     font-size: 0.74rem;
-    color: var(--color-muted-text, #64748b);
+    color: var(--text-secondary);
   }
 
   .flow-card__title {
@@ -92,14 +92,14 @@ const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.
     font-size: 0.74rem;
     line-height: 1.4;
     padding: 0.2rem 0.55rem;
-    border: 1px solid var(--color-accent, #4f46e5);
+    border: 1px solid var(--brand-700);
     border-radius: 999px;
     text-decoration: none;
-    color: var(--color-accent, #4f46e5);
+    color: var(--brand-700);
   }
 
   .flow-card__launch:hover {
-    background: rgba(79, 70, 229, 0.08);
+    background: var(--brand-50);
   }
 
   .flow-card__status-wrap .flow-card__status {
@@ -111,13 +111,13 @@ const launchHref = `/admin/console/runs/launch?flowId=${encodeURIComponent(card.
   .flow-card__desc {
     margin: 0.35rem 0 0;
     font-size: 0.85rem;
-    color: var(--color-muted-text, #64748b);
+    color: var(--text-secondary);
     line-height: 1.4;
   }
   .flow-card__meta {
     display: block;
     margin-top: 0.5rem;
     font-size: 0.75rem;
-    color: var(--color-muted-text, #64748b);
+    color: var(--text-secondary);
   }
 </style>

@@ -231,9 +231,9 @@ const unassignedUsersJson = JSON.stringify(
                   </td>
                   <td>
                     {user.disabled_at ? (
-                      <span class="inline-block rounded-full border border-red-600 bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-600">停用</span>
+                      <span class="inline-block rounded-full border border-destructive bg-[var(--danger-bg)] px-2 py-0.5 text-xs font-semibold text-destructive">停用</span>
                     ) : (
-                      <span class="inline-block rounded-full border border-green-500 bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">啟用中</span>
+                      <span class="inline-block rounded-full border border-[var(--success-border)] bg-[var(--success-bg)] px-2 py-0.5 text-xs font-semibold text-success">啟用中</span>
                     )}
                   </td>
                   <td class="font-mono text-[0.82rem]">{formatTs(user.assigned_at)}</td>
@@ -246,7 +246,7 @@ const unassignedUsersJson = JSON.stringify(
                       data-remove-role-form
                     >
                       <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-                      <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">移除此角色</button>
+                      <button type="submit" class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive">移除此角色</button>
                     </form>
                   </td>
                 </tr>
@@ -402,7 +402,7 @@ const unassignedUsersJson = JSON.stringify(
                       <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
                       <button
                         type="submit"
-                        class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700"
+                        class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive"
                         aria-label={`移除 ${p.resource_kind} ${p.action} 權限`}
                       >
                         移除
@@ -472,7 +472,7 @@ const unassignedUsersJson = JSON.stringify(
           >
             <input type="hidden" name="action" value="delete" />
             <input type="hidden" name="redirect" value="/admin/rbac?tab=roles" />
-            <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">刪除角色</button>
+            <button type="submit" class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive">刪除角色</button>
             <span class="text-sm text-muted-foreground">刪除後無法從主控台還原。</span>
           </form>
         </AdminPanel>

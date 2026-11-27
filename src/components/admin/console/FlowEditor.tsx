@@ -1,4 +1,5 @@
 import { useCallback, useState, useEffect, useRef } from 'react'
+import { STEP_COLORS as BUILDER_STEP_COLORS, STEP_COLOR_FALLBACK } from './flow-builder/step-fields'
 import {
   ReactFlow,
   useNodesState,
@@ -73,17 +74,7 @@ interface FlowDefinition {
 
 // ── colors ────────────────────────────────────────────────────────────────────
 
-export const STEP_COLORS: Record<string, string> = {
-  agent: '#6366f1',
-  tool_group: '#0891b2',
-  transform: '#059669',
-  verifier: '#d97706',
-  artifact: '#dc2626',
-  human_approval: '#7c3aed',
-  sub_flow: '#64748b',
-  parallel: '#0284c7',
-  loop: '#65a30d',
-}
+export const STEP_COLORS: Record<string, string> = BUILDER_STEP_COLORS
 
 // ── DAG conversion ────────────────────────────────────────────────────────────
 
@@ -162,7 +153,7 @@ type StepNodeData = {
 
 function StepNode({ data }: NodeProps) {
   const nodeData = data as StepNodeData
-  const color = STEP_COLORS[nodeData.stepType] ?? '#64748b'
+  const color = STEP_COLORS[nodeData.stepType] ?? STEP_COLOR_FALLBACK
   return (
     <div
       style={{
@@ -172,7 +163,7 @@ function StepNode({ data }: NodeProps) {
         borderRadius: '6px',
         minWidth: '120px',
         fontSize: '12px',
-        boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+        boxShadow: 'var(--shadow-floating)',
         userSelect: 'none',
       }}
     >
@@ -208,9 +199,9 @@ function NodePalette({ onAddNode }: { onAddNode: (type: StepType) => void }) {
         flexDirection: 'column',
         gap: '8px',
         padding: '8px',
-        borderRight: '1px solid #e2e8f0',
+        borderRight: '1px solid var(--border)',
         overflowY: 'auto',
-        background: '#f8fafc',
+        background: 'var(--bg-subtle)',
       }}
     >
       <div
@@ -218,7 +209,7 @@ function NodePalette({ onAddNode }: { onAddNode: (type: StepType) => void }) {
           fontSize: '11px',
           fontWeight: 700,
           textTransform: 'uppercase',
-          color: '#64748b',
+          color: 'var(--text-secondary)',
           letterSpacing: '0.05em',
           paddingBottom: '4px',
         }}
@@ -280,8 +271,8 @@ function ValidationPanel({ errors }: { errors: ValidationError[] }) {
         right: 0,
         maxHeight: '200px',
         overflowY: 'auto',
-        background: '#1e1e1e',
-        color: '#f44',
+        background: 'var(--bg-code)',
+        color: 'var(--code-error)',
         zIndex: 10,
         padding: '8px 12px',
         fontSize: '12px',
@@ -303,7 +294,7 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
     definition = JSON.parse(definitionJson) as FlowDefinition
   } catch {
     return (
-      <div style={{ padding: '1rem', color: '#dc2626', fontFamily: 'monospace', fontSize: '13px' }}>
+      <div style={{ padding: '1rem', color: 'var(--danger)', fontFamily: 'monospace', fontSize: '13px' }}>
         工作流程定義 JSON 格式無效
       </div>
     )
@@ -460,8 +451,8 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
             alignItems: 'center',
             gap: '8px',
             padding: '6px 10px',
-            background: '#f8fafc',
-            borderBottom: '1px solid #e2e8f0',
+            background: 'var(--bg-subtle)',
+            borderBottom: '1px solid var(--border)',
           }}
         >
           <button
@@ -474,16 +465,16 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
               fontSize: '13px',
               fontWeight: 600,
               cursor: hasErrors || saving ? 'not-allowed' : 'pointer',
-              background: hasErrors || saving ? '#94a3b8' : '#1e40af',
-              color: '#fff',
-              borderColor: hasErrors || saving ? '#94a3b8' : '#1e40af',
+              background: hasErrors || saving ? 'var(--bg-muted)' : 'var(--brand-700)',
+              color: hasErrors || saving ? 'var(--text-muted)' : 'var(--text-on-solid)',
+              borderColor: hasErrors || saving ? 'var(--border-strong)' : 'var(--brand-700)',
               transition: 'background 0.15s ease',
             }}
           >
             {saving ? '儲存中…' : '儲存'}
           </button>
           {hasErrors && (
-            <span style={{ fontSize: '12px', color: '#dc2626' }}>
+            <span style={{ fontSize: '12px', color: 'var(--danger)' }}>
               請先修正 {validationErrors.length} 個錯誤再儲存
             </span>
           )}
@@ -494,7 +485,7 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
           display: 'flex',
           width: '100%',
           height: '500px',
-          border: '1px solid #e2e8f0',
+          border: '1px solid var(--border)',
           borderRadius: readonly || !onSave ? '8px' : '0 0 8px 8px',
           overflow: 'hidden',
         }}

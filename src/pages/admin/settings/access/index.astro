@@ -127,8 +127,8 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
         <p
           class:list={[
             'rounded-lg border px-3 py-2.5 text-sm font-bold',
-            rbacSuccess ? 'border-green-300 bg-green-50 text-green-800' : '',
-            rbacError ? 'border-red-300 bg-red-50 text-red-800' : '',
+            rbacSuccess ? 'border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] text-success' : '',
+            rbacError ? 'border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] text-destructive' : '',
           ]}
           role="status"
         >
@@ -226,9 +226,9 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
                       <td class="font-mono text-[0.82rem]">{formatTs(u.created_at)}</td>
                       <td>
                         {u.disabled_at ? (
-                          <span class="inline-block rounded-full border border-red-600 bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-600">停用</span>
+                          <span class="inline-block rounded-full border border-destructive bg-[var(--danger-bg)] px-2 py-0.5 text-xs font-semibold text-destructive">停用</span>
                         ) : (
-                          <span class="inline-block rounded-full border border-green-500 bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">啟用中</span>
+                          <span class="inline-block rounded-full border border-[var(--success-border)] bg-[var(--success-bg)] px-2 py-0.5 text-xs font-semibold text-success">啟用中</span>
                         )}
                       </td>
                       <td>
@@ -252,7 +252,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
                             ) : (
                               <Fragment>
                                 <input type="hidden" name="action" value="disable" />
-                                <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-red-600 bg-red-50 px-3 text-xs font-bold text-red-700 hover:bg-red-100 max-sm:w-full" aria-label={`停用 ${u.email}`}>停用</button>
+                                <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-destructive bg-[var(--danger-bg)] px-3 text-xs font-bold text-destructive hover:bg-[color-mix(in_srgb,var(--danger)_10%,var(--danger-bg))] max-sm:w-full" aria-label={`停用 ${u.email}`}>停用</button>
                               </Fragment>
                             )}
                           </form>
@@ -267,7 +267,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
                           >
                             <input type="hidden" name="action" value="delete" />
                             <input type="hidden" name="redirect" value="/admin/rbac?tab=users" />
-                            <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-red-600 bg-red-50 px-3 text-xs font-bold text-red-700 hover:bg-red-100 max-sm:w-full" aria-label={`刪除 ${u.email}`}>刪除</button>
+                            <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-destructive bg-[var(--danger-bg)] px-3 text-xs font-bold text-destructive hover:bg-[color-mix(in_srgb,var(--danger)_10%,var(--danger-bg))] max-sm:w-full" aria-label={`刪除 ${u.email}`}>刪除</button>
                           </form>
                           <span class="basis-full text-xs leading-snug text-muted-foreground" data-operation-preview>
                             {u.disabled_at ? '啟用會恢復主控台存取。' : '停用會立即阻擋主控台存取。'}
@@ -380,7 +380,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
                             >
                               <input type="hidden" name="action" value="delete" />
                               <input type="hidden" name="redirect" value="/admin/rbac?tab=roles" />
-                              <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-red-600 bg-red-50 px-3 text-xs font-bold text-red-700 hover:bg-red-100 max-sm:w-full" aria-label={`刪除角色 ${r.name}`}>刪除</button>
+                              <button type="submit" class="inline-flex min-h-[2.75rem] items-center justify-center rounded-lg border border-destructive bg-[var(--danger-bg)] px-3 text-xs font-bold text-destructive hover:bg-[color-mix(in_srgb,var(--danger)_10%,var(--danger-bg))] max-sm:w-full" aria-label={`刪除角色 ${r.name}`}>刪除</button>
                             </form>
                           )}
                           <span class="basis-full text-xs leading-snug text-muted-foreground" data-operation-preview>
@@ -539,7 +539,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
     }
     if (existing.indexOf(emailValue) !== -1) {
       preview.textContent = emailValue + ' 已存在，請從使用者清單進入詳情頁編輯角色。';
-      preview.className = 'm-0 rounded-lg border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm leading-relaxed text-yellow-800';
+      preview.className = 'm-0 rounded-lg border border-[var(--warning-border)] bg-[var(--warning-bg)] px-3 py-2.5 text-sm leading-relaxed text-warning';
       if (email instanceof HTMLInputElement) email.setCustomValidity('使用者已存在。');
       return;
     }
@@ -569,13 +569,13 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
     }
     if (reserved.indexOf(name) !== -1) {
       preview.textContent = '角色 ' + name + ' 是系統保留角色，不能從新增角色表單修改。';
-      preview.className = 'm-0 rounded-lg border border-red-300 bg-red-50 px-3 py-2.5 text-sm leading-relaxed text-red-800';
+      preview.className = 'm-0 rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-2.5 text-sm leading-relaxed text-destructive';
       if (input instanceof HTMLInputElement) input.setCustomValidity('系統保留角色不能從新增角色表單修改。');
       return;
     }
     if (existing.indexOf(name) !== -1) {
       preview.textContent = '角色 ' + name + ' 已存在，請從角色清單進入詳情頁編輯。';
-      preview.className = 'm-0 rounded-lg border border-yellow-400 bg-yellow-50 px-3 py-2.5 text-sm leading-relaxed text-yellow-800';
+      preview.className = 'm-0 rounded-lg border border-[var(--warning-border)] bg-[var(--warning-bg)] px-3 py-2.5 text-sm leading-relaxed text-warning';
       if (input instanceof HTMLInputElement) input.setCustomValidity('角色已存在。');
       return;
     }

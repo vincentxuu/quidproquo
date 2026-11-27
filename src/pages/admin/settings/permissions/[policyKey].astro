@@ -44,7 +44,7 @@ const breadcrumb = [
           <button
             type="button"
             id="archive-policy-btn"
-            class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700"
+            class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive"
             data-policy-key={result.detail.policyKey}
             data-confirm={t('policies.archiveConfirm', { key: result.detail.policyKey })}
           >{t('policies.archivePolicy')}</button>

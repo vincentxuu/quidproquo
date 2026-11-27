@@ -106,7 +106,7 @@ import '../../styles/globals.css';
   .greeting-text {
     font-size: clamp(1.4rem, 3vw, 2rem);
     font-weight: 700;
-    color: var(--admin-text);
+    color: var(--text-primary);
   }
 
   .needs-you {
@@ -127,22 +127,22 @@ import '../../styles/globals.css';
     justify-content: space-between;
     gap: 0.5rem;
     padding: 0.5rem 0.75rem;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
     text-decoration: none;
-    color: var(--admin-text);
+    color: var(--text-primary);
     font-size: 0.85rem;
   }
 
-  :global(.ny-item:hover) { background: var(--admin-muted); }
+  :global(.ny-item:hover) { background: var(--bg-muted); }
   :global(.ny-actions) { display: flex; gap: 0.3rem; flex-shrink: 0; }
 
   :global(.ny-btn) {
     padding: 0.25rem 0.6rem;
-    border: 1px solid var(--admin-border);
+    border: 1px solid var(--border);
     border-radius: 4px;
-    background: var(--admin-surface);
+    background: var(--bg-card);
     font-size: 0.78rem;
     font-weight: 600;
     cursor: pointer;
@@ -150,7 +150,7 @@ import '../../styles/globals.css';
 
   :global(.ny-allow) { color: var(--brand-700); }
   :global(.ny-allow:hover) { background: var(--brand-100); }
-  :global(.ny-deny) { color: #c44; }
-  :global(.ny-deny:hover) { background: #fde; }
-  :global(.ny-failing) { color: var(--admin-danger); }
+  :global(.ny-deny) { color: var(--danger); }
+  :global(.ny-deny:hover) { background: var(--danger-bg); }
+  :global(.ny-failing) { color: var(--danger); }
 </style>

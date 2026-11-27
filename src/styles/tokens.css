@@ -1,12 +1,13 @@
 /* quidproquo 設計 token 單一來源（Single Source of Truth）。
  *
- * 載入頁面：`src/layouts/PostLayout.astro` 與 `src/pages/chat.astro` 經 frontmatter
- * `import '../styles/tokens.css'` 載入（先於 chat.css）。站內所有 `var(--brand-*)` /
- * `var(--text-*)` / `var(--bg-*)` / `var(--border)` / `var(--shadow-*)` 都解析到這裡。
+ * 載入頁面：`src/layouts/PostLayout.astro`、`src/layouts/AdminV2Layout.astro` 與
+ * `src/pages/chat.astro` 經 frontmatter `import '../styles/tokens.css'` 載入。全站（前台與後台）
+ * 所有顏色、字級、間距、圓角都解析到這裡；shadcn 語意名（--color-primary 等）由
+ * `src/styles/globals.css` 的 `@theme inline` 接到這裡。
  *
  * 規則：
  * - 改色只改這裡，不准在頁面／layout 另起 `:root` 拷貝（見 scripts/check-chat-style.mjs）。
- * - 後台（admin-tokens.css）是獨立介面，不在此檔管理。
+ * - `admin-tokens.css` 只放後台版面尺寸（側欄寬等），不放任何顏色。
  * - 深色模式＝`[data-theme="dark"]`（localStorage＋toggle 切換）；Tailwind `dark:`
  *   variant 靠 `src/styles/chat.css` 的 `@custom-variant dark` 綁到同一 attribute。
  */
@@ -36,6 +37,14 @@
   --warning-bg:    #fffbeb;
   --warning-border: #f59e0b;
   --danger:     #b42318;
+  /* 狀態字色與淡底（後台狀態徽章、表單錯誤、toast）；字色對同色淡底與 --bg-card 都 ≥ 4.5:1 */
+  --success:    #067647;
+  --warning:    #b54708;
+  --danger-bg:  #fef3f2;
+  /* 互動元件：hover／選取列的中性底、表單與表格的強框線、focus 外光暈 */
+  --bg-muted:      #efedea;
+  --border-strong: #cfcbc4;
+  --focus-ring:    0 0 0 3px color-mix(in srgb, var(--brand-500) 28%, transparent);
   --shine:      rgba(255, 255, 255, 0.55);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.08);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.15);
@@ -45,6 +54,7 @@
   --code-dot-green: #28c840;
   /* 程式碼區塊：底是 --bg-code（兩種主題都是深底），所以字色與標題列兩種主題相同 */
   --code-text: #d4d4d4;
+  --code-error: #f87171;                     /* 深色程式碼／log 底上的錯誤字 */
   --code-bar: rgba(0, 0, 0, 0.15);          /* 三顆圓點那條標題列的加深層 */
   --code-bar-divider: rgba(255, 255, 255, 0.05); /* 標題列與程式碼之間的分隔線 */
 
@@ -72,6 +82,9 @@
   /* ── 文章元件 token（PostLayout 內文、徽章、提示框；2026-11-19 §5 修正） ── */
   /* 飽和色底（分類徽章、hero、daily 標籤）上的字色，兩種主題相同 */
   --text-on-accent: #ffffff;
+  /* 實心強調色／狀態色底（主要按鈕、成功與錯誤 toast）上的字：淺色白字，深色換深字。
+     深色模式的 --brand-700／--success／--danger 都是亮色，白字對比不到 3:1 */
+  --text-on-solid: #ffffff;
   /* 類型徽章：字色＋同色邊框畫在頁面底上，對 --bg-page ≥ 4.5:1；全部中性灰（類型靠文字區分） */
   --type-debug:     #67635d;
   --type-deep-dive: #67635d;
@@ -161,6 +174,11 @@
   --warning-bg:    #1a1a0f;
   --warning-border: #f59e0b;
   --danger:     #f87171;
+  --success:    #4ade80;
+  --warning:    #fbbf24;
+  --danger-bg:  #2a1615;
+  --bg-muted:      #262626;
+  --border-strong: #3d3d3d;
   --shine:      rgba(255, 255, 255, 0.08);
   --shadow-card-hover: 0 2px 12px rgba(0, 0, 0, 0.25);
   --shadow-floating: 0 2px 12px rgba(0, 0, 0, 0.4);
@@ -174,6 +192,7 @@
   --type-project:   #a09c96;
   --mark-bg:   #14291f;
   --mark-text: #e8e6e3;
+  --text-on-solid: #121212;
 
   /* ── 媒體、聊天、投影片、圖表專用 ── */
   /* 陰影、遮罩、影片、投影片與 --diagram-on-heat 刻意沿用淺色值（兩種主題相同），這裡只覆寫有深色值的 */

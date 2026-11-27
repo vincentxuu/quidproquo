@@ -65,9 +65,9 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
 
     .admin-table tr {
       display: block;
-      border: 1px solid var(--admin-border);
-      border-radius: var(--admin-radius);
-      background: var(--admin-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--corner-md);
+      background: var(--bg-card);
       overflow: hidden;
     }
 
@@ -76,7 +76,7 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
       grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
       gap: 0.65rem;
       align-items: start;
-      border-top: 1px solid var(--admin-border);
+      border-top: 1px solid var(--border);
       padding: 0.65rem 0.75rem;
       overflow-wrap: anywhere;
     }
@@ -87,7 +87,7 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
 
     .admin-table td::before {
       content: attr(data-label);
-      color: var(--admin-text-soft);
+      color: var(--text-muted);
       font-size: 0.72rem;
       font-weight: 750;
       letter-spacing: 0.02em;

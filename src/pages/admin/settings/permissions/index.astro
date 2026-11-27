@@ -181,14 +181,14 @@ function formatTs(ms: number | null): string {
               </td>
               <td class="max-w-[240px] truncate text-[0.9em]">{p.label ?? t('common.none')}</td>
               <td class="font-mono text-[0.85em]">{p.version}</td>
-              <td>{isReferencePolicy(p.policy_key) ? <span class="inline-block rounded-full border border-teal-700 bg-teal-100 px-2 py-0.5 text-xs font-medium text-teal-700">{t('policies.reference')}</span> : <span class="text-sm text-muted-foreground">{t('common.none')}</span>}</td>
+              <td>{isReferencePolicy(p.policy_key) ? <span class="inline-block rounded-full border border-primary bg-[var(--brand-100)] px-2 py-0.5 text-xs font-medium text-primary">{t('policies.reference')}</span> : <span class="text-sm text-muted-foreground">{t('common.none')}</span>}</td>
               <td class="font-mono text-[0.85em]">{formatTs(p.created_at)}</td>
               <td>
                 <div class="flex gap-2">
                   <a href={consoleHref(`/admin/settings/permissions/${p.policy_key}`, lang)} class="border-0 bg-transparent p-0 text-xs text-primary no-underline hover:underline">{t('common.view')}</a>
                   <button
                     type="button"
-                    class="border-0 bg-transparent p-0 text-xs text-red-700 hover:underline"
+                    class="border-0 bg-transparent p-0 text-xs text-destructive hover:underline"
                     data-delete-policy={p.policy_key}
                     data-confirm={t('policies.archiveConfirm', { key: p.policy_key })}
                   >{t('common.archive')}</button>

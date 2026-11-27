@@ -68,29 +68,29 @@ const title = session.name || session.id.slice(0, 8);
 
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: 'Noto Sans TC Local', 'PingFang TC', Inter, ui-sans-serif, system-ui, sans-serif; background: var(--admin-bg, #f5f7f4); color: var(--admin-text, #172017); line-height: 1.5; }
+  body { font-family: 'Noto Sans TC Local', 'PingFang TC', Inter, ui-sans-serif, system-ui, sans-serif; background: var(--bg-subtle); color: var(--text-primary); line-height: 1.5; }
   .shared-container { max-width: 800px; margin: 0 auto; padding: 1rem; }
-  .policy-banner { background: var(--admin-color-warning-soft, #fffaeb); border: 1px solid var(--admin-color-warning, #b54708); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--admin-color-warning, #b54708); margin-bottom: 1rem; }
+  .policy-banner { background: var(--warning-bg); border: 1px solid var(--warning); border-radius: 6px; padding: 0.75rem 1rem; font-size: 0.85rem; color: var(--warning); margin-bottom: 1rem; }
   .shared-header { margin-bottom: 1rem; }
   .shared-header h1 { font-size: 1.3rem; font-weight: 700; }
   .shared-meta { display: flex; align-items: center; gap: 0.75rem; margin-top: 0.35rem; flex-wrap: wrap; }
-  .meta-item { font-size: 0.82rem; color: var(--admin-text-muted, #46614d); }
-  .event-stream { border: 1px solid var(--admin-border, #d8e4d5); border-radius: 6px; background: var(--admin-surface, #fff); overflow: hidden; }
-  .event-card { padding: 0.65rem 1rem; border-bottom: 1px solid var(--admin-border, #d8e4d5); }
+  .meta-item { font-size: 0.82rem; color: var(--text-secondary); }
+  .event-stream { border: 1px solid var(--border); border-radius: 6px; background: var(--bg-card); overflow: hidden; }
+  .event-card { padding: 0.65rem 1rem; border-bottom: 1px solid var(--border); }
   .event-card:last-child { border-bottom: none; }
-  .event-user { background: var(--admin-color-info-soft, #eff6ff); }
+  .event-user { background: var(--info-bg); }
   :global(.banner-icon), :global(.event-icon) { vertical-align: -0.125em; }
-  .event-role { font-size: 0.78rem; font-weight: 700; color: var(--admin-text-muted, #46614d); margin-bottom: 0.25rem; }
+  .event-role { font-size: 0.78rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.25rem; }
   .event-content { font-size: 0.9rem; white-space: pre-wrap; word-break: break-word; line-height: 1.55; }
   .event-tool summary { cursor: pointer; }
-  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--admin-color-surface-subtle, #f8fbf7); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
-  .event-log { font-size: 0.8rem; color: var(--admin-text-muted, #46614d); }
+  .event-pre { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.8rem; background: var(--bg-subtle); padding: 0.5rem; border-radius: 4px; overflow-x: auto; white-space: pre-wrap; word-break: break-all; margin-top: 0.35rem; max-height: 300px; overflow-y: auto; }
+  .event-log { font-size: 0.8rem; color: var(--text-secondary); }
   .badge { display: inline-block; padding: 0.15em 0.55em; border-radius: 999px; font-size: 0.75em; font-weight: 600; }
-  .badge-success { background: var(--admin-color-success-soft, #ecfdf3); color: var(--admin-color-success, #067647); }
-  .badge-error { background: var(--admin-color-danger-soft, #fef3f2); color: var(--admin-color-danger, #b42318); }
-  .badge-muted { background: var(--admin-muted, #edf7ee); color: var(--admin-text-muted, #46614d); }
-  .empty-text { padding: 2rem; text-align: center; color: var(--admin-text-muted, #46614d); }
+  .badge-success { background: var(--success-bg); color: var(--success); }
+  .badge-error { background: var(--danger-bg); color: var(--danger); }
+  .badge-muted { background: var(--bg-muted); color: var(--text-secondary); }
+  .empty-text { padding: 2rem; text-align: center; color: var(--text-secondary); }
   .shared-footer { margin-top: 1.5rem; text-align: center; font-size: 0.82rem; }
-  .shared-footer a { color: var(--admin-accent, #2f6f46); text-decoration: none; }
+  .shared-footer a { color: var(--brand-700); text-decoration: none; }
   @media (max-width: 768px) { .shared-container { padding: 0.75rem; } }
 </style>

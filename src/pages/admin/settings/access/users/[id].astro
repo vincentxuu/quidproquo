@@ -176,9 +176,9 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
           <div class="flex items-baseline gap-2">
             <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">狀態</span>
             {user.disabled_at ? (
-              <span class="inline-block rounded-full border border-red-600 bg-red-50 px-2 py-0.5 text-xs font-semibold text-red-600">停用於 {formatTs(user.disabled_at)}</span>
+              <span class="inline-block rounded-full border border-destructive bg-[var(--danger-bg)] px-2 py-0.5 text-xs font-semibold text-destructive">停用於 {formatTs(user.disabled_at)}</span>
             ) : (
-              <span class="inline-block rounded-full border border-green-500 bg-green-50 px-2 py-0.5 text-xs font-semibold text-green-600">啟用中</span>
+              <span class="inline-block rounded-full border border-[var(--success-border)] bg-[var(--success-bg)] px-2 py-0.5 text-xs font-semibold text-success">啟用中</span>
             )}
           </div>
         </div>
@@ -273,7 +273,7 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
             >
               <input type="hidden" name="action" value="disable" />
               <input type="hidden" name="redirect" value={`/admin/settings/access/users/${userId}`} />
-              <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">停用使用者</button>
+              <button type="submit" class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive">停用使用者</button>
             </form>
           )}
           <span class="action-note">
@@ -291,7 +291,7 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
         >
           <input type="hidden" name="action" value="delete" />
           <input type="hidden" name="redirect" value="/admin/rbac?tab=users" />
-          <button type="submit" class="rounded-lg border border-red-200 bg-red-50 px-3 py-1.5 text-sm font-semibold text-red-700">刪除使用者</button>
+          <button type="submit" class="rounded-lg border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-3 py-1.5 text-sm font-semibold text-destructive">刪除使用者</button>
           <span class="action-note">刪除後無法從主控台還原。</span>
         </form>
       </AdminPanel>

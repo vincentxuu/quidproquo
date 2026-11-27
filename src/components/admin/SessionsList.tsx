@@ -21,15 +21,15 @@ interface Session {
 function statusColor(status: string): string {
   switch (status) {
     case "done":
-      return "bg-emerald-50 text-emerald-700 border-emerald-200";
+      return "bg-[var(--success-bg)] text-success border-[color-mix(in_srgb,var(--success)_28%,transparent)]";
     case "failed":
-      return "bg-red-50 text-red-700 border-red-200";
+      return "bg-[var(--danger-bg)] text-destructive border-[color-mix(in_srgb,var(--danger)_28%,transparent)]";
     case "running":
-      return "bg-blue-50 text-blue-700 border-blue-200";
+      return "bg-[var(--info-bg)] text-muted-foreground border-[var(--info-border)]";
     case "cancelled":
       return "bg-muted text-muted-foreground border-border";
     default:
-      return "bg-amber-50 text-amber-700 border-amber-200";
+      return "bg-[var(--warning-bg)] text-warning border-[var(--warning-border)]";
   }
 }
 

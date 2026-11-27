@@ -10,8 +10,8 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
       style={{
         width: '128px',
         flexShrink: 0,
-        background: 'var(--admin-bg)',
-        borderRight: '1px solid var(--admin-border)',
+        background: 'var(--bg-subtle)',
+        borderRight: '1px solid var(--border)',
         padding: '10px 6px',
         overflowY: 'auto',
         display: 'flex',
@@ -53,7 +53,7 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
                 userSelect: 'none',
                 marginBottom: '1px',
               }}
-              onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--admin-muted)' }}
+              onMouseEnter={e => { (e.currentTarget as HTMLDivElement).style.background = 'var(--bg-muted)' }}
               onMouseLeave={e => { (e.currentTarget as HTMLDivElement).style.background = 'transparent' }}
             >
               <span
@@ -65,7 +65,7 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
                   flexShrink: 0,
                 }}
               />
-              <span style={{ fontSize: '11px', fontWeight: 500, color: 'var(--admin-text)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <span style={{ fontSize: '11px', fontWeight: 500, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {type}
               </span>
             </div>

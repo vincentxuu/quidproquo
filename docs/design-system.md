@@ -4,7 +4,9 @@
 > 程式碼才是正本；本文件的每個數值都附 `檔案:行號`，兩者不一致時以程式碼為準，並回頭修正本文件。
 > 2026-03 的規格 `docs/superpowers/specs/2026-03-12-blog-redesign-design.md` 已經跟實作脫節，只當歷史參考。
 >
-> 範圍：文章頁（`src/layouts/PostLayout.astro`＋`src/pages/posts/[...slug].astro`）與它載入的樣式。後台 `src/styles/admin-tokens.css` 是另一套獨立介面，不在本文件範圍。
+> 範圍：全站。token（§2、§3）前台、後台、Chat 共用同一份 `src/styles/tokens.css`；§4 的元件規格目前只寫到文章頁（`src/layouts/PostLayout.astro`＋`src/pages/posts/[...slug].astro`），後台與通用元件見 §7。
+>
+> 這份文件會原樣渲染在站上的設計規範頁 [`/design/`](/design/)，同頁還有從 tokens.css 自動產生的 token 表、每個元件的實際範例，以及掃描 `src/components` 產生的元件清單。
 >
 > 行號以 2026-11-19 的工作目錄為準（§5 第二輪修正之後、尚未 commit）。
 
@@ -73,6 +75,9 @@
 | `--bg-card` | `#ffffff` | `#1e1e1e` | 卡片、details、圖表的紙面；深色 hero 漸層兩端 | 29／154 |
 | `--bg-code` | `#1e1e2e` | `#0d1117` | 程式碼區塊底（實際被 Shiki 蓋掉，見 §4.5） | 30／155 |
 | `--border` | `#e6e3de` | `#2e2e2e` | 所有 1px 邊框、h2 分隔線、表格格線、tag／膠囊外框、行內程式碼的內框線 | 23／148 |
+| `--border-strong` | `#cfcbc4` | `#3d3d3d` | 表單控制項外框（shadcn `input`）、需要比一般分隔線更明顯的框 | tokens.css |
+| `--bg-muted` | `#efedea` | `#262626` | 互動元件 hover／選取列的中性底（shadcn `accent`、後台導覽 hover）。強調色淡底 `--brand-50` 只留給「目前／啟用」狀態 | tokens.css |
+| `--focus-ring` | 強調色 28% 外光暈 | （由 `--brand-500` 衍生，自動跟主題） | 表單與按鈕的 focus `box-shadow` | tokens.css |
 | `--heading-accent` | `#1d6b4c` | `#5fcb9a` | 與強調色同值（tokens.css:31）；**目前沒有任何 `var(--heading-accent)`**（回到頂端按鈕已改 `--text-muted`），見 §5.2 | 31／156 |
 
 ### 2.4 狀態色（提示框）
@@ -86,6 +91,11 @@
 | `--warning-bg` | `#fffbeb` | `#1a1a0f` | warning 提示框底、Mermaid 第三色與 note | 36／161 |
 | `--warning-border` | `#f59e0b` | `#f59e0b` | warning 提示框左框、黃／橘狀態圓點 | 37／162 |
 | `--danger` | `#b42318` | `#f87171` | 錯誤；`--diagram-warn` 的淺色值、flow-diagram warn、紅色狀態圓點 | 38／163 |
+| `--success` | `#067647` | `#4ade80` | 成功狀態的字色：後台狀態徽章、表單成功訊息、toast | tokens.css |
+| `--warning` | `#b54708` | `#fbbf24` | 警告／進行中狀態的字色 | tokens.css |
+| `--danger-bg` | `#fef3f2` | `#2a1615` | 錯誤狀態的淡底：錯誤徽章、錯誤訊息框 | tokens.css |
+
+狀態字色對同色淡底與 `--bg-card` 都 ≥ 4.5:1。狀態色只表達狀態；info 一律中性（`--info-*`＋`--text-secondary`），不用藍。
 
 ### 2.5 徽章與螢光標記
 
@@ -596,7 +606,9 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
    - 文章頁：Mermaid 與 YouTube 的上下 1.5rem 與 YouTube 圖說 0.875rem 跟 token 同值卻沒有改用（Post:1395、1414、1489）；§3.1 列出的字級。
    - 這些要嘛新增級距、要嘛改外觀對齊，需要設計決定，不是機械替換。
 5. **導覽列與 About 頁只部分 token 化**：導覽列與頁首（Layout:241–380）仍多是字面值（例如 skip link 4px 圓角 Layout:189、nav 字級 0.8／0.78／0.7rem）；About 頁（Layout:761–1543）有 10／6／2／14px 圓角（Layout:908、1059、1119、1193、1226）與大量字面值字級、間距。
-6. **後台**：`admin-tokens.css` 是獨立系統，本文件不涵蓋。
+6. **後台元件規格還沒寫進 §4**：後台顏色已統一到 tokens.css（§7），但面板、表格、表單、狀態的長相與何時用只有 `/design/` 的範例，還沒有逐一寫成 §4 那樣的規格。
+7. **兩份 shadcn 對應**：`src/styles/chat.css` 與 `src/styles/globals.css` 各有一份 `@theme inline`，對應略有不同（Chat 的 `background` 是 `--bg-card`、`accent` 是 `--brand-100`；後台是 `--bg-page`、`--bg-muted`）。要不要合成一份、Chat 的 hover 要不要改中性，還沒決定。
+8. **flow builder 節點分類色**：`src/components/admin/console/flow-builder/step-fields.ts` 與 `FlowEditor.tsx` 的 `STEP_COLORS` 是 9 色分類色盤，仍是字面值；圖表色盤 `--diagram-s1`～`s5` 只有 5 色，要不要擴充成共用的分類色 token 還沒決定。
 
 ---
 
@@ -608,4 +620,28 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
 4. **看 `/styleguide/`。** 這個頁面把本文件列的每個元件都渲染一次，改完 CSS 直接在這裡比對，不用翻文章找範例。新增元件要把範例加進 `src/content/styleguide/styleguide.md`。
 5. **跑 `pnpm verify`。** 它包含 `check:chat-style`（含 `--self-test`）、`check:diagram-text` 等檢查；紅燈就修真正的問題，不弱化檢查。
 6. **版面測試會擋。** `tests/visual/styleguide.spec.ts` 在 CI 的 `pnpm test:visual` 裡跑，對 `/styleguide/` 檢查：頁面沒有橫向溢出、文字對比足夠、語言切換膠囊精簡且與內文對齊、窄表格不溢出、圖表顯示寬度不超過 viewBox。這些是 §1 原則 3–6 的自動化版本；新元件要加進 `/styleguide/` 才會被涵蓋。依專案規則，本機跑測試前要先取得同意，否則以 CI 結果為準。
-7. **回頭更新這份文件。** 改了值或行號就同步更新對應段落；新增元件就在 §4 補一節（長相、何時用、何時不用、寫法、CSS 位置）；修掉 §5.2 的項目就移到 §5.1。
+7. **看 `/design/`。** 後台與通用元件（`src/components/ui/`、`src/components/admin/`）的範例在這頁；新增元件要在 `src/components/design/UiShowcase.tsx`（React）或 `src/pages/design/index.astro`（Astro）補範例，否則元件清單會標「沒有範例」。
+8. **回頭更新這份文件。** 改了值或行號就同步更新對應段落；新增元件就在 §4 補一節（長相、何時用、何時不用、寫法、CSS 位置）；修掉 §5.2 的項目就移到 §5.1。
+
+---
+
+## 7. 全站分層與後台
+
+全站 UI 分四層，參考 Ghost Admin 的 Shade 設計系統。引用只能往下：頁面用 Pattern，Pattern 用通用元件，元件只用 token。
+
+| 層 | 位置 | 放什麼 |
+|---|---|---|
+| Token | `src/styles/tokens.css` | 顏色、字級、間距、圓角、陰影；淺色與深色各一組值 |
+| 通用元件 | `src/components/ui/`（shadcn/ui，React） | 按鈕、輸入框、對話框等，不懂任何業務 |
+| Pattern | `src/components/admin/`、`src/components/ai-elements/` 等 | 懂業務的組合：後台面板、狀態徽章、表格、session 訊息 |
+| 頁面 | `src/pages/` | 組合 Pattern，不自己定顏色 |
+
+新東西放哪一層：只是一個值 → token；通用控制項 → 先找 `ui/`，沒有才新增；懂業務且在兩個以上頁面重複 → Pattern；只出現一次就先留在頁面裡。
+
+後台的接法：
+
+- `src/styles/admin-tokens.css` 第一行 `@import "./tokens.css"`，自己只宣告後台版面尺寸（`--sidebar-width`），不宣告任何顏色。後台各頁的樣式 class 仍在這個檔。
+- shadcn 元件與 Tailwind 語意 class（`bg-primary`、`text-muted-foreground`、`border-border`）透過 `src/styles/globals.css` 的 `@theme inline` 取 token；那裡不寫字面色。
+- 深色：後台與前台共用 `localStorage` 的 `theme` 偏好與 `[data-theme="dark"]`；`globals.css` 用 `@custom-variant dark` 讓 Tailwind 的 `dark:` 跟著 `data-theme` 走。元件不需要寫 `dark:` 顏色變體，token 會自己換值。
+- Astro 版（`AdminButton.astro` 等）與 React 版（`ui/button.tsx`）並存：不需要 hydrate 的頁面用 Astro 版，互動 island 用 React 版；兩者顏色都只來自 token。
+

@@ -111,12 +111,12 @@ function listHref(p: number) {
 }
 
 function statusBadgeClass(status: string | null): string {
-  if (!status) return 'inline-block rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-xs text-slate-500';
+  if (!status) return 'inline-block rounded-full border border-[var(--border-strong)] bg-muted px-2 py-0.5 text-xs text-muted-foreground';
   const norm = status.toLowerCase();
-  if (norm === 'failed' || norm === 'cancelled') return 'inline-block rounded-full border border-slate-300 bg-slate-100 px-2 py-0.5 text-xs text-slate-500';
-  if (norm === 'running') return 'inline-block rounded-full border border-blue-300 bg-blue-50 px-2 py-0.5 text-xs text-blue-700';
-  if (norm === 'queued' || norm === 'pending') return 'inline-block rounded-full border border-yellow-300 bg-yellow-50 px-2 py-0.5 text-xs text-amber-700';
-  return 'inline-block rounded-full border border-green-300 bg-green-50 px-2 py-0.5 text-xs text-green-800';
+  if (norm === 'failed' || norm === 'cancelled') return 'inline-block rounded-full border border-[var(--border-strong)] bg-muted px-2 py-0.5 text-xs text-muted-foreground';
+  if (norm === 'running') return 'inline-block rounded-full border border-[var(--info-border)] bg-[var(--info-bg)] px-2 py-0.5 text-xs text-muted-foreground';
+  if (norm === 'queued' || norm === 'pending') return 'inline-block rounded-full border border-[var(--warning-border)] bg-[var(--warning-bg)] px-2 py-0.5 text-xs text-warning';
+  return 'inline-block rounded-full border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] px-2 py-0.5 text-xs text-success';
 }
 
 function formatTs(ms: number | null): string {
@@ -178,7 +178,7 @@ function formatName(row: EvidenceRunRow): string {
                   <td class="text-sm text-muted-foreground">
                     來源 {run.source_count ?? 0} / 聲明 {run.claim_count ?? 0} / 衝突 {run.conflict_count ?? 0}
                     {run.pending_conflict_count > 0 && (
-                      <span class="ml-1.5 inline-flex items-center rounded-full border border-yellow-400 bg-yellow-50 px-2 py-0.5 text-[0.7rem] font-bold text-yellow-800">待處理 {run.pending_conflict_count}</span>
+                      <span class="ml-1.5 inline-flex items-center rounded-full border border-[var(--warning-border)] bg-[var(--warning-bg)] px-2 py-0.5 text-[0.7rem] font-bold text-warning">待處理 {run.pending_conflict_count}</span>
                     )}
                   </td>
                   <td class="font-mono text-sm">{formatTs(run.started_at)}</td>

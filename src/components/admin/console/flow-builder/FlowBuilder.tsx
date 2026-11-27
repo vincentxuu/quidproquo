@@ -157,17 +157,17 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
         justifyContent: 'space-between',
         alignItems: 'center',
         padding: '6px 12px',
-        background: 'var(--admin-surface)',
-        borderBottom: '1px solid var(--admin-border)',
+        background: 'var(--bg-card)',
+        borderBottom: '1px solid var(--border)',
         flexShrink: 0,
         gap: '8px',
         flexWrap: 'wrap',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <a href="/admin/console/flows" style={{ color: 'var(--admin-text-muted)', fontSize: '12px', textDecoration: 'none' }}>← 工作流程</a>
-          <span style={{ color: 'var(--admin-border)' }}>/</span>
-          <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--admin-text)' }}>{meta.name}</span>
-          <span style={{ fontSize: '10px', background: 'var(--admin-muted)', color: 'var(--admin-accent)', padding: '1px 6px', borderRadius: '3px' }}>v{meta.version}</span>
+          <a href="/admin/console/flows" style={{ color: 'var(--text-secondary)', fontSize: '12px', textDecoration: 'none' }}>← 工作流程</a>
+          <span style={{ color: 'var(--border)' }}>/</span>
+          <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--text-primary)' }}>{meta.name}</span>
+          <span style={{ fontSize: '10px', background: 'var(--bg-muted)', color: 'var(--brand-700)', padding: '1px 6px', borderRadius: '3px' }}>v{meta.version}</span>
         </div>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
           <button onClick={() => setShowImport(true)} style={secondaryBtn}>匯入 YAML</button>
@@ -224,10 +224,10 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
 }
 
 const primaryBtn: React.CSSProperties = {
-  background: 'var(--brand-900)',
+  background: 'var(--brand-700)',
   border: 'none',
-  borderRadius: 'var(--admin-radius-xs)',
-  color: '#fff',
+  borderRadius: 'var(--corner-sm)',
+  color: 'var(--text-on-solid)',
   padding: '5px 14px',
   fontSize: '12px',
   fontWeight: 600,
@@ -235,10 +235,10 @@ const primaryBtn: React.CSSProperties = {
 }
 
 const secondaryBtn: React.CSSProperties = {
-  background: 'var(--admin-surface)',
-  border: '1px solid var(--admin-border)',
-  borderRadius: 'var(--admin-radius-xs)',
-  color: 'var(--admin-text)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border)',
+  borderRadius: 'var(--corner-sm)',
+  color: 'var(--text-primary)',
   padding: '5px 10px',
   fontSize: '12px',
   cursor: 'pointer',

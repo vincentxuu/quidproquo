@@ -515,7 +515,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
                       </div>
                       <div className="flex items-center gap-2" onClick={e => e.stopPropagation()}>
                         {sync && (
-                          <span className={cn('text-xs', sync.type === 'error' ? 'text-destructive' : sync.type === 'success' ? 'text-[var(--admin-success)]' : 'text-muted-foreground')}>
+                          <span className={cn('text-xs', sync.type === 'error' ? 'text-destructive' : sync.type === 'success' ? 'text-[var(--success)]' : 'text-muted-foreground')}>
                             {sync.text}
                           </span>
                         )}
@@ -589,7 +589,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
             <textarea value={testPrompt} onChange={e => setTestPrompt(e.target.value)} rows={3} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm resize-y" />
           </label>
           <Button onClick={runTest} size="sm" className="w-fit">{m.runTest}</Button>
-          <pre className="min-h-[130px] overflow-auto rounded-lg bg-[#0f172a] p-3 text-xs text-[#e2e8f0]">{testResult}</pre>
+          <pre className="min-h-[130px] overflow-auto rounded-lg bg-[var(--bg-code)] p-3 text-xs text-[var(--code-text)]">{testResult}</pre>
         </div>
       </section>
 

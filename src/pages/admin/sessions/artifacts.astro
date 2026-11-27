@@ -145,9 +145,9 @@ function formatTs(ms: number | null): string {
 function statusBadgeClass(status: string | null): string {
   if (!status) return 'border-border bg-muted text-muted-foreground';
   const norm = status.toLowerCase();
-  if (norm === 'approved') return 'border-green-300 bg-green-50 text-green-800';
-  if (norm === 'rejected') return 'border-red-300 bg-red-50 text-red-900';
-  if (norm === 'exported' || norm === 'published') return 'border-blue-300 bg-blue-50 text-blue-800';
+  if (norm === 'approved') return 'border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] text-success';
+  if (norm === 'rejected') return 'border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] text-destructive';
+  if (norm === 'exported' || norm === 'published') return 'border-[var(--info-border)] bg-[var(--info-bg)] text-muted-foreground';
   return 'border-border bg-muted text-muted-foreground';
 }
 
@@ -311,9 +311,9 @@ function exportLabel(destination: string): string {
       status.hidden = false;
       status.textContent = message;
       status.className = tone === 'success'
-        ? 'mt-3 mx-4 mb-4 rounded-md border border-green-300 bg-green-50 p-3 text-sm text-green-800'
+        ? 'mt-3 mx-4 mb-4 rounded-md border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] p-3 text-sm text-success'
         : tone === 'error'
-          ? 'mt-3 mx-4 mb-4 rounded-md border border-red-300 bg-red-50 p-3 text-sm text-red-900'
+          ? 'mt-3 mx-4 mb-4 rounded-md border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] p-3 text-sm text-destructive'
           : 'mt-3 mx-4 mb-4 rounded-md border border-border bg-muted p-3 text-sm text-muted-foreground';
     }
 

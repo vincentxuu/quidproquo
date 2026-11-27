@@ -404,7 +404,7 @@ function defaultValueFor(input: FlowInput): string {
 <style>
   .flow-desc {
     margin-bottom: 1.25rem;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     font-size: 0.9em;
   }
 
@@ -430,30 +430,30 @@ function defaultValueFor(input: FlowInput): string {
   .field-label {
     font-size: 0.875rem;
     font-weight: 600;
-    color: var(--admin-text);
+    color: var(--text-primary);
   }
 
   .field-textarea {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.85em;
     padding: 0.6rem 0.75rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-bg, #f8fafc);
-    color: var(--admin-text);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-subtle);
+    color: var(--text-primary);
     resize: vertical;
     width: 100%;
   }
 
   .field-textarea:focus {
     outline: none;
-    border-color: var(--admin-accent, #2563eb);
-    box-shadow: var(--admin-focus);
+    border-color: var(--brand-700);
+    box-shadow: var(--focus-ring);
   }
 
   .field-hint {
     font-size: 0.8em;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
   }
 
   .form-actions {
@@ -465,9 +465,9 @@ function defaultValueFor(input: FlowInput): string {
   .btn-primary {
     padding: 0.5rem 1.25rem;
     border: none;
-    border-radius: var(--admin-radius, 6px);
-    background: var(--brand-900, #1a2e1a);
-    color: #fff;
+    border-radius: var(--corner-md);
+    background: var(--brand-700);
+    color: var(--text-on-solid);
     font-size: 0.875rem;
     font-weight: 600;
     cursor: pointer;
@@ -480,39 +480,39 @@ function defaultValueFor(input: FlowInput): string {
 
   .btn-secondary {
     padding: 0.5rem 1.25rem;
-    border: 1px solid var(--admin-border, #e2e8f0);
-    border-radius: var(--admin-radius, 6px);
-    background: var(--admin-surface, #fff);
-    color: var(--admin-text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    color: var(--text-secondary);
     font-size: 0.875rem;
     text-decoration: none;
     transition: background 0.15s;
   }
 
   .btn-secondary:hover {
-    background: var(--admin-muted, #f1f5f9);
-    color: var(--admin-text);
+    background: var(--bg-muted);
+    color: var(--text-primary);
   }
 
   .launch-status {
     min-height: 1.2rem;
     font-size: 0.85rem;
     padding: 0.35rem 0.5rem;
-    border-radius: var(--admin-radius, 6px);
+    border-radius: var(--corner-md);
   }
 
   .launch-status--info {
-    color: var(--admin-text);
-    background: var(--admin-muted, #f1f5f9);
+    color: var(--text-primary);
+    background: var(--bg-muted);
   }
 
   .launch-status--error {
-    color: #991b1b;
-    background: #fee2e2;
+    color: var(--danger);
+    background: var(--danger-bg);
   }
 
   .launch-status--success {
-    color: #166534;
-    background: #dcfce7;
+    color: var(--success);
+    background: var(--success-bg);
   }
 </style>

@@ -18,6 +18,12 @@ export const STEP_GROUPS: StepGroup[] = [
   { label: 'Control',   color: '#0284c7', steps: ['sub_flow', 'parallel', 'loop'] },
 ]
 
+// 節點分類色盤：全站唯一允許寫字面色的地方（check-chat-style 規則 7 的例外）。
+// 9 類節點需要 9 個分得開的色相，tokens.css 的圖表色盤只有 5 色；兩種主題同色，節點上一律白字。
+export const STEP_COLOR_FALLBACK = '#64748b'
+export const STEP_ON_COLOR = '#ffffff'
+export const STEP_HANDLE = 'rgba(255, 255, 255, 0.6)'
+
 export const STEP_COLORS: Record<StepType, string> = {
   agent:          '#6366f1',
   tool_group:     '#0891b2',

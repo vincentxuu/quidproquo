@@ -430,7 +430,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
             <input id="backfill-to" name="to" type="date" required class="min-h-[2.75rem] rounded-md border border-border bg-card px-2 py-1 text-foreground" />
           </div>
           <button type="submit" class="min-h-[2.75rem] rounded-md bg-primary px-3 py-1 text-[0.85rem] font-bold text-primary-foreground cursor-pointer disabled:cursor-wait disabled:opacity-65">執行回填</button>
-          <p id="cost-backfill-warning" class="m-0 w-full text-[0.84rem] text-[#92400e]" hidden></p>
+          <p id="cost-backfill-warning" class="m-0 w-full text-[0.84rem] text-warning" hidden></p>
           <p id="cost-backfill-status" class="backfill-status m-0 text-[0.85rem] text-muted-foreground" role="status" aria-live="polite" hidden></p>
           <dl id="cost-backfill-summary" class="grid w-full grid-cols-4 gap-2 m-0 max-[1100px]:grid-cols-2" hidden>
             <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
@@ -505,7 +505,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                     <td class="font-mono text-[0.85em]">
                       {formatDay(row.day)}
                       {row.day === latestDay && (
-                        <span class="ml-2 inline-block rounded-full bg-[#dcfce7] px-2 py-0.5 align-middle text-[0.75em] text-[#166534] whitespace-nowrap" id="live-badge" aria-live="polite">即時 · 每 60 秒更新</span>
+                        <span class="ml-2 inline-block rounded-full bg-[var(--success-bg)] px-2 py-0.5 align-middle text-[0.75em] text-success whitespace-nowrap" id="live-badge" aria-live="polite">即時 · 每 60 秒更新</span>
                       )}
                     </td>
                     <td class="font-mono text-[0.82em] text-muted-foreground max-w-[180px] overflow-hidden text-ellipsis whitespace-nowrap">{row.dimension_value}</td>
@@ -559,7 +559,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                     </span>
                     <span class="text-[0.82em] text-muted-foreground">{alert.policyKey}</span>
                     <span class="block h-1.5 overflow-hidden rounded-full bg-border" aria-hidden="true">
-                      <span class="block h-full rounded-full bg-[var(--admin-warning)]" style={budgetWidthStyle(alert.ratio)}></span>
+                      <span class="block h-full rounded-full bg-[var(--warning)]" style={budgetWidthStyle(alert.ratio)}></span>
                     </span>
                     <span class="text-[0.82em] text-muted-foreground">{formatCost(alert.costUsd)} / {formatCost(alert.limitUsd)}</span>
                   </a>
@@ -663,7 +663,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       status.hidden = false;
       status.textContent = message;
       status.className = 'backfill-status m-0 text-[0.85rem] '
-        + (tone === 'success' ? 'text-[#15803d]' : tone === 'error' ? 'text-destructive' : 'text-muted-foreground');
+        + (tone === 'success' ? 'text-success' : tone === 'error' ? 'text-destructive' : 'text-muted-foreground');
     }
 
     function setWarning(message) {

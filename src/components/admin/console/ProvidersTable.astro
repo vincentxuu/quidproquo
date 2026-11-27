@@ -42,26 +42,26 @@ const { rows } = Astro.props;
   .mgmt-table td {
     text-align: left;
     padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--admin-border);
+    border-bottom: 1px solid var(--border);
   }
   .mgmt-table th {
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-size: 0.72rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
   .mgmt-table code {
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-size: 0.78rem;
   }
   .health-badge {
     padding: 0.05rem 0.5rem;
-    border: 1px solid var(--admin-border);
+    border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 0.74rem;
     text-transform: capitalize;
   }
-  .health-badge[data-status='healthy'] { color: #16a34a; border-color: #16a34a; }
-  .health-badge[data-status='degraded'] { color: #a16207; border-color: #a16207; }
-  .health-badge[data-status='down'] { color: #dc2626; border-color: #dc2626; }
+  .health-badge[data-status='healthy'] { color: var(--success); border-color: var(--success); }
+  .health-badge[data-status='degraded'] { color: var(--warning); border-color: var(--warning); }
+  .health-badge[data-status='down'] { color: var(--danger); border-color: var(--danger); }
 </style>

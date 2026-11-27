@@ -81,6 +81,13 @@ const sectionLabels: Record<string, string> = {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{title} — Admin</title>
+  <script is:inline>
+    // 與前台同一份偏好（localStorage 'theme'），渲染前套用避免閃白
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
 </head>
 <body>
   <div class="admin-container">
@@ -187,6 +194,15 @@ const sectionLabels: Record<string, string> = {
           <Icons name="home" size={15} />
           <span class="nav-label">回到網站</span>
         </a>
+        <a href="/design/" class="nav-item footer-item" title="設計規範">
+          <Icons name="layout-dashboard" size={15} />
+          <span class="nav-label">設計規範</span>
+        </a>
+        <button type="button" class="nav-item footer-item theme-toggle" id="admin-theme-toggle" title="切換深淺色" aria-label="切換深淺色">
+          <span class="icon-light"><Icons name="moon" size={15} /></span>
+          <span class="icon-dark"><Icons name="sun" size={15} /></span>
+          <span class="nav-label">深淺色</span>
+        </button>
         <form method="POST" action="/api/auth/logout">
           <button type="submit" class="logout-btn" title="登出">
             <Icons name="log-out" size={15} />
@@ -312,6 +328,13 @@ const sectionLabels: Record<string, string> = {
     </main>
   </div>
 
+  <script is:inline>
+    document.getElementById('admin-theme-toggle')?.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+  </script>
   <script data-default-mode={defaultMode} is:inline>
     async function loadRecents() {
       try {
@@ -442,8 +465,8 @@ const sectionLabels: Record<string, string> = {
 
   body {
     font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--admin-bg);
-    color: var(--admin-text);
+    background: var(--bg-subtle);
+    color: var(--text-primary);
     min-height: 100vh;
     line-height: 1.5;
   }
@@ -460,7 +483,7 @@ const sectionLabels: Record<string, string> = {
   select:focus-visible,
   input:focus-visible {
     outline: none;
-    box-shadow: var(--admin-focus);
+    box-shadow: var(--focus-ring);
   }
 
   /* ── Container ── */
@@ -474,8 +497,8 @@ const sectionLabels: Record<string, string> = {
 
   .admin-sidebar {
     width: var(--sidebar-width);
-    background: var(--admin-surface);
-    border-right: 1px solid var(--admin-border);
+    background: var(--bg-card);
+    border-right: 1px solid var(--border);
     display: flex;
     flex-direction: column;
     position: fixed;
@@ -495,7 +518,7 @@ const sectionLabels: Record<string, string> = {
 
   .mode-toggle {
     display: flex;
-    background: var(--admin-border);
+    background: var(--border);
     border-radius: 6px;
     padding: 2px;
     gap: 2px;
@@ -509,26 +532,26 @@ const sectionLabels: Record<string, string> = {
     border: none;
     border-radius: 4px;
     background: transparent;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     cursor: pointer;
     transition: background 0.15s, color 0.15s;
   }
 
   .mode-btn:hover {
-    color: var(--admin-text);
+    color: var(--text-primary);
   }
 
   .mode-btn.active {
-    background: var(--admin-surface);
-    color: var(--admin-text);
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    background: var(--bg-card);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-hairline);
   }
 
   .admin-brand {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    color: var(--admin-text);
+    color: var(--text-primary);
     text-decoration: none;
   }
 
@@ -538,9 +561,9 @@ const sectionLabels: Record<string, string> = {
     width: 32px;
     height: 32px;
     border: 1px solid var(--brand-700);
-    border-radius: var(--admin-radius);
-    background: var(--brand-900);
-    color: var(--admin-surface);
+    border-radius: var(--corner-md);
+    background: var(--brand-700);
+    color: var(--text-on-solid);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.72rem;
     letter-spacing: 0;
@@ -565,9 +588,9 @@ const sectionLabels: Record<string, string> = {
     gap: 0.5rem;
     width: 100%;
     padding: 0.55rem 0.75rem;
-    border-radius: var(--admin-radius);
-    background: var(--brand-900);
-    color: #fff;
+    border-radius: var(--corner-md);
+    background: var(--brand-700);
+    color: var(--text-on-solid);
     font-size: 0.88rem;
     font-weight: 700;
     text-decoration: none;
@@ -575,8 +598,8 @@ const sectionLabels: Record<string, string> = {
   }
 
   .new-session-btn:hover {
-    background: var(--brand-700);
-    box-shadow: 0 2px 6px rgba(26, 46, 26, 0.2);
+    background: var(--brand-900);
+    box-shadow: var(--shadow-card-hover);
   }
 
   .new-session-plus {
@@ -595,7 +618,7 @@ const sectionLabels: Record<string, string> = {
 
   .sidebar-nav {
     padding: 0.25rem 0.65rem;
-    border-bottom: 1px solid var(--admin-border);
+    border-bottom: 1px solid var(--border);
   }
 
   .nav-item {
@@ -604,8 +627,8 @@ const sectionLabels: Record<string, string> = {
     gap: 0.6rem;
     min-height: 36px;
     padding: 0.35rem 0.55rem;
-    border-radius: var(--admin-radius);
-    color: var(--admin-text-muted);
+    border-radius: var(--corner-md);
+    color: var(--text-secondary);
     text-decoration: none;
     margin-bottom: 0.1rem;
     transition: background 0.12s, color 0.12s;
@@ -614,7 +637,7 @@ const sectionLabels: Record<string, string> = {
   }
 
   .nav-item:hover {
-    background: var(--admin-muted);
+    background: var(--bg-muted);
     color: var(--brand-900);
   }
 
@@ -661,15 +684,15 @@ const sectionLabels: Record<string, string> = {
   .nav-child {
     padding: 0.3rem 0.6rem 0.3rem 2.2rem;
     font-size: 0.8rem;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     text-decoration: none;
-    border-radius: var(--admin-radius);
+    border-radius: var(--corner-md);
     margin: 0 0.35rem;
     transition: background 0.1s, color 0.1s;
   }
 
   .nav-child:hover {
-    background: var(--admin-muted);
+    background: var(--bg-muted);
     color: var(--brand-900);
   }
 
@@ -697,7 +720,7 @@ const sectionLabels: Record<string, string> = {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.06em;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
   }
 
   .recents-list {
@@ -707,7 +730,7 @@ const sectionLabels: Record<string, string> = {
 
   :global(.recents-empty) {
     font-size: 0.8rem;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     padding: 0.3rem;
   }
 
@@ -716,8 +739,8 @@ const sectionLabels: Record<string, string> = {
     align-items: flex-start;
     gap: 0.5rem;
     padding: 0.35rem 0.5rem;
-    border-radius: var(--admin-radius);
-    color: var(--admin-text);
+    border-radius: var(--corner-md);
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 0.8rem;
     transition: background 0.1s;
@@ -725,7 +748,7 @@ const sectionLabels: Record<string, string> = {
   }
 
   :global(.recent-item:hover) {
-    background: var(--admin-muted);
+    background: var(--bg-muted);
   }
 
   :global(.status-dot) {
@@ -733,7 +756,7 @@ const sectionLabels: Record<string, string> = {
     height: 6px;
     border-radius: 50%;
     flex-shrink: 0;
-    background: var(--admin-text-muted);
+    background: var(--text-secondary);
     margin-top: 0.45rem;
   }
 
@@ -744,11 +767,11 @@ const sectionLabels: Record<string, string> = {
   }
 
   :global(.status-dot.failed) {
-    background: #c44;
+    background: var(--danger);
   }
 
   :global(.status-dot.done) {
-    background: var(--admin-border);
+    background: var(--border);
   }
 
   @keyframes pulse-dot {
@@ -774,7 +797,7 @@ const sectionLabels: Record<string, string> = {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-size: 0.68rem;
     line-height: 1.25;
   }
@@ -783,13 +806,27 @@ const sectionLabels: Record<string, string> = {
 
   .sidebar-footer {
     padding: 0.5rem 0.65rem;
-    border-top: 1px solid var(--admin-border);
+    border-top: 1px solid var(--border);
   }
 
   .footer-item {
     min-height: 34px;
     font-size: 0.82rem;
   }
+
+  .theme-toggle {
+    width: 100%;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+    font: inherit;
+    font-size: 0.82rem;
+  }
+  .theme-toggle .icon-dark { display: none; }
+  :global([data-theme="dark"]) .theme-toggle .icon-light { display: none; }
+  :global([data-theme="dark"]) .theme-toggle .icon-dark { display: inline-flex; }
+  .theme-toggle .icon-light { display: inline-flex; }
 
   .logout-btn {
     width: 100%;
@@ -799,9 +836,9 @@ const sectionLabels: Record<string, string> = {
     min-height: 34px;
     padding: 0.35rem 0.55rem;
     border: none;
-    border-radius: var(--admin-radius);
+    border-radius: var(--corner-md);
     background: transparent;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     cursor: pointer;
     font-size: 0.82rem;
     text-align: left;
@@ -809,7 +846,7 @@ const sectionLabels: Record<string, string> = {
   }
 
   .logout-btn:hover {
-    background: var(--admin-muted);
+    background: var(--bg-muted);
     color: var(--brand-900);
   }
 
@@ -847,8 +884,8 @@ const sectionLabels: Record<string, string> = {
   .admin-header {
     min-height: 56px;
     padding: 0.65rem 1.5rem;
-    border-bottom: 1px solid var(--admin-border);
-    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid var(--border);
+    background: color-mix(in srgb, var(--bg-page) 88%, transparent);
     backdrop-filter: blur(10px);
     position: sticky;
     top: 0;
@@ -867,7 +904,7 @@ const sectionLabels: Record<string, string> = {
 
   .admin-kicker {
     margin-bottom: 0.05rem;
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     font-size: 0.68rem;
     font-weight: 700;
@@ -893,7 +930,7 @@ const sectionLabels: Record<string, string> = {
   }
 
   .breadcrumb-sep {
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
     font-weight: 400;
     margin: 0 0.1rem;
   }
@@ -902,7 +939,7 @@ const sectionLabels: Record<string, string> = {
     display: inline-flex;
     align-items: center;
     min-height: 44px;
-    color: var(--admin-accent);
+    color: var(--brand-700);
     text-decoration: none;
     font-weight: 600;
   }
@@ -931,10 +968,10 @@ const sectionLabels: Record<string, string> = {
     place-items: center;
     width: 34px;
     height: 34px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text-muted);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    color: var(--text-secondary);
     text-decoration: none;
     cursor: pointer;
     transition: border-color 0.15s, color 0.15s, background 0.15s;
@@ -942,7 +979,7 @@ const sectionLabels: Record<string, string> = {
 
   .admin-icon-button:hover,
   :global(.icon-button:hover) {
-    border-color: var(--admin-accent);
+    border-color: var(--brand-700);
     color: var(--brand-900);
     background: var(--brand-50);
   }
@@ -967,10 +1004,10 @@ const sectionLabels: Record<string, string> = {
     justify-content: center;
     gap: 0.4rem;
     min-height: 44px;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
     cursor: pointer;
     font-size: 0.86rem;
     font-weight: 700;
@@ -989,16 +1026,16 @@ const sectionLabels: Record<string, string> = {
     width: min(86vw, 340px);
     max-height: calc(100vh - 5.5rem);
     overflow-y: auto;
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    box-shadow: 0 18px 45px rgba(23, 32, 23, 0.16);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-modal);
     padding: 0.75rem;
   }
 
   .mobile-nav-actions {
     margin-top: 0.85rem;
-    border-top: 1px solid var(--admin-border);
+    border-top: 1px solid var(--border);
     padding-top: 0.65rem;
   }
 
@@ -1007,8 +1044,8 @@ const sectionLabels: Record<string, string> = {
     align-items: center;
     gap: 0.65rem;
     min-height: 44px;
-    border-radius: var(--admin-radius-sm, var(--admin-radius));
-    color: var(--admin-text-muted);
+    border-radius: var(--corner-md);
+    color: var(--text-secondary);
     font-size: 0.92rem;
     font-weight: 650;
     padding: 0.55rem 0.65rem;
@@ -1016,7 +1053,7 @@ const sectionLabels: Record<string, string> = {
   }
 
   .mobile-nav-item:hover {
-    background: var(--admin-muted);
+    background: var(--bg-muted);
     color: var(--brand-900);
   }
 
@@ -1039,10 +1076,10 @@ const sectionLabels: Record<string, string> = {
   :global(.status-card),
   :global(.content-section),
   :global(.inventory-panel) {
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    box-shadow: var(--admin-shadow);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    box-shadow: var(--shadow-hairline);
     min-width: 0;
     max-width: 100%;
   }
@@ -1084,7 +1121,7 @@ const sectionLabels: Record<string, string> = {
   :global(.admin-panel h2),
   :global(.content-section h2),
   :global(.status-card h3) {
-    color: var(--admin-text);
+    color: var(--text-primary);
     letter-spacing: 0;
     text-transform: none;
   }
@@ -1092,7 +1129,7 @@ const sectionLabels: Record<string, string> = {
   :global(.page-desc),
   :global(.section-desc),
   :global(.empty) {
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
   }
 
   :global(a) {
@@ -1102,26 +1139,26 @@ const sectionLabels: Record<string, string> = {
   :global(.text-link),
   :global(.card-link),
   :global(.settings-link) {
-    color: var(--admin-accent);
+    color: var(--brand-700);
   }
 
   :global(.text-link:hover),
   :global(.card-link:hover),
   :global(.settings-link:hover) {
-    color: var(--admin-accent-hover);
+    color: var(--brand-900);
   }
 
   :global(input),
   :global(select),
   :global(textarea) {
-    border-color: var(--admin-border);
+    border-color: var(--border);
   }
 
   :global(input:focus),
   :global(select:focus),
   :global(textarea:focus) {
-    border-color: var(--admin-accent);
-    box-shadow: var(--admin-focus);
+    border-color: var(--brand-700);
+    box-shadow: var(--focus-ring);
     outline: none;
   }
 
@@ -1130,10 +1167,10 @@ const sectionLabels: Record<string, string> = {
   :global(#save-settings),
   :global(.ops-grid button),
   :global(.form-actions button) {
-    border: 1px solid var(--admin-border);
-    border-radius: var(--admin-radius);
-    background: var(--admin-surface);
-    color: var(--admin-text);
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-card);
+    color: var(--text-primary);
     cursor: pointer;
     transition: border-color 0.15s, background 0.15s, color 0.15s;
   }
@@ -1143,7 +1180,7 @@ const sectionLabels: Record<string, string> = {
   :global(#save-settings:hover),
   :global(.ops-grid button:hover),
   :global(.form-actions button:hover) {
-    border-color: var(--admin-accent);
+    border-color: var(--brand-700);
     background: var(--brand-50);
     color: var(--brand-900);
   }
@@ -1151,7 +1188,7 @@ const sectionLabels: Record<string, string> = {
   :global(.job-row:hover),
   :global(.post-table tbody tr:hover),
   :global(.trace-row:hover) {
-    background: var(--admin-surface-subtle);
+    background: var(--bg-subtle);
   }
 
   /* ── Responsive ── */

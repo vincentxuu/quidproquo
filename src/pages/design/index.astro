@@ -1,0 +1,402 @@
+---
+// src/pages/design/index.astro
+// 設計規範頁：全站（前台＋後台）共用的 token、元件與規則集中在一頁。
+// 資料全部從正本產生，不手抄：token 讀 tokens.css、元件清單掃 src/components、
+// 規範全文渲染 docs/design-system.md。改正本，這頁就跟著變。
+export const prerender = true;
+
+import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import '../../styles/admin-tokens.css';
+import '../../styles/globals.css';
+import tokensCss from '../../styles/tokens.css?raw';
+import designDoc from '../../../docs/design-system.md?raw';
+import { parseTokens } from '../../lib/design/tokens';
+import Icons from '../../components/Icons.astro';
+import UiShowcase, { UI_DEMOS } from '../../components/design/UiShowcase';
+import AdminButton from '../../components/admin/AdminButton.astro';
+import AdminBadge from '../../components/admin/AdminBadge.astro';
+import AdminField from '../../components/admin/AdminField.astro';
+import AdminPanel from '../../components/admin/AdminPanel.astro';
+import AdminTable from '../../components/admin/AdminTable.astro';
+import AdminMetric from '../../components/admin/AdminMetric.astro';
+import AdminState from '../../components/admin/AdminState.astro';
+
+const groups = parseTokens(tokensCss);
+const tokenCount = groups.reduce((n, g) => n + g.tokens.length, 0);
+
+const md = await createMarkdownProcessor();
+const { code: specHtml } = await md.render(designDoc);
+
+// 元件清單：掃檔案系統，新元件不用登記也會出現；有沒有範例由 demo 名單判斷。
+const ADMIN_DEMOS = new Set(['AdminButton', 'AdminBadge', 'AdminField', 'AdminPanel', 'AdminTable', 'AdminMetric', 'AdminState']);
+const uiDemos = new Set<string>(UI_DEMOS);
+const baseName = (p: string) => p.split('/').pop()!.replace(/\.(astro|tsx)$/, '');
+const inventory = [
+  {
+    layer: '通用元件',
+    path: 'src/components/ui/',
+    desc: 'shadcn/ui（React）。不懂任何業務，只管外觀與可及性。',
+    files: Object.keys(import.meta.glob('../../components/ui/*.tsx')).map(baseName),
+    demoed: (n: string) => uiDemos.has(n),
+    anchor: (n: string) => `#ui-${n}`,
+  },
+  {
+    layer: '後台 Pattern',
+    path: 'src/components/admin/',
+    desc: '懂後台業務的組合（面板、表格、狀態、表單欄位）。Astro 版給不需要 hydrate 的頁面用。',
+    files: Object.keys(import.meta.glob('../../components/admin/*.{astro,tsx}')).map(baseName),
+    demoed: (n: string) => ADMIN_DEMOS.has(n),
+    anchor: (n: string) => `#admin-${n}`,
+  },
+  {
+    layer: 'AI 對話元件',
+    path: 'src/components/ai-elements/',
+    desc: 'Chat 與後台 session 的訊息、工具呼叫、推理過程。',
+    files: Object.keys(import.meta.glob('../../components/ai-elements/*.tsx')).map(baseName),
+    demoed: () => false,
+    anchor: () => '',
+  },
+  {
+    layer: '前台元件',
+    path: 'src/components/',
+    desc: '文章列表、分頁、標籤等前台頁面組件；文章內文元件在 /styleguide/。',
+    files: Object.keys(import.meta.glob('../../components/*.{astro,tsx}')).map(baseName),
+    demoed: () => false,
+    anchor: () => '',
+  },
+];
+
+const isColor = (v: string) => /^(#|rgb|hsl|oklch|color-mix|var\()/.test(v);
+---
+
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>設計規範 — quidproquo</title>
+  <script is:inline>
+    const stored = localStorage.getItem('theme');
+    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    }
+  </script>
+</head>
+<body class="ds">
+  <header class="ds-header">
+    <div class="ds-header__inner">
+      <a href="/" class="ds-logo">quidproquo</a>
+      <span class="ds-header__title">設計規範</span>
+      <nav class="ds-nav" aria-label="頁內導覽">
+        <a href="#overview">總覽</a>
+        <a href="#tokens">Token</a>
+        <a href="#components">元件</a>
+        <a href="#inventory">元件清單</a>
+        <a href="#spec">規範全文</a>
+      </nav>
+      <button type="button" class="ds-theme" id="ds-theme" aria-label="切換深淺色">
+        <span class="icon-light"><Icons name="moon" size={16} /></span>
+        <span class="icon-dark"><Icons name="sun" size={16} /></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="ds-main">
+    <section id="overview" class="ds-section">
+      <h1>設計規範</h1>
+      <p class="ds-lead">
+        全站（前台文章、後台、Chat）共用同一套 token 與元件。這頁從正本自動產生：token 讀
+        <code>src/styles/tokens.css</code>，元件清單掃 <code>src/components</code>，規範全文是
+        <code>docs/design-system.md</code>。要改設計，改正本，不改這頁。
+      </p>
+
+      <h2>分層</h2>
+      <div class="ds-layers">
+        <div class="ds-layer"><span class="ds-layer__n">1</span><div><strong>Token</strong><p><code>tokens.css</code>：顏色、字級、間距、圓角、陰影。淺色與深色各一組值，元件只用名字。</p></div></div>
+        <div class="ds-layer"><span class="ds-layer__n">2</span><div><strong>通用元件</strong><p><code>components/ui/</code>：按鈕、輸入框、對話框。不懂業務。</p></div></div>
+        <div class="ds-layer"><span class="ds-layer__n">3</span><div><strong>Pattern</strong><p><code>components/admin/</code> 等：懂業務的組合，例如後台面板、狀態徽章、session 列表。</p></div></div>
+        <div class="ds-layer"><span class="ds-layer__n">4</span><div><strong>頁面</strong><p><code>pages/</code>：組合 Pattern，不自己定樣式。</p></div></div>
+      </div>
+
+      <h2>新東西放哪一層</h2>
+      <ol class="ds-steps">
+        <li>只是一個顏色、尺寸、圓角？→ <strong>Token</strong>，加在 <code>tokens.css</code>，淺色與深色都要給值。</li>
+        <li>通用、不懂業務的控制項？→ <strong>通用元件</strong>，先找 <code>components/ui/</code> 有沒有，沒有才新增，並在這頁補範例。</li>
+        <li>懂業務、在兩個以上頁面重複出現？→ <strong>Pattern</strong>。只出現一次就先留在頁面裡。</li>
+      </ol>
+
+      <h2>硬規則（<code>pnpm verify</code> 會擋）</h2>
+      <ul class="ds-rules">
+        <li>元件與頁面不寫字面色（hex、rgb）；一律 <code>var(--token)</code> 或 Tailwind 語意 class（<code>bg-primary</code>、<code>text-muted-foreground</code>）。</li>
+        <li>token 只在 <code>tokens.css</code> 宣告；<code>admin-tokens.css</code> 只放後台版面尺寸。</li>
+        <li>單一強調色墨綠（<code>--brand-700</code>），其餘中性灰；狀態色只表達狀態。</li>
+        <li>深色由 <code>[data-theme="dark"]</code> 切換 token 值，元件不寫 <code>dark:</code> 顏色變體。</li>
+      </ul>
+    </section>
+
+    <section id="tokens" class="ds-section">
+      <h2>Token <span class="ds-count">{tokenCount}</span></h2>
+      <p class="ds-muted">色塊與範例用目前主題的值渲染；右上角切換深淺色即可對照。表格列出兩種主題的原始值。</p>
+      {groups.map((g) => (
+        <div class="ds-token-group" id={`token-${g.id}`}>
+          <h3>{g.label}</h3>
+          <div class="ds-token-table" role="table">
+            <div class="ds-token-row ds-token-row--head" role="row">
+              <span role="columnheader">範例</span><span role="columnheader">名稱</span><span role="columnheader">淺色</span><span role="columnheader">深色</span><span role="columnheader">用途</span>
+            </div>
+            {g.tokens.map((t) => (
+              <div class="ds-token-row" role="row">
+                <span role="cell" class="ds-token-preview">
+                  {g.kind === 'color' && isColor(t.light) && <span class="ds-swatch" style={`background: var(${t.name})`} />}
+                  {g.kind === 'corner' && <span class="ds-corner" style={`border-radius: var(${t.name})`} />}
+                  {g.kind === 'font-size' && <span class="ds-fs" style={`font-size: var(${t.name})`}>字 Aa</span>}
+                  {g.kind === 'space' && <span class="ds-space" style={`width: var(${t.name})`} />}
+                  {g.kind === 'shadow' && <span class="ds-shadow" style={`box-shadow: var(${t.name})`} />}
+                </span>
+                <code role="cell" class="ds-token-name">{t.name}</code>
+                <code role="cell" class="ds-token-val">{t.light}</code>
+                <code role="cell" class="ds-token-val">{t.dark ?? '同淺色'}</code>
+                <span role="cell" class="ds-token-note">{t.note ?? ''}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </section>
+
+    <section id="components" class="ds-section">
+      <h2>元件</h2>
+
+      <h3>通用元件 <code>components/ui/</code></h3>
+      <p class="ds-muted">React（shadcn/ui），顏色經 <code>globals.css</code> 的 <code>@theme inline</code> 接到 token。浮層類（Dialog、Popover、Tooltip…）可以直接點開。</p>
+      <UiShowcase client:visible />
+
+      <h3>後台 Pattern <code>components/admin/</code></h3>
+      <p class="ds-muted">Astro 元件，給不需要 hydrate 的後台頁面用；樣式在 <code>admin-tokens.css</code>。</p>
+      <div class="ds-demo-grid">
+        <section class="ds-demo" id="admin-AdminButton">
+          <h4 class="ds-demo__name"><code>admin/AdminButton</code></h4>
+          <div class="ds-demo__stage ds-row">
+            <AdminButton variant="primary">Primary</AdminButton>
+            <AdminButton>Secondary</AdminButton>
+            <AdminButton variant="ghost">Ghost</AdminButton>
+            <AdminButton variant="danger">Danger</AdminButton>
+            <AdminButton icon="refresh-cw">With icon</AdminButton>
+          </div>
+        </section>
+        <section class="ds-demo" id="admin-AdminBadge">
+          <h4 class="ds-demo__name"><code>admin/AdminBadge</code></h4>
+          <div class="ds-demo__stage ds-row">
+            <AdminBadge>neutral</AdminBadge>
+            <AdminBadge tone="success">success</AdminBadge>
+            <AdminBadge tone="warning">warning</AdminBadge>
+            <AdminBadge tone="danger">danger</AdminBadge>
+            <AdminBadge tone="info">info</AdminBadge>
+          </div>
+        </section>
+        <section class="ds-demo" id="admin-AdminField">
+          <h4 class="ds-demo__name"><code>admin/AdminField</code></h4>
+          <div class="ds-demo__stage">
+            <AdminField label="名稱" for="ds-field-name"><input id="ds-field-name" placeholder="輸入名稱" /></AdminField>
+            <AdminField label="類型" for="ds-field-type"><select id="ds-field-type"><option>agent</option><option>tool</option></select></AdminField>
+          </div>
+        </section>
+        <section class="ds-demo" id="admin-AdminMetric">
+          <h4 class="ds-demo__name"><code>admin/AdminMetric</code></h4>
+          <div class="ds-demo__stage ds-row">
+            <AdminMetric label="Sessions" value={128} />
+            <AdminMetric label="成功率" value="96%" />
+            <AdminMetric label="花費" value="$4.20" />
+          </div>
+        </section>
+        <section class="ds-demo" id="admin-AdminState">
+          <h4 class="ds-demo__name"><code>admin/AdminState</code></h4>
+          <div class="ds-demo__stage">
+            <AdminState>尚無資料</AdminState>
+            <AdminState tone="loading">載入中…</AdminState>
+            <AdminState tone="error">載入失敗：連線逾時</AdminState>
+          </div>
+        </section>
+        <section class="ds-demo ds-demo--wide" id="admin-AdminPanel">
+          <h4 class="ds-demo__name"><code>admin/AdminPanel</code> ＋ <code>admin/AdminTable</code></h4>
+          <div class="ds-demo__stage">
+            <AdminPanel eyebrow="Sessions" title="最近的 session" description="面板標題、說明與右側動作" flush>
+              <AdminButton slot="actions" variant="primary" icon="refresh-cw">重新整理</AdminButton>
+              <AdminTable minWidth="520px" flush>
+                <thead><tr><th>標題</th><th>狀態</th><th>更新</th></tr></thead>
+                <tbody>
+                  <tr><td>整理 benchmark 研究</td><td><AdminBadge tone="success">done</AdminBadge></td><td>2 分鐘前</td></tr>
+                  <tr><td>翻譯 Mackay 篇</td><td><AdminBadge tone="warning">running</AdminBadge></td><td>10 分鐘前</td></tr>
+                  <tr><td>抓取 TMDB 海報</td><td><AdminBadge tone="danger">failed</AdminBadge></td><td>1 小時前</td></tr>
+                </tbody>
+              </AdminTable>
+            </AdminPanel>
+          </div>
+        </section>
+      </div>
+
+      <h3>文章內文元件</h3>
+      <p class="ds-muted">標題、提示框、表格、圖表、程式碼等文章元件經 Markdown 管線產生，完整樣本在 <a href="/styleguide/">/styleguide/</a>（同一個文章模板渲染）。</p>
+    </section>
+
+    <section id="inventory" class="ds-section">
+      <h2>元件清單</h2>
+      <p class="ds-muted">掃描 <code>src/components</code> 自動產生。標「沒有範例」的元件，新增或修改時順手在這頁補上。</p>
+      {inventory.map((layer) => (
+        <div class="ds-inv">
+          <h3>{layer.layer} <code>{layer.path}</code> <span class="ds-count">{layer.files.length}</span></h3>
+          <p class="ds-muted">{layer.desc}</p>
+          <ul class="ds-inv__list">
+            {layer.files.map((f) => (
+              <li>
+                {layer.demoed(f) ? <a href={layer.anchor(f)}><code>{f}</code></a> : <code>{f}</code>}
+                {!layer.demoed(f) && <span class="ds-inv__none">沒有範例</span>}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </section>
+
+    <section id="spec" class="ds-section">
+      <h2>規範全文</h2>
+      <p class="ds-muted">以下是 <code>docs/design-system.md</code> 的內容。行號引用以文件標示的日期為準，與程式碼不一致時以程式碼為準。</p>
+      <article class="ds-spec" set:html={specHtml} />
+    </section>
+  </main>
+
+  <script is:inline>
+    document.getElementById('ds-theme')?.addEventListener('click', () => {
+      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
+
+<style is:global>
+  body.ds {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--text-primary);
+    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: var(--fs-md);
+    line-height: 1.6;
+  }
+  .ds code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
+
+  .ds-header {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--bg-page);
+    border-bottom: 1px solid var(--border);
+  }
+  .ds-header__inner {
+    max-width: 1120px; margin: 0 auto;
+    display: flex; align-items: center; gap: var(--space-4);
+    padding: var(--space-3) var(--space-6);
+  }
+  .ds-logo { font-weight: 900; color: var(--brand-700); text-decoration: none; }
+  .ds-header__title { font-weight: 700; color: var(--text-secondary); }
+  .ds-nav { display: flex; gap: var(--space-4); margin-left: auto; overflow-x: auto; }
+  .ds-nav a { color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm); white-space: nowrap; }
+  .ds-nav a:hover { color: var(--brand-700); }
+  .ds-theme {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; flex-shrink: 0;
+    border: 1px solid var(--border); border-radius: var(--corner-md);
+    background: var(--bg-card); color: var(--text-secondary); cursor: pointer;
+  }
+  .ds-theme:hover { color: var(--brand-700); border-color: var(--brand-500); }
+  .ds-theme .icon-dark { display: none; }
+  [data-theme="dark"] .ds-theme .icon-light { display: none; }
+  [data-theme="dark"] .ds-theme .icon-dark { display: inline-flex; }
+
+  .ds-main { max-width: 1120px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-12); }
+  .ds-section { padding-bottom: var(--space-10); margin-bottom: var(--space-10); border-bottom: 1px solid var(--border); scroll-margin-top: 64px; }
+  .ds-section:last-child { border-bottom: none; }
+  .ds h1 { font-size: var(--fs-h1); font-weight: 900; margin: 0 0 var(--space-3); }
+  .ds h2 { font-size: var(--fs-h2); font-weight: 800; margin: var(--space-8) 0 var(--space-3); }
+  .ds-section > h2:first-child { margin-top: 0; }
+  .ds h3 { font-size: var(--fs-h3); font-weight: 700; margin: var(--space-6) 0 var(--space-2); }
+  .ds-lead { color: var(--text-secondary); max-width: 760px; margin: 0; }
+  .ds-muted { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 var(--space-4); }
+  .ds-count {
+    display: inline-block; margin-left: var(--space-1); padding: 0 var(--space-2);
+    border-radius: var(--corner-pill); background: var(--bg-subtle);
+    color: var(--text-secondary); font-size: var(--fs-xs); font-weight: 600; vertical-align: middle;
+  }
+
+  .ds-layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
+  .ds-layer {
+    display: flex; gap: var(--space-3); padding: var(--space-4);
+    border: 1px solid var(--border); border-radius: var(--corner-md); background: var(--bg-card);
+  }
+  .ds-layer p { margin: var(--space-1) 0 0; color: var(--text-secondary); font-size: var(--fs-sm); }
+  .ds-layer__n {
+    flex-shrink: 0; width: 24px; height: 24px; border-radius: var(--corner-pill);
+    display: inline-flex; align-items: center; justify-content: center;
+    background: var(--brand-50); color: var(--brand-700); font-size: var(--fs-xs); font-weight: 700;
+  }
+  .ds-steps, .ds-rules { margin: 0; padding-left: var(--space-6); color: var(--text-secondary); }
+  .ds-steps li, .ds-rules li { margin-bottom: var(--space-2); }
+  .ds-steps strong, .ds-rules strong { color: var(--text-primary); }
+
+  .ds-token-group { margin-bottom: var(--space-6); scroll-margin-top: 64px; }
+  .ds-token-table { border: 1px solid var(--border); border-radius: var(--corner-md); overflow: hidden; }
+  .ds-token-row {
+    display: grid; grid-template-columns: 72px minmax(150px, 1.1fr) minmax(120px, 1fr) minmax(120px, 1fr) minmax(160px, 2fr);
+    gap: var(--space-3); align-items: center;
+    padding: var(--space-2) var(--space-3); border-top: 1px solid var(--border); font-size: var(--fs-sm);
+  }
+  .ds-token-row:first-child { border-top: none; }
+  .ds-token-row--head { background: var(--bg-subtle); color: var(--text-muted); font-size: var(--fs-xs); font-weight: 600; }
+  .ds-token-name { color: var(--text-primary); word-break: break-all; }
+  .ds-token-val { color: var(--text-secondary); word-break: break-all; }
+  .ds-token-note { color: var(--text-muted); font-size: var(--fs-xs); }
+  .ds-token-preview { display: flex; align-items: center; }
+  .ds-swatch { width: 48px; height: 28px; border-radius: var(--corner-sm); border: 1px solid var(--border); }
+  .ds-corner { width: 40px; height: 28px; border: 2px solid var(--brand-500); background: var(--brand-50); }
+  .ds-fs { color: var(--text-primary); white-space: nowrap; line-height: 1.2; }
+  .ds-space { height: 12px; background: var(--brand-500); border-radius: 2px; }
+  .ds-shadow { width: 48px; height: 28px; border-radius: var(--corner-md); background: var(--bg-card); border: 1px solid var(--border); }
+
+  .ds-demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6); }
+  .ds-demo { border: 1px solid var(--border); border-radius: var(--corner-md); background: var(--bg-card); overflow: hidden; scroll-margin-top: 64px; }
+  .ds-demo--wide { grid-column: 1 / -1; }
+  .ds-demo__name { margin: 0; padding: var(--space-2) var(--space-3); border-bottom: 1px solid var(--border); background: var(--bg-subtle); font-size: var(--fs-xs); font-weight: 600; color: var(--text-secondary); }
+  .ds-demo__stage { padding: var(--space-4); }
+  .ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-2); }
+  .ds-demo__stage .admin-field + .admin-field, .ds-demo__stage .admin-state + .admin-state { margin-top: var(--space-3); }
+
+  .ds-inv { margin-bottom: var(--space-6); }
+  .ds-inv__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--space-1) var(--space-4); }
+  .ds-inv__list li { display: flex; align-items: center; gap: var(--space-2); font-size: var(--fs-sm); }
+  .ds-inv__list a { color: var(--brand-700); }
+  .ds-inv__none { color: var(--text-muted); font-size: var(--fs-2xs); border: 1px solid var(--border); border-radius: var(--corner-pill); padding: 0 var(--space-2); }
+
+  .ds-spec { max-width: 860px; color: var(--text-primary); }
+  .ds-spec h1 { display: none; }
+  .ds-spec h2 { font-size: var(--fs-h2); }
+  .ds-spec a { color: var(--brand-700); }
+  .ds-spec blockquote { margin: var(--space-4) 0; padding: var(--space-3) var(--space-4); border-left: 3px solid var(--brand-500); background: var(--bg-subtle); color: var(--text-secondary); }
+  .ds-spec blockquote p { margin: 0; }
+  .ds-spec table { display: block; overflow-x: auto; border-collapse: collapse; font-size: var(--fs-sm); margin: var(--space-4) 0; }
+  .ds-spec th, .ds-spec td { border: 1px solid var(--border); padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; }
+  .ds-spec th { background: var(--bg-subtle); }
+  .ds-spec :not(pre) > code { background: var(--bg-subtle); border-radius: var(--corner-sm); padding: 0 var(--space-1); }
+  .ds-spec pre { background: var(--bg-code); color: var(--code-text); border-radius: var(--corner-md); padding: var(--space-4); overflow-x: auto; }
+  .ds-spec hr { border: none; border-top: 1px solid var(--border); margin: var(--space-8) 0; }
+
+  @media (max-width: 640px) {
+    .ds-header__inner { padding: var(--space-3) var(--space-4); flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
+    .ds-nav { order: 3; width: 100%; margin-left: 0; }
+    .ds-theme { margin-left: auto; }
+    .ds-main { padding: var(--space-6) var(--space-4) var(--space-10); }
+    .ds-token-row { grid-template-columns: 56px 1fr; }
+    .ds-token-row--head { display: none; }
+    .ds-token-val, .ds-token-note { grid-column: 2; }
+    .ds-demo-grid { grid-template-columns: 1fr; }
+  }
+</style>

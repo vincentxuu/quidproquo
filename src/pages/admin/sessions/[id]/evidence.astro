@@ -207,21 +207,21 @@ function sourceHref(sourceId: number): string {
 }
 
 function confidenceClass(confidence: number): string {
-  if (confidence < 0.4) return 'bg-red-100 text-red-800';
-  if (confidence <= 0.7) return 'bg-amber-100 text-amber-800';
-  return 'bg-green-100 text-green-800';
+  if (confidence < 0.4) return 'bg-[var(--danger-bg)] text-destructive';
+  if (confidence <= 0.7) return 'bg-[var(--warning-bg)] text-warning';
+  return 'bg-[var(--success-bg)] text-success';
 }
 
 function relationClass(relation: string): string {
-  if (relation === 'supports') return 'bg-green-100 text-green-800';
-  if (relation === 'refutes') return 'bg-red-100 text-red-800';
-  return 'bg-sky-100 text-sky-800';
+  if (relation === 'supports') return 'bg-[var(--success-bg)] text-success';
+  if (relation === 'refutes') return 'bg-[var(--danger-bg)] text-destructive';
+  return 'bg-[var(--info-bg)] text-muted-foreground';
 }
 
 function verdictClass(status: string): string {
-  if (status === 'pending') return 'bg-yellow-100 text-yellow-800';
-  if (status === 'approved') return 'bg-green-100 text-green-800';
-  if (status === 'rejected') return 'bg-red-100 text-red-800';
+  if (status === 'pending') return 'bg-[var(--warning-bg)] text-warning';
+  if (status === 'approved') return 'bg-[var(--success-bg)] text-success';
+  if (status === 'rejected') return 'bg-[var(--danger-bg)] text-destructive';
   return 'bg-muted text-muted-foreground';
 }
 
@@ -291,7 +291,7 @@ const breadcrumb = [
                     <div class="flex gap-1.5">
                       <span class="inline-flex items-center rounded-full bg-muted px-1.5 font-mono text-[0.68rem] font-semibold text-muted-foreground" title="Excerpts">{src.excerptCount} exc</span>
                       {src.conflictCount > 0 && (
-                        <span class="inline-flex items-center rounded-full bg-red-50 px-1.5 font-mono text-[0.68rem] font-semibold text-red-800" title="Conflicts">{src.conflictCount} !</span>
+                        <span class="inline-flex items-center rounded-full bg-[var(--danger-bg)] px-1.5 font-mono text-[0.68rem] font-semibold text-destructive" title="Conflicts">{src.conflictCount} !</span>
                       )}
                     </div>
                   </a>
@@ -365,7 +365,7 @@ const breadcrumb = [
                     <a href={claimHref(claim.claimId)} class="grid grid-cols-[auto_1fr_auto] items-center gap-2 rounded-lg border border-border bg-card p-2.5 text-foreground no-underline hover:bg-accent/50">
                       <span class={`inline-flex min-w-[42px] items-center justify-center rounded-full font-mono text-xs font-bold px-2 py-0.5 ${confidenceClass(claim.confidence)}`}>{claim.confidence.toFixed(2)}</span>
                       <span class="text-sm leading-relaxed">{claim.claimText}</span>
-                      {!cited && <span class="text-xs text-amber-800">uncited</span>}
+                      {!cited && <span class="text-xs text-warning">uncited</span>}
                       <span class="col-span-full h-[5px] overflow-hidden rounded-full bg-muted"><span style={`width: ${Math.max(0, Math.min(100, claim.confidence * 100))}%`} class="block h-full bg-primary"></span></span>
                     </a>
                   );
@@ -450,10 +450,10 @@ const breadcrumb = [
               {pendingConflictCount > 0 && (
                 <div class="flex flex-wrap items-center gap-1.5">
                   <span class="text-xs font-bold text-muted-foreground" data-conflict-selection-count>已選 0</span>
-                  <button type="button" class="min-h-8 w-fit rounded-md border border-red-200 bg-red-50 px-2.5 text-xs font-bold text-red-800 disabled:cursor-not-allowed disabled:opacity-65" data-bulk-selected-resolution="dismissed" disabled>
+                  <button type="button" class="min-h-8 w-fit rounded-md border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-2.5 text-xs font-bold text-destructive disabled:cursor-not-allowed disabled:opacity-65" data-bulk-selected-resolution="dismissed" disabled>
                     標記所選不處理
                   </button>
-                  <button type="button" class="min-h-8 w-fit rounded-md border border-red-200 bg-red-50 px-2.5 text-xs font-bold text-red-800" data-bulk-resolution="dismissed">
+                  <button type="button" class="min-h-8 w-fit rounded-md border border-[color-mix(in_srgb,var(--danger)_28%,transparent)] bg-[var(--danger-bg)] px-2.5 text-xs font-bold text-destructive" data-bulk-resolution="dismissed">
                     全部標記不處理
                   </button>
                 </div>
@@ -497,7 +497,7 @@ const breadcrumb = [
                   </div>
                 )}
                 {cf.status !== 'pending' && (
-                  <div class="mt-2 inline-flex rounded-md border border-green-300 bg-green-50 px-2 py-1 text-xs font-bold text-green-800">
+                  <div class="mt-2 inline-flex rounded-md border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] px-2 py-1 text-xs font-bold text-success">
                     已處理：{resolutionLabel(cf.resolvedBy) || conflictStatusLabel(cf.status)}
                   </div>
                 )}
@@ -535,7 +535,7 @@ const breadcrumb = [
     if (!conflictStatus) return;
     conflictStatus.hidden = false;
     conflictStatus.textContent = message;
-    conflictStatus.style.color = tone === 'success' ? '#15803d' : tone === 'error' ? '#b91c1c' : '';
+    conflictStatus.style.color = tone === 'success' ? 'var(--success)' : tone === 'error' ? 'var(--danger)' : '';
   }
 
   function updateConflictCounts() {
@@ -602,13 +602,13 @@ const breadcrumb = [
     if (badge) {
       badge.textContent = statusLabels[status] || status;
       badge.className = 'verdict-badge shrink-0 rounded-full px-2 py-0.5 text-[0.68rem] font-bold capitalize'
-        + (status === 'pending' ? ' bg-yellow-100 text-yellow-800'
-          : status === 'approved' ? ' bg-green-100 text-green-800'
-            : status === 'rejected' ? ' bg-red-100 text-red-800'
+        + (status === 'pending' ? ' bg-[var(--warning-bg)] text-warning'
+          : status === 'approved' ? ' bg-[var(--success-bg)] text-success'
+            : status === 'rejected' ? ' bg-[var(--danger-bg)] text-destructive'
               : ' bg-muted text-muted-foreground');
     }
     var note = document.createElement('div');
-    note.className = 'mt-2 inline-flex rounded-md border border-green-300 bg-green-50 px-2 py-1 text-xs font-bold text-green-800';
+    note.className = 'mt-2 inline-flex rounded-md border border-[color-mix(in_srgb,var(--success)_28%,transparent)] bg-[var(--success-bg)] px-2 py-1 text-xs font-bold text-success';
     note.textContent = '已處理：' + (resolutionLabels[data.resolution] || data.resolution || statusLabels[status] || status);
     root.replaceChildren(note);
     updateConflictCounts();

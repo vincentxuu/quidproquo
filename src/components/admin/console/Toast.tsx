@@ -61,10 +61,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             style={{
               padding: '0.75rem 1rem',
               borderRadius: '0.375rem',
-              background: t.kind === 'success' ? 'var(--color-success, #16a34a)' : t.kind === 'error' ? 'var(--color-error, #dc2626)' : 'var(--color-info, #2563eb)',
-              color: '#fff',
+              background: t.kind === 'success' ? 'var(--success)' : t.kind === 'error' ? 'var(--danger)' : 'var(--text-primary)',
+              color: t.kind === 'success' || t.kind === 'error' ? 'var(--text-on-solid)' : 'var(--bg-page)',
               fontSize: '0.875rem',
-              boxShadow: '0 2px 8px rgba(0,0,0,0.15)',
+              boxShadow: 'var(--shadow-floating)',
             }}
           >
             {t.message}

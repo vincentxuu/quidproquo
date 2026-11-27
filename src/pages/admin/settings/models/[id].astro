@@ -193,7 +193,7 @@ function maskKey(masked: string | null): string {
                     <td class="px-3 py-2 border-b border-border">{ms(day.p95)}</td>
                     <td class:list={[
                       'px-3 py-2 border-b border-border',
-                      day.errorRate !== null && day.errorRate > 0.1 ? 'text-red-600 font-semibold' : '',
+                      day.errorRate !== null && day.errorRate > 0.1 ? 'text-destructive font-semibold' : '',
                     ]}>{pct(day.errorRate)}</td>
                     <td class="px-3 py-2 border-b border-border">{day.samples === 0 ? '—' : day.samples}</td>
                     <td class="px-3 py-2 border-b border-border w-[120px]">
@@ -238,13 +238,13 @@ function maskKey(masked: string | null): string {
                     <td class="px-3 py-2 border-b border-border">
                       <span class:list={[
                         'inline-block px-2 py-0.5 rounded-full border text-xs capitalize',
-                        evt.status === 'healthy' ? 'text-green-600 border-green-600' :
-                        evt.status === 'degraded' ? 'text-yellow-600 border-yellow-600' :
-                        'text-red-600 border-red-600',
+                        evt.status === 'healthy' ? 'text-success border-success' :
+                        evt.status === 'degraded' ? 'text-warning border-warning' :
+                        'text-destructive border-destructive',
                       ]}>{evt.status}</span>
                     </td>
                     <td class="px-3 py-2 border-b border-border">{ms(evt.p95_latency_ms)}</td>
-                    <td class="px-3 py-2 border-b border-border text-red-600 font-semibold">{pct(evt.error_rate)}</td>
+                    <td class="px-3 py-2 border-b border-border text-destructive font-semibold">{pct(evt.error_rate)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -285,7 +285,7 @@ function maskKey(masked: string | null): string {
           {t('providers.rotateNote', { id: providerId })}
         </p>
         <form method="POST" action={`/api/admin/settings/models/${providerId}/rotate-key`} class="flex items-center gap-4 px-4 py-3 flex-wrap">
-          <button type="submit" class="px-4 py-2 border border-border rounded-md bg-card text-sm cursor-pointer transition-colors hover:border-red-600 hover:bg-red-50 hover:text-red-600">{t('providers.rotateButton')}</button>
+          <button type="submit" class="px-4 py-2 border border-border rounded-md bg-card text-sm cursor-pointer transition-colors hover:border-destructive hover:bg-[var(--danger-bg)] hover:text-destructive">{t('providers.rotateButton')}</button>
           <span class="text-xs text-muted-foreground">{t('providers.irreversible')}</span>
         </form>
       </AdminPanel>

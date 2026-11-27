@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { stringify } from 'yaml'
-import { fieldsForStepType, STEP_COLORS, type StepType } from './step-fields'
+import { fieldsForStepType, STEP_COLORS, STEP_COLOR_FALLBACK, type StepType } from './step-fields'
 import type { BuilderNode } from './types'
 import type { FlowStep } from '@/lib/flow/dsl/ast'
 
@@ -28,7 +28,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
   if (!node) {
     return (
       <div style={panelStyle}>
-        <div style={{ padding: '20px 12px', color: 'var(--admin-text-muted)', fontSize: '12px', textAlign: 'center' }}>
+        <div style={{ padding: '20px 12px', color: 'var(--text-secondary)', fontSize: '12px', textAlign: 'center' }}>
           點選節點來編輯屬性
         </div>
       </div>
@@ -36,7 +36,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
   }
 
   const { stepType, stepId } = node.data
-  const color = STEP_COLORS[stepType as StepType] ?? '#64748b'
+  const color = STEP_COLORS[stepType as StepType] ?? STEP_COLOR_FALLBACK
   const fields = fieldsForStepType(stepType as StepType)
 
   function handleApply() {
@@ -66,14 +66,14 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
 
   return (
     <div style={panelStyle}>
-      <div style={{ padding: '8px 10px', borderBottom: '1px solid var(--admin-border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+      <div style={{ padding: '8px 10px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: color, flexShrink: 0 }} />
-          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--admin-text)' }}>{stepId}</span>
+          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-primary)' }}>{stepId}</span>
         </div>
       </div>
 
-      <div style={{ display: 'flex', borderBottom: '1px solid var(--admin-border)' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid var(--border)' }}>
         {(['props', 'yaml'] as const).map(t => (
           <button
             key={t}
@@ -86,7 +86,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
               background: 'transparent',
               border: 'none',
               borderBottom: tab === t ? `2px solid ${color}` : '2px solid transparent',
-              color: tab === t ? color : 'var(--admin-text-muted)',
+              color: tab === t ? color : 'var(--text-secondary)',
               cursor: 'pointer',
             }}
           >
@@ -100,7 +100,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div>
               <label style={labelStyle}>Step ID</label>
-              <div style={{ ...inputStyle, color: 'var(--admin-text-muted)', fontFamily: 'monospace', fontSize: '11px' }}>{stepId}</div>
+              <div style={{ ...inputStyle, color: 'var(--text-secondary)', fontFamily: 'monospace', fontSize: '11px' }}>{stepId}</div>
             </div>
             {fields.map(field => (
               <div key={field.key}>
@@ -129,7 +129,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
 
         {tab === 'yaml' && (
           <div>
-            <pre style={{ margin: 0, fontSize: '10px', lineHeight: 1.6, color: 'var(--admin-text)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+            <pre style={{ margin: 0, fontSize: '10px', lineHeight: 1.6, color: 'var(--text-primary)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
               {yamlPreview}
             </pre>
             <button
@@ -143,7 +143,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
       </div>
 
       {tab === 'props' && (
-        <div style={{ padding: '8px 10px', borderTop: '1px solid var(--admin-border)', display: 'flex', gap: '6px' }}>
+        <div style={{ padding: '8px 10px', borderTop: '1px solid var(--border)', display: 'flex', gap: '6px' }}>
           <button onClick={handleApply} style={{ flex: 1, ...primaryBtnStyle }}>套用</button>
           <button onClick={() => onDelete(node.id)} style={{ ...dangerBtnStyle }}>刪除</button>
         </div>
@@ -155,8 +155,8 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
 const panelStyle: React.CSSProperties = {
   width: '200px',
   flexShrink: 0,
-  background: 'var(--admin-bg)',
-  borderLeft: '1px solid var(--admin-border)',
+  background: 'var(--bg-subtle)',
+  borderLeft: '1px solid var(--border)',
   display: 'flex',
   flexDirection: 'column',
 }
@@ -166,27 +166,27 @@ const labelStyle: React.CSSProperties = {
   fontSize: '9px',
   textTransform: 'uppercase',
   letterSpacing: '0.05em',
-  color: 'var(--admin-text-muted)',
+  color: 'var(--text-secondary)',
   marginBottom: '3px',
 }
 
 const inputStyle: React.CSSProperties = {
   width: '100%',
   boxSizing: 'border-box',
-  background: 'var(--admin-surface)',
-  border: '1px solid var(--admin-border)',
-  borderRadius: 'var(--admin-radius-xs)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border)',
+  borderRadius: 'var(--corner-sm)',
   padding: '4px 7px',
   fontSize: '11px',
-  color: 'var(--admin-text)',
+  color: 'var(--text-primary)',
   outline: 'none',
 }
 
 const primaryBtnStyle: React.CSSProperties = {
-  background: 'var(--brand-900)',
+  background: 'var(--brand-700)',
   border: 'none',
-  borderRadius: 'var(--admin-radius-xs)',
-  color: '#fff',
+  borderRadius: 'var(--corner-sm)',
+  color: 'var(--text-on-solid)',
   padding: '5px 10px',
   fontSize: '11px',
   fontWeight: 600,
@@ -194,20 +194,20 @@ const primaryBtnStyle: React.CSSProperties = {
 }
 
 const secondaryBtnStyle: React.CSSProperties = {
-  background: 'var(--admin-surface)',
-  border: '1px solid var(--admin-border)',
-  borderRadius: 'var(--admin-radius-xs)',
-  color: 'var(--admin-text)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border)',
+  borderRadius: 'var(--corner-sm)',
+  color: 'var(--text-primary)',
   padding: '4px 8px',
   fontSize: '11px',
   cursor: 'pointer',
 }
 
 const dangerBtnStyle: React.CSSProperties = {
-  background: 'var(--admin-surface)',
-  border: '1px solid var(--admin-border)',
-  borderRadius: 'var(--admin-radius-xs)',
-  color: 'var(--admin-danger)',
+  background: 'var(--bg-card)',
+  border: '1px solid var(--border)',
+  borderRadius: 'var(--corner-sm)',
+  color: 'var(--danger)',
   padding: '5px 8px',
   fontSize: '11px',
   cursor: 'pointer',

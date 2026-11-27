@@ -41,7 +41,7 @@ const breadcrumb = [
           <div class="min-w-0">
             <strong class="text-sm font-semibold text-foreground">${p.name}</strong>
             <span class="ml-1.5 inline-flex items-center rounded-sm border border-border bg-muted px-1.5 py-0.5 text-xs font-medium text-muted-foreground">${p.version || '?'}</span>
-            ${p.update_available ? '<span class="ml-1 inline-flex items-center rounded-sm bg-amber-500 px-1.5 py-0.5 text-xs font-medium text-white">有更新</span>' : ''}
+            ${p.update_available ? '<span class="ml-1 inline-flex items-center rounded-sm bg-[var(--warning-bg)] px-1.5 py-0.5 text-xs font-medium text-warning">有更新</span>' : ''}
             ${p.author ? `<span class="ml-1.5 text-xs text-muted-foreground">by ${p.author}</span>` : ''}
             ${p.description ? `<p class="text-xs text-muted-foreground mt-0.5">${p.description}</p>` : ''}
           </div>

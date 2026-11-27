@@ -72,14 +72,14 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        background: 'rgba(0,0,0,0.45)',
+        background: 'var(--scrim)',
       }}
     >
       <div
         style={{
-          background: 'var(--color-surface, #fff)',
+          background: 'var(--bg-card)',
           borderRadius: '0.5rem',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+          boxShadow: 'var(--shadow-modal)',
           width: 'min(640px, 95vw)',
           maxHeight: '80vh',
           display: 'flex',
@@ -90,7 +90,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
         <div
           style={{
             padding: '1rem 1.25rem',
-            borderBottom: '1px solid var(--color-border, #e5e7eb)',
+            borderBottom: '1px solid var(--border)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
@@ -109,7 +109,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               cursor: 'pointer',
               fontSize: '1.25rem',
               lineHeight: 1,
-              color: 'var(--color-muted, #6b7280)',
+              color: 'var(--text-secondary)',
             }}
           >
             ×
@@ -118,7 +118,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
 
         <div style={{ overflowY: 'auto', flex: 1, padding: '0.75rem 1.25rem' }}>
           {approvals.length === 0 ? (
-            <p style={{ color: 'var(--color-muted, #6b7280)', margin: '1rem 0' }}>
+            <p style={{ color: 'var(--text-secondary)', margin: '1rem 0' }}>
               目前無待審核項目。
             </p>
           ) : (
@@ -134,15 +134,15 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                       gap: '0.75rem',
                       padding: '0.625rem 0.75rem',
                       borderRadius: '0.375rem',
-                      background: 'var(--color-surface-alt, #f9fafb)',
-                      border: '1px solid var(--color-border, #e5e7eb)',
+                      background: 'var(--bg-subtle)',
+                      border: '1px solid var(--border)',
                     }}
                   >
                     <div style={{ flex: 1, minWidth: 0 }}>
                       <div style={{ fontSize: '0.8125rem', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {a.reason}
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--color-muted, #6b7280)', marginTop: '0.125rem' }}>
+                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.125rem' }}>
                         <a
                           href={`/admin/console/runs/${a.runId}${a.stepId ? `?step=${a.stepId}` : ''}`}
                           target="_blank"
@@ -164,9 +164,9 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                             padding: '0.25rem 0.625rem',
                             fontSize: '0.75rem',
                             borderRadius: '0.25rem',
-                            border: '1px solid var(--color-success, #16a34a)',
+                            border: '1px solid var(--success)',
                             background: 'transparent',
-                            color: 'var(--color-success, #16a34a)',
+                            color: 'var(--success)',
                             cursor: 'pointer',
                           }}
                         >
@@ -180,9 +180,9 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                             padding: '0.25rem 0.625rem',
                             fontSize: '0.75rem',
                             borderRadius: '0.25rem',
-                            border: '1px solid var(--color-error, #dc2626)',
+                            border: '1px solid var(--danger)',
                             background: 'transparent',
-                            color: 'var(--color-error, #dc2626)',
+                            color: 'var(--danger)',
                             cursor: 'pointer',
                           }}
                         >
@@ -192,7 +192,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                     )}
 
                     {row.status === 'loading' && (
-                      <span style={{ fontSize: '0.75rem', color: 'var(--color-muted, #6b7280)', flexShrink: 0 }}>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', flexShrink: 0 }}>
                         處理中…
                       </span>
                     )}
@@ -202,7 +202,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                         style={{
                           fontSize: '0.75rem',
                           fontWeight: 500,
-                          color: row.decision === 'approve' ? 'var(--color-success, #16a34a)' : 'var(--color-error, #dc2626)',
+                          color: row.decision === 'approve' ? 'var(--success)' : 'var(--danger)',
                           flexShrink: 0,
                         }}
                       >
@@ -211,7 +211,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                     )}
 
                     {row.status === 'error' && (
-                      <span style={{ fontSize: '0.75rem', color: 'var(--color-error, #dc2626)', flexShrink: 0 }}>
+                      <span style={{ fontSize: '0.75rem', color: 'var(--danger)', flexShrink: 0 }}>
                         失敗
                       </span>
                     )}
@@ -225,7 +225,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
         <div
           style={{
             padding: '0.75rem 1.25rem',
-            borderTop: '1px solid var(--color-border, #e5e7eb)',
+            borderTop: '1px solid var(--border)',
             display: 'flex',
             gap: '0.5rem',
             justifyContent: 'flex-end',
@@ -238,7 +238,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               padding: '0.4375rem 0.875rem',
               fontSize: '0.875rem',
               borderRadius: '0.375rem',
-              border: '1px solid var(--color-border, #e5e7eb)',
+              border: '1px solid var(--border)',
               background: 'transparent',
               cursor: 'pointer',
             }}
@@ -252,9 +252,9 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               padding: '0.4375rem 0.875rem',
               fontSize: '0.875rem',
               borderRadius: '0.375rem',
-              border: '1px solid var(--color-error, #dc2626)',
+              border: '1px solid var(--danger)',
               background: 'transparent',
-              color: 'var(--color-error, #dc2626)',
+              color: 'var(--danger)',
               cursor: submitting || !anyIdle ? 'not-allowed' : 'pointer',
               opacity: submitting || !anyIdle ? 0.5 : 1,
             }}
@@ -269,8 +269,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               fontSize: '0.875rem',
               borderRadius: '0.375rem',
               border: 'none',
-              background: 'var(--color-success, #16a34a)',
-              color: '#fff',
+              background: 'var(--success)',
+              color: 'var(--text-on-solid)',
               cursor: submitting || !anyIdle ? 'not-allowed' : 'pointer',
               opacity: submitting || !anyIdle ? 0.5 : 1,
             }}

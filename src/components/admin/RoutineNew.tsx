@@ -273,7 +273,7 @@ export default function RoutineNew() {
               </label>
             ))}
           </div>
-          <div className="rounded-md bg-amber-600 px-3 py-2 text-xs text-white">
+          <div className="rounded-md bg-[var(--warning-bg)] px-3 py-2 text-xs text-warning">
             Claude can use all tools from these connectors — including
             writes — without asking for permission during runs.
           </div>

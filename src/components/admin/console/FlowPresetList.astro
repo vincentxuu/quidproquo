@@ -33,7 +33,7 @@ const { presets } = Astro.props;
 
 <style>
   .empty-note {
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     font-size: 0.85rem;
   }
   .preset-list {
@@ -44,7 +44,7 @@ const { presets } = Astro.props;
     gap: 0.5rem;
   }
   .preset-item {
-    border: 1px solid var(--admin-border);
+    border: 1px solid var(--border);
     border-radius: 8px;
     padding: 0.55rem 0.75rem;
   }
@@ -56,14 +56,14 @@ const { presets } = Astro.props;
   }
   .preset-head code {
     font-size: 0.74rem;
-    color: var(--admin-text-soft);
+    color: var(--text-muted);
   }
   .preset-meta {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
     margin-top: 0.25rem;
-    color: var(--admin-text-muted);
+    color: var(--text-secondary);
     font-size: 0.78rem;
   }
 </style>
