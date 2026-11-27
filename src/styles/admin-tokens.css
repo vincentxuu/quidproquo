@@ -556,6 +556,18 @@ button:disabled,
   overflow-x: auto;
 }
 
+/* grid 子元素預設不會縮到比內容窄（min-width: auto）：一個長選項的 <select>、一串 truncate 的網址，
+   就會把整欄撐寬，.admin-content 跟著橫向捲動，連標題列一起被推出畫面（2026-11-27 模型頁）。
+   讓 grid 子元素可以縮，長內容才會在自己的格子裡截斷或換行。 */
+.admin-content .grid > *,
+.admin-content [class*='grid-cols-'] > * {
+  min-width: 0;
+}
+
+.admin-content select {
+  min-width: 0;
+}
+
 .admin-content button,
 .admin-content a,
 .admin-content input,
