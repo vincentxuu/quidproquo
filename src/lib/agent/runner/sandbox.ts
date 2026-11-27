@@ -15,6 +15,11 @@ import { getSandbox } from '@cloudflare/sandbox'
 // Runs destroy the container when they finish, so this only bounds abandoned runs.
 const SANDBOX_SLEEP_AFTER = '20m'
 
+/** Runs work on their own branch so an unfinished or failed run never lands on the default branch. */
+export function agentBranchName(sessionId: string): string {
+  return `agent/${sessionId}`
+}
+
 export class SandboxProvider implements SandboxRunnerProvider {
   id = 'sandbox'
   label = 'Cloudflare Sandbox'
@@ -40,6 +45,10 @@ export class SandboxProvider implements SandboxRunnerProvider {
 
     if (session.repo) {
       await this.clone(handle, session.repo, branch)
+      const checkout = await handle.exec(['git', '-C', '/workspace', 'checkout', '-b', agentBranchName(session.id)])
+      if (checkout.exitCode !== 0) throw new Error(`agent branch failed: ${redact(checkout.stderr)}`)
+      const base = await handle.exec(['git', '-C', '/workspace', 'rev-parse', 'HEAD'])
+      handle.baseCommit = base.stdout.trim()
     }
     if (env?.setupScript) {
       await this.runSetupScript(handle, env.setupScript)
@@ -91,6 +100,8 @@ class SandboxHandle implements RunnerHandle {
   containerId?: string
   networkMode: NetworkMode
   sessionId: string
+  /** The commit the run started from; nothing is pushed while HEAD is still here and the tree is clean. */
+  baseCommit?: string
 
   constructor(
     sessionId: string,
@@ -130,7 +141,11 @@ class SandboxHandle implements RunnerHandle {
     })
   }
 
-  /** Commits and pushes any workspace changes, then destroys the container; throws when saving fails. */
+  /**
+   * Commits and pushes the run's work, then destroys the container; throws when saving fails.
+   * The push goes to whichever branch is checked out: the run's own branch unless the agent
+   * switched to another one because the instructions asked for it.
+   */
   async stop(): Promise<void> {
     try {
       await this.save()
@@ -142,10 +157,15 @@ class SandboxHandle implements RunnerHandle {
   private async save(): Promise<void> {
     const status = await this.exec(['git', '-C', '/workspace', 'status', '--porcelain'])
     if (status.exitCode !== 0) throw new Error(`workspace status failed: ${redact(status.stderr)}`)
-    if (!status.stdout.trim()) return
 
-    const commit = await this.exec(['sh', '-c', 'cd /workspace && git add -A && git commit -m "auto-save"'])
-    if (commit.exitCode !== 0) throw new Error(`auto-save commit failed: ${redact(commit.stderr || commit.stdout)}`)
+    if (status.stdout.trim()) {
+      const commit = await this.exec(['sh', '-c', 'cd /workspace && git add -A && git commit -m "auto-save"'])
+      if (commit.exitCode !== 0) throw new Error(`auto-save commit failed: ${redact(commit.stderr || commit.stdout)}`)
+    } else {
+      // Commits the agent made itself still need pushing; an untouched checkout does not.
+      const head = await this.exec(['git', '-C', '/workspace', 'rev-parse', 'HEAD'])
+      if (head.stdout.trim() === this.baseCommit) return
+    }
 
     const push = await this.exec(['git', '-C', '/workspace', 'push', 'origin', 'HEAD'])
     if (push.exitCode !== 0) throw new Error(`auto-save push failed: ${redact(push.stderr || push.stdout)}`)

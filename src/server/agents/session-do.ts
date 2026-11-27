@@ -160,6 +160,7 @@ async function buildRepoContext(runner: RunnerHandle, repo: string, branch?: str
   return truncateForPrompt([
     'A GitHub repository is already cloned at /workspace for this session.',
     'Use this repository context when answering. If the request needs details not shown here, say which file or command is needed instead of claiming no repository context exists.',
+    'You are on this session\'s own branch. Your changes are committed and pushed to the branch checked out when the run ends; switch branches only when the instructions name a branch to push to.',
     '',
     '--- Repository overview ---',
     overviewText,
@@ -391,18 +392,58 @@ interface ModelInvokeResult {
   providerMetadata?: Record<string, unknown>
 }
 
+// Backups for when the configured model is unavailable (rate limited, overloaded, out of
+// credit). Each provider's client already retries with backoff before giving up.
+const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> = [
+  { provider: 'ollama_cloud', model: 'gpt-oss:120b' },
+  { provider: 'openrouter', model: 'openai/gpt-oss-120b:free' },
+]
+
+/** Errors that mean the provider cannot serve now, as opposed to a bad request. */
+function isProviderUnavailable(error: unknown): boolean {
+  const status = (error as { status?: unknown } | null)?.status
+  if (typeof status === 'number') return status === 402 || status === 408 || status === 429 || status >= 500
+  const msg = error instanceof Error ? error.message : String(error)
+  return /\b(402|408|429|5\d\d)\b|rate.?limit|quota|overloaded|unavailable|timeout|ECONNRESET|ETIMEDOUT/i.test(msg)
+}
+
 async function invokeModelWithTools(
   modelConfig: RagRuntimeConfig,
   apiKeys: ProviderApiKeys,
   lcMessages: BaseMessageLike[],
   toolDefs: LangChainToolDef[],
+  failover: { routeIndex: number } = { routeIndex: 0 },
 ): Promise<ModelInvokeResult> {
-  const route = {
-    provider: modelConfig.defaultProvider,
-    model: modelConfig.defaultModel,
-    fallback: false,
+  const primary = { provider: modelConfig.defaultProvider, model: modelConfig.defaultModel }
+  const routes = [primary, ...AGENT_FALLBACK_ROUTES.filter((r) => r.provider !== primary.provider)]
+  const failures: string[] = []
+
+  // A run stays on the provider that last answered: switching back mid-conversation
+  // would send one provider's tool calls to another (Gemini rejects unsigned ones).
+  for (let index = failover.routeIndex; index < routes.length; index++) {
+    const route = routes[index]
+    try {
+      const result = await invokeRoute(route, apiKeys, lcMessages, toolDefs)
+      failover.routeIndex = index
+      return result
+    } catch (error) {
+      const msg = error instanceof Error ? error.message : String(error)
+      failures.push(`${route.provider}:${route.model}: ${msg}`)
+      // Only an unavailable model falls over; a rejected request is a bug to surface.
+      if (index === failover.routeIndex && !isProviderUnavailable(error)) throw error
+      console.warn('[agent] model unavailable, trying next provider', route.provider, msg.slice(0, 200))
+    }
   }
-  const rawModel = createRawModel(4096, { route, apiKeys })
+  throw new Error(`all providers failed: ${failures.join(' | ')}`)
+}
+
+async function invokeRoute(
+  route: { provider: ModelProvider; model: string },
+  apiKeys: ProviderApiKeys,
+  lcMessages: BaseMessageLike[],
+  toolDefs: LangChainToolDef[],
+): Promise<ModelInvokeResult> {
+  const rawModel = createRawModel(4096, { route: { ...route, fallback: false }, apiKeys })
 
   let model = rawModel
   if (toolDefs.length > 0 && typeof rawModel.bindTools === 'function') {
@@ -655,6 +696,7 @@ export class AgentSessionDO extends DurableObject<Env> {
     const modelConfig = resolveModelConfig(options.model)
     const apiKeys = await resolveProviderApiKeys(this.env.DB)
     const toBaseMessage = loopMessageToLangChain
+    const failover = { routeIndex: 0 }
     let runner: RunnerHandle | undefined
     let saveError: unknown
     let repoContext = ''
@@ -728,7 +770,7 @@ export class AgentSessionDO extends DurableObject<Env> {
                 ...(skillCatalog ? [new SystemMessage(skillCatalog)] : []),
                 ...msgs.map(toBaseMessage),
               ]
-              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs, failover)
             } catch (e) {
               // A model failure ends the run as failed instead of passing for an answer.
               const msg = e instanceof Error ? e.message : String(e)
@@ -852,6 +894,7 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const toolDefs = buildToolDefinitions(false, mcpTools, enabled?.snapshotToolDefs)
     if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
+    const failover = { routeIndex: 0 }
 
     try {
       await runLoop(
@@ -863,7 +906,7 @@ export class AgentSessionDO extends DurableObject<Env> {
           modelInvoke: async (msgs) => {
             try {
               const lcMessages: BaseMessageLike[] = msgs.map(loopMessageToLangChain)
-              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs)
+              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs, failover)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
               throw new Error(`model error: ${msg}`)
