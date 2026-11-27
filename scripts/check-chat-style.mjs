@@ -55,6 +55,7 @@ const LITERAL_SCOPE = [
   'src/styles/admin-tokens.css', 'src/styles/globals.css', 'src/layouts/AdminV2Layout.astro',
   'src/components/admin/', 'src/components/ui/', 'src/components/design/', 'src/pages/admin/', 'src/pages/design/',
   'src/pages/handbook/', 'src/layouts/DocsShell.astro',
+  'src/components/assistant-ui/', 'src/components/ai-elements/',
 ];
 const LITERAL_ALLOW = new Set(['src/components/admin/console/flow-builder/step-fields.ts']);
 const PALETTE = 'slate|gray|zinc|neutral|stone|red|green|emerald|blue|amber|yellow|orange|sky|indigo|violet|purple|pink|rose|teal|lime|cyan';
@@ -71,6 +72,27 @@ export function findColorLiterals(text) {
   text.split('\n').forEach((line, i) => {
     const code = line.replace(/\/\/.*$|\/\*.*?\*\/|^\s*\*.*$/g, '');
     const hit = LITERAL_PATTERNS.find(([re]) => re.test(code));
+    if (hit) hits.push({ line: i + 1, label: hit[1] });
+  });
+  return hits;
+}
+
+// 規則 8：同一範圍的字級與圓角只用 tokens.css 的級距（2026-11-27 後台 27 種字級收斂到 --fs-*）。
+// 允許：var(--fs-*)／var(--corner-*)、相對單位 em／%（50% 正圓）、inherit、0。
+const SCALE_PATTERNS = [
+  [/font-size:\s*(?:[0-9.]+(?:rem|px)\b|clamp\()/, '字面字級'],
+  [/fontSize:\s*(?:['"`][0-9.]+(?:rem|px)|[0-9])/, '字面字級（inline style）'],
+  [/\btext-\[[0-9.]+(?:rem|px)\]/, 'Tailwind 任意字級'],
+  [/border-radius:\s*[0-9.]+(?:rem|px)/, '字面圓角'],
+  [/borderRadius:\s*(?:['"`][0-9.]+(?:rem|px)|[1-9])/, '字面圓角（inline style）'],
+  [/\brounded(?:-[a-z]+)?-\[[0-9.]+(?:rem|px)\]/, 'Tailwind 任意圓角'],
+];
+
+export function findScaleLiterals(text) {
+  const hits = [];
+  text.split('\n').forEach((line, i) => {
+    const code = line.replace(/\/\/.*$|\/\*.*?\*\/|^\s*\*.*$/g, '');
+    const hit = SCALE_PATTERNS.find(([re]) => re.test(code));
     if (hit) hits.push({ line: i + 1, label: hit[1] });
   });
   return hits;
@@ -96,7 +118,25 @@ function selfTest() {
     ['註解不算', '.a { color: var(--x); } /* 原本是 #3b82f6 */', 0],
     ['rgb(var()) 不算', '.a { color: rgb(var(--x)); }', 0],
   ];
+  const scaleCases = [
+    ['抓得到 rem 字級', '.a { font-size: 0.82rem; }', 1],
+    ['抓得到 clamp 字級', '.a { font-size: clamp(1rem, 2vw, 2rem); }', 1],
+    ['抓得到 inline px 字級', "style={{ fontSize: '11px' }}", 1],
+    ['抓得到 Tailwind 任意字級', '<p class="text-[0.82rem]">', 1],
+    ['抓得到 px 圓角', '.a { border-radius: 6px; }', 1],
+    ['抓得到 inline 圓角', "style={{ borderRadius: '0.375rem' }}", 1],
+    ['token 不算', '.a { font-size: var(--fs-sm); border-radius: var(--corner-md); }', 0],
+    ['em 與 50% 不算', '.a { font-size: 0.85em; border-radius: 50%; }', 0],
+    ['Tailwind token 寫法不算', '<p class="text-(length:--fs-sm) rounded-(--corner-sm)">', 0],
+  ];
   let bad = 0;
+  for (const [label, text, want] of scaleCases) {
+    const got = findScaleLiterals(text).length;
+    if (got !== want) {
+      bad++;
+      console.log(`  [FAIL] ${label}：預期 ${want} 筆，實得 ${got} 筆`);
+    }
+  }
   for (const [label, text, want] of literalCases) {
     const got = findColorLiterals(text).length;
     if (got !== want) {
@@ -115,7 +155,7 @@ function selfTest() {
       console.log(`  [FAIL] ${label}：預期 ${want} 筆，實得 ${got} 筆`);
     }
   }
-  console.log(bad ? `self-test 失敗 ${bad} 項` : `self-test 通過（${cases.length + literalCases.length + 1} 項）`);
+  console.log(bad ? `self-test 失敗 ${bad} 項` : `self-test 通過（${cases.length + literalCases.length + scaleCases.length + 1} 項）`);
   return bad === 0;
 }
 
@@ -155,8 +195,12 @@ for (const file of walk(CHAT_ROOT, ['.tsx'])) {
 for (const file of walk(SRC_ROOT, ['.astro', '.css', '.tsx', '.ts'])) {
   const rel = path.relative(process.cwd(), file).split(path.sep).join('/');
   if (LITERAL_ALLOW.has(rel) || !LITERAL_SCOPE.some((s) => rel === s || (s.endsWith('/') && rel.startsWith(s)))) continue;
-  for (const { line, label } of findColorLiterals(fs.readFileSync(file, 'utf8'))) {
+  const text = fs.readFileSync(file, 'utf8');
+  for (const { line, label } of findColorLiterals(text)) {
     add(file, line, `${label}——後台／通用元件／設計頁的顏色只能用 var(--token) 或語意 class（bg-primary、text-muted-foreground），值在 src/styles/tokens.css`);
+  }
+  for (const { line, label } of findScaleLiterals(text)) {
+    add(file, line, `${label}——字級用 var(--fs-*)（Tailwind 寫 text-(length:--fs-sm)），圓角用 var(--corner-*)；相對單位 em、50% 可以`);
   }
 }
 

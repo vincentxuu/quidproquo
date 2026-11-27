@@ -262,11 +262,11 @@ function pageHref(p: number): string {
                   {auditRows.map((row) => (
                     <tr>
                       <td class="mono muted">{row.audit_id}</td>
-                      <td class="font-mono text-[0.82rem]">{row.user_email ?? '—'}</td>
+                      <td class="font-mono text-(length:--fs-sm)">{row.user_email ?? '—'}</td>
                       <td>{row.action}</td>
                       <td>{row.resource_kind}</td>
                       <td class="mono muted">{row.resource_id ?? '—'}</td>
-                      <td class="font-mono text-[0.82rem]">{formatTs(row.created_at)}</td>
+                      <td class="font-mono text-(length:--fs-sm)">{formatTs(row.created_at)}</td>
                       <td>
                         {row.payload_json ? (
                           <details class="payload-details">
@@ -292,7 +292,7 @@ function pageHref(p: number): string {
                   <dl>
                     <div>
                       <dt>使用者</dt>
-                      <dd class="font-mono text-[0.82rem]">{row.user_email ?? '—'}</dd>
+                      <dd class="font-mono text-(length:--fs-sm)">{row.user_email ?? '—'}</dd>
                     </div>
                     <div>
                       <dt>類型</dt>
@@ -300,11 +300,11 @@ function pageHref(p: number): string {
                     </div>
                     <div>
                       <dt>Resource ID</dt>
-                      <dd class="font-mono text-[0.82rem]">{row.resource_id ?? '—'}</dd>
+                      <dd class="font-mono text-(length:--fs-sm)">{row.resource_id ?? '—'}</dd>
                     </div>
                     <div>
                       <dt>時間</dt>
-                      <dd class="font-mono text-[0.82rem]">{formatTs(row.created_at)}</dd>
+                      <dd class="font-mono text-(length:--fs-sm)">{formatTs(row.created_at)}</dd>
                     </div>
                   </dl>
                   {row.payload_json ? (

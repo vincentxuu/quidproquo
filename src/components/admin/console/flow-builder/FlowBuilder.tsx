@@ -164,10 +164,10 @@ export function FlowBuilder({ initialNodes, initialEdges, meta, flowId }: FlowBu
         flexWrap: 'wrap',
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <a href="/admin/console/flows" style={{ color: 'var(--text-secondary)', fontSize: '12px', textDecoration: 'none' }}>← 工作流程</a>
+          <a href="/admin/console/flows" style={{ color: 'var(--text-secondary)', fontSize: 'var(--fs-xs)', textDecoration: 'none' }}>← 工作流程</a>
           <span style={{ color: 'var(--border)' }}>/</span>
-          <span style={{ fontWeight: 600, fontSize: '13px', color: 'var(--text-primary)' }}>{meta.name}</span>
-          <span style={{ fontSize: '10px', background: 'var(--bg-muted)', color: 'var(--brand-700)', padding: '1px 6px', borderRadius: '3px' }}>v{meta.version}</span>
+          <span style={{ fontWeight: 600, fontSize: 'var(--fs-sm)', color: 'var(--text-primary)' }}>{meta.name}</span>
+          <span style={{ fontSize: 'var(--fs-2xs)', background: 'var(--bg-muted)', color: 'var(--brand-700)', padding: '1px 6px', borderRadius: 'var(--corner-sm)' }}>v{meta.version}</span>
         </div>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center' }}>
           <button onClick={() => setShowImport(true)} style={secondaryBtn}>匯入 YAML</button>
@@ -229,7 +229,7 @@ const primaryBtn: React.CSSProperties = {
   borderRadius: 'var(--corner-sm)',
   color: 'var(--text-on-solid)',
   padding: '5px 14px',
-  fontSize: '12px',
+  fontSize: 'var(--fs-xs)',
   fontWeight: 600,
   cursor: 'pointer',
 }
@@ -240,6 +240,6 @@ const secondaryBtn: React.CSSProperties = {
   borderRadius: 'var(--corner-sm)',
   color: 'var(--text-primary)',
   padding: '5px 10px',
-  fontSize: '12px',
+  fontSize: 'var(--fs-xs)',
   cursor: 'pointer',
 }

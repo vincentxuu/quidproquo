@@ -77,12 +77,12 @@ function SessionRow({
         )}
       </div>
       <div className="flex shrink-0 items-center gap-2">
-        <span className="rounded bg-muted px-1.5 py-0.5 text-[0.68rem] font-semibold uppercase text-muted-foreground">
+        <span className="rounded bg-muted px-1.5 py-0.5 text-(length:--fs-xs) font-semibold uppercase text-muted-foreground">
           {tag}
         </span>
         <Badge
           variant="outline"
-          className={cn("text-[0.68rem]", statusColor(session.status))}
+          className={cn("text-(length:--fs-xs)", statusColor(session.status))}
         >
           {session.status}
         </Badge>

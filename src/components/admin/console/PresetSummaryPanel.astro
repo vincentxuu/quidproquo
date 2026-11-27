@@ -158,26 +158,26 @@ if (preset?.overrides_json) {
   }
 
   .preset-panel__title {
-    font-size: 0.9375rem;
+    font-size: var(--fs-sm);
     font-weight: 700;
     margin: 0;
     color: var(--text-primary);
   }
 
   .preset-panel__id {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   }
 
   .preset-panel__error {
     margin: 0;
-    font-size: 0.875rem;
+    font-size: var(--fs-sm);
     color: var(--warning);
   }
 
   .preset-panel__none {
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
     font-style: normal;
   }
@@ -187,7 +187,7 @@ if (preset?.overrides_json) {
     grid-template-columns: max-content 1fr;
     gap: 0.5rem 1rem;
     margin: 0.25rem 0 0;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .preset-dl__term {
@@ -226,10 +226,10 @@ if (preset?.overrides_json) {
 
   .preset-tag {
     padding: 0.1rem 0.4rem;
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     background: var(--bg-muted);
     border: 1px solid var(--border);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     color: var(--text-primary);
   }
 

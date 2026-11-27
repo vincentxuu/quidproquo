@@ -178,7 +178,7 @@ function formatName(row: EvidenceRunRow): string {
                   <td class="text-sm text-muted-foreground">
                     來源 {run.source_count ?? 0} / 聲明 {run.claim_count ?? 0} / 衝突 {run.conflict_count ?? 0}
                     {run.pending_conflict_count > 0 && (
-                      <span class="ml-1.5 inline-flex items-center rounded-full border border-[var(--warning-border)] bg-[var(--warning-bg)] px-2 py-0.5 text-[0.7rem] font-bold text-warning">待處理 {run.pending_conflict_count}</span>
+                      <span class="ml-1.5 inline-flex items-center rounded-full border border-[var(--warning-border)] bg-[var(--warning-bg)] px-2 py-0.5 text-(length:--fs-xs) font-bold text-warning">待處理 {run.pending_conflict_count}</span>
                     )}
                   </td>
                   <td class="font-mono text-sm">{formatTs(run.started_at)}</td>

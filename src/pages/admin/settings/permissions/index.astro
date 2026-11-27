@@ -133,22 +133,22 @@ function formatTs(ms: number | null): string {
     <AdminPanel title={t('policies.createPolicy')} eyebrow={t('policies.createEyebrow')}>
       <form id="policy-create-form" class="grid gap-3">
         <div class="grid grid-cols-2 gap-3 max-sm:grid-cols-1">
-          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
+          <label class="grid gap-1 text-(length:--fs-sm) font-semibold text-muted-foreground">
             {t('policies.policyKey')}
             <input id="policy-key" name="policy_key" type="text" required placeholder="research-custom" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm font-normal text-foreground" />
           </label>
-          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
+          <label class="grid gap-1 text-(length:--fs-sm) font-semibold text-muted-foreground">
             {t('policies.label')}
             <input id="policy-label" name="label" type="text" required placeholder="Research Custom" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm font-normal text-foreground" />
           </label>
         </div>
-        <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
+        <label class="grid gap-1 text-(length:--fs-sm) font-semibold text-muted-foreground">
           {t('policies.bodyJson')}
-          <textarea id="policy-body" name="policy_body" rows="7" spellcheck={false} placeholder={t('policies.bodyPlaceholder')} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 font-mono text-[0.82rem] leading-relaxed text-foreground"></textarea>
+          <textarea id="policy-body" name="policy_body" rows="7" spellcheck={false} placeholder={t('policies.bodyPlaceholder')} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 font-mono text-(length:--fs-sm) leading-relaxed text-foreground"></textarea>
         </label>
         <div class="flex flex-wrap items-center gap-2.5">
           <button type="submit" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-bold text-primary-foreground">{t('common.create')}</button>
-          <span id="policy-create-status" class="text-[0.82rem] text-muted-foreground" aria-live="polite"></span>
+          <span id="policy-create-status" class="text-(length:--fs-sm) text-muted-foreground" aria-live="polite"></span>
         </div>
       </form>
     </AdminPanel>

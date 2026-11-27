@@ -720,7 +720,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
                   <span className="block truncate text-sm font-mono">{key}</span>
                   <span className="sr-only">{fmt(m.secretInputLabel, { key })}</span>
                 </label>
-                <Badge variant={sl === 'missing' ? 'destructive' : 'secondary'} className="shrink-0 text-[0.65rem]">{sl}</Badge>
+                <Badge variant={sl === 'missing' ? 'destructive' : 'secondary'} className="shrink-0 text-(length:--fs-2xs)">{sl}</Badge>
                 <input
                   id={inputId}
                   type="password"

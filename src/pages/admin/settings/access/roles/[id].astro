@@ -167,15 +167,15 @@ const unassignedUsersJson = JSON.stringify(
       <AdminPanel title="角色資訊">
         <div class="grid gap-2">
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">角色 ID</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">角色 ID</span>
             <code>{role.role_id}</code>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">名稱</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">名稱</span>
             <code>{role.name}</code>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">描述</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">描述</span>
             <span class="text-sm text-muted-foreground">{role.description ?? '—'}</span>
           </div>
         </div>
@@ -192,7 +192,7 @@ const unassignedUsersJson = JSON.stringify(
           data-unassigned-users={unassignedUsersJson}
         >
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
-          <label for="assign-user" class="text-[0.82rem] font-bold text-muted-foreground">加入既有使用者</label>
+          <label for="assign-user" class="text-(length:--fs-sm) font-bold text-muted-foreground">加入既有使用者</label>
           <select id="assign-user" name="user_id" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm" disabled={unassignedUsers.length === 0} required>
             <option value="">選擇使用者</option>
             {unassignedUsers.map((user) => (
@@ -236,7 +236,7 @@ const unassignedUsersJson = JSON.stringify(
                       <span class="inline-block rounded-full border border-[var(--success-border)] bg-[var(--success-bg)] px-2 py-0.5 text-xs font-semibold text-success">啟用中</span>
                     )}
                   </td>
-                  <td class="font-mono text-[0.82rem]">{formatTs(user.assigned_at)}</td>
+                  <td class="font-mono text-(length:--fs-sm)">{formatTs(user.assigned_at)}</td>
                   <td>
                     <form
                       method="POST"
@@ -272,7 +272,7 @@ const unassignedUsersJson = JSON.stringify(
           <input type="hidden" name="action" value="update" />
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
           <div class="grid gap-1">
-            <label for="role_name" class="text-[0.82rem] font-bold text-muted-foreground">名稱</label>
+            <label for="role_name" class="text-(length:--fs-sm) font-bold text-muted-foreground">名稱</label>
             <input
               id="role_name"
               type="text"
@@ -286,7 +286,7 @@ const unassignedUsersJson = JSON.stringify(
             />
           </div>
           <div class="grid gap-1">
-            <label for="role_description" class="text-[0.82rem] font-bold text-muted-foreground">描述</label>
+            <label for="role_description" class="text-(length:--fs-sm) font-bold text-muted-foreground">描述</label>
             <textarea
               id="role_description"
               name="description"
@@ -426,7 +426,7 @@ const unassignedUsersJson = JSON.stringify(
         >
           <input type="hidden" name="redirect" value={`/admin/settings/access/roles/${roleId}`} />
           <div class="grid gap-1">
-            <label for="resource_kind" class="text-[0.82rem] font-bold text-muted-foreground">資源類型</label>
+            <label for="resource_kind" class="text-(length:--fs-sm) font-bold text-muted-foreground">資源類型</label>
             <select id="resource_kind" name="resource_kind" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm">
               {RESOURCE_KINDS.map((k) => (
                 <option value={k}>{k}</option>
@@ -434,7 +434,7 @@ const unassignedUsersJson = JSON.stringify(
             </select>
           </div>
           <div class="grid gap-1">
-            <label for="action" class="text-[0.82rem] font-bold text-muted-foreground">操作</label>
+            <label for="action" class="text-(length:--fs-sm) font-bold text-muted-foreground">操作</label>
             <select id="action" name="action" class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm">
               {ACTIONS.map((a) => (
                 <option value={a}>{a}</option>
@@ -442,7 +442,7 @@ const unassignedUsersJson = JSON.stringify(
             </select>
           </div>
           <div class="grid gap-1">
-            <label for="resource_id" class="text-[0.82rem] font-bold text-muted-foreground">Resource ID <span class="optional">（選填，留空表示萬用字元）</span></label>
+            <label for="resource_id" class="text-(length:--fs-sm) font-bold text-muted-foreground">Resource ID <span class="optional">（選填，留空表示萬用字元）</span></label>
             <input
               id="resource_id"
               type="text"

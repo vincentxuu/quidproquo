@@ -274,7 +274,7 @@ const isColor = (v: string) => /^(#|rgb|hsl|oklch|color-mix|var\()/.test(v);
   .ds-swatch { width: 48px; height: 28px; border-radius: var(--corner-sm); border: 1px solid var(--border); }
   .ds-corner { width: 40px; height: 28px; border: 2px solid var(--brand-500); background: var(--brand-50); }
   .ds-fs { color: var(--text-primary); white-space: nowrap; line-height: 1.2; }
-  .ds-space { height: 12px; background: var(--brand-500); border-radius: 2px; }
+  .ds-space { height: 12px; background: var(--brand-500); border-radius: var(--corner-sm); }
   .ds-shadow { width: 48px; height: 28px; border-radius: var(--corner-md); background: var(--bg-card); border: 1px solid var(--border); }
 
   .ds-demo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6); }

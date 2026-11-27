@@ -35,7 +35,7 @@ const { rows } = Astro.props;
   .mgmt-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     overflow: hidden;
   }
   .mgmt-table th,
@@ -46,19 +46,19 @@ const { rows } = Astro.props;
   }
   .mgmt-table th {
     color: var(--text-muted);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
   .mgmt-table code {
     color: var(--text-muted);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
   .health-badge {
     padding: 0.05rem 0.5rem;
     border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.74rem;
+    border-radius: var(--corner-pill);
+    font-size: var(--fs-xs);
     text-transform: capitalize;
   }
   .health-badge[data-status='healthy'] { color: var(--success); border-color: var(--success); }

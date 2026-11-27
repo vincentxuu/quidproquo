@@ -252,7 +252,7 @@ export default function RoutineDetail({ routineId }: { routineId: string }) {
                               ? "destructive"
                               : "secondary"
                         }
-                        className="text-[0.65rem]"
+                        className="text-(length:--fs-2xs)"
                       >
                         {r.status}
                       </Badge>{" "}

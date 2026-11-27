@@ -28,7 +28,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
   if (!node) {
     return (
       <div style={panelStyle}>
-        <div style={{ padding: '20px 12px', color: 'var(--text-secondary)', fontSize: '12px', textAlign: 'center' }}>
+        <div style={{ padding: '20px 12px', color: 'var(--text-secondary)', fontSize: 'var(--fs-xs)', textAlign: 'center' }}>
           點選節點來編輯屬性
         </div>
       </div>
@@ -69,7 +69,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
       <div style={{ padding: '8px 10px', borderBottom: '1px solid var(--border)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
           <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: color, flexShrink: 0 }} />
-          <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-primary)' }}>{stepId}</span>
+          <span style={{ fontSize: 'var(--fs-xs)', fontWeight: 700, color: 'var(--text-primary)' }}>{stepId}</span>
         </div>
       </div>
 
@@ -81,7 +81,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
             style={{
               flex: 1,
               padding: '5px',
-              fontSize: '10px',
+              fontSize: 'var(--fs-2xs)',
               fontWeight: 600,
               background: 'transparent',
               border: 'none',
@@ -100,7 +100,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             <div>
               <label style={labelStyle}>Step ID</label>
-              <div style={{ ...inputStyle, color: 'var(--text-secondary)', fontFamily: 'monospace', fontSize: '11px' }}>{stepId}</div>
+              <div style={{ ...inputStyle, color: 'var(--text-secondary)', fontFamily: 'monospace', fontSize: 'var(--fs-xs)' }}>{stepId}</div>
             </div>
             {fields.map(field => (
               <div key={field.key}>
@@ -129,7 +129,7 @@ export function PropertiesPanel({ node, onUpdate, onDelete }: PropertiesPanelPro
 
         {tab === 'yaml' && (
           <div>
-            <pre style={{ margin: 0, fontSize: '10px', lineHeight: 1.6, color: 'var(--text-primary)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
+            <pre style={{ margin: 0, fontSize: 'var(--fs-2xs)', lineHeight: 1.6, color: 'var(--text-primary)', fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', whiteSpace: 'pre-wrap', wordBreak: 'break-all' }}>
               {yamlPreview}
             </pre>
             <button
@@ -163,7 +163,7 @@ const panelStyle: React.CSSProperties = {
 
 const labelStyle: React.CSSProperties = {
   display: 'block',
-  fontSize: '9px',
+  fontSize: 'var(--fs-2xs)',
   textTransform: 'uppercase',
   letterSpacing: '0.05em',
   color: 'var(--text-secondary)',
@@ -177,7 +177,7 @@ const inputStyle: React.CSSProperties = {
   border: '1px solid var(--border)',
   borderRadius: 'var(--corner-sm)',
   padding: '4px 7px',
-  fontSize: '11px',
+  fontSize: 'var(--fs-xs)',
   color: 'var(--text-primary)',
   outline: 'none',
 }
@@ -188,7 +188,7 @@ const primaryBtnStyle: React.CSSProperties = {
   borderRadius: 'var(--corner-sm)',
   color: 'var(--text-on-solid)',
   padding: '5px 10px',
-  fontSize: '11px',
+  fontSize: 'var(--fs-xs)',
   fontWeight: 600,
   cursor: 'pointer',
 }
@@ -199,7 +199,7 @@ const secondaryBtnStyle: React.CSSProperties = {
   borderRadius: 'var(--corner-sm)',
   color: 'var(--text-primary)',
   padding: '4px 8px',
-  fontSize: '11px',
+  fontSize: 'var(--fs-xs)',
   cursor: 'pointer',
 }
 
@@ -209,6 +209,6 @@ const dangerBtnStyle: React.CSSProperties = {
   borderRadius: 'var(--corner-sm)',
   color: 'var(--danger)',
   padding: '5px 8px',
-  fontSize: '11px',
+  fontSize: 'var(--fs-xs)',
   cursor: 'pointer',
 }

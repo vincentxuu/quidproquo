@@ -60,12 +60,12 @@ const breadcrumb = [
       </header>
 
       <section aria-label="Current definition">
-        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.currentYaml', { version: detail.definition.version })}</h3>
-        <pre class="m-0 max-h-[420px] overflow-auto rounded-lg border border-border bg-background p-3 font-mono text-[0.8rem]">{currentYaml || t('flows.noYaml')}</pre>
+        <h3 class="mb-2 text-(length:--fs-md) font-semibold">{t('flows.currentYaml', { version: detail.definition.version })}</h3>
+        <pre class="m-0 max-h-[420px] overflow-auto rounded-lg border border-border bg-background p-3 font-mono text-(length:--fs-xs)">{currentYaml || t('flows.noYaml')}</pre>
       </section>
 
       <section aria-label="Inputs">
-        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.inputs')}</h3>
+        <h3 class="mb-2 text-(length:--fs-md) font-semibold">{t('flows.inputs')}</h3>
         {detail.definition.inputs.length === 0 ? (
           <p class="text-sm text-muted-foreground">{t('flows.noInputs')}</p>
         ) : (
@@ -80,17 +80,17 @@ const breadcrumb = [
       </section>
 
       <section aria-label="Versions">
-        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.versions')}</h3>
+        <h3 class="mb-2 text-(length:--fs-md) font-semibold">{t('flows.versions')}</h3>
         <FlowVersionList versions={detail.versions} latestVersion={detail.definition.version} />
       </section>
 
       <section aria-label="Presets">
-        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.presets')}</h3>
+        <h3 class="mb-2 text-(length:--fs-md) font-semibold">{t('flows.presets')}</h3>
         <FlowPresetList presets={detail.presets} />
       </section>
 
       <section aria-label="Recent runs">
-        <h3 class="mb-2 text-[0.95rem] font-semibold">{t('flows.recentRuns')}</h3>
+        <h3 class="mb-2 text-(length:--fs-md) font-semibold">{t('flows.recentRuns')}</h3>
         {detail.recentRuns.length === 0 ? (
           <p class="text-sm text-muted-foreground">{t('flows.noRuns')}</p>
         ) : (

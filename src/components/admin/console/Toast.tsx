@@ -60,10 +60,10 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
             data-kind={t.kind}
             style={{
               padding: '0.75rem 1rem',
-              borderRadius: '0.375rem',
+              borderRadius: 'var(--corner-md)',
               background: t.kind === 'success' ? 'var(--success)' : t.kind === 'error' ? 'var(--danger)' : 'var(--text-primary)',
               color: t.kind === 'success' || t.kind === 'error' ? 'var(--text-on-solid)' : 'var(--bg-page)',
-              fontSize: '0.875rem',
+              fontSize: 'var(--fs-sm)',
               boxShadow: 'var(--shadow-floating)',
             }}
           >

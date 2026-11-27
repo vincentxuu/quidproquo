@@ -315,7 +315,7 @@ export default function AdminComposer() {
 
       {/* Usage */}
       {usageLine && (
-        <p className="text-center text-[0.7rem] text-muted-foreground">
+        <p className="text-center text-(length:--fs-xs) text-muted-foreground">
           {usageLine}
         </p>
       )}

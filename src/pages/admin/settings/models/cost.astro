@@ -411,54 +411,54 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       <AdminPanel title="費用彙總回填" eyebrow="修補缺漏日期或首次部署後建立 rollup">
         <form id="cost-backfill-form" class="flex flex-wrap items-end gap-3 px-4 pb-4 pt-3">
           <div class="flex w-full flex-wrap gap-1.5" aria-label="常用回填區間">
-            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="7">近 7 天</button>
-            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="30">近 30 天</button>
-            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] text-foreground cursor-pointer hover:bg-muted" value="90">近 90 天</button>
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-(length:--fs-xs) text-foreground cursor-pointer hover:bg-muted" value="7">近 7 天</button>
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-(length:--fs-xs) text-foreground cursor-pointer hover:bg-muted" value="30">近 30 天</button>
+            <button type="button" class="backfill-preset min-h-[2.75rem] rounded-md border border-border bg-card px-2.5 py-1 text-(length:--fs-xs) text-foreground cursor-pointer hover:bg-muted" value="90">近 90 天</button>
           </div>
           <p id="cost-backfill-preview" class="grid w-full grid-cols-[auto_minmax(160px,1fr)_minmax(220px,1.5fr)] items-center gap-x-3 gap-y-1.5 rounded-md border border-border bg-secondary px-3 py-2.5 max-[1100px]:grid-cols-1" aria-live="polite">
-            <span class="text-[0.78rem] font-bold text-muted-foreground">回填區間</span>
-            <strong id="cost-backfill-preview-range" class="font-mono text-[0.86rem] text-foreground">—</strong>
-            <span id="cost-backfill-preview-risk" class="text-[0.84rem] text-muted-foreground">請選擇日期。</span>
-            <small id="cost-backfill-preview-estimate" class="col-span-full text-[0.78rem] leading-relaxed text-muted-foreground max-[1100px]:col-span-1">估計寫入列數會在選擇日期後顯示。</small>
+            <span class="text-(length:--fs-xs) font-bold text-muted-foreground">回填區間</span>
+            <strong id="cost-backfill-preview-range" class="font-mono text-(length:--fs-sm) text-foreground">—</strong>
+            <span id="cost-backfill-preview-risk" class="text-(length:--fs-sm) text-muted-foreground">請選擇日期。</span>
+            <small id="cost-backfill-preview-estimate" class="col-span-full text-(length:--fs-xs) leading-relaxed text-muted-foreground max-[1100px]:col-span-1">估計寫入列數會在選擇日期後顯示。</small>
           </p>
           <div class="grid gap-1">
-            <label for="backfill-from" class="text-[0.82rem] font-bold text-muted-foreground">起始日期</label>
+            <label for="backfill-from" class="text-(length:--fs-sm) font-bold text-muted-foreground">起始日期</label>
             <input id="backfill-from" name="from" type="date" required class="min-h-[2.75rem] rounded-md border border-border bg-card px-2 py-1 text-foreground" />
           </div>
           <div class="grid gap-1">
-            <label for="backfill-to" class="text-[0.82rem] font-bold text-muted-foreground">結束日期</label>
+            <label for="backfill-to" class="text-(length:--fs-sm) font-bold text-muted-foreground">結束日期</label>
             <input id="backfill-to" name="to" type="date" required class="min-h-[2.75rem] rounded-md border border-border bg-card px-2 py-1 text-foreground" />
           </div>
-          <button type="submit" class="min-h-[2.75rem] rounded-md bg-primary px-3 py-1 text-[0.85rem] font-bold text-primary-foreground cursor-pointer disabled:cursor-wait disabled:opacity-65">執行回填</button>
-          <p id="cost-backfill-warning" class="m-0 w-full text-[0.84rem] text-warning" hidden></p>
-          <p id="cost-backfill-status" class="backfill-status m-0 text-[0.85rem] text-muted-foreground" role="status" aria-live="polite" hidden></p>
+          <button type="submit" class="min-h-[2.75rem] rounded-md bg-primary px-3 py-1 text-(length:--fs-sm) font-bold text-primary-foreground cursor-pointer disabled:cursor-wait disabled:opacity-65">執行回填</button>
+          <p id="cost-backfill-warning" class="m-0 w-full text-(length:--fs-sm) text-warning" hidden></p>
+          <p id="cost-backfill-status" class="backfill-status m-0 text-(length:--fs-sm) text-muted-foreground" role="status" aria-live="polite" hidden></p>
           <dl id="cost-backfill-summary" class="grid w-full grid-cols-4 gap-2 m-0 max-[1100px]:grid-cols-2" hidden>
             <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
-              <dt class="text-[0.72rem] font-bold text-muted-foreground">處理天數</dt>
-              <dd data-summary="days" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
+              <dt class="text-(length:--fs-xs) font-bold text-muted-foreground">處理天數</dt>
+              <dd data-summary="days" class="mt-0.5 m-0 font-mono text-(length:--fs-sm) text-foreground">—</dd>
             </div>
             <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
-              <dt class="text-[0.72rem] font-bold text-muted-foreground">寫入列數</dt>
-              <dd data-summary="rows" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
+              <dt class="text-(length:--fs-xs) font-bold text-muted-foreground">寫入列數</dt>
+              <dd data-summary="rows" class="mt-0.5 m-0 font-mono text-(length:--fs-sm) text-foreground">—</dd>
             </div>
             <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
-              <dt class="text-[0.72rem] font-bold text-muted-foreground">費用</dt>
-              <dd data-summary="cost" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
+              <dt class="text-(length:--fs-xs) font-bold text-muted-foreground">費用</dt>
+              <dd data-summary="cost" class="mt-0.5 m-0 font-mono text-(length:--fs-sm) text-foreground">—</dd>
             </div>
             <div class="rounded-md border border-border bg-secondary px-2.5 py-2">
-              <dt class="text-[0.72rem] font-bold text-muted-foreground">Tokens</dt>
-              <dd data-summary="tokens" class="mt-0.5 m-0 font-mono text-[0.9rem] text-foreground">—</dd>
+              <dt class="text-(length:--fs-xs) font-bold text-muted-foreground">Tokens</dt>
+              <dd data-summary="tokens" class="mt-0.5 m-0 font-mono text-(length:--fs-sm) text-foreground">—</dd>
             </div>
           </dl>
         </form>
         <div id="cost-backfill-history" class="border-t border-border">
-          <h3 class="m-0 px-4 pt-3 pb-1.5 text-[0.82rem] font-bold text-muted-foreground">最近回填</h3>
+          <h3 class="m-0 px-4 pt-3 pb-1.5 text-(length:--fs-sm) font-bold text-muted-foreground">最近回填</h3>
           <div id="cost-backfill-history-body" class="grid gap-2 px-4 pb-4">
             {recentBackfillRows.length === 0 ? (
-              <p data-empty-history class="m-0 text-[0.86rem] text-muted-foreground">尚無回填紀錄。</p>
+              <p data-empty-history class="m-0 text-(length:--fs-sm) text-muted-foreground">尚無回填紀錄。</p>
             ) : (
               recentBackfillRows.map((row) => (
-                <div class="backfill-history-row grid items-center gap-x-2.5 rounded-md border border-border bg-secondary px-3 py-2.5 text-[0.84rem] max-[1100px]:grid-cols-1" style="grid-template-columns: minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto">
+                <div class="backfill-history-row grid items-center gap-x-2.5 rounded-md border border-border bg-secondary px-3 py-2.5 text-(length:--fs-sm) max-[1100px]:grid-cols-1" style="grid-template-columns: minmax(140px,1.2fr) minmax(180px,1.4fr) repeat(4,minmax(80px,auto)) auto">
                   <span class="font-mono text-[0.85em]">{row.createdAt}</span>
                   <strong class="font-mono text-[0.85em] text-foreground">{row.range}</strong>
                   <span>{row.rows} 列</span>
@@ -467,7 +467,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
                   <span>{row.userEmail}</span>
                   <button
                     type="button"
-                    class="backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] font-bold text-primary cursor-pointer hover:bg-muted disabled:cursor-not-allowed disabled:opacity-55 max-[1100px]:w-full"
+                    class="backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-(length:--fs-xs) font-bold text-primary cursor-pointer hover:bg-muted disabled:cursor-not-allowed disabled:opacity-55 max-[1100px]:w-full"
                     data-repeat-backfill
                     data-from-day={row.fromDay ?? ''}
                     data-to-day={row.toDay ?? ''}
@@ -662,7 +662,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
     function setStatus(message, tone = '') {
       status.hidden = false;
       status.textContent = message;
-      status.className = 'backfill-status m-0 text-[0.85rem] '
+      status.className = 'backfill-status m-0 text-(length:--fs-sm) '
         + (tone === 'success' ? 'text-success' : tone === 'error' ? 'text-destructive' : 'text-muted-foreground');
     }
 
@@ -758,7 +758,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       historyBody.querySelector('[data-empty-history]')?.remove();
       const tokensTotal = Number(summary.tokensIn || 0) + Number(summary.tokensOut || 0);
       const row = document.createElement('div');
-      const baseCls = 'backfill-history-row grid items-center gap-x-2.5 rounded-md border px-3 py-2.5 text-[0.84rem]';
+      const baseCls = 'backfill-history-row grid items-center gap-x-2.5 rounded-md border px-3 py-2.5 text-(length:--fs-sm)';
       row.className = opts.failed
         ? baseCls + ' border-destructive/30 bg-destructive/5 text-destructive'
         : baseCls + ' border-border bg-secondary';
@@ -779,7 +779,7 @@ const latestDay = dailyRows.length > 0 ? dailyRows[0].day : -1;
       }
       const btn = document.createElement('button');
       btn.type = 'button';
-      btn.className = 'backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-[0.8rem] font-bold text-primary cursor-pointer hover:bg-muted';
+      btn.className = 'backfill-repeat inline-flex min-h-[2.75rem] items-center justify-center rounded-md border border-border bg-card px-2.5 py-1 text-(length:--fs-xs) font-bold text-primary cursor-pointer hover:bg-muted';
       btn.dataset.repeatBackfill = '';
       btn.dataset.fromDay = String(summary.fromDay);
       btn.dataset.toDay = String(summary.toDay);
