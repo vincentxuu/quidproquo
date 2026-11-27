@@ -21,6 +21,8 @@ export const PROVIDER_SECRET_FIELDS: ProviderSecretField[] = [
   { provider: 'openrouter', envKey: 'OPENROUTER_API_KEY', label: 'OPENROUTER_API_KEY', required: false, sensitive: true },
   { provider: 'opencode', envKey: 'OPENCODE_API_KEY', label: 'OPENCODE_API_KEY', required: false, sensitive: true },
   { provider: 'nvidia', envKey: 'NVIDIA_API_KEY', label: 'NVIDIA_API_KEY', required: false, sensitive: true },
+  { provider: 'runcrate', envKey: 'RUNCRATE_API_KEY', label: 'RUNCRATE_API_KEY', required: false, sensitive: true },
+  { provider: 'zai', envKey: 'ZAI_API_KEY', label: 'ZAI_API_KEY', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_API_TOKEN', label: 'CLOUDFLARE_API_TOKEN', required: false, sensitive: true },
   { provider: 'cloudflare', envKey: 'CLOUDFLARE_ACCOUNT_ID', label: 'CLOUDFLARE_ACCOUNT_ID', required: false, sensitive: false },
   { provider: 'search', envKey: 'JINA_API_KEY', label: 'JINA_API_KEY', required: false, sensitive: true },
@@ -81,6 +83,8 @@ function normalizeProviderApiKeys(values: ProviderApiKeys): ProviderApiKeys {
   if (values.ANTHROPIC_API_KEY && !values.anthropic) normalized.anthropic = values.ANTHROPIC_API_KEY
   if (values.OPENROUTER_API_KEY && !values.openrouter) normalized.openrouter = values.OPENROUTER_API_KEY
   if (values.NVIDIA_API_KEY && !values.nvidia) normalized.nvidia = values.NVIDIA_API_KEY
+  if (values.RUNCRATE_API_KEY && !values.runcrate) normalized.runcrate = values.RUNCRATE_API_KEY
+  if (values.ZAI_API_KEY && !values.zai) normalized.zai = values.ZAI_API_KEY
   if (!values.JINA_SEARCH_API_KEY && values.JINA_API_KEY) normalized.JINA_SEARCH_API_KEY = values.JINA_API_KEY
 
   return normalized

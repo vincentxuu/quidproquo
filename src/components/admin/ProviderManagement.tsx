@@ -52,12 +52,13 @@ export interface ProviderMessages {
 
 const DEFAULT_PROVIDERS = [
   'openai', 'google', 'anthropic', 'gemini', 'cloudflare',
-  'nvidia', 'openrouter', 'opencode',
+  'nvidia', 'openrouter', 'opencode', 'runcrate', 'zai',
 ]
 
 const PROVIDER_SECRET_FIELDS = [
   'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
   'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY', 'OPENCODE_API_KEY',
+  'RUNCRATE_API_KEY', 'ZAI_API_KEY',
   'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID',
   'JINA_API_KEY', 'JINA_SEARCH_API_KEY', 'TAVILY_API_KEY', 'FIRECRAWL_API_KEY',
   'EXA_API_KEY', 'BRAVE_SEARCH_API_KEY', 'BRAVE_API_KEY', 'SERPER_API_KEY',

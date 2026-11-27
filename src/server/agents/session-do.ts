@@ -47,6 +47,8 @@ const PROVIDER_ALIASES: Record<string, ModelProvider> = {
   openrouter: 'openrouter',
   opencode: 'opencode',
   nvidia: 'nvidia',
+  runcrate: 'runcrate',
+  zai: 'zai',
 }
 
 function defaultModelForProvider(provider: ModelProvider): string {
@@ -57,6 +59,8 @@ function defaultModelForProvider(provider: ModelProvider): string {
     openrouter: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
+    runcrate: 'openai/gpt-oss-120b',
+    zai: 'glm-4.5-flash',
     cloudflare: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
   }
   return defaults[provider] ?? DEFAULT_MODEL
@@ -400,17 +404,24 @@ const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> =
   { provider: 'openrouter', model: 'nvidia/nemotron-3.5-super-vl:free' },
   { provider: 'nvidia', model: 'nvidia/nemotron-3.5-lightning-30b-a3b' },
   { provider: 'openrouter', model: 'nvidia/nemotron-3.5-lightning:free' },
+  // Runcrate: free-tier models (429 once the free allowance is used up).
+  { provider: 'runcrate', model: 'openai/gpt-oss-120b' },
+  { provider: 'runcrate', model: 'zai-org/GLM-5.3-Flash' },
   // Workers AI: free daily Neurons, tool calls via its OpenAI-compatible endpoint.
   { provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' },
   { provider: 'cloudflare', model: '@cf/zai-org/glm-4.7-flash' },
   { provider: 'cloudflare', model: '@cf/google/gemma-4-26b-a4b-it' },
+  // Z.ai: only glm-4.5-flash answers reliably on the free tier; glm-4.7-flash is usually overloaded.
+  { provider: 'zai', model: 'glm-4.5-flash' },
 ]
 
 /** Errors that mean the provider cannot serve now, as opposed to a bad request. */
 function isProviderUnavailable(error: unknown): boolean {
-  const status = (error as { status?: unknown } | null)?.status
-  if (typeof status === 'number') return status === 402 || status === 408 || status === 429 || status >= 500
+  const { status, code } = (error ?? {}) as { status?: unknown; code?: unknown }
   const msg = error instanceof Error ? error.message : String(error)
+  // A free tier's prompt-size cap (Runcrate 413): another provider can still take the request.
+  if (code === 'free_prompt_too_large' || msg.includes('free_prompt_too_large')) return true
+  if (typeof status === 'number') return status === 402 || status === 408 || status === 429 || status >= 500
   return /\b(402|408|429|5\d\d)\b|rate.?limit|quota|overloaded|unavailable|timeout|ECONNRESET|ETIMEDOUT/i.test(msg)
 }
 

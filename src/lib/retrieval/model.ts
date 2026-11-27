@@ -50,6 +50,8 @@ type Env = {
   OPENCODE_API_KEY?: string
   OPENCODE_ZEN_API_KEY?: string
   NVIDIA_API_KEY?: string
+  RUNCRATE_API_KEY?: string
+  ZAI_API_KEY?: string
   ANTHROPIC_API_KEY?: string
 }
 
@@ -170,6 +172,16 @@ export function createRawModel(
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://integrate.api.nvidia.com/v1')
   }
 
+  if (route.provider === 'runcrate') {
+    const apiKey = apiKeys.runcrate || apiKeys.RUNCRATE_API_KEY || e.RUNCRATE_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.runcrate.ai/v1')
+  }
+
+  if (route.provider === 'zai') {
+    const apiKey = apiKeys.zai || apiKeys.ZAI_API_KEY || e.ZAI_API_KEY
+    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://api.z.ai/api/paas/v4')
+  }
+
   if (route.provider === 'cloudflare') {
     if (!e.AI) throw new Error('Cloudflare Workers AI binding (AI) is missing')
     return createRawCloudflareAiModel(e.AI, route.model, maxTokens, apiKeys)
@@ -184,7 +196,7 @@ export function createRawModel(
 }
 
 const RETRYABLE_STATUS_CODES = [429, 500, 502, 503, 504]
-const DEFAULT_FALLBACK_CHAIN: ModelProvider[] = ['opencode', 'openrouter', 'nvidia']
+const DEFAULT_FALLBACK_CHAIN: ModelProvider[] = ['openrouter', 'nvidia', 'runcrate', 'zai']
 const CLOUDFLARE_FALLBACK_MODEL = '@cf/meta/llama-3.3-70b-instruct-fp8-fast'
 
 export function createResilientModel(
@@ -245,6 +257,8 @@ function defaultModelForProvider(provider: ModelProvider): string {
     openrouter: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
+    runcrate: 'openai/gpt-oss-120b',
+    zai: 'glm-4.5-flash',
   }
   return defaults[provider] ?? 'deepseek-v4-flash'
 }

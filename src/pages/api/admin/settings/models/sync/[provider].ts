@@ -22,6 +22,8 @@ const PRESET_MODELS: Record<string, string[]> = {
   nvidia: ['meta/llama-4-scout-17b-16e-instruct', 'deepseek-ai/deepseek-r1', 'nvidia/llama-3.3-nemotron-super-49b-v1'],
   openrouter: ['openrouter/auto'],
   opencode: ['deepseek-v4-0324', 'qwen-3-32b', 'llama-4-maverick'],
+  runcrate: ['openai/gpt-oss-120b', 'zai-org/GLM-5.3-Flash', 'zai-org/GLM-5.3', 'Qwen/Qwen3.8-Flash', 'deepseek-ai/DeepSeek-V4.1-Flash'],
+  zai: ['glm-4.5-flash'],
 }
 
 export const POST: APIRoute = async ({ cookies, params }) => {
@@ -202,6 +204,22 @@ async function fetchProviderModels(provider: string, envFallbacks: Partial<Recor
     return fetchOpenAiLikeModels(
       'https://opencode.ai/zen/v1/models',
       envFallbacks.OPENCODE_API_KEY,
+      provider,
+    )
+  }
+
+  if (provider === 'runcrate') {
+    return fetchOpenAiLikeModels(
+      'https://api.runcrate.ai/v1/models',
+      envFallbacks.RUNCRATE_API_KEY,
+      provider,
+    )
+  }
+
+  if (provider === 'zai') {
+    return fetchOpenAiLikeModels(
+      'https://api.z.ai/api/paas/v4/models',
+      envFallbacks.ZAI_API_KEY,
       provider,
     )
   }
