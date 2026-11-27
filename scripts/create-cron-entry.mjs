@@ -52,6 +52,7 @@ import { handleQueueBatch } from '../src/server/queue.ts';
 import { runConsoleRollupDaily } from '../src/lib/console/cost/rollup.ts';
 import { checkCostThresholds } from '../src/lib/console/cost/threshold.ts';
 import { detectToolDrift } from '../src/lib/mcp-proxy/drift-detector.ts';
+import { cleanupAgentBranches } from '../src/lib/github/agent-branch-cleanup.ts';
 export { AgentFlowWorkflow } from '../src/server/agent-flow-workflow.ts';
 export { AgentSessionDO } from '../src/server/agents/session-do.ts';
 export { AgentSandbox, ContainerProxy } from '../src/server/agents/agent-sandbox.ts';
@@ -76,6 +77,7 @@ export default {
       ctx.waitUntil(checkKernelHealth(env))
       ctx.waitUntil(runConsoleRollupDaily(env))
       ctx.waitUntil(checkCostThresholds(env))
+      ctx.waitUntil(cleanupAgentBranches(env).catch((err) => console.error('[cron] agent branch cleanup failed:', err)))
     }
 
     const baseUrl = normalizeCronBaseUrl(env.APP_BASE_URL || env.CRAWL_BASE_URL || env.WORKER_URL || env.CF_PAGES_URL || 'https://quidproquo.cc')

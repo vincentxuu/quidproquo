@@ -9,15 +9,19 @@ import type {
 } from './types'
 import type { SessionRecord } from '../session-manager'
 import { getSandbox } from '@cloudflare/sandbox'
+import { AGENT_BRANCH_PREFIX } from '../../github/agent-branch-cleanup'
 
 // A sleeping container loses /workspace, so the idle limit must outlast the longest
 // gap between commands in a run (one model call can take minutes with retries).
 // Runs destroy the container when they finish, so this only bounds abandoned runs.
 const SANDBOX_SLEEP_AFTER = '20m'
 
-/** Runs work on their own branch so an unfinished or failed run never lands on the default branch. */
+/**
+ * Runs work on their own branch so an unfinished or failed run never lands on the default
+ * branch. Stale ones are deleted by cleanupAgentBranches.
+ */
 export function agentBranchName(sessionId: string): string {
-  return `agent/${sessionId}`
+  return `${AGENT_BRANCH_PREFIX}${sessionId}`
 }
 
 export class SandboxProvider implements SandboxRunnerProvider {
