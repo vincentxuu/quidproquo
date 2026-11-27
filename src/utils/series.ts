@@ -1441,6 +1441,18 @@ export function getSeriesMeta(name: string) {
   };
 }
 
+const SERIES_SLUG_CACHE = new Map<string, string>();
+
+/** getSeriesMeta(name).slug without allocating a fresh meta object on every call. */
+export function getSeriesSlug(name: string): string {
+  let slug = SERIES_SLUG_CACHE.get(name);
+  if (slug === undefined) {
+    slug = getSeriesMeta(name).slug;
+    SERIES_SLUG_CACHE.set(name, slug);
+  }
+  return slug;
+}
+
 export function getSeriesMetaBySlug(slug: string) {
   const definition = SERIES_DEFINITIONS.find(entry => entry.slug === slug);
   if (!definition) return undefined;

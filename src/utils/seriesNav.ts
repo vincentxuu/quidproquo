@@ -1,6 +1,7 @@
 // src/utils/seriesNav.ts
 import { isPublishedPost, type Post } from './content';
-import { getSeriesMeta } from './series';
+import { getSeriesSlug } from './series';
+import type { PostIndex } from './post-index';
 
 export interface SeriesMembership {
   name: string;
@@ -29,15 +30,20 @@ export function getPostSeries(post: Post): SeriesMembership[] {
   return memberships;
 }
 
-function navFor(post: Post, allPosts: Post[], membership: SeriesMembership): SeriesNav {
+function navFor(post: Post, allPosts: Post[], membership: SeriesMembership, index?: PostIndex): SeriesNav {
   const { name, order } = membership;
   // 依 slug 比對：同一個系列在 frontmatter 可能寫成中文或英文名稱。
-  const slug = getSeriesMeta(name).slug;
-  const inSeries = (m: SeriesMembership) => getSeriesMeta(m.name).slug === slug;
-  const seriesPosts = allPosts
-    .filter(p => isPublishedPost(p) && p.data.lang === post.data.lang
-      && getPostSeries(p).some(inSeries))
-    .map(p => ({ post: p, order: getPostSeries(p).find(inSeries)!.order }))
+  const slug = getSeriesSlug(name);
+  const inSeries = (m: SeriesMembership) => getSeriesSlug(m.name) === slug;
+  const candidates = index
+    ? (index.bySeries.get(`${post.data.lang}|${slug}`) ?? []).filter(p => isPublishedPost(p))
+    : allPosts.filter(p => isPublishedPost(p) && p.data.lang === post.data.lang
+      && getPostSeries(p).some(inSeries));
+  const seriesPosts = candidates
+    .map(p => {
+      const memberships = index?.membershipsByPostId.get(p.id) ?? getPostSeries(p);
+      return { post: p, order: memberships.find(inSeries)!.order };
+    })
     .sort((a, b) => a.order - b.order);
   const prevPost = seriesPosts.find(p => p.order === order - 1)?.post;
   const nextPost = seriesPosts.find(p => p.order === order + 1)?.post;
@@ -53,8 +59,9 @@ function navFor(post: Post, allPosts: Post[], membership: SeriesMembership): Ser
 /**
  * Navigation data for each series the post belongs to. Empty when it belongs to none.
  */
-export function getSeriesNavs(post: Post, allPosts: Post[]): SeriesNav[] {
-  return getPostSeries(post).map(membership => navFor(post, allPosts, membership));
+export function getSeriesNavs(post: Post, allPosts: Post[], index?: PostIndex): SeriesNav[] {
+  const memberships = index?.membershipsByPostId.get(post.id) ?? getPostSeries(post);
+  return memberships.map(membership => navFor(post, allPosts, membership, index));
 }
 
 /**

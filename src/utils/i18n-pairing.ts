@@ -1,6 +1,7 @@
 // src/utils/i18n-pairing.ts
 import type { CollectionEntry } from 'astro:content';
 import { isPublishedPost } from './content';
+import type { PostIndex } from './post-index';
 
 // Bilingual pairing convention (see the post-translate skill):
 // the English counterpart shares the same id as its zh-TW source plus an `-en` suffix.
@@ -16,11 +17,12 @@ const EN_SUFFIX = '-en';
  */
 export function getTranslation(
   postId: string,
-  allPosts: CollectionEntry<'posts'>[]
+  allPosts: CollectionEntry<'posts'>[],
+  index?: PostIndex,
 ): CollectionEntry<'posts'> | null {
   const targetId = postId.endsWith(EN_SUFFIX)
     ? postId.slice(0, -EN_SUFFIX.length)
     : postId + EN_SUFFIX;
-  const match = allPosts.find(post => post.id === targetId);
+  const match = index?.byId.get(targetId) ?? allPosts.find(post => post.id === targetId);
   return match && isPublishedPost(match) ? match : null;
 }

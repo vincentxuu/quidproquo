@@ -1,30 +1,35 @@
 // src/utils/relatedPosts.ts
 import { isPublishedPost, type Post } from './content';
-import { getSeriesMeta } from './series';
+import { getSeriesSlug } from './series';
 import { getPostSeries } from './seriesNav';
+import type { PostIndex } from './post-index';
 
 /**
  * Returns up to `max` posts related to the given post using the Phase 1C mix:
  * 40% tag overlap + 30% category + 20% temporal proximity + 10% same series.
  */
-export function getRelatedPosts(post: Post, allPosts: Post[], max = 3): Post[] {
-  return allPosts
+export function getRelatedPosts(post: Post, allPosts: Post[], max = 3, index?: PostIndex): Post[] {
+  const candidates = index?.byLang.get(post.data.lang) ?? allPosts;
+  return candidates
     .filter(p => p.id !== post.id && p.data.lang === post.data.lang && isPublishedPost(p))
-    .map(p => ({ post: p, score: getRelatedPostScore(post, p) }))
+    .map(p => ({ post: p, score: getRelatedPostScore(post, p, index) }))
     .filter(({ score }) => score > 0)
     .sort((a, b) => b.score - a.score || b.post.data.date.getTime() - a.post.data.date.getTime())
     .slice(0, max)
     .map(({ post: p }) => p);
 }
 
-export function getRelatedPostScore(post: Post, candidate: Post): number {
+export function getRelatedPostScore(post: Post, candidate: Post, index?: PostIndex): number {
   const tags = post.data.tags ?? [];
   const candidateTags = candidate.data.tags ?? [];
   const tagScore = getJaccardScore(tags, candidateTags);
   const categoryScore = post.data.category === candidate.data.category ? 1 : 0;
   const recencyScore = getRecencyScore(post.data.date, candidate.data.date);
-  const candidateSeries = new Set(getPostSeries(candidate).map(m => getSeriesMeta(m.name).slug));
-  const seriesScore = getPostSeries(post).some(m => candidateSeries.has(getSeriesMeta(m.name).slug)) ? 1 : 0;
+  const candidateSeries = new Set(
+    index?.seriesSlugsByPostId.get(candidate.id) ?? getPostSeries(candidate).map(m => getSeriesSlug(m.name)),
+  );
+  const postSeries = index?.seriesSlugsByPostId.get(post.id) ?? getPostSeries(post).map(m => getSeriesSlug(m.name));
+  const seriesScore = postSeries.some(slug => candidateSeries.has(slug)) ? 1 : 0;
 
   return tagScore * 0.4 + categoryScore * 0.3 + recencyScore * 0.2 + seriesScore * 0.1;
 }

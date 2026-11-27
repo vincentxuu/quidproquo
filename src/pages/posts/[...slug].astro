@@ -8,7 +8,7 @@ import Icons from '../../components/Icons.astro';
 import { getRelatedPosts } from '../../utils/relatedPosts';
 import { getSeriesNavs } from '../../utils/seriesNav';
 import { useTranslations, type Lang } from '../../i18n/utils';
-import { getPublishedPosts, isPublishedPost, sortPostsByDateDesc } from '../../utils/content';
+import { getPublishedPosts, type Post } from '../../utils/content';
 import { getTranslation } from '../../utils/i18n-pairing';
 import { getSeriesHref, getSeriesTitle } from '../../utils/series';
 import { normalizeGlossaryTerms, resolveGlossaryForLang } from '../../lib/glossary/entries';
@@ -22,6 +22,18 @@ import { stripEmojiText, INLINE_ICONS_KEY, INLINE_ICON_SPRITE_PX } from '../../p
 import { renderIconSprite } from '../../components/icons/render';
 import type { IconName } from '../../components/icons/koboyo';
 import { getReadingTime, getWordCount } from '../../utils/readingTime';
+import { createPostIndex, type PostIndex } from '../../utils/post-index';
+
+// One index per allPosts array (per rendering worker), not one per page.
+const INDEX_CACHE = new WeakMap<Post[], PostIndex>();
+function getPostIndex(allPosts: Post[]): PostIndex {
+  let index = INDEX_CACHE.get(allPosts);
+  if (!index) {
+    index = createPostIndex(allPosts);
+    INDEX_CACHE.set(allPosts, index);
+  }
+  return index;
+}
 
 export async function getStaticPaths() {
   const allPosts = await getPublishedPosts();
@@ -41,16 +53,17 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 const inlineIcons = (remarkPluginFrontmatter?.[INLINE_ICONS_KEY] ?? []) as IconName[];
 const lang = post.data.lang as Lang;
 const t = useTranslations(lang);
+const index = getPostIndex(allPosts);
 
-const sortedPosts = sortPostsByDateDesc(
-  allPosts.filter(p => isPublishedPost(p) && p.data.lang === lang)
-);
-const currentIndex = sortedPosts.findIndex(p => p.id === post.id);
+// allPosts is already published + date-sorted (getPublishedPosts), so the
+// index lookup is equivalent to the old per-page filter/sort.
+const sortedPosts = index.byLang.get(lang) ?? [];
+const currentIndex = index.indexByIdByLang.get(lang)?.get(post.id) ?? -1;
 const chronologicalPrev = currentIndex >= 0 ? sortedPosts[currentIndex + 1] : undefined;
 const chronologicalNext = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
 
-const relatedPosts = getRelatedPosts(post, allPosts);
-const seriesNavs = getSeriesNavs(post, allPosts).map(nav => ({
+const relatedPosts = getRelatedPosts(post, allPosts, 3, index);
+const seriesNavs = getSeriesNavs(post, allPosts, index).map(nav => ({
   nav,
   href: getSeriesHref(nav.name, lang),
 }));
@@ -78,7 +91,7 @@ const postUrl = `${siteUrl}/posts/${post.id}/`;
 
 // Translation pairing: link to the counterpart if it exists, else fall back to
 // the other language's home with an `untranslated` hint for the fallback banner.
-const counterpart = getTranslation(post.id, allPosts);
+const counterpart = getTranslation(post.id, allPosts, index);
 const hasTranslation = counterpart !== null;
 const switchHref = counterpart
   ? `/posts/${counterpart.id}`
