@@ -63,7 +63,7 @@ function defaultModelForProvider(provider: ModelProvider): string {
     gemini: DEFAULT_MODEL,
     openrouter: 'openrouter/auto',
     opencode: 'deepseek-v4-flash',
-    nvidia: 'deepseek-ai/deepseek-r1',
+    nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
     cloudflare: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
   }
   return defaults[provider] ?? DEFAULT_MODEL
@@ -394,10 +394,13 @@ interface ModelInvokeResult {
 
 // Backups for when the configured model is unavailable (rate limited, overloaded, out of
 // credit). Each provider's client already retries with backoff before giving up. Gemini's
-// free quota is counted per model, so other Gemini models come first.
+// free quota is counted per model, so other Gemini models come first. The NVIDIA models are
+// free endpoints with tool calling, checked against build.nvidia.com on 2026-11-27.
 const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> = [
   { provider: 'gemini', model: 'gemini-3.8-flash' },
   { provider: 'gemini', model: 'gemini-3.5-flash-lite' },
+  { provider: 'nvidia', model: 'nvidia/nemotron-3-ultra-550b-a55b' },
+  { provider: 'nvidia', model: 'nvidia/nemotron-3.5-super-vl-120b-a12b' },
   { provider: 'opencode', model: 'deepseek-v4-flash' },
   { provider: 'ollama_cloud', model: 'gpt-oss:120b' },
   { provider: 'openrouter', model: 'openai/gpt-oss-120b:free' },

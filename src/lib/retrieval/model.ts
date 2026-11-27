@@ -272,7 +272,7 @@ function defaultModelForProvider(provider: ModelProvider): string {
     gemini: 'gemini-3.6-flash',
     openrouter: 'nvidia/nemotron-3-super-120b-a12b:free',
     opencode: 'deepseek-v4-flash',
-    nvidia: 'deepseek-ai/deepseek-r1',
+    nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
   }
   return defaults[provider] ?? 'deepseek-v4-flash'
 }
