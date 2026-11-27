@@ -50,6 +50,7 @@ type Env = {
   GEMINI_API_KEY?: string
   OPENROUTER_API_KEY?: string
   OPENCODE_API_KEY?: string
+  OPENCODE_ZEN_API_KEY?: string
   NVIDIA_API_KEY?: string
   OLLAMA_API_KEY?: string
   OLLAMA_CLOUD_API_KEY?: string
@@ -175,7 +176,8 @@ export function createRawModel(
   }
 
   if (route.provider === 'opencode') {
-    const apiKey = apiKeys.opencode || apiKeys.OPENCODE_API_KEY || e.OPENCODE_API_KEY
+    // The deployed secret is OPENCODE_ZEN_API_KEY (shared with the agent-flow workflow).
+    const apiKey = apiKeys.opencode || apiKeys.OPENCODE_API_KEY || e.OPENCODE_API_KEY || e.OPENCODE_ZEN_API_KEY
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://opencode.ai/zen/v1')
   }
 

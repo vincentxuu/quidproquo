@@ -393,8 +393,12 @@ interface ModelInvokeResult {
 }
 
 // Backups for when the configured model is unavailable (rate limited, overloaded, out of
-// credit). Each provider's client already retries with backoff before giving up.
+// credit). Each provider's client already retries with backoff before giving up. Gemini's
+// free quota is counted per model, so other Gemini models come first.
 const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> = [
+  { provider: 'gemini', model: 'gemini-3.8-flash' },
+  { provider: 'gemini', model: 'gemini-3.5-flash-lite' },
+  { provider: 'opencode', model: 'deepseek-v4-flash' },
   { provider: 'ollama_cloud', model: 'gpt-oss:120b' },
   { provider: 'openrouter', model: 'openai/gpt-oss-120b:free' },
 ]
@@ -415,7 +419,7 @@ async function invokeModelWithTools(
   failover: { routeIndex: number } = { routeIndex: 0 },
 ): Promise<ModelInvokeResult> {
   const primary = { provider: modelConfig.defaultProvider, model: modelConfig.defaultModel }
-  const routes = [primary, ...AGENT_FALLBACK_ROUTES.filter((r) => r.provider !== primary.provider)]
+  const routes = [primary, ...AGENT_FALLBACK_ROUTES.filter((r) => r.provider !== primary.provider || r.model !== primary.model)]
   const failures: string[] = []
 
   // A run stays on the provider that last answered: switching back mid-conversation
