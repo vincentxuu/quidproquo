@@ -15,6 +15,12 @@ describe('summarizeFailure', () => {
     expect(s.message).toContain('備援模型')
   })
 
+  it('reads the primary error when failures name which key of a provider failed', () => {
+    const s = summarizeFailure('Session failed: model error: all providers failed: runcrate:openai/gpt-oss-120b: 429 Too Many Requests | runcrate#2:openai/gpt-oss-120b: 402 Add usage credits | zai:glm-4.5-flash: 503 overloaded')
+    expect(s.category).toBe('model_quota')
+    expect(s.message).toContain('備援模型')
+  })
+
   it('separates out-of-credit and invalid keys', () => {
     expect(summarizeFailure('model error: 402 Add usage credits').category).toBe('model_credit')
     expect(summarizeFailure('model error: 401 User not found').category).toBe('model_auth')

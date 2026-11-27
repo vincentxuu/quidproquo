@@ -8,7 +8,13 @@ import { fromSessionEvent } from '../../lib/agent/events'
 import { AIMessage, HumanMessage, SystemMessage, ToolMessage } from '@langchain/core/messages'
 import type { BaseMessageLike } from '@langchain/core/messages'
 import { createRawModel, type ProviderApiKeys } from '../../lib/retrieval/model'
-import { resolveProviderApiKeys } from '../../lib/retrieval/provider-key-store'
+import {
+  providerKeyList,
+  resolveProviderKeySets,
+  withProviderKey,
+  type ProviderApiKeyLists,
+} from '../../lib/retrieval/provider-key-store'
+import { classifyModelError, nextFailoverStep, routeFailureLabel } from '../../lib/agent/model-failover'
 import { initialState, type RagRuntimeConfig } from '../../lib/retrieval/state'
 import { listDefaultSyscalls } from '../../lib/agent/tools/register-defaults'
 import { SandboxProvider } from '../../lib/agent/runner/sandbox'
@@ -415,22 +421,20 @@ const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> =
   { provider: 'zai', model: 'glm-4.5-flash' },
 ]
 
-/** Errors that mean the provider cannot serve now, as opposed to a bad request. */
-function isProviderUnavailable(error: unknown): boolean {
-  const { status, code } = (error ?? {}) as { status?: unknown; code?: unknown }
-  const msg = error instanceof Error ? error.message : String(error)
-  // A free tier's prompt-size cap (Runcrate 413): another provider can still take the request.
-  if (code === 'free_prompt_too_large' || msg.includes('free_prompt_too_large')) return true
-  if (typeof status === 'number') return status === 402 || status === 408 || status === 429 || status >= 500
-  return /\b(402|408|429|5\d\d)\b|rate.?limit|quota|overloaded|unavailable|timeout|ECONNRESET|ETIMEDOUT/i.test(msg)
+interface ModelFailover {
+  /** Route that last answered; a run stays on it. */
+  routeIndex: number
+  /** Key of that route's provider that last answered; the next call starts from it. */
+  keyIndex: number
 }
 
 async function invokeModelWithTools(
   modelConfig: RagRuntimeConfig,
   apiKeys: ProviderApiKeys,
+  keyLists: ProviderApiKeyLists,
   lcMessages: BaseMessageLike[],
   toolDefs: LangChainToolDef[],
-  failover: { routeIndex: number } = { routeIndex: 0 },
+  failover: ModelFailover = { routeIndex: 0, keyIndex: 0 },
 ): Promise<ModelInvokeResult> {
   const primary = { provider: modelConfig.defaultProvider, model: modelConfig.defaultModel }
   const routes = [primary, ...AGENT_FALLBACK_ROUTES.filter((r) => r.provider !== primary.provider || r.model !== primary.model)]
@@ -440,16 +444,27 @@ async function invokeModelWithTools(
   // would send one provider's tool calls to another (Gemini rejects unsigned ones).
   for (let index = failover.routeIndex; index < routes.length; index++) {
     const route = routes[index]
-    try {
-      const result = await invokeRoute(route, apiKeys, lcMessages, toolDefs)
-      failover.routeIndex = index
-      return result
-    } catch (error) {
-      const msg = error instanceof Error ? error.message : String(error)
-      failures.push(`${route.provider}:${route.model}: ${msg}`)
-      // Only an unavailable model falls over; a rejected request is a bug to surface.
-      if (index === failover.routeIndex && !isProviderUnavailable(error)) throw error
-      console.warn('[agent] model unavailable, trying next provider', route.provider, msg.slice(0, 200))
+    const isStartRoute = index === failover.routeIndex
+    const keys = providerKeyList(keyLists, route.provider)
+    const keyCount = Math.max(keys.length, 1)
+    let keyIndex = isStartRoute ? Math.min(failover.keyIndex, keyCount - 1) : 0
+    while (keyIndex < keyCount) {
+      const routeKeys = keys.length > 0 ? withProviderKey(apiKeys, route.provider, keys[keyIndex]) : apiKeys
+      try {
+        const result = await invokeRoute(route, routeKeys, lcMessages, toolDefs)
+        failover.routeIndex = index
+        failover.keyIndex = keyIndex
+        return result
+      } catch (error) {
+        const msg = error instanceof Error ? error.message : String(error)
+        const label = routeFailureLabel(route.provider, route.model, keyIndex)
+        failures.push(`${label}: ${msg}`)
+        const step = nextFailoverStep(classifyModelError(error), { keyIndex, keyCount, isStartRoute })
+        if (step === 'throw') throw error
+        console.warn(`[agent] ${label} unavailable, trying ${step === 'next-key' ? 'next key' : 'next provider'}`, msg.slice(0, 200))
+        if (step === 'next-route') break
+        keyIndex++
+      }
     }
   }
   throw new Error(`all providers failed: ${failures.join(' | ')}`)
@@ -712,9 +727,9 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(options.model)
-    const apiKeys = await resolveProviderApiKeys(this.env.DB)
+    const { apiKeys, keyLists } = await resolveProviderKeySets(this.env.DB)
     const toBaseMessage = loopMessageToLangChain
-    const failover = { routeIndex: 0 }
+    const failover: ModelFailover = { routeIndex: 0, keyIndex: 0 }
     let runner: RunnerHandle | undefined
     let saveError: unknown
     let repoContext = ''
@@ -788,7 +803,7 @@ export class AgentSessionDO extends DurableObject<Env> {
                 ...(skillCatalog ? [new SystemMessage(skillCatalog)] : []),
                 ...msgs.map(toBaseMessage),
               ]
-              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs, failover)
+              return await invokeModelWithTools(modelConfig, apiKeys, keyLists, lcMessages, toolDefs, failover)
             } catch (e) {
               // A model failure ends the run as failed instead of passing for an answer.
               const msg = e instanceof Error ? e.message : String(e)
@@ -897,7 +912,7 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const kernel = createKernel(this.env)
     const modelConfig = resolveModelConfig(session.model ?? undefined)
-    const apiKeys = await resolveProviderApiKeys(this.env.DB)
+    const { apiKeys, keyLists } = await resolveProviderKeySets(this.env.DB)
 
     const enabled = await loadEnabledComponents(this.env.DB, sessionId)
     let snapshotToolRoutes = new Map<string, { serverUrl: string; toolName: string; serverName: string }>()
@@ -912,7 +927,7 @@ export class AgentSessionDO extends DurableObject<Env> {
 
     const toolDefs = buildToolDefinitions(false, mcpTools, enabled?.snapshotToolDefs)
     if (enabled) snapshotToolRoutes = enabled.snapshotToolRoutes
-    const failover = { routeIndex: 0 }
+    const failover: ModelFailover = { routeIndex: 0, keyIndex: 0 }
 
     try {
       await runLoop(
@@ -924,7 +939,7 @@ export class AgentSessionDO extends DurableObject<Env> {
           modelInvoke: async (msgs) => {
             try {
               const lcMessages: BaseMessageLike[] = msgs.map(loopMessageToLangChain)
-              return await invokeModelWithTools(modelConfig, apiKeys, lcMessages, toolDefs, failover)
+              return await invokeModelWithTools(modelConfig, apiKeys, keyLists, lcMessages, toolDefs, failover)
             } catch (e) {
               const msg = e instanceof Error ? e.message : String(e)
               throw new Error(`model error: ${msg}`)
