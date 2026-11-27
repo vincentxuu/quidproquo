@@ -1,0 +1,311 @@
+/* Video posts: sidebar-docked player, chapter times, corner mini player (src/lib/videoChapters.ts).
+   Global because every node here is created or moved at runtime, outside Astro's scoped styles. */
+
+/* ── Sidebar dock (≥1000px) ── */
+/* Width is the reader's choice (drag handle; --video-sidebar-width set by the script). */
+@media (min-width: 1000px) {
+  html.has-video-dock body.is-article {
+    max-width: max(1180px, calc(760px + var(--space-10) + var(--video-sidebar-width, 340px) + var(--page-gutter) * 2));
+  }
+  body.is-article .post-grid.post-grid--video { grid-template-columns: minmax(0, 1fr) var(--video-sidebar-width, 340px); }
+  /* A large player can leave the article less than its usual 760px; it must shrink instead of sliding under the video. */
+  body.is-article .post-grid.post-grid--video .post-main { width: auto; max-width: min(760px, 100%); min-width: 0; }
+}
+.post-sidebar--video {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - var(--space-6) * 2);
+}
+.post-sidebar--video .toc {
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.post-sidebar .video-embed--docked { margin: 0 0 var(--space-4); flex-shrink: 0; }
+.post-sidebar .video-embed--docked .video-embed__frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--border);
+  border-radius: var(--corner-md);
+  overflow: hidden;
+  background: var(--bg-video);
+}
+.post-sidebar .video-embed--docked iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.post-sidebar .video-embed--docked figcaption {
+  margin-top: var(--space-2);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+.post-sidebar .video-embed--docked figcaption a { color: inherit; }
+.video-embed__docked-note {
+  font-size: var(--fs-sm);
+  color: var(--text-muted);
+}
+
+/* ── Chapter times in the TOC ── */
+.toc-time {
+  margin-left: var(--space-2);
+  padding: 0 var(--space-1);
+  border: 0;
+  border-radius: var(--corner-sm);
+  background: none;
+  color: var(--brand-700);
+  font: inherit;
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+  cursor: pointer;
+}
+.toc-time:hover { background: var(--brand-100); }
+.toc-time:focus-visible,
+.video-chapters__item:focus-visible,
+.video-embed__float-close:focus-visible {
+  outline: 2px solid var(--brand-500);
+  outline-offset: 2px;
+}
+
+/* ── Chapter list under the player: only while it is pinned in split view (the TOC is hidden then) ── */
+.video-chapters { display: none; }
+@media (min-width: 1200px) {
+  html.video-split article .content .video-embed--split .video-chapters {
+    display: block;
+    position: fixed;
+    right: 1.5rem;
+    top: calc(50% + var(--split-width) * 9 / 32 + var(--space-3));
+    bottom: var(--space-4);
+    width: var(--split-width);
+    overflow-y: auto;
+    z-index: 50;
+    border: 1px solid var(--border);
+    border-radius: var(--corner-md);
+    background: var(--bg-page);
+  }
+}
+.video-chapters ol { list-style: none; margin: 0; padding: var(--space-1) 0; }
+.video-chapters__item {
+  display: flex;
+  gap: var(--space-3);
+  width: 100%;
+  padding: var(--space-2) var(--space-4);
+  border: 0;
+  background: none;
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--fs-sm);
+  text-align: left;
+  cursor: pointer;
+}
+.video-chapters__item:hover { background: var(--bg-subtle); }
+.video-chapters__time { flex-shrink: 0; color: var(--brand-700); font-variant-numeric: tabular-nums; }
+
+/* ── Size toggle on the docked player (YouTube-style two sizes) ── */
+.post-sidebar .video-embed--docked figcaption { display: flex; flex-direction: column; align-items: flex-start; gap: var(--space-2); }
+.video-embed__size-toggle,
+.video-float__move,
+.video-float__close {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--corner-pill);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.video-embed__size-toggle:hover,
+.video-float__move:hover,
+.video-float__close:hover { border-color: var(--brand-500); }
+.video-embed__size-toggle[hidden] { display: none; }
+.video-embed__size-toggle:focus-visible,
+.video-float__move:focus-visible,
+.video-float__close:focus-visible,
+.video-float__resize:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+
+/* ── Mini player: a playing embed scrolled out of view (≥700px; the JS decides when).
+   Default corner is bottom-left: bottom-right already holds Ask AI, scroll-to-top and the summary buttons.
+   The reader can drag it anywhere (--mini-left/--mini-top, set by the JS) and resize it (--mini-width);
+   data-corner names the quadrant it is in, so its controls sit on the side facing the middle. ── */
+.video-float__bar,
+.video-float__resize { display: none; }
+.video-embed--floating::before {
+  content: '';
+  display: block;
+  height: var(--held-height);
+}
+article .content .video-embed--floating .video-embed__frame {
+  position: fixed;
+  width: var(--mini-width, 320px);
+  z-index: 55;
+  overflow: visible;
+  box-shadow: var(--shadow-floating);
+}
+article .content .video-embed--floating .video-embed__frame iframe { border-radius: inherit; }
+.video-embed--floating .video-embed__frame { left: var(--mini-left, var(--space-6)); top: var(--mini-top, 3.5rem); }
+
+/* Control bar sits outside the video, on the side facing the middle of the screen. */
+.video-embed--floating .video-float__bar {
+  display: flex;
+  gap: var(--space-2);
+  position: absolute;
+  left: 0;
+}
+.video-embed--floating[data-corner^="b"] .video-float__bar { bottom: calc(100% + var(--space-2)); }
+.video-embed--floating[data-corner^="t"] .video-float__bar { top: calc(100% + var(--space-2)); }
+.video-embed--floating[data-corner$="r"] .video-float__bar { left: auto; right: 0; }
+.video-float__move { cursor: grab; touch-action: none; }
+.video-float__close,
+.video-float__move { box-shadow: var(--shadow-floating); }
+
+/* Resize grip on the corner facing the middle of the screen. */
+.video-embed--floating .video-float__resize {
+  display: block;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  z-index: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--corner-sm);
+  background: var(--bg-page);
+  box-shadow: var(--shadow-floating);
+  touch-action: none;
+}
+.video-embed--floating .video-float__resize::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  border: 0 solid var(--text-muted);
+}
+.video-embed--floating[data-corner="bl"] .video-float__resize { top: -11px; right: -11px; cursor: nesw-resize; }
+.video-embed--floating[data-corner="bl"] .video-float__resize::after { border-top-width: 2px; border-right-width: 2px; }
+.video-embed--floating[data-corner="br"] .video-float__resize { top: -11px; left: -11px; cursor: nwse-resize; }
+.video-embed--floating[data-corner="br"] .video-float__resize::after { border-top-width: 2px; border-left-width: 2px; }
+.video-embed--floating[data-corner="tl"] .video-float__resize { bottom: -11px; right: -11px; cursor: nwse-resize; }
+.video-embed--floating[data-corner="tl"] .video-float__resize::after { border-bottom-width: 2px; border-right-width: 2px; }
+.video-embed--floating[data-corner="tr"] .video-float__resize { bottom: -11px; left: -11px; cursor: nesw-resize; }
+.video-embed--floating[data-corner="tr"] .video-float__resize::after { border-bottom-width: 2px; border-left-width: 2px; }
+.video-float__resize:hover { border-color: var(--brand-500); }
+
+/* While dragging, the iframe must not swallow pointer events. */
+html.video-dragging iframe { pointer-events: none; }
+html.video-dragging { user-select: none; }
+html.video-dragging--move, html.video-dragging--move * { cursor: grabbing !important; }
+
+/* ── Video + slides (CS329Z-style guides): picture-in-picture, as in Kaltura and Panopto ──
+   Text on the left. On the right one 16:9 stage: the large item fills it, the small one (30%) sits in a
+   spot the reader drags it to (--pip-x/--pip-y, set by the JS). Below: swap / next corner / hide controls,
+   then the TOC filling the rest.
+   The column stops above Ask AI; its quick-action pills and scroll-to-top step aside meanwhile. */
+@media (min-width: 1000px) {
+  /* Use the whole window: the centred page width would leave both margins empty. */
+  html.has-docked-slides body.is-article { max-width: none; }
+  html.has-docked-slides .chat-sidebar-quick-actions,
+  html.has-docked-slides .scroll-top { display: none !important; }
+}
+body.is-article .post-grid .post-sidebar.post-sidebar--slides {
+  --pip-w: var(--video-sidebar-width, 340px);
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: auto auto minmax(0, 1fr);
+  grid-template-areas: "stage" "bar" "toc";
+  gap: var(--space-3);
+  height: calc(100vh - var(--space-6) - 4.5rem);
+  max-height: none;
+}
+.post-sidebar--slides .video-embed--docked,
+.post-sidebar--slides .slide-reader-panel--docked { grid-area: stage; }
+.post-sidebar--slides .video-embed--docked { margin: 0; }
+.post-sidebar--slides .video-embed--docked figcaption { display: none; }
+body.is-article .post-sidebar .slide-reader-panel.slide-reader-panel--docked {
+  position: relative;
+  inset: auto;
+  z-index: 1;
+  width: 100%;
+  height: calc(var(--pip-w) * 9 / 16 + 34px);
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--corner-md);
+  box-shadow: none;
+}
+/* The deck title repeats the video's; PDF.js's own toolbar carries page controls. */
+.slide-reader-panel--docked .slide-reader-bar { display: none; }
+
+/* The small window: 30% wide, in its corner, above the large one. */
+body.is-article .post-sidebar--slides:not(.post-sidebar--video-first) .video-embed--docked,
+body.is-article .post-sidebar--slides.post-sidebar--video-first .slide-reader-panel.slide-reader-panel--docked {
+  z-index: 3;
+  width: 30%;
+  margin: 0;
+  align-self: start;
+  justify-self: start;
+  translate: var(--pip-x, 0) var(--pip-y, 0);
+  box-shadow: var(--shadow-floating);
+  border-radius: var(--corner-md);
+}
+/* Grab strip just above the small window (the window is an iframe and cannot take a drag). */
+.video-pip__handle {
+  grid-area: stage;
+  align-self: start;
+  justify-self: start;
+  z-index: 4;
+  width: 30%;
+  height: 18px;
+  translate: var(--pip-x, 0) calc(var(--pip-y, 0px) - 18px);
+  padding: 0;
+  border: 1px solid var(--border);
+  border-bottom: 0;
+  border-radius: var(--corner-sm) var(--corner-sm) 0 0;
+  background: var(--bg-page);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  line-height: 1;
+  cursor: grab;
+  touch-action: none;
+}
+.video-pip__handle:hover { color: var(--brand-500); }
+.video-pip__handle:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+.video-pip__handle[hidden] { display: none; }
+body.is-article .post-sidebar--slides.post-sidebar--video-first .slide-reader-panel.slide-reader-panel--docked {
+  height: calc(var(--pip-w) * 0.3 * 9 / 16);
+}
+/* Too small for PDF.js's toolbar: slide it out of view so the page itself fills the window. */
+.post-sidebar--video-first .slide-reader-panel--docked .slide-reader-frame {
+  flex: 0 0 calc(100% + 32px);
+  margin-top: -32px;
+}
+/* Hidden keeps playing (the small video's sound continues), as in Kaltura's hide. */
+.post-sidebar--pip-hidden:not(.post-sidebar--video-first) .video-embed--docked,
+.post-sidebar--pip-hidden.post-sidebar--video-first .slide-reader-panel--docked { visibility: hidden; }
+
+/* Controls */
+.video-pip__bar { grid-area: bar; display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.video-pip__btn {
+  padding: var(--space-1) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--corner-pill);
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font: inherit;
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  cursor: pointer;
+}
+.video-pip__btn:hover:not(:disabled) { border-color: var(--brand-500); }
+.video-pip__btn:disabled { opacity: 0.45; cursor: default; }
+.video-pip__btn:focus-visible { outline: 2px solid var(--brand-500); outline-offset: 2px; }
+
+/* The TOC fills what is left and scrolls inside it. */
+body.is-article .post-grid .post-sidebar.post-sidebar--slides .toc {
+  grid-area: toc;
+  min-height: 0;
+  overflow-y: auto;
+  margin: 0;
+  padding: var(--space-2) var(--space-4);
+}

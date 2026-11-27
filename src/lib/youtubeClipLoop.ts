@@ -164,6 +164,8 @@ export async function initYoutubeClipLoops(eagerFrame?: HTMLIFrameElement) {
         if (generation === currentGeneration) readyPlayerGenerations.set(frame, currentGeneration);
         markReady(event.target);
       }, onStateChange(event) {
+        // Other page features (chapter list, mini player) follow playback without reaching into this module.
+        frame.dispatchEvent?.(new CustomEvent('youtube-state', { detail: event.data, bubbles: true }));
         const practice = practiceControllers.get(frame);
         if (practice) { practice.onStateChange(event.data); return; }
         if (!segmentLoop) return;
@@ -234,7 +236,8 @@ const english = () => document.documentElement.lang.startsWith('en');
 export function enterSplitView(frame: HTMLIFrameElement, anchor?: Element | null): boolean {
   const figure = frame.closest<HTMLElement>('.video-embed');
   const root = document.documentElement;
-  if (!figure || !window.matchMedia?.(SPLIT_VIEW_QUERY).matches) return false;
+  // A player docked in the sticky sidebar is already beside the text; splitting would hide that sidebar.
+  if (!figure || figure.closest?.('.post-sidebar') || !window.matchMedia?.(SPLIT_VIEW_QUERY).matches) return false;
   if (figure.classList.contains('video-embed--split')) return true;
   keepInPlace(anchor, () => {
     // A page can embed several lectures; the one just asked for takes the pinned slot.
@@ -296,6 +299,10 @@ export function offerReturn(top: number) {
     button.remove();
   });
   document.body.appendChild(button);
+}
+
+export function pauseEmbeddedYoutube(frame: HTMLIFrameElement) {
+  players.get(frame)?.pauseVideo?.();
 }
 
 export function seekEmbeddedYoutube(frame: HTMLIFrameElement, seconds: number, anchor?: Element | null) {

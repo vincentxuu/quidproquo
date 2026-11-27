@@ -8,6 +8,17 @@ export function slidePageUrl(source: string, page: number, total: number): strin
   return url.href;
 }
 
+/** Panels another feature may host inline (the video sidebar puts slides under the player). */
+const dockControls = new WeakMap<HTMLDialogElement, (page?: number) => void>();
+/** Show the article's slide panel inline and optionally turn to a page; false when it has none. */
+export function showDockedSlides(page?: number): boolean {
+  const panel = document.querySelector<HTMLDialogElement>('.slide-reader-panel');
+  const show = panel && dockControls.get(panel);
+  if (!show) return false;
+  show(page);
+  return true;
+}
+
 let dispose: (() => void) | undefined;
 export function disposeSlideReader() { dispose?.(); dispose = undefined; }
 export function initSlideReader() {
@@ -83,7 +94,7 @@ function setupSlideReader(root: HTMLElement, index: number) {
   const navigate = (value: number) => {
     page = value;
     if (!frame.getAttribute('src')) {
-      frame.src = `/pdfjs/web/viewer.html?lang=${en ? 'en-US' : 'zh-TW'}&file=${encodeURIComponent(pdf)}#page=${page}&zoom=page-width`;
+      frame.src = `/pdfjs/web/viewer.html?lang=${en ? 'en-US' : 'zh-TW'}&file=${encodeURIComponent(pdf)}#page=${page}&zoom=${isDocked() ? 'page-fit' : 'page-width'}`;
     } else {
       frame.contentWindow?.postMessage({ type: 'qp-pdf-jump', page }, location.origin);
     }
@@ -95,7 +106,15 @@ function setupSlideReader(root: HTMLElement, index: number) {
   const onFrameLoad = () => frame.contentWindow?.postMessage({ type: 'qp-pdf-jump', page }, location.origin);
   frame.addEventListener('load', onFrameLoad);
   window.addEventListener('message', onMessage);
+  // Hosted inside the video sidebar: always shown, never modal, never takes over the page layout.
+  const isDocked = () => !!panel.closest('.post-sidebar');
+  dockControls.set(panel, (value?: number) => {
+    if (!isDocked()) return;
+    if (!panel.open) panel.show();
+    navigate(value ?? page);
+  });
   const open = (value: number, trigger: HTMLElement) => {
+    if (isDocked()) { if (!panel.open) panel.show(); navigate(value); return; }
     document.querySelectorAll<HTMLDialogElement>('.slide-reader-panel[open]').forEach(other => { if (other !== panel) other.close(); });
     returnFocus = trigger;
     if (!panel.open) { if (media.matches) panel.show(); else panel.showModal(); }
@@ -120,8 +139,8 @@ function setupSlideReader(root: HTMLElement, index: number) {
       returnFocus?.focus({ preventScroll: true });
     }
   };
-  const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape' && panel.open) panel.close(); };
-  const onResize = () => { if (panel.open) { panel.close(); if (media.matches) panel.show(); else panel.showModal(); document.body.classList.toggle('has-slide-reader', media.matches); triggers.forEach(el => el.setAttribute('aria-expanded', 'true')); } };
+  const onKey = (event: KeyboardEvent) => { if (event.key === 'Escape' && panel.open && !isDocked()) panel.close(); };
+  const onResize = () => { if (panel.open && !isDocked()) { panel.close(); if (media.matches) panel.show(); else panel.showModal(); document.body.classList.toggle('has-slide-reader', media.matches); triggers.forEach(el => el.setAttribute('aria-expanded', 'true')); } };
   panel.querySelector('[data-slide-close]')!.addEventListener('click', () => panel.close());
   panel.addEventListener('close', onClose);
   document.addEventListener('click', onClick);
