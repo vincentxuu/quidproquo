@@ -222,7 +222,7 @@ Configured via `wrangler.jsonc` `vars` or the Cloudflare dashboard. All `AGENT_*
 
 | Variable | Description |
 |----------|-------------|
-| `LLM_PROVIDER` | Default model provider (`openai` \| `anthropic` \| `gemini` \| `groq` \| `openrouter`) |
+| `LLM_PROVIDER` | Default model provider (`cloudflare` \| `openai` \| `anthropic` \| `gemini` \| `nvidia` \| `openrouter` \| `opencode`) |
 | `ACCESS_TEAM_DOMAIN`, `ACCESS_AUD` | Cloudflare Access team domain and application audience; once any `ACCESS_*` var is set, admin and private routes require a verified Access JWT (and fail with 503 if the config is incomplete) |
 | `ACCESS_ALLOWED_EMAILS` | Comma-separated emails allowed through Access-protected routes |
 | `AGENT_OS_*` | Agent OS kernel and roles (planner, research, writer, critic), external MCP tools, queue scheduler |

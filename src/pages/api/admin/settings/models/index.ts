@@ -59,9 +59,9 @@ interface ProviderSaveBody {
 const DEFAULT_CATALOG: ProviderCatalog = {
   models: [
     {
-      provider: 'groq',
-      model: 'openai/gpt-oss-120b',
-      displayName: 'Llama 3.3 70B Versatile',
+      provider: 'cloudflare',
+      model: '@cf/meta/llama-4-scout-17b-16e-instruct',
+      displayName: 'Llama 4 Scout 17B',
       enabled: true,
       notes: 'Default RAG model',
     },

@@ -9,7 +9,6 @@ import { setSetting } from '@/lib/db/settings-store'
 import { CATALOG_SYNCED_KEY } from '@/lib/config/settings-keys'
 
 const PRESET_MODELS: Record<string, string[]> = {
-  groq: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3-32b'],
   openai: ['gpt-4.1-mini', 'gpt-4.1', 'gpt-4.1-nano', 'o3-mini', 'o4-mini'],
   google: ['gemini-3.7-flash', 'gemini-2.5-pro', 'gemini-2.5-flash'],
   gemini: ['gemini-3.7-flash', 'gemini-2.5-pro', 'gemini-2.5-flash'],
@@ -23,8 +22,6 @@ const PRESET_MODELS: Record<string, string[]> = {
   nvidia: ['meta/llama-4-scout-17b-16e-instruct', 'deepseek-ai/deepseek-r1', 'nvidia/llama-3.3-nemotron-super-49b-v1'],
   openrouter: ['openrouter/auto'],
   opencode: ['deepseek-v4-0324', 'qwen-3-32b', 'llama-4-maverick'],
-  ollama_cloud: ['llama3.3', 'qwen2.5-72b'],
-  ollama: ['llama3.3', 'qwen2.5-72b'],
 }
 
 export const POST: APIRoute = async ({ cookies, params }) => {
@@ -173,10 +170,10 @@ export async function syncAllProviders(db: D1Database): Promise<{ synced: string
 }
 
 async function fetchProviderModels(provider: string, envFallbacks: Partial<Record<string, string>>): Promise<string[]> {
-  if (provider === 'groq' || provider === 'openai') {
+  if (provider === 'openai') {
     return fetchOpenAiLikeModels(
-      provider === 'groq' ? `https://api.groq.com/openai/v1/models` : `https://api.openai.com/v1/models`,
-      provider === 'groq' ? envFallbacks.GROQ_API_KEY : envFallbacks.OPENAI_API_KEY,
+      'https://api.openai.com/v1/models',
+      envFallbacks.OPENAI_API_KEY,
       provider,
     )
   }
@@ -211,16 +208,6 @@ async function fetchProviderModels(provider: string, envFallbacks: Partial<Recor
 
   if (provider === 'cloudflare') {
     return fetchCloudflareModels(envFallbacks.CLOUDFLARE_ACCOUNT_ID, envFallbacks.CLOUDFLARE_API_TOKEN)
-  }
-
-  if (provider === 'ollama_cloud') {
-    return fetchOllamaCloudModels(envFallbacks.OLLAMA_API_KEY)
-  }
-
-  if (provider === 'ollama') {
-    const base = envFallbacks.OLLAMA_API_BASE || envFallbacks.OLLAMA_HOST || envFallbacks.OLLAMA_URL
-      || 'http://localhost:11434'
-    return fetchOllamaLocalModels(base)
   }
 
   return []
@@ -330,51 +317,3 @@ async function fetchCloudflareModels(accountId: string | undefined, apiKey: stri
     throw new Error('cloudflare 模型列表 API 呼叫失敗')
   }
 }
-
-async function fetchOllamaCloudModels(apiKey: string | undefined): Promise<string[]> {
-  if (!apiKey) throw new Error('OLLAMA_API_KEY is missing')
-  try {
-    const response = await fetch('https://ollama.com/api/tags', {
-      headers: {
-        Authorization: `Bearer ${apiKey}`,
-      },
-    })
-    if (!response.ok) {
-      throw new Error(`Ollama Cloud API failed (${response.status}): ${await response.text()}`)
-    }
-    const payload = await response.json().catch(() => null) as { models?: Array<{ model?: unknown }> } | null
-    const data = Array.isArray(payload?.models) ? payload.models : []
-    return data
-      .map((item) => (typeof item?.model === 'string' ? item.model.trim() : ''))
-      .filter(Boolean)
-  } catch {
-    throw new Error('ollama_cloud 模型列表 API 呼叫失敗')
-  }
-}
-
-async function fetchOllamaLocalModels(baseUrl: string): Promise<string[]> {
-  const normalized = normalizeUrl(baseUrl)
-  try {
-    const response = await fetch(`${normalized}/api/tags`)
-    if (!response.ok) {
-      throw new Error(`Ollama local API failed (${response.status}): ${await response.text()}`)
-    }
-    const payload = await response.json().catch(() => null) as { models?: Array<{ name?: unknown; model?: unknown }> } | null
-    const data = Array.isArray(payload?.models) ? payload.models : []
-    return data
-      .map((item) => {
-        if (typeof item?.name === 'string') return item.name.trim()
-        if (typeof item?.model === 'string') return item.model.trim()
-        return ''
-      })
-      .filter(Boolean)
-  } catch {
-    throw new Error('ollama 本地模型列表 API 呼叫失敗')
-  }
-}
-
-function normalizeUrl(raw: string): string {
-  return raw.trim().replace(/\/+$/, '').replace(/\/api\/generate$/i, '').replace(/\/v1$/i, '')
-}
-
-

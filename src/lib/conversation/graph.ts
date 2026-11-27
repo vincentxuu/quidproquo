@@ -40,7 +40,7 @@ function firstLine(error: unknown): string {
 }
 
 /**
- * 重寫那一輪的 writer 掛掉（Groq 429 TPM 最常見）時，手上已經有一版通過 validation 的
+ * 重寫那一輪的 writer 掛掉（429 限流最常見）時，手上已經有一版通過 validation 的
  * 草稿，保留它往下走比整個 pipeline 炸掉、讀者看到「發生錯誤」好。第一輪就掛照樣拋錯。
  */
 export function withWriterFallback(node: GraphNode): GraphNode {
@@ -56,7 +56,7 @@ export function withWriterFallback(node: GraphNode): GraphNode {
 }
 
 /**
- * Critic 只負責打分數；模型端掛掉（Groq 429 TPM、逾時）不該讓已通過 validation 的
+ * Critic 只負責打分數；模型端掛掉（429 限流、逾時）不該讓已通過 validation 的
  * 草稿整個消失。失敗時給一組剛好過門檻的分數直接往 related 走，並在 gaps 留下原因。
  */
 export function withCriticFallback(node: GraphNode): GraphNode {

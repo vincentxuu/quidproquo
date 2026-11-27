@@ -1,4 +1,3 @@
-import { ChatGroq } from '@langchain/groq'
 import { ChatOpenAI } from '@langchain/openai'
 import type { ChatOpenAIFields } from '@langchain/openai'
 import { ChatGoogleGenerativeAI } from '@langchain/google-genai'
@@ -30,7 +29,7 @@ export interface ChatModelResponse {
 }
 
 /**
- * Common chat model surface unified across all providers (ChatOpenAI, ChatGroq,
+ * Common chat model surface unified across all providers (ChatOpenAI,
  * ChatGoogleGenerativeAI, Cloudflare Workers AI). Each provider class extends
  * langchain's BaseChatModel and adds its own generic args, so the raw union
  * type isn't easy for TS to narrow. This minimal interface only exposes the
@@ -44,7 +43,6 @@ type Env = {
   AI?: {
     run: (model: string, input: Record<string, unknown>) => Promise<unknown>
   }
-  GROQ_API_KEY?: string
   OPENAI_API_KEY?: string
   GOOGLE_API_KEY?: string
   GEMINI_API_KEY?: string
@@ -52,12 +50,7 @@ type Env = {
   OPENCODE_API_KEY?: string
   OPENCODE_ZEN_API_KEY?: string
   NVIDIA_API_KEY?: string
-  OLLAMA_API_KEY?: string
-  OLLAMA_CLOUD_API_KEY?: string
   ANTHROPIC_API_KEY?: string
-  OLLAMA_API_BASE?: string
-  OLLAMA_HOST?: string
-  OLLAMA_URL?: string
 }
 
 type ModelProvider = RagRuntimeConfig['defaultProvider']
@@ -75,8 +68,8 @@ function resolveRoute(
 ): ModelRoute {
   const stageConfig = stage && config?.stageOverrides ? config.stageOverrides[stage] : undefined
   return {
-    provider: stageConfig?.provider ?? config?.defaultProvider ?? 'groq',
-    model: stageConfig?.model ?? config?.defaultModel ?? 'openai/gpt-oss-120b',
+    provider: stageConfig?.provider ?? config?.defaultProvider ?? 'cloudflare',
+    model: stageConfig?.model ?? config?.defaultModel ?? '@cf/meta/llama-4-scout-17b-16e-instruct',
     fallback: false,
   }
 }
@@ -161,15 +154,6 @@ export function createRawModel(
     return new ChatGoogleGenerativeAI(route.model, { apiKey, maxOutputTokens: maxTokens }) as unknown as InvokableModel
   }
 
-  if (route.provider === 'groq') {
-    const apiKey = apiKeys.groq || e.GROQ_API_KEY
-    return new ChatGroq(route.model, {
-      apiKey,
-      maxTokens,
-      maxRetries: 0,
-    } as unknown as import('@langchain/groq').ChatGroqInput) as unknown as InvokableModel
-  }
-
   if (route.provider === 'openrouter') {
     const apiKey = apiKeys.openrouter || apiKeys.OPENROUTER_API_KEY || e.OPENROUTER_API_KEY
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://openrouter.ai/api/v1')
@@ -186,20 +170,9 @@ export function createRawModel(
     return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://integrate.api.nvidia.com/v1')
   }
 
-  if (route.provider === 'ollama_cloud') {
-    const apiKey = apiKeys.ollama_cloud || apiKeys.OLLAMA_API_KEY || apiKeys.OLLAMA_CLOUD_API_KEY || e.OLLAMA_API_KEY || e.OLLAMA_CLOUD_API_KEY
-    return createRawOpenAiCompatibleModel(route.model, apiKey, maxTokens, 'https://ollama.com/v1')
-  }
-
-  if (route.provider === 'ollama') {
-    const baseURL = apiKeys.OLLAMA_API_BASE || apiKeys.OLLAMA_HOST || apiKeys.OLLAMA_URL
-      || e.OLLAMA_API_BASE || e.OLLAMA_HOST || e.OLLAMA_URL || 'http://localhost:11434/v1'
-    return createRawOpenAiCompatibleModel(route.model, apiKeys.ollama || apiKeys.OLLAMA_API_KEY || e.OLLAMA_API_KEY || 'ollama', maxTokens, normalizeOpenAiBaseUrl(baseURL))
-  }
-
   if (route.provider === 'cloudflare') {
     if (!e.AI) throw new Error('Cloudflare Workers AI binding (AI) is missing')
-    return createRawCloudflareAiModel(e.AI, route.model, maxTokens)
+    return createRawCloudflareAiModel(e.AI, route.model, maxTokens, apiKeys)
   }
 
   if (route.provider === 'anthropic') {
@@ -239,7 +212,7 @@ export function createResilientModel(
   }
 
   if (e.AI) {
-    fallbacks.push(createRawCloudflareAiModel(e.AI, CLOUDFLARE_FALLBACK_MODEL, maxTokens))
+    fallbacks.push(createRawCloudflareAiModel(e.AI, CLOUDFLARE_FALLBACK_MODEL, maxTokens, options?.apiKeys ?? {}))
   }
 
   if (!primary) {
@@ -266,11 +239,10 @@ function createRawModelSafe(
 
 function defaultModelForProvider(provider: ModelProvider): string {
   const defaults: Partial<Record<ModelProvider, string>> = {
-    groq: 'openai/gpt-oss-120b',
     openai: 'gpt-4.1-mini',
     google: 'gemini-3.6-flash',
     gemini: 'gemini-3.6-flash',
-    openrouter: 'nvidia/nemotron-3-super-120b-a12b:free',
+    openrouter: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
   }
@@ -313,8 +285,19 @@ function attachFallbackChain(primary: InvokableModel, fallbacks: InvokableModel[
   return retriedPrimary
 }
 
-function createRawCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, maxTokens: number): InvokableModel {
-  return {
+/**
+ * Plain-text calls go through the AI binding. Tool calls go through Workers AI's
+ * OpenAI-compatible endpoint, which returns standard `tool_calls`; it needs an API token
+ * and account id, so without them the model has no `bindTools` and callers that need
+ * tools treat it as unsupported.
+ */
+function createRawCloudflareAiModel(
+  ai: NonNullable<Env['AI']>,
+  model: string,
+  maxTokens: number,
+  apiKeys: ProviderApiKeys,
+): InvokableModel {
+  const textModel = {
     async invoke(messages: BaseMessageLike[]): Promise<unknown> {
       const result = await ai.run(model, {
         messages: toCloudflareMessages(messages),
@@ -323,6 +306,20 @@ function createRawCloudflareAiModel(ai: NonNullable<Env['AI']>, model: string, m
       return new AIMessage(extractCloudflareText(result))
     },
   } as InvokableModel
+
+  const token = apiKeys.CLOUDFLARE_API_TOKEN
+  const accountId = apiKeys.CLOUDFLARE_ACCOUNT_ID
+  if (!token || !accountId) return textModel
+
+  const toolModel = createRawOpenAiCompatibleModel(
+    model,
+    token,
+    maxTokens,
+    `https://api.cloudflare.com/client/v4/accounts/${encodeURIComponent(accountId)}/ai/v1`,
+  )
+  return Object.assign(textModel, {
+    bindTools: (...args: Parameters<NonNullable<InvokableModel['bindTools']>>) => (toolModel.bindTools as NonNullable<InvokableModel["bindTools"]>)(...args),
+  })
 }
 
 function createRawOpenAiCompatibleModel(model: string, apiKey: string | undefined, maxTokens: number, baseURL: string): InvokableModel {
@@ -378,18 +375,13 @@ function extractCloudflareText(result: unknown): string {
   return JSON.stringify(result)
 }
 
-function normalizeOpenAiBaseUrl(raw: string): string {
-  const trimmed = raw.trim().replace(/\/+$/, '')
-  return trimmed.endsWith('/v1') ? trimmed : `${trimmed}/v1`
-}
-
 export function resolveModelRoute(config: RagRuntimeConfig, stage: string): ModelRoute {
   return resolveRoute(config, stage)
 }
 
 /**
- * Reasoning 模型（Groq gpt-oss、DeepSeek R1 等）會把思考過程放在正式回答
- * 之外：Groq 經 ChatGroq 放在 `additional_kwargs.reasoning_content`，
+ * Reasoning 模型（gpt-oss、DeepSeek R1 等）會把思考過程放在正式回答
+ * 之外：部分通道放在 `additional_kwargs.reasoning_content`，
  * OpenRouter/Anthropic 相容通道則可能以 type 為 reasoning/thinking 的
  * content block 回傳。這裡只做寬鬆萃取，拿不到就回空字串，呼叫方自行略過。
  *
@@ -443,7 +435,7 @@ function messagesToCapturePrompt(messages: BaseMessageLike[]): Array<{ role: str
 }
 
 /**
- * Provider clients here (ChatOpenAI/ChatGroq/ChatGoogleGenerativeAI, and the
+ * Provider clients here (ChatOpenAI/ChatGoogleGenerativeAI, and the
  * raw Cloudflare Workers AI wrapper) are never given a request timeout, so a
  * provider that stalls the connection instead of erroring leaves this promise
  * unsettled forever. That hangs the whole RAG pipeline: the SSE stream never

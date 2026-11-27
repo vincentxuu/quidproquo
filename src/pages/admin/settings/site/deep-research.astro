@@ -162,7 +162,7 @@ import '@/styles/globals.css';
   };
 
   const defaultCatalog = [
-    { provider: 'groq', model: 'llama-3.3-70b-versatile' },
+    { provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' },
     { provider: 'openai', model: 'gpt-4.1-mini' },
     { provider: 'google', model: 'gemini-2.0-flash' },
   ];
@@ -209,7 +209,7 @@ import '@/styles/globals.css';
       state.providers = Array.isArray(payload.providers) ? payload.providers : [];
       state.catalog = Array.isArray(payload.catalog?.models) ? payload.catalog.models : [];
     } catch {
-      state.providers = ['groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'ollama_cloud', 'ollama'];
+      state.providers = ['openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'opencode'];
       state.catalog = defaultCatalog;
     }
 

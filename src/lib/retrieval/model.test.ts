@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { ChatGroq } from '@langchain/groq'
+import { ChatOpenAI } from '@langchain/openai'
 import { MAX_REASONING_CHARS, extractReasoningText, createModel } from './model'
 import type { ChatModelResponse } from './model'
 
@@ -8,7 +8,7 @@ function makeResponse(extra: Record<string, unknown>, content: ChatModelResponse
 }
 
 describe('extractReasoningText', () => {
-  it('reads Groq reasoning_content from additional_kwargs', () => {
+  it('reads reasoning_content from additional_kwargs', () => {
     const response = makeResponse({
       additional_kwargs: { reasoning_content: '先想想使用者要什麼…' },
     })
@@ -41,10 +41,13 @@ describe('extractReasoningText', () => {
 
 describe('createModel cancellation', () => {
   it('forwards the caller abort signal through the adapter to the provider', async () => {
-    const spy = vi.spyOn(ChatGroq.prototype, 'invoke').mockResolvedValue({ content: 'result' } as never)
+    const spy = vi.spyOn(ChatOpenAI.prototype, 'invoke').mockResolvedValue({ content: 'result' } as never)
     try {
       const controller = new AbortController()
-      const model = createModel(4000, { apiKeys: { groq: 'test-key' } })
+      const model = createModel(4000, {
+        route: { provider: 'openai', model: 'gpt-4.1-mini', fallback: false },
+        apiKeys: { openai: 'test-key' },
+      })
       await model.invoke(['hello'], { signal: controller.signal })
       expect(spy).toHaveBeenCalledWith(['hello'], { signal: controller.signal })
     } finally { spy.mockRestore() }

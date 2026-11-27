@@ -15,8 +15,8 @@ vi.mock('../model', async () => {
 type MockInvokeResult = Awaited<ReturnType<typeof invokeModel>>
 
 const route = {
-  provider: 'groq' as const,
-  model: 'llama-3.3-70b-versatile',
+  provider: 'openrouter' as const,
+  model: 'openai/gpt-oss-120b:free',
   fallback: false,
 }
 
@@ -60,13 +60,13 @@ describe('planner agent parity', () => {
     vi.mocked(invokeModel).mockResolvedValueOnce(result)
 
     const legacy = await plannerNode(state, {
-      apiKeys: { groq: 'legacy-key' },
+      apiKeys: { openrouter: 'legacy-key' },
     })
     const syscall = vi.fn().mockResolvedValueOnce(result)
     const kernel = await plannerAgent.run(state, {
       syscallContext: { runId: 'run-1', agentId: 'planner' },
       syscall,
-      runtimeOptions: { providerApiKeys: { groq: 'kernel-key' } },
+      runtimeOptions: { providerApiKeys: { openrouter: 'kernel-key' } },
     })
 
     expect(syscall).toHaveBeenCalledWith(
@@ -75,7 +75,7 @@ describe('planner agent parity', () => {
       expect.objectContaining({
         stage: 'planner',
         maxTokens: 512,
-        apiKeys: { groq: 'kernel-key' },
+        apiKeys: { openrouter: 'kernel-key' },
       })
     )
     expect(kernel.plan).toEqual(legacy.plan)

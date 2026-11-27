@@ -75,7 +75,6 @@
     "@lanefoundry/gatelane-sdk": "^0.1.0",
     "@langchain/core": "^1.1.41",
     "@langchain/google-genai": "^2.1.28",
-    "@langchain/groq": "^1.2.0",
     "@langchain/langgraph": "^1.2.9",
     "@langchain/openai": "^1.4.4",
     "@playwright/test": "^1.58.2",

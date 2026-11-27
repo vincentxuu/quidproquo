@@ -31,9 +31,9 @@ describe('overlayRetry (enforcement/retry/overlay)', () => {
 
   it('preserves fallback_provider from policy', () => {
     const step = { max_attempts: 3 }
-    const policy = { fallback_provider: 'llm.groq' }
+    const policy = { fallback_provider: 'llm.openrouter' }
     const result = overlayRetry(step, policy)
-    expect(result?.fallback_provider).toBe('llm.groq')
+    expect(result?.fallback_provider).toBe('llm.openrouter')
   })
 
   it('preserves on_exhaustion from policy', () => {
@@ -99,8 +99,8 @@ describe('overlayRetryFromPolicy (agent-flow/runtime/retry)', () => {
 
   it('preserves fallbackProvider from policy', () => {
     const base = { maxAttempts: 3, backoffMs: 1000 }
-    const result = overlayRetryFromPolicy(base, { fallback_provider: 'llm.groq' })
-    expect(result.fallbackProvider).toBe('llm.groq')
+    const result = overlayRetryFromPolicy(base, { fallback_provider: 'llm.openrouter' })
+    expect(result.fallbackProvider).toBe('llm.openrouter')
   })
 
   it('preserves base config when policy fields are undefined', () => {

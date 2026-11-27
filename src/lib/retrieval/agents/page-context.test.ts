@@ -41,7 +41,7 @@ function result(chunkId: string, slug: string, score: number): SearchResult {
 function mockPlannerJson(json: Record<string, unknown> | string) {
   vi.mocked(invokeModel).mockResolvedValueOnce({
     response: { content: typeof json === 'string' ? json : JSON.stringify(json) },
-    route: { provider: 'groq', model: 'test', fallback: false },
+    route: { provider: 'openrouter', model: 'test', fallback: false },
   } as unknown as Awaited<ReturnType<typeof invokeModel>>)
 }
 

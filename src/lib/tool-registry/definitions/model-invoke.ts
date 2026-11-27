@@ -48,7 +48,6 @@ export const modelInvokeSyscall = defineSyscall<ModelInvokeInput, Awaited<Return
     if (
       flags?.providers?.enabled &&
       (flags.providers.llm.openai ||
-        flags.providers.llm.groq ||
         flags.providers.llm.anthropic ||
         flags.providers.llm.gemini ||
         flags.providers.llm.openrouter)

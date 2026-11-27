@@ -4,12 +4,12 @@ import { wireProviderEnforcement } from './wire'
 
 describe('provider policy enforcement — checkProvider', () => {
   it('allows provider in allowlist', () => {
-    const result = checkProvider({ id: 'llm.groq' }, { allowlist: ['llm.groq'] })
+    const result = checkProvider({ id: 'llm.openrouter' }, { allowlist: ['llm.openrouter'] })
     expect(result).toEqual({ allowed: true })
   })
 
   it('denies provider not in allowlist', () => {
-    const result = checkProvider({ id: 'llm.openai' }, { allowlist: ['llm.groq'] })
+    const result = checkProvider({ id: 'llm.openai' }, { allowlist: ['llm.openrouter'] })
     expect(result).toEqual({ allowed: false, reason: 'not_in_allowlist' })
   })
 
@@ -21,23 +21,23 @@ describe('provider policy enforcement — checkProvider', () => {
   it('denies provider in denylist regardless of allowlist', () => {
     const result = checkProvider(
       { id: 'llm.openai' },
-      { allowlist: ['llm.openai', 'llm.groq'], denylist: ['llm.openai'] },
+      { allowlist: ['llm.openai', 'llm.openrouter'], denylist: ['llm.openai'] },
     )
     expect(result).toEqual({ allowed: false, reason: 'in_denylist' })
   })
 
   it('denies when region does not match', () => {
     const result = checkProvider(
-      { id: 'llm.groq', region: 'eu-west-1' },
-      { allowlist: ['llm.groq'], region: 'us-*' },
+      { id: 'llm.openrouter', region: 'eu-west-1' },
+      { allowlist: ['llm.openrouter'], region: 'us-*' },
     )
     expect(result).toEqual({ allowed: false, reason: 'region_mismatch' })
   })
 
   it('denies on data residency mismatch', () => {
     const result = checkProvider(
-      { id: 'llm.groq', dataResidency: 'eu' },
-      { allowlist: ['llm.groq'], data_residency: 'us' },
+      { id: 'llm.openrouter', dataResidency: 'eu' },
+      { allowlist: ['llm.openrouter'], data_residency: 'us' },
     )
     expect(result).toEqual({ allowed: false, reason: 'residency_mismatch' })
   })
@@ -55,22 +55,22 @@ describe('provider policy enforcement — wireProviderEnforcement', () => {
   })
 
   it('allows provider in allowlist', () => {
-    const wire = wireProviderEnforcement({ allowlist: ['llm.groq'] })
-    expect(wire.checkBeforeDispatch('llm.groq')).toEqual({ allowed: true })
+    const wire = wireProviderEnforcement({ allowlist: ['llm.openrouter'] })
+    expect(wire.checkBeforeDispatch('llm.openrouter')).toEqual({ allowed: true })
   })
 
   it('denies provider not in allowlist with no fallback', () => {
-    const wire = wireProviderEnforcement({ allowlist: ['llm.groq'] })
+    const wire = wireProviderEnforcement({ allowlist: ['llm.openrouter'] })
     expect(wire.checkBeforeDispatch('llm.openai')).toEqual({ allowed: false })
   })
 
   it('falls back to first allowed provider in fallback_chain', () => {
     const wire = wireProviderEnforcement({
-      allowlist: ['llm.groq'],
-      fallback_chain: ['llm.anthropic', 'llm.groq'],
+      allowlist: ['llm.openrouter'],
+      fallback_chain: ['llm.anthropic', 'llm.openrouter'],
     })
     const result = wire.checkBeforeDispatch('llm.openai')
     expect(result.allowed).toBe(true)
-    expect(result.fallbackId).toBe('llm.groq')
+    expect(result.fallbackId).toBe('llm.openrouter')
   })
 })

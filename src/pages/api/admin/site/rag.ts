@@ -12,8 +12,8 @@ import { getSetting, getSettingRows, setSetting } from '@/lib/db/settings-store'
 
 const DEFAULT_SETTINGS: Record<string, string> = {
   rag_pipeline_engine: 'langgraph',
-  rag_default_provider: 'groq',
-  rag_default_model: 'openai/gpt-oss-120b',
+  rag_default_provider: 'cloudflare',
+  rag_default_model: '@cf/meta/llama-4-scout-17b-16e-instruct',
   rag_stage_overrides: '{}',
   rag_fallback_provider: '',
   rag_fallback_model: '',

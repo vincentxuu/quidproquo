@@ -10,7 +10,7 @@ describe('summarizeFailure', () => {
   })
 
   it('classifies by the primary provider and notes that fallbacks failed too', () => {
-    const s = summarizeFailure('Session failed: model error: all providers failed: gemini:gemini-4: [429 Too Many Requests] quota | ollama_cloud:gpt-oss:120b: 402 Add usage credits | openrouter:x: 401 User not found')
+    const s = summarizeFailure('Session failed: model error: all providers failed: gemini:gemini-4: [429 Too Many Requests] quota | nvidia:nvidia/nemotron-3-ultra-550b-a55b: 402 Add usage credits | openrouter:x: 401 User not found')
     expect(s.category).toBe('model_quota')
     expect(s.message).toContain('備援模型')
   })

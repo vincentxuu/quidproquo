@@ -161,7 +161,7 @@ function buildWriterUpdate(state: GraphState, result: WriterModelResult): Partia
 }
 
 /**
- * Reasoning models (e.g. Groq's gpt-oss) may return content as an array of
+ * Reasoning models (e.g. gpt-oss) may return content as an array of
  * blocks or an empty string with reasoning in a separate field. The old
  * `typeof === 'string' ? : ''` coercion silently dropped array content into
  * an empty draft, which then sailed through validation. Join text blocks so

@@ -38,8 +38,8 @@ vi.mock('../tools/external-search', () => ({
 }))
 
 const route = {
-  provider: 'groq' as const,
-  model: 'llama-3.3-70b-versatile',
+  provider: 'openrouter' as const,
+  model: 'openai/gpt-oss-120b:free',
   fallback: false,
 }
 
@@ -319,7 +319,7 @@ async function expectParity(state: GraphState) {
   vi.mocked(pageIndexSearch).mockImplementation(async () => [pageResult])
 
   const legacy = await researchNode(state, {
-    apiKeys: { groq: 'legacy-key' },
+    apiKeys: { openrouter: 'legacy-key' },
   })
   const syscall = vi.fn(async (_ctx, name: string) => {
     if (name === 'model.invoke') {
@@ -338,7 +338,7 @@ async function expectParity(state: GraphState) {
   const kernel = await researchAgent.run(state, {
     syscallContext: { runId: 'run-1', agentId: 'research' },
     syscall,
-    runtimeOptions: { providerApiKeys: { groq: 'kernel-key' } },
+    runtimeOptions: { providerApiKeys: { openrouter: 'kernel-key' } },
   })
 
   expect(kernel.search_results?.map(result => result.chunk_id)).toEqual(legacy.search_results?.map(result => result.chunk_id))

@@ -160,8 +160,8 @@ export function initialState(): GraphState {
     conversation_summary: undefined,
     config: {
       pipelineEngine: 'langgraph',
-      defaultProvider: 'groq',
-      defaultModel: 'openai/gpt-oss-120b',
+      defaultProvider: 'cloudflare',
+      defaultModel: '@cf/meta/llama-4-scout-17b-16e-instruct',
       stageOverrides: {},
       fallbackProvider: null,
       fallbackModel: null,

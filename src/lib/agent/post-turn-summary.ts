@@ -2,8 +2,15 @@ import { listByCategory } from '../providers/registry'
 import { routeWithFallback } from '../providers/routing-fallback'
 import { createInMemoryProviderBackends } from '../providers/storage/test/in-memory'
 import { invokeModel, type ProviderApiKeys } from '../retrieval/model'
+import type { RagRuntimeConfig } from '../retrieval/state'
 import { createSessionManager, type PostTurnSummary } from './session-manager'
 import type { Flags } from '../config/flags'
+
+// invokeModel resolves its route from defaultProvider/defaultModel; no fallback route is set.
+const SUMMARY_MODEL_CONFIG = {
+  defaultProvider: 'cloudflare',
+  defaultModel: '@cf/meta/llama-4-scout-17b-16e-instruct',
+} as RagRuntimeConfig
 
 const VALID_CATEGORIES = new Set(['working', 'waiting_input', 'completed', 'failed', 'needs_review'])
 
@@ -51,7 +58,7 @@ export async function generatePostTurnSummary(deps: SummaryDeps): Promise<PostTu
           const i = inp as { messages: [string, string][]; apiKeys: ProviderApiKeys }
           const llmMessages: Array<[string, string]> = [['system', SYSTEM_PROMPT], ...i.messages]
           const { response } = await invokeModel(
-            { provider: 'groq', model: 'llama-3.1-8b-instant' } as never,
+            SUMMARY_MODEL_CONFIG,
             'post_turn_summary',
             llmMessages,
             256,
@@ -72,7 +79,7 @@ export async function generatePostTurnSummary(deps: SummaryDeps): Promise<PostTu
     try {
       const llmMessages: Array<[string, string]> = [['system', SYSTEM_PROMPT], ...lastMessages]
       const { response } = await invokeModel(
-        { provider: 'groq', model: 'llama-3.1-8b-instant' } as never,
+        SUMMARY_MODEL_CONFIG,
         'post_turn_summary',
         llmMessages,
         256,

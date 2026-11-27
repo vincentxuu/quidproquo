@@ -18,9 +18,7 @@ interface D1DatabaseLike {
 
 interface RuntimeEnv {
   DB?: D1DatabaseLike
-  GROQ_API_KEY?: string
-  OPENAI_API_KEY?: string
-  GOOGLE_API_KEY?: string
+  AI?: unknown
 }
 
 interface GlossaryRequest {
@@ -52,8 +50,9 @@ function cleanText(value: unknown, fallback = ''): string {
   return typeof value === 'string' ? value.trim() : fallback
 }
 
-function hasModelKey(e: RuntimeEnv): boolean {
-  return Boolean(e.GROQ_API_KEY || e.OPENAI_API_KEY || e.GOOGLE_API_KEY)
+// createModel() without a config routes to the default provider, Cloudflare Workers AI.
+function hasModelBinding(e: RuntimeEnv): boolean {
+  return Boolean(e.AI)
 }
 
 function buildLocalResponse(term: string, level: 'beginner' | 'advanced', context: string, seed?: GlossaryEntry): GlossaryResponse {
@@ -93,7 +92,7 @@ function parseModelJson(content: unknown): Partial<GlossaryResponse> | null {
 }
 
 async function explainWithModel(env: RuntimeEnv, term: string, level: 'beginner' | 'advanced', context: string, seed?: GlossaryEntry): Promise<GlossaryResponse | null> {
-  if (!hasModelKey(env)) return null
+  if (!hasModelBinding(env)) return null
 
   const fallback = buildLocalResponse(term, level, context, seed)
   const model = createModel(420)

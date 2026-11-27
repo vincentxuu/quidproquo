@@ -205,9 +205,8 @@ wrangler secret put OPENAI_API_KEY
 wrangler secret put ANTHROPIC_API_KEY
 wrangler secret put GEMINI_API_KEY
 wrangler secret put OPENROUTER_API_KEY
-wrangler secret put GROQ_API_KEY
-wrangler secret put CEREBRAS_API_KEY
 wrangler secret put NVIDIA_API_KEY
+wrangler secret put OPENCODE_ZEN_API_KEY
 
 # Search Providers (依需求)
 wrangler secret put TAVILY_API_KEY

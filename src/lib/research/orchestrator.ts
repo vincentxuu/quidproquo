@@ -485,7 +485,7 @@ function safeLoadRagSettings(db?: D1Database): Promise<RagRuntimeConfig> {
 function normalizeProvider(raw: string): Provider {
   const provider = raw.toLowerCase().trim()
   if (SUPPORTED_PROVIDERS.includes(provider as Provider)) return provider as Provider
-  return SUPPORTED_PROVIDERS[0] ?? 'groq'
+  return SUPPORTED_PROVIDERS[0] ?? 'cloudflare'
 }
 
 function normalizeModel(

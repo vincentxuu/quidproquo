@@ -162,7 +162,7 @@ Astro SSR on Cloudflare Workers    Access／session 認證、rate limiting、i18
 
 | 變數 | 說明 |
 | --- | --- |
-| `LLM_PROVIDER` | 預設模型供應商（`openai`、`anthropic`、`gemini`、`groq`、`openrouter`） |
+| `LLM_PROVIDER` | 預設模型供應商（`cloudflare`、`openai`、`anthropic`、`gemini`、`nvidia`、`openrouter`、`opencode`） |
 | `ACCESS_TEAM_DOMAIN`、`ACCESS_AUD` | Cloudflare Access 團隊網域與應用程式 audience；任一 `ACCESS_*` 有設定，後台與私人路由就要求通過驗證的 Access JWT（設定不完整時回 503） |
 | `ACCESS_ALLOWED_EMAILS` | 允許通過 Access 保護路由的 email，逗號分隔 |
 | `AGENT_OS_*` | Agent OS kernel 與角色（planner、research、writer、critic）、外部 MCP 工具、佇列排程 |

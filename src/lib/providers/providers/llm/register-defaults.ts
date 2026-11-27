@@ -51,22 +51,6 @@ const LLM_PROVIDERS: ProviderDefinition[] = [
     updatedAt: 0,
   },
   {
-    providerId: 'llm.groq',
-    category: 'llm',
-    displayName: 'Groq',
-    capabilityJson: {
-      maxContextTokens: 32768,
-      supportsStreaming: true,
-      supportsTools: true,
-      models: ['openai/gpt-oss-120b', 'openai/gpt-oss-20b', 'qwen/qwen3.6-27b'],
-    },
-    costModelJson: { kind: 'token', inputPer1MUsd: 0.59, outputPer1MUsd: 0.79 },
-    outboundDomains: ['api.groq.com'],
-    isEnabled: false,
-    createdAt: 0,
-    updatedAt: 0,
-  },
-  {
     providerId: 'llm.openrouter',
     category: 'llm',
     displayName: 'OpenRouter',

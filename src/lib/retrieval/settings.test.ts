@@ -5,8 +5,8 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '../search-tools'
 
 const baseConfig: RagRuntimeConfig = {
   pipelineEngine: 'langgraph',
-  defaultProvider: 'groq',
-  defaultModel: 'llama-3.3-70b-versatile',
+  defaultProvider: 'cloudflare',
+  defaultModel: '@cf/meta/llama-4-scout-17b-16e-instruct',
   stageOverrides: {},
   fallbackProvider: null,
   fallbackModel: null,

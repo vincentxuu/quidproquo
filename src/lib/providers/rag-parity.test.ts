@@ -20,7 +20,7 @@ describe('RAG agent parity', () => {
     clear()
     registerDefaultLlmProviders()
     const llmProviders = listByCategory('llm')
-    expect(llmProviders.length).toBeGreaterThanOrEqual(4) // openai, anthropic, gemini, groq + openrouter
+    expect(llmProviders.length).toBeGreaterThanOrEqual(4) // openai, anthropic, gemini, openrouter
   })
 
   it('cost model is defined for all LLM providers', async () => {

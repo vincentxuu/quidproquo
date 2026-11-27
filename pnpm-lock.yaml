@@ -44,9 +44,6 @@ importers:
       '@langchain/google-genai':
         specifier: ^2.1.28
         version: 2.1.28(@langchain/core@1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0))
-      '@langchain/groq':
-        specifier: ^1.2.0
-        version: 1.2.0(@langchain/core@1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0))
       '@langchain/langgraph':
         specifier: ^1.2.9
         version: 1.2.9(@langchain/core@1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0))(react-dom@19.2.5(react@19.2.5))(react@19.2.5)(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6)
@@ -1500,12 +1497,6 @@ packages:
     engines: {node: '>=20'}
     peerDependencies:
       '@langchain/core': ^1.1.41
-
-  '@langchain/groq@1.2.0':
-    resolution: {integrity: sha512-OozhcAUNDT4XmvQmzd1+TFinyDCZVU/4WjmjEEOO09aVhG7hBbJuodhF/fuajH52JsdFclBCnYomulA+iqe+1w==}
-    engines: {node: '>=20'}
-    peerDependencies:
-      '@langchain/core': ^1.0.0
 
   '@langchain/langgraph-checkpoint@1.0.1':
     resolution: {integrity: sha512-HM0cJLRpIsSlWBQ/xuDC67l52SqZ62Bh2Y61DX+Xorqwoh5e1KxYvfCD7GnSTbWWhjBOutvnR0vPhu4orFkZfw==}
@@ -4300,10 +4291,6 @@ packages:
   gray-matter@4.0.3:
     resolution: {integrity: sha512-5v6yZd4JK3eMI3FqqCouswVqwugaA9r4dNZB1wwcmrD02QkV5H0y7XBQW8QwQqEaZY1pM9aqORSORhJRdNK44Q==}
     engines: {node: '>=6.0'}
-
-  groq-sdk@1.1.2:
-    resolution: {integrity: sha512-CZO0XUQQDhn43ri1+lZHxZKpb+bGutgTvFmCJtooexiitGmPqhm1hntOT3nCoaq07e+OpeokVnfUs0i/oQuUaQ==}
-    hasBin: true
 
   h3@1.15.11:
     resolution: {integrity: sha512-L3THSe2MPeBwgIZVSH5zLdBBU90TOxarvhK9d04IDY2AmVS8j2Jz2LIWtwsGOU3lu2I5jCN7FNvVfY2+XyF+mg==}
@@ -7650,11 +7637,6 @@ snapshots:
       '@langchain/core': 1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0)
       uuid: 11.1.0
 
-  '@langchain/groq@1.2.0(@langchain/core@1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0))':
-    dependencies:
-      '@langchain/core': 1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0)
-      groq-sdk: 1.1.2
-
   '@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0))':
     dependencies:
       '@langchain/core': 1.1.41(openai@6.34.0(ws@8.22.0)(zod@4.3.6))(ws@8.22.0)
@@ -10434,8 +10416,6 @@ snapshots:
       kind-of: 6.0.3
       section-matter: 1.0.0
       strip-bom-string: 1.0.0
-
-  groq-sdk@1.1.2: {}
 
   h3@1.15.11:
     dependencies:

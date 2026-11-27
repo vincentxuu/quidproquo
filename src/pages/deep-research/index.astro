@@ -422,7 +422,7 @@ import { SUPPORTED_AGENT_SKILLS } from '@/lib/extensions';
   const applyCurrentModelButton = document.querySelector('#apply-current-model-btn');
   const customModelStatus = document.querySelector('#custom-model-status');
   const defaultProviderModels = {
-    groq: ['llama-3.3-70b-versatile', 'llama-3.1-8b-instant'],
+    cloudflare: ['@cf/meta/llama-4-scout-17b-16e-instruct'],
     openai: ['gpt-4.1-mini', 'gpt-4o-mini'],
     google: ['gemini-2.0-flash', 'gemini-1.5-flash'],
     gemini: ['gemini-2.0-flash'],
@@ -500,8 +500,8 @@ Collect requirements and create a constrained implementation spec.
 
   const PRESET_PROFILES = {
     light: {
-      providerPref: 'groq',
-      model: 'llama-3.1-8b-instant',
+      providerPref: 'cloudflare',
+      model: '@cf/meta/llama-4-scout-17b-16e-instruct',
       maxTokens: 1536,
       maxQueries: 2,
       maxSearchCalls: 2,

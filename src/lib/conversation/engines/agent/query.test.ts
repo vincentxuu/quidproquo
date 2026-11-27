@@ -17,7 +17,7 @@ vi.mock('../../../retrieval/model', () => ({
     return { ...make(false), bindTools: (schemas: unknown) => { bindToolsSpy(schemas); return make(true) } }
   },
   extractReasoningText: () => '',
-  resolveModelRoute: () => ({ provider: 'groq', model: 'test-model' }),
+  resolveModelRoute: () => ({ provider: 'openrouter', model: 'test-model' }),
 }))
 const plannerMock = vi.fn(async () => ({ plan: { intent: 'factual', complexity: 'simple', needs_clarification: false, subtasks: [], search_keywords: ['RAG'], specialists: [] }, language: 'zh-TW', model_usage: [] }))
 vi.mock('../../../retrieval/agents/planner', () => ({ plannerNode: (...args: unknown[]) => plannerMock(...(args as [])) }))

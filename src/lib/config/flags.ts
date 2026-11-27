@@ -25,7 +25,6 @@ export interface Flags {
       openai: boolean
       anthropic: boolean
       gemini: boolean
-      groq: boolean
       openrouter: boolean
     }
     search: { tavily: boolean; exa: boolean; jina: boolean }
@@ -104,7 +103,6 @@ export function readFlags(env: Env): Flags {
         openai: readBoolean(env.AGENT_PROVIDERS_LLM_OPENAI),
         anthropic: readBoolean(env.AGENT_PROVIDERS_LLM_ANTHROPIC),
         gemini: readBoolean(env.AGENT_PROVIDERS_LLM_GEMINI),
-        groq: readBoolean(env.AGENT_PROVIDERS_LLM_GROQ),
         openrouter: readBoolean(env.AGENT_PROVIDERS_LLM_OPENROUTER),
       },
       search: {

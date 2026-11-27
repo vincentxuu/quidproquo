@@ -16,8 +16,8 @@ vi.mock('../model', async () => {
 type MockInvokeResult = Awaited<ReturnType<typeof invokeModel>>
 
 const route = {
-  provider: 'groq' as const,
-  model: 'llama-3.3-70b-versatile',
+  provider: 'openrouter' as const,
+  model: 'openai/gpt-oss-120b:free',
   fallback: false,
 }
 
@@ -75,13 +75,13 @@ describe('critic agent parity', () => {
     vi.mocked(invokeModel).mockResolvedValueOnce(result)
 
     const legacy = await criticNode(state, {
-      apiKeys: { groq: 'legacy-key' },
+      apiKeys: { openrouter: 'legacy-key' },
     })
     const syscall = vi.fn().mockResolvedValueOnce(result)
     const kernel = await criticAgent.run(state, {
       syscallContext: { runId: 'run-1', agentId: 'critic' },
       syscall,
-      runtimeOptions: { providerApiKeys: { groq: 'kernel-key' } },
+      runtimeOptions: { providerApiKeys: { openrouter: 'kernel-key' } },
     })
 
     expect(syscall).toHaveBeenCalledWith(
@@ -90,7 +90,7 @@ describe('critic agent parity', () => {
       expect.objectContaining({
         stage: 'critic',
         maxTokens: 512,
-        apiKeys: { groq: 'kernel-key' },
+        apiKeys: { openrouter: 'kernel-key' },
       })
     )
     expect(kernel.critique?.drift_detected).toBe(legacy.critique?.drift_detected)

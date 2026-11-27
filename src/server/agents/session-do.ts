@@ -32,17 +32,13 @@ type StartRunOptions = {
 
 type ModelProvider = RagRuntimeConfig['defaultProvider']
 
-// Groq's free tier caps every chat model at 8K tokens per minute, below a single agent
-// request, so agent sessions default to Gemini.
 const DEFAULT_PROVIDER: ModelProvider = 'gemini'
 const DEFAULT_MODEL = 'gemini-4-hydrogen'
 const PROVIDER_ALIASES: Record<string, ModelProvider> = {
-  'llm.groq': 'groq',
   'llm.openai': 'openai',
   'llm.anthropic': 'anthropic',
   'llm.gemini': 'gemini',
   'llm.openrouter': 'openrouter',
-  groq: 'groq',
   openai: 'openai',
   anthropic: 'anthropic',
   google: 'google',
@@ -51,17 +47,14 @@ const PROVIDER_ALIASES: Record<string, ModelProvider> = {
   openrouter: 'openrouter',
   opencode: 'opencode',
   nvidia: 'nvidia',
-  ollama_cloud: 'ollama_cloud',
-  ollama: 'ollama',
 }
 
 function defaultModelForProvider(provider: ModelProvider): string {
   const defaults: Partial<Record<ModelProvider, string>> = {
-    groq: 'openai/gpt-oss-120b',
     openai: 'gpt-4.1-mini',
     google: DEFAULT_MODEL,
     gemini: DEFAULT_MODEL,
-    openrouter: 'openrouter/auto',
+    openrouter: 'nvidia/nemotron-3-ultra-550b-a55b:free',
     opencode: 'deepseek-v4-flash',
     nvidia: 'nvidia/nemotron-3-ultra-550b-a55b',
     cloudflare: '@cf/meta/llama-3.3-70b-instruct-fp8-fast',
@@ -393,17 +386,24 @@ interface ModelInvokeResult {
 }
 
 // Backups for when the configured model is unavailable (rate limited, overloaded, out of
-// credit). Each provider's client already retries with backoff before giving up. Gemini's
-// free quota is counted per model, so other Gemini models come first. The NVIDIA models are
-// free endpoints with tool calling, checked against build.nvidia.com on 2026-11-27.
+// credit). Each provider's client already retries with backoff before giving up.
+// Grouped by model: the same model on another provider comes before a different model, so a
+// provider outage or quota does not also change how the run behaves. Gemini's free quota is
+// counted per model and only Google serves it free, so another Gemini model comes first.
+// All routes are free tiers with tool calling, tested on 2026-11-27.
 const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> = [
   { provider: 'gemini', model: 'gemini-3.8-flash' },
   { provider: 'gemini', model: 'gemini-3.5-flash-lite' },
   { provider: 'nvidia', model: 'nvidia/nemotron-3-ultra-550b-a55b' },
+  { provider: 'openrouter', model: 'nvidia/nemotron-3-ultra-550b-a55b:free' },
   { provider: 'nvidia', model: 'nvidia/nemotron-3.5-super-vl-120b-a12b' },
-  { provider: 'opencode', model: 'deepseek-v4-flash' },
-  { provider: 'ollama_cloud', model: 'gpt-oss:120b' },
-  { provider: 'openrouter', model: 'openai/gpt-oss-120b:free' },
+  { provider: 'openrouter', model: 'nvidia/nemotron-3.5-super-vl:free' },
+  { provider: 'nvidia', model: 'nvidia/nemotron-3.5-lightning-30b-a3b' },
+  { provider: 'openrouter', model: 'nvidia/nemotron-3.5-lightning:free' },
+  // Workers AI: free daily Neurons, tool calls via its OpenAI-compatible endpoint.
+  { provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' },
+  { provider: 'cloudflare', model: '@cf/zai-org/glm-4.7-flash' },
+  { provider: 'cloudflare', model: '@cf/google/gemma-4-26b-a4b-it' },
 ]
 
 /** Errors that mean the provider cannot serve now, as opposed to a bad request. */

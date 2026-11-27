@@ -51,15 +51,14 @@ export interface ProviderMessages {
 }
 
 const DEFAULT_PROVIDERS = [
-  'groq', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare',
-  'nvidia', 'openrouter', 'ollama_cloud', 'ollama',
+  'openai', 'google', 'anthropic', 'gemini', 'cloudflare',
+  'nvidia', 'openrouter', 'opencode',
 ]
 
 const PROVIDER_SECRET_FIELDS = [
-  'GROQ_API_KEY', 'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
-  'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY',
+  'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
+  'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY', 'OPENCODE_API_KEY',
   'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID',
-  'OLLAMA_API_KEY', 'OLLAMA_CLOUD_API_KEY', 'OLLAMA_API_BASE', 'OLLAMA_HOST', 'OLLAMA_URL',
   'JINA_API_KEY', 'JINA_SEARCH_API_KEY', 'TAVILY_API_KEY', 'FIRECRAWL_API_KEY',
   'EXA_API_KEY', 'BRAVE_SEARCH_API_KEY', 'BRAVE_API_KEY', 'SERPER_API_KEY',
   'SERPAPI_API_KEY', 'BOCHA_API_KEY', 'BRIGHT_DATA_API_KEY', 'BRIGHTDATA_API_KEY', 'LINKUP_API_KEY',
@@ -242,7 +241,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
       for (const row of data.settings || []) s[row.key] = row.value
       setRagSettings(s as RagSettings)
       setRouteEngine(s.rag_pipeline_engine || 'langgraph')
-      setRouteProvider(s.rag_default_provider || 'groq')
+      setRouteProvider(s.rag_default_provider || 'cloudflare')
       setRouteModel(s.rag_default_model || '')
       setRouteFallbackProvider(s.rag_fallback_provider || '')
       setRouteFallbackModel(s.rag_fallback_model || '')
@@ -251,8 +250,8 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
         {
           title: 'Chat / Answer',
           rows: [
-            ['Provider', s.rag_default_provider || 'groq'],
-            ['Model', s.rag_default_model || 'llama-3.3-70b-versatile'],
+            ['Provider', s.rag_default_provider || 'cloudflare'],
+            ['Model', s.rag_default_model || '@cf/meta/llama-4-scout-17b-16e-instruct'],
             ['Engine', s.rag_pipeline_engine || 'langgraph'],
           ],
         },
@@ -550,7 +549,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.modelName}
-            <input value={addModel} onChange={e => setAddModel(e.target.value)} placeholder="llama-3.3-70b-versatile" className="rounded-md border border-input bg-background px-2 py-1.5 text-sm" />
+            <input value={addModel} onChange={e => setAddModel(e.target.value)} placeholder="@cf/meta/llama-4-scout-17b-16e-instruct" className="rounded-md border border-input bg-background px-2 py-1.5 text-sm" />
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.displayName}
@@ -724,8 +723,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
                 <Badge variant={sl === 'missing' ? 'destructive' : 'secondary'} className="shrink-0 text-[0.65rem]">{sl}</Badge>
                 <input
                   id={inputId}
-                  // Keys are masked; the few URL/host settings in this list stay readable.
-                  type={/_(URL|HOST|BASE)$/.test(key) ? 'text' : 'password'}
+                  type="password"
                   value={secretDrafts[key] ?? ''}
                   placeholder={item.configured ? m.secretConfiguredPlaceholder : m.secretEmptyPlaceholder}
                   onChange={e => { const v = e.target.value; setSecretDrafts(prev => ({ ...prev, [key]: v })) }}

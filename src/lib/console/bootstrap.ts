@@ -45,14 +45,6 @@ const PROVIDER_SEEDS: ProviderSeed[] = [
     outboundDomains: ['generativelanguage.googleapis.com'],
   },
   {
-    id: 'groq',
-    category: 'llm',
-    name: 'Groq',
-    enabled: (env) => readFlags(env).providers.llm.groq,
-    capabilities: { chat: true },
-    outboundDomains: ['api.groq.com'],
-  },
-  {
     id: 'openrouter',
     category: 'llm',
     name: 'OpenRouter',

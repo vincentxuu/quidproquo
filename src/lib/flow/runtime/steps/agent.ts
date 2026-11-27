@@ -15,7 +15,6 @@ interface ProviderConfig {
 const PROVIDERS: Record<string, ProviderConfig> = {
   openrouter: { baseUrl: 'https://openrouter.ai/api/v1', envKey: 'OPENROUTER_API_KEY' },
   opencode: { baseUrl: 'https://opencode.ai/zen/v1', envKey: 'OPENCODE_API_KEY' },
-  groq: { baseUrl: 'https://api.groq.com/openai/v1', envKey: 'GROQ_API_KEY' },
   openai: { baseUrl: 'https://api.openai.com/v1', envKey: 'OPENAI_API_KEY' },
 }
 
