@@ -8,14 +8,19 @@ interface Routine {
   trigger_type: string;
   cron?: string;
   enabled: boolean;
+  last_run_status?: string | null;
+  last_failure?: { message: string };
 }
 
 export default function RoutinesList() {
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [loading, setLoading] = useState(true);
   const [query, setQuery] = useState("");
+  // The home page links here with ?status=failed.
+  const [failedOnly, setFailedOnly] = useState(false);
 
   useEffect(() => {
+    setFailedOnly(new URLSearchParams(window.location.search).get("status") === "failed");
     (async () => {
       try {
         const res = await fetch("/api/admin/routines");
@@ -38,7 +43,8 @@ export default function RoutinesList() {
 
   const filtered = routines.filter(
     (r) =>
-      !query || r.name.toLowerCase().includes(query.toLowerCase())
+      (!failedOnly || r.last_run_status === "failed") &&
+      (!query || r.name.toLowerCase().includes(query.toLowerCase()))
   );
 
   return (
@@ -81,6 +87,14 @@ export default function RoutinesList() {
       </div>
 
       {/* List */}
+      {failedOnly && (
+        <div className="flex items-center justify-between text-sm text-muted-foreground">
+          <span>只顯示最近一次執行失敗的 routine</span>
+          <button type="button" className="underline" onClick={() => setFailedOnly(false)}>
+            顯示全部
+          </button>
+        </div>
+      )}
       <div className="space-y-2">
         {loading ? (
           <p className="py-8 text-center text-sm text-muted-foreground">
@@ -90,7 +104,9 @@ export default function RoutinesList() {
           <p className="py-8 text-center text-sm text-muted-foreground">
             {routines.length === 0
               ? "No routines yet. Click New routine."
-              : "No matching routines."}
+              : failedOnly
+                ? "目前沒有失敗中的 routine。"
+                : "No matching routines."}
           </p>
         ) : (
           filtered.map((r) => (
@@ -111,10 +127,19 @@ export default function RoutinesList() {
                     : r.trigger_type}
                   {!r.enabled && " · Paused"}
                 </div>
+                {r.last_run_status === "failed" && (
+                  <div className="truncate text-xs text-destructive">
+                    最近一次失敗：{r.last_failure?.message ?? "原因未記錄"}
+                  </div>
+                )}
               </div>
-              <Badge variant={r.enabled ? "default" : "secondary"}>
-                {r.enabled ? "Active" : "Paused"}
-              </Badge>
+              {r.last_run_status === "failed" ? (
+                <Badge variant="destructive">Failing</Badge>
+              ) : (
+                <Badge variant={r.enabled ? "default" : "secondary"}>
+                  {r.enabled ? "Active" : "Paused"}
+                </Badge>
+              )}
             </a>
           ))
         )}

@@ -13,6 +13,14 @@ interface RoutineData {
   instructions?: string;
 }
 
+interface LastFailure {
+  sessionId: string;
+  failedAt: number;
+  consecutive: number;
+  message: string;
+  action: { label: string; href?: string };
+}
+
 interface RunData {
   id: string;
   status: string;
@@ -22,6 +30,7 @@ interface RunData {
 export default function RoutineDetail({ routineId }: { routineId: string }) {
   const [routine, setRoutine] = useState<RoutineData | null>(null);
   const [runs, setRuns] = useState<RunData[]>([]);
+  const [lastFailure, setLastFailure] = useState<LastFailure | null>(null);
   const [transcript, setTranscript] = useState("");
   const [error, setError] = useState("");
   const [runFilter, setRunFilter] = useState("");
@@ -34,6 +43,7 @@ export default function RoutineDetail({ routineId }: { routineId: string }) {
         const data = (await res.json()) as {
           routine?: RoutineData;
           runs?: RunData[];
+          lastFailure?: LastFailure | null;
           error?: string;
         };
         if (!res.ok) {
@@ -42,6 +52,7 @@ export default function RoutineDetail({ routineId }: { routineId: string }) {
         }
         setRoutine(data.routine ?? null);
         setRuns(data.runs ?? []);
+        setLastFailure(data.lastFailure ?? null);
       } catch {
         setError("Failed to load");
       }
@@ -140,6 +151,31 @@ export default function RoutineDetail({ routineId }: { routineId: string }) {
           </Button>
         </div>
       </div>
+
+      {/* The latest run's outcome; it clears when a later run succeeds. */}
+      {lastFailure && (
+        <div role="alert" className="flex flex-col gap-2 rounded-lg border border-destructive/40 bg-destructive/5 p-3 text-sm sm:flex-row sm:items-center sm:justify-between">
+          <div className="min-w-0 space-y-0.5">
+            <div className="font-semibold text-destructive">
+              最近一次執行失敗{lastFailure.consecutive > 1 ? `（連續 ${lastFailure.consecutive} 次）` : ""}：{lastFailure.message}
+            </div>
+            <div className="text-xs text-muted-foreground">
+              {new Date(lastFailure.failedAt).toLocaleString()} ·{" "}
+              {lastFailure.action.href ? (
+                <a href={lastFailure.action.href} className="underline">{lastFailure.action.label}</a>
+              ) : (
+                lastFailure.action.label
+              )}
+            </div>
+          </div>
+          <div className="flex shrink-0 gap-2">
+            <a href={`/admin/sessions/${encodeURIComponent(lastFailure.sessionId)}`}>
+              <Button variant="outline" size="sm">查看紀錄</Button>
+            </a>
+            <Button size="sm" onClick={handleRunNow}>Run now</Button>
+          </div>
+        </div>
+      )}
 
       {/* Grid */}
       <div className="grid gap-4 lg:grid-cols-[1fr_1.2fr]">

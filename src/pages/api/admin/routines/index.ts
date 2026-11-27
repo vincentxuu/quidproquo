@@ -5,13 +5,23 @@ import { json, badRequest } from '@/lib/api/response'
 import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { nextRoutineRunAt, parseCron } from '@/lib/agent/cron-schedule'
+import { loadFailureSummaries } from '@/lib/agent/failure-summary'
 
 export const GET: APIRoute = async ({ cookies }) => {
   const auth = await requireAdmin(cookies)
   if (!auth.ok) return auth.response
   const e = env as unknown as Env
-  const rows = await e.DB.prepare('SELECT * FROM routines ORDER BY created_at DESC').all().catch(() => ({ results: [] as unknown[] }))
-  return json({ routines: (rows as unknown as { results: unknown[] }).results ?? [] })
+  const rows = await e.DB.prepare('SELECT * FROM routines ORDER BY created_at DESC').all<Record<string, unknown>>()
+    .catch(() => ({ results: [] as Record<string, unknown>[] }))
+  const routines = rows.results ?? []
+  const failedRunIds = routines.filter((r) => r.last_run_status === 'failed' && r.last_run_id).map((r) => String(r.last_run_id))
+  const failures = await loadFailureSummaries(e.DB, failedRunIds)
+  return json({
+    routines: routines.map((r) => {
+      const failure = r.last_run_status === 'failed' ? failures.get(String(r.last_run_id)) : undefined
+      return failure ? { ...r, last_failure: failure } : r
+    }),
+  })
 }
 
 export const POST: APIRoute = async ({ cookies, request }) => {

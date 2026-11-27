@@ -6,6 +6,7 @@ import { env } from 'cloudflare:workers'
 import type { Env } from '@/lib/config/env'
 import { getWaitUntil, startRoutineRun } from '@/lib/agent/routine-run'
 import { nextRoutineRunAt, parseCron } from '@/lib/agent/cron-schedule'
+import { loadFailureSummaries } from '@/lib/agent/failure-summary'
 
 export const GET: APIRoute = async ({ cookies, params }) => {
   const auth = await requireAdmin(cookies)
@@ -17,7 +18,17 @@ export const GET: APIRoute = async ({ cookies, params }) => {
     .bind(params.id)
     .all()
     .catch(() => ({ results: [] as unknown[] }))
-  return json({ routine: row, runs: (runs as unknown as { results: unknown[] }).results ?? [] })
+  const runList = ((runs as unknown as { results: Array<{ id: string; status: string }> }).results ?? [])
+  // Like a CI badge: the warning describes the latest run and clears on the next success.
+  let lastFailure = null
+  if (row.last_run_status === 'failed' && row.last_run_id) {
+    const summary = (await loadFailureSummaries(e.DB, [String(row.last_run_id)])).get(String(row.last_run_id))
+    const firstNonFailure = runList.findIndex((r) => r.status !== 'failed')
+    lastFailure = summary
+      ? { sessionId: String(row.last_run_id), failedAt: Number(row.last_run_at), consecutive: firstNonFailure === -1 ? runList.length : firstNonFailure, ...summary }
+      : null
+  }
+  return json({ routine: row, runs: runList, lastFailure })
 }
 
 export const PUT: APIRoute = async ({ cookies, params, request }) => {

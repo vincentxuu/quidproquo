@@ -335,7 +335,8 @@ const sectionLabels: Record<string, string> = {
           const label = s.name || s.instruction?.slice(0, 40) || s.id.slice(0, 8);
           const statusClass = s.status === 'running' ? 'running' : s.status === 'failed' ? 'failed' : 'done';
           const stamp = formatRecentTime(s.updated_at || s.created_at);
-          return `<a href="/admin/sessions/${encodeURIComponent(s.id)}" class="recent-item" title="${esc(label)}">
+          const tooltip = s.failure ? label + '\n失敗：' + s.failure.message : label;
+          return `<a href="/admin/sessions/${encodeURIComponent(s.id)}" class="recent-item" title="${esc(tooltip)}">
             <span class="status-dot ${statusClass}"></span>
             <span class="recent-text">
               <span class="recent-label">${esc(label)}</span>
@@ -359,7 +360,8 @@ const sectionLabels: Record<string, string> = {
     function esc(value) {
       const d = document.createElement('div');
       d.textContent = String(value ?? '');
-      return d.innerHTML;
+      // innerHTML leaves quotes alone; values also go into attributes.
+      return d.innerHTML.replace(/"/g, '&quot;');
     }
     document.addEventListener('DOMContentLoaded', loadRecents);
 
@@ -376,8 +378,11 @@ const sectionLabels: Record<string, string> = {
           return;
         }
         list.innerHTML = routines.map(function(r) {
-          const statusClass = r.enabled ? 'running' : 'done';
-          return '<a href="/admin/routines/' + r.id + '" class="recent-item"><span class="status-dot ' + statusClass + '"></span><span class="recent-label">' + (r.name || r.id) + '</span></a>';
+          const failing = r.last_run_status === 'failed';
+          const statusClass = failing ? 'failed' : r.enabled ? 'running' : 'done';
+          const name = r.name || r.id;
+          const tooltip = failing && r.last_failure ? name + '\n最近一次失敗：' + r.last_failure.message : name;
+          return '<a href="/admin/routines/' + encodeURIComponent(r.id) + '" class="recent-item" title="' + esc(tooltip) + '"><span class="status-dot ' + statusClass + '"></span><span class="recent-label">' + esc(name) + '</span></a>';
         }).join('');
       } catch { /* silent */ }
     }

@@ -10,6 +10,7 @@ import { createSessionManager } from '@/lib/agent/session-manager'
 import { getWaitUntil } from '@/lib/agent/routine-run'
 import type { SessionEvent } from '@/lib/agent/events'
 import { fromSessionEvent } from '@/lib/agent/events'
+import { loadFailureSummaries } from '@/lib/agent/failure-summary'
 
 interface CreateChatBody {
   instruction?: unknown
@@ -143,7 +144,8 @@ export const GET: APIRoute = async ({ cookies, request }) => {
     limit: readNumberParam(url, 'limit', 50, 200),
     offset: readNumberParam(url, 'offset', 0, 10000),
   })
-  return json({ sessions })
+  const failures = await loadFailureSummaries(e.DB, sessions.filter((s) => s.status === 'failed').map((s) => s.id))
+  return json({ sessions: sessions.map((s) => (failures.has(s.id) ? { ...s, failure: failures.get(s.id) } : s)) })
 }
 
 export const POST: APIRoute = async ({ cookies, request, locals }) => {

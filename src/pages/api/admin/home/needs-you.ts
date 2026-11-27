@@ -23,15 +23,12 @@ export const GET: APIRoute = async ({ cookies }) => {
     )
     .all()
 
-  const failedSessions = await db
-    .prepare(
-      `SELECT id, name, summary_detail, finished_at
-       FROM agent_sessions
-       WHERE status = 'failed' AND archived = 0
-       ORDER BY finished_at DESC
-       LIMIT 10`,
-    )
-    .all()
+  // The home page only says how many routines are failing; each run's reason lives on
+  // the routine page and in the sidebar.
+  const failing = await db
+    .prepare(`SELECT COUNT(*) AS n FROM routines WHERE enabled = 1 AND last_run_status = 'failed'`)
+    .first<{ n: number }>()
+  const failingRoutines = Number(failing?.n ?? 0)
 
   const needsActionSessions = await db
     .prepare(
@@ -56,12 +53,12 @@ export const GET: APIRoute = async ({ cookies }) => {
   return json({
     ok: true,
     pendingApprovals: pendingApprovals.results ?? [],
-    failedSessions: failedSessions.results ?? [],
+    failingRoutines,
     needsActionSessions: needsActionSessions.results ?? [],
     pausedSessions: pausedSessions.results ?? [],
     totalItems:
       (pendingApprovals.results?.length ?? 0) +
-      (failedSessions.results?.length ?? 0) +
+      failingRoutines +
       (needsActionSessions.results?.length ?? 0) +
       (pausedSessions.results?.length ?? 0),
   })
