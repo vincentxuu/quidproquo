@@ -9,13 +9,15 @@ import {
   type ThreadMessageLike,
   type ToolCallMessagePartProps,
 } from '@assistant-ui/react'
-import { Bot, SendHorizontal } from 'lucide-react'
+import { Bot, CircleAlert, SendHorizontal } from 'lucide-react'
 import { useCallback, useRef, useState } from 'react'
 
 import { MessageResponse } from '@/components/ai-elements/message'
 import { Reasoning, ReasoningContent, ReasoningTrigger } from '@/components/ai-elements/reasoning'
 import { Tool, ToolContent, ToolHeader, ToolInput, ToolOutput } from '@/components/ai-elements/tool'
 import { Button } from '@/components/ui/button'
+import { isFailedResultText } from '@/lib/admin/session-thread-adapter'
+import { summarizeFailure } from '@/lib/agent/failure-summary'
 
 interface AssistantThreadProps {
   messages: ThreadMessageLike[]
@@ -158,7 +160,7 @@ function AssistantMessage() {
 
 function SystemMessage() {
   return (
-    <MessagePrimitive.Root className="flex w-full justify-center py-1.5">
+    <MessagePrimitive.Root className="flex w-full min-w-0 justify-center py-1.5">
       <MessagePrimitive.Parts components={{ Text: SystemTextPart }} />
     </MessagePrimitive.Root>
   )
@@ -173,10 +175,47 @@ function TextPart({ text }: TextMessagePartProps) {
 }
 
 function SystemTextPart({ text }: TextMessagePartProps) {
+  return <SystemNotice text={text} />
+}
+
+/** 短句（單行、不超過 80 字）用膠囊；多行或長文字用區塊，長網址會斷行，不撐破版面。 */
+function isShortNotice(text: string) {
+  return text.length <= 80 && !text.includes('\n')
+}
+
+function SystemNotice({ text }: { text: string }) {
+  if (isFailedResultText(text)) return <FailureNotice raw={text} />
+  if (isShortNotice(text)) {
+    return (
+      <span className="inline-flex max-w-full items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground [overflow-wrap:anywhere]">
+        {text}
+      </span>
+    )
+  }
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
+    <div className="w-full max-w-[min(720px,100%)] whitespace-pre-wrap rounded-md border border-border bg-muted px-3 py-2 text-xs leading-5 text-muted-foreground [overflow-wrap:anywhere]">
       {text}
-    </span>
+    </div>
+  )
+}
+
+/** 執行失敗：先講發生什麼、下一步做什麼，原始錯誤收進可展開區塊。 */
+function FailureNotice({ raw }: { raw: string }) {
+  const summary = summarizeFailure(raw)
+  return (
+    <div role="alert" className="w-full max-w-[min(720px,100%)] rounded-md border border-[color-mix(in_srgb,var(--danger)_35%,transparent)] bg-[var(--danger-bg)] px-3 py-2.5 text-sm">
+      <p className="flex items-start gap-2 font-semibold text-[var(--danger)]">
+        <CircleAlert className="mt-0.5 size-4 shrink-0" />
+        <span>執行失敗：{summary.message}</span>
+      </p>
+      <p className="mt-1 pl-6 text-xs text-[var(--text-secondary)]">
+        {summary.action.href ? <a href={summary.action.href} className="text-[var(--brand-700)] underline underline-offset-2">{summary.action.label}</a> : summary.action.label}
+      </p>
+      <details className="mt-2 pl-6">
+        <summary className="cursor-pointer text-xs text-[var(--text-secondary)]">原始錯誤</summary>
+        <pre className="mt-2 max-h-64 overflow-auto whitespace-pre-wrap rounded bg-[var(--bg-card)] p-2 font-mono text-xs leading-5 text-[var(--text-secondary)] [overflow-wrap:anywhere]">{raw}</pre>
+      </details>
+    </div>
   )
 }
 
@@ -216,10 +255,8 @@ function ToolPart(props: ToolCallMessagePartProps) {
 
 export function AdminSystemMessage({ children }: { children: string }) {
   return (
-    <div className="flex w-full justify-center py-1.5">
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-muted px-3 py-1 text-xs text-muted-foreground">
-        {children}
-      </span>
+    <div className="flex w-full justify-center px-4 py-1.5">
+      <SystemNotice text={children} />
     </div>
   )
 }
