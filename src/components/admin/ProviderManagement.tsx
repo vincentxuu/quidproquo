@@ -137,7 +137,7 @@ function InlineStatus({ feedback, id, className }: { feedback?: Feedback; id?: s
       {feedback?.kind === 'pending' && <Loader2 className="size-3 shrink-0 animate-spin" aria-hidden />}
       {feedback?.kind === 'success' && <CheckCircle2 className="size-3 shrink-0" aria-hidden />}
       {feedback?.kind === 'error' && <AlertCircle className="size-3 shrink-0" aria-hidden />}
-      {feedback && <span className="break-words">{feedback.text}</span>}
+      {feedback && <span className="min-w-0 [overflow-wrap:anywhere]">{feedback.text}</span>}
     </span>
   )
 }
@@ -490,7 +490,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
         <div className="grid gap-3 rounded-lg border border-border bg-card p-4 sm:grid-cols-3">
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.engine}
-            <select value={routeEngine} onChange={e => setRouteEngine(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={routeEngine} onChange={e => setRouteEngine(e.target.value)} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               <option value="langgraph">langgraph</option>
               <option value="manual">manual</option>
               <option value="llamaindex">llamaindex</option>
@@ -498,26 +498,26 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.defaultProvider}
-            <select value={routeProvider} onChange={e => { setRouteProvider(e.target.value); setRouteModel('') }} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={routeProvider} onChange={e => { setRouteProvider(e.target.value); setRouteModel('') }} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               {providers.map(p => <option key={p} value={p}>{p}</option>)}
             </select>
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.defaultModel}
-            <select value={routeModel} onChange={e => setRouteModel(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={routeModel} onChange={e => setRouteModel(e.target.value)} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               {modelsForProvider(routeProvider).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </select>
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.fallbackProvider}
-            <select value={routeFallbackProvider} onChange={e => { setRouteFallbackProvider(e.target.value); setRouteFallbackModel('') }} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={routeFallbackProvider} onChange={e => { setRouteFallbackProvider(e.target.value); setRouteFallbackModel('') }} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               <option value="">none</option>
               {providers.map(p => <option key={p} value={p}>{p}</option>)}
             </select>
           </label>
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.fallbackModel}
-            <select value={routeFallbackModel} onChange={e => setRouteFallbackModel(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={routeFallbackModel} onChange={e => setRouteFallbackModel(e.target.value)} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               {modelsForProvider(routeFallbackProvider, true).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
             </select>
           </label>
@@ -543,7 +543,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
         <form onSubmit={handleAddModel} className="mb-4 grid gap-3 rounded-lg border border-border bg-card p-4 sm:grid-cols-3 lg:grid-cols-6">
           <label className="grid gap-1 text-xs text-muted-foreground">
             {m.provider}
-            <select value={addProvider} onChange={e => setAddProvider(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+            <select value={addProvider} onChange={e => setAddProvider(e.target.value)} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
               {providers.map(p => <option key={p} value={p}>{p}</option>)}
             </select>
           </label>
@@ -585,14 +585,14 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
                 <div className="rounded-lg border border-border bg-card overflow-hidden">
                   <CollapsibleTrigger asChild>
                     <button className="flex w-full items-center justify-between gap-3 px-4 py-2.5 text-left hover:bg-muted/50">
-                      <div className="flex items-center gap-2">
-                        <ChevronRight className={cn('size-4 text-muted-foreground transition-transform', isOpen && 'rotate-90')} />
-                        <strong className="text-sm">{provider}</strong>
-                        <span className="text-xs text-muted-foreground">
+                      <div className="flex min-w-0 items-center gap-2">
+                        <ChevronRight className={cn('size-4 shrink-0 text-muted-foreground transition-transform', isOpen && 'rotate-90')} />
+                        <strong className="truncate text-sm">{provider}</strong>
+                        <span className="shrink-0 text-xs text-muted-foreground">
                           {(m.modelsEnabled || '').replace('{active}', String(activeCount)).replace('{total}', String(models.length))}
                         </span>
                       </div>
-                      <div className="flex items-center gap-2" onClick={e => e.stopPropagation()}>
+                      <div className="flex min-w-0 items-center gap-2" onClick={e => e.stopPropagation()}>
                         <InlineStatus feedback={providerFeedback} />
                         <Button
                           variant="outline" size="xs"
@@ -660,13 +660,13 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
           <div className="grid gap-3 sm:grid-cols-3">
             <label className="grid gap-1 text-xs text-muted-foreground">
               {m.provider}
-              <select value={testProvider} onChange={e => { setTestProvider(e.target.value); setTestModel('') }} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+              <select value={testProvider} onChange={e => { setTestProvider(e.target.value); setTestModel('') }} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
                 {providers.map(p => <option key={p} value={p}>{p}</option>)}
               </select>
             </label>
             <label className="grid gap-1 text-xs text-muted-foreground">
               {m.modelName}
-              <select value={testModel} onChange={e => setTestModel(e.target.value)} className="rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
+              <select value={testModel} onChange={e => setTestModel(e.target.value)} className="w-full min-w-0 rounded-md border border-input bg-background px-2 py-1.5 text-sm text-foreground">
                 {modelsForProvider(testProvider).map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
               </select>
             </label>
@@ -798,8 +798,8 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
           <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-muted-foreground">{m.secretsStatus}</h2>
           <div className="space-y-2">
             {systemSecrets.map(s => (
-              <div key={s.name} className="flex items-center justify-between rounded-lg border border-border bg-card px-4 py-2">
-                <span className="text-sm font-mono">{s.name}</span>
+              <div key={s.name} className="flex items-center justify-between gap-2 rounded-lg border border-border bg-card px-4 py-2">
+                <span className="min-w-0 truncate font-mono text-sm" title={s.name}>{s.name}</span>
                 <Badge variant={s.status === 'missing' ? 'destructive' : 'default'}>{s.status}</Badge>
               </div>
             ))}
