@@ -47,13 +47,14 @@ export function findTokenRedefinitions(text, names) {
   return hits;
 }
 
-// 規則 7：後台、通用元件、設計頁不准寫字面色（2026-11-27 後台統一到 tokens.css）。
+// 規則 7：後台、通用元件、設計頁與專案手冊不准寫字面色（2026-11-27 後台統一到 tokens.css）。
 // 後台曾在 3000 行 CSS 裡累積上百個寫死的 hex、不存在的 var(--color-*) fallback 與 Tailwind 色盤 class，
 // 深色模式全壞、跟前台不同色。顏色只能是 var(--token) 或 globals.css 接好的語意 class。
 // 唯一例外：flow builder 的節點分類色盤（step-fields.ts，理由寫在檔內）。
 const LITERAL_SCOPE = [
   'src/styles/admin-tokens.css', 'src/styles/globals.css', 'src/layouts/AdminV2Layout.astro',
   'src/components/admin/', 'src/components/ui/', 'src/components/design/', 'src/pages/admin/', 'src/pages/design/',
+  'src/pages/handbook/', 'src/layouts/DocsShell.astro',
 ];
 const LITERAL_ALLOW = new Set(['src/components/admin/console/flow-builder/step-fields.ts']);
 const PALETTE = 'slate|gray|zinc|neutral|stone|red|green|emerald|blue|amber|yellow|orange|sky|indigo|violet|purple|pink|rose|teal|lime|cyan';

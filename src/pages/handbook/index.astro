@@ -1,0 +1,218 @@
+---
+// src/pages/handbook/index.astro
+// 專案手冊總覽：治理、決策、業務規格、開發規範、agent skills、檢查、目前進度集中一頁。
+// 全部從 repo 正本產生（見 src/lib/handbook/sources.ts），改正本、不改這頁。
+export const prerender = true;
+
+import DocsShell from '../../layouts/DocsShell.astro';
+import { DOCS, SECTIONS, docsBySection, parseChecks, parseProgress, estimateTokens, REPO_BLOB } from '../../lib/handbook/sources';
+import { renderMarkdown } from '../../lib/handbook/render';
+
+const checks = parseChecks();
+const gateChecks = checks.filter((c) => !c.selfTest);
+/** 第一句（到第一個句號），最多 140 字；完整說明在原始檔。 */
+const brief = (t: string) => {
+  const first = t.split(/(?<=[。.])\s/)[0] ?? t;
+  return first.length > 140 ? `${first.slice(0, 140)}…` : first;
+};
+const selfTests = checks.filter((c) => c.selfTest);
+const progress = parseProgress();
+const progressHtml = await Promise.all(progress.items.map((item) => renderMarkdown(item, 'progress.txt')));
+
+const skills = docsBySection('skills').map((d) => ({ ...d, tokens: estimateTokens(d.raw) }));
+const skillTokens = skills.reduce((n, s) => n + s.tokens, 0);
+const adrs = docsBySection('adr');
+
+// 健康度：正本缺了該有的東西就在這裡浮出來，不靠人記得去翻。
+const health = [
+  { label: 'skill 沒寫 description（agent 不知道何時該用）', items: skills.filter((s) => !s.description).map((s) => s.title) },
+  { label: 'verify 檢查腳本沒寫用途（腳本開頭沒有說明註解，verify.mjs 上方也沒有）', items: gateChecks.filter((c) => c.script && !c.purpose && !c.note).map((c) => c.label) },
+].filter((h) => h.items.length > 0);
+
+const buildDate = new Date().toISOString().slice(0, 10);
+---
+
+<DocsShell
+  title="專案手冊"
+  area="handbook"
+  description="quidproquo 的治理、決策、業務規格、開發規範、agent skills 與檢查，從 repo 正本自動產生。"
+  anchors={[
+    { href: '#docs', label: '文件' },
+    { href: '#adr', label: '決策' },
+    { href: '#skills', label: 'Skills' },
+    { href: '#checks', label: '檢查' },
+    { href: '#progress', label: '進度' },
+  ]}
+>
+  <section class="ds-section">
+    <h1>專案手冊</h1>
+    <p class="ds-lead">
+      這個專案的規則、決策、規格與 agent 工作流程集中在這裡。每一項都從 repo 正本產生，連到原始檔；
+      要改內容就改正本（開 PR 或 commit），下次部署這頁就跟著更新。最近一次產生：{buildDate}。
+    </p>
+
+    <div class="hb-stats">
+      <a class="hb-stat" href="#docs"><strong>{DOCS.length - skills.length}</strong><span>份文件</span></a>
+      <a class="hb-stat" href="#adr"><strong>{adrs.length}</strong><span>個決策紀錄</span></a>
+      <a class="hb-stat" href="#skills"><strong>{skills.length}</strong><span>個 skills</span></a>
+      <a class="hb-stat" href="#checks"><strong>{gateChecks.length}</strong><span>道 verify 檢查</span></a>
+    </div>
+
+    {health.length > 0 && (
+      <div class="hb-health">
+        <h2>待補</h2>
+        {health.map((h) => (
+          <div>
+            <p><span class="ds-flag">{h.items.length}</span> {h.label}</p>
+            <p class="ds-muted">{h.items.join('、')}</p>
+          </div>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <section id="docs" class="ds-section">
+    <h2>文件</h2>
+    {SECTIONS.filter((s) => s.id !== 'skills' && s.id !== 'adr').map((sec) => (
+      <div class="hb-group" id={`sec-${sec.id}`}>
+        <h3>{sec.label} <span class="ds-count">{docsBySection(sec.id).length}</span></h3>
+        <p class="ds-muted">{sec.desc}</p>
+        <ul class="hb-cards">
+          {docsBySection(sec.id).map((d) => (
+            <li class="hb-card">
+              <a href={`/handbook/${d.slug}/`} class="hb-card__title">{d.title}</a>
+              <code class="hb-card__path">{d.path}</code>
+              {d.summary && <p class="hb-card__summary">{d.summary}</p>}
+            </li>
+          ))}
+          {sec.id === 'dev' && (
+            <li class="hb-card">
+              <a href="/design/" class="hb-card__title">設計規範頁</a>
+              <code class="hb-card__path">/design/</code>
+              <p class="hb-card__summary">token 表、每個元件的實際範例、元件清單。</p>
+            </li>
+          )}
+        </ul>
+      </div>
+    ))}
+  </section>
+
+  <section id="adr" class="ds-section">
+    <h2>決策紀錄 <span class="ds-count">{adrs.length}</span></h2>
+    <p class="ds-muted">{SECTIONS.find((s) => s.id === 'adr')!.desc}新決定加一篇 <code>docs/adr/NNNN-*.md</code>。</p>
+    <ol class="hb-timeline">
+      {adrs.map((d) => (
+        <li>
+          <span class="hb-timeline__n">{d.number}</span>
+          <div>
+            <a href={`/handbook/${d.slug}/`}>{d.title.replace(/^ADR\s*\d+[:：]\s*/, '')}</a>
+            {d.summary && <p class="ds-muted">{d.summary}</p>}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <section id="skills" class="ds-section">
+    <h2>Agent skills <span class="ds-count">{skills.length}</span></h2>
+    <p class="ds-muted">
+      {SECTIONS.find((s) => s.id === 'skills')!.desc}token 數是 SKILL.md 本身的粗估（不含 references），
+      全部合計約 {skillTokens.toLocaleString()}；agent 觸發某個 skill 時才載入它。
+      只在 <code>.agents/skills/</code> 改，<code>pnpm skills:sync</code> 同步到 <code>.claude/skills/</code>。
+    </p>
+    <div class="hb-table hb-table--skills" role="table">
+      <div class="hb-row hb-row--head" role="row"><span role="columnheader">Skill</span><span role="columnheader">何時用（description）</span><span role="columnheader">約 token</span></div>
+      {skills.map((s) => (
+        <div class="hb-row" role="row">
+          <a role="cell" href={`/handbook/${s.slug}/`}><code>{s.title}</code></a>
+          <span role="cell" class="hb-desc">{s.description ?? <span class="ds-flag">沒寫 description</span>}</span>
+          <span role="cell" class="hb-num">{s.tokens.toLocaleString()}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="checks" class="ds-section">
+    <h2>檢查 <span class="ds-count">{gateChecks.length}</span></h2>
+    <p class="ds-muted">
+      <code>pnpm verify</code> 依序跑的檢查（commit 前與 CI 部署前都會跑），從 <code>scripts/verify.mjs</code> 讀出。
+      寫在這裡的規則會被機器擋；規範文件裡沒有對應檢查的規則，只靠人與 agent 自覺遵守。
+      另有 {selfTests.length} 道檢查器自身的回歸測試（確保檢查器沒壞），不列在下表。
+    </p>
+    <div class="hb-table" role="table">
+      <div class="hb-row hb-row--head" role="row"><span role="columnheader">檢查</span><span role="columnheader">擋什麼</span><span role="columnheader">原始檔</span></div>
+      {gateChecks.map((c) => (
+        <div class="hb-row" role="row">
+          <code role="cell">{c.label}</code>
+          <span role="cell" class="hb-desc">
+            {c.note ? brief(c.note) : c.purpose ? brief(c.purpose) : c.script ? <span class="ds-flag">腳本沒寫用途</span> : <span class="ds-muted">外部工具</span>}
+            {c.note && c.purpose && <span class="ds-muted hb-sub">{brief(c.purpose)}</span>}
+          </span>
+          <span role="cell">{c.script ? <a href={`${REPO_BLOB}${c.script}`} target="_blank" rel="noopener"><code>{c.script.split('/').pop()}</code></a> : <code>{c.command}</code>}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section id="progress" class="ds-section">
+    <h2>目前進度</h2>
+    <p class="ds-muted">來自 <code>progress.txt</code>（工作記憶，不是完整紀錄；完成的移到 <code>docs/progress-archive.md</code>）。最後更新：{progress.updated}。</p>
+    <ul class="hb-progress">
+      {progressHtml.map((html) => <li class="ds-prose" set:html={html} />)}
+    </ul>
+  </section>
+</DocsShell>
+
+<style is:global>
+  .hb-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-3); margin-top: var(--space-6); }
+  .hb-stat {
+    display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4);
+    border: 1px solid var(--border); border-radius: var(--corner-md); background: var(--bg-card);
+    color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm);
+  }
+  .ds .hb-stat { color: var(--text-secondary); }
+  .hb-stat strong { color: var(--text-primary); font-size: var(--fs-h2); font-weight: 800; }
+  .hb-stat:hover { border-color: var(--brand-500); }
+  .hb-health { margin-top: var(--space-6); padding: var(--space-4); border: 1px solid var(--warning-border); border-radius: var(--corner-md); background: var(--warning-bg); }
+  .hb-health h2 { margin: 0 0 var(--space-2); font-size: var(--fs-h3); }
+  .hb-health p { margin: 0 0 var(--space-1); font-size: var(--fs-sm); }
+
+  .hb-group { scroll-margin-top: 64px; }
+  .hb-cards { list-style: none; margin: 0 0 var(--space-6); padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--space-3); }
+  .hb-card { display: flex; flex-direction: column; gap: var(--space-1); padding: var(--space-4); border: 1px solid var(--border); border-radius: var(--corner-md); background: var(--bg-card); min-width: 0; }
+  .hb-card__title { font-weight: 700; text-decoration: none; }
+  .hb-card__title:hover { text-decoration: underline; }
+  .hb-card__path { color: var(--text-muted); font-size: var(--fs-xs); overflow-wrap: anywhere; }
+  .hb-card__summary { margin: var(--space-1) 0 0; color: var(--text-secondary); font-size: var(--fs-sm); }
+
+  .hb-timeline { list-style: none; margin: 0; padding: 0; }
+  .hb-timeline li { display: flex; gap: var(--space-3); padding: var(--space-3) 0; border-top: 1px solid var(--border); }
+  .hb-timeline li:first-child { border-top: none; }
+  .hb-timeline__n { flex-shrink: 0; width: 44px; color: var(--text-muted); font-family: ui-monospace, monospace; font-size: var(--fs-sm); padding-top: 2px; }
+  .hb-timeline a { font-weight: 600; text-decoration: none; }
+  .hb-timeline .ds-muted { margin: var(--space-1) 0 0; }
+
+  .hb-table { border: 1px solid var(--border); border-radius: var(--corner-md); overflow: hidden; }
+  .hb-row { display: grid; grid-template-columns: var(--hb-cols, 220px minmax(0, 1fr) 220px); gap: var(--space-3); align-items: start; padding: var(--space-2) var(--space-3); border-top: 1px solid var(--border); font-size: var(--fs-sm); }
+  .hb-row:first-child { border-top: none; }
+  .hb-row--head { background: var(--bg-subtle); color: var(--text-muted); font-size: var(--fs-xs); font-weight: 600; }
+  .hb-row a { text-decoration: none; }
+  .hb-row code { overflow-wrap: anywhere; }
+  .hb-desc { color: var(--text-secondary); }
+  .hb-sub { display: block; margin: var(--space-1) 0 0; font-size: var(--fs-xs); }
+  .hb-num { color: var(--text-muted); text-align: right; font-variant-numeric: tabular-nums; }
+  .hb-table--skills { --hb-cols: 220px minmax(0, 1fr) 80px; }
+  .hb-row > :last-child { justify-self: end; text-align: right; }
+
+  .hb-progress { margin: 0; padding-left: var(--space-5); }
+  .hb-progress li { margin-bottom: var(--space-3); font-size: var(--fs-sm); color: var(--text-secondary); }
+  .hb-progress li p { margin: 0; }
+
+  @media (max-width: 640px) {
+    .hb-row { grid-template-columns: 1fr; gap: var(--space-1); }
+    .hb-row--head { display: none; }
+    .hb-num { text-align: left; }
+    .hb-row > :last-child { justify-self: start; text-align: left; }
+    .hb-cards { grid-template-columns: 1fr; }
+  }
+</style>
