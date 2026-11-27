@@ -36,7 +36,7 @@
 .admin-page-desc,
 .page-desc {
   margin: 0;
-  font-size: 0.94rem;
+  font-size: var(--fs-sm);
 }
 
 .page-desc {
@@ -101,7 +101,7 @@
 .hero-kicker {
   color: var(--text-muted);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.7rem;
+  font-size: var(--fs-xs);
   font-weight: 750;
   letter-spacing: 0.08em;
   margin: 0 0 0.15rem;
@@ -113,7 +113,7 @@
 .content-section h2,
 .status-card h3 {
   color: var(--text-primary);
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-weight: 750;
   letter-spacing: 0;
   line-height: 1.25;
@@ -125,7 +125,7 @@
 .section-desc,
 .section-heading p {
   color: var(--text-secondary);
-  font-size: 0.84rem;
+  font-size: var(--fs-sm);
   margin: 0.2rem 0 0;
 }
 
@@ -162,7 +162,7 @@
   color: var(--text-primary);
   cursor: pointer;
   font: inherit;
-  font-size: 0.86rem;
+  font-size: var(--fs-sm);
   font-weight: 650;
   line-height: 1.2;
   padding: 0.5rem 0.75rem;
@@ -224,7 +224,7 @@
 .mini-btn {
   min-height: 28px;
   border-radius: var(--corner-sm);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   padding: 0.25rem 0.55rem;
   text-transform: uppercase;
 }
@@ -253,7 +253,7 @@ button:disabled,
     background: var(--bg-subtle);
     color: var(--text-primary);
     font: inherit;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     padding: 0.45rem 0.65rem;
   }
 
@@ -279,7 +279,7 @@ button:disabled,
 .ops-grid label,
 .setting-row span {
   color: var(--text-secondary);
-  font-size: 0.76rem;
+  font-size: var(--fs-xs);
   font-weight: 650;
 }
 
@@ -311,7 +311,7 @@ button:disabled,
 }
 
 .pipeline-header h3 {
-  font-size: 0.95rem;
+  font-size: var(--fs-md);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -321,7 +321,7 @@ button:disabled,
 .pipeline-card code,
 .job-row code {
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -331,7 +331,7 @@ button:disabled,
 .pipeline-card p {
   margin: 0.75rem 0;
   color: var(--text-secondary);
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
   line-height: 1.5;
 }
 
@@ -342,7 +342,7 @@ button:disabled,
   padding: 0.15rem 0.45rem;
   background: var(--bg-muted);
   color: var(--text-secondary);
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   white-space: nowrap;
 }
 
@@ -384,7 +384,7 @@ button:disabled,
   border: 1px solid var(--border);
   background: var(--bg-card);
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
   line-height: 1.5;
 }
 
@@ -412,7 +412,7 @@ button:disabled,
   display: grid;
   gap: 0.35rem;
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
 }
 
 .job-row {
@@ -430,13 +430,13 @@ button:disabled,
 
 .mini-btn {
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: var(--corner-pill);
   padding: 0.2rem 0.55rem;
   background: var(--bg-card);
   color: var(--text-secondary);
   cursor: pointer;
   text-transform: uppercase;
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   white-space: nowrap;
 }
 
@@ -473,7 +473,7 @@ button:disabled,
 .overview-value {
   display: block;
   color: var(--text-primary);
-  font-size: 1.45rem;
+  font-size: var(--fs-h2);
   font-weight: 750;
   line-height: 1.1;
 }
@@ -482,7 +482,7 @@ button:disabled,
 .metric-label,
 .overview-label {
   color: var(--text-secondary);
-  font-size: 0.78rem;
+  font-size: var(--fs-xs);
 }
 
 .admin-table-wrap,
@@ -517,7 +517,7 @@ button:disabled,
 .post-table th {
   background: var(--bg-subtle);
   color: var(--text-secondary);
-  font-size: 0.73rem;
+  font-size: var(--fs-xs);
   font-weight: 750;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -619,7 +619,7 @@ button:disabled,
   border-radius: var(--corner-sm);
   background: var(--bg-subtle);
   color: var(--text-secondary);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   font-weight: 700;
   line-height: 1;
   padding: 0.2rem 0.48rem;
@@ -675,7 +675,7 @@ button:disabled,
 .admin-state {
   margin: 0;
   border-radius: var(--corner-md);
-  font-size: 0.88rem;
+  font-size: var(--fs-sm);
 }
 
 .empty,
@@ -707,7 +707,7 @@ button:disabled,
 }
 
 .status-content {
-  font-size: 0.9rem;
+  font-size: var(--fs-sm);
 }
 
 .status-item,
@@ -759,13 +759,13 @@ button:disabled,
 }
 
 .action-card h3 {
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-weight: 650;
   color: var(--text-primary);
 }
 
 .action-card p {
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-secondary);
   margin: 0;
 }
@@ -811,7 +811,7 @@ button:disabled,
 
 .job-pipeline {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   color: var(--text-primary);
   min-width: 0;
   overflow: hidden;
@@ -825,13 +825,13 @@ button:disabled,
 
 .job-error {
   color: var(--danger);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   margin: 0.5rem 0;
 }
 
 .job-output {
   color: var(--text-secondary);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
   margin: 0.5rem 0;
   overflow-wrap: anywhere;
 }
@@ -843,7 +843,7 @@ button:disabled,
   color: var(--text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  font-size: 1rem;
+  font-size: var(--fs-md);
   font-weight: 650;
 }
 
@@ -854,7 +854,7 @@ button:disabled,
 }
 
 .note {
-  font-size: 0.75rem;
+  font-size: var(--fs-xs);
   color: var(--text-secondary);
   font-style: italic;
 }
@@ -870,7 +870,7 @@ button:disabled,
 .metric-line strong {
   margin-left: auto;
   color: var(--text-primary);
-  font-size: 0.85rem;
+  font-size: var(--fs-sm);
 }
 
 .metric-line {
@@ -880,7 +880,7 @@ button:disabled,
 .metric-line span,
 .status-item span {
   color: var(--text-secondary);
-  font-size: 0.82rem;
+  font-size: var(--fs-sm);
 }
 
 .job-actions {
@@ -1004,7 +1004,7 @@ button:disabled,
 .post-path {
   overflow: hidden;
   color: var(--text-secondary);
-  font-size: 0.72rem;
+  font-size: var(--fs-xs);
   line-height: 1.35;
   max-width: 100%;
   text-overflow: ellipsis;
@@ -1062,14 +1062,14 @@ button:disabled,
   border-radius: var(--corner-sm);
   background: var(--brand-50);
   color: var(--text-secondary);
-  font-size: 0.7rem;
+  font-size: var(--fs-xs);
   padding: 0.2rem 0.48rem;
 }
 
 .issue-slug,
 .post-item .post-slug {
   color: var(--brand-700);
-  font-size: 0.84rem;
+  font-size: var(--fs-sm);
   min-width: 0;
   overflow: hidden;
   text-decoration: none;
@@ -1087,7 +1087,7 @@ button:disabled,
 .post-date,
 .link-anchor {
   color: var(--text-secondary);
-  font-size: 0.8rem;
+  font-size: var(--fs-xs);
 }
 
 .post-date {
@@ -1098,7 +1098,7 @@ button:disabled,
 .link-from,
 .link-to {
   color: var(--text-primary);
-  font-size: 0.84rem;
+  font-size: var(--fs-sm);
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1244,7 +1244,7 @@ pre {
     margin: 0 0 0.2rem;
     color: var(--text-secondary);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -1253,7 +1253,7 @@ pre {
   .dashboard-hero h1 {
     margin: 0;
     color: var(--text-primary);
-    font-size: clamp(1.25rem, 2vw, 1.75rem);
+    font-size: var(--fs-h1);
     line-height: 1.25;
     letter-spacing: 0;
   }
@@ -1261,7 +1261,7 @@ pre {
   .dashboard-hero p {
     margin: 0.35rem 0 0;
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
   }
 
   .hero-actions {
@@ -1291,13 +1291,13 @@ pre {
   }
 
   .status-card h3 {
-    font-size: 0.92rem;
+    font-size: var(--fs-sm);
     font-weight: 750;
     margin: 0;
   }
 
   .status-content {
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
   }
 
   .status-content p {
@@ -1320,7 +1320,7 @@ pre {
   .status-item strong {
     margin-left: auto;
     color: var(--text-secondary);
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
   }
 
@@ -1342,7 +1342,7 @@ pre {
     display: inline-block;
     margin-top: 0.75rem;
     text-decoration: none;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     font-weight: 650;
   }
 
@@ -1364,7 +1364,7 @@ pre {
     min-height: 42px;
     padding: 0.6rem 0.8rem;
     text-decoration: none;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     font-weight: 650;
   }
 
@@ -1386,7 +1386,7 @@ pre {
   .job-pipeline {
     color: var(--text-primary);
     font-family: monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1396,14 +1396,14 @@ pre {
   .job-row code {
     overflow: hidden;
     color: var(--text-muted);
-    font-size: 0.76rem;
+    font-size: var(--fs-xs);
     text-overflow: ellipsis;
     white-space: nowrap;
   }
 
   .job-time {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     text-align: right;
     white-space: nowrap;
   }
@@ -1433,12 +1433,12 @@ pre {
 
   .metric-line span {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
   }
 
   .metric-line strong {
     color: var(--text-primary);
-    font-size: 0.95rem;
+    font-size: var(--fs-md);
   }
 
   @media (max-width: 1120px) {
@@ -1505,13 +1505,13 @@ pre {
   }
 
   .panel-header h2 {
-    font-size: 1.05rem;
+    font-size: var(--fs-h3);
     margin: 0;
   }
 
   .result-count {
-    border-radius: 999px;
-    font-size: 0.85rem;
+    border-radius: var(--corner-pill);
+    font-size: var(--fs-sm);
   }
 
   .toolbar {
@@ -1563,7 +1563,7 @@ pre {
     overflow: hidden;
     color: var(--text-secondary);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     line-height: 1.35;
     max-width: 100%;
     text-overflow: ellipsis;
@@ -1634,16 +1634,16 @@ pre {
   }
 
   .issue-type {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     padding: 0.2rem 0.5rem;
     background: var(--border);
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     color: var(--text-secondary);
   }
 
   .issue-slug, .post-slug {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--brand-700);
     min-width: 0;
     overflow: hidden;
@@ -1657,7 +1657,7 @@ pre {
   }
 
   .issue-detail, .post-reason, .post-date {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
@@ -1668,7 +1668,7 @@ pre {
 
   .link-from, .link-to {
     font-family: monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-primary);
     min-width: 0;
     overflow: hidden;
@@ -1681,7 +1681,7 @@ pre {
   }
 
   .link-anchor {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--brand-700);
     font-style: italic;
   }
@@ -1746,7 +1746,7 @@ pre {
   }
 
   .providers-section h2 {
-    font-size: 0.82rem;
+    font-size: var(--fs-sm);
     font-weight: 700;
     color: var(--text-secondary);
     text-transform: uppercase;
@@ -1756,7 +1756,7 @@ pre {
   .section-note,
   .save-status {
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .routing-form,
@@ -1789,7 +1789,7 @@ pre {
       display: grid;
       gap: 0.35rem;
       color: var(--text-secondary);
-      font-size: 0.8rem;
+      font-size: var(--fs-xs);
     }
 
     input:not([class]),
@@ -1853,7 +1853,7 @@ pre {
   }
 
   .catalog-toolbar button {
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     padding: 0.35rem 0.75rem;
     border-radius: var(--corner-sm);
     color: var(--text-secondary);
@@ -1909,7 +1909,7 @@ pre {
     padding: 0.8rem 1rem;
     background: var(--bg-muted);
     color: var(--text-secondary);
-    font-size: 0.86rem;
+    font-size: var(--fs-sm);
   }
 
   .catalog-provider-title {
@@ -1930,7 +1930,7 @@ pre {
   .catalog-sync-status {
     min-height: 20px;
     color: var(--text-muted);
-    font-size: 0.74rem;
+    font-size: var(--fs-xs);
     min-width: 120px;
     text-align: right;
   }
@@ -1949,7 +1949,7 @@ pre {
     border: 1px solid var(--border);
     background: var(--bg-card);
     color: var(--text-secondary);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
   }
 
   .catalog-sync-btn:hover:enabled {
@@ -1985,7 +1985,7 @@ pre {
   .model-name,
   .model-notes {
     color: var(--text-muted);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -1997,9 +1997,9 @@ pre {
   .status-badge,
   .flag,
   .secret-status {
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     padding: 0.25rem 0.55rem;
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
   }
 
   .model-state.enabled,
@@ -2029,7 +2029,7 @@ pre {
   .empty-note {
     padding: 0.9rem 1rem;
     color: var(--text-muted);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .test-panel {
@@ -2052,7 +2052,7 @@ pre {
     padding: 0.85rem;
     background: var(--bg-code);
     color: var(--code-text);
-    font-size: 0.82rem;
+    font-size: var(--fs-sm);
   }
 
   .provider-cards {
@@ -2086,7 +2086,7 @@ pre {
   }
 
   .configure-link {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--brand-700);
     text-decoration: none;
   }
@@ -2100,14 +2100,14 @@ pre {
 
   .provider-label {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     min-width: 112px;
   }
 
   .provider-value,
   .secret-name {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     min-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2176,9 +2176,9 @@ pre {
     padding: 0.4rem 0.75rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     color: var(--text-primary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .btn-secondary {
@@ -2186,9 +2186,9 @@ pre {
     background: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .btn-secondary:hover {
@@ -2211,7 +2211,7 @@ pre {
   }
 
   .stats-section h2 {
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-secondary);
@@ -2227,7 +2227,7 @@ pre {
 
   .metric {
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     background: var(--bg-subtle);
     min-width: 0;
     padding: 0.75rem;
@@ -2236,21 +2236,21 @@ pre {
 
   .metric-value {
     display: block;
-    font-size: clamp(1.15rem, 1.6vw, 1.5rem);
+    font-size: var(--fs-h2);
     font-weight: 600;
     color: var(--text-primary);
     overflow-wrap: anywhere;
   }
 
   .metric-label {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     overflow-wrap: anywhere;
   }
 
   .metric-note {
     margin-top: 1rem;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
   }
 
@@ -2261,7 +2261,7 @@ pre {
   }
 
   .breakdown h4 {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
   }
@@ -2270,7 +2270,7 @@ pre {
     display: flex;
     justify-content: space-between;
     padding: 0.25rem 0;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .breakdown-label {
@@ -2291,7 +2291,7 @@ pre {
   }
 
   .top-terms h4 {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     margin-bottom: 0.5rem;
   }
@@ -2301,8 +2301,8 @@ pre {
     padding: 0.2rem 0.5rem;
     margin: 0.25rem;
     background: var(--bg-muted);
-    border-radius: 4px;
-    font-size: 0.8rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-xs);
     color: var(--text-primary);
   }
 
@@ -2352,9 +2352,9 @@ pre {
     padding: 0.5rem 0.75rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     color: var(--text-primary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .input:focus, .select:focus {
@@ -2367,9 +2367,9 @@ pre {
     background: var(--brand-700);
     color: var(--text-on-solid);
     border: none;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .btn.danger {
@@ -2385,9 +2385,9 @@ pre {
     background: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     cursor: pointer;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .traces-container {
@@ -2405,18 +2405,18 @@ pre {
     padding: 1rem;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     min-width: 0;
   }
 
   .retention-panel h2 {
-    font-size: 1rem;
+    font-size: var(--fs-md);
     margin-bottom: 0.4rem;
   }
 
   .retention-panel p {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     line-height: 1.5;
   }
 
@@ -2433,25 +2433,25 @@ pre {
     flex-direction: column;
     gap: 0.25rem;
     color: var(--text-secondary);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
 
   #retention-output {
     grid-column: 1 / -1;
     margin: 0;
     padding: 0.75rem;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     background: var(--bg-code);
     border: 1px solid var(--border);
     color: var(--code-text);
     white-space: pre-wrap;
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     overflow: auto;
   }
 
   .traces-list-section h2,
   .trace-detail-section h2 {
-    font-size: 1rem;
+    font-size: var(--fs-md);
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-secondary);
@@ -2471,7 +2471,7 @@ pre {
   .trace-card {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 0.75rem;
     cursor: pointer;
     transition: border-color 0.15s;
@@ -2498,33 +2498,33 @@ pre {
 
   .trace-stage {
     font-weight: 600;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--brand-700);
   }
 
   .trace-duration {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
   .trace-time {
     margin-left: 0;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
   .status-pill {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     padding: 0.15rem 0.45rem;
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     text-transform: uppercase;
   }
 
   .native-badge {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     border: 1px solid color-mix(in srgb, var(--success) 55%, transparent);
     color: var(--success);
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     padding: 0.15rem 0.45rem;
     white-space: nowrap;
   }
@@ -2532,12 +2532,12 @@ pre {
   .native-trace h3 {
     margin: 0 0 0.5rem 0;
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
   }
 
   .trace-id code {
     display: block;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     max-width: 100%;
     overflow: hidden;
@@ -2551,14 +2551,14 @@ pre {
 
   .trace-scope {
     margin-bottom: 0.5rem;
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
 
   .trace-summary {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-primary);
     margin-top: 0.5rem;
     display: -webkit-box;
@@ -2568,7 +2568,7 @@ pre {
   }
 
   .trace-error {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--danger);
     margin-top: 0.5rem;
   }
@@ -2594,7 +2594,7 @@ pre {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     font-weight: 600;
     flex-shrink: 0;
   }
@@ -2603,7 +2603,7 @@ pre {
     flex: 1;
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 1rem;
     min-width: 0;
   }
@@ -2621,14 +2621,14 @@ pre {
   }
 
   .step-duration {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
   .step-status {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     text-transform: uppercase;
   }
 
@@ -2640,17 +2640,17 @@ pre {
   }
 
   .step-section h4 {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     margin-bottom: 0.35rem;
   }
 
   .step-code {
     background: var(--bg-code);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     color: var(--code-text);
     padding: 0.5rem;
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     overflow-x: auto;
     white-space: pre-wrap;
     word-break: break-word;
@@ -2668,11 +2668,11 @@ pre {
   }
 
   .meta-item {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     background: var(--bg-muted);
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     max-width: 100%;
     overflow-wrap: anywhere;
   }
@@ -2682,11 +2682,11 @@ pre {
 
   .langfuse-link {
     display: inline-block;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     text-decoration: none;
     color: var(--brand-700);
     border: 1px solid color-mix(in srgb, var(--brand-700) 45%, transparent);
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     padding: 0.15rem 0.5rem;
   }
 
@@ -2710,7 +2710,7 @@ pre {
     align-items: center;
     gap: 0.35rem;
     color: var(--text-secondary);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
 
   .trace-filter-toggle input[type='checkbox'] {
@@ -2780,7 +2780,7 @@ pre {
   }
 
   .admin-panel h2 {
-    font-size: 1rem;
+    font-size: var(--fs-md);
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-primary);
@@ -2796,13 +2796,13 @@ pre {
 
   .section-desc {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     margin: 0.25rem 0 0;
   }
 
   .save-status {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   #settings-form {
@@ -2820,7 +2820,7 @@ pre {
   .settings-group legend {
     padding: 0 0.35rem;
     color: var(--text-secondary);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     font-weight: 700;
   }
 
@@ -2835,7 +2835,7 @@ pre {
 
   .setting-row span {
     font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
   }
 
@@ -2848,7 +2848,7 @@ pre {
     padding: 0.5rem 0.75rem;
     background: var(--bg-subtle);
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     min-width: 0;
   }
 
@@ -2880,23 +2880,23 @@ pre {
     display: inline-block;
     background: var(--brand-700);
     padding: 0.15rem 0.5rem;
-    border-radius: 4px;
-    font-size: 0.8rem;
+    border-radius: var(--corner-sm);
+    font-size: var(--fs-xs);
     margin-right: 0.5rem;
   }
 
   .trace-row span {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     margin-right: 0.75rem;
   }
 
   .native-badge {
     color: var(--text-primary);
     border: 1px solid color-mix(in srgb, var(--brand-700) 35%, transparent);
-    border-radius: 999px;
+    border-radius: var(--corner-pill);
     padding: 0.02rem 0.45rem;
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     margin-left: 0.5rem;
   }
 
@@ -2904,7 +2904,7 @@ pre {
     display: block;
     margin-top: 0.25rem;
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -2922,7 +2922,7 @@ pre {
 
   .trace-row p {
     margin-top: 0.5rem;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     color: var(--text-primary);
     overflow-wrap: anywhere;
   }
@@ -2937,7 +2937,7 @@ pre {
     display: inline-flex;
     flex-direction: column;
     gap: 0.35rem;
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
@@ -2947,11 +2947,11 @@ pre {
   .select {
     width: 100%;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 0.5rem 0.75rem;
     background: var(--bg-subtle);
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     min-width: 0;
   }
 
@@ -2959,12 +2959,12 @@ pre {
   .ops-grid button,
   #save-settings {
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 0.6rem 0.75rem;
     background: var(--bg-card);
     color: var(--text-primary);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     transition: background 0.15s, border-color 0.15s;
     min-width: 0;
   }
@@ -2982,7 +2982,7 @@ pre {
     gap: 0.55rem;
     align-items: center;
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   .matrix-controls label {
@@ -2999,11 +2999,11 @@ pre {
     overflow: auto;
     margin-top: 1rem;
     padding: 1rem;
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     background: var(--bg-code);
     color: var(--code-text);
     border: 1px solid var(--border);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     max-height: 300px;
   }
 
@@ -3033,7 +3033,7 @@ pre {
   }
 
   .settings-section h2 {
-    font-size: 1rem;
+    font-size: var(--fs-md);
     font-weight: 600;
     margin-bottom: 1rem;
     color: var(--text-secondary);
@@ -3050,7 +3050,7 @@ pre {
   .secret-item {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: var(--corner-md);
     padding: 0.75rem 1rem;
     display: flex;
     flex-wrap: wrap;
@@ -3060,7 +3060,7 @@ pre {
 
   .secret-name {
     font-family: monospace;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-primary);
     flex: 1;
     min-width: 120px;
@@ -3069,16 +3069,16 @@ pre {
   }
 
   .secret-status {
-    font-size: 0.7rem;
+    font-size: var(--fs-xs);
     padding: 0.2rem 0.5rem;
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
   }
 
   .status-ready { background: var(--success-bg); color: var(--success); }
   .status-missing { background: var(--danger-bg); color: var(--danger); }
 
   .secret-note {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
     width: 100%;
     margin-top: 0.25rem;
@@ -3108,7 +3108,7 @@ pre {
 
   .setting-row label {
     min-width: 180px;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     color: var(--text-primary);
   }
 
@@ -3124,9 +3124,9 @@ pre {
     padding: 0.5rem 0.75rem;
     background: var(--bg-subtle);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     color: var(--text-primary);
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
     width: 120px;
   }
 
@@ -3136,7 +3136,7 @@ pre {
   }
 
   .setting-note {
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
     color: var(--text-secondary);
   }
 
@@ -3154,9 +3154,9 @@ pre {
     background: var(--brand-700);
     color: var(--text-on-solid);
     border: none;
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
   }
 
   .btn:hover {
@@ -3168,9 +3168,9 @@ pre {
     background: transparent;
     color: var(--text-secondary);
     border: 1px solid var(--border);
-    border-radius: 6px;
+    border-radius: var(--corner-md);
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: var(--fs-sm);
   }
 
   .btn-secondary:hover {
@@ -3179,7 +3179,7 @@ pre {
   }
 
   .status-text {
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     color: var(--text-secondary);
   }
 

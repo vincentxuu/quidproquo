@@ -39,7 +39,7 @@ function formatTimestamp(ms: number): string {
   .mgmt-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     overflow: hidden;
   }
   .mgmt-table th,
@@ -50,12 +50,12 @@ function formatTimestamp(ms: number): string {
   }
   .mgmt-table th {
     color: var(--text-muted);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
   .mgmt-table code {
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
   }
   .mgmt-table a {
     color: var(--brand-700);
@@ -64,8 +64,8 @@ function formatTimestamp(ms: number): string {
   .category-chip {
     padding: 0.05rem 0.5rem;
     border: 1px solid var(--border);
-    border-radius: 999px;
-    font-size: 0.74rem;
+    border-radius: var(--corner-pill);
+    font-size: var(--fs-xs);
     text-transform: capitalize;
   }
 </style>

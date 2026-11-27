@@ -32,12 +32,12 @@ const { assignments } = Astro.props;
 <style>
   .empty-note {
     color: var(--text-secondary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
   .mgmt-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     overflow: hidden;
   }
   .mgmt-table th,
@@ -48,7 +48,7 @@ const { assignments } = Astro.props;
   }
   .mgmt-table th {
     color: var(--text-muted);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }

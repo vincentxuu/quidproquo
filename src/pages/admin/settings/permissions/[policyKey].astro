@@ -35,7 +35,7 @@ const breadcrumb = [
   {result.detail && (
     <div class="grid gap-6">
       <header>
-        <h2 class="text-xl">{result.detail.label} <code class="text-[0.82rem] text-muted-foreground">{result.detail.policyKey}</code></h2>
+        <h2 class="text-xl">{result.detail.label} <code class="text-(length:--fs-sm) text-muted-foreground">{result.detail.policyKey}</code></h2>
         <p class="mt-1 flex items-center gap-2.5 text-sm text-muted-foreground">
           <span class="rounded-full border border-border px-2 py-0.5 text-xs capitalize">{result.detail.category}</span>
           <span>v{result.detail.version}</span>
@@ -53,32 +53,32 @@ const breadcrumb = [
 
       <section aria-label="定義">
         <div class="mb-2 flex items-center justify-between">
-          <h3 class="text-[0.95rem]">{t('policies.definition')}</h3>
+          <h3 class="text-(length:--fs-md)">{t('policies.definition')}</h3>
           <button type="button" id="save-policy-btn" class="rounded-lg border border-primary bg-primary px-3 py-1.5 text-sm font-semibold text-primary-foreground">{t('policies.saveDefinition')}</button>
         </div>
         <form id="policy-edit-form" class="grid gap-3">
-          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
+          <label class="grid gap-1 text-(length:--fs-sm) font-semibold text-muted-foreground">
             {t('policies.label')}
             <input id="policy-label" value={result.detail.label} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 text-sm font-normal text-foreground" />
           </label>
-          <label class="grid gap-1 text-[0.82rem] font-semibold text-muted-foreground">
+          <label class="grid gap-1 text-(length:--fs-sm) font-semibold text-muted-foreground">
             {t('policies.bodyJson')}
-            <textarea id="policy-body" rows="16" spellcheck={false} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 font-mono text-[0.82rem] leading-relaxed text-foreground">{result.detail.body}</textarea>
+            <textarea id="policy-body" rows="16" spellcheck={false} class="w-full rounded-lg border border-border bg-card px-2.5 py-2 font-mono text-(length:--fs-sm) leading-relaxed text-foreground">{result.detail.body}</textarea>
           </label>
-          <span id="policy-save-status" class="text-[0.82rem] text-muted-foreground" aria-live="polite"></span>
+          <span id="policy-save-status" class="text-(length:--fs-sm) text-muted-foreground" aria-live="polite"></span>
         </form>
       </section>
 
       <section aria-label="指派">
         <div class="mb-2 flex items-center justify-between">
-          <h3 class="text-[0.95rem]">{t('policies.assignments')}</h3>
+          <h3 class="text-(length:--fs-md)">{t('policies.assignments')}</h3>
           <FlowAssignIsland client:only="react" policyId={result.detail.policyKey} />
         </div>
         <PolicyAssignmentList assignments={result.assignments} />
       </section>
 
       <section aria-label="近期決策">
-        <h3 class="mb-2 text-[0.95rem]">{t('policies.recentDecisions')}</h3>
+        <h3 class="mb-2 text-(length:--fs-md)">{t('policies.recentDecisions')}</h3>
         <p class="text-sm text-muted-foreground">{t('policies.decisionsUnavailable')}</p>
       </section>
     </div>

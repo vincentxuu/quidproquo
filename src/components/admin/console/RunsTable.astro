@@ -64,7 +64,7 @@ function fmtCost(usd: number): string {
   .runs-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     overflow: hidden;
   }
   .runs-table th,
@@ -75,7 +75,7 @@ function fmtCost(usd: number): string {
   }
   .runs-table th {
     color: var(--text-muted);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -83,14 +83,14 @@ function fmtCost(usd: number): string {
     background: var(--bg-subtle);
   }
   .runs-table .status {
-    font-size: 0.75rem;
+    font-size: var(--fs-xs);
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.04em;
   }
   .runs-table .tokens {
     color: var(--text-secondary);
-    font-size: 0.8rem;
+    font-size: var(--fs-xs);
   }
   .runs-table .actions a {
     color: var(--brand-700);

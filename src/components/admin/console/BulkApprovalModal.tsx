@@ -78,7 +78,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
       <div
         style={{
           background: 'var(--bg-card)',
-          borderRadius: '0.5rem',
+          borderRadius: 'var(--corner-md)',
           boxShadow: 'var(--shadow-modal)',
           width: 'min(640px, 95vw)',
           maxHeight: '80vh',
@@ -96,7 +96,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
             justifyContent: 'space-between',
           }}
         >
-          <h2 style={{ margin: 0, fontSize: '1rem', fontWeight: 600 }}>
+          <h2 style={{ margin: 0, fontSize: 'var(--fs-md)', fontWeight: 600 }}>
             批次處理 — {approvals.length} 筆待審核項目
           </h2>
           <button
@@ -107,7 +107,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              fontSize: '1.25rem',
+              fontSize: 'var(--fs-h2)',
               lineHeight: 1,
               color: 'var(--text-secondary)',
             }}
@@ -133,16 +133,16 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                       alignItems: 'center',
                       gap: '0.75rem',
                       padding: '0.625rem 0.75rem',
-                      borderRadius: '0.375rem',
+                      borderRadius: 'var(--corner-md)',
                       background: 'var(--bg-subtle)',
                       border: '1px solid var(--border)',
                     }}
                   >
                     <div style={{ flex: 1, minWidth: 0 }}>
-                      <div style={{ fontSize: '0.8125rem', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                      <div style={{ fontSize: 'var(--fs-sm)', fontWeight: 500, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
                         {a.reason}
                       </div>
-                      <div style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', marginTop: '0.125rem' }}>
+                      <div style={{ fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)', marginTop: '0.125rem' }}>
                         <a
                           href={`/admin/console/runs/${a.runId}${a.stepId ? `?step=${a.stepId}` : ''}`}
                           target="_blank"
@@ -162,8 +162,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                           aria-label={`核准 ${a.approvalId}`}
                           style={{
                             padding: '0.25rem 0.625rem',
-                            fontSize: '0.75rem',
-                            borderRadius: '0.25rem',
+                            fontSize: 'var(--fs-xs)',
+                            borderRadius: 'var(--corner-sm)',
                             border: '1px solid var(--success)',
                             background: 'transparent',
                             color: 'var(--success)',
@@ -178,8 +178,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                           aria-label={`拒絕 ${a.approvalId}`}
                           style={{
                             padding: '0.25rem 0.625rem',
-                            fontSize: '0.75rem',
-                            borderRadius: '0.25rem',
+                            fontSize: 'var(--fs-xs)',
+                            borderRadius: 'var(--corner-sm)',
                             border: '1px solid var(--danger)',
                             background: 'transparent',
                             color: 'var(--danger)',
@@ -192,7 +192,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                     )}
 
                     {row.status === 'loading' && (
-                      <span style={{ fontSize: '0.75rem', color: 'var(--text-secondary)', flexShrink: 0 }}>
+                      <span style={{ fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)', flexShrink: 0 }}>
                         處理中…
                       </span>
                     )}
@@ -200,7 +200,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                     {row.status === 'done' && (
                       <span
                         style={{
-                          fontSize: '0.75rem',
+                          fontSize: 'var(--fs-xs)',
                           fontWeight: 500,
                           color: row.decision === 'approve' ? 'var(--success)' : 'var(--danger)',
                           flexShrink: 0,
@@ -211,7 +211,7 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
                     )}
 
                     {row.status === 'error' && (
-                      <span style={{ fontSize: '0.75rem', color: 'var(--danger)', flexShrink: 0 }}>
+                      <span style={{ fontSize: 'var(--fs-xs)', color: 'var(--danger)', flexShrink: 0 }}>
                         失敗
                       </span>
                     )}
@@ -236,8 +236,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
             disabled={submitting}
             style={{
               padding: '0.4375rem 0.875rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
+              fontSize: 'var(--fs-sm)',
+              borderRadius: 'var(--corner-md)',
               border: '1px solid var(--border)',
               background: 'transparent',
               cursor: 'pointer',
@@ -250,8 +250,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
             disabled={submitting || !anyIdle}
             style={{
               padding: '0.4375rem 0.875rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
+              fontSize: 'var(--fs-sm)',
+              borderRadius: 'var(--corner-md)',
               border: '1px solid var(--danger)',
               background: 'transparent',
               color: 'var(--danger)',
@@ -266,8 +266,8 @@ function BulkApprovalModalInner({ approvals, onDone, onClose }: BulkApprovalModa
             disabled={submitting || !anyIdle}
             style={{
               padding: '0.4375rem 0.875rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
+              fontSize: 'var(--fs-sm)',
+              borderRadius: 'var(--corner-md)',
               border: 'none',
               background: 'var(--success)',
               color: 'var(--text-on-solid)',
@@ -307,8 +307,8 @@ export function PendingApprovalsBannerIsland({ approvals }: PendingApprovalsBann
         onClick={() => setOpen(true)}
         style={{
           padding: '0.25rem 0.75rem',
-          fontSize: '0.8125rem',
-          borderRadius: '0.375rem',
+          fontSize: 'var(--fs-sm)',
+          borderRadius: 'var(--corner-md)',
           border: '1px solid currentColor',
           background: 'transparent',
           color: 'inherit',

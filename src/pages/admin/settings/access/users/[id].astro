@@ -158,23 +158,23 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
       <AdminPanel title="使用者資訊">
         <div class="grid gap-2">
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">使用者 ID</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">使用者 ID</span>
             <code>{user.user_id}</code>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">電子郵件</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">電子郵件</span>
             <span>{user.email}</span>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">建立時間</span>
-            <span class="font-mono text-[0.82rem]">{formatTs(user.created_at)}</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">建立時間</span>
+            <span class="font-mono text-(length:--fs-sm)">{formatTs(user.created_at)}</span>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">最後登入</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">最後登入</span>
             <span class="text-sm text-muted-foreground">N/A</span>
           </div>
           <div class="flex items-baseline gap-2">
-            <span class="min-w-[100px] text-[0.82rem] font-bold text-muted-foreground">狀態</span>
+            <span class="min-w-[100px] text-(length:--fs-sm) font-bold text-muted-foreground">狀態</span>
             {user.disabled_at ? (
               <span class="inline-block rounded-full border border-destructive bg-[var(--danger-bg)] px-2 py-0.5 text-xs font-semibold text-destructive">停用於 {formatTs(user.disabled_at)}</span>
             ) : (
@@ -195,7 +195,7 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
           <input type="hidden" name="action" value="update" />
           <input type="hidden" name="redirect" value={`/admin/settings/access/users/${userId}`} />
           <div class="grid gap-1">
-            <label for="user-email" class="text-[0.82rem] font-bold text-muted-foreground">電子郵件</label>
+            <label for="user-email" class="text-(length:--fs-sm) font-bold text-muted-foreground">電子郵件</label>
             <input
               id="user-email"
               name="email"
@@ -312,10 +312,10 @@ const assignedRoleNamesJson = JSON.stringify(assignedRoleNames);
             <tbody>
               {auditRows.map((row) => (
                 <tr>
-                  <td class="font-mono text-[0.82rem]">{formatTs(row.created_at)}</td>
-                  <td class="font-mono text-[0.82rem]">{row.action}</td>
+                  <td class="font-mono text-(length:--fs-sm)">{formatTs(row.created_at)}</td>
+                  <td class="font-mono text-(length:--fs-sm)">{row.action}</td>
                   <td>{auditPayloadLabel(row.payload_json)}</td>
-                  <td class="font-mono text-[0.82rem]">{row.resource_id ?? '—'}</td>
+                  <td class="font-mono text-(length:--fs-sm)">{row.resource_id ?? '—'}</td>
                 </tr>
               ))}
             </tbody>

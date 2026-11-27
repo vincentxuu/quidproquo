@@ -104,7 +104,7 @@ import '../../styles/globals.css';
   }
 
   .greeting-text {
-    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-size: var(--fs-h1);
     font-weight: 700;
     color: var(--text-primary);
   }
@@ -132,7 +132,7 @@ import '../../styles/globals.css';
     background: var(--bg-card);
     text-decoration: none;
     color: var(--text-primary);
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
   }
 
   :global(.ny-item:hover) { background: var(--bg-muted); }
@@ -141,9 +141,9 @@ import '../../styles/globals.css';
   :global(.ny-btn) {
     padding: 0.25rem 0.6rem;
     border: 1px solid var(--border);
-    border-radius: 4px;
+    border-radius: var(--corner-sm);
     background: var(--bg-card);
-    font-size: 0.78rem;
+    font-size: var(--fs-xs);
     font-weight: 600;
     cursor: pointer;
   }

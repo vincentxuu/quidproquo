@@ -43,29 +43,29 @@ export function ImportYamlModal({ onImport, onClose }: ImportYamlModalProps) {
   return (
     <div style={{ position: 'fixed', inset: 0, background: 'var(--scrim)', zIndex: 100, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--corner-md)', padding: '20px', width: '480px', maxWidth: '90vw', display: 'flex', flexDirection: 'column', gap: '12px' }}>
-        <h3 style={{ margin: 0, fontSize: '14px', color: 'var(--text-primary)' }}>匯入 YAML</h3>
-        <p style={{ margin: 0, fontSize: '12px', color: 'var(--text-secondary)' }}>
+        <h3 style={{ margin: 0, fontSize: 'var(--fs-sm)', color: 'var(--text-primary)' }}>匯入 YAML</h3>
+        <p style={{ margin: 0, fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)' }}>
           貼入 YAML 後點「確認匯入」。<strong>此操作將覆蓋目前畫布。</strong>
         </p>
         <textarea
           value={yaml}
           onChange={e => setYaml(e.target.value)}
           rows={14}
-          style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: '12px', padding: '8px', border: '1px solid var(--border)', borderRadius: 'var(--corner-sm)', resize: 'vertical', background: 'var(--bg-subtle)', color: 'var(--text-primary)', outline: 'none' }}
+          style={{ fontFamily: 'ui-monospace, SFMono-Regular, Menlo, monospace', fontSize: 'var(--fs-xs)', padding: '8px', border: '1px solid var(--border)', borderRadius: 'var(--corner-sm)', resize: 'vertical', background: 'var(--bg-subtle)', color: 'var(--text-primary)', outline: 'none' }}
           placeholder="id: my-flow&#10;name: My Flow&#10;version: 1&#10;steps:&#10;  - id: step1&#10;    type: agent&#10;    agent: planner&#10;edges: []"
           spellCheck={false}
         />
         {errors.length > 0 && (
-          <div style={{ background: 'var(--danger-bg)', border: '1px solid color-mix(in srgb, var(--danger) 28%, transparent)', borderRadius: 'var(--corner-sm)', padding: '8px 10px', fontSize: '11px', color: 'var(--danger)' }}>
+          <div style={{ background: 'var(--danger-bg)', border: '1px solid color-mix(in srgb, var(--danger) 28%, transparent)', borderRadius: 'var(--corner-sm)', padding: '8px 10px', fontSize: 'var(--fs-xs)', color: 'var(--danger)' }}>
             {errors.map((e, i) => <div key={i}><strong>{e.path}</strong>: {e.message}</div>)}
           </div>
         )}
         <div style={{ display: 'flex', justifyContent: 'flex-end', gap: '8px' }}>
-          <button onClick={onClose} style={{ padding: '6px 14px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--corner-sm)', fontSize: '12px', cursor: 'pointer', color: 'var(--text-primary)' }}>取消</button>
+          <button onClick={onClose} style={{ padding: '6px 14px', background: 'var(--bg-card)', border: '1px solid var(--border)', borderRadius: 'var(--corner-sm)', fontSize: 'var(--fs-xs)', cursor: 'pointer', color: 'var(--text-primary)' }}>取消</button>
           <button
             onClick={handleConfirm}
             disabled={!yaml.trim() || loading}
-            style={{ padding: '6px 14px', background: loading || !yaml.trim() ? 'var(--border)' : 'var(--brand-700)', border: 'none', borderRadius: 'var(--corner-sm)', fontSize: '12px', fontWeight: 600, color: 'var(--text-on-solid)', cursor: loading || !yaml.trim() ? 'not-allowed' : 'pointer' }}
+            style={{ padding: '6px 14px', background: loading || !yaml.trim() ? 'var(--border)' : 'var(--brand-700)', border: 'none', borderRadius: 'var(--corner-sm)', fontSize: 'var(--fs-xs)', fontWeight: 600, color: 'var(--text-on-solid)', cursor: loading || !yaml.trim() ? 'not-allowed' : 'pointer' }}
           >
             {loading ? '驗證中…' : '確認匯入'}
           </button>

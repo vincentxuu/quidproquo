@@ -23,7 +23,7 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
         <div key={group.label}>
           <div
             style={{
-              fontSize: '9px',
+              fontSize: 'var(--fs-2xs)',
               fontWeight: 700,
               textTransform: 'uppercase',
               letterSpacing: '0.08em',
@@ -48,7 +48,7 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
                 alignItems: 'center',
                 gap: '7px',
                 padding: '5px 6px',
-                borderRadius: '4px',
+                borderRadius: 'var(--corner-sm)',
                 cursor: 'grab',
                 userSelect: 'none',
                 marginBottom: '1px',
@@ -65,7 +65,7 @@ export function NodePalette({ onAddStep }: NodePaletteProps) {
                   flexShrink: 0,
                 }}
               />
-              <span style={{ fontSize: '11px', fontWeight: 500, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+              <span style={{ fontSize: 'var(--fs-xs)', fontWeight: 500, color: 'var(--text-primary)', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
                 {type}
               </span>
             </div>

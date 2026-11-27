@@ -38,7 +38,7 @@ const { rows } = Astro.props;
   .mgmt-table {
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.85rem;
+    font-size: var(--fs-sm);
     overflow: hidden;
   }
   .mgmt-table th,
@@ -49,7 +49,7 @@ const { rows } = Astro.props;
   }
   .mgmt-table th {
     color: var(--text-muted);
-    font-size: 0.72rem;
+    font-size: var(--fs-xs);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }

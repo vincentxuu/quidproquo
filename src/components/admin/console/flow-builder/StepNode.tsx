@@ -12,9 +12,9 @@ export const StepNode = memo(function StepNode({ data, selected }: NodeProps) {
         background: color,
         color: STEP_ON_COLOR,
         padding: '8px 14px',
-        borderRadius: '6px',
+        borderRadius: 'var(--corner-md)',
         minWidth: '130px',
-        fontSize: '12px',
+        fontSize: 'var(--fs-xs)',
         boxShadow: selected
           ? `0 0 0 2px var(--bg-card), 0 0 0 4px ${color}, var(--shadow-raised)`
           : 'var(--shadow-floating)',
@@ -23,10 +23,10 @@ export const StepNode = memo(function StepNode({ data, selected }: NodeProps) {
       }}
     >
       <Handle type="target" position={Position.Top} style={{ background: STEP_HANDLE }} />
-      <div style={{ fontSize: '9px', textTransform: 'uppercase', opacity: 0.75, marginBottom: '2px', letterSpacing: '0.06em' }}>
+      <div style={{ fontSize: 'var(--fs-2xs)', textTransform: 'uppercase', opacity: 0.75, marginBottom: '2px', letterSpacing: '0.06em' }}>
         {d.stepType.replace(/_/g, ' ')}
       </div>
-      <div style={{ fontWeight: 600, fontSize: '12px' }}>{d.stepId}</div>
+      <div style={{ fontWeight: 600, fontSize: 'var(--fs-xs)' }}>{d.stepId}</div>
       <Handle type="source" position={Position.Bottom} style={{ background: STEP_HANDLE }} />
     </div>
   )

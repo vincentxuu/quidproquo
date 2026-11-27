@@ -275,7 +275,7 @@ const breadcrumb = [
           <div class="max-h-[calc(100vh-200px)] overflow-y-auto">
             {Object.entries(sourcesByDomain).map(([domain, domainSources]) => (
               <div class="border-b border-border py-2 last:border-b-0">
-                <div class="px-3 font-mono text-[0.7rem] font-bold uppercase tracking-wide text-muted-foreground">{domain}</div>
+                <div class="px-3 font-mono text-(length:--fs-xs) font-bold uppercase tracking-wide text-muted-foreground">{domain}</div>
                 {domainSources.map((src) => (
                   <a
                     id={`source-${src.sourceId}`}
@@ -289,9 +289,9 @@ const breadcrumb = [
                   >
                     <span class="break-all font-mono text-xs text-muted-foreground">{truncateUrl(src.url)}</span>
                     <div class="flex gap-1.5">
-                      <span class="inline-flex items-center rounded-full bg-muted px-1.5 font-mono text-[0.68rem] font-semibold text-muted-foreground" title="Excerpts">{src.excerptCount} exc</span>
+                      <span class="inline-flex items-center rounded-full bg-muted px-1.5 font-mono text-(length:--fs-xs) font-semibold text-muted-foreground" title="Excerpts">{src.excerptCount} exc</span>
                       {src.conflictCount > 0 && (
-                        <span class="inline-flex items-center rounded-full bg-[var(--danger-bg)] px-1.5 font-mono text-[0.68rem] font-semibold text-destructive" title="Conflicts">{src.conflictCount} !</span>
+                        <span class="inline-flex items-center rounded-full bg-[var(--danger-bg)] px-1.5 font-mono text-(length:--fs-xs) font-semibold text-destructive" title="Conflicts">{src.conflictCount} !</span>
                       )}
                     </div>
                   </a>
@@ -315,7 +315,7 @@ const breadcrumb = [
           <section class="grid gap-3 p-3" aria-label="Claim detail">
             <header class="flex items-start justify-between gap-4 rounded-lg border border-border bg-card p-3">
               <div>
-                <h3 class="mb-1 text-[0.95rem] font-bold">Claim #{selectedClaim.claimId}</h3>
+                <h3 class="mb-1 text-(length:--fs-md) font-bold">Claim #{selectedClaim.claimId}</h3>
                 <p class="text-sm leading-relaxed">{selectedClaim.claimText}</p>
               </div>
               <span class={`inline-flex min-w-[42px] items-center justify-center rounded-full font-mono text-xs font-bold px-2 py-0.5 ${confidenceClass(selectedClaim.confidence)}`}>
@@ -329,7 +329,7 @@ const breadcrumb = [
                 {selectedClaimExcerptDetails.map(({ citation, excerpt, source }) => (
                   <article class="rounded-lg border border-border bg-card p-3" data-excerpt-id={excerpt?.excerptId}>
                     <div class="mb-2 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-                      <span class={`shrink-0 rounded-full px-1.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wider ${relationClass(citation.relation)}`}>{citation.relation}</span>
+                      <span class={`shrink-0 rounded-full px-1.5 py-0.5 text-(length:--fs-xs) font-bold uppercase tracking-wider ${relationClass(citation.relation)}`}>{citation.relation}</span>
                       {source && <a href={sourceHref(source.sourceId)}>{source.domain}</a>}
                       {source && <span>{new Date(source.retrievedAt).toLocaleString('zh-TW')}</span>}
                     </div>
@@ -351,7 +351,7 @@ const breadcrumb = [
           </section>
         ) : !selectedSource ? (
           <section class="grid gap-3 p-3" aria-label="聲明">
-            <h3 class="text-[0.95rem] font-bold">
+            <h3 class="text-(length:--fs-md) font-bold">
               聲明
               <span class="ml-1 inline-flex min-w-5 items-center justify-center rounded-full bg-muted px-1.5 font-mono text-[0.78em] font-bold text-muted-foreground">{claimSearchQuery ? visibleClaims.length : claims.length}</span>
             </h3>
@@ -383,7 +383,7 @@ const breadcrumb = [
               </h3>
               <p class="mt-1 flex items-center gap-2 text-xs text-muted-foreground">
                 <span>新鮮度：{selectedSource.freshnessScore.toFixed(2)}</span>
-                {selectedSource.domain && <span class="rounded-full border border-border px-1.5 font-mono text-[0.7rem]">{selectedSource.domain}</span>}
+                {selectedSource.domain && <span class="rounded-full border border-border px-1.5 font-mono text-(length:--fs-xs)">{selectedSource.domain}</span>}
               </p>
             </div>
 
@@ -405,18 +405,18 @@ const breadcrumb = [
                             const claim = claimById.get(cit.claimId);
                             return claim ? (
                               <div class="flex flex-wrap items-start gap-1.5 text-xs">
-                                <span class={`shrink-0 rounded-full px-1.5 py-0.5 text-[0.68rem] font-bold uppercase tracking-wider ${relationClass(cit.relation)}`}>
+                                <span class={`shrink-0 rounded-full px-1.5 py-0.5 text-(length:--fs-xs) font-bold uppercase tracking-wider ${relationClass(cit.relation)}`}>
                                   {cit.relation}
                                 </span>
                                 <span class="min-w-0 flex-1 leading-snug">{claim.claimText}</span>
                                 <a
                                   href={claimHref(claim.claimId)}
-                                  class="shrink-0 rounded border border-primary/50 px-1 text-[0.68rem] text-primary opacity-75 hover:opacity-100"
+                                  class="shrink-0 rounded border border-primary/50 px-1 text-(length:--fs-xs) text-primary opacity-75 hover:opacity-100"
                                   title="開啟聲明詳情"
                                 >
                                   詳情
                                 </a>
-                                <span class="shrink-0 font-mono text-[0.68rem] text-muted-foreground" title="Confidence">
+                                <span class="shrink-0 font-mono text-(length:--fs-xs) text-muted-foreground" title="Confidence">
                                   {(claim.confidence * 100).toFixed(0)}%
                                 </span>
                               </div>
@@ -480,14 +480,14 @@ const breadcrumb = [
                   <div class="rounded border border-border bg-card p-1.5">
                     <p class="text-xs leading-snug">{cf.claimA?.claimText ?? `Claim #${cf.claimAId}`}</p>
                   </div>
-                  <div class="flex items-center justify-center pt-1.5 text-[0.68rem] font-bold uppercase text-muted-foreground" aria-hidden="true">vs</div>
+                  <div class="flex items-center justify-center pt-1.5 text-(length:--fs-xs) font-bold uppercase text-muted-foreground" aria-hidden="true">vs</div>
                   <div class="rounded border border-border bg-card p-1.5">
                     <p class="text-xs leading-snug">{cf.claimB?.claimText ?? `Claim #${cf.claimBId}`}</p>
                   </div>
                 </div>
                 <div class="flex flex-wrap items-center justify-between gap-1.5">
-                  <span class="max-w-[120px] truncate font-mono text-[0.68rem] text-muted-foreground" title="Detected by">{cf.detectedBy}</span>
-                  <span class={`verdict-badge shrink-0 rounded-full px-2 py-0.5 text-[0.68rem] font-bold capitalize ${verdictClass(cf.status)}`}>{conflictStatusLabel(cf.status)}</span>
+                  <span class="max-w-[120px] truncate font-mono text-(length:--fs-xs) text-muted-foreground" title="Detected by">{cf.detectedBy}</span>
+                  <span class={`verdict-badge shrink-0 rounded-full px-2 py-0.5 text-(length:--fs-xs) font-bold capitalize ${verdictClass(cf.status)}`}>{conflictStatusLabel(cf.status)}</span>
                 </div>
                 {cf.status === 'pending' && (
                   <div class="mt-2 flex flex-wrap gap-1.5" data-conflict-id={cf.conflictId}>
@@ -601,7 +601,7 @@ const breadcrumb = [
     var badge = card?.querySelector('.verdict-badge');
     if (badge) {
       badge.textContent = statusLabels[status] || status;
-      badge.className = 'verdict-badge shrink-0 rounded-full px-2 py-0.5 text-[0.68rem] font-bold capitalize'
+      badge.className = 'verdict-badge shrink-0 rounded-full px-2 py-0.5 text-(length:--fs-xs) font-bold capitalize'
         + (status === 'pending' ? ' bg-[var(--warning-bg)] text-warning'
           : status === 'approved' ? ' bg-[var(--success-bg)] text-success'
             : status === 'rejected' ? ' bg-[var(--danger-bg)] text-destructive'

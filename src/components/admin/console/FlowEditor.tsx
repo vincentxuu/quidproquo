@@ -160,9 +160,9 @@ function StepNode({ data }: NodeProps) {
         background: color,
         color: 'white',
         padding: '8px 12px',
-        borderRadius: '6px',
+        borderRadius: 'var(--corner-md)',
         minWidth: '120px',
-        fontSize: '12px',
+        fontSize: 'var(--fs-xs)',
         boxShadow: 'var(--shadow-floating)',
         userSelect: 'none',
       }}
@@ -172,7 +172,7 @@ function StepNode({ data }: NodeProps) {
         style={{
           fontWeight: 600,
           textTransform: 'uppercase',
-          fontSize: '10px',
+          fontSize: 'var(--fs-2xs)',
           opacity: 0.8,
           marginBottom: '2px',
         }}
@@ -206,7 +206,7 @@ function NodePalette({ onAddNode }: { onAddNode: (type: StepType) => void }) {
     >
       <div
         style={{
-          fontSize: '11px',
+          fontSize: 'var(--fs-xs)',
           fontWeight: 700,
           textTransform: 'uppercase',
           color: 'var(--text-secondary)',
@@ -229,8 +229,8 @@ function NodePalette({ onAddNode }: { onAddNode: (type: StepType) => void }) {
             background: STEP_COLORS[type],
             color: 'white',
             padding: '8px',
-            borderRadius: '4px',
-            fontSize: '12px',
+            borderRadius: 'var(--corner-sm)',
+            fontSize: 'var(--fs-xs)',
             cursor: 'grab',
             fontWeight: 500,
           }}
@@ -275,7 +275,7 @@ function ValidationPanel({ errors }: { errors: ValidationError[] }) {
         color: 'var(--code-error)',
         zIndex: 10,
         padding: '8px 12px',
-        fontSize: '12px',
+        fontSize: 'var(--fs-xs)',
         fontFamily: 'ui-monospace, SFMono-Regular, Menlo, Consolas, monospace',
       }}
     >
@@ -294,7 +294,7 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
     definition = JSON.parse(definitionJson) as FlowDefinition
   } catch {
     return (
-      <div style={{ padding: '1rem', color: 'var(--danger)', fontFamily: 'monospace', fontSize: '13px' }}>
+      <div style={{ padding: '1rem', color: 'var(--danger)', fontFamily: 'monospace', fontSize: 'var(--fs-sm)' }}>
         工作流程定義 JSON 格式無效
       </div>
     )
@@ -460,9 +460,9 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
             disabled={hasErrors || saving}
             style={{
               padding: '4px 14px',
-              borderRadius: '4px',
+              borderRadius: 'var(--corner-sm)',
               border: '1px solid',
-              fontSize: '13px',
+              fontSize: 'var(--fs-sm)',
               fontWeight: 600,
               cursor: hasErrors || saving ? 'not-allowed' : 'pointer',
               background: hasErrors || saving ? 'var(--bg-muted)' : 'var(--brand-700)',
@@ -474,7 +474,7 @@ export function FlowEditor({ definitionJson, onValidate, onSave, readonly }: Flo
             {saving ? '儲存中…' : '儲存'}
           </button>
           {hasErrors && (
-            <span style={{ fontSize: '12px', color: 'var(--danger)' }}>
+            <span style={{ fontSize: 'var(--fs-xs)', color: 'var(--danger)' }}>
               請先修正 {validationErrors.length} 個錯誤再儲存
             </span>
           )}

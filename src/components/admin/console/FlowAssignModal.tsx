@@ -96,7 +96,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
       <div
         style={{
           background: 'var(--bg-card)',
-          borderRadius: '0.5rem',
+          borderRadius: 'var(--corner-md)',
           boxShadow: 'var(--shadow-modal)',
           width: 'min(560px, 95vw)',
           maxHeight: '80vh',
@@ -115,7 +115,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
             justifyContent: 'space-between',
           }}
         >
-          <h2 style={{ margin: 0, fontSize: '1rem', fontWeight: 600 }}>指派至工作流程</h2>
+          <h2 style={{ margin: 0, fontSize: 'var(--fs-md)', fontWeight: 600 }}>指派至工作流程</h2>
           <button
             onClick={onClose}
             aria-label="關閉視窗"
@@ -124,7 +124,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
               background: 'none',
               border: 'none',
               cursor: 'pointer',
-              fontSize: '1.25rem',
+              fontSize: 'var(--fs-h2)',
               lineHeight: 1,
               color: 'var(--text-secondary)',
             }}
@@ -136,29 +136,29 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
         {/* Body */}
         <div style={{ overflowY: 'auto', flex: 1, padding: '0.75rem 1.25rem' }}>
           {loading && (
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>載入工作流程中…</p>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--fs-sm)' }}>載入工作流程中…</p>
           )}
           {fetchError && (
-            <p style={{ color: 'var(--danger)', fontSize: '0.875rem' }}>
+            <p style={{ color: 'var(--danger)', fontSize: 'var(--fs-sm)' }}>
               無法載入工作流程：{fetchError}
             </p>
           )}
           {!loading && !fetchError && flows.length === 0 && (
-            <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem' }}>
+            <p style={{ color: 'var(--text-secondary)', fontSize: 'var(--fs-sm)' }}>
               尚無已登錄的工作流程。
             </p>
           )}
           {!loading && !fetchError && flows.length > 0 && (
-            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.85rem' }}>
+            <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: 'var(--fs-sm)' }}>
               <thead>
                 <tr>
-                  <th style={{ width: '2rem', padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
+                  <th style={{ width: '2rem', padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: 'var(--fs-xs)', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
                     <span className="sr-only">選取</span>
                   </th>
-                  <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
+                  <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: 'var(--fs-xs)', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
                     工作流程
                   </th>
-                  <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: '0.75rem', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
+                  <th style={{ padding: '0.4rem 0.5rem', textAlign: 'left', color: 'var(--text-secondary)', fontWeight: 500, fontSize: 'var(--fs-xs)', textTransform: 'uppercase', letterSpacing: '0.04em', borderBottom: '1px solid var(--border)' }}>
                     ID
                   </th>
                 </tr>
@@ -186,7 +186,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
                       {flow.name}
                     </td>
                     <td style={{ padding: '0.45rem 0.5rem', borderBottom: '1px solid var(--border)' }}>
-                      <code style={{ fontSize: '0.78rem', color: 'var(--text-secondary)' }}>{flow.id}</code>
+                      <code style={{ fontSize: 'var(--fs-xs)', color: 'var(--text-secondary)' }}>{flow.id}</code>
                     </td>
                   </tr>
                 ))}
@@ -194,7 +194,7 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
             </table>
           )}
           {submitError && (
-            <p style={{ color: 'var(--danger)', fontSize: '0.8125rem', marginTop: '0.75rem' }}>
+            <p style={{ color: 'var(--danger)', fontSize: 'var(--fs-sm)', marginTop: '0.75rem' }}>
               {submitError}
             </p>
           )}
@@ -215,8 +215,8 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
             disabled={submitting}
             style={{
               padding: '0.4375rem 0.875rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
+              fontSize: 'var(--fs-sm)',
+              borderRadius: 'var(--corner-md)',
               border: '1px solid var(--border)',
               background: 'transparent',
               cursor: submitting ? 'not-allowed' : 'pointer',
@@ -229,8 +229,8 @@ function FlowAssignModalInner({ policyId, onDone, onClose }: FlowAssignModalProp
             disabled={submitting || selected.size === 0}
             style={{
               padding: '0.4375rem 0.875rem',
-              fontSize: '0.875rem',
-              borderRadius: '0.375rem',
+              fontSize: 'var(--fs-sm)',
+              borderRadius: 'var(--corner-md)',
               border: 'none',
               background: 'var(--brand-700)',
               color: 'var(--text-on-solid)',
@@ -259,8 +259,8 @@ export function FlowAssignIsland({ policyId }: FlowAssignIslandProps) {
         onClick={() => setOpen(true)}
         style={{
           padding: '0.375rem 0.875rem',
-          fontSize: '0.8125rem',
-          borderRadius: '0.375rem',
+          fontSize: 'var(--fs-sm)',
+          borderRadius: 'var(--corner-md)',
           border: '1px solid var(--border)',
           background: 'transparent',
           cursor: 'pointer',

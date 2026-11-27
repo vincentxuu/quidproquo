@@ -643,5 +643,6 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
 - `src/styles/admin-tokens.css` 第一行 `@import "./tokens.css"`，自己只宣告後台版面尺寸（`--sidebar-width`），不宣告任何顏色。後台各頁的樣式 class 仍在這個檔。
 - shadcn 元件與 Tailwind 語意 class（`bg-primary`、`text-muted-foreground`、`border-border`）透過 `src/styles/globals.css` 的 `@theme inline` 取 token；那裡不寫字面色。
 - 深色：後台與前台共用 `localStorage` 的 `theme` 偏好與 `[data-theme="dark"]`；`globals.css` 用 `@custom-variant dark` 讓 Tailwind 的 `dark:` 跟著 `data-theme` 走。元件不需要寫 `dark:` 顏色變體，token 會自己換值。
+- 字級與圓角：後台、通用元件、AI 對話元件只用 `--fs-*`、`--corner-*`（Tailwind 寫 `text-(length:--fs-sm)`、`rounded-(--corner-md)`；`text-xs`／`text-sm` 與 token 同值也可以）。2026-11-27 把後台 27 種字面字級收斂到這組級距：≤10px→`2xs`、11–12.8px→`xs`、13–15px→`sm`；相對單位 `em` 與正圓 `50%` 保留。`check:chat-style` 規則 8 擋字面字級與圓角。
 - Astro 版（`AdminButton.astro` 等）與 React 版（`ui/button.tsx`）並存：不需要 hydrate 的頁面用 Astro 版，互動 island 用 React 版；兩者顏色都只來自 token。
 
