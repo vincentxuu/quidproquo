@@ -1,6 +1,6 @@
 ---
 name: media-to-post
-description: Prepare YouTube videos, podcasts, audio/video files, subtitles, or transcripts for evidence-backed articles. Use when the user gives a YT/podcast link and asks 寫成文章 / 整理成導讀 / turn an episode into a post. Run before post or post-update. Do not use for embedding a video only, fixing a link, or translating an existing article.
+description: Prepare YouTube videos, podcasts, audio/video files, subtitles, or transcripts as evidence-backed source material before post or post-update. Use when the user gives a YT/podcast link and asks 寫成文章 / 整理成導讀 / turn an episode into a post. Not for embed-only, link fixes, or translation.
 ---
 
 # media-to-post

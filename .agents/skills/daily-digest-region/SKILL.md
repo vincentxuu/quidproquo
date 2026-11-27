@@ -76,27 +76,7 @@ done
 
 ## 搜尋工具優先順序
 
-| 用途 | 工具 | 說明 |
-|---|---|---|
-| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
-| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
-| **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
-
-### 搜尋工具 fallback 鏈（遵循全域規則）
-
-依環境可用性自動選擇，優先順序：
-1. **Groundlane MCP**（`web_search` / `web_fetch` / `web_extract`）— 首選
-2. **Groundlane 直接 HTTP**（MCP connector 不可用時）— 用 `WebFetch` POST `https://groundlane.vincent-xu-work.workers.dev/mcp`，繞過 claude.ai connector 層
-3. **Keenable keyless API**（`GET https://api.keenable.ai/v1/search/public`，Header: `X-Keenable-Title: quidproquo`）— 10 萬次/月免費，不需要 API key
-4. **You.com keyless**（`GET https://api.you.com/mcp?profile=free`）— 100 次/天免費，不需要 API key
-5. **雲端 MCP fallback**（以上皆不可用時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
-6. **內建 `WebFetch`** — 最後手段
-
-判斷方式：先 `ToolSearch` 查 Groundlane MCP 工具是否存在且可呼叫；若不存在或認證失敗，嘗試直接 HTTP POST Groundlane；再失敗則嘗試 Keenable/You.com keyless API；仍失敗才用雲端 MCP 和內建 WebFetch。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Keenable keyless"` 等資訊，確保可追溯。
-
-**禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
-**不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
-**Groundlane 失效不是 blocker**：只有整條 fallback 鏈都失敗才登錄 escalation-queue；Keenable keyless 上限 10 RPS，同批最多 3 個 query，遇 429 等 1 秒再單發。完整契約見 `daily-digest` skill。
+公開網頁優先用 Groundlane：`web_search` 搜尋／發現、`web_fetch` 抓已知 URL；有結構化 API 的來源（arxiv API、GitHub `gh` CLI）直接呼叫，不走搜尋工具。Groundlane 失效（未掛載、401、逾時、配額用完）不是 blocker：依序把整條 fallback 鏈走完（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → Exa／Tavily／linkup／jina／firecrawl → 內建 `WebFetch`），照常產出並記 `toolDegradation`；整條都失敗才登錄 escalation-queue。`stealth_fetch`、`web-fetch/fetch_page` 已退役，不准用。端點、限速、判斷方式等完整規則見 `.agents/skills/daily-digest-common/SKILL.md#搜尋工具-fallback-鏈`。
 
 ---
 
@@ -279,7 +259,7 @@ tags: [ai-agent, region, daily, {region-slug}]
 lang: zh-TW
 description: "一句話概述本週該區域最重要的動態"
 tldr: "3-5 行重點"
-  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
+  tldr 用純文字、1–2 句、不寫 markdown 語法；規則見 `.agents/skills/daily-digest-common/SKILL.md#tldr-欄位規則`。
 series:
   name: "AI Region Focus"
   order: N

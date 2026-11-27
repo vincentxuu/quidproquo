@@ -1,6 +1,6 @@
 ---
 name: source-eval
-description: Evaluate source credibility and bias in a post draft — apply SIFT lateral reading to each reference, flag affiliate links / single-source dependency / missing drawbacks / undisclosed interests, and check whether the article helps readers judge for themselves. Does NOT modify the file. Use when user says 查來源 / 來源可不可靠 / 有沒有業配 / source check / bias check / credibility check, or when writing recommendation / comparison / review articles. Complementary to post-verify (facts) and post-review (style).
+description: Evaluate source credibility and bias in a post draft (SIFT; affiliate links, single-source dependency, missing drawbacks). Does NOT modify the file. Use when user says 查來源 / 來源可不可靠 / 有沒有業配 / source check / bias check / credibility check, or for recommendation / comparison / review posts.
 ---
 
 # source-eval skill

@@ -29,9 +29,9 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 # Step 4: 讀 schema（確認 JSON 結構和 category 枚舉）
 cat src/data/daily-signals/schema.ts
 
-# Step 5: 執行「搜尋方法」逐個來源掃描
+# Step 5: 執行「搜尋方法」逐個來源掃描（第二層開始前先讀 references/official-blog-urls.md）
 # Step 6: 執行「信號處理」過濾、分類、交叉驗證
-# Step 7: 寫入 JSON
+# Step 7: 寫入 JSON（動筆前先讀 references/output-example.md）
 # Step 8: 更新跨天去重檔案
 #   把本次收錄的所有 sourceUrl 追加到 seen-signal-urls.txt
 echo "${TODAY}: $(jq -r '[.signals[].sourceUrl] | join(", ")' src/data/daily-signals/${TODAY}.json)" >> src/data/daily-signals/seen-signal-urls.txt
@@ -53,21 +53,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
-### 搜尋工具 fallback 鏈（遵循全域規則）
-
-依環境可用性自動選擇，優先順序：
-1. **Groundlane MCP**（`web_search` / `web_fetch` / `web_extract`）— 首選
-2. **Groundlane 直接 HTTP**（MCP connector 不可用時）— 用 `WebFetch` POST `https://groundlane.vincent-xu-work.workers.dev/mcp`，繞過 claude.ai connector 層
-3. **Keenable keyless API**（`GET https://api.keenable.ai/v1/search/public`，Header: `X-Keenable-Title: quidproquo`）— 10 萬次/月免費，不需要 API key
-4. **You.com keyless**（`GET https://api.you.com/mcp?profile=free`）— 100 次/天免費，不需要 API key
-5. **雲端 MCP fallback**（以上皆不可用時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
-6. **內建 `WebFetch`** — 最後手段
-
-判斷方式：先 `ToolSearch` 查 Groundlane MCP 工具是否存在且可呼叫；若不存在或認證失敗，嘗試直接 HTTP POST Groundlane；再失敗則嘗試 Keenable/You.com keyless API；仍失敗才用雲端 MCP 和內建 WebFetch。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Keenable keyless"` 等資訊，確保可追溯。
-
-**禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
-**不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
-**Groundlane 失效不是 blocker**：只有整條 fallback 鏈都失敗才登錄 escalation-queue；Keenable keyless 上限 10 RPS，同批最多 3 個 query，遇 429 等 1 秒再單發。完整契約見 `daily-digest` skill。
+搜尋工具 fallback：Groundlane 優先；Groundlane 失效不是 blocker，要依序走完整條 fallback 鏈（降級時記錄 `toolDegradation`），整條都失敗才登錄 escalation-queue；`stealth_fetch`、`web-fetch/fetch_page` 已退役，不得使用。完整順序、判斷方式與限速見 `.agents/skills/daily-digest-common/SKILL.md` 的「搜尋工具 fallback 鏈」一節——第一次要降級前先讀該節。
 
 ---
 
@@ -113,149 +99,7 @@ git push origin main || { git pull --rebase origin main && git push origin main;
 prompt: "List the 5 most recent articles with their title and published date. Format: DATE | TITLE"
 ```
 
-**A1 大廠**
-
-| # | URL | 公司 | 工具 |
-|---|-----|------|------|
-| 1 | `https://www.anthropic.com/news` | Anthropic | Groundlane `web_fetch` |
-| 2 | `https://www.anthropic.com/research` | Anthropic | Groundlane `web_fetch` |
-| 3 | `https://openai.com/news` | OpenAI | Groundlane `web_fetch` |
-| 4 | `https://openai.com/research/index` | OpenAI | Groundlane `web_fetch` |
-| 5 | `https://deepmind.google/blog` | Google DeepMind | Groundlane `web_fetch` |
-| 5b | `https://research.google/blog` | Google Research | Groundlane `web_fetch` |
-| 6 | `https://devblogs.microsoft.com/ai` | Microsoft | Groundlane `web_fetch` |
-| 7 | `https://www.microsoft.com/en-us/ai/blog` | Microsoft | Groundlane `web_fetch` |
-| 8 | `https://devblogs.microsoft.com/agent-framework` | Microsoft | Groundlane `web_fetch` |
-| 9 | `https://azure.microsoft.com/en-us/blog/category/ai-machine-learning` | Microsoft Azure | Groundlane `web_fetch` |
-| 9b | `https://www.microsoft.com/en-us/research/blog` | Microsoft Research | Groundlane `web_fetch` |
-| 10 | `https://about.fb.com/news` | Meta | Groundlane `web_fetch` |
-| 11 | `https://ai.meta.com/blog` | Meta | Groundlane `web_fetch` |
-| 12 | `https://aws.amazon.com/blogs/aws/category/artificial-intelligence/amazon-machine-learning/amazon-bedrock` | AWS | Groundlane `web_fetch` |
-| 13 | `https://aws.amazon.com/blogs/aws` | AWS | Groundlane `web_fetch` |
-| 14 | `https://aws.amazon.com/blogs/machine-learning` | AWS ML | Groundlane `web_fetch` |
-| 14b | `https://www.amazon.science/blog` | Amazon Science | Groundlane `web_fetch` |
-| 15 | `https://blogs.nvidia.com/blog/category/generative-ai` | NVIDIA | Groundlane `web_fetch` |
-| 16 | `https://developer.nvidia.com/blog` | NVIDIA Developer | Groundlane `web_fetch` |
-| 16b | `https://research.nvidia.com/publications` | NVIDIA Research | Groundlane `web_fetch` |
-| 17 | `https://x.ai/news` | xAI/SpaceXAI | Groundlane `web_fetch` |
-| 18 | `https://blog.cloudflare.com/tag/ai` | Cloudflare | Groundlane `web_fetch` |
-| 19 | `https://blog.cloudflare.com/tag/developers` | Cloudflare | Groundlane `web_fetch` |
-| 20 | `https://www.snowflake.com/blog` | Snowflake | Groundlane `web_fetch` |
-| 21 | `https://www.databricks.com/blog` | Databricks | Groundlane `web_fetch` |
-| 22 | `https://research.ibm.com/blog` | IBM | Groundlane `web_fetch` |
-| 23 | `https://www.apple.com/newsroom/topics/apple-intelligence` | Apple | Groundlane `web_fetch` |
-| 24 | `https://news.sap.com/topics/artificial-intelligence` | SAP | Groundlane `web_fetch` |
-| 25 | `https://writer.com/blog` | Writer | Groundlane `web_fetch` |
-| 26 | `https://blog.palantir.com` | Palantir | Groundlane `web_fetch` |
-
-**HuggingFace 社群 + 模型 trending**
-
-| # | URL | 說明 | 工具 |
-|---|-----|------|------|
-| HF0a | `https://huggingface.co/blog` | HF 官方 blog（每日更新） | Groundlane `web_fetch` |
-| HF0b | `https://huggingface.co/models?sort=trending` | 模型 trending 排行 | Groundlane `web_fetch` |
-
-**HuggingFace + GitHub 模型/repo 動態追蹤**
-
-| # | URL | 公司 | 工具 |
-|---|-----|------|------|
-| HF1 | `https://huggingface.co/google` | Google | Groundlane `web_fetch` |
-| HF2 | `https://huggingface.co/microsoft` | Microsoft | Groundlane `web_fetch` |
-| HF3 | `https://huggingface.co/nvidia` | NVIDIA | Groundlane `web_fetch` |
-| HF4 | `https://huggingface.co/mistralai` | Mistral | Groundlane `web_fetch` |
-| HF5 | `https://huggingface.co/MiniMaxAI` | MiniMax | Groundlane `web_fetch` |
-| GH1 | `https://github.com/anthropics` | Anthropic | Groundlane `web_fetch` |
-| GH2 | `https://github.com/openai` | OpenAI | Groundlane `web_fetch` |
-| GH3 | `https://github.com/google-deepmind` | Google DeepMind | Groundlane `web_fetch` |
-| GH4 | `https://github.com/meta-llama` | Meta Llama | Groundlane `web_fetch` |
-| GH5 | `https://github.com/microsoft` | Microsoft | Groundlane `web_fetch` |
-| GH6 | `https://github.com/NVIDIA` | NVIDIA | Groundlane `web_fetch` |
-| GH7 | `https://github.com/mistralai` | Mistral | Groundlane `web_fetch` |
-| GH8 | `https://github.com/MiniMax-AI` | MiniMax | Groundlane `web_fetch` |
-| HF6 | `https://huggingface.co/meta-llama` | Meta Llama | Groundlane `web_fetch` |
-| HF7 | `https://huggingface.co/openai` | OpenAI | Groundlane `web_fetch` |
-| HF8 | `https://huggingface.co/ibm-granite` | IBM Granite | Groundlane `web_fetch` |
-| HF9 | `https://huggingface.co/Snowflake` | Snowflake | Groundlane `web_fetch` |
-| HF10 | `https://huggingface.co/apple` | Apple | Groundlane `web_fetch` |
-| HF11 | `https://huggingface.co/amazon` | Amazon | Groundlane `web_fetch` |
-| HF12 | `https://huggingface.co/Salesforce` | Salesforce | Groundlane `web_fetch` |
-| HF13 | `https://huggingface.co/cohere` | Cohere (CohereLabs) | Groundlane `web_fetch` |
-| GH9 | `https://github.com/cohere-ai` | Cohere | Groundlane `web_fetch` |
-| GH10 | `https://github.com/aws` | AWS | Groundlane `web_fetch` |
-| GH11 | `https://github.com/apple` | Apple | Groundlane `web_fetch` |
-| GH12 | `https://github.com/cloudflare` | Cloudflare | Groundlane `web_fetch` |
-| GH13 | `https://github.com/IBM` | IBM | Groundlane `web_fetch` |
-| GH14 | `https://github.com/salesforce` | Salesforce | Groundlane `web_fetch` |
-| GH15 | `https://github.com/snowflakedb` | Snowflake | Groundlane `web_fetch` |
-| GH16 | `https://github.com/databricks` | Databricks | Groundlane `web_fetch` |
-| GH17 | `https://github.com/xai-org` | xAI | Groundlane `web_fetch` |
-| GH18 | `https://github.com/palantir` | Palantir | Groundlane `web_fetch` |
-| GH19 | `https://github.com/SAP` | SAP | Groundlane `web_fetch` |
-| HF7 | `https://huggingface.co/SakanaAI` | Sakana AI | Groundlane `web_fetch` |
-| HF8 | `https://huggingface.co/allenai` | AI2 / Allen Institute | Groundlane `web_fetch` |
-
-**A2 模型公司**
-
-| # | URL | 公司 | 工具 |
-|---|-----|------|------|
-| 22 | `https://mistral.ai/news` | Mistral | Groundlane `web_fetch` |
-| 23 | `https://cohere.com/blog` | Cohere | Groundlane `web_fetch` |
-| 24 | `https://www.ai21.com/blog` | AI21 Labs | Groundlane `web_fetch` |
-| 25 | `https://www.reka.ai/news` | Reka AI | Groundlane `web_fetch` |
-| 26 | `https://www.upstage.ai/blog` | Upstage | Groundlane `web_fetch` |
-| 27 | `https://sakana.ai/blog` | Sakana AI | Groundlane `web_fetch` |
-| 28 | `https://allenai.org/blog` | AI2 | Groundlane `web_fetch` |
-
-**B1/B2 開發工具與框架**
-
-| # | URL | 公司 | 工具 |
-|---|-----|------|------|
-| 29 | `https://cursor.com/changelog` | Cursor | Groundlane `web_fetch` |
-| 30 | `https://cursor.com/blog` | Cursor | Groundlane `web_fetch` |
-| 31 | `https://www.langchain.com/blog` | LangChain | Groundlane `web_fetch` |
-| 32 | `https://cognition.com/blog` | Cognition/Devin | Groundlane `web_fetch` |
-| 33 | `https://replit.com/blog` | Replit | Groundlane `web_fetch` |
-| 34 | `https://vercel.com/blog` | Vercel | Groundlane `web_fetch` |
-| 35 | `https://mastra.ai/blog` | Mastra | Groundlane `web_fetch` |
-| 36 | `https://sourcegraph.com/blog` | Sourcegraph | Groundlane `web_fetch` |
-| 37 | `https://www.pydantic.dev/articles` | Pydantic AI | Groundlane `web_fetch` |
-| 38 | `https://agno.com/blog` | Agno | Groundlane `web_fetch` |
-
-**中國大廠**
-
-| # | URL | 公司 | 工具 |
-|---|-----|------|------|
-| 39 | `https://www.alibabacloud.com/blog` | Alibaba Cloud（技術） | Groundlane `web_fetch` |
-| 39b | `https://www.alibabagroup.com/en-US/news-and-resource` | Alibaba Group（集團公告） | Groundlane `web_fetch` |
-| 40 | `https://huggingface.co/Qwen` | Qwen/阿里（模型發佈） | Groundlane `web_fetch` |
-| 41 | `https://github.com/QwenLM` | Qwen/阿里（repo 動態） | Groundlane `web_fetch` |
-| 42 | `https://seed.bytedance.com/en/research` | ByteDance/Seed（研究） | Groundlane `web_fetch` |
-| 42b | `https://www.byteplus.com/en/blog` | BytePlus（海外雲） | Groundlane `web_fetch` |
-| 43 | `https://www.deepseek.com/en/news` | DeepSeek | Groundlane `web_fetch` |
-| 44 | `https://huggingface.co/deepseek-ai` | DeepSeek（模型發佈） | Groundlane `web_fetch` |
-| 45 | `https://www.minimaxi.com/news` | MiniMax | Groundlane `web_fetch` |
-| 46 | `https://www.kimi.com/blog` | Moonshot/Kimi | Groundlane `web_fetch` |
-| 47 | `https://www.sensetime.com/cn/news` | 商湯 SenseTime | Groundlane `web_fetch` |
-| 48 | `https://manus.im/blog` | Manus | Groundlane `web_fetch` |
-| 49 | `https://www.tencent.com/zh-cn/newsroom` | 騰訊（集團公告） | Groundlane `web_fetch` |
-| 50 | `https://huggingface.co/tencent` | 騰訊（模型發佈） | Groundlane `web_fetch` |
-| 50b | `https://github.com/Tencent` | 騰訊（repo 動態） | Groundlane `web_fetch` |
-| 51 | `https://huggingface.co/baidu` | 百度（模型發佈） | Groundlane `web_fetch` |
-| 52 | `https://github.com/baidu` | 百度（repo 動態） | Groundlane `web_fetch` |
-
-**AI 生態 / VC / 獨立媒體**
-
-| # | URL | 說明 | 工具 |
-|---|-----|------|------|
-| M1 | `https://www.ycombinator.com/blog` | Y Combinator blog | Groundlane `web_fetch` |
-| M1b | `https://a16z.com/ai` | a16z AI（投資 + podcast + 文章） | Groundlane `web_fetch` |
-| M1c | `https://www.bvp.com/atlas` | Bessemer Atlas（AI 分析） | Groundlane `web_fetch` |
-| M1d | `https://lsvp.com/stories` | Lightspeed Stories | Groundlane `web_fetch` |
-| M2 | `https://the-decoder.com` | AI 新聞（每日更新） | Groundlane `web_fetch` |
-| M3 | `https://www.artificialintelligence-news.com` | AI 產業新聞 | Groundlane `web_fetch` |
-| M4 | `https://www.marktechpost.com` | AI 技術新聞（每日更新） | Groundlane `web_fetch` |
-| M5 | `https://simonwillison.net` | AI 開發者生態 blogger | Groundlane `web_fetch` |
-| M6 | `https://www.latent.space/archive` | Latent Space（AI 深度分析） | Groundlane `web_fetch` |
+**開始第二層前，先完整讀 `references/official-blog-urls.md`**——約 75 個列表頁 URL 全在那份檔案（A1 大廠、HuggingFace 社群 + 模型 trending、HuggingFace + GitHub 模型/repo 動態追蹤、A2 模型公司、B1/B2 開發工具與框架、中國大廠、AI 生態 / VC / 獨立媒體，共七組），每一列都要抓，不可憑記憶挑幾家。
 
 處理方式：
 1. 抓回最近 5 篇的日期和標題
@@ -433,94 +277,12 @@ max_results: 5 each
 `dateConfidence` 值：
 - `"verified"` — 搜尋結果有明確的 published date，且在 48h 內
 - `"unverified"` — 搜尋結果的 published date 為 N/A，無法確認時效性
-```
 
 ---
 
 ## 完整範例
 
-以下是一個寫好的 signals JSON（5 則，實際應有 30-50 則）：
-
-```json
-{
-  "date": "2026-08-17",
-  "generatedAt": "2026-08-17T03:12:00Z",
-  "routineId": "J",
-  "signalCount": 5,
-  "signals": [
-    {
-      "id": "sig-001",
-      "title": "Anthropic launches Claude Agent SDK 2.0 with native MCP orchestration",
-      "source": "anthropic-blog",
-      "sourceUrl": "https://www.anthropic.com/news/agent-sdk-2",
-      "category": "vendor-update",
-      "companies": ["anthropic"],
-      "section": "A1",
-      "ring": 1,
-      "summary": "Anthropic 發佈 Agent SDK 2.0，原生支援 MCP 編排，可跨多個 MCP server 做 tool routing，並內建 session 記憶管理。",
-      "relevance": 0.98,
-      "crossValidated": true,
-      "crossValidationSources": ["techcrunch", "hn"]
-    },
-    {
-      "id": "sig-002",
-      "title": "Cursor hits $500M ARR, launches Background Agents for enterprise",
-      "source": "techcrunch",
-      "sourceUrl": "https://techcrunch.com/2026/08/16/cursor-500m-arr/",
-      "category": "vendor-update",
-      "companies": ["cursor"],
-      "section": "B1",
-      "ring": 1,
-      "summary": "Cursor 年化營收達 $500M，同時發佈企業版 Background Agents：可在雲端持續跑 coding task，無需開發者盯著 IDE。",
-      "relevance": 0.92,
-      "crossValidated": true,
-      "crossValidationSources": ["venturebeat"]
-    },
-    {
-      "id": "sig-003",
-      "title": "Baseten raises $150M Series C at $13B valuation",
-      "source": "businesswire",
-      "sourceUrl": "https://www.businesswire.com/news/baseten-series-c",
-      "category": "funding",
-      "companies": ["baseten"],
-      "section": "A3",
-      "ring": 2,
-      "summary": "推理基礎設施公司 Baseten 完成 $150M C 輪，估值 $13B。客戶包括 Cursor、Notion、Mercor。Lightspeed 領投。",
-      "relevance": 0.78,
-      "crossValidated": false,
-      "crossValidationSources": []
-    },
-    {
-      "id": "sig-004",
-      "title": "台智雲推出企業 Agent 開發平台，整合 NVIDIA NIM",
-      "source": "ithome",
-      "sourceUrl": "https://www.ithome.com.tw/news/12345",
-      "category": "vendor-update",
-      "companies": ["twcc"],
-      "section": "F2",
-      "ring": 3,
-      "summary": "台智雲發佈企業級 Agent 開發平台，整合 NVIDIA NIM 微服務。可在台灣 GPU 叢集上跑 Agent workflow，強調資料主權。",
-      "relevance": 0.72,
-      "crossValidated": false,
-      "crossValidationSources": []
-    },
-    {
-      "id": "sig-005",
-      "title": "Discussion: Is MCP replacing function calling? Community debate",
-      "source": "hn",
-      "sourceUrl": "https://news.ycombinator.com/item?id=12345678",
-      "category": "community-signal",
-      "companies": ["anthropic"],
-      "section": "A1",
-      "ring": 1,
-      "summary": "HN 熱帖：MCP 是否正在取代 function calling？主流意見認為 MCP 是 transport 層，function calling 是語意層，兩者互補而非替代。",
-      "relevance": 0.55,
-      "crossValidated": false,
-      "crossValidationSources": []
-    }
-  ]
-}
-```
+**Step 7 寫入 JSON 前，先讀 `references/output-example.md`**（一份寫好的 5 則 signals JSON，對照欄位寫法、摘要長度與 `crossValidationSources` 的填法）。沒讀過不要動筆。
 
 ---
 

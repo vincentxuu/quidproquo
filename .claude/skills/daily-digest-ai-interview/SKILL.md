@@ -76,7 +76,7 @@ cat src/data/interview-focus.json | 讀取 ai-engineer.weights
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（GitHub `gh` CLI 等） | 有 API 的來源不用搜尋工具 |
 
-Groundlane 不可用（未掛載、401 `invalid_token`、逾時）不是 blocker：依 `daily-digest` skill 的「搜尋工具契約」換下一層（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch），照常產出，並在 daily-log 本次紀錄記 `toolDegradation`。
+Groundlane 失效（未掛載、401、逾時、配額用完）不是 blocker：依序把整條 fallback 鏈走完（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → Exa／Tavily／linkup／jina／firecrawl → 內建 `WebFetch`），照常產出並記 `toolDegradation`；整條都失敗才登錄 escalation-queue。`stealth_fetch`、`web-fetch/fetch_page` 已退役，不准用。端點、限速、判斷方式等完整規則見 `.agents/skills/daily-digest-common/SKILL.md#搜尋工具-fallback-鏈`。
 
 ---
 
@@ -134,7 +134,7 @@ tags: [ai-engineer-interview, daily, {topic-specific-tag}]
 lang: zh-TW
 description: "{一句話描述今天練什麼}"
 tldr: "{今天的核心概念 + 練習重點}"
-  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
+  tldr 用純文字、1–2 句、不寫 markdown 語法；規則見 `.agents/skills/daily-digest-common/SKILL.md#tldr-欄位規則`。
 series:
   name: "AI Engineer 面試日練"
   order: N

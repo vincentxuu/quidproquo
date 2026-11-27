@@ -1,6 +1,6 @@
 ---
 name: diagram
-description: 在 quidproquo 文章裡畫圖：依內容從 46 種圖型選（架構、流程、循序、狀態機、時間軸、泳道、象限、分層、韋恩、金字塔、樹狀、巢狀、循環、前後對照、比較矩陣、使用者旅程、服務藍圖、魚骨圖、依賴圖、資料流、ER、長條、折線、散點、熱力圖、桑基、雷達、Wardley map 等），用 ```diagram 區塊手寫 SVG，顏色跟著網站深淺色，可加逐步播放，並用預覽腳本截圖驗證。觸發詞：畫圖、加圖、圖解、畫成圖、示意圖、架構圖、流程圖、循序圖、象限圖、時間軸、diagram、visualize。寫文章（post／post-update／daily-digest 各 routine）時要放圖也走這裡。互動式或大量資料改用 dataviz skill。
+description: 在 quidproquo 文章裡畫圖：依內容從 46 種圖型選型，用 ```diagram 區塊手寫 SVG，跟著網站深淺色、可逐步播放，並用預覽腳本截圖驗證。觸發詞：畫圖、加圖、圖解、畫成圖、示意圖、架構圖、流程圖、循序圖、象限圖、時間軸、diagram、visualize；寫文章或 daily-digest 要放圖也走這裡。互動式或大量資料改用 dataviz。
 ---
 
 # diagram skill

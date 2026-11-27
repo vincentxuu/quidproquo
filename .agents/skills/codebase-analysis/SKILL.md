@@ -1,6 +1,6 @@
 ---
 name: codebase-analysis
-description: 追蹤一個本機 repo 的程式碼結構與實作邏輯——定位關鍵檔案、追資料流（入口→處理→儲存）、列相依與風險——產出附 `檔案:行號` 的分析報告。適用本 repo（quidproquo，Astro＋Cloudflare Workers）與 MaiAgent 三個 repo（maiagent-django／maiagent-admin-vue／maiagent-vue），目錄地圖在 references/。觸發：分析程式碼、看一下 code、trace code、API 怎麼實作、這個功能怎麼做、現有系統、目前架構、可行性評估。不用於研究第三方服務（service-teardown）或修 bug（diagnosing-bugs）。
+description: 追蹤本機 repo 的程式碼結構與實作邏輯：定位關鍵檔案、追資料流、列相依與風險，產出附檔案與行號的分析報告（quidproquo 與 MaiAgent 三個 repo）。觸發：分析程式碼、看一下 code、trace code、API 怎麼實作、這個功能怎麼做、現有系統、目前架構、可行性評估。研究第三方服務改用 service-teardown。
 ---
 
 # codebase-analysis skill

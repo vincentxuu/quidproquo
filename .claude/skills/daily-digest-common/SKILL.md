@@ -1,11 +1,55 @@
 ---
 name: daily-digest-common
-description: "Shared commit epilogue for all daily-digest skills: diagram pass, en translation, per-routine daily-log file (never progress.txt), targeted verify, then commit/push."
+description: "Shared rules for all daily-digest skills: the search-tool fallback chain, the tldr field rule, and the commit epilogue (diagram pass, en translation, per-routine daily-log file, never progress.txt, targeted verify, then commit/push)."
 ---
 
-# daily-digest-common — 共用提交尾聲
+# daily-digest-common — 共用規則與提交尾聲
 
-所有 daily-digest skill（除 `daily-digest-signals` 只產 JSON 外）在文章撰寫完成後、`git add` 之前，**必須依序執行以下步驟**。各 skill 的 Step 7 應引用本文件。
+本文件放各 daily-digest skill 共用的三塊規則：搜尋工具 fallback 鏈、tldr 欄位規則、Commit Epilogue。
+
+Commit Epilogue：所有 daily-digest skill（除 `daily-digest-signals` 只產 JSON 外）在文章撰寫完成後、`git add` 之前，**必須依序執行 E0–E5**。各 skill 的 Step 7 應引用本文件。
+
+---
+
+## 搜尋工具 fallback 鏈
+
+所有 daily-digest routine 共用，遵循全域 Web Fetch 規則。公開網頁研究與抓取**優先**用 Groundlane MCP：
+
+| 用途 | 工具 | 說明 |
+|---|---|---|
+| **搜尋/發現** | Groundlane `web_search` | 合併結果去重，覆蓋面最廣 |
+| **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
+| **欄位抽取** | Groundlane `web_extract` | selector／table 結構化擷取 |
+| **結構化 API** | 直接呼叫（GitHub `gh api`、arXiv API、Hugging Face API、MOPS/FinMind 等） | 有 API 的來源不用搜尋工具 |
+
+各 routine 自己的「搜尋工具優先順序」若有額外列（例如 HF API），以該 routine 為準。
+
+**Groundlane 失效不是 blocker。** 工具不存在、OAuth／token 失效（例如直接 HTTP 回 `401 invalid_token`）、逾時或配額用完，都依下面順序換下一層，routine 照常產出：
+
+1. **Groundlane MCP**（`web_search`／`web_fetch`／`web_extract`）— 首選
+2. **Groundlane 直接 HTTP**（MCP connector 不可用時）— 用 `WebFetch` POST `https://groundlane.vincent-xu-work.workers.dev/mcp`，繞過 claude.ai connector 層（環境有 `GROUNDLANE_AUTH_TOKEN` 才帶 `Authorization: Bearer`；回 401 就直接跳下一層，不要重試）
+3. **Keenable keyless API** — `GET https://api.keenable.ai/v1/search/public`，Header `X-Keenable-Title: quidproquo`；10 萬次／月免費，不需要 API key。上限 10 RPS：同一批最多 3 個 query，遇 429 等 1 秒後單發重試
+4. **You.com keyless** — `GET https://api.you.com/mcp?profile=free`；100 次／天免費，不需要 API key
+5. **雲端 MCP fallback／平台內建搜尋** — 依序嘗試 `Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`，或 agent 平台自帶的 web search（Exa 免費 MCP 常 429，撞到就換下一個）
+6. **內建 `WebFetch`／平台內建 fetch** — 最後手段；搜尋到的 URL 用它讀全文，官方頁 403 時改讀其他獨立來源，不硬繞
+
+判斷方式：先 `ToolSearch` 查 Groundlane MCP 工具是否存在且可呼叫（雲端 session 的 Groundlane 工具常是 deferred，沒載入過不算「不可用」）；若不存在或認證失敗，嘗試直接 HTTP POST Groundlane；再失敗則嘗試 Keenable／You.com keyless API；仍失敗才用雲端 MCP 和內建 WebFetch。
+
+規則：
+
+- 每一層失敗就換下一層，**只有 1–6 全部失敗**才算 blocker，這時把每層的錯誤訊息寫進 `docs/governance/escalation-queue.md`。
+- 降級時在 daily-log 本次紀錄（或 screening record／輸出）寫 `toolDegradation`，例如 `groundlane 401 invalid_token → keenable keyless + WebFetch`，確保可追溯。
+- 降級不放寬品質門檻：交叉驗證、一手來源優先、48 小時時間窗照舊。搜尋 snippet 只能用來發現候選，寫進文章前要讀到原文。
+- Fallback 只送公開查詢，不傳 secrets、認證內容或私有資料。
+- **禁止的是**：`stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
+- **不禁止的是**：Groundlane 不可用時用 Exa／Tavily／linkup／jina／firecrawl 作為 fallback——這是全域規則允許的正常降級。
+- 使用者在當次對話明確指定「只能用 Groundlane」時才不降級，指定路徑失敗就回報 blocker。
+
+---
+
+## tldr 欄位規則
+
+`tldr` 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
 
 ---
 

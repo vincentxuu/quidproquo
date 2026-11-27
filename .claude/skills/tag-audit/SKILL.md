@@ -1,6 +1,6 @@
 ---
 name: tag-audit
-description: Audit all tags across src/content/posts/, surface synonym splits (e.g. `llm` vs `large-language-model`), too-generic tags, typos, and missing core tags, then propose a rename map. Does NOT auto-rename — produces a plan for the user to approve before batch replacement. Use when user says 整理 tags / tag 重複 / 清理標籤 / tag 太亂 / tag audit.
+description: Audit all tags in src/content/posts/ for synonym splits, too-generic tags, typos and missing core tags, then propose a rename map for the user to approve (does NOT auto-rename). Use when user says 整理 tags / tag 重複 / 清理標籤 / tag 太亂 / tag audit.
 ---
 
 # tag-audit skill

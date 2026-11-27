@@ -45,11 +45,7 @@ cat src/data/agent-watchlist.json | jq '.companies[] | select(.section == "A1" o
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
-### 搜尋工具 fallback
-
-依 `daily-digest` skill 的「搜尋工具契約」：Groundlane MCP → Groundlane 直接 HTTP → Keenable keyless → You.com keyless → 其他雲端搜尋 MCP／平台內建搜尋 → 平台內建 fetch。Groundlane 失效（未掛載、401、逾時）不是 blocker，換下一層照常跑，並在 daily-log 本次紀錄記 `toolDegradation`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
-
-只有使用者在當次對話指定「只能用 Groundlane」時才不降級。Fallback 只限公開資料，不得傳送 secrets、認證內容或私有資料。禁止已退役的 `stealth_fetch`、`web-fetch/fetch_page`。
+Groundlane 失效（未掛載、401、逾時、配額用完）不是 blocker：依序把整條 fallback 鏈走完（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → Exa／Tavily／linkup／jina／firecrawl → 內建 `WebFetch`），照常產出並記 `toolDegradation`；整條都失敗才登錄 escalation-queue。`stealth_fetch`、`web-fetch/fetch_page` 已退役，不准用。端點、限速、判斷方式等完整規則見 `.agents/skills/daily-digest-common/SKILL.md#搜尋工具-fallback-鏈`。HF API（`https://huggingface.co/api/models?...`）是公開 JSON，Groundlane 不可用時直接 `curl` 即可。
 
 ---
 
@@ -239,7 +235,7 @@ tags: [ai-agent, model-release, daily, {vendor-slug}]
 lang: zh-TW
 description: "一句話概述新模型的定位和最大亮點"
 tldr: "模型名稱、核心數字（context window、定價、關鍵 benchmark）、對 Agent 開發的意義"
-  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。建議 1–2 句話，只講今天最核心的一個重點，不要塞全部重點。
+  tldr 用純文字、1–2 句、不寫 markdown 語法；規則見 `.agents/skills/daily-digest-common/SKILL.md#tldr-欄位規則`。
 series:
   name: "AI Model Tracker"
   order: N

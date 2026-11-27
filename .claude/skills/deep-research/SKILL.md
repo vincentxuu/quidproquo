@@ -1,6 +1,6 @@
 ---
 name: deep-research
-description: Portable multi-source research for tools, frameworks, papers, models, products, or trends. Uses Groundlane plus specialized and platform-native research tools, distinguishes computer/local clients from Web-hosted agents, verifies primary sources, and outputs a structured research note. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼. Skip for single-fact lookups or implementation tasks.
+description: Multi-source research on a tool, framework, paper, model, product, or trend; verifies primary sources and writes a structured research note. Use when user says 研究一下 / 導讀 / deep research / 整理 / 我想了解 / 幫我看看 X 是什麼. Skip for single-fact lookups or implementation; hands-on teardown → service-teardown.
 ---
 
 # deep-research skill

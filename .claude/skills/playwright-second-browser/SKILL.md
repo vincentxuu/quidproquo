@@ -1,6 +1,6 @@
 ---
 name: playwright-second-browser
-description: When the Playwright MCP browser is locked by another Claude session ("Browser is already in use for …/ms-playwright-mcp/mcp-chrome-…, use --isolated"), spin up a second Chrome with playwright-core using a copy of the logged-in profile instead of stopping. Use whenever a browser_navigate / browser_snapshot call fails with that error, or when you need a headed browser while the MCP one is busy. Covers profile copy, launch script template, network/event capture, and cleanup.
+description: When the Playwright MCP browser is locked by another Claude session ("Browser is already in use … use --isolated"), launch a second Chrome via playwright-core with a copied logged-in profile instead of stopping. Use when browser_navigate / browser_snapshot fails with that error.
 ---
 
 # playwright-second-browser
@@ -14,6 +14,7 @@ Playwright MCP 是一個常駐 server，啟動時綁死一個 Chrome `user-data-
 
 - 錯誤字串：`Error: Browser is already in use for /Users/<u>/Library/Caches/ms-playwright-mcp/mcp-chrome-<hash>, use --isolated`
 - `pgrep -f mcp-chrome-<hash>` 能看到活的 Chrome，且其祖先是另一個 `claude` 程序 → 走本 skill。
+- 沒撞到錯誤、但 MCP 瀏覽器正被別的 session 佔用而你需要一個 headed 瀏覽器時，也走本 skill。
 - 若 Chrome 程序已不存在只剩 `SingletonLock` 殘檔 → 刪 `SingletonLock`／`SingletonSocket`／`SingletonCookie` 三個檔再重試 MCP 即可，不必自起。
 
 ## 步驟

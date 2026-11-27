@@ -1,6 +1,6 @@
 ---
 name: post
-description: Convert a conversation, notes, or experience into a structured Markdown post under a category directory in src/content/posts/ on quidproquo.cc. Use when user says 寫成文章 / 記錄一下 / 寫成介紹文 / 寫成深入介紹 / write post / deep dive, or asks for a new model-family introduction, or pastes notes/transcripts and asks to publish. Do NOT use to edit an already-existing post — use the `post-update` skill instead.
+description: Turn notes, a conversation, or experience into a new bilingual post in src/content/posts/. Use when user says 寫成文章 / 記錄一下 / 寫成介紹文 / 寫成深入介紹 / write post / deep dive, asks for a new model-family introduction, or pastes notes/transcripts to publish. Not for editing an existing post — use post-update.
 ---
 
 # post skill

@@ -1,6 +1,6 @@
 ---
 name: daily-digest-monthly
-description: "Monthly AI Agent report for quidproquo.cc/daily. Run after a calendar month ends: synthesizes the month's signals, daily posts and weekly reviews into a verdict-first report with month-over-month metrics, a review of last month's claims, corrections, and verifiable conditions for next month. Use when user says 月報 / monthly report / 產出 X 月月報."
+description: "Monthly AI Agent report for quidproquo.cc/daily, run after a calendar month ends: a verdict-first synthesis of the month's signals, daily posts and weekly reviews with month-over-month metrics, a review of last month's claims, and corrections. Use when user says 月報 / monthly report / 產出 X 月月報."
 ---
 
 # daily-digest-monthly

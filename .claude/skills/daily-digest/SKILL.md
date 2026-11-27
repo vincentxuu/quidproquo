@@ -1,6 +1,6 @@
 ---
 name: daily-digest
-description: Produce daily digest content for quidproquo.cc/daily. Invoked by Claude Code routines to generate AI daily reports, Arxiv digests, GitHub digests, model cards, security alerts, benchmark updates, framework changelogs, tool recommendations, funding briefs, pricing updates, weekly reviews, and regional focus articles. Use when routine says 日報 / daily digest / arxiv digest / github digest / weekly review / model card / security alert / benchmark / framework update / tool recommendation / funding / pricing.
+description: "Index and shared rules for the quidproquo.cc/daily routines; each content type has its own daily-digest-* skill. Use when a routine says 日報 / daily digest / arxiv digest / github digest / weekly review / model card / security alert / benchmark / framework update / tool recommendation / funding / pricing."
 ---
 
 # daily-digest skill
@@ -73,26 +73,7 @@ Stage 4（每週五）
 
 ## 搜尋工具契約（Groundlane 優先，失效就降級，不准停）
 
-公開網頁研究與抓取**優先**用 Groundlane MCP：`web_search` 找候選來源、`web_fetch` 讀已知 URL 或全文、`web_extract` 做 selector/table 欄位抽取。GitHub `gh api`、arXiv API、Hugging Face API、MOPS/FinMind 等來源專用 API 可直接使用。
-
-**Groundlane 不可用不是 blocker。** 工具不存在、OAuth／token 失效（例如直接 HTTP 回 `401 invalid_token`）、逾時或配額用完，都依下面順序換下一層，routine 照常產出：
-
-1. **Groundlane MCP**（`web_search`／`web_fetch`／`web_extract`）
-2. **Groundlane 直接 HTTP**：POST `https://groundlane.vincent-xu-work.workers.dev/mcp`（環境有 `GROUNDLANE_AUTH_TOKEN` 才帶 `Authorization: Bearer`；回 401 就直接跳下一層，不要重試）
-3. **Keenable keyless 搜尋**：`GET https://api.keenable.ai/v1/search/public`，Header `X-Keenable-Title: quidproquo`。上限 10 RPS：同一批最多 3 個 query，遇 429 等 1 秒後單發重試
-4. **You.com keyless**：`GET https://api.you.com/mcp?profile=free`（100 次／天）
-5. **其他雲端搜尋 MCP／平台內建搜尋**：Exa、Tavily、linkup、jina、firecrawl，或 agent 平台自帶的 web search（Exa 免費 MCP 常 429，撞到就換下一個）
-6. **網頁讀取**：搜尋到的 URL 用平台內建 fetch／WebFetch 讀全文；官方頁 403 時改讀其他獨立來源，不硬繞
-
-規則：
-
-- 每一層失敗就換下一層，**只有 1–6 全部失敗**才算 blocker，這時把每層的錯誤訊息寫進 `docs/governance/escalation-queue.md`。
-- 降級時在 daily-log 本次紀錄（或 screening record）寫 `toolDegradation`，例如 `groundlane 401 invalid_token → keenable keyless + WebFetch`。
-- 降級不放寬品質門檻：交叉驗證、一手來源優先、48 小時時間窗照舊。搜尋 snippet 只能用來發現候選，寫進文章前要讀到原文。
-- Fallback 只送公開查詢，不傳 secrets、認證內容或私有資料。
-- 仍然禁止已退役工具：`stealth_fetch`、`web-fetch/fetch_page`。
-
-使用者在當次對話明確指定「只能用 Groundlane」時才不降級，指定路徑失敗就回報 blocker。
+公開網頁研究與抓取優先用 Groundlane MCP（`web_search`／`web_fetch`／`web_extract`）；GitHub `gh api`、arXiv API、Hugging Face API、MOPS/FinMind 等來源專用 API 可直接使用。Groundlane 失效（未掛載、401、逾時、配額用完）不是 blocker：依序把整條 fallback 鏈走完（Groundlane 直接 HTTP → Keenable keyless → You.com keyless → Exa／Tavily／linkup／jina／firecrawl → 內建 `WebFetch`），照常產出並記 `toolDegradation`；整條都失敗才登錄 escalation-queue。`stealth_fetch`、`web-fetch/fetch_page` 已退役，不准用。端點、限速、判斷方式等完整規則見 `.agents/skills/daily-digest-common/SKILL.md#搜尋工具-fallback-鏈`。
 
 ## 共通品質規則
 

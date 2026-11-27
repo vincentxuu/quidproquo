@@ -1,6 +1,6 @@
 ---
 name: service-teardown
-description: 用自己的帳號實際操作一個第三方軟體服務（SaaS／Web app／agent 產品），逐層拆解它怎麼運作——UI 控制項、使用流程、網路 API 時序、事件與資料結構、失敗與權限邊界、（可及時）執行環境——每一輪存原始擷取、標明實測／推測，最後對照自家產品產出改善路線。用於「研究一下 X 怎麼做的」「拆解 X」「X 背後是怎麼跑的」「跟我們的 Y 比一比」「實測 X 的流程」。純看文件不動手的研究改用 deep-research；分析自家 codebase 用 codebase-analysis。
+description: 用自己的帳號實際操作第三方服務（SaaS／Web app／agent 產品），逐層拆解 UI、流程、網路 API、資料結構與權限邊界，標明實測／推測，再對照自家產品列改善路線。觸發：「研究一下 X 怎麼做的」「拆解 X」「X 背後是怎麼跑的」「跟我們的 Y 比一比」「實測 X 的流程」。只看文件不動手用 deep-research；自家程式碼用 codebase-analysis。
 ---
 
 # service-teardown skill

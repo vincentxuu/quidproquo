@@ -29,6 +29,7 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 
 # Step 4: 讀取所有 Stage 1-2 輸入（見下方「輸入來源」）
 # Step 5: 彙整內容，依「輸出格式」撰寫日報
+#   （動筆前先讀 references/output-template.md 與 references/output-example.md）
 # Step 6: 提交（依 daily-digest-common 共用尾聲）
 # 見 .agents/skills/daily-digest-common/SKILL.md
 # E0: 圖解（依 diagram skill 逐節判斷、補 0–3 張圖；雙語版兩版都放）
@@ -49,21 +50,7 @@ cat src/data/agent-watchlist.json | jq '.companies | length'
 | **特定頁面抓取** | Groundlane `web_fetch` | 已知 URL 的頁面內容擷取 |
 | **結構化 API** | 直接呼叫（arxiv API、GitHub `gh` CLI） | 有 API 的來源不用搜尋工具 |
 
-### 搜尋工具 fallback 鏈（遵循全域規則）
-
-依環境可用性自動選擇，優先順序：
-1. **Groundlane MCP**（`web_search` / `web_fetch` / `web_extract`）— 首選
-2. **Groundlane 直接 HTTP**（MCP connector 不可用時）— 用 `WebFetch` POST `https://groundlane.vincent-xu-work.workers.dev/mcp`，繞過 claude.ai connector 層
-3. **Keenable keyless API**（`GET https://api.keenable.ai/v1/search/public`，Header: `X-Keenable-Title: quidproquo`）— 10 萬次/月免費，不需要 API key
-4. **You.com keyless**（`GET https://api.you.com/mcp?profile=free`）— 100 次/天免費，不需要 API key
-5. **雲端 MCP fallback**（以上皆不可用時）— 依序嘗試：`Exa`、`Tavily`、`linkup`、`jina`、`firecrawl`
-6. **內建 `WebFetch`** — 最後手段
-
-判斷方式：先 `ToolSearch` 查 Groundlane MCP 工具是否存在且可呼叫；若不存在或認證失敗，嘗試直接 HTTP POST Groundlane；再失敗則嘗試 Keenable/You.com keyless API；仍失敗才用雲端 MCP 和內建 WebFetch。降級時在 screening record 或輸出中記錄 `toolDegradation: "groundlane unavailable, using Keenable keyless"` 等資訊，確保可追溯。
-
-**禁止的是**：不使用 `stealth_fetch`、`web-fetch/fetch_page`（已退役工具）。
-**不禁止的是**：在 Groundlane 不可用時使用 Exa/Tavily/linkup/jina/firecrawl 作為 fallback——這是全域規則允許的正常降級。
-**Groundlane 失效不是 blocker**：只有整條 fallback 鏈都失敗才登錄 escalation-queue；Keenable keyless 上限 10 RPS，同批最多 3 個 query，遇 429 等 1 秒再單發。完整契約見 `daily-digest` skill。
+搜尋工具 fallback：Groundlane 優先；Groundlane 失效不是 blocker，要依序走完整條 fallback 鏈（降級時記錄 `toolDegradation`），整條都失敗才登錄 escalation-queue；`stealth_fetch`、`web-fetch/fetch_page` 已退役，不得使用。完整順序、判斷方式與限速見 `.agents/skills/daily-digest-common/SKILL.md` 的「搜尋工具 fallback 鏈」一節——第一次要降級前先讀該節。
 
 ---
 
@@ -202,7 +189,6 @@ tags: [ai-agent, daily]
 lang: zh-TW
 description: "一句話判斷，不是事件列表"
 tldr: "3-5 行的今日重點，用分號隔開"
-  tldr 欄位是 frontmatter，前端不會把它當 markdown 渲染，請用純文字，不要寫 `**`、`[]()` 等 markdown 語法。
 draft: false
 series:
   name: "AI 日報"
@@ -210,184 +196,19 @@ series:
 ---
 ```
 
+`tldr` 的寫法依 `.agents/skills/daily-digest-common/SKILL.md` 的「tldr 欄位規則」一節；本 routine 的長度照上面 frontmatter 寫的「3-5 行的今日重點，用分號隔開」。
+
 `order` 計算：距離 2026-08-16 的天數 + 1。
 `draft: false` 必須明確寫出（取代測試版 `draft: true`）。
 
-### 內容結構（嚴格按以下順序）
+### 內容結構與完整範例
 
-```markdown
-## 一句話判斷
+**Step 5 動筆前，先完整讀這兩份檔案，再開始寫**：
 
-{今天所有事件串起來最重要的一個觀點，粗體。
- 不是列表，是一句有立場的判斷。
- zh-TW 版優先寫成台灣／繁中 builder 讀完能用的判斷，不只是全球新聞總結。}
+1. `references/output-template.md`——內容結構模板，章節順序要嚴格照做（一句話判斷 → 深度分析 → 今日動態各小節 → 關鍵數字 → 今日 Digest 一覽 → 明日關注 → 今日收穫 → 參考資料），「今日動態」的條列格式規則與區域動態的收錄條件也在裡面。
+2. `references/output-example.md`——節錄範例，展示新結構。
 
-## 深度分析：{今日主題}
-
-{文章核心。400-600 字（不是 800）。精煉為王——每一段必須推進論點，
- 不可重複同一個觀察。用一個 MIS 框架貫穿全文，不要混用兩個框架說同一件事。
- 結構：論點（1 句）→ 證據 A → 證據 B → 對從業者的意義（1-2 句）。
- 用「我認為」開頭標記觀點。
- 至少一句說清楚對台灣／繁中 builder、企業導入或台灣市場的意義。
- 這一段是日報存在的理由——個別文章看不到的連線只有這裡能看到。}
-
-## 今日動態
-
-{Stage 1 沒覆蓋到的新聞，分小節寫。有事才出現的小節直接省略。每條一個條列項，不要寫成散文段落，也不要用表格（手機上表格會橫向捲動）。格式參考 TLDR AI 的「標題即連結＋摘要」，加上 Axios Smart Brevity 的「為什麼重要」：}
-
-- **[{主體}](URL)**（{來源名}）：{1-2 句摘要，Stage 1 已有詳細文章的只放一句，連結改指站內文章}
-  - **為什麼重要**：{選填：這條對從業者或台灣的意義，一句。真的有判斷才寫，沒有就整行省略，不湊}
-
-格式規則：
-- 連結放在粗體標題上，不在句尾另放「（來源）」連結；來源名寫在標題後的全形括號裡。
-- 不寫閱讀時間或其他抓不到可靠數字的欄位。
-- 「為什麼重要」是縮排兩格的子條目（不要寫成接在下一行的續行，Markdown 會把它併進同一段）；一節裡沒有任何一條值得寫就全部省略。
-- 粗體連結文字只放主體名稱（公司、模型、事件），不另擬新聞標題。
-- 一條合併兩個以上來源時（常見於區域動態），主體只加粗不加連結，來源依序列在句尾：`- **{主體}**：{摘要}。（[來源 A](URL)、[來源 B](URL)）`。
-- 英文版用半形標點：`- **[{Subject}](URL)** ({Source}): {summary}`。
-
-### 廠商動態
-
-- **[{公司名}](URL)**（{來源名}）：{1-2 句動態}
-
-### 模型與基礎設施
-
-- **[{模型/事件名}](URL)**（{來源名}）：{1-2 句摘要}
-
-### 資安事件
-
-- **[{事件名}](URL)**（{來源名}）：{攻擊面描述 + 防禦做法}
-
-### 法規與治理
-
-- **[{法規/政策名}](URL)**（{來源名}）：{1-2 句摘要}
-
-### 區域動態
-
-- **[{區域名}：{事件}](URL)**（{來源名}）：{區域相關新聞，沒新聞的區域直接省略}
-
-動筆前要逐一掃過全球區域矩陣：台灣、中國／香港、日本／韓國、東南亞、印度／南亞、歐洲、中東（含以色列）、非洲、北美、拉丁美洲、以及大洋洲（澳洲／紐西蘭）。這是**檢索覆蓋要求，不是成稿配額**：同一時間窗找不到可靠且跟 AI 直接相關的事件就省略，不拿舊聞或泛市場報告湊版面。北美事件若已完整出現在廠商、法規或資安段，不必在區域段重複。
-
-只寫跟 AI 直接相關的區域新聞（模型發佈、法規、平台、融資）。
-「某國蓋 AI 中心」「某大學開課」這類跟 AI 從業者無關的新聞不收。
-
-### 商業案例 / 融資
-
-- **[{公司名}](URL)**（{來源名}）：{融資：金額、投資人、一句話意義；Stage 1 已有 funding 文章的只寫一句摘要，連結指站內文章}
-
-## 關鍵數字
-
-| 項目 | 數字 | 來源 |
-|------|------|------|
-| {今天最重要的 3-5 個數字，如定價、融資額、benchmark 分數、star 數} |
-
-## 今日 Digest 一覽
-
-{列出今天所有 Stage 1 產出的文章，一行一篇，附站內連結。不重述內容。}
-
-- [AI Agent Arxiv Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-arxiv-digest)
-- [AI Agent GitHub Digest — YYYY-MM-DD](/posts/daily/YYYY-MM-DD-ai-agent-github-digest)
-- {其他當天產出的 Stage 1 文章...}
-
-## 明日關注
-
-{2-3 bullet。根據今天的信號，明天值得追蹤什麼。
- 例如「DeepSeek 漲價後競品會不會跟進」「Gemini 3.7 Flash 社群實測會出來」。}
-
-## 今日收穫
-
-{1-3 句認知差。「之前以為 X，現在知道 Y」。
- **必須跟深度分析的結論不同**——深度分析講的是「今天合起來代表什麼」，
- 今日收穫講的是「寫完這篇後我個人的認知哪裡被修正了」。
- zh-TW 版要能回到台灣讀者的判斷；不要只寫「今天國際 AI 很熱鬧」。
- 如果寫出來跟深度分析的最後一段一樣，退回重寫。}
-
-## 參考資料
-
-{所有來源的 Markdown 連結，格式 `- [標題](URL)`。一份即可，不要重複。}
-```
-
----
-
-## 完整範例（節錄，展示新結構）
-
-```markdown
----
-title: "AI 日報 — 2026-08-17"
-date: 2026-08-17
-category: daily
-tags: [ai-agent, daily]
-lang: zh-TW
-description: "Agent 生態的價值正在從模型層移向基礎設施層——Baseten 估值超過多數模型公司，Cursor 的護城河不是模型而是 IDE 整合"
-tldr: "Anthropic Agent SDK 2.0 加深 MCP 編排的轉換成本；Cursor $500M ARR 證明 coding agent 價值在 IDE 整合不在模型；Baseten $13B 估值說明推理基礎設施比訓練模型更值錢；台智雲企業 Agent 平台主打資料主權"
-draft: false
-series:
-  name: "AI 日報"
-  order: 2
----
-
-## 一句話判斷
-
-**Agent 生態的價值高地正在從「誰的模型最強」轉向「誰的基礎設施最不可替代」——今天三個獨立事件從不同角度確認了這個結構性轉變。**
-
-## 深度分析：基礎設施層正在比模型層更值錢
-
-我認為今天三件事串起來看，指向一個不可逆的結構性轉變。
-
-從互補資產的角度：Cursor 的 $500M ARR 證明 coding agent 的價值不在「用哪個模型」，而在 IDE 整合和開發者體驗。Cursor 可以換底層模型（事實上它已經支援 Claude/GPT/自建模型），但開發者換不了 Cursor 的 IDE 體驗——這是經典的互補資產鎖定。（框架：互補資產）
-
-Baseten 的 $13B 估值也在說同一件事：推理基礎設施是 Agent 的必要互補資產。模型可以被替換，但低延遲、高吞吐量的推理服務不行。當 Baseten 的估值超過多數模型公司，市場已經在用真金白銀定價「基礎設施 > 模型」。
-
-Anthropic 的 Agent SDK 2.0 則是在加深自己的轉換成本：一旦開發者用了原生 MCP 編排，遷移到其他框架的成本就不只是改幾行 API call，而是要重寫整個 tool routing 邏輯。Anthropic 正在把自己從「模型供應商」重新定位成「Agent 基礎設施平台」。（框架：轉換成本）
-
-這對從業者的意義：如果你在做 Agent 產品，護城河不在「接了哪個最強模型」——因為模型會被追平且可替換。護城河在你的使用者離開後要重建多少東西：資料、工作流、整合、習慣。
-
-## 今日動態
-
-### 廠商動態
-
-**Anthropic**：Agent SDK 2.0 原生支援跨 MCP server 的 tool routing 和 session 記憶管理，一個 Agent 可同時連多個 MCP server 做自動 discovery。（[來源](https://www.anthropic.com/news/agent-sdk-2)）
-
-**Cursor (Anysphere)**：$500M ARR，同步發佈企業版 Background Agents——可在雲端持續跑 coding task，把 coding agent 從「互動式助手」推向「自主式工人」。（[來源](https://techcrunch.com/2026/08/16/cursor-500m-arr/)）
-
-### 區域動態
-
-**台灣**：台智雲推出企業級 Agent 開發平台，整合 NVIDIA NIM，在台灣 GPU 叢集上跑 Agent workflow，主打資料主權。這是台灣 AI 基礎設施從「賣算力」轉向「賣平台」的信號。（[來源](https://www.ithome.com.tw/news/12345)）
-
-### 商業案例 / 融資
-
-**Baseten C 輪 $150M**：估值 $13B，Lightspeed 領投。客戶含 Cursor、Notion、Mercor。（[來源](https://www.businesswire.com/news/baseten-series-c)）
-
-## 關鍵數字
-
-| 項目 | 數字 | 來源 |
-|------|------|------|
-| Cursor ARR | $500M | [TechCrunch](https://techcrunch.com/2026/08/16/cursor-500m-arr/) |
-| Baseten 估值 | $13B | [BusinessWire](https://www.businesswire.com/news/baseten-series-c) |
-| Baseten C 輪 | $150M | 同上 |
-| MCP server 數量 | 5,000+ | Anthropic MCP Registry |
-
-## 今日 Digest 一覽
-
-- [AI Agent Arxiv Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-arxiv-digest)
-- [AI Agent GitHub Digest — 2026-08-17](/posts/daily/2026-08-17-ai-agent-github-digest)
-
-## 明日關注
-
-- Anthropic Agent SDK 2.0 發佈後社群反應：LangGraph/CrewAI 會如何回應 MCP 原生編排？
-- Baseten $13B 估值會不會帶動推理基礎設施賽道（Together AI、Fireworks、Modal）新一輪融資？
-
-## 今日收穫
-
-之前以為 AI 產業的價值主要在模型層，今天意識到 Agent 時代的價值正在移向基礎設施——推理服務和開發者工具是新的價值高地，模型反而是可替換的商品。
-
-## 參考資料
-
-- [Anthropic Agent SDK 2.0](https://www.anthropic.com/news/agent-sdk-2)
-- [Cursor 年化營收達 $500M — TechCrunch](https://techcrunch.com/2026/08/16/cursor-500m-arr/)
-- [Baseten C 輪 $150M — BusinessWire](https://www.businesswire.com/news/baseten-series-c)
-- [台智雲企業 Agent 開發平台 — iThome](https://www.ithome.com.tw/news/12345)
-```
+沒讀過這兩份不要動筆；zh-TW 與英文版都依同一份模板。
 
 ---
 
