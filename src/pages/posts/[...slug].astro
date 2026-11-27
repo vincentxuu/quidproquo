@@ -23,6 +23,15 @@ import { renderIconSprite } from '../../components/icons/render';
 import type { IconName } from '../../components/icons/koboyo';
 import { getReadingTime, getWordCount } from '../../utils/readingTime';
 import { createPostIndex, type PostIndex } from '../../utils/post-index';
+import { appendFileSync } from 'node:fs';
+
+// TEMP CI PROFILING — reverted after measurement; rendered HTML is unchanged.
+const PROFILE_FILE = 'dist/build-profile.jsonl';
+function profileSince(name: string, startedAt: number): void {
+  try {
+    appendFileSync(PROFILE_FILE, `${JSON.stringify({ name, ms: performance.now() - startedAt, pid: process.pid })}\n`);
+  } catch { /* profiling must never break the build */ }
+}
 
 // One index per allPosts array (per rendering worker), not one per page.
 const INDEX_CACHE = new WeakMap<Post[], PostIndex>();
@@ -47,13 +56,17 @@ const { post, allPosts } = Astro.props;
 // Only src/pages/styleguide.astro passes `noindex`, when it reuses this template for its fixture.
 // Props are inferred from getStaticPaths, so the extra prop is read untyped.
 const noindex = (Astro.props as { noindex?: boolean }).noindex === true;
+const _tRender = performance.now();
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
+profileSince('render.post', _tRender);
 // rehypeNoEmoji turns emoji into `<use href="#ki-…">` references and lists the icons here; the symbols
 // are rendered once below, after <Content />, so the path data stays out of the content store.
 const inlineIcons = (remarkPluginFrontmatter?.[INLINE_ICONS_KEY] ?? []) as IconName[];
 const lang = post.data.lang as Lang;
 const t = useTranslations(lang);
+const _tIndex = performance.now();
 const index = getPostIndex(allPosts);
+profileSince('postIndex.get', _tIndex);
 
 // allPosts is already published + date-sorted (getPublishedPosts), so the
 // index lookup is equivalent to the old per-page filter/sort.
@@ -62,18 +75,24 @@ const currentIndex = index.indexByIdByLang.get(lang)?.get(post.id) ?? -1;
 const chronologicalPrev = currentIndex >= 0 ? sortedPosts[currentIndex + 1] : undefined;
 const chronologicalNext = currentIndex > 0 ? sortedPosts[currentIndex - 1] : undefined;
 
+const _tRelated = performance.now();
 const relatedPosts = getRelatedPosts(post, allPosts, 3, index);
+profileSince('relatedPosts', _tRelated);
+const _tSeries = performance.now();
 const seriesNavs = getSeriesNavs(post, allPosts, index).map(nav => ({
   nav,
   href: getSeriesHref(nav.name, lang),
 }));
+profileSince('seriesNavs', _tSeries);
 // Series boundaries stay within the primary series, including its first/last post.
 const primarySeriesNav = seriesNavs[0]?.nav;
 const prevPost = primarySeriesNav ? primarySeriesNav.prev : chronologicalPrev
   ? { slug: chronologicalPrev.id, title: chronologicalPrev.data.title } : undefined;
 const nextPost = primarySeriesNav ? primarySeriesNav.next : chronologicalNext
   ? { slug: chronologicalNext.id, title: chronologicalNext.data.title } : undefined;
+const _tReading = performance.now();
 const readingTime = getReadingTime(post);
+profileSince('readingTime', _tReading);
 const isDailyBrief = /(?:^|\/)\d{4}-\d{2}-\d{2}-ai-agent-daily(?:-en)?$/.test(post.id);
 const categoriesBase = lang === 'en' ? '/en/categories' : '/categories';
 const tagsBase = lang === 'en' ? '/en/tags' : '/tags';
@@ -91,7 +110,9 @@ const postUrl = `${siteUrl}/posts/${post.id}/`;
 
 // Translation pairing: link to the counterpart if it exists, else fall back to
 // the other language's home with an `untranslated` hint for the fallback banner.
+const _tTranslation = performance.now();
 const counterpart = getTranslation(post.id, allPosts, index);
+profileSince('translation', _tTranslation);
 const hasTranslation = counterpart !== null;
 const switchHref = counterpart
   ? `/posts/${counterpart.id}`
