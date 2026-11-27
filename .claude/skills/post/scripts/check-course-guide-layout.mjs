@@ -1,3 +1,5 @@
+// 課程導讀版面閘門：「課程影片來源／官方材料」這類出處段要放在學習內容之後；更新紀錄只能有一段；
+// 標了「已附影片」的課堂錄影要放在導言或對應段落，不放進出處段。
 import fs from 'node:fs';
 import path from 'node:path';
 import {pathToFileURL} from 'node:url';

@@ -1,3 +1,5 @@
+// 術語覆蓋報告：列出沒有任何術語提示的文章（frontmatter 沒有 glossary，內文也沒有命中
+// src/lib/glossary/terms.ts 的預設詞）。只報告、不擋 commit。
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';

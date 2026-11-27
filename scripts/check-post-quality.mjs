@@ -1,3 +1,5 @@
+// 文章 frontmatter 與檔名閘門：必填欄位齊全、category 與 lang 在允許清單內、tags 是不重複的小寫 kebab-case、
+// glossary 是陣列、檔名符合 YYYY-MM-DD-<slug>.md；站內文章連結要指向存在的文章。
 import fs from 'node:fs';
 import path from 'node:path';
 import matter from 'gray-matter';

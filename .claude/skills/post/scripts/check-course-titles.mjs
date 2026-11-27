@@ -1,3 +1,6 @@
+// 課程系列標題閘門：每個課程系列都要在 src/data/course-series-titles.json 登記官方課名、來源與查核日期，
+// 標題要含官方課名（有課號的格式是「學校 課號 課名」），且課名要出現在該系列文章裡。
+// 舊例外清單用雜湊鎖住，不准為了變綠新增例外。
 import fs from 'node:fs';
 import { createHash } from 'node:crypto';
 import path from 'node:path';

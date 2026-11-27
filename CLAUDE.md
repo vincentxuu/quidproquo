@@ -90,6 +90,7 @@ pnpm sync:prod        # Sync posts to D1 (production)
 ## Important Decisions
 
 - **Feature flags are mandatory** for all advanced/experimental techniques (RAG, embeddings, AI features). Every such feature must be individually toggleable. Do not add unless an observed failure justifies it.
+- **專案手冊 `/handbook/`、設計規範 `/design/`**：從 repo 正本自動產生（`src/lib/handbook/sources.ts` 決定收哪些檔）。新規範放進會被收錄的位置（`docs/governance/`、`docs/adr/`、`docs/product/`、skill 的 SKILL.md）才看得到；新增 verify 檢查要在腳本開頭寫一句用途，手冊的「待補」會列出沒寫的。
 - **改文章 UI（PostLayout、文章頁樣式、tokens、remark 插件產生的元件）前先讀 `docs/design-system.md`**，顏色、圓角、字級只用 `src/styles/tokens.css` 的 token；改完在 dev server 看 `/styleguide/`（淺色、深色、390px），新元件要加進 `src/content/styleguide/styleguide.md`，`tests/visual/styleguide.spec.ts` 才會測到它。最後同步更新 design-system.md。
 - `progress.txt` at the repo root is the lightweight session memory (working memory, not a logbook — cap 90 lines, enforced by `pnpm verify`). Update it when task status materially changes; archive finished entries to `docs/progress-archive.md`. Daily-digest routines never touch it — they write `.work/daily-log/<date>/<skill>.md` (`daily-digest-common` E3; `pnpm verify` rejects `daily-digest-*` entries in progress.txt).
 - Never revert file changes without explicit user confirmation.

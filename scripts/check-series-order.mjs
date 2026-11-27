@@ -1,3 +1,5 @@
+// 系列順序閘門：同一系列、同一語言的每篇文章都要有數字 series.order，且不能重號（中英各自從 1 編號）；
+// 編號跳號只警告。
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';

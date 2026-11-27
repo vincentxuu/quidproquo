@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// SEO 煙霧測試：robots.txt 擋 /admin/ 並宣告 sitemap、sitemap 排除後台頁、文章頁的 canonical／hreflang／OG
+// 網址格式正確；有 build 產物時，再查 sitemap 實際內容與首頁、文章頁的 JSON-LD。
 
 import { existsSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';

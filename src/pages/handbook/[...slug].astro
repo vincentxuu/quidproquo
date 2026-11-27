@@ -1,0 +1,71 @@
+---
+// src/pages/handbook/[...slug].astro
+// 手冊單篇：渲染一份 repo 正本（治理、ADR、規格、開發規範、SKILL.md），附原始檔連結與同區的其他文件。
+export const prerender = true;
+
+import DocsShell from '../../layouts/DocsShell.astro';
+import { DOCS, SECTIONS, REPO_BLOB, estimateTokens, type HandbookDoc } from '../../lib/handbook/sources';
+import { renderMarkdown } from '../../lib/handbook/render';
+
+export function getStaticPaths() {
+  return DOCS.map((doc) => ({ params: { slug: doc.slug }, props: { doc } }));
+}
+
+const { doc } = Astro.props as { doc: HandbookDoc };
+const section = SECTIONS.find((s) => s.id === doc.section)!;
+const siblings = DOCS.filter((d) => d.section === doc.section);
+const html = await renderMarkdown(doc.raw, doc.path);
+---
+
+<DocsShell title={doc.title} area="handbook" description={doc.summary || section.desc}>
+  <div class="hb-doc">
+    <aside class="hb-side" aria-label={`${section.label}文件`}>
+      <a href="/handbook/" class="hb-side__back">← 專案手冊</a>
+      <p class="hb-side__label">{section.label}</p>
+      <ul>
+        {siblings.map((d) => (
+          <li><a href={`/handbook/${d.slug}/`} aria-current={d.slug === doc.slug ? 'page' : undefined}>{d.title}</a></li>
+        ))}
+      </ul>
+    </aside>
+
+    <div class="hb-content">
+      <div class="hb-meta">
+        <span class="ds-count">{section.label}</span>
+        <a href={`${REPO_BLOB}${doc.path.split('/').map(encodeURIComponent).join('/')}`} target="_blank" rel="noopener"><code>{doc.path}</code></a>
+        {doc.section === 'skills' && <span class="ds-muted">約 {estimateTokens(doc.raw).toLocaleString()} token</span>}
+      </div>
+      {doc.section === 'skills' && (
+        <div class="hb-skill-when">
+          <strong>何時用</strong>
+          <p>{doc.description ?? <span class="ds-flag">沒寫 description</span>}</p>
+        </div>
+      )}
+      <article class="ds-prose" set:html={html} />
+    </div>
+  </div>
+</DocsShell>
+
+<style is:global>
+  .hb-doc { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: var(--space-8); align-items: start; }
+  .hb-doc > * { min-width: 0; }
+  .hb-side { position: sticky; top: 72px; max-height: calc(100vh - 96px); overflow-y: auto; font-size: var(--fs-sm); }
+  .hb-side__back { display: inline-block; margin-bottom: var(--space-4); text-decoration: none; }
+  .hb-side__label { margin: 0 0 var(--space-2); color: var(--text-muted); font-size: var(--fs-xs); font-weight: 700; }
+  .hb-side ul { list-style: none; margin: 0; padding: 0; }
+  .hb-side li a { display: block; padding: var(--space-1) var(--space-2); border-radius: var(--corner-sm); color: var(--text-secondary); text-decoration: none; overflow-wrap: anywhere; }
+  .hb-side li a:hover { background: var(--bg-muted); color: var(--text-primary); }
+  .hb-side li a[aria-current='page'] { background: var(--brand-50); color: var(--brand-700); font-weight: 600; }
+  .hb-meta { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); font-size: var(--fs-sm); }
+  .hb-meta .ds-muted { margin: 0; }
+  .hb-meta a { overflow-wrap: anywhere; }
+  .hb-skill-when { margin-bottom: var(--space-6); padding: var(--space-3) var(--space-4); border-left: 3px solid var(--brand-500); background: var(--bg-subtle); font-size: var(--fs-sm); }
+  .hb-skill-when p { margin: var(--space-1) 0 0; color: var(--text-secondary); }
+  .hb-content .ds-prose > h1:first-child { margin-top: 0; }
+
+  @media (max-width: 860px) {
+    .hb-doc { grid-template-columns: minmax(0, 1fr); gap: var(--space-4); }
+    .hb-side { position: static; max-height: none; }
+    .hb-side ul { display: none; }
+  }
+</style>

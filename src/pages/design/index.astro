@@ -5,13 +5,13 @@
 // 規範全文渲染 docs/design-system.md。改正本，這頁就跟著變。
 export const prerender = true;
 
-import { createMarkdownProcessor } from '@astrojs/markdown-remark';
+import DocsShell from '../../layouts/DocsShell.astro';
+import { renderMarkdown } from '../../lib/handbook/render';
 import '../../styles/admin-tokens.css';
 import '../../styles/globals.css';
 import tokensCss from '../../styles/tokens.css?raw';
 import designDoc from '../../../docs/design-system.md?raw';
 import { parseTokens } from '../../lib/design/tokens';
-import Icons from '../../components/Icons.astro';
 import UiShowcase, { UI_DEMOS } from '../../components/design/UiShowcase';
 import AdminButton from '../../components/admin/AdminButton.astro';
 import AdminBadge from '../../components/admin/AdminBadge.astro';
@@ -24,8 +24,7 @@ import AdminState from '../../components/admin/AdminState.astro';
 const groups = parseTokens(tokensCss);
 const tokenCount = groups.reduce((n, g) => n + g.tokens.length, 0);
 
-const md = await createMarkdownProcessor();
-const { code: specHtml } = await md.render(designDoc);
+const specHtml = await renderMarkdown(designDoc, 'docs/design-system.md');
 
 // 元件清單：掃檔案系統，新元件不用登記也會出現；有沒有範例由 demo 名單判斷。
 const ADMIN_DEMOS = new Set(['AdminButton', 'AdminBadge', 'AdminField', 'AdminPanel', 'AdminTable', 'AdminMetric', 'AdminState']);
@@ -69,40 +68,17 @@ const inventory = [
 const isColor = (v: string) => /^(#|rgb|hsl|oklch|color-mix|var\()/.test(v);
 ---
 
-<!DOCTYPE html>
-<html lang="zh-TW">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="robots" content="noindex" />
-  <title>設計規範 — quidproquo</title>
-  <script is:inline>
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.setAttribute('data-theme', 'dark');
-    }
-  </script>
-</head>
-<body class="ds">
-  <header class="ds-header">
-    <div class="ds-header__inner">
-      <a href="/" class="ds-logo">quidproquo</a>
-      <span class="ds-header__title">設計規範</span>
-      <nav class="ds-nav" aria-label="頁內導覽">
-        <a href="#overview">總覽</a>
-        <a href="#tokens">Token</a>
-        <a href="#components">元件</a>
-        <a href="#inventory">元件清單</a>
-        <a href="#spec">規範全文</a>
-      </nav>
-      <button type="button" class="ds-theme" id="ds-theme" aria-label="切換深淺色">
-        <span class="icon-light"><Icons name="moon" size={16} /></span>
-        <span class="icon-dark"><Icons name="sun" size={16} /></span>
-      </button>
-    </div>
-  </header>
-
-  <main class="ds-main">
+<DocsShell
+  title="設計規範"
+  area="design"
+  anchors={[
+    { href: '#overview', label: '總覽' },
+    { href: '#tokens', label: 'Token' },
+    { href: '#components', label: '元件' },
+    { href: '#inventory', label: '元件清單' },
+    { href: '#spec', label: '規範全文' },
+  ]}
+>
     <section id="overview" class="ds-section">
       <h1>設計規範</h1>
       <p class="ds-lead">
@@ -262,72 +238,11 @@ const isColor = (v: string) => /^(#|rgb|hsl|oklch|color-mix|var\()/.test(v);
     <section id="spec" class="ds-section">
       <h2>規範全文</h2>
       <p class="ds-muted">以下是 <code>docs/design-system.md</code> 的內容。行號引用以文件標示的日期為準，與程式碼不一致時以程式碼為準。</p>
-      <article class="ds-spec" set:html={specHtml} />
+      <article class="ds-prose ds-spec" set:html={specHtml} />
     </section>
-  </main>
-
-  <script is:inline>
-    document.getElementById('ds-theme')?.addEventListener('click', () => {
-      const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-      document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-      localStorage.setItem('theme', isDark ? 'light' : 'dark');
-    });
-  </script>
-</body>
-</html>
+</DocsShell>
 
 <style is:global>
-  body.ds {
-    margin: 0;
-    background: var(--bg-page);
-    color: var(--text-primary);
-    font-family: 'Noto Sans TC Local', 'PingFang TC', 'Microsoft JhengHei', Inter, ui-sans-serif, system-ui, -apple-system, sans-serif;
-    font-size: var(--fs-md);
-    line-height: 1.6;
-  }
-  .ds code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 0.85em; }
-
-  .ds-header {
-    position: sticky; top: 0; z-index: 20;
-    background: var(--bg-page);
-    border-bottom: 1px solid var(--border);
-  }
-  .ds-header__inner {
-    max-width: 1120px; margin: 0 auto;
-    display: flex; align-items: center; gap: var(--space-4);
-    padding: var(--space-3) var(--space-6);
-  }
-  .ds-logo { font-weight: 900; color: var(--brand-700); text-decoration: none; }
-  .ds-header__title { font-weight: 700; color: var(--text-secondary); }
-  .ds-nav { display: flex; gap: var(--space-4); margin-left: auto; overflow-x: auto; }
-  .ds-nav a { color: var(--text-secondary); text-decoration: none; font-size: var(--fs-sm); white-space: nowrap; }
-  .ds-nav a:hover { color: var(--brand-700); }
-  .ds-theme {
-    display: inline-flex; align-items: center; justify-content: center;
-    width: 32px; height: 32px; flex-shrink: 0;
-    border: 1px solid var(--border); border-radius: var(--corner-md);
-    background: var(--bg-card); color: var(--text-secondary); cursor: pointer;
-  }
-  .ds-theme:hover { color: var(--brand-700); border-color: var(--brand-500); }
-  .ds-theme .icon-dark { display: none; }
-  [data-theme="dark"] .ds-theme .icon-light { display: none; }
-  [data-theme="dark"] .ds-theme .icon-dark { display: inline-flex; }
-
-  .ds-main { max-width: 1120px; margin: 0 auto; padding: var(--space-8) var(--space-6) var(--space-12); }
-  .ds-section { padding-bottom: var(--space-10); margin-bottom: var(--space-10); border-bottom: 1px solid var(--border); scroll-margin-top: 64px; }
-  .ds-section:last-child { border-bottom: none; }
-  .ds h1 { font-size: var(--fs-h1); font-weight: 900; margin: 0 0 var(--space-3); }
-  .ds h2 { font-size: var(--fs-h2); font-weight: 800; margin: var(--space-8) 0 var(--space-3); }
-  .ds-section > h2:first-child { margin-top: 0; }
-  .ds h3 { font-size: var(--fs-h3); font-weight: 700; margin: var(--space-6) 0 var(--space-2); }
-  .ds-lead { color: var(--text-secondary); max-width: 760px; margin: 0; }
-  .ds-muted { color: var(--text-muted); font-size: var(--fs-sm); margin: 0 0 var(--space-4); }
-  .ds-count {
-    display: inline-block; margin-left: var(--space-1); padding: 0 var(--space-2);
-    border-radius: var(--corner-pill); background: var(--bg-subtle);
-    color: var(--text-secondary); font-size: var(--fs-xs); font-weight: 600; vertical-align: middle;
-  }
-
   .ds-layers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: var(--space-3); }
   .ds-layer {
     display: flex; gap: var(--space-3); padding: var(--space-4);
@@ -376,24 +291,9 @@ const isColor = (v: string) => /^(#|rgb|hsl|oklch|color-mix|var\()/.test(v);
   .ds-inv__list a { color: var(--brand-700); }
   .ds-inv__none { color: var(--text-muted); font-size: var(--fs-2xs); border: 1px solid var(--border); border-radius: var(--corner-pill); padding: 0 var(--space-2); }
 
-  .ds-spec { max-width: 860px; color: var(--text-primary); }
   .ds-spec h1 { display: none; }
-  .ds-spec h2 { font-size: var(--fs-h2); }
-  .ds-spec a { color: var(--brand-700); }
-  .ds-spec blockquote { margin: var(--space-4) 0; padding: var(--space-3) var(--space-4); border-left: 3px solid var(--brand-500); background: var(--bg-subtle); color: var(--text-secondary); }
-  .ds-spec blockquote p { margin: 0; }
-  .ds-spec table { display: block; overflow-x: auto; border-collapse: collapse; font-size: var(--fs-sm); margin: var(--space-4) 0; }
-  .ds-spec th, .ds-spec td { border: 1px solid var(--border); padding: var(--space-2) var(--space-3); text-align: left; vertical-align: top; }
-  .ds-spec th { background: var(--bg-subtle); }
-  .ds-spec :not(pre) > code { background: var(--bg-subtle); border-radius: var(--corner-sm); padding: 0 var(--space-1); }
-  .ds-spec pre { background: var(--bg-code); color: var(--code-text); border-radius: var(--corner-md); padding: var(--space-4); overflow-x: auto; }
-  .ds-spec hr { border: none; border-top: 1px solid var(--border); margin: var(--space-8) 0; }
 
   @media (max-width: 640px) {
-    .ds-header__inner { padding: var(--space-3) var(--space-4); flex-wrap: wrap; gap: var(--space-2) var(--space-4); }
-    .ds-nav { order: 3; width: 100%; margin-left: 0; }
-    .ds-theme { margin-left: auto; }
-    .ds-main { padding: var(--space-6) var(--space-4) var(--space-10); }
     .ds-token-row { grid-template-columns: 56px 1fr; }
     .ds-token-row--head { display: none; }
     .ds-token-val, .ds-token-note { grid-column: 2; }
