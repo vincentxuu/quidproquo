@@ -66,6 +66,15 @@ This is a level 4 case series from specialist clinics, so milder injuries do not
 
 Together, these load the back and outside of the knee. The structures under strain include the lateral collateral ligament, lateral meniscus, posterior cruciate ligament, the tendons and capsule at the back of the knee, the iliotibial band, and the hamstring tendons.
 
+```body
+title: What works and what takes the load in a heel hook
+desc: Back view of the body: the hamstrings are marked as working and the knee joint as a common injury site.
+view: back
+work: hamstring
+injury: knee
+caption: The hamstrings bend the knee to pull the body toward the wall, loading the back and outside of the knee.
+```
+
 ### What the 17 patients looked like
 
 The paper follows 17 heel hook injuries seen at a sports medicine clinic in Bamberg, Germany, between 2010 and 2014:
@@ -213,6 +222,10 @@ There is no such research. Schöffl 2016's stretching and warm-up advice is the 
 The last stop in the legs is the foot itself. The next post, [Feet and Climbing Shoes](/posts/climbing/2026-10-18-climbing-feet-shoes-en), covers what too-tight, too-downturned shoes do to your feet.
 
 For the full picture of warm-up research, see [Warming Up](/posts/climbing/2026-10-18-climbing-warm-up-en); for flexibility and injury, see [Flexibility and Mobility](/posts/climbing/2026-10-18-climbing-flexibility-mobility-en).
+
+## Update log
+
+- 2026-11-26: Added a body figure to “Why the heel hook is different” marking the working hamstrings and the loaded knee
 
 ## References
 

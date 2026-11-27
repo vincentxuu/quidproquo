@@ -66,6 +66,15 @@ for (const vp of VIEWPORTS) {
         expect(d.shown, `Diagram "${d.title}" is drawn ${d.drawn} wide but shown ${Math.round(d.shown)}px (upscaled)`).toBeLessThanOrEqual(d.drawn + 1);
       }
 
+      // 人體圖：兩張都要渲染，人體不能比圖框寬，圖例要在。
+      const bodyMaps = page.locator('.content figure.bm');
+      await expect(bodyMaps).toHaveCount(2);
+      for (const figure of await bodyMaps.all()) {
+        const [frame, svg] = await Promise.all([figure.boundingBox(), figure.locator('svg.bm-svg').boundingBox()]);
+        expect(svg!.width, 'Body map must fit inside its figure').toBeLessThanOrEqual(frame!.width);
+        await expect(figure.locator('.bm-legend__item').first()).toBeVisible();
+      }
+
       await expectReadableText(page.locator('.content'));
     });
   }

@@ -1,0 +1,59 @@
+/* ```body figures (src/plugins/remarkBodyMap.ts)：正面／背面人體圖，標出出力、伸展、受傷部位。
+ * 顏色全部來自 tokens.css；動畫只在 prefers-reduced-motion: no-preference 時播放，靜止時顏色本身就能讀。 */
+.bm {
+  --bm-skin: var(--bg-subtle);
+  --bm-line: var(--border);
+  --bm-outline: var(--text-muted);
+  --bm-work: var(--brand-500);
+  --bm-stretch: var(--diagram-s1);
+  --bm-injury: var(--diagram-warn);
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-4) var(--space-3);
+  border: 1px solid var(--border);
+  border-radius: var(--corner-lg);
+  background: var(--bg-card);
+}
+.content .bm__title { margin: 0 0 var(--space-2); font-size: .95rem; font-weight: 700; color: var(--text-primary); text-align: left; }
+.content .bm__caption { margin: var(--space-2) 0 0; font-size: .8rem; color: var(--text-muted); }
+.bm__body { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: var(--space-4); }
+.bm-svg { display: block; height: auto; flex: 0 1 auto; }
+.bm--single .bm-svg { width: min(220px, 60vw); }
+.bm--both .bm-svg { width: min(420px, 100%); }
+
+.bm-outline { fill: var(--bm-skin); stroke: var(--bm-outline); stroke-width: 2; vector-effect: non-scaling-stroke; }
+.bm-part { fill: var(--bm-skin); stroke: var(--bm-line); stroke-width: 1; vector-effect: non-scaling-stroke; }
+.bm-part--base { fill: var(--bm-skin); }
+.bm-part--work { fill: var(--bm-work); stroke: var(--bm-work); }
+.bm-part--stretch { fill: color-mix(in srgb, var(--bm-stretch) 55%, var(--bm-skin)); stroke: var(--bm-stretch); stroke-width: 2; stroke-dasharray: 6 4; }
+.bm-part--injury { fill: color-mix(in srgb, var(--bm-injury) 70%, var(--bm-skin)); stroke: var(--bm-injury); stroke-width: 2; }
+.bm-joint__dot { stroke: var(--bg-card); stroke-width: 3; vector-effect: non-scaling-stroke; }
+.bm-joint__ring { fill: none; stroke-width: 3; vector-effect: non-scaling-stroke; opacity: .5; }
+.bm-joint--work .bm-joint__dot { fill: var(--bm-work); }
+.bm-joint--work .bm-joint__ring { stroke: var(--bm-work); }
+.bm-joint--stretch .bm-joint__dot { fill: var(--bm-stretch); }
+.bm-joint--stretch .bm-joint__ring { stroke: var(--bm-stretch); }
+.bm-joint--injury .bm-joint__dot { fill: var(--bm-injury); }
+.bm-joint--injury .bm-joint__ring { stroke: var(--bm-injury); }
+.bm-view-label { fill: var(--text-muted); font-size: 34px; font-weight: 600; }
+
+.bm-legend { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-2); font-size: .85rem; color: var(--text-primary); min-width: 12rem; flex: 1 1 12rem; max-width: 20rem; }
+.content .bm-legend__item { display: grid; grid-template-columns: auto 1fr; column-gap: var(--space-2); align-items: baseline; margin: 0; padding: 0; }
+.content .bm-legend__item::before { content: none; }
+.bm-legend__swatch { width: .8rem; height: .8rem; border-radius: 50%; translate: 0 .1rem; }
+.bm-legend__item--work .bm-legend__swatch { background: var(--bm-work); }
+.bm-legend__item--stretch .bm-legend__swatch { background: color-mix(in srgb, var(--bm-stretch) 55%, var(--bm-skin)); outline: 2px dashed var(--bm-stretch); outline-offset: -2px; }
+.bm-legend__item--injury .bm-legend__swatch { background: var(--bm-injury); }
+.bm-legend__role { font-weight: 700; }
+.bm-legend__parts { grid-column: 2; color: var(--text-secondary); }
+
+@media (prefers-reduced-motion: no-preference) {
+  /* 出力：慢呼吸；伸展：虛線流動；受傷：擴散漣漪。三種節奏不同，色弱讀者也分得出來。 */
+  .bm-part--work { animation: bm-breathe 2.4s ease-in-out infinite; }
+  .bm-part--stretch { animation: bm-flow 1.6s linear infinite; }
+  .bm-part--injury { animation: bm-alert 1.2s ease-in-out infinite alternate; }
+  .bm-joint__ring { transform-box: fill-box; transform-origin: center; animation: bm-ripple 1.8s ease-out infinite; }
+  @keyframes bm-breathe { 0%, 100% { opacity: 1; } 50% { opacity: .55; } }
+  @keyframes bm-flow { to { stroke-dashoffset: -20; } }
+  @keyframes bm-alert { to { opacity: .6; } }
+  @keyframes bm-ripple { from { transform: scale(.7); opacity: .8; } to { transform: scale(2.2); opacity: 0; } }
+}

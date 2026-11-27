@@ -536,6 +536,20 @@ tokens.css 提供圖表的原始色，`diagram.css` 再衍生成作者用的 `--
 - **何時不用**：不要為了裝飾在標題前加 emoji，多半會被刪掉；需要新的圖示對應時，先在 `koboyo.ts` 補圖示、再加進 EMOJI_ICONS 與 SHORTCODES。
 - **CSS**：Layout:632–633；外掛 `src/plugins/rehypeNoEmoji.ts`；渲染 `src/components/icons/render.ts`。
 
+### 4.25 人體圖（```body）
+
+- **長相**：外框與 diagram 相同（1px `--border`、`--corner-lg`、`--space-4` 內距，bodyMap.css:3–15）。人體底色 `--bg-subtle`、外框線 `--text-muted`（23）。三種標記各一個顏色與一種節奏，色弱讀者也分得出來（7–9、49–58）：
+  - **出力** `--brand-500`，整塊實色，慢呼吸
+  - **伸展** `--diagram-s1`，半透明加虛線，虛線流動
+  - **常見受傷／疼痛** `--diagram-warn`，肌群塊閃動；關節以圓點加擴散漣漪標示
+  - `prefers-reduced-motion: reduce` 時不播動畫，顏色本身就能讀。
+- **尺寸**：單面寬 `min(220px, 60vw)`、雙面 `min(420px, 100%)`（bodyMap.css:20–21）；桌機圖例在右，窄螢幕自動換到下方（flex-wrap，17、39）。
+- **何時用**：攀岩動作、訓練、傷害文章要讓讀者看到「哪塊肌肉、哪個關節」時。一張圖只回答一個問題（例如 heel hook 誰在出力），標記三到五個部位。
+- **何時不用**：手指滑車、肩袖這種全身圖看不清楚的細部；要畫流程或比較時用 ```diagram。
+- **寫法**：`title`、`desc` 必填；`view` 是 `front`／`back`／`both`（預設 both）；`work`、`stretch`、`injury` 填部位名，用逗號或頓號分隔（remarkBodyMap.ts:85–110）。部位名見 `BODY_LABELS`：肌群（chest、forearm、hamstring…）整塊上色；`shoulder`、`elbow`、`wrist`、`fingers`、`hip`、`knee`、`ankle` 在沒有對應肌群塊的那一面畫關節點（`JOINTS`，59）。部位名打錯、同一部位給兩種標記、或在該面看不到時，建置直接報錯。
+- **資料**：肌群路徑來自 react-native-body-highlighter（MIT），轉成 `src/data/bodyMap.ts`，授權全文在 `src/data/bodyMap.LICENSE`。
+- **CSS**：`src/styles/bodyMap.css`；外掛 `src/plugins/remarkBodyMap.ts`。
+
 ---
 
 ## 5. 已知不一致與待辦

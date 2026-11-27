@@ -66,6 +66,15 @@ glossary:
 
 兩者加在一起，負擔落在膝蓋後方和外側。受力的結構包括外側副韌帶、外側半月板、後十字韌帶、膝後的肌腱和關節囊，以及髂脛束和膕旁肌的肌腱。
 
+```body
+title: heel hook 時誰在出力、哪裡受力
+desc: 背面人體圖：大腿後側的膕旁肌標為出力，膝關節標為常見受傷位置。
+view: back
+work: hamstring
+injury: knee
+caption: 膕旁肌彎膝把身體拉向牆，負擔落在膝蓋後方和外側。
+```
+
 ### 17 位傷者的樣貌
 
 這篇論文追蹤德國班貝格一家運動醫學門診在 2010 到 2014 年間看到的 17 位 heel hook 傷者：
@@ -213,6 +222,10 @@ Lutter 2020 的四種受傷動作裡，墜落著地占 22.1%，BSM Foundation �
 下肢的最後一站是腳本身。下一篇〈[腳與攀岩鞋](/posts/climbing/2026-10-18-climbing-feet-shoes)〉講太緊、太下彎的鞋會對腳造成什麼。
 
 想知道暖身研究的全貌，見〈[暖身](/posts/climbing/2026-10-18-climbing-warm-up)〉；柔軟度和受傷的關係，見〈[柔軟度與活動度](/posts/climbing/2026-10-18-climbing-flexibility-mobility)〉。
+
+## 更新紀錄
+
+- 2026-11-26：在「為什麼 heel hook 特別」加一張人體圖，標出出力的膕旁肌與受力的膝關節
 
 ## 參考資料
 

@@ -321,6 +321,28 @@ caption: GHSA-h9j8-vj8g-v3gg／GHSA-rwv7-mh2c-ff2p／GHSA-2fw8-7jmw-r937，三�
 }
 ```
 
+## 人體圖 body：雙面（出力、伸展、關節點）
+
+```body
+title: Heel hook 時誰在出力
+desc: 正面與背面人體圖：大腿後側、臀肌與小腿後側標為出力，股四頭肌標為伸展，膝關節標為常見受傷位置。
+view: both
+work: hamstring, gluteal, calves
+stretch: quadriceps
+injury: knee
+caption: 背面沒有膝蓋肌群塊，膝關節以圓點標示；正面則整塊上色。
+```
+
+## 人體圖 body：單面
+
+```body
+title: 指力板懸吊
+desc: 正面人體圖：前臂、手與三角肌出力，手指與手肘標為常見疼痛位置。
+view: front
+work: forearm, hands, deltoids
+injury: fingers, elbow
+```
+
 ## Mermaid 圖
 
 ```mermaid
