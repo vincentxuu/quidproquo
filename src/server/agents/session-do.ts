@@ -410,13 +410,11 @@ const AGENT_FALLBACK_ROUTES: Array<{ provider: ModelProvider; model: string }> =
   { provider: 'openrouter', model: 'nvidia/nemotron-3.5-super-vl:free' },
   { provider: 'nvidia', model: 'nvidia/nemotron-3.5-lightning-30b-a3b' },
   { provider: 'openrouter', model: 'nvidia/nemotron-3.5-lightning:free' },
-  // Runcrate: free-tier models (429 once the free allowance is used up).
+  // One route each for providers whose free allowance is account-wide (Runcrate, Workers AI):
+  // when it runs out, every model of that provider fails the same way.
   { provider: 'runcrate', model: 'openai/gpt-oss-120b' },
-  { provider: 'runcrate', model: 'zai-org/GLM-5.3-Flash' },
-  // Workers AI: free daily Neurons, tool calls via its OpenAI-compatible endpoint.
+  // Workers AI: tool calls via its OpenAI-compatible endpoint.
   { provider: 'cloudflare', model: '@cf/meta/llama-4-scout-17b-16e-instruct' },
-  { provider: 'cloudflare', model: '@cf/zai-org/glm-4.7-flash' },
-  { provider: 'cloudflare', model: '@cf/google/gemma-4-26b-a4b-it' },
   // Z.ai: only glm-4.5-flash answers reliably on the free tier; glm-4.7-flash is usually overloaded.
   { provider: 'zai', model: 'glm-4.5-flash' },
 ]
