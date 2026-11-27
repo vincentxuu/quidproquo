@@ -2,6 +2,7 @@
 import { AdminSessionChat } from '@/components/admin/session/AdminSessionChat';
 import type { EventRow } from '@/lib/admin/session-thread-adapter';
 import '../../styles/admin-tokens.css';
+import '../../styles/globals.css';
 
 export const prerender = false;
 
@@ -78,6 +79,18 @@ const fixtureEvents: EventRow[] = [
     payload: { totalTokens: 1280, output: 'Session paused for approval.' },
   },
 ];
+
+// ?case=failed：重現 2026-11-27 的失敗 session（只有工具呼叫的回合、所有模型供應商都失敗）。
+const failedRaw = 'Session failed: model error: all providers failed: gemini:gemini-4-hydrogen: [GoogleGenerativeAI Error]: Error fetching from https://generativelanguage.googleapis.com/v1beta/models/gemini-4-hydrogen:generateContent: [429 Too Many Requests] You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://aistudio.google.com/docs/rate-limits. [{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"quotaMetric":"generativelanguage.googleapis.com/generate_content_free_tier_requests","quotaId":"GenerateRequestsPerDayPerProjectPerModel-FreeTier"}]}] | ollama_cloud:gpt-oss:120b: 402 Add usage credits or subscribe and save up to 66%: https://ollama.com/plans | openrouter:openai/gpt-oss-120b:free: 401 User not found.';
+const failedEvents: EventRow[] = [
+  { id: 'f1', type: 'user', payload: { content: '這是 routine 多輪工具呼叫的回歸測試。依序做三件事：1. 用 Write 寫入一行 multi-turn check。2. 用 Read 讀回。3. 用 Bash 刪掉它。' } },
+  { id: 'f2', type: 'assistant', payload: { contentBlocks: [] } },
+  { id: 'f3', type: 'tool_use', payload: { toolName: 'Write', input: { path: '/workspace/.work/routine-smoke/check.md' }, result: 'ok' } },
+  { id: 'f4', type: 'assistant', payload: { contentBlocks: [] } },
+  { id: 'f5', type: 'tool_use', payload: { toolName: 'Read', input: { path: '/workspace/.work/routine-smoke/check.md' }, result: 'multi-turn check' } },
+  { id: 'f6', type: 'result', payload: { content: failedRaw, totalTokens: 0 } },
+];
+const failedCase = Astro.url.searchParams.get('case') === 'failed';
 ---
 
 <!DOCTYPE html>
@@ -86,14 +99,17 @@ const fixtureEvents: EventRow[] = [
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Admin Session Thread Smoke</title>
+    <script is:inline>
+      if (localStorage.getItem('theme') === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+    </script>
   </head>
   <body>
     <main class="min-h-screen bg-[var(--bg-subtle)] p-4 text-[var(--text-primary)] md:p-8">
       <div class="mx-auto max-w-6xl">
         <AdminSessionChat
           sessionId="smoke-session"
-          initialSession={{ name: 'Thread smoke session', status: 'done' }}
-          initialEvents={fixtureEvents}
+          initialSession={failedCase ? { name: '這是 routine 多輪工具呼叫的回歸測試', status: 'failed' } : { name: 'Thread smoke session', status: 'done' }}
+          initialEvents={failedCase ? failedEvents : fixtureEvents}
           disableLiveUpdates
           client:load
         />

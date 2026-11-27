@@ -184,8 +184,13 @@ export function eventToThreadMessage(row: EventRow): ThreadMessageLike | null {
   }
 
   if (type === 'result') {
+    const raw = stringify(payload.content || payload.output)
+    // 失敗的 result 保留原文，由 thread 依 isFailedResultText 渲染成錯誤卡（摘要＋可展開原文）。
+    if (isFailedResultText(raw)) {
+      return { id, role: 'system', content: raw, metadata: { custom: { eventType: type } } }
+    }
     const totalTokens = asNumber(payload.totalTokens)
-    const output = truncate(stringify(payload.content || payload.output), 2000)
+    const output = truncate(raw, 2000)
     return {
       id,
       role: 'system',
@@ -206,6 +211,34 @@ export function eventToThreadMessage(row: EventRow): ThreadMessageLike | null {
   }
 }
 
+/** 執行器寫入的失敗結果（session-do、sessions API）一律以這兩種前綴開頭。 */
+export function isFailedResultText(text: string) {
+  return /^Session failed( to start)?:/i.test(text.trim())
+}
+
+function isEmptyContent(content: ThreadMessageLike['content']) {
+  if (typeof content === 'string') return content.trim() === ''
+  return content.every(part => (part.type === 'text' || part.type === 'reasoning') && !part.text.trim())
+}
+
+const asParts = (content: ThreadMessageLike['content']) =>
+  typeof content === 'string' ? (content.trim() ? [{ type: 'text' as const, text: content }] : []) : [...content]
+
+/**
+ * 事件轉成 thread 訊息。同一輪 agent 的文字與工具呼叫是分開的事件，逐一轉換會讓每個工具呼叫
+ * 各帶一個頭像、只有工具呼叫的回合留下空白訊息；這裡把連續的 assistant 訊息併成一則、丟掉空的。
+ */
 export function eventsToThreadMessages(events: EventRow[]) {
-  return events.map(eventToThreadMessage).filter((message): message is ThreadMessageLike => Boolean(message))
+  const out: ThreadMessageLike[] = []
+  for (const message of events.map(eventToThreadMessage)) {
+    if (!message) continue
+    if (message.role === 'assistant' && isEmptyContent(message.content)) continue
+    const prev = out.at(-1)
+    if (message.role === 'assistant' && prev?.role === 'assistant') {
+      out[out.length - 1] = { ...prev, content: [...asParts(prev.content), ...asParts(message.content)] as ThreadMessageLike['content'] }
+      continue
+    }
+    out.push(message)
+  }
+  return out
 }

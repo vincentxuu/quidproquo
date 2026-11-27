@@ -37,6 +37,7 @@ import {
   STEP_LABELS,
   asString,
   eventsToThreadMessages,
+  isFailedResultText,
   stringify,
   truncate,
   type DiffPayload,
@@ -47,6 +48,7 @@ import {
   type SessionStatus,
   type StatusIndicatorState,
 } from '@/lib/admin/session-thread-adapter'
+import { summarizeFailure } from '@/lib/agent/failure-summary'
 import { cn } from '@/lib/utils'
 
 interface AdminSessionChatProps {
@@ -104,11 +106,12 @@ function eventFingerprint(type: SessionEventType, payload: Record<string, unknow
 
 function StatusIndicator({ state, message }: { state: StatusIndicatorState; message?: string }) {
   if (!state) return null
+  // 標題列只放一行；完整內容在 thread 裡，滑過看全文。
   if (state === 'finished') {
     return (
-      <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
-        <Check className="size-3 text-[var(--success)]" />
-        {message || 'Agent finished'}
+      <span className="inline-flex min-w-0 items-center gap-1.5 text-xs text-[var(--text-secondary)]" title={message}>
+        <Check className="size-3 shrink-0 text-[var(--success)]" />
+        <span className="truncate">{message || 'Agent finished'}</span>
       </span>
     )
   }
@@ -119,9 +122,9 @@ function StatusIndicator({ state, message }: { state: StatusIndicatorState; mess
         ? 'bg-[var(--warning)]'
         : 'bg-[var(--brand-500)]'
   return (
-    <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-secondary)]">
-      <span className={cn('size-2 rounded-full', tone, state !== 'error' && 'animate-pulse')} />
-      {message || (state === 'waiting_approval' ? 'Waiting for approval' : 'Agent is working...')}
+    <span className="inline-flex min-w-0 items-center gap-1.5 text-xs text-[var(--text-secondary)]" title={message}>
+      <span className={cn('size-2 shrink-0 rounded-full', tone, state !== 'error' && 'animate-pulse')} />
+      <span className="truncate">{message || (state === 'waiting_approval' ? 'Waiting for approval' : 'Agent is working...')}</span>
     </span>
   )
 }
@@ -331,8 +334,15 @@ export function AdminSessionChat({
     }
     if (type === 'assistant') setStatusIndicator({ state: 'working', message: '回覆已更新' })
     if (type === 'result') {
-      updateStatus('done')
-      setStatusIndicator({ state: 'finished', message: asString(payload.content, 'Session complete') })
+      // 執行器失敗時也寫 result 事件；以前一律當成 done，徽章顯示 done、標題列塞進整段原始錯誤。
+      const content = asString(payload.content)
+      if (isFailedResultText(content)) {
+        updateStatus('failed')
+        setStatusIndicator({ state: 'error', message: summarizeFailure(content).message })
+      } else {
+        updateStatus('done')
+        setStatusIndicator({ state: 'finished', message: '已完成' })
+      }
     }
     if (type === 'control_request') {
       updateStatus('paused')
