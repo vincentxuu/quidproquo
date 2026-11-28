@@ -140,7 +140,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
         <a
           href={tabHref('users')}
           class:list={[
-            'inline-flex min-h-[2.75rem] items-center justify-center border-r border-border px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground max-sm:flex-1 max-sm:px-2',
+            'inline-flex min-h-[2.75rem] items-center justify-center border-r border-border px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap max-sm:flex-1 max-sm:px-2',
             (tab === 'users' || (tab !== 'roles' && tab !== 'audit')) ? 'bg-primary font-semibold text-primary-foreground' : 'text-muted-foreground',
           ]}
           role="tab"
@@ -149,7 +149,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
         <a
           href={tabHref('roles')}
           class:list={[
-            'inline-flex min-h-[2.75rem] items-center justify-center border-r border-border px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground max-sm:flex-1 max-sm:px-2',
+            'inline-flex min-h-[2.75rem] items-center justify-center border-r border-border px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap max-sm:flex-1 max-sm:px-2',
             tab === 'roles' ? 'bg-primary font-semibold text-primary-foreground' : 'text-muted-foreground',
           ]}
           role="tab"
@@ -158,7 +158,7 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
         <a
           href={tabHref('audit')}
           class:list={[
-            'inline-flex min-h-[2.75rem] items-center justify-center px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground max-sm:flex-1 max-sm:px-2',
+            'inline-flex min-h-[2.75rem] items-center justify-center px-4 text-sm no-underline transition-colors hover:bg-muted hover:text-foreground whitespace-nowrap max-sm:flex-1 max-sm:px-2',
             tab === 'audit' ? 'bg-primary font-semibold text-primary-foreground' : 'text-muted-foreground',
           ]}
           role="tab"
@@ -305,11 +305,11 @@ const existingUserEmails = JSON.stringify(users.map((user) => user.email));
               <fieldset class="m-0 grid gap-2 border-0 p-0">
                 <legend>初始角色</legend>
                 {roles.map((role) => (
-                  <label class="flex min-h-[2.75rem] items-start gap-2 py-1 text-sm">
-                    <input type="checkbox" name="roles" value={role.name} />
-                    <span>
-                      <strong>{role.name}</strong>
-                      {role.description && <small>{role.description}</small>}
+                  <label class="flex items-start gap-2 py-1 text-sm leading-snug">
+                    <input type="checkbox" name="roles" value={role.name} class="mt-0.5 shrink-0" />
+                    <span class="grid gap-0.5">
+                      <strong class="font-semibold text-foreground">{role.name}</strong>
+                      {role.description && <small class="text-xs text-muted-foreground">{role.description}</small>}
                     </span>
                   </label>
                 ))}

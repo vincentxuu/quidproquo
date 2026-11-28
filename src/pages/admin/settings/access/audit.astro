@@ -1,5 +1,6 @@
 ---
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import AdminButton from '@/components/admin/AdminButton.astro';
 import AdminState from '@/components/admin/AdminState.astro';
 import AdminPanel from '@/components/admin/AdminPanel.astro';
 import AdminTable from '@/components/admin/AdminTable.astro';
@@ -162,12 +163,12 @@ function pageHref(p: number): string {
     <AdminState tone="error">無法載入稽核日誌資料。</AdminState>
   )}
   {!loadError && (
-    <div class="audit-layout">
+    <div class="grid gap-4">
 
       <AdminPanel title="篩選條件" eyebrow="縮小搜尋範圍">
-        <form method="GET" action="/admin/settings/access/audit" class="filter-form" data-audit-filter-form>
-          <div class="filter-row">
-            <label for="f-user" class="filter-label">使用者（電子郵件）</label>
+        <form method="GET" action="/admin/settings/access/audit" class="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] items-end gap-3 px-4 py-3" data-audit-filter-form>
+          <div class="grid gap-1">
+            <label for="f-user" class="text-(length:--fs-sm) font-bold text-muted-foreground">使用者（電子郵件）</label>
             <input
               id="f-user"
               type="text"
@@ -177,8 +178,8 @@ function pageHref(p: number): string {
               placeholder="搜尋電子郵件..."
             />
           </div>
-          <div class="filter-row">
-            <label for="f-action" class="filter-label">操作</label>
+          <div class="grid gap-1">
+            <label for="f-action" class="text-(length:--fs-sm) font-bold text-muted-foreground">操作</label>
             <select id="f-action" name="action" class="filter-select">
               <option value="">全部</option>
               {actionOptions.map((a) => (
@@ -189,8 +190,8 @@ function pageHref(p: number): string {
               )}
             </select>
           </div>
-          <div class="filter-row">
-            <label for="f-kind" class="filter-label">資源類型</label>
+          <div class="grid gap-1">
+            <label for="f-kind" class="text-(length:--fs-sm) font-bold text-muted-foreground">資源類型</label>
             <select id="f-kind" name="kind" class="filter-select">
               <option value="">全部</option>
               {kindOptions.map((k) => (
@@ -201,8 +202,8 @@ function pageHref(p: number): string {
               )}
             </select>
           </div>
-          <div class="filter-row">
-            <label for="f-from" class="filter-label">起始日期</label>
+          <div class="grid gap-1">
+            <label for="f-from" class="text-(length:--fs-sm) font-bold text-muted-foreground">起始日期</label>
             <input
               id="f-from"
               type="date"
@@ -211,8 +212,8 @@ function pageHref(p: number): string {
               class="filter-input"
             />
           </div>
-          <div class="filter-row">
-            <label for="f-to" class="filter-label">結束日期</label>
+          <div class="grid gap-1">
+            <label for="f-to" class="text-(length:--fs-sm) font-bold text-muted-foreground">結束日期</label>
             <input
               id="f-to"
               type="date"
@@ -221,12 +222,12 @@ function pageHref(p: number): string {
               class="filter-input"
             />
           </div>
-          <div class="filter-actions">
-            <button type="submit" class="btn-filter">套用</button>
-            <a href="/admin/settings/access/audit" class="btn-clear">清除</a>
+          <div class="flex flex-wrap gap-2">
+            <AdminButton type="submit" variant="primary">套用</AdminButton>
+            <AdminButton href="/admin/settings/access/audit">清除</AdminButton>
           </div>
         </form>
-        <div class="filter-summary" role="status" aria-live="polite">
+        <div class="flex flex-wrap gap-x-3 gap-y-1 border-t border-border px-4 py-3 text-sm text-muted-foreground" role="status" aria-live="polite">
           <span>
             {hasActiveFilters
               ? `目前篩選：${activeFilters.join('、')}`

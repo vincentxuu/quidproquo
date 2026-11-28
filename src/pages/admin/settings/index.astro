@@ -1,22 +1,24 @@
 ---
 export const prerender = false;
 import AdminV2Layout from '@/layouts/AdminV2Layout.astro';
+import Icons from '@/components/Icons.astro';
+import type { IconName } from '@/components/icons/koboyo';
 import { ensureConsoleUmbrella } from '../_guard';
 import '@/styles/globals.css';
 
 const gate = ensureConsoleUmbrella();
 if (gate) return gate;
 
-const areas = [
-  { href: '/admin/settings/environments', label: 'Environments', desc: 'Runner 後端、網路、環境變數', icon: '🖥️' },
-  { href: '/admin/settings/github', label: 'GitHub', desc: 'Repo 連線、GitHub App 同步', icon: 'GH' },
-  { href: '/admin/settings/site', label: 'Site', desc: '內容、RAG、統計、任務、維運', icon: '📦' },
-  { href: '/admin/settings/models', label: 'Models', desc: '模型供應商、金鑰、費用', icon: '🤖' },
-  { href: '/admin/settings/extensions', label: 'Extensions', desc: 'Skills / MCP / Plugins', icon: '🧩' },
-  { href: '/admin/settings/permissions', label: 'Permissions', desc: '權限政策', icon: '🔒' },
-  { href: '/admin/settings/access', label: 'Access', desc: '使用者、角色、稽核', icon: '👥' },
-  { href: '/admin/settings/notifications', label: 'Notifications', desc: '各 routine 通知開關與 channel', icon: '🔔' },
-  { href: '/admin/settings/behavior', label: 'Behavior', desc: '各 routine 行為預設（auto-fix／auto-create）', icon: '⚙️' },
+const areas: { href: string; label: string; desc: string; icon: IconName }[] = [
+  { href: '/admin/settings/environments', label: 'Environments', desc: 'Runner 後端、網路、環境變數', icon: 'server-cog' },
+  { href: '/admin/settings/github', label: 'GitHub', desc: 'Repo 連線、GitHub App 同步', icon: 'link' },
+  { href: '/admin/settings/site', label: 'Site', desc: '內容、RAG、統計、任務、維運', icon: 'globe' },
+  { href: '/admin/settings/models', label: 'Models', desc: '模型供應商、金鑰、費用', icon: 'brain-circuit' },
+  { href: '/admin/settings/extensions', label: 'Extensions', desc: 'Skills / MCP / Plugins', icon: 'puzzle' },
+  { href: '/admin/settings/permissions', label: 'Permissions', desc: '權限政策', icon: 'shield' },
+  { href: '/admin/settings/access', label: 'Access', desc: '使用者、角色、稽核', icon: 'lock' },
+  { href: '/admin/settings/notifications', label: 'Notifications', desc: '各 routine 通知開關與 channel', icon: 'activity' },
+  { href: '/admin/settings/behavior', label: 'Behavior', desc: '各 routine 行為預設（auto-fix／auto-create）', icon: 'settings' },
 ];
 ---
 
@@ -27,7 +29,7 @@ const areas = [
         href={a.href}
         class="flex flex-col gap-1.5 rounded-xl border border-border bg-card p-6 no-underline text-card-foreground shadow-sm transition-all hover:border-primary hover:shadow-md"
       >
-        <span class="shrink-0 text-2xl leading-none" aria-hidden="true">{a.icon}</span>
+        <span class="shrink-0 text-muted-foreground" aria-hidden="true"><Icons name={a.icon} size={22} /></span>
         <strong class="block text-base font-semibold leading-none">{a.label}</strong>
         <p class="m-0 text-sm text-muted-foreground">{a.desc}</p>
       </a>

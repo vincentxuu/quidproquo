@@ -16,7 +16,11 @@ interface Props {
   breadcrumb?: BreadcrumbItem[];
 }
 
-const { title, section, breadcrumb } = Astro.props;
+const { title, section, breadcrumb: crumbsIn } = Astro.props;
+// 呼叫端只傳上層路徑（最後一項帶 href）時補上本頁標題，麵包屑一律以目前頁面收尾。
+const breadcrumb = crumbsIn?.length && crumbsIn[crumbsIn.length - 1].href
+  ? [...crumbsIn, { label: title }]
+  : crumbsIn;
 
 const auth = await requireAdmin(Astro.cookies, Astro.request);
 
@@ -706,9 +710,13 @@ const sectionLabels: Record<string, string> = {
 
   /* ── Recents ── */
 
+  .sidebar-routines,
+  .sidebar-recents {
+    padding: 0.5rem 0.65rem;
+  }
+
   .sidebar-recents {
     flex: 1;
-    padding: 0.5rem 0.65rem;
     overflow-y: auto;
     min-height: 0;
   }
@@ -1170,7 +1178,6 @@ const sectionLabels: Record<string, string> = {
 
   :global(.action-btn),
   :global(.mini-btn),
-  :global(#save-settings),
   :global(.ops-grid button),
   :global(.form-actions button) {
     border: 1px solid var(--border);
@@ -1183,7 +1190,6 @@ const sectionLabels: Record<string, string> = {
 
   :global(.action-btn:hover),
   :global(.mini-btn:hover),
-  :global(#save-settings:hover),
   :global(.ops-grid button:hover),
   :global(.form-actions button:hover) {
     border-color: var(--brand-700);
