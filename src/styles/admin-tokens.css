@@ -241,11 +241,13 @@ button:disabled,
 /* 表單元素預設外觀放 @layer base：沒加 class 的原生元素照樣有後台樣式，
    shadcn／Tailwind utility（@layer utilities）才壓得過它。不分層的元素選擇器會蓋掉所有 utility。 */
 @layer base {
+  /* select／textarea 加 :not([hidden]) 拉高權重：Tailwind preflight 也在 base 層且較晚載入，
+     同權重的 select { border-radius: 0; background: transparent } 會蓋掉這裡（下拉選單曾跟輸入框長不一樣）。 */
   .input,
   .select,
   input:not([type='checkbox']):not([type='radio']),
-  select,
-  textarea {
+  select:not([hidden]),
+  textarea:not([hidden]) {
     width: 100%;
     min-height: 36px;
     border: 1px solid var(--border);
@@ -303,6 +305,11 @@ button:disabled,
   display: flex;
   align-items: center;
   gap: 0.75rem;
+}
+
+.pipeline-meta {
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 .pipeline-header {
@@ -415,6 +422,21 @@ button:disabled,
   font-size: var(--fs-xs);
 }
 
+/* 布林欄位：勾選框與標籤同一行 */
+.pipeline-inputs label.pipeline-input-check {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-primary);
+  font-size: var(--fs-sm);
+  cursor: pointer;
+}
+
+/* 卡片底色是 bg-subtle，輸入框改用卡面色才看得出邊界 */
+.pipeline-card input:not([type='checkbox']):not([type='radio']) {
+  background: var(--bg-card);
+}
+
 .job-row {
   display: grid;
   grid-template-columns: 120px minmax(160px, 0.9fr) minmax(180px, 1fr) 150px repeat(4, auto);
@@ -515,6 +537,7 @@ button:disabled,
 
 .admin-table th,
 .post-table th {
+  white-space: nowrap;
   background: var(--bg-subtle);
   color: var(--text-secondary);
   font-size: var(--fs-xs);
@@ -564,8 +587,11 @@ button:disabled,
   min-width: 0;
 }
 
-.admin-content select {
-  min-width: 0;
+/* 放 @layer base：呼叫端用 min-w-* utility 指定下限時才壓得過（flows/new 的插入片段選單） */
+@layer base {
+  .admin-content select {
+    min-width: 0;
+  }
 }
 
 .admin-content button,
@@ -1172,6 +1198,12 @@ pre {
     white-space: normal;
   }
 
+  /* 分頁按鈕並排，不跟著撐滿換行 */
+  .pager > .btn-secondary {
+    width: auto;
+    white-space: nowrap;
+  }
+
   .admin-metric-strip,
   .metric-strip {
     grid-template-columns: 1fr;
@@ -1179,11 +1211,14 @@ pre {
 
   .pipeline-grid,
   .pipeline-header,
-  .pipeline-meta,
   .job-row {
     align-items: start;
     display: grid;
     grid-template-columns: 1fr;
+  }
+
+  .pipeline-header {
+    justify-items: start;
   }
 
   .job-row {
@@ -1196,10 +1231,10 @@ pre {
     grid-template-columns: 110px minmax(160px, 1fr) minmax(140px, 1fr);
   }
 
-  .pipeline-header,
-  .pipeline-meta {
+  .pipeline-header {
     display: grid;
     grid-template-columns: 1fr;
+    justify-items: start;
   }
 }
 
@@ -1521,8 +1556,22 @@ pre {
     padding: 0 1rem 1rem;
   }
 
-  .post-table-shell :global(.admin-table) {
-    min-width: 1050px;
+  /* 欄寬照 col 百分比分配；auto 版面會讓長 slug 把操作欄擠到 40px、整列被撐高 */
+  @media (min-width: 641px) {
+    .post-table-shell > .admin-table {
+      table-layout: fixed;
+    }
+  }
+
+  /* 手機卡片：文章欄（標題＋slug＋路徑）當卡片標頭，不拆成欄名／值兩格 */
+  @media (max-width: 640px) {
+    .post-table-shell > .admin-table td.post-main {
+      display: block;
+    }
+
+    .post-table-shell > .admin-table td.post-main::before {
+      content: none;
+    }
   }
 
   .col-post { width: 46%; }
@@ -1792,7 +1841,7 @@ pre {
       font-size: var(--fs-xs);
     }
 
-    input:not([class]),
+    input:not([class]):not([type='checkbox']):not([type='radio']),
     select:not([class]),
     textarea:not([class]),
     button:not([class]) {
@@ -2340,11 +2389,41 @@ pre {
     margin-bottom: 1.5rem;
   }
 
+  /* 篩選列：文字輸入吃剩餘寬度、下拉與按鈕維持內容寬度，空間不夠就換行（traces、deep-research 共用） */
   .filter-group {
-    display: grid;
-    grid-template-columns: minmax(180px, 1fr) 160px 160px 160px auto auto;
+    display: flex;
+    flex-wrap: wrap;
     gap: 0.5rem;
     align-items: center;
+  }
+
+  .filter-group > .input {
+    flex: 1 1 14rem;
+    width: auto;
+    min-width: 0;
+  }
+
+  .filter-group > input[type='date'] {
+    flex: 0 0 11rem;
+  }
+
+  .filter-group > .select {
+    flex: 0 1 10rem;
+    width: auto;
+    min-width: 0;
+  }
+
+  .filter-group > button {
+    flex: none;
+  }
+
+  /* deep-research：關鍵字 placeholder 較長、筆數選單只放兩位數 */
+  .filter-group > #filter-q {
+    flex-basis: 20rem;
+  }
+
+  .filter-group > #filter-limit {
+    flex: 0 0 5.5rem;
   }
 
   .input, .select {
@@ -2432,8 +2511,10 @@ pre {
 
   .retention-controls label {
     display: inline-flex;
+    flex: 1 1 9rem;
     flex-direction: column;
     gap: 0.25rem;
+    min-width: 0;
     color: var(--text-secondary);
     font-size: var(--fs-xs);
   }
@@ -2736,10 +2817,6 @@ pre {
   }
 
   @media (max-width: 900px) {
-    .filter-group {
-      grid-template-columns: 1fr 1fr;
-    }
-
     .traces-container {
       grid-template-columns: 1fr;
     }
@@ -2929,10 +3006,23 @@ pre {
     overflow-wrap: anywhere;
   }
 
+  /* 欄寬下限要放得下最長的按鈕文字（「執行 llamaindex index probe」）與查詢句，太窄會溢出或截斷 */
   .ops-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(15rem, 100%), 1fr));
+    align-items: end;
     gap: 0.75rem;
+  }
+
+  .ops-grid button {
+    white-space: normal;
+  }
+
+  /* 搜尋工具 provider 勾選列：勾選框與名稱同一行（全域 label 是 grid，會把兩者疊成兩列） */
+  .search-tool-check-row {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .ops-grid label {
@@ -2958,8 +3048,7 @@ pre {
   }
 
   .ops-grid input,
-  .ops-grid button,
-  #save-settings {
+  .ops-grid button {
     border: 1px solid var(--border);
     border-radius: var(--corner-md);
     padding: 0.6rem 0.75rem;
@@ -2971,8 +3060,7 @@ pre {
     min-width: 0;
   }
 
-  .ops-grid button:hover,
-  #save-settings:hover {
+  .ops-grid button:hover {
     background: var(--brand-50);
     border-color: var(--brand-700);
   }
@@ -3114,8 +3202,10 @@ pre {
     color: var(--text-primary);
   }
 
+  /* 輸入框固定欄寬、說明文字吃剩下的空間，每列輸入框才會對齊 */
   .setting-input {
-    display: flex;
+    display: grid;
+    grid-template-columns: minmax(0, 22rem) minmax(0, 1fr);
     align-items: center;
     gap: 0.75rem;
     flex: 1;
@@ -3129,7 +3219,6 @@ pre {
     border-radius: var(--corner-md);
     color: var(--text-primary);
     font-size: var(--fs-sm);
-    width: 120px;
   }
 
   .input:focus {
@@ -3137,8 +3226,10 @@ pre {
     border-color: var(--brand-700);
   }
 
-  .setting-note {
+  .setting-row .setting-note {
+    font-family: inherit;
     font-size: var(--fs-xs);
+    font-weight: 400;
     color: var(--text-secondary);
   }
 
@@ -3196,9 +3287,5 @@ pre {
 
     .setting-row label {
       min-width: 0;
-    }
-
-    .input {
-      width: 100%;
     }
   }

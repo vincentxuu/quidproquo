@@ -28,6 +28,10 @@ function toBool(v: number | boolean | undefined): boolean {
   return v === true || v === 1;
 }
 
+function Code({ children }: { children: string }) {
+  return <code className="rounded-sm bg-muted px-1 font-mono text-foreground">{children}</code>;
+}
+
 export default function NotificationsManager() {
   const [routines, setRoutines] = useState<Routine[]>([]);
   const [loading, setLoading] = useState(true);
@@ -126,7 +130,7 @@ export default function NotificationsManager() {
             <Badge>已接線（無 secret 時不發送）</Badge>
           </CardTitle>
           <CardDescription>
-            Routine session 在執行完成時會檢查這裡的設定：只有開關開啟、且該次結果為失敗或需人工處理時才會發送。發送通道由 env secret 決定（`NOTIFICATION_DISCORD_WEBHOOK_URL`／`NOTIFICATION_NTFY_TOPIC`，用 `wrangler secret put` 設定）；沒設定就不發送，不會報錯。下方 channel ID 請填 `global-discord` 或 `global-ntfy`（其餘 ID 需先在 `notification_channels` 表建檔，目前尚無管理 API，見 Q-028）。
+            Routine session 在執行完成時會檢查這裡的設定：只有開關開啟、且該次結果為失敗或需人工處理時才會發送。發送通道由 env secret 決定（<Code>NOTIFICATION_DISCORD_WEBHOOK_URL</Code>／<Code>NOTIFICATION_NTFY_TOPIC</Code>，用 <Code>wrangler secret put</Code> 設定）；沒設定就不發送，不會報錯。下方 channel ID 請填 <Code>global-discord</Code> 或 <Code>global-ntfy</Code>（其餘 ID 需先在 <Code>notification_channels</Code> 表建檔，目前尚無管理 API，見 Q-028）。
           </CardDescription>
         </CardHeader>
       </Card>

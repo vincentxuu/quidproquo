@@ -105,7 +105,12 @@ import '@/styles/globals.css';
           input.placeholder = field.placeholder ?? '';
           input.value = field.defaultValue === undefined ? '' : JSON.stringify(field.defaultValue).replace(/^\"|\"$/g, '');
         }
-        label.append(input);
+        if (field.type === 'boolean') {
+          label.className = 'pipeline-input-check';
+          label.prepend(input);
+        } else {
+          label.append(input);
+        }
         inputs.append(label);
         inputControls.push({ field, input });
       }

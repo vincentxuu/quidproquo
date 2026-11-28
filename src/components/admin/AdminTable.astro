@@ -6,6 +6,8 @@ interface Props {
 }
 
 const { minWidth = '760px', flush = false, class: cls } = Astro.props;
+// 樣式用 is:global：thead／tbody 由呼叫端 slot 進來或由頁面 JS 產生，不帶本元件的 scope 屬性，
+// scoped 樣式套不到（手機卡片版面曾因此從未生效），改以 data-admin-table-wrap 限定範圍。
 ---
 
 <div class:list={['admin-table-wrap', { 'is-flush': flush }, cls]} style={`--admin-table-min-width: ${minWidth}`} data-admin-table-wrap>
@@ -26,29 +28,39 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
   var headers = Array.prototype.map.call(table.querySelectorAll('thead th'), function (th) {
     return (th.textContent || '').trim();
   });
-  Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (row) {
-    Array.prototype.forEach.call(row.children, function (cell, index) {
-      if (!cell.hasAttribute('data-label') && headers[index]) {
-        cell.setAttribute('data-label', headers[index]);
-      }
+  function label() {
+    Array.prototype.forEach.call(table.querySelectorAll('tbody tr'), function (row) {
+      Array.prototype.forEach.call(row.children, function (cell, index) {
+        if (!cell.hasAttribute('data-label') && headers[index]) {
+          cell.setAttribute('data-label', headers[index]);
+        }
+      });
     });
-  });
+  }
+  label();
+  // 頁面 JS 之後才填入的列也要有手機版欄名
+  new MutationObserver(label).observe(table, { childList: true, subtree: true });
 })();`}
 ></script>
 
-<style>
-  .admin-table {
+<style is:global>
+  [data-admin-table-wrap] > .admin-table {
     min-width: var(--admin-table-min-width);
   }
 
   @media (max-width: 640px) {
-    .admin-table {
+    [data-admin-table-wrap] > .admin-table {
+      display: block;
       min-width: 0;
       border-collapse: separate;
       border-spacing: 0;
     }
 
-    .admin-table thead {
+    [data-admin-table-wrap] > .admin-table colgroup {
+      display: none;
+    }
+
+    [data-admin-table-wrap] > .admin-table thead {
       position: absolute;
       width: 1px;
       height: 1px;
@@ -57,13 +69,13 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
       white-space: nowrap;
     }
 
-    .admin-table tbody {
+    [data-admin-table-wrap] > .admin-table tbody {
       display: grid;
       gap: 0.75rem;
       padding: 0.75rem;
     }
 
-    .admin-table tr {
+    [data-admin-table-wrap] > .admin-table tr {
       display: block;
       border: 1px solid var(--border);
       border-radius: var(--corner-md);
@@ -71,7 +83,7 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
       overflow: hidden;
     }
 
-    .admin-table td {
+    [data-admin-table-wrap] > .admin-table td {
       display: grid;
       grid-template-columns: minmax(6.5rem, 38%) minmax(0, 1fr);
       gap: 0.65rem;
@@ -81,11 +93,11 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
       overflow-wrap: anywhere;
     }
 
-    .admin-table td:first-child {
+    [data-admin-table-wrap] > .admin-table td:first-child {
       border-top: 0;
     }
 
-    .admin-table td::before {
+    [data-admin-table-wrap] > .admin-table td::before {
       content: attr(data-label);
       color: var(--text-muted);
       font-size: var(--fs-xs);
@@ -94,12 +106,12 @@ const { minWidth = '760px', flush = false, class: cls } = Astro.props;
       text-transform: uppercase;
     }
 
-    .admin-table td[colspan] {
+    [data-admin-table-wrap] > .admin-table td[colspan] {
       display: block;
     }
 
-    .admin-table td[colspan]::before,
-    .admin-table td:empty::before {
+    [data-admin-table-wrap] > .admin-table td[colspan]::before,
+    [data-admin-table-wrap] > .admin-table td:empty::before {
       content: none;
     }
   }

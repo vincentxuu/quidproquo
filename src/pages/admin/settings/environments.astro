@@ -15,7 +15,7 @@ const breadcrumb = [{ label: 'Settings', href: '/admin/settings' }];
         <div class="flex flex-col gap-2">
           <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="runner_provider" value="sandbox" checked class="accent-primary" /> Cloudflare Sandbox（預設）</label>
           <label class="flex items-center gap-2 cursor-pointer text-sm"><input type="radio" name="runner_provider" value="mac" class="accent-primary" /> Mac（本機）</label>
-          <label class="flex items-center gap-2 cursor-pointer text-sm text-muted-foreground"><input type="radio" name="runner_provider" value="vps" disabled class="accent-primary" /> VPS（未實作）</label>
+          <label class="flex items-center gap-2 cursor-not-allowed text-sm text-muted-foreground opacity-60"><input type="radio" name="runner_provider" value="vps" disabled class="accent-primary" /> VPS（未實作）</label>
         </div>
       </div>
     </AdminPanel>
