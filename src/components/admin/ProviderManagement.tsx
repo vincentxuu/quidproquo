@@ -32,6 +32,8 @@ interface ProviderSecret {
   hasDb?: boolean
   configured?: boolean
   source?: string
+  /** 可再新增額外的 key（LLM 供應商） */
+  multiKey?: boolean
 }
 
 interface RagSettings {
@@ -52,17 +54,26 @@ export interface ProviderMessages {
 
 const DEFAULT_PROVIDERS = [
   'openai', 'google', 'anthropic', 'gemini', 'cloudflare',
-  'nvidia', 'openrouter', 'opencode',
+  'nvidia', 'openrouter', 'opencode', 'runcrate', 'zai',
 ]
 
 const PROVIDER_SECRET_FIELDS = [
   'OPENAI_API_KEY', 'GOOGLE_API_KEY', 'GEMINI_API_KEY',
   'ANTHROPIC_API_KEY', 'OPENROUTER_API_KEY', 'NVIDIA_API_KEY', 'OPENCODE_API_KEY',
+  'RUNCRATE_API_KEY', 'ZAI_API_KEY',
   'CLOUDFLARE_API_TOKEN', 'CLOUDFLARE_ACCOUNT_ID',
   'JINA_API_KEY', 'JINA_SEARCH_API_KEY', 'TAVILY_API_KEY', 'FIRECRAWL_API_KEY',
   'EXA_API_KEY', 'BRAVE_SEARCH_API_KEY', 'BRAVE_API_KEY', 'SERPER_API_KEY',
   'SERPAPI_API_KEY', 'BOCHA_API_KEY', 'BRIGHT_DATA_API_KEY', 'BRIGHTDATA_API_KEY', 'LINKUP_API_KEY',
 ]
+
+/** 額外的 key 存成 `<NAME>#2` … `#10`，依編號依序嘗試。 */
+const MAX_PROVIDER_KEYS = 10
+
+function keySlot(key: string): number {
+  const n = Number(key.split('#')[1])
+  return Number.isInteger(n) ? n : 1
+}
 
 /** 一次操作的回饋：顯示在觸發它的按鈕旁。成功訊息自動消失，失敗訊息留到下一次操作。 */
 interface Feedback {
@@ -190,6 +201,8 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
 
   // Secret inputs（受控，儲存成功後清空）
   const [secretDrafts, setSecretDrafts] = useState<Record<string, string>>({})
+  // 按了「新增一把」但還沒儲存的額外 key 名稱（例如 RUNCRATE_API_KEY#2）
+  const [draftSlots, setDraftSlots] = useState<string[]>([])
 
   // RAG pipeline / embed status
   const [ragCards, setRagCards] = useState<{ title: string; rows: [string, string][]; flags?: [string, boolean][] }[]>([])
@@ -453,6 +466,7 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
     const r = await requestJson(API, jsonInit('POST', { action: 'save-provider-key', key, value }), m.networkError)
     if (!r.ok) { setFeedback(fk, { kind: 'error', text: failed(m.saveFailed, r.error) }); return }
     setSecretDrafts(prev => { const n = { ...prev }; delete n[key]; return n })
+    setDraftSlots(prev => prev.filter(k => k !== key))
     const list = await loadCatalog()
     setFeedback(fk, { kind: 'success', text: fmt(m.secretSavedKey, { key, source: currentSource(list, key, 'admin') }) })
   }
@@ -464,6 +478,30 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
     if (!r.ok) { setFeedback(fk, { kind: 'error', text: failed(m.deleteFailed, r.error) }); return }
     const list = await loadCatalog()
     setFeedback(fk, { kind: 'success', text: fmt(m.secretDeletedKey, { key, source: currentSource(list, key, 'missing') }) })
+  }
+
+  /** 某個 secret 已儲存與草稿中的額外 key，依編號排序。 */
+  function extraKeys(name: string): string[] {
+    const saved = secrets.filter(s => s.envKey.startsWith(`${name}#`)).map(s => s.envKey)
+    const drafts = draftSlots.filter(k => k.startsWith(`${name}#`))
+    return Array.from(new Set([...saved, ...drafts])).sort((a, b) => keySlot(a) - keySlot(b))
+  }
+
+  function nextFreeSlot(name: string): string | null {
+    const used = new Set(extraKeys(name).map(keySlot))
+    for (let n = 2; n <= MAX_PROVIDER_KEYS; n++) if (!used.has(n)) return `${name}#${n}`
+    return null
+  }
+
+  function addKeySlot(name: string) {
+    const next = nextFreeSlot(name)
+    if (next) setDraftSlots(prev => [...prev, next])
+  }
+
+  function discardKeySlot(key: string) {
+    setDraftSlots(prev => prev.filter(k => k !== key))
+    setSecretDrafts(prev => { const n = { ...prev }; delete n[key]; return n })
+    setFeedback(`secret:${key}`, null)
   }
 
   function statusLabel(secret: ProviderSecret) {
@@ -699,14 +737,17 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
       <section>
         <SectionHeader title={m.secretsTitle} note={m.secretsNote} />
         <div className="grid gap-2 sm:grid-cols-2">
-          {PROVIDER_SECRET_FIELDS.map(key => {
+          {PROVIDER_SECRET_FIELDS.flatMap(name => [name, ...extraKeys(name)]).map(key => {
+            const isExtra = key.includes('#')
             const item = secretsByKey.get(key) || { envKey: key, source: 'missing', configured: false, hasDb: false }
             const sl = statusLabel(item)
             const fk = `secret:${key}`
             const rowFeedback = feedback[fk]
             const rowPending = rowFeedback?.kind === 'pending'
-            const inputId = `secret-input-${key}`
-            const statusId = `secret-status-${key}`
+            const domKey = key.replace('#', '-')
+            const inputId = `secret-input-${domKey}`
+            const statusId = `secret-status-${domKey}`
+            const canAddKey = !isExtra && item.multiKey && nextFreeSlot(key) !== null
             return (
               <form
                 key={key}
@@ -735,12 +776,17 @@ export default function ProviderManagement({ messages: m }: { messages: Provider
                   aria-describedby={statusId}
                   className="w-full rounded-md border border-input bg-background px-2 py-1 text-xs disabled:opacity-60"
                 />
-                <div className="flex gap-1">
+                <div className="flex flex-wrap gap-1">
                   <Button type="submit" variant="outline" size="xs" disabled={rowPending}>
                     {rowPending && <Loader2 className="size-3 animate-spin" aria-hidden />}
                     {m.saveSecret}
                   </Button>
-                  <Button type="button" variant="outline" size="xs" disabled={!item.hasDb || rowPending} onClick={() => deleteSecret(key)} className="text-destructive">{m.deleteAdmin}</Button>
+                  {isExtra && !item.hasDb
+                    ? <Button type="button" variant="outline" size="xs" disabled={rowPending} onClick={() => discardKeySlot(key)}>{m.discardKey}</Button>
+                    : <Button type="button" variant="outline" size="xs" disabled={!item.hasDb || rowPending} onClick={() => deleteSecret(key)} className="text-destructive">{m.deleteAdmin}</Button>}
+                  {canAddKey && (
+                    <Button type="button" variant="outline" size="xs" onClick={() => addKeySlot(key)} aria-label={fmt(m.addKeyLabel, { key })}>{m.addKey}</Button>
+                  )}
                 </div>
                 <InlineStatus id={statusId} feedback={rowFeedback} className="w-full" />
               </form>

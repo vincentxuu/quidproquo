@@ -94,9 +94,9 @@ import { SUPPORTED_SEARCH_TOOL_PROVIDERS } from '@/lib/search-tools';
   const defaultCaseCount = Number((evalCasesInput && evalCasesInput.value) || '8');
   const settingMeta = [
     { key: 'rag_pipeline_engine', label: 'Pipeline engine', type: 'select', section: 'Routing', options: ['langgraph', 'manual', 'agent'] },
-    { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'opencode'] },
+    { key: 'rag_default_provider', label: 'Default provider', type: 'select', section: 'Routing', options: ['openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'opencode', 'runcrate', 'zai'] },
     { key: 'rag_default_model', label: 'Default model', type: 'text', section: 'Routing' },
-    { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'opencode'] },
+    { key: 'rag_fallback_provider', label: 'Fallback provider', type: 'select', section: 'Routing', options: ['', 'openai', 'google', 'anthropic', 'gemini', 'cloudflare', 'nvidia', 'openrouter', 'opencode', 'runcrate', 'zai'] },
     { key: 'rag_fallback_model', label: 'Fallback model', type: 'text', section: 'Routing' },
     { key: 'rag_stage_overrides', label: 'Stage overrides JSON', type: 'textarea', section: 'Routing' },
     { key: 'rag_flag_hyde', label: 'HyDE', type: 'boolean', section: 'Retrieval' },

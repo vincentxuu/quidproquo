@@ -13,7 +13,11 @@ import {
   getCurrentProviderKeyValues,
   isWhitelistedProviderKey,
   loadProviderKeyOverrides,
+  loadProviderKeySlots,
+  MULTI_KEY_SECRET_NAMES,
+  parseProviderSecretName,
   PROVIDER_KEY_PREFIX,
+  providerSecretName,
   PROVIDER_SECRET_FIELDS,
   resolveProviderApiKeys,
 } from '@/lib/retrieval/provider-key-store'
@@ -44,6 +48,10 @@ interface ProviderSecretStatus {
   hasDb: boolean
   configured: boolean
   source: ProviderKeySource
+  /** 1 for the base secret, 2..10 for extra keys saved as `<NAME>#<n>`. */
+  slot: number
+  /** Whether more keys can be added under this secret. */
+  multiKey: boolean
 }
 
 interface ProviderSaveBody {
@@ -133,7 +141,7 @@ export const POST: APIRoute = async ({ cookies, request }) => {
   if (typeof body.action === 'string') {
     if (body.action === 'save-provider-key' || body.action === 'delete-provider-key') {
       const key = typeof body.key === 'string' ? body.key.trim() : ''
-      if (!isWhitelistedProviderKey(key)) {
+      if (!parseProviderSecretName(key)) {
         return json({ error: 'Invalid provider secret key' }, 400)
       }
       if (body.action === 'delete-provider-key') {
@@ -206,7 +214,7 @@ export async function saveCatalog(db: D1Database, catalog: ProviderCatalog): Pro
 }
 
 export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderSecretStatus[]> {
-  const saved = await loadProviderKeyOverrides(db)
+  const [saved, slots] = await Promise.all([loadProviderKeyOverrides(db), loadProviderKeySlots(db)])
   const envValues = getCurrentProviderKeyValues()
 
   const keys = new Set(Object.keys(saved))
@@ -214,7 +222,7 @@ export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderS
     keys.add(field.envKey)
   }
 
-  return Array.from(keys, (envKey) => {
+  const statuses = Array.from(keys, (envKey): ProviderSecretStatus => {
     const field = PROVIDER_SECRET_FIELDS.find((item) => item.envKey === envKey)
     const hasEnv = !!envValues[envKey]
     const hasDb = !!saved[envKey]
@@ -227,9 +235,32 @@ export async function loadProviderKeyStatuses(db: D1Database): Promise<ProviderS
       hasDb,
       configured: hasEnv || hasDb,
       source,
+      slot: 1,
+      multiKey: MULTI_KEY_SECRET_NAMES.has(envKey),
     }
   }).filter((item) => isWhitelistedProviderKey(item.envKey))
     .sort((a, b) => a.label.localeCompare(b.label))
+
+  // Extra keys exist only in the admin store.
+  const extras: ProviderSecretStatus[] = []
+  for (const [name, bySlot] of Object.entries(slots)) {
+    const field = PROVIDER_SECRET_FIELDS.find((item) => item.envKey === name)
+    for (const slot of Object.keys(bySlot).map(Number).filter((n) => n > 1).sort((a, b) => a - b)) {
+      const envKey = providerSecretName(name, slot)
+      extras.push({
+        envKey,
+        provider: field?.provider || 'custom',
+        label: envKey,
+        hasEnv: false,
+        hasDb: true,
+        configured: true,
+        source: 'admin',
+        slot,
+        multiKey: true,
+      })
+    }
+  }
+  return [...statuses, ...extras]
 }
 
 async function saveProviderSecret(db: D1Database, envKey: string, value: string): Promise<void> {
