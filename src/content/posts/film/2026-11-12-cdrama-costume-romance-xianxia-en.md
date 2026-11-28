@@ -157,7 +157,7 @@ Betrayed and buried alive by her husband, a magistrate’s daughter survives and
 
 #### Blossoms in Adversity
 
-When disaster sends the Hua family’s men into exile, eldest daughter Hua Zhi stops hiding her talents, leads the women and children through hardship, and grows close to the feared commander Gu Yanxi ([Wikipedia](https://mydramalist.com/749431-the-story-of-hua-zhi)).
+When disaster sends the Hua family’s men into exile, eldest daughter Hua Zhi stops hiding her talents, leads the women and children through hardship, and grows close to the feared commander Gu Yanxi ([MyDramaList](https://mydramalist.com/749431-the-story-of-hua-zhi)).
 
 - **Recommended by**: `A Asia Contents Awards 2024 best actress nomination (Zhang Jingyi)` `C MyDramaList top Chinese drama #41 (8.6)` `D Yunhe 2024 new-series views #9 (1.69B)` `D Dengta 2024 web series #3 (2.00B)` `F PTT China-Drama 2024 favourites thread (14 users)`
 - **Scores**: MyDramaList 8.6 (14,320 ratings) | IMDb 8.0 (640 votes)

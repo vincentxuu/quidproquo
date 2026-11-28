@@ -244,7 +244,7 @@ Aspiring captain Cheng Xiao trains under the exacting pilot Gu Nanting at a fict
 
 #### Sniper Butterfly
 
-At a low point in her life, Cen Jin brings Li Wu, a rural boy she once sponsored, to the city to study; six years later he returns as a successful professional and their reunion turns into romance ([Wikipedia](https://mydramalist.com/756325-ju-ji-hu-die)).
+At a low point in her life, Cen Jin brings Li Wu, a rural boy she once sponsored, to the city to study; six years later he returns as a successful professional and their reunion turns into romance ([MyDramaList](https://mydramalist.com/756325-ju-ji-hu-die)).
 
 - **Recommended by**: `B Beijing News dramas of the year 2025` `F PTT China-Drama 2025 favourites thread (7 upvotes)` `G Netflix Taiwan weekly #10 (21 December 2025, 2 weeks on chart)`
 - **Scores**: MyDramaList 8.0 (5,343 ratings) | IMDb 7.7 (287 votes) | Douban 6.8 (opening score, reported by Sohu, December 2025)
@@ -286,7 +286,7 @@ After her best friend dies, Beijing hotel manager Xu Hongdou quits and settles i
 
 #### Me and My Family
 
-Heartbroken and jobless at 28, Gu Yunsu moves back in with her remarried mother, who turns out to be unexpectedly pregnant at 48, and spends 180 days caring for her ([Wikipedia](https://mydramalist.com/755761-180-tian-pei-chan-ji-hua)).
+Heartbroken and jobless at 28, Gu Yunsu moves back in with her remarried mother, who turns out to be unexpectedly pregnant at 48, and spends 180 days caring for her ([MyDramaList](https://mydramalist.com/755761-180-tian-pei-chan-ji-hua)).
 
 - **Recommended by**: `B Southern Weekly 2025 drama of the year nomination` `E Weibo 2025 breakthrough work of the year` `F PTT China-Drama 2025 recommendation (“director Li Mo is a god of urban drama”)`
 - **Scores**: MyDramaList 7.8 (127 ratings) | IMDb 6.4 (24 votes)
@@ -405,7 +405,7 @@ In the late Qing dynasty, scholar Gu Pingyuan is framed in the imperial exams an
 
 #### Uncle
 
-In 1990s north-east China, a nephew watches his clever but fickle uncle Cui Guoming lose his factory job and fail at one venture after another ([Wikipedia](https://mydramalist.com/778856-lao-jiu)).
+In 1990s north-east China, a nephew watches his clever but fickle uncle Cui Guoming lose his factory job and fail at one venture after another ([MyDramaList](https://mydramalist.com/778856-lao-jiu)).
 
 - **Recommended by**: `A Magnolia Awards 2026 nomination` `B Beijing News dramas of the year 2025` `E Maoyan 2025 TV heat #7`
 - **State-run lists (not counted)**: Golden Eagle Awards 2026 nomination, Feitian Awards 2026 shortlist

@@ -157,7 +157,7 @@ caption: 只放豆瓣分數讀得到原文來源的 5 部：國色芳華、九�
 
 #### 惜花芷（Blossoms in Adversity）
 
-花家遭變故、男丁流放，大小姐花芷不再藏拙，帶女眷與孩子度過難關，也和七宿司指揮使顧晏惜走近（[Wikipedia](https://mydramalist.com/749431-the-story-of-hua-zhi)）。
+花家遭變故、男丁流放，大小姐花芷不再藏拙，帶女眷與孩子度過難關，也和七宿司指揮使顧晏惜走近（[MyDramaList](https://mydramalist.com/749431-the-story-of-hua-zhi)）。
 
 - **推薦來源**：`A Asia Contents Awards 2024 最佳女主角提名（張婧儀）` `C MyDramaList 陸劇榜 #41（8.6）` `D 云合 2024 上新劇有效播放 #9（16.9 億）` `D 燈塔 2024 網路劇榜 #3（19.96 億）` `F PTT China-Drama 2024「最喜歡的中劇」串（14 人）`
 - **評分**：MyDramaList 8.6（14,320 人）｜IMDb 8.0（640 票）

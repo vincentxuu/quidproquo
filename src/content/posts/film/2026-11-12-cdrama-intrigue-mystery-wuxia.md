@@ -203,7 +203,7 @@ caption: 已播出的集數，不含電影與特別篇。慶餘年、異人之�
 
 #### 凡人修仙傳（The Immortal Ascension）
 
-資質平庸的山村窮小子韓立撿到神秘小綠瓶，靠謹慎與算計在修仙界一路求生（[Wikipedia](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)）。
+資質平庸的山村窮小子韓立撿到神秘小綠瓶，靠謹慎與算計在修仙界一路求生（[MyDramaList](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)）。
 
 - **推薦來源**：`D 貓眼 2025 網路劇有效播放 #3` `D 優酷 2025 熱度 #4` `E 微博視界大會 2025 年度大眾喜愛作品` `F PTT China-Drama 2025「最喜歡的中劇」串（約 12 推）` `F PTT China-Drama 2025 推薦串（12 推）` `G Netflix 台灣週榜 #3（累計 5 週）` `G Hami Video 2025 戲劇榜 #10`
 - **評分**：MyDramaList 8.3（4,526 人）｜IMDb 7.5（658 票）

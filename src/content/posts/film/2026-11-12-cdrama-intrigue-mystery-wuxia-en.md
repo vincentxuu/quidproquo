@@ -203,7 +203,7 @@ Cultivation, superpowers, young swordsmen and an assassins’ guild. Mostly adap
 
 #### The Immortal Ascension
 
-Han Li, a poor village boy with mediocre talent, finds a mysterious little green bottle and survives the cultivation world through caution and calculation ([Wikipedia](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)).
+Han Li, a poor village boy with mediocre talent, finds a mysterious little green bottle and survives the cultivation world through caution and calculation ([MyDramaList](https://mydramalist.com/35477-a-record-of-a-mortal-s-journey-to-immortality)).
 
 - **Recommended by**: `D Maoyan 2025 web series views #3` `D Youku 2025 buzz #4` `E Weibo 2025 audience favourite` `F PTT China-Drama 2025 favourites thread (~12 upvotes)` `F PTT China-Drama 2025 picks thread (12 upvotes)` `G #3 on Netflix Taiwan (5 weeks)` `G Hami Video 2025 drama chart #10`
 - **Scores**: MyDramaList 8.3 (4,526 ratings) | IMDb 7.5 (658 votes)
