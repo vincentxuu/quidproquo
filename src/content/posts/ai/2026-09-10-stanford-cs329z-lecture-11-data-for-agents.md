@@ -16,11 +16,16 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 85 分鐘（YouTube 標題的編號是 Lecture 10，內容就是這一堂）；本文依公開投影片與指定讀物整理，各節沒有附時間連結，想看講者怎麼講某一段時，可對照錄影的章節目錄。
 
 第 11 堂（10/28，What Data Do Agents Need?）談的是資料：軌跡、示範與回饋，優化用和評估用的資料要怎麼分，資料飛輪怎麼轉，合成資料與人機互動資料怎麼收。週五（10/30）HW1 截止，11/4 晚上要交期中 demo 錄影。
 
 資料飛輪只有一句話：上線後的每一次輸出，都是下一次變強的教材。指定讀物 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) 把這一圈拆成評估、監控、持續改進三站；延伸閱讀是 Tan 等人的 LLM 資料標註與合成綜述，本文兩篇都深讀。以下先依 PDF 實體頁碼帶讀投影片，再接指定讀物的深入解說。本文的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=HbgZFwWj4vY
+title: What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang
+```
 
 ## Lecture 11 投影片導讀
 
@@ -255,17 +260,14 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 
 ## 課程影片來源
 
-[官方錄影規則](https://cs329z.stanford.edu/logistics.html)說明講課錄影由課程 Canvas 提供，需登入取得。本文依公開投影片、論文與指定閱讀撰寫，未取得錄影或逐字稿。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-10-29。
+- 錄影：[What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang](https://www.youtube.com/watch?v=HbgZFwWj4vY)（Stanford Online 頻道，2026-11-24 上架，全片約 85 分鐘）。YouTube 標題把這堂標成 Lecture 10，影片說明寫明錄於 10/28，就是本堂。課程官網課表這一列的 Video 連結目前指向下一堂的錄影。
+- [官方課程／講次來源](https://cs329z.stanford.edu/)、[全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 本文依公開 PDF、論文與指定讀物帶讀，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+- 2026-11-28：Stanford Online 公開上架本堂錄影，嵌入影片並把影片狀態改為已附影片。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 11（10/28 週三）的內容，原屬「第 6 週：資料飛輪轉起來」導讀；以下保留拆分前的紀錄。
 - 2026-10-29：Lecture 10、11 投影片公開後，依實體頁碼補上兩堂的逐段導讀與各節理解檢查（寫任務與驗證器、任務版本、agent 資料的兩種形式與五種來源、資料意外教會的捷徑），並改寫開頭、課程材料對照與 Terminal-Bench 讀物中「尚未開講」的說法；修正 Shankar 的代名詞。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。

@@ -16,11 +16,16 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published the recording; it runs about 85 minutes (the YouTube title numbers it Lecture 10, but it is this lecture). This post follows the public slides and readings; sections have no timestamp links, so use the recording's chapter list if you want to hear how a part was presented.
 
 Lecture 11 (Oct 28, What Data Do Agents Need?) is about data: traces, demonstrations and feedback, how to separate data for optimization from data for evaluation, how a data flywheel turns, and how to collect synthetic and human-agent interaction data. HW1 is due Friday, Oct 30, and the midpoint demo video is due the evening of Nov 4.
 
 The data flywheel fits in one sentence: every output in production is material for the next improvement. The assigned reading, [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/), splits that loop into evaluation, monitoring and continual improvement; the additional reading is Tan et al.'s survey on LLMs for data annotation and synthesis. This post digests both. The slide guide below follows the PDF page numbers, followed by digests of the assigned readings. Examples and self-checks are teaching exercises, not official homework answers; repeated animation frames, logistics and section dividers are grouped together.
+
+```youtube
+url: https://www.youtube.com/watch?v=HbgZFwWj4vY
+title: What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang
+```
 
 ## Lecture 11 slide guide
 
@@ -221,17 +226,14 @@ Lecture 11 turns traces into data. The next week moves to data quality and evalu
 
 ## Course video sources
 
-The [official recording policy](https://cs329z.stanford.edu/logistics.html) provides lecture recordings through the course Canvas site. Access requires sign-in. This article uses the public slides, paper, and readings, not a recording or transcript.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-10-29.
+- Recording: [What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang](https://www.youtube.com/watch?v=HbgZFwWj4vY) (Stanford Online channel, published 2026-11-24, about 85 minutes). The YouTube title numbers it Lecture 10; the description says it was recorded on Oct 28, which is this lecture. The course site's Video link in this row currently points to the next lecture's recording.
+- [Official course / lecture source](https://cs329z.stanford.edu/), [full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- This post follows the public PDF, paper, and readings; its content was not checked against the recording's transcript.
+- Checked: 2026-11-28.
 
 ## Update log
 
+- 2026-11-28: Stanford Online published this lecture's recording; embedded the video and changed the video status to videos included.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 11 (Wed Oct 28), previously part of the "Week 6: get the data flywheel turning" guide; earlier entries below predate the split.
 - 2026-10-29: After the Lecture 10 and 11 slides were released, added page-referenced guides to both lectures with a check per section (writing tasks and verifiers, task versioning, the two forms and five sources of agent data, and what data teaches by accident), and rewrote the opening, course-material map, and Terminal-Bench reading where they called the lectures upcoming.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
