@@ -2374,10 +2374,12 @@ pre {
 
   .btn.danger {
     background: var(--danger);
+    color: var(--text-on-solid);
   }
 
   .btn.danger:hover {
     background: color-mix(in srgb, var(--danger) 85%, var(--text-primary));
+    color: var(--text-on-solid);
   }
 
   .btn-secondary {

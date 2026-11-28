@@ -471,11 +471,13 @@ const sectionLabels: Record<string, string> = {
     line-height: 1.5;
   }
 
-  a,
-  button,
-  select,
-  input {
-    font: inherit;
+  @layer base {
+    a,
+    button,
+    select,
+    input {
+      font: inherit;
+    }
   }
 
   a:focus-visible,
@@ -1132,8 +1134,12 @@ const sectionLabels: Record<string, string> = {
     color: var(--text-secondary);
   }
 
-  :global(a) {
-    color: inherit;
+  /* 元素預設放 @layer base：不分層的 a { color } 會壓過 text-primary-foreground 這類 utility，
+     做成連結的主要按鈕文字就變成繼承色（淺色深字配深綠、深色白字配亮綠） */
+  @layer base {
+    :global(a) {
+      color: inherit;
+    }
   }
 
   :global(.text-link),
