@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published the recording; it runs about 81 minutes (the YouTube title numbers lectures one lower than this series, but it is this lecture). This post follows the public slides and readings; sections have no timestamp links, so use the recording's chapter list if you want to hear how a part was presented.
 
 Lecture 13 (Nov 4, Evaluation Fundamentals & Benchmark Design) splits an evaluation into a 4-tuple. The request is what you ask for; the environment is the world the agent can act in; stopping criteria decide when it is done; the scorer decides how well it did. Drop any one and the score does not hold. The midpoint demo video is due at 11:59 p.m. the same day (it is not presented in class), and the midway report is due Friday.
 
@@ -28,6 +28,11 @@ desc: Request, environment, stopping criteria and scorer jointly specify a bug-f
 caption: The grouped fields define one specification, not execution order; stopping and success are separate.
 ---
 <svg viewBox="0 0 440 456"><rect class="dg-zone dg-zone--solid" x="8" y="8" width="424" height="440" rx="6"/><text class="dg-heading" x="220" y="40" text-anchor="middle" dominant-baseline="central">One evaluation specification</text><rect class="dg-box" x="32" y="72" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="96" text-anchor="middle" dominant-baseline="central">Request</text><text class="dg-sub" x="220" y="124" text-anchor="middle" dominant-baseline="central">Fix this issue</text><rect class="dg-box" x="32" y="164" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="188" text-anchor="middle" dominant-baseline="central">Environment</text><text class="dg-sub" x="220" y="216" text-anchor="middle" dominant-baseline="central">Repo + terminal</text><rect class="dg-box" x="32" y="256" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Stopping criteria</text><text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">Submit a patch</text><rect class="dg-box dg-box--accent" x="32" y="348" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="372" text-anchor="middle" dominant-baseline="central">Scorer</text><text class="dg-sub" x="220" y="400" text-anchor="middle" dominant-baseline="central">Run tests to grade</text></svg>
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=_iVIugwpiUI
+title: How to Evaluate AI Agents: Benchmark Design | Stanford CS329Z Lecture 12 with John Yang
 ```
 
 ## Specify the task before trusting the score
@@ -183,17 +188,16 @@ Lecture 13 writes the evaluation specification in full; next week, [Lecture 14](
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-11-09.
+- Recording: [How to Evaluate AI Agents: Benchmark Design | Stanford CS329Z Lecture 12 with John Yang](https://www.youtube.com/watch?v=_iVIugwpiUI) (Stanford Online channel, published 2026-11-26, about 81 minutes).
+- The YouTube titles number lectures one lower than this series (this series' Lecture 11 is YouTube's Lecture 10); recordings are matched by the recording date in each video description.
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## Update log
 
+
+- 2026-11-28: Stanford Online published this lecture's recording; embedded the video, changed the video status to videos included, and rewrote the video sources section.
 - 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 13 (Wed Nov 4), previously part of the "Week 7: don't let the score fool you, then scale the data" guide; earlier entries below predate the split.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.

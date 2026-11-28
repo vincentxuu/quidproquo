@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel-en)
 
-**影片狀態：已附影片（第 10 堂 Terminal-Bench 客座）。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架；本週第 11 堂（10/28）的錄影尚未上架。
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。本週兩堂的錄影都由 Stanford Online 公開上架（約 73 與 85 分鐘）；第 11 堂在 YouTube 標題上的編號是 Lecture 10。
 
 Week 6 是繳交週。週一（10/26）預定由 Ryan Marten、Alex Shaw 帶來 Terminal-Bench 客座演講，同一天 [HW2](https://cs329z.stanford.edu/) 發布。週三（10/28，Data for Agentic Systems）的主讀物是 [Shreya Shankar](https://www.sh-reya.com/) 的 [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/)（2024）。週五（10/30）HW1 截止。緊接著 11/4 晚上 11:59 前要交期中 demo 錄影，期中報告在 11/6 到期。
 
@@ -27,6 +27,11 @@ Shankar 把這一圈拆成三站：評估、監控、持續改進。評估決定
 ```youtube
 url: https://www.youtube.com/watch?v=7GW-9ug2nvw
 title: Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=HbgZFwWj4vY
+title: What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang
 ```
 
 ## 從終態往回追：資料飛輪怎麼產生可用證據
@@ -282,11 +287,13 @@ Survey 整理 LLM 用於資料標註與生成的方法、應用與挑戰；資�
 ## 課程影片來源
 
 - 錄影：[Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten](https://www.youtube.com/watch?v=7GW-9ug2nvw)（Stanford Online 頻道，2026-11-18 上架，全片約 73 分鐘）。各節時間對照見[第 10 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench)。
-- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)；第 11 堂尚未上架。
-- 查核日期：2026-11-19。上架前「錄影需登入課程 Canvas」的說法已不再適用。
+- 錄影：[What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang](https://www.youtube.com/watch?v=HbgZFwWj4vY)（Stanford Online 頻道，2026-11-24 上架，全片約 85 分鐘）。YouTube 標題的編號是 Lecture 10，影片說明寫明錄於 10/28，就是本週第 11 堂；本堂導讀：[第 11 堂](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents)。
+- 課程播放清單：[Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+- 2026-11-28：Stanford Online 公開上架第 11 堂錄影，嵌入影片並更新影片狀態與來源區。
 - 2026-11-19：Stanford Online 公開上架第 10 堂 Terminal-Bench 客座錄影，嵌入影片、狀態改為已附影片，改寫影片來源區。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。
 

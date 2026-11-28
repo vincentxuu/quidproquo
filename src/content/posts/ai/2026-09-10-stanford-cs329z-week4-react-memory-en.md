@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published both of this week's recordings (about 77 and 79 minutes). This post follows the public slides and readings; section timestamps are in each lecture's guide.
 
 Picture hiring a research assistant with two failure modes: one sits at the desk answering from memory and going wrong where you cannot debug it, the other clicks links endlessly without ever saying what it is looking for. You cannot steer either of them. That dilemma is what Week 4's two anchor papers set out to fix.
 
@@ -27,6 +27,16 @@ For orientation: [Week 3](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-
 This update uses the published Lecture 06/07 slides alongside the assigned papers. It covers the full topic structure of both decks; no unavailable classroom speech is reconstructed.
 
 The official slides and assigned readings serve different roles. The page-by-page guides below cover both lectures; the following reading digests retain the arguments and experiments of the assigned sources. Examples and checks proposed by this article are teaching exercises, not official assignment solutions. Page ranges use physical PDF pages; repeated animation and section-divider pages are grouped.
+
+```youtube
+url: https://www.youtube.com/watch?v=JC_pLC5EX_w
+title: AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=qh5tP6PBZ6U
+title: How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan
+```
 
 ## Lecture 06 slide guide
 
@@ -428,6 +438,8 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 
 ## Update log
 
+
+- 2026-11-28: Stanford Online published this week's two recordings; embedded the videos, changed the video status to videos included, and rewrote the video sources section.
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 
 - 2026-10-23: Expanded from the full Lecture 06/07 slides with design patterns, context management, memory architectures, evaluation, and an original worked example.
@@ -438,7 +450,11 @@ On the calendar, HW1 (due Oct 30) should get its skeleton settled this week: loo
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan](https://www.youtube.com/watch?v=JC_pLC5EX_w) (Stanford Online channel, published 2026-11-14, about 77 minutes). Section timestamps are in the [Lecture 6 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns-en).
+- Recording: [How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan](https://www.youtube.com/watch?v=qh5tP6PBZ6U) (Stanford Online channel, published 2026-11-15, about 79 minutes). Section timestamps are in the [Lecture 7 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory-en).
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## References
 

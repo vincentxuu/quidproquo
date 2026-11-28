@@ -568,6 +568,8 @@ Write release conditions for one high-risk feature: the dangerous scenario, requ
 
 ## Update log
 
+
+- 2026-11-28: Rechecked the video sources live. Stanford Online is publishing this course's recordings, but the lectures in this post are not up yet; the status is unchanged and only the check date was updated.
 - 2026-10-23: Expanded all ten readings with distinct background, editorial judgments, mechanisms, and exercises; checked the full AutoMetrics pipeline and AutoLibra redundancy definition.
 
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
@@ -590,7 +592,7 @@ Course and recording entries:
 - [Official course / lecture source](https://cs329z.stanford.edu/)
 - [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
 
-Checked: 2026-11-09.
+Checked: 2026-11-28.
 
 ## References
 

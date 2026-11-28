@@ -579,10 +579,12 @@ OpenAI 的 [Understanding Prompt Injections](https://openai.com/index/prompt-inj
 - [官方課程／講次來源](https://cs329z.stanford.edu/)
 - [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
 
-查核日期：2026-11-09。
+查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：即時重查影片來源。Stanford Online 已陸續公開上架本課程錄影，本篇涵蓋的講次尚未上架，狀態不變，只更新查核日期。
 - 2026-10-23：逐篇補齊十份讀物的背景、獨立編輯判斷與實作練習；依完整論文釐清 AutoMetrics 流程及 AutoLibra redundancy 定義。
 
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。

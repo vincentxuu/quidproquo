@@ -16,11 +16,21 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published both of this week's recordings (about 79 and 77 minutes). This post follows the public slides and readings; section timestamps are in each lecture's guide.
 
 Week 3 is the pivot. Monday (Oct 5, Tool Use & Function Calling) assigns the [MCP specification](https://modelcontextprotocol.io/specification/2025-06-18): tools get a standard plug, no more rewriting integrations per vendor. Wednesday (Oct 7, Frameworks & Agent Design) assigns Khattab et al.'s [DSPy](https://arxiv.org/abs/2310.03714) (ICLR 2024): prompt templates graduate from handcraft into compilable, optimizable programs. That same Monday, [HW1 drops](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), Build an Agentic Harness: no agent frameworks, just a chat-completion call, and you build a company's internal AI assistant from scratch — with the project proposal due Friday (Oct 9). Hand-building in the homework while reading a framework paper in lecture is where this week's tension lives.
 
 The official slides and assigned readings serve different roles. The page-by-page guides below cover both lectures; the following reading digests retain the arguments and experiments of the assigned sources. Examples and checks proposed by this article are teaching exercises, not official assignment solutions. Page ranges use physical PDF pages; repeated animation and section-divider pages are grouped.
+
+```youtube
+url: https://www.youtube.com/watch?v=s0S38lz6O7M
+title: How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=q0Q-Hy8TTps
+title: DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan
+```
 
 ## Lecture 04 slide guide
 
@@ -269,10 +279,16 @@ Week 3 releases HW1 (due Oct 30): start with the email retrieval pipeline, then 
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang](https://www.youtube.com/watch?v=s0S38lz6O7M) (Stanford Online channel, published 2026-11-12, about 79 minutes). Section timestamps are in the [Lecture 4 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use-en).
+- Recording: [DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan](https://www.youtube.com/watch?v=q0Q-Hy8TTps) (Stanford Online channel, published 2026-11-13, about 77 minutes). Section timestamps are in the [Lecture 5 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks-en).
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## Update Log
 
+
+- 2026-11-28: Stanford Online published this week's two recordings; embedded the videos, changed the video status to videos included, and rewrote the video sources section.
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 
 - 2026-10-23: Added an MCP connection diagram and DSPy layer comparison to visualize existing explanations; no factual refresh.

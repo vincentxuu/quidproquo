@@ -16,11 +16,16 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 75 分鐘（YouTube 標題的講次編號比本站少一號，內容就是這一堂）；本文依公開投影片與指定讀物整理，各節沒有附時間連結，想看講者怎麼講某一段時，可對照錄影的章節目錄。
 
 第 12 堂（11/2，Data Selection & Quality）接著上一堂的資料飛輪，問下一個問題：資料收進來之後，哪些值得留？課表列出的主題是找出最有資訊量的資料、篩選與選擇策略、小而精準的 benchmark、標註實務、品質評估，以及從 agent 軌跡建資料集。
 
 指定讀物是 Yang 等人的 [SWE-smith](https://arxiv.org/abs/2504.21798) 與 Shankar 等人的 [Who Validates the Validators?](https://arxiv.org/abs/2404.12272)，延伸閱讀是 Zhou 等人的 LIMA。三篇本文都深讀：SWE-smith 談任務資料怎麼做大，驗證者研究談 LLM 幫忙打分要怎麼對齊人類，LIMA 則提醒少量高品質資料能走多遠。截至 2026-10-29，這堂還沒有公開投影片，本文是依官方課表與指定閱讀寫的預習，不代表講師在課堂上說過的內容。第 11 堂以後的堂次編號依課表順序推算，官網目前只列日期與主題。
+
+```youtube
+url: https://www.youtube.com/watch?v=y2cwbmOy12U
+title: Better Data for AI Agents: Data Selection & Quality | Stanford CS329Z Lecture 11 with John Yang
+```
 
 ## 讀物 1｜SWE-smith
 
@@ -157,17 +162,17 @@ LIMA 用 1000 組精選示範進行 supervised fine-tuning，研究對齊資料�
 
 ## 課程影片來源
 
-官方 Logistics 頁（2026-11-09 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-11-09。
+- 錄影：[Better Data for AI Agents: Data Selection & Quality | Stanford CS329Z Lecture 11 with John Yang](https://www.youtube.com/watch?v=y2cwbmOy12U)（Stanford Online 頻道，2026-11-25 上架，全片約 75 分鐘）。
+- YouTube 標題的講次編號比本站少一號：本站第 11 堂是 YouTube 的 Lecture 10，以影片說明的錄製日期對應。
+- 課程官網課表 11/2 這一列的 Video 連結目前指向下一堂的錄影。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 12（11/2 週一）的內容，原屬「第 7 週：分數別騙自己，資料再做大」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。

@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-lecture-13-eval-benchmarks-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。錄影由 Stanford Online 公開上架，全片約 81 分鐘（YouTube 標題的講次編號比本站少一號，內容就是這一堂）；本文依公開投影片與指定讀物整理，各節沒有附時間連結，想看講者怎麼講某一段時，可對照錄影的章節目錄。
 
 第 13 堂（11/4，Evaluation Fundamentals & Benchmark Design）把評估拆成 4-tuple。request 是你交辦的事，environment 是 agent 能動的世界。stopping criteria 管何時收工，scorer 負責判分。四個少一個，分數就站不住。同一天晚上 11:59 要交期中 demo 錄影（不在課堂上發表），週五交期中報告。
 
@@ -28,6 +28,11 @@ desc: Request、environment、stopping criteria 與 scorer 共同定義一次修
 caption: 同框表示四項共同組成規格，不表示執行順序；停止與成功分開定義。
 ---
 <svg viewBox="0 0 440 456"><rect class="dg-zone dg-zone--solid" x="8" y="8" width="424" height="440" rx="6"/><text class="dg-heading" x="220" y="40" text-anchor="middle" dominant-baseline="central">一次評估的規格</text><rect class="dg-box" x="32" y="72" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="96" text-anchor="middle" dominant-baseline="central">Request</text><text class="dg-sub" x="220" y="124" text-anchor="middle" dominant-baseline="central">修好這個 issue</text><rect class="dg-box" x="32" y="164" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="188" text-anchor="middle" dominant-baseline="central">Environment</text><text class="dg-sub" x="220" y="216" text-anchor="middle" dominant-baseline="central">程式庫與終端機</text><rect class="dg-box" x="32" y="256" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="280" text-anchor="middle" dominant-baseline="central">Stopping criteria</text><text class="dg-sub" x="220" y="308" text-anchor="middle" dominant-baseline="central">交出 patch</text><rect class="dg-box dg-box--accent" x="32" y="348" width="376" height="76" rx="6"/><text class="dg-label" x="220" y="372" text-anchor="middle" dominant-baseline="central">Scorer</text><text class="dg-sub" x="220" y="400" text-anchor="middle" dominant-baseline="central">跑測試判分</text></svg>
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=_iVIugwpiUI
+title: How to Evaluate AI Agents: Benchmark Design | Stanford CS329Z Lecture 12 with John Yang
 ```
 
 ## 先把考題寫完整，再相信分數
@@ -183,17 +188,16 @@ Zhu 等人的論文開門見山：很多 agentic benchmark 的題目設定或獎
 
 ## 課程影片來源
 
-官方 Logistics 頁（2026-11-09 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-11-09。
+- 錄影：[How to Evaluate AI Agents: Benchmark Design | Stanford CS329Z Lecture 12 with John Yang](https://www.youtube.com/watch?v=_iVIugwpiUI)（Stanford Online 頻道，2026-11-26 上架，全片約 81 分鐘）。
+- YouTube 標題的講次編號比本站少一號：本站第 11 堂是 YouTube 的 Lecture 10，以影片說明的錄製日期對應。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-11-09：即時重查影片來源，官方頁面與公開頻道的狀態不變，只更新查核日期。
 - 2026-10-29：系列由一週一篇改為一堂一篇。本篇收錄 Lecture 13（11/4 週三）的內容，原屬「第 7 週：分數別騙自己，資料再做大」導讀；以下保留拆分前的紀錄。
 - 2026-10-23：依第一堂模板重整材料狀態、機制、情境與理解檢查；將指定閱讀深讀與課堂預習分開。

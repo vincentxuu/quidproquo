@@ -286,10 +286,12 @@ Course and recording entries:
 - [Official course / lecture source](https://cs329z.stanford.edu/)
 - [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
 
-Checked: 2026-11-09.
+Checked: 2026-11-28.
 
 ## Update log
 
+
+- 2026-11-28: Rechecked the video sources live. Stanford Online is publishing this course's recordings, but the lectures in this post are not up yet; the status is unchanged and only the check date was updated.
 - 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 17 (Wed Nov 18), previously part of the "Week 9: build the coding agent a good IDE first" guide; earlier entries below predate the split.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.

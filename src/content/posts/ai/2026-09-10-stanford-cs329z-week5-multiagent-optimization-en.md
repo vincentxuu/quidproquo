@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published both of this week's recordings (about 79 and 81 minutes). This post follows the public slides and readings; section timestamps are in each lecture's guide.
 
 This update uses the full Lecture 08–09 slide text, alongside the assigned papers. Prerequisite: the agent loop and memory model in [Week 4](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en).
 
@@ -25,6 +25,16 @@ When one model cannot crack a problem, the instinct is to bring more models and 
 But anyone who has sat through meetings knows the meeting itself costs something. Who speaks first, who writes the conclusion, who owns the mistake — none of it is free. Model meetings work the same way, except quieter: the upstream agent's hallucination becomes the downstream agent's trusted fact. Monday (Oct 19, Multi-Agent Systems) assigns Wu et al.'s [AutoGen](https://arxiv.org/abs/2308.08155) (COLM 2024): a framework that turns meeting rules into programs.
 
 Wednesday (Oct 21, Optimization) turns to improving the system, whether it uses one agent or a team: three useful places to examine are prompts (the instructions), weights (the brain), and inference compute (thinking longer). The anchors are Snell et al.'s [test-time compute paper](https://arxiv.org/abs/2408.03314) (ICLR 2025) and Agrawal et al.'s [GEPA](https://arxiv.org/abs/2507.19457). The timing is practical: [HW1 is due 10/30](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), and this is the last full week before it. This installment helps you decide which axis deserves your effort.
+
+```youtube
+url: https://www.youtube.com/watch?v=TlX_ft_PQIM
+title: Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=e_m99aR7_3Q
+title: Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan
+```
 
 ## Lecture 08 slide guide: design the team, then inspect its failures
 
@@ -531,6 +541,8 @@ Week 6 follows with a guest lecture plus Data for Agentic Systems, [HW2 out on 1
 
 ## Update log
 
+
+- 2026-11-28: Stanford Online published this week's two recordings; embedded the videos, changed the video status to videos included, and rewrote the video sources section.
 - 2026-10-23: Added Lecture 08–09 material on coordination, worktrees, weight optimization and evaluation-based choices; added an original worked example, diagram and answer criteria.
 
 
@@ -542,14 +554,11 @@ Week 6 follows with a guest lecture plus Data for Agentic Systems, [HW2 out on 1
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-11-09.
+- Recording: [Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan](https://www.youtube.com/watch?v=TlX_ft_PQIM) (Stanford Online channel, published 2026-11-16, about 79 minutes). Section timestamps are in the [Lecture 8 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent-en).
+- Recording: [Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan](https://www.youtube.com/watch?v=e_m99aR7_3Q) (Stanford Online channel, published 2026-11-17, about 81 minutes). Section timestamps are in the [Lecture 9 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization-en).
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## References
 

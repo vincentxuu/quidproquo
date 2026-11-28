@@ -16,11 +16,21 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published both of this week's recordings (about 78 and 77 minutes). This post follows the public slides and readings; section timestamps are in each lecture's guide.
 
 Week 2 is deliberately sequenced. Monday (Sep 28, LLMs for Builders) assigns Anthropic's [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents) (2024): learn when something should *not* become an agent before you start building, so you don't over-engineer on day one. Wednesday (Sep 30, RAG) assigns Lewis et al.'s [Retrieval-Augmented Generation](https://arxiv.org/abs/2005.11401) (NeurIPS 2020): the complete recipe for a first compound system, with indexing, retrieval, reranking, and agentic-RAG designs in the official slides. Together they are the blueprint for the first stage of [HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents-en), an email retrieval pipeline.
 
 The official slides and assigned readings serve different roles. The page-by-page guides below cover both lectures; the following reading digests retain the arguments and experiments of the assigned sources. Examples and checks proposed by this article are teaching exercises, not official assignment solutions. Page ranges use physical PDF pages; repeated animation and section-divider pages are grouped.
+
+```youtube
+url: https://www.youtube.com/watch?v=Vr1NzH8bT44
+title: LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=psLc-46GqY0
+title: RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang
+```
 
 ## Lecture 02 slide guide
 
@@ -393,10 +403,16 @@ Week 2 is HW1's prep week: the assignment drops next Monday, but Wednesday's RAG
 
 ## Course video sources
 
-The [official Logistics page](https://cs329z.stanford.edu/logistics.html) states that lecture recordings are accessed by logging into the course Canvas site. This article uses publicly available PDFs and readings; it does not claim to have watched the restricted recordings. The recording-access statement was checked against the official page on 2026-10-23.
+- Recording: [LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan](https://www.youtube.com/watch?v=Vr1NzH8bT44) (Stanford Online channel, published 2026-11-10, about 78 minutes). Section timestamps are in the [Lecture 2 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders-en).
+- Recording: [RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang](https://www.youtube.com/watch?v=psLc-46GqY0) (Stanford Online channel, published 2026-11-11, about 77 minutes). Section timestamps are in the [Lecture 3 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag-en).
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## Update Log
 
+
+- 2026-11-28: Stanford Online published this week's two recordings; embedded the videos, changed the video status to videos included, and rewrote the video sources section.
 - 2026-10-23: Added page-grounded guides for both official lecture PDFs, with mechanisms, examples, checks, and separate assigned-reading digests.
 
 - 2026-10-23: Added a workflow/agent comparison and RAG architecture diagram to visualize existing explanations; no factual refresh.

@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems)
 
-**Video status: Recordings require the course Canvas login.** [Official access information](https://cs329z.stanford.edu/logistics.html). This guide uses public slides and original readings, without classroom speech or timestamps.
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published the Lecture 1 recording (about 70 minutes). This guide follows the public slides and original readings; for section timestamps see the [Lecture 1 guide](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en).
 
 The three readings for Stanford CS329Z Week 1 approach one question from different directions: how do processes beyond the model change AI's actual performance? BAIR frames the system-design problem. Andrew Ng organizes iterative work patterns. Si and colleagues subject research ideas to code implementation and GPU experiments. The guide first explains the lecture slides, then presents independent reading digests that distinguish perspective articles from experimental evidence.
 
@@ -35,6 +35,11 @@ Roles and dates follow the [official schedule](https://cs329z.stanford.edu/); th
 <button type="button" data-slide-open>Open slides alongside the guide</button>
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" target="_blank" rel="noopener noreferrer">Open original PDF in a new tab</a></p>
 </div>
+
+```youtube
+url: https://www.youtube.com/watch?v=DGI4vucR71w
+title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang
+```
 
 ## Opening lecture guide: reasoning, action, and evaluation across 71 slides
 
@@ -482,8 +487,17 @@ BAIR makes the whole system the unit of improvement. Ng supplies language for ch
 
 Carry these questions into [Week 2's workflows and RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en), then [Week 3's tools and frameworks](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en). HW1 is a later implementation assignment. The editorial judgments and original examples here do not replace its official requirements.
 
+## Course video sources
+
+- Recording: [What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang](https://www.youtube.com/watch?v=DGI4vucR71w) (Stanford Online channel, published 2026-11-09, about 70 minutes). Section timestamps are in the [Lecture 1 guide](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems-en).
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
+
 ## Update Log
 
+
+- 2026-11-28: Stanford Online published the Lecture 1 recording; embedded the video, changed the video status to videos included, and rewrote the video sources section.
 - 2026-10-23: Expanded the lecture guide across all 71 physical PDF pages, adding page links, the complete Apple Remote trace, comparisons of reasoning and memory mechanisms, tool-call stages, safety cases, and an action-loop diagram. Preserved the three independent reading digests.
 
 - 2026-10-23: Added an independent opening-slide guide covering the agent loop, five components, system/data/evals, tool calls, reliability and safety, and their relationship to the three readings.

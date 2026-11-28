@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week5-multiagent-optimization-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。本週兩堂的錄影都由 Stanford Online 公開上架（約 79 與 81 分鐘）；本文依公開投影片與指定讀物整理，各節時間對照見各堂導讀。
 
 本次導讀以 Lecture 08–09 完整投影片文字與指定閱讀為底本；先備是 [Week 4 的 agent 迴圈與記憶分層](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory)。
 
@@ -25,6 +25,16 @@ draft: false
 但開過會的人都知道，會議本身有成本。誰先發言、結論誰寫、錯了算誰的，一樣都少不了。模型開會也一樣，而且錯得更安靜：上游 agent 的幻覺，會變成下游 agent 深信不疑的事實。週一（10/19，Multi-Agent Systems）的主讀物是 Wu 等人的 [AutoGen](https://arxiv.org/abs/2308.08155)（COLM 2024）：把開會規則寫成程式的框架。
 
 週三（10/21，Optimization）換了一個問題：不管單幹還是開會，可以先從三個地方檢查系統。改 prompt（換說明書）、改權重（換腦袋）、加推理算力（想久一點）。主讀物是 Snell 等人的 [test-time compute 論文](https://arxiv.org/abs/2408.03314)（ICLR 2025）與 Agrawal 等人的 [GEPA](https://arxiv.org/abs/2507.19457)。時間點很現實：[HW1 在 10/30 截止](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)，這是交卷前最後一個完整週。這篇幫你決定力氣花在哪一軸。
+
+```youtube
+url: https://www.youtube.com/watch?v=TlX_ft_PQIM
+title: Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=e_m99aR7_3Q
+title: Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan
+```
 
 ## Lecture 08 投影片導讀：先設計分工，再追查失敗
 
@@ -531,17 +541,16 @@ Week 5 接著進入 Week 6 的嘉賓演講與 Data for Agentic Systems，[HW2 �
 
 ## 課程影片來源
 
-官方 Logistics 頁（2026-11-09 即時讀取）的 Lecture Recordings 一節寫明：講課錄影只能登入課程 Canvas 取得。我實際開啟課程 Canvas 入口（canvas.stanford.edu/courses/233286），被導向 Stanford 登入頁，確認有登入牆。課程官網與搜尋都沒有找到公開的 YouTube 或 OCW 錄影，所以沒有可嵌入的影片。
-
-課程與錄影入口：
-
-- [官方課程／講次來源](https://cs329z.stanford.edu/)
-- [官方 Logistics 頁（Lecture Recordings 一節）](https://cs329z.stanford.edu/logistics.html)
-
-查核日期：2026-11-09。
+- 錄影：[Multi-Agent Systems: When More Agents Help or Hurt | Stanford CS329Z Lecture 8 with Michael Ryan](https://www.youtube.com/watch?v=TlX_ft_PQIM)（Stanford Online 頻道，2026-11-16 上架，全片約 79 分鐘）。各節時間對照見[第 8 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-08-multi-agent)。
+- 錄影：[Optimizing AI Agents: Prompts vs. Weights (GEPA, GRPO) | Stanford CS329Z Lecture 9 with Michael Ryan](https://www.youtube.com/watch?v=e_m99aR7_3Q)（Stanford Online 頻道，2026-11-17 上架，全片約 81 分鐘）。各節時間對照見[第 9 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-09-optimization)。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本週兩堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-10-23：依 Lecture 08–09 補入協調、worktree、權重優化與依評估選策略，新增完整教學例子、圖解與理解檢查。
 
 

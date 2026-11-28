@@ -16,11 +16,16 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-lecture-12-data-selection)
 
-**Video status: Recordings require sign-in or course authorization.** [Source details](#course-video-sources)
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published the recording; it runs about 75 minutes (the YouTube title numbers lectures one lower than this series, but it is this lecture). This post follows the public slides and readings; sections have no timestamp links, so use the recording's chapter list if you want to hear how a part was presented.
 
 Lecture 12 (Nov 2, Data Selection & Quality) follows the previous lecture's data flywheel with the next question: once data is coming in, what is worth keeping? The schedule lists finding maximally informative data, filtering and selection strategies, tiny-but-targeted benchmarks, annotation practice, quality assessment, and building datasets from agent traces.
 
 The assigned readings are Yang et al.'s [SWE-smith](https://arxiv.org/abs/2504.21798) and Shankar et al.'s [Who Validates the Validators?](https://arxiv.org/abs/2404.12272), with Zhou et al.'s LIMA as an additional reading. This post digests all three: SWE-smith on scaling task data, the validator study on aligning LLM-assisted grading with humans, and LIMA on how far a small high-quality dataset can go. As of 2026-10-29 this lecture has no public slides, so this post is a preview built from the official schedule and assigned readings, not a record of what was said in class. Lecture numbers after 11 follow schedule order; the course site currently lists only dates and topics.
+
+```youtube
+url: https://www.youtube.com/watch?v=y2cwbmOy12U
+title: Better Data for AI Agents: Data Selection & Quality | Stanford CS329Z Lecture 11 with John Yang
+```
 
 ## Reading 1 | SWE-smith
 
@@ -157,17 +162,17 @@ Lecture 12 decides what data to keep; [Lecture 13](/posts/ai/2026-09-10-stanford
 
 ## Course video sources
 
-The Lecture Recordings section of the official Logistics page (read live on 2026-11-09) says recordings are available only by logging into the course Canvas site. I opened the course Canvas entry (canvas.stanford.edu/courses/233286) and was redirected to the Stanford login page, confirming the sign-in wall. Neither the course site nor a web search turned up a public YouTube or OCW recording, so there is nothing to embed.
-
-Course and recording entries:
-
-- [Official course / lecture source](https://cs329z.stanford.edu/)
-- [Official Logistics page (Lecture Recordings section)](https://cs329z.stanford.edu/logistics.html)
-
-Checked: 2026-11-09.
+- Recording: [Better Data for AI Agents: Data Selection & Quality | Stanford CS329Z Lecture 11 with John Yang](https://www.youtube.com/watch?v=y2cwbmOy12U) (Stanford Online channel, published 2026-11-25, about 75 minutes).
+- The YouTube titles number lectures one lower than this series (this series' Lecture 11 is YouTube's Lecture 10); recordings are matched by the recording date in each video description.
+- The course site's Video link in the Nov 2 row currently points to the next lecture's recording.
+- [Full course playlist](https://www.youtube.com/playlist?list=PLPRcF5HR02_U), [official course / lecture source](https://cs329z.stanford.edu/)
+- This post follows the public slides and readings; its content was not checked against the recording transcripts.
+- Checked: 2026-11-28.
 
 ## Update log
 
+
+- 2026-11-28: Stanford Online published this lecture's recording; embedded the video, changed the video status to videos included, and rewrote the video sources section.
 - 2026-11-09: Rechecked the video sources live; the official pages and public channels are unchanged, so only the check date was updated.
 - 2026-10-29: The series moved from one post per week to one post per lecture. This post now holds Lecture 12 (Mon Nov 2), previously part of the "Week 7: don't let the score fool you, then scale the data" guide; earlier entries below predate the split.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.

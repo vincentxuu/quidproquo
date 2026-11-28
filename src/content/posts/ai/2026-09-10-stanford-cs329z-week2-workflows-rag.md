@@ -16,11 +16,21 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。本週兩堂的錄影都由 Stanford Online 公開上架（約 78 與 77 分鐘）；本文依公開投影片與指定讀物整理，各節時間對照見各堂導讀。
 
 Week 2 的兩堂課是刻意排成先後手的。週一主讀物是 Anthropic 的 [Building Effective Agents](https://www.anthropic.com/engineering/building-effective-agents)：先想清楚什麼值得做成 agent，免得一開工就過度工程。週三主讀物是 Lewis 等人的 [RAG 論文](https://arxiv.org/abs/2005.11401)：第一個複合系統的完整配方，課堂投影片再補上索引、檢索、reranking 與 agentic RAG。兩篇合起來，[HW1](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents) 第一段 email 檢索管線的施工圖就齊了。
 
 官方投影片與指定讀物分工不同。以下先依實體頁碼帶讀兩堂課，再保留主讀物與延伸閱讀的深入解說。本文提出的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=Vr1NzH8bT44
+title: LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=psLc-46GqY0
+title: RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang
+```
 
 ## Lecture 02 投影片導讀
 
@@ -395,10 +405,16 @@ Week 2 是 HW1 的備料週：作業下週一才發，但週三的 RAG 材料就
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[LLMs for Agent Builders: Context Engineering | Stanford CS329Z Lecture 2 with Michael Ryan](https://www.youtube.com/watch?v=Vr1NzH8bT44)（Stanford Online 頻道，2026-11-10 上架，全片約 78 分鐘）。各節時間對照見[第 2 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-02-llms-for-builders)。
+- 錄影：[RAG Explained: From BM25 to Agentic RAG | Stanford CS329Z Lecture 3 with Diyi Yang](https://www.youtube.com/watch?v=psLc-46GqY0)（Stanford Online 頻道，2026-11-11 上架，全片約 77 分鐘）。各節時間對照見[第 3 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-03-rag)。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本週兩堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 
 - 2026-10-23：補入workflow／agent 對照表與 RAG 架構圖，只將既有解說視覺化，未重新查核事實。

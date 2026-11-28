@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [中文版](/posts/ai/2026-09-10-stanford-cs329z-week6-data-flywheel)
 
-**Video status: Videos included (Lecture 10, the Terminal-Bench guest lecture).** [Source details](#course-video-sources). Stanford Online has published the recording; the recording of this week's Lecture 11 (October 28) is not up yet.
+**Video status: Videos included.** [Source details](#course-video-sources). Stanford Online published both of this week's recordings (about 73 and 85 minutes); YouTube titles Lecture 11 as Lecture 10.
 
 Week 6 is submission week. Monday (Oct 26) has the scheduled Terminal-Bench guest lecture with Ryan Marten and Alex Shaw, and [HW2](https://cs329z.stanford.edu/) drops the same day. Wednesday (Oct 28, Data for Agentic Systems) assigns [Shreya Shankar](https://www.sh-reya.com/)'s [Data Flywheels for LLM Applications](https://www.sh-reya.com/blog/ai-engineering-flywheel/) (2024). HW1 is due Friday (Oct 30). Then the recorded midpoint demo video is due Nov 4 at 11:59 p.m., and the midway report follows on Nov 6.
 
@@ -27,6 +27,11 @@ Shankar splits the loop into three stations: evaluation, monitoring, and continu
 ```youtube
 url: https://www.youtube.com/watch?v=7GW-9ug2nvw
 title: Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=HbgZFwWj4vY
+title: What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang
 ```
 
 ## Trace backward from the final state: evidence for a data flywheel
@@ -251,6 +256,7 @@ The [official schedule](https://cs329z.stanford.edu/) assigns these materials; b
 
 ## Update log
 
+- 2026-11-28: Stanford Online published the Lecture 11 recording; embedded the video and updated the video status and sources section.
 - 2026-11-19: Stanford Online published the Lecture 10 Terminal-Bench guest recording; embedded the video, switched the status to videos included, and rewrote the video sources section.
 - 2026-10-23: Rebuilt the guide around source status, mechanisms, a worked scenario, and answer criteria; separated detailed assigned readings from lecture preparation.
 
@@ -264,8 +270,9 @@ The [official schedule](https://cs329z.stanford.edu/) assigns these materials; b
 ## Course video sources
 
 - Recording: [Terminal-Bench: Evaluating AI Agents | Stanford CS329Z Guest Lecture with Alex Shaw & Ryan Marten](https://www.youtube.com/watch?v=7GW-9ug2nvw) (Stanford Online channel, uploaded 2026-11-18, about 73 minutes). For section timings, see the [Lecture 10 guide](/posts/ai/2026-09-10-stanford-cs329z-lecture-10-terminal-bench-en).
-- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U); Lecture 11 is not up yet.
-- Checked: 2026-11-19. The earlier statement that recordings require the course Canvas login no longer applies.
+- Recording: [What Data Do AI Agents Need? | Stanford CS329Z Lecture 10 with John Yang](https://www.youtube.com/watch?v=HbgZFwWj4vY) (Stanford Online channel, uploaded 2026-11-24, about 85 minutes). YouTube titles it Lecture 10; the description says it was recorded on Oct 28, which is this week's Lecture 11. Lecture guide: [Lecture 11](/posts/ai/2026-09-10-stanford-cs329z-lecture-11-data-for-agents-en).
+- Course playlist: [Stanford CS329Z Engineering AI Agents | Autumn 2026](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)
+- Checked: 2026-11-28.
 
 ## References
 

@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-09-stanford-cs329z-compound-ai-systems-en)
 
-**影片狀態：錄影需登入課程 Canvas。** [官方取得方式](https://cs329z.stanford.edu/logistics.html)。本文依公開投影片與原文整理，沒有課堂口述或時間碼。
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。第 1 堂的錄影由 Stanford Online 公開上架，約 70 分鐘；本文依公開投影片與原文整理，各節時間對照見[第 1 堂導讀](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)。
 
 Stanford CS329Z 第一週的三份讀物，從不同角度談同一件事：模型之外的流程，如何改變 AI 的實際表現？BAIR 提出系統設計的問題；Andrew Ng 整理可迭代的工作模式；Si 等人則把研究構想交給程式與 GPU 實驗檢驗。下文先介紹投影片的主線，再逐篇深讀，也分清觀點文章與實驗論文的證據差別。
 
@@ -35,6 +35,11 @@ Stanford CS329Z 第一週的三份讀物，從不同角度談同一件事：模�
 <button type="button" data-slide-open>開啟投影片對照</button>
 <p><a href="https://web.stanford.edu/class/cs329z/slides/lecture01.pdf" target="_blank" rel="noopener noreferrer">另開分頁看原始 PDF</a></p>
 </div>
+
+```youtube
+url: https://www.youtube.com/watch?v=DGI4vucR71w
+title: What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang
+```
 
 ## 第一堂投影片導讀：從 71 頁理解 agent 如何判斷、行動與接受檢驗
 
@@ -482,8 +487,17 @@ BAIR 讓我們把改善單位放到整套系統；Ng 提供改變工作方式的
 
 帶著這些問題讀[第 2 週的 workflow 與 RAG](/posts/ai/2026-09-10-stanford-cs329z-week2-workflows-rag)，再到[第 3 週的工具與框架](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy)。HW1 是後續實作，本文的閱讀判斷與自擬例子不代替官方作業規範。
 
+## 課程影片來源
+
+- 錄影：[What Are AI Agents? Agentic Systems Explained | Stanford CS329Z Lecture 1 with Diyi Yang](https://www.youtube.com/watch?v=DGI4vucR71w)（Stanford Online 頻道，2026-11-09 上架，全片約 70 分鐘）。各節時間對照見[第 1 堂導讀](/posts/ai/2026-09-09-stanford-cs329z-lecture-01-compound-ai-systems)。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
+
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架第 1 堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-10-23：逐頁核對 71 頁投影片後擴寫十段導讀，補足原始案例、記憶讀寫與安全問題；新增行動迴圈圖、對應頁碼，以及無縮圖的頁內投影片對照。
 
 - 2026-10-23：補上第一堂投影片的獨立導讀，說明 agent 迴圈、五個元件、system／data／evals、工具呼叫與可靠性安全問題，以及它們和三篇文章的關係。

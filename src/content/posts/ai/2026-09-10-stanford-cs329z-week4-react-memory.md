@@ -16,7 +16,7 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week4-react-memory-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。本週兩堂的錄影都由 Stanford Online 公開上架（約 77 與 79 分鐘）；本文依公開投影片與指定讀物整理，各節時間對照見各堂導讀。
 
 想像你請一個助理查資料：他要嘛坐在位子上憑記憶硬答，要嘛悶頭一直點連結卻從不說明在找什麼。前者答錯時你無從除錯，後者失控時你不知他要去哪。這個兩難，就是 Week 4 兩篇主讀物要解決的事。
 
@@ -27,6 +27,16 @@ draft: false
 本文依已公開的 Lecture 06／07 完整投影片與指定論文整理，涵蓋兩份投影片的主題結構；沒有取得的課堂口述不另行補造。
 
 官方投影片與指定讀物分工不同。以下先依實體頁碼帶讀兩堂課，再保留主讀物與延伸閱讀的深入解說。本文提出的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=JC_pLC5EX_w
+title: AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=qh5tP6PBZ6U
+title: How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan
+```
 
 ## Lecture 06 投影片導讀
 
@@ -428,10 +438,16 @@ Week 4 是承先啟後的一週。往前，它給 [Week 2](/posts/ai/2026-09-10-
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[AI Agent Design Patterns: ReAct, CodeAct & More | Stanford CS329Z Lecture 6 with Michael Ryan](https://www.youtube.com/watch?v=JC_pLC5EX_w)（Stanford Online 頻道，2026-11-14 上架，全片約 77 分鐘）。各節時間對照見[第 6 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-06-design-patterns)。
+- 錄影：[How AI Agent Memory Works: MemGPT & Memory Types | Stanford CS329Z Lecture 7 with Michael Ryan](https://www.youtube.com/watch?v=qh5tP6PBZ6U)（Stanford Online 頻道，2026-11-15 上架，全片約 79 分鐘）。各節時間對照見[第 7 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-07-memory)。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本週兩堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 
 - 2026-10-23：依完整 Lecture 06／07 補入設計模式、context 管理、記憶分類與架構、評測及原創例題。

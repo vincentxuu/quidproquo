@@ -16,11 +16,21 @@ draft: false
 
 > :globe: [English version](/posts/ai/2026-09-10-stanford-cs329z-week3-tools-dspy-en)
 
-**影片狀態：錄影需登入或課程授權。** [影片來源與說明](#課程影片來源)
+**影片狀態：已附影片。** [影片來源與說明](#課程影片來源)。本週兩堂的錄影都由 Stanford Online 公開上架（約 79 與 77 分鐘）；本文依公開投影片與指定讀物整理，各節時間對照見各堂導讀。
 
 Week 3 是轉折週。週一（10/5，Tool Use & Function Calling）的主讀物是 [MCP 規範](https://modelcontextprotocol.io/specification/2025-06-18)：工具從此有統一插頭，不用每接一家重寫一遍。週三（10/7，Frameworks & Agent Design）的主讀物是 Khattab 等人的 [DSPy](https://arxiv.org/abs/2310.03714)（ICLR 2024）：prompt 模板從手工藝變成可編譯、可優化的程式。同一個週一，[HW1 發布](/posts/ai/2026-08-21-stanford-cs329z-engineering-ai-agents)：Build an Agentic Harness，不准用任何 agent 框架，只給一個 chat-completion 呼叫，從零刻一個公司內部的 AI 助理，週五（10/9）還要交 project proposal。一邊手刻、一邊在課堂上讀框架論文，這週的張力就在這裡。
 
 官方投影片與指定讀物分工不同。以下先依實體頁碼帶讀兩堂課，再保留主讀物與延伸閱讀的深入解說。本文提出的例子與自測題是教學練習，不是官方作業解答；重複動畫、課務與章節分隔頁合併說明。
+
+```youtube
+url: https://www.youtube.com/watch?v=s0S38lz6O7M
+title: How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang
+```
+
+```youtube
+url: https://www.youtube.com/watch?v=q0Q-Hy8TTps
+title: DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan
+```
 
 ## Lecture 04 投影片導讀
 
@@ -269,10 +279,16 @@ Week 3 發 HW1（10/30 截止），先做 email 檢索管線，再一路加上�
 
 ## 課程影片來源
 
-[官方 Logistics 頁](https://cs329z.stanford.edu/logistics.html)寫明，課堂錄影須登入課程 Canvas 取得。本文依公開 PDF 與指定讀物帶讀，沒有把受限錄影當作已觀看材料。錄影取得方式於 2026-10-23 依官方頁面核對。
+- 錄影：[How AI Agents Use Tools: Function Calling & MCP | Stanford CS329Z Lecture 4 with Diyi Yang](https://www.youtube.com/watch?v=s0S38lz6O7M)（Stanford Online 頻道，2026-11-12 上架，全片約 79 分鐘）。各節時間對照見[第 4 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-04-tool-use)。
+- 錄影：[DSPy vs. LangGraph: AI Agent Frameworks Explained | Stanford CS329Z Lecture 5 with Michael Ryan](https://www.youtube.com/watch?v=q0Q-Hy8TTps)（Stanford Online 頻道，2026-11-13 上架，全片約 77 分鐘）。各節時間對照見[第 5 堂導讀](/posts/ai/2026-09-10-stanford-cs329z-lecture-05-frameworks)。
+- [全課程播放清單](https://www.youtube.com/playlist?list=PLPRcF5HR02_U)、[官方課程／講次來源](https://cs329z.stanford.edu/)
+- 本文依公開投影片與指定讀物整理，沒有依錄影字幕核對內容。
+- 查核日期：2026-11-28。
 
 ## 更新紀錄
 
+
+- 2026-11-28：Stanford Online 公開上架本週兩堂錄影，嵌入影片、把影片狀態改為已附影片，並改寫影片來源區。
 - 2026-10-23：依兩堂官方 PDF 補成逐段投影片導讀，加入頁碼對照、機制與自測，保留並分開指定讀物解說。
 
 - 2026-10-23：補入MCP 連線圖與 DSPy 層次對照表，只將既有解說視覺化，未重新查核事實。
